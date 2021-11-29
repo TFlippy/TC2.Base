@@ -12,6 +12,16 @@ namespace TC2.Base
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
+				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
 #if CLIENT
 				draw_editor: static (in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -32,6 +42,16 @@ namespace TC2.Base
 				identifier: "fuse.inextinguishable",
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
+
+				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
 
 				apply: static (ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
