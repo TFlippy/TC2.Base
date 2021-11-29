@@ -6,6 +6,114 @@ namespace TC2.Base
 	{
 		private static void RegisterModifications(ref List<Modification.Definition> definitions)
 		{
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
+				identifier: "health.reinforced_structure",
+				name: "Reinforced Structure",
+				description: "Increases the health",
+
+				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.max *= 1.20f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.5f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
+				identifier: "health.smirgl_skeleton",
+				name: "Smirgl Skeleton",
+				description: "Increases the health massivly by incorporating smirgl into the design",
+
+				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.max *= 2.00f;
+					//TODO: this should add weight
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					float ingotCount = 0f;
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 2.0f;
+							requirement.difficulty += 4f;
+						}
+						else if(requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasFlag(Material.Flags.Ingot))
+							{
+								ingotCount += requirement.amount;
+							}
+						}
+					}
+					for (int i = 0; i < 8; i++)
+					{
+						if (requirements[i].type == Crafting.Requirement.Type.Undefined) //TODO: Added materials should stack just in case there is multiple, special function?
+						{	
+							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 3f + ingotCount/3); //Adds smirgl equal to 3 + ingot count/3
+							i = 8;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Body.Data> //Can be used on any recepie which results in a thing (not a mat)
+			(
+				identifier: "body.efficient_crafting",
+				name: "Efficient Crafting",
+				description: "Rework the design to reduce material costs ever so slightly",
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 0.90f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.7f;
+							requirement.difficulty += 3;
+						}
+					}
+				}
+			));
+
 			definitions.Add(Modification.Definition.New<Fuse.Data>
 			(
 				identifier: "fuse.length",
@@ -1356,6 +1464,437 @@ namespace TC2.Base
 					data.sound_size *= Maths.Lerp(1.50f, 1.60f, value);
 					data.sound_pitch *= Maths.Lerp(0.90f, 0.85f, value);
 					data.recoil_multiplier *= Maths.Lerp(0.70f, 0.20f, value);
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.battering",
+				name: "Battering",
+				description: "Increases the melee weapons knockback",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.knockback == 0.00f)
+					{
+						data.knockback += 0.20f;
+					}
+					data.knockback *= 2.00f;
+					//TODO: Should also increase the weight
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.3f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.2f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.hooking",
+				name: "Hooking",
+				description: "Inverts the knockback of the weapon, by adding tiny hooks",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.knockback *= -1.00f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.1f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 2f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.longer_handle",
+				name: "Longer Handle",
+				description: "Lengthens the handle of the weapon allowing you to strike further",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 2;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.max_distance *= 1.20f;
+					data.cooldown *= 1.10f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.1f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.uneven_strike",
+				name: "Uneven Strike",
+				description: "Decreases minnimum damage but increases damage on average",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 2;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage_bonus += data.damage_base * 0.50f;
+					data.damage_base *= 0.80f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.2f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 0.8f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.reliable_strike",
+				name: "Reliable Strike",
+				description: "Half of the weapons bonus damage is moved to the base damage",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 2 && data.damage_bonus > 0;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage_base += data.damage_bonus * 0.50f;
+					data.damage_bonus *= 0.50f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.1f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.8f;
+							requirement.difficulty += 1;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.hollow_swing",
+				name: "Hollow Swing",
+				description: "Hollow out parts of the weapon to increase how fast you can swing the weapon",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 2;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage_base *= 0.90f;
+					data.damage_bonus *= 0.90f;
+					data.cooldown *= 0.80f;
+					//TODO: This should reduce the weight as well
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 0.9f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.7f;
+							requirement.difficulty += 1;
+							if(requirement.work == Work.Type.Smithing)
+							{
+								requirement.difficulty += 3.00f;
+								requirement.amount += 100.00f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.resourcefull_sharpening",
+				name: "Resourcefull Sharpening",
+				description: "Sharpen the tool to render less of the struck material unusable therefore increasing resource yield",
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return data.yield > 0 && data.yield < 1.5 && data.damage_type == Damage.Type.Slash;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage_base *= 0.90f;
+					data.damage_bonus *= 0.90f;
+					data.yield += 0.10f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.2f;
+							requirement.difficulty += 3;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Melee.Data>
+			(
+				identifier: "melee.toy_weapon",
+				name: "Toy Weapon",
+				description: "Dull the weapon to deal no damage", //Currently this also reduces kockback to 0 cause knockback is bad and based on damage
+
+				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return data.damage_base > 0.00f || data.damage_bonus > 0.00f;
+				},
+
+				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage_base = 0.00f;
+					data.damage_bonus = 0.00f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 0.7f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Drill.Data>
+			(
+				identifier: "drill.Improved_mechanism",
+				name: "Imrpoved Mechanism",
+				description: "Improvements to the Mechanism increases drill speed",
+
+				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.speed *= 1.60f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.5f;
+							requirement.difficulty += 5f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasFlag(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 2.00f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Drill.Data>
+			(
+				identifier: "drill.larger_drill_head",
+				name: "Larger Drill Head",
+				description: "Larger Drill head digs more but spins slower",
+
+				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.speed *= 0.80f;
+					data.radius *= 2.00f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.5f;
+							requirement.difficulty += 1f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.5f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Drill.Data>
+			(
+				identifier: "drill.smrgl_drill_head",
+				name: "Smirgl Drill Head",
+				description: "Harder head made out of smirgl",
+
+				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
+
+				apply: static (ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.damage *= 3.00f;
+					data.speed *= 0.80f;
+				},
+
+				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in requirements)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.5f;
+							requirement.difficulty += 3f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							if (requirement.type == Crafting.Requirement.Type.Resource)
+							{
+								ref var material = ref requirement.material.GetDefinition();
+								if (material.flags.HasFlag(Material.Flags.Ingot))
+								{
+									requirement.amount *= 2.00f;
+								}
+							}
+						}
+					}
+					for (int i = 0; i < 8; i++)
+					{
+						if (requirements[i].type == Crafting.Requirement.Type.Undefined)
+						{
+							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 10f);
+							i = 8;
+						}
+					}
 				}
 			));
 		}
