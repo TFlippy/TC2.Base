@@ -37,7 +37,7 @@ namespace TC2.Base.Components
 			[Statistics.Info("Area of Effect", description: "When the weapon hits it deals damage in this area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float aoe;
 
-			[Statistics.Info("Thickness", description: "Thickness of the damage", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Thickness", description: "How far above and below the aim direction it will still hit", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float thickness = 0.30f;
 
 			[Statistics.Info("Knockback", description: "Multiplies the Knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
