@@ -1,0 +1,83 @@
+$name: "Shield"
+$desc: "Blocks bullets"
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.box:
+	{
+		layer: entity, solid
+		mask: world, solid
+		//solid 
+		//currently collides with solid this may need cleanup as it currently collides with trees
+		//if solid is added this would collide with other players/other shields (GREAT) and collide with items/mounts (not as great)
+
+		size: [0.700, 1.500]
+		offset: [0.000, 0.000]
+
+		mass: 10
+		elasticity: 0.25
+		friction: 0.05
+
+		material: metal
+	}
+}
+
+sprite.renderer:
+{
+	texture: "Shield"
+}
+
+holdable:
+{
+	offset: [-1.000, 0.000]
+	radius: 5.000
+	flags: storable
+}
+
+health:
+{
+	max: 10000
+}
+
+transform:
+{
+	
+}
+
+packable:
+{
+	
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 80.00
+	damage_bonus: 30.00
+	cooldown: 0.90
+	max_distance: 3.00
+	aoe: 1.25
+	knockback: 10.00
+	yield: 0.00
+	penetration_falloff: 0.50
+	penetration: 1
+	swing_offset: [1.000, 0.000]
+	swing_rotation: 0.000
+	damage_type: club
+	hit_mask: world, destructible
+}
+
+melee.state:
+{
+
+}
