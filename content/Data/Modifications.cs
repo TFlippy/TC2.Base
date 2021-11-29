@@ -32,7 +32,7 @@ namespace TC2.Base
 
 				apply: static (ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var value = ref handle.GetData<float>();
+					var value = MathF.Max(0.50f, handle.GetData<float>());
 					data.time = value;
 				}
 			));
