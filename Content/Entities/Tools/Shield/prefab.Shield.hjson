@@ -16,7 +16,7 @@ body:
 	@shape.box:
 	{
 		layer: entity, solid
-		mask: world, solid
+		mask: world
 		//solid 
 		//currently collides with solid this may need cleanup as it currently collides with trees
 		//if solid is added this would collide with other players/other shields (GREAT) and collide with items/mounts (not as great)
