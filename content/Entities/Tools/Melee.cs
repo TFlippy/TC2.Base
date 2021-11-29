@@ -49,7 +49,7 @@ namespace TC2.Base.Components
 			[Statistics.Info("Penetration Falloff", description: "Multiplies damage after each penetration", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
 			public float penetration_falloff;
 
-			[Statistics.Info("Penetration", description: "How many things this weapon can hit at once", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Penetration", description: "How many things can be hit after one another", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public int penetration;
 
 			[Statistics.Info("Damage Type", description: "What kind of damage it deals", format: "{0}", comparison: Statistics.Comparison.None)]
