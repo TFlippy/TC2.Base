@@ -1,0 +1,72 @@
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[2.000, 4.000]
+			[-2.000, 4.000]
+			[-0.500, -3.750]
+			[0.500, -3.750]
+		]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -350.000
+	texture: "windmill"
+}
+
+windmill:
+{
+	rotor_offset: [0.000, -3.000]
+}
+
+wheel:
+{
+	offset: [0.000, 2.000]
+	mass: 2.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -160.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}
+
+sound.emitter:
+{
+	file: "hand_crank_loop.wood"
+	volume: 0.000
+	pitch: 1.000
+}

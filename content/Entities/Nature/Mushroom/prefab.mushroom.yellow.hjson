@@ -1,0 +1,57 @@
+$name: "Yellow Mushroom"
+$desc: "A group of tall, yellow-capped mushrooms."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, 0.220]
+		b: [0.700, -7.500]
+		mass: 1500.000
+		radius: 1.500
+		friction: 1.500
+		elasticity: 0.010
+		material: mushroom
+		layer: entity, solid, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.500, -3.500]
+	z: -200.000
+	texture: "mushroom.yellow"
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "mushroom"
+			quantity: 900.000
+		}
+		{
+			material: "mushroom.yellow"
+			quantity: 650.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

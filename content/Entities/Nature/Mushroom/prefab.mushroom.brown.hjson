@@ -1,0 +1,57 @@
+$name: "Brown Mushroom"
+$desc: "A tall mushroom."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -0.140]
+		b: [0.450, -6.5500002]
+		mass: 1500.000
+		radius: 0.500
+		friction: 1.500
+		elasticity: 0.010
+		material: mushroom
+		layer: entity, solid, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 5000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.500, -3.500]
+	z: -200.000
+	texture: "mushroom.brown"
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "mushroom"
+			quantity: 900.000
+		}
+		{
+			material: "mushroom.brown"
+			quantity: 500.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

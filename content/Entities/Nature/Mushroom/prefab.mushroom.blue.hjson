@@ -1,0 +1,66 @@
+$name: "Blue Mushroom"
+$desc: "A small mushroom that emits a bluish glow."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, 0.125]
+		b: [0.050, -2.300]
+		mass: 1500.000
+		radius: 0.300
+		friction: 1.500
+		elasticity: 0.010
+		material: mushroom
+		layer: entity, solid, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 800.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, -1.150]
+	z: -200.000
+	texture: "mushroom.blue"
+	
+	@light:
+	{
+		color: [0.200, 1.000, 0.900, 1.500]
+		offset: [0.000, -2.125]
+		scale: [10.000, 10.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "mushroom"
+			quantity: 150.000
+		}
+		{
+			material: "mushroom.blue"
+			quantity: 80.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

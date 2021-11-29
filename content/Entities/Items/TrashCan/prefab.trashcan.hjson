@@ -1,0 +1,48 @@
+$name: "Trash Can"
+$desc:
+	'''
+	A generic trash can.
+	Maybe it contains some treasure?
+	'''
+body:
+{
+	inventory_weight_multiplier: 0.400
+	
+	@shape.box:
+	{
+		size: [1.200, 1.700]
+		offset: [0.000, 0.000]
+		mass: 20.000
+		friction: 0.950
+		elasticity: 0.100
+		material: metal
+		layer: entity, solid, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1500.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	texture: "trashcan"
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+	threshold: 0.500
+}

@@ -1,0 +1,26 @@
+$kind: quest
+
+quest.data:
+{
+	name: "Miners in Darkness"
+	description: "Someone stole our entire supply of lanterns! People these days..."
+
+	tags: mine
+	duration: 600
+
+	requirements:
+	[
+		{
+			prefab: "lantern"
+			amount: 1
+		}
+	]
+
+	products:
+	[
+		{
+			prefab: "dynamite"
+			amount: 1
+		}
+	]
+}

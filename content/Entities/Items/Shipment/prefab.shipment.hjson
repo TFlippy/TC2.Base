@@ -1,0 +1,39 @@
+body:
+{
+	@shape.box:
+	{
+		size: [2.000, 1.400]
+		offset: [0.000, 0.000]
+		mass: 10.000
+		friction: 0.950
+		elasticity: 0.100
+		layer: entity, crate, shipment
+		mask: world, crate
+	}
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	texture: "shipment"
+}
+
+transform:
+{
+
+}
+
+shipment:
+{
+	flags: delete_if_empty
+}
+
+interactable:
+{
+	window_size: [384.000, 192.000]
+}

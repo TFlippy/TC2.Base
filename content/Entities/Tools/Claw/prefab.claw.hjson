@@ -1,0 +1,92 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.polygon:
+	{
+		points:
+		[
+			[1.000, 1.200]
+			[-1.000, 1.200]
+			[-0.200, -1.300]
+			[0.200, -1.300]
+		]
+		offset: [0.000, 0.000]
+		mass: 20.000
+		friction: 0.990
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -100.000
+	frame_offset: 0
+	frame_count: 2
+	frame_count_total: 2
+	texture: "claw"
+}
+
+claw:
+{
+	sound_attach: "claw_attach"
+	sound_detach: "claw_detach"
+	frame_attached: 1
+	frame_detached: 0
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, -1.000]
+	radius: 0.000
+}
+
+grabber:
+{
+
+}
+
+attachment:
+{
+
+}
+
+joint.base:
+{
+	offset_a: [0.000, 1.000]
+	max_force: 1000000.000
+	max_torque: 2000000.000
+	flags: no_wrap, no_stress, no_aiming
+}
+
+joint.pivot:
+{
+	max_bias: 8.000
+}
+
+joint.gear:
+{
+	max_bias: 8.000
+}

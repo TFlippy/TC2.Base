@@ -1,0 +1,78 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 0.300
+		radius: 0.200
+		friction: 0.980
+		elasticity: 0.600
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 400.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.125, -0.125]
+	texture: "dynamite"
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 5.000
+	failure_chance: 0.020
+	sound: "fuse_set"
+	flags: sparkle
+	
+	@light:
+	{
+		color: [1.000, 0.600, 0.000, 2.000]
+		offset: [-0.100, 0.100]
+		scale: [12.000, 12.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		volume: 0.000
+		pitch: 0.000
+	}
+}
+
+explosive:
+{
+	radius: 8.000
+	power: 5.000
+	damage_entity: 10000.000
+	damage_terrain: 25000.000
+}
+
+packable:
+{
+
+}

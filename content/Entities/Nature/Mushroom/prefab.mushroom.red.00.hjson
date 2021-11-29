@@ -1,0 +1,57 @@
+$name: "Red Mushroom"
+$desc: "A really big red mushroom."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.400, 0.100]
+		b: [0.700, -7.500]
+		mass: 1500.000
+		radius: 1.000
+		friction: 1.500
+		elasticity: 0.010
+		material: mushroom
+		layer: entity, solid, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 30000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.500, -3.500]
+	z: -200.000
+	texture: "mushroom.red.00"
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "mushroom"
+			quantity: 4500.000
+		}
+		{
+			material: "mushroom.red"
+			quantity: 1600.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

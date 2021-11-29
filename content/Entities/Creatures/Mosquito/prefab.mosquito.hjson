@@ -1,0 +1,85 @@
+body:
+{
+	@shape.circle:
+	{
+		mass: 0.100
+		radius: 0.100
+		friction: 0.700
+		elasticity: 0.850
+		material: flesh
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 10.000
+}
+
+sprite.renderer:
+{
+	offset: [0.0625, -0.0625]
+	z: -40.000
+	fps: 30
+	frame_offset: 0
+	frame_count: 3
+	frame_count_total: 3
+	texture: "mosquito"
+}
+
+organic:
+{
+	tags: brain
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+tooltip:
+{
+
+}
+
+mosquito:
+{
+
+}
+
+flyer:
+{
+	speed: 10.000
+}
+
+npc:
+{
+	navigation_state: searching
+	find_distance_max: 10.000
+	lose_distance_max: 15.000
+	follow_distance_max: 1.000
+	follow_distance_min: 0.000
+}
+
+facing:
+{
+
+}
+
+norotate:
+{
+
+}
+
+sound.emitter:
+{
+	file: "mosquito_loop"
+	volume: 0.100
+	pitch: 1.000
+}

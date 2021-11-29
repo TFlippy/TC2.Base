@@ -1,0 +1,58 @@
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -5.000]
+		b: [0.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 20.000
+		radius: 0.250
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 4000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.250, 0.000]
+	z: -150.000
+	texture: "flagpost.metal"
+	mask: "flagpost.metal.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+claimable:
+{
+
+}
+
+claimer:
+{
+	radius: 32.000
+	strength: 1.300
+	falloff: 0.500
+}
+
+interactable:
+{
+	window_size: [96.000, 96.000]
+}

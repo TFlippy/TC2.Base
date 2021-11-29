@@ -1,0 +1,101 @@
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.500, 0.000]
+		b: [0.500, 0.000]
+		mass: 2.200
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.250
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [0.900, -0.250]
+	sound_shoot: "machine_pistol_shoot"
+	sound_reload: "smg_reload"
+	sound_empty: "gun_empty"
+	velocity_multiplier: 330.000
+	jitter_multiplier: 0.600
+	damage_multiplier: 1.500
+	recoil_multiplier: 0.200
+	reload_interval: 0.600
+	cycle_interval: 0.065
+	failure_rate: 0.010
+	max_ammo: 20.000
+	projectile_count: 1
+	flags: automatic, full_reload, cycle_on_shoot
+	ammo_filter: ammo_lc
+	action: blowback
+	type: handgun
+	feed: magazine
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.900, -0.250]
+		scale: [20.000, 14.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.300, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 0.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 0
+	texture: "machine_pistol"
+}
+
+health:
+{
+	max: 1700.000
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

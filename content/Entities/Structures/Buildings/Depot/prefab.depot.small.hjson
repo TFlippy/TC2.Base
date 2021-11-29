@@ -1,0 +1,64 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 5.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+nameable:
+{
+	flags: no_rename
+}
+
+health:
+{
+	max: 8000.000
+}
+
+sprite.renderer:
+{
+	z: -140.000
+	texture: "depot.small"
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [504.000, 288.000]
+}
+
+depot:
+{
+	offset: [1.000, 1.000]
+	size: [4.000, 3.000]
+	flags: allow_deposit, allow_withdraw, allow_send, allow_request
+}
+
+packer:
+{
+	size: [4.000, 3.000]
+	offset: [1.000, 1.000]
+}
+
+stockpile:
+{
+
+}

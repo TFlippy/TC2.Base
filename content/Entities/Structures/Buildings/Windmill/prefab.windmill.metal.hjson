@@ -1,0 +1,84 @@
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[2.000, 4.000]
+			[-2.000, 4.000]
+			[-0.500, -3.750]
+			[0.500, -3.750]
+		]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -350.000
+	texture: "windmill"
+}
+
+windmill:
+{
+	max_speed: 6.000
+	torque: 150.000
+	volume_base: 0.250
+	pitch_base: 0.800
+	volume_modifier: 1.000
+	pitch_modifier: 0.000
+	
+	@sprite.renderer:
+	{
+		offset: [0.000, -3.000]
+		z: -150.000
+		texture: "windmill.top.metal"
+	}
+}
+
+wheel:
+{
+	offset: [0.000, 2.000]
+	mass: 2.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -160.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+sound.emitter:
+{
+	file: "windmill.blade.metal_loop_00"
+	volume: 0.000
+	pitch: 1.000
+}

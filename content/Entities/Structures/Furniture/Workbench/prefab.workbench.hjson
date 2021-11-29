@@ -1,0 +1,63 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.000, 3.000]
+		offset: [0.000, 0.000]
+		mass: 50.000
+		friction: 0.950
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 800.000
+}
+
+sprite.renderer:
+{
+	z: -100.000
+	texture: "workbench"
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [552.000, 336.000]
+}
+
+shop:
+{
+	name: "Workbench"
+	recipe_groups:
+	[
+		14
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+workshop:
+{
+
+}

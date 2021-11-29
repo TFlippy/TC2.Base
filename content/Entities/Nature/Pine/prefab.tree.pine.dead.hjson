@@ -1,0 +1,79 @@
+$name: "Pine Tree"
+$desc: "A dead tree. Seems like a good source of wood."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -0.500]
+		b: [0.000, -12.500]
+		mass: 500.000
+		radius: 0.500
+		friction: 1.000
+		elasticity: 0.010
+		material: wood
+		layer: entity, solid, climbable, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 20000.000
+}
+
+splittable:
+{
+	rect: [-0.500, -13.000, 0.500, 0.000] 
+	texture_stub: "tree.pine.stub"
+	sound_split: "tree_snap_00"
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	offset: [-0.000, -5.500]
+	z: -50.000
+	texture: "tree.pine"
+}
+
+tree:
+{
+	prefab_stump: "tree.pine.stump"
+	sprite_cut: "tree.pine.cut"
+	sound_cut: "tree_fall"
+
+	health_cut: 0.98
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 3500.000
+		}
+		{
+			material: "resin"
+			quantity: 70.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

@@ -1,0 +1,62 @@
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.500]
+		mass: 50.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.200
+		material: powder
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+sprite.renderer:
+{
+	frame_count: 4
+	frame_count_total: 4
+	texture: "resource.nitrocellulose"
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "nitrocellulose"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 100.000
+}
+
+explosive:
+{
+	radius: 20.000
+	power: 6.000
+	damage_entity: 8000.000
+	damage_terrain: 7000.000
+	smoke_amount: 1.800
+	pitch: 1.500
+	primed: false
+}

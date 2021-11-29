@@ -1,0 +1,104 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [3.000, 6.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 30000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "press"
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	name: "Press"
+	recipe_groups:
+	[
+		12
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+press:
+{
+	slider_offset: [0.000, -1.000]
+	slider_length: 0.500
+	speed: 2.200
+	
+	@sprite.renderer:
+	{
+		z: -145.000
+		texture: "press.slider"
+	}
+}
+
+crafter:
+{
+	@inventory8:
+	{
+		name: "Output"
+		stack_size_multiplier: 4.000
+		type: output
+		flags: allow_ducts, ignore_mass
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		name: "Input"
+		stack_size_multiplier: 4.000
+		type: input
+		flags: allow_ducts, ignore_mass
+	}
+}
+
+wheel:
+{
+	offset: [0.000, -1.500]
+	mass: 5.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -200.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+interactable:
+{
+	window_size: [408.000, 240.000]
+}

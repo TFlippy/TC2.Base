@@ -1,0 +1,218 @@
+control:
+{
+
+}
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		radius: 1.250
+		friction: 0.990
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 50000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -100.000
+	texture: "crane_base"
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [240.000, 144.000]
+}
+
+crane:
+{
+	length_a: 8.000
+	length_b: 8.000
+	speed: 0.500
+	force: 100000.000
+	bias: 0.070
+}
+
+joint.base:
+{
+	offset_b: [-4.000, 0.000]
+	max_force: 1000000.000
+	max_torque: 2000000.000
+	flags: no_wrap, no_stress, control_write
+}
+
+joint.pivot:
+{
+	max_bias: 8.000
+}
+
+joint.gear:
+{
+	max_bias: 8.000
+}
+
+sound.emitter:
+{
+	file: "crane_loop_b"
+	volume: 0.000
+	pitch: 1.000
+}
+
+sound.mixer:
+{
+	volume_modifier: 0.400
+	pitch_modifier: 0.400
+	volume_min: 0.000
+	pitch_min: 0.400
+	volume_lerp_a: 0.100
+	volume_lerp_b: 0.100
+	pitch_lerp_a: 0.050
+	pitch_lerp_b: 0.030
+}
+
++arm1|child:
+{
+	control:
+	{
+	
+	}
+	
+	transform:
+	{
+	
+	}
+	
+	sprite.renderer:
+	{
+		offset: [0.000, 0.000]
+		z: 100.000
+		texture: "crane_arm.wood"
+	}
+	
+	body:
+	{
+		@shape.line:
+		{
+			a: [-4.000, 0.000]
+			b: [4.000, 0.000]
+			mass: 80.000
+			radius: 0.500
+			friction: 0.950
+			elasticity: 0.100
+			layer: entity, solid
+			mask: world
+		}
+	}
+	
+	joint.base:
+	{
+		offset_a: [4.000, 0.000]
+		offset_b: [-4.000, 0.000]
+		max_force: 1000000.000
+		max_torque: 2000000.000
+		flags: no_wrap, no_stress, control_write
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.gear:
+	{
+		max_bias: 8.000
+	}
+	
+	deletewithparent:
+	{
+	
+	}
+	
+	+arm2|child:
+	{
+		control:
+		{
+		
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		interactable:
+		{
+		
+		}
+		
+		sprite.renderer:
+		{
+			offset: [0.000, 0.000]
+			z: 100.000
+			texture: "crane_arm.wood"
+		}
+		
+		body:
+		{
+			@shape.line:
+			{
+				a: [-4.000, 0.000]
+				b: [4.000, 0.000]
+				mass: 80.000
+				radius: 0.500
+				friction: 0.950
+				elasticity: 0.100
+				layer: entity, solid
+				mask: world
+			}
+		}
+		
+		joint.base:
+		{
+			offset_a: [4.000, 0.000]
+			max_force: 100000.000
+			max_torque: 5000.000
+			flags: no_wrap, control_write, no_aiming
+		}
+		
+		joint.pivot:
+		{
+			max_bias: 8.000
+		}
+		
+		joint.rotarylimit:
+		{
+			min: -4.000
+			max: 1.000
+			max_bias: 8.000
+		}
+		
+		attachment:
+		{
+		
+		}
+		
+		deletewithparent:
+		{
+		
+		}
+	}
+}

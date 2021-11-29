@@ -1,0 +1,70 @@
+$name: "Door (Metal)"
+$desc:
+	'''
+	A standard metal hatch.
+	Can be locked.
+	'''
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.500, 0.500]
+		offset: [0.000, 0.000]
+		mass: 15.000
+		friction: 0.750
+		elasticity: 0.300
+		material: metal
+		layer: entity, solid, building
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 100.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 5
+	frame_count_total: 5
+	texture: "hatch.metal"
+}
+
+interactable:
+{
+
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [2.500, 1.600]
+	size_closed: [2.500, 0.500]
+	offset_open: [0.000, -0.700]
+	offset_closed: [0.000, 0.000]
+	direction: vertical
+	flags: lockable
+}
+
+claimable:
+{
+
+}
+
+cover:
+{
+	threshold: 0.300
+}

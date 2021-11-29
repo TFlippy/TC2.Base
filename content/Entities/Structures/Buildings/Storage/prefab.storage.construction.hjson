@@ -1,0 +1,46 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "storage.construction"
+}
+
+claimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [240.000, 192.000]
+}
+
+construction:
+{
+
+}

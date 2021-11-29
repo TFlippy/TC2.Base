@@ -1,0 +1,135 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.000, 8.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+sprite.renderer:
+{
+	z: -300.000
+	texture: "refinery"
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [500.000, 300.000]
+}
+
+shop:
+{
+	name: "Refinery"
+	recipe_groups:
+	[
+		13
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+refinery:
+{
+	smoke_offset: [0.875, -4.250]
+}
+
+crafter:
+{
+	sound_produce: "refinery_produce_00"
+	
+	@inventory8:
+	{
+		name: "Output"
+		stack_size_multiplier: 2.000
+		type: output
+		flags: allow_ducts, ignore_mass, public
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		name: "Input"
+		stack_size_multiplier: 2.000
+		type: input
+		flags: allow_ducts, ignore_mass
+	}
+}
+
+burner:
+{
+	smoke_offset: [-1.800, -2.0999999]
+	capacity: 3.000
+	energy_loss: 100000.000
+	efficiency: 0.400
+	
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 2.000
+		filter_flags: fuel
+		type: fuel
+		flags: allow_ducts, ignore_mass
+	}
+	
+	@sound.emitter:
+	{
+		file: "furnace_loop"
+		volume: 0.000
+		pitch: 0.500
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}
+
+wheel:
+{
+	offset: [2.000, 2.000]
+	mass: 5.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -140.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+sound.emitter:
+{
+	file: "refinery_loop_02"
+	volume: 0.000
+	pitch: 0.000
+}

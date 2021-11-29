@@ -1,0 +1,18 @@
+projectile:
+{
+	damage_base: 200.000
+	damage_bonus: 200.000
+	lifetime: 15.000
+	damage_type: arrow
+}
+
+sprite.renderer:
+{
+	z: -40.000
+	texture: "arrow"
+}
+
+transform:
+{
+
+}

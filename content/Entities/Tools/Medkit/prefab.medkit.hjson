@@ -1,0 +1,56 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.box:
+	{
+		size: [1.000, 0.700]
+		offset: [0.000, 0.200]
+		mass: 4.000
+		friction: 0.980
+		elasticity: 0.010
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 500.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	texture: "medkit"
+}
+
+transform:
+{
+
+}
+
+medkit:
+{
+	power: 100.000
+	cooldown: 0.500
+	max_distance: 3.000
+}
+
+norotate:
+{
+
+}
+
+packable:
+{
+
+}

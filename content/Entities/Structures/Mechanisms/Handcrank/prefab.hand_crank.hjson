@@ -1,0 +1,80 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 2.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -170.000
+	texture: "hand_crank.base"
+}
+
+crank:
+{
+	max_speed: 5.000
+	torque: 50.000
+	mod: 5.000
+	
+	@sprite.renderer:
+	{
+		offset: [0.000, 0.000]
+		z: -150.000
+		texture: "hand_crank.knob"
+	}
+}
+
+wheel:
+{
+	offset: [0.000, 0.000]
+	mass: 1.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -160.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+interactable:
+{
+	flags: use_left_click
+}
+
+sound.emitter:
+{
+	file: "hand_crank_loop.wood"
+	volume: 0.000
+	pitch: 1.000
+}

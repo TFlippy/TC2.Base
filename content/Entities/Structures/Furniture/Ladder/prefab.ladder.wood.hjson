@@ -1,0 +1,41 @@
+$name: "Ladder (Wood)"
+$desc:
+	'''
+	A wooden ladder.
+	Can be climbed.
+	'''
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 30.000
+		radius: 0.900
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, climbable, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -150.000
+	texture: "ladder.wood"
+}
+
+transform:
+{
+
+}

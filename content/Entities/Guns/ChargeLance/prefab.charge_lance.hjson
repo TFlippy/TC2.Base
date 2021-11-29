@@ -1,0 +1,100 @@
+$name: "EMRG Lance"
+$desc: "A mighty weapon from a long-forgotten time. It's also bloody heavy."
+body:
+{
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [0.600, 0.000]
+		mass: 75.000
+		radius: 0.350
+		friction: 0.600
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.000, -0.125]
+	sound_shoot: "charge_lance_shoot"
+	sound_cycle: "charge_lance_cycle"
+	sound_reload: "charge_lance_reload"
+	velocity_multiplier: 600.000
+	jitter_multiplier: 0.010
+	damage_multiplier: 10.000
+	recoil_multiplier: 15.000
+	reload_interval: 4.000
+	cycle_interval: 0.100
+	failure_rate: 0.000
+	max_ammo: 1.000
+	smoke_size: 1.500
+	smoke_amount: 7
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_emrg
+	action: blowback
+	type: rifle
+	feed: magazine
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [0.000, 0.800, 1.000, 20.000]
+		offset: [1.250, -0.125]
+		scale: [32.000, 20.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+sprite.renderer:
+{
+	texture: "charge_lance"
+}
+
+health:
+{
+	max: 4700.000
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}

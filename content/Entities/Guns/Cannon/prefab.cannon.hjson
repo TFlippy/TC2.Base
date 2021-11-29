@@ -1,0 +1,94 @@
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [-4.000, 0.000]
+		b: [4.000, 0.000]
+		mass: 250.000
+		radius: 0.400
+		friction: 0.900
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [4.000, -0.200]
+	sound_shoot: "cannon_shoot"
+	sound_reload: "cannon_reload"
+	velocity_multiplier: 300.000
+	jitter_multiplier: 0.300
+	damage_multiplier: 25.000
+	recoil_multiplier: 150.000
+	reload_interval: 3.500
+	cycle_interval: 0.500
+	failure_rate: 0.000
+	max_ammo: 1.000
+	sound_volume: 5.000
+	sound_size: 4.000
+	smoke_size: 3.000
+	smoke_amount: 8
+	projectile_count: 1
+	flags: full_reload
+	ammo_filter: ammo_shell
+	action: manual
+	type: cannon
+	feed: single
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 4.000]
+		offset: [4.000, -0.250]
+		scale: [50.000, 50.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-3.250, 0.000]
+	radius: 1.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	texture: "cannon"
+}
+
+health:
+{
+	max: 20000.000
+}
+
+transform:
+{
+
+}

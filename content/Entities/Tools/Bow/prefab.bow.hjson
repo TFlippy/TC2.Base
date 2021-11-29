@@ -1,0 +1,81 @@
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 5.000
+		radius: 0.250
+		friction: 0.950
+		elasticity: 0.400
+		material: wood
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [0.000, 0.000]
+	sound_shoot: "bow_shoot"
+	velocity_multiplier: 60.000
+	jitter_multiplier: 0.100
+	damage_multiplier: 1.500
+	recoil_multiplier: 1.500
+	reload_interval: 1.000
+	cycle_interval: 0.000
+	max_ammo: 1.000
+	projectile_count: 1
+	flags: no_particles
+	ammo_filter: ammo_arrow
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+}
+
+gun.state:
+{
+
+}
+
+interactable:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	z: 0.000
+	texture: "bow"
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

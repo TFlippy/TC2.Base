@@ -1,0 +1,39 @@
+$name: "Overgrown Statue"
+$desc:
+	'''
+	A strange overgrown statue.
+	There's "Benny Harvey RIP" etched on the back, whatever it means. 
+	'''
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [3.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 500.000
+		friction: 0.850
+		elasticity: 0.100
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 80000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -100.000
+	texture: "wreck.golem.00"
+}
+
+transform:
+{
+
+}

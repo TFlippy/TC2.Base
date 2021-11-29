@@ -1,0 +1,127 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [1.000, 12.000]
+		offset: [0.000, 0.000]
+		friction: 0.990
+		elasticity: 0.030
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 50000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -150.000
+	texture: "gate.base"
+}
+
+gate:
+{
+
+}
+
+wheel:
+{
+	offset: [-1.000, -5.500]
+	mass: 5.000
+	friction: 0.800
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -50.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+rope:
+{
+	texture: "rope"
+	thickness: 0.200
+	scale: 8.000
+}
+
+joint.base:
+{
+	offset_a: [0.000, -6.000]
+	offset_b: [0.000, -3.000]
+	max_force: 500000.000
+	max_torque: 500000.000
+	flags: control_read, control_write
+}
+
+joint.slider:
+{
+	a: [0.000, 0.000]
+	b: [0.000, 12.000]
+	max_force: 500000.000
+}
+
+joint.rotarylimit:
+{
+
+}
+
++door|child:
+{
+	body:
+	{
+		@shape.box:
+		{
+			size: [0.500, 6.000]
+			offset: [0.000, 0.000]
+			mass: 400.000
+			friction: 0.950
+			elasticity: 0.030
+			material: wood
+			layer: entity, solid
+			mask: world, solid
+		}
+	}
+	
+	sprite.renderer:
+	{
+		offset: [0.000, 0.000]
+		z: 1000.000
+		texture: "gate"
+	}
+	
+	health:
+	{
+		max: 40000.000
+	}
+	
+	transform:
+	{
+	
+	}
+	
+	deletewithparent:
+	{
+	
+	}
+}

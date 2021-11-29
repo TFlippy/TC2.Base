@@ -1,0 +1,70 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.900]
+		b: [0.000, -0.900]
+		mass: 8.000
+		radius: 0.250
+		friction: 0.950
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	swing_offset: [1.500, 2.000]
+	swing_rotation: -2.500
+	damage_base: 250.000
+	damage_bonus: 150.000
+	cooldown: 2.500
+	max_distance: 4.000
+	aoe: 0.300
+	knockback: 2.500
+	yield: 0.300
+	penetration_falloff: 0.900
+	penetration: 3
+	damage_type: slash
+	hit_mask: world, destructible
+}
+
+melee.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.200, 0.900]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 0.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 0
+	texture: "longsword"
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

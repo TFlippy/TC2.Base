@@ -1,0 +1,71 @@
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		radius: 4.000
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+// sprite.renderer:
+// {
+// 	offset: [0.000, 0.000]
+// 	z: -350.000
+// 	texture: "windmill.rotor.wood"
+// }
+
+windmill.rotor:
+{
+	max_speed: 2.000
+	torque: 200.000
+	volume_base: 0.500
+	pitch_base: 0.800
+	volume_modifier: 1.000
+	pitch_modifier: 0.050
+}
+
+wheel:
+{
+	offset: [0.000, 0.000]
+	mass: 2.000
+	friction: 0.200
+	radius_a: 0.500
+	radius_b: 0.500
+	radius_inner: 0.250
+	radius_outer: 0.500
+	
+	@sprite.renderer:
+	{
+		z: -160.000
+		texture: "windmill.rotor.wood"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+sound.emitter:
+{
+	file: "hand_crank_loop.wood"
+	volume: 0.000
+	pitch: 1.000
+}

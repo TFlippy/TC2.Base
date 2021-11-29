@@ -1,0 +1,45 @@
+$name: "Boulder"
+$desc: ""
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-2.000, 0.250]
+			[0.500, -1.000]
+			[2.5999999, 1.500]
+			[-2.500, 1.500]
+		]
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		friction: 0.950
+		elasticity: 0.020
+		material: stone
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 30000.000
+}
+
+sprite.renderer:
+{
+	z: -100.000
+	texture: "boulder.00.moss"
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+	threshold: 0.200
+}

@@ -1,0 +1,34 @@
+$name: "Rusty Chain-Link Fence"
+$desc: "A rusted-down fence full of holes."
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.500, 3.000]
+		offset: [0.000, 0.000]
+		mass: 100.000
+		friction: 0.850
+		elasticity: 0.100
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	z: -300.000
+	texture: "wreck.chain_fence.00"
+}
+
+transform:
+{
+
+}

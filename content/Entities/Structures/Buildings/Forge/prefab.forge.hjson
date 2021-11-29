@@ -1,0 +1,92 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [7.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 6000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "forge"
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [504.000, 336.000]
+}
+
+shop:
+{
+	name: "Forge"
+	recipe_groups:
+	[
+		15
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+workshop:
+{
+
+}
+
+// burner:
+// {
+// 	smoke_offset: [-1.800, -2.0999999]
+// 	capacity: 3.000
+// 	energy_loss: 100000.000
+// 	efficiency: 0.400
+	
+// 	@inventory1:
+// 	{
+// 		name: "Fuel"
+// 		stack_size_multiplier: 2.000
+// 		filter_flags: fuel
+// 		type: fuel
+// 		flags: allow_ducts, ignore_mass
+// 	}
+	
+// 	@sound.emitter:
+// 	{
+// 		file: "furnace_loop"
+// 		volume: 0.000
+// 		pitch: 0.500
+// 	}
+// }
+
+// burner.state:
+// {
+// 	current_temperature: 300.000
+// }

@@ -1,0 +1,76 @@
+$name: "Market"
+$desc: "A place to trade at."
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, -2.000]
+	z: -100.000
+	texture: "market"
+	mask: "market.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	name: "Market"
+	recipe_groups:
+	[
+		1
+		8
+		9
+		5
+		0
+		0
+		0
+		0
+	]
+}
+
+interactable:
+{
+	window_size: [548.000, 336.000]
+}
+
+light:
+{
+	color: [1.000, 0.750, 0.100, 2.000]
+	offset: [-1.250, -2.5999999]
+	scale: [32.000, 32.000]
+	intensity: 0.800
+	texture: "light_invsqr"
+}
+
+claimable:
+{
+	flags: no_menu
+}

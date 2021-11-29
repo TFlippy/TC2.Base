@@ -1,0 +1,96 @@
+body:
+{
+	@shape.line:
+	{
+		a: [-1.250, 0.000]
+		b: [1.250, 0.000]
+		mass: 5.000
+		radius: 0.250
+		friction: 0.600
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.250, -0.125]
+	sound_shoot: "rifle_shoot"
+	sound_cycle: "rifle_cycle"
+	sound_reload: "rifle_reload"
+	velocity_multiplier: 800.000
+	jitter_multiplier: 0.100
+	damage_multiplier: 4.000
+	recoil_multiplier: 2.000
+	reload_interval: 0.600
+	cycle_interval: 0.500
+	failure_rate: 0.001
+	max_ammo: 5.000
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_hc
+	action: bolt
+	type: rifle
+	feed: clip
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.250, -0.125]
+		scale: [24.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+sprite.renderer:
+{
+	texture: "rifle"
+}
+
+health:
+{
+	max: 1900.000
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}

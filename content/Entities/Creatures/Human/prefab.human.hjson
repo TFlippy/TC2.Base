@@ -1,0 +1,450 @@
+$export: false
+body:
+{
+	inventory_weight_multiplier: 0.400
+	
+	@shape.circle:
+	{
+		mass: 25.000
+		radius: 0.600
+		friction: 0.500
+		elasticity: 0.050
+		material: flesh
+		layer: entity, solid, storage
+		mask: world
+	}
+}
+
+organic:
+{
+
+}
+
+health:
+{
+	max: 2600.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -40.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 4
+	texture: "human.torso.bag"
+	mask: "human.torso.mask.bag"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+threat:
+{
+	priority: 7.000
+}
+
+climber:
+{
+	climb_force: 5000.000
+	cling_force: 8000.000
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+torso:
+{
+	head_bob_speed: 22.000
+	head_bob_amplitude: 0.200
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Backpack"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: standalone
+	}
+}
+
+tooltip:
+{
+
+}
+
+seat.attachable:
+{
+
+}
+
+holdable:
+{
+
+}
+
+worker:
+{
+
+}
+
+worker.state:
+{
+
+}
+
+builder:
+{
+	flags: ruler
+}
+
+facing:
+{
+
+}
+
+interactable:
+{
+	window_size: [192.000, 232.000]
+}
+
+equipment.slot:
+{
+	type: chest
+}
+
+norotate:
+{
+	bias: 0.020
+	multiplier: 1.000
+	mass_multiplier: 60.000
+}
+
+speechbubble:
+{
+
+}
+
++slot_head|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.125, -0.375]
+		max_force: 20000.000
+		max_torque: 4000.000
+		flags: organic, control_write
+		
+		@sprite.renderer:
+		{
+			offset: [0.100, -0.400]
+			z: -39.000
+			fps: 0
+			frame_offset: 2
+			frame_count: 0
+			frame_count_total: 4
+			texture: "human.gore.stub"
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		min: -1.000
+		max: 1.000
+		max_bias: 8.000
+	}
+	
+	+head|child:
+	{
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 10.000
+				radius: 0.400
+				friction: 0.700
+				elasticity: 0.250
+				material: flesh
+				layer: entity, solid
+				mask: world
+			}
+		}
+		
+		hair:
+		{
+			@sprite.renderer:
+			{
+				z: -34.900
+				frame_count: 1
+				frame_count_total: 32
+			}
+		}
+		
+		beard:
+		{
+			@sprite.renderer:
+			{
+				z: -34.800
+				frame_count: 1
+				frame_count_total: 32
+			}
+		}
+		
+		organic:
+		{
+			tags: brain
+		}
+		
+		health:
+		{
+			max: 1500.000
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.350]
+		}
+		
+		equipment.slot:
+		{
+			type: head
+		}
+		
+		sprite.renderer:
+		{
+			offset: [0.000, 0.000]
+			z: -35.000
+			fps: 0
+			frame_offset: 0
+			frame_count: 1
+			frame_count_total: 16
+			texture: "human.head"
+			
+			@damagesprite:
+			{
+			
+			}
+		}
+		
+		threat:
+		{
+			priority: 10.000
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+		
+		}
+		
+		human:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+		
+		emote:
+		{
+			voice_pitch: 0.900
+		}
+		
+		norotate:
+		{
+			bias: 0.070
+			multiplier: 1.000
+			mass_multiplier: 60.000
+		}
+	}
+}
+
++slot_waist|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.375]
+		max_force: 20000.000
+		max_torque: 10000.000
+		flags: organic, control_write
+		
+		@sprite.renderer:
+		{
+			offset: [0.000, 0.500]
+			z: -38.000
+			fps: 0
+			frame_offset: 1
+			frame_count: 0
+			frame_count_total: 4
+			texture: "human.gore.stub"
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		min: -0.500
+		max: 0.500
+		max_bias: 8.000
+	}
+	
+	+waist|child:
+	{
+		transform:
+		{
+		
+		}
+		
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 40.000
+				radius: 0.500
+				friction: 1.200
+				elasticity: 0.100
+				material: flesh
+				layer: entity, solid
+				mask: world
+			}
+		}
+		
+		sprite.renderer:
+		{
+			offset: [0.000, 0.000]
+			z: -50.000
+			fps: 0
+			frame_offset: 0
+			frame_count: 0
+			frame_count_total: 8
+			texture: "human.waist"
+		}
+		
+		runner:
+		{
+			walk_force: 10000.000
+			jump_force: 35000.000
+		}
+		
+		organic:
+		{
+			@sprite.renderer:
+			{
+				z: -49.000
+				fps: 0
+				frame_offset: 0
+				frame_count: 0
+				frame_count_total: 4
+				texture: "human.gore.stub"
+			}
+		}
+		
+		threat:
+		{
+			priority: 5.000
+		}
+		
+		control:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 3500.000
+		}
+		
+		equipment.slot:
+		{
+			type: legs, feet
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		legs:
+		{
+			multiplier: 10.000
+		}
+		
+		norotate:
+		{
+			bias: 0.150
+			multiplier: 1.000
+			mass_multiplier: 200.000
+		}
+	}
+}
+
++arm|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.100]
+		max_force: 8000.000
+		max_torque: 5000.000
+		flags: control_write
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_bias: 8.000
+	}
+	
+	interactor:
+	{
+	
+	}
+	
+	arm:
+	{
+	
+	}
+
+	drag:
+	{
+		
+	}
+}
+
++toolbelt|instance:
+{
+	toolbelt:
+	{
+	
+	}
+}

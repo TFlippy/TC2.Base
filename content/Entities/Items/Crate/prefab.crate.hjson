@@ -1,0 +1,58 @@
+body:
+{
+	inventory_weight_multiplier: 0.250
+	
+	@shape.box:
+	{
+		size: [3.000, 1.700]
+		offset: [0.000, 0.000]
+		mass: 40.000
+		friction: 0.950
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid, crate, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	texture: "crate"
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Crate"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+}
+
+cover:
+{
+	threshold: 0.700
+}

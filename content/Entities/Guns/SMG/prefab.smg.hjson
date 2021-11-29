@@ -1,0 +1,98 @@
+body:
+{
+	@shape.line:
+	{
+		a: [-0.750, 0.000]
+		b: [0.750, 0.000]
+		mass: 5.000
+		radius: 0.300
+		friction: 0.600
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.000, -0.250]
+	sound_shoot: "smg_shoot"
+	sound_reload: "smg_reload"
+	sound_empty: "gun_empty"
+	velocity_multiplier: 280.000
+	jitter_multiplier: 0.700
+	damage_multiplier: 1.600
+	recoil_multiplier: 1.100
+	reload_interval: 0.600
+	cycle_interval: 0.070
+	failure_rate: 0.009
+	max_ammo: 30.000
+	flash_size: 0.700
+	projectile_count: 1
+	flags: automatic, full_reload, cycle_on_shoot
+	ammo_filter: ammo_lc
+	action: blowback
+	type: smg
+	feed: drum
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [20.000, 14.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.300, -0.100]
+	radius: 4.000
+	flags: storable
+}
+
+sprite.renderer:
+{
+	scale: [0.900, 0.900]
+	texture: "smg"
+}
+
+health:
+{
+	max: 1400.000
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}

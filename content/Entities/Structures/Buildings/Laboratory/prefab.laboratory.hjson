@@ -1,0 +1,41 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [7.000, 5.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "laboratory"
+}
+
+transform:
+{
+
+}
+
+laboratory:
+{
+
+}
+
+interactable:
+{
+	window_size: [850.000, 512.000]
+}

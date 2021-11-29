@@ -1,0 +1,68 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 5.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 150.000
+	damage_bonus: 50.000
+	cooldown: 0.700
+	max_distance: 2.000
+	aoe: 0.100
+	knockback: 1.000
+	yield: 1.100
+	penetration_falloff: 0.500
+	penetration: 1
+	damage_type: axe
+	hit_mask: world, destructible
+}
+
+melee.state:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 0.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 0
+	texture: "axe"
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

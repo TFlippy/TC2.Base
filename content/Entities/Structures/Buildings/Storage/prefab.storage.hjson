@@ -1,0 +1,59 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, storage, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "storage"
+	mask: "storage.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+	intensity_b: 0.600
+}
+
+claimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory16:
+	{
+		name: "Storage"
+		stack_size_multiplier: 10.000
+		type: storage
+		flags: allow_ducts, ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}

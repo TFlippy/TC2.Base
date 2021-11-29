@@ -1,0 +1,40 @@
+$name: "Boulder"
+$desc: ""
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		radius: 2.250
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		friction: 0.950
+		elasticity: 0.020
+		material: stone
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 50000.000
+}
+
+sprite.renderer:
+{
+	z: -100.000
+	offset: [0.000, -0.625]
+	texture: "boulder.03"
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+	threshold: 0.200
+}

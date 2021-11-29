@@ -1,0 +1,82 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 6.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 20000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "pulverizer"
+}
+
+transform:
+{
+
+}
+
+pulverizer:
+{
+	@inventory16:
+	{
+		name: "Output"
+		stack_size_multiplier: 10.000
+		type: output
+		flags: standalone, allow_ducts, public
+	}
+	
+	@sprite.renderer:
+	{
+		z: -300.000
+		texture: "pulverizer.drum"
+	}
+}
+
+pulverizer.state:
+{
+
+}
+
+wheel:
+{
+	offset: [0.000, 0.000]
+	mass: 100.000
+	friction: 0.400
+	radius_a: 2.000
+	radius_b: 2.000
+	radius_inner: 1.750
+	radius_outer: 2.000
+	
+	@sprite.renderer:
+	{
+		z: -140.000
+		texture: "wheel_2000.iron"
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}
+
+sound.emitter:
+{
+	file: "pulverizer_spin_loop"
+	volume: 0.000
+	pitch: 0.000
+}

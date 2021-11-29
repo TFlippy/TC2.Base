@@ -1,0 +1,25 @@
+projectile:
+{
+	lifetime: 20.000
+}
+
+transform:
+{
+
+}
+
+sprite.renderer:
+{
+	scale: [0.750, 0.750]
+	z: -40.000
+	texture: "shell.cannon"
+}
+
+explosive:
+{
+	radius: 9.000
+	power: 6.000
+	damage_entity: 30000.000
+	damage_terrain: 25000.000
+	primed: true
+}

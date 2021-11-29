@@ -1,0 +1,62 @@
+$name: "Broken Old Lamp Post"
+$desc:
+	'''
+	Some broken-down, long-forgotten lamp post.
+	Can be salvaged for spare parts.
+	'''
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.750]
+		offset: [0.000, -2.500]
+		mass: 25.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1800.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, -2.500]
+	z: -150.000
+	texture: "wreck.lamp_post.01"
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 55.000
+		}
+		{
+			material: "iron_ingot"
+			quantity: 3.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}

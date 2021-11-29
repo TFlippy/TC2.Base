@@ -1,0 +1,45 @@
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.500]
+		mass: 5.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.300
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+sprite.renderer:
+{
+	frame_count: 4
+	frame_count_total: 4
+	texture: "resource.paper"
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "paper"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}

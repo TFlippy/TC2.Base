@@ -1,0 +1,52 @@
+$name: "Badger Den"
+$desc: "A badger family resides in here."
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		radius: 1.500
+		friction: 0.950
+		elasticity: 0.500
+		material: soil
+		layer: entity
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "badger_den"
+}
+
+transform:
+{
+
+}
+
+nameable:
+{
+	name: "Badger Den"
+}
+
+// spawn:
+// {
+// 	characters:
+// 	[
+// 		{
+// 			name: "Badger"
+// 			description: "TODO: Desc"
+// 			flags: animal
+// 			prefab: "badger"
+// 			cost: 0.250
+// 		}
+// 	]
+// }

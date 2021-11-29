@@ -1,0 +1,67 @@
+body:
+{
+	@shape.box:
+	{
+		size: [0.625, 1.125]
+		offset: [0.000, 0.000]
+		mass: 4.000
+		friction: 0.900
+		elasticity: 0.100
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, -0.250]
+	texture: "lantern"
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 800.000
+}
+
+lantern:
+{
+	flicker: 0.200
+	flicker_interval: 0.070
+	lerp: 0.100
+	
+	@light:
+	{
+		color: [1.000, 0.700, 0.000, 1.250]
+		offset: [0.000, 0.000]
+		scale: [48.000, 48.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}
+
+packable:
+{
+
+}

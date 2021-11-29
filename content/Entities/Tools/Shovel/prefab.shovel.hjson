@@ -1,0 +1,60 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.400, 0.000]
+		b: [0.400, 0.000]
+		mass: 5.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.050
+		material: wood
+		layer: entity, solid
+		mask: world
+	}
+}
+
+aimable:
+{
+
+}
+
+shovel:
+{
+	radius: 4.000
+	damage: 700.000
+	cooldown: 0.900
+	max_distance: 4.000
+}
+
+holdable:
+{
+	offset: [-0.300, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 0.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 0
+	texture: "shovel"
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

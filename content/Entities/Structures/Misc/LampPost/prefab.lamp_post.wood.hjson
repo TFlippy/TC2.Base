@@ -1,0 +1,50 @@
+$name: "Lamp Post (Wood)"
+$desc: "A lamp on a wooden post."
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.750]
+		offset: [0.000, 0.000]
+		mass: 25.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "lamp_post.wood"
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.000
+	
+	@light:
+	{
+		color: [1.000, 0.750, 0.100, 1.500]
+		offset: [0.000, -2.500]
+		scale: [80.000, 80.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}

@@ -1,0 +1,134 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 2.000]
+		offset: [0.000, 0.000]
+		friction: 0.990
+		elasticity: 0.030
+		material: metal
+		layer: entity, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -150.000
+	texture: "winch"
+}
+
+wheel:
+{
+	offset: [0.000, 0.000]
+	mass: 5.000
+	friction: 0.800
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@sprite.renderer:
+	{
+		z: -50.000
+		texture: "wheel_1000.iron"
+	}
+}
+
+transform:
+{
+
+}
+
+winch:
+{
+	length: 30.000
+}
+
+rope:
+{
+	texture: "rope"
+	thickness: 0.125
+	scale: 8.000
+}
+
+joint.rope2:
+{
+	distance: 30.000
+	offset_a: [0.800, 0.000]
+	offset_b: [0.000, -0.500]
+	max_force: 5000000000.000
+}
+
++hook|rope:
+{
+	transform:
+	{
+	
+	}
+	
+	sprite.renderer:
+	{
+		offset: [0.000, 0.000]
+		z: -50.000
+		texture: "hook"
+	}
+	
+	body:
+	{
+		@shape.line:
+		{
+			a: [0.000, -0.700]
+			b: [0.000, 0.700]
+			mass: 5.000
+			radius: 0.250
+			friction: 0.950
+			elasticity: 0.100
+			material: metal
+			layer: entity, solid
+			mask: world
+		}
+	}
+	
+	holdable:
+	{
+		radius: 0.000
+		flags: disable_parent_facing
+	}
+	
+	interactable:
+	{
+	
+	}
+	
+	joint.base:
+	{
+		offset_a: [0.000, 0.500]
+		max_force: 100000000.000
+		max_torque: 1.000
+		flags: no_wrap, no_stress, no_aiming
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_bias: 8.000
+	}
+	
+	attachment:
+	{
+	
+	}
+}

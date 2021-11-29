@@ -1,0 +1,60 @@
+$name: "Mine"
+$desc: "Seems to be empty at the moment."
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [8.000, 6.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: stone
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+sprite.renderer:
+{
+	z: -100.000
+	texture: "mine"
+	mask: "mine.mask"
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [700.000, 336.000]
+}
+
+faction.colorable:
+{
+
+}
+
+building:
+{
+
+}
+
+claimable:
+{
+
+}
+
+mine:
+{
+
+}

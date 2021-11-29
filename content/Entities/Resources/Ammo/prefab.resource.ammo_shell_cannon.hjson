@@ -1,0 +1,59 @@
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.200
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+sprite.renderer:
+{
+	frame_count: 4
+	frame_count_total: 4
+	texture: "resource.ammo_shell_cannon"
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_shell_cannon"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 400.000
+}
+
+explosive:
+{
+	radius: 6.000
+	power: 5.000
+	damage_entity: 14000.000
+	damage_terrain: 14000.000
+	primed: false
+}

@@ -1,0 +1,116 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [7.000, 5.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 18000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "headquarters"
+	mask: "headquarters.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	name: "Headquarters"
+}
+
+spawn:
+{
+	flags: faction
+	characters:
+	[
+		{
+			name: "Human"
+			description: "TODO: Desc"
+			flags: human
+			prefab: "human"
+			cost: 1.000
+		}
+	]
+}
+
+storage:
+{
+	@inventory16:
+	{
+		name: "Headquarters"
+		stack_size_multiplier: 10.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+headquarters:
+{
+
+}
+
+claimable:
+{
+
+}
+
+claimer:
+{
+	radius: 40.000
+	strength: 20.000
+	falloff: 2.000
+}
+
+shop:
+{
+	name: "Headquarters"
+	recipe_groups:
+	[
+		5
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+interactable:
+{
+	window_size: [504.000, 288.000]
+}
+
+stockpile:
+{
+
+}

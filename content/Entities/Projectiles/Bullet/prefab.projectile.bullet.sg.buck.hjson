@@ -1,0 +1,17 @@
+projectile:
+{
+	damage_base: 250.000
+	damage_bonus: 200.000
+	lifetime: 5.000
+	damage_type: bullet_sg
+}
+
+projectile.renderer:
+{
+	length: 4.000
+}
+
+transform:
+{
+
+}

@@ -1,0 +1,93 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.000, 6.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 35000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "distillery"
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [120.000, 144.000]
+}
+
+distillery:
+{
+	efficiency: 0.900
+	
+	@inventory4:
+	{
+		name: "Output"
+		stack_size_multiplier: 2.000
+		type: output
+		flags: allow_ducts
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 3.000]
+		offset: [0.500, 1.300]
+		scale: [24.000, 18.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+burner:
+{
+	smoke_offset: [-1.375, -3.500]
+	capacity: 20.000
+	energy_loss: 10000.000
+	efficiency: 0.900
+	drain_multiplier: 10.000
+	
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 4.000
+		filter_flags: fuel
+		type: fuel
+		flags: ignore_mass
+	}
+	
+	@sound.emitter:
+	{
+		file: "distillery_loop"
+		volume: 0.000
+		pitch: 0.500
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}

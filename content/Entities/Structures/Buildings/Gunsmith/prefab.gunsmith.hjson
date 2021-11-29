@@ -1,0 +1,63 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		offset: [0.000, 0.000]
+		mass: 2000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	z: -100.000
+	texture: "gunsmith"
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [552.000, 336.000]
+}
+
+shop:
+{
+	name: "Gun Workshop"
+	recipe_groups:
+	[
+		3
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+workshop:
+{
+
+}

@@ -1,0 +1,58 @@
+body:
+{
+	inventory_weight_multiplier: 0.300
+	
+	@shape.box:
+	{
+		size: [1.500, 1.200]
+		offset: [0.000, 0.000]
+		mass: 20.000
+		friction: 0.950
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid, crate, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1500.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	radius: 4.000
+}
+
+sprite.renderer:
+{
+	texture: "crate.small"
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory4:
+	{
+		name: "Small Crate"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: public
+	}
+}
+
+interactable:
+{
+	window_size: [96.000, 96.000]
+}
+
+cover:
+{
+	threshold: 0.600
+}

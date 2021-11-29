@@ -1,0 +1,95 @@
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.000, 5.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+sprite.renderer:
+{
+	z: -150.000
+	texture: "outpost"
+	mask: "outpost.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	name: "Outpost"
+}
+
+spawn:
+{
+	flags: faction
+	characters:
+	[
+		{
+			name: "Human"
+			description: "TODO: Desc"
+			flags: human
+			prefab: "human"
+			cost: 1.000
+		}
+	]
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Outpost"
+		stack_size_multiplier: 5.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+headquarters:
+{
+
+}
+
+claimable:
+{
+
+}
+
+claimer:
+{
+	radius: 32.000
+	strength: 5.000
+	falloff: 2.500
+}
+
+interactable:
+{
+	window_size: [504.000, 288.000]
+}

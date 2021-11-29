@@ -1,0 +1,63 @@
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.400]
+		b: [0.000, -0.400]
+		mass: 0.800
+		radius: 0.200
+		friction: 0.980
+		elasticity: 0.600
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 400.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.125, -0.125]
+	scale: [0.800, 0.800]
+	texture: "grenade"
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 4.000
+	failure_chance: 0.000
+	sound: "grenade_pin"
+}
+
+explosive:
+{
+	radius: 16.000
+	power: 2.000
+	damage_entity: 8000.000
+	damage_terrain: 3000.000
+	smoke_amount: 0.700
+}
+
+packable:
+{
+
+}

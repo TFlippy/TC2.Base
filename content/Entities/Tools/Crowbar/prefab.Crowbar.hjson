@@ -1,0 +1,63 @@
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 4.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 120.000
+	damage_bonus: 200.000
+	cooldown: 0.800
+	max_distance: 2.000
+	aoe: 1.000
+	knockback: 0.900
+	yield: 0.850
+	penetration_falloff: 0.900
+	penetration: 1
+	damage_type: club
+	hit_mask: world, destructible
+}
+
+melee.state:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	z: 0.000
+	texture: "crowbar"
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+packable:
+{
+
+}

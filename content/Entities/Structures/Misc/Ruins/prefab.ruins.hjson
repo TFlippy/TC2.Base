@@ -1,0 +1,47 @@
+$name: "Ruins"
+$desc: "People often use these landmarks for navigation."
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 6.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		layer: entity, building
+		mask: world
+	}
+}
+
+sprite.renderer:
+{
+	z: -400.000
+	texture: "ruins"
+}
+
+transform:
+{
+
+}
+
+nameable:
+{
+	name: "Ruins"
+}
+
+spawn:
+{
+	flags: none
+	characters:
+	[
+		{
+			name: "Human"
+			description: "TODO: Desc"
+			flags: human
+			prefab: "human"
+			cost: 1.000
+		}
+	]
+}

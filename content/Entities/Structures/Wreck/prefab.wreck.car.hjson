@@ -1,0 +1,67 @@
+$name: "Wrecked Car"
+$desc:
+	'''
+	A brand new car after 3 years of service to an imperial citizen.
+	Can be salvaged for spare parts.
+	'''
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.500, 2.000]
+		offset: [0.000, 0.000]
+		mass: 500.000
+		friction: 0.850
+		elasticity: 0.100
+		material: metal
+		layer: entity, solid, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	offset: [-0.375, 0.000]
+	z: -50.000
+	texture: "wreck.car"
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 450.000
+		}
+		{
+			material: "iron_ingot"
+			quantity: 11.000
+		}
+		{
+			material: "iron_plate"
+			quantity: 37.000
+		}
+		{
+			material: "machine_parts"
+			quantity: 14.000
+		}
+	]
+}
+
+cover:
+{
+	threshold: 0.200
+}

@@ -1,0 +1,67 @@
+$name: "Trashed Trash Can"
+$desc:
+	'''
+	Someone had a heap of fun with this.
+	Maybe it contains some ancient treasure?
+	'''
+body:
+{
+	@shape.box:
+	{
+		size: [1.200, 1.700]
+		offset: [0.000, 0.000]
+		mass: 20.000
+		friction: 0.950
+		elasticity: 0.100
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 700.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+sprite.renderer:
+{
+	texture: "wreck.trashcan"
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 65.000
+		}
+		{
+			material: "iron_plate"
+			quantity: 3.000
+		}
+		{
+		
+		}
+		{
+		
+		}
+	]
+}
+
+cover:
+{
+	threshold: 0.600
+}

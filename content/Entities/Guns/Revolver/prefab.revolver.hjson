@@ -1,0 +1,101 @@
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.400, 0.000]
+		b: [0.400, 0.000]
+		mass: 1.200
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.250
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [0.700, -0.125]
+	sound_shoot: "revolver_shoot"
+	sound_cycle: "revolver_cycle"
+	sound_reload: "revolver_reload"
+	velocity_multiplier: 300.000
+	jitter_multiplier: 0.100
+	damage_multiplier: 2.500
+	recoil_multiplier: 0.500
+	reload_interval: 0.500
+	cycle_interval: 0.100
+	failure_rate: 0.002
+	max_ammo: 6.000
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_lc
+	action: revolver
+	type: handgun
+	feed: cylinder
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [16.000, 14.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 0.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 0
+	texture: "revolver"
+}
+
+health:
+{
+	max: 1200.000
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

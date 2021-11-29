@@ -1,0 +1,76 @@
+$name: "Door (Metal)"
+$desc:
+	'''
+	A durable metal door.
+	Can be locked.
+	'''
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [0.500, 3.000]
+		offset: [0.000, 0.000]
+		mass: 50.000
+		friction: 0.750
+		elasticity: 0.300
+		material: metal
+		layer: entity, solid, building
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 7000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: 100.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 5
+	frame_count_total: 5
+	texture: "door.metal"
+	mask: "door.metal.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+claimable:
+{
+
+}
+
+interactable:
+{
+
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [1.600, 3.000]
+	size_closed: [0.500, 3.000]
+	offset_open: [0.700, 0.000]
+	offset_closed: [0.000, 0.000]
+	direction: horizontal
+	flags: lockable
+}
+
+cover:
+{
+	threshold: 0.300
+}

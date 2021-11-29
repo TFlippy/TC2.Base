@@ -1,0 +1,331 @@
+body:
+{
+	@shape.circle:
+	{
+		mass: 25.000
+		radius: 0.500
+		friction: 0.700
+		elasticity: 0.250
+		material: flesh
+		layer: entity, solid
+		mask: world
+	}
+}
+
+organic:
+{
+
+}
+
+health:
+{
+	max: 3000.000
+}
+
+sprite.renderer:
+{
+	offset: [0.000, 0.000]
+	z: -30.000
+	fps: 0
+	frame_offset: 0
+	frame_count: 0
+	frame_count_total: 5
+	texture: "badger.body.a"
+	
+	@damagesprite:
+	{
+	
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.100
+	}
+}
+
+facing:
+{
+
+}
+
+holdable:
+{
+
+}
+
+npc:
+{
+	navigation_state: searching
+	find_distance_max: 10.000
+	lose_distance_max: 15.000
+	follow_distance_max: 1.000
+	follow_distance_min: 0.000
+}
+
+runner:
+{
+	walk_force: 8000.000
+	jump_force: 15000.000
+	max_speed: 10.000
+}
+
+animal:
+{
+	attack_distance: 1.500
+	attack_cooldown: 0.700
+}
+
+threat:
+{
+	priority: 2.000
+}
+
+dive:
+{
+	sound: "badger_pounce"
+	cooldown: 2.000
+	speed: 20.000
+}
+
+norotate:
+{
+	bias: 0.100
+	multiplier: 1.000
+	mass_multiplier: 20.000
+}
+
+interactable:
+{
+	window_size: [192.000, 232.000]
+}
+
++0|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.700, 0.000]
+		max_force: 8000.000
+		max_torque: 500.000
+		flags: organic, control_write
+	}
+	
+	joint.pivot:
+	{
+	
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 500.000
+		damping: 20.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 8000.000
+		min: -0.500
+		max: 0.500
+	}
+	
+	+butt|child:
+	{
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 25.000
+				radius: 0.500
+				friction: 0.700
+				elasticity: 0.250
+				material: flesh
+				layer: entity, solid
+				mask: world
+			}
+		}
+		
+		norotate:
+		{
+			bias: 0.010
+			multiplier: 1.000
+			mass_multiplier: 25.000
+		}
+		
+		organic:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 2700.000
+		}
+		
+		threat:
+		{
+			priority: 3.000
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		sprite.renderer:
+		{
+			offset: [0.000, 0.000]
+			z: -40.000
+			fps: 0
+			frame_offset: 0
+			frame_count: 1
+			frame_count_total: 5
+			texture: "badger.body.b"
+			
+			@damagesprite:
+			{
+			
+			}
+		}
+		
+		runner:
+		{
+			walk_force: 6000.000
+			jump_force: 1000.000
+			max_speed: 10.000
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+	}
+}
+
++1|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.500, -0.125]
+		max_force: 12000.000
+		max_torque: 1000.000
+		flags: organic, control_write
+	}
+	
+	joint.pivot:
+	{
+	
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 400.000
+		damping: 20.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 8000.000
+		min: -1.000
+		max: 1.000
+	}
+	
+	+head|child:
+	{
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 15.000
+				radius: 0.400
+				friction: 0.700
+				elasticity: 0.250
+				material: flesh
+				layer: entity, solid
+				mask: world
+			}
+		}
+		
+		lookat:
+		{
+			min: -2.000
+			max: 2.000
+			torque: 500.000
+			speed: 1.000
+		}
+		
+		biter:
+		{
+			sound: "badger_attack"
+			damage_base: 10.000
+			damage_bonus: 40.000
+			cooldown: 0.800
+			max_distance: 1.500
+			aoe: 0.250
+			damage_type: bite
+			hit_mask: destructible
+		}
+		
+		organic:
+		{
+			tags: brain
+		}
+		
+		health:
+		{
+			max: 2300.000
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		sprite.renderer:
+		{
+			offset: [0.000, 0.000]
+			z: -30.000
+			fps: 0
+			frame_offset: 0
+			frame_count: 1
+			frame_count_total: 5
+			texture: "badger.head"
+			
+			@damagesprite:
+			{
+			
+			}
+		}
+		
+		threat:
+		{
+			priority: 4.000
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+	}
+}

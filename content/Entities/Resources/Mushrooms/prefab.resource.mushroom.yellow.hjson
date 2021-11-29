@@ -1,0 +1,46 @@
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.500]
+		mass: 50.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.400
+		material: mushroom
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+sprite.renderer:
+{
+	frame_count: 4
+	frame_count_total: 4
+	texture: "resource.mushroom.yellow"
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "mushroom.yellow"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
