@@ -24,6 +24,11 @@ body:
 	}
 }
 
+health:
+{
+	max: 500.000
+}
+
 gun:
 {
 	muzzle_offset: [0.000, 0.000]
