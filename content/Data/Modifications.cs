@@ -10,7 +10,7 @@ namespace TC2.Base
 			(
 				identifier: "health.reinforced_structure",
 				name: "Reinforced Structure",
-				description: "Increases the health",
+				description: "Increases durability.",
 
 				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -33,7 +33,7 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.5f;
+							requirement.amount *= 1.20f;
 						}
 					}
 				}
@@ -41,9 +41,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
-				identifier: "health.smirgl_skeleton",
-				name: "Smirgl Skeleton",
-				description: "Increases the health massivly by incorporating smirgl into the design",
+				identifier: "health.smirgl_frame",
+				name: "Smirgl Frame",
+				description: "Replaces entire frame with smirgl, greatly increasing durability.",
 
 				can_add: static (in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -57,45 +57,47 @@ namespace TC2.Base
 
 				apply: static (ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.max *= 2.00f;
-					//TODO: this should add weight
+					data.max *= 3.50f;
+					// TODO: this should add weight
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					float ingotCount = 0f;
+					var ingot_amount = 0.00f;
 					foreach (ref var requirement in requirements)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 2.0f;
-							requirement.difficulty += 4f;
+							requirement.amount *= 2.00f;
+							requirement.difficulty += 4.00f;
 						}
 						else if(requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasFlag(Material.Flags.Ingot))
+							if (material.flags.HasAll(Material.Flags.Ingot))
 							{
-								ingotCount += requirement.amount;
+								ingot_amount += requirement.amount;
+								material = default;
 							}
 						}
 					}
-					for (int i = 0; i < 8; i++)
+
+					for (int i = 0; i < requirements.Length; i++)
 					{
-						if (requirements[i].type == Crafting.Requirement.Type.Undefined) //TODO: Added materials should stack just in case there is multiple, special function?
+						if (requirements[i].type == Crafting.Requirement.Type.Undefined) // TODO: Added materials should stack just in case there is multiple, special function?
 						{	
-							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 3f + ingotCount/3); //Adds smirgl equal to 3 + ingot count/3
-							i = 8;
+							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 3.00f + (ingot_amount * 0.30f)); //Adds smirgl equal to 3 + ingot count/3
+							break;
 						}
 					}
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data> //Can be used on any recepie which results in a thing (not a mat)
+			definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recepie which results in a thing (not a mat)
 			(
 				identifier: "body.efficient_crafting",
 				name: "Efficient Crafting",
-				description: "Rework the design to reduce material costs ever so slightly",
+				description: "Rework the design to reduce material costs slightly.",
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -103,12 +105,12 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 0.90f;
+							requirement.amount *= 0.80f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.7f;
-							requirement.difficulty += 3;
+							requirement.amount *= 1.05f;
+							requirement.difficulty += 2.50f;
 						}
 					}
 				}
@@ -1471,7 +1473,7 @@ namespace TC2.Base
 			(
 				identifier: "melee.battering",
 				name: "Battering",
-				description: "Increases the melee weapons knockback",
+				description: "Greatly increases knockback.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1499,11 +1501,11 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.3f;
+							requirement.amount *= 1.30f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.2f;
+							requirement.amount *= 1.10f;
 						}
 					}
 				}
@@ -1513,7 +1515,7 @@ namespace TC2.Base
 			(
 				identifier: "melee.hooking",
 				name: "Hooking",
-				description: "Inverts the knockback of the weapon, by adding tiny hooks",
+				description: "Inverts the knockback by adding tiny hooks.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1527,7 +1529,7 @@ namespace TC2.Base
 
 				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.knockback *= -1.00f;
+					data.knockback *= -0.75f;
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1536,11 +1538,11 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.1f;
+							requirement.amount *= 1.10f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 2f;
+							requirement.amount *= 1.30f;
 						}
 					}
 				}
@@ -1550,7 +1552,7 @@ namespace TC2.Base
 			(
 				identifier: "melee.longer_handle",
 				name: "Longer Handle",
-				description: "Lengthens the handle of the weapon allowing you to strike further",
+				description: "Lengthens the handle of the weapon, allowing you to strike further with more power.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1566,6 +1568,7 @@ namespace TC2.Base
 				{
 					data.max_distance *= 1.20f;
 					data.cooldown *= 1.10f;
+					data.damage_base *= 1.15f;
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1574,7 +1577,7 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.1f;
+							requirement.amount *= 1.10f;
 						}
 					}
 				}
@@ -1584,7 +1587,7 @@ namespace TC2.Base
 			(
 				identifier: "melee.uneven_strike",
 				name: "Uneven Strike",
-				description: "Decreases minnimum damage but increases damage on average",
+				description: "Reduces base damage, but also increases bonus damage.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1608,11 +1611,11 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.2f;
+							requirement.amount *= 1.20f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 0.8f;
+							requirement.amount *= 0.80f;
 						}
 					}
 				}
@@ -1622,7 +1625,7 @@ namespace TC2.Base
 			(
 				identifier: "melee.reliable_strike",
 				name: "Reliable Strike",
-				description: "Half of the weapons bonus damage is moved to the base damage",
+				description: "Half of the weapon's bonus damage is converted to base damage",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1631,7 +1634,7 @@ namespace TC2.Base
 					{
 						if (modifications[i].id == handle.id) count++;
 					}
-					return count < 2 && data.damage_bonus > 0;
+					return count < 2 && data.damage_bonus > 0.00f;
 				},
 
 				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1646,12 +1649,12 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.1f;
+							//requirement.amount *= 1.10f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.8f;
-							requirement.difficulty += 1;
+							requirement.amount *= 1.20f;
+							requirement.difficulty += 1.00f;
 						}
 					}
 				}
@@ -1659,9 +1662,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
-				identifier: "melee.hollow_swing",
-				name: "Hollow Swing",
-				description: "Hollow out parts of the weapon to increase how fast you can swing the weapon",
+				identifier: "melee.hollowed",
+				name: "Hollowed",
+				description: "Hollows out parts of the weapon, increasing swing speed, while also reducing damage, knockback and cost.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1675,10 +1678,11 @@ namespace TC2.Base
 
 				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.damage_base *= 0.90f;
+					data.damage_base *= 0.80f;
 					data.damage_bonus *= 0.90f;
-					data.cooldown *= 0.80f;
-					//TODO: This should reduce the weight as well
+					data.knockback *= 0.30f;
+					data.cooldown *= 0.75f;
+					// TODO: This should reduce the weight as well
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1687,12 +1691,12 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 0.9f;
+							requirement.amount *= 0.70f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.7f;
-							requirement.difficulty += 1;
+							requirement.amount *= 1.70f;
+							requirement.difficulty += 1.00f;
 							if(requirement.work == Work.Type.Smithing)
 							{
 								requirement.difficulty += 3.00f;
@@ -1705,20 +1709,20 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
-				identifier: "melee.resourcefull_sharpening",
-				name: "Resourcefull Sharpening",
-				description: "Sharpen the tool to render less of the struck material unusable therefore increasing resource yield",
+				identifier: "melee.resourceful_sharpening",
+				name: "Resourceful Sharpening",
+				description: "Sharpens the tool to render less of the struck material unusable, increasing resource yield.",
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.yield > 0 && data.yield < 1.5 && data.damage_type == Damage.Type.Slash;
+					return data.yield > 0.00f && data.yield < 1.50f && data.damage_type == Damage.Type.Slash;
 				},
 
 				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_base *= 0.90f;
 					data.damage_bonus *= 0.90f;
-					data.yield += 0.10f;
+					data.yield = Maths.Clamp(data.yield + 0.10f, 0.00f, 1.00f);
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1727,8 +1731,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.2f;
-							requirement.difficulty += 3;
+							requirement.amount *= 1.20f;
+							requirement.difficulty += 3.00f;
 						}
 					}
 				}
@@ -1738,17 +1742,19 @@ namespace TC2.Base
 			(
 				identifier: "melee.toy_weapon",
 				name: "Toy Weapon",
-				description: "Dull the weapon to deal no damage", //Currently this also reduces kockback to 0 cause knockback is bad and based on damage
+				description: "Dulls the weapon to deal no damage.", // Currently this also reduces kockback to 0 cause knockback is bad and based on damage
 
 				can_add: static (in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					return data.damage_base > 0.00f || data.damage_bonus > 0.00f;
 				},
 
-				apply: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_base = 0.00f;
 					data.damage_bonus = 0.00f;
+
+					return true;
 				},
 
 				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1757,7 +1763,7 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 0.7f;
+							requirement.amount *= 0.70f;
 						}
 					}
 				}
@@ -1765,9 +1771,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Drill.Data>
 			(
-				identifier: "drill.Improved_mechanism",
-				name: "Imrpoved Mechanism",
-				description: "Improvements to the Mechanism increases drill speed",
+				identifier: "drill.overclocked_mechanism",
+				name: "Overclocked Mechanism",
+				description: "Increases drilling speed.",
 
 				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1790,8 +1796,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.5f;
-							requirement.difficulty += 5f;
+							requirement.amount *= 1.50f;
+							requirement.difficulty += 5.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
@@ -1809,7 +1815,7 @@ namespace TC2.Base
 			(
 				identifier: "drill.larger_drill_head",
 				name: "Larger Drill Head",
-				description: "Larger Drill head digs more but spins slower",
+				description: "Increases drilling area, but reduces speed.",
 
 				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1823,7 +1829,7 @@ namespace TC2.Base
 
 				apply: static (ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.speed *= 0.80f;
+					data.speed *= 0.70f;
 					data.radius *= 2.00f;
 				},
 
@@ -1833,12 +1839,12 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.5f;
-							requirement.difficulty += 1f;
+							requirement.amount *= 1.50f;
+							requirement.difficulty += 1.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 1.5f;
+							requirement.amount *= 1.50f;
 						}
 					}
 				}
@@ -1846,9 +1852,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Drill.Data>
 			(
-				identifier: "drill.smrgl_drill_head",
+				identifier: "drill.smirgl_head",
 				name: "Smirgl Drill Head",
-				description: "Harder head made out of smirgl",
+				description: "Greatly increases drill power at cost of reduced speed.",
 
 				can_add: static (in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1862,7 +1868,7 @@ namespace TC2.Base
 
 				apply: static (ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.damage *= 3.00f;
+					data.damage *= 2.50f;
 					data.speed *= 0.80f;
 				},
 
@@ -1872,27 +1878,25 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.5f;
-							requirement.difficulty += 3f;
+							requirement.amount *= 1.20f;
+							requirement.difficulty += 2.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							if (requirement.type == Crafting.Requirement.Type.Resource)
+						{				
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasFlag(Material.Flags.Ingot))
 							{
-								ref var material = ref requirement.material.GetDefinition();
-								if (material.flags.HasFlag(Material.Flags.Ingot))
-								{
-									requirement.amount *= 2.00f;
-								}
-							}
+								requirement.amount *= 1.25f;
+							}		
 						}
 					}
-					for (int i = 0; i < 8; i++)
+
+					for (int i = 0; i < requirements.Length; i++)
 					{
 						if (requirements[i].type == Crafting.Requirement.Type.Undefined)
 						{
-							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 10f);
-							i = 8;
+							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 5.00f);
+							break;
 						}
 					}
 				}
