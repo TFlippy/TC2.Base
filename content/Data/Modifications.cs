@@ -71,7 +71,7 @@ namespace TC2.Base
 							requirement.amount *= 2.00f;
 							requirement.difficulty += 4.00f;
 						}
-						else if(requirement.type == Crafting.Requirement.Type.Resource)
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Ingot))
@@ -82,14 +82,7 @@ namespace TC2.Base
 						}
 					}
 
-					for (int i = 0; i < requirements.Length; i++)
-					{
-						if (requirements[i].type == Crafting.Requirement.Type.Undefined) // TODO: Added materials should stack just in case there is multiple, special function?
-						{	
-							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 3.00f + (ingot_amount * 0.30f)); //Adds smirgl equal to 3 + ingot count/3
-							break;
-						}
-					}
+					requirements.Add(Crafting.Requirement.Resource("smirgl_ingot", 3.00f + (ingot_amount * 0.30f)));
 				}
 			));
 
@@ -1697,7 +1690,7 @@ namespace TC2.Base
 						{
 							requirement.amount *= 1.70f;
 							requirement.difficulty += 1.00f;
-							if(requirement.work == Work.Type.Smithing)
+							if (requirement.work == Work.Type.Smithing)
 							{
 								requirement.difficulty += 3.00f;
 								requirement.amount += 100.00f;
@@ -1882,23 +1875,16 @@ namespace TC2.Base
 							requirement.difficulty += 2.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
-						{				
+						{
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Ingot))
 							{
 								requirement.amount *= 1.25f;
-							}		
+							}
 						}
 					}
 
-					for (int i = 0; i < requirements.Length; i++)
-					{
-						if (requirements[i].type == Crafting.Requirement.Type.Undefined)
-						{
-							requirements[i] = Crafting.Requirement.Resource("smirgl_ingot", 5.00f);
-							break;
-						}
-					}
+					requirements.Add(Crafting.Requirement.Resource("smirgl_ingot", 5.00f));
 				}
 			));
 		}
