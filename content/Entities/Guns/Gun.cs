@@ -56,7 +56,8 @@ namespace TC2.Base.Components
 			Clip,
 			Magazine,
 			Belt,
-			Breech
+			Breech,
+			Front
 		}
 
 		public enum Action: byte
