@@ -20,7 +20,7 @@ body:
 
 health:
 {
-	max: 40000.000
+	max: 50000.000
 }
 
 sprite.renderer:
@@ -95,5 +95,6 @@ rope:
 	spawner:
 	{
 		prefab: "hornet"
+		interval: 60.000
 	}
 }

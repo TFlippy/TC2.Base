@@ -24,6 +24,11 @@ body:
 	}
 }
 
+health:
+{
+	max: 10000.000
+}
+
 drill:
 {
 	damage: 150.000

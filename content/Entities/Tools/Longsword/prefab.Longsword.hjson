@@ -19,6 +19,11 @@ body:
 	}
 }
 
+health:
+{
+	max: 3000.000
+}
+
 melee:
 {
 	sound_swing: "tool_swing_00"
