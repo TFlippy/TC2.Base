@@ -59,6 +59,12 @@ namespace TC2.Base
 				{
 					data.max *= 3.50f;
 					// TODO: this should add weight
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 2.00f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -217,18 +223,24 @@ namespace TC2.Base
 					}
 
 					data.max_ammo += amount;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.20f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					foreach (ref var requirement in requirements_new)
+					foreach (ref readonly var requirement in requirements_old)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
 							if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
 							{
-								requirement.amount *= 1.30f;
+								requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.30f));
 							}
 						}
 					}
@@ -964,6 +976,12 @@ namespace TC2.Base
 					data.stability += 0.10f;
 					data.stability = Maths.Clamp(data.stability * 1.10f, 0.00f, 1.00f);
 
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.05f;
+					}
+
 					return true;
 				},
 
@@ -1016,6 +1034,12 @@ namespace TC2.Base
 					data.failure_rate += 0.03f;
 					data.stability *= Maths.Clamp(data.stability, 0.00f, Maths.Lerp(0.98f, 0.95f, value));
 
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
+
 					return true;
 				},
 
@@ -1057,6 +1081,12 @@ namespace TC2.Base
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier += 1.50f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
 
 					return true;
 				},
@@ -1396,38 +1426,81 @@ namespace TC2.Base
 
 					}
 
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.60f;
+					}
+
 					return true;
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					foreach (ref var requirement in requirements_new)
+					for (int i = 0; i < requirements_old.Length; i++)
 					{
-						if (requirement.type == Crafting.Requirement.Type.Work)
+						var requirement = requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Metal))
+							{
+								requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.75f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							switch (requirement.work)
 							{
 								case Work.Type.Machining:
 								{
-									requirement.amount += 100.00f;
+									requirement.amount *= 0.50f;
+									requirements_new.Add(requirement);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.amount += 80.00f;
+									requirement.amount *= 0.75f;
+									requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.70f;
+									requirements_new.Add(requirement);
 								}
 								break;
 							}
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Metal))
-							{
-								requirement.amount *= 1.50f;
-							}
-						}
+
+						//if (requirement.type == Crafting.Requirement.Type.Work)
+						//{
+						//	switch (requirement.work)
+						//	{
+						//		case Work.Type.Machining:
+						//		{
+						//			requirement.amount += 100.00f;
+						//		}
+						//		break;
+
+						//		case Work.Type.Smithing:
+						//		{
+						//			requirement.amount += 80.00f;
+						//		}
+						//		break;
+						//	}
+						//}
+						//else if (requirement.type == Crafting.Requirement.Type.Resource)
+						//{
+						//	ref var material = ref requirement.material.GetDefinition();
+						//	if (material.flags.HasAll(Material.Flags.Metal))
+						//	{
+						//		requirement.amount *= 1.50f;
+						//	}
+						//}
 					}
 				}
 			));
@@ -1486,6 +1559,12 @@ namespace TC2.Base
 					}
 					data.knockback *= 2.00f;
 					//TODO: Should also increase the weight
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.30f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1676,6 +1755,12 @@ namespace TC2.Base
 					data.knockback *= 0.30f;
 					data.cooldown *= 0.75f;
 					// TODO: This should reduce the weight as well
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.70f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1824,6 +1909,12 @@ namespace TC2.Base
 				{
 					data.speed *= 0.70f;
 					data.radius *= 2.00f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.30f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1863,6 +1954,12 @@ namespace TC2.Base
 				{
 					data.damage *= 2.50f;
 					data.speed *= 0.80f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.20f;
+					}
 				},
 
 				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
