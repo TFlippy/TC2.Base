@@ -77,7 +77,7 @@ namespace TC2.Base
 							if (material.flags.HasAll(Material.Flags.Ingot))
 							{
 								ingot_amount += requirement.amount;
-								material = default;
+								requirement = default;
 							}
 						}
 					}
@@ -93,28 +93,28 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recepie which results in a thing (not a mat)
-			(
-				identifier: "body.efficient_crafting",
-				name: "Efficient Crafting",
-				description: "Rework the design to reduce material costs slightly.",
+			//definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
+			//(
+			//	identifier: "body.efficient_crafting",
+			//	name: "Efficient Crafting",
+			//	description: "Rework the design to reduce material costs slightly.",
 
-				requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					foreach (ref var requirement in requirements)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							requirement.amount *= 0.80f;
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							requirement.amount *= 1.05f;
-							requirement.difficulty += 2.50f;
-						}
-					}
-				}
-			));
+			//	requirements: static (Span<Crafting.Requirement> requirements, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		foreach (ref var requirement in requirements)
+			//		{
+			//			if (requirement.type == Crafting.Requirement.Type.Resource)
+			//			{
+			//				requirement.amount *= 0.80f;
+			//			}
+			//			else if (requirement.type == Crafting.Requirement.Type.Work)
+			//			{
+			//				requirement.amount *= 1.05f;
+			//				requirement.difficulty += 2.50f;
+			//			}
+			//		}
+			//	}
+			//));
 
 			definitions.Add(Modification.Definition.New<Fuse.Data>
 			(
@@ -233,7 +233,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasFlag(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+							if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
 							{
 								requirement.amount *= 1.30f;
 							}
@@ -366,7 +366,7 @@ namespace TC2.Base
 
 				finalize: static (ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (!data.flags.HasFlag(Gun.Flags.Automatic))
+					if (!data.flags.HasAll(Gun.Flags.Automatic))
 					{
 						switch (data.action)
 						{
@@ -404,7 +404,7 @@ namespace TC2.Base
 
 				finalize: static (ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.flags.HasFlag(Gun.Flags.Automatic))
+					if (data.flags.HasAll(Gun.Flags.Automatic))
 					{
 						switch (data.action)
 						{
@@ -434,12 +434,12 @@ namespace TC2.Base
 
 				can_add: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasFlag(Material.Flags.Ammo_AC) || data.ammo_filter.HasFlag(Material.Flags.Ammo_MG) || data.ammo_filter.HasFlag(Material.Flags.Ammo_HC);
+					return data.ammo_filter.HasAll(Material.Flags.Ammo_AC) || data.ammo_filter.HasAll(Material.Flags.Ammo_MG) || data.ammo_filter.HasAll(Material.Flags.Ammo_HC);
 				},
 
 				apply: static (ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.ammo_filter.HasFlag(Material.Flags.Ammo_AC))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_MG;
 						data.ammo_filter &= ~Material.Flags.Ammo_AC;
@@ -460,7 +460,7 @@ namespace TC2.Base
 						data.smoke_size *= 0.90f;
 						data.flash_size *= 0.90f;
 					}
-					else if (data.ammo_filter.HasFlag(Material.Flags.Ammo_MG))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_HC;
 						data.ammo_filter &= ~Material.Flags.Ammo_MG;
@@ -481,7 +481,7 @@ namespace TC2.Base
 						data.smoke_size *= 0.90f;
 						data.flash_size *= 0.90f;
 					}
-					else if (data.ammo_filter.HasFlag(Material.Flags.Ammo_HC))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_LC;
 						data.ammo_filter &= ~Material.Flags.Ammo_HC;
@@ -513,12 +513,12 @@ namespace TC2.Base
 
 				can_add: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasFlag(Material.Flags.Ammo_LC) || data.ammo_filter.HasFlag(Material.Flags.Ammo_HC) || data.ammo_filter.HasFlag(Material.Flags.Ammo_MG);
+					return data.ammo_filter.HasAll(Material.Flags.Ammo_LC) || data.ammo_filter.HasAll(Material.Flags.Ammo_HC) || data.ammo_filter.HasAll(Material.Flags.Ammo_MG);
 				},
 
 				apply: static (ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.ammo_filter.HasFlag(Material.Flags.Ammo_LC))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_HC;
 						data.ammo_filter &= ~Material.Flags.Ammo_LC;
@@ -539,7 +539,7 @@ namespace TC2.Base
 						data.smoke_size *= 1.30f;
 						data.flash_size *= 1.10f;
 					}
-					else if (data.ammo_filter.HasFlag(Material.Flags.Ammo_HC))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_MG;
 						data.ammo_filter &= ~Material.Flags.Ammo_HC;
@@ -560,7 +560,7 @@ namespace TC2.Base
 						data.smoke_size *= 1.30f;
 						data.flash_size *= 1.10f;
 					}
-					else if (data.ammo_filter.HasFlag(Material.Flags.Ammo_MG))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						data.ammo_filter |= Material.Flags.Ammo_AC;
 						data.ammo_filter &= ~Material.Flags.Ammo_MG;
@@ -944,7 +944,7 @@ namespace TC2.Base
 						break;
 					}
 
-					if (data.flags.HasFlag(Gun.Flags.Automatic))
+					if (data.flags.HasAll(Gun.Flags.Automatic))
 					{
 						data.failure_rate = Maths.Clamp(data.failure_rate * 1.50f, 0.00f, 1.00f);
 					}
@@ -981,7 +981,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasFlag(Material.Flags.Manufactured))
+							if (!material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.75f;
 							}
@@ -1035,7 +1035,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasFlag(Material.Flags.Manufactured))
+							if (!material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= Maths.Lerp(0.80f, 0.60f, value);
 							}
@@ -1075,7 +1075,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasFlag(Material.Flags.Manufactured))
+							if (material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 0.78f;
 							}
@@ -1184,7 +1184,7 @@ namespace TC2.Base
 						break;
 					}
 
-					//if (data.flags.HasFlag(Gun.Flags.Automatic))
+					//if (data.flags.HasAll(Gun.Flags.Automatic))
 					//{
 					//	data.failure_rate *= Maths.Lerp(1.00f, 2.50f, ratio);
 					//}
@@ -1430,7 +1430,7 @@ namespace TC2.Base
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasFlag(Material.Flags.Metal))
+							if (material.flags.HasAll(Material.Flags.Metal))
 							{
 								requirement.amount *= 1.50f;
 							}
@@ -1796,15 +1796,15 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.50f;
-							requirement.difficulty += 5.00f;
+							requirement.amount *= 1.30f;
+							requirement.difficulty += 3.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasFlag(Material.Flags.Manufactured))
+							if (material.flags.HasAll(Material.Flags.Manufactured))
 							{
-								requirement.amount *= 2.00f;
+								requirement.amount *= 1.20f;
 							}
 						}
 					}
@@ -1884,7 +1884,7 @@ namespace TC2.Base
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{				
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasFlag(Material.Flags.Ingot))
+							if (material.flags.HasAll(Material.Flags.Ingot))
 							{
 								requirement.amount *= 1.25f;
 							}		
