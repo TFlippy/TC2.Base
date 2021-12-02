@@ -27,7 +27,7 @@ namespace TC2.Base
 					data.max *= 1.20f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -67,7 +67,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -165,6 +165,46 @@ namespace TC2.Base
 				}
 			));
 
+			definitions.Add(Modification.Definition.New<Explosive.Data>
+			(
+				identifier: "explosive.nitroglycerine",
+				name: "Nitroglycerine Filler",
+				description: "Replaces filler with nitroglycerine.",
+
+				apply: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
+					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
+
+					var has_any = false;
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive))
+							{
+								var amount_new = (requirement.amount * material.mass_per_unit) / material_nitroglycerine.mass_per_unit;
+
+								requirement.amount = amount_new;
+								requirement.material = material_nitroglycerine_handle;
+
+								has_any = true;
+							}
+						}
+					}
+
+					if (has_any)
+					{
+						data.radius += MathF.Sqrt(data.radius * 1.50f);
+						data.power += MathF.Sqrt(data.power * 2.50f);
+						data.damage_terrain *= 3.50f;
+						data.damage_entity *= 2.50f;
+					}
+				}
+			));
+
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.expanded_magazine",
@@ -231,7 +271,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref readonly var requirement in context.requirements_old)
 					{
@@ -331,7 +371,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -376,15 +416,27 @@ namespace TC2.Base
 						switch (data.action)
 						{
 							case Gun.Action.Gas:
+							{
+								data.flags |= Gun.Flags.Automatic;
+
+								data.cycle_interval *= 1.10f;
+
+								data.failure_rate *= 1.50f;
+								data.failure_rate += 0.02f;
+
+								return true;
+							}
+							break;
+
 							case Gun.Action.Blowback:
 							case Gun.Action.Crank:
 							{
 								data.flags |= Gun.Flags.Automatic;
 
-								data.cycle_interval *= 1.20f;
+								data.cycle_interval *= 1.30f;
 
-								data.failure_rate *= 3.50f;
-								data.failure_rate += 0.02f;
+								data.failure_rate *= 2.50f;
+								data.failure_rate += 0.05f;
 
 								return true;
 							}
@@ -439,7 +491,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasAll(Material.Flags.Ammo_AC) || data.ammo_filter.HasAll(Material.Flags.Ammo_MG) || data.ammo_filter.HasAll(Material.Flags.Ammo_HC);
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
 				},
 
 				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -457,7 +509,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 1.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
-						data.stability *= 3.50f;
+						data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.15f;
 						data.sound_volume *= 1.02f;
@@ -478,7 +530,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
-						data.stability *= 1.20f;
+						data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.15f;
 						data.sound_volume *= 1.02f;
@@ -499,7 +551,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
-						data.stability *= 1.40f;
+						data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.10f;
 						data.sound_volume *= 1.02f;
@@ -518,7 +570,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasAll(Material.Flags.Ammo_LC) || data.ammo_filter.HasAll(Material.Flags.Ammo_HC) || data.ammo_filter.HasAll(Material.Flags.Ammo_MG);
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG);
 				},
 
 				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -536,7 +588,7 @@ namespace TC2.Base
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
 						data.stability -= MathF.Min(data.stability, 0.30f);
-						data.stability *= 0.80f;
+						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 0.82f;
 						data.sound_volume *= 1.20f;
@@ -557,7 +609,7 @@ namespace TC2.Base
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
 
 						data.stability -= MathF.Min(data.stability, 0.40f);
-						data.stability *= 0.80f;
+						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 0.87f;
 						data.sound_volume *= 1.25f;
@@ -578,7 +630,7 @@ namespace TC2.Base
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
 
 						data.stability -= MathF.Min(data.stability, 0.80f);
-						data.stability *= 0.70f;
+						data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 0.67f;
 						data.sound_volume *= 1.25f;
@@ -627,7 +679,7 @@ namespace TC2.Base
 							data.recoil_multiplier *= 0.65f;
 							data.velocity_multiplier *= 0.91f;
 							data.damage_multiplier *= 0.94f;
-							data.stability *= 1.09f;
+							data.stability = Maths.Clamp(data.stability * 1.09f, 0.00f, 1.00f);
 
 							switch (data.action)
 							{
@@ -654,7 +706,7 @@ namespace TC2.Base
 							data.recoil_multiplier *= 0.60f;
 							data.velocity_multiplier *= 0.87f;
 							data.damage_multiplier *= 0.95f;
-							data.stability *= 1.07f;
+							data.stability = Maths.Clamp(data.stability * 1.07f, 0.00f, 1.00f);
 
 							switch (data.action)
 							{
@@ -846,6 +898,77 @@ namespace TC2.Base
 						}
 						break;
 					}
+				},
+
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					for (int i = 0; i < context.requirements_old.Length; i++)
+					{
+						var requirement = context.requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
+							}
+							else if (material.flags.HasAll(Material.Flags.Metal))
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.25f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.20f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.20f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.05f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+							}
+						}
+					}
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						var requirement = context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.difficulty += 2.00f;
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.difficulty += 2.00f;
+								}
+								break;
+							}
+						}
+
+					}
 				}
 			));
 
@@ -953,6 +1076,59 @@ namespace TC2.Base
 					{
 						data.failure_rate = Maths.Clamp(data.failure_rate * 1.50f, 0.00f, 1.00f);
 					}
+				},
+
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					for (int i = 0; i < context.requirements_old.Length; i++)
+					{
+						var requirement = context.requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.10f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.05f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+							}
+						}
+					}
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						var requirement = context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Assembling:
+								{
+									requirement.difficulty += 1.00f;
+								}
+								break;
+							}
+						}
+					}
 				}
 			));
 
@@ -985,16 +1161,37 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					foreach (ref var requirement in context.requirements_new)
+					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
+						var requirement = context.requirements_old[i];
+
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
 							if (!material.flags.HasAll(Material.Flags.Manufactured))
 							{
-								requirement.amount *= 1.75f;
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.20f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.05f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
 							}
 						}
 					}
@@ -1022,7 +1219,7 @@ namespace TC2.Base
 					data.failure_rate *= Maths.Lerp(1.20f, 1.80f, value);
 					data.failure_rate += Maths.Lerp(0.03f, 0.10f, value);
 					data.stability *= Maths.Clamp(data.stability, 0.00f, 0.99f);
-					data.stability -= 0.03f;
+					data.stability = Maths.Clamp(data.stability - 0.03f, 0.00f, 1.00f);
 					data.cycle_interval *= 1.05f;
 					data.reload_interval *= 1.10f;
 				},
@@ -1043,7 +1240,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1091,7 +1288,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1159,8 +1356,8 @@ namespace TC2.Base
 					{
 						case Gun.Action.Gas:
 						{
-							data.failure_rate *= Maths.Lerp(1.00f, 4.50f, ratio);
-							data.failure_rate += Maths.Lerp(0.00f, 0.40f, ratio);
+							data.failure_rate *= Maths.Lerp(1.00f, 2.00f, ratio);
+							data.failure_rate += Maths.Lerp(0.00f, 0.02f, ratio);
 							data.cycle_interval *= Maths.Lerp(1.00f, 0.35f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 1.40f, ratio);
 						}
@@ -1168,10 +1365,10 @@ namespace TC2.Base
 
 						case Gun.Action.Blowback:
 						{
-							data.failure_rate *= Maths.Lerp(1.00f, 2.20f, ratio);
-							data.failure_rate += Maths.Lerp(0.00f, 0.03f, ratio);
+							data.failure_rate *= Maths.Lerp(1.00f, 5.50f, ratio);
+							data.failure_rate += Maths.Lerp(0.00f, 0.30f, ratio);
 							data.cycle_interval *= Maths.Lerp(1.00f, 0.55f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 1.40f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 1.60f, ratio);
 						}
 						break;
 
@@ -1212,11 +1409,11 @@ namespace TC2.Base
 					//	data.failure_rate *= Maths.Lerp(1.00f, 2.50f, ratio);
 					//}
 
-					data.stability -= MathF.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio));
+					data.stability = Maths.Clamp(data.stability - MathF.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio)), 0.00f, 1.00f);
 					data.failure_rate += Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.35f, ratio);
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1268,16 +1465,70 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= 1.25f;
 
-							data.failure_rate *= 0.70f;
-							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.03f);
+							data.failure_rate *= 0.30f;
 							data.cycle_interval *= 0.90f;
 
 							data.stability += MathF.Min(data.stability, 0.15f);
-							data.stability *= 1.20f;
+							data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
+
+							data.recoil_multiplier *= 0.90f;
+							data.reload_interval *= 0.80f;
 
 							data.action = Gun.Action.Gas;
+
+							ref var body = ref context.GetComponent<Body.Data>();
+							if (!body.IsNull())
+							{
+								body.mass_multiplier *= 0.90f;
+							}
 						}
 						break;
+					}
+				},
+
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 0.90f;
+							}
+							else if (material.flags.HasAll(Material.Flags.Metal))
+							{
+								requirement.amount *= 0.85f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.10f;
+									requirement.amount += 50.00f;
+									requirement.difficulty += 2.00f;
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.40f;
+									requirement.difficulty += 3.00f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.70f;
+									requirement.difficulty += 2.00f;
+								}
+								break;
+							}
+						}
 					}
 				}
 			));
@@ -1313,7 +1564,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_new.Length; i++)
 					{
@@ -1360,6 +1611,22 @@ namespace TC2.Base
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var batch_size = ref handle.GetData<int>();
+					batch_size = Maths.Clamp(batch_size, 1, 10);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var batch_size = ref handle.GetData<int>();
+					return GUI.SliderInt("##stuff", ref batch_size, 1, 10, "%d");
+				},
+#endif
+
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var count = 0;
@@ -1372,12 +1639,12 @@ namespace TC2.Base
 					return count < 1;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref readonly var recipe_old = ref context.GetRecipeOld();
 					ref var recipe_new = ref context.GetRecipeNew();
 
-					var batch_size = 5;
+					ref var batch_size = ref handle.GetData<int>();
 
 					recipe_new.min *= batch_size;
 					recipe_new.max *= batch_size;
@@ -1392,11 +1659,11 @@ namespace TC2.Base
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Manufactured))
 							{
-								requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
+								requirement.amount *= MathF.Pow(0.99f, batch_size - 1);
 							}
 							else
 							{
-								requirement.amount *= MathF.Pow(0.97f, batch_size - 1);
+								requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -1418,6 +1685,12 @@ namespace TC2.Base
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= MathF.Pow(0.90f, batch_size - 1);
+								}
+								break;
+
+								default:
+								{
+									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
 								}
 								break;
 							}
@@ -1461,7 +1734,7 @@ namespace TC2.Base
 								data.failure_rate += 0.25f;
 
 								data.stability -= MathF.Min(data.stability, 0.50f);
-								data.stability *= 0.60f;
+								data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
 								data.reload_interval *= 1.30f;
 
@@ -1488,7 +1761,7 @@ namespace TC2.Base
 								data.failure_rate += 0.20f;
 
 								data.stability -= MathF.Min(data.stability, 0.30f);
-								data.stability *= 0.70f;
+								data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 								data.cycle_interval *= 1.30f;
 								data.reload_interval *= 1.30f;
@@ -1506,7 +1779,7 @@ namespace TC2.Base
 								data.failure_rate += 0.05f;
 
 								data.stability -= MathF.Min(data.stability, 0.10f);
-								data.stability *= 0.95f;
+								data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
 
 								data.reload_interval *= 1.30f;
 
@@ -1547,7 +1820,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1587,32 +1860,6 @@ namespace TC2.Base
 								break;
 							}
 						}
-
-						//if (requirement.type == Crafting.Requirement.Type.Work)
-						//{
-						//	switch (requirement.work)
-						//	{
-						//		case Work.Type.Machining:
-						//		{
-						//			requirement.amount += 100.00f;
-						//		}
-						//		break;
-
-						//		case Work.Type.Smithing:
-						//		{
-						//			requirement.amount += 80.00f;
-						//		}
-						//		break;
-						//	}
-						//}
-						//else if (requirement.type == Crafting.Requirement.Type.Resource)
-						//{
-						//	ref var material = ref requirement.material.GetDefinition();
-						//	if (material.flags.HasAll(Material.Flags.Metal))
-						//	{
-						//		requirement.amount *= 1.50f;
-						//	}
-						//}
 					}
 				}
 			));
@@ -1670,7 +1917,6 @@ namespace TC2.Base
 						data.knockback += 0.20f;
 					}
 					data.knockback *= 2.00f;
-					//TODO: Should also increase the weight
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -1679,7 +1925,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1716,7 +1962,7 @@ namespace TC2.Base
 					data.knockback *= -0.75f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1755,7 +2001,7 @@ namespace TC2.Base
 					data.damage_base *= 1.15f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1789,7 +2035,7 @@ namespace TC2.Base
 					data.damage_base *= 0.80f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1827,7 +2073,7 @@ namespace TC2.Base
 					data.damage_bonus *= 0.50f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1875,7 +2121,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1915,7 +2161,7 @@ namespace TC2.Base
 					data.yield = Maths.Clamp(data.yield + 0.10f, 0.00f, 1.00f);
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1947,7 +2193,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1980,7 +2226,7 @@ namespace TC2.Base
 					data.speed *= 1.60f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2029,7 +2275,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2074,7 +2320,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
