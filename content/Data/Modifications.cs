@@ -1311,6 +1311,46 @@ namespace TC2.Base
 					data.failure_rate = Maths.Clamp(data.failure_rate * 0.10f + (1.00f - Maths.Clamp(data.stability, 0.00f, 1.00f)), 0.00f, 1.00f);
 
 					return true;
+				},
+
+				requirements: static (ReadOnlySpan<Crafting.Requirement> requirements_old, Span<Crafting.Requirement> requirements_new, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					for (int i = 0; i < requirements_new.Length; i++)
+					{
+						var requirement = requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 0.50f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.50f;
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.75f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.20f;
+								}
+								break;
+							}
+						}
+					}
 				}
 			));
 
