@@ -16,7 +16,7 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
-		material: foliage
+		material: wood
 		layer: entity, climbable, ignore_bullet
 		mask: world
 	}

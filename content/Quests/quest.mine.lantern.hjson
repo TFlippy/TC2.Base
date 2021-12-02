@@ -2,7 +2,7 @@ $kind: quest
 
 quest.data:
 {
-	name: "Miners in Darkness"
+	name: "Miners in the Darkness"
 	description: "Someone stole our entire supply of lanterns! People these days..."
 
 	tags: mine
