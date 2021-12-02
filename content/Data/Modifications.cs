@@ -125,7 +125,7 @@ namespace TC2.Base
 				draw_editor: static (in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.10f, 0.50f, 10.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.50f, 10.00f, "%.2f");
 				},
 #endif
 
@@ -257,7 +257,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -599,7 +599,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -700,7 +700,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 1.00f, 2.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 1.00f, 2.00f, "%.2f");
 				},
 #endif
 
@@ -859,7 +859,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1011,7 +1011,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1146,7 +1146,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1515,7 +1515,7 @@ namespace TC2.Base
 				draw_editor: static (in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.DragFloat("##stuff", ref value, 0.01f, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
