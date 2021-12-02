@@ -126,8 +126,10 @@ namespace TC2.Base.Components
 					var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
 					len = MathF.Min(len, max_distance);
 
+					var modifier = 1.00f;
+
 					Span<LinecastResult> hits = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(transform.position, transform.position + (dir * len), 0.000f, ref hits, mask: Physics.Layer.Destructible))
+					if (region.TryLinecastAll(transform.position + (dir * len * 0.25f), transform.position + (dir * len), 0.000f, ref hits, mask: Physics.Layer.World | Physics.Layer.Destructible))
 					{
 						var parent = body.GetParent();
 
@@ -135,10 +137,10 @@ namespace TC2.Base.Components
 						var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
 						var damage = damage_base + damage_bonus;
 
-						var modifier = 1.00f;
+						
 						var flags = Damage.Flags.None;
 
-						var penetration = 1;
+						var penetration = 0;
 
 						var hit_terrain = false;
 
@@ -155,11 +157,11 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, -dir, dir, damage * modifier, hit.material_type, Damage.Type.Axe, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
 #endif
 
 							flags |= Damage.Flags.No_Sound;
-							modifier *= 0.50f;
+							modifier *= 0.60f;
 							penetration--;
 						}
 					}
@@ -167,10 +169,8 @@ namespace TC2.Base.Components
 #if CLIENT
 					//Camera.Shake(ref region, pos_b, 0.30f * mod_inv, 0.20f);
 
-					var mod = 1.00f;
-
-					sound_emitter.volume = Maths.Lerp(sound_emitter.volume, 1.00f, 0.50f);
-					sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, 0.80f + (mod * 1.00f), 0.10f);
+					sound_emitter.volume = Maths.Lerp(sound_emitter.volume, 1.50f, 0.50f);
+					sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, 0.60f + (modifier * 0.80f), 0.20f);
 #endif
 				}
 			}
