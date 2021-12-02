@@ -1,0 +1,81 @@
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.500, 0.000]
+		b: [0.500, 0.000]
+		mass: 30.000
+		radius: 0.350
+		friction: 0.950
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+chainsaw:
+{
+	damage: 50.000
+	max_distance: 2.000
+	speed: 9.000
+	radius: 1.000
+	
+	@inventory4:
+	{
+		name: "Chainsaw"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: hidden, allow_ducts
+	}
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+interactable:
+{
+	window_size: [192.000, 48.000]
+}
+
+holdable:
+{
+	offset: [-0.200, 0.000]
+	flags: storable
+}
+
+sprite.renderer:
+{
+	offset: [0.400, -0.100]
+	texture: "chainsaw"
+}
+
+sound.emitter:
+{
+	file: "chainsaw_loop"
+	volume: 0.000
+	pitch: 1.000
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
