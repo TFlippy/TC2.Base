@@ -110,10 +110,10 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Sprite.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
 			var random = XorRandom.New();
-			if (control.mouse.GetKey(Mouse.Key.Left))
+			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
 				{
@@ -137,7 +137,6 @@ namespace TC2.Base.Components
 						var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
 						var damage = damage_base + damage_bonus;
 
-						
 						var flags = Damage.Flags.None;
 
 						var penetration = 0;
@@ -163,12 +162,16 @@ namespace TC2.Base.Components
 							flags |= Damage.Flags.No_Sound;
 							modifier *= 0.60f;
 							penetration--;
+
+							overheat.heat_current += damage * 0.05f;
 						}
+
+#if CLIENT
+						Camera.Shake(ref region, transform.position, 0.25f, 0.25f);
+#endif
 					}
 
 #if CLIENT
-					//Camera.Shake(ref region, pos_b, 0.30f * mod_inv, 0.20f);
-
 					sound_emitter.volume = Maths.Lerp(sound_emitter.volume, 1.50f, 0.50f);
 					sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, 0.60f + (modifier * 0.80f), 0.20f);
 #endif
