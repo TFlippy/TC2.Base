@@ -19,8 +19,11 @@ namespace TC2.Base.Components
 			public float heat_current = 0.00f;
 			public float heat_medium = 50.00f;
 			public float heat_high = 100.00f;
+
+			[Statistics.Info("Maximum Temperature", description: "Maximum operating temperature.", format: "{0:0.##}°C", comparison: Statistics.Comparison.Higher)]
 			public float heat_critical = 200.00f;
 
+			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##}°C/s", comparison: Statistics.Comparison.Higher)]
 			public float cool_rate = 10.00f;
 
 			public Overheat.Flags flags;

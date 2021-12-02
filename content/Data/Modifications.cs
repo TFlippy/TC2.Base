@@ -199,9 +199,65 @@ namespace TC2.Base
 					{
 						data.radius += MathF.Sqrt(data.radius * 1.50f);
 						data.power += MathF.Sqrt(data.power * 2.50f);
-						data.damage_terrain *= 3.50f;
-						data.damage_entity *= 2.50f;
+						data.damage_terrain += MathF.Pow(data.damage_terrain * 3.50f, 0.75f);
+						data.damage_entity += MathF.Pow(data.damage_entity * 2.50f, 0.75f);
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Overheat.Data>
+			(
+				identifier: "overheat.coolant",
+				name: "Water-Cooled",
+				description: "Increases cooling rate.",
+
+				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.cool_rate += 10.00f;
+				},
+
+				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("water", 40.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Overheat.Data>
+			(
+				identifier: "overheat.heat_resistant",
+				name: "Heat-Resistant Components",
+				description: "Increases maximum operating temperature at cost of extra weight.",
+
+				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.cool_rate *= 0.90f;
+					data.heat_critical += 175.00f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.30f;
+					}
+				},
+
+				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var amount = 0.00f;
+
+					foreach (ref readonly var requirement in context.requirements_old)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAny(Material.Flags.Manufactured | Material.Flags.Metal))
+							{
+								amount += requirement.amount * 0.20f;
+							}
+						}
+					}
+
+					amount = MathF.Ceiling(amount);
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", amount));
 				}
 			));
 
