@@ -314,7 +314,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
-		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction)
+		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
 			ref var region = ref info.GetRegion();
@@ -341,8 +341,26 @@ namespace TC2.Base.Components
 
 					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
+					var failure_rate = gun.failure_rate;
+					var stability = gun.stability;
+
+					if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
 					{
-						
+						var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.20f, 1.00f);
+						overheat.heat_current += heat;
+
+						var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
+						if (heat_excess > 0.00f)
+						{
+							failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
+							stability = Maths.Clamp(stability - (heat_excess * 0.01f), 0.00f, 1.00f);
+						}
+
+						App.WriteLine(heat);
+						overheat.Sync(entity);
+					}
+
+					{
 						for (var i = 0; i < count; i++)
 						{
 							var projectile_init =
@@ -377,7 +395,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					if (gun.stability < 1.00f && random.NextBool(gun.failure_rate) && random.NextBool(1.00f - gun.stability))
+					if (stability < 1.00f && random.NextBool(failure_rate) && random.NextBool(1.00f - stability))
 					{
 						var explosion_data = new Explosion.Data()
 						{

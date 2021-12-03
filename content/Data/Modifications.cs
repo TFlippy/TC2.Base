@@ -313,45 +313,58 @@ namespace TC2.Base
 				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var amount = 0.00f;
+					var mass = 0.00f;
 
 					switch (data.feed)
 					{
 						case Gun.Feed.Drum:
 						{
 							amount += 10;
+							mass += 1.00f;
 						}
 						break;
 
 						case Gun.Feed.Cylinder:
 						{
 							amount += 1;
+							mass += 0.10f;
 						}
 						break;
 
 						case Gun.Feed.Clip:
 						{
 							amount += 2;
+							mass += 0.20f;
 						}
 						break;
 
 						case Gun.Feed.Magazine:
 						{
 							amount += 5;
+							mass += 0.30f;
 						}
 						break;
 					}
 
 					switch (data.type)
 					{
+						case Gun.Type.Cannon:
+						{
+							mass *= 3.00f;
+						}
+						break;
+
 						case Gun.Type.AutoCannon:
 						{
 							amount *= 1.50f;
+							mass *= 2.20f;
 						}
 						break;
 
 						case Gun.Type.MachineGun:
 						{
 							amount *= 1.50f;
+							mass *= 1.50f;
 						}
 						break;
 					}
@@ -361,7 +374,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier *= 1.20f;
+						body.mass_extra += mass;
 					}
 				},
 
@@ -1908,7 +1921,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier += 0.60f;
+						body.mass_multiplier += 0.30f;
 					}
 
 					return true;
@@ -1925,7 +1938,7 @@ namespace TC2.Base
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Metal))
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.75f));
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)

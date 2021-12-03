@@ -33,9 +33,9 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control)
+		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control, [Source.Owned] in Body.Data body)
 		{
-			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, 30.00f, overheat.cool_rate * info.DeltaTime);
+			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, 30.00f, (overheat.cool_rate * info.DeltaTime) / MathF.Max(body.GetMass() * 0.05f, 1.00f));
 			
 			if (overheat.heat_current >= overheat.heat_critical)
 			{
