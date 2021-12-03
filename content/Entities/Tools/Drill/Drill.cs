@@ -130,27 +130,141 @@ namespace TC2.Base.Components
 					var pos_a = transform.position - (dir * max_distance * 0.25f);
 					var pos_b = transform.position + (dir * max_distance * 0.75f);
 
-					var material_type = default(Material.Type);
+					var modifier = 1.00f;
+					overheat.heat_current += 4.00f;
 
-					if (region.TryLinecast(pos_a, pos_b, drill.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
+					Span<LinecastResult> hits = stackalloc LinecastResult[16];
+					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: Physics.Layer.World | Physics.Layer.Destructible))
 					{
-						material_type = hit.material_type;
-						pos_b = hit.world_position;
-						normal = hit.normal;
-						len *= hit.alpha;
+						var parent = body.GetParent();
 
-						overheat.heat_current += drill.damage * 0.01f;
+						var damage_base = drill.damage;
+						var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
+						var damage = damage_base + damage_bonus;
+
+						var flags = Damage.Flags.None;
+
+						var penetration = 2;
+
+						var hit_terrain = false;
+
+						for (var i = 0; i < hits.Length && penetration >= 0; i++)
+						{
+							ref var hit = ref hits[i];
+							if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
+							var is_terrain = !hit.entity.IsValid();
+
+							if (is_terrain)
+							{
+								if (hit_terrain) continue;
+								hit_terrain = true;
+							}
+
+							var material_type = hit.material_type;
+
+							var heat = drill.damage * 0.02f * modifier;
+
+							switch (material_type)
+							{
+								case Material.Type.Metal:
+								{
+									heat *= 3.00f;
+								}
+								break;
+
+								case Material.Type.Glass:
+								case Material.Type.Stone:
+								{
+									heat *= 1.50f;
+								}
+								break;
+
+								case Material.Type.Gravel:
+								{
+									heat *= 1.30f;
+								}
+								break;
+
+								case Material.Type.Mushroom:
+								case Material.Type.Fabric:
+								case Material.Type.Insect:
+								case Material.Type.Rubber:
+								case Material.Type.Flesh:
+								case Material.Type.Wood:
+								{
+									heat *= 0.50f;
+								}
+								break;
+							}
+
+#if SERVER
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+#endif
+
+							flags |= Damage.Flags.No_Sound;
+							modifier *= 0.70f;
+							penetration--;
+
+							overheat.heat_current += heat;
+						}
 					}
+
+					//if (region.TryLinecast(pos_a, pos_b, drill.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
+					//{
+					//	material_type = hit.material_type;
+					//	pos_b = hit.world_position;
+					//	normal = hit.normal;
+					//	len *= hit.alpha;
+
+					//	heat += drill.damage * 0.02f;
+
+					//	switch (material_type)
+					//	{
+					//		case Material.Type.Metal:
+					//		{
+					//			heat *= 3.00f;
+					//		}
+					//		break;
+
+					//		case Material.Type.Glass:
+					//		case Material.Type.Stone:
+					//		{
+					//			heat *= 1.50f;
+					//		}
+					//		break;
+
+					//		case Material.Type.Gravel:
+					//		{
+					//			heat *= 1.30f;
+					//		}
+					//		break;
+
+					//		case Material.Type.Mushroom:
+					//		case Material.Type.Fabric:
+					//		case Material.Type.Insect:
+					//		case Material.Type.Rubber:
+					//		case Material.Type.Flesh:
+					//		case Material.Type.Wood:
+					//		{
+					//			heat *= 0.50f;
+					//		}
+					//		break;
+					//	}
+
+					//}
 
 					var mod = MathF.Pow(Maths.Clamp(len, 0.00f, max_distance) / max_distance, 3.00f);
 					var mod_inv = 1.00f - mod;
 
-#if SERVER
-					var parent = body.GetParent();
 
-					Damage.Hit(entity, parent, default, pos_b, dir, normal, drill.damage, material_type, Damage.Type.Drill, yield: 0.90f, knockback: 0.50f, xp_modifier: 0.80f);
-					//region.GetTerrain().Hit(hit_position, new Vector2(4.00f + (8.00f * (1.00f - mod))), 250.00f, yield: 0.90f);
-#endif
+
+
+//#if SERVER
+//					var parent = body.GetParent();
+
+//					Damage.Hit(entity, parent, default, pos_b, dir, normal, drill.damage, material_type, Damage.Type.Drill, yield: 0.90f, knockback: 0.50f, xp_modifier: 0.80f);
+//					//region.GetTerrain().Hit(hit_position, new Vector2(4.00f + (8.00f * (1.00f - mod))), 250.00f, yield: 0.90f);
+//#endif
 
 #if CLIENT
 					Camera.Shake(ref region, pos_b, 0.30f * mod_inv, 0.20f);

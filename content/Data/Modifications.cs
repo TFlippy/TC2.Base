@@ -346,6 +346,30 @@ namespace TC2.Base
 						break;
 					}
 
+					switch (data.type)
+					{
+						case Gun.Type.Cannon:
+						{
+							amount *= 2.00f;
+							mass *= 3.00f;
+						}
+						break;
+
+						case Gun.Type.AutoCannon:
+						{
+							amount *= 3.00f;
+							mass *= 2.00f;
+						}
+						break;
+
+						case Gun.Type.MachineGun:
+						{
+							amount *= 1.20f;
+							mass *= 1.20f;
+						}
+						break;
+					}
+
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
 						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.20f));
@@ -387,7 +411,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra  +=mass;
+						body.mass_extra += mass;
 					}
 
 					return true;

@@ -92,3 +92,27 @@ transform:
 {
 
 }
+
+overheat:
+{
+	heat_medium: 350.000
+	heat_high: 500.000
+	heat_critical: 750.000
+	cool_rate: 200.000
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, 0.125]
+		scale: [16.000, 4.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+	}
+}

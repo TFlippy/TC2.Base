@@ -5,7 +5,7 @@ body:
 	{
 		a: [-0.500, 0.000]
 		b: [0.500, 0.000]
-		mass: 30.000
+		mass: 8.000
 		radius: 0.350
 		friction: 0.950
 		elasticity: 0.050
@@ -84,8 +84,8 @@ overheat:
 {
 	heat_medium: 50.000
 	heat_high: 100.000
-	heat_critical: 150.000
-	cool_rate: 10.000
+	heat_critical: 250.000
+	cool_rate: 30.000
 
 	@light:
 	{
