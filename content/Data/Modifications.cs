@@ -302,43 +302,66 @@ namespace TC2.Base
 				name: "Expanded Magazine",
 				description: "Increases ammo capacity.",
 
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 1, 5);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					return GUI.SliderFloat("##stuff", ref amount, 1.00f, 5.00f, "%.2f");
+				},
+#endif
+
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.feed != Gun.Feed.Single;
+					if (data.feed == Gun.Feed.Single) return false;
+
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var amount = 0.00f;
+					var amount = handle.GetData<float>();
 					var mass = 0.00f;
 
 					switch (data.feed)
 					{
 						case Gun.Feed.Drum:
 						{
-							amount += 10;
-							mass += 1.00f;
+							amount *= 10.00f;
+							mass += amount * 0.60f;
 						}
 						break;
 
 						case Gun.Feed.Cylinder:
 						{
-							amount += 1;
-							mass += 0.10f;
+							amount += amount * 0.30f;
+							mass += amount * 0.10f;
 						}
 						break;
 
 						case Gun.Feed.Clip:
 						{
-							amount += 2;
-							mass += 0.20f;
+							amount += amount * 2.00f;
+							mass += amount * 0.20f;
 						}
 						break;
 
 						case Gun.Feed.Magazine:
 						{
-							amount += 5;
-							mass += 0.30f;
+							amount += amount * 5.00f;
+							mass += amount * 0.30f;
 						}
 						break;
 					}
