@@ -55,11 +55,6 @@ namespace TC2.Base
 					return count < 1;
 				},
 
-				apply: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					data.max *= 3.50f;
-				},
-
 				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var ingot_amount = 0.00f;
@@ -84,11 +79,13 @@ namespace TC2.Base
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", total_amount));
 
+					data.max += total_amount * 2500.00f;
+
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
 						ref var material = ref Material.GetMaterial("smirgl_ingot");
-						body.mass_extra += total_amount * material.mass_per_unit;
+						body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
 					}
 				}
 			));

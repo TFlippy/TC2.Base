@@ -163,7 +163,7 @@ namespace TC2.Base.Components
 							modifier *= 0.60f;
 							penetration--;
 
-							overheat.heat_current += damage * 0.05f;
+							overheat.heat_current += damage * 0.09f;
 						}
 
 #if CLIENT
