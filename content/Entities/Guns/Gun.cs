@@ -326,6 +326,9 @@ namespace TC2.Base.Components
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
 
+				var failure_rate = gun.failure_rate;
+				var stability = gun.stability;
+
 #if SERVER
 				ref var material = ref inventory_magazine.resource.material.GetDefinition();
 				if (material.projectile_prefab.id != 0)
@@ -341,22 +344,18 @@ namespace TC2.Base.Components
 
 					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
-					var failure_rate = gun.failure_rate;
-					var stability = gun.stability;
-
 					if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
 					{
-						var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.20f, 1.00f);
+						var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.10f, 1.00f);
 						overheat.heat_current += heat;
 
 						var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
 						if (heat_excess > 0.00f)
 						{
 							failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
-							stability = Maths.Clamp(stability - (heat_excess * 0.01f), 0.00f, 1.00f);
+							stability = Maths.Clamp(stability - (heat_excess * 0.005f), 0.00f, 1.00f);
 						}
 
-						App.WriteLine(heat);
 						overheat.Sync(entity);
 					}
 
@@ -436,7 +435,7 @@ namespace TC2.Base.Components
 					gun_state.stage = Stage.Cycling;
 
 #if SERVER
-					if (random.NextBool(gun.failure_rate))
+					if (random.NextBool(failure_rate))
 					{
 						//App.WriteLine("jammed");
 

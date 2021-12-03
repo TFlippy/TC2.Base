@@ -310,7 +310,7 @@ namespace TC2.Base
 					return data.feed != Gun.Feed.Single;
 				},
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var amount = 0.00f;
 					var mass = 0.00f;
@@ -346,27 +346,40 @@ namespace TC2.Base
 						break;
 					}
 
-					switch (data.type)
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
-						case Gun.Type.Cannon:
-						{
-							mass *= 3.00f;
-						}
-						break;
-
-						case Gun.Type.AutoCannon:
-						{
-							amount *= 1.50f;
-							mass *= 2.20f;
-						}
-						break;
-
-						case Gun.Type.MachineGun:
-						{
-							amount *= 1.50f;
-							mass *= 1.50f;
-						}
-						break;
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.20f));
+						mass *= 4.00f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.30f));
+						mass *= 2.50f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.40f));
+						mass *= 1.20f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.60f));
+						mass *= 1.20f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.85f));
+						mass *= 1.10f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 1.00f));
+						mass *= 1.00f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						amount = MathF.Max(1.00f, MathF.Floor(amount * 1.50f));
+						mass *= 0.90f;
 					}
 
 					data.max_ammo += amount;
@@ -374,8 +387,10 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra += mass;
+						body.mass_extra  +=mass;
 					}
+
+					return true;
 				},
 
 				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
