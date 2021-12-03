@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 		public static void UpdateLight(ISystem.Info info, Entity entity,
 		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Trait.Of<Overheat.Data>] ref Light.Data light)
 		{
-			light.intensity = MathF.Max(overheat.heat_current - overheat.heat_high, 0.00f) / 50.00f;
+			light.intensity = MathF.Max(overheat.heat_current - 150.00f, 0.00f) / 250.00f;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 			ref var region = ref info.GetRegion();
 
 #if CLIENT
-			sound.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 100.00f, 0.00f, 1.00f);
+			sound.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 200.00f, 0.00f, 0.40f);
 
 			if (overheat.heat_current > 50.00f && info.WorldTime >= overheat.next_steam)
 			{

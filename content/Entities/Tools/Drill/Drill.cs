@@ -110,9 +110,9 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Sprite.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left))
+			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))
 			{
 				var random = XorRandom.New();
 				if (info.WorldTime >= drill.next_hit)
@@ -138,6 +138,8 @@ namespace TC2.Base.Components
 						pos_b = hit.world_position;
 						normal = hit.normal;
 						len *= hit.alpha;
+
+						overheat.heat_current += drill.damage * 0.01f;
 					}
 
 					var mod = MathF.Pow(Maths.Clamp(len, 0.00f, max_distance) / max_distance, 3.00f);

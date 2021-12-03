@@ -78,3 +78,27 @@ packable:
 {
 
 }
+
+overheat:
+{
+	heat_medium: 50.000
+	heat_high: 100.000
+	heat_critical: 150.000
+	cool_rate: 10.000
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+	}
+}

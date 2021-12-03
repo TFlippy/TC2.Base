@@ -58,13 +58,6 @@ namespace TC2.Base
 				apply: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.max *= 3.50f;
-					// TODO: this should add weight
-
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier *= 2.00f;
-					}
 				},
 
 				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -88,7 +81,15 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 3.00f + (ingot_amount * 0.30f)));
+					var total_amount = 3.00f + (ingot_amount * 0.30f);
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", total_amount));
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("smirgl_ingot");
+						body.mass_extra += total_amount * material.mass_per_unit;
+					}
 				}
 			));
 
@@ -211,14 +212,40 @@ namespace TC2.Base
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
+				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+					amount = Maths.Clamp(amount, 1, 40);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+					return GUI.SliderInt("##stuff", ref amount, 1, 40, "%d");
+				},
+#endif
+
 				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.cool_rate += 10.00f;
+					ref var amount = ref handle.GetData<int>();
+					data.cool_rate += amount;
 				},
 
 				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("water", 40.00f));
+					ref var amount = ref handle.GetData<int>();
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("water", amount));
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("water");
+						body.mass_extra += amount * material.mass_per_unit;
+					}
 				}
 			));
 
@@ -226,18 +253,22 @@ namespace TC2.Base
 			(
 				identifier: "overheat.heat_resistant",
 				name: "Heat-Resistant Components",
-				description: "Increases maximum operating temperature at cost of extra weight.",
+				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
+
+				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id) count++;
+					}
+					return count < 1;
+				},
 
 				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.cool_rate *= 0.90f;
-					data.heat_critical += 175.00f;
-
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier *= 1.30f;
-					}
+					data.cool_rate *= 0.80f;
+					data.heat_critical += 500.00f;
 				},
 
 				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -258,6 +289,13 @@ namespace TC2.Base
 
 					amount = MathF.Ceiling(amount);
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", amount));
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("smirgl_ingot");
+						body.mass_extra += amount * material.mass_per_unit;
+					}
 				}
 			));
 
@@ -1870,7 +1908,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier *= 1.60f;
+						body.mass_multiplier += 0.60f;
 					}
 
 					return true;
@@ -2368,12 +2406,6 @@ namespace TC2.Base
 				{
 					data.damage *= 2.50f;
 					data.speed *= 0.80f;
-
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier *= 1.20f;
-					}
 				},
 
 				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -2395,7 +2427,16 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 5.00f));
+					var amount = 5.00f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", amount));
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("smirgl_ingot");
+						body.mass_multiplier *= 1.10f;
+						body.mass_extra += amount * material.mass_per_unit;
+					}
 				}
 			));
 		}
