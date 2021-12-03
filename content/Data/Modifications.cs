@@ -228,7 +228,7 @@ namespace TC2.Base
 				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					data.cool_rate += amount;
+					data.cool_rate += amount * 10.00f;
 				},
 
 				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -2053,9 +2053,9 @@ namespace TC2.Base
 
 					data.jitter_multiplier *= Maths.Lerp(1.10f, 1.50f, value);
 					data.jitter_multiplier += Maths.Lerp(2.50f, 3.00f, value);
-					data.sound_volume *= Maths.Lerp(1.45f, 1.55f, value);
-					data.sound_size *= Maths.Lerp(1.50f, 1.60f, value);
-					data.sound_pitch *= Maths.Lerp(0.90f, 0.85f, value);
+					data.sound_volume *= Maths.Lerp(1.15f, 1.35f, value);
+					data.sound_size *= Maths.Lerp(1.10f, 1.30f, value);
+					data.sound_pitch *= Maths.Lerp(0.98f, 0.96f, value);
 					data.recoil_multiplier *= Maths.Lerp(0.70f, 0.20f, value);
 				}
 			));
