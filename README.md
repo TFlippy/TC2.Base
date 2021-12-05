@@ -6,3 +6,11 @@
 A 2D multiplayer sandbox game revolving around industry, innovation, factions, combat and emergent gameplay.<br/>
 Design factories, customize tools and weapons, fight or trade with other players or get viciously murdered by an angry badger.
 </p>
+
+<h2>Credits</h2>
+<ul>
+  <li><b>TFlippy</b> - Project management, programming, game design, graphics, audio, other technical stuff</li>
+  <li><b>Jenny</b> - Lead artist, spritework, a bit of game design</li>
+  <li><b>McSaucyNugget</b> - Spritework</li>
+  <li><b>Vamist</b> - Server hosting, Linux support</li>
+</ul>
