@@ -1925,8 +1925,6 @@ entities:
 		scale: [-1.000, 1.000]
 	}
 	{
-	}
-	{
 		prefab: "boulder.00"
 		position: [306.000, 49.875]
 		rotation: 0.0523599
