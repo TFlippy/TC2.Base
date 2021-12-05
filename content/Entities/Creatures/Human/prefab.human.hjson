@@ -437,7 +437,7 @@ speechbubble:
 
 	drag:
 	{
-		
+		max_force: 5000.00
 	}
 }
 
