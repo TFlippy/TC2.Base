@@ -95,6 +95,11 @@ rope:
 	spawner:
 	{
 		prefab: "hornet"
-		interval: 60.000
+
+		interval: 10.000
+		interval_count_modifier: 10.000
+
+		filter_tag: "hornet"
+		max_count: 10
 	}
 }
