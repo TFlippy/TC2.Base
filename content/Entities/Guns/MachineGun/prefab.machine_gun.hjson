@@ -17,8 +17,8 @@ body:
 gun:
 {
 	muzzle_offset: [1.700, 0.000]
-	sound_shoot: "lmg_shoot"
-	sound_reload: "lmg_reload"
+	sound_shoot: "machine_gun_shoot"
+	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 3.500
@@ -66,7 +66,7 @@ holdable:
 
 sprite.renderer:
 {
-	texture: "lmg"
+	texture: "machine_gun"
 }
 
 health:
