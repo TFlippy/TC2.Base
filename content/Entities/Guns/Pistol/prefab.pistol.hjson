@@ -20,11 +20,11 @@ gun:
 	sound_shoot: "pistol_shoot"
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
-	velocity_multiplier: 370.000
+	velocity_multiplier: 280.000
 	jitter_multiplier: 0.300
 	damage_multiplier: 1.500
 	recoil_multiplier: 0.300
-	reload_interval: 0.800
+	reload_interval: 1.800
 	cycle_interval: 0.160
 	failure_rate: 0.010
 	max_ammo: 10.000
