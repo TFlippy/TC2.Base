@@ -4,7 +4,7 @@
 <h3 align="center">Official Base Game Content</h3>
   
 <h2>About</h2>
-<img align="right" width="45%" src="https://imgur.com/HxCYht7.png">
+<img align="right" width="50%" src="https://imgur.com/HxCYht7.png">
 <p>A 2D multiplayer sandbox game revolving around industry, innovation, factions, combat and emergent gameplay.</p>
 <p>Design factories, customize tools and weapons, fight or trade with other players or get viciously murdered by an angry badger.</p>
 
