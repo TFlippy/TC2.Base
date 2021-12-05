@@ -18,9 +18,9 @@ transform:
 
 explosive:
 {
-	radius: 3.000
+	radius: 3.500
 	power: 2.000
-	damage_entity: 4000.000
-	damage_terrain: 7000.000
+	damage_entity: 3000.000
+	damage_terrain: 5000.000
 	primed: true
 }
