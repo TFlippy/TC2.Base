@@ -48,7 +48,7 @@ building:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 interactable:
