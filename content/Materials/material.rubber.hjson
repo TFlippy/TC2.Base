@@ -1,9 +1,9 @@
 {
 	name: "Rubber"
-	description: "Resin-based rubber."
+	description: "Bouncy rubber."
 	icon:
 	{
-		texture: "resource.resin"
+		texture: "resource.rubber"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -12,7 +12,7 @@
 	flags: manufactured, fuel, organic
 	mass_per_unit: 0.200
 	quantity_max: 100.000
-	prefab: "resource.resin"
+	prefab: "resource.rubber"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
