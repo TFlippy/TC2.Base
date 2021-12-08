@@ -17,7 +17,7 @@ body:
 
 health:
 {
-	max: 800.000
+	max: 4000.000
 }
 
 sprite.renderer:
