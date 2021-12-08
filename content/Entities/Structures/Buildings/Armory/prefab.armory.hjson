@@ -47,6 +47,18 @@ armory:
 
 }
 
+storage:
+{
+	@inventory8:
+	{
+		name: "Storage"
+		stack_size_multiplier: 5.000
+		type: storage
+		filter_flags: ammo
+		flags: allow_ducts, ignore_mass, public
+	}
+}
+
 interactable:
 {
 	window_size: [384.000, 192.000]
