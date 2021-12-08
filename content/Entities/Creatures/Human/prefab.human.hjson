@@ -138,6 +138,18 @@ speechbubble:
 
 }
 
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 40.000
+			max: 60.000
+		}
+	]
+}
+
 +slot_head|instance:
 {
 	joint.base:
@@ -279,6 +291,18 @@ speechbubble:
 			multiplier: 1.000
 			mass_multiplier: 60.000
 		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 12.000
+					max: 18.000
+				}
+			]
+		}
 	}
 }
 
@@ -401,6 +425,18 @@ speechbubble:
 			bias: 0.150
 			multiplier: 1.000
 			mass_multiplier: 200.000
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 60.000
+					max: 80.000
+				}
+			]
 		}
 	}
 }

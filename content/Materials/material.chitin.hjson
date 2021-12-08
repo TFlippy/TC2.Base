@@ -1,6 +1,6 @@
 {
 	name: "Chitin"
-	description: ""
+	description: "Often found in insect and fungi."
 	icon:
 	{
 		texture: "resource.chitin"

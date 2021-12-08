@@ -3,16 +3,16 @@
 	description: "It is a mystery."
 	icon:
 	{
-		texture: "resource.flesh"
+		texture: "resource.meat"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
 	
 	type: flesh
 	flags: raw, organic, despawnable
-	mass_per_unit: 0.200
-	quantity_max: 500.000
-	prefab: "resource.flesh"
+	mass_per_unit: 0.400
+	quantity_max: 250.000
+	prefab: "resource.meat"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

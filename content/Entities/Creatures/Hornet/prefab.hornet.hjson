@@ -4,7 +4,7 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 5.500
+		mass: 9.500
 		radius: 0.500
 		friction: 0.700
 		elasticity: 0.850
@@ -87,7 +87,7 @@ threat:
 flyer:
 {
 	max_speed: 20.000
-	force: 100.000
+	force: 200.000
 	brake_modifier: 0.700
 	sound_speed_modifier: 0.020
 	sound_volume: 1.000
@@ -136,13 +136,13 @@ lootable:
 	[
 		{
 			material: "insect"
-			min: 20.000
-			max: 30.000
+			min: 12.000
+			max: 18.000
 		}
 		{
 			material: "chitin"
 			min: 5.000
-			max: 15.000
+			max: 13.000
 		}
 	]
 }
