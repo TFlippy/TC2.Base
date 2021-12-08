@@ -9,6 +9,13 @@
 			public int fps = 30;
 		}
 
+		// Hack, used to register "hornet" tag for now
+		[ISystem.Add(ISystem.Mode.Single), HasTag("hornet", true, Source.Modifier.Owned)]
+		public static void UpdateHornet(ISystem.Info info, [Source.Owned] ref Hornet.Data hornet)
+		{
+
+		}
+
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAlive(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref NoRotate.Data no_rotate)
 		{

@@ -1,0 +1,36 @@
+{
+	name: "Magnetite"
+	desc: "Common mineral, very rich in iron."
+	
+	material_type: stone
+	tile_flags: any
+	flags: raw, ore, common, mineral
+	
+	max_health: 24000.000
+	smoothing: 0.130
+	mass: 8.000
+	friction: 0.900
+	elasticity: 0.200
+	stability: 0.900
+	
+	texture: "terrain_magnetite"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.400
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 0.900
+		}
+		{
+			material: "magnetite"
+			quantity: 2.0999999
+		}
+	]
+}

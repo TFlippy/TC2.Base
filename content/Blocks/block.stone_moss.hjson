@@ -1,0 +1,36 @@
+{
+	name: "Mossy Stone"
+	desc: "Stone covered in moss."
+	
+	material_type: stone
+	tile_flags: any
+	flags: raw, mineral
+	
+	max_health: 12000.000
+	smoothing: 0.150
+	mass: 2.000
+	friction: 0.900
+	elasticity: 0.300
+	stability: 0.500
+	
+	texture: "terrain_stone_moss"
+	pattern: "pattern_stone_moss"
+	
+	texture_scale: 2.000
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 1.800
+		}
+		{
+			material: "soil_rich"
+			quantity: 0.400
+		}
+	]
+}

@@ -1,0 +1,32 @@
+{
+	name: "Gravel"
+	desc: "A very rocky soil."
+	
+	material_type: gravel
+	tile_flags: any
+	flags: raw
+	
+	max_health: 4800.000
+	smoothing: 0.200
+	mass: 6.000
+	friction: 0.990
+	elasticity: 0.030
+	stability: 0.500
+	
+	texture: "terrain_gravel"
+	pattern: "pattern_soil"
+	
+	texture_scale: 1.200
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "gravel"
+			quantity: 1.000
+		}
+	]
+}
