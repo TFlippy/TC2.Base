@@ -38,7 +38,7 @@ building:
 
 interactable:
 {
-	window_size: [552.000, 336.000]
+	window_size: [700.000, 480.000]
 }
 
 shop:

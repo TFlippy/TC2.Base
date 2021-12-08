@@ -37,5 +37,5 @@ laboratory:
 
 interactable:
 {
-	window_size: [850.000, 512.000]
+	window_size: [850.000, 600.000]
 }

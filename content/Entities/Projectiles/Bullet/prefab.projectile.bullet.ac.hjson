@@ -15,3 +15,16 @@ transform:
 {
 
 }
+
+explosive:
+{
+	radius: 2.000
+	power: 2.000
+	damage_entity: 1000.000
+	damage_terrain: 2000.000
+	smoke_amount: 0.200
+	sparks_amount: 0.300
+	volume: 0.700
+	pitch: 1.100
+	primed: true
+}

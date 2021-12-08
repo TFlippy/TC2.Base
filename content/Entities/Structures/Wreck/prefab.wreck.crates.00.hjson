@@ -41,3 +41,19 @@ cover:
 {
 
 }
+
+storage:
+{
+	@inventory16:
+	{
+		name: "Crates"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}
