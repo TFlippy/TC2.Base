@@ -11,7 +11,7 @@
 	type: liquid
 	flags: manufactured
 	mass_per_unit: 0.500
-	quantity_max: 50.000
+	quantity_max: 100.000
 	prefab: "resource.nitric_acid"
 	
 	projectile_count: 0

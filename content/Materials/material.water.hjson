@@ -10,8 +10,8 @@
 	
 	type: liquid
 	flags: raw
-	mass_per_unit: 1.000
-	quantity_max: 50.000
+	mass_per_unit: 0.500
+	quantity_max: 100.000
 	prefab: "resource.water"
 	
 	projectile_count: 0

@@ -10,7 +10,7 @@
 	
 	type: powder
 	flags: manufactured, explosive
-	mass_per_unit: 0.020
+	mass_per_unit: 0.100
 	quantity_max: 250.000
 	prefab: "resource.nitrocellulose"
 	
