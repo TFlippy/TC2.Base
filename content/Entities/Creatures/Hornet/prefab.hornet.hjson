@@ -129,3 +129,15 @@ biter:
 	damage_type: sting
 	hit_mask: destructible, organic
 }
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "chitin"
+			min: 10.000
+			max: 25.000
+		}
+	]
+}
