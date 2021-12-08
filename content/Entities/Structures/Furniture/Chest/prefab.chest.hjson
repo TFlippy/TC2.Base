@@ -50,7 +50,7 @@ storage:
 		name: "Chest"
 		stack_size_multiplier: 2.000
 		type: storage
-		flags: ignore_mass, public
+		flags: allow_ducts, ignore_mass, public
 	}
 }
 
