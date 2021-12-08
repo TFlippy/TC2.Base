@@ -41,7 +41,50 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
+				identifier: "health.varnish",
+				category: "Health",
+				name: "Varnish",
+				description: "Applies varnish on item's surface, improving its durability.",
+
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.requirements_new.Has(Crafting.Requirement.Resource("wood", 0.00f)) && !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var amount = 0.00f;
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.type == Material.Type.Wood)
+							{
+								amount += requirement.amount;
+							}
+						}
+					}
+
+					var total_amount = 3.00f + (amount * 0.10f);
+					context.requirements_new.Add(Crafting.Requirement.Resource("resin", total_amount));
+
+					data.max += total_amount * 85.00f;
+					data.dt += 50.00f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("resin");
+						body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
 				identifier: "health.smirgl_structure",
+				category: "Health",
 				name: "Smirgl-Reinforced Structure",
 				description: "Replaces entire structure with smirgl, greatly increasing durability.",
 
@@ -111,6 +154,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Fuse.Data>
 			(
 				identifier: "fuse.length",
+				category: "Explosives",
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
@@ -132,6 +176,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Fuse.Data>
 			(
 				identifier: "fuse.inextinguishable",
+				category: "Explosives",
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
@@ -144,6 +189,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.directed",
+				category: "Explosives",
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
@@ -161,6 +207,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.nitroglycerine",
+				category: "Explosives",
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
 
@@ -201,6 +248,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
+				category: "Cooling",
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
@@ -244,6 +292,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.heat_resistant",
+				category: "Cooling",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
@@ -2497,7 +2546,7 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.damage *= 2.50f;
+					data.damage *= 1.90f;
 					data.speed *= 0.80f;
 				},
 
