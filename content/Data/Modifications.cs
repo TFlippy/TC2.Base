@@ -6,56 +6,51 @@ namespace TC2.Base
 	{
 		private static void RegisterModifications(ref List<Modification.Definition> definitions)
 		{
+			//definitions.Add(Modification.Definition.New<Health.Data>
+			//(
+			//	identifier: "health.reinforced_structure",
+			//	name: "Reinforced Structure",
+			//	description: "Increases durability.",
+
+			//	can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		var count = 0;
+			//		for (int i = 0; i < modifications.Length; i++)
+			//		{
+			//			if (modifications[i].id == handle.id) count++;
+			//		}
+			//		return count < 1;
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.max *= 1.20f;
+			//	},
+
+			//	apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		foreach (ref var requirement in context.requirements_new)
+			//		{
+			//			if (requirement.type == Crafting.Requirement.Type.Work)
+			//			{
+			//				requirement.amount *= 1.20f;
+			//			}
+			//		}
+			//	}
+			//));
+
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
-				identifier: "health.reinforced_structure",
-				name: "Reinforced Structure",
-				description: "Increases durability.",
+				identifier: "health.smirgl_structure",
+				name: "Smirgl-Reinforced Structure",
+				description: "Replaces entire structure with smirgl, greatly increasing durability.",
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					data.max *= 1.20f;
-				},
-
-				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							requirement.amount *= 1.20f;
-						}
-					}
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Health.Data>
-			(
-				identifier: "health.smirgl_frame",
-				name: "Smirgl Frame",
-				description: "Replaces entire frame with smirgl, greatly increasing durability.",
-
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
-				},
-
-				requirements: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -96,7 +91,7 @@ namespace TC2.Base
 			//	name: "Efficient Crafting",
 			//	description: "Rework the design to reduce material costs slightly.",
 
-			//	requirements: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	apply_1: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 			//	{
 			//		foreach (ref var requirement in context.requirements_new)
 			//		{
@@ -127,7 +122,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					data.time = value;
@@ -140,7 +135,7 @@ namespace TC2.Base
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
-				apply: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.failure_chance = 0.00f;
 				}
@@ -152,7 +147,7 @@ namespace TC2.Base
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
-				apply: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					//var radius_log = MathF.Log2(data.radius);
 
@@ -169,7 +164,7 @@ namespace TC2.Base
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
 
-				apply: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
 					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
@@ -225,13 +220,13 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					data.cool_rate += amount * 10.00f;
+					data.cool_rate += amount * 4.00f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 
@@ -254,21 +249,16 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.cool_rate *= 0.80f;
 					data.heat_critical += 500.00f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var amount = 0.00f;
 
@@ -321,13 +311,7 @@ namespace TC2.Base
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					if (data.feed == Gun.Feed.Single) return false;
-
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -437,7 +421,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref readonly var requirement in context.requirements_old)
 					{
@@ -467,7 +451,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -537,7 +521,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -660,7 +644,7 @@ namespace TC2.Base
 					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
 				},
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
@@ -739,7 +723,7 @@ namespace TC2.Base
 					return data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG);
 				},
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
@@ -821,7 +805,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -904,14 +888,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
 #if CLIENT
@@ -922,7 +899,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value - 1.00f;
@@ -1006,7 +983,7 @@ namespace TC2.Base
 				name: "Balanced Receiver",
 				description: "Stabilizes the receiver, increasing reliability.",
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					switch (data.type)
 					{
@@ -1066,7 +1043,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1152,7 +1129,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1244,7 +1221,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1300,11 +1277,76 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
+				identifier: "gun.tempered_frame",
+				name: "Tempered Frame",
+				description: "Greatly improves durability and stability of the gun.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.80f;
+					data.stability += 0.40f;
+					data.stability = Maths.Clamp(data.stability * 1.50f, 0.00f, 1.00f);
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= 1.40f;
+						health.dt += 70.00f;
+					}
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
+					data.failure_rate *= 0.90f;
+					data.stability += 0.10f;
+					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					for (int i = 0; i < context.requirements_old.Length; i++)
+					{
+						var requirement = context.requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.20f;
+									requirement.difficulty += 8;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+							}
+						}
+					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", 3.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
 				identifier: "gun.hardened_frame",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.failure_rate *= 0.50f;
 					data.stability += 0.20f;
@@ -1321,13 +1363,13 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier *= 1.05f;
+						body.mass_multiplier *= 1.30f;
 					}
 
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1378,7 +1420,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1388,6 +1430,12 @@ namespace TC2.Base
 					data.stability = Maths.Clamp(data.stability - 0.03f, 0.00f, 1.00f);
 					data.cycle_interval *= 1.05f;
 					data.reload_interval *= 1.10f;
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= Maths.Lerp(0.95f, 0.70f, value);
+					}
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1406,7 +1454,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1430,7 +1478,7 @@ namespace TC2.Base
 				name: "Simple Frame",
 				description: "Simplifies the item, increasing reliability at cost of reduced performance.",
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
@@ -1454,7 +1502,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1513,7 +1561,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -1579,7 +1627,7 @@ namespace TC2.Base
 					data.failure_rate += Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.35f, ratio);
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1618,12 +1666,17 @@ namespace TC2.Base
 				name: "Action: Gas-Operated",
 				description: "Converts to gas-operated action.",
 
+				requirements: new()
+				{
+					[0] = Crafting.Requirement.Level(Experience.Type.Engineering, 10, Crafting.Requirement.Flags.No_Consume),
+				},
+
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					return data.action == Gun.Action.Blowback;
 				},
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					switch (data.action)
 					{
@@ -1652,7 +1705,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1707,17 +1760,10 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-
-					return count < 1 && data.feed != Gun.Feed.Single;
+					return data.feed != Gun.Feed.Single && !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.feed = Gun.Feed.Single;
 					data.max_ammo = 1;
@@ -1730,7 +1776,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_new.Length; i++)
 					{
@@ -1771,13 +1817,13 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Modification.Definition.New<Body.Data>
 			(
-				identifier: "gun.bulk",
+				identifier: "body.bulk",
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					batch_size = Maths.Clamp(batch_size, 1, 10);
@@ -1786,26 +1832,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					return GUI.SliderInt("##stuff", ref batch_size, 1, 10, "%d");
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref readonly var recipe_old = ref context.GetRecipeOld();
 					ref var recipe_new = ref context.GetRecipeNew();
@@ -1879,7 +1918,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
@@ -1986,7 +2025,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -2036,6 +2075,11 @@ namespace TC2.Base
 				name: "Flared Barrel",
 				description: "Increases spread and loudness, but also greatly reduces recoil.",
 
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2044,9 +2088,11 @@ namespace TC2.Base
 				},
 #endif
 
-				apply: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
+
+					data.damage_multiplier *= Maths.Lerp(0.90f, 0.60f, value);
 
 					data.flash_size *= Maths.Lerp(0.80f, 0.90f, value);
 					data.velocity_multiplier *= Maths.Lerp(0.90f, 0.50f, value);
@@ -2068,15 +2114,10 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					if (data.knockback == 0.00f)
 					{
@@ -2091,7 +2132,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2115,20 +2156,15 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.knockback *= -0.75f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2160,14 +2196,14 @@ namespace TC2.Base
 					return count < 2;
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.max_distance *= 1.20f;
 					data.cooldown *= 1.10f;
 					data.damage_base *= 1.15f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2195,13 +2231,13 @@ namespace TC2.Base
 					return count < 2;
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_bonus += data.damage_base * 0.50f;
 					data.damage_base *= 0.80f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2233,13 +2269,13 @@ namespace TC2.Base
 					return count < 2 && data.damage_bonus > 0.00f;
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_base += data.damage_bonus * 0.50f;
 					data.damage_bonus *= 0.50f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2272,7 +2308,7 @@ namespace TC2.Base
 					return count < 2;
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_base *= 0.80f;
 					data.damage_bonus *= 0.90f;
@@ -2287,7 +2323,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2320,14 +2356,14 @@ namespace TC2.Base
 					return data.yield > 0.00f && data.yield < 1.50f && data.damage_type == Damage.Type.Slash;
 				},
 
-				apply: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_base *= 0.90f;
 					data.damage_bonus *= 0.90f;
 					data.yield = Maths.Clamp(data.yield + 0.10f, 0.00f, 1.00f);
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2359,7 +2395,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				requirements: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2379,20 +2415,15 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.speed *= 1.60f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2421,15 +2452,10 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.speed *= 0.70f;
 					data.radius *= 2.00f;
@@ -2441,7 +2467,7 @@ namespace TC2.Base
 					}
 				},
 
-				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2466,21 +2492,16 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id) count++;
-					}
-					return count < 1;
+					return !modifications.HasModification(handle);
 				},
 
-				apply: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage *= 2.50f;
 					data.speed *= 0.80f;
 				},
 
-				requirements: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
