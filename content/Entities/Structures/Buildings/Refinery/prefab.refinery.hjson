@@ -75,7 +75,7 @@ crafter.state:
 	@inventory4:
 	{
 		name: "Input"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 5.000
 		type: input
 		flags: allow_ducts, ignore_mass
 	}

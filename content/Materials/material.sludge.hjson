@@ -1,6 +1,6 @@
 {
 	name: "Toxic Sludge"
-	description: "A mixture of various chemical waste products."
+	description: "A bloated heap of various chemical waste"
 	icon:
 	{
 		texture: "resource.sludge"
