@@ -4,9 +4,9 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 4.100
+		mass: 5.500
 		radius: 0.500
-		friction: 0.200
+		friction: 0.700
 		elasticity: 0.850
 		material: insect
 		layer: entity, solid
@@ -135,9 +135,14 @@ lootable:
 	items:
 	[
 		{
+			material: "insect"
+			min: 20.000
+			max: 30.000
+		}
+		{
 			material: "chitin"
-			min: 10.000
-			max: 25.000
+			min: 5.000
+			max: 15.000
 		}
 	]
 }

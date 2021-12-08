@@ -1,18 +1,18 @@
 {
-	name: "Chitin"
-	description: ""
+	name: "Insect Meat"
+	description: "Crispy and grubby!"
 	icon:
 	{
-		texture: "resource.chitin"
+		texture: "resource.insect"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
 	
-	type: glass
-	flags: raw, organic
-	mass_per_unit: 0.500
-	quantity_max: 100.000
-	prefab: "resource.chitin"
+	type: insect
+	flags: raw, organic, despawnable
+	mass_per_unit: 0.250
+	quantity_max: 500.000
+	prefab: "resource.insect"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
