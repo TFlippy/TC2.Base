@@ -1,18 +1,18 @@
 {
-	name: "Lubricant"
-	description: "Mostly used in industry for reducing friction."
+	name: "Toxic Sludge"
+	description: "A mixture of various chemical waste products."
 	icon:
 	{
-		texture: "resource.lubricant"
+		texture: "resource.sludge"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
 	
-	type: liquid
-	flags: manufactured
-	mass_per_unit: 0.500
-	quantity_max: 50.000
-	prefab: "resource.lubricant"
+	type: soil
+	flags: raw
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.sludge"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
