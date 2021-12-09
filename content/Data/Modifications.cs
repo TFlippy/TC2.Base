@@ -2586,8 +2586,8 @@ namespace TC2.Base
 			(
 				identifier: "medkit.alcohol",
 				category: "Medkit",
-				name: "Calming Aclohol",
-				description: "Add alcohol to the medkit reducing pain",
+				name: "Disinfectant",
+				description: "Adds an alcohol disinfectant, increasing healing amount at cost of extra pain.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2596,9 +2596,9 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.pain -= 100.00f;
-					data.power *= 0.95f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 20));
+					data.pain += 200.00f;
+					data.power *= 1.50f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 10));
 				}
 			));
 
@@ -2607,7 +2607,7 @@ namespace TC2.Base
 				identifier: "medkit.extra_bandages",
 				category: "Medkit",
 				name: "Extra Bandages",
-				description: "Extra bandages",
+				description: "Increases area of effect.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2616,40 +2616,40 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.cooldown *= 0.80f;
-					data.max_distance += 1.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 20));
+					data.aoe *= 1.20f;
+					data.max_distance += 0.50f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 6));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Medkit.Data>
-			(
-				identifier: "medkit.replacement_skin",
-				category: "Medkit",
-				name: "Replacement Skin",
-				description: "Graft skin and flesh (Very painfull)",
+			//definitions.Add(Modification.Definition.New<Medkit.Data>
+			//(
+			//	identifier: "medkit.replacement_skin",
+			//	category: "Medkit",
+			//	name: "Replacement Skin",
+			//	description: "Graft skin and flesh (Very painfull)",
 
-				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
+			//	can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle);
+			//	},
 
-				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					data.cooldown *= 1.20f;
-					data.power *= 1.70f;
-					data.heal_cap = MathF.Min(1.00f, data.heal_cap + 0.05f);
-					data.pain += 300.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("meat", 150));
-				}
-			));
+			//	apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.cooldown *= 1.20f;
+			//		data.power *= 1.70f;
+			//		data.heal_cap = MathF.Min(1.00f, data.heal_cap + 0.05f);
+			//		data.pain += 300.00f;
+			//		context.requirements_new.Add(Crafting.Requirement.Resource("meat", 150));
+			//	}
+			//));
 
 			definitions.Add(Modification.Definition.New<Medkit.Data>
 			(
 				identifier: "medkit.mithril_treatment",
 				category: "Medkit",
-				name: "Mithril Treatment",
-				description: "Mithril does wonders to the flesh, though the reaction is a bit strange",
+				name: "Experimental Mithril Treatment",
+				description: "Mithril does wonders to the flesh, though the reaction is a bit strange.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2658,46 +2658,46 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.power *= 1.50f; //Power is justified due to mithril beeing hideously expensive
+					data.power *= 1.50f; // Power is justified due to mithril being hideously expensive
 					data.pain += 100.00f;
 
-					data.critical_heal += 3.00f; //Quadrupel healing at 0 hp, 2.5x healing at 50% hp
+					data.critical_heal += 3.00f; // Quadruple healing at 0 hp, 2.5x healing at 50% hp
 					data.heal_cap -= 0.03f;
 
 					context.requirements_new.Add(Crafting.Requirement.Resource("mithril", 3));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Medkit.Data>
-			(
-				identifier: "medkit.blue_mushrooms",
-				category: "Medkit",
-				name: "Blue Mushroom Treatment",
-				description: "Blue Mushroom",
+			//definitions.Add(Modification.Definition.New<Medkit.Data>
+			//(
+			//	identifier: "medkit.blue_mushrooms",
+			//	category: "Medkit",
+			//	name: "Blue Mushroom Treatment",
+			//	description: "Blue Mushroom",
 
-				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
+			//	can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle);
+			//	},
 
-				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					data.power *= 1.20f;
-					data.cooldown *= 0.70f;
-					data.pain -= 100.00f;
+			//	apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.power *= 1.20f;
+			//		data.cooldown *= 0.70f;
+			//		data.pain -= 100.00f;
 
-					data.critical_heal -= 2.00f; //No healing at half hp or lower
+			//		data.critical_heal -= 2.00f; // No healing at half hp or lower
 					
-					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.blue", 100));
-				}
-			));
+			//		context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.blue", 100));
+			//	}
+			//));
 
 			definitions.Add(Modification.Definition.New<Medkit.Data>
 			(
 				identifier: "medkit.red_sugar",
 				category: "Medkit",
 				name: "Red Sugar",
-				description: "Red sugar numms the pain with sweetness",
+				description: "Red sugar numbs the pain with sweetness.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2706,11 +2706,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.power *= 0.80f;
-					data.cooldown *= 1.10f;
-					data.pain -= 1000.00f;
-					
-					context.requirements_new.Add(Crafting.Requirement.Resource("red_sugar", 20));
+					data.pain -= 500.00f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("red_sugar", 10));
 				}
 			));
 		}

@@ -8,11 +8,20 @@
 			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float power;
 
+			[Statistics.Info("Primary Healing Multiplier", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float primary_multiplier = 1.00f;
+
+			[Statistics.Info("Secondary Healing Multiplier", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float secondary_multiplier = 1.00f;
+
 			[Statistics.Info("Healing Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
 
 			[Statistics.Info("Healing Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float max_distance;
+
+			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			public float aoe = 0.25f;
 
 			[Statistics.Info("Healing Cap", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
 			public float heal_cap = 1.00f; // How high the health can go (1 is the highest possible)
@@ -116,7 +125,7 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(control.mouse.position, 0.25f, ref hits, mask: Physics.Layer.Organic))
+					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic))
 					{
 						var random = XorRandom.New();
 						var total_healed_amount = 0.00f;
