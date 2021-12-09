@@ -40,9 +40,10 @@ transform:
 
 medkit:
 {
-	power: 50.000
+	power: 60.000
 	cooldown: 0.500
 	max_distance: 3.000
+	pain: 50
 }
 
 norotate:
