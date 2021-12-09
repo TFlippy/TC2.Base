@@ -2587,7 +2587,7 @@ namespace TC2.Base
 				identifier: "medkit.alcohol",
 				category: "Medkit",
 				name: "Calming Aclohol",
-				description: "Add Alcohol to the medkit reducing pain",
+				description: "Add alcohol to the medkit reducing pain",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2607,7 +2607,7 @@ namespace TC2.Base
 				identifier: "medkit.extra_bandages",
 				category: "Medkit",
 				name: "Extra Bandages",
-				description: "Extra Bandages",
+				description: "Extra bandages",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2627,7 +2627,7 @@ namespace TC2.Base
 				identifier: "medkit.replacement_skin",
 				category: "Medkit",
 				name: "Replacement Skin",
-				description: "Graft Skin and flesh (Very painfull)",
+				description: "Graft skin and flesh (Very painfull)",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2658,10 +2658,10 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.power *= 1.50f;
+					data.power *= 1.50f; //Power is justified due to mithril beeing hideously expensive
 					data.pain += 100.00f;
 
-					data.critical_heal += 3.00f; //Quadrupel healing at 0 hp, though 
+					data.critical_heal += 3.00f; //Quadrupel healing at 0 hp, 2.5x healing at 50% hp
 					data.heal_cap -= 0.03f;
 
 					context.requirements_new.Add(Crafting.Requirement.Resource("mithril", 3));
@@ -2686,7 +2686,7 @@ namespace TC2.Base
 					data.cooldown *= 0.70f;
 					data.pain -= 100.00f;
 
-					data.critical_heal -= 2.00f; //No healing at half hp
+					data.critical_heal -= 2.00f; //No healing at half hp or lower
 					
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.blue", 100));
 				}
