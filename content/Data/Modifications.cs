@@ -2616,7 +2616,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.aoe *= 1.20f;
+					data.aoe *= 1.50f;
 					data.max_distance += 0.50f;
 					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 8));
 				}
