@@ -1,7 +1,3 @@
-control:
-{
-
-}
 
 body:
 {
@@ -22,6 +18,11 @@ health:
 	max: 500.000
 }
 
+control:
+{
+
+}
+
 holdable:
 {
 	offset: [0.000, 0.000]
@@ -40,9 +41,10 @@ transform:
 
 medkit:
 {
-	power: 100.000
+	power: 50.000
 	cooldown: 0.500
 	max_distance: 3.000
+	pain: 50.000
 }
 
 norotate:
