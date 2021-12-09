@@ -116,7 +116,7 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(control.mouse.position, 0.20f, ref hits, mask: Physics.Layer.Organic))
+					if (region.TryOverlapPointAll(control.mouse.position, 0.25f, ref hits, mask: Physics.Layer.Organic))
 					{
 						var random = XorRandom.New();
 						var total_healed_amount = 0.00f;

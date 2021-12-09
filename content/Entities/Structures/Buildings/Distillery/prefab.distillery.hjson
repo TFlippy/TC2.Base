@@ -76,7 +76,7 @@ burner:
 		stack_size_multiplier: 4.000
 		filter_flags: fuel
 		type: fuel
-		flags: ignore_mass
+		flags: allow_ducts, ignore_mass
 	}
 	
 	@sound.emitter:
