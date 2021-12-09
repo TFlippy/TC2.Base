@@ -29,14 +29,6 @@
 			public double pressure_target;
 		}
 
-		public const float update_interval = 0.50f;
-		public const float update_interval_failed = 3.00f;
-
-		//internal static int current_sound_index = 0;
-		internal const float tau_inv = 1.00f / MathF.Tau;
-
-		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
-
 		public struct ConfigureRPC: Net.IRPC<Refinery.State>
 		{
 			public float? temperature_target;
@@ -55,30 +47,66 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
-		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state, [Source.Owned, Trait.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state, 
+		[Source.Owned, Trait.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
 		{
-			var amount = 0.00f;
-			var mass = 0.00f;
-			var specific_heat = 0.00;
+			var amount_total = 0.00f;
+			var mass_total = 0.00f;
+			var specific_heat_total = 0.00;
+			var gas_amount_total = 0.00;
 
-			foreach (ref var resource in inventory.GetResources())
+			ref var recipe = ref crafter.GetCurrentRecipe();
+
+			foreach (ref var requirement in recipe.requirements.AsSpan())
 			{
-				ref var material = ref resource.GetMaterial();
+				if (requirement.type == Crafting.Requirement.Type.Resource)
+				{
+					ref var material = ref requirement.material.GetDefinition();
+					if (material.id != 0)
+					{
+						var quantity = requirement.amount;
+						var mass = quantity * material.mass_per_unit;
 
-				amount += resource.quantity;
-				mass += resource.quantity * material.mass_per_unit;
-				specific_heat += resource.quantity * material.specific_heat;
+						amount_total += quantity;
+						mass_total += mass;
+						specific_heat_total += quantity * material.specific_heat;
+						if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
+					}
+				}
 			}
 
-			refinery_state.amount = amount;
-			refinery_state.mass = mass;
-			refinery_state.specific_heat = amount > 0.00 ? specific_heat / amount : 0.00;
+			//foreach (ref var resource in inventory.GetResources())
+			//{
+			//	ref var material = ref resource.GetMaterial();
+			//	if (material.id != 0)
+			//	{
+			//		var mass = resource.quantity * material.mass_per_unit;
+
+			//		amount_total += resource.quantity;
+			//		mass_total += mass;
+			//		specific_heat_total += resource.quantity * material.specific_heat;
+			//		//gas_amount_total += (mass * 1000.00) / material.molar_mass;
+			//	}
+			//}
+
+			refinery_state.amount = amount_total;
+			refinery_state.mass = mass_total;
+			refinery_state.specific_heat = amount_total > 0.00 ? specific_heat_total / amount_total : 0.00;
+			refinery_state.gas_amount = gas_amount_total;
 		}
+
+		public const float update_interval = 0.20f;
+		public const float update_interval_failed = 3.00f;
+
+		internal const float tau_inv = 1.00f / MathF.Tau;
+
+		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
 		public const double atmospheric_pressure = 100_000.00;
 		public const double ambient_temperature = 300.00;
 
-		public const double default_molar_mass = 30.000; // g/mol
+		public const double default_molar_mass = 30.000;
 		public const double default_heat_capacity = 20.000;
 
 		public const double gas_constant = 8.3144598;
@@ -119,7 +147,8 @@
 				}
 
 				//refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
-				refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, refinery.tank_volume * 40, refinery_state.temperature_current);
+				//refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, Math.Max(refinery.tank_volume * air_moles_per_cubic_meter, refinery_state.gas_amount), refinery_state.temperature_current);
+				refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, Math.Max(refinery.tank_volume * air_moles_per_cubic_meter, refinery_state.gas_amount), refinery_state.temperature_current);
 
 				entity.SyncComponent(ref refinery_state);
 
@@ -160,7 +189,7 @@
 			{
 				var max_temperature = 2000.00f;
 				var default_pressure = 100.00;
-				var max_pressure = 1_000_000.00;
+				var max_pressure = 5_000_000.00;
 
 				using (var window = GUI.Window.Interaction("Refinery", this.ent_refinery))
 				{
@@ -200,6 +229,7 @@
 						changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
 						GUI.SameLine();
 						changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
+						GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
 
 						if (changed)
 						{
