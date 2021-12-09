@@ -5,9 +5,20 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct Data: IComponent
 		{
+			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float power;
+
+			[Statistics.Info("Healing Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
+			
+			[Statistics.Info("Healing Distance", description: "How far away this can heal things", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float max_distance;
+
+			[Statistics.Info("Healing Cap", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float heal_cap = 1.00f; //How high the health can go (1 is the highest possible)
+
+			[Statistics.Info("Critical Heal", description: "Increases healing at lower hp", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float critical_heal = 0.00f; //Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
 
 			[Save.Ignore] public float next_use;
 		}
@@ -120,8 +131,9 @@
 								if (medic.level_reconstruction > 0 && (1.00f - health.primary) <= (medic.level_reconstruction / 3.00f))
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
+									heal_normalized = heal_normalized + heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
-									var healed_amount = MathF.Min(Maths.Clamp(1.00f - health.primary, 0.00f, 1.00f), heal_normalized);
+									var healed_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.primary, 0.00f, medkit.heal_cap), heal_normalized);
 									health.primary += healed_amount;
 									total_healed_amount += healed_amount * health.max;
 
@@ -130,8 +142,10 @@
 
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
+									heal_normalized = heal_normalized + heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
-									var healed_amount = MathF.Min(Maths.Clamp(1.00f - health.secondary, 0.00f, 1.00f), heal_normalized);
+
+									var healed_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.secondary, 0.00f, medkit.heal_cap), heal_normalized);
 									health.secondary += healed_amount;
 									total_healed_amount += healed_amount * health.max;
 
