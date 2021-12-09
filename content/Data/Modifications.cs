@@ -2586,7 +2586,7 @@ namespace TC2.Base
 			(
 				identifier: "medkit.alcohol",
 				category: "Medkit",
-				name: "Disinfectant",
+				name: "Alcohol Disinfectant",
 				description: "Adds an alcohol disinfectant, increasing healing amount at cost of extra pain.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -2628,7 +2628,7 @@ namespace TC2.Base
 				identifier: "medkit.sterile",
 				category: "Medkit",
 				name: "Sterile Surgical Tools",
-				description: "Greatly improves healing rate.",
+				description: "Allows treating more severe injuries.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2734,7 +2734,7 @@ namespace TC2.Base
 			(
 				identifier: "medkit.red_sugar",
 				category: "Medkit",
-				name: "Red Sugar",
+				name: "Red Sugar Anesthetic",
 				description: "Red sugar numbs the pain with sweetness.",
 
 				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -2744,7 +2744,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.pain -= 500.00f;
+					data.pain -= 200.00f;
 					context.requirements_new.Add(Crafting.Requirement.Resource("red_sugar", 10));
 				}
 			));
