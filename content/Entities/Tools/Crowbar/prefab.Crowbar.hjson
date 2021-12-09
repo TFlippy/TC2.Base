@@ -69,7 +69,7 @@ packable:
 
 medkit:
 {
-	power: 100.000
+	power: 50.000
 	cooldown: 0.500
 	max_distance: 3.000
 }
