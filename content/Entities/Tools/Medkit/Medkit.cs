@@ -20,6 +20,9 @@
 			[Statistics.Info("Critical Heal", description: "Increases healing at lower hp", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
 			public float critical_heal = 0.00f; //Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
 
+			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower)]
+			public float pain = 0.00f;
+
 			[Save.Ignore] public float next_use;
 		}
 
@@ -155,6 +158,20 @@
 								if (healed)
 								{
 									hit.entity.MarkModified<Health.Data>(sync: true);
+								}
+							}
+
+							ref var organic = ref hit.entity.GetComponent<Organic.Data>();
+							if (!organic.IsNull())
+							{
+								//Adds or reduces pain
+								var pained_amount = MathF.Max(medkit.pain,-organic.pain_shared_new);
+
+								organic.pain += pained_amount;
+
+								if(pained_amount != 0.00f)
+								{
+									hit.entity.MarkModified<Organic.Data>(sync: true);
 								}
 							}
 						}
