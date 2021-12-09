@@ -57,6 +57,11 @@ refinery:
 	smoke_offset: [0.875, -4.250]
 }
 
+refinery.state:
+{
+	
+}
+
 crafter:
 {
 	sound_produce: "refinery_produce_00"
@@ -83,7 +88,7 @@ crafter.state:
 
 burner:
 {
-	smoke_offset: [-1.800, -2.0999999]
+	smoke_offset: [-1.800, -2.100]
 	capacity: 3.000
 	energy_loss: 100000.000
 	efficiency: 0.400
