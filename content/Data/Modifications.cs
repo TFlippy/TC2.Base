@@ -2596,9 +2596,9 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.pain += 200.00f;
-					data.power *= 1.50f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 10));
+					data.pain += 250.00f;
+					data.power *= 2.50f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 5));
 				}
 			));
 
@@ -2618,7 +2618,44 @@ namespace TC2.Base
 				{
 					data.aoe *= 1.20f;
 					data.max_distance += 0.50f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 6));
+					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 8));
+				}
+			));
+
+
+			definitions.Add(Modification.Definition.New<Medkit.Data>
+			(
+				identifier: "medkit.sterile",
+				category: "Medkit",
+				name: "Sterile Surgical Tools",
+				description: "Greatly improves healing rate.",
+
+				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.heal_cap_primary += 0.15f;
+					data.heal_cap_secondary += 0.10f;
+
+					var ingot_amount = 0.00f;
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Ingot))
+							{
+								ingot_amount += requirement.amount;
+								requirement = default;
+							}
+						}
+					}
+
+					var total_amount = 1.00f + ingot_amount;
+					context.requirements_new.Add(Crafting.Requirement.Resource("silver_ingot", total_amount));
 				}
 			));
 
@@ -2644,29 +2681,30 @@ namespace TC2.Base
 			//	}
 			//));
 
-			definitions.Add(Modification.Definition.New<Medkit.Data>
-			(
-				identifier: "medkit.mithril_treatment",
-				category: "Medkit",
-				name: "Experimental Mithril Treatment",
-				description: "Mithril does wonders to the flesh, though the reaction is a bit strange.",
+			//definitions.Add(Modification.Definition.New<Medkit.Data>
+			//(
+			//	identifier: "medkit.mithril_treatment",
+			//	category: "Medkit",
+			//	name: "Experimental Mithril Treatment",
+			//	description: "Mithril does wonders to the flesh, though the reaction is a bit strange.",
 
-				can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
+			//	can_add: static (ref Modification.Context context, in Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle);
+			//	},
 
-				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					data.power *= 1.50f; // Power is justified due to mithril being hideously expensive
-					data.pain += 100.00f;
+			//	apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.power *= 1.50f; // Power is justified due to mithril being hideously expensive
+			//		data.pain += 100.00f;
 
-					data.critical_heal += 3.00f; // Quadruple healing at 0 hp, 2.5x healing at 50% hp
-					data.heal_cap -= 0.03f;
+			//		data.critical_heal += 3.00f; // Quadruple healing at 0 hp, 2.5x healing at 50% hp
+			//		data.heal_cap_primary += 0.05f;
+			//		data.heal_cap_secondary -= 0.20f;
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("mithril", 3));
-				}
-			));
+			//		context.requirements_new.Add(Crafting.Requirement.Resource("mithril", 3));
+			//	}
+			//));
 
 			//definitions.Add(Modification.Definition.New<Medkit.Data>
 			//(

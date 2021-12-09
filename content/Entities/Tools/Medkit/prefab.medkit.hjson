@@ -1,7 +1,3 @@
-control:
-{
-
-}
 
 body:
 {
@@ -20,6 +16,11 @@ body:
 health:
 {
 	max: 500.000
+}
+
+control:
+{
+
 }
 
 holdable:
