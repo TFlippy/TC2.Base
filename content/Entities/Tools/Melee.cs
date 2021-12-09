@@ -13,10 +13,10 @@ namespace TC2.Base.Components
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
 
-			[Statistics.Info("Base Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Base Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float damage_base;
 
-			[Statistics.Info("Bonus Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Bonus Damage", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float damage_bonus;
 
 			[Statistics.Info("Primary Damage Multiplier", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
@@ -25,34 +25,34 @@ namespace TC2.Base.Components
 			[Statistics.Info("Secondary Damage Multiplier", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float secondary_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Terrain Damage Multiplier", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Terrain Damage Multiplier", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float terrain_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Cooldown", description: "TODO: Desc", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
 
-			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float max_distance;
 
-			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float aoe;
 
 			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float thickness = 0.30f;
 
-			[Statistics.Info("Knockback", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Knockback", description: "Multiplies the knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
 			public float knockback;
 
-			[Statistics.Info("Yield", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
 			public float yield;
 
-			[Statistics.Info("Penetration Falloff", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Penetration Falloff", description: "Modifies damage after each penetration", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
 			public float penetration_falloff;
 
-			[Statistics.Info("Penetration", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public int penetration;
 
-			[Statistics.Info("Damage Type", description: "TODO: Desc", format: "{0}", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None)]
 			public Damage.Type damage_type;
 
 			public Physics.Layer hit_mask;
