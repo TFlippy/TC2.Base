@@ -10,20 +10,20 @@
 
 			[Statistics.Info("Healing Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
-			
-			[Statistics.Info("Healing Distance", description: "How far away this can heal things", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+
+			[Statistics.Info("Healing Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float max_distance;
 
 			[Statistics.Info("Healing Cap", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float heal_cap = 1.00f; //How high the health can go (1 is the highest possible)
+			public float heal_cap = 1.00f; // How high the health can go (1 is the highest possible)
 
-			[Statistics.Info("Critical Heal", description: "Increases healing at lower hp", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float critical_heal = 0.00f; //Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
+			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float critical_heal = 0.00f; // Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
 
 			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower)]
 			public float pain = 0.00f;
 
-			[Save.Ignore] public float next_use;
+			[Save.Ignore, Net.Ignore] public float next_use;
 		}
 
 #if CLIENT
@@ -134,25 +134,24 @@
 								if (medic.level_reconstruction > 0 && (1.00f - health.primary) <= (medic.level_reconstruction / 3.00f))
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
-									heal_normalized = heal_normalized + heal_normalized * medkit.critical_heal * (1.00f - health.primary);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
-									var healed_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.primary, 0.00f, medkit.heal_cap), heal_normalized);
-									health.primary += healed_amount;
-									total_healed_amount += healed_amount * health.max;
+									var heal_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.primary, 0.00f, medkit.heal_cap), heal_normalized);
+									health.primary += heal_amount;
+									total_healed_amount += heal_amount * health.max;
 
-									healed |= healed_amount > 0.00f;
+									healed |= heal_amount > 0.00f;
 								}
 
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
-									heal_normalized = heal_normalized + heal_normalized * medkit.critical_heal * (1.00f - health.primary);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
+									var heal_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.secondary, 0.00f, medkit.heal_cap), heal_normalized);
+									health.secondary += heal_amount;
+									total_healed_amount += heal_amount * health.max;
 
-									var healed_amount = MathF.Min(Maths.Clamp(medkit.heal_cap - health.secondary, 0.00f, medkit.heal_cap), heal_normalized);
-									health.secondary += healed_amount;
-									total_healed_amount += healed_amount * health.max;
-
-									healed |= healed_amount > 0.00f;
+									healed |= heal_amount > 0.00f;
 								}
 
 								if (healed)
@@ -164,12 +163,11 @@
 							ref var organic = ref hit.entity.GetComponent<Organic.Data>();
 							if (!organic.IsNull())
 							{
-								//Adds or reduces pain
-								var pained_amount = MathF.Max(medkit.pain,-organic.pain_shared_new);
+								// Adds or reduces pain
+								var pain_amount = MathF.Max(medkit.pain, -organic.pain);
+								organic.pain += pain_amount;
 
-								organic.pain += pained_amount;
-
-								if(pained_amount != 0.00f)
+								if (pain_amount != 0.00f)
 								{
 									hit.entity.MarkModified<Organic.Data>(sync: true);
 								}
