@@ -67,12 +67,13 @@ melee:
 	damage_base: 80.000
 	damage_bonus: 30.000
 	cooldown: 0.600
-	max_distance: 2.000
-	aoe: 1.500
+	max_distance: 1.500
+	aoe: 1.000
 	knockback: 4.000
 	yield: 0.000
-	penetration_falloff: 0.500
-	penetration: 1
+	thickness: 1.750
+	penetration_falloff: 0.800
+	penetration: 3
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
 	damage_type: club
