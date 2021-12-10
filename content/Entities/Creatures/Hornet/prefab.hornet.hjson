@@ -9,7 +9,7 @@ body:
 		friction: 0.700
 		elasticity: 0.850
 		material: insect
-		layer: entity, solid
+		layer: entity, solid, creature
 		mask: world
 	}
 }

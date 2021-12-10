@@ -5,8 +5,8 @@ body:
 {
 	@shape.line:
 	{
-		layer: entity, solid
-		mask: world
+		layer: entity, solid, item
+		mask: world, creature
 		//solid 
 		//currently collides with solid this may need cleanup as it currently collides with trees
 		//if solid is added this would collide with other players/other shields (GREAT) and collide with items/mounts (not as great)
@@ -19,7 +19,7 @@ body:
 
 		mass: 10
 		elasticity: 0.25
-		friction: 0.800
+		friction: 0.500
 
 		material: metal
 	}
