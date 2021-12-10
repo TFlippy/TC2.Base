@@ -3,9 +3,9 @@ body:
 	@shape.line:
 	{
 		a: [-0.500, 0.000]
-		b: [0.500, 0.000]
+		b: [0.400, 0.000]
 		mass: 2.200
-		radius: 0.250
+		radius: 0.220
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
@@ -34,6 +34,7 @@ gun:
 	action: blowback
 	type: handgun
 	feed: magazine
+	flash_size: 0.700
 	
 	@inventory1:
 	{
@@ -60,14 +61,14 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.500, 0.000]
+	offset: [-0.400, 0.000]
 	radius: 4.000
 	flags: storable
 }
 
 sprite.renderer:
 {
-	scale: [0.900, 0.900]
+	scale: [0.850, 0.850]
 	texture: "pistol"
 }
 
