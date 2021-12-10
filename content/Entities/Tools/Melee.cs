@@ -9,6 +9,9 @@ namespace TC2.Base.Components
 		public struct Data: IComponent
 		{
 			public Sound.Handle sound_swing;
+			public float sound_volume = 1.00f;
+			public float sound_size = 2.00f;
+			public float sound_pitch = 1.00f;
 
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
@@ -55,6 +58,7 @@ namespace TC2.Base.Components
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None)]
 			public Damage.Type damage_type;
 
+
 			public Physics.Layer hit_mask;
 		}
 
@@ -95,7 +99,7 @@ namespace TC2.Base.Components
 				len = MathF.Min(len, melee.max_distance);
 
 #if CLIENT
-				Sound.Play(melee.sound_swing, transform.position, 1.00f, random.NextFloatRange(0.90f, 1.10f), size: 2.00f);
+				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 #endif
 
 				Span<LinecastResult> hits = stackalloc LinecastResult[16];
