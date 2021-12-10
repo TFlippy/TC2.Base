@@ -72,7 +72,7 @@ npc:
 
 animal:
 {
-	attack_distance: 1.500
+	attack_distance: 1.900
 	attack_cooldown: 2.000
 
 	charge_distance: 15.000

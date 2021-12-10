@@ -1,5 +1,5 @@
 $name: "Shield"
-$desc: "Blocks bullets"
+$desc: "A large shield capable of absorbing various kinds of attacks."
 
 body:
 {
@@ -7,9 +7,6 @@ body:
 	{
 		layer: entity, solid, item
 		mask: world, creature
-		//solid 
-		//currently collides with solid this may need cleanup as it currently collides with trees
-		//if solid is added this would collide with other players/other shields (GREAT) and collide with items/mounts (not as great)
 
 		a: [0.000, -0.500]
 		b: [0.000, 0.500]
@@ -17,9 +14,9 @@ body:
 		radius: 0.300
 		offset: [0.050, 0.000]
 
-		mass: 10
-		elasticity: 0.25
-		friction: 0.500
+		mass: 8.000
+		elasticity: 0.250
+		friction: 0.300
 
 		material: metal
 	}
@@ -39,7 +36,7 @@ holdable:
 
 health:
 {
-	max: 10000
+	max: 10000.000
 }
 
 transform:
@@ -67,14 +64,14 @@ melee:
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
 	sound_pitch: 0.700
-	damage_base: 80.00
-	damage_bonus: 30.00
-	cooldown: 0.60
-	max_distance: 3.00
-	aoe: 1.25
-	knockback: 4.00
-	yield: 0.00
-	penetration_falloff: 0.50
+	damage_base: 80.000
+	damage_bonus: 30.000
+	cooldown: 0.600
+	max_distance: 2.000
+	aoe: 1.500
+	knockback: 4.000
+	yield: 0.000
+	penetration_falloff: 0.500
 	penetration: 1
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
