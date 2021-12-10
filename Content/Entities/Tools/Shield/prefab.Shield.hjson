@@ -77,10 +77,15 @@ melee:
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
 	damage_type: club
-	hit_mask: world, destructible
+	hit_mask: creature, item
 }
 
 melee.state:
 {
 
+}
+
+cover:
+{
+	threshold: 0.200
 }
