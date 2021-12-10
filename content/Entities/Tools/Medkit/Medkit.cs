@@ -5,11 +5,37 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct Data: IComponent
 		{
+			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float power;
+
+			[Statistics.Info("Healing (Primary)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float primary_multiplier = 1.00f;
+
+			[Statistics.Info("Healing (Secondary)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float secondary_multiplier = 1.00f;
+
+			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
+
+			[Statistics.Info("Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float max_distance;
 
-			[Save.Ignore] public float next_use;
+			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			public float aoe = 0.25f;
+
+			[Statistics.Info("Healing Cap (Primary)", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float heal_cap_primary = 0.00f; // How high the health can go (1 is the highest possible)
+
+			[Statistics.Info("Healing Cap (Secondary)", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float heal_cap_secondary = 0.50f; // How high the health can go (1 is the highest possible)
+
+			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float critical_heal = 0.00f; // Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
+
+			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower)]
+			public float pain = 0.00f;
+
+			[Save.Ignore, Net.Ignore] public float next_use;
 		}
 
 #if CLIENT
@@ -102,7 +128,7 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(control.mouse.position, 0.20f, ref hits, mask: Physics.Layer.Organic))
+					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic))
 					{
 						var random = XorRandom.New();
 						var total_healed_amount = 0.00f;
@@ -112,35 +138,56 @@
 
 						foreach (ref var hit in hits)
 						{
+							var healed_amount_max = 0.00f;
+
 							ref var health = ref hit.entity.GetComponent<Health.Data>();
 							if (!health.IsNull())
 							{
-								var healed = false;
-
-								if (medic.level_reconstruction > 0 && (1.00f - health.primary) <= (medic.level_reconstruction / 3.00f))
+								var heal_primary_max = Maths.Clamp(medkit.heal_cap_primary + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
+								if (heal_primary_max > 0.00f && (1.00f - health.primary) <= heal_primary_max)
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
-									var healed_amount = MathF.Min(Maths.Clamp(1.00f - health.primary, 0.00f, 1.00f), heal_normalized);
-									health.primary += healed_amount;
-									total_healed_amount += healed_amount * health.max;
+									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.primary, 0.00f, heal_primary_max), heal_normalized);
+									health.primary += heal_amount;
+									total_healed_amount += heal_amount * health.max;
 
-									healed |= healed_amount > 0.00f;
+									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
 								}
 
+								var heal_secondary_max = Maths.Clamp(medkit.heal_cap_secondary, 0.00f, 1.00f);
+								if (heal_secondary_max > 0.00f && (1.00f - health.secondary) <= heal_secondary_max)
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
 
-									var healed_amount = MathF.Min(Maths.Clamp(1.00f - health.secondary, 0.00f, 1.00f), heal_normalized);
-									health.secondary += healed_amount;
-									total_healed_amount += healed_amount * health.max;
+									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.secondary, 0.00f, heal_secondary_max), heal_normalized);
+									health.secondary += heal_amount;
+									total_healed_amount += heal_amount * health.max;
 
-									healed |= healed_amount > 0.00f;
+									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
 								}
 
-								if (healed)
+								if (healed_amount_max > 0.00f)
 								{
 									hit.entity.MarkModified<Health.Data>(sync: true);
+								}
+							}
+
+							if (healed_amount_max > 0.00f)
+							{
+								ref var organic = ref hit.entity.GetComponent<Organic.Data>();
+								if (!organic.IsNull())
+								{
+									// Adds or reduces pain
+									var pain_amount = MathF.Max(medkit.pain, -organic.pain);
+									organic.pain += pain_amount;
+
+									if (pain_amount != 0.00f)
+									{
+										hit.entity.MarkModified<Organic.Data>(sync: true);
+									}
 								}
 							}
 						}

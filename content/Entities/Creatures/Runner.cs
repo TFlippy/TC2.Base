@@ -116,11 +116,19 @@
 				max_speed.X *= 0.50f;
 			}
 
-			if (!runner.flags.HasAll(Runner.Flags.Walking) && runner.flags.HasAll(Runner.Flags.Grounded))
+			if (!runner.flags.HasAll(Runner.Flags.Walking))
 			{
 				var required_force_dir = (body.GetVelocity() * body.GetMass() * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
-				force -= required_force_dir *= Maths.Clamp(runner.walk_force * 0.85f, -required_force_magnitude, required_force_magnitude);
+				required_force_dir *= Maths.Clamp(runner.walk_force * 0.85f, -required_force_magnitude, required_force_magnitude);
+
+				if (!runner.flags.HasAll(Runner.Flags.Grounded))
+				{
+					required_force_dir.X *= 0.02f;
+					required_force_dir.Y *= 0.00f;
+				}
+
+				force -= required_force_dir;
 			}
 
 			max_speed *= runner.speed_modifier;

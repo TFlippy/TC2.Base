@@ -25,13 +25,13 @@ body:
 
 gun:
 {
-	muzzle_offset: [0.700, -0.125]
+	muzzle_offset: [0.600, 0.000]
 	sound_shoot: "revolver_shoot"
 	sound_cycle: "revolver_cycle"
 	sound_reload: "revolver_reload"
-	velocity_multiplier: 300.000
+	velocity_multiplier: 330.000
 	jitter_multiplier: 0.100
-	damage_multiplier: 2.500
+	damage_multiplier: 2.000
 	recoil_multiplier: 0.500
 	reload_interval: 0.500
 	cycle_interval: 0.100
@@ -43,6 +43,7 @@ gun:
 	action: revolver
 	type: handgun
 	feed: cylinder
+	flash_size: 0.700
 	
 	@inventory1:
 	{
@@ -69,20 +70,16 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.500, 0.000]
+	offset: [-0.300, 0.300]
 	radius: 4.000
 	flags: storable
 }
 
 sprite.renderer:
 {
-	offset: [0.000, 0.000]
-	z: 0.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 0
+	offset: [0.000, 0.200]
 	texture: "revolver"
+	scale: [0.900, 0.900]
 }
 
 health:

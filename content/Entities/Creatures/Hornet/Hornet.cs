@@ -5,7 +5,6 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public struct Data: IComponent
 		{
-			public float aim_rotation_ratio = 1.00f;
 			public int fps = 30;
 		}
 

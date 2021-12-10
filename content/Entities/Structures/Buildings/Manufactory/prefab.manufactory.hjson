@@ -6,23 +6,24 @@ body:
 	{
 		size: [7.000, 5.000]
 		offset: [0.000, 0.000]
+		mass: 5000.000
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building
+		layer: entity, building, support
 		mask: world
 	}
 }
 
 health:
 {
-	max: 20000.000
+	max: 25000.000
 }
 
 sprite.renderer:
 {
 	z: -150.000
-	texture: "laboratory"
+	texture: "manufactory"
 }
 
 transform:
@@ -30,12 +31,33 @@ transform:
 
 }
 
-laboratory:
+building:
 {
 
 }
 
 interactable:
 {
-	window_size: [900.000, 600.000]
+	window_size: [650.000, 400.000]
+}
+
+shop:
+{
+	name: "Manufactory"
+	recipe_groups:
+	[
+		15
+		0
+		0
+		0
+		0
+		0
+		0
+		0
+	]
+}
+
+workshop:
+{
+
 }
