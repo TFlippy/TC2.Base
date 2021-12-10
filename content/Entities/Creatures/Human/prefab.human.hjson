@@ -446,8 +446,8 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.000, -0.100]
-		max_force: 8000.000
-		max_torque: 5000.000
+		max_force: 5000.000
+		max_torque: 1000.000
 		flags: control_write
 	}
 	
