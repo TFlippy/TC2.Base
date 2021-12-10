@@ -16,7 +16,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 20000.000
 }
 
 sprite.renderer:
@@ -37,5 +37,5 @@ laboratory:
 
 interactable:
 {
-	window_size: [850.000, 600.000]
+	window_size: [900.000, 600.000]
 }

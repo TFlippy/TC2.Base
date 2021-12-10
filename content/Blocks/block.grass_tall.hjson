@@ -1,0 +1,32 @@
+{
+	name: "Grass"
+	desc: "Nice green grass."
+	
+	material_type: soil
+	tile_flags: any
+	flags: raw
+	
+	max_health: 2400.000
+	smoothing: 0.200
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.100
+	stability: 0.500
+	
+	texture: "terrain_grass_tall"
+	pattern: "pattern_soil"
+	
+	texture_scale: 2.000
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "soil_rich"
+			quantity: 1.000
+		}
+	]
+}

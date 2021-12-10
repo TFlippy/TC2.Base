@@ -16,7 +16,7 @@ body:
 
 health:
 {
-	max: 3000.000
+	max: 8000.000
 }
 
 sprite.renderer:
@@ -37,7 +37,7 @@ grinder:
 		name: "Output"
 		stack_size_multiplier: 2.000
 		type: output
-		flags: ignore_mass, public
+		flags: allow_ducts, ignore_mass, public
 	}
 	
 	@sound.emitter:
@@ -56,7 +56,7 @@ grinder.state:
 		name: "Input"
 		stack_size_multiplier: 2.000
 		type: input
-		flags: ignore_mass
+		flags: allow_ducts, ignore_mass
 	}
 }
 

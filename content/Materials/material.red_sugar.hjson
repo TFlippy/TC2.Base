@@ -1,0 +1,30 @@
+{
+	name: "Red Sugar"
+	description: "A sweet substance produced by hornet larvae."
+	icon:
+	{
+		texture: "resource.red_sugar"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: glass
+	flags: raw, organic
+	mass_per_unit: 0.200
+	quantity_max: 100.000
+	prefab: "resource.red_sugar"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

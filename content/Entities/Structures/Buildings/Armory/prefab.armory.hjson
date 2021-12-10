@@ -16,7 +16,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 20000.000
 }
 
 sprite.renderer:
@@ -34,7 +34,7 @@ faction.colorable:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 transform:
@@ -45,6 +45,18 @@ transform:
 armory:
 {
 
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Storage"
+		stack_size_multiplier: 5.000
+		type: storage
+		filter_flags: ammo
+		flags: allow_ducts, ignore_mass, public
+	}
 }
 
 interactable:

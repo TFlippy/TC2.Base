@@ -1,0 +1,26 @@
+{
+	name: "Glass"
+	desc: ""
+	
+	material_type: glass
+	tile_flags: any
+	flags: artificial
+	
+	max_health: 40.000
+	smoothing: 0.150
+	mass: 5.000
+	friction: 0.020
+	elasticity: 0.010
+	stability: 0.500
+	
+	texture: "terrain_glass"
+	pattern: "pattern_glass"
+	
+	texture_scale: 1.000
+	texture_overshoot: -0.750
+	
+	fg_color: "#00000000"
+	bg_color: "#00000000"
+	
+	resources: []
+}

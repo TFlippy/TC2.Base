@@ -1,0 +1,31 @@
+{
+	name: "Alcohol"
+	description: "Industrial alcohol, used as a disinfectant and solvent."
+	icon:
+	{
+		texture: "resource.alcohol"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.500
+	quantity_max: 100.000
+	prefab: "resource.alcohol"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+	molar_mass: 42.000
+}

@@ -1,0 +1,32 @@
+{
+	name: "Saltpeter"
+	desc: "An uncommon mineral used in chemistry."
+	
+	material_type: stone
+	tile_flags: any
+	flags: raw, ore, uncommon, mineral
+	
+	max_health: 14000.000
+	smoothing: 0.180
+	mass: 1.000
+	friction: 0.700
+	elasticity: 0.050
+	stability: 0.500
+	
+	texture: "terrain_saltpeter"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.100
+	texture_overshoot: -0.250
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "saltpeter"
+			quantity: 2.0999999
+		}
+	]
+}

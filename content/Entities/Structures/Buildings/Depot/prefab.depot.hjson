@@ -21,7 +21,7 @@ nameable:
 
 health:
 {
-	max: 10000.000
+	max: 30000.000
 }
 
 sprite.renderer:
@@ -48,7 +48,7 @@ building:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 interactable:

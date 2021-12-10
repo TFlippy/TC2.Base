@@ -79,7 +79,7 @@ headquarters:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 claimer:
