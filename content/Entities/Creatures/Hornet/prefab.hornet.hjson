@@ -144,5 +144,10 @@ lootable:
 			min: 5.000
 			max: 13.000
 		}
+		{
+			material: "red_sugar"
+			min: 0.000
+			max: 5.000
+		}
 	]
 }

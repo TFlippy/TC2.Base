@@ -102,4 +102,34 @@ rope:
 		filter_tag: "hornet"
 		max_count: 10
 	}
+
+	lootable:
+	{
+		spawn_radius: 3.000
+		merge_radius: 0.000
+
+		items:
+		[
+			{
+				material: "soil_dry"
+				min: 500.000
+				max: 800.000
+			}
+			{
+				material: "insect"
+				min: 200.000
+				max: 500.000
+			}
+			{
+				material: "chitin"
+				min: 50.000
+				max: 200.000
+			}
+			{
+				material: "red_sugar"
+				min: 100.000
+				max: 250.000
+			}
+		]
+	}
 }
