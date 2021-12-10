@@ -65,6 +65,8 @@ packable:
 melee:
 {
 	sound_swing: "tool_swing_00"
+	sound_volume: 0.800
+	sound_pitch: 0.700
 	damage_base: 80.00
 	damage_bonus: 30.00
 	cooldown: 0.60
