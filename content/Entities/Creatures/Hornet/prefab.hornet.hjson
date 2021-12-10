@@ -125,6 +125,7 @@ biter:
 	max_distance: 2.000
 	velocity: 0.000
 	aoe: 0.01
+	thickness: 0.250
 	penetration: 0
 	damage_type: sting
 	hit_mask: destructible, organic
