@@ -16,7 +16,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 18000.000
 }
 
 sprite.renderer:
@@ -34,7 +34,7 @@ faction.colorable:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 transform:

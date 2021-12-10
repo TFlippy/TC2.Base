@@ -1,0 +1,30 @@
+{
+	name: "Peat"
+	description: "Commonly found in bogs. Burns slowly, but efficiently."
+	icon:
+	{
+		texture: "resource.peat"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: soil
+	flags: raw, fuel, organic
+	mass_per_unit: 0.200
+	quantity_max: 500.000
+	prefab: "resource.peat"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 20000000.000
+	fuel_drain: 70000.000
+	fuel_purity: 0.300
+	fuel_temperature: 900.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

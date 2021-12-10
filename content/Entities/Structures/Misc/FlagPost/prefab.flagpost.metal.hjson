@@ -42,7 +42,7 @@ transform:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 claimer:

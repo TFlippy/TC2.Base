@@ -1,0 +1,32 @@
+{
+	name: "Brown Coal"
+	desc: ""
+	
+	material_type: stone
+	tile_flags: any
+	flags: raw, ore, common, mineral
+	
+	max_health: 9600.000
+	smoothing: 0.150
+	mass: 1.000
+	friction: 0.990
+	elasticity: 0.050
+	stability: 0.500
+	
+	texture: "terrain_brown_coal"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.550
+	texture_overshoot: -0.900
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "brown_coal"
+			quantity: 1.8000001
+		}
+	]
+}

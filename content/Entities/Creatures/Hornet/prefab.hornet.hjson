@@ -4,9 +4,9 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 4.100
+		mass: 9.500
 		radius: 0.500
-		friction: 0.200
+		friction: 0.700
 		elasticity: 0.850
 		material: insect
 		layer: entity, solid
@@ -87,7 +87,7 @@ threat:
 flyer:
 {
 	max_speed: 20.000
-	force: 100.000
+	force: 200.000
 	brake_modifier: 0.700
 	sound_speed_modifier: 0.020
 	sound_volume: 1.000
@@ -128,4 +128,21 @@ biter:
 	penetration: 0
 	damage_type: sting
 	hit_mask: destructible, organic
+}
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "insect"
+			min: 12.000
+			max: 18.000
+		}
+		{
+			material: "chitin"
+			min: 5.000
+			max: 13.000
+		}
+	]
 }

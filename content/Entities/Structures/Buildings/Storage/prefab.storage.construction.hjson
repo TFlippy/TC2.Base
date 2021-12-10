@@ -27,7 +27,7 @@ sprite.renderer:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 transform:

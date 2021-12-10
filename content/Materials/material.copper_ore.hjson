@@ -1,0 +1,35 @@
+{
+	name: "Copper Ore"
+	description:
+		'''
+		Low-purity copper ore.
+		Contains small amounts of sulfur.
+		Yield: 25% to 50%
+		'''
+	icon:
+	{
+		texture: "resource.copper_ore"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: stone
+	flags: raw, ore, smeltable, metal, despawnable
+	mass_per_unit: 0.230
+	quantity_max: 500.000
+	prefab: "resource.copper_ore"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 192.500
+	thermal_conductivity: 0.120
+}

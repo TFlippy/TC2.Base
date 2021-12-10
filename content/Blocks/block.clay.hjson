@@ -1,0 +1,26 @@
+{
+	name: "Clay"
+	desc: ""
+	
+	material_type: soil
+	tile_flags: any
+	flags: raw
+	
+	max_health: 3600.000
+	smoothing: 0.200
+	mass: 1.000
+	friction: 0.500
+	elasticity: 0.010
+	stability: 0.500
+	
+	texture: "terrain_clay"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.000
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources: []
+}
