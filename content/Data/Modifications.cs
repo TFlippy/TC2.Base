@@ -4,6 +4,7 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
+		// TODO: Split this into multiple files
 		private static void RegisterModifications(ref List<Modification.Definition> definitions)
 		{
 			//definitions.Add(Modification.Definition.New<Health.Data>
@@ -2725,7 +2726,7 @@ namespace TC2.Base
 			//		data.pain -= 100.00f;
 
 			//		data.critical_heal -= 2.00f; // No healing at half hp or lower
-					
+
 			//		context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.blue", 100));
 			//	}
 			//));

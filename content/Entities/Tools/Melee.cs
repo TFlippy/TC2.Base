@@ -1,12 +1,10 @@
-﻿using Keg.Engine.Infrastructure;
-using System.Numerics;
-
+﻿
 namespace TC2.Base.Components
 {
-	public static class Melee
+	public static partial class Melee
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public Sound.Handle sound_swing;
 			public float sound_volume = 1.00f;

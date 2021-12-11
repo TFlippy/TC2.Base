@@ -1,15 +1,7 @@
-﻿using Flecs;
-using System;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-
-using Keg;
-using Keg.Engine;
-using Keg.Engine.Game;
-
+﻿
 namespace TC2.Base.Components
 {
-	public static class Tree
+	public static partial class Tree
 	{
 		[Flags]
 		public enum Flags: uint
@@ -20,7 +12,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public Prefab.Handle prefab_stump;
 			public float health_cut = 0.80f;
