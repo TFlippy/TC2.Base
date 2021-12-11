@@ -2748,6 +2748,29 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("red_sugar", 10));
 				}
 			));
+
+			definitions.Add(Modification.Definition.New<Cover.Data>
+			(
+				identifier: "Cover.Reinforced Cover",
+				category: "Cover",
+				name: "Reinforced Cover",
+				description: "Restructure some parts stop bullets more reliably",
+
+				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.threshold -= 0.20f;
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= 0.90f;
+					}
+				}
+			));
 		}
 	}
 }
