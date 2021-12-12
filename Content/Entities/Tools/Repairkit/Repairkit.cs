@@ -30,8 +30,18 @@
 		{
 			ref var organic = ref entity.GetComponent<Organic.Data>();
 			ref var harvestable = ref entity.GetComponent<Harvestable.Data>();
-
-			return organic.IsNull() && harvestable.IsNull();
+			ref var renderer = ref entity.GetComponent<Sprite.Renderer.Data>(); //Stops foliage and non standard renderable objects, TODO: replace this with a material check
+			
+			
+			//Material.Type T = body.material = body.
+			//if (T == Material.Type.Metal)
+			//{
+			//
+			//}
+			
+			//Should check for material in here but currently cant
+			
+			return organic.IsNull() && harvestable.IsNull() && !renderer.IsNull();
 		}
 
 #if CLIENT
