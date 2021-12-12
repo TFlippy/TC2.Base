@@ -31,7 +31,7 @@ holdable:
 
 sprite.renderer:
 {
-	texture: "medkit"
+	texture: "repairkit"
 }
 
 transform:
