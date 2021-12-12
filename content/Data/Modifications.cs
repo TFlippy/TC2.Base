@@ -91,7 +91,21 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return !modifications.HasModification(handle);
+					var has_ingot = false;
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Ingot))
+							{
+								has_ingot = true;
+								break;
+							}	
+						}
+					}
+
+					return has_ingot && !modifications.HasModification(handle);
 				},
 
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -101,8 +115,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 2.00f;
-							requirement.difficulty += 4.00f;
+							requirement.amount *= 1.50f;
+							requirement.difficulty += 5.00f;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
@@ -118,7 +132,9 @@ namespace TC2.Base
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", total_amount));
 
-					data.max += total_amount * 2500.00f;
+					data.max += total_amount * 1000.00f;
+					data.armor *= 1.35f;
+					data.armor += 200.00f;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
