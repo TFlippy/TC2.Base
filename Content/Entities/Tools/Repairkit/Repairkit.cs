@@ -26,6 +26,14 @@
 			[Save.Ignore, Net.Ignore] public float next_use;
 		}
 
+		public static bool CanRepair(Entity entity) 
+		{
+			ref var organic = ref entity.GetComponent<Organic.Data>();
+			ref var harvestable = ref entity.GetComponent<Harvestable.Data>();
+
+			return organic.IsNull() && harvestable.IsNull();
+		}
+
 #if CLIENT
 		public struct RepairkitGUI: IGUICommand
 		{
@@ -57,7 +65,7 @@
 
 						ref var organic = ref nearest.entity.GetComponent<Organic.Data>();
 
-						if (organic.IsNull())
+						if (CanRepair(nearest.entity))
 						{
 							ref var health = ref nearest.entity.GetComponent<Health.Data>();
 							if (!health.IsNull())
@@ -130,11 +138,7 @@
 
 						foreach (ref var hit in hits)
 						{
-
-							ref var organic = ref hit.entity.GetComponent<Organic.Data>();
-							ref var harvestable = ref hit.entity.GetComponent<Harvestable.Data>();
-
-							if (organic.IsNull() && harvestable.IsNull())
+							if (CanRepair(hit.entity))
 							{
 								var healed_amount_max = 0.00f;
 
@@ -182,6 +186,7 @@
 				}
 			}
 		}
+
 #endif
 	}
 }
