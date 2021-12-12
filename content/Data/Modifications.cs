@@ -71,7 +71,7 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("resin", total_amount));
 
 					data.max += total_amount * 85.00f;
-					data.dt += 50.00f;
+					data.armor += 50.00f;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -1346,7 +1346,7 @@ namespace TC2.Base
 					if (!health.IsNull())
 					{
 						health.max *= 1.40f;
-						health.dt += 70.00f;
+						health.armor += 70.00f;
 					}
 				},
 
