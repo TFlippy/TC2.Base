@@ -155,7 +155,7 @@
 								ref var health = ref hit.entity.GetComponent<Health.Data>();
 								if (!health.IsNull())
 								{
-									/*var heal_primary_max = 1.00f;
+									var heal_primary_max = 1.00f;
 									if (heal_primary_max > 0.00f && (1.00f - health.primary) <= heal_primary_max)
 									{
 										var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
@@ -165,7 +165,7 @@
 										total_healed_amount += heal_amount * health.max;
 
 										healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
-									}*/
+									}
 
 									var heal_secondary_max = 1.00f;
 									if (heal_secondary_max > 0.00f && (1.00f - health.secondary) <= heal_secondary_max)
@@ -190,7 +190,7 @@
 						if (total_healed_amount > 0.00f)
 						{
 							//Sound.Play(ref region, sounds.GetShuffledRandom(ref random), control.mouse.position, volume: 0.50f, priority: 0.50f);
-							//Experience.Add(entity, Experience.Type.Medicine, random.NextFloatRange(total_healed_amount * 0.05f, total_healed_amount * 0.10f));
+							Experience.Add(entity, Experience.Type.Engineering, random.NextFloatRange(total_healed_amount * 0.05f, total_healed_amount * 0.10f));
 						}
 					}
 				}
