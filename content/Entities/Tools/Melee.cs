@@ -103,7 +103,7 @@ namespace TC2.Base.Components
 				var scale = elapsed / melee.charge_time;
 				scale = MathF.Min(1.00f, scale);
 				
-				Vector2 vec = new Vector2(-melee.swing_offset.x, melee.swing_offset.y);
+				Vector2 vec = new Vector2(-melee.swing_offset.X, melee.swing_offset.Y * 0.50f);
 				renderer.offset = vec * scale * 0.50f;
 				renderer.rotation = -melee.swing_rotation * scale * 0.50f;
 			}
