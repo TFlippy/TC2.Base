@@ -47,10 +47,10 @@ namespace TC2.Base.Components
 			[Statistics.Info("Terrain Damage", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float terrain_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Charge Time", description: "How long you need to charge up", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Charge Time", description: "How long you need to charge up before each attack", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float charge_time;
 
-			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Cooldown", description: "Time between attacking and charging up a new attack", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
 
 			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
@@ -84,7 +84,7 @@ namespace TC2.Base.Components
 
 			public Physics.Layer hit_mask;
 			
-			[Statistics.Info("Auto attack", description: "Automaticly attacks when fully charged up", format: "{0}", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Auto attack", description: "Automatically attacks when fully charged up", format: "{0}", comparison: Statistics.Comparison.None)]
 			public bool auto_attack = false;
 		}
 
@@ -149,7 +149,7 @@ namespace TC2.Base.Components
 			if (info.WorldTime - melee_state.start_charging >= melee.charge_time)
 			if (!control.mouse.GetKey(Mouse.Key.Left) || melee.auto_attack || melee.charge_time + melee.cooldown <= 0.30f)
 			{
-				//TODO: should not attack if simply dropping or loosing grip on the weapon
+				//TODO: should not attack if simply dropping or loosing grip on the while its fully charged
 				melee_state.start_charging = 0.00f; //Actually attack
 				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
