@@ -128,6 +128,7 @@ namespace TC2.Base
 				{
 					data.max_distance *= 1.20f;
 					data.cooldown *= 1.10f;
+					data.charge_time *= 1.10f;
 					data.damage_base *= 1.15f;
 				},
 
@@ -244,7 +245,7 @@ namespace TC2.Base
 					data.damage_bonus *= 0.90f;
 					data.knockback *= 0.30f;
 					data.cooldown *= 0.75f;
-					// TODO: This should reduce the weight as well
+					data.charge_time *= 0.75f;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
