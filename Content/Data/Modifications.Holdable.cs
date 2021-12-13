@@ -16,7 +16,6 @@ namespace TC2.Base
 				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var renderer = ref context.GetComponent<Sprite.Renderer.Data>();
-					return !modifications.HasModification(handle) && !renderer.IsNull();
 				},
 
 				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
