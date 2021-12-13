@@ -134,6 +134,7 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.mass_multiplier *= 0.80f;
+					data.gravity *= 0.90f;
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
@@ -164,6 +165,34 @@ namespace TC2.Base
 							requirement.amount *= 1.10f;
 						}
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.floaty",
+				category: "Body",
+				name: "Floaty",
+				description: "Makes the object fall slower",
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.gravity *= 0.20f; 
+					//Very fun modifer which makes an object behave very floaty
+					//TODO: should cost motion salt or some sort of gas, current cost is temporary
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.30f;
+						}
+					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 50));
 				}
 			));
 
