@@ -2751,10 +2751,10 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
-				identifier: "Cover.Reinforced Cover",
+				identifier: "Cover.reinforced cover",
 				category: "Cover",
 				name: "Reinforced Cover",
-				description: "Restructure some parts stop bullets more reliably",
+				description: "Restructure some parts to stop bullets more reliably",
 
 				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
