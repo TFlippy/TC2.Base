@@ -38,6 +38,15 @@ namespace TC2.Base
 					{
 						melee.damage_base *= 0.80f;
 					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.difficulty += 1.00f;
+							requirement.amount += 100.00f;
+						}
+					}
 				}
 			));
 		}
