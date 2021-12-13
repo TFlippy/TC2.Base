@@ -194,6 +194,7 @@ namespace TC2.Base
 						}
 					}
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 50));
+					 //TODO: Cost should be equal to mass but i cannot access mass right now
 				}
 			));
 
