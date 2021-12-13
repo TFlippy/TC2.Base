@@ -1,6 +1,7 @@
-﻿namespace TC2.Base.Components
+﻿
+namespace TC2.Base.Components
 {
-	public static class Runner
+	public static partial class Runner
 	{
 		[Flags]
 		public enum Flags: uint
@@ -15,7 +16,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public float walk_force;
 			public float jump_force;

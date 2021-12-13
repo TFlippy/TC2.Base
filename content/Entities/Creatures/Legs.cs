@@ -1,9 +1,10 @@
-﻿namespace TC2.Base.Components
+﻿
+namespace TC2.Base.Components
 {
-	public static class Legs
+	public static partial class Legs
 	{
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public float multiplier;
 			
