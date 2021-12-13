@@ -544,8 +544,8 @@ namespace TC2.Base
 
 						case Gun.Type.Rifle:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.19f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.04f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.69f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.24f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.70f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
@@ -553,8 +553,8 @@ namespace TC2.Base
 
 						case Gun.Type.SMG:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.04f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.55f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.70f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
 						}
@@ -562,8 +562,8 @@ namespace TC2.Base
 
 						case Gun.Type.Handgun:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.05f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.43f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.60f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
@@ -571,8 +571,8 @@ namespace TC2.Base
 
 						default:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.06f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.03f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.40f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.40f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
@@ -614,7 +614,7 @@ namespace TC2.Base
 
 								case Work.Type.Smithing:
 								{
-									requirement.difficulty *= 1.50f;
+									requirement.difficulty += 4.00f;
 									requirement.amount += 80.00f;
 								}
 								break;
