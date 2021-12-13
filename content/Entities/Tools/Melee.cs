@@ -3,6 +3,24 @@ namespace TC2.Base.Components
 {
 	public static partial class Melee
 	{
+		public enum Category: byte
+		{
+			Undefined = 0,
+
+			Pointed,
+			Bladed,
+			Blunt,
+			Misc
+		}
+
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+
+			No_Handle = 1 << 0,
+		}
+
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
@@ -20,13 +38,13 @@ namespace TC2.Base.Components
 			[Statistics.Info("Bonus Damage", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float damage_bonus;
 
-			[Statistics.Info("Primary Damage Multiplier", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Primary Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float primary_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Secondary Damage Multiplier", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Secondary Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float secondary_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Terrain Damage Multiplier", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Terrain Damage", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float terrain_damage_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
@@ -41,7 +59,7 @@ namespace TC2.Base.Components
 			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float thickness = 0.30f;
 
-			[Statistics.Info("Knockback", description: "Multiplies the knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Knockback", description: "Multiplies knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
 			public float knockback;
 
 			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
@@ -56,6 +74,10 @@ namespace TC2.Base.Components
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None)]
 			public Damage.Type damage_type;
 
+			[Statistics.Info("Category", description: "TODO: Desc", comparison: Statistics.Comparison.None)]
+			public Melee.Category category;
+
+			public Melee.Flags flags;
 
 			public Physics.Layer hit_mask;
 		}
