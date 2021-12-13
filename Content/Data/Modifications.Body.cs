@@ -115,6 +115,32 @@ namespace TC2.Base
 			//		}
 			//	}
 			//));
+
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.lightweight_design",
+				category: "Body",
+				name: "Lightweight Design",
+				description: "Redesign the object to have slightly less weight but be harder to produce",
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.mass_multiplier *= 0.80f;
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.30f;
+							requirement.difficulty += 2.0f;
+						}
+					}
+				}
+			));
 		}
 	}
 }
