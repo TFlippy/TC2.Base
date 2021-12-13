@@ -156,6 +156,7 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.mass_multiplier *= 2.00f; 
+					data.gravity *= 1.10f;
 					//This modifier is mostly a negative but sometimes you may want to increase the weight of an object like,
 					//For example you can increase the weight of your own melee weapons to make them harder to grab for your opponents
 					foreach (ref var requirement in context.requirements_new)
