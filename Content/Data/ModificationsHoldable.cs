@@ -44,7 +44,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							requirement.difficulty += 1.00f;
-							requirement.amount += 100.00f;
+							requirement.amount *= 1.20f;
 						}
 					}
 				}
