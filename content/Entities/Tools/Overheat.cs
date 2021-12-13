@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public float heat_current = 0.00f;
 			public float heat_medium = 50.00f;

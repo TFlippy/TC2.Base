@@ -7,7 +7,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "LargeSmoke";
 
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float damage;
