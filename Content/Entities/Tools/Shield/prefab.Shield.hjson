@@ -67,7 +67,8 @@ melee:
 	sound_pitch: 0.700
 	damage_base: 80.000
 	damage_bonus: 30.000
-	cooldown: 0.600
+	charge_time: 0.200
+	cooldown: 0.400
 	max_distance: 1.500
 	aoe: 1.000
 	knockback: 4.000

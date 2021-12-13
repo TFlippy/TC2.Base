@@ -29,7 +29,8 @@ melee:
 	sound_swing: "tool_swing_00"
 	damage_base: 50.000
 	damage_bonus: 250.000
-	cooldown: 0.300
+	charge_time: 0.100
+	cooldown: 0.200
 	max_distance: 2.000
 	aoe: 0.100
 	knockback: 0.200
@@ -39,6 +40,7 @@ melee:
 	damage_type: slash
 	category: bladed
 	hit_mask: world, destructible
+	auto_attack: true
 }
 
 melee.state:

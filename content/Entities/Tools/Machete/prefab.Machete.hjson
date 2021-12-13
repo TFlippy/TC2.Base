@@ -29,7 +29,8 @@ melee:
 	sound_swing: "tool_swing_00"
 	damage_base: 150.000
 	damage_bonus: 150.000
-	cooldown: 1.100
+	charge_time: 0.400
+	cooldown: 0.700
 	max_distance: 3.000
 	aoe: 0.100
 	knockback: 1.400
