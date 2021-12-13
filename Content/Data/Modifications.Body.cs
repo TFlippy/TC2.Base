@@ -93,7 +93,7 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
+			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.efficient_crafting",
 				category: "Body",
@@ -164,6 +164,47 @@ namespace TC2.Base
 							requirement.amount *= 1.10f;
 						}
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.mushroom_wood",
+				category: "Body",
+				name: "Mushroom Wood",
+				description: "Uses mushroom scraps as a wood replacement",
+
+				//the purpose of this modifier is to add another use to mushroom scraps AND to allow people to use spare mushrooms as wood
+				//this modifier is likely to be more usefull once buildings can be blueprinted
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.requirements_new.Has(Crafting.Requirement.Resource("wood", 0.00f)) && !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					var wood_amount = 0.00f;
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 0.70f;
+							requirement.difficulty += 1.00f; 
+							//Mushroom scraps are faster to process but require you to be more experienced
+							//This is also fine balance wise since mushroom scraps are harder to get than wood
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.identifier == "wood")
+							{
+								wood_amount += requirement.amount;
+								requirement = default;
+							}
+						}
+					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", wood_amount));
 				}
 			));
 		}
