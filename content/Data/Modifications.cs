@@ -228,6 +228,11 @@ namespace TC2.Base
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
 
+				can_add: static (ref Modification.Context context, in Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
@@ -508,6 +513,11 @@ namespace TC2.Base
 				identifier: "gun.improved_rifling",
 				name: "Improved Rifling",
 				description: "Improves accuracy and damage.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
 
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1177,166 +1187,6 @@ namespace TC2.Base
 							}
 						}
 
-					}
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Gun.Data>
-			(
-				identifier: "gun.unstable_receiver",
-				name: "Unstable Receiver",
-				description: "Greatly improves most of the gun's properties, at cost of reduced stability and reliability.",
-
-#if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
-				},
-#endif
-
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var value = ref handle.GetData<float>();
-
-					switch (data.type)
-					{
-						case Gun.Type.Handgun:
-						{
-							data.damage_multiplier *= Maths.Lerp(1.35f, 1.50f, value);
-							data.velocity_multiplier *= 1.08f;
-							data.failure_rate *= 1.70f;
-							data.failure_rate += 0.06f;
-							data.stability -= MathF.Min(data.stability, 0.07f);
-							data.stability = Maths.Clamp(data.stability * 0.97f, 0.00f, 1.00f);
-							data.cycle_interval += 0.03f;
-							data.cycle_interval *= 1.15f;
-							data.jitter_multiplier += 0.35f;
-							data.jitter_multiplier *= 1.35f;
-							data.recoil_multiplier *= 1.30f;
-						}
-						break;
-
-						case Gun.Type.Rifle:
-						{
-							data.damage_multiplier *= Maths.Lerp(1.35f, 1.90f, value);
-							data.velocity_multiplier *= 1.07f;
-							data.failure_rate *= 3.70f;
-							data.failure_rate += 0.04f;
-							data.stability -= MathF.Min(data.stability, 0.10f);
-							data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
-							data.cycle_interval += 0.04f;
-							data.cycle_interval *= 1.10f;
-							data.jitter_multiplier += 0.45f;
-							data.jitter_multiplier *= 1.25f;
-							data.recoil_multiplier *= 1.10f;
-						}
-						break;
-
-						case Gun.Type.Shotgun:
-						{
-							data.damage_multiplier *= Maths.Lerp(1.31f, 1.60f, value);
-							data.velocity_multiplier *= 1.04f;
-							data.failure_rate *= 3.70f;
-							data.failure_rate += 0.01f;
-							data.stability -= MathF.Min(data.stability, 0.08f);
-							data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
-							data.cycle_interval += 0.03f;
-							data.jitter_multiplier += 0.75f;
-							data.jitter_multiplier *= 1.35f;
-							data.recoil_multiplier *= 1.40f;
-						}
-						break;
-
-						case Gun.Type.SMG:
-						{
-							data.damage_multiplier *= Maths.Lerp(1.256f, 1.40f, value);
-							data.velocity_multiplier *= 1.01f;
-							data.failure_rate *= 4.60f;
-							data.failure_rate += 0.04f;
-							data.stability -= MathF.Min(data.stability, 0.05f);
-							data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
-							data.cycle_interval *= 0.70f;
-							data.cycle_interval += 0.01f;
-							data.jitter_multiplier += 0.35f;
-							data.jitter_multiplier *= 1.35f;
-							data.recoil_multiplier *= 1.20f;
-						}
-						break;
-
-						default:
-						{
-							data.damage_multiplier *= Maths.Lerp(1.27f, 1.85f, value);
-							data.velocity_multiplier *= 1.03f;
-							data.failure_rate *= 3.60f;
-							data.failure_rate += 0.03f;
-							data.stability -= MathF.Min(data.stability, 0.10f);
-							data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
-							data.cycle_interval *= 0.95f;
-							data.cycle_interval += 0.01f;
-							data.jitter_multiplier += 0.35f;
-							data.jitter_multiplier *= 1.35f;
-							data.recoil_multiplier *= 1.10f;
-						}
-						break;
-					}
-
-					if (data.flags.HasAll(Gun.Flags.Automatic))
-					{
-						data.failure_rate = Maths.Clamp(data.failure_rate * 1.50f, 0.00f, 1.00f);
-					}
-				},
-
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
-					{
-						var requirement = context.requirements_old[i];
-
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
-							}
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Machining:
-								{
-									requirement.amount *= 0.10f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-
-								case Work.Type.Assembling:
-								{
-									requirement.amount *= 0.05f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-							}
-						}
-					}
-
-					for (int i = 0; i < context.requirements_new.Length; i++)
-					{
-						var requirement = context.requirements_new[i];
-
-						if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Assembling:
-								{
-									requirement.difficulty += 1.00f;
-								}
-								break;
-							}
-						}
 					}
 				}
 			));
