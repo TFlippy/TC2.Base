@@ -2751,7 +2751,7 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
-				identifier: "Cover.reinforced cover",
+				identifier: "Cover.reinforced_cover",
 				category: "Cover",
 				name: "Reinforced Cover",
 				description: "Restructure some parts to stop bullets more reliably",
