@@ -47,6 +47,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Terrain Damage", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float terrain_damage_multiplier = 1.00f;
 
+			[Statistics.Info("Charge Time", description: "How long you need to charge up", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			public float charge_time = 1.50f;
+
 			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
 
@@ -87,18 +90,33 @@ namespace TC2.Base.Components
 		{
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
+			[Save.Ignore, Net.Ignore] public float start_charging;
 		}
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Sprite.Renderer.Data renderer)
 		{
-			var elapsed = info.WorldTime - melee_state.last_hit;
-			var max = melee_state.next_hit - melee_state.last_hit;
-			var alpha = 1.00f - Maths.Clamp(elapsed / (max * 0.80f), 0.00f, 1.00f);
+			if (melee_state.start_charging != 0.00f)
+			{
+				float elapsed = (info.WorldTime - melee_state.start_charging);
+				var scale = elapsed / melee.charge_time;
+				scale = MathF.Min(1.00f, scale);
+				
+				Vector2 vec = new Vector2(-melee.swing_offset.x, melee.swing_offset.y);
+				renderer.offset = vec * scale * 0.50f;
+				renderer.rotation = -melee.swing_rotation * scale * 0.50f;
+			}
+			else
+			{
+				var elapsed = info.WorldTime - melee_state.last_hit;
+				var max = melee_state.next_hit - melee_state.last_hit;
+				var alpha = 1.00f - Maths.Clamp(elapsed / (max * 0.80f), 0.00f, 1.00f);
 
-			renderer.offset = melee.swing_offset * alpha * alpha;
-			renderer.rotation = melee.swing_rotation * alpha * alpha;
+				renderer.offset = melee.swing_offset * alpha * alpha;
+				renderer.rotation = melee.swing_rotation * alpha * alpha;
+			}
+			
 		}
 #endif
 
@@ -107,61 +125,76 @@ namespace TC2.Base.Components
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit)
+			if (control.mouse.GetKey(Mouse.Key.Left))
 			{
-				var random = XorRandom.New();
-				ref var region = ref info.GetRegion();
-
-				melee_state.last_hit = info.WorldTime;
-				melee_state.next_hit = info.WorldTime + melee.cooldown;
-
-				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-				len = MathF.Min(len, melee.max_distance);
-
-#if CLIENT
-				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
-#endif
-
-				Span<LinecastResult> hits = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref hits, mask: melee.hit_mask))
+				if (info.WorldTime >= melee_state.next_hit && melee_state.start_charging == 0.00f)
 				{
-					var parent = body.GetParent();
+					melee_state.start_charging = info.WorldTime;
+				}
+			}
+			else if (melee_state.start_charging != 0.00f)
+			{
+				if (info.WorldTime - melee_state.start_charging <= melee.charge_time)
+				{
+					melee_state.start_charging = 0.00f;
+				}
+				else
+				{
+					melee_state.start_charging = 0.00f;
+					var random = XorRandom.New();
+					ref var region = ref info.GetRegion();
 
-					var damage_base = melee.damage_base;
-					var damage_bonus = random.NextFloatRange(0.00f, melee.damage_bonus);
-					var damage = damage_base + damage_bonus;
+					melee_state.last_hit = info.WorldTime;
+					melee_state.next_hit = info.WorldTime + melee.cooldown;
 
-					var modifier = 1.00f;
-					var flags = Damage.Flags.None;
+					var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
+					len = MathF.Min(len, melee.max_distance);
 
-					var penetration = melee.penetration;
+	#if CLIENT
+					Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
+	#endif
 
-					var hit_terrain = false;
-
-					for (var i = 0; i < hits.Length && penetration >= 0; i++)
+					Span<LinecastResult> hits = stackalloc LinecastResult[16];
+					if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref hits, mask: melee.hit_mask))
 					{
-						ref var hit = ref hits[i];
-						if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
-						var is_terrain = !hit.entity.IsValid();
+						var parent = body.GetParent();
 
-						if (is_terrain)
+						var damage_base = melee.damage_base;
+						var damage_bonus = random.NextFloatRange(0.00f, melee.damage_bonus);
+						var damage = damage_base + damage_bonus;
+
+						var modifier = 1.00f;
+						var flags = Damage.Flags.None;
+
+						var penetration = melee.penetration;
+
+						var hit_terrain = false;
+
+						for (var i = 0; i < hits.Length && penetration >= 0; i++)
 						{
-							if (hit_terrain) continue;
-							hit_terrain = true;
+							ref var hit = ref hits[i];
+							if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
+							var is_terrain = !hit.entity.IsValid();
+
+							if (is_terrain)
+							{
+								if (hit_terrain) continue;
+								hit_terrain = true;
+							}
+
+	#if CLIENT
+							var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
+							Camera.Shake(ref region, transform.position, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
+	#endif
+
+	#if SERVER
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, melee.damage_type, knockback: melee.knockback, size: melee.aoe, flags: flags, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier);
+	#endif
+
+							flags |= Damage.Flags.No_Sound;
+							modifier *= melee.penetration_falloff;
+							penetration--;
 						}
-
-#if CLIENT
-						var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
-						Camera.Shake(ref region, transform.position, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
-#endif
-
-#if SERVER
-						Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, melee.damage_type, knockback: melee.knockback, size: melee.aoe, flags: flags, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier);
-#endif
-
-						flags |= Damage.Flags.No_Sound;
-						modifier *= melee.penetration_falloff;
-						penetration--;
 					}
 				}
 			}
