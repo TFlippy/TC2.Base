@@ -2104,7 +2104,33 @@ namespace TC2.Base
 					{
 						data.knockback += 0.20f;
 					}
-					data.knockback *= 2.00f;
+
+					switch (data.category)
+					{
+						case Melee.Category.Pointed:
+						{
+							data.knockback *= 1.70f;
+							data.damage_base *= 1.10f;
+							data.damage_bonus *= 0.90f;
+						}
+						break;
+
+						case Melee.Category.Bladed:
+						{
+							data.knockback *= 1.35f;
+							data.damage_base *= 0.80f;
+							data.damage_bonus *= 0.90f;
+						}
+						break;
+
+						case Melee.Category.Blunt:
+						{
+							data.knockback *= 2.15f;
+							data.damage_base *= 1.10f;
+							data.damage_bonus *= 1.40f;
+						}
+						break;
+					}
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -2169,6 +2195,8 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					if (data.flags.HasAny(Melee.Flags.No_Handle)) return false;
+
 					var count = 0;
 					for (int i = 0; i < modifications.Length; i++)
 					{
@@ -2281,6 +2309,8 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					if (data.category != Melee.Category.Blunt) return false;
+
 					var count = 0;
 					for (int i = 0; i < modifications.Length; i++)
 					{
@@ -2334,7 +2364,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.yield > 0.00f && data.yield < 1.50f && data.damage_type == Damage.Type.Slash;
+					return (data.category == Melee.Category.Bladed || data.category == Melee.Category.Pointed) && data.yield > 0.00f && data.yield < 1.50f;
 				},
 
 				apply_0: static (ref Modification.Context context, ref Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
