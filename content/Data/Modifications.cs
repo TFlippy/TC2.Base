@@ -175,6 +175,14 @@ namespace TC2.Base
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
+				validate: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.50f, 10.00f);
+
+					return true;
+				},
+
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -366,7 +374,7 @@ namespace TC2.Base
 				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<float>();
-					amount = Maths.Clamp(amount, 1, 5);
+					amount = Maths.Clamp(amount, 1.00f, 5.00f);
 
 					return true;
 				},
@@ -514,6 +522,14 @@ namespace TC2.Base
 				name: "Improved Rifling",
 				description: "Improves accuracy and damage.",
 
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.00f, 1.00f);
+
+					return true;
+				},
+
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					return !modifications.HasModification(handle);
@@ -536,7 +552,7 @@ namespace TC2.Base
 					{
 						case Gun.Type.Shotgun:
 						{
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 0.60f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 0.80f, ratio);
 							data.damage_multiplier *= Maths.Lerp(1.00f, 0.85f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
 						}
@@ -599,6 +615,9 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var value = ref handle.GetData<float>();
+					var ratio = value;
+
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
@@ -607,15 +626,15 @@ namespace TC2.Base
 							{
 								case Work.Type.Machining:
 								{
-									requirement.difficulty += 3.00f;
-									requirement.amount += 100.00f;
+									requirement.difficulty *= Maths.Lerp(1.00f, 1.75f, ratio);
+									requirement.amount += Maths.Lerp(0.00f, 350.00f, ratio);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.difficulty += 4.00f;
-									requirement.amount += 80.00f;
+									requirement.difficulty *= Maths.Lerp(1.00f, 1.50f, ratio);
+									requirement.amount += Maths.Lerp(0.00f, 200.00f, ratio);
 								}
 								break;
 							}
@@ -873,6 +892,19 @@ namespace TC2.Base
 				name: "Recoil Reduction",
 				description: "Reduces recoil.",
 
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.00f, 1.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -881,6 +913,7 @@ namespace TC2.Base
 				},
 #endif
 
+				// TODO: lerp the values based on ratio
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
@@ -961,6 +994,14 @@ namespace TC2.Base
 				identifier: "gun.barrel_extension",
 				name: "Barrel Extension",
 				description: "Increases muzzle velocity and damage.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 1.00f, 2.00f);
+
+					return true;
+				},
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1328,6 +1369,14 @@ namespace TC2.Base
 				name: "Flimsy Frame",
 				description: "Lowers the basic resource cost, but makes problems more pronounced.",
 
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.00f, 1.00f);
+
+					return true;
+				},
+
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1468,6 +1517,14 @@ namespace TC2.Base
 				identifier: "gun.faster_cycling_mechanism",
 				name: "Faster Cycling Mechanism",
 				description: "Increases rate of fire, but lowers reliability.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.00f, 1.00f);
+
+					return true;
+				},
 
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1990,6 +2047,14 @@ namespace TC2.Base
 				identifier: "gun.flared_barrel",
 				name: "Flared Barrel",
 				description: "Increases spread and loudness, but also greatly reduces recoil.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 0.00f, 1.00f);
+
+					return true;
+				},
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
