@@ -93,28 +93,31 @@ namespace TC2.Base
 				}
 			));
 
-			//definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
-			//(
-			//	identifier: "body.efficient_crafting",
-			//	name: "Efficient Crafting",
-			//	description: "Rework the design to reduce material costs slightly.",
+			definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
+			(
+				identifier: "body.efficient_crafting",
+				category: "Body",
+				name: "Efficient Crafting",
+				description: "Rework the design to reduce material costs slightly.",
+				
+				//This modifier is nearly always an option but only with many npcs or very high skills is this actually worth while since it ramps up crafting time a ton
 
-			//	apply_1: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-			//	{
-			//		foreach (ref var requirement in context.requirements_new)
-			//		{
-			//			if (requirement.type == Crafting.Requirement.Type.Resource)
-			//			{
-			//				requirement.amount *= 0.80f;
-			//			}
-			//			else if (requirement.type == Crafting.Requirement.Type.Work)
-			//			{
-			//				requirement.amount *= 1.05f;
-			//				requirement.difficulty += 2.50f;
-			//			}
-			//		}
-			//	}
-			//));
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 0.95f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.50f;
+							requirement.difficulty += 3.00f;
+						}
+					}
+				}
+			));
 
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
