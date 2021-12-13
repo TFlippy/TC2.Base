@@ -147,8 +147,9 @@ namespace TC2.Base.Components
 
 			if (melee_state.start_charging != 0.00f)
 			if (info.WorldTime - melee_state.start_charging >= melee.charge_time)
-			if (!control.mouse.GetKey(Mouse.Key.Left) || melee.auto_attack)
+			if (!control.mouse.GetKey(Mouse.Key.Left) || melee.auto_attack || melee.charge_time + melee.cooldown <= 0.30f)
 			{
+				//TODO: should not attack if simply dropping or loosing grip on the weapon
 				melee_state.start_charging = 0.00f; //Actually attack
 				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
