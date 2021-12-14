@@ -424,6 +424,27 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
+				identifier: "overheat.movement_cooling",
+				category: "Overheat",
+				name: "Movement Cooling",
+				description: "Looses heat when moving",
+
+				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.GetComponent<Movement_Cooling.Data>().IsNull();
+				},
+
+				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var cooling = ref context.GetOrAddComponent<Movement_Cooling.Data>();
+					cooling.mod = 0.10f;
+
+					data.cool_rate *= 0.70f;
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Overheat.Data>
+			(
 				identifier: "overheat.heat_resistant",
 				category: "Cooling",
 				name: "Heat-Resistant Components",
