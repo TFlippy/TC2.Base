@@ -66,6 +66,25 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
+				identifier: "health.hornet_inside",
+				category: "Hornet",
+				name: "Hornet Inside",
+				description: "Item will release a hornet when killed",
+
+				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var PrefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
+					PrefabInside.prefab_release = "hornet";
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 10.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
 				identifier: "health.varnish",
 				category: "Health",
 				name: "Varnished Wood",
