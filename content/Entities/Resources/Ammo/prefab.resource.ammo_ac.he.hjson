@@ -43,3 +43,17 @@ norotate:
 {
 
 }
+
+health:
+{
+	max: 400.000
+}
+
+explosive:
+{
+	radius: 4.500
+	power: 3.000
+	damage_entity: 4000.000
+	damage_terrain: 15000.000
+	flags: any_damage, explode_when_primed 
+}
