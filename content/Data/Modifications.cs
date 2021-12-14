@@ -496,9 +496,14 @@ namespace TC2.Base
 				name: "Automatic Activation",
 				description: "Randomly activates (strikes, explodes, fires, etc)",
 
+				//This randomly causes a left click and a space bar
+				//Working examples: Guns, Fuse Explosives, Drills, Mounts (yes they will use whatever is on them), Melee weapons, even medkits
+				//Due to the wide variety of uses this is has this cost a large amount of materials
+				//This doesnt aim, so using anything which uses aim direction requires additional setup
+				
 				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return !modifications.HasModification(handle); //Remove once i can figure out stacking this
+					return !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -509,10 +514,10 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //High cost
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //Even higher cost on melee weapons
 					}
 				}
 			));
