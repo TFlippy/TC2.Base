@@ -15,8 +15,8 @@ body:
 		offset: [0.050, 0.000]
 
 		mass: 8.000
-		elasticity: 0.250
-		friction: 0.300
+		elasticity: 0.350
+		friction: 0.700
 
 		material: metal
 	}
@@ -36,7 +36,8 @@ holdable:
 
 health:
 {
-	max: 10000.000
+	max: 2000.000
+	armor: 400.000
 }
 
 transform:
@@ -77,6 +78,8 @@ melee:
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
 	damage_type: club
+	category: blunt
+	flags: no_handle
 	hit_mask: creature, item
 }
 
@@ -85,7 +88,12 @@ melee.state:
 
 }
 
+shield:
+{
+
+}
+
 cover:
 {
-	threshold: 0.200
+	threshold: 0.400
 }

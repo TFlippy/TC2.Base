@@ -1,7 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
-	public static class Gun
+	public static partial class Gun
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle texture_muzzle_flash = "MuzzleFlash";
@@ -100,7 +100,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public Vector2 muzzle_offset;
 
@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct State: IComponent
+		public partial struct State: IComponent
 		{
 			[Save.Ignore] public Stage stage;
 			[Save.Ignore] public Hints hints;

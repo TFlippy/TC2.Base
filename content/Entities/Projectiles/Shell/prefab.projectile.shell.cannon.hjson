@@ -21,5 +21,5 @@ explosive:
 	power: 6.000
 	damage_entity: 30000.000
 	damage_terrain: 25000.000
-	primed: true
+	flags: primed
 }

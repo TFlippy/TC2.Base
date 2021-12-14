@@ -1,9 +1,10 @@
-﻿namespace TC2.Base.Components
+﻿
+namespace TC2.Base.Components
 {
-	public static class Head
+	public static partial class Head
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			
 		}

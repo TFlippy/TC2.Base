@@ -37,6 +37,7 @@ melee:
 	penetration_falloff: 0.500
 	penetration: 1
 	damage_type: axe
+	category: bladed
 	hit_mask: world, destructible
 }
 

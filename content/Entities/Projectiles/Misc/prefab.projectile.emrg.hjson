@@ -37,5 +37,5 @@ explosive:
 	sparks_amount: 3.000
 	volume: 0.700
 	pitch: 3.500
-	primed: true
+	flags: primed
 }
