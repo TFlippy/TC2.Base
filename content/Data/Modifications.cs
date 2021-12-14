@@ -67,7 +67,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.hornet_inside",
-				category: "Hornet",
+				category: "Utility",
 				name: "Hornet Inside",
 				description: "Will release a hornet when destroyed",
 
@@ -78,9 +78,9 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var PrefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
+					ref var prefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
 					//TODO: make this stack
-					PrefabInside.prefab_release = "hornet";
+					prefabInside.prefab_release = "hornet";
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -94,6 +94,34 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 40.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
+				identifier: "health.mushroom_glow",
+				category: "Utility",
+				name: "Mushroom Glow",
+				description: "Glows in the dark",
+
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.GetComponent<Light.Data>().IsNull();
+				},
+
+				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var light = ref context.GetOrAddComponent<Light.Data>();
+					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
+					light.offset = new Vector2(0.000f, 0.000f);
+					light.scale = new Vector2(32.000f, 32.000f);
+					light.intensity = 1.000f;
+					light.texture = "light_invsqr";
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
 				}
 			));
 
