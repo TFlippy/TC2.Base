@@ -23,7 +23,7 @@ explosive:
 	power: 4.000
 	damage_entity: 14000.000
 	damage_terrain: 10000.000
-	primed: true
+	flags: primed
 }
 
 rocket:
