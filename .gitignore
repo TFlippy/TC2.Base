@@ -3,6 +3,7 @@
 
 *.shproj
 *.csproj
+*.csproj.user
 *.sln
 *.props
 
