@@ -51,9 +51,9 @@ health:
 
 explosive:
 {
-	radius: 6.000
-	power: 5.000
-	damage_entity: 14000.000
-	damage_terrain: 14000.000
-	primed: false
+	radius: 9.000
+	power: 6.000
+	damage_entity: 30000.000
+	damage_terrain: 25000.000
+	flags: any_damage, explode_when_primed 
 }

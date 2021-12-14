@@ -28,7 +28,7 @@ namespace TC2.Base
 					{
 						case Melee.Category.Pointed:
 						{
-							data.knockback *= 1.70f;
+							data.knockback *= 1.35f;
 							data.damage_base *= 1.10f;
 							data.damage_bonus *= 0.90f;
 						}
@@ -36,7 +36,7 @@ namespace TC2.Base
 
 						case Melee.Category.Bladed:
 						{
-							data.knockback *= 1.35f;
+							data.knockback *= 1.20f;
 							data.damage_base *= 0.80f;
 							data.damage_bonus *= 0.90f;
 						}
@@ -44,7 +44,7 @@ namespace TC2.Base
 
 						case Melee.Category.Blunt:
 						{
-							data.knockback *= 2.15f;
+							data.knockback *= 1.75f;
 							data.damage_base *= 1.10f;
 							data.damage_bonus *= 1.40f;
 						}
