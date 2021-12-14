@@ -9,6 +9,63 @@ namespace TC2.Base
 		{
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
+				identifier: "explosive.add",
+				category: "Explosives",
+				name: "Bomb-Rigged",
+				description: "Item will explode after sustaining enough damage.",
+
+				validate: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+					pair.amount = Maths.Clamp(pair.amount, 1, 10);
+					pair.threshold = Maths.Clamp(pair.threshold, 0.00f, 0.99f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+
+					var size = GUI.GetRemainingSpace();
+
+					var changed = false;
+					changed |= GUI.SliderInt("##amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
+					GUI.SameLine();
+					changed |= GUI.SliderFloat("##threshold", ref pair.threshold, 0.00f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+
+					return changed;
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.GetComponent<Explosive.Data>().IsNull();
+				},
+
+				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+
+					ref var explosive = ref context.GetOrAddComponent<Explosive.Data>();
+					explosive.power = 3.00f + (pair.amount * 0.80f);
+					explosive.radius = 2.00f + (pair.amount * 0.50f);
+					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f);
+					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f);
+					explosive.health_threshold = pair.threshold;
+					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_On_Primed;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+					context.requirements_new.Add(Crafting.Requirement.Resource("nitroglycerine", pair.amount));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
 				identifier: "health.varnish",
 				category: "Health",
 				name: "Varnish",
