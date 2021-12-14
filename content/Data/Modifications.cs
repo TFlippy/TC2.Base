@@ -496,9 +496,9 @@ namespace TC2.Base
 				name: "Automatic Activation",
 				description: "Randomly activates (strikes, explodes, fires, etc)",
 
-				//This randomly causes a left click and a space bar
-				//Working examples: Guns, Fuse Explosives, Drills, Mounts (yes they will use whatever is on them), Melee weapons, even medkits
-				//Due to the wide variety of uses this is has this cost a large amount of materials
+				//This randomly causes a left click and a space bar (at the same time)
+				//Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
+				//Due to the wide variety of uses this has, this cost a large amount of materials
 				//This doesnt aim, so using anything which uses aim direction requires additional setup
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>

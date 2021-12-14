@@ -7,7 +7,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Random Activ Duration", description: "How long it holds down the button when it randomly activates", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Random Active Duration", description: "How long it holds down the button when it randomly activates", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher)]
 			public float duration;
 		}
 
