@@ -26,15 +26,14 @@ namespace TC2.Base.Components
 			if (random.NextFloatRange(0.00f, 1.00f) > 0.995f)
 			{
 				state.stops_at = info.WorldTime + randomActivations.duration;
-				entity.SyncComponent(ref state);
+				//entity.SyncComponent(ref state);
 			}
 
 			if (info.WorldTime <= state.stops_at)
 			{
 				control.mouse.SetKeyPressed(Mouse.Key.Left, true);
 				control.keyboard.SetKeyPressed(Keyboard.Key.Spacebar, true);
-				entity.SyncComponent(ref control);
-				
+				//entity.SyncComponent(ref control);
 			}
 		}
 	}
