@@ -1649,6 +1649,31 @@ namespace TC2.Base
 					data.recoil_multiplier *= Maths.Lerp(0.70f, 0.20f, value);
 				}
 			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "Gun.automatic_reloading",
+				category: "Gun",
+				name: "Automatic Reloading",
+				description: "Automatically starts reloading once the magazine is empty",
+
+				//This is not extremely usefull but saves you on pressing a button and works nicely for mounts
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ActivationData = ref context.GetOrAddComponent<AutomaticReloading.Data>();
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 3.00f));
+				}
+			));
 		}
 	}
 }
