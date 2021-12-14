@@ -68,12 +68,12 @@ namespace TC2.Base
 			(
 				identifier: "health.varnish",
 				category: "Health",
-				name: "Varnish",
-				description: "Applies varnish on item's surface, improving its durability.",
+				name: "Varnished Wood",
+				description: "Applies varnish on item's wooden parts, improving their durability.",
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.requirements_new.Has(Crafting.Requirement.Resource("wood", 0.00f)) && !modifications.HasModification(handle);
+					return context.requirements_new.HasMaterial("wood") && !modifications.HasModification(handle);
 				},
 
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
