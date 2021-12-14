@@ -9,7 +9,7 @@ namespace TC2.Base
 		{
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
-				identifier: "explosive.add",
+				identifier: "health.bomb_rigged",
 				category: "Explosives",
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
@@ -18,7 +18,7 @@ namespace TC2.Base
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					pair.amount = Maths.Clamp(pair.amount, 1, 10);
-					pair.threshold = Maths.Clamp(pair.threshold, 0.00f, 0.99f);
+					pair.threshold = Maths.Clamp(pair.threshold, 0.20f, 0.99f);
 
 					return true;
 				},
@@ -33,7 +33,7 @@ namespace TC2.Base
 					var changed = false;
 					changed |= GUI.SliderInt("##amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
-					changed |= GUI.SliderFloat("##threshold", ref pair.threshold, 0.00f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderFloat("##threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
@@ -54,7 +54,7 @@ namespace TC2.Base
 					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f);
 					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f);
 					explosive.health_threshold = pair.threshold;
-					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_On_Primed;
+					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -262,13 +262,31 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return !modifications.HasModification(handle);
+					if (modifications.HasModification(handle)) return false;
+
+					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
+							{
+								return true;
+							}
+						}
+					}
+
+					return false;
 				},
 
 				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
 					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
+
+					data.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
+					data.health_threshold = 0.70f;
 
 					var has_any = false;
 
