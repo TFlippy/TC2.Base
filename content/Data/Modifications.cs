@@ -510,7 +510,7 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
-					if (context.GetComponent<Melee.Data>().IsNull())
+					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
 					}
