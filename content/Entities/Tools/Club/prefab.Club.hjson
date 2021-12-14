@@ -37,6 +37,7 @@ melee:
 	penetration_falloff: 0.900
 	penetration: 3
 	damage_type: club
+	category: blunt
 	hit_mask: world, destructible
 }
 
