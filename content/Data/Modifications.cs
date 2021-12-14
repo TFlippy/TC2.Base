@@ -494,7 +494,7 @@ namespace TC2.Base
 				identifier: "body.automatic_activation",
 				category: "Utility",
 				name: "Automatic Activation",
-				description: "Randomly activates",
+				description: "Randomly activates (strikes, explodes, fires, etc)",
 
 				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -503,13 +503,17 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var ActivationData = ref context.GetOrAddComponent<RandomLeftClick.Data>();
-					ref var ActivationState = ref context.GetOrAddComponent<RandomLeftClick.State>();
+					ref var ActivationData = ref context.GetOrAddComponent<RandomActivations.Data>();
+					ref var ActivationState = ref context.GetOrAddComponent<RandomActivations.State>();
 				},
 
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 40.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
+					if (context.GetComponent<Melee.Data>().IsNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f));
+					}
 				}
 			));
 
