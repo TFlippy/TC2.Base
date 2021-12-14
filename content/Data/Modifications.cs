@@ -431,12 +431,12 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<Movement_Cooling.Data>().IsNull();
+					return context.GetComponent<MovementCooling.Data>().IsNull();
 				},
 
 				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var cooling = ref context.GetOrAddComponent<Movement_Cooling.Data>();
+					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
 					cooling.mod = 0.10f;
 
 					data.cool_rate *= 0.70f;
@@ -486,6 +486,30 @@ namespace TC2.Base
 						ref var material = ref Material.GetMaterial("smirgl_ingot");
 						body.mass_extra += amount * material.mass_per_unit;
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.automatic_activation",
+				category: "Utility",
+				name: "Automatic Activation",
+				description: "Randomly activates",
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle); //Remove once i can figure out stacking this
+				},
+
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ActivationData = ref context.GetOrAddComponent<RandomLeftClick.Data>();
+					ref var ActivationState = ref context.GetOrAddComponent<RandomLeftClick.State>();
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 40.00f));
 				}
 			));
 
