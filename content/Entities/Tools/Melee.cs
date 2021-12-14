@@ -100,7 +100,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Sprite.Renderer.Data renderer)
 		{
-			if (melee_state.start_charging != 0.00f)
+			if (melee_state.start_charging != 0.00f && melee.charge_time > 0.00f)
 			{
 				float elapsed = (info.WorldTime - melee_state.start_charging);
 				var scale = elapsed / melee.charge_time;
