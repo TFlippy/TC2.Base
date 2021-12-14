@@ -71,6 +71,11 @@ namespace TC2.Base
 				name: "Hornet Inside",
 				description: "Will release a hornet when destroyed",
 
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle); //Remove once i can figure out stacking this
+				},
+
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var PrefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
