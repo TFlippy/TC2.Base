@@ -69,17 +69,26 @@ namespace TC2.Base
 				identifier: "health.hornet_inside",
 				category: "Hornet",
 				name: "Hornet Inside",
-				description: "Item will release a hornet when killed",
+				description: "Will release a hornet when destroyed",
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var PrefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
+					//TODO: make this stack
 					PrefabInside.prefab_release = "hornet";
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += 1.00f; 
+						//Adds a bit of weight due to the hornet incubating inside (should not add the full weight)
+						//The actual balance reason here is that there needs to be at least a small stats down for possibly spamming multiple hornets into one item
+					}
 				},
 
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 10.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 40.00f));
 				}
 			));
 

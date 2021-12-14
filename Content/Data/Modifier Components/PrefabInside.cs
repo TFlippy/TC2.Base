@@ -1,6 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
+	//This component simply creates a prefab when the entity is reduced to 0 (or less) hp
 	public static partial class PrefabInside
 	{
 
