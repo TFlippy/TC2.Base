@@ -27,7 +27,7 @@ organic.state:
 
 health:
 {
-	max: 2600.000
+	max: 3200.000
 }
 
 sprite.renderer:
@@ -236,7 +236,7 @@ lootable:
 		
 		health:
 		{
-			max: 1500.000
+			max: 2400.000
 		}
 		
 		holdable:
@@ -417,7 +417,7 @@ lootable:
 		
 		health:
 		{
-			max: 3500.000
+			max: 3900.000
 		}
 		
 		equipment.slot:
