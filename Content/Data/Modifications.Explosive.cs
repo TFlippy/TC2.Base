@@ -93,7 +93,9 @@ namespace TC2.Base
 				identifier: "explosive.dud",
 				category: "Explosives",
 				name: "Dud Explosive",
-				description: "Doesnt deal any damage, but also costs less",
+				description: "Doesn't deal any damage, but also costs less",
+
+				//This modifier is very usefull for tricking people with fake bombs or fake landmines since it also reduces the cost
 
 				apply_1: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
