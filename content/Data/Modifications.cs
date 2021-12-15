@@ -496,10 +496,10 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
-				identifier: "Cover.reinforced_cover",
+				identifier: "Cover.internal_lattice",
 				category: "Cover",
-				name: "Reinforced Cover",
-				description: "Restructure some parts to stop bullets more reliably",
+				name: "Internal Lattice",
+				description: "Blocks bullets even when heavily damaged, but reduced health overall",
 
 				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -509,6 +509,7 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.threshold -= 0.20f;
+
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
 					{
