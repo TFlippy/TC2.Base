@@ -75,7 +75,8 @@ namespace TC2.Base
 				{
 					ref var prefabInside = ref context.GetComponent<PrefabInside.Data>();
 					Prefab.Handle hornetHandle = "hornet";
-					return prefabInside.IsNull() || prefabInside.prefab_release.id == hornetHandle.id;
+					return prefabInside.IsNull() || prefabInside.prefab_release.id == hornetHandle.id; 
+					//Can only be added if no prefabinside component OR this just adds another hornet
 				},
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
