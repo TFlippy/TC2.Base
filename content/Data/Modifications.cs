@@ -499,7 +499,7 @@ namespace TC2.Base
 				identifier: "Cover.internal_lattice",
 				category: "Cover",
 				name: "Internal Lattice",
-				description: "Blocks bullets even when heavily damaged, but reduced health overall",
+				description: "Blocks bullets at even lower durability, but reduced durability overall",
 
 				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
