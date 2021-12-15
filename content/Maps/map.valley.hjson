@@ -8,7 +8,7 @@ entities:
 		prefab: "background.nostalgia"
 		position: [426.875, 58.125]
 		rotation: 0.000
-		scale: [32.000, 32.000]
+		scale: [24.000, 24.000]
 	}
 	{
 		prefab: "background.plains"

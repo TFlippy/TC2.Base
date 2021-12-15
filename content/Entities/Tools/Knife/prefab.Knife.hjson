@@ -37,6 +37,7 @@ melee:
 	penetration_falloff: 0.900
 	penetration: 0
 	damage_type: slash
+	category: bladed
 	hit_mask: world, destructible
 }
 

@@ -1,9 +1,10 @@
-﻿namespace TC2.Base.Components
+﻿
+namespace TC2.Base.Components
 {
-	public static class Flyer
+	public static partial class Flyer
 	{
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			public float max_speed = 10.00f;
 			public float force = 100.00f;
