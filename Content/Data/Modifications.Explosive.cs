@@ -93,26 +93,28 @@ namespace TC2.Base
 				identifier: "explosive.dud",
 				category: "Explosives",
 				name: "Dud Explosive",
-				description: "Doesn't deal any damage, but also costs less",
-
-				//This modifier is very usefull for tricking people with fake bombs or fake landmines since it also reduces the cost
+				description: "Replaces all the explosive material with dirt.",
 
 				apply_1: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.damage_terrain = 0.00f;
 					data.damage_entity = 0.00f;
 
+					var amount_total = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f) //Remove all explosive material costs
+							if (material.flags.HasAny(Material.Flags.Explosive))
 							{
+								amount_total += requirement.amount;
 								requirement = default;
 							}
 						}
 					}
+					
+					context.requirements_new.Add(Crafting.Requirement.Resource("dirt", amount_total));				
 				}
 			));
 		}
