@@ -114,7 +114,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Add(Crafting.Requirement.Resource("dirt", amount_total));				
+					context.requirements_new.Add(Crafting.Requirement.Resource("soil", amount_total));				
 				}
 			));
 		}
