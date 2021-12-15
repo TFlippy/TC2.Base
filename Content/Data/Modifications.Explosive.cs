@@ -99,6 +99,10 @@ namespace TC2.Base
 				{
 					data.damage_terrain = 0.00f;
 					data.damage_entity = 0.00f;
+					data.power = 1.00f;
+					data.radius = 2.00f;
+					data.pitch = 2.00f;
+					data.volume = 0.60f;
 
 					var amount_total = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
