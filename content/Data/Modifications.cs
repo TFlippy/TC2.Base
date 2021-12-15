@@ -73,14 +73,16 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return !modifications.HasModification(handle); //Remove once i can figure out stacking this
+					ref var prefabInside = ref context.GetComponent<PrefabInside.Data>();
+					Prefab.Handle hornetHandle = "hornet";
+					return prefabInside.IsNull() || prefabInside.prefab_release.id == hornetHandle.id;
 				},
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var prefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
-					//TODO: make this stack
 					prefabInside.prefab_release = "hornet";
+					prefabInside.amount += 1;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())

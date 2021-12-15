@@ -9,6 +9,10 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public Prefab.Handle prefab_release;
+
+			public float amount;
+
+			//public float RandomVelocity;
 		}
 
 #if SERVER
@@ -24,7 +28,10 @@ namespace TC2.Base.Components
 		[ISystem.Remove(ISystem.Mode.Single, 0)]
 		public static void OnRemove(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefabInside)
 		{
-			info.GetRegion().SpawnPrefab(prefabInside.prefab_release, transform.position);
+			for (int i = 0; i < prefabInside.amount; i++)
+			{
+				info.GetRegion().SpawnPrefab(prefabInside.prefab_release, transform.position);
+			}
 		}
 #endif
 	}
