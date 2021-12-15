@@ -107,7 +107,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
+							if (material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f) //Remove all explosive material costs
 							{
 								requirement = default;
 							}
