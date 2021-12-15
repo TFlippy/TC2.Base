@@ -58,5 +58,4 @@ explosive:
 	damage_terrain: 10000.000
 	smoke_amount: 1.800
 	pitch: 1.500
-	primed: false
 }
