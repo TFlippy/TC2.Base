@@ -35,10 +35,10 @@ namespace TC2.Base.Components
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOrganic(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic)
+		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			runner.force_modifier = organic.strength;
-			runner.speed_modifier = organic.efficiency;
+			runner.speed_modifier = organic_state.efficiency;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]

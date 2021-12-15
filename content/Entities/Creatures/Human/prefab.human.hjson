@@ -20,6 +20,11 @@ organic:
 
 }
 
+organic.state:
+{
+
+}
+
 health:
 {
 	max: 2600.000
@@ -224,6 +229,11 @@ lootable:
 			tags: brain
 		}
 		
+		organic.state:
+		{
+
+		}
+		
 		health:
 		{
 			max: 1500.000
@@ -388,6 +398,11 @@ lootable:
 				frame_count_total: 4
 				texture: "human.gore.stub"
 			}
+		}
+		
+		organic.state:
+		{
+
 		}
 		
 		threat:
