@@ -127,6 +127,7 @@ namespace TC2.Base.Components
 				//Less jump force if already moving upwards (and slightly more when already moving downwards)
 				runner.last_jump = info.WorldTime;
 			}
+			//Interrupt you own jump by releasing the Jump button
 			if (!keyboard.GetKey(Keyboard.Key.MoveUp))
 			{
 				runner.jump_force_current *= 0.10f;
