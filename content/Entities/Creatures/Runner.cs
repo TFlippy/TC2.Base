@@ -20,10 +20,14 @@ namespace TC2.Base.Components
 		{
 			public float walk_force;
 			public float jump_force;
+			public float stop_force;
 			public float max_speed = 13.00f;
 
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
+
+			public float crouch_speed_modifier = 0.50f;
+			public float air_speed_modifier = 0.50f;
 
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
@@ -50,7 +54,6 @@ namespace TC2.Base.Components
 			var force = new Vector2(0, 0);
 			Vector2 velocity = body.GetVelocity();
 
-			//Walking and Air Movement direction TODO: use two different values for custom usage instead of multiplier
 			if (!keyboard.GetKey(Keyboard.Key.NoMove))
 			{
 				if (keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force;
@@ -97,8 +100,8 @@ namespace TC2.Base.Components
 			//Slowed walking while in the air, also no jumping
 			if (arbiter_count <= 0 && (info.WorldTime - runner.last_ground) > 0.20f)
 			{
-				force.X *= 0.50f;
-				force.Y *= 0.00f;
+				force.X *= runner.air_speed_modifier;
+				force.Y *= 0.00f; //Currently irrelevant since nothing adds Y speed beforehand
 				runner.flags &= ~Runner.Flags.Grounded;
 				runner.last_air = info.WorldTime;
 			}
@@ -106,7 +109,8 @@ namespace TC2.Base.Components
 			//JUMP, Coyotee time 0.2s, Jump cooldown 0.4s (Static numbers)
 			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (info.WorldTime - runner.last_ground) < 0.20f)
 			{
-				runner.jump_force_current = (runner.jump_force - MathF.Abs(velocity.Y * body.GetMass() * App.tickrate) * 0.25f);
+				runner.jump_force_current = (runner.jump_force + velocity.Y * body.GetMass() * App.tickrate * 0.25f);
+				//Less jump force if already moving upwards (and slightly more when already moving downwards)
 				runner.last_jump = info.WorldTime;
 			}
 			if (!keyboard.GetKey(Keyboard.Key.MoveUp))
@@ -117,7 +121,6 @@ namespace TC2.Base.Components
 			//Half jump force each tick
 			force.Y -= runner.jump_force_current;
 			runner.jump_force_current *= 0.50f;
-			//runner.jump_force_current = 0.00f;
 
 			//CROUCH
 			if (!keyboard.GetKey(Keyboard.Key.NoMove) && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner.last_ground) <= 0.25f) runner.flags |= Runner.Flags.Crouching;
@@ -126,21 +129,20 @@ namespace TC2.Base.Components
 			var max_speed = new Vector2(runner.max_speed, 10);
 
 			//Crouching reduced current jump force and max speed
-			if (runner.flags.HasAll(Runner.Flags.Crouching)) //TODO: Set max speed to a specific value instead of multiplying
+			if (runner.flags.HasAll(Runner.Flags.Crouching))
 			{
-				runner.jump_force_current *= 0.50f;
-				max_speed.X *= 0.50f;
+				//runner.jump_force_current *= 0.50f;
+				max_speed.X *= runner.crouch_speed_modifier;
 			}
 		
 
-			//STOP //TODO: use specialized stopping force
-
+			//STOP
 			if (runner.flags.HasAll(Runner.Flags.Grounded))
 			if (!runner.flags.HasAll(Runner.Flags.Walking) && (runner.jump_force_current <= 1.00f))
 			{
 				var required_force_dir = (velocity * body.GetMass() * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
-				required_force_dir *= Maths.Clamp(runner.walk_force * 2.00f, -required_force_magnitude, required_force_magnitude);
+				required_force_dir *= Maths.Clamp(runner.stop_force, -required_force_magnitude, required_force_magnitude);
 
 				force -= required_force_dir;
 			}

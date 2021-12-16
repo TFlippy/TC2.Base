@@ -374,7 +374,9 @@ lootable:
 		runner:
 		{
 			walk_force: 6000.000
+			stop_force: 12000.000
 			jump_force: 16000.000
+			max_speed: 13.000
 		}
 		
 		organic:

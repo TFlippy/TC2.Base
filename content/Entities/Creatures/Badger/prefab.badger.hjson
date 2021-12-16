@@ -72,7 +72,8 @@ npc:
 
 runner:
 {
-	walk_force: 8000.000
+	walk_force: 5000.000
+	stop_force: 10000.000
 	jump_force: 15000.000
 	max_speed: 10.000
 }
