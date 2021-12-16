@@ -13,6 +13,7 @@ namespace TC2.Base.Components
 			Jumping = 1 << 2,
 			Falling = 1 << 3,
 			Crouching = 1 << 4,
+			Climbing = 1 << 5,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -36,15 +37,24 @@ namespace TC2.Base.Components
 
 			[Save.Ignore, Net.Ignore] public float last_jump;
 			[Save.Ignore, Net.Ignore] public float last_ground;
+			[Save.Ignore, Net.Ignore] public float last_climb;
 			[Save.Ignore, Net.Ignore] public float last_air;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOrganic(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic)
+		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			runner.force_modifier = MathF.Pow(organic.strength, 0.50f);
 			runner.speed_modifier = organic.efficiency;
+		}
+
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void UpdateClimbing(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Runner.Data runner, [Source.Parent] in Climber.Data climber)
+		{
+			runner.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
+			if (runner.flags.HasAll(Runner.Flags.Climbing)) runner.last_climb = info.WorldTime;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -108,9 +118,9 @@ namespace TC2.Base.Components
 				runner.flags &= ~Runner.Flags.Grounded;
 				runner.last_air = info.WorldTime;
 			}
-
+			
 			//JUMP, Coyotee time 0.2s
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > jump_cooldown && (info.WorldTime - runner.last_ground) < 0.20f)
+			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > jump_cooldown && (info.WorldTime - runner.last_ground) < 0.20f || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f))
 			{
 				runner.jump_force_current = (runner.jump_force + velocity.Y * body.GetMass() * App.tickrate * 0.25f);
 				//Less jump force if already moving upwards (and slightly more when already moving downwards)

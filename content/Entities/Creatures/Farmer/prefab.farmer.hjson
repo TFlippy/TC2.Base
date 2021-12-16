@@ -67,6 +67,11 @@ organic:
 	tags: brain
 }
 
+organic.state:
+{
+
+}
+
 interactable:
 {
 	window_size: [512.000, 280.000]

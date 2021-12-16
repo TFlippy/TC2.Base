@@ -17,6 +17,11 @@ organic:
 
 }
 
+organic.state:
+{
+
+}
+
 health:
 {
 	max: 3000.000
@@ -164,6 +169,11 @@ interactable:
 		
 		}
 		
+		organic.state:
+		{
+
+		}
+		
 		health:
 		{
 			max: 2700.000
@@ -281,6 +291,11 @@ interactable:
 		organic:
 		{
 			tags: brain
+		}
+		
+		organic.state:
+		{
+
 		}
 		
 		health:
