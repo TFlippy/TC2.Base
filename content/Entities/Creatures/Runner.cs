@@ -46,7 +46,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			runner.force_modifier = MathF.Pow(organic.strength, 0.50f);
-			runner.speed_modifier = organic.efficiency;
+			runner.speed_modifier = organic_state.efficiency;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
