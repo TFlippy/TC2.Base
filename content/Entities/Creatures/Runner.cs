@@ -29,6 +29,8 @@ namespace TC2.Base.Components
 			public float crouch_speed_modifier = 0.50f;
 			public float air_speed_modifier = 0.50f;
 
+			public float jump_cooldown = 0.40f;
+
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
 
@@ -54,6 +56,7 @@ namespace TC2.Base.Components
 			var force = new Vector2(0, 0);
 			Vector2 velocity = body.GetVelocity();
 
+			//WALKING
 			if (!keyboard.GetKey(Keyboard.Key.NoMove))
 			{
 				if (keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force;
@@ -97,7 +100,7 @@ namespace TC2.Base.Components
 				}
 			}
 			
-			//Slowed walking while in the air, also no jumping
+			//Slowed walking while in the air, also no jumping, small amount of extra time so small divets dont break your stride
 			if (arbiter_count <= 0 && (info.WorldTime - runner.last_ground) > 0.20f)
 			{
 				force.X *= runner.air_speed_modifier;
@@ -106,8 +109,8 @@ namespace TC2.Base.Components
 				runner.last_air = info.WorldTime;
 			}
 
-			//JUMP, Coyotee time 0.2s, Jump cooldown 0.4s (Static numbers)
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (info.WorldTime - runner.last_ground) < 0.20f)
+			//JUMP, Coyotee time 0.2s
+			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > jump_cooldown && (info.WorldTime - runner.last_ground) < 0.20f)
 			{
 				runner.jump_force_current = (runner.jump_force + velocity.Y * body.GetMass() * App.tickrate * 0.25f);
 				//Less jump force if already moving upwards (and slightly more when already moving downwards)
@@ -128,15 +131,14 @@ namespace TC2.Base.Components
 
 			var max_speed = new Vector2(runner.max_speed, 10);
 
-			//Crouching reduced current jump force and max speed
+			//Crouching reduces max speed, but doesnt reduce jump height
 			if (runner.flags.HasAll(Runner.Flags.Crouching))
 			{
 				//runner.jump_force_current *= 0.50f;
 				max_speed.X *= runner.crouch_speed_modifier;
 			}
 		
-
-			//STOP
+		 	//STOP (by touching the ground and neither jumping nor moving)
 			if (runner.flags.HasAll(Runner.Flags.Grounded))
 			if (!runner.flags.HasAll(Runner.Flags.Walking) && (runner.jump_force_current <= 1.00f))
 			{
@@ -157,7 +159,7 @@ namespace TC2.Base.Components
 			force.X *= runner.force_modifier;
 			force.Y *= MathF.Pow(runner.force_modifier, 0.60f); //Reduced jump scaling with strength
 
-			//force = Physics.LimitForce(ref body, force, max_speed); //No longer relevant
+			//force = Physics.LimitForce(ref body, force, max_speed); //No longer relevant due to above speed force scaling
 			body.AddForce(force);
 		}
 	}
