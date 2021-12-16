@@ -120,7 +120,8 @@ namespace TC2.Base.Components
 			}
 			
 			//JUMP, Coyotee time 0.2s
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > runner.jump_cooldown && (info.WorldTime - runner.last_ground) < 0.20f || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f))
+			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > runner.jump_cooldown && 
+			(info.WorldTime - runner.last_ground < 0.20f || ((info.WorldTime - runner.last_climb > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
 			{
 				runner.jump_force_current = (runner.jump_force + velocity.Y * body.GetMass() * App.tickrate * 0.25f);
 				//Less jump force if already moving upwards (and slightly more when already moving downwards)
