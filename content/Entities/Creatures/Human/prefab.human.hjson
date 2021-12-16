@@ -353,7 +353,7 @@ lootable:
 				mass: 40.000
 				radius: 0.500
 				friction: 0.200
-				elasticity: 0.800
+				elasticity: 0.300
 				material: flesh
 				layer: entity, solid, creature
 				mask: world
@@ -373,8 +373,8 @@ lootable:
 		
 		runner:
 		{
-			walk_force: 3000.000
-			jump_force: 9000.000
+			walk_force: 6000.000
+			jump_force: 16000.000
 		}
 		
 		organic:
