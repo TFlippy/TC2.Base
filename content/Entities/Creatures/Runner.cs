@@ -104,7 +104,7 @@ namespace TC2.Base.Components
 
 					var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
-					force.Y -= MathF.Abs(dot * force.X) * (1.00f - friction) * 0.50f; //friction IMPROVED climbing
+					force.Y -= MathF.Abs(dot * force.X) * friction * 0.50f; //friction improves climbing
 					dot = MathF.Max(0.00f, dot - 0.20f); //Slight bumps are ignored
 					force.X *= (1.00f - dot/2.00f);
 				}
