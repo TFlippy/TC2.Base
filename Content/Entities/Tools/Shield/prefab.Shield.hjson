@@ -14,9 +14,9 @@ body:
 		radius: 0.300
 		offset: [0.050, 0.000]
 
-		mass: 8.000
+		mass: 6.000
 		elasticity: 0.350
-		friction: 0.700
+		friction: 0.500
 
 		material: metal
 	}
@@ -29,6 +29,8 @@ sprite.renderer:
 
 holdable:
 {
+	force_multiplier: 3.000
+	torque_multiplier: 1.000
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -36,7 +38,7 @@ holdable:
 
 health:
 {
-	max: 2000.000
+	max: 3000.000
 	armor: 400.000
 }
 
