@@ -444,7 +444,7 @@ namespace TC2.Base
 				identifier: "body.toggle_activation",
 				category: "Utility",
 				name: "Toggle Activation",
-				description: "Activation is toggled, clicking toggles between holding the button down and releasing it forever",
+				description: "Activation is toggled, clicking causes it to either be permanently active or permanently not",
 
 				//Similar to the one above except toggles with every click
 
