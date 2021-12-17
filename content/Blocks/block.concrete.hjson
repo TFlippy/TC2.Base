@@ -7,7 +7,7 @@
 	flags: artificial
 	
 	max_health: 60000.000
-	smoothing: 0.080
+	smoothing: 0.100
 	mass: 8.000
 	friction: 0.950
 	elasticity: 0.200
