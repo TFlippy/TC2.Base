@@ -412,9 +412,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
-				identifier: "body.random_activation",
+				identifier: "body.automatic_activation",
 				category: "Utility",
-				name: "Random Activation",
+				name: "Automatic Activation",
 				description: "Randomly activates (strikes, explodes, fires, etc)",
 
 				//This randomly causes a left click and a space bar (at the same time)
@@ -432,35 +432,6 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //High cost
-					if (!context.GetComponent<Melee.Data>().IsNull())
-					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //Even higher cost on melee weapons
-					}
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Body.Data>
-			(
-				identifier: "body.toggle_activation",
-				category: "Utility",
-				name: "Toggle Activation",
-				description: "Activation is toggled, clicking causes it to either be permanently active or permanently not",
-
-				//Similar to the one above except toggles with every click
-
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
-
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var ActivationData = ref context.GetOrAddComponent<ToggleActivations.Data>();
-				},
-
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 50.00f)); //High cost
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //Even higher cost on melee weapons
