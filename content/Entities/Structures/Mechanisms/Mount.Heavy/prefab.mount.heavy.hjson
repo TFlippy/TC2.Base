@@ -1,15 +1,17 @@
-control:
-{
-
-}
 
 body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [1.900, 1.100]
+		points:
+		[
+			[1.750, 1.000]
+			[-1.750, 1.000]
+			[-0.250, -0.750]
+			[0.250, -0.750]
+		]
 		offset: [0.000, 0.000]
 		mass: 4000.000
 		friction: 500.000
@@ -18,6 +20,11 @@ body:
 		layer: entity, solid, building
 		mask: world
 	}
+}
+
+control:
+{
+
 }
 
 health:
