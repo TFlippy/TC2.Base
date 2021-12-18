@@ -43,7 +43,7 @@ gun:
 	ammo_filter: ammo_sg
 	action: pump
 	type: shotgun
-	feed: single
+	feed: clip
 	
 	@inventory1:
 	{
