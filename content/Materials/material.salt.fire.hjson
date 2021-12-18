@@ -1,9 +1,9 @@
 {
-	name: "Salt of Motion"
+	name: "Salt of Fire"
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.elemental_salt.motion"
+		texture: "resource.salt.fire"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -12,7 +12,7 @@
 	flags: raw, powder, despawnable
 	mass_per_unit: 0.760
 	quantity_max: 500.000
-	prefab: "resource.motion_salt"
+	prefab: "resource.salt.fire"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

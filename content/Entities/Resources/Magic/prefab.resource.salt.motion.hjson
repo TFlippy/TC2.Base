@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.elemental_salt.motion"
+		texture: "resource.salt.motion"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "motion_salt"
+	material: "salt.motion"
 	
 	@light:
 	{
