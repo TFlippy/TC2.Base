@@ -31,6 +31,7 @@ namespace TC2.Base.Components
 			public float air_speed_modifier = 0.50f;
 
 			public float jump_cooldown = 0.40f;
+			public float slope_mod = 0.65f;
 
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
@@ -104,7 +105,7 @@ namespace TC2.Base.Components
 
 					var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
-					force.Y -= MathF.Abs(dot * force.X) * friction * 0.50f; //friction improves climbing
+					force.Y -= MathF.Abs(dot * force.X) * friction * runner.slope_mod; //friction improves climbing
 					dot = MathF.Max(0.00f, dot - 0.20f); //Slight bumps are ignored
 					force.X *= (1.00f - dot/2.00f);
 				}
