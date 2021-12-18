@@ -20,6 +20,16 @@ transform:
 
 }
 
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.salt.radiance"
+		count: 4
+		size: [16, 16]
+	}
+}
+
 resource:
 {
 	material: "salt.radiance"

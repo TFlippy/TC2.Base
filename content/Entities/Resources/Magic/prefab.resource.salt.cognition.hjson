@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.salt.motion"
+		texture: "resource.salt.cognition"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,14 +32,14 @@ transform:
 
 resource:
 {
-	material: "salt.motion"
+	material: "salt.cognition"
 	
 	@light:
 	{
-		color: [1.000, 0.800, 0.000, 1.500]
-		offset: [0.000, 0.500]
+		color: [0.000, 1.000, 1.000, 1.500]
+		offset: [0.000, 0.000]
 		scale: [12.000, 12.000]
-		intensity: 1.200
+		intensity: 1.000
 		texture: "light_invsqr"
 	}
 }
