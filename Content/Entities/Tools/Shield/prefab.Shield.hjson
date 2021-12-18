@@ -24,6 +24,8 @@ animated.renderer:
 	sprite:
 	{
 		texture: "shield"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 }
 
