@@ -1,5 +1,7 @@
 $name: "Badger Den"
 $desc: "A badger family resides in here."
+$tags: []
+
 body:
 {
 	type: static
@@ -36,17 +38,3 @@ nameable:
 {
 	name: "Badger Den"
 }
-
-// spawn:
-// {
-// 	characters:
-// 	[
-// 		{
-// 			name: "Badger"
-// 			description: "TODO: Desc"
-// 			flags: animal
-// 			prefab: "badger"
-// 			cost: 0.250
-// 		}
-// 	]
-// }

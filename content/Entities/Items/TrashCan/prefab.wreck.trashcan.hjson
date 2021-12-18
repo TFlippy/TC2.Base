@@ -4,6 +4,8 @@ $desc:
 	Someone had a heap of fun with this.
 	Maybe it contains some ancient treasure?
 	'''
+$tags: []
+
 body:
 {
 	@shape.box:
@@ -51,12 +53,6 @@ harvestable:
 		{
 			material: "iron_plate"
 			quantity: 3.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

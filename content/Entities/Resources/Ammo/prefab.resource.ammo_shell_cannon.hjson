@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -55,5 +57,5 @@ explosive:
 	power: 6.000
 	damage_entity: 30000.000
 	damage_terrain: 25000.000
-	flags: any_damage, explode_when_primed 
+	flags: any_damage, explode_when_primed
 }

@@ -1,5 +1,7 @@
 $name: "Yellow Mushroom"
 $desc: "A group of tall, yellow-capped mushrooms."
+$tags: []
+
 body:
 {
 	type: static
@@ -46,12 +48,6 @@ harvestable:
 		{
 			material: "mushroom.yellow"
 			quantity: 650.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

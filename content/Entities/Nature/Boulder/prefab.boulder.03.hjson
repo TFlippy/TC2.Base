@@ -1,14 +1,16 @@
 $name: "Boulder"
 $desc: ""
+$tags: []
+
 body:
 {
 	type: static
 	
 	@shape.circle:
 	{
-		radius: 2.250
 		offset: [0.000, 0.000]
 		mass: 5000.000
+		radius: 2.250
 		friction: 0.950
 		elasticity: 0.020
 		material: stone
@@ -24,8 +26,8 @@ health:
 
 sprite.renderer:
 {
-	z: -100.000
 	offset: [0.000, -0.625]
+	z: -100.000
 	texture: "boulder.03"
 }
 

@@ -4,6 +4,8 @@ $desc:
 	A strange overgrown statue.
 	There's "Benny Harvey RIP" etched on the back, whatever it means. 
 	'''
+$tags: []
+
 body:
 {
 	type: static

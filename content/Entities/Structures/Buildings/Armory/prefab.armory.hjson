@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -53,8 +55,8 @@ storage:
 	{
 		name: "Storage"
 		stack_size_multiplier: 5.000
-		type: storage
 		filter_flags: ammo
+		type: storage
 		flags: allow_ducts, ignore_mass, public
 	}
 }

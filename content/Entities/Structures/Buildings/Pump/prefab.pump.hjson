@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -43,13 +45,13 @@ interactable:
 pump:
 {
 	slider_offset: [-0.875, -2.125]
-
+	
 	@sprite.renderer:
 	{
 		z: -151.000
 		texture: "pump.slider"
 	}
-
+	
 	@inventory4:
 	{
 		name: "Output"
@@ -85,6 +87,6 @@ sound.emitter:
 {
 	file: "pump_loop"
 	volume: 0.900
-	size: 0.700
 	pitch: 1.000
+	size: 0.700
 }

@@ -4,6 +4,8 @@ $desc:
 	A bunch of hanging vines.
 	Can be climbed.
 	'''
+$tags: []
+
 body:
 {
 	type: static

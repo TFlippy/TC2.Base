@@ -1,4 +1,6 @@
 $name: "Demolitionist"
+$tags: []
+
 body:
 {
 	@shape.line:

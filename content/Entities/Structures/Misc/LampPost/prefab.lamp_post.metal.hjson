@@ -1,5 +1,7 @@
 $name: "Lamp Post (Metal)"
 $desc: "A lamp on a metal post."
+$tags: []
+
 body:
 {
 	type: static

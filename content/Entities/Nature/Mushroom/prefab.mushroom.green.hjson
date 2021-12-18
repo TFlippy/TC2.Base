@@ -1,5 +1,7 @@
 $name: "Green Mushroom"
 $desc: "A glowing green mushroom. It bears an uncanny resemblance to a man's face."
+$tags: []
+
 body:
 {
 	type: static
@@ -55,12 +57,6 @@ harvestable:
 		{
 			material: "mushroom.green"
 			quantity: 220.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

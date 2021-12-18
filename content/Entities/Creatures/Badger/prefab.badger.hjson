@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -114,6 +116,8 @@ interactable:
 
 +0|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [-0.700, 0.000]
@@ -142,6 +146,8 @@ interactable:
 	
 	+butt|child:
 	{
+		$tags: []
+		
 		body:
 		{
 			@shape.circle:
@@ -170,7 +176,7 @@ interactable:
 		
 		organic.state:
 		{
-
+		
 		}
 		
 		health:
@@ -225,6 +231,8 @@ interactable:
 
 +1|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [0.500, -0.125]
@@ -253,6 +261,8 @@ interactable:
 	
 	+head|child:
 	{
+		$tags: []
+		
 		body:
 		{
 			@shape.circle:
@@ -294,7 +304,7 @@ interactable:
 		
 		organic.state:
 		{
-
+		
 		}
 		
 		health:

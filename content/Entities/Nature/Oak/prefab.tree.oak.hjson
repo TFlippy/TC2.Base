@@ -1,5 +1,7 @@
 $name: "Oak Tree"
 $desc: "A tree. Seems like a good source of wood."
+$tags: []
+
 body:
 {
 	type: static
@@ -30,7 +32,7 @@ health:
 
 splittable:
 {
-	rect: [-0.500, -10.750, 0.500, -1.250] 
+	rect: [-0.500, -10.750, 0.500, -1.250]
 	texture_stub: "tree.oak.stub"
 	sound_split: "tree_snap_00"
 }
@@ -43,24 +45,21 @@ holdable:
 
 sprite.renderer:
 {
-	offset: [-0.000, -5.500]
+	offset: [-0, -5.500]
 	z: -50.000
 	texture: "tree.oak"
 }
 
 tree:
 {
-	health_cut: 0.800
-
 	prefab_stump: "tree.oak.stump"
+	health_cut: 0.980
 	sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 	
-	health_cut: 0.98
-
 	@foliage.renderer:
 	{
-		offset: [-0.000, -7.625]
+		offset: [-0, -7.625]
 		z: 100.000
 		texture: "tree.oak.foliage"
 	}
@@ -77,12 +76,6 @@ harvestable:
 		{
 			material: "resin"
 			quantity: 300.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

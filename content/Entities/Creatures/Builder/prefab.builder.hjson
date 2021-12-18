@@ -1,4 +1,6 @@
 $name: "Builder"
+$tags: []
+
 body:
 {
 	@shape.line:

@@ -1,5 +1,7 @@
 $name: "Red Mushroom"
 $desc: "A really big red mushroom."
+$tags: []
+
 body:
 {
 	type: static
@@ -46,12 +48,6 @@ harvestable:
 		{
 			material: "mushroom.red"
 			quantity: 1600.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

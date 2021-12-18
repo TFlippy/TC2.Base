@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -61,32 +63,3 @@ workshop:
 {
 
 }
-
-// burner:
-// {
-// 	smoke_offset: [-1.800, -2.0999999]
-// 	capacity: 3.000
-// 	energy_loss: 100000.000
-// 	efficiency: 0.400
-	
-// 	@inventory1:
-// 	{
-// 		name: "Fuel"
-// 		stack_size_multiplier: 2.000
-// 		filter_flags: fuel
-// 		type: fuel
-// 		flags: allow_ducts, ignore_mass
-// 	}
-	
-// 	@sound.emitter:
-// 	{
-// 		file: "furnace_loop"
-// 		volume: 0.000
-// 		pitch: 0.500
-// 	}
-// }
-
-// burner.state:
-// {
-// 	current_temperature: 300.000
-// }

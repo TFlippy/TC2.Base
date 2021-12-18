@@ -23,10 +23,10 @@ sprite.renderer:
 {
 	offset: [0.000, 0.000]
 	z: -40.000
+	fps: 30
 	frame_offset: 0
 	frame_count: 2
 	frame_count_total: 2
-	fps: 30
 	texture: "hornet"
 }
 
@@ -70,16 +70,14 @@ npc:
 	lose_distance_max: 128.000
 	follow_distance_max: 0.000
 	follow_distance_min: 0.000
-
-	pain_modifier: 0.50
-	min_consciousness: 0.50
+	pain_modifier: 0.500
+	min_consciousness: 0.500
 }
 
 animal:
 {
 	attack_distance: 1.900
 	attack_cooldown: 2.000
-
 	charge_distance: 15.000
 	retreat_distance: 10.000
 }
@@ -118,8 +116,8 @@ sound.emitter:
 	file: "hornet_loop"
 	volume: 0.400
 	pitch: 1.000
-	priority: 0.100
 	size_max_modifier: 0.300
+	priority: 0.100
 }
 
 biter:
@@ -128,9 +126,9 @@ biter:
 	damage_bonus: 75.000
 	cooldown: 1.000
 	max_distance: 2.000
-	velocity: 0.000
-	aoe: 0.01
+	aoe: 0.010
 	thickness: 0.250
+	velocity: 0.000
 	penetration: 0
 	damage_type: sting
 	hit_mask: destructible, organic

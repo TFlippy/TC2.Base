@@ -1,5 +1,7 @@
 $name: "Lamp "
 $desc: "A small wall-mounted lamp."
+$tags: []
+
 body:
 {
 	type: static

@@ -4,6 +4,8 @@ $desc:
 	A standard wooden door.
 	Can be locked.
 	'''
+$tags: []
+
 body:
 {
 	type: static

@@ -1,5 +1,7 @@
 $name: "Oak Stump"
 $desc: "What's left of an oak tree."
+$tags: []
+
 body:
 {
 	type: static
@@ -28,7 +30,7 @@ health:
 
 sprite.renderer:
 {
-	offset: [-0.000, -0.500]
+	offset: [-0, -0.500]
 	z: -250.000
 	texture: "tree.oak.stump"
 }
@@ -40,15 +42,6 @@ harvestable:
 		{
 			material: "wood"
 			quantity: 2000.000
-		}
-		{
-		
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

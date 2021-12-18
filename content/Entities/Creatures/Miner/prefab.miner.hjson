@@ -1,4 +1,6 @@
 $name: "Miner"
+$tags: []
+
 body:
 {
 	@shape.line:

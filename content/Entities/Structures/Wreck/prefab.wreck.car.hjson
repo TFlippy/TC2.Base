@@ -4,6 +4,8 @@ $desc:
 	A brand new car after 3 years of service to an imperial citizen.
 	Can be salvaged for spare parts.
 	'''
+$tags: []
+
 body:
 {
 	type: static

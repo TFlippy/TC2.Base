@@ -1,5 +1,7 @@
 $name: "Chest"
 $desc: "A small wooden chest usable for storage."
+$tags: []
+
 body:
 {
 	type: static

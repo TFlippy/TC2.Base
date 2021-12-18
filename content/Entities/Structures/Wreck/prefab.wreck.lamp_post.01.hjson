@@ -4,6 +4,8 @@ $desc:
 	Some broken-down, long-forgotten lamp post.
 	Can be salvaged for spare parts.
 	'''
+$tags: []
+
 body:
 {
 	type: static
@@ -51,12 +53,6 @@ harvestable:
 		{
 			material: "iron_ingot"
 			quantity: 3.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

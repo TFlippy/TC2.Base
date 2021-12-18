@@ -4,6 +4,8 @@ $desc:
 	A durable metal ladder.
 	Can be climbed.
 	'''
+$tags: []
+
 body:
 {
 	type: static

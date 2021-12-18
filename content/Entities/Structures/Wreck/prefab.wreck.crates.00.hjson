@@ -4,6 +4,8 @@ $desc:
 	Several old crates stacked on top of eachother.
 	May still contain some goods.
 	'''
+$tags: []
+
 body:
 {
 	type: static

@@ -1,5 +1,7 @@
 $name: "Mine"
 $desc: "Seems to be empty at the moment."
+$tags: []
+
 body:
 {
 	type: static

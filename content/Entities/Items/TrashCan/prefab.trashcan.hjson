@@ -4,6 +4,8 @@ $desc:
 	A generic trash can.
 	Maybe it contains some treasure?
 	'''
+$tags: []
+
 body:
 {
 	inventory_weight_multiplier: 0.400
