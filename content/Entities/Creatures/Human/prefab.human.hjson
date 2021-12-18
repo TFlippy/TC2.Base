@@ -36,11 +36,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "human.torso.bag"
+		texture: "human.torso"
 		size: [16, 16]
 	}
 	z: -40.000
-	mask: "human.torso.mask.bag"
+	mask: "human.torso.mask"
 }
 
 faction.colorable:
