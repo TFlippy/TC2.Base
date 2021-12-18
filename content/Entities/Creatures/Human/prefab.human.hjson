@@ -212,10 +212,13 @@ lootable:
 		
 		hair:
 		{
+			texture: "null"
+
 			@animated.renderer:
 			{
 				sprite:
 				{
+					texture: "null"
 					count: 1
 					size: [24, 24]
 				}
@@ -225,10 +228,13 @@ lootable:
 		
 		beard:
 		{
+			texture: "null"
+
 			@animated.renderer:
 			{
 				sprite:
 				{
+					texture: "null"
 					count: 1
 					size: [16, 16]
 				}
