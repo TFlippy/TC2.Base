@@ -28,11 +28,14 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "wreck.car"
+	}
 	offset: [-0.375, 0.000]
 	z: -50.000
-	texture: "wreck.car"
 }
 
 transform:

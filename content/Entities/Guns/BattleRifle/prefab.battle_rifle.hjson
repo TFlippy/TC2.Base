@@ -67,9 +67,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "battle_rifle"
+	sprite:
+	{
+		texture: "battle_rifle"
+	}
 }
 
 health:

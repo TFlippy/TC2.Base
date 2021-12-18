@@ -28,9 +28,12 @@ holdable:
 	radius: 4.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "crate.small"
+	sprite:
+	{
+		texture: "crate.small"
+	}
 }
 
 transform:

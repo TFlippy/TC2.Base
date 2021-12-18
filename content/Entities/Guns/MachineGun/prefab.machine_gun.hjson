@@ -66,9 +66,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "machine_gun"
+	sprite:
+	{
+		texture: "machine_gun"
+	}
 }
 
 health:

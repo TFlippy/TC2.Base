@@ -23,10 +23,13 @@ health:
 	max: 3000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "badger_den"
+	}
 	z: -150.000
-	texture: "badger_den"
 }
 
 transform:

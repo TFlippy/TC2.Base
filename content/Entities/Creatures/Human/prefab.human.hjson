@@ -32,15 +32,14 @@ health:
 	max: 3200.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "human.torso.bag"
+		size: [16, 16]
+	}
 	z: -40.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 4
-	texture: "human.torso.bag"
 	mask: "human.torso.mask.bag"
 }
 
@@ -168,15 +167,16 @@ lootable:
 		max_torque: 4000.000
 		flags: organic, control_write
 		
-		@sprite.renderer:
+		@animated.renderer:
 		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [2, 0]
+			}
 			offset: [0.100, -0.400]
 			z: -39.000
-			fps: 0
-			frame_offset: 2
-			frame_count: 0
-			frame_count_total: 4
-			texture: "human.gore.stub"
 		}
 	}
 	
@@ -212,21 +212,27 @@ lootable:
 		
 		hair:
 		{
-			@sprite.renderer:
+			@animated.renderer:
 			{
+				sprite:
+				{
+					count: 1
+					size: [0, 8]
+				}
 				z: -34.900
-				frame_count: 1
-				frame_count_total: 32
 			}
 		}
 		
 		beard:
 		{
-			@sprite.renderer:
+			@animated.renderer:
 			{
+				sprite:
+				{
+					count: 1
+					size: [0, 8]
+				}
 				z: -34.800
-				frame_count: 1
-				frame_count_total: 32
 			}
 		}
 		
@@ -255,15 +261,15 @@ lootable:
 			type: head
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "human.head"
+				count: 1
+				size: [16, 16]
+			}
 			z: -35.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 16
-			texture: "human.head"
 			
 			@damagesprite:
 			{
@@ -333,15 +339,16 @@ lootable:
 		max_torque: 10000.000
 		flags: organic, control_write
 		
-		@sprite.renderer:
+		@animated.renderer:
 		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [1, 0]
+			}
 			offset: [0.000, 0.500]
 			z: -38.000
-			fps: 0
-			frame_offset: 1
-			frame_count: 0
-			frame_count_total: 4
-			texture: "human.gore.stub"
 		}
 	}
 	
@@ -380,15 +387,14 @@ lootable:
 			}
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "human.waist"
+				size: [16, 8]
+			}
 			z: -50.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 0
-			frame_count_total: 8
-			texture: "human.waist"
 		}
 		
 		runner:
@@ -399,14 +405,14 @@ lootable:
 		
 		organic:
 		{
-			@sprite.renderer:
+			@animated.renderer:
 			{
+				sprite:
+				{
+					texture: "human.gore.stub"
+					size: [16, 16]
+				}
 				z: -49.000
-				fps: 0
-				frame_offset: 0
-				frame_count: 0
-				frame_count_total: 4
-				texture: "human.gore.stub"
 			}
 		}
 		

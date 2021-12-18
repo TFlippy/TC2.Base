@@ -23,10 +23,13 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "chest"
+	}
 	z: -150.000
-	texture: "chest"
 	mask: "chest.mask"
 }
 

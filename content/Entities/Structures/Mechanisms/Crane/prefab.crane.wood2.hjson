@@ -103,11 +103,13 @@ sound.mixer:
 	
 	}
 	
-	sprite.renderer:
+	animated.renderer:
 	{
-		offset: [0.000, 0.000]
+		sprite:
+		{
+			texture: "crane_arm.wood"
+		}
 		z: 100.000
-		texture: "crane_arm.wood"
 	}
 	
 	body:
@@ -168,11 +170,13 @@ sound.mixer:
 		
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "crane_arm.wood"
+			}
 			z: 90.000
-			texture: "crane_arm.wood"
 		}
 		
 		body:

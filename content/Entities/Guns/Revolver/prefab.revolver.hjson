@@ -77,11 +77,14 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "revolver"
+	}
 	offset: [0.000, 0.200]
 	scale: [0.900, 0.900]
-	texture: "revolver"
 }
 
 health:

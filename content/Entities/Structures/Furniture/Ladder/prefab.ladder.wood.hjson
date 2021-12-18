@@ -30,11 +30,13 @@ health:
 	max: 1000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "ladder.wood"
+	}
 	z: -150.000
-	texture: "ladder.wood"
 }
 
 transform:

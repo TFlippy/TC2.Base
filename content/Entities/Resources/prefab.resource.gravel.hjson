@@ -14,11 +14,14 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	frame_count: 4
-	frame_count_total: 4
-	texture: "resource.gravel"
+	sprite:
+	{
+		texture: "resource.gravel"
+		count: 4
+		size: [16, 16]
+	}
 }
 
 transform:

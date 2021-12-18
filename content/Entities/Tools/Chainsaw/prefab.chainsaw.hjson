@@ -58,10 +58,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "chainsaw"
+	}
 	offset: [0.400, -0.100]
-	texture: "chainsaw"
 }
 
 sound.emitter:

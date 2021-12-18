@@ -30,11 +30,13 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "ladder.metal"
+	}
 	z: -150.000
-	texture: "ladder.metal"
 }
 
 transform:

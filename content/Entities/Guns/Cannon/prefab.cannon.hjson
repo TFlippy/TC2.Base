@@ -80,9 +80,12 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "cannon"
+	sprite:
+	{
+		texture: "cannon"
+	}
 }
 
 health:

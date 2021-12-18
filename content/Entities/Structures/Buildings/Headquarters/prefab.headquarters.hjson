@@ -21,10 +21,13 @@ health:
 	max: 25000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "headquarters"
+	}
 	z: -150.000
-	texture: "headquarters"
 	mask: "headquarters.mask"
 }
 

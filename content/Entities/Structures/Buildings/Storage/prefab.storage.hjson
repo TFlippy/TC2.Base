@@ -21,10 +21,13 @@ health:
 	max: 18000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "storage"
+	}
 	z: -150.000
-	texture: "storage"
 	mask: "storage.mask"
 }
 

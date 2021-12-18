@@ -22,10 +22,13 @@ health:
 	max: 17000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "gunsmith"
+	}
 	z: -100.000
-	texture: "gunsmith"
 }
 
 transform:

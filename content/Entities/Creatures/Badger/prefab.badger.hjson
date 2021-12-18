@@ -29,15 +29,14 @@ health:
 	max: 3000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "badger.body.a"
+		size: [16, 16]
+	}
 	z: -30.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 5
-	texture: "badger.body.a"
 	
 	@damagesprite:
 	{
@@ -194,15 +193,15 @@ interactable:
 			offset: [0.000, 0.000]
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "badger.body.b"
+				count: 1
+				size: [16, 16]
+			}
 			z: -40.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 5
-			texture: "badger.body.b"
 			
 			@damagesprite:
 			{
@@ -317,15 +316,15 @@ interactable:
 			offset: [0.000, 0.000]
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "badger.head"
+				count: 1
+				size: [12, 8]
+			}
 			z: -30.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 5
-			texture: "badger.head"
 			
 			@damagesprite:
 			{

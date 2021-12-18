@@ -24,9 +24,12 @@ holdable:
 
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "blueprint"
+	sprite:
+	{
+		texture: "blueprint"
+	}
 }
 
 transform:

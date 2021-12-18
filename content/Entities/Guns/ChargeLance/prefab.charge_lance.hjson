@@ -71,9 +71,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "charge_lance"
+	sprite:
+	{
+		texture: "charge_lance"
+	}
 }
 
 health:

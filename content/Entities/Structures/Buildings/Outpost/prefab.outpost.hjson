@@ -21,10 +21,13 @@ health:
 	max: 5000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "outpost"
+	}
 	z: -150.000
-	texture: "outpost"
 	mask: "outpost.mask"
 }
 

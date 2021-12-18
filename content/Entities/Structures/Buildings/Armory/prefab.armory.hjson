@@ -21,10 +21,13 @@ health:
 	max: 20000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "armory"
+	}
 	z: -150.000
-	texture: "armory"
 	mask: "armory.mask"
 }
 

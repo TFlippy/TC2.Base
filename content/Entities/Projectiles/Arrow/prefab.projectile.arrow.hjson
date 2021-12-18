@@ -8,10 +8,13 @@ projectile:
 	damage_type: arrow
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "arrow"
+	}
 	z: -40.000
-	texture: "arrow"
 }
 
 transform:

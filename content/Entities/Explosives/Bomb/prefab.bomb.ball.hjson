@@ -30,10 +30,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "bomb.ball"
+	}
 	offset: [0.000, -0.250]
-	texture: "bomb.ball"
 }
 
 transform:

@@ -21,11 +21,13 @@ health:
 	max: 1000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "hand_crank.base"
+	}
 	z: -170.000
-	texture: "hand_crank.base"
 }
 
 crank:
@@ -34,11 +36,13 @@ crank:
 	torque: 50.000
 	mod: 5.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
-		offset: [0.000, 0.000]
+		sprite:
+		{
+			texture: "hand_crank.knob"
+		}
 		z: -150.000
-		texture: "hand_crank.knob"
 	}
 }
 
@@ -52,10 +56,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -160.000
-		texture: "wheel_1000.iron"
 	}
 }
 

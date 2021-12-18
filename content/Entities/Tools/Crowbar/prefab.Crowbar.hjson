@@ -49,10 +49,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	z: 0.000
-	texture: "crowbar"
+	sprite:
+	{
+		texture: "crowbar"
+	}
 }
 
 transform:

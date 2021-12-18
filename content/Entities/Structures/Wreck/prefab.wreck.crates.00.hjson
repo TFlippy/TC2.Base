@@ -28,10 +28,13 @@ health:
 	max: 3000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "wreck.crates.00"
+	}
 	z: -100.000
-	texture: "wreck.crates.00"
 }
 
 transform:

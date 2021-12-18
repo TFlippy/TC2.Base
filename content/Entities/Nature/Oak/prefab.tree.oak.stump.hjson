@@ -28,11 +28,14 @@ health:
 	max: 7500.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "tree.oak.stump"
+	}
 	offset: [-0, -0.500]
 	z: -250.000
-	texture: "tree.oak.stump"
 }
 
 harvestable:

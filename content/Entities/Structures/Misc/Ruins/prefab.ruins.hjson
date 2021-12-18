@@ -17,10 +17,13 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "ruins"
+	}
 	z: -400.000
-	texture: "ruins"
 }
 
 transform:

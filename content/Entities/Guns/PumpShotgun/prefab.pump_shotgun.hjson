@@ -75,15 +75,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
-	z: 0.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 0
-	texture: "pump_shotgun"
+	sprite:
+	{
+		texture: "pump_shotgun"
+	}
 }
 
 health:

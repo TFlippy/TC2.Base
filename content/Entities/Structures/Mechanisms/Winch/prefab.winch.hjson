@@ -21,11 +21,13 @@ health:
 	max: 1000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "winch"
+	}
 	z: -150.000
-	texture: "winch"
 }
 
 wheel:
@@ -38,10 +40,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -50.000
-		texture: "wheel_1000.iron"
 	}
 }
 
@@ -79,11 +84,13 @@ joint.rope2:
 	
 	}
 	
-	sprite.renderer:
+	animated.renderer:
 	{
-		offset: [0.000, 0.000]
+		sprite:
+		{
+			texture: "hook"
+		}
 		z: -50.000
-		texture: "hook"
 	}
 	
 	body:

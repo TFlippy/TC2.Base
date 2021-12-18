@@ -24,11 +24,14 @@ health:
 	max: 50000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "boulder.03"
+	}
 	offset: [0.000, -0.625]
 	z: -100.000
-	texture: "boulder.03"
 }
 
 transform:

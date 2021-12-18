@@ -3,9 +3,14 @@ $desc: "A really big red mushroom."
 $prefab: "mushroom.red.00"
 $tags: []
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "mushroom.red.01"
+	sprite:
+	{
+		texture: "mushroom.red.01"
+	}
+	offset: [0.500, -3.500]
+	z: -200.000
 }
 
 body:

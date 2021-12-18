@@ -28,10 +28,13 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "crate"
+	}
 	z: 10.000
-	texture: "crate"
 }
 
 transform:

@@ -21,10 +21,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "lantern"
+	}
 	offset: [0.000, -0.250]
-	texture: "lantern"
 }
 
 transform:

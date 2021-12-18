@@ -28,15 +28,15 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "hatch.wood"
+		count: 5
+		size: [20, 24]
+	}
 	z: 100.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 5
-	frame_count_total: 5
-	texture: "hatch.wood"
 }
 
 interactable:

@@ -24,10 +24,13 @@ health:
 	max: 50000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "hornet_hive.base"
+	}
 	z: -150.000
-	texture: "hornet_hive.base"
 }
 
 transform:
@@ -84,10 +87,13 @@ rope:
 		max: 10000.000
 	}
 	
-	sprite.renderer:
+	animated.renderer:
 	{
+		sprite:
+		{
+			texture: "hornet_hive"
+		}
 		z: -100.000
-		texture: "hornet_hive"
 	}
 	
 	transform:

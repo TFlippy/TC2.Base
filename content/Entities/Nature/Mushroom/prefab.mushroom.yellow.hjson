@@ -30,11 +30,14 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.yellow"
+	}
 	offset: [0.500, -3.500]
 	z: -200.000
-	texture: "mushroom.yellow"
 }
 
 harvestable:

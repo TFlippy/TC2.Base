@@ -32,9 +32,12 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "wreck.trashcan"
+	sprite:
+	{
+		texture: "wreck.trashcan"
+	}
 }
 
 transform:

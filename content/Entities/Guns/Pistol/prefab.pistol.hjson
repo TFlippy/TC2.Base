@@ -68,10 +68,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "pistol"
+	}
 	scale: [0.850, 0.850]
-	texture: "pistol"
 }
 
 health:

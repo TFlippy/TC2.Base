@@ -21,10 +21,13 @@ health:
 	max: 8000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "grinder.small"
+	}
 	z: -150.000
-	texture: "grinder.small"
 }
 
 transform:
@@ -72,10 +75,13 @@ wheel:
 	radius_inner: 0.625
 	radius_outer: 0.750
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_0750.iron"
+		}
 		z: -140.000
-		texture: "wheel_0750.iron"
 	}
 }
 

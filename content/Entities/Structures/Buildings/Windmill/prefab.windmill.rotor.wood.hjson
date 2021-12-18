@@ -41,10 +41,13 @@ wheel:
 	radius_inner: 0.250
 	radius_outer: 0.500
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "windmill.rotor.wood"
+		}
 		z: -160.000
-		texture: "windmill.rotor.wood"
 	}
 }
 

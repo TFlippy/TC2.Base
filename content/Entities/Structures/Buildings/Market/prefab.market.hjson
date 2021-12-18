@@ -24,11 +24,14 @@ health:
 	max: 25000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "market"
+	}
 	offset: [0.000, -2.000]
 	z: -100.000
-	texture: "market"
 	mask: "market.mask"
 }
 

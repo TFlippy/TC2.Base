@@ -31,10 +31,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "dynamite"
+	}
 	offset: [0.125, -0.125]
-	texture: "dynamite"
 }
 
 transform:

@@ -19,15 +19,16 @@ health:
 	max: 1500.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "hornet"
+		fps: 30.000
+		count: 2
+		size: [16, 16]
+	}
 	z: -40.000
-	fps: 30
-	frame_offset: 0
-	frame_count: 2
-	frame_count_total: 2
-	texture: "hornet"
 }
 
 organic:

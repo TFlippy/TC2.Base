@@ -77,15 +77,12 @@ holdable:
 	radius: 1.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
-	z: 0.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 0
-	texture: "autocannon"
+	sprite:
+	{
+		texture: "autocannon"
+	}
 }
 
 health:

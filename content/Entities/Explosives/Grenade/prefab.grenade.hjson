@@ -31,11 +31,14 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "grenade"
+	}
 	offset: [0.125, -0.125]
 	scale: [0.800, 0.800]
-	texture: "grenade"
 }
 
 transform:

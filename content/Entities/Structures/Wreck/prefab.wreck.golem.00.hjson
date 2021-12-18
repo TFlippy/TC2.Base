@@ -28,11 +28,13 @@ health:
 	max: 80000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "wreck.golem.00"
+	}
 	z: -100.000
-	texture: "wreck.golem.00"
 }
 
 transform:

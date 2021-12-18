@@ -21,10 +21,13 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "pump"
+	}
 	z: -150.000
-	texture: "pump"
 }
 
 transform:
@@ -46,10 +49,13 @@ pump:
 {
 	slider_offset: [-0.875, -2.125]
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "pump.slider"
+		}
 		z: -151.000
-		texture: "pump.slider"
 	}
 	
 	@inventory4:
@@ -76,10 +82,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -149.000
-		texture: "wheel_1000.iron"
 	}
 }
 

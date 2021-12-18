@@ -19,8 +19,6 @@ projectile:
 
 projectile.renderer:
 {
-	color_a: "0xffffffff"
-	color_b: "0xffffffff"
 	length: 10.000
 }
 

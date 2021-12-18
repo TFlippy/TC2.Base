@@ -24,11 +24,14 @@ health:
 	max: 4000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "flagpost.metal"
+	}
 	offset: [0.250, 0.000]
 	z: -150.000
-	texture: "flagpost.metal"
 	mask: "flagpost.metal.mask"
 }
 

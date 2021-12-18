@@ -30,10 +30,13 @@ health:
 	max: 15000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "boulder.01.moss"
+	}
 	z: -100.000
-	texture: "boulder.01.moss"
 }
 
 transform:

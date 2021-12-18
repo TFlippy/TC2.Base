@@ -68,10 +68,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "smg"
+	}
 	scale: [0.900, 0.900]
-	texture: "smg"
 }
 
 health:

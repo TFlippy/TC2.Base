@@ -76,11 +76,14 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "crankgun"
+	}
 	offset: [0.000, 0.570]
 	scale: [0.875, 0.875]
-	texture: "crankgun"
 }
 
 health:

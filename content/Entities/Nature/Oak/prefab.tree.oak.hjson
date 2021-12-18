@@ -43,11 +43,14 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "tree.oak"
+	}
 	offset: [-0, -5.500]
 	z: -50.000
-	texture: "tree.oak"
 }
 
 tree:

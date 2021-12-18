@@ -21,10 +21,13 @@ health:
 	max: 30000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "pulverizer"
+	}
 	z: -150.000
-	texture: "pulverizer"
 }
 
 transform:
@@ -42,10 +45,13 @@ pulverizer:
 		flags: standalone, allow_ducts, public
 	}
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "pulverizer.drum"
+		}
 		z: -300.000
-		texture: "pulverizer.drum"
 	}
 }
 
@@ -64,10 +70,13 @@ wheel:
 	radius_inner: 1.750
 	radius_outer: 2.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_2000.iron"
+		}
 		z: -140.000
-		texture: "wheel_2000.iron"
 	}
 }
 

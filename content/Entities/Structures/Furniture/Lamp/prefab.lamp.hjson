@@ -24,10 +24,13 @@ health:
 	max: 500.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "lamp"
+	}
 	z: -150.000
-	texture: "lamp"
 }
 
 transform:

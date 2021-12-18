@@ -14,11 +14,14 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	frame_count: 4
-	frame_count_total: 4
-	texture: "resource.mithril"
+	sprite:
+	{
+		texture: "resource.mithril"
+		count: 4
+		size: [16, 16]
+	}
 }
 
 transform:

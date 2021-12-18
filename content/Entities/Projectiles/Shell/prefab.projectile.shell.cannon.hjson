@@ -10,11 +10,14 @@ transform:
 
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "shell.cannon"
+	}
 	scale: [0.750, 0.750]
 	z: -40.000
-	texture: "shell.cannon"
 }
 
 explosive:

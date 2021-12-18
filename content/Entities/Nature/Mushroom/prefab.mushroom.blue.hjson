@@ -30,11 +30,14 @@ health:
 	max: 800.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.blue"
+	}
 	offset: [0.000, -1.150]
 	z: -200.000
-	texture: "mushroom.blue"
 	
 	@light:
 	{

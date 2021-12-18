@@ -26,10 +26,13 @@ health:
 	max: 30000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "depot"
+	}
 	z: -140.000
-	texture: "depot"
 	mask: "depot.mask"
 }
 
