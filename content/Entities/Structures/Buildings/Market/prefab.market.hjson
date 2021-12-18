@@ -1,5 +1,7 @@
 $name: "Market"
 $desc: "A place to trade at."
+$tags: []
+
 body:
 {
 	type: static
@@ -22,11 +24,14 @@ health:
 	max: 25000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "market"
+	}
 	offset: [0.000, -2.000]
 	z: -100.000
-	texture: "market"
 	mask: "market.mask"
 }
 
@@ -64,7 +69,7 @@ interactable:
 light:
 {
 	color: [1.000, 0.750, 0.100, 2.000]
-	offset: [-1.250, -2.5999999]
+	offset: [-1.250, -2.600]
 	scale: [32.000, 32.000]
 	intensity: 0.800
 	texture: "light_invsqr"

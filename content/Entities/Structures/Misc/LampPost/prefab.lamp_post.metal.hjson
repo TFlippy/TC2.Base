@@ -1,5 +1,7 @@
 $name: "Lamp Post (Metal)"
 $desc: "A lamp on a metal post."
+$tags: []
+
 body:
 {
 	type: static
@@ -24,10 +26,13 @@ health:
 	max: 5000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "lamp_post.metal"
+	}
 	z: -150.000
-	texture: "lamp_post.metal"
 }
 
 transform:

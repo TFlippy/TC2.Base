@@ -1,34 +1,38 @@
 $name: "Shield"
 $desc: "A large shield capable of absorbing various kinds of attacks."
+$tags: []
 
 body:
 {
 	@shape.line:
 	{
-		layer: entity, solid, item
-		mask: world, creature
-
 		a: [0.000, -0.500]
 		b: [0.000, 0.500]
-
-		radius: 0.300
 		offset: [0.050, 0.000]
-
-		mass: 8.000
+		mass: 6.000
+		radius: 0.300
+		friction: 0.500
 		elasticity: 0.350
-		friction: 0.700
-
 		material: metal
+		layer: entity, solid, item
+		mask: world, creature
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "shield"
+	sprite:
+	{
+		texture: "shield"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 }
 
 holdable:
 {
+	force_multiplier: 3.000
+	torque_multiplier: 1.000
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -36,13 +40,13 @@ holdable:
 
 health:
 {
-	max: 2000.000
+	max: 3000.000
 	armor: 400.000
 }
 
 transform:
 {
-	
+
 }
 
 control:
@@ -57,7 +61,7 @@ aimable:
 
 packable:
 {
-	
+
 }
 
 melee:
@@ -65,22 +69,22 @@ melee:
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
 	sound_pitch: 0.700
+	swing_offset: [0.400, 0.000]
+	swing_rotation: -0.200
 	damage_base: 80.000
 	damage_bonus: 30.000
 	cooldown: 0.600
 	max_distance: 1.500
 	aoe: 1.000
+	thickness: 1.750
 	knockback: 4.000
 	yield: 0.000
-	thickness: 1.750
 	penetration_falloff: 0.800
 	penetration: 3
-	swing_offset: [0.400, 0.000]
-	swing_rotation: -0.200
 	damage_type: club
 	category: blunt
 	flags: no_handle
-	hit_mask: creature, item
+	hit_mask: item, creature
 }
 
 melee.state:

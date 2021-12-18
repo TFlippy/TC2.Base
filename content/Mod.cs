@@ -10,6 +10,7 @@ namespace TC2.Base
 			Modification.OnInitialize += RegisterMeleeModifications;
 			Modification.OnInitialize += RegisterDrillModifications;
 			Modification.OnInitialize += RegisterMedkitModifications;
+			Modification.OnInitialize += RegisterExplosiveModifications;
 		}
 
 		protected override void OnInitialize(ModContext context)

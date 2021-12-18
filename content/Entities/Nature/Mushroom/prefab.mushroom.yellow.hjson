@@ -1,5 +1,7 @@
 $name: "Yellow Mushroom"
 $desc: "A group of tall, yellow-capped mushrooms."
+$tags: []
+
 body:
 {
 	type: static
@@ -28,11 +30,14 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.yellow"
+	}
 	offset: [0.500, -3.500]
 	z: -200.000
-	texture: "mushroom.yellow"
 }
 
 harvestable:
@@ -46,12 +51,6 @@ harvestable:
 		{
 			material: "mushroom.yellow"
 			quantity: 650.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

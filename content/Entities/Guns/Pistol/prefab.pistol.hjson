@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -28,13 +30,13 @@ gun:
 	cycle_interval: 0.160
 	failure_rate: 0.010
 	max_ammo: 10.000
+	flash_size: 0.700
 	projectile_count: 1
 	flags: full_reload, cycle_on_shoot
 	ammo_filter: ammo_lc
 	action: blowback
 	type: handgun
 	feed: magazine
-	flash_size: 0.700
 	
 	@inventory1:
 	{
@@ -66,10 +68,13 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "pistol"
+	}
 	scale: [0.850, 0.850]
-	texture: "pistol"
 }
 
 health:
