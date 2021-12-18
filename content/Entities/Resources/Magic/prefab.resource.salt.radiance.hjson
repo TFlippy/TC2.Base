@@ -28,9 +28,23 @@ resource:
 	{
 		color: [0.800, 0.900, 1.100, 1.000]
 		offset: [0.000, 0.750]
-		scale: [4.000, 4.000]
+		scale: [6.000, 6.000]
 		intensity: 3.000
 		texture: "resource.salt.radiance.glow"
+	}
+}
+
+lamp:
+{
+	flicker: 0.300
+	
+	@light:
+	{
+		color: [0.950, 0.800, 1.100, 2.000]
+		offset: [0.000, 0.500]
+		scale: [6.000, 6.000]
+		intensity: 1.000
+		texture: "light_invsqr"
 	}
 }
 
