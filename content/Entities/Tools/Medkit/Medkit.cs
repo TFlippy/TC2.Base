@@ -177,16 +177,16 @@
 
 							if (healed_amount_max > 0.00f)
 							{
-								ref var organic = ref hit.entity.GetComponent<Organic.Data>();
-								if (!organic.IsNull())
+								ref var organic_state = ref hit.entity.GetComponent<Organic.State>();
+								if (!organic_state.IsNull())
 								{
 									// Adds or reduces pain
-									var pain_amount = MathF.Max(medkit.pain, -organic.pain);
-									organic.pain += pain_amount;
+									var pain_amount = MathF.Max(medkit.pain, -organic_state.pain);
+									organic_state.pain += pain_amount;
 
 									if (pain_amount != 0.00f)
 									{
-										hit.entity.MarkModified<Organic.Data>(sync: true);
+										organic_state.Modified(hit.entity, sync: true);
 									}
 								}
 							}

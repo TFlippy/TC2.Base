@@ -4,6 +4,8 @@ $desc:
 	A durable metal door.
 	Can be locked.
 	'''
+$tags: []
+
 body:
 {
 	type: static
@@ -26,15 +28,15 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "door.metal"
+		count: 5
+		size: [24, 24]
+	}
 	z: 100.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 5
-	frame_count_total: 5
-	texture: "door.metal"
 	mask: "door.metal.mask"
 }
 

@@ -1,3 +1,5 @@
+$tags: []
+
 projectile:
 {
 	damage_base: 400.000
@@ -10,11 +12,14 @@ transform:
 
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "rocket"
+	}
 	scale: [0.750, 0.750]
 	z: -40.000
-	texture: "rocket"
 }
 
 explosive:

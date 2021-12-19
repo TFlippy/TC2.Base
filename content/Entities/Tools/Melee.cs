@@ -91,7 +91,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.last_hit;
 			var max = melee_state.next_hit - melee_state.last_hit;

@@ -1,0 +1,65 @@
+$name: "Chest"
+$desc: "A small wooden chest usable for storage."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 1.500]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "chest"
+	}
+	z: -150.000
+	mask: "chest.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+claimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Chest"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+}

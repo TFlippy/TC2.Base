@@ -1,5 +1,7 @@
 $name: "Shrubbery"
 $desc: "It is good shrubbery."
+$tags: []
+
 body:
 {
 	type: static

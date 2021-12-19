@@ -1,4 +1,6 @@
 $name: "Charge Blaster"
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -67,9 +69,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "charge_blaster"
+	sprite:
+	{
+		texture: "charge_blaster"
+	}
 }
 
 health:

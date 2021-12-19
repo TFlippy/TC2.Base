@@ -1,5 +1,7 @@
 $name: "Rusty Chain-Link Fence"
 $desc: "A rusted-down fence full of holes."
+$tags: []
+
 body:
 {
 	type: static
@@ -22,10 +24,13 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "wreck.chain_fence.00"
+	}
 	z: -300.000
-	texture: "wreck.chain_fence.00"
 }
 
 transform:

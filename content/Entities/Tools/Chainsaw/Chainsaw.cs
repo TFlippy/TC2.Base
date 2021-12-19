@@ -110,7 +110,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Sprite.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
 			var random = XorRandom.New();
 			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))

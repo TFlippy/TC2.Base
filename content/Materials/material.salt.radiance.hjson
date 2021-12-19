@@ -1,9 +1,9 @@
 {
-	name: "Salt of Life"
+	name: "Salt of Radiance"
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.elemental_salt.life"
+		texture: "resource.salt.radiance"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -11,8 +11,8 @@
 	type: powder
 	flags: raw, powder, despawnable
 	mass_per_unit: 0.760
-	quantity_max: 500.000
-	prefab: "resource.life_salt"
+	quantity_max: 250.000
+	prefab: "resource.salt.radiance"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

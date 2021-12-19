@@ -1,3 +1,5 @@
+$tags: []
+
 control:
 {
 
@@ -69,10 +71,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	z: 0.000
-	texture: "bow"
+	sprite:
+	{
+		texture: "bow"
+	}
 }
 
 transform:

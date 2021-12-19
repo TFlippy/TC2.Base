@@ -235,88 +235,6 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Explosive.Data>
-			(
-				identifier: "explosive.directed",
-				category: "Explosives",
-				name: "Directed Explosion",
-				description: "Focuses the explosion into a smaller area.",
-
-				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					//var radius_log = MathF.Log2(data.radius);
-
-					data.radius *= 0.75f;
-					data.power *= 1.25f;
-					data.damage_terrain *= 1.25f;
-					data.damage_entity *= 1.25f;
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Explosive.Data>
-			(
-				identifier: "explosive.nitroglycerine",
-				category: "Explosives",
-				name: "Nitroglycerine Filler",
-				description: "Replaces filler with nitroglycerine.",
-
-				can_add: static (ref Modification.Context context, in Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					if (modifications.HasModification(handle)) return false;
-
-					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
-							{
-								return true;
-							}
-						}
-					}
-
-					return false;
-				},
-
-				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
-					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
-
-					data.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
-					data.health_threshold = 0.70f;
-
-					var has_any = false;
-
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive))
-							{
-								var amount_new = (requirement.amount * material.mass_per_unit) / material_nitroglycerine.mass_per_unit;
-
-								requirement.amount = amount_new;
-								requirement.material = material_nitroglycerine_handle;
-
-								has_any = true;
-							}
-						}
-					}
-
-					if (has_any)
-					{
-						data.radius += MathF.Sqrt(data.radius * 1.50f);
-						data.power += MathF.Sqrt(data.power * 2.50f);
-						data.damage_terrain += MathF.Pow(data.damage_terrain * 3.50f, 0.75f);
-						data.damage_entity += MathF.Pow(data.damage_entity * 2.50f, 0.75f);
-					}
-				}
-			));
-
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
@@ -491,6 +409,35 @@ namespace TC2.Base
 							}
 						}
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Cover.Data>
+			(
+				identifier: "cover.chitin_lined",
+				category: "Cover",
+				name: "Chitin-Lined",
+				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
+
+				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.threshold = Maths.Clamp(data.threshold - 0.25f, 0.00f, 1.00f);
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= 0.95f;
+					}
+				},
+
+				apply_1: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
 		}

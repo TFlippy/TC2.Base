@@ -1,5 +1,7 @@
 $name: "Fern"
 $desc: "It looks happy."
+$tags: []
+
 body:
 {
 	type: static
