@@ -49,17 +49,7 @@ interactable:
 shop:
 {
 	name: "Forge"
-	recipe_groups:
-	[
-		15
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: forge
 }
 
 workshop:

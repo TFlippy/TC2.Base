@@ -44,17 +44,7 @@ interactable:
 shop:
 {
 	name: "Refinery"
-	recipe_groups:
-	[
-		13
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: refinery
 }
 
 refinery:

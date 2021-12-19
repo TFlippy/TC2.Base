@@ -49,17 +49,7 @@ interactable:
 shop:
 {
 	name: "Manufactory"
-	recipe_groups:
-	[
-		15
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: workbench
 }
 
 workshop:
