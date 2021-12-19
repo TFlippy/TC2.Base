@@ -1,0 +1,60 @@
+{
+	name: "Salvage Scrap (Precise)"
+	desc: "Recover finer materials from scrap."
+	
+	icon:
+	{
+		texture: "resource.scrap"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: workshop
+	tags: workbench
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "scrap"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "scavenging"
+			amount: 15.000
+			difficulty: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "copper_plate"
+			amount_min: 0.020
+			amount_max: 0.110
+		}
+		{
+			type: "resource"
+			material: "glass"
+			amount_min: 0.010
+			amount_max: 0.140
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount_min: 0.020
+			amount_max: 0.150
+		}
+		{
+			type: "resource"
+			material: "scrap"
+			amount_min: 0.500
+			amount_max: 0.700
+		}
+	]
+}

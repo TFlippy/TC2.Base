@@ -1,0 +1,67 @@
+{
+	name: "Bazooka"
+	desc:
+		'''
+		A heavy rocket launcher.
+		Good at blowing up stuff from distance.
+		'''
+	
+	icon:
+	{
+		texture: "bazooka"
+	}
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 9.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 13.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 400.000
+			difficulty: 4.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 150.000
+			difficulty: 3.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 150.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "bazooka"
+			amount: 1.000
+		}
+	]
+}
