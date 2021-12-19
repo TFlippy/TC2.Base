@@ -1,3 +1,4 @@
+$tags: []
 
 body:
 {
@@ -29,9 +30,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "medkit"
+	sprite:
+	{
+		texture: "medkit"
+	}
 }
 
 transform:

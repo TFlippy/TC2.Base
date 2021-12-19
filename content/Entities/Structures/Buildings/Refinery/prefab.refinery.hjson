@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -20,10 +22,13 @@ health:
 	max: 35000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "refinery"
+	}
 	z: -300.000
-	texture: "refinery"
 }
 
 transform:
@@ -59,7 +64,7 @@ refinery:
 
 refinery.state:
 {
-	
+
 }
 
 crafter:
@@ -125,10 +130,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -140.000
-		texture: "wheel_1000.iron"
 	}
 }
 

@@ -1,5 +1,7 @@
 $name: "Mine"
 $desc: "Seems to be empty at the moment."
+$tags: []
+
 body:
 {
 	type: static
@@ -22,10 +24,13 @@ health:
 	max: 20000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mine"
+	}
 	z: -100.000
-	texture: "mine"
 	mask: "mine.mask"
 }
 

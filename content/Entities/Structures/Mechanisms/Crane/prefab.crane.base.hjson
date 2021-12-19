@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: dynamic
@@ -15,11 +17,13 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "crane_base"
+	}
 	z: 100.000
-	texture: "crane_base"
 }
 
 control:

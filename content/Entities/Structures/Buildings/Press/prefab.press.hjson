@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -19,10 +21,13 @@ health:
 	max: 40000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "press"
+	}
 	z: -150.000
-	texture: "press"
 }
 
 transform:
@@ -52,10 +57,13 @@ press:
 	slider_length: 0.500
 	speed: 2.200
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "press.slider"
+		}
 		z: -145.000
-		texture: "press.slider"
 	}
 }
 
@@ -91,10 +99,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -200.000
-		texture: "wheel_1000.iron"
 	}
 }
 

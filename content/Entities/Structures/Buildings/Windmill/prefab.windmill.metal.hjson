@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -25,11 +27,13 @@ health:
 	max: 7000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "windmill"
+	}
 	z: -350.000
-	texture: "windmill"
 }
 
 windmill:
@@ -41,11 +45,14 @@ windmill:
 	volume_modifier: 1.000
 	pitch_modifier: 0.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "windmill.top.metal"
+		}
 		offset: [0.000, -3.000]
 		z: -150.000
-		texture: "windmill.top.metal"
 	}
 }
 
@@ -59,10 +66,13 @@ wheel:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@sprite.renderer:
+	@animated.renderer:
 	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
 		z: -160.000
-		texture: "wheel_1000.iron"
 	}
 }
 

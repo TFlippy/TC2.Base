@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -13,11 +15,14 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	frame_count: 4
-	frame_count_total: 4
-	texture: "resource.elemental_salt.life"
+	sprite:
+	{
+		texture: "resource.salt.motion"
+		count: 4
+		size: [16, 16]
+	}
 }
 
 transform:
@@ -27,14 +32,14 @@ transform:
 
 resource:
 {
-	material: "life_salt"
+	material: "salt.motion"
 	
 	@light:
 	{
-		color: [0.200, 1.000, 0.000, 1.500]
-		offset: [0.000, 0.000]
+		color: [1.000, 0.800, 0.000, 1.500]
+		offset: [0.000, 0.500]
 		scale: [12.000, 12.000]
-		intensity: 1.000
+		intensity: 1.200
 		texture: "light_invsqr"
 	}
 }

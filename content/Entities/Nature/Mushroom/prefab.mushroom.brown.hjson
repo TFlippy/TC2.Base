@@ -1,5 +1,7 @@
 $name: "Brown Mushroom"
 $desc: "A tall mushroom."
+$tags: []
+
 body:
 {
 	type: static
@@ -7,7 +9,7 @@ body:
 	@shape.line:
 	{
 		a: [0.000, -0.140]
-		b: [0.450, -6.5500002]
+		b: [0.450, -6.550]
 		mass: 1500.000
 		radius: 0.500
 		friction: 1.500
@@ -28,11 +30,14 @@ health:
 	max: 5000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.brown"
+	}
 	offset: [0.500, -3.500]
 	z: -200.000
-	texture: "mushroom.brown"
 }
 
 harvestable:
@@ -46,12 +51,6 @@ harvestable:
 		{
 			material: "mushroom.brown"
 			quantity: 500.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

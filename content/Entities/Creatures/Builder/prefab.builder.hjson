@@ -1,4 +1,6 @@
 $name: "Builder"
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -20,11 +22,13 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "builder.male"
+	}
 	z: -60.000
-	frame_count_total: 1
-	texture: "builder.male"
 }
 
 holdable:

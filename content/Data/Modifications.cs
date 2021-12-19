@@ -525,6 +525,35 @@ namespace TC2.Base
 					}
 				}
 			));
+
+			definitions.Add(Modification.Definition.New<Cover.Data>
+			(
+				identifier: "cover.chitin_lined",
+				category: "Cover",
+				name: "Chitin-Lined",
+				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
+
+				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.threshold = Maths.Clamp(data.threshold - 0.25f, 0.00f, 1.00f);
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= 0.95f;
+					}
+				},
+
+				apply_1: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
+				}
+			));
 		}
 	}
 }
