@@ -87,17 +87,7 @@ claimer:
 shop:
 {
 	name: "Headquarters"
-	recipe_groups:
-	[
-		5
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: headquarters
 }
 
 interactable:

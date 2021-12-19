@@ -1,6 +1,6 @@
 $name: "Market"
 $desc: "A place to trade at."
-$tags: []
+$tags: ["fufu"]
 
 body:
 {
@@ -48,17 +48,7 @@ transform:
 shop:
 {
 	name: "Market"
-	recipe_groups:
-	[
-		1
-		8
-		9
-		5
-		0
-		0
-		0
-		0
-	]
+	tags: market
 }
 
 interactable:

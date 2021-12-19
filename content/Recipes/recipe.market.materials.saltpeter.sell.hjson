@@ -1,0 +1,34 @@
+{
+	name: "Saltpeter"
+	desc: "Commonly used for fertilizers and explosives."
+	
+	icon:
+	{
+		texture: "resource.saltpeter"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "saltpeter"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 9.500
+		}
+	]
+}
