@@ -27,6 +27,14 @@ animated.renderer:
 		size: [16, 16]
 		frame: [0, 0]
 	}
+
+	mask: "shield.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
 }
 
 holdable:
