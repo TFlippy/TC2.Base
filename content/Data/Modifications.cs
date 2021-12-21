@@ -321,7 +321,7 @@ namespace TC2.Base
 				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
-					cooling.mod = 0.10f;
+					cooling.modifier = 0.10f;
 
 					data.cool_rate *= 0.70f;
 				}
@@ -431,9 +431,8 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var ActivationData = ref context.GetOrAddComponent<RandomActivations.Data>();
-					ActivationData.duration += 0.20f;
-					ref var ActivationState = ref context.GetOrAddComponent<RandomActivations.State>();
+					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
+					random_activation.duration += 0.20f;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>

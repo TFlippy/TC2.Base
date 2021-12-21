@@ -1773,7 +1773,7 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var ActivationData = ref context.GetOrAddComponent<AutomaticReloading.Data>();
+					ref var ActivationData = ref context.GetOrAddComponent<AutomaticReload.Data>();
 				},
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
