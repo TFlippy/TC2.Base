@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.salt.fire"
+		texture: "resource.salt.energy"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "salt.fire"
+	material: "salt.energy"
 	
 	@light:
 	{

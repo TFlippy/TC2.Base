@@ -1,9 +1,9 @@
 {
-	name: "Salt of Fire"
+	name: "Salt of Energy"
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.salt.fire"
+		texture: "resource.salt.energy"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -12,7 +12,7 @@
 	flags: raw, powder, despawnable
 	mass_per_unit: 0.760
 	quantity_max: 250.000
-	prefab: "resource.salt.fire"
+	prefab: "resource.salt.energy"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
