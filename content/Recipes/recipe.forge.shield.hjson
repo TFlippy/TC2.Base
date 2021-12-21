@@ -5,6 +5,8 @@
 	icon:
 	{
 		texture: "shield"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 1
