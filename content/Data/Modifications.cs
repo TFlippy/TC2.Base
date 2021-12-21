@@ -311,7 +311,7 @@ namespace TC2.Base
 				identifier: "overheat.movement_cooling",
 				category: "Overheat",
 				name: "Movement Cooling",
-				description: "Increased cooling rate while being in motion.",
+				description: "Increased cooling rate while in motion.",
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
