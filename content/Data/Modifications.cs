@@ -66,46 +66,10 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
-				identifier: "health.hornet_inside",
-				category: "Utility",
-				name: "Hornet Inside",
-				description: "Will release a hornet when destroyed",
-
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var prefabInside = ref context.GetComponent<PrefabInside.Data>();
-					Prefab.Handle hornetHandle = "hornet";
-					return prefabInside.IsNull() || prefabInside.prefab_release.id == hornetHandle.id; 
-					//Can only be added if no prefabinside component OR this just adds another hornet
-				},
-
-				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var prefabInside = ref context.GetOrAddComponent<PrefabInside.Data>();
-					prefabInside.prefab_release = "hornet";
-					prefabInside.amount += 1;
-
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_extra += 1.00f; 
-						//Adds a bit of weight due to the hornet incubating inside (should not add the full weight)
-						//The actual balance reason here is that there needs to be at least a small stats down for possibly spamming multiple hornets into one item
-					}
-				},
-
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("insect", 40.00f));
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Health.Data>
-			(
 				identifier: "health.mushroom_glow",
 				category: "Utility",
 				name: "Mushroom Glow",
-				description: "Glows in the dark",
+				description: "Glows in the dark.",
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -116,7 +80,6 @@ namespace TC2.Base
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
 					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
-					light.offset = new Vector2(0.000f, 0.000f);
 					light.scale = new Vector2(32.000f, 32.000f);
 					light.intensity = 1.000f;
 					light.texture = "light_invsqr";
@@ -348,7 +311,7 @@ namespace TC2.Base
 				identifier: "overheat.movement_cooling",
 				category: "Overheat",
 				name: "Movement Cooling",
-				description: "Looses heat when moving",
+				description: "Increased cooling rate while being in motion.",
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -456,29 +419,30 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
-				identifier: "body.automatic_activation",
+				identifier: "body.random_activation",
 				category: "Utility",
-				name: "Automatic Activation",
-				description: "Randomly activates (strikes, explodes, fires, etc)",
+				name: "Random Activation",
+				description: "Item randomly activates on its own.",
 
-				//This randomly causes a left click and a space bar (at the same time)
-				//Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
-				//Due to the wide variety of uses this has, this cost a large amount of materials
-				//This doesnt aim, so using anything which uses aim direction requires additional setup
+				// This randomly causes a left click and a space bar (at the same time)
+				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
+				// Due to the wide variety of uses this has, this costs a large amount of materials
+				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var ActivationData = ref context.GetOrAddComponent<RandomActivations.Data>();
-					ActivationData.duration += 0.20f; //This modifier stacks by increasing the duration
+					ActivationData.duration += 0.20f;
 					ref var ActivationState = ref context.GetOrAddComponent<RandomActivations.State>();
 				},
 
 				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
+
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f)); //Even higher cost on melee weapons
+						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
 					}
 				}
 			));
