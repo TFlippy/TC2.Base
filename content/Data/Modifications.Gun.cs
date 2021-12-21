@@ -1285,6 +1285,107 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
+				identifier: "gun.slower_cycling_mechanism",
+				name: "Slower Cycling Mechanism",
+				description: "Decreases fire rate, but increases reliability.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+					amount = Maths.Clamp(amount, 1.00f, 2.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("##stuff", ref value, 1.00f, 2.00f, "%.2f");
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					var ratio = value - 1.00f;
+
+					switch (data.type)
+					{
+						case Gun.Type.Handgun:
+						{
+							var mult = 1.00f - ratio;
+
+							data.failure_rate *= 0.85f;
+							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
+						}
+						break;
+
+						case Gun.Type.Rifle:
+						{
+							var mult = 1.00f - ratio;
+
+							data.failure_rate *= 0.85f;
+							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
+						}
+						break;
+
+						case Gun.Type.Shotgun:
+						{
+							data.failure_rate *= 0.85f;
+							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
+						}
+						break;
+
+						case Gun.Type.SMG:
+						{
+							data.failure_rate *= 0.85f;
+							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
+						}
+						break;
+
+						default:
+						{
+							data.failure_rate *= 0.85f;
+							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
+						}
+						break;
+					}
+
+					switch (data.action)
+					{
+						case Gun.Action.Blowback:
+						{
+							data.cycle_interval *= 1.20f;
+						}
+						break;
+
+						case Gun.Action.Gas:
+						{
+							data.cycle_interval *= 1.14f;
+						}
+						break;
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
 				identifier: "gun.gas_operation",
 				name: "Action: Gas-Operated",
 				description: "Converts to gas-operated action.",
@@ -1563,6 +1664,12 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var overheat = ref context.GetComponent<Overheat.Data>();
+					if (!overheat.IsNull())
+					{
+						overheat.cool_rate *= 1.30f;
+					}
+
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];

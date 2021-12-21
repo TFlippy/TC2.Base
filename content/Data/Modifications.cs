@@ -366,6 +366,50 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
+				identifier: "overheat.air_coolant",
+				category: "Cooling",
+				name: "Air-Cooled",
+				description: "Increases cooling rate.",
+
+				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+					amount = Maths.Clamp(amount, 1, 10);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+					return GUI.SliderInt("##stuff", ref amount, 1, 10, "%d");
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+					data.cool_rate += amount * 9.00f;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<int>();
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", amount));
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						ref var material = ref Material.GetMaterial("iron_ingot");
+						body.mass_extra += amount * material.mass_per_unit;
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Overheat.Data>
+			(
 				identifier: "overheat.heat_resistant",
 				category: "Cooling",
 				name: "Heat-Resistant Components",
