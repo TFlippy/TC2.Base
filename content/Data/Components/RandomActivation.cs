@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float time_stop;
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single), Exclude<Toolbelt.Data>(Source.Modifier.Parent)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Control.Data control, [Source.Owned] ref RandomActivation.Data random_activation)
 		{
