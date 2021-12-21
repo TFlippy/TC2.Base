@@ -1563,6 +1563,12 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var overheat = ref context.GetComponent<Overheat.Data>();
+					if (!overheat.IsNull())
+					{
+						overheat.cool_rate *= 1.30f;
+					}
+
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
