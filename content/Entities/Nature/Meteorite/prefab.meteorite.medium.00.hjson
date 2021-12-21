@@ -1,0 +1,49 @@
+$name: "Meteorite"
+$desc:
+	'''
+	Looking at this gives you a medium sense of dread.
+	'''
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		radius: 1.300
+		mass: 25000.000
+		friction: 0.850
+		elasticity: 0.500
+		material: stone
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 150000.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "meteorite.medium.00"
+	}
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+
+}
