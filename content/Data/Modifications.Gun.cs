@@ -1759,12 +1759,12 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
-				identifier: "Gun.automatic_reloading",
+				identifier: "gun.automatic_reloading",
 				category: "Gun",
 				name: "Automatic Reloading",
-				description: "Automatically starts reloading once the magazine is empty",
+				description: "Automatically reloads the weapon once the magazine is empty.",
 
-				//This is not extremely usefull but saves you on pressing a button and works nicely for mounts
+				// This is not extremely useful, but saves you from pressing a button and works nicely for mounted items
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1773,12 +1773,13 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					ref var ActivationData = ref context.GetOrAddComponent<AutomaticReload.Data>();
+					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();
 				},
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 3.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f));
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 				}
 			));
 		}
