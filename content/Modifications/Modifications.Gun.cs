@@ -378,160 +378,254 @@ namespace TC2.Base
 				}
 			));
 
+			//definitions.Add(Modification.Definition.New<Gun.Data>
+			//(
+			//	identifier: "gun.caliber_downgrade",
+			//	name: "Caliber Downgrade",
+			//	description: "Rechambers to a lower caliber.",
+
+			//	can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_MG;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_AC;
+
+			//			data.damage_multiplier *= 1.50f;
+			//			data.velocity_multiplier *= 1.10f;
+			//			data.failure_rate *= 0.20f;
+			//			data.failure_rate += 0.10f;
+			//			data.recoil_multiplier *= 0.50f;
+			//			data.jitter_multiplier += 1.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+
+			//			data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.15f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//		else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_HC;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_MG;
+
+			//			data.damage_multiplier *= 1.35f;
+			//			data.velocity_multiplier *= 0.95f;
+			//			data.failure_rate *= 1.90f;
+			//			data.failure_rate += 0.50f;
+			//			data.recoil_multiplier *= 0.70f;
+			//			data.jitter_multiplier += 0.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+
+			//			data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.15f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//		else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_LC;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_HC;
+
+			//			data.damage_multiplier *= 1.20f;
+			//			data.velocity_multiplier *= 0.85f;
+			//			data.failure_rate *= 1.70f;
+			//			data.failure_rate += 0.50f;
+			//			data.recoil_multiplier *= 0.60f;
+			//			data.jitter_multiplier += 0.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+
+			//			data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.10f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//	}
+			//));
+
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
-				identifier: "gun.caliber_downgrade",
-				name: "Caliber Downgrade",
-				description: "Rechambers to a lower caliber.",
+				identifier: "gun.caliber_conversion",
+				name: "Caliber Conversion",
+				description: "Rechambers to a different caliber.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<int>();
+					value = Maths.Clamp(value, -2, 2); // TODO: Make this clamped between available calibers
+					
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<int>();
+					return GUI.SliderInt("##stuff", ref value, -2, 2, "%d");
+				},
+#endif
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+					return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					ref var value = ref handle.GetData<int>();
+
+					var count = Math.Abs(value);
+					if (value > 0)
 					{
-						data.ammo_filter |= Material.Flags.Ammo_MG;
-						data.ammo_filter &= ~Material.Flags.Ammo_AC;
+						for (int i = 0; i < count; i++)
+						{
+							if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_HC;
+								data.ammo_filter &= ~Material.Flags.Ammo_LC;
 
-						data.damage_multiplier *= 1.50f;
-						data.velocity_multiplier *= 1.10f;
-						data.failure_rate *= 0.20f;
-						data.failure_rate += 0.10f;
-						data.recoil_multiplier *= 0.50f;
-						data.jitter_multiplier += 1.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+								data.damage_multiplier *= 0.90f;
+								data.velocity_multiplier *= 0.90f;
+								data.failure_rate *= 1.60f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 1.70f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
-						data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+								data.stability -= MathF.Min(data.stability, 0.30f);
+								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.15f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 0.82f;
+								data.sound_volume *= 1.20f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
+								data.smoke_size *= 1.30f;
+								data.flash_size *= 1.10f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_MG;
+								data.ammo_filter &= ~Material.Flags.Ammo_HC;
+
+								data.damage_multiplier *= 0.85f;
+								data.velocity_multiplier *= 0.85f;
+								data.failure_rate *= 1.40f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 1.80f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
+
+								data.stability -= MathF.Min(data.stability, 0.40f);
+								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
+
+								data.sound_pitch *= 0.87f;
+								data.sound_volume *= 1.25f;
+
+								data.smoke_size *= 1.30f;
+								data.flash_size *= 1.10f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_AC;
+								data.ammo_filter &= ~Material.Flags.Ammo_MG;
+
+								data.damage_multiplier *= 0.70f;
+								data.velocity_multiplier *= 0.50f;
+								data.failure_rate *= 2.20f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 3.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
+
+								data.stability -= MathF.Min(data.stability, 0.80f);
+								data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
+
+								data.sound_pitch *= 0.67f;
+								data.sound_volume *= 1.25f;
+
+								data.smoke_size *= 1.50f;
+								data.flash_size *= 1.70f;
+							}
+						}
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					else if (value < 0)
 					{
-						data.ammo_filter |= Material.Flags.Ammo_HC;
-						data.ammo_filter &= ~Material.Flags.Ammo_MG;
+						for (int i = 0; i < count; i++)
+						{
+							if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_MG;
+								data.ammo_filter &= ~Material.Flags.Ammo_AC;
 
-						data.damage_multiplier *= 1.35f;
-						data.velocity_multiplier *= 0.95f;
-						data.failure_rate *= 1.90f;
-						data.failure_rate += 0.50f;
-						data.recoil_multiplier *= 0.70f;
-						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+								data.damage_multiplier *= 1.50f;
+								data.velocity_multiplier *= 1.10f;
+								data.failure_rate *= 0.20f;
+								data.failure_rate += 0.10f;
+								data.recoil_multiplier *= 0.50f;
+								data.jitter_multiplier += 1.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
-						data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+								data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.15f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 1.15f;
+								data.sound_volume *= 1.02f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_LC;
-						data.ammo_filter &= ~Material.Flags.Ammo_HC;
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_HC;
+								data.ammo_filter &= ~Material.Flags.Ammo_MG;
 
-						data.damage_multiplier *= 1.20f;
-						data.velocity_multiplier *= 0.85f;
-						data.failure_rate *= 1.70f;
-						data.failure_rate += 0.50f;
-						data.recoil_multiplier *= 0.60f;
-						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+								data.damage_multiplier *= 1.35f;
+								data.velocity_multiplier *= 0.95f;
+								data.failure_rate *= 1.90f;
+								data.failure_rate += 0.50f;
+								data.recoil_multiplier *= 0.70f;
+								data.jitter_multiplier += 0.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
-						data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+								data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.10f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 1.15f;
+								data.sound_volume *= 1.02f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
-					}
-				}
-			));
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_LC;
+								data.ammo_filter &= ~Material.Flags.Ammo_HC;
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
-			(
-				identifier: "gun.caliber_upgrade",
-				name: "Caliber Upgrade",
-				description: "Rechambers to a higher caliber.",
+								data.damage_multiplier *= 1.20f;
+								data.velocity_multiplier *= 0.85f;
+								data.failure_rate *= 1.70f;
+								data.failure_rate += 0.50f;
+								data.recoil_multiplier *= 0.60f;
+								data.jitter_multiplier += 0.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG);
-				},
+								data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_HC;
-						data.ammo_filter &= ~Material.Flags.Ammo_LC;
+								data.sound_pitch *= 1.10f;
+								data.sound_volume *= 1.02f;
 
-						data.damage_multiplier *= 0.90f;
-						data.velocity_multiplier *= 0.90f;
-						data.failure_rate *= 1.60f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 1.70f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
-
-						data.stability -= MathF.Min(data.stability, 0.30f);
-						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.82f;
-						data.sound_volume *= 1.20f;
-
-						data.smoke_size *= 1.30f;
-						data.flash_size *= 1.10f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_MG;
-						data.ammo_filter &= ~Material.Flags.Ammo_HC;
-
-						data.damage_multiplier *= 0.85f;
-						data.velocity_multiplier *= 0.85f;
-						data.failure_rate *= 1.40f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 1.80f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
-
-						data.stability -= MathF.Min(data.stability, 0.40f);
-						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.87f;
-						data.sound_volume *= 1.25f;
-
-						data.smoke_size *= 1.30f;
-						data.flash_size *= 1.10f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_AC;
-						data.ammo_filter &= ~Material.Flags.Ammo_MG;
-
-						data.damage_multiplier *= 0.70f;
-						data.velocity_multiplier *= 0.50f;
-						data.failure_rate *= 2.20f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 3.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
-
-						data.stability -= MathF.Min(data.stability, 0.80f);
-						data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.67f;
-						data.sound_volume *= 1.25f;
-
-						data.smoke_size *= 1.50f;
-						data.flash_size *= 1.70f;
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+						}
 					}
 				}
 			));
