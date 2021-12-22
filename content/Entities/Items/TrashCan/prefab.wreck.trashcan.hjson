@@ -4,6 +4,8 @@ $desc:
 	Someone had a heap of fun with this.
 	Maybe it contains some ancient treasure?
 	'''
+$tags: []
+
 body:
 {
 	@shape.box:
@@ -30,9 +32,12 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "wreck.trashcan"
+	sprite:
+	{
+		texture: "wreck.trashcan"
+	}
 }
 
 transform:
@@ -51,12 +56,6 @@ harvestable:
 		{
 			material: "iron_plate"
 			quantity: 3.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

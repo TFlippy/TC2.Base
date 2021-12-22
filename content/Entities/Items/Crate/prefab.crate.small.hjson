@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	inventory_weight_multiplier: 0.300
@@ -26,9 +28,12 @@ holdable:
 	radius: 4.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "crate.small"
+	sprite:
+	{
+		texture: "crate.small"
+	}
 }
 
 transform:

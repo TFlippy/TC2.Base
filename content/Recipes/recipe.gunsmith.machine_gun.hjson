@@ -1,0 +1,67 @@
+{
+	name: "Machine Gun"
+	desc:
+		'''
+		A high-powered machine gun.
+		Very difficult to handle, may need to be placed on a mount.
+		'''
+	
+	icon:
+	{
+		texture: "machine_gun"
+	}
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 60.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 10.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 20.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 600.000
+			difficulty: 18.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 100.000
+			difficulty: 4.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 750.000
+			difficulty: 9.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "machine_gun"
+			amount: 1.000
+		}
+	]
+}

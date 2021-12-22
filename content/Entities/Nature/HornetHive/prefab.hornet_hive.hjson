@@ -1,5 +1,6 @@
 $name: "Hornet Hive"
 $desc: ""
+$tags: []
 
 body:
 {
@@ -8,13 +9,13 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
+		mass: 10000.000
 		radius: 1.500
 		friction: 0.950
 		elasticity: 0.500
 		material: soil
 		layer: entity
 		mask: world
-		mass: 10000
 	}
 }
 
@@ -23,10 +24,13 @@ health:
 	max: 50000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "hornet_hive.base"
+	}
 	z: -150.000
-	texture: "hornet_hive.base"
 }
 
 transform:
@@ -57,57 +61,59 @@ rope:
 
 +bottom|child:
 {
+	$tags: []
+	
 	body:
 	{
 		type: dynamic
 		
 		@shape.line:
 		{
-			offset: [0.000, 0.000]
 			a: [1.250, -1.125]
 			b: [-0.625, 0.500]
+			offset: [0.000, 0.000]
+			mass: 2000.000
 			radius: 1.500
 			friction: 0.950
 			elasticity: 0.500
 			material: soil
 			layer: entity, solid
 			mask: world
-			mass: 2000
 		}
 	}
-
+	
 	health:
 	{
 		max: 10000.000
 	}
-
-	sprite.renderer:
+	
+	animated.renderer:
 	{
+		sprite:
+		{
+			texture: "hornet_hive"
+		}
 		z: -100.000
-		texture: "hornet_hive"
 	}
-
+	
 	transform:
 	{
-
+	
 	}
-
+	
 	spawner:
 	{
 		prefab: "hornet"
-
 		interval: 10.000
 		interval_count_modifier: 10.000
-
-		filter_tag: "hornet"
 		max_count: 10
+		filter_tag: "hornet"
 	}
-
+	
 	lootable:
 	{
-		spawn_radius: 3.000
 		merge_radius: 0.000
-
+		spawn_radius: 3.000
 		items:
 		[
 			{

@@ -36,12 +36,12 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
-		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (!tree.flags.HasFlag(Tree.Flags.Cut) && health.primary < tree.health_cut)
 			{
 				tree.flags |= Tree.Flags.Cut;
-				renderer.texture = tree.sprite_cut;
+				renderer.sprite = tree.sprite_cut;
 
 				ref var region = ref info.GetRegion();
 
@@ -60,7 +60,7 @@ namespace TC2.Base.Components
 
 				//entity.RemoveTrait<Tree.Data, Foliage.Renderer.Data>();
 
-				entity.SyncComponent<Sprite.Renderer.Data>(ref renderer);
+				entity.SyncComponent<Animated.Renderer.Data>(ref renderer);
 				entity.SyncComponent<Body.Data>(ref body);
 				entity.SyncComponent<Tree.Data>(ref tree);
 			}

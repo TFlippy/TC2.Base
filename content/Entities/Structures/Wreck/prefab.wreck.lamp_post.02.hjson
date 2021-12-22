@@ -4,6 +4,8 @@ $desc:
 	Some vandalized, broken-down, long-forgotten lamp post.
 	Can be salvaged for spare parts.
 	'''
+$tags: []
+
 body:
 {
 	type: static
@@ -28,11 +30,14 @@ health:
 	max: 1400.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "wreck.lamp_post.02"
+	}
 	offset: [1.000, -2.500]
 	z: -150.000
-	texture: "wreck.lamp_post.02"
 }
 
 transform:
@@ -51,12 +56,6 @@ harvestable:
 		{
 			material: "iron_ingot"
 			quantity: 2.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

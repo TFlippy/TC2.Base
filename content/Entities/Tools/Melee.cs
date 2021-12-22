@@ -98,7 +98,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (melee_state.start_charging != 0.00f && melee.charge_time > 0.00f)
 			{

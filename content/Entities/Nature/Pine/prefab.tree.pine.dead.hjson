@@ -1,5 +1,7 @@
 $name: "Pine Tree"
 $desc: "A dead tree. Seems like a good source of wood."
+$tags: []
+
 body:
 {
 	type: static
@@ -30,7 +32,7 @@ health:
 
 splittable:
 {
-	rect: [-0.500, -13.000, 0.500, 0.000] 
+	rect: [-0.500, -13.000, 0.500, 0.000]
 	texture_stub: "tree.pine.stub"
 	sound_split: "tree_snap_00"
 }
@@ -41,20 +43,22 @@ holdable:
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [-0.000, -5.500]
+	sprite:
+	{
+		texture: "tree.pine"
+	}
+	offset: [-0, -5.500]
 	z: -50.000
-	texture: "tree.pine"
 }
 
 tree:
 {
 	prefab_stump: "tree.pine.stump"
+	health_cut: 0.980
 	sprite_cut: "tree.pine.cut"
 	sound_cut: "tree_fall"
-
-	health_cut: 0.98
 }
 
 harvestable:
@@ -68,12 +72,6 @@ harvestable:
 		{
 			material: "resin"
 			quantity: 70.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

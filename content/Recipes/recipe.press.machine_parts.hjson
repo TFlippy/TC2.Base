@@ -1,0 +1,48 @@
+{
+	name: "Machine Parts"
+	desc: "TODO: Desc"
+	
+	icon:
+	{
+		texture: "resource.machine_parts"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: press
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "copper_plate"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "pressing"
+			amount: 5.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 5.000
+		}
+	]
+}

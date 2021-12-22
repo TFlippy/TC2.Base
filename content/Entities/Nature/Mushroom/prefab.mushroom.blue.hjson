@@ -1,5 +1,7 @@
 $name: "Blue Mushroom"
 $desc: "A small mushroom that emits a bluish glow."
+$tags: []
+
 body:
 {
 	type: static
@@ -28,11 +30,14 @@ health:
 	max: 800.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.blue"
+	}
 	offset: [0.000, -1.150]
 	z: -200.000
-	texture: "mushroom.blue"
 	
 	@light:
 	{
@@ -55,12 +60,6 @@ harvestable:
 		{
 			material: "mushroom.blue"
 			quantity: 80.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

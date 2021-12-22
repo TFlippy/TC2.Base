@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -13,11 +15,14 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	frame_count: 4
-	frame_count_total: 4
-	texture: "resource.nitroglycerine"
+	sprite:
+	{
+		texture: "resource.nitroglycerine"
+		count: 4
+		size: [16, 16]
+	}
 }
 
 transform:
@@ -57,7 +62,7 @@ explosive:
 	damage_entity: 11000.000
 	damage_terrain: 18000.000
 	smoke_amount: 1.000
-	pitch: 4.500
 	volume: 2.000
+	pitch: 4.500
 	flags: any_damage
 }

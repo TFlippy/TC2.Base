@@ -27,13 +27,13 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateHeadOffset(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned] ref Sprite.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateHeadOffset(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = torso.head_offset;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateHeadOffsetTrait(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned, Trait.Any] ref Sprite.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateHeadOffsetTrait(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned, Trait.Any] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = torso.head_offset;
 		}
