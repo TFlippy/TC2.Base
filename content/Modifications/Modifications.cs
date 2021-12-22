@@ -530,7 +530,6 @@ namespace TC2.Base
 							}
 						}
 					}
-					return false;
 				}
 			));
 
