@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -12,11 +14,14 @@ body:
 	}
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	frame_count: 4
-	frame_count_total: 4
-	texture: "resource.sludge"
+	sprite:
+	{
+		texture: "resource.sludge"
+		count: 4
+		size: [16, 16]
+	}
 }
 
 transform:
@@ -46,5 +51,5 @@ norotate:
 
 sludge:
 {
-	
+
 }

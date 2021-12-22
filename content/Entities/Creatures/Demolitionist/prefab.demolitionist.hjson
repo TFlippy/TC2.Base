@@ -1,4 +1,6 @@
 $name: "Demolitionist"
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -20,15 +22,13 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "demolitionist.male"
+	}
 	z: -60.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 1
-	texture: "demolitionist.male"
 }
 
 holdable:
@@ -65,6 +65,11 @@ norotate:
 organic:
 {
 	tags: brain
+}
+
+organic.state:
+{
+
 }
 
 interactable:

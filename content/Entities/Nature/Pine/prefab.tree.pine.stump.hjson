@@ -1,5 +1,7 @@
 $name: "Pine Stump"
 $desc: "What's left of a pine tree."
+$tags: []
+
 body:
 {
 	type: static
@@ -26,11 +28,14 @@ health:
 	max: 7500.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [-0.000, -0.500]
+	sprite:
+	{
+		texture: "tree.pine.stump"
+	}
+	offset: [-0, -0.500]
 	z: -250.000
-	texture: "tree.pine.stump"
 }
 
 harvestable:
@@ -40,15 +45,6 @@ harvestable:
 		{
 			material: "wood"
 			quantity: 3000.000
-		}
-		{
-		
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

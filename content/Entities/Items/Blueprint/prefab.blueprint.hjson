@@ -1,8 +1,10 @@
+$tags: []
+
 body:
 {
 	@shape.box:
 	{
-		size: [1.800, 1.600]
+		size: [1.400, 1.000]
 		offset: [0.000, 0.000]
 		mass: 0.500
 		friction: 0.950
@@ -22,9 +24,12 @@ holdable:
 
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "blueprint"
+	sprite:
+	{
+		texture: "blueprint"
+	}
 }
 
 transform:

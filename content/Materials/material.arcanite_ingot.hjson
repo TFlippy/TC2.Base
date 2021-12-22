@@ -1,0 +1,30 @@
+{
+	name: "Arcanite Ingot"
+	description: "An alloy of smirgl and gold capable of interacting with the immaterial world."
+	icon:
+	{
+		texture: "resource.arcanite_ingot"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: metal
+	flags: ingot, metal
+	mass_per_unit: 3.303
+	quantity_max: 50.000
+	prefab: "resource.arcanite_ingot"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 52.758
+	thermal_conductivity: 0.617
+}

@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -19,10 +21,13 @@ health:
 	max: 35000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "distillery"
+	}
 	z: -150.000
-	texture: "distillery"
 }
 
 transform:

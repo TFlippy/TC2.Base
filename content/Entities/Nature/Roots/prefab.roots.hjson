@@ -4,6 +4,8 @@ $desc:
 	A bunch of hanging roots.
 	Can be climbed.
 	'''
+$tags: []
+
 body:
 {
 	type: static

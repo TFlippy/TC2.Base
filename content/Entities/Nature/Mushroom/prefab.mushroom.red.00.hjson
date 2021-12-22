@@ -1,5 +1,7 @@
 $name: "Red Mushroom"
 $desc: "A really big red mushroom."
+$tags: []
+
 body:
 {
 	type: static
@@ -28,11 +30,14 @@ health:
 	max: 30000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "mushroom.red.00"
+	}
 	offset: [0.500, -3.500]
 	z: -200.000
-	texture: "mushroom.red.00"
 }
 
 harvestable:
@@ -46,12 +51,6 @@ harvestable:
 		{
 			material: "mushroom.red"
 			quantity: 1600.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

@@ -1,3 +1,5 @@
+$tags: []
+
 control:
 {
 
@@ -25,11 +27,13 @@ health:
 	max: 50000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "crane_base"
+	}
 	z: -100.000
-	texture: "crane_base"
 }
 
 transform:
@@ -90,6 +94,8 @@ sound.mixer:
 
 +arm1|child:
 {
+	$tags: []
+	
 	control:
 	{
 	
@@ -100,11 +106,13 @@ sound.mixer:
 	
 	}
 	
-	sprite.renderer:
+	animated.renderer:
 	{
-		offset: [0.000, 0.000]
+		sprite:
+		{
+			texture: "crane_arm.wood"
+		}
 		z: 100.000
-		texture: "crane_arm.wood"
 	}
 	
 	body:
@@ -148,6 +156,8 @@ sound.mixer:
 	
 	+arm2|child:
 	{
+		$tags: []
+		
 		control:
 		{
 		
@@ -163,11 +173,13 @@ sound.mixer:
 		
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "crane_arm.wood"
+			}
 			z: 100.000
-			texture: "crane_arm.wood"
 		}
 		
 		body:

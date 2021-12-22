@@ -71,7 +71,7 @@ entities:
 	{
 		prefab: "badger_den"
 		name: "West"
-		position: [99.625, 49.250]
+		position: [109.875, 49.250]
 		rotation: 0.000
 		scale: [1.000, 1.000]
 	}
@@ -882,13 +882,13 @@ entities:
 	}
 	{
 		prefab: "vine"
-		position: [621.500, 31.1249981]
+		position: [621.500, 31.125]
 		rotation: 0.017453
 		scale: [1.273615, 0.768056]
 	}
 	{
 		prefab: "vine"
-		position: [635.000, 32.375]
+		position: [634.250, 31.125]
 		rotation: 0.000
 		scale: [-1.065973, 1.014583]
 	}
@@ -1446,7 +1446,7 @@ entities:
 	}
 	{
 		prefab: "roots"
-		position: [134.500, 63.1250038]
+		position: [134.500, 63.125]
 		rotation: 0.000
 		scale: [-1.111111, 1.190972]
 	}
@@ -1891,13 +1891,13 @@ entities:
 	{
 		prefab: "miner"
 		position: [244.4979248, 41.0281448]
-		rotation: 0.0000006
+		rotation: 0.0000007
 		scale: [-1.000, 1.000]
 	}
 	{
 		prefab: "miner"
-		position: [327.7350464, 60.895153]
-		rotation: -0.000001
+		position: [327.7347717, 60.895153]
+		rotation: -0.0000007
 		scale: [-1.000, 1.000]
 	}
 	{
@@ -1909,19 +1909,19 @@ entities:
 	{
 		prefab: "builder"
 		position: [821.3678589, 48.2300148]
-		rotation: -0.000
-		scale: [-1.000, 1.000]
-	}
-	{
-		prefab: "farmer"
-		position: [24.4491024, 9.1000271]
 		rotation: 0.000
 		scale: [-1.000, 1.000]
 	}
 	{
+		prefab: "farmer"
+		position: [24.4487171, 9.1000271]
+		rotation: -0.0000009
+		scale: [-1.000, 1.000]
+	}
+	{
 		prefab: "miner"
-		position: [141.8095398, 67.4321671]
-		rotation: -0.0000012
+		position: [141.8094025, 67.4322281]
+		rotation: -0.000001
 		scale: [-1.000, 1.000]
 	}
 	{
@@ -1950,7 +1950,7 @@ entities:
 	}
 	{
 		prefab: "boulder.00"
-		position: [606.000, 52.500]
+		position: [711.250, 61.875]
 		rotation: 0.000
 		scale: [1.000, 1.000]
 	}
@@ -1983,5 +1983,155 @@ entities:
 		position: [596.625, 36.875]
 		rotation: 0.1570797
 		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [782.750, 68.125]
+		rotation: 0.000
+		scale: [1.0333313, 0.9499992]
+	}
+	{
+		prefab: "roots"
+		position: [776.750, 59.500]
+		rotation: -0.0872665
+		scale: [-0.9777771, 1.0638885]
+	}
+	{
+		prefab: "roots"
+		position: [781.250, 58.250]
+		rotation: 0.000
+		scale: [-1.0055603, 1.050]
+	}
+	{
+		prefab: "shrubbery"
+		position: [783.875, 75.125]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "shrubbery"
+		position: [793.500, 75.000]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "mushroom.blue"
+		position: [788.500, 73.750]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "vine"
+		position: [587.000, 65.250]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [614.375, 38.875]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [323.250, 64.375]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "vine"
+		position: [287.625, 63.250]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [94.500, 55.125]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [88.375, 65.625]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "roots"
+		position: [100.750, 45.625]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "vine"
+		position: [18.500, 64.875]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "boulder.01"
+		position: [80.250, 74.875]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "boulder.02"
+		position: [49.875, 74.625]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "boulder.02"
+		position: [129.875, 74.750]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "boulder.03"
+		position: [796.125, 74.500]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "boulder.03"
+		position: [755.500, 56.125]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "boulder.00"
+		position: [907.875, 74.875]
+		rotation: -0.1919862
+		scale: [1.0496521, 1.000]
+	}
+	{
+		prefab: "boulder.01"
+		position: [897.500, 75.625]
+		rotation: 0.1221731
+		scale: [-1.0586792, 0.9774307]
+	}
+	{
+		prefab: "boulder.03"
+		position: [944.250, 76.250]
+		rotation: 0.2268928
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "shrubbery"
+		position: [639.375, 63.375]
+		rotation: 0.000
+		scale: [1.000, 1.000]
+	}
+	{
+		prefab: "shrubbery"
+		position: [631.000, 68.375]
+		rotation: 0.000
+		scale: [-1.000, 1.000]
+	}
+	{
+		prefab: "wreck.car"
+		position: [482.000, 61.500]
+		rotation: -0.5410521
+		scale: [-1.000, 1.000]
 	}
 ]

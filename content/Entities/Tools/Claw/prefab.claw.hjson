@@ -1,3 +1,5 @@
+$tags: []
+
 control:
 {
 
@@ -29,14 +31,15 @@ health:
 	max: 10000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "claw"
+		count: 2
+		size: [24, 24]
+	}
 	z: -100.000
-	frame_offset: 0
-	frame_count: 2
-	frame_count_total: 2
-	texture: "claw"
 }
 
 claw:

@@ -1,9 +1,16 @@
 $name: "Red Mushroom"
 $desc: "A really big red mushroom."
 $prefab: "mushroom.red.00"
-sprite.renderer:
+$tags: []
+
+animated.renderer:
 {
-	texture: "mushroom.red.01"
+	sprite:
+	{
+		texture: "mushroom.red.01"
+	}
+	offset: [0.500, -3.500]
+	z: -200.000
 }
 
 body:
@@ -45,12 +52,6 @@ harvestable:
 		{
 			material: "mushroom.red"
 			quantity: 1600.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.circle:
@@ -17,20 +19,24 @@ organic:
 
 }
 
+organic.state:
+{
+
+}
+
 health:
 {
 	max: 3000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	offset: [0.000, 0.000]
+	sprite:
+	{
+		texture: "badger.body.a"
+		size: [16, 16]
+	}
 	z: -30.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 5
-	texture: "badger.body.a"
 	
 	@damagesprite:
 	{
@@ -109,6 +115,8 @@ interactable:
 
 +0|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [-0.700, 0.000]
@@ -137,6 +145,8 @@ interactable:
 	
 	+butt|child:
 	{
+		$tags: []
+		
 		body:
 		{
 			@shape.circle:
@@ -163,6 +173,11 @@ interactable:
 		
 		}
 		
+		organic.state:
+		{
+		
+		}
+		
 		health:
 		{
 			max: 2700.000
@@ -178,15 +193,15 @@ interactable:
 			offset: [0.000, 0.000]
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "badger.body.b"
+				count: 1
+				size: [16, 16]
+			}
 			z: -40.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 5
-			texture: "badger.body.b"
 			
 			@damagesprite:
 			{
@@ -215,6 +230,8 @@ interactable:
 
 +1|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [0.500, -0.125]
@@ -243,6 +260,8 @@ interactable:
 	
 	+head|child:
 	{
+		$tags: []
+		
 		body:
 		{
 			@shape.circle:
@@ -282,6 +301,11 @@ interactable:
 			tags: brain
 		}
 		
+		organic.state:
+		{
+		
+		}
+		
 		health:
 		{
 			max: 2300.000
@@ -292,15 +316,15 @@ interactable:
 			offset: [0.000, 0.000]
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "badger.head"
+				count: 1
+				size: [12, 8]
+			}
 			z: -30.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 5
-			texture: "badger.head"
 			
 			@damagesprite:
 			{

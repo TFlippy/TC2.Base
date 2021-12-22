@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -74,11 +76,14 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "crankgun"
+	}
 	offset: [0.000, 0.570]
 	scale: [0.875, 0.875]
-	texture: "crankgun"
 }
 
 health:
@@ -102,7 +107,7 @@ overheat:
 	heat_high: 500.000
 	heat_critical: 750.000
 	cool_rate: 50.000
-
+	
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
@@ -111,7 +116,7 @@ overheat:
 		intensity: 0.000
 		texture: "light_invsqr"
 	}
-
+	
 	@sound.emitter:
 	{
 		file: "overheat_loop"

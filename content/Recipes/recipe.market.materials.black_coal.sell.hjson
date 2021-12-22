@@ -1,0 +1,34 @@
+{
+	name: "Black Coal"
+	desc: "An efficient fuel."
+	
+	icon:
+	{
+		texture: "resource.black_coal"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "black_coal"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 4.500
+		}
+	]
+}

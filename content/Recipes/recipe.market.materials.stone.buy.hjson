@@ -1,0 +1,34 @@
+{
+	name: "Stone"
+	desc: "A pile of assorted rocks."
+	
+	icon:
+	{
+		texture: "resource.stone"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 100
+	max: 500
+	step: 100
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 0.900
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "stone"
+			amount: 1.000
+		}
+	]
+}

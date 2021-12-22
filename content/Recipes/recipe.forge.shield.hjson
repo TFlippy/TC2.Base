@@ -1,0 +1,41 @@
+{
+	name: "Shield"
+	desc: "A large shield capable of absorbing various kinds of attacks."
+	
+	icon:
+	{
+		texture: "shield"
+	}
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 8.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 600.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "shield"
+			amount: 1.000
+		}
+	]
+}

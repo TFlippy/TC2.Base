@@ -1,4 +1,6 @@
 $name: "Builder"
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -20,11 +22,13 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "builder.male"
+	}
 	z: -60.000
-	frame_count_total: 1
-	texture: "builder.male"
 }
 
 holdable:
@@ -63,6 +67,11 @@ organic:
 	tags: brain
 }
 
+organic.state:
+{
+
+}
+
 interactable:
 {
 	window_size: [512.000, 280.000]
@@ -71,17 +80,7 @@ interactable:
 shop:
 {
 	name: "Builder"
-	recipe_groups:
-	[
-		4
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: builder
 }
 
 npc:

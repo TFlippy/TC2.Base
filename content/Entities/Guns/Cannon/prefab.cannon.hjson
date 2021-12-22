@@ -1,3 +1,5 @@
+$tags: []
+
 control:
 {
 
@@ -12,8 +14,8 @@ body:
 {
 	@shape.line:
 	{
-		a: [-4.000, 0.000]
-		b: [4.000, 0.000]
+		a: [-3.000, 0.000]
+		b: [2.000, 0.000]
 		mass: 250.000
 		radius: 0.400
 		friction: 0.900
@@ -26,7 +28,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [4.000, -0.200]
+	muzzle_offset: [2.500, -0.200]
 	sound_shoot: "cannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 300.000
@@ -73,14 +75,17 @@ gun.state:
 
 holdable:
 {
-	offset: [-3.250, 0.000]
+	offset: [-1.500, 0.000]
 	radius: 1.000
 	flags: disable_parent_facing
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "cannon"
+	sprite:
+	{
+		texture: "cannon"
+	}
 }
 
 health:
@@ -99,7 +104,7 @@ overheat:
 	heat_high: 500.000
 	heat_critical: 750.000
 	cool_rate: 200.000
-
+	
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
@@ -108,7 +113,7 @@ overheat:
 		intensity: 0.000
 		texture: "light_invsqr"
 	}
-
+	
 	@sound.emitter:
 	{
 		file: "overheat_loop"
