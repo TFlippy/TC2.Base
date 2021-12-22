@@ -1,5 +1,7 @@
 $name: "EMRG Lance"
 $desc: "A mighty weapon from a long-forgotten time. It's also bloody heavy."
+$tags: []
+
 body:
 {
 	@shape.line:
@@ -69,9 +71,12 @@ holdable:
 	flags: storable
 }
 
-sprite.renderer:
+animated.renderer:
 {
-	texture: "charge_lance"
+	sprite:
+	{
+		texture: "charge_lance"
+	}
 }
 
 health:

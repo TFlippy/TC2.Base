@@ -190,7 +190,11 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				var dir_a = (this.world_position_target - this.transform.GetInterpolatedPosition()).GetNormalized();
+				var dir_b = this.transform.GetInterpolatedDirection();
+
+				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
 

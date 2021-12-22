@@ -1,3 +1,5 @@
+$tags: []
+
 control:
 {
 
@@ -89,6 +91,8 @@ sound.mixer:
 
 +arm1|child:
 {
+	$tags: []
+	
 	control:
 	{
 	
@@ -99,11 +103,13 @@ sound.mixer:
 	
 	}
 	
-	sprite.renderer:
+	animated.renderer:
 	{
-		offset: [0.000, 0.000]
+		sprite:
+		{
+			texture: "crane_arm.wood"
+		}
 		z: 100.000
-		texture: "crane_arm.wood"
 	}
 	
 	body:
@@ -147,6 +153,8 @@ sound.mixer:
 	
 	+arm2|child:
 	{
+		$tags: []
+		
 		control:
 		{
 		
@@ -162,11 +170,13 @@ sound.mixer:
 		
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "crane_arm.wood"
+			}
 			z: 90.000
-			texture: "crane_arm.wood"
 		}
 		
 		body:

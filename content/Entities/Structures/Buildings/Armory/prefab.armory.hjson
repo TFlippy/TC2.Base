@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -19,10 +21,13 @@ health:
 	max: 20000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "armory"
+	}
 	z: -150.000
-	texture: "armory"
 	mask: "armory.mask"
 }
 
@@ -53,8 +58,8 @@ storage:
 	{
 		name: "Storage"
 		stack_size_multiplier: 5.000
-		type: storage
 		filter_flags: ammo
+		type: storage
 		flags: allow_ducts, ignore_mass, public
 	}
 }

@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -20,10 +22,13 @@ health:
 	max: 25000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "manufactory"
+	}
 	z: -150.000
-	texture: "manufactory"
 }
 
 transform:
@@ -44,17 +49,7 @@ interactable:
 shop:
 {
 	name: "Manufactory"
-	recipe_groups:
-	[
-		15
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: workbench
 }
 
 workshop:

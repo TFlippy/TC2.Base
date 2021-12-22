@@ -1,3 +1,5 @@
+$tags: []
+
 body:
 {
 	type: static
@@ -19,10 +21,13 @@ health:
 	max: 25000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "headquarters"
+	}
 	z: -150.000
-	texture: "headquarters"
 	mask: "headquarters.mask"
 }
 
@@ -49,16 +54,6 @@ nameable:
 spawn:
 {
 	flags: faction
-	characters:
-	[
-		{
-			name: "Human"
-			description: "TODO: Desc"
-			flags: human
-			prefab: "human"
-			cost: 1.000
-		}
-	]
 }
 
 storage:
@@ -92,17 +87,7 @@ claimer:
 shop:
 {
 	name: "Headquarters"
-	recipe_groups:
-	[
-		5
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: headquarters
 }
 
 interactable:

@@ -11,7 +11,7 @@
 	type: powder
 	flags: raw, ore, powder, despawnable
 	mass_per_unit: 0.200
-	quantity_max: 500.000
+	quantity_max: 250.000
 	prefab: "resource.iron_powder"
 	
 	projectile_count: 0

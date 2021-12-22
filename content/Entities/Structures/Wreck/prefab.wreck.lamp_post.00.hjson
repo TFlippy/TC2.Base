@@ -4,6 +4,8 @@ $desc:
 	Some long-forgotten lamp post.
 	Can be salvaged for spare parts.
 	'''
+$tags: []
+
 body:
 {
 	type: static
@@ -28,11 +30,14 @@ health:
 	max: 2000.000
 }
 
-sprite.renderer:
+animated.renderer:
 {
+	sprite:
+	{
+		texture: "wreck.lamp_post.00"
+	}
 	offset: [0.000, -2.500]
 	z: -150.000
-	texture: "wreck.lamp_post.00"
 }
 
 transform:
@@ -51,12 +56,6 @@ harvestable:
 		{
 			material: "iron_ingot"
 			quantity: 4.000
-		}
-		{
-		
-		}
-		{
-		
 		}
 	]
 }

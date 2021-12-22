@@ -1,0 +1,57 @@
+{
+	name: "Arrows"
+	desc: "Ammunition for bows."
+	
+	icon:
+	{
+		texture: "resource.ammo_arrow"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 4
+	max: 32
+	step: 4
+	type: workshop
+	tags: workbench
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "stone"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "wood"
+			amount: 6.000
+		}
+		{
+			type: "resource"
+			material: "cloth"
+			amount: 0.250
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 10.000
+			difficulty: 4.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 15.000
+			difficulty: 2.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_arrow"
+			amount: 1.000
+		}
+	]
+}

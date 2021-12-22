@@ -1,4 +1,6 @@
 $export: false
+$tags: []
+
 body:
 {
 	inventory_weight_multiplier: 0.400
@@ -10,7 +12,7 @@ body:
 		friction: 0.500
 		elasticity: 0.050
 		material: flesh
-		layer: entity, solid, storage, creature
+		layer: entity, solid, creature, storage
 		mask: world
 	}
 }
@@ -20,21 +22,25 @@ organic:
 
 }
 
-health:
+organic.state:
 {
-	max: 2600.000
+
 }
 
-sprite.renderer:
+health:
 {
-	offset: [0.000, 0.000]
+	max: 3200.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "human.torso"
+		size: [16, 16]
+	}
 	z: -40.000
-	fps: 0
-	frame_offset: 0
-	frame_count: 0
-	frame_count_total: 4
-	texture: "human.torso.bag"
-	mask: "human.torso.mask.bag"
+	mask: "human.torso.mask"
 }
 
 faction.colorable:
@@ -152,6 +158,8 @@ lootable:
 
 +slot_head|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [0.125, -0.375]
@@ -159,15 +167,16 @@ lootable:
 		max_torque: 4000.000
 		flags: organic, control_write
 		
-		@sprite.renderer:
+		@animated.renderer:
 		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [2, 0]
+			}
 			offset: [0.100, -0.400]
 			z: -39.000
-			fps: 0
-			frame_offset: 2
-			frame_count: 0
-			frame_count_total: 4
-			texture: "human.gore.stub"
 		}
 	}
 	
@@ -185,6 +194,8 @@ lootable:
 	
 	+head|child:
 	{
+		$tags: []
+		
 		body:
 		{
 			@shape.circle:
@@ -201,21 +212,33 @@ lootable:
 		
 		hair:
 		{
-			@sprite.renderer:
+			texture: "null"
+
+			@animated.renderer:
 			{
+				sprite:
+				{
+					texture: "null"
+					count: 1
+					size: [24, 24]
+				}
 				z: -34.900
-				frame_count: 1
-				frame_count_total: 32
 			}
 		}
 		
 		beard:
 		{
-			@sprite.renderer:
+			texture: "null"
+
+			@animated.renderer:
 			{
+				sprite:
+				{
+					texture: "null"
+					count: 1
+					size: [16, 16]
+				}
 				z: -34.800
-				frame_count: 1
-				frame_count_total: 32
 			}
 		}
 		
@@ -224,9 +247,14 @@ lootable:
 			tags: brain
 		}
 		
+		organic.state:
+		{
+		
+		}
+		
 		health:
 		{
-			max: 1500.000
+			max: 2400.000
 		}
 		
 		holdable:
@@ -239,15 +267,15 @@ lootable:
 			type: head
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "human.head"
+				count: 1
+				size: [16, 16]
+			}
 			z: -35.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 1
-			frame_count_total: 16
-			texture: "human.head"
 			
 			@damagesprite:
 			{
@@ -291,7 +319,7 @@ lootable:
 			multiplier: 1.000
 			mass_multiplier: 60.000
 		}
-
+		
 		lootable:
 		{
 			items:
@@ -308,6 +336,8 @@ lootable:
 
 +slot_waist|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
@@ -315,15 +345,16 @@ lootable:
 		max_torque: 10000.000
 		flags: organic, control_write
 		
-		@sprite.renderer:
+		@animated.renderer:
 		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [1, 0]
+			}
 			offset: [0.000, 0.500]
 			z: -38.000
-			fps: 0
-			frame_offset: 1
-			frame_count: 0
-			frame_count_total: 4
-			texture: "human.gore.stub"
 		}
 	}
 	
@@ -341,6 +372,8 @@ lootable:
 	
 	+waist|child:
 	{
+		$tags: []
+		
 		transform:
 		{
 		
@@ -360,15 +393,14 @@ lootable:
 			}
 		}
 		
-		sprite.renderer:
+		animated.renderer:
 		{
-			offset: [0.000, 0.000]
+			sprite:
+			{
+				texture: "human.waist"
+				size: [16, 8]
+			}
 			z: -50.000
-			fps: 0
-			frame_offset: 0
-			frame_count: 0
-			frame_count_total: 8
-			texture: "human.waist"
 		}
 		
 		runner:
@@ -379,15 +411,20 @@ lootable:
 		
 		organic:
 		{
-			@sprite.renderer:
+			@animated.renderer:
 			{
+				sprite:
+				{
+					texture: "human.gore.stub"
+					size: [16, 16]
+				}
 				z: -49.000
-				fps: 0
-				frame_offset: 0
-				frame_count: 0
-				frame_count_total: 4
-				texture: "human.gore.stub"
 			}
+		}
+		
+		organic.state:
+		{
+		
 		}
 		
 		threat:
@@ -402,7 +439,7 @@ lootable:
 		
 		health:
 		{
-			max: 3500.000
+			max: 3900.000
 		}
 		
 		equipment.slot:
@@ -426,7 +463,7 @@ lootable:
 			multiplier: 1.000
 			mass_multiplier: 200.000
 		}
-
+		
 		lootable:
 		{
 			items:
@@ -443,22 +480,31 @@ lootable:
 
 +arm|instance:
 {
+	$tags: []
+	
 	joint.base:
 	{
 		offset_a: [0.000, -0.100]
 		max_force: 5000.000
-		max_torque: 1000.000
+		max_torque: 2000.000
 		flags: control_write
 	}
 	
 	joint.pivot:
 	{
-		max_bias: 8.000
+		max_bias: 6.000
 	}
 	
 	joint.rotarylimit:
 	{
-		max_bias: 8.000
+		max_bias: 6.000
+		error_bias: 0.000
+	}
+	
+	joint.gear:
+	{
+		error_bias: 0.000
+		max_bias: 6.000
 	}
 	
 	interactor:
@@ -470,15 +516,17 @@ lootable:
 	{
 	
 	}
-
+	
 	drag:
 	{
-		max_force: 5000.00
+		max_force: 5000.000
 	}
 }
 
 +toolbelt|instance:
 {
+	$tags: []
+	
 	toolbelt:
 	{
 	

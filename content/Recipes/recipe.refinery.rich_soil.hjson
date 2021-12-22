@@ -1,0 +1,56 @@
+{
+	name: "Mineral Extraction (Rich Soil)"
+	desc: "Extract saltpeter and sulphur from rich soil."
+	
+	icon:
+	{
+		texture: "resource.soil_rich"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "soil_rich"
+			amount: 10.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 5.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "saltpeter"
+			amount_min: 1.500
+			amount_max: 7.500
+		}
+		{
+			type: "resource"
+			material: "sulphur"
+			amount_min: 0.100
+			amount_max: 2.500
+		}
+		{
+			type: "resource"
+			material: "soil_dry"
+			amount_min: 8.000
+			amount_max: 10.000
+		}
+	]
+}

@@ -35,9 +35,9 @@
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void OnUpdateAnimation(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Sprite.Renderer.Data renderer)
+		public static void OnUpdateAnimation(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.fps = (byte)Math.Round(hornet.fps * flyer.lift_modifier);
+			renderer.sprite.fps = (byte)Math.Round(hornet.fps * flyer.lift_modifier);
 		}
 #endif
 	}
