@@ -41,7 +41,7 @@ transform:
 
 interactable:
 {
-	window_size: [700.000, 336.000]
+	window_size: [500.000, 300.000]
 }
 
 faction.colorable:
@@ -60,6 +60,18 @@ claimable:
 }
 
 mine:
+{
+
+}
+
+depot:
+{
+	offset: [1.000, 1.000]
+	size: [4.000, 3.000]
+	flags: allow_withdraw, allow_send, allow_local, local
+}
+
+stockpile:
 {
 
 }

@@ -65,7 +65,7 @@ depot:
 {
 	offset: [4.000, 0.500]
 	size: [5.000, 5.000]
-	flags: allow_deposit, allow_withdraw, allow_send, allow_request
+	flags: allow_deposit, allow_withdraw, allow_send, allow_receive, allow_request, allow_local, allow_region, allow_world, local
 }
 
 packer:
