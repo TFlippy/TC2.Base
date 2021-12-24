@@ -48,7 +48,7 @@ building:
 
 nameable:
 {
-	name: "Headquarters"
+	flags: randomize
 }
 
 spawn:

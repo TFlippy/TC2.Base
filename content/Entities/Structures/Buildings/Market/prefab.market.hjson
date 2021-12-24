@@ -69,3 +69,8 @@ claimable:
 {
 	flags: no_menu
 }
+
+nameable:
+{
+	flags: no_rename, randomize
+}

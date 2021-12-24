@@ -54,6 +54,11 @@ building:
 
 }
 
+nameable:
+{
+	flags: no_rename, randomize
+}
+
 claimable:
 {
 

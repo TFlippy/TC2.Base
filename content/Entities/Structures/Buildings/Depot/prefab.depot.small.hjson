@@ -18,7 +18,7 @@ body:
 
 nameable:
 {
-	flags: no_rename
+	flags: no_rename, randomize
 }
 
 health:
