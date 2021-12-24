@@ -1255,6 +1255,247 @@ namespace TC2.Base
 					}
 				}
 			));
+			
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
+				name: "Gas seal",
+				description: "Increases damage and velocity, by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.damage_multiplier *= 1.10f;
+					data.velocity_multiplier *= 1.05f;
+					data.recoil_multiplier *= 1.10f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.05f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.50f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.05f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 2.00f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 2.00f;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+						
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_hand_fitted_parts",
+				name: "Hand fitted parts",
+				description: "Increases damage and velocity, by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.damage_multiplier *= 1.12f;
+					data.velocity_multiplier *= 1.06f;
+					data.recoil_multiplier *= 1.12f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.05f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 2.50f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.05f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 3.00f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 3.00f;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_side_gate_loading",
+				name: "Side gate loading",
+				description: "Simplifies the revolver construction, increasing reliability at the cost of reload speed.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.reload_interval *= 2.00f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.95f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 0.90f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.60f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 0.95f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.60f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.60f;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
 
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
