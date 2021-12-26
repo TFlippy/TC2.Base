@@ -18,7 +18,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.000, -0.250]
+	muzzle_offset: [1.000, -0.125]
 	sound_shoot: "scattergun_shoot"
 	sound_reload: "scattergun_reload"
 	velocity_multiplier: 360.000
@@ -29,8 +29,9 @@ gun:
 	cycle_interval: 0.500
 	failure_rate: 0.010
 	max_ammo: 1.000
-	sound_volume: 2.000
-	sound_pitch: 0.750
+	sound_volume: 1.400
+	sound_pitch: 1.100
+	smoke_amount: 2.000
 	flags: none
 	ammo_filter: ammo_sg
 	action: manual
@@ -62,7 +63,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.000]
+	offset: [-0.500, 0.000]
 	radius: 4.000
 	flags: storable
 }
