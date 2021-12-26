@@ -8,6 +8,8 @@
 *.sln
 *.props
 
+projects.json
+
 [Bb]in/
 [Oo]bj/
 [Pp]roperties/

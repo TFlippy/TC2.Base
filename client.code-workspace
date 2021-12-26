@@ -8,7 +8,8 @@
 		}
 	],
 	"launch": {
-		"configurations": [],
+		"configurations": [
+		],
 		"compounds": []
 	},
 	"extensions": {
@@ -60,7 +61,6 @@
 		"files.encoding": "utf8",
 		"files.insertFinalNewline": true,
 		"files.autoSave": "off",
-		"csharp.format.enable": false,
 		"csharp.semanticHighlighting.enabled": true,
 		"csharp.suppressDotnetInstallWarning": false,
 		"csharp.suppressDotnetRestoreNotification": false,
@@ -71,7 +71,6 @@
 		"omnisharp.enableRoslynAnalyzers": false,
 		"omnisharp.disableMSBuildDiagnosticWarning": false,
 		"omnisharp.autoStart": true,
-		"omnisharp.enableEditorConfigSupport": false,
 		"omnisharp.useEditorFormattingSettings": false,
 		"cSpell.words": [
 			"invsqr",
@@ -83,7 +82,7 @@
 		"razor.disabled": true,
 		"omnisharp.useGlobalMono": "never",
 		"razor.format.enable": false,
-		"workbench.colorTheme": "One Dark Pro",
+		"workbench.colorTheme": "Visual Studio 2019 Light",
 		"explorer.copyRelativePathSeparator": "/",
 		"explorer.sortOrder": "modified",
 		"explorer.sortOrderLexicographicOptions": "lower",
@@ -94,5 +93,7 @@
 		"workbench.sideBar.location": "right",
 		"workbench.tree.indent": 12,
 		"workbench.editor.highlightModifiedTabs": true,
+		"oneDarkPro.bold": true,
+		"omnisharp.defaultLaunchSolution": "TC2.Base.sln"
 	}
 }
