@@ -6,6 +6,7 @@ projectile:
 	damage_bonus: 100.000
 	lifetime: 3.000
 	damage_type: bullet_mg
+	size: 0.250
 }
 
 projectile.renderer:
@@ -22,7 +23,7 @@ explosive:
 {
 	radius: 2.500
 	power: 3.000
-	damage_entity: 3500.000
-	damage_terrain: 7000.000
+	damage_entity: 2500.000
+	damage_terrain: 6000.000
 	flags: primed
 }

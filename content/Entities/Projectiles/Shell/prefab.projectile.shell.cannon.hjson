@@ -3,6 +3,7 @@ $tags: []
 projectile:
 {
 	lifetime: 20.000
+	size: 0.750
 }
 
 transform:

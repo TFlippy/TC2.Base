@@ -6,6 +6,7 @@ projectile:
 	damage_bonus: 200.000
 	lifetime: 2.000
 	damage_type: bullet_lc
+	size: 0.125
 }
 
 projectile.renderer:
