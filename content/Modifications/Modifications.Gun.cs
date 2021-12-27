@@ -1581,6 +1581,13 @@ namespace TC2.Base
 							data.cycle_interval *= Maths.Lerp(1.00f, 0.75f, ratio);
 						}
 						break;
+
+						case Gun.Action.Lever:
+						{
+							data.failure_rate *= Maths.Lerp(1.00f, 1.80f, ratio);
+							data.cycle_interval *= Maths.Lerp(1.00f, 0.75f, ratio);
+						}
+						break;
 					}
 
 					//if (data.flags.HasAll(Gun.Flags.Automatic))
