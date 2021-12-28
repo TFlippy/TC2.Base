@@ -34,7 +34,7 @@
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 8.000
+			amount: 7.000
 		}
 		{
 			type: "work"
