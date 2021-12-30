@@ -70,6 +70,9 @@ holdable:
 	offset: [-0.400, 0.100]
 	radius: 4.000
 	flags: storable
+
+	force_multiplier: 1.500
+	torque_multiplier: 1.100
 }
 
 animated.renderer:

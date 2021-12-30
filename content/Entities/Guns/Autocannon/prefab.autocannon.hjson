@@ -65,6 +65,10 @@ holdable:
 {
 	offset: [-0.900, 0.100]
 	radius: 0.000
+	flags: disable_parent_facing
+
+	force_multiplier: 4.000
+	torque_multiplier: 1.000
 }
 
 animated.renderer:
