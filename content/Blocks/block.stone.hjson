@@ -16,7 +16,7 @@
 	texture: "terrain_stone"
 	pattern: "pattern_stone"
 	
-	texture_scale: 2.000
+	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
 	fg_color: "#ff140e08"
