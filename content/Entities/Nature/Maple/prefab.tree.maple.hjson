@@ -1,0 +1,84 @@
+$name: "Maple Tree"
+$desc: "A tree. Seems like a good source of wood."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -0.250]
+		b: [0.000, -3.625]
+		mass: 400.000
+		radius: 0.375
+		friction: 1.000
+		elasticity: 0.010
+		material: wood
+		layer: entity, solid, climbable, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 18000.000
+}
+
+splittable:
+{
+	rect: [-0.500, -10.750, 0.500, -1.250]
+	texture_stub: "tree.maple.stub"
+	sound_split: "tree_snap_00"
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tree.maple"
+	}
+	offset: [0.000, -2.000]
+	z: -50.000
+}
+
+tree:
+{
+	prefab_stump: "tree.maple.stump"
+	health_cut: 0.980
+	sprite_cut: "tree.maple.cut"
+	sound_cut: "tree_fall"
+	
+	@foliage.renderer:
+	{
+		offset: [0.125, -4.500]
+		z: 90.000
+		texture: "tree.maple.foliage"
+	}
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 5000.000
+		}
+		{
+			material: "resin"
+			quantity: 300.000
+		}
+	]
+}
