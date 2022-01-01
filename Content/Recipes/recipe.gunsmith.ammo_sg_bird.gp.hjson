@@ -1,14 +1,14 @@
 {
-	name: "Shotgun Shell (Buckshot)"
+	name: "Gunpowder Shotgun Shell (Birdshot)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires multiple medium-sized
-		projectiles, very good for general combat.
+		Ammunition for shotguns. Fires a many tiny projectiles,
+		typically used for hunting fowl (or when your aim is bad).
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg_buck"
+		texture: "resource.ammo_sg_bird.gp"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -33,13 +33,13 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 0.250
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 50.000
+			amount: 60.000
 			difficulty: 5.000
 		}
 	]
@@ -48,7 +48,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg_buck"
+			material: "ammo_sg_bird.gp"
 			amount: 1.000
 		}
 	]

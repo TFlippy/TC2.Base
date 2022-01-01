@@ -1,13 +1,14 @@
 {
-	name: "Shotgun Shell (Grenade)"
+	name: "Gunpowder Shotgun Shell (Slug)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a small low-powered grenade.
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg_grenade"
+		texture: "resource.ammo_sg_slug.gp"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -22,13 +23,18 @@
 	[
 		{
 			type: "resource"
+			material: "iron_ingot"
+			amount: 0.125
+		}
+		{
+			type: "resource"
 			material: "copper_ingot"
 			amount: 0.250
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
-			amount: 2.500
+			material: "gunpowder"
+			amount: 0.250
 		}
 		{
 			type: "work"
@@ -42,7 +48,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg_grenade"
+			material: "ammo_sg_slug.gp"
 			amount: 1.000
 		}
 	]

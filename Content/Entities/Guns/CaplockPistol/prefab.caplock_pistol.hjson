@@ -1,0 +1,100 @@
+$tags: []
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.400, 0.000]
+		b: [0.400, 0.000]
+		mass: 1.200
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.250
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [0.700, -0.125]
+	sound_shoot: "caplock_pistol_shoot"
+	sound_cycle: "caplock_pistol_cycle"
+	sound_reload: "caplock_pistol_reload"
+	velocity_multiplier: 190.000
+	jitter_multiplier: 10.000
+	damage_multiplier: 1.500
+	recoil_multiplier: 0.800
+	reload_interval: 5.000
+	cycle_interval: 0.100
+	failure_rate: 0.050
+	max_ammo: 1.000
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_musket
+	action: manual
+	type: handgun
+	feed: breech
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [16.000, 14.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "caplock_pistol"
+	}
+}
+
+health:
+{
+	max: 1200.000
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

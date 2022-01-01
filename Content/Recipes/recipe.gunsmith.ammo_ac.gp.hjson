@@ -1,20 +1,17 @@
 {
-	name: "Shotgun Shell (Grenade)"
-	desc:
-		'''
-		Ammunition for shotguns. Fires a small low-powered grenade.
-		'''
+	name: "Gunpowder Autocannon Ammo"
+	desc: "Ammunition for autocannons. Gunpowder is weaker, but cheaper."
 	
 	icon:
 	{
-		texture: "resource.ammo_sg_grenade"
+		texture: "resource.ammo_ac.gp"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	min: 4
+	min: 5
 	max: 100
-	step: 4
+	step: 5
 	type: workshop
 	tags: gunsmith
 	
@@ -22,18 +19,23 @@
 	[
 		{
 			type: "resource"
-			material: "copper_ingot"
-			amount: 0.250
+			material: "iron_ingot"
+			amount: 0.750
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
-			amount: 2.500
+			material: "copper_ingot"
+			amount: 0.200
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 1.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 40.000
+			amount: 80.000
 			difficulty: 4.000
 		}
 	]
@@ -42,7 +44,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg_grenade"
+			material: "ammo_ac.gp"
 			amount: 1.000
 		}
 	]
