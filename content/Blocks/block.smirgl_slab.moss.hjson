@@ -14,7 +14,7 @@
 	stability: 0.900
 	
 	texture: "terrain_smirgl_slab.moss"
-	pattern: "pattern_smirgl_slab"
+	pattern: "pattern_smirgl_slab.moss"
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.750
