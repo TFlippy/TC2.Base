@@ -1,13 +1,13 @@
 {
-	name: "Gunpowder Low-Caliber Ammo"
+	name: "Low-Caliber Ammo (High-Velocity)"
 	description:
 		'''
 		Ammunition for pistols, revolvers
-		and submachine guns. Gunpowder is weaker, but cheap.
+		and submachine guns.
 		'''
 	icon:
 	{
-		texture: "resource.ammo_lc.gp"
+		texture: "resource.ammo_lc.hv"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -16,13 +16,13 @@
 	flags: manufactured, ammo, ammo_lc, despawnable
 	mass_per_unit: 0.015
 	quantity_max: 60.000
-	prefab: "resource.ammo_lc.gp"
+	prefab: "resource.ammo_lc.hv"
 	
 	projectile_count: 1
-	projectile_speed_mult: 0.700
+	projectile_speed_mult: 1.000
 	projectile_spread_mult: 1.000
 	projectile_heat: 15.000
-	projectile_prefab: "projectile.bullet.lc.gp"
+	projectile_prefab: "projectile.bullet.lc.hv"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000

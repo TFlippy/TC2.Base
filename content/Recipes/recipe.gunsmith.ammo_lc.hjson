@@ -4,6 +4,7 @@
 		'''
 		Ammunition for pistols, revolvers
 		and submachine guns.
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
@@ -33,7 +34,7 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 0.100
 		}
 		{

@@ -4,6 +4,7 @@
 		'''
 		Ammunition for rifles
 		and other larger firearms.
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
@@ -33,7 +34,7 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 0.200
 		}
 		{

@@ -1,13 +1,13 @@
 {
-	name: "Gunpowder High-Caliber Ammo"
+	name: "High-Caliber Ammo (High-Velocity)"
 	description:
 		'''
 		Ammunition for rifles
-		and other larger firearms. Gunpowder is weaker, but cheap.
+		and other larger firearms.
 		'''
 	icon:
 	{
-		texture: "resource.ammo_hc.gp"
+		texture: "resource.ammo_hc.hv"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -16,13 +16,13 @@
 	flags: manufactured, ammo, ammo_hc, despawnable
 	mass_per_unit: 0.025
 	quantity_max: 50.000
-	prefab: "resource.ammo_hc.gp"
+	prefab: "resource.ammo_hc.hv"
 	
 	projectile_count: 1
-	projectile_speed_mult: 0.600
+	projectile_speed_mult: 1.000
 	projectile_spread_mult: 1.000
 	projectile_heat: 25.000
-	projectile_prefab: "projectile.bullet.hc.gp"
+	projectile_prefab: "projectile.bullet.hc.hv"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000

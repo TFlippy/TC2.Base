@@ -1,10 +1,14 @@
 {
-	name: "Gunpowder Machine Gun Ammo"
-	desc: "Ammunition for machine guns and other heavy weapons. Gunpowder is weaker, but cheap."
+	name: "Low-Caliber Ammo (High-Velocity)"
+	desc:
+		'''
+		Ammunition for pistols, revolvers
+		and submachine guns.
+		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_mg.gp"
+		texture: "resource.ammo_lc.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -20,23 +24,23 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.150
+			amount: 0.050
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.150
+			amount: 0.050
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 0.400
+			material: "nitrocellulose"
+			amount: 0.100
 		}
 		{
 			type: "work"
 			work: "assembling"
 			amount: 50.000
-			difficulty: 4.000
+			difficulty: 5.000
 		}
 	]
 	
@@ -44,7 +48,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_mg.gp"
+			material: "ammo_lc.hv"
 			amount: 1.000
 		}
 	]

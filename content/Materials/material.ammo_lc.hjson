@@ -3,7 +3,7 @@
 	description:
 		'''
 		Ammunition for pistols, revolvers
-		and submachine guns.
+		and submachine guns. Gunpowder is weaker, but cheap.
 		'''
 	icon:
 	{
@@ -19,7 +19,7 @@
 	prefab: "resource.ammo_lc"
 	
 	projectile_count: 1
-	projectile_speed_mult: 1.000
+	projectile_speed_mult: 0.700
 	projectile_spread_mult: 1.000
 	projectile_heat: 15.000
 	projectile_prefab: "projectile.bullet.lc"

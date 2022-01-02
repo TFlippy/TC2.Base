@@ -1,17 +1,21 @@
 {
-	name: "Gunpowder Autocannon Ammo"
-	desc: "Ammunition for autocannons. Gunpowder is weaker, but cheaper."
+	name: "High-Caliber Ammo (High-Velocity)"
+	desc:
+		'''
+		Ammunition for rifles
+		and other larger firearms.
+		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_ac.gp"
+		texture: "resource.ammo_hc.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	min: 5
-	max: 100
-	step: 5
+	min: 10
+	max: 500
+	step: 10
 	type: workshop
 	tags: gunsmith
 	
@@ -20,22 +24,22 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.750
+			amount: 0.100
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.200
+			amount: 0.100
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 1.000
+			material: "nitrocellulose"
+			amount: 0.200
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 80.000
+			amount: 50.000
 			difficulty: 4.000
 		}
 	]
@@ -44,7 +48,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_ac.gp"
+			material: "ammo_hc.hv"
 			amount: 1.000
 		}
 	]
