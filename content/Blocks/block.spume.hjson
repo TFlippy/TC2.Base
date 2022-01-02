@@ -1,6 +1,6 @@
 {
 	name: "Spume"
-	desc: "TODO: Desc"
+	desc: "Very brittle pumice-like rock."
 	
 	material_type: stone
 	tile_flags: any
@@ -8,9 +8,9 @@
 	
 	max_health: 2000.000
 	smoothing: 0.150
-	mass: 5.000
+	mass: 0.100
 	friction: 0.950
-	elasticity: 0.900
+	elasticity: 0.050
 	stability: 0.900
 	
 	texture: "terrain_spume"
