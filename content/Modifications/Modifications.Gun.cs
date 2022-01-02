@@ -30,8 +30,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.feed == Gun.Feed.Single) return false;
-					if (data.feed == Gun.Feed.Breech) return false;
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech) return false;
 					return !modifications.HasModification(handle);
 				},
 
@@ -1989,12 +1988,7 @@ namespace TC2.Base
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
-					if (data.feed == Gun.Feed.Single)
-					{
-						data.max_ammo += 1;
-					}
-
-					if (data.feed == Gun.Feed.Breech)
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech)
 					{
 						data.max_ammo += 1;
 					}
