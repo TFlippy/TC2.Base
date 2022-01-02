@@ -1,16 +1,25 @@
 $tags: []
 
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
 body:
 {
 	@shape.line:
 	{
-		a: [-1.250, 0.000]
-		b: [1.250, 0.000]
-		mass: 5.000
+		a: [-0.400, 0.000]
+		b: [0.400, 0.000]
+		mass: 1.200
 		radius: 0.250
-		friction: 0.600
+		friction: 0.900
 		elasticity: 0.250
-		material: metal
 		layer: entity, solid
 		mask: world
 	}
@@ -18,23 +27,23 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.125]
-	sound_shoot: "caplock_blunderbuss_shoot"
-	sound_cycle: "caplock_blunderbuss_cycle"
-	sound_reload: "caplock_blunderbuss_reload"
-	velocity_multiplier: 220.000
-	jitter_multiplier: 12.500
-	damage_multiplier: 3.300
-	recoil_multiplier: 4.500
+	muzzle_offset: [0.700, -0.125]
+	sound_shoot: "derringer_shoot"
+	sound_cycle: "derringer_cycle"
+	sound_reload: "derringer_reload"
+	velocity_multiplier: 190.000
+	jitter_multiplier: 10.000
+	damage_multiplier: 2.500
+	recoil_multiplier: 0.800
 	reload_interval: 5.000
-	cycle_interval: 0.500
-	failure_rate: 0.200
+	cycle_interval: 0.100
+	failure_rate: 0.050
 	max_ammo: 1.000
 	projectile_count: 1
 	flags: none
 	ammo_filter: ammo_musket
 	action: manual
-	type: shotgun
+	type: handgun
 	feed: breech
 	
 	@inventory1:
@@ -48,8 +57,8 @@ gun:
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
-		offset: [1.250, -0.125]
-		scale: [24.000, 16.000]
+		offset: [1.000, -0.250]
+		scale: [16.000, 14.000]
 		intensity: 0.000
 		texture: "light_invsqr"
 	}
@@ -71,7 +80,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "blunderbuss"
+		texture: "derringer"
 	}
 }
 
@@ -81,16 +90,6 @@ health:
 }
 
 transform:
-{
-
-}
-
-control:
-{
-
-}
-
-aimable:
 {
 
 }

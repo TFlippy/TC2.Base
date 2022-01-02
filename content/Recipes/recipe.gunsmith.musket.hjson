@@ -1,18 +1,18 @@
 {
-	name: "Caplock pistol"
+	name: "Musket"
 	desc:
 		'''
-		A caplock pistol, very
-		useful in tight spaces.
+		A caplock musket.
+		Good for hunting and medium-ranged combat.
 		'''
 	
 	icon:
 	{
-		texture: "caplock_pistol"
+		texture: "musket"
 	}
 	
 	min: 1
-	max: 100
+	max: 80
 	step: 1
 	
 	flags: blueprintable
@@ -24,17 +24,22 @@
 		{
 			type: "resource"
 			material: "wood"
-			amount: 30.000
+			amount: 40.000
 		}
 		{
 			type: "resource"
 			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
 			amount: 1.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 100.000
+			amount: 200.000
 			difficulty: 6.000
 		}
 		{
@@ -55,7 +60,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "caplock_pistol"
+			prefab: "musket"
 			amount: 1.000
 		}
 	]

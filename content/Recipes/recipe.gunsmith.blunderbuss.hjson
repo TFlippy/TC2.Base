@@ -1,14 +1,14 @@
 {
-	name: "Caplock blunderbuss"
+	name: "Blunderbuss"
 	desc:
 		'''
 		A caplock blunderbuss.
-		Has a huge spread, but it's simple to make.
+		Has a huge spread, but is simple to make.
 		'''
 	
 	icon:
 	{
-		texture: "caplock_blunderbuss"
+		texture: "blunderbuss"
 	}
 	
 	min: 1
@@ -60,7 +60,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "caplock_blunderbuss"
+			prefab: "blunderbuss"
 			amount: 1.000
 		}
 	]

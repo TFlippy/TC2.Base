@@ -19,22 +19,22 @@ body:
 gun:
 {
 	muzzle_offset: [1.250, -0.125]
-	sound_shoot: "caplock_musket_shoot"
-	sound_cycle: "caplock_musket_cycle"
-	sound_reload: "caplock_musket_reload"
-	velocity_multiplier: 270.000
-	jitter_multiplier: 9.000
-	damage_multiplier: 5.000
-	recoil_multiplier: 3.000
-	reload_interval: 7.000
+	sound_shoot: "blunderbuss_shoot"
+	sound_cycle: "blunderbuss_cycle"
+	sound_reload: "blunderbuss_reload"
+	velocity_multiplier: 220.000
+	jitter_multiplier: 12.500
+	damage_multiplier: 3.300
+	recoil_multiplier: 4.500
+	reload_interval: 5.000
 	cycle_interval: 0.500
-	failure_rate: 0.100
+	failure_rate: 0.200
 	max_ammo: 1.000
 	projectile_count: 1
 	flags: none
 	ammo_filter: ammo_musket
 	action: manual
-	type: rifle
+	type: shotgun
 	feed: breech
 	
 	@inventory1:
@@ -71,13 +71,13 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "caplock_musket"
+		texture: "blunderbuss"
 	}
 }
 
 health:
 {
-	max: 1000.000
+	max: 1200.000
 }
 
 transform:
