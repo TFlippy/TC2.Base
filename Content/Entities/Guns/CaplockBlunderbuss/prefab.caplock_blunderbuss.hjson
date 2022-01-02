@@ -24,7 +24,7 @@ gun:
 	sound_reload: "caplock_blunderbuss_reload"
 	velocity_multiplier: 220.000
 	jitter_multiplier: 12.500
-	damage_multiplier: 2.000
+	damage_multiplier: 3.300
 	recoil_multiplier: 4.500
 	reload_interval: 5.000
 	cycle_interval: 0.500
