@@ -4,6 +4,7 @@
 		'''
 		Ammunition for pistols, revolvers
 		and submachine guns.
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
