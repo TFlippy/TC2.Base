@@ -23,10 +23,10 @@ gun:
 	sound_cycle: "musket_cycle"
 	sound_reload: "musket_reload"
 	velocity_multiplier: 270.000
-	jitter_multiplier: 9.000
+	jitter_multiplier: 4.000
 	damage_multiplier: 5.000
-	recoil_multiplier: 3.000
-	reload_interval: 7.000
+	recoil_multiplier: 2.500
+	reload_interval: 2.000
 	cycle_interval: 0.500
 	failure_rate: 0.100
 	max_ammo: 1.000
@@ -36,6 +36,12 @@ gun:
 	action: manual
 	type: rifle
 	feed: breech
+
+	sound_volume: 1.900
+	sound_pitch: 1.000
+	
+	smoke_size: 4.000
+	smoke_amount: 8
 	
 	@inventory1:
 	{
