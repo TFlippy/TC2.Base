@@ -52,7 +52,7 @@
 			type: "work"
 			work: "assembling"
 			amount: 350.000
-			difficulty: 8.000
+			difficulty: 9.000
 		}
 	]
 	

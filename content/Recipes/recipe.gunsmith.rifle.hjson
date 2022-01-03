@@ -34,25 +34,25 @@
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 1.000
+			amount: 2.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 200.000
+			amount: 250.000
 			difficulty: 8.000
 		}
 		{
 			type: "work"
 			work: "woodworking"
-			amount: 100.000
+			amount: 110.000
 			difficulty: 5.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 80.000
-			difficulty: 4.000
+			amount: 130.000
+			difficulty: 5.000
 		}
 	]
 	

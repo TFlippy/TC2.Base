@@ -29,7 +29,7 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 4.000
+			amount: 3.000
 		}
 		{
 			type: "resource"
@@ -39,7 +39,7 @@
 		{
 			type: "work"
 			work: "smithing"
-			amount: 250.000
+			amount: 300.000
 			difficulty: 9.000
 		}
 		{
@@ -51,8 +51,8 @@
 		{
 			type: "work"
 			work: "assembling"
-			amount: 120.000
-			difficulty: 8.000
+			amount: 180.000
+			difficulty: 6.000
 		}
 	]
 	

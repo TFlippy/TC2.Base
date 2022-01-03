@@ -33,13 +33,13 @@
 		{
 			type: "work"
 			work: "smithing"
-			amount: 100.000
+			amount: 70.000
 			difficulty: 6.000
 		}
 		{
 			type: "work"
 			work: "woodworking"
-			amount: 100.000
+			amount: 80.000
 			difficulty: 5.000
 		}
 		{
