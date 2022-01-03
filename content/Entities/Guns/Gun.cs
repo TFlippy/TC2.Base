@@ -193,6 +193,19 @@ namespace TC2.Base.Components
 				var dir_a = (this.world_position_target - this.transform.GetInterpolatedPosition()).GetNormalized();
 				var dir_b = this.transform.GetInterpolatedDirection();
 
+				ref var region = ref Client.GetRegion();
+
+				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(world_position_target), size: new(100, 100)))
+				{
+					if (window.show)
+					{
+						if (this.state.stage == Stage.Reloading)
+						{
+							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetFixedTime(), 0.00f):0.00}", pivot: new(0.50f));
+						}
+					}
+				}
+
 				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 				GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}

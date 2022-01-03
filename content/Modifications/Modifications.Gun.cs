@@ -30,7 +30,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech) return false;
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front) return false;
 					return !modifications.HasModification(handle);
 				},
 
@@ -1833,7 +1833,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.feed != Gun.Feed.Single && !modifications.HasModification(handle);
+					return data.feed != Gun.Feed.Single && data.feed != Gun.Feed.Breech && data.feed != Gun.Feed.Front && !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1917,6 +1917,8 @@ namespace TC2.Base
 
 					switch (data.feed)
 					{
+						case Gun.Feed.Breech:
+						case Gun.Feed.Front:
 						case Gun.Feed.Single:
 						{
 							if (simultaneous)
@@ -1927,7 +1929,7 @@ namespace TC2.Base
 								data.stability -= MathF.Min(data.stability, 0.50f);
 								data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
-								data.reload_interval *= 1.30f;
+								//data.reload_interval *= 1.30f;
 
 								data.jitter_multiplier *= 1.30f;
 								data.jitter_multiplier += 5.00f;
@@ -1988,7 +1990,7 @@ namespace TC2.Base
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
-					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech)
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front)
 					{
 						data.max_ammo += 1;
 					}
