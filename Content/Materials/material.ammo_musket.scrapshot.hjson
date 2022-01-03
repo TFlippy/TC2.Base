@@ -16,7 +16,7 @@
 	
 	projectile_count: 8
 	projectile_speed_mult: 1.000
-	projectile_spread_mult: 6.000
+	projectile_spread_mult: 3.500
 	projectile_heat: 30.000
 	projectile_prefab: "projectile.musket.scrapshot"
 	
