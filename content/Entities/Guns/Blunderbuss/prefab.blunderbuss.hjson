@@ -23,10 +23,10 @@ gun:
 	sound_cycle: "blunderbuss_cycle"
 	sound_reload: "blunderbuss_reload"
 	velocity_multiplier: 220.000
-	jitter_multiplier: 12.500
+	jitter_multiplier: 8.000
 	damage_multiplier: 3.300
-	recoil_multiplier: 4.500
-	reload_interval: 5.000
+	recoil_multiplier: 2.500
+	reload_interval: 2.000
 	cycle_interval: 0.500
 	failure_rate: 0.200
 	max_ammo: 1.000
@@ -36,7 +36,12 @@ gun:
 	action: manual
 	type: shotgun
 	feed: breech
+
+	sound_pitch: 1.100
 	
+	smoke_size: 4.000
+	smoke_amount: 8
+
 	@inventory1:
 	{
 		name: "Ammo"
