@@ -270,7 +270,7 @@ namespace TC2.Base.Components
 				{
 					gun_state.stage = Stage.Cycling;
 				}
-				else if (!gun.flags.HasFlag(Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
+				else if (!gun.flags.HasAll(Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
 				{
 #if SERVER
 					gun_state.stage = Stage.Cycling;
@@ -280,7 +280,7 @@ namespace TC2.Base.Components
 				else
 				{
 					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
-					if (inventory_magazine.resource.material.id != 0 && !inventory_magazine.resource.material.GetDefinition().flags.HasFlag(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (inventory_magazine.resource.material.id != 0 && !inventory_magazine.resource.material.GetDefinition().flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
 					{
@@ -288,7 +288,7 @@ namespace TC2.Base.Components
 						for (var i = 0; i < count; i++)
 						{
 							ref var resource = ref inventory[i];
-							if (resource.material.GetDefinition().flags.HasFlag(gun.ammo_filter))
+							if (resource.material.GetDefinition().flags.HasAll(gun.ammo_filter))
 							{
 								inventory_magazine.resource.material = resource.material;
 								break;
@@ -301,7 +301,7 @@ namespace TC2.Base.Components
 #if SERVER
 						gun_state.hints &= ~Hints.Cycled;
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasFlag(Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done = true;
@@ -455,7 +455,7 @@ namespace TC2.Base.Components
 				}
 #endif
 
-				if (gun.flags.HasFlag(Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAll(Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Stage.Cycling;
 
@@ -477,7 +477,7 @@ namespace TC2.Base.Components
 				}
 
 #if CLIENT
-				if (!gun.flags.HasFlag(Gun.Flags.No_Particles))
+				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
 					{
 						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + new Vector2(1.50f * gun.flash_size, 0.00f)), 0.25f);
@@ -522,14 +522,14 @@ namespace TC2.Base.Components
 				{
 					if (time < gun_state.next_cycle) break;
 
-					if (gun_state.hints.HasFlag(Hints.Cycled))
+					if (gun_state.hints.HasAll(Hints.Cycled))
 					{
 						gun_state.stage = Stage.Ready;
 					}
 					else
 					{
 						var cycle_interval = gun.cycle_interval;
-						if (!gun.flags.HasFlag(Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
+						if (!gun.flags.HasAll(Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
 						gun_state.hints |= Hints.Cycled;
@@ -552,7 +552,7 @@ namespace TC2.Base.Components
 		{
 			if (gun_state.stage == Stage.Ready)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasFlag(Hints.Cycled))
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Hints.Cycled))
 				{
 #if SERVER
 					gun_state.stage = Stage.Cycling;
@@ -570,7 +570,7 @@ namespace TC2.Base.Components
 					return;
 				}
 
-				if (gun_state.hints.HasFlag(Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasFlag(Flags.Automatic))))
+				if (gun_state.hints.HasAll(Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Flags.Automatic))))
 				{
 					if (inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0)
 					{
@@ -582,7 +582,7 @@ namespace TC2.Base.Components
 					}
 					else
 					{
-						gun_state.stage = gun.flags.HasFlag(Flags.Automatic) ? Stage.Ready : Stage.Cycling;
+						gun_state.stage = gun.flags.HasAll(Flags.Automatic) ? Stage.Ready : Stage.Cycling;
 						gun_state.hints &= ~Hints.Cycled;
 #if SERVER
 						Sound.Play(ref info.GetRegion(), gun.sound_empty, transform.position, volume: 0.50f);
