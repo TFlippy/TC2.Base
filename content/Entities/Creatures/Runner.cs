@@ -27,6 +27,7 @@ namespace TC2.Base.Components
 			public float speed_modifier = 1.00f;
 
 			[Save.Ignore] public float walk_modifier_current;
+			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
 
@@ -97,15 +98,17 @@ namespace TC2.Base.Components
 				friction /= arbiter_count;
 			}
 
-			if (arbiter_count > 0 && normal.Y >= -0.40f && !layers.HasAll(Physics.Layer.Bounds))
+			if (arbiter_count > 0 && normal.Y >= -0.20f && !layers.HasAll(Physics.Layer.Bounds))
 			{
 				runner.flags.SetFlag(Runner.Flags.Grounded, true);
 				runner.last_ground = info.WorldTime;
 
 				var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
-				force.Y = -MathF.Abs(dot * force.X) * friction * 0.50f;
-				force.X *= (1.00f - dot);
+				runner.uphill_force_current = -MathF.Abs(dot * force.X) * friction * 0.50f;
+
+				force.Y = runner.uphill_force_current;
+				force.X *= 1.00f - dot;			
 			}
 			else
 			{
@@ -113,6 +116,9 @@ namespace TC2.Base.Components
 				force.Y *= 0.00f;
 				runner.flags.SetFlag(Runner.Flags.Grounded, false);
 				runner.last_air = info.WorldTime;
+
+				force.Y -= runner.uphill_force_current * 0.75f;
+				runner.uphill_force_current *= 0.50f;
 			}
 
 			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (((info.WorldTime - runner.last_ground) < 0.20f) || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
