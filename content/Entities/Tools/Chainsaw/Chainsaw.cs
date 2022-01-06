@@ -167,7 +167,7 @@ namespace TC2.Base.Components
 						}
 
 #if CLIENT
-						Camera.Shake(ref region, transform.position, 0.25f, 0.25f);
+						Shake.Emit(ref region, transform.position, 0.25f, 0.25f);
 #endif
 					}
 

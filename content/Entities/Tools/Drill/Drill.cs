@@ -218,7 +218,7 @@ namespace TC2.Base.Components
 					var mod = MathF.Pow(Maths.Clamp(len, 0.00f, max_distance) / max_distance, 3.00f);
 					var mod_inv = 1.00f - mod;
 
-					Camera.Shake(ref region, pos_b, 0.30f * mod_inv, 0.20f);
+					Shake.Emit(ref region, pos_b, 0.30f * mod_inv, 0.20f);
 
 					sound_emitter.volume = 1.00f;
 					sound_emitter.pitch = Maths.Damp(sound_emitter.pitch, 0.80f + (mod * 0.50f), 2.00f, App.fixed_update_interval_s);

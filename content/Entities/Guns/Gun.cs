@@ -1,4 +1,6 @@
 ﻿
+using Keg.Engine;
+
 namespace TC2.Base.Components
 {
 	public static partial class Gun
@@ -150,6 +152,8 @@ namespace TC2.Base.Components
 
 			public float smoke_size = 1.00f;
 			public int smoke_amount = 1;
+
+			public float shake_amount = 0.20f;
 
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher)]
 			public int projectile_count = 1;
@@ -346,6 +350,10 @@ namespace TC2.Base.Components
 				var failure_rate = gun.failure_rate;
 				var stability = gun.stability;
 
+#if CLIENT
+				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 2.00f, 16.00f);
+#endif
+
 #if SERVER
 				ref var material = ref inventory_magazine.resource.material.GetDefinition();
 				if (material.projectile_prefab.id != 0)
@@ -482,21 +490,22 @@ namespace TC2.Base.Components
 						Particle.Spawn(ref region, particle);
 					}
 
+					var smoke_amount_inv = 1.00f / gun.smoke_amount;
 					for (var i = 0; i < gun.smoke_amount; i++)
 					{
 						var particle = Particle.New(texture_smoke, pos_w_offset + (dir * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
-						particle.fps = (byte)random.NextFloatRange(8, 10);
+						particle.fps = (byte)random.NextFloatRange(6, 8);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
 						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = dir * random.NextFloatRange(1.00f, 1.50f);
+						particle.vel = (dir * random.NextFloatRange(1.00f, 1.50f));
 						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
-						particle.drag = random.NextFloatRange(0.00f, 0.01f);
-						particle.color_a = new Color32BGRA(100, 220, 220, 220);
+						particle.drag = random.NextFloatRange(0.01f, 0.02f);
+						particle.color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((gun.smoke_amount - i) * 0.04f), 0.20f, 1.00f));
 						particle.color_b = new Color32BGRA(000, 150, 150, 150);
 
 						Particle.Spawn(ref region, particle);
