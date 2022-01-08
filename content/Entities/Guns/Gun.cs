@@ -351,7 +351,7 @@ namespace TC2.Base.Components
 				var stability = gun.stability;
 
 #if CLIENT
-				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 2.00f, 16.00f);
+				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
 #endif
 
 #if SERVER

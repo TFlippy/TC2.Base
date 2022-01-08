@@ -49,6 +49,8 @@ gun:
 	action: manual
 	type: cannon
 	feed: single
+
+	shake_amount: 0.900
 	
 	@inventory1:
 	{

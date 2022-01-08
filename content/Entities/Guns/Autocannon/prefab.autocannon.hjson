@@ -37,6 +37,8 @@ gun:
 	action: blowback
 	type: autocannon
 	feed: magazine
+
+	shake_amount: 0.600
 	
 	@inventory1:
 	{

@@ -35,6 +35,8 @@ gun:
 	action: blowback
 	type: machinegun
 	feed: drum
+
+	shake_amount: 0.400
 	
 	@inventory1:
 	{

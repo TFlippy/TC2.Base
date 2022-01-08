@@ -38,6 +38,8 @@ gun:
 	action: manual
 	type: shotgun
 	feed: single
+
+	shake_amount: 0.350
 	
 	@inventory1:
 	{

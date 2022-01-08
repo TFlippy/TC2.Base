@@ -45,6 +45,8 @@ gun:
 	action: pump
 	type: shotgun
 	feed: clip
+
+	shake_amount: 0.350
 	
 	@inventory1:
 	{

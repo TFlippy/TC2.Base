@@ -36,6 +36,8 @@ gun:
 	action: lever
 	type: rifle
 	feed: clip
+
+	shake_amount: 0.320
 	
 	@inventory1:
 	{
