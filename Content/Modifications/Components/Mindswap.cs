@@ -52,6 +52,7 @@ namespace TC2.Base.Components
 
 							mindswap.flags |= Flags.Active;
 							entity.SyncComponent(ref mindswap);
+							parent.SyncComponent(ref character);
 #endif
 						}
 					}
