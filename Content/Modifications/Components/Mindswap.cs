@@ -45,7 +45,11 @@ namespace TC2.Base.Components
 #if SERVER
 							App.WriteLine(parent + "C");
 
-							character.ent_controlled.SetCharacter(entity);
+							character.ent_controlled.SetCharacter(default(Entity));
+							entity.SetCharacter(parent);
+							character.ent_character = entity;
+							character.ent_controlled = entity;
+
 							mindswap.flags |= Flags.Active;
 							entity.SyncComponent(ref mindswap);
 #endif

@@ -54,6 +54,9 @@ namespace TC2.Base
 					ref var organicstate = ref context.GetOrAddComponent<Organic.State>();
 					organicstate.consciousness_shared = 1.00f;
 					ref var npc = ref context.GetOrAddComponent<NPC.Data>();
+					ref var runner = ref context.GetOrAddComponent<Runner.Data>();
+					runner.walk_force = 1000.00f;
+					runner.jump_force = 2000.00f;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
