@@ -41,20 +41,15 @@ namespace TC2.Base
 				name: "Mind Swap",
 				description: "Swap your mind with this when holding it.",
 
-				// This randomly causes a left click and a space bar (at the same time)
-				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
-				// Due to the wide variety of uses this has, this costs a large amount of materials
-				// This doesn't aim, so using anything which uses aim direction requires additional setup
+				// 
 
 				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var mindswap = ref context.GetOrAddComponent<Mindswap.Data>();
-					ref var organic = ref context.GetOrAddComponent<Organic.Data>();
-					organic.tags |= Organic.Tags.Brain;
-					ref var organicstate = ref context.GetOrAddComponent<Organic.State>();
-					organicstate.consciousness_shared = 1.00f;
 					ref var npc = ref context.GetOrAddComponent<NPC.Data>();
 					ref var runner = ref context.GetOrAddComponent<Runner.Data>();
+					ref var threat = ref context.GetOrAddComponent<Threat.Data>();
+					threat.priority = 7.00f;
 					runner.walk_force = 1000.00f;
 					runner.jump_force = 2000.00f;
 				},
