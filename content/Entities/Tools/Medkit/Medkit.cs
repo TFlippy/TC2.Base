@@ -8,11 +8,11 @@
 			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
 			public float power;
 
-			[Statistics.Info("Healing (Primary)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float primary_multiplier = 1.00f;
+			[Statistics.Info("Healing (Integrity)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float integrity_multiplier = 1.00f;
 
-			[Statistics.Info("Healing (Secondary)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float secondary_multiplier = 1.00f;
+			[Statistics.Info("Healing (Durability)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			public float durability_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
 			public float cooldown;
@@ -23,11 +23,11 @@
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float aoe = 0.25f;
 
-			[Statistics.Info("Healing Min (Primary)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
-			public float heal_min_primary = 1.00f; // Can heal only as long as above this % plus the reconstruction medic skill
+			[Statistics.Info("Healing Min (Integrity)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			public float heal_min_integrity = 1.00f; // Can heal only as long as above this % plus the reconstruction medic skill
 
-			[Statistics.Info("Healing Min (Secondary)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
-			public float heal_min_secondary = 0.50f; // Can heal as long as above this %
+			[Statistics.Info("Healing Min (Durability)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			public float heal_min_durability = 0.50f; // Can heal as long as above this %
 
 			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
 			public float critical_heal = 0.00f; // Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
@@ -70,12 +70,12 @@
 						ref var health = ref nearest.entity.GetComponent<Health.Data>();
 						if (!health.IsNull())
 						{
-							var primary = health.primary;
-							var secondary = health.secondary;
+							var integrity = health.integrity;
+							var durability = health.durability;
 
-							var color = Color32BGRA.FromHSV(MathF.Min(primary, secondary) * 2.00f, 1.00f, 1.00f);
+							var color = Color32BGRA.FromHSV(MathF.Min(integrity, durability) * 2.00f, 1.00f, 1.00f);
 							GUI.DrawEntity(nearest.entity, color: color);
-							GUI.DrawText($"Primary: {primary * 100.00f:0}%\nSecondary: {secondary * 100.00f:0}%", pos_c + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
+							GUI.DrawText($"Integrity: {integrity * 100.00f:0}%\nDurability: {durability * 100.00f:0}%", pos_c + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
 						}
 					}
 				}
@@ -143,27 +143,27 @@
 							ref var health = ref hit.entity.GetComponent<Health.Data>();
 							if (!health.IsNull())
 							{
-								var heal_primary_max = Maths.Clamp((1.00f - medkit.heal_min_primary) + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
-								if (heal_primary_max > 0.00f && (1.00f - health.primary) <= heal_primary_max)
+								var heal_integrity_max = Maths.Clamp((1.00f - medkit.heal_min_integrity) + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
+								if (heal_integrity_max > 0.00f && (1.00f - health.integrity) <= heal_integrity_max)
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
-									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
 
-									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.primary, 0.00f, heal_primary_max), heal_normalized);
-									health.primary += heal_amount;
+									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.integrity, 0.00f, heal_integrity_max), heal_normalized);
+									health.integrity += heal_amount;
 									total_healed_amount += heal_amount * health.max;
 
 									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
 								}
 
-								var heal_secondary_max = Maths.Clamp(1.00f - medkit.heal_min_secondary, 0.00f, 1.00f);
-								if (heal_secondary_max > 0.00f && (1.00f - health.secondary) <= heal_secondary_max)
+								var heal_durability_max = Maths.Clamp(1.00f - medkit.heal_min_durability, 0.00f, 1.00f);
+								if (heal_durability_max > 0.00f && (1.00f - health.durability) <= heal_durability_max)
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
-									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.primary);
+									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
 
-									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.secondary, 0.00f, heal_secondary_max), heal_normalized);
-									health.secondary += heal_amount;
+									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.durability, 0.00f, heal_durability_max), heal_normalized);
+									health.durability += heal_amount;
 									total_healed_amount += heal_amount * health.max;
 
 									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);

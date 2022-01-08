@@ -28,7 +28,7 @@ namespace TC2.Base.Components
 			{
 				regen.next_regen = info.WorldTime + regen.interval;
 
-				if (health.primary < 1.00f || health.secondary < 1.00f)
+				if (health.integrity < 1.00f || health.durability < 1.00f)
 				{
 					entity.Heal(entity, entity, transform.position, regen.amount, min_a: regen.min_a, max_a: regen.max_a, min_b: regen.min_b, max_b: regen.max_b);
 				}
