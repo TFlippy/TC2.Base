@@ -23,11 +23,11 @@
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
 			public float aoe = 0.25f;
 
-			[Statistics.Info("Healing Cap (Primary)", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float heal_cap_primary = 0.00f; // How high the health can go (1 is the highest possible)
+			[Statistics.Info("Healing Min (Primary)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			public float heal_min_primary = 1.00f; // Can heal only as long as above this % plus the reconstruction medic skill
 
-			[Statistics.Info("Healing Cap (Secondary)", description: "Can heal up to this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
-			public float heal_cap_secondary = 0.50f; // How high the health can go (1 is the highest possible)
+			[Statistics.Info("Healing Min (Secondary)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			public float heal_min_secondary = 0.50f; // Can heal as long as above this %
 
 			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
 			public float critical_heal = 0.00f; // Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
@@ -143,7 +143,7 @@
 							ref var health = ref hit.entity.GetComponent<Health.Data>();
 							if (!health.IsNull())
 							{
-								var heal_primary_max = Maths.Clamp(medkit.heal_cap_primary + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
+								var heal_primary_max = Maths.Clamp((1.00f - medkit.heal_min_primary) + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
 								if (heal_primary_max > 0.00f && (1.00f - health.primary) <= heal_primary_max)
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
@@ -156,7 +156,7 @@
 									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
 								}
 
-								var heal_secondary_max = Maths.Clamp(medkit.heal_cap_secondary, 0.00f, 1.00f);
+								var heal_secondary_max = Maths.Clamp(1.00f - medkit.heal_min_secondary, 0.00f, 1.00f);
 								if (heal_secondary_max > 0.00f && (1.00f - health.secondary) <= heal_secondary_max)
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
