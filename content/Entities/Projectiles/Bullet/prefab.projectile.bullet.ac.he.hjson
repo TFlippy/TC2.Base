@@ -3,9 +3,10 @@ $tags: []
 projectile:
 {
 	damage_base: 100.000
-	damage_bonus: 200.000
+	damage_bonus: 300.000
 	lifetime: 2.000
 	damage_type: bullet_mg
+	size: 0.350
 }
 
 projectile.renderer:
@@ -20,9 +21,9 @@ transform:
 
 explosive:
 {
-	radius: 4.500
-	power: 3.000
-	damage_entity: 4000.000
+	radius: 5.000
+	power: 4.000
+	damage_entity: 5000.000
 	damage_terrain: 15000.000
 	flags: primed
 }

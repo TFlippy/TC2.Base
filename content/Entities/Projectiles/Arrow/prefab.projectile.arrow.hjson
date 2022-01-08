@@ -2,10 +2,11 @@ $tags: []
 
 projectile:
 {
-	damage_base: 200.000
-	damage_bonus: 200.000
+	damage_base: 170.000
+	damage_bonus: 270.000
 	lifetime: 15.000
 	damage_type: arrow
+	size: 0.400
 }
 
 animated.renderer:

@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	inventory_weight_multiplier: 0.400
+
 	@shape.box:
 	{
 		size: [2.000, 1.400]
@@ -11,6 +13,7 @@ body:
 		elasticity: 0.100
 		layer: entity, crate, shipment
 		mask: world, crate
+		material: wood
 	}
 }
 

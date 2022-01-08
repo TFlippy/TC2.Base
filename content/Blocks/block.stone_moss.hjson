@@ -10,7 +10,7 @@
 	smoothing: 0.150
 	mass: 2.000
 	friction: 0.900
-	elasticity: 0.300
+	elasticity: 0.600
 	stability: 0.500
 	
 	texture: "terrain_stone_moss"

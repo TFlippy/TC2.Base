@@ -1,0 +1,99 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\TC2.Core"
+		}
+	],
+	"launch": {
+		"configurations": [
+		],
+		"compounds": []
+	},
+	"extensions": {
+		"recommendations": 
+		[
+			"ms-dotnettools.csharp",
+			"eamodio.gitlens",
+			"majicDave.vscode-shaderc",
+			"slevesque.shader",
+			"laktak.hjson",
+			"streetsidesoftware.code-spell-checker"
+		]
+	},
+	"settings": {
+		"[csharp]": {
+
+		},
+		"[hjson]": {
+
+		},
+		"cSpell.ignorePaths": [
+			"package-lock.json",
+			"node_modules",
+			"vscode-extension",
+			".git/objects",
+			".vscode",
+			".vscode-insiders",
+			"*.code-workspace"
+		],
+		"editor.bracketPairColorization.enabled": true,
+		"editor.formatOnSave": false,
+		"editor.smoothScrolling": false,
+		"editor.useTabStops": true,
+		"editor.lightbulb.enabled": true,
+		"editor.links": true,
+		"editor.matchBrackets": "always",
+		"editor.tabCompletion": "on",
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false,
+		"editor.comments.insertSpace": true,
+		"editor.codeLens": true,
+		"explorer.compactFolders": false,
+		"explorer.confirmDelete": true,
+		"explorer.openEditors.visible": 9,
+		"explorer.confirmDragAndDrop": true,
+		"debug.openExplorerOnEnd": false,
+		"breadcrumbs.enabled": true,
+		"breadcrumbs.icons": true,
+		"files.encoding": "utf8",
+		"files.insertFinalNewline": true,
+		"files.autoSave": "off",
+		"csharp.semanticHighlighting.enabled": true,
+		"csharp.suppressDotnetInstallWarning": false,
+		"csharp.suppressDotnetRestoreNotification": false,
+		"csharp.testsCodeLens.enabled": false,
+		"csharp.suppressBuildAssetsNotification": false,
+		"omnisharp.waitForDebugger": false,
+		"omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+		"omnisharp.enableRoslynAnalyzers": false,
+		"omnisharp.disableMSBuildDiagnosticWarning": false,
+		"omnisharp.autoStart": true,
+		"omnisharp.useEditorFormattingSettings": false,
+		"cSpell.words": [
+			"invsqr",
+			"smirgl",
+			"cysharp",
+			"lerp",
+			"mult"
+		],
+		"razor.disabled": true,
+		"omnisharp.useGlobalMono": "never",
+		"razor.format.enable": false,
+		"workbench.colorTheme": "Visual Studio 2019 Light",
+		"explorer.copyRelativePathSeparator": "/",
+		"explorer.sortOrder": "modified",
+		"explorer.sortOrderLexicographicOptions": "lower",
+		"workbench.experimental.layoutControl.enabled": true,
+		"workbench.startupEditor": "none",
+		"workbench.preferredDarkColorTheme": "One Dark Pro",
+		"workbench.preferredLightColorTheme": "Visual Studio Light",
+		"workbench.sideBar.location": "right",
+		"workbench.tree.indent": 12,
+		"workbench.editor.highlightModifiedTabs": true,
+		"oneDarkPro.bold": true,
+		"omnisharp.defaultLaunchSolution": "TC2.Base.sln"
+	}
+}

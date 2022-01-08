@@ -9,8 +9,8 @@
 	max_health: 100000.000
 	smoothing: 0.130
 	mass: 1.000
-	friction: 0.980
-	elasticity: 0.100
+	friction: 0.750
+	elasticity: 0.700
 	stability: 0.500
 	
 	texture: "terrain_hardstone"

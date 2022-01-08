@@ -1,6 +1,6 @@
 $name: "Market"
 $desc: "A place to trade at."
-$tags: ["fufu"]
+$tags: []
 
 body:
 {
@@ -68,4 +68,23 @@ light:
 claimable:
 {
 	flags: no_menu
+}
+
+nameable:
+{
+	flags: no_rename, randomize
+}
+
+depot:
+{
+	offset: [0.000, 0.000]
+	size: [4.000, 3.000]
+	flags: allow_withdraw, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
+
+	shipping_fee_base: 200.000
+}
+
+stockpile:
+{
+
 }

@@ -10,7 +10,7 @@
 	smoothing: 0.110
 	mass: 10.000
 	friction: 0.900
-	elasticity: 0.030
+	elasticity: 0.700
 	stability: 0.500
 	
 	texture: "terrain_steel_beam"

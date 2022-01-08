@@ -10,7 +10,7 @@
 	smoothing: 0.200
 	mass: 1.000
 	friction: 0.500
-	elasticity: 0.010
+	elasticity: 0.090
 	stability: 0.500
 	
 	texture: "terrain_clay"

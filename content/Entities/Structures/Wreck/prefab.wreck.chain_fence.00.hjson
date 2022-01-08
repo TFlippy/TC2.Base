@@ -37,3 +37,14 @@ transform:
 {
 
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 40.000
+		}
+	]
+}

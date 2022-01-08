@@ -1,0 +1,20 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 190.000
+	damage_bonus: 175.000
+	lifetime: 2.000
+	damage_type: bullet_hc
+	size: 0.175
+}
+
+projectile.renderer:
+{
+	length: 6.000
+}
+
+transform:
+{
+
+}

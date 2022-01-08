@@ -1,0 +1,107 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-1.250, 0.000]
+		b: [1.250, 0.000]
+		mass: 5.000
+		radius: 0.250
+		friction: 0.600
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.250, -0.125]
+	sound_shoot: "musket_shoot"
+	sound_cycle: "musket_cycle"
+	sound_reload: "musket_reload"
+	velocity_multiplier: 270.000
+	jitter_multiplier: 4.000
+	damage_multiplier: 5.000
+	recoil_multiplier: 2.500
+	reload_interval: 2.000
+	cycle_interval: 0.500
+	failure_rate: 0.100
+	max_ammo: 1.000
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_musket
+	action: manual
+	type: rifle
+	feed: breech
+
+	sound_volume: 1.900
+	sound_pitch: 1.000
+	
+	smoke_size: 4.000
+	smoke_amount: 8
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.250, -0.125]
+		scale: [24.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "musket"
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}

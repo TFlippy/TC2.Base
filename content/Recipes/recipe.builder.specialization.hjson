@@ -5,6 +5,8 @@
 	icon:
 	{
 		texture: "specialization_icons"
+		size: [32, 32]
+		frame: [0, 0]
 	}
 	
 	min: 1

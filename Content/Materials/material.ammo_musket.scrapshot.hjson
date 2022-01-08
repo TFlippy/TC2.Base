@@ -1,0 +1,30 @@
+{
+	name: "Musket Ammo (Scrapshot)"
+	description: "Ammunition for muskets, blunderbusses, and pistols. Fires a lot of projectiles."
+	icon:
+	{
+		texture: "resource.ammo_musket.scrapshot"
+		uv0: [0.750, 0.000]
+		uv1: [1.000, 1.000]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_musket, despawnable
+	mass_per_unit: 0.030
+	quantity_max: 50.000
+	prefab: "resource.ammo_musket.scrapshot"
+	
+	projectile_count: 8
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 3.500
+	projectile_heat: 30.000
+	projectile_prefab: "projectile.musket.scrapshot"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

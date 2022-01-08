@@ -11,7 +11,7 @@ body:
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -24,7 +24,7 @@ gun:
 	sound_reload: "rifle_reload"
 	velocity_multiplier: 800.000
 	jitter_multiplier: 0.100
-	damage_multiplier: 4.000
+	damage_multiplier: 5.000
 	recoil_multiplier: 2.000
 	reload_interval: 0.600
 	cycle_interval: 0.500
@@ -65,6 +65,9 @@ holdable:
 	offset: [-0.500, 0.000]
 	radius: 4.000
 	flags: storable
+
+	force_multiplier: 1.500
+	torque_multiplier: 1.100
 }
 
 animated.renderer:

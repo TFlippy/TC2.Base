@@ -188,7 +188,7 @@
 			public void Draw()
 			{
 				var max_temperature = 2000.00f;
-				var default_pressure = 100.00;
+				// var default_pressure = 100.00;
 				var max_pressure = 5_000_000.00;
 
 				using (var window = GUI.Window.Interaction("Refinery", this.ent_refinery))

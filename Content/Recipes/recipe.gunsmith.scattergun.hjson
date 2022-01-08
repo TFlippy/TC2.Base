@@ -1,0 +1,67 @@
+{
+	name: "Scattergun"
+	desc:
+		'''
+		A break-action shotgun.
+		Can use a wide range of ammunition.
+		'''
+	
+	icon:
+	{
+		texture: "scattergun"
+	}
+	
+	min: 1
+	max: 80
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 40.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 3.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 300.000
+			difficulty: 9.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 110.000
+			difficulty: 5.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 180.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "scattergun"
+			amount: 1.000
+		}
+	]
+}

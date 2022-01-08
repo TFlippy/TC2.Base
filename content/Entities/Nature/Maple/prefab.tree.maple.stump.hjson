@@ -1,0 +1,50 @@
+$name: "Oak Stump"
+$desc: "What's left of an oak tree."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [1.300, 1.500]
+		offset: [0.050, -0.500]
+		friction: 0.950
+		elasticity: 0.500
+		material: wood
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 7500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tree.oak.stump"
+	}
+	offset: [-0, -0.500]
+	z: -250.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 2000.000
+		}
+	]
+}

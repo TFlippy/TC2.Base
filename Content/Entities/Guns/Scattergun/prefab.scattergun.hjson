@@ -1,0 +1,106 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		mass: 7.000
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.000, -0.125]
+	sound_shoot: "scattergun_shoot"
+	sound_cycle: "scattergun_open"
+	sound_reload: "scattergun_reload"
+	velocity_multiplier: 360.000
+	jitter_multiplier: 10.000
+	damage_multiplier: 1.200
+	recoil_multiplier: 2.800
+	reload_interval: 1.100
+	cycle_interval: 0.500
+	failure_rate: 0.010
+	max_ammo: 1.000
+	sound_volume: 1.400
+	sound_pitch: 1.100
+	smoke_amount: 2.000
+	flags: none
+	ammo_filter: ammo_sg
+	action: manual
+	type: shotgun
+	feed: single
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [28.000, 20.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 4.000
+	flags: storable
+
+	force_multiplier: 1.500
+	torque_multiplier: 1.100
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "scattergun"
+	}
+}
+
+health:
+{
+	max: 2100.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

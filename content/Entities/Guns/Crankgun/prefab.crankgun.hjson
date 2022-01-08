@@ -11,7 +11,7 @@ body:
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -74,6 +74,9 @@ holdable:
 	offset: [-0.875, 0.600]
 	radius: 10.000
 	flags: storable
+
+	force_multiplier: 0.700
+	torque_multiplier: 0.500
 }
 
 animated.renderer:

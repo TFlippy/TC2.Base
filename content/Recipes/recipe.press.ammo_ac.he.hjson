@@ -32,7 +32,12 @@
 		{
 			type: "resource"
 			material: "gunpowder"
-			amount: 10.000
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "nitroglycerine"
+			amount: 2.000
 		}
 		{
 			type: "work"
