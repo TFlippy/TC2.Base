@@ -31,10 +31,10 @@ gun:
 	muzzle_offset: [2.500, -0.200]
 	sound_shoot: "cannon_shoot"
 	sound_reload: "cannon_reload"
-	velocity_multiplier: 300.000
+	velocity_multiplier: 150.000
 	jitter_multiplier: 0.300
 	damage_multiplier: 25.000
-	recoil_multiplier: 150.000
+	recoil_multiplier: 300.000
 	reload_interval: 3.500
 	cycle_interval: 0.500
 	failure_rate: 0.000
