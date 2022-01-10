@@ -26,7 +26,10 @@ animated.renderer:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.125]
+	muzzle_offset: [1.250, 0.000]
+	particle_offset: [-2.500, 0.000]
+	particle_rotation: -3.140
+
 	sound_shoot: "bazooka_shoot"
 	sound_reload: "bazooka_reload"
 	velocity_multiplier: 40.000
@@ -38,11 +41,14 @@ gun:
 	failure_rate: 0.000
 	max_ammo: 1.000
 	projectile_count: 1
-	flags: no_particles
+	flags: none
 	ammo_filter: ammo_rocket
 	action: manual
 	type: launcher
 	feed: single
+
+	smoke_amount: 6
+	smoke_size: 3.000
 	
 	@inventory1:
 	{
