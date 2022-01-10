@@ -72,7 +72,7 @@ claimable:
 
 nameable:
 {
-	flags: no_rename, randomize
+	flags: randomize
 }
 
 depot:

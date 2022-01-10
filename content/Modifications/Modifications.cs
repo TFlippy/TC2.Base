@@ -561,6 +561,23 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
+
+			//definitions.Add(Modification.Definition.New<Holdable.Data>
+			//(
+			//	identifier: "holdable.compact",
+			//	name: "Compact",
+			//	description: "Allows the item to be stored in toolbelt.",
+
+			//	can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle) && !data.flags.HasAny(Holdable.Flags.Storable);
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.flags.SetFlag(Holdable.Flags.Storable, true);
+			//	}
+			//));
 		}
 	}
 }
