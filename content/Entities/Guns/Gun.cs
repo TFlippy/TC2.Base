@@ -105,6 +105,8 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public Vector2 muzzle_offset;
+			public Vector2 particle_offset;
+			public float particle_rotation;
 
 			public Sound.Handle sound_shoot;
 			public Sound.Handle sound_cycle;
@@ -342,7 +344,9 @@ namespace TC2.Base.Components
 			if (gun_state.stage == Stage.Fired)
 			{
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
+				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var random = XorRandom.New();
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
@@ -480,12 +484,12 @@ namespace TC2.Base.Components
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
 					{
-						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + new Vector2(1.50f * gun.flash_size, 0.00f)), 0.25f);
+						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset + new Vector2(1.50f * gun.flash_size, 0.00f).RotateByRad(gun.particle_rotation)), 0.25f);
 						particle.fps = 24;
 						particle.frame_count = 6;
 						particle.frame_count_total = 6;
 						particle.scale = gun.flash_size;
-						particle.rotation = transform.rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
+						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
 
 						Particle.Spawn(ref region, particle);
 					}
@@ -493,15 +497,15 @@ namespace TC2.Base.Components
 					var smoke_amount_inv = 1.00f / gun.smoke_amount;
 					for (var i = 0; i < gun.smoke_amount; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset + (dir * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
+						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
 						particle.fps = (byte)random.NextFloatRange(6, 8);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
 						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = (dir * random.NextFloatRange(1.00f, 1.50f));
-						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir * random.NextFloatRange(0.05f, 0.20f));
+						particle.vel = (dir_particle * random.NextFloatRange(1.00f, 1.50f));
+						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
 						particle.drag = random.NextFloatRange(0.01f, 0.02f);
