@@ -40,7 +40,7 @@
 			type: "work"
 			work: "smithing"
 			amount: 400.000
-			difficulty: 14.000
+			difficulty: 8.000
 		}
 		{
 			type: "work"
