@@ -1259,8 +1259,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
-				name: "Gas seal",
-				description: "Increases damage and velocity, by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
+				name: "Gas Seal",
+				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1340,8 +1340,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
-				name: "Hand fitted parts",
-				description: "Increases damage and velocity, by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
+				name: "Hand-Fitted Parts",
+				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1421,8 +1421,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_side_gate_loading",
-				name: "Side gate loading",
-				description: "Simplifies the revolver construction, increasing reliability at the cost of reload speed.",
+				name: "Side Gate Loading",
+				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
