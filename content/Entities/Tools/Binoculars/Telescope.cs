@@ -82,7 +82,7 @@
 				var deadzone = telescope.deadzone * telescope.current_modifier;
 				len = MathF.Max(len - deadzone, 0.00f);
 
-				if (len > deadzone)
+				if (len > deadzone && control.mouse.GetKey(Mouse.Key.Right))
 				{
 					telescope.offset += dir * (telescope.speed * len * App.fixed_update_interval_s);
 				}
@@ -97,7 +97,7 @@
 		[Source.Parent] in Player.Data player)
 		{
 			telescope.current_modifier = 1.00f;
-			telescope.offset = default;
+			//telescope.offset = default;
 		}
 #endif
 	}
