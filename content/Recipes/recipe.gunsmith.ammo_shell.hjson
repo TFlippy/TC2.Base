@@ -1,10 +1,10 @@
 {
-	name: "Cannon Shell"
+	name: "Artillery Shell (Explosive)"
 	desc: "Ammunition for cannons."
 	
 	icon:
 	{
-		texture: "resource.ammo_shell_cannon"
+		texture: "resource.ammo_shell"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -25,7 +25,7 @@
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 50.000
+			amount: 40.000
 		}
 		{
 			type: "resource"
@@ -50,7 +50,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell_cannon"
+			material: "ammo_shell"
 			amount: 1.000
 		}
 	]
