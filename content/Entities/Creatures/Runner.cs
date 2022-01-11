@@ -63,6 +63,12 @@ namespace TC2.Base.Components
 
 			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
 			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+
+			if (any)
+			{
+				body.Activate();
+			}
 
 			runner.flags.SetFlag(Runner.Flags.Walking, is_walking);
 
