@@ -1,15 +1,16 @@
 $tags: []
 
-control:
-{
-
-}
-
 body:
 {
-	@shape.box:
+	@shape.polygon:	
 	{
-		size: [1.900, 1.100]
+		points:
+		[
+			[1.000, 0.500]
+			[-1.000, 0.500]
+			[-0.400, -0.750]
+			[0.400, -0.750]
+		]
 		offset: [0.000, 0.000]
 		mass: 100.000
 		friction: 500.000
@@ -34,7 +35,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "mount"
+		texture: "mount.tripod"
 	}
 	offset: [0.000, -0.350]
 	z: -100.000
@@ -67,6 +68,11 @@ storage:
 	}
 }
 
+control:
+{
+
+}
+
 threat:
 {
 
@@ -87,7 +93,7 @@ joint.base:
 	offset_a: [0.000, -0.700]
 	max_force: 40000.000
 	max_torque: 5000.000
-	flags: control_write
+	flags: control_write, no_wrap
 }
 
 joint.pivot:
@@ -95,12 +101,10 @@ joint.pivot:
 	max_bias: 8.000
 }
 
-joint.rotarylimit:
+joint.gear:
 {
-	max_bias: 3.000
-}
-
-cover:
-{
-	threshold: 0.800
+	min: -1.400
+	max: 0.750
+	error_bias: 0.00001
+	max_bias: 8.000
 }
