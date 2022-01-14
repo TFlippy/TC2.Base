@@ -2,7 +2,7 @@
 	$name: "Valley"
 	$desc: "A large map with a gold-rich valley in the middle."
 	$tag: "frontier"
-
+	
 	entities:
 	[
 		{
@@ -1897,8 +1897,8 @@
 		}
 		{
 			prefab: "miner"
-			position: [327.7345, 60.89516]
-			rotation: 0.000
+			position: [327.7342, 60.89516]
+			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1915,14 +1915,14 @@
 		}
 		{
 			prefab: "farmer"
-			position: [24.44833, 9.100027]
-			rotation: -0
+			position: [24.44794, 9.100027]
+			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [141.8092, 67.43229]
-			rotation: 0.000001
+			position: [141.8091, 67.43235]
+			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
