@@ -1668,18 +1668,6 @@
 			scale: [-1.055554, 0.950]
 		}
 		{
-			prefab: "tree.pine"
-			position: [877.000, 60.875]
-			rotation: 0.05236
-			scale: [1.0375, 0.925]
-		}
-		{
-			prefab: "shrubbery"
-			position: [868.375, 59.875]
-			rotation: 0.000
-			scale: [-1.000, 1.000]
-		}
-		{
 			prefab: "roots"
 			position: [876.4999, 36.875]
 			rotation: 0.000
@@ -1897,7 +1885,7 @@
 		}
 		{
 			prefab: "miner"
-			position: [327.7342, 60.89516]
+			position: [327.7339, 60.89516]
 			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
@@ -1915,13 +1903,13 @@
 		}
 		{
 			prefab: "farmer"
-			position: [24.44794, 9.100027]
+			position: [24.44755, 9.100027]
 			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [141.8091, 67.43235]
+			position: [141.8089, 67.43239]
 			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
@@ -1965,12 +1953,6 @@
 			prefab: "boulder.02"
 			position: [791.750, 48.375]
 			rotation: 0.000
-			scale: [-1.000, 1.000]
-		}
-		{
-			prefab: "boulder.00"
-			position: [872.250, 59.625]
-			rotation: -0
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2138,6 +2120,12 @@
 		{
 			prefab: "roots"
 			position: [835.625, 55.250]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "mine"
+			position: [871.5001, 58.250]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
