@@ -521,14 +521,14 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5603, 62.50201]
-			rotation: -0.162377
+			position: [254.5602, 62.50201]
+			rotation: -0.162397
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7624, 63.35986]
-			rotation: 1.880319
+			position: [262.7624, 63.35988]
+			rotation: 1.880338
 			scale: [1.000, 1.000]
 		}
 		{
@@ -893,8 +893,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.12992]
-			rotation: 0.000134
+			position: [260.8701, 44.12991]
+			rotation: 0.000147
 			scale: [1.000, 1.000]
 		}
 		{
@@ -905,14 +905,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.6008, 44.35455]
-			rotation: -1.569892
+			position: [268.6009, 44.35452]
+			rotation: -1.569831
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5405, 63.00916]
-			rotation: -0.108293
+			position: [268.5401, 63.00911]
+			rotation: -0.108543
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1439,8 +1439,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [429.3317, 61.81055]
-			rotation: 0.104674
+			position: [429.3317, 61.81054]
+			rotation: 0.104698
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1493,8 +1493,50 @@
 		}
 		{
 			prefab: "cannon.wreck"
-			position: [249.594, 63.68723]
-			rotation: -0.352991
+			position: [249.594, 63.68721]
+			rotation: -0.35299
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "miner"
+			position: [175.2338, 68.10179]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "miner"
+			position: [87.62774, 75.10503]
+			rotation: -0.000002
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "builder"
+			position: [436.859, 61.60004]
+			rotation: -0.000092
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "builder"
+			position: [569.2389, 48.0808]
+			rotation: -0.000003
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "farmer"
+			position: [424.2798, 61.48001]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "farmer"
+			position: [72.06144, 60.60172]
+			rotation: 0.000005
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "miner"
+			position: [291.2663, 68.73003]
+			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 	]
