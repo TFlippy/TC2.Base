@@ -8,8 +8,8 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -0.250]
-		b: [0.000, -3.625]
+		a: [0.000, -4.625]
+		b: [0.000, 0.000]
 		mass: 400.000
 		radius: 0.375
 		friction: 1.000
@@ -32,7 +32,7 @@ health:
 
 splittable:
 {
-	rect: [-0.500, -10.750, 0.500, -1.250]
+	rect: [-0.375, -4.625, 0.375, 0.000]
 	texture_stub: "tree.maple.stub"
 	sound_split: "tree_snap_00"
 }
@@ -49,7 +49,7 @@ animated.renderer:
 	{
 		texture: "tree.maple"
 	}
-	offset: [0.000, -2.000]
+	offset: [0.000, -3.000]
 	z: -50.000
 }
 
@@ -62,7 +62,7 @@ tree:
 	
 	@foliage.renderer:
 	{
-		offset: [0.125, -4.500]
+		offset: [0.125, -6.000]
 		z: 90.000
 		texture: "tree.maple.foliage"
 	}
