@@ -109,14 +109,14 @@ joint.base:
 	
 	@sound.mixer:
 	{
-		volume_modifier: 1.200
-		pitch_modifier: 0.250
+		volume_modifier: 1.000
+		pitch_modifier: 0.150
 		volume_min: 0.000
-		pitch_min: 0.700
-		volume_lerp_a: 0.020
-		volume_lerp_b: 0.100
-		pitch_lerp_a: 0.040
-		pitch_lerp_b: 0.010
+		pitch_min: 0.800
+		volume_lerp_a: 0.050
+		volume_lerp_b: 0.300
+		pitch_lerp_a: 0.050
+		pitch_lerp_b: 0.050
 	}
 }
 
@@ -129,8 +129,8 @@ joint.gear:
 {
 	min: -1.400
 	max: 0.750
-	error_bias: 0.050
-	max_bias: 0.700
+	error_bias: 0.001
+	max_bias: 0.200
 }
 
 cover:
