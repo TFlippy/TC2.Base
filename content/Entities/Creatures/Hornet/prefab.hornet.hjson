@@ -62,7 +62,7 @@ control:
 
 pathfinding:
 {
-
+	flags: air
 }
 
 npc:
