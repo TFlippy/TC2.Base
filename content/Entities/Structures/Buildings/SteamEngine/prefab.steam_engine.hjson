@@ -66,6 +66,7 @@ burner:
 	capacity: 8.000
 	energy_loss: 100000.000
 	efficiency: 0.400
+	drain_multiplier: 1.500
 	
 	@inventory1:
 	{
@@ -124,4 +125,5 @@ sound.emitter:
 	file: "steam_engine_loop"
 	volume: 0.000
 	pitch: 1.000
+	size: 0.700
 }

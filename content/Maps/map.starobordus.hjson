@@ -1,7 +1,7 @@
 {
 	$name: "Starobordus"
 	$desc: "A decommissioned artillery training area surrounded by mountains."
-	$tag: "Frontier"
+	$tag: "frontier"
 	
 	entities:
 	[
