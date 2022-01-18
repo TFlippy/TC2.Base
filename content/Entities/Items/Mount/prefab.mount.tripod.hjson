@@ -93,7 +93,7 @@ joint.base:
 	offset_a: [0.000, -0.700]
 	max_force: 40000.000
 	max_torque: 5000.000
-	flags: control_write, no_wrap
+	flags: control_write, no_wrap, force_facing
 }
 
 joint.pivot:

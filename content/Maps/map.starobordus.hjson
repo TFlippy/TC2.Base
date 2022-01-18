@@ -521,14 +521,14 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5602, 62.50201]
-			rotation: -0.162397
+			position: [254.5601, 62.50201]
+			rotation: -0.162423
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7624, 63.35988]
-			rotation: 1.880338
+			position: [262.7624, 63.3599]
+			rotation: 1.880357
 			scale: [1.000, 1.000]
 		}
 		{
@@ -893,8 +893,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.12991]
-			rotation: 0.000147
+			position: [260.8701, 44.1299]
+			rotation: 0.000166
 			scale: [1.000, 1.000]
 		}
 		{
@@ -905,14 +905,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.6009, 44.35452]
-			rotation: -1.569831
+			position: [268.601, 44.35448]
+			rotation: -1.56977
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5401, 63.00911]
-			rotation: -0.108543
+			position: [268.5397, 63.00906]
+			rotation: -0.108794
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1439,8 +1439,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [429.3317, 61.81054]
-			rotation: 0.104698
+			position: [429.3317, 61.81053]
+			rotation: 0.104722
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1493,8 +1493,8 @@
 		}
 		{
 			prefab: "cannon.wreck"
-			position: [249.594, 63.68721]
-			rotation: -0.35299
+			position: [261.8679, 39.90462]
+			rotation: 0.29182
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1506,19 +1506,19 @@
 		{
 			prefab: "miner"
 			position: [87.62774, 75.10503]
-			rotation: -0.000002
+			rotation: -0
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "builder"
-			position: [436.859, 61.60004]
-			rotation: -0.000092
+			position: [436.8595, 61.60009]
+			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "builder"
 			position: [569.2389, 48.0808]
-			rotation: -0.000003
+			rotation: -0.000002
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1529,8 +1529,8 @@
 		}
 		{
 			prefab: "farmer"
-			position: [72.06144, 60.60172]
-			rotation: 0.000005
+			position: [72.06142, 60.60172]
+			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}
 		{

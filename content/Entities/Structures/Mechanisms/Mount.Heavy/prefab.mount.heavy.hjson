@@ -109,7 +109,7 @@ joint.base:
 	offset_a: [0.000, 0.000]
 	max_force: 100000.000
 	max_torque: 100000.000
-	flags: control_write, no_wrap
+	flags: control_write, no_wrap, force_facing
 	
 	@sound.emitter:
 	{
