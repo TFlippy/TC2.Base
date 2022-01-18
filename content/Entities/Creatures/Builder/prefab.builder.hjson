@@ -97,10 +97,10 @@ shop:
 	tags: builder
 }
 
-pathfinding:
-{
-	flags: land
-}
+// pathfinding:
+// {
+// 	flags: land
+// }
 
 npc:
 {
@@ -117,10 +117,10 @@ worker.state:
 
 }
 
-selectable:
-{
+// selectable:
+// {
 	
-}
+// }
 
 experience:
 {
