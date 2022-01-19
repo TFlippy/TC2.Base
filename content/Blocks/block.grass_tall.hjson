@@ -25,8 +25,8 @@
 	resources:
 	[
 		{
-			material: "soil_rich"
-			quantity: 1.000
+			material: "soil"
+			quantity: 0.500
 		}
 	]
 }
