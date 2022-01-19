@@ -28,9 +28,5 @@
 			material: "stone"
 			quantity: 0.400
 		}
-		{
-			material: "soil_rich"
-			quantity: 0.100
-		}
 	]
 }
