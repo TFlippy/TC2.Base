@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 3500.000
 }
 
 animated.renderer:
@@ -37,6 +37,16 @@ animated.renderer:
 		size: [20, 24]
 	}
 	z: 100.000
+}
+
+faction.colorable:
+{
+
+}
+
+claimable:
+{
+
 }
 
 interactable:
@@ -59,9 +69,4 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: vertical
 	flags: lockable
-}
-
-cover:
-{
-	threshold: 0.300
 }
