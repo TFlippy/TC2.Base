@@ -62,8 +62,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Medkit.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.heal_cap_primary += 0.15f;
-					data.heal_cap_secondary += 0.10f;
+					data.heal_min_integrity -= MathF.Min(0.15f, data.heal_min_integrity);
+					data.heal_min_durability -= MathF.Min(0.10f, data.heal_min_durability);
 
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -100,7 +100,7 @@ namespace TC2.Base
 			//	{
 			//		data.cooldown *= 1.20f;
 			//		data.power *= 1.70f;
-			//		data.heal_cap = MathF.Min(1.00f, data.heal_cap + 0.05f);
+			//		data.heal_min = MathF.Min(1.00f, data.heal_min + 0.05f);
 			//		data.pain += 300.00f;
 			//		context.requirements_new.Add(Crafting.Requirement.Resource("meat", 150));
 			//	}
@@ -124,8 +124,8 @@ namespace TC2.Base
 			//		data.pain += 100.00f;
 
 			//		data.critical_heal += 3.00f; // Quadruple healing at 0 hp, 2.5x healing at 50% hp
-			//		data.heal_cap_primary += 0.05f;
-			//		data.heal_cap_secondary -= 0.20f;
+			//		data.heal_min_integrity += 0.05f;
+			//		data.heal_min_durability -= 0.20f;
 
 			//		context.requirements_new.Add(Crafting.Requirement.Resource("mithril", 3));
 			//	}

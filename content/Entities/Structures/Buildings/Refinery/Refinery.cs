@@ -48,7 +48,7 @@
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
-		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state, 
+		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned, Trait.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
 		{
 			var amount_total = 0.00f;
@@ -195,52 +195,153 @@
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 
+					using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 0)))
 					{
-						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 3)))
+						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
 						{
-							using (GUI.Group.New())
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(padding: new(12, 12)))
 							{
-								using (GUI.Group.New())
+								GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 4));
+							}
+						}
+
+						GUI.SameLine();
+
+						using (GUI.Group.New(size: GUI.GetRemainingSpace() with { Y = GUI.GetCurrentLineSize().Y }))
+						{
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(padding: new(12, 8)))
+							{
+								ref var recipe = ref this.crafter.GetCurrentRecipe();
+								if (!recipe.IsNull())
 								{
-									GUI.DrawInventoryDock(Inventory.Type.Output, new Vector2(48 * 4, 48 * 2));
+									GUI.Title($"{recipe.name}", size: 24);
+									GUI.SeparatorThick();
+
+
+
+								}
+							}
+							//GUI.SeparatorThick();
+
+
+						}
+					}
+
+					using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+					{
+						using (GUI.Group.New(size: new Vector2(48 * 5, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
+						{
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(padding: new(12, 12)))
+							{
+								using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight())))
+								{
+									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
+									
+									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									GUI.SameLine();
+									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
+									
 								}
 
-								using (GUI.Group.New())
+								GUI.SameLine();
+
+								using (GUI.Group.New(size: GUI.GetRemainingSpace() with { X = GUI.GetRemainingWidth() * 0.50f }))
 								{
-									GUI.DrawInventoryDock(Inventory.Type.Input, new Vector2(48 * 4, 48));
+									GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.GetRemainingHeight()));
+
+									GUI.SameLine();
+
+									GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.GetRemainingHeight()));
 								}
 							}
 
-							GUI.SameLine();
-
-							GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.GetRemainingHeight()));
-
-							GUI.SameLine();
-
-							GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.GetRemainingHeight()));
-
+							
 						}
 
-
-						GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
-
-						var changed = false;
-
-						changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
 						GUI.SameLine();
-						changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
-						GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
 
-						if (changed)
+						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
-							var rpc = new Refinery.ConfigureRPC()
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
 							{
-								pressure_target = this.refinery_state.pressure_target,
-								temperature_target = this.refinery_state.temperature_target
-							};
-							rpc.Send(this.ent_refinery);
+								using (GUI.Group.New())
+								{
+
+									var changed = false;
+
+									changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
+									GUI.SameLine();
+									changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
+									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
+
+									if (changed)
+									{
+										var rpc = new Refinery.ConfigureRPC()
+										{
+											pressure_target = this.refinery_state.pressure_target,
+											temperature_target = this.refinery_state.temperature_target
+										};
+										rpc.Send(this.ent_refinery);
+									}
+								}
+
+							}
+							//GUI.SeparatorThick();
+
+
+
+
 						}
 					}
+
+					//{
+					//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 3)))
+					//	{
+					//		using (GUI.Group.New())
+					//		{
+
+
+
+					//		}
+
+					//		GUI.SameLine();
+
+					//		GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.GetRemainingHeight()));
+
+					//		GUI.SameLine();
+
+					//		GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.GetRemainingHeight()));
+
+					//	}
+
+
+					//	GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
+
+					//	var changed = false;
+
+					//	changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
+					//	GUI.SameLine();
+					//	changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
+					//	GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
+
+					//	if (changed)
+					//	{
+					//		var rpc = new Refinery.ConfigureRPC()
+					//		{
+					//			pressure_target = this.refinery_state.pressure_target,
+					//			temperature_target = this.refinery_state.temperature_target
+					//		};
+					//		rpc.Send(this.ent_refinery);
+					//	}
+					//}
 				}
 			}
 		}

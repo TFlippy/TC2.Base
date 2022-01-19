@@ -1,21 +1,11 @@
 $tags: []
 
-control:
-{
-
-}
-
-aimable:
-{
-
-}
-
 body:
 {
 	@shape.line:
 	{
 		a: [-0.400, 0.000]
-		b: [0.400, 0.000]
+		b: [0.400, -0.200]
 		mass: 1.200
 		radius: 0.250
 		friction: 0.900
@@ -45,6 +35,8 @@ gun:
 	action: manual
 	type: handgun
 	feed: breech
+
+	shake_amount: 0.300
 	
 	sound_volume: 1.700
 	sound_pitch: 1.200
@@ -96,6 +88,16 @@ health:
 }
 
 transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
 {
 
 }

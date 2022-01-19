@@ -20,10 +20,6 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "builder"
-		}
-		{
 			type: "level"
 			level: "construction"
 			amount: 3.000

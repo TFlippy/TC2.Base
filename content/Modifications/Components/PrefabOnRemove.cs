@@ -15,7 +15,7 @@ namespace TC2.Base.Components
 		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
 		public static void OnHealthModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] in Data prefab_on_remove)
 		{
-			if (health.primary <= 0.00f)
+			if (health.integrity <= 0.00f)
 			{
 				entity.RemoveComponent<PrefabOnRemove.Data>(); // Can only trigger once
 			}

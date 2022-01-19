@@ -20,10 +20,6 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "engineer"
-		}
-		{
 			type: "level"
 			level: "engineering"
 			amount: 3.000

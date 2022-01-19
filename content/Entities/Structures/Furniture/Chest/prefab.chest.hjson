@@ -40,7 +40,7 @@ faction.colorable:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 transform:

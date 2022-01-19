@@ -34,7 +34,7 @@
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 3.000
+			amount: 2.000
 		}
 		{
 			type: "work"
@@ -51,7 +51,7 @@
 		{
 			type: "work"
 			work: "assembling"
-			amount: 550.000
+			amount: 450.000
 			difficulty: 6.000
 		}
 	]

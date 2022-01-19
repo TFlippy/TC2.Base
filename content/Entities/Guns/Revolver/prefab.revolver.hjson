@@ -47,6 +47,8 @@ gun:
 	action: revolver
 	type: handgun
 	feed: cylinder
+
+	shake_amount: 0.340
 	
 	@inventory1:
 	{

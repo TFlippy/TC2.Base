@@ -20,10 +20,6 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "medic"
-		}
-		{
 			type: "level"
 			level: "medicine"
 			amount: 3.000

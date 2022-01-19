@@ -24,10 +24,6 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "scout"
-		}
-		{
 			type: "level"
 			level: "strength"
 			amount: 3.000

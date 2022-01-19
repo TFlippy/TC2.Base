@@ -31,13 +31,13 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 1.000
 		}
 		{
 			type: "resource"
 			material: "nitroglycerine"
-			amount: 2.000
+			amount: 4.000
 		}
 		{
 			type: "work"

@@ -152,7 +152,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 						var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
-						Camera.Shake(ref region, transform.position, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
+						Shake.Emit(ref region, transform.position, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
 #endif
 
 #if SERVER

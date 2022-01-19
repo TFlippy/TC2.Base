@@ -15,7 +15,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "shell.cannon"
+		texture: "projectile.shell"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000

@@ -4,10 +4,10 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.250, 0.000]
-		b: [1.250, 0.000]
+		a: [-0.800, 0.000]
+		b: [0.800, -0.100]
 		mass: 5.000
-		radius: 0.250
+		radius: 0.375
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
@@ -36,6 +36,8 @@ gun:
 	action: manual
 	type: shotgun
 	feed: breech
+
+	shake_amount: 0.500
 
 	sound_pitch: 1.100
 	

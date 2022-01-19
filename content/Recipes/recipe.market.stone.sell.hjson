@@ -1,5 +1,5 @@
 {
-	name: "Stone"
+	name: "Sell: Stone"
 	desc: "A pile of assorted rocks."
 	
 	icon:
@@ -28,7 +28,7 @@
 	[
 		{
 			type: "money"
-			amount: 0.800
+			amount: 0.300
 		}
 	]
 }

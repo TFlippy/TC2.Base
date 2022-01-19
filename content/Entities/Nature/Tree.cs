@@ -38,7 +38,7 @@ namespace TC2.Base.Components
 		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
 		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			if (!tree.flags.HasFlag(Tree.Flags.Cut) && health.primary < tree.health_cut)
+			if (!tree.flags.HasAll(Tree.Flags.Cut) && health.integrity < tree.health_cut)
 			{
 				tree.flags |= Tree.Flags.Cut;
 				renderer.sprite = tree.sprite_cut;

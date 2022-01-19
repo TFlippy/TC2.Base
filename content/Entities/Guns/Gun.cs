@@ -1,4 +1,6 @@
 ﻿
+using Keg.Engine;
+
 namespace TC2.Base.Components
 {
 	public static partial class Gun
@@ -103,6 +105,8 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public Vector2 muzzle_offset;
+			public Vector2 particle_offset;
+			public float particle_rotation;
 
 			public Sound.Handle sound_shoot;
 			public Sound.Handle sound_cycle;
@@ -150,6 +154,8 @@ namespace TC2.Base.Components
 
 			public float smoke_size = 1.00f;
 			public int smoke_amount = 1;
+
+			public float shake_amount = 0.20f;
 
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher)]
 			public int projectile_count = 1;
@@ -266,7 +272,7 @@ namespace TC2.Base.Components
 				{
 					gun_state.stage = Stage.Cycling;
 				}
-				else if (!gun.flags.HasFlag(Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
+				else if (!gun.flags.HasAll(Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
 				{
 #if SERVER
 					gun_state.stage = Stage.Cycling;
@@ -276,7 +282,7 @@ namespace TC2.Base.Components
 				else
 				{
 					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
-					if (inventory_magazine.resource.material.id != 0 && !inventory_magazine.resource.material.GetDefinition().flags.HasFlag(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (inventory_magazine.resource.material.id != 0 && !inventory_magazine.resource.material.GetDefinition().flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
 					{
@@ -284,7 +290,7 @@ namespace TC2.Base.Components
 						for (var i = 0; i < count; i++)
 						{
 							ref var resource = ref inventory[i];
-							if (resource.material.GetDefinition().flags.HasFlag(gun.ammo_filter))
+							if (resource.material.GetDefinition().flags.HasAll(gun.ammo_filter))
 							{
 								inventory_magazine.resource.material = resource.material;
 								break;
@@ -297,7 +303,7 @@ namespace TC2.Base.Components
 #if SERVER
 						gun_state.hints &= ~Hints.Cycled;
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasFlag(Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done = true;
@@ -338,13 +344,19 @@ namespace TC2.Base.Components
 			if (gun_state.stage == Stage.Fired)
 			{
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
+				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var random = XorRandom.New();
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
 
 				var failure_rate = gun.failure_rate;
 				var stability = gun.stability;
+
+#if CLIENT
+				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
+#endif
 
 #if SERVER
 				ref var material = ref inventory_magazine.resource.material.GetDefinition();
@@ -447,7 +459,7 @@ namespace TC2.Base.Components
 				}
 #endif
 
-				if (gun.flags.HasFlag(Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAll(Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Stage.Cycling;
 
@@ -469,34 +481,35 @@ namespace TC2.Base.Components
 				}
 
 #if CLIENT
-				if (!gun.flags.HasFlag(Gun.Flags.No_Particles))
+				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
 					{
-						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + new Vector2(1.50f * gun.flash_size, 0.00f)), 0.25f);
+						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset + new Vector2(1.50f * gun.flash_size, 0.00f).RotateByRad(gun.particle_rotation)), 0.25f);
 						particle.fps = 24;
 						particle.frame_count = 6;
 						particle.frame_count_total = 6;
 						particle.scale = gun.flash_size;
-						particle.rotation = transform.rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
+						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
 
 						Particle.Spawn(ref region, particle);
 					}
 
+					var smoke_amount_inv = 1.00f / gun.smoke_amount;
 					for (var i = 0; i < gun.smoke_amount; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset + (dir * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
-						particle.fps = (byte)random.NextFloatRange(8, 10);
+						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
+						particle.fps = (byte)random.NextFloatRange(6, 8);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
 						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = dir * random.NextFloatRange(1.00f, 1.50f);
-						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir * random.NextFloatRange(0.05f, 0.20f));
+						particle.vel = (dir_particle * random.NextFloatRange(1.00f, 1.50f));
+						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
-						particle.drag = random.NextFloatRange(0.00f, 0.01f);
-						particle.color_a = new Color32BGRA(100, 220, 220, 220);
+						particle.drag = random.NextFloatRange(0.01f, 0.02f);
+						particle.color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((gun.smoke_amount - i) * 0.04f), 0.20f, 1.00f));
 						particle.color_b = new Color32BGRA(000, 150, 150, 150);
 
 						Particle.Spawn(ref region, particle);
@@ -513,14 +526,14 @@ namespace TC2.Base.Components
 				{
 					if (time < gun_state.next_cycle) break;
 
-					if (gun_state.hints.HasFlag(Hints.Cycled))
+					if (gun_state.hints.HasAll(Hints.Cycled))
 					{
 						gun_state.stage = Stage.Ready;
 					}
 					else
 					{
 						var cycle_interval = gun.cycle_interval;
-						if (!gun.flags.HasFlag(Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
+						if (!gun.flags.HasAll(Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
 						gun_state.hints |= Hints.Cycled;
@@ -543,7 +556,7 @@ namespace TC2.Base.Components
 		{
 			if (gun_state.stage == Stage.Ready)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasFlag(Hints.Cycled))
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Hints.Cycled))
 				{
 #if SERVER
 					gun_state.stage = Stage.Cycling;
@@ -561,7 +574,7 @@ namespace TC2.Base.Components
 					return;
 				}
 
-				if (gun_state.hints.HasFlag(Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasFlag(Flags.Automatic))))
+				if (gun_state.hints.HasAll(Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Flags.Automatic))))
 				{
 					if (inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0)
 					{
@@ -573,7 +586,7 @@ namespace TC2.Base.Components
 					}
 					else
 					{
-						gun_state.stage = gun.flags.HasFlag(Flags.Automatic) ? Stage.Ready : Stage.Cycling;
+						gun_state.stage = gun.flags.HasAll(Flags.Automatic) ? Stage.Ready : Stage.Cycling;
 						gun_state.hints &= ~Hints.Cycled;
 #if SERVER
 						Sound.Play(ref info.GetRegion(), gun.sound_empty, transform.position, volume: 0.50f);

@@ -42,10 +42,15 @@ transform:
 
 interactable:
 {
-	window_size: [240.000, 192.000]
+	window_size: [500.000, 350.000]
 }
 
 construction:
 {
 
+}
+
+shipment:
+{
+	flags: keep_items
 }

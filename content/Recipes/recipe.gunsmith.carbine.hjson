@@ -1,5 +1,5 @@
 {
-	name: "Lever carbine"
+	name: "Carbine"
 	desc:
 		'''
 		A lever-action carbine.
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "lever_carbine"
+		texture: "carbine"
 	}
 	
 	min: 1
@@ -40,7 +40,7 @@
 			type: "work"
 			work: "smithing"
 			amount: 400.000
-			difficulty: 14.000
+			difficulty: 8.000
 		}
 		{
 			type: "work"
@@ -60,7 +60,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "lever_carbine"
+			prefab: "carbine"
 			amount: 1.000
 		}
 	]

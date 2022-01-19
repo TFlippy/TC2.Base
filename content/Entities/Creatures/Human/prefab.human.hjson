@@ -32,6 +32,12 @@ health:
 	max: 3200.000
 }
 
+regen:
+{
+	amount: 50.000
+	interval: 5.000
+}
+
 animated.renderer:
 {
 	sprite:
@@ -256,6 +262,12 @@ lootable:
 		{
 			max: 2400.000
 		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
+		}
 		
 		holdable:
 		{
@@ -441,6 +453,12 @@ lootable:
 		{
 			max: 3900.000
 		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
+		}
 		
 		equipment.slot:
 		{
@@ -487,7 +505,7 @@ lootable:
 		offset_a: [0.000, -0.100]
 		max_force: 5000.000
 		max_torque: 2000.000
-		flags: control_write
+		flags: control_write, no_wrap
 	}
 	
 	joint.pivot:
@@ -495,11 +513,11 @@ lootable:
 		max_bias: 6.000
 	}
 	
-	joint.rotarylimit:
-	{
-		max_bias: 6.000
-		error_bias: 0.000
-	}
+	// joint.rotarylimit:
+	// {
+	// 	max_bias: 6.000
+	// 	error_bias: 0.000
+	// }
 	
 	joint.gear:
 	{

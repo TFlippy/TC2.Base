@@ -532,6 +532,60 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
+
+			//definitions.Add(Modification.Definition.New<Holdable.Data>
+			//(
+			//	identifier: "holdable.compact",
+			//	name: "Compact",
+			//	description: "Allows the item to be stored in toolbelt.",
+
+			//	can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle) && !data.flags.HasAny(Holdable.Flags.Storable);
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.flags.SetFlag(Holdable.Flags.Storable, true);
+			//	}
+			//));
+
+			definitions.Add(Modification.Definition.New<Telescope.Data>
+			(
+				identifier: "telescope.magnifying_lenses",
+				name: "Magnifying Lenses",
+				description: "Increases maximum range at cost of reduced field of view.",
+
+				validate: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 4.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("##stuff", ref value, 1.00f, 4.00f, "%.2f");
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					data.max_distance *= value;
+					data.zoom_min /= 0.50f + (value * 0.50f);
+					data.zoom_max /= 0.50f + (value * 0.50f);
+				}
+			));
 		}
 	}
 }

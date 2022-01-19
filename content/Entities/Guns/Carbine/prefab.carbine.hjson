@@ -19,7 +19,7 @@ body:
 gun:
 {
 	muzzle_offset: [1.000, -0.125]
-	sound_shoot: "lever_carbine_shoot"
+	sound_shoot: "carbine_shoot"
 	sound_cycle: "rifle_cycle"
 	sound_reload: "rifle_reload"
 	velocity_multiplier: 640.000
@@ -36,6 +36,8 @@ gun:
 	action: lever
 	type: rifle
 	feed: clip
+
+	shake_amount: 0.320
 	
 	@inventory1:
 	{
@@ -79,7 +81,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "lever_carbine"
+		texture: "carbine"
 	}
 }
 

@@ -1,10 +1,10 @@
 {
-	name: "Weapon Mount"
-	desc: "A metal tripod used for mounting heavier weapons."
+	name: "Tripod"
+	desc: "A metal tripod that can have various tools and weapons attached to."
 	
 	icon:
 	{
-		texture: "mount"
+		texture: "mount.tripod"
 	}
 	
 	min: 1
@@ -20,12 +20,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 8.000
+			amount: 6.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 5.000
+			amount: 3.000
 		}
 		{
 			type: "work"
@@ -45,7 +45,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "mount"
+			prefab: "mount.tripod"
 			amount: 1.000
 		}
 	]

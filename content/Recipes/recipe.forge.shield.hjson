@@ -22,12 +22,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 8.000
+			amount: 6.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 600.000
+			amount: 450.000
 			difficulty: 5.000
 		}
 	]

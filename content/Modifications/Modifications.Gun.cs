@@ -141,17 +141,35 @@ namespace TC2.Base
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var amount = ref handle.GetData<float>();
 					foreach (ref readonly var requirement in context.requirements_old)
 					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
+						switch (requirement.type)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+							case Crafting.Requirement.Type.Resource:
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.30f));
+								ref var material = ref requirement.material.GetDefinition();
+								if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+								{
+									context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * amount));
+								}
 							}
+							break;
+
+							case Crafting.Requirement.Type.Work:
+							{
+								switch (requirement.work)
+								{
+									case Work.Type.Smithing:
+									{
+										context.requirements_new.Add(Crafting.Requirement.Work(requirement.work, 50.00f * amount, (byte)MathF.Ceiling(5.00f * amount)));
+									}
+									break;
+								}
+							}
+							break;
 						}
 					}
 				}
@@ -1208,6 +1226,43 @@ namespace TC2.Base
 						body.mass_multiplier *= 0.90f;
 					}
 
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.90f;
+									requirement.difficulty *= 0.90f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 0.85f;
+									requirement.difficulty *= 0.90f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.65f;
+									requirement.difficulty *= 0.80f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.60f;
+									requirement.difficulty *= 0.75f;
+								}
+								break;
+							}
+						}
+					}
+
 					return true;
 				},
 
@@ -1223,35 +1278,6 @@ namespace TC2.Base
 								requirement.amount *= 0.78f;
 							}
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= 0.90f;
-								}
-								break;
-
-								case Work.Type.Woodworking:
-								{
-									requirement.amount *= 0.85f;
-								}
-								break;
-
-								case Work.Type.Machining:
-								{
-									requirement.amount *= 0.65f;
-								}
-								break;
-
-								case Work.Type.Assembling:
-								{
-									requirement.amount *= 0.60f;
-								}
-								break;
-							}
-						}
 					}
 				}
 			));
@@ -1259,8 +1285,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
-				name: "Gas seal",
-				description: "Increases damage and velocity, by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
+				name: "Gas Seal",
+				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1340,8 +1366,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
-				name: "Hand fitted parts",
-				description: "Increases damage and velocity, by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
+				name: "Hand-Fitted Parts",
+				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -1421,8 +1447,8 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_side_gate_loading",
-				name: "Side gate loading",
-				description: "Simplifies the revolver construction, increasing reliability at the cost of reload speed.",
+				name: "Side Gate Loading",
+				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{

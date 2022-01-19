@@ -26,6 +26,8 @@ namespace TC2.Base.Components
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
 
+			[Save.Ignore] public float walk_modifier_current;
+			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
 
@@ -36,44 +38,57 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOrganic(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		public static void UpdateOrganic(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			runner.force_modifier = organic.strength;
 			runner.speed_modifier = organic_state.efficiency;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateClimbing(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Runner.Data runner, [Source.Parent] in Climber.Data climber)
+		public static void UpdateClimbing(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Parent] in Climber.Data climber)
 		{
 			runner.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
 			if (runner.flags.HasAll(Runner.Flags.Climbing)) runner.last_climb = info.WorldTime;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateMovement(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Runner.Data runner, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
+		public static void UpdateMovement(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
 
 			var force = new Vector2(0, 0);
-			var vel = body.GetVelocity();
+			var max_speed = new Vector2(runner.max_speed, 10);
+			var velocity = body.GetVelocity();
+			var mass = body.GetMass();
 
-			if (!keyboard.GetKey(Keyboard.Key.NoMove))
+			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
+			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+
+			if (any)
 			{
-				if (keyboard.GetKey(Keyboard.Key.MoveLeft) && vel.X > -runner.max_speed) force.X -= runner.walk_force;
-				if (keyboard.GetKey(Keyboard.Key.MoveRight) && vel.X < +runner.max_speed) force.X += runner.walk_force;
+				body.Activate();
 			}
 
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight)) runner.flags |= Runner.Flags.Walking;
-			else runner.flags &= ~Runner.Flags.Walking;
+			runner.flags.SetFlag(Runner.Flags.Walking, is_walking);
 
-			var arbiter_count = 0;
+			if (is_walking)
+			{
+				runner.walk_modifier_current = Maths.Lerp(runner.walk_modifier_current, 1.00f, 0.15f);
+
+				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner.walk_modifier_current;
+				if (velocity.X < +runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner.walk_modifier_current;
+			}
+			else
+			{
+				runner.walk_modifier_current = 0.00f;
+			}
+
 			var normal = default(Vector2);
 			var layers = default(Physics.Layer);
 			var friction = 0.00f;
 
+			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
 			{
 				normal += arbiter.GetNormal();
@@ -87,27 +102,32 @@ namespace TC2.Base.Components
 			{
 				normal /= arbiter_count;
 				friction /= arbiter_count;
+			}
 
-				if (normal.Y >= -0.40f && !layers.HasAll(Physics.Layer.Bounds))
-				{
-					runner.flags |= Runner.Flags.Grounded;
-					runner.last_ground = info.WorldTime;
+			if (arbiter_count > 0 && normal.Y >= -0.20f && !layers.HasAll(Physics.Layer.Bounds))
+			{
+				runner.flags.SetFlag(Runner.Flags.Grounded, true);
+				runner.last_ground = info.WorldTime;
 
-					var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
+				var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
-					force.Y = -MathF.Abs(dot * force.X) * friction * 0.50f;
-					force.X *= (1.00f - dot);
-				}
+				runner.uphill_force_current = -MathF.Abs(dot * force.X) * friction * 0.50f;
+
+				force.Y = runner.uphill_force_current;
+				force.X *= 1.00f - dot;			
 			}
 			else
 			{
 				force.X *= 0.75f;
 				force.Y *= 0.00f;
-				runner.flags &= ~Runner.Flags.Grounded;
+				runner.flags.SetFlag(Runner.Flags.Grounded, false);
 				runner.last_air = info.WorldTime;
+
+				force.Y -= runner.uphill_force_current * 0.75f;
+				runner.uphill_force_current *= 0.50f;
 			}
 
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (((info.WorldTime - runner.last_ground) < 0.20f) || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
+			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (((info.WorldTime - runner.last_ground) < 0.20f) || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
 			{
 				runner.jump_force_current = runner.jump_force;
 				runner.last_jump = info.WorldTime;
@@ -116,22 +136,18 @@ namespace TC2.Base.Components
 			force.Y -= runner.jump_force_current;
 			runner.jump_force_current *= 0.50f;
 
-			if (!keyboard.GetKey(Keyboard.Key.NoMove) && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner.last_ground) <= 0.25f) runner.flags |= Runner.Flags.Crouching;
-			else runner.flags &= ~Runner.Flags.Crouching;
-
-			var max_speed = new Vector2(runner.max_speed, 10);
-
+			runner.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner.last_ground) <= 0.25f);
 			if (runner.flags.HasAll(Runner.Flags.Crouching))
 			{
 				runner.jump_force_current *= 0.50f;
 				max_speed.X *= 0.50f;
 			}
 
-			if (!runner.flags.HasAll(Runner.Flags.Walking))
+			if (!is_walking)
 			{
-				var required_force_dir = (body.GetVelocity() * body.GetMass() * App.tickrate) - force;
+				var required_force_dir = (velocity * mass * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
-				required_force_dir *= Maths.Clamp(runner.walk_force * 0.85f, -required_force_magnitude, required_force_magnitude);
+				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 
 				if (!runner.flags.HasAll(Runner.Flags.Grounded))
 				{

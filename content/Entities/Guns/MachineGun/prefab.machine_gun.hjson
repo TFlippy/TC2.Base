@@ -35,6 +35,8 @@ gun:
 	action: blowback
 	type: machinegun
 	feed: drum
+
+	shake_amount: 0.400
 	
 	@inventory1:
 	{
@@ -107,7 +109,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 50.000
+	cool_rate: 80.000
 	
 	@light:
 	{

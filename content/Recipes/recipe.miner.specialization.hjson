@@ -24,10 +24,6 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "miner"
-		}
-		{
 			type: "level"
 			level: "mining"
 			amount: 3.000

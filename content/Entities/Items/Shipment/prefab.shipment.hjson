@@ -39,7 +39,7 @@ transform:
 
 shipment:
 {
-	flags: delete_if_empty
+	flags: delete_if_empty, allow_withdraw
 }
 
 interactable:
