@@ -27,14 +27,14 @@ namespace TC2.Base.Components
 				Entity parent = entity.GetParent(Relation.Type.Child);
 				if (!parent.IsNull() && !(parent == 0))
 				{
-					App.WriteLine(parent+ "A");
+					//App.WriteLine(parent+ "A");
 					Entity next = parent.GetParent(Relation.Type.Instance);
 					bool stop = false;
 					float counter = 0;
 					while (!next.IsNull() && !(next == 0) && !stop)
 					{
 						parent = next;
-						App.WriteLine(parent + "B" + counter);
+						//App.WriteLine(parent + "B" + counter);
 						counter++;
 						next = parent.GetParent(Relation.Type.Instance);
 
@@ -43,10 +43,10 @@ namespace TC2.Base.Components
 						{
 							stop = true;
 #if SERVER
-							App.WriteLine(parent + "C");
+							//App.WriteLine(parent + "C");
 
-							character.ent_controlled.SetCharacter(default(Entity));
-							entity.SetCharacter(parent);
+							character.ent_controlled.SetAssociatedCharacter(default(Entity));
+							entity.SetAssociatedCharacter(parent);
 							character.ent_character = entity;
 							character.ent_controlled = entity;
 

@@ -56,12 +56,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
-
-					if (!context.GetComponent<Melee.Data>().IsNull())
-					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
-					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("salt.cognition", 15.00f)); // High cost
 				}
 			));
 			/*definitions.Add(Modification.Definition.New<Control.Data>
