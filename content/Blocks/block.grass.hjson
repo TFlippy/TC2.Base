@@ -26,11 +26,7 @@
 	[
 		{
 			material: "soil"
-			quantity: 0.800
-		}
-		{
-			material: "soil_rich"
-			quantity: 0.200
+			quantity: 0.500
 		}
 	]
 }
