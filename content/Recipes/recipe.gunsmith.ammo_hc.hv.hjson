@@ -1,0 +1,55 @@
+{
+	name: "High-Caliber Ammo (High-Velocity)"
+	desc:
+		'''
+		Ammunition for rifles
+		and other larger firearms.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_hc.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.100
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.100
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.200
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 50.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_hc.hv"
+			amount: 1.000
+		}
+	]
+}

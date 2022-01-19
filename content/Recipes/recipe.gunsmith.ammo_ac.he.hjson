@@ -1,0 +1,56 @@
+{
+	name: "Autocannon Ammo (High-Explosive)"
+	desc: "Ammunition for autocannons. (High-Explosive)"
+	
+	icon:
+	{
+		texture: "resource.ammo_ac.he"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 100
+	step: 5
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.250
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.200
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "nitroglycerine"
+			amount: 4.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 80.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_ac.he"
+			amount: 1.000
+		}
+	]
+}

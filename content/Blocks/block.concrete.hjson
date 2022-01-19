@@ -10,7 +10,7 @@
 	smoothing: 0.100
 	mass: 8.000
 	friction: 0.950
-	elasticity: 0.200
+	elasticity: 0.600
 	stability: 0.500
 	
 	texture: "terrain_concrete"

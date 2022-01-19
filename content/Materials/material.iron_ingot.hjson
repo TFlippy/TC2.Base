@@ -27,4 +27,16 @@
 	
 	specific_heat: 206.000
 	thermal_conductivity: 0.079
+
+	palette:
+	[
+		"0xff0c0c0b"
+		"0xff1f201c"
+		"0xff373933"
+		"0xff5f6154"
+		"0xff808672"
+		"0xffa3a690"
+		"0xffc0c6ac"
+		"0xfff7ffdd"
+	]
 }

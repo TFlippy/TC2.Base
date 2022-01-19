@@ -97,7 +97,6 @@
 			}
 
 			dead:
-			air:
 			{
 				var offset = Vector2.Zero;
 

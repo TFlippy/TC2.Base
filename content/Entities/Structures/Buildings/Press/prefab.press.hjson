@@ -38,17 +38,7 @@ transform:
 shop:
 {
 	name: "Press"
-	recipe_groups:
-	[
-		12
-		0
-		0
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: press
 }
 
 press:
@@ -74,13 +64,13 @@ crafter:
 		name: "Output"
 		stack_size_multiplier: 4.000
 		type: output
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, public
 	}
 }
 
 crafter.state:
 {
-	@inventory4:
+	@inventory8:
 	{
 		name: "Input"
 		stack_size_multiplier: 4.000
@@ -111,5 +101,5 @@ wheel:
 
 interactable:
 {
-	window_size: [408.000, 240.000]
+	window_size: [650.000, 450.000]
 }

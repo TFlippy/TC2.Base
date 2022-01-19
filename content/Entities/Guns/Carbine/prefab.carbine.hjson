@@ -1,0 +1,111 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.900, 0.000]
+		b: [0.900, 0.000]
+		mass: 4.000
+		radius: 0.230
+		friction: 0.600
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.000, -0.125]
+	sound_shoot: "carbine_shoot"
+	sound_cycle: "rifle_cycle"
+	sound_reload: "rifle_reload"
+	velocity_multiplier: 640.000
+	jitter_multiplier: 0.200
+	damage_multiplier: 2.500
+	recoil_multiplier: 2.300
+	reload_interval: 0.600
+	cycle_interval: 0.350
+	failure_rate: 0.005
+	max_ammo: 4.000
+	projectile_count: 1
+	flags: none
+	ammo_filter: ammo_hc
+	action: lever
+	type: rifle
+	feed: clip
+
+	shake_amount: 0.320
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.250, -0.125]
+		scale: [24.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+interactable:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.400, 0.100]
+	radius: 4.000
+	flags: storable
+
+	force_multiplier: 1.500
+	torque_multiplier: 1.100
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "carbine"
+	}
+}
+
+health:
+{
+	max: 1600.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

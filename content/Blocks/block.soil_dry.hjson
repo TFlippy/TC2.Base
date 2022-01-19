@@ -10,7 +10,7 @@
 	smoothing: 0.200
 	mass: 5.000
 	friction: 0.900
-	elasticity: 0.080
+	elasticity: 0.300
 	stability: 0.800
 	
 	texture: "terrain_soil_dry"

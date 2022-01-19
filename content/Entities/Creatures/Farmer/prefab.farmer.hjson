@@ -80,17 +80,7 @@ interactable:
 shop:
 {
 	name: "Farmer"
-	recipe_groups:
-	[
-		7
-		10
-		11
-		0
-		0
-		0
-		0
-		0
-	]
+	tags: farmer
 }
 
 npc:

@@ -1,0 +1,34 @@
+{
+	name: "Sell: Wood"
+	desc: "High-quality lumber."
+	
+	icon:
+	{
+		texture: "resource.wood"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 100
+	max: 500
+	step: 100
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 1.100
+		}
+	]
+}

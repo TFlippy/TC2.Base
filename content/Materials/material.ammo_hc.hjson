@@ -3,7 +3,7 @@
 	description:
 		'''
 		Ammunition for rifles
-		and other larger firearms.
+		and other larger firearms. Gunpowder is weaker, but cheap.
 		'''
 	icon:
 	{
@@ -19,7 +19,7 @@
 	prefab: "resource.ammo_hc"
 	
 	projectile_count: 1
-	projectile_speed_mult: 1.000
+	projectile_speed_mult: 0.600
 	projectile_spread_mult: 1.000
 	projectile_heat: 25.000
 	projectile_prefab: "projectile.bullet.hc"

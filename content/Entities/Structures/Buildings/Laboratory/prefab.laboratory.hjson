@@ -44,3 +44,8 @@ interactable:
 {
 	window_size: [900.000, 600.000]
 }
+
+nameable:
+{
+	flags: randomize
+}

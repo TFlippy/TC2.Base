@@ -1,0 +1,38 @@
+{
+	name: "Buy: Copper Ingot"
+	desc:
+		'''
+		An ingot of solid copper.
+		Used for machinery and alloys.
+		'''
+	
+	icon:
+	{
+		texture: "resource.copper_ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 50
+	step: 1
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 250.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 1.000
+		}
+	]
+}

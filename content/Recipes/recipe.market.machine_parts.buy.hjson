@@ -1,0 +1,38 @@
+{
+	name: "Buy: Machine Parts"
+	desc:
+		'''
+		A pile of assorted machine parts used for
+		more advanced tools and machinery.
+		'''
+	
+	icon:
+	{
+		texture: "resource.machine_parts"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 50
+	step: 1
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 350.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 1.000
+		}
+	]
+}

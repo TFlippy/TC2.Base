@@ -10,13 +10,13 @@
 	smoothing: 0.110
 	mass: 5.000
 	friction: 0.900
-	elasticity: 0.100
+	elasticity: 0.600
 	stability: 0.500
 	
 	texture: "terrain_stonebrick"
 	pattern: "pattern_stonebrick"
 	
-	texture_scale: 1.000
+	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
 	fg_color: "#ff140e08"

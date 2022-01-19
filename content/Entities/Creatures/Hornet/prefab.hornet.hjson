@@ -1,3 +1,4 @@
+$export: false
 $tags: ["hornet"]
 
 body:
@@ -61,7 +62,7 @@ control:
 
 pathfinding:
 {
-
+	flags: air
 }
 
 npc:

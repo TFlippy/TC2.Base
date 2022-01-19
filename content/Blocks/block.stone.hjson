@@ -10,13 +10,13 @@
 	smoothing: 0.150
 	mass: 10.000
 	friction: 0.900
-	elasticity: 0.300
+	elasticity: 0.600
 	stability: 0.900
 	
 	texture: "terrain_stone"
 	pattern: "pattern_stone"
 	
-	texture_scale: 2.000
+	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
 	fg_color: "#ff140e08"

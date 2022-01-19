@@ -1,0 +1,62 @@
+{
+	name: "Blunderbuss"
+	desc:
+		'''
+		A caplock blunderbuss.
+		Has a huge spread, but is simple to make.
+		'''
+	
+	icon:
+	{
+		texture: "blunderbuss"
+	}
+	
+	min: 1
+	max: 80
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 40.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 3.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 100.000
+			difficulty: 5.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 90.000
+			difficulty: 4.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 70.000
+			difficulty: 3.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "blunderbuss"
+			amount: 1.000
+		}
+	]
+}

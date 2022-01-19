@@ -1,0 +1,67 @@
+{
+	name: "Carbine"
+	desc:
+		'''
+		A lever-action carbine.
+		Useful in close quarters, while keeping the accuracy for longer ranges.
+		'''
+	
+	icon:
+	{
+		texture: "carbine"
+	}
+	
+	min: 1
+	max: 80
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 40.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 3.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 400.000
+			difficulty: 8.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 150.000
+			difficulty: 5.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 400.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "carbine"
+			amount: 1.000
+		}
+	]
+}

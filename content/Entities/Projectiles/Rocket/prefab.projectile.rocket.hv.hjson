@@ -5,6 +5,7 @@ projectile:
 	damage_base: 400.000
 	damage_bonus: 800.000
 	lifetime: 15.000
+	size: 0.500
 }
 
 transform:

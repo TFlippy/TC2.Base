@@ -1,0 +1,67 @@
+{
+	name: "Auto Shotgun"
+	desc:
+		'''
+		A semi-automatic shotgun.
+		Can use a wide range of ammunition.
+		'''
+	
+	icon:
+	{
+		texture: "auto_shotgun"
+	}
+	
+	min: 1
+	max: 80
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 3.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 8.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 400.000
+			difficulty: 15.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 150.000
+			difficulty: 5.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 650.000
+			difficulty: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "auto_shotgun"
+			amount: 1.000
+		}
+	]
+}

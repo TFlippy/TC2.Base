@@ -1,6 +1,6 @@
 {
 	name: "Musket Ammo"
-	description: "TODO: Desc"
+	description: "Ammunition for muskets, blunderbusses, and pistols. Fires a single projectile."
 	icon:
 	{
 		texture: "resource.ammo_musket"

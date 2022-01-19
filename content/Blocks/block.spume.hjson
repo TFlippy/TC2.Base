@@ -1,0 +1,32 @@
+{
+	name: "Spume"
+	desc: "Very brittle pumice-like rock."
+	
+	material_type: stone
+	tile_flags: any
+	flags: artificial
+	
+	max_health: 2000.000
+	smoothing: 0.150
+	mass: 0.100
+	friction: 0.950
+	elasticity: 0.050
+	stability: 0.900
+	
+	texture: "terrain_spume"
+	pattern: "pattern_spume"
+	
+	texture_scale: 1.400
+	texture_overshoot: -0.250
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10322d29"
+	
+	resources:
+	[
+		{
+			material: "smirgl_powder"
+			quantity: 0.02
+		}
+	]
+}
