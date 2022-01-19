@@ -54,7 +54,6 @@ namespace TC2.Base
 				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var mindswap = ref context.GetOrAddComponent<Mindswap.Data>();
-					ref var npc = ref context.GetOrAddComponent<NPC.Data>();
 					ref var runner = ref context.GetOrAddComponent<Runner.Data>();
 					ref var threat = ref context.GetOrAddComponent<Threat.Data>();
 					if (threat.priority == 0) threat.priority = 7.00f;
@@ -65,6 +64,32 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("salt.cognition", 15.00f)); // High cost
+				}
+			));
+			definitions.Add(Modification.Definition.New<Control.Data>
+			(
+				identifier: "control.mind_control",
+				category: "Control",
+				name: "Mind Control",
+				description: "Becomes controlled by the first person holding it.",
+
+				//You can control multiple things this way if you want like turrets
+
+				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var mindcontrol = ref context.GetOrAddComponent<Mindcontrol.Data>();
+					ref var threat = ref context.GetOrAddComponent<Threat.Data>();
+					if (threat.priority == 0) threat.priority = 7.00f;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("salt.cognition", 30.00f)); // Higher cost
 				}
 			));
 			/*definitions.Add(Modification.Definition.New<Control.Data>
