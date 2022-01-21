@@ -1,9 +1,9 @@
 {
-	name: "Sulphur"
+	name: "Sulfur"
 	description: "Widely used in chemistry."
 	icon:
 	{
-		texture: "resource.sulphur"
+		texture: "resource.sulfur"
 		uv0: [0.750, 0.000]
 		uv1: [1.000, 1.000]
 	}
@@ -12,7 +12,7 @@
 	flags: raw, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	prefab: "resource.sulphur"
+	prefab: "resource.sulfur"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
