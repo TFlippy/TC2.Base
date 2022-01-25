@@ -26,10 +26,13 @@ namespace TC2.Base.Components
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
 
+			[Save.Ignore] public float air_modifier_current;
 			[Save.Ignore] public float walk_modifier_current;
 			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public Runner.Flags flags;
+
+			[Save.Ignore, Net.Ignore] public float air_time;
 
 			[Save.Ignore, Net.Ignore] public float last_jump;
 			[Save.Ignore, Net.Ignore] public float last_ground;
@@ -104,10 +107,11 @@ namespace TC2.Base.Components
 				friction /= arbiter_count;
 			}
 
+			var is_grounded = false;
+
 			if (arbiter_count > 0 && normal.Y >= -0.20f && !layers.HasAll(Physics.Layer.Bounds))
 			{
-				runner.flags.SetFlag(Runner.Flags.Grounded, true);
-				runner.last_ground = info.WorldTime;
+				is_grounded = MathF.Abs(normal.X) < 0.95f;
 
 				var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
@@ -120,11 +124,20 @@ namespace TC2.Base.Components
 			{
 				force.X *= 0.75f;
 				force.Y *= 0.00f;
-				runner.flags.SetFlag(Runner.Flags.Grounded, false);
-				runner.last_air = info.WorldTime;
 
 				force.Y -= runner.uphill_force_current * 0.75f;
 				runner.uphill_force_current *= 0.50f;
+			}
+
+			if (is_grounded)
+			{
+				runner.flags.SetFlag(Runner.Flags.Grounded, true);
+				runner.last_ground = info.WorldTime;
+			}
+			else
+			{
+				runner.flags.SetFlag(Runner.Flags.Grounded, false);
+				runner.last_air = info.WorldTime;
 			}
 
 			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (((info.WorldTime - runner.last_ground) < 0.20f) || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
@@ -158,8 +171,12 @@ namespace TC2.Base.Components
 				force -= required_force_dir;
 			}
 
+			runner.air_time = info.WorldTime - MathF.Max(runner.last_climb, runner.last_ground);
+			runner.air_modifier_current = Maths.Lerp(runner.air_modifier_current, 1.00f - Maths.Clamp(runner.air_time - 0.50f, 0.00f, 1.00f), 0.20f);
+
 			max_speed *= runner.speed_modifier;
 			force *= runner.force_modifier;
+			force *= runner.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 			body.AddForce(force);
