@@ -18,25 +18,25 @@
 			scale: [3.500, 3.500]
 		}
 		{
-			prefab: "background.test"
+			prefab: "background.ridge"
 			position: [133.1355, 33.66088]
 			rotation: 0.000
 			scale: [16.000, 16.000]
 		}
 		{
-			prefab: "background.test2"
+			prefab: "background.forest"
 			position: [503.625, 39.750]
 			rotation: 0.000
 			scale: [8.000, 8.000]
 		}
 		{
-			prefab: "background.test3"
+			prefab: "background.mountains"
 			position: [133.2073, 33.6016]
 			rotation: 0.000
 			scale: [12.000, 12.000]
 		}
 		{
-			prefab: "background.test4"
+			prefab: "background.sea"
 			position: [133.2073, 33.6016]
 			rotation: 0.000
 			scale: [48.000, 48.000]
