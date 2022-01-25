@@ -4,40 +4,40 @@
 	$tag: "frontier"
 	
 	entities:
-	[	
+	[
 		{
 			prefab: "background.plains"
-			position: [391.750, 58.250]
+			position: [166.500, 67.750]
 			rotation: 0.000
 			scale: [3.500, 3.500]
 		}
 		{
 			prefab: "background.forest"
-			position: [503.625, 39.750]
+			position: [135.375, 59.250]
 			rotation: 0.000
 			scale: [8.000, 8.000]
 		}
 		{
 			prefab: "background.mountains"
-			position: [133.2073, 33.6016]
+			position: [215.625, 51.750]
 			rotation: 0.000
 			scale: [12.000, 12.000]
 		}
 		{
 			prefab: "background.ridge"
-			position: [133.1355, 33.66088]
+			position: [370.250, 25.875]
 			rotation: 0.000
 			scale: [16.000, 16.000]
-		}		
+		}
 		{
 			prefab: "background.nostalgia"
-			position: [426.875, 58.125]
+			position: [324.375, 44.125]
 			rotation: 0.000
 			scale: [24.000, 24.000]
 		}
 		{
 			prefab: "background.sea"
-			position: [133.2073, 33.6016]
+			position: [180.625, 69.125]
 			rotation: 0.000
 			scale: [48.000, 48.000]
 		}
@@ -521,20 +521,20 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5601, 62.50201]
-			rotation: -0.162423
+			position: [254.5599, 62.50202]
+			rotation: -0.162443
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7624, 63.3599]
-			rotation: 1.880357
+			position: [262.7625, 63.35993]
+			rotation: 1.880388
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
 			position: [444.9469, 68.33717]
-			rotation: 1.51175
+			rotation: 1.511749
 			scale: [1.000, 1.000]
 		}
 		{
@@ -893,8 +893,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.1299]
-			rotation: 0.000166
+			position: [260.8701, 44.12989]
+			rotation: 0.000179
 			scale: [1.000, 1.000]
 		}
 		{
@@ -905,14 +905,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.601, 44.35448]
-			rotation: -1.56977
+			position: [268.6011, 44.35445]
+			rotation: -1.569701
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5397, 63.00906]
-			rotation: -0.108794
+			position: [268.5393, 63.00901]
+			rotation: -0.109045
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1440,7 +1440,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [429.3317, 61.81053]
-			rotation: 0.104722
+			rotation: 0.104741
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1494,7 +1494,7 @@
 		{
 			prefab: "cannon.wreck"
 			position: [261.8679, 39.90462]
-			rotation: 0.29182
+			rotation: 0.291822
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1506,13 +1506,13 @@
 		{
 			prefab: "miner"
 			position: [87.62774, 75.10503]
-			rotation: -0
+			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "builder"
-			position: [436.8595, 61.60009]
-			rotation: 0.000001
+			position: [436.8598, 61.60013]
+			rotation: 0.000002
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1529,7 +1529,7 @@
 		}
 		{
 			prefab: "farmer"
-			position: [72.06142, 60.60172]
+			position: [72.0614, 60.60172]
 			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}
