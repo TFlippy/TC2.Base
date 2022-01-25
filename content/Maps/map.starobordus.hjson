@@ -15,7 +15,7 @@
 			prefab: "background.plains"
 			position: [391.750, 58.250]
 			rotation: 0.000
-			scale: [3.000, 3.000]
+			scale: [3.500, 3.500]
 		}
 		{
 			prefab: "background.test"

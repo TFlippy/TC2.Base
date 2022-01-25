@@ -14,7 +14,7 @@ entities:
 		prefab: "background.plains"
 		position: [460.375, 52.125]
 		rotation: 0.000
-		scale: [3.000, 3.000]
+		scale: [3.500, 3.500]
 	}
 	{
 		prefab: "ruins"
