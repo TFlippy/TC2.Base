@@ -1,7 +1,15 @@
 {
 	$name: "Houbeles"
-	$desc: "A mushroom-infested forest with a plenitude of pure mineral deposits, shrubbery and dangerous wildlife."
+	$desc: "A mushroom-infested forest."
 	$tag: "frontier"
+	$features:
+	[
+		"Pure mineral deposits"
+		"Lots of mushrooms"
+		"Dangerous wildlife (hornets, badgers)"
+		"Rough terrain"
+		"Medium size"
+	]
 	
 	entities:
 	[

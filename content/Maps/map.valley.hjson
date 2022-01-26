@@ -2,6 +2,14 @@
 	$name: "Valley"
 	$desc: "A large map with a gold-rich valley in the middle."
 	$tag: "frontier"
+	$features:
+	[
+		"Lots of wreckages"
+		"High concentration of silver and gold"
+		"Dangerous wildlife (hornets, badgers)"
+		"Rough terrain"
+		"Large size"
+	]
 	
 	entities:
 	[

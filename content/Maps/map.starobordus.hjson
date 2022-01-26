@@ -2,6 +2,15 @@
 	$name: "Starobordus"
 	$desc: "A decommissioned artillery training area surrounded by mountains."
 	$tag: "frontier"
+	$features:
+	[
+		"Underground tunnels"
+		"Abandoned cannon"
+		"Lots of wreckages"
+		"Low wildlife"
+		"Mild terrain"
+		"Large size"
+	]
 	
 	entities:
 	[
