@@ -29,7 +29,7 @@ organic.state:
 
 health:
 {
-	max: 3200.000
+	max: 2900.000
 }
 
 regen:
@@ -265,7 +265,7 @@ lootable:
 		
 		health:
 		{
-			max: 2400.000
+			max: 2100.000
 		}
 
 		regen:
@@ -456,7 +456,7 @@ lootable:
 		
 		health:
 		{
-			max: 3900.000
+			max: 3400.000
 		}
 
 		regen:
