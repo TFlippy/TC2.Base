@@ -11,10 +11,16 @@ namespace TC2.Base.Components
 			[Net.Ignore, Save.Ignore] public float next_step;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotateAlive(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
 			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency;
+		}
+
+		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		public static void UpdateNoRotateDead(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		{
+			no_rotate.multiplier = 0.00f;
 		}
 
 		public static readonly Sound.Handle[] walk_sounds = new Sound.Handle[]

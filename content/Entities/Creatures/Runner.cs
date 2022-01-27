@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 
 			max_speed *= runner.speed_modifier;
 			force *= runner.force_modifier;
-			force *= runner.air_modifier_current;
+			//force *= runner.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 			body.AddForce(force);
