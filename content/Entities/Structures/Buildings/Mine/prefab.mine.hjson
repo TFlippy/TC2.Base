@@ -66,8 +66,12 @@ claimable:
 
 mine:
 {
-	interval: 900.000
 	amount_multiplier: 3.000
+}
+
+mine.state:
+{
+	work_required: 900.000
 }
 
 depot:
