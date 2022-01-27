@@ -93,6 +93,7 @@ melee:
 	category: blunt
 	flags: no_handle
 	hit_mask: item, creature
+	hit_exclude: ignore_melee, decoration, tree
 }
 
 melee.state:

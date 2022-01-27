@@ -80,6 +80,7 @@ namespace TC2.Base.Components
 			public Melee.Flags flags;
 
 			public Physics.Layer hit_mask;
+			public Physics.Layer hit_exclude;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -123,7 +124,7 @@ namespace TC2.Base.Components
 #endif
 
 				Span<LinecastResult> hits = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref hits, mask: melee.hit_mask))
+				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref hits, mask: melee.hit_mask, exclude: melee.hit_exclude))
 				{
 					var parent = body.GetParent();
 
