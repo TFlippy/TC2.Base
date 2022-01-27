@@ -130,8 +130,8 @@ legs:
 
 headbob:
 {
-	multiplier: [0.100, 0.100]
-	speed: -16.000
+	multiplier: [-0.150, -0.150]
+	speed: -17.000
 }
 
 +0|instance:
@@ -261,7 +261,7 @@ headbob:
 	
 	joint.base:
 	{
-		offset_a: [0.500, -0.125]
+		offset_a: [0.500, -0.300]
 		max_force: 12000.000
 		max_torque: 1000.000
 		flags: organic, control_write

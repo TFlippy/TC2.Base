@@ -67,7 +67,7 @@ namespace TC2.Base.Components
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = legs.frame_count;
 
-				var offset = new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
+				var offset = runner.flags.HasAll(Runner.Flags.Grounded) ? new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f)) : Vector2.Zero;
 				if (!headbob.IsNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
