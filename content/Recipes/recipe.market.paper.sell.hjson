@@ -9,9 +9,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 1
+	min: 10
 	max: 500
-	step: 1
+	step: 10
 	type: sell
 	tags: market
 	
@@ -20,7 +20,7 @@
 		{
 			type: "resource"
 			material: "paper"
-			amount: 1.000
+			amount: 6.000
 		}
 	]
 	
