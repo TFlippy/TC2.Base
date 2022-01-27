@@ -144,6 +144,18 @@ headbob:
 		max_force: 8000.000
 		max_torque: 500.000
 		flags: organic, control_write
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [0, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -29.000
+		}
 	}
 	
 	joint.pivot:
@@ -191,7 +203,17 @@ headbob:
 		
 		organic:
 		{
-		
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [1, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -39.000
+			}
 		}
 		
 		organic.state:
@@ -265,6 +287,18 @@ headbob:
 		max_force: 12000.000
 		max_torque: 1000.000
 		flags: organic, control_write
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [3, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -29.000
+		}
 	}
 	
 	joint.pivot:
@@ -326,6 +360,18 @@ headbob:
 		organic:
 		{
 			tags: brain
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [2, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -39.000
+			}
 		}
 		
 		organic.state:
