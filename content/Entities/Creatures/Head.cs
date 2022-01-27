@@ -1,12 +1,23 @@
 ﻿
 namespace TC2.Base.Components
 {
+	public static partial class HeadBob
+	{
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public partial struct Data: IComponent
+		{
+			public Vector2 offset;
+			public Vector2 multiplier;
+			public float speed;
+		}
+	}
+
 	public static partial class Head
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			
+
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -27,15 +38,15 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateHeadOffset(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
-			renderer.offset = torso.head_offset;
+			renderer.offset = headbob.offset;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateHeadOffsetTrait(ISystem.Info info, [Source.Parent] in Torso.Data torso, [Source.Owned, Trait.Any] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Trait.Any] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
-			renderer.offset = torso.head_offset;
+			renderer.offset = headbob.offset;
 		}
 #endif
 	}
