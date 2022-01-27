@@ -20,7 +20,7 @@ body:
 		friction: 0.950
 		elasticity: 0.020
 		material: stone
-		layer: entity, solid
+		layer: entity, solid, ignore_melee
 		mask: world
 	}
 }

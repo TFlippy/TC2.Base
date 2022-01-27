@@ -20,7 +20,7 @@ body:
 		friction: 500.000
 		elasticity: 0.000
 		material: metal
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_melee
 		mask: world
 	}
 
@@ -32,7 +32,7 @@ body:
 		friction: 500.000
 		elasticity: 0.000
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
