@@ -81,21 +81,21 @@ joint.gear:
 
 sound.emitter:
 {
-	file: "crane_loop_b"
+	file: "essence_motor.loop.00"
 	volume: 0.000
 	pitch: 1.000
 }
 
 sound.mixer:
 {
-	volume_modifier: 0.400
-	pitch_modifier: 0.400
+	volume_modifier: 1.000
+	pitch_modifier: 0.100
 	volume_min: 0.000
-	pitch_min: 0.400
-	volume_lerp_a: 0.100
+	pitch_min: 0.900
+	volume_lerp_a: 0.050
 	volume_lerp_b: 0.100
-	pitch_lerp_a: 0.050
-	pitch_lerp_b: 0.030
+	pitch_lerp_a: 0.010
+	pitch_lerp_b: 0.005
 }
 
 attachment:
