@@ -1,3 +1,5 @@
+$name: "Heavy Mount"
+$desc: "A heavy stationary mounting platform used for turrets, cranes and such."
 $tags: []
 
 body:
@@ -147,4 +149,19 @@ joint.gear:
 cover:
 {
 	threshold: 0.400
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.625]
+	}
 }

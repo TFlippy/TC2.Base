@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crane_base"
+		texture: "crane.base.small"
 	}
 	z: 100.000
 }
