@@ -21,7 +21,7 @@ health:
 
 holdable:
 {
-
+	flags: storable
 }
 
 animated.renderer:

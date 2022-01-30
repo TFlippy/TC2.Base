@@ -20,7 +20,7 @@
 		{
 			type: "resource"
 			material: "paper"
-			amount: 6.000
+			amount: 1.000
 		}
 	]
 	
@@ -28,7 +28,7 @@
 	[
 		{
 			type: "money"
-			amount: 3.000
+			amount: 6.000
 		}
 	]
 }
