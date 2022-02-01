@@ -113,37 +113,37 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_reload;
 			public Sound.Handle sound_empty;
 
-			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float velocity_multiplier;
 
-			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float jitter_multiplier;
 
-			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_multiplier;
 
-			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float recoil_multiplier;
 
-			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float reload_interval;
 
-			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float cycle_interval;
 
-			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float stability = 1.00f;
 
-			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float failure_rate = 0.00f;
 
-			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_ammo;
 
-			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
 
-			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
 			public float sound_size = 2.00f;
@@ -157,21 +157,21 @@ namespace TC2.Base.Components
 
 			public float shake_amount = 0.20f;
 
-			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public int projectile_count = 1;
 
 			public Gun.Flags flags;
 
-			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public Material.Flags ammo_filter;
 
-			[Statistics.Info("Operation", description: "Operation mode of the weapon.", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Operation", description: "Operation mode of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Gun.Action action;
 
-			[Statistics.Info("Type", description: "Type of the weapon.", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Type", description: "Type of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Gun.Type type;
 
-			[Statistics.Info("Feed", description: "Method of loading ammunition.", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Feed", description: "Method of loading ammunition.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Gun.Feed feed;
 		}
 

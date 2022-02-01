@@ -5,34 +5,34 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct Data: IComponent
 		{
-			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float power;
 
-			[Statistics.Info("Healing (Integrity)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Healing (Integrity)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float integrity_multiplier = 1.00f;
 
-			[Statistics.Info("Healing (Durability)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Healing (Durability)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float durability_multiplier = 1.00f;
 
-			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float cooldown;
 
-			[Statistics.Info("Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float max_distance;
 
-			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float aoe = 0.25f;
 
-			[Statistics.Info("Healing Min (Integrity)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Healing Min (Integrity)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float heal_min_integrity = 1.00f; // Can heal only as long as above this % plus the reconstruction medic skill
 
-			[Statistics.Info("Healing Min (Durability)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Healing Min (Durability)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float heal_min_durability = 0.50f; // Can heal as long as above this %
 
-			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Critical Heal", description: "Increases healing at lower health", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float critical_heal = 0.00f; // Adds healing a low health (half the effect a 50%, no bonus at 100%, negative values may mean you cant heal low hp targets)
 
-			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower)]
+			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float pain = 0.00f;
 
 			[Save.Ignore, Net.Ignore] public float next_use;
