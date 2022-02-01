@@ -47,7 +47,7 @@ joint.base:
 	offset_a: [4.000, 0.000]
 	offset_b: [-4.000, 0.000]
 	max_force: 1000000.000
-	max_torque: 2000000.000
+	max_torque: 20.000
 	flags: no_wrap, no_stress, control_write
 }
 
@@ -58,7 +58,8 @@ joint.pivot:
 
 joint.gear:
 {
-	max_bias: 8.000
+	max_bias: 0.100
+	error_bias: 0.001
 }
 
 attachment:

@@ -49,11 +49,6 @@ transform:
 
 armory:
 {
-
-}
-
-storage:
-{
 	@inventory8:
 	{
 		name: "Storage"
@@ -66,5 +61,5 @@ storage:
 
 interactable:
 {
-	window_size: [384.000, 192.000]
+	window_size: [336.000, 216.000]
 }

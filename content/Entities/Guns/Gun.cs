@@ -113,14 +113,14 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_reload;
 			public Sound.Handle sound_empty;
 
+			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			public float damage_multiplier;
+
 			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float velocity_multiplier;
 
 			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float jitter_multiplier;
-
-			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_multiplier;
 
 			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float recoil_multiplier;
@@ -131,10 +131,10 @@ namespace TC2.Base.Components
 			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float cycle_interval;
 
-			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float stability = 1.00f;
 
-			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_rate = 0.00f;
 
 			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
@@ -153,7 +153,7 @@ namespace TC2.Base.Components
 			public float flash_size = 1.00f;
 
 			public float smoke_size = 1.00f;
-			public int smoke_amount = 1;
+			public float smoke_amount = 1.00f;
 
 			public float shake_amount = 0.20f;
 
@@ -494,8 +494,8 @@ namespace TC2.Base.Components
 						Particle.Spawn(ref region, particle);
 					}
 
-					var smoke_amount_inv = 1.00f / gun.smoke_amount;
-					for (var i = 0; i < gun.smoke_amount; i++)
+					var smoke_count = (int)gun.smoke_amount;
+					for (var i = 0; i < smoke_count; i++)
 					{
 						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
 						particle.fps = (byte)random.NextFloatRange(6, 8);
@@ -509,7 +509,7 @@ namespace TC2.Base.Components
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
 						particle.drag = random.NextFloatRange(0.01f, 0.02f);
-						particle.color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((gun.smoke_amount - i) * 0.04f), 0.20f, 1.00f));
+						particle.color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((smoke_count - i) * 0.04f), 0.20f, 1.00f));
 						particle.color_b = new Color32BGRA(000, 150, 150, 150);
 
 						Particle.Spawn(ref region, particle);

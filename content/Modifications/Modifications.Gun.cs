@@ -1937,7 +1937,7 @@ namespace TC2.Base
 					if (simultaneous)
 					{
 						data.ammo_per_shot += 1.00f;
-						data.smoke_amount *= 2;
+						data.smoke_amount *= 2.00f;
 						data.projectile_count += 1;
 					}
 
