@@ -60,7 +60,8 @@ crane:
 	length_a: 8.000
 	length_b: 8.000
 	speed: 0.800
-	force: 1000000.000
+	force: 50000.000
+	torque: 50000.000
 	bias: 0.100
 }
 
