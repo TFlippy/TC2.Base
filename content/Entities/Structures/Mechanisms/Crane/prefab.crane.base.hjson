@@ -7,7 +7,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 50.000
+		mass: 200.000
 		radius: 1.000
 		friction: 0.990
 		elasticity: 0.050
@@ -28,7 +28,10 @@ animated.renderer:
 
 control:
 {
-
+	@net.synchronized:
+	{
+		interval: 0.100
+	}
 }
 
 health:
@@ -56,27 +59,36 @@ crane:
 {
 	length_a: 8.000
 	length_b: 8.000
-	speed: 0.500
+	speed: 0.800
 	force: 1000000.000
-	bias: 0.0001
+	bias: 0.100
+}
+
+crane.state:
+{
+
 }
 
 joint.base:
 {
 	offset_b: [-4.000, 0.000]
-	max_force: 1000000.000
-	max_torque: 2000000.000
+	max_force: 10000000.000
+	max_torque: 20000.000
 	flags: no_wrap, no_stress, control_write
 }
 
 joint.pivot:
 {
-	max_bias: 8.000
+	error_bias: 0.01
+	max_bias: 40.000
 }
 
 joint.gear:
 {
-	max_bias: 8.000
+	error_bias: 0.0001
+	max_bias: 40.000
+	min: -30.000
+	max: 30.000
 }
 
 sound.emitter:
