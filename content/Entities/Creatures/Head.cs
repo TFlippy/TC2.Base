@@ -17,7 +17,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-
+			public float voice_pitch = 1.00f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
