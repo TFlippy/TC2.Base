@@ -7,6 +7,10 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float sound_interval_multiplier = 1.00f;
+
+			public float sound_volume = 0.25f;
+			public float sound_pitch = 1.00f;
+
 			[Net.Ignore, Save.Ignore] public float next_step;
 		
 			public uint frame_count = 4;
@@ -63,7 +67,7 @@ namespace TC2.Base.Components
 
 			walking:
 			{
-				renderer.sprite.fps = (byte)Math.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner.flags.HasAll(Runner.Flags.Crouching) ? 0.50f : 1.00f))));
+				renderer.sprite.fps = (byte)Math.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner.flags.HasAll(Runner.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = legs.frame_count;
 
@@ -81,7 +85,7 @@ namespace TC2.Base.Components
 						legs.next_step = info.WorldTime + interval;
 
 						var random = XorRandom.New();
-						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: 0.25f, pitch: random.NextFloatRange(0.98f, 1.02f), priority: 0.10f);
+						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: legs.sound_volume, pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch, priority: 0.10f);
 					}
 				}
 

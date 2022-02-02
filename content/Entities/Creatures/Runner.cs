@@ -26,6 +26,8 @@ namespace TC2.Base.Components
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
 
+			public float crouch_speed_modifier = 0.50f;
+
 			[Save.Ignore] public float air_modifier_current;
 			[Save.Ignore] public float walk_modifier_current;
 			[Save.Ignore] public float uphill_force_current;
@@ -153,7 +155,7 @@ namespace TC2.Base.Components
 			if (runner.flags.HasAll(Runner.Flags.Crouching))
 			{
 				runner.jump_force_current *= 0.50f;
-				max_speed.X *= 0.50f;
+				max_speed.X *= runner.crouch_speed_modifier;
 			}
 
 			if (!is_walking)

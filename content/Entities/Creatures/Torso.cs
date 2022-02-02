@@ -13,6 +13,8 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct Data: IComponent
 		{
+			public float crouch_offset_modifier = 0.50f;
+
 			[Save.Ignore, Net.Ignore] public Vector2 offset;
 			[Save.Ignore, Net.Ignore] public float lerp;
 
@@ -32,8 +34,8 @@
 			{
 				if (torso.flags.HasAll(Torso.Flags.Crouching))
 				{
-					joint.offset_a_modifier = 0.50f;
-					joint.offset_b_modifier = 0.50f;
+					joint.offset_a_modifier = torso.crouch_offset_modifier;
+					joint.offset_b_modifier = torso.crouch_offset_modifier;
 				}
 				else
 				{
