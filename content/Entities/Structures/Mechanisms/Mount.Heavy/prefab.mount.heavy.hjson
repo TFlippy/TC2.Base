@@ -146,11 +146,6 @@ joint.gear:
 	max_bias: 0.700
 }
 
-cover:
-{
-	threshold: 0.400
-}
-
 vehicle:
 {
 

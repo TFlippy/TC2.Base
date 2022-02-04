@@ -100,7 +100,7 @@ joint.base:
 	offset_a: [0.000, 0.000]
 	max_force: 100000.000
 	max_torque: 100000.000
-	flags: control_write, no_wrap, force_facing
+	flags: control_write, no_stress, no_wrap, force_facing
 	
 	@sound.emitter:
 	{
@@ -135,7 +135,17 @@ joint.gear:
 	max_bias: 0.200
 }
 
-cover:
+vehicle:
 {
-	threshold: 0.400
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.625]
+	}
 }
