@@ -37,7 +37,7 @@ explosive:
 	flags: primed
 }
 
-shrapnel:
+cluster:
 {
 	prefab: "projectile.shrapnel"
 	spread: 5.000

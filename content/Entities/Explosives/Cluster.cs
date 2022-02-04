@@ -3,7 +3,7 @@ using Keg.Engine;
 
 namespace TC2.Base.Components
 {
-	public static partial class Shrapnel
+	public static partial class Cluster
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
@@ -21,24 +21,24 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Remove(ISystem.Mode.Single)]
-		public static void OnRemove(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Shrapnel.Data shrapnel, [Source.Owned] in Projectile.Data projectile)
+		public static void OnRemove(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
-			if (shrapnel.count > 0 && shrapnel.prefab.id != 0)
+			if (cluster.count > 0 && cluster.prefab.id != 0)
 			{
 				ref var region = ref info.GetRegion();
 				var random = XorRandom.New();
 
-				for (var i = 0; i < shrapnel.count; i++)
+				for (var i = 0; i < cluster.count; i++)
 				{
 					var projectile_init =
 					(
-						damage_mult: shrapnel.damage_modifier,
-						vel: projectile.velocity.RotateByDeg(random.NextFloat(shrapnel.spread)) * random.NextFloatRange(shrapnel.speed_modifier_min, shrapnel.speed_modifier_max),
+						damage_mult: cluster.damage_modifier,
+						vel: projectile.velocity.RotateByDeg(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max),
 						owner: projectile.ent_owner,
 						faction_id: projectile.faction_id
 					);
 
-					region.SpawnPrefab(shrapnel.prefab, transform.position).ContinueWith(ent =>
+					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (!projectile.IsNull())
