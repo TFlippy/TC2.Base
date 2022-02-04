@@ -219,7 +219,7 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single)]
 		public static void OnGUI(ISystem.Info info,
-		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Trait.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
 		{
 			if (player.IsLocal())
@@ -239,7 +239,7 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
 		{
 			if (gun_state.stage == Stage.Fired)
 			{
@@ -249,7 +249,7 @@ namespace TC2.Base.Components
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight2([Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight2([Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}
