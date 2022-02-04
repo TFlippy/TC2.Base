@@ -15,7 +15,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
