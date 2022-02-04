@@ -23,6 +23,8 @@ namespace TC2.Base.Components
 			public float jump_force;
 			public float max_speed = 10.00f;
 
+			public float walk_lerp = 0.15f;
+
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
 
@@ -79,7 +81,7 @@ namespace TC2.Base.Components
 
 			if (is_walking)
 			{
-				runner.walk_modifier_current = Maths.Lerp(runner.walk_modifier_current, 1.00f, 0.15f);
+				runner.walk_modifier_current = Maths.Lerp(runner.walk_modifier_current, 1.00f, runner.walk_lerp);
 
 				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner.walk_modifier_current;
 				if (velocity.X < +runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner.walk_modifier_current;
