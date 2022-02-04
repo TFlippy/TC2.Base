@@ -4,6 +4,13 @@ projectile:
 {
 	lifetime: 20.000
 	size: 0.750
+
+	@sound.emitter:
+	{
+		file: "shell_whistle"
+		volume: 1.000
+		pitch: 1.000
+	}
 }
 
 transform:
