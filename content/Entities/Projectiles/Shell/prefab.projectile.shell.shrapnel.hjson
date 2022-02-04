@@ -41,5 +41,5 @@ cluster:
 {
 	prefab: "projectile.shrapnel"
 	spread: 5.000
-	count: 30
+	count: 40
 }
