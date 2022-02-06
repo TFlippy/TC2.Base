@@ -15,7 +15,7 @@ body:
 		elasticity: 0.250
 		material: flesh
 		layer: entity, solid, creature
-		mask: world
+		mask: world, vehicle
 	}
 }
 
@@ -221,7 +221,7 @@ lootable:
 				elasticity: 0.250
 				material: flesh
 				layer: entity, solid, creature
-				mask: world
+				mask: world, vehicle
 			}
 		}
 		
@@ -376,7 +376,7 @@ lootable:
 				elasticity: 0.250
 				material: flesh
 				layer: entity, solid, creature
-				mask: world
+				mask: world, vehicle
 			}
 		}
 		
