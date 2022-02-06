@@ -75,6 +75,7 @@ explosive:
 	power: 6.000
 	damage_entity: 8000.000
 	damage_terrain: 50000.000
+	flags: explode_when_primed
 }
 
 packable:

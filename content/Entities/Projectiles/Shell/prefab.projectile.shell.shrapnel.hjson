@@ -40,6 +40,7 @@ explosive:
 cluster:
 {
 	prefab: "projectile.shrapnel"
-	spread: 5.000
+	spread: 0.900
+	speed: 0.000
 	count: 40
 }
