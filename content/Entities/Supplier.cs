@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Supplier
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Supplier.State>]
 		public struct Data: IComponent
 		{
 			public float interval = 10.00f;

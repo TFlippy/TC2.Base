@@ -2,7 +2,7 @@
 {
 	public static partial class Boiler
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Boiler.State>]
 		public struct Data: IComponent
 		{
 			public float capacity;

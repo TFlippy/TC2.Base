@@ -2,7 +2,7 @@
 {
 	public static partial class Refinery
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Refinery.State>]
 		public struct Data: IComponent
 		{
 			public Vector2 smoke_offset;
@@ -225,9 +225,6 @@
 
 								}
 							}
-							//GUI.SeparatorThick();
-
-
 						}
 					}
 
@@ -294,54 +291,8 @@
 								}
 
 							}
-							//GUI.SeparatorThick();
-
-
-
-
 						}
 					}
-
-					//{
-					//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 3)))
-					//	{
-					//		using (GUI.Group.New())
-					//		{
-
-
-
-					//		}
-
-					//		GUI.SameLine();
-
-					//		GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.GetRemainingHeight()));
-
-					//		GUI.SameLine();
-
-					//		GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.GetRemainingHeight()));
-
-					//	}
-
-
-					//	GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
-
-					//	var changed = false;
-
-					//	changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
-					//	GUI.SameLine();
-					//	changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
-					//	GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
-
-					//	if (changed)
-					//	{
-					//		var rpc = new Refinery.ConfigureRPC()
-					//		{
-					//			pressure_target = this.refinery_state.pressure_target,
-					//			temperature_target = this.refinery_state.temperature_target
-					//		};
-					//		rpc.Send(this.ent_refinery);
-					//	}
-					//}
 				}
 			}
 		}

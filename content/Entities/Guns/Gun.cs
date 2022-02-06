@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 			Cycled = 1 << 2
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
 			public Vector2 muzzle_offset;

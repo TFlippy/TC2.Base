@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 			No_Handle = 1 << 0,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Melee.State>]
 		public partial struct Data: IComponent
 		{
 			public Sound.Handle sound_swing;
