@@ -198,39 +198,9 @@
 					ref var player = ref Client.GetPlayer();
 					ref var region = ref Client.GetRegion();
 
-					using (GUI.Group.New(size: new(48 * 4 + 24, GUI.GetRemainingHeight())))
-					{
-						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
-						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+					var w_right = (48 * 4) + 24;
 
-							using (GUI.Group.New(padding: new(12, 12)))
-							{
-								GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 4));
-							}
-						}
-
-						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
-						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
-
-							using (GUI.Group.New(padding: new(12, 12)))
-							{
-								using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight())))
-								{
-									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-
-									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
-									GUI.SameLine();
-									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
-								}
-							}
-						}
-					}
-
-					GUI.SameLine();
-
-					using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
 					{
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 96 - 12)))
 						{
@@ -242,7 +212,7 @@
 								if (!recipe.IsNull())
 								{
 									ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
-									GUI.DrawShopRecipe(ref region, ref recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), search_radius: 0.00f, draw_button: false, draw_title: false, draw_description: false);
+									GUI.DrawShopRecipe(ref region, ref recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 								}
 							}
 						}
@@ -282,6 +252,38 @@
 										};
 										rpc.Send(this.ent_refinery);
 									}
+								}
+							}
+						}
+					}
+
+					GUI.SameLine();
+
+					using (GUI.Group.New(size: new Vector2(w_right, GUI.GetRemainingHeight())))
+					{
+						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
+						{
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(padding: new(12, 12)))
+							{
+								GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 4));
+							}
+						}
+
+						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
+						{
+							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+
+							using (GUI.Group.New(padding: new(12, 12)))
+							{
+								using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight())))
+								{
+									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
+
+									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									GUI.SameLine();
+									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 								}
 							}
 						}
