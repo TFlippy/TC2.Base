@@ -9,9 +9,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 5
+	min: 4
 	max: 100
-	step: 5
+	step: 4
 	type: workshop
 	tags: gunsmith
 	
@@ -20,17 +20,17 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.750
+			amount: 1.500
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.200
+			amount: 0.500
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 1.000
+			amount: 2.000
 		}
 		{
 			type: "work"
