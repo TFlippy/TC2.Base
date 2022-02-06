@@ -19,6 +19,9 @@
 			[Save.Ignore, Net.Ignore] public float lerp;
 
 			[Save.Ignore] public Torso.Flags flags;
+
+			public uint frame_count = 4;
+			public uint fps = 12;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -86,9 +89,9 @@
 					headbob.offset = offset;
 				}
 
-				renderer.sprite.fps = (byte)Math.Round(12 * (0.30f + (0.70f * organic_state.efficiency)));
+				renderer.sprite.fps = (byte)Math.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
 				renderer.sprite.frame.X = 1;
-				renderer.sprite.count = 4;
+				renderer.sprite.count = torso.frame_count;
 				renderer.offset = offset;
 
 				return;
