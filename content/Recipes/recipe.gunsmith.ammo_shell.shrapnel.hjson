@@ -1,10 +1,10 @@
 {
-	name: "Artillery Shell (Explosive)"
+	name: "Artillery Shell (Shrapnel)"
 	desc: "Ammunition for cannons."
 	
 	icon:
 	{
-		texture: "resource.ammo_shell"
+		texture: "resource.ammo_shell.shrapnel"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -20,12 +20,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 5.000
+			amount: 10.000
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 40.000
+			amount: 10.000
 		}
 		{
 			type: "resource"
@@ -35,13 +35,13 @@
 		{
 			type: "work"
 			work: "smithing"
-			amount: 400.000
+			amount: 600.000
 			difficulty: 8.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 350.000
+			amount: 300.000
 			difficulty: 5.000
 		}
 	]
@@ -50,7 +50,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell"
+			material: "ammo_shell.shrapnel"
 			amount: 1.000
 		}
 	]
