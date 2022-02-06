@@ -1,4 +1,9 @@
-$tags: []
+$name: "Badger"
+$desc: "A badger with a troubled past, and nothing left to lose."
+$tags: 
+[
+	"badger"
+]
 
 body:
 {
@@ -86,7 +91,21 @@ npc:
 	min_consciousness: 0.500
 }
 
-pathfinding:
+npc.emotions:
+{
+	hostility: 0.60
+	courage: 0.50
+	cruelty: 1.50
+	irritability: 1.10
+	apathy: 0.80
+}
+
+npc.emotions.state:
+{
+
+}
+
+npc.pathfinding:
 {
 	flags: land
 }
@@ -132,6 +151,18 @@ headbob:
 {
 	multiplier: [-0.150, -0.150]
 	speed: -17.000
+}
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 30.000
+			max: 50.000
+		}
+	]
 }
 
 +0|instance:
@@ -273,6 +304,18 @@ headbob:
 		{
 			sound_interval_multiplier: 1.100
 			frame_count: 5
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 30.000
+					max: 50.000
+				}
+			]
 		}
 	}
 }
@@ -423,6 +466,18 @@ headbob:
 		control:
 		{
 			
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 10.000
+					max: 25.000
+				}
+			]
 		}
 	}
 }
