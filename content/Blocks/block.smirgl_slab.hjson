@@ -17,7 +17,7 @@
 	pattern: "pattern_smirgl_slab"
 	
 	texture_scale: 1.550
-	texture_overshoot: -0.750
+	texture_overshoot: 0.000
 	
 	fg_color: "#ff140e08"
 	bg_color: "#10322d29"
