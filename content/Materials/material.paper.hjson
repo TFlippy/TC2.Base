@@ -8,7 +8,7 @@
 		uv1: [1.000, 1.000]
 	}
 	
-	type: fabric
+	type: paper
 	flags: manufactured, despawnable
 	mass_per_unit: 0.020
 	quantity_max: 500.000

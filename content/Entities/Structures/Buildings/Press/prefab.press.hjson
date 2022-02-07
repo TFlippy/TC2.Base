@@ -37,7 +37,7 @@ transform:
 
 shop:
 {
-	name: "Press"
+	name: "Recipes"
 	tags: press
 }
 

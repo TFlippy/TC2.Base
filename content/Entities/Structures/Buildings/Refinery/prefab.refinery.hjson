@@ -43,7 +43,7 @@ interactable:
 
 shop:
 {
-	name: "Refinery"
+	name: "Recipes"
 	tags: refinery
 }
 
