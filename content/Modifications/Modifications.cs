@@ -10,7 +10,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.bomb_rigged",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
 
@@ -265,7 +265,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
@@ -309,7 +309,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.movement_cooling",
-				category: "Overheat",
+				category: "Heat Management",
 				name: "Movement Cooling",
 				description: "Increased cooling rate while in motion.",
 
@@ -330,7 +330,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.air_coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Air-Cooled",
 				description: "Increases cooling rate.",
 
@@ -374,7 +374,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.heat_resistant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
@@ -449,6 +449,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.bulk",
+				category: "Crafting",
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
@@ -536,7 +537,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
 				identifier: "cover.chitin_lined",
-				category: "Cover",
+				category: "Health",
 				name: "Chitin-Lined",
 				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
 
@@ -582,6 +583,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Telescope.Data>
 			(
 				identifier: "telescope.magnifying_lenses",
+				category: "Telescope",
 				name: "Magnifying Lenses",
 				description: "Increases maximum range at cost of reduced field of view.",
 

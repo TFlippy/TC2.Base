@@ -9,6 +9,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.expanded_magazine",
+				category: "Gun (Ammo)",
 				name: "Expanded Magazine",
 				description: "Increases ammo capacity.",
 
@@ -178,6 +179,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.improved_rifling",
+				category: "Gun (Barrel)",
 				name: "Improved Rifling",
 				description: "Improves accuracy and damage.",
 
@@ -314,6 +316,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic",
+				category: "Gun (Receiver)",
 				name: "Mode: Automatic",
 				description: "Converts fire mode to automatic.",
 
@@ -364,6 +367,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.semi_automatic",
+				category: "Gun (Receiver)",
 				name: "Mode: Semi-Automatic",
 				description: "Converts fire mode to semi-automatic.",
 
@@ -478,6 +482,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.caliber_conversion",
+				category: "Gun (Receiver)",
 				name: "Caliber Conversion",
 				description: "Rechambers to a different caliber.",
 
@@ -651,6 +656,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.recoil_reduction",
+				category: "Gun (Frame)",
 				name: "Recoil Reduction",
 				description: "Reduces recoil.",
 
@@ -754,6 +760,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.barrel_extension",
+				category: "Gun (Barrel)",
 				name: "Barrel Extension",
 				description: "Increases muzzle velocity and damage.",
 
@@ -859,6 +866,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.balanced_receiver",
+				category: "Gun (Receiver)",
 				name: "Balanced Receiver",
 				description: "Stabilizes the receiver, increasing reliability.",
 
@@ -997,6 +1005,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.tempered_frame",
+				category: "Gun (Frame)",
 				name: "Tempered Frame",
 				description: "Greatly improves durability and stability of the gun.",
 
@@ -1057,6 +1066,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.hardened_frame",
+				category: "Gun (Frame)",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
 
@@ -1128,6 +1138,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flimsy_frame",
+				category: "Gun (Frame)",
 				name: "Flimsy Frame",
 				description: "Lowers the basic resource cost, but makes problems more pronounced.",
 
@@ -1202,6 +1213,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.simple_frame",
+				category: "Gun (Frame)",
 				name: "Simple Frame",
 				description: "Simplifies the item, increasing reliability at cost of reduced performance.",
 
@@ -1285,6 +1297,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
+				category: "Gun (Receiver)",
 				name: "Gas Seal",
 				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
 
@@ -1366,6 +1379,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
+				category: "Gun (Frame)",
 				name: "Hand-Fitted Parts",
 				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
 
@@ -1447,6 +1461,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_side_gate_loading",
+				category: "Gun (Frame)",
 				name: "Side Gate Loading",
 				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
 
@@ -1526,6 +1541,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.faster_cycling_mechanism",
+				category: "Gun (Receiver)",
 				name: "Faster Cycling Mechanism",
 				description: "Increases rate of fire, but lowers reliability.",
 
@@ -1661,6 +1677,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.slower_cycling_mechanism",
+				category: "Gun (Receiver)",
 				name: "Slower Cycling Mechanism",
 				description: "Decreases fire rate, but increases reliability.",
 
@@ -1762,6 +1779,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.gas_operation",
+				category: "Gun (Receiver)",
 				name: "Action: Gas-Operated",
 				description: "Converts to gas-operated action.",
 
@@ -1854,6 +1872,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.single_shot",
+				category: "Gun (Receiver)",
 				name: "Feed: Single-Shot",
 				description: "Converts to single-shot feed mechanism.",
 
@@ -1919,6 +1938,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.extra_barrel",
+				category: "Gun (Barrel)",
 				name: "Extra Barrel",
 				description: "Adds an extra barrel to the gun.",
 
@@ -2092,6 +2112,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flared_barrel",
+				category: "Gun (Barrel)",
 				name: "Flared Barrel",
 				description: "Increases spread and loudness, but also greatly reduces recoil.",
 
@@ -2137,7 +2158,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic_reloading",
-				category: "Gun",
+				category: "Gun (Ammo)",
 				name: "Automatic Reloading",
 				description: "Automatically reloads the weapon once the magazine is empty.",
 
