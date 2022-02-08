@@ -1,0 +1,32 @@
+{
+	name: "Planks (Moss)"
+	desc: "Wooden planks mossed together."
+	
+	material_type: wood
+	tile_flags: any
+	flags: artificial
+	
+	max_health: 2700.000
+	smoothing: 0.150
+	mass: 1.000
+	friction: 0.950
+	elasticity: 0.400
+	stability: 0.500
+	
+	texture: "terrain_planks.moss"
+	pattern: "pattern_planks"
+	
+	texture_scale: 0.800
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10322d29"
+	
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 0.400
+		}
+	]
+}
