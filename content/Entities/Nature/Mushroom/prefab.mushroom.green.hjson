@@ -51,7 +51,7 @@ animated.renderer:
 
 	@damagesprite:
 	{
-	
+		frame_count: 3
 	}
 }
 
