@@ -70,9 +70,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
-		public static void OnRemoveBody(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body)
+		public static void OnRemoveBody(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
-			if (cluster.count > 0 && cluster.prefab.id != 0)
+			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
 			{
 				ref var region = ref info.GetRegion();
 				var random = XorRandom.New();
