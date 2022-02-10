@@ -161,7 +161,6 @@ namespace TC2.Base.Components
 							}
 
 							var material_type = hit.material_type;
-
 							var heat = drill.damage * 0.015f * modifier;
 
 							switch (material_type)
@@ -203,7 +202,7 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
 #endif
 
 							flags |= Damage.Flags.No_Sound;
