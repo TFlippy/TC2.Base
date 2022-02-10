@@ -31,7 +31,7 @@ health:
 foliage.renderer:
 {
 	z: 50.000
-	texture: "shrubbery.2"
+	texture: "shrubbery.00"
 	frame_count: 1
 	frame_count_total: 1
 }

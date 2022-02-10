@@ -214,13 +214,13 @@
 			scale: [1.065625, 0.933334]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [88.750, 48.125]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [82.625, 66.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -232,7 +232,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [103.750, 77.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -244,7 +244,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [117.750, 67.500]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -262,7 +262,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [96.500, 58.625]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -286,7 +286,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [142.750, 50.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -340,7 +340,7 @@
 			scale: [-0.972917, 0.936806]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [149.875, 50.125]
 			rotation: 0.10472
 			scale: [-1.000, 1.000]
@@ -388,13 +388,13 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [211.000, 34.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [456.500, 61.250]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -466,13 +466,13 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [323.750, 67.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [291.625, 72.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -526,7 +526,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [221.000, 56.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -538,7 +538,7 @@
 			scale: [-0.955556, 0.911112]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [214.750, 53.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -616,7 +616,7 @@
 			scale: [-0.977777, 1.010416]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [382.000, 64.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -838,7 +838,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [530.250, 42.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -880,7 +880,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [534.125, 82.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -916,7 +916,7 @@
 			scale: [-0.89306, 0.889236]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [544.000, 82.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -964,7 +964,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [534.250, 60.375]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -982,7 +982,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [598.4999, 81.000]
 			rotation: 0.087266
 			scale: [1.000, 1.000]
@@ -1036,7 +1036,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [477.250, 65.000]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1108,7 +1108,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [513.750, 69.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1138,7 +1138,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [487.250, 69.500]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1198,7 +1198,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [464.750, 61.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1240,7 +1240,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [398.250, 59.000]
 			rotation: -0.10472
 			scale: [-1.000, 1.000]
@@ -1258,13 +1258,13 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [408.625, 57.625]
 			rotation: -0.034907
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [417.250, 64.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1282,13 +1282,13 @@
 			scale: [1.011456, 1.07257]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [378.250, 44.125]
 			rotation: -0.10472
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [395.125, 32.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1324,7 +1324,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [371.375, 45.500]
 			rotation: -0.20944
 			scale: [-1.000, 1.000]
@@ -1402,7 +1402,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [422.750, 25.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1426,7 +1426,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [430.625, 27.375]
 			rotation: 0.20944
 			scale: [1.000, 1.000]
@@ -1456,13 +1456,13 @@
 			scale: [-1.064932, 1.045833]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [427.500, 68.250]
 			rotation: 0.034907
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [434.375, 60.250]
 			rotation: 0.05236
 			scale: [1.000, 1.000]
@@ -1516,7 +1516,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [437.625, 48.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1528,7 +1528,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [302.000, 64.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1540,7 +1540,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [281.500, 74.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1636,7 +1636,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [241.375, 65.625]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1648,7 +1648,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [334.375, 50.375]
 			rotation: -0.087266
 			scale: [1.000, 1.000]
@@ -1666,7 +1666,7 @@
 			scale: [-1.025, 1.050]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [207.250, 72.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1690,7 +1690,7 @@
 			scale: [-0.995486, 1.117361]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [197.750, 57.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1870,7 +1870,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [195.875, 33.125]
 			rotation: -0.069813
 			scale: [1.000, 1.000]
@@ -1924,7 +1924,7 @@
 			scale: [0.977084, 1.126041]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [124.375, 80.875]
 			rotation: 0.000
 			scale: [-0.996181, 0.957986]
@@ -1984,7 +1984,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [155.875, 44.500]
 			rotation: -0.10472
 			scale: [-1.000, 1.000]
@@ -2032,13 +2032,13 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [74.250, 43.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [65.875, 41.500]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -2056,7 +2056,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [45.625, 33.125]
 			rotation: 0.05236
 			scale: [-1.000, 1.000]
@@ -2104,7 +2104,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [54.500, 41.000]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -2128,7 +2128,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [64.500, 66.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -2146,7 +2146,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [44.000, 72.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -2182,7 +2182,7 @@
 			scale: [1.014583, 1.160416]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [66.500, 50.375]
 			rotation: 0.000
 			scale: [1.046874, 0.947917]
@@ -2236,7 +2236,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [33.625, 34.750]
 			rotation: -0.087266
 			scale: [-1.000, 1.000]
@@ -2278,7 +2278,7 @@
 			scale: [1.003473, 1.222222]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [611.5001, 83.375]
 			rotation: -0.069813
 			scale: [-1.000, 1.000]
@@ -2386,7 +2386,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [620.875, 66.750]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
