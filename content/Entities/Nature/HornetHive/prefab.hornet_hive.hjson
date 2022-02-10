@@ -105,7 +105,7 @@ rope:
 	{
 		prefab: "hornet"
 		interval: 30.000
-		interval_count_modifier: 10.000
+		interval_count_modifier: 20.000
 		max_count: 10
 		filter_tag: "hornet"
 	}
