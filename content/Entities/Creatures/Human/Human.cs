@@ -1,9 +1,9 @@
 ﻿namespace TC2.Base.Components
 {
-	public static class Human
+	public static partial class Human
 	{
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct Data: IComponent
+		public partial struct Data: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_groan;
 		}

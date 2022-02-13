@@ -1,7 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
-	public static class Biter
+	public static partial class Biter
 	{
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Biter.State>()]
 		public partial struct Data: IComponent
@@ -55,15 +55,22 @@ namespace TC2.Base.Components
 					results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
 
 					var parent = body.GetParent();
-
 					var modifier = 1.00f;
 					var flags = Damage.Flags.None;
+					var hit_terrain = false;
 
 					var penetration = biter.penetration;
 					for (var i = 0; i < results.Length && penetration >= 0; i++)
 					{
 						ref var result = ref results[i];
 						if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
+
+						var is_terrain = !result.entity.IsValid();
+						if (is_terrain)
+						{
+							if (hit_terrain) continue;
+							hit_terrain = true;
+						}
 
 #if CLIENT
 						Shake.Emit(ref region, transform.position, 0.40f, 0.40f, radius: 2.00f);

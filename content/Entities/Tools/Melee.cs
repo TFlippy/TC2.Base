@@ -60,13 +60,13 @@ namespace TC2.Base.Components
 			public float thickness = 0.30f;
 
 			[Statistics.Info("Knockback", description: "Multiplies knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float knockback;
+			public float knockback = 1.00f;
 
 			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float yield;
+			public float yield = 1.00f;
 
 			[Statistics.Info("Penetration Falloff", description: "Modifies damage after each penetration", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
-			public float penetration_falloff;
+			public float penetration_falloff = 0.75f;
 
 			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public int penetration;
@@ -84,7 +84,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct State: IComponent
+		public partial struct State: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
@@ -123,28 +123,23 @@ namespace TC2.Base.Components
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 #endif
 
-				Span<LinecastResult> hits = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref hits, mask: melee.hit_mask, exclude: melee.hit_exclude))
+				Span<LinecastResult> results = stackalloc LinecastResult[16];
+				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude))
 				{
+					results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+
 					var parent = body.GetParent();
-
-					var damage_base = melee.damage_base;
-					var damage_bonus = random.NextFloatRange(0.00f, melee.damage_bonus);
-					var damage = damage_base + damage_bonus;
-
 					var modifier = 1.00f;
 					var flags = Damage.Flags.None;
-
-					var penetration = melee.penetration;
-
 					var hit_terrain = false;
 
-					for (var i = 0; i < hits.Length && penetration >= 0; i++)
+					var penetration = melee.penetration;
+					for (var i = 0; i < results.Length && penetration >= 0; i++)
 					{
-						ref var hit = ref hits[i];
-						if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
-						var is_terrain = !hit.entity.IsValid();
+						ref var result = ref results[i];
+						if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 
+						var is_terrain = !result.entity.IsValid();
 						if (is_terrain)
 						{
 							if (hit_terrain) continue;
@@ -157,7 +152,11 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-						Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, melee.damage_type, knockback: melee.knockback, size: melee.aoe, flags: flags, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier);
+						var damage = melee.damage_base + random.NextFloatRange(0.00f, melee.damage_bonus);
+						Damage.Hit(attacker: entity, owner: parent, target: result.entity,
+							world_position: result.world_position, direction: dir, normal: -dir,
+							damage: damage * modifier, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
+							target_material_type: result.material_type, knockback: melee.knockback, size: melee.aoe, flags: flags);
 #endif
 
 						flags |= Damage.Flags.No_Sound;
