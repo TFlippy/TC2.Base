@@ -28,7 +28,7 @@
 	[
 		{
 			type: "money"
-			amount: 1.000
+			amount: 0.100
 		}
 	]
 }

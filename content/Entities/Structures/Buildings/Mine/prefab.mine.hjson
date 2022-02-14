@@ -80,7 +80,7 @@ depot:
 	size: [4.000, 3.000]
 	flags: allow_withdraw, allow_send, allow_local, local, public
 
-	shipping_fee_base: 250.000
+	shipping_fee_base: 25.000
 }
 
 stockpile:

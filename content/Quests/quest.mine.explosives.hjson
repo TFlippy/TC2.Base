@@ -12,14 +12,14 @@ quest.data:
 	[
 		{
 			material: "gunpowder"
-			amount: 300
+			amount: 100
 		}
 	]
 
 	products:
 	[
 		{
-			money: 2500
+			money: 250
 		}
 		{
 			material: "iron_ore"
