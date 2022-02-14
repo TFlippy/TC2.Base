@@ -31,7 +31,9 @@ namespace TC2.Base.Components
 			Cycle_On_Shoot = 1u << 2,
 			Manual_Cycle = 1u << 3,
 
-			No_Particles = 1u << 4
+			No_Particles = 1u << 4,
+
+			Child_Projectiles = 1u << 5
 		}
 
 		public enum Type: byte
@@ -98,7 +100,19 @@ namespace TC2.Base.Components
 
 			//Can_Reload = 1 << 0,
 			//Can_Shoot = 1 << 1,
-			Cycled = 1 << 2
+			Cycled = 1 << 2,
+			Loaded = 1 << 3
+		}
+
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
+		public partial struct Animation: IComponent
+		{
+			public uint frame_ready;
+			public uint frame_ready_loaded;
+			public uint frame_fired;
+			public uint frame_cycling;
+			public uint frame_reloading;
+			public uint frame_jammed;
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
@@ -178,8 +192,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore] public Stage stage;
-			[Save.Ignore] public Hints hints;
+			[Save.Ignore] public Gun.Stage stage;
+			[Save.Ignore] public Gun.Hints hints;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 		}
@@ -205,7 +219,7 @@ namespace TC2.Base.Components
 				{
 					if (window.show)
 					{
-						if (this.state.stage == Stage.Reloading)
+						if (this.state.stage == Gun.Stage.Reloading)
 						{
 							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetFixedTime(), 0.00f):0.00}", pivot: new(0.50f));
 						}
@@ -237,11 +251,53 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)
+		{
+			var frame = 0u;
+
+			switch (gun_state.stage)
+			{
+				case Gun.Stage.Ready:
+				{
+					frame = gun_state.hints.HasAll(Gun.Hints.Loaded) ? animation.frame_ready_loaded : animation.frame_ready;
+				}
+				break;
+
+				case Gun.Stage.Fired:
+				{
+					frame = animation.frame_fired;
+				}
+				break;
+
+				case Gun.Stage.Cycling:
+				{
+					frame = animation.frame_cycling;
+				}
+				break;
+
+				case Gun.Stage.Reloading:
+				{
+					frame = animation.frame_reloading;
+				}
+				break;
+
+				case Gun.Stage.Jammed:
+				{
+					frame = animation.frame_jammed;
+				}
+				break;
+			}
+
+			renderer.sprite.frame.Y = frame;
+		}
+
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
 		{
-			if (gun_state.stage == Stage.Fired)
+			if (gun_state.stage == Gun.Stage.Fired)
 			{
 				light.intensity = 4.00f;
 			}
@@ -262,7 +318,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Parent, Trait.Of<Storage.Data>] ref T inventory,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
 		{
-			if (gun_state.stage == Stage.Reloading)
+			if (gun_state.stage == Gun.Stage.Reloading)
 			{
 				var time = info.WorldTime;
 				if (time < gun_state.next_reload) return;
@@ -270,12 +326,12 @@ namespace TC2.Base.Components
 
 				if (inventory_magazine.resource.quantity >= gun.max_ammo)
 				{
-					gun_state.stage = Stage.Cycling;
+					gun_state.stage = Gun.Stage.Cycling;
 				}
-				else if (!gun.flags.HasAll(Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
+				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
 				{
 #if SERVER
-					gun_state.stage = Stage.Cycling;
+					gun_state.stage = Gun.Stage.Cycling;
 					entity.SyncComponent(ref gun_state);
 #endif
 				}
@@ -301,9 +357,9 @@ namespace TC2.Base.Components
 					if (inventory_magazine.resource.material != 0)
 					{
 #if SERVER
-						gun_state.hints &= ~Hints.Cycled;
+						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done = true;
@@ -311,21 +367,21 @@ namespace TC2.Base.Components
 						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount))
 						{
 							done = false;
-							inventory_magazine.flags |= Inventory.Flags.Dirty;
+							inventory_magazine.flags.SetFlag(Inventory.Flags.Dirty, true);
 
 							Sound.Play(ref region, gun.sound_reload, transform.position);
 						}
 
 						if (done)
 						{
-							gun_state.stage = Stage.Cycling;
+							gun_state.stage = Gun.Stage.Cycling;
 							entity.SyncComponent(ref gun_state);
 						}
 #endif
 					}
 					else
 					{
-						gun_state.stage = Stage.Ready;
+						gun_state.stage = Gun.Stage.Ready;
 					}
 				}
 			}
@@ -341,7 +397,7 @@ namespace TC2.Base.Components
 		{
 			var time = info.WorldTime;
 			ref var region = ref info.GetRegion();
-			if (gun_state.stage == Stage.Fired)
+			if (gun_state.stage == Gun.Stage.Fired)
 			{
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
@@ -391,24 +447,26 @@ namespace TC2.Base.Components
 					{
 						for (var i = 0; i < count; i++)
 						{
-							var projectile_init =
+							var args =
 							(
 								damage_mult: gun.damage_multiplier,
 								vel: dir.RotateByDeg(random.NextFloat(gun.jitter_multiplier * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random.NextFloatRange(0.90f, 1.10f),
-								owner: body.GetParent(),
-								faction_id: faction.id
+								ent_owner: body.GetParent(),
+								ent_gun: entity,
+								faction_id: faction.id,
+								gun_flags: gun.flags
 							);
 
-							region.SpawnPrefab(material.projectile_prefab, pos_w_offset).ContinueWith(ent =>
+							region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: MathF.CopySign(1.00f, dir.X)).ContinueWith(ent =>
 							{
 								ref var projectile = ref ent.GetComponent<Projectile.Data>();
 								if (!projectile.IsNull())
 								{
-									projectile.damage_base *= projectile_init.damage_mult;
-									projectile.damage_bonus *= projectile_init.damage_mult;
-									projectile.velocity = projectile_init.vel;
-									projectile.ent_owner = projectile_init.owner;
-									projectile.faction_id = projectile_init.faction_id;
+									projectile.damage_base *= args.damage_mult;
+									projectile.damage_bonus *= args.damage_mult;
+									projectile.velocity = args.vel;
+									projectile.ent_owner = args.ent_owner;
+									projectile.faction_id = args.faction_id;
 
 									ent.SyncComponent(ref projectile);
 								}
@@ -416,8 +474,13 @@ namespace TC2.Base.Components
 								ref var explosive = ref ent.GetComponent<Explosive.Data>();
 								if (!explosive.IsNull())
 								{
-									explosive.owner_entity = projectile_init.owner;
+									explosive.owner_entity = args.ent_owner;
 									ent.SyncComponent(ref explosive);
+								}
+
+								if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
+								{
+									ent.AddRelation(args.ent_gun, Relation.Type.Child);
 								}
 							});
 						}
@@ -459,16 +522,16 @@ namespace TC2.Base.Components
 				}
 #endif
 
-				if (gun.flags.HasAll(Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{
-					gun_state.stage = Stage.Cycling;
+					gun_state.stage = Gun.Stage.Cycling;
 
 #if SERVER
 					if (random.NextBool(failure_rate))
 					{
 						//App.WriteLine("jammed");
 
-						gun_state.stage = Stage.Jammed;
+						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
 						Sound.Play(ref region, sound_gun_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
@@ -477,7 +540,7 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					gun_state.stage = Stage.Ready;
+					gun_state.stage = Gun.Stage.Ready;
 				}
 
 #if CLIENT
@@ -522,21 +585,21 @@ namespace TC2.Base.Components
 
 			switch (gun_state.stage)
 			{
-				case Stage.Cycling:
+				case Gun.Stage.Cycling:
 				{
 					if (time < gun_state.next_cycle) break;
 
-					if (gun_state.hints.HasAll(Hints.Cycled))
+					if (gun_state.hints.HasAll(Gun.Hints.Cycled))
 					{
-						gun_state.stage = Stage.Ready;
+						gun_state.stage = Gun.Stage.Ready;
 					}
 					else
 					{
 						var cycle_interval = gun.cycle_interval;
-						if (!gun.flags.HasAll(Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
+						if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
-						gun_state.hints |= Hints.Cycled;
+						gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
@@ -554,12 +617,14 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			if (gun_state.stage == Stage.Ready)
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, gun_state.hints.HasAll(Gun.Hints.Cycled) && inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
+
+			if (gun_state.stage == Gun.Stage.Ready)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Hints.Cycled))
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
 				{
 #if SERVER
-					gun_state.stage = Stage.Cycling;
+					gun_state.stage = Gun.Stage.Cycling;
 					entity.SyncComponent(ref gun_state);
 #endif
 					return;
@@ -568,26 +633,27 @@ namespace TC2.Base.Components
 				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
 #if SERVER
-					gun_state.stage = Stage.Reloading;
+					gun_state.stage = Gun.Stage.Reloading;
 					entity.SyncComponent(ref gun_state);
 #endif
 					return;
 				}
 
-				if (gun_state.hints.HasAll(Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Flags.Automatic))))
+				if (gun_state.hints.HasAll(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Gun.Flags.Automatic))))
 				{
 					if (inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0)
 					{
 #if SERVER
-						gun_state.stage = Stage.Fired;
-						gun_state.hints &= ~Hints.Cycled;
+						gun_state.stage = Gun.Stage.Fired;
+						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 						entity.SyncComponent(ref gun_state);
 #endif
 					}
 					else
 					{
-						gun_state.stage = gun.flags.HasAll(Flags.Automatic) ? Stage.Ready : Stage.Cycling;
-						gun_state.hints &= ~Hints.Cycled;
+						gun_state.stage = gun.flags.HasAll(Flags.Automatic) ? Gun.Stage.Ready : Gun.Stage.Cycling;
+						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
+
 #if SERVER
 						Sound.Play(ref info.GetRegion(), gun.sound_empty, transform.position, volume: 0.50f);
 #endif
@@ -596,7 +662,7 @@ namespace TC2.Base.Components
 					return;
 				}
 			}
-			else if (gun_state.stage == Stage.Jammed)
+			else if (gun_state.stage == Gun.Stage.Jammed)
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
@@ -609,7 +675,7 @@ namespace TC2.Base.Components
 					{
 						//App.WriteLine("unjammed");
 
-						gun_state.stage = Stage.Reloading;
+						gun_state.stage = Gun.Stage.Reloading;
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 
 						entity.SyncComponent(ref gun_state);
@@ -620,7 +686,7 @@ namespace TC2.Base.Components
 					{
 						//App.WriteLine("jammed");
 
-						gun_state.stage = Stage.Jammed;
+						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
 						Sound.Play(ref info.GetRegion(), sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
