@@ -4,13 +4,13 @@
 	icon:
 	{
 		texture: "resource.ammo_grapple"
-		uv0: [0.750, 0.000]
-		uv1: [1.000, 1.000]
+		size: [16, 16]
+		frame: [3, 0]
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_rocket
-	mass_per_unit: 3.000
+	flags: manufactured, ammo, ammo_grapple
+	mass_per_unit: 8.000
 	quantity_max: 1.000
 	prefab: "resource.ammo_grapple"
 	

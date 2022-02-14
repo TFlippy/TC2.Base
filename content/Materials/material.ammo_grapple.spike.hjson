@@ -1,24 +1,24 @@
 {
-	name: "Rocket Ammo"
-	description: "Ammunition for rocket launchers."
+	name: "Grappling Gun Ammo"
+	description: "A self-propelled grappling hook."
 	icon:
 	{
-		texture: "resource.ammo_rocket"
+		texture: "resource.ammo_grapple.spike"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_rocket
-	mass_per_unit: 3.000
+	flags: manufactured, ammo, ammo_grapple
+	mass_per_unit: 5.000
 	quantity_max: 1.000
-	prefab: "resource.ammo_rocket"
+	prefab: "resource.ammo_grapple"
 	
 	projectile_count: 1
 	projectile_speed_mult: 1.000
 	projectile_spread_mult: 1.000
 	projectile_heat: 1000.000
-	projectile_prefab: "projectile.rocket"
+	projectile_prefab: "projectile.grapple.spike"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000
