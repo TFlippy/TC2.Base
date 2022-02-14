@@ -1,0 +1,34 @@
+{
+	name: "Sell: Yellow Mushrooms"
+	desc: "A heap of yellow mushroom bits."
+	
+	icon:
+	{
+		texture: "resource.mushroom.yellow"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.yellow"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 11.000
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+	name: "Sell: Blue Mushrooms"
+	desc: "A heap of rare glowing blue mushroom caps, feels slimy to touch."
+	
+	icon:
+	{
+		texture: "resource.mushroom.blue"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 20
+	max: 500
+	step: 20
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.blue"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 45.000
+		}
+	]
+}

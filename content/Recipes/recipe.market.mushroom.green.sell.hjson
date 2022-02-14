@@ -1,0 +1,34 @@
+{
+	name: "Sell: Green Mushrooms"
+	desc: "A heap of glowing green mushroom caps."
+	
+	icon:
+	{
+		texture: "resource.mushroom.green"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.green"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 19.000
+		}
+	]
+}

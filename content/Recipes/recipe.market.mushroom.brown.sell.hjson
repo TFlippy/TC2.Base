@@ -1,0 +1,34 @@
+{
+	name: "Sell: Brown Mushrooms"
+	desc: "A heap of brown mushroom bits, looks tasty!"
+	
+	icon:
+	{
+		texture: "resource.mushroom.brown"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 100
+	max: 500
+	step: 100
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.brown"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 5.000
+		}
+	]
+}

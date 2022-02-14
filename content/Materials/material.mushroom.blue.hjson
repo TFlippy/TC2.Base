@@ -1,6 +1,6 @@
 {
 	name: "Blue Mushrooms"
-	description: "A heap of glowing blue mushroom caps, feels slimy to touch."
+	description: "A heap of rare glowing blue mushroom caps, feels slimy to touch."
 	icon:
 	{
 		texture: "resource.mushroom.blue"
