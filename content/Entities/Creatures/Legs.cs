@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			else if (true) //runner.flags.HasAll(Runner.Flags.Grounded))
+			else if (runner.flags.HasAll(Runner.Flags.Grounded))
 			{
 				if (runner.flags.HasAll(Runner.Flags.Walking)) goto walking;
 				else goto idle;
@@ -127,7 +127,7 @@ namespace TC2.Base.Components
 			air:
 			{
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = 2;
+				renderer.sprite.frame.X = (uint)(5 + Maths.Clamp(runner.air_time * legs.fps, 0, 2));
 				renderer.sprite.count = 0;
 
 				return;

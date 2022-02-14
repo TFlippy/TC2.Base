@@ -22,6 +22,8 @@
 
 			public uint frame_count = 4;
 			public uint fps = 12;
+
+			[Save.Ignore, Net.Ignore] public float air_time;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -53,6 +55,8 @@
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
+				torso.air_time = runner.air_time;
+
 				if (runner.flags.HasAll(Runner.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
 				else torso.flags &= ~Torso.Flags.Crouching;
 			}
@@ -77,6 +81,7 @@
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
+			else if (torso.air_time > 0.10f) goto air;
 			else if (walking) goto walking;
 			else goto idle;
 
@@ -109,6 +114,23 @@
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.X = 0;
+				renderer.sprite.count = 0;
+				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
+
+				return;
+			}
+
+			air:
+			{
+				var offset = Vector2.Zero;
+
+				if (!headbob.IsNull())
+				{
+					headbob.offset = offset;
+				}
+
+				renderer.sprite.fps = 0;
+				renderer.sprite.frame.X = (uint)(5 + Maths.Clamp(torso.air_time * torso.fps, 0, 2));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
