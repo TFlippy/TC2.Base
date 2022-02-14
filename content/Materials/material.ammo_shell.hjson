@@ -5,7 +5,7 @@
 	{
 		texture: "resource.ammo_shell"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
