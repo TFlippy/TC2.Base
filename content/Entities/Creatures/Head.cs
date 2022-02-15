@@ -24,7 +24,22 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_pain;
 			public Sound.Handle sound_attack;
 
+			public byte frame_pain;
+			public byte frame_dead;
+
 			[Save.Ignore, Net.Ignore] public float next_pain;
+		}
+
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		{
+			renderer.sprite.frame.X = organic_state.pain_shared > 50.00f ? head.frame_pain : 0u;
+		}
+
+		[ISystem.Add(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		public static void OnDeath(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		{
+			renderer.sprite.frame.X = head.frame_dead;
 		}
 
 #if SERVER
@@ -42,12 +57,10 @@ namespace TC2.Base.Components
 				//App.WriteLine(organic_state.pain_shared);
 				if (organic_state.pain_shared > 500.00f && organic_state.consciousness_shared > 0.30f)
 				{
-#if SERVER
 					ref var region = ref info.GetRegion();
 					var random = XorRandom.New();
 					Sound.Play(ref region, head.sound_pain, transform.position, volume: 0.20f + Maths.Clamp(organic_state.pain_shared / 2000.00f, 0.20f, 0.50f), pitch: random.NextFloatRange(0.70f, 1.10f) * (1.00f + Maths.Clamp((organic_state.pain_shared_new / 2000.00f), 0.00f, 0.10f)) * head.voice_pitch);
 					head.next_pain = info.WorldTime + (Maths.Clamp(10.00f - (organic_state.pain_shared / 300.00f), 5.00f, 10.00f) * random.NextFloatRange(0.80f, 1.30f));
-#endif
 				}
 			}
 		}

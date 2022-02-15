@@ -129,6 +129,11 @@ dive:
 	speed: 20.000
 }
 
+badger:
+{
+
+}
+
 norotate:
 {
 	bias: 0.100
@@ -460,7 +465,13 @@ lootable:
 		
 		head:
 		{
-		
+			voice_pitch: 1.000
+
+			// sound_pain: "badger.pain.01"
+			// sound_death: "badger.death.00"
+
+			frame_pain: 1
+			frame_dead: 2
 		}
 		
 		control:
