@@ -1,14 +1,14 @@
 {
-	name: "Gunpowder Shotgun Ammo (Buckshot)"
+	name: "Gunpowder Shotgun Ammo (Slug)"
 	description:
 		'''
-		Ammunition for shotguns. Fires multiple medium-sized
-		projectiles, very good for general combat.
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
 		Gunpowder is weaker, but cheap.
 		'''
 	icon:
 	{
-		texture: "resource.ammo_sg_buck.gp"
+		texture: "resource.ammo_sg.slug.gp"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -17,13 +17,13 @@
 	flags: manufactured, ammo, ammo_sg, despawnable
 	mass_per_unit: 0.020
 	quantity_max: 24.000
-	prefab: "resource.ammo_sg_buck.gp"
+	prefab: "resource.ammo_sg.slug.gp"
 	
-	projectile_count: 4
+	projectile_count: 1
 	projectile_speed_mult: 0.450
-	projectile_spread_mult: 1.200
+	projectile_spread_mult: 0.500
 	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.buck.gp"
+	projectile_prefab: "projectile.bullet.sg.slug.gp"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000

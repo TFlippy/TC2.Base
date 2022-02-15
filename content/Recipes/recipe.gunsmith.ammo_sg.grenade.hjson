@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_sg_grenade"
+		texture: "resource.ammo_sg.grenade"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -42,7 +42,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg_grenade"
+			material: "ammo_sg.grenade"
 			amount: 1.000
 		}
 	]

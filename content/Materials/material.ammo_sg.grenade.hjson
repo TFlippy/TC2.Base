@@ -6,7 +6,7 @@
 		'''
 	icon:
 	{
-		texture: "resource.ammo_sg_grenade"
+		texture: "resource.ammo_sg.grenade"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -15,10 +15,10 @@
 	flags: manufactured, ammo, ammo_sg, despawnable
 	mass_per_unit: 0.100
 	quantity_max: 24.000
-	prefab: "resource.ammo_sg_grenade"
+	prefab: "resource.ammo_sg.grenade"
 	
 	projectile_count: 1
-	projectile_speed_mult: 0.200
+	projectile_speed_mult: 0.160
 	projectile_spread_mult: 0.600
 	projectile_heat: 70.000
 	projectile_prefab: "projectile.bullet.sg.grenade"

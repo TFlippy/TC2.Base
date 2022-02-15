@@ -1,13 +1,13 @@
 {
-	name: "Shotgun Ammo (Birdshot)"
+	name: "Shotgun Ammo (Buckshot)"
 	description:
 		'''
-		Ammunition for shotguns. Fires many tiny projectiles,
-		typically used for hunting fowl (or when your aim is bad).
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
 		'''
 	icon:
 	{
-		texture: "resource.ammo_sg_bird"
+		texture: "resource.ammo_sg.buck"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,13 +16,13 @@
 	flags: manufactured, ammo, ammo_sg, despawnable
 	mass_per_unit: 0.020
 	quantity_max: 24.000
-	prefab: "resource.ammo_sg_bird"
+	prefab: "resource.ammo_sg.buck"
 	
-	projectile_count: 7
-	projectile_speed_mult: 1.200
-	projectile_spread_mult: 2.500
+	projectile_count: 4
+	projectile_speed_mult: 0.900
+	projectile_spread_mult: 1.200
 	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.bird"
+	projectile_prefab: "projectile.bullet.sg.buck"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000

@@ -18,7 +18,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_sg_grenade"
+		texture: "resource.ammo_sg.grenade"
 		count: 4
 		size: [16, 16]
 	}
@@ -31,7 +31,7 @@ transform:
 
 resource:
 {
-	material: "ammo_sg_grenade"
+	material: "ammo_sg.grenade"
 }
 
 hoverable:

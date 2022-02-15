@@ -1,14 +1,14 @@
 {
-	name: "Shotgun Shell (Birdshot)"
+	name: "Shotgun Shell (Slug)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
-		typically used for hunting fowl (or when your aim is bad).
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg_bird"
+		texture: "resource.ammo_sg.slug"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -39,8 +39,8 @@
 		{
 			type: "work"
 			work: "assembling"
-			amount: 60.000
-			difficulty: 5.000
+			amount: 40.000
+			difficulty: 4.000
 		}
 	]
 	
@@ -48,7 +48,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg_bird"
+			material: "ammo_sg.slug"
 			amount: 1.000
 		}
 	]
