@@ -191,8 +191,8 @@
 		}
 		{
 			prefab: "log.00"
-			position: [114.6855, 80.66711]
-			rotation: 1.08305
+			position: [114.6855, 80.66715]
+			rotation: 1.083027
 			scale: [1.000, 1.000]
 		}
 		{
@@ -311,7 +311,7 @@
 		}
 		{
 			prefab: "tree.oak"
-			position: [135.750, 53.875]
+			position: [135.500, 54.250]
 			rotation: -0.087266
 			scale: [-1.000, 1.000]
 		}
@@ -377,9 +377,9 @@
 		}
 		{
 			prefab: "vine"
-			position: [185.500, 51.000]
+			position: [185.875, 49.250]
 			rotation: 0.000
-			scale: [1.000, 1.000]
+			scale: [1.029167, 1.277084]
 		}
 		{
 			prefab: "vine"
@@ -756,7 +756,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [507.5533, 80.71262]
-			rotation: 1.656485
+			rotation: 1.656497
 			scale: [1.000, 1.000]
 		}
 		{
@@ -875,8 +875,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [503.5972, 57.61862]
-			rotation: 0.12542
+			position: [503.5977, 57.6186]
+			rotation: 0.125884
 			scale: [1.000, 1.000]
 		}
 		{
@@ -953,8 +953,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [548.840, 82.91472]
-			rotation: -1.851146
+			position: [548.840, 82.91473]
+			rotation: -1.851214
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1481,7 +1481,7 @@
 		}
 		{
 			prefab: "mushroom.blue"
-			position: [426.625, 52.000]
+			position: [417.000, 27.500]
 			rotation: -0.10472
 			scale: [-0.958331, 0.927084]
 		}
@@ -1492,9 +1492,9 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "mushroom.blue"
-			position: [432.250, 69.875]
-			rotation: 0.226893
+			prefab: "roots"
+			position: [193.125, 65.250]
+			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1595,8 +1595,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.3775, 81.95502]
-			rotation: 6.430962
+			position: [260.3777, 81.95506]
+			rotation: 6.430884
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1608,7 +1608,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [270.1564, 82.31907]
-			rotation: -1.17082
+			rotation: -1.17083
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1715,7 +1715,7 @@
 		}
 		{
 			prefab: "mushroom.blue"
-			position: [201.125, 73.500]
+			position: [196.625, 12.875]
 			rotation: 0.087266
 			scale: [-1.000, 1.000]
 		}
@@ -1757,7 +1757,7 @@
 		}
 		{
 			prefab: "roots"
-			position: [209.500, 36.000]
+			position: [209.375, 35.750]
 			rotation: 0.000
 			scale: [0.947221, 0.900]
 		}
@@ -1775,7 +1775,7 @@
 		}
 		{
 			prefab: "vine"
-			position: [200.750, 35.125]
+			position: [201.250, 34.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
@@ -2243,7 +2243,7 @@
 		}
 		{
 			prefab: "vine"
-			position: [260.875, 75.000]
+			position: [260.750, 74.500]
 			rotation: 0.000
 			scale: [1.013889, 1.063889]
 		}
@@ -2284,8 +2284,8 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "boulder.02"
-			position: [588.750, 80.625]
+			prefab: "vine"
+			position: [183.500, 65.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
@@ -2471,19 +2471,19 @@
 		}
 		{
 			prefab: "miner"
-			position: [223.0771, 71.80751]
-			rotation: 0.000001
+			position: [223.0775, 71.8076]
+			rotation: -0.000002
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [169.9781, 44.93355]
+			position: [169.9784, 44.93357]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [452.7526, 60.11467]
+			position: [452.7532, 60.11473]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -2506,16 +2506,10 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "roots"
-			position: [193.125, 65.250]
-			rotation: 0.000
-			scale: [1.000, 1.000]
-		}
-		{
-			prefab: "vine"
-			position: [183.500, 65.000]
-			rotation: 0.000
-			scale: [1.000, 1.000]
+			prefab: "mushroom.blue"
+			position: [571.125, 48.875]
+			rotation: -0.087266
+			scale: [-1.000, 1.000]
 		}
 	]
 }
