@@ -9,9 +9,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 20
+	min: 10
 	max: 500
-	step: 20
+	step: 10
 	type: sell
 	tags: market
 	
@@ -28,7 +28,7 @@
 	[
 		{
 			type: "money"
-			amount: 4.500
+			amount: 4.490
 		}
 	]
 }
