@@ -33,7 +33,7 @@ animated.renderer:
 	{
 		texture: "windmill"
 	}
-	z: -350.000
+	z: -280.000
 }
 
 windmill:
@@ -52,7 +52,7 @@ windmill:
 			texture: "windmill.top.metal"
 		}
 		offset: [0.000, -3.000]
-		z: -150.000
+		z: 1000.000
 	}
 }
 

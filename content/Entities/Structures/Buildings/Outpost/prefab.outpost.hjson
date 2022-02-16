@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "outpost"
 	}
-	z: -150.000
+	z: -300.000
 	mask: "outpost.mask"
 }
 

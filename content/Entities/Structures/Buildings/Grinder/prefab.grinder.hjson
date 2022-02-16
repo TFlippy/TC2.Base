@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "grinder.small"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 transform:
