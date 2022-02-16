@@ -26,6 +26,7 @@ holdable:
 {
 	offset: [0.000, 0.500]
 	radius: 4.000
+	flags: storable
 }
 
 animated.renderer:

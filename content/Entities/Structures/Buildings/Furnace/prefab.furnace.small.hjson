@@ -73,7 +73,7 @@ furnace.state:
 
 burner:
 {
-	smoke_offset: [-0.500, -2.000]
+	smoke_offset: [0.000, -1.875]
 	capacity: 4.000
 	energy_loss: 10000.000
 	efficiency: 0.750
