@@ -51,7 +51,7 @@ joint.rope:
 	distance: 1.500
 }
 
-rope:
+rope.renderer:
 {
 	texture: "hornet_hive.rope"
 	thickness: 1.000

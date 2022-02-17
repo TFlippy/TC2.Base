@@ -28,7 +28,7 @@ duct.state:
 
 }
 
-rope:
+rope.renderer:
 {
 	texture: "duct"
 	thickness: 0.250

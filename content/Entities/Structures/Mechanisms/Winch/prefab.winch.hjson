@@ -60,7 +60,7 @@ winch:
 	length: 30.000
 }
 
-rope:
+rope.renderer:
 {
 	texture: "rope"
 	thickness: 0.125
