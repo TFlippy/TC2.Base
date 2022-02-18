@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			else if (runner.flags.HasAll(Runner.Flags.Grounded))
+			else if (true) //runner.flags.HasAll(Runner.Flags.Grounded))
 			{
 				if (runner.flags.HasAll(Runner.Flags.Walking)) goto walking;
 				else goto idle;

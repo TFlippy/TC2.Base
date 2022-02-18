@@ -28,7 +28,7 @@ animated.renderer:
 	{
 		texture: "gunsmith"
 	}
-	z: -100.000
+	z: -300.000
 }
 
 transform:

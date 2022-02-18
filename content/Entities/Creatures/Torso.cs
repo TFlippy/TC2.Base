@@ -81,7 +81,7 @@
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			else if (torso.air_time > 0.10f) goto air;
+			//else if (torso.air_time > 0.10f) goto air;
 			else if (walking) goto walking;
 			else goto idle;
 
