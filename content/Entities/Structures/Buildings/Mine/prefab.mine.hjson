@@ -61,7 +61,7 @@ nameable:
 
 claimable:
 {
-
+	flags: allow_enemy_unclaim
 }
 
 mine:
@@ -71,6 +71,7 @@ mine:
 
 mine.state:
 {
+	work_current: 900.000
 	work_required: 900.000
 }
 
