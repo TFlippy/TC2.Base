@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -56,7 +56,7 @@ depot:
 	size: [4.000, 3.000]
 	flags: allow_withdraw, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
 
-	shipping_fee_base: 160.000
+	shipping_fee_base: 16.000
 }
 
 packer:

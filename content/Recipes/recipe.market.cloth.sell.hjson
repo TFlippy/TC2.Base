@@ -8,10 +8,17 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
-	min: 1
+	min: 10
 	max: 50
-	step: 1
+	step: 10
 	type: sell
 	tags: market
 	
@@ -28,7 +35,7 @@
 	[
 		{
 			type: "money"
-			amount: 40.000
+			amount: 4.000
 		}
 	]
 }

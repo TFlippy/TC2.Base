@@ -1,0 +1,78 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.600]
+		b: [0.000, -0.600]
+		mass: 5.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.050
+		material: wood
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 1800.000
+	damage_bonus: 100.000
+	cooldown: 1.500
+	max_distance: 3.000
+	aoe: 0.500
+	knockback: 0.400
+	yield: 0.000
+	penetration_falloff: 0.900
+	penetration: 0
+	damage_type: pickaxe
+	category: blunt
+	hit_mask: world
+}
+
+melee.state:
+{
+
+}
+
+prospectorpick:
+{
+	max_depth: 10.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "prospector_pick"
+	}
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

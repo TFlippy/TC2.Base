@@ -47,17 +47,26 @@ joint.base:
 	offset_a: [4.000, 0.000]
 	offset_b: [-4.000, 0.000]
 	max_force: 1000000.000
-	max_torque: 2000000.000
+	max_torque: 20.000
 	flags: no_wrap, no_stress, control_write
 }
 
 joint.pivot:
 {
-	max_bias: 8.000
+	error_bias: 0.001
+	max_bias: 40.000
 }
 
-joint.gear:
+joint.motor:
 {
+	force: 10.000
+}
+
+joint.rotarylimit:
+{
+	max_torque: 100000.000
+	min: -4.000
+	max: 1.000
 	max_bias: 8.000
 }
 

@@ -10,7 +10,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.bomb_rigged",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
 
@@ -31,9 +31,9 @@ namespace TC2.Base
 					var size = GUI.GetRemainingSpace();
 
 					var changed = false;
-					changed |= GUI.SliderInt("##amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
-					changed |= GUI.SliderFloat("##threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
@@ -94,7 +94,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.varnish",
-				category: "Health",
+				category: "Protection",
 				name: "Varnished Wood",
 				description: "Applies varnish on item's wooden parts, improving their durability.",
 
@@ -136,7 +136,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.smirgl_structure",
-				category: "Health",
+				category: "Protection",
 				name: "Smirgl-Reinforced Structure",
 				description: "Replaces entire structure with smirgl, greatly increasing durability.",
 
@@ -238,7 +238,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.50f, 10.00f, "%.2f");
+					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f, "%.2f");
 				},
 #endif
 
@@ -265,7 +265,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
@@ -281,7 +281,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref amount, 1, 40, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 40, "%d");
 				},
 #endif
 
@@ -309,7 +309,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.movement_cooling",
-				category: "Overheat",
+				category: "Heat Management",
 				name: "Movement Cooling",
 				description: "Increased cooling rate while in motion.",
 
@@ -330,7 +330,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.air_coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Air-Cooled",
 				description: "Increases cooling rate.",
 
@@ -346,7 +346,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref amount, 1, 10, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 10, "%d");
 				},
 #endif
 
@@ -374,7 +374,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.heat_resistant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
@@ -420,6 +420,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.bulk",
+				category: "Crafting",
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
@@ -435,7 +436,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref batch_size, 1, 10, "%d");
+					return GUI.SliderInt("Count", ref batch_size, 1, 10, "%d");
 				},
 #endif
 
@@ -507,7 +508,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
 				identifier: "cover.chitin_lined",
-				category: "Cover",
+				category: "Protection",
 				name: "Chitin-Lined",
 				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
 
@@ -553,6 +554,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Telescope.Data>
 			(
 				identifier: "telescope.magnifying_lenses",
+				category: "Telescope",
 				name: "Magnifying Lenses",
 				description: "Increases maximum range at cost of reduced field of view.",
 
@@ -568,7 +570,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 1.00f, 4.00f, "%.2f");
+					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f, "%.2f");
 				},
 #endif
 

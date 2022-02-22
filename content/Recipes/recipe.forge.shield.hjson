@@ -1,6 +1,6 @@
 {
 	name: "Shield"
-	desc: "A large shield capable of absorbing various kinds of attacks."
+	desc: "A large protective shield."
 	
 	icon:
 	{

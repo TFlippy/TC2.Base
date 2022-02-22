@@ -24,7 +24,7 @@
 		}
 		{
 			type: "resource"
-			material: "sulphur"
+			material: "sulfur"
 			amount: 0.300
 		}
 		{

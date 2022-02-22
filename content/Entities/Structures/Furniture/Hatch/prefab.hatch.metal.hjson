@@ -39,6 +39,16 @@ animated.renderer:
 	z: 100.000
 }
 
+faction.colorable:
+{
+
+}
+
+claimable:
+{
+
+}
+
 interactable:
 {
 
@@ -59,14 +69,4 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: vertical
 	flags: lockable
-}
-
-claimable:
-{
-
-}
-
-cover:
-{
-	threshold: 0.300
 }

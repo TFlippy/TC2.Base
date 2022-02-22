@@ -9,7 +9,7 @@ body:
 	@shape.line:
 	{
 		a: [0.000, -0.500]
-		b: [0.000, -12.500]
+		b: [0.000, -11.000]
 		mass: 900.000
 		radius: 0.500
 		friction: 1.000
@@ -32,7 +32,7 @@ health:
 
 splittable:
 {
-	rect: [-0.500, -13.000, 0.500, 0.000]
+	rect: [-0.500, -11.500, 0.500, 0.000]
 	texture_stub: "tree.pine.stub"
 	sound_split: "tree_snap_00"
 }
@@ -78,7 +78,7 @@ harvestable:
 		}
 		{
 			material: "resin"
-			quantity: 240.000
+			quantity: 320.000
 		}
 	]
 }

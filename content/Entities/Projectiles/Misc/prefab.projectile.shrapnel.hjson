@@ -1,0 +1,26 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 300.000
+	damage_bonus: 1500.000
+	lifetime: 20.000
+	damage_type: bullet_musket
+	size: 0.350
+	damp: 0.995
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "shrapnel"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
+}
+
+transform:
+{
+
+}

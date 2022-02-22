@@ -2,42 +2,51 @@
 	$name: "Starobordus"
 	$desc: "A decommissioned artillery training area surrounded by mountains."
 	$tag: "frontier"
+	$features:
+	[
+		"Underground tunnels"
+		"Abandoned cannon"
+		"Lots of wreckages"
+		"Low wildlife"
+		"Mild terrain"
+		"Large size"
+	]
 	
 	entities:
 	[
 		{
-			prefab: "background.nostalgia"
-			position: [426.875, 58.125]
-			rotation: 0.000
-			scale: [24.000, 24.000]
-		}
-		{
 			prefab: "background.plains"
-			position: [391.750, 58.250]
+			position: [166.500, 67.750]
 			rotation: 0.000
-			scale: [3.000, 3.000]
+			scale: [3.500, 3.500]
 		}
 		{
-			prefab: "background.test"
-			position: [133.1355, 33.66088]
-			rotation: 0.000
-			scale: [16.000, 16.000]
-		}
-		{
-			prefab: "background.test2"
-			position: [503.625, 39.750]
+			prefab: "background.forest"
+			position: [135.375, 59.250]
 			rotation: 0.000
 			scale: [8.000, 8.000]
 		}
 		{
-			prefab: "background.test3"
-			position: [133.2073, 33.6016]
+			prefab: "background.mountains"
+			position: [215.625, 51.750]
 			rotation: 0.000
 			scale: [12.000, 12.000]
 		}
 		{
-			prefab: "background.test4"
-			position: [133.2073, 33.6016]
+			prefab: "background.ridge"
+			position: [370.250, 25.875]
+			rotation: 0.000
+			scale: [16.000, 16.000]
+		}
+		{
+			prefab: "background.nostalgia"
+			position: [324.375, 44.125]
+			rotation: 0.000
+			scale: [24.000, 24.000]
+		}
+		{
+			prefab: "background.sea"
+			position: [180.625, 69.125]
 			rotation: 0.000
 			scale: [48.000, 48.000]
 		}
@@ -292,37 +301,37 @@
 			scale: [-1.034375, 1.1125]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [78.875, 61.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [47.125, 58.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [60.875, 71.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [70.000, 75.500]
 			rotation: 0.034907
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [92.375, 56.500]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [118.875, 62.000]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -442,7 +451,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [312.375, 61.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -472,25 +481,25 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [259.375, 62.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [291.375, 50.000]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [336.000, 44.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [375.250, 51.125]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -521,20 +530,20 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5601, 62.50201]
-			rotation: -0.162423
+			position: [254.5599, 62.50202]
+			rotation: -0.162443
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7624, 63.3599]
-			rotation: 1.880357
+			position: [262.7625, 63.35993]
+			rotation: 1.880388
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
 			position: [444.9469, 68.33717]
-			rotation: 1.51175
+			rotation: 1.511749
 			scale: [1.000, 1.000]
 		}
 		{
@@ -550,13 +559,13 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [442.250, 68.625]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [427.500, 61.750]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -598,7 +607,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [340.000, 47.500]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -658,13 +667,13 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [393.750, 50.375]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [390.500, 59.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -772,7 +781,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [411.500, 52.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -784,7 +793,7 @@
 			scale: [0.961169, 1.197226]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [458.375, 55.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -893,8 +902,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.1299]
-			rotation: 0.000166
+			position: [260.8701, 44.12989]
+			rotation: 0.000179
 			scale: [1.000, 1.000]
 		}
 		{
@@ -905,14 +914,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.601, 44.35448]
-			rotation: -1.56977
+			position: [268.6011, 44.35445]
+			rotation: -1.569701
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5397, 63.00906]
-			rotation: -0.108794
+			position: [268.5393, 63.00901]
+			rotation: -0.109045
 			scale: [1.000, 1.000]
 		}
 		{
@@ -988,7 +997,7 @@
 			scale: [1.036112, 0.896181]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [370.250, 24.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1012,7 +1021,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [372.875, 35.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1024,73 +1033,73 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [594.375, 55.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [571.375, 48.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [552.625, 48.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [536.250, 59.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [578.750, 61.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [557.000, 59.250]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [527.250, 34.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [513.125, 32.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [545.000, 33.375]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [563.375, 48.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [561.000, 26.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [611.5001, 52.125]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1150,7 +1159,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [484.750, 57.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1216,13 +1225,13 @@
 			scale: [-1.071875, 0.7625]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [515.625, 45.375]
 			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [538.125, 48.250]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1276,7 +1285,7 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [86.875, 61.875]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
@@ -1294,7 +1303,7 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [79.250, 75.500]
 			rotation: -0.069813
 			scale: [-1.06875, 1.028125]
@@ -1390,7 +1399,7 @@
 			scale: [-1.105556, 1.011111]
 		}
 		{
-			prefab: "shrubbery"
+			prefab: "shrubbery.00"
 			position: [25.125, 45.125]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -1440,7 +1449,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [429.3317, 61.81053]
-			rotation: 0.104722
+			rotation: 0.104741
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1494,7 +1503,7 @@
 		{
 			prefab: "cannon.wreck"
 			position: [261.8679, 39.90462]
-			rotation: 0.29182
+			rotation: 0.291822
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1506,13 +1515,13 @@
 		{
 			prefab: "miner"
 			position: [87.62774, 75.10503]
-			rotation: -0
+			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "builder"
-			position: [436.8595, 61.60009]
-			rotation: 0.000001
+			position: [436.8598, 61.60013]
+			rotation: 0.000002
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1529,7 +1538,7 @@
 		}
 		{
 			prefab: "farmer"
-			position: [72.06142, 60.60172]
+			position: [72.0614, 60.60172]
 			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}

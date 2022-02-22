@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, storage, support
+		layer: entity, building, storage, support, ignore_melee
 		mask: world
 	}
 }
 
 health:
 {
-	max: 18000.000
+	max: 35000.000
 }
 
 animated.renderer:
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "storage"
 	}
-	z: -150.000
+	z: -300.000
 	mask: "storage.mask"
 }
 
@@ -60,5 +60,5 @@ storage:
 
 interactable:
 {
-	window_size: [192.000, 192.000]
+	window_size: [192.000, 232.000]
 }

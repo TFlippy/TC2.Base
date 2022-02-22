@@ -60,11 +60,6 @@ control:
 	}
 }
 
-pathfinding:
-{
-	flags: air
-}
-
 npc:
 {
 	navigation_state: searching
@@ -74,6 +69,11 @@ npc:
 	follow_distance_min: 0.000
 	pain_modifier: 0.500
 	min_consciousness: 0.500
+}
+
+npc.pathfinding:
+{
+	flags: air
 }
 
 animal:

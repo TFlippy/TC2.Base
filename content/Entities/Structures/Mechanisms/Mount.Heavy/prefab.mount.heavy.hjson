@@ -1,3 +1,5 @@
+$name: "Heavy Mount"
+$desc: "A heavy stationary mounting platform used for turrets, cranes and such."
 $tags: []
 
 body:
@@ -18,7 +20,7 @@ body:
 		friction: 500.000
 		elasticity: 0.000
 		material: metal
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_melee
 		mask: world
 	}
 
@@ -30,7 +32,7 @@ body:
 		friction: 500.000
 		elasticity: 0.000
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -109,7 +111,7 @@ joint.base:
 	offset_a: [0.000, 0.000]
 	max_force: 100000.000
 	max_torque: 100000.000
-	flags: control_write, no_wrap, force_facing
+	flags: control_write, no_stress, no_wrap, force_facing
 	
 	@sound.emitter:
 	{
@@ -144,7 +146,17 @@ joint.gear:
 	max_bias: 0.700
 }
 
-cover:
+vehicle:
 {
-	threshold: 0.400
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.625]
+	}
 }

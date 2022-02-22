@@ -17,7 +17,7 @@
 	pattern: "pattern_stonebrick"
 	
 	texture_scale: 1.500
-	texture_overshoot: -0.750
+	texture_overshoot: -0.300
 	
 	fg_color: "#ff140e08"
 	bg_color: "#10322d29"

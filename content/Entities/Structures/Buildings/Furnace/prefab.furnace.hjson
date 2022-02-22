@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, storage, support
+		layer: entity, building, storage, support, ignore_melee
 		mask: world
 	}
 }
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "furnace"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 transform:
@@ -57,11 +57,11 @@ furnace:
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.000, 3.000]
-		offset: [0.500, 1.300]
-		scale: [24.000, 18.000]
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [0.000, 0.625]
+		scale: [12.000, 12.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "furnace.light"
 	}
 }
 

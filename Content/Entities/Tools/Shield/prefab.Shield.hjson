@@ -1,5 +1,5 @@
 $name: "Shield"
-$desc: "A large shield capable of absorbing various kinds of attacks."
+$desc: "A large protective shield."
 $tags: []
 
 body:
@@ -93,6 +93,7 @@ melee:
 	category: blunt
 	flags: no_handle
 	hit_mask: item, creature
+	hit_exclude: ignore_melee, decoration, tree
 }
 
 melee.state:

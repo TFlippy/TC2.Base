@@ -1,0 +1,77 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.200
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_shell.shrapnel"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_shell.shrapnel"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 400.000
+}
+
+explosive:
+{
+	radius: 3.000
+	power: 2.000
+	damage_entity: 5000.000
+	damage_terrain: 5000.000
+	smoke_amount: 1.000
+	sparks_amount: 0.800
+	volume: 1.500
+	pitch: 1.100
+	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.shrapnel"
+	spread: 6.000
+	speed: 40.000
+	count: 30
+	damage_modifier: 0.250
+}

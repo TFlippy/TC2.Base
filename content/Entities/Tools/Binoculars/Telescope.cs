@@ -5,21 +5,21 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public struct Data: IComponent
 		{
-			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float speed = 2.00f;
 
 			public float deadzone = 5.00f;
 
-			[Statistics.Info("Zoom Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Zoom Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public float zoom_modifier = 0.50f;
 
-			[Statistics.Info("Zoom (Min)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Zoom (Min)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float zoom_min = 0.10f;
 
-			[Statistics.Info("Zoom (Max)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None)]
+			[Statistics.Info("Zoom (Max)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float zoom_max = 1.00f;
 
-			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_distance = 50.00f;
 
 			[Save.Ignore, Net.Ignore] public float current_modifier;

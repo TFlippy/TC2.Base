@@ -1,5 +1,5 @@
 {
-	name: "Mossy Stone"
+	name: "Stone (Moss)"
 	desc: "Stone covered in moss."
 	
 	material_type: stone
@@ -27,10 +27,6 @@
 		{
 			material: "stone"
 			quantity: 1.800
-		}
-		{
-			material: "soil_rich"
-			quantity: 0.400
 		}
 	]
 }

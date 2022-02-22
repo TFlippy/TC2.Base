@@ -35,11 +35,6 @@ resource:
 	material: "stone"
 }
 
-despawn:
-{
-
-}
-
 hoverable:
 {
 
@@ -51,6 +46,11 @@ holdable:
 }
 
 norotate:
+{
+
+}
+
+despawn:
 {
 
 }

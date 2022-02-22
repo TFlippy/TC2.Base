@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, support
+		layer: entity, building, support, ignore_melee
 		mask: world
 	}
 }
 
 health:
 {
-	max: 20000.000
+	max: 35000.000
 }
 
 animated.renderer:
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "armory"
 	}
-	z: -150.000
+	z: -300.000
 	mask: "armory.mask"
 }
 
@@ -49,11 +49,6 @@ transform:
 
 armory:
 {
-
-}
-
-storage:
-{
 	@inventory8:
 	{
 		name: "Storage"
@@ -66,5 +61,5 @@ storage:
 
 interactable:
 {
-	window_size: [384.000, 192.000]
+	window_size: [336.000, 216.000]
 }

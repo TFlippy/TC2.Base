@@ -12,7 +12,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, support
+		layer: entity, building, support, ignore_melee
 		mask: world
 	}
 }
@@ -28,7 +28,7 @@ animated.renderer:
 	{
 		texture: "gunsmith"
 	}
-	z: -100.000
+	z: -300.000
 }
 
 transform:

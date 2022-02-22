@@ -9,6 +9,7 @@ body:
 		radius: 0.400
 		friction: 0.950
 		elasticity: 0.300
+		material: paper
 		layer: entity, solid, resource
 		mask: world
 	}
@@ -45,6 +46,11 @@ holdable:
 }
 
 norotate:
+{
+
+}
+
+despawn:
 {
 
 }

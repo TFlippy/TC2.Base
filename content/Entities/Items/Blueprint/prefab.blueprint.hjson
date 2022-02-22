@@ -9,6 +9,7 @@ body:
 		mass: 0.500
 		friction: 0.950
 		elasticity: 0.020
+		material: paper
 		layer: entity
 		mask: world
 	}
@@ -21,7 +22,7 @@ health:
 
 holdable:
 {
-
+	flags: storable
 }
 
 animated.renderer:

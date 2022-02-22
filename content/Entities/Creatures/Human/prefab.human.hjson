@@ -29,7 +29,7 @@ organic.state:
 
 health:
 {
-	max: 3200.000
+	max: 2900.000
 }
 
 regen:
@@ -78,8 +78,13 @@ control:
 
 torso:
 {
-	head_bob_speed: 22.000
-	head_bob_amplitude: 0.200
+
+}
+
+headbob:
+{
+	speed: 22.000
+	multiplier: [0.000, 0.200]
 }
 
 storage:
@@ -260,7 +265,7 @@ lootable:
 		
 		health:
 		{
-			max: 2400.000
+			max: 2100.000
 		}
 
 		regen:
@@ -451,7 +456,7 @@ lootable:
 		
 		health:
 		{
-			max: 3900.000
+			max: 3400.000
 		}
 
 		regen:

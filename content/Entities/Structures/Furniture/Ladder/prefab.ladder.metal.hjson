@@ -20,7 +20,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, climbable, building, no_overlapped_placement
+		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
 		mask: world
 	}
 }
@@ -36,7 +36,7 @@ animated.renderer:
 	{
 		texture: "ladder.metal"
 	}
-	z: -150.000
+	z: -290.000
 }
 
 transform:

@@ -12,6 +12,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	min: 1
 	max: 50
@@ -32,7 +39,7 @@
 	[
 		{
 			type: "money"
-			amount: 1000.000
+			amount: 275.000
 		}
 	]
 }

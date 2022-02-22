@@ -54,3 +54,8 @@ health:
 {
 	max: 400.000
 }
+
+despawn:
+{
+
+}

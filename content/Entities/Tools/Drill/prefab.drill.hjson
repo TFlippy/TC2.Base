@@ -23,7 +23,7 @@ health:
 
 drill:
 {
-	damage: 180.000
+	damage: 350.000
 	max_distance: 2.000
 	speed: 10.000
 	radius: 0.750
@@ -67,9 +67,9 @@ sound.emitter:
 overheat:
 {
 	heat_medium: 350.000
-	heat_high: 400.000
-	heat_critical: 500.000
-	cool_rate: 50.000
+	heat_high: 500.000
+	heat_critical: 600.000
+	cool_rate: 90.000
 	
 	@light:
 	{
