@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 
 				var pos = GUI.WorldToCanvas(this.prospector_pick_state.position);
 
-				var a = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -2.00f));
+				var a = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -3.00f));
 				var b = GUI.WorldToCanvas(this.prospector_pick_state.position);
 				var c = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
@@ -86,6 +86,10 @@ namespace TC2.Base.Components
 									GUI.LabelShaded($"{block.name}:", ratio, "{0:P0}", color_a: color, color_b: GUI.font_color_default);
 								}
 							}
+
+							//GUI.Separator();
+
+							//GUI.LabelShaded("Richness:", total_count);
 						}
 					}
 				}
