@@ -21,6 +21,16 @@ namespace TC2.Base.Components
 			No_Handle = 1 << 0,
 		}
 
+		[IEvent.Data]
+		public partial struct HitEvent: IEvent
+		{
+			public Entity ent_attacker;
+			public Entity ent_target;
+			public Entity ent_owner;
+			public Vector2 world_position;
+			public Vector2 direction;
+		}
+
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Melee.State>]
 		public partial struct Data: IComponent
 		{
@@ -157,6 +167,14 @@ namespace TC2.Base.Components
 							world_position: result.world_position, direction: dir, normal: -dir,
 							damage: damage * modifier, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
 							target_material_type: result.material_type, knockback: melee.knockback, size: melee.aoe, flags: flags);
+
+						var data = new Melee.HitEvent();
+						data.ent_attacker = entity;
+						data.ent_owner = parent;
+						data.ent_target = result.entity;
+						data.world_position = result.world_position;
+						data.direction = dir;
+						entity.Notify(ref data);
 #endif
 
 						flags |= Damage.Flags.No_Sound;
