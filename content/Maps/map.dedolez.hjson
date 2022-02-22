@@ -191,8 +191,8 @@
 		}
 		{
 			prefab: "log.00"
-			position: [114.6855, 80.66715]
-			rotation: 1.083027
+			position: [114.6855, 80.66718]
+			rotation: 1.083012
 			scale: [1.000, 1.000]
 		}
 		{
@@ -575,13 +575,13 @@
 		}
 		{
 			prefab: "mine"
-			position: [449.375, 59.250]
-			rotation: 0.05236
-			scale: [-1.000, 1.000]
+			position: [444.500, 58.125]
+			rotation: -0
+			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "market"
-			position: [442.125, 59.125]
+			position: [363.625, 68.750]
 			rotation: -0
 			scale: [1.000, 1.000]
 		}
@@ -676,10 +676,10 @@
 			scale: [1.04375, 0.936806]
 		}
 		{
-			prefab: "tree.oak"
-			position: [454.250, 61.875]
-			rotation: -0.069813
-			scale: [-1.067709, 0.990972]
+			prefab: "shrubbery.01"
+			position: [439.375, 59.875]
+			rotation: 0.000
+			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "tree.oak"
@@ -756,7 +756,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [507.5533, 80.71262]
-			rotation: 1.656497
+			rotation: 1.656503
 			scale: [1.000, 1.000]
 		}
 		{
@@ -875,8 +875,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [503.5977, 57.6186]
-			rotation: 0.125884
+			position: [503.5979, 57.61859]
+			rotation: 0.126126
 			scale: [1.000, 1.000]
 		}
 		{
@@ -954,7 +954,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [548.840, 82.91473]
-			rotation: -1.851214
+			rotation: -1.851249
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1205,7 +1205,7 @@
 		}
 		{
 			prefab: "tree.pine"
-			position: [463.500, 62.375]
+			position: [460.625, 61.750]
 			rotation: 0.034907
 			scale: [-1.000, 1.000]
 		}
@@ -1511,7 +1511,7 @@
 		}
 		{
 			prefab: "roots"
-			position: [436.875, 55.000]
+			position: [437.500, 54.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -1595,8 +1595,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.3777, 81.95506]
-			rotation: 6.430884
+			position: [260.3778, 81.95509]
+			rotation: 6.430851
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1608,7 +1608,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [270.1564, 82.31907]
-			rotation: -1.17083
+			rotation: -1.170835
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2471,26 +2471,26 @@
 		}
 		{
 			prefab: "miner"
-			position: [223.0775, 71.8076]
-			rotation: -0.000002
-			scale: [-1.000, 1.000]
-		}
-		{
-			prefab: "miner"
-			position: [169.9784, 44.93357]
+			position: [223.0777, 71.80766]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [452.7532, 60.11473]
+			position: [169.9785, 44.93358]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "miner"
+			position: [452.7535, 60.11477]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "farmer"
-			position: [437.125, 59.35501]
-			rotation: 0.000
+			position: [363.1237, 69.00307]
+			rotation: -0.000004
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2509,6 +2509,12 @@
 			prefab: "mushroom.blue"
 			position: [571.125, 48.875]
 			rotation: -0.087266
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "tree.maple"
+			position: [449.625, 60.500]
+			rotation: -0.017453
 			scale: [-1.000, 1.000]
 		}
 	]
