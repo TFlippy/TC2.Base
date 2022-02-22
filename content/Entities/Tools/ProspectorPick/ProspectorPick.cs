@@ -43,6 +43,7 @@ namespace TC2.Base.Components
 
 				var a = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -2.00f));
 				var b = GUI.WorldToCanvas(this.prospector_pick_state.position);
+				var c = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
 				using (var window = GUI.Window.HUD("Prospector Pick", position: a + new Vector2(0.00f, -2.00f), size: new(160, 0), pivot: new(0.50f, 1.00f)))
 				{
@@ -59,9 +60,12 @@ namespace TC2.Base.Components
 
 						if (total_count > 0.00f)
 						{
-							GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
+							//GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
+							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * GUI.GetWorldToCanvasScale()), GUI.font_color_default.WithAlphaMult(1.00f), GUI.font_color_default.WithAlphaMult(0.50f), 4.00f, 1.00f);
+
 							GUI.DrawLine(a - new Vector2(80, 0), a + new Vector2(80, 0), GUI.font_color_default, 1.00f);
-							GUI.DrawCircleFilled(b, 0.125f * GUI.GetWorldToCanvasScale(), GUI.font_color_default);
+							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
+							GUI.DrawCircleFilled(b, 0.075f * GUI.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
 
 							GUI.Title("Ores");
 
@@ -71,7 +75,15 @@ namespace TC2.Base.Components
 								if (sample.block.id != 0)
 								{
 									ref var block = ref sample.block.GetDefinition();
-									GUI.LabelShaded($"{block.name}:", sample.quantity / total_count, "{0:P0}");
+
+									var ratio = sample.quantity / total_count;
+									var color = Color32BGRA.FromHSV(ratio * 2.00f, 1.00f, 1.00f);
+
+									//if (block.flags.HasAny(Block.Flags.Rare | Block.Flags.Uncommon)) color = GUI.font_color_default;
+									//else if (block.flags.HasAll(Block.Flags.Common)) color = GUI.font_color_default;
+									//else color = GUI.font_color_default.WithColorMult(0.50f);
+
+									GUI.LabelShaded($"{block.name}:", ratio, "{0:P0}", color_a: color, color_b: GUI.font_color_default);
 								}
 							}
 						}
@@ -113,7 +125,7 @@ namespace TC2.Base.Components
 				if (tile.BlockID != 0)
 				{
 					ref var block = ref tile.Block;
-					if (block.flags.HasAny(Block.Flags.Mineral))
+					if (block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
 					{
 						for (int i = 0; i < arg.samples.Length; i++)
 						{
