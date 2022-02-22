@@ -54,7 +54,7 @@ interactable:
 
 mount:
 {
-
+	flags: no_torque_without_controller
 }
 
 storage:
