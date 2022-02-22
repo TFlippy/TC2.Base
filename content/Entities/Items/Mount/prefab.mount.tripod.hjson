@@ -108,3 +108,18 @@ joint.gear:
 	error_bias: 0.000
 	max_bias: 8.000
 }
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-0.750, -0.500]
+	}
+}
