@@ -1,6 +1,6 @@
 {
 	name: "Sell: Wood"
-	desc: "High-quality lumber."
+	desc: "Good-quality lumber used in construction and as a fuel."
 	
 	icon:
 	{
@@ -35,7 +35,7 @@
 	[
 		{
 			type: "money"
-			amount: 0.099
+			amount: 0.199
 		}
 	]
 }
