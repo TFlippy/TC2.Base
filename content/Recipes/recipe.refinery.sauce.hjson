@@ -31,7 +31,7 @@
 		}
 		{
 			type: "resource"
-			material: "mushroom"
+			material: "mushroom.brown"
 			amount: 10.000
 		}
 		{
