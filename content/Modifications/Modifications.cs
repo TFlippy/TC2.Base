@@ -510,8 +510,7 @@ namespace TC2.Base
 					}
 				}
 			));
-
->>>>>>> main
+			
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
 				identifier: "cover.chitin_lined",

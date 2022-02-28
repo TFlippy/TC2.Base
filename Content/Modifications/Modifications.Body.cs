@@ -6,97 +6,11 @@ namespace TC2.Base
 	{
 		private static void RegisterBodyModifications(ref List<Modification.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Body.Data>
-			(
-				identifier: "body.bulk",
-				name: "Batch Production",
-				description: "More efficient manufacturing process by producing multiple items in bulk.",
-
-				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var batch_size = ref handle.GetData<int>();
-					batch_size = Maths.Clamp(batch_size, 1, 10);
-
-					return true;
-				},
-
-#if CLIENT
-				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var batch_size = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref batch_size, 1, 10, "%d");
-				},
-#endif
-
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
-
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref readonly var recipe_old = ref context.GetRecipeOld();
-					ref var recipe_new = ref context.GetRecipeNew();
-
-					ref var batch_size = ref handle.GetData<int>();
-
-					recipe_new.min *= batch_size;
-					recipe_new.max *= batch_size;
-					recipe_new.step *= batch_size;
-
-					for (int i = 0; i < context.requirements_new.Length; i++)
-					{
-						ref var requirement = ref context.requirements_new[i];
-
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								requirement.amount *= MathF.Pow(0.99f, batch_size - 1);
-							}
-							else
-							{
-								requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
-							}
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Machining:
-								{
-									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
-								}
-								break;
-
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= MathF.Pow(0.93f, batch_size - 1);
-								}
-								break;
-
-								case Work.Type.Assembling:
-								{
-									requirement.amount *= MathF.Pow(0.90f, batch_size - 1);
-								}
-								break;
-
-								default:
-								{
-									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
-								}
-								break;
-							}
-						}
-					}
-				}
-			));
 
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.efficient_crafting",
-				category: "Body",
+				category: "Crafting",
 				name: "Efficient Crafting",
 				description: "Rework the design to reduce material costs slightly.",
 				
@@ -185,7 +99,7 @@ namespace TC2.Base
 				{
 					data.gravity *= 0.20f; 
 					//Very fun modifer which makes an object behave very floaty
-					//TODO: should cost motion salt or some sort of gas, current cost is temporary
+
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
@@ -193,15 +107,14 @@ namespace TC2.Base
 							requirement.amount *= 1.30f;
 						}
 					}
-					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 50));
-					 //TODO: Cost should be equal to mass but i cannot access mass right now
+					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 2.00f)); // Low ish cost, but effect is not very usefull in nearly all cases
 				}
 			));
 
 			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.mushroom_wood",
-				category: "Body",
+				category: "Crafting",
 				name: "Mushroom Wood",
 				description: "Uses mushroom scraps as a wood replacement",
 
@@ -220,52 +133,22 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 0.70f;
+							requirement.amount *= 0.50f;
 							requirement.difficulty += 1.00f; 
-							//Mushroom scraps are faster to process but require you to be more experienced
-							//This is also fine balance wise since mushroom scraps are harder to get than wood
+							//Mushroom scraps are faster to process but require you to be a bit more experienced
+							//This is also fine balance wise since mushroom scraps are much harder to get than wood
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.identifier == "wood")
 							{
-								wood_amount += requirement.amount;
+								wood_amount += requirement.amount*0.50f; //It costs excactly half as much but mushroom scraps are a ton more expensive
 								requirement = default;
 							}
 						}
 					}
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", wood_amount));
-				}
-			));
-
-			
-			definitions.Add(Modification.Definition.New<Body.Data>
-			(
-				identifier: "body.random_activation",
-				category: "Utility",
-				name: "Random Activation",
-				description: "Item randomly activates on its own.",
-
-				// This randomly causes a left click and a space bar (at the same time)
-				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
-				// Due to the wide variety of uses this has, this costs a large amount of materials
-				// This doesn't aim, so using anything which uses aim direction requires additional setup
-
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
-					random_activation.duration += 0.20f;
-				},
-
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
-
-					if (!context.GetComponent<Melee.Data>().IsNull())
-					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
-					}
 				}
 			));
 		}
