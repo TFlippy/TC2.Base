@@ -29,18 +29,18 @@
 			material: "stone"
 			amount: 800.000
 		}
-		{
-			type: "work"
-			work: "carpentry"
-			amount: 400.000
-			difficulty: 4.000
-		}
-		{
-			type: "work"
-			work: "masonry"
-			amount: 600.000
-			difficulty: 3.000
-		}
+		// {
+		// 	type: "work"
+		// 	work: "carpentry"
+		// 	amount: 400.000
+		// 	difficulty: 4.000
+		// }
+		// {
+		// 	type: "work"
+		// 	work: "masonry"
+		// 	amount: 600.000
+		// 	difficulty: 3.000
+		// }
 	]
 	
 	products:

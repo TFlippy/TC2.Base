@@ -1,0 +1,41 @@
+{
+	name: "Blue Mushrooms"
+	desc: "These blue mushrooms are fairly rare nowadays, and are highly prized for their use in medicine."
+	
+	icon:
+	{
+		texture: "resource.mushroom.blue"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.blue"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 4.490
+		}
+	]
+}

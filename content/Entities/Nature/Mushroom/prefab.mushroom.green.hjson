@@ -15,7 +15,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -35,6 +35,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "mushroom.green"
+		size: [24, 40]
 	}
 	offset: [0.200, -1.800]
 	z: -200.000
@@ -46,6 +47,11 @@ animated.renderer:
 		scale: [16.000, 20.000]
 		intensity: 1.000
 		texture: "light_invsqr"
+	}
+
+	@damagesprite:
+	{
+		frame_count: 3
 	}
 }
 

@@ -65,7 +65,7 @@ interactable:
 
 }
 
-rope:
+rope.renderer:
 {
 	texture: "rope"
 	thickness: 0.200

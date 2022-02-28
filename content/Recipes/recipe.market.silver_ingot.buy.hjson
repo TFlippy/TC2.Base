@@ -1,5 +1,5 @@
 {
-	name: "Buy: Silver Ingot"
+	name: "Silver Ingot"
 	desc:
 		'''
 		An ingot of solid silver.
@@ -23,7 +23,7 @@
 	[
 		{
 			type: "money"
-			amount: 500.000
+			amount: 52.000
 		}
 	]
 	

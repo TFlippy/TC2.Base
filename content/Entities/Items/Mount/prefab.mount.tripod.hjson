@@ -54,7 +54,7 @@ interactable:
 
 mount:
 {
-
+	flags: no_torque_without_controller
 }
 
 storage:
@@ -90,10 +90,10 @@ attachment:
 
 joint.base:
 {
-	offset_a: [0.000, -0.700]
+	offset_a: [0.250, -0.375]
 	max_force: 40000.000
 	max_torque: 5000.000
-	flags: control_write, no_wrap, force_facing
+	flags: control_write, no_wrap, force_facing, attachment
 }
 
 joint.pivot:
@@ -105,6 +105,21 @@ joint.gear:
 {
 	min: -1.400
 	max: 0.750
-	error_bias: 0.00001
+	error_bias: 0.000
 	max_bias: 8.000
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-0.750, -0.500]
+	}
 }

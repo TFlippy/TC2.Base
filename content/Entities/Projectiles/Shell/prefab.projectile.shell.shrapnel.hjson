@@ -1,0 +1,47 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 5000.000
+	damage_bonus: 10000.000
+	lifetime: 0.200
+	ignore_time: 0.100
+	damage_type: bullet_mg
+	size: 0.750
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "projectile.shell.shrapnel"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
+}
+
+explosive:
+{
+	radius: 3.000
+	power: 2.000
+	damage_entity: 5000.000
+	damage_terrain: 5000.000
+	smoke_amount: 1.000
+	sparks_amount: 0.800
+	volume: 1.500
+	pitch: 1.100
+	flags: primed
+}
+
+cluster:
+{
+	prefab: "projectile.shrapnel"
+	spread: 0.400
+	speed: 0.000
+	count: 40
+}

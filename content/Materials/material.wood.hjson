@@ -4,13 +4,13 @@
 	icon:
 	{
 		texture: "resource.wood"
-		uv0: [0.750, 0.000]
-		uv1: [1.000, 1.000]
+		size: [16, 16]
+		frame: [3, 0]
 	}
 	
 	type: wood
 	flags: raw, fuel, organic, despawnable
-	mass_per_unit: 0.070
+	mass_per_unit: 0.060
 	quantity_max: 500.000
 	prefab: "resource.wood"
 	

@@ -9,17 +9,20 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage;
 
-			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float max_distance;
 
-			[Statistics.Info("Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float speed;
 
-			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float radius;
+
+			public Physics.Layer hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+			public Physics.Layer hit_exclude = Physics.Layer.Crate;
 
 			[Save.Ignore, Net.Ignore] public float last_hit;
 			[Save.Ignore, Net.Ignore] public float next_hit;
@@ -134,7 +137,7 @@ namespace TC2.Base.Components
 					overheat.heat_current += 4.00f;
 
 					Span<LinecastResult> hits = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: Physics.Layer.World | Physics.Layer.Destructible))
+					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
 						var parent = body.GetParent();
 
@@ -161,7 +164,6 @@ namespace TC2.Base.Components
 							}
 
 							var material_type = hit.material_type;
-
 							var heat = drill.damage * 0.015f * modifier;
 
 							switch (material_type)
@@ -203,7 +205,7 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
 #endif
 
 							flags |= Damage.Flags.No_Sound;

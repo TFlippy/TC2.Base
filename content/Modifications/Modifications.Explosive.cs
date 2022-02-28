@@ -9,7 +9,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.directed",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
@@ -27,7 +27,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.nitroglycerine",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
 
@@ -91,7 +91,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.dud",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Dud Explosive",
 				description: "Replaces all the explosive material with dirt.",
 

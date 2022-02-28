@@ -11,7 +11,7 @@ body:
 		friction: 0.990
 		elasticity: 0.030
 		material: metal
-		layer: entity, building, no_overlapped_placement
+		layer: entity, building, no_overlapped_placement, ignore_melee
 		mask: world
 	}
 }
@@ -60,7 +60,7 @@ winch:
 	length: 30.000
 }
 
-rope:
+rope.renderer:
 {
 	texture: "rope"
 	thickness: 0.125

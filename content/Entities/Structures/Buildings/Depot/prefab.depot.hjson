@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, support
+		layer: entity, building, support, ignore_melee
 		mask: world
 	}
 }
@@ -67,7 +67,7 @@ depot:
 	size: [5.000, 5.000]
 	flags: allow_deposit, allow_withdraw, allow_send, allow_receive, allow_request, allow_local, allow_region, allow_world, local
 
-	shipping_fee_base: 80.000
+	shipping_fee_base: 8.000
 }
 
 packer:

@@ -36,7 +36,7 @@
 	[
 		{
 			type: "resource"
-			material: "sulphur"
+			material: "sulfur"
 			amount_min: 7.000
 			amount_max: 25.000
 		}

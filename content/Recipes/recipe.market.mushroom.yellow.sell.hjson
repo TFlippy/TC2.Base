@@ -1,0 +1,41 @@
+{
+	name: "Yellow Mushrooms"
+	desc: "Sulfur-rich mushrooms frequently used in chemical industry."
+	
+	icon:
+	{
+		texture: "resource.mushroom.yellow"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mushroom.yellow"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 1.190
+		}
+	]
+}

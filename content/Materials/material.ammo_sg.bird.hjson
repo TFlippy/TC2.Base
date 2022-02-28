@@ -1,0 +1,34 @@
+{
+	name: "Shotgun Ammo (Birdshot)"
+	description:
+		'''
+		Ammunition for shotguns. Fires many tiny projectiles,
+		typically used for hunting fowl (or when your aim is bad).
+		'''
+	icon:
+	{
+		texture: "resource.ammo_sg.bird"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_sg, despawnable
+	mass_per_unit: 0.020
+	quantity_max: 24.000
+	prefab: "resource.ammo_sg.bird"
+	
+	projectile_count: 7
+	projectile_speed_mult: 1.200
+	projectile_spread_mult: 2.500
+	projectile_heat: 50.000
+	projectile_prefab: "projectile.bullet.sg.bird"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

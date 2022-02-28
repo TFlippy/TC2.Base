@@ -38,7 +38,7 @@ transform:
 
 health:
 {
-	max: 30000.000
+	max: 20000.000
 }
 
 harvestable:

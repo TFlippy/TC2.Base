@@ -10,6 +10,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Drill.Data>
 			(
 				identifier: "drill.overclocked_mechanism",
+				category: "Drill",
 				name: "Overclocked Mechanism",
 				description: "Increases drilling speed.",
 
@@ -47,6 +48,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Drill.Data>
 			(
 				identifier: "drill.larger_drill_head",
+				category: "Drill",
 				name: "Larger Drill Head",
 				description: "Increases drilling area, but reduces speed.",
 
@@ -87,6 +89,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Drill.Data>
 			(
 				identifier: "drill.smirgl_head",
+				category: "Drill",
 				name: "Smirgl Drill Head",
 				description: "Greatly increases drill power at cost of reduced speed.",
 

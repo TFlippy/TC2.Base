@@ -14,7 +14,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building, no_overlapped_placement
+		layer: entity, building, no_overlapped_placement, ignore_melee
 		mask: world
 	}
 }

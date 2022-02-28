@@ -1,0 +1,63 @@
+$name: "Busted Steam Engine"
+$desc: "It ran out of steam."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[2.500, 2.500]
+			[-3.000, 2.500]
+			[-2.250, -2.500]
+			[2.250, -0.000]
+		]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 12000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.steam_engine.00"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 1200.000
+		}
+		{
+			material: "iron_plate"
+			quantity: 40.000
+		}
+		{
+			material: "machine_parts"
+			quantity: 20.000
+		}
+	]
+}

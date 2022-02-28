@@ -1,6 +1,6 @@
 {
 	name: "Brown Coal"
-	desc: ""
+	desc: "Low-quality coal."
 	
 	material_type: stone
 	tile_flags: any
@@ -26,7 +26,7 @@
 	[
 		{
 			material: "brown_coal"
-			quantity: 1.8000001
+			quantity: 0.600
 		}
 	]
 }

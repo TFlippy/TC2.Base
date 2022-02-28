@@ -1,5 +1,5 @@
 {
-	name: "Sell: Stone"
+	name: "Stone"
 	desc: "A pile of assorted rocks."
 	
 	icon:
@@ -7,6 +7,13 @@
 		texture: "resource.stone"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 100
@@ -28,7 +35,7 @@
 	[
 		{
 			type: "money"
-			amount: 0.300
+			amount: 0.029
 		}
 	]
 }

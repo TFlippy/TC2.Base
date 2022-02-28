@@ -1,0 +1,50 @@
+$name: "Rusty Chain-Link Fence"
+$desc: "A rusted-down fence full of holes."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.500, 3.000]
+		offset: [0.000, 0.000]
+		mass: 100.000
+		friction: 0.850
+		elasticity: 0.100
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1200.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.chain_fence.01"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 40.000
+		}
+	]
+}

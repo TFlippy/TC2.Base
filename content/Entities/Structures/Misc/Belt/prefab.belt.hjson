@@ -13,7 +13,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: wood
-		layer: entity, belt
+		layer: entity, belt, ignore_melee
 		mask: world
 	}
 }

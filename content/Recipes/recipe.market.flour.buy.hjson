@@ -1,0 +1,34 @@
+{
+	name: "Flour"
+	desc: "Commonly used in cooking."
+	
+	icon:
+	{
+		texture: "resource.flour"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 0.699
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "flour"
+			amount: 1.000
+		}
+	]
+}

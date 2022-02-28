@@ -26,7 +26,7 @@
 		}
 		{
 			type: "money"
-			amount: 1000.000
+			amount: 100.000
 		}
 	]
 	

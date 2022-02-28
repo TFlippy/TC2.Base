@@ -13,7 +13,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: metal
-		layer: entity, duct
+		layer: entity, duct, ignore_melee
 		mask: world
 	}
 }
@@ -28,7 +28,7 @@ duct.state:
 
 }
 
-rope:
+rope.renderer:
 {
 	texture: "duct"
 	thickness: 0.250

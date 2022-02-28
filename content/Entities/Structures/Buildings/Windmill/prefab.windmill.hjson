@@ -17,7 +17,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -52,7 +52,7 @@ windmill:
 			texture: "windmill.top"
 		}
 		offset: [0.000, -3.000]
-		z: -150.000
+		z: 1000.000
 	}
 }
 
@@ -83,7 +83,7 @@ transform:
 
 interactable:
 {
-
+	window_size: [192.000, 96.000]
 }
 
 sound.emitter:

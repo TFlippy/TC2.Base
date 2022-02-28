@@ -14,10 +14,10 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Random Activation Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Random Activation Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float duration;
 
-			[Statistics.Info("Random Activation Chance", description: "Chance of a random activation being triggered.", format: "{0:P2}", comparison: Statistics.Comparison.Higher)]
+			[Statistics.Info("Random Activation Chance", description: "Chance of a random activation being triggered.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float chance = 0.005f;
 
 			public RandomActivation.Flags flags;

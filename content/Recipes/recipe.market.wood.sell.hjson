@@ -1,12 +1,19 @@
 {
-	name: "Sell: Wood"
-	desc: "High-quality lumber."
+	name: "Wood"
+	desc: "Good-quality lumber used in construction and as a fuel."
 	
 	icon:
 	{
 		texture: "resource.wood"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 100
@@ -28,7 +35,7 @@
 	[
 		{
 			type: "money"
-			amount: 1.100
+			amount: 0.199
 		}
 	]
 }

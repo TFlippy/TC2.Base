@@ -1,5 +1,5 @@
 {
-	name: "Sell: Silver Ingot"
+	name: "Silver Ingot"
 	desc:
 		'''
 		An ingot of solid silver.
@@ -11,6 +11,13 @@
 		texture: "resource.silver_ingot"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 1
@@ -32,7 +39,7 @@
 	[
 		{
 			type: "money"
-			amount: 500.000
+			amount: 50.000
 		}
 	]
 }

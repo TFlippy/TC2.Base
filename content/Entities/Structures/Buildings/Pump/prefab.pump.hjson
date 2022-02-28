@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
 
 health:
 {
-	max: 7000.000
+	max: 14000.000
 }
 
 animated.renderer:
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "pump"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 transform:
@@ -42,7 +42,7 @@ building:
 
 interactable:
 {
-	window_size: [192.000, 280.000]
+	window_size: [96.000, 144.000]
 }
 
 pump:

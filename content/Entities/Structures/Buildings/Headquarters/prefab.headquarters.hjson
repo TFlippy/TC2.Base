@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, support
+		layer: entity, building, support, ignore_melee
 		mask: world
 	}
 }
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "headquarters"
 	}
-	z: -150.000
+	z: -300.000
 	mask: "headquarters.mask"
 }
 
@@ -99,9 +99,9 @@ depot:
 {
 	offset: [1.000, 1.000]
 	size: [4.000, 3.000]
-	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_region, allow_world, local, region
+	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
-	shipping_fee_base: 130.000
+	shipping_fee_base: 13.000
 }
 
 stockpile:

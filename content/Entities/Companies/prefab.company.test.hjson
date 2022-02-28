@@ -1,0 +1,27 @@
+{
+	$name: "Company"
+	$tags: []
+	
+	depot:
+	{
+		shipping_fee_base: 10.000
+		shipping_fee_per_kg: 0.080
+		shipping_fee_per_km: 0.010
+		flags: allow_withdraw, allow_region, allow_world, region, world
+	}
+
+    supplier:
+    {
+        amount_multiplier: 1.000
+    }
+
+    supplier.state:
+    {
+        work_required: 10.000
+    }
+
+	stockpile:
+	{
+
+	}
+}

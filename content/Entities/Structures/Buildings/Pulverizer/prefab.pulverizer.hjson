@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building, storage
+		layer: entity, building, storage, ignore_melee
 		mask: world
 	}
 }
 
 health:
 {
-	max: 30000.000
+	max: 40000.000
 }
 
 animated.renderer:
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "pulverizer"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 transform:

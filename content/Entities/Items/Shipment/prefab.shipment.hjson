@@ -11,7 +11,7 @@ body:
 		mass: 10.000
 		friction: 0.950
 		elasticity: 0.100
-		layer: entity, crate, shipment
+		layer: entity, crate, shipment, solid
 		mask: world, crate
 		material: wood
 	}

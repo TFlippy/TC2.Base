@@ -26,11 +26,11 @@
 	[
 		{
 			material: "stone"
-			quantity: 1.200
+			quantity: 0.500
 		}
 		{
 			material: "chalcopyrite"
-			quantity: 1.8000001
+			quantity: 1.500
 		}
 	]
 }

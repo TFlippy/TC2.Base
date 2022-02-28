@@ -1,0 +1,43 @@
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.200
+
+	@shape.box:
+	{
+		size: [2.875, 1.750]
+		offset: [0.000, 0.000]
+		mass: 65.000
+		friction: 0.950
+		elasticity: 0.100
+		layer: entity, crate, shipment, solid
+		mask: world, crate
+		material: wood
+	}
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "shipment.02"
+	}
+	z: 10.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [384.000, 192.000]
+}

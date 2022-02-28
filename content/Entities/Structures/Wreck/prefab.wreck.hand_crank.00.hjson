@@ -1,0 +1,49 @@
+$name: "Janky Hand Crank"
+$desc: "Someone used this far too much."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 2.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.hand_crank.00"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 100.000
+		}
+	]
+}

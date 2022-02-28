@@ -4,11 +4,11 @@
 	icon:
 	{
 		texture: "resource.paper"
-		uv0: [0.750, 0.000]
-		uv1: [1.000, 1.000]
+		size: [16, 16]
+		frame: [3, 0]
 	}
 	
-	type: fabric
+	type: paper
 	flags: manufactured, despawnable
 	mass_per_unit: 0.020
 	quantity_max: 500.000

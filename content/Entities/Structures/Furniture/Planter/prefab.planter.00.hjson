@@ -1,0 +1,52 @@
+$name: "Potted Plant"
+$desc:
+	'''
+	A friendly plant sitting in a vase.
+	'''
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 10.000
+		radius: 0.500
+		friction: 0.950
+		elasticity: 0.200
+		material: stone
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 800.000
+}
+
+holdable:
+{
+	radius: 2.000
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "planter.00"
+	}
+	offset: [0.000, -1.125]
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+norotate:
+{
+
+}

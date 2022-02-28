@@ -9,6 +9,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.battering",
+				category: "Melee",
 				name: "Battering",
 				description: "Greatly increases knockback.",
 
@@ -77,8 +78,9 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.hooking",
+				category: "Melee",
 				name: "Hooking",
-				description: "Inverts the knockback by adding tiny hooks.",
+				description: "Reverses the knockback by adding tiny hooks.",
 
 				can_add: static (ref Modification.Context context, in Melee.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -109,6 +111,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.longer_handle",
+				category: "Melee",
 				name: "Longer Handle",
 				description: "Lengthens the handle of the weapon, allowing you to strike further with more power.",
 
@@ -146,6 +149,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.uneven_strike",
+				category: "Melee",
 				name: "Uneven Strike",
 				description: "Reduces base damage, but also increases bonus damage.",
 
@@ -184,6 +188,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.reliable_strike",
+				category: "Melee",
 				name: "Reliable Strike",
 				description: "Half of the weapon's bonus damage is converted to base damage",
 
@@ -223,6 +228,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.hollowed",
+				category: "Melee",
 				name: "Hollowed",
 				description: "Hollows out parts of the weapon, increasing swing speed, while also reducing damage, knockback and cost.",
 
@@ -278,6 +284,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.resourceful_sharpening",
+				category: "Melee",
 				name: "Resourceful Sharpening",
 				description: "Sharpens the tool to render less of the struck material unusable, increasing resource yield.",
 
@@ -309,6 +316,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Melee.Data>
 			(
 				identifier: "melee.toy_weapon",
+				category: "Melee",
 				name: "Toy Weapon",
 				description: "Dulls the weapon to deal no damage.", // Currently this also reduces kockback to 0 cause knockback is bad and based on damage
 
