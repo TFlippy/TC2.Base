@@ -98,11 +98,7 @@ namespace TC2.Base
 				category: "Control",
 				name: "Auto Aim",
 				description: "Tries to automaticly aim towards nearby other creatures.",
-
-				// This randomly causes a left click and a space bar (at the same time)
-				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
-				// Due to the wide variety of uses this has, this costs a large amount of materials
-				// This doesn't aim, so using anything which uses aim direction requires additional setup
+				//APPARENTLY THIS JUST DOESNT WORK
 
 				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
