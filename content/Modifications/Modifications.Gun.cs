@@ -223,7 +223,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.55f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.22f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
 						break;
@@ -232,7 +232,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.60f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.24f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
 						break;
@@ -241,7 +241,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.50f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.60f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
 						}
 						break;
@@ -250,7 +250,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.43f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.65f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.25f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
@@ -259,7 +259,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.30f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio);
 						}
 						break;

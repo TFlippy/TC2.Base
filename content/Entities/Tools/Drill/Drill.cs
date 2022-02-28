@@ -21,6 +21,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float radius;
 
+			public Physics.Layer hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+			public Physics.Layer hit_exclude = Physics.Layer.Crate;
+
 			[Save.Ignore, Net.Ignore] public float last_hit;
 			[Save.Ignore, Net.Ignore] public float next_hit;
 		}
@@ -134,7 +137,7 @@ namespace TC2.Base.Components
 					overheat.heat_current += 4.00f;
 
 					Span<LinecastResult> hits = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: Physics.Layer.World | Physics.Layer.Destructible))
+					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
 						var parent = body.GetParent();
 

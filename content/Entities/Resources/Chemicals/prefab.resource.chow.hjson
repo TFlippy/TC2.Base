@@ -5,11 +5,11 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.500]
-		mass: 200.000
+		mass: 50.000
 		radius: 0.400
 		friction: 0.950
-		elasticity: 0.300
-		material: powder
+		elasticity: 0.200
+		material: metal
 		layer: entity, solid, resource
 		mask: world
 	}
@@ -19,10 +19,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.salt.cognition"
+		texture: "resource.chow"
 		count: 4
 		size: [16, 16]
 	}
+	offset: [0.000, -0.100]
 }
 
 transform:
@@ -32,16 +33,7 @@ transform:
 
 resource:
 {
-	material: "salt.cognition"
-	
-	@light:
-	{
-		color: [0.500, 0.000, 1.000, 1.500]
-		offset: [0.000, 0.000]
-		scale: [12.000, 12.000]
-		intensity: 1.000
-		texture: "light_invsqr"
-	}
+	material: "chow"
 }
 
 hoverable:

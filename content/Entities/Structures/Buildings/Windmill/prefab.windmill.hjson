@@ -83,7 +83,7 @@ transform:
 
 interactable:
 {
-
+	window_size: [192.000, 96.000]
 }
 
 sound.emitter:

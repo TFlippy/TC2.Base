@@ -18,12 +18,12 @@ body:
 
 health:
 {
-	max: 10000.000
+	max: 5000.000
 }
 
 chainsaw:
 {
-	damage: 50.000
+	damage: 150.000
 	max_distance: 2.000
 	speed: 9.000
 	radius: 1.000
@@ -86,10 +86,10 @@ packable:
 
 overheat:
 {
-	heat_medium: 50.000
-	heat_high: 100.000
-	heat_critical: 250.000
-	cool_rate: 30.000
+	heat_medium: 150.000
+	heat_high: 200.000
+	heat_critical: 300.000
+	cool_rate: 100.000
 	
 	@light:
 	{

@@ -24,8 +24,8 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 40.000
+			material: "nitrocellulose"
+			amount: 20.000
 		}
 		{
 			type: "resource"
