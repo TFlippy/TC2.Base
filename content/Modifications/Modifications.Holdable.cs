@@ -52,7 +52,7 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Holdable.Data>
 			(
-				identifier: "holdable.easy_grip",
+				identifier: "holdable.rubber_grip",
 				category: "Body",
 				name: "Rubber Grip",
 				description: "Get a better grip on the item by adding a rubber grip",
