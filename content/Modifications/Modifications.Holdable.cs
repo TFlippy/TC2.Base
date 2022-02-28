@@ -9,7 +9,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Holdable.Data>
 			(
 				identifier: "holdable.sneaky",
-				category: "Holdable",
+				category: "Utility",
 				name: "Sneaky",
 				description: "Hold this item BEHIND your body to make it less obvious",
 
@@ -47,6 +47,36 @@ namespace TC2.Base
 							requirement.amount *= 1.20f;
 						}
 					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.easy_grip",
+				category: "Body",
+				name: "Rubber Grip",
+				description: "Get a better grip on the item by adding a rubber grip",
+
+				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.force_multiplier *= 1.5f;
+					data.torque_multiplier *= 1.5f;
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.difficulty += 1.00f;
+							requirement.amount *= 1.20f;
+						}
+					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("rubber", 10.00f));
 				}
 			));
 		}
