@@ -78,6 +78,35 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("rubber", 5.00f));
 				}
 			));
+
+			definitions.Add(Modification.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.lubricated_grip",
+				category: "Body",
+				name: "Slippery Grip",
+				description: "Lubricate any grippable places of the object making it nearly unholdable",
+
+				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.force_multiplier *= 0.01f;
+					data.torque_multiplier *= 0.01f;
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.10f;
+						}
+					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 5.00f));
+				}
+			));
 		}
 	}
 }
