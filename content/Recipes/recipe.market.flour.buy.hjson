@@ -1,17 +1,17 @@
 {
-	name: "Cloth"
-	desc: "A bundle of plain cloth."
+	name: "Flour"
+	desc: "Commonly used in cooking."
 	
 	icon:
 	{
-		texture: "resource.cloth"
+		texture: "resource.flour"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	min: 10
-	max: 50
-	step: 10
+	min: 50
+	max: 500
+	step: 50
 	type: buy
 	tags: market
 	
@@ -19,7 +19,7 @@
 	[
 		{
 			type: "money"
-			amount: 4.999
+			amount: 0.699
 		}
 	]
 	
@@ -27,7 +27,7 @@
 	[
 		{
 			type: "resource"
-			material: "cloth"
+			material: "flour"
 			amount: 1.000
 		}
 	]

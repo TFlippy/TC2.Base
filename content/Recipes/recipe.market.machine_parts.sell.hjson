@@ -1,5 +1,5 @@
 {
-	name: "Sell: Machine Parts"
+	name: "Machine Parts"
 	desc:
 		'''
 		A pile of assorted machine parts used for
@@ -39,7 +39,7 @@
 	[
 		{
 			type: "money"
-			amount: 31.790
+			amount: 13.790
 		}
 	]
 }
