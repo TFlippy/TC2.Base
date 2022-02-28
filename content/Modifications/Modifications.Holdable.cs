@@ -71,12 +71,11 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.difficulty += 1.00f;
-							requirement.amount *= 1.20f;
+							requirement.amount *= 1.10f;
 						}
 					}
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("rubber", 10.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("rubber", 5.00f));
 				}
 			));
 		}
