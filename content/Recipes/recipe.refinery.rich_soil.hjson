@@ -1,6 +1,6 @@
 {
 	name: "Mineral Extraction (Rich Soil)"
-	desc: "Extract saltpeter and sulphur from rich soil."
+	desc: "Extract saltpeter and sulfur from rich soil."
 	
 	icon:
 	{
@@ -42,7 +42,7 @@
 		}
 		{
 			type: "resource"
-			material: "sulphur"
+			material: "sulfur"
 			amount_min: 0.100
 			amount_max: 2.500
 		}

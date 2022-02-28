@@ -14,7 +14,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: stone
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -41,7 +41,7 @@ transform:
 
 interactable:
 {
-	window_size: [700.000, 336.000]
+	window_size: [500.000, 300.000]
 }
 
 faction.colorable:
@@ -54,12 +54,37 @@ building:
 
 }
 
+nameable:
+{
+	flags: no_rename, randomize
+}
+
 claimable:
 {
-
+	flags: allow_enemy_unclaim
 }
 
 mine:
+{
+	amount_multiplier: 3.000
+}
+
+mine.state:
+{
+	work_current: 900.000
+	work_required: 900.000
+}
+
+depot:
+{
+	offset: [1.000, 1.000]
+	size: [4.000, 3.000]
+	flags: allow_withdraw, allow_send, allow_local, local, public
+
+	shipping_fee_base: 25.000
+}
+
+stockpile:
 {
 
 }

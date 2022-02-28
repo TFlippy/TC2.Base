@@ -1,0 +1,41 @@
+{
+	name: "Resin"
+	desc: "Small chunks of resin."
+	
+	icon:
+	{
+		texture: "resource.resin"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "resin"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 0.799
+		}
+	]
+}

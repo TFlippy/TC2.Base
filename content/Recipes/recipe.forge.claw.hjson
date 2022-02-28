@@ -5,6 +5,8 @@
 	icon:
 	{
 		texture: "claw"
+		size: [24, 24]
+		frame: [0, 0]
 	}
 	
 	min: 1

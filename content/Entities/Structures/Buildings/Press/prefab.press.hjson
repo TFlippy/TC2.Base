@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "press"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 transform:
@@ -37,7 +37,7 @@ transform:
 
 shop:
 {
-	name: "Press"
+	name: "Recipes"
 	tags: press
 }
 
@@ -55,6 +55,20 @@ press:
 		}
 		z: -145.000
 	}
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 10.000]
+		offset: [0.000, 1.250]
+		scale: [10.000, 5.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+press.state:
+{
+
 }
 
 crafter:
@@ -64,13 +78,13 @@ crafter:
 		name: "Output"
 		stack_size_multiplier: 4.000
 		type: output
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, public
 	}
 }
 
 crafter.state:
 {
-	@inventory4:
+	@inventory8:
 	{
 		name: "Input"
 		stack_size_multiplier: 4.000
@@ -101,5 +115,5 @@ wheel:
 
 interactable:
 {
-	window_size: [408.000, 240.000]
+	window_size: [650.000, 450.000]
 }

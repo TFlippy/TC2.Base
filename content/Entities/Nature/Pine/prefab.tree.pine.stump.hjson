@@ -25,7 +25,7 @@ transform:
 
 health:
 {
-	max: 7500.000
+	max: 3000.000
 }
 
 animated.renderer:
@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 3000.000
+			quantity: 1000.000
 		}
 	]
 }

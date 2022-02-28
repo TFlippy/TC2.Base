@@ -18,17 +18,13 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "marksman"
-		}
-		{
 			type: "level"
 			level: "rifles"
 			amount: 3.000
 		}
 		{
 			type: "money"
-			amount: 800.000
+			amount: 80.000
 		}
 	]
 	

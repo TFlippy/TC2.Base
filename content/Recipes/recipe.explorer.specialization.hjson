@@ -28,12 +28,8 @@
 			specialization: "scout"
 		}
 		{
-			type: "specialization"
-			specialization: "explorer"
-		}
-		{
 			type: "money"
-			amount: 900.000
+			amount: 90.000
 		}
 	]
 	

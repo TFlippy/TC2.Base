@@ -13,7 +13,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, storage
+		layer: entity, building, storage, ignore_melee
 		mask: world
 	}
 }
@@ -29,7 +29,7 @@ animated.renderer:
 	{
 		texture: "chest"
 	}
-	z: -150.000
+	z: -280.000
 	mask: "chest.mask"
 }
 
@@ -40,7 +40,7 @@ faction.colorable:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 transform:

@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
 
 nameable:
 {
-	flags: no_rename
+	flags: no_rename, randomize
 }
 
 health:
@@ -54,7 +54,9 @@ depot:
 {
 	offset: [1.000, 1.000]
 	size: [4.000, 3.000]
-	flags: allow_deposit, allow_withdraw, allow_send, allow_request
+	flags: allow_withdraw, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
+
+	shipping_fee_base: 16.000
 }
 
 packer:

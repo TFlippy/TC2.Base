@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 50000.000
+	max: 80000.000
 }
 
 animated.renderer:
@@ -51,7 +51,7 @@ joint.rope:
 	distance: 1.500
 }
 
-rope:
+rope.renderer:
 {
 	texture: "hornet_hive.rope"
 	thickness: 1.000
@@ -84,7 +84,7 @@ rope:
 	
 	health:
 	{
-		max: 10000.000
+		max: 60000.000
 	}
 	
 	animated.renderer:
@@ -104,8 +104,8 @@ rope:
 	spawner:
 	{
 		prefab: "hornet"
-		interval: 10.000
-		interval_count_modifier: 10.000
+		interval: 30.000
+		interval_count_modifier: 20.000
 		max_count: 10
 		filter_tag: "hornet"
 	}

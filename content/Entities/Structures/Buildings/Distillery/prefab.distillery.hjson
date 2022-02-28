@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "distillery"
 	}
-	z: -150.000
+	z: -300.000
 }
 
 transform:
@@ -47,14 +47,14 @@ interactable:
 
 distillery:
 {
-	efficiency: 0.900
+	efficiency: 0.850
 	
 	@inventory4:
 	{
 		name: "Output"
 		stack_size_multiplier: 2.000
 		type: output
-		flags: allow_ducts
+		flags: allow_ducts, ignore_mass
 	}
 	
 	@light:
@@ -67,12 +67,17 @@ distillery:
 	}
 }
 
+distillery.state:
+{
+
+}
+
 burner:
 {
 	smoke_offset: [-1.375, -3.500]
 	capacity: 20.000
 	energy_loss: 10000.000
-	efficiency: 0.900
+	efficiency: 0.700
 	drain_multiplier: 10.000
 	
 	@inventory1:
@@ -86,7 +91,7 @@ burner:
 	
 	@sound.emitter:
 	{
-		file: "distillery_loop"
+		file: "distillery.loop.00"
 		volume: 0.000
 		pitch: 0.500
 	}

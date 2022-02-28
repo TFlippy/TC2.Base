@@ -9,6 +9,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.expanded_magazine",
+				category: "Gun (Ammo)",
 				name: "Expanded Magazine",
 				description: "Increases ammo capacity.",
 
@@ -24,13 +25,13 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref amount, 1.00f, 5.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f, "%.2f");
 				},
 #endif
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.feed == Gun.Feed.Single) return false;
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front) return false;
 					return !modifications.HasModification(handle);
 				},
 
@@ -141,17 +142,35 @@ namespace TC2.Base
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var amount = ref handle.GetData<float>();
 					foreach (ref readonly var requirement in context.requirements_old)
 					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
+						switch (requirement.type)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+							case Crafting.Requirement.Type.Resource:
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.30f));
+								ref var material = ref requirement.material.GetDefinition();
+								if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+								{
+									context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * amount));
+								}
 							}
+							break;
+
+							case Crafting.Requirement.Type.Work:
+							{
+								switch (requirement.work)
+								{
+									case Work.Type.Smithing:
+									{
+										context.requirements_new.Add(Crafting.Requirement.Work(requirement.work, 50.00f * amount, (byte)MathF.Ceiling(5.00f * amount)));
+									}
+									break;
+								}
+							}
+							break;
 						}
 					}
 				}
@@ -160,6 +179,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.improved_rifling",
+				category: "Gun (Barrel)",
 				name: "Improved Rifling",
 				description: "Improves accuracy and damage.",
 
@@ -180,7 +200,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -203,7 +223,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.55f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.22f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
 						break;
@@ -212,7 +232,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.60f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.24f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
 						break;
@@ -221,7 +241,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.50f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.60f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
 						}
 						break;
@@ -230,7 +250,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.43f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.65f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.25f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
@@ -239,7 +259,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.30f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.50f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio);
 						}
 						break;
@@ -296,6 +316,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic",
+				category: "Gun (Receiver)",
 				name: "Mode: Automatic",
 				description: "Converts fire mode to automatic.",
 
@@ -346,6 +367,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.semi_automatic",
+				category: "Gun (Receiver)",
 				name: "Mode: Semi-Automatic",
 				description: "Converts fire mode to semi-automatic.",
 
@@ -378,160 +400,255 @@ namespace TC2.Base
 				}
 			));
 
+			//definitions.Add(Modification.Definition.New<Gun.Data>
+			//(
+			//	identifier: "gun.caliber_downgrade",
+			//	name: "Caliber Downgrade",
+			//	description: "Rechambers to a lower caliber.",
+
+			//	can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_MG;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_AC;
+
+			//			data.damage_multiplier *= 1.50f;
+			//			data.velocity_multiplier *= 1.10f;
+			//			data.failure_rate *= 0.20f;
+			//			data.failure_rate += 0.10f;
+			//			data.recoil_multiplier *= 0.50f;
+			//			data.jitter_multiplier += 1.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+
+			//			data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.15f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//		else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_HC;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_MG;
+
+			//			data.damage_multiplier *= 1.35f;
+			//			data.velocity_multiplier *= 0.95f;
+			//			data.failure_rate *= 1.90f;
+			//			data.failure_rate += 0.50f;
+			//			data.recoil_multiplier *= 0.70f;
+			//			data.jitter_multiplier += 0.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+
+			//			data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.15f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//		else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+			//		{
+			//			data.ammo_filter |= Material.Flags.Ammo_LC;
+			//			data.ammo_filter &= ~Material.Flags.Ammo_HC;
+
+			//			data.damage_multiplier *= 1.20f;
+			//			data.velocity_multiplier *= 0.85f;
+			//			data.failure_rate *= 1.70f;
+			//			data.failure_rate += 0.50f;
+			//			data.recoil_multiplier *= 0.60f;
+			//			data.jitter_multiplier += 0.50f;
+			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+
+			//			data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+
+			//			data.sound_pitch *= 1.10f;
+			//			data.sound_volume *= 1.02f;
+
+			//			data.smoke_size *= 0.90f;
+			//			data.flash_size *= 0.90f;
+			//		}
+			//	}
+			//));
+
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
-				identifier: "gun.caliber_downgrade",
-				name: "Caliber Downgrade",
-				description: "Rechambers to a lower caliber.",
+				identifier: "gun.caliber_conversion",
+				category: "Gun (Receiver)",
+				name: "Caliber Conversion",
+				description: "Rechambers to a different caliber.",
+
+				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<int>();
+					value = Maths.Clamp(value, -2, 2); // TODO: Make this clamped between available calibers
+					
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<int>();
+					return GUI.SliderInt("Caliber", ref value, -2, 2, "%d");
+				},
+#endif
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+					return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					ref var value = ref handle.GetData<int>();
+
+					var count = Math.Abs(value);
+					if (value > 0)
 					{
-						data.ammo_filter |= Material.Flags.Ammo_MG;
-						data.ammo_filter &= ~Material.Flags.Ammo_AC;
+						for (int i = 0; i < count; i++)
+						{
+							if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_HC;
+								data.ammo_filter &= ~Material.Flags.Ammo_LC;
 
-						data.damage_multiplier *= 1.50f;
-						data.velocity_multiplier *= 1.10f;
-						data.failure_rate *= 0.20f;
-						data.failure_rate += 0.10f;
-						data.recoil_multiplier *= 0.50f;
-						data.jitter_multiplier += 1.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+								data.damage_multiplier *= 0.90f;
+								data.velocity_multiplier *= 0.90f;
+								data.failure_rate *= 1.60f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 1.70f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
-						data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+								data.stability -= MathF.Min(data.stability, 0.30f);
+								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.15f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 0.82f;
+								data.sound_volume *= 1.20f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
+								data.smoke_size *= 1.30f;
+								data.flash_size *= 1.10f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_MG;
+								data.ammo_filter &= ~Material.Flags.Ammo_HC;
+
+								data.damage_multiplier *= 0.85f;
+								data.velocity_multiplier *= 0.85f;
+								data.failure_rate *= 1.40f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 1.80f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
+
+								data.stability -= MathF.Min(data.stability, 0.40f);
+								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
+
+								data.sound_pitch *= 0.87f;
+								data.sound_volume *= 1.25f;
+
+								data.smoke_size *= 1.30f;
+								data.flash_size *= 1.10f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_AC;
+								data.ammo_filter &= ~Material.Flags.Ammo_MG;
+
+								data.damage_multiplier *= 0.70f;
+								data.velocity_multiplier *= 0.50f;
+								data.failure_rate *= 2.20f;
+								data.failure_rate += 0.40f;
+								data.recoil_multiplier *= 3.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
+
+								data.stability -= MathF.Min(data.stability, 0.80f);
+								data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
+
+								data.sound_pitch *= 0.67f;
+								data.sound_volume *= 1.25f;
+
+								data.smoke_size *= 1.50f;
+								data.flash_size *= 1.70f;
+							}
+						}
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					else if (value < 0)
 					{
-						data.ammo_filter |= Material.Flags.Ammo_HC;
-						data.ammo_filter &= ~Material.Flags.Ammo_MG;
+						for (int i = 0; i < count; i++)
+						{
+							if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_MG;
+								data.ammo_filter &= ~Material.Flags.Ammo_AC;
 
-						data.damage_multiplier *= 1.35f;
-						data.velocity_multiplier *= 0.95f;
-						data.failure_rate *= 1.90f;
-						data.failure_rate += 0.50f;
-						data.recoil_multiplier *= 0.70f;
-						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+								data.damage_multiplier *= 1.50f;
+								data.velocity_multiplier *= 1.10f;
+								data.failure_rate *= 0.20f;
+								data.failure_rate += 0.10f;
+								data.recoil_multiplier *= 0.50f;
+								data.jitter_multiplier += 1.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
-						data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+								data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.15f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 1.15f;
+								data.sound_volume *= 1.02f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_LC;
-						data.ammo_filter &= ~Material.Flags.Ammo_HC;
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_HC;
+								data.ammo_filter &= ~Material.Flags.Ammo_MG;
 
-						data.damage_multiplier *= 1.20f;
-						data.velocity_multiplier *= 0.85f;
-						data.failure_rate *= 1.70f;
-						data.failure_rate += 0.50f;
-						data.recoil_multiplier *= 0.60f;
-						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+								data.damage_multiplier *= 1.35f;
+								data.velocity_multiplier *= 0.95f;
+								data.failure_rate *= 1.90f;
+								data.failure_rate += 0.50f;
+								data.recoil_multiplier *= 0.70f;
+								data.jitter_multiplier += 0.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
-						data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+								data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
-						data.sound_pitch *= 1.10f;
-						data.sound_volume *= 1.02f;
+								data.sound_pitch *= 1.15f;
+								data.sound_volume *= 1.02f;
 
-						data.smoke_size *= 0.90f;
-						data.flash_size *= 0.90f;
-					}
-				}
-			));
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+							else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+							{
+								data.ammo_filter |= Material.Flags.Ammo_LC;
+								data.ammo_filter &= ~Material.Flags.Ammo_HC;
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
-			(
-				identifier: "gun.caliber_upgrade",
-				name: "Caliber Upgrade",
-				description: "Rechambers to a higher caliber.",
+								data.damage_multiplier *= 1.20f;
+								data.velocity_multiplier *= 0.85f;
+								data.failure_rate *= 1.70f;
+								data.failure_rate += 0.50f;
+								data.recoil_multiplier *= 0.60f;
+								data.jitter_multiplier += 0.50f;
+								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG);
-				},
+								data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_HC;
-						data.ammo_filter &= ~Material.Flags.Ammo_LC;
+								data.sound_pitch *= 1.10f;
+								data.sound_volume *= 1.02f;
 
-						data.damage_multiplier *= 0.90f;
-						data.velocity_multiplier *= 0.90f;
-						data.failure_rate *= 1.60f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 1.70f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
-
-						data.stability -= MathF.Min(data.stability, 0.30f);
-						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.82f;
-						data.sound_volume *= 1.20f;
-
-						data.smoke_size *= 1.30f;
-						data.flash_size *= 1.10f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_MG;
-						data.ammo_filter &= ~Material.Flags.Ammo_HC;
-
-						data.damage_multiplier *= 0.85f;
-						data.velocity_multiplier *= 0.85f;
-						data.failure_rate *= 1.40f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 1.80f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
-
-						data.stability -= MathF.Min(data.stability, 0.40f);
-						data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.87f;
-						data.sound_volume *= 1.25f;
-
-						data.smoke_size *= 1.30f;
-						data.flash_size *= 1.10f;
-					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
-					{
-						data.ammo_filter |= Material.Flags.Ammo_AC;
-						data.ammo_filter &= ~Material.Flags.Ammo_MG;
-
-						data.damage_multiplier *= 0.70f;
-						data.velocity_multiplier *= 0.50f;
-						data.failure_rate *= 2.20f;
-						data.failure_rate += 0.40f;
-						data.recoil_multiplier *= 3.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
-
-						data.stability -= MathF.Min(data.stability, 0.80f);
-						data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
-
-						data.sound_pitch *= 0.67f;
-						data.sound_volume *= 1.25f;
-
-						data.smoke_size *= 1.50f;
-						data.flash_size *= 1.70f;
+								data.smoke_size *= 0.90f;
+								data.flash_size *= 0.90f;
+							}
+						}
 					}
 				}
 			));
@@ -539,6 +656,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.recoil_reduction",
+				category: "Gun (Frame)",
 				name: "Recoil Reduction",
 				description: "Reduces recoil.",
 
@@ -559,7 +677,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -642,6 +760,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.barrel_extension",
+				category: "Gun (Barrel)",
 				name: "Barrel Extension",
 				description: "Increases muzzle velocity and damage.",
 
@@ -662,7 +781,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 1.00f, 2.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, "%.2f");
 				},
 #endif
 
@@ -747,6 +866,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.balanced_receiver",
+				category: "Gun (Receiver)",
 				name: "Balanced Receiver",
 				description: "Stabilizes the receiver, increasing reliability.",
 
@@ -885,6 +1005,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.tempered_frame",
+				category: "Gun (Frame)",
 				name: "Tempered Frame",
 				description: "Greatly improves durability and stability of the gun.",
 
@@ -945,6 +1066,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.hardened_frame",
+				category: "Gun (Frame)",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
 
@@ -1016,6 +1138,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flimsy_frame",
+				category: "Gun (Frame)",
 				name: "Flimsy Frame",
 				description: "Lowers the basic resource cost, but makes problems more pronounced.",
 
@@ -1031,7 +1154,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1090,6 +1213,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.simple_frame",
+				category: "Gun (Frame)",
 				name: "Simple Frame",
 				description: "Simplifies the item, increasing reliability at cost of reduced performance.",
 
@@ -1114,6 +1238,43 @@ namespace TC2.Base
 						body.mass_multiplier *= 0.90f;
 					}
 
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.90f;
+									requirement.difficulty *= 0.90f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 0.85f;
+									requirement.difficulty *= 0.90f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.65f;
+									requirement.difficulty *= 0.80f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 0.60f;
+									requirement.difficulty *= 0.75f;
+								}
+								break;
+							}
+						}
+					}
+
 					return true;
 				},
 
@@ -1129,25 +1290,240 @@ namespace TC2.Base
 								requirement.amount *= 0.78f;
 							}
 						}
+					}
+				}
+			));
+			
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
+				category: "Gun (Receiver)",
+				name: "Gas Seal",
+				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.damage_multiplier *= 1.10f;
+					data.velocity_multiplier *= 1.05f;
+					data.recoil_multiplier *= 1.10f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.05f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							switch (requirement.work)
 							{
 								case Work.Type.Smithing:
 								{
-									requirement.amount *= 0.90f;
+									requirement.amount *= 1.50f;
 								}
 								break;
 
 								case Work.Type.Woodworking:
 								{
-									requirement.amount *= 0.85f;
+									requirement.amount *= 1.05f;
 								}
 								break;
 
 								case Work.Type.Machining:
 								{
-									requirement.amount *= 0.65f;
+									requirement.amount *= 2.00f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 2.00f;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+						
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_hand_fitted_parts",
+				category: "Gun (Frame)",
+				name: "Hand-Fitted Parts",
+				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.damage_multiplier *= 1.12f;
+					data.velocity_multiplier *= 1.06f;
+					data.recoil_multiplier *= 1.12f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.05f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 2.50f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.05f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 3.00f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 3.00f;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.revolver_side_gate_loading",
+				category: "Gun (Frame)",
+				name: "Side Gate Loading",
+				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.feed != Gun.Feed.Cylinder) return false;
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.85f;
+					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.reload_interval *= 2.00f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier *= 0.90f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.95f;
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 0.90f;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.60f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 0.95f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.60f;
 								}
 								break;
 
@@ -1165,6 +1541,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.faster_cycling_mechanism",
+				category: "Gun (Receiver)",
 				name: "Faster Cycling Mechanism",
 				description: "Increases rate of fire, but lowers reliability.",
 
@@ -1180,7 +1557,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1239,6 +1616,20 @@ namespace TC2.Base
 							data.cycle_interval *= Maths.Lerp(1.00f, 0.65f, ratio);
 						}
 						break;
+
+						case Gun.Action.Manual:
+						{
+							data.failure_rate *= Maths.Lerp(1.00f, 1.80f, ratio);
+							data.cycle_interval *= Maths.Lerp(1.00f, 0.75f, ratio);
+						}
+						break;
+
+						case Gun.Action.Lever:
+						{
+							data.failure_rate *= Maths.Lerp(1.00f, 1.80f, ratio);
+							data.cycle_interval *= Maths.Lerp(1.00f, 0.75f, ratio);
+						}
+						break;
 					}
 
 					//if (data.flags.HasAll(Gun.Flags.Automatic))
@@ -1286,6 +1677,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.slower_cycling_mechanism",
+				category: "Gun (Receiver)",
 				name: "Slower Cycling Mechanism",
 				description: "Decreases fire rate, but increases reliability.",
 
@@ -1306,7 +1698,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 1.00f, 2.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, "%.2f");
 				},
 #endif
 
@@ -1387,6 +1779,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.gas_operation",
+				category: "Gun (Receiver)",
 				name: "Action: Gas-Operated",
 				description: "Converts to gas-operated action.",
 
@@ -1479,12 +1872,13 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.single_shot",
+				category: "Gun (Receiver)",
 				name: "Feed: Single-Shot",
 				description: "Converts to single-shot feed mechanism.",
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.feed != Gun.Feed.Single && !modifications.HasModification(handle);
+					return data.feed != Gun.Feed.Single && data.feed != Gun.Feed.Breech && data.feed != Gun.Feed.Front && !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -1544,6 +1938,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.extra_barrel",
+				category: "Gun (Barrel)",
 				name: "Extra Barrel",
 				description: "Adds an extra barrel to the gun.",
 
@@ -1562,12 +1957,14 @@ namespace TC2.Base
 					if (simultaneous)
 					{
 						data.ammo_per_shot += 1.00f;
-						data.smoke_amount *= 2;
+						data.smoke_amount *= 2.00f;
 						data.projectile_count += 1;
 					}
 
 					switch (data.feed)
 					{
+						case Gun.Feed.Breech:
+						case Gun.Feed.Front:
 						case Gun.Feed.Single:
 						{
 							if (simultaneous)
@@ -1578,7 +1975,7 @@ namespace TC2.Base
 								data.stability -= MathF.Min(data.stability, 0.50f);
 								data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
-								data.reload_interval *= 1.30f;
+								//data.reload_interval *= 1.30f;
 
 								data.jitter_multiplier *= 1.30f;
 								data.jitter_multiplier += 5.00f;
@@ -1639,7 +2036,7 @@ namespace TC2.Base
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
-					if (data.feed == Gun.Feed.Single)
+					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front)
 					{
 						data.max_ammo += 1;
 					}
@@ -1715,6 +2112,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flared_barrel",
+				category: "Gun (Barrel)",
 				name: "Flared Barrel",
 				description: "Increases spread and loudness, but also greatly reduces recoil.",
 
@@ -1735,7 +2133,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
 #endif
 
@@ -1760,7 +2158,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic_reloading",
-				category: "Gun",
+				category: "Gun (Ammo)",
 				name: "Automatic Reloading",
 				description: "Automatically reloads the weapon once the magazine is empty.",
 

@@ -1,0 +1,32 @@
+{
+	name: "Debug"
+	desc: "Natural debug."
+	
+	material_type: stone
+	tile_flags: any
+	flags: raw
+	
+	max_health: 1337.000
+	smoothing: 0.150
+	mass: 10.000
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.900
+	
+	texture: "terrain_debug"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.750
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10211912"
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 2.000
+		}
+	]
+}

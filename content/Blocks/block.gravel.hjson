@@ -10,7 +10,7 @@
 	smoothing: 0.200
 	mass: 6.000
 	friction: 0.990
-	elasticity: 0.030
+	elasticity: 0.050
 	stability: 0.500
 	
 	texture: "terrain_gravel"

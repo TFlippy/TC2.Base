@@ -1,0 +1,55 @@
+{
+	name: "Shotgun Shell (Buckshot)"
+	desc:
+		'''
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.buck"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 4
+	max: 100
+	step: 4
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.125
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.250
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.250
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 50.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.buck"
+			amount: 1.000
+		}
+	]
+}

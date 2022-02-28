@@ -41,6 +41,7 @@ melee:
 	damage_type: slash
 	category: bladed
 	hit_mask: world, destructible
+	hit_exclude: ignore_melee, decoration
 }
 
 melee.state:

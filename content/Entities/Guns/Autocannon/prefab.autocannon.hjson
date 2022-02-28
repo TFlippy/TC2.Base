@@ -1,14 +1,10 @@
+$name: "Autocannon"
+$desc: 
+	'''
+	A powerful automatic cannon to be mounted on vehicles.
+	'''
+	
 $tags: []
-
-control:
-{
-
-}
-
-aimable:
-{
-
-}
 
 body:
 {
@@ -21,7 +17,7 @@ body:
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -31,12 +27,12 @@ gun:
 	muzzle_offset: [2.500, 0.000]
 	sound_shoot: "autocannon_shoot"
 	sound_reload: "cannon_reload"
-	velocity_multiplier: 1100.000
+	velocity_multiplier: 900.000
 	jitter_multiplier: 0.500
 	damage_multiplier: 25.000
 	recoil_multiplier: 30.000
 	reload_interval: 3.000
-	cycle_interval: 0.200
+	cycle_interval: 0.250
 	failure_rate: 0.002
 	max_ammo: 30.000
 	sound_volume: 3.000
@@ -47,6 +43,8 @@ gun:
 	action: blowback
 	type: autocannon
 	feed: magazine
+
+	shake_amount: 0.600
 	
 	@inventory1:
 	{
@@ -74,7 +72,19 @@ gun.state:
 holdable:
 {
 	offset: [-0.900, 0.100]
-	radius: 1.000
+	radius: 0.000
+	flags: disable_parent_facing
+
+	force_multiplier: 4.000
+	torque_multiplier: 1.000
+}
+
+attachable:
+{
+	offset: [-0.900, 0.100]
+
+	force_multiplier: 4.000
+	torque_multiplier: 1.000
 }
 
 animated.renderer:
@@ -88,6 +98,16 @@ animated.renderer:
 health:
 {
 	max: 13000.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
 }
 
 transform:

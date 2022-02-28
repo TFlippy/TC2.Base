@@ -10,14 +10,14 @@
 	smoothing: 0.150
 	mass: 5.000
 	friction: 0.020
-	elasticity: 0.010
+	elasticity: 0.500
 	stability: 0.500
 	
 	texture: "terrain_glass"
 	pattern: "pattern_glass"
 	
 	texture_scale: 1.000
-	texture_overshoot: -0.750
+	texture_overshoot: 0.250
 	
 	fg_color: "#00000000"
 	bg_color: "#00000000"

@@ -18,17 +18,13 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "gunslinger"
-		}
-		{
 			type: "level"
 			level: "handguns"
 			amount: 3.000
 		}
 		{
 			type: "money"
-			amount: 700.000
+			amount: 70.000
 		}
 	]
 	

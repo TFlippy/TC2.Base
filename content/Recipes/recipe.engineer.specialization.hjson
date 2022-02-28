@@ -20,17 +20,13 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "engineer"
-		}
-		{
 			type: "level"
 			level: "engineering"
 			amount: 3.000
 		}
 		{
 			type: "money"
-			amount: 1000.000
+			amount: 100.000
 		}
 	]
 	

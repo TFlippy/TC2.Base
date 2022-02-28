@@ -1,10 +1,12 @@
 {
 	name: "Shield"
-	desc: "A large shield capable of absorbing various kinds of attacks."
+	desc: "A large protective shield."
 	
 	icon:
 	{
 		texture: "shield"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 1
@@ -20,12 +22,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 8.000
+			amount: 6.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 600.000
+			amount: 450.000
 			difficulty: 5.000
 		}
 	]

@@ -11,14 +11,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
 
 health:
 {
-	max: 30000.000
+	max: 40000.000
 }
 
 animated.renderer:
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "steam_engine"
 	}
-	z: -150.000
+	z: -280.000
 }
 
 steamengine:
@@ -66,6 +66,7 @@ burner:
 	capacity: 8.000
 	energy_loss: 100000.000
 	efficiency: 0.400
+	drain_multiplier: 1.500
 	
 	@inventory1:
 	{
@@ -124,4 +125,5 @@ sound.emitter:
 	file: "steam_engine_loop"
 	volume: 0.000
 	pitch: 1.000
+	size: 0.700
 }

@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "storage.construction"
 	}
-	z: -150.000
+	z: -300.000
 }
 
 claimable:
@@ -42,10 +42,15 @@ transform:
 
 interactable:
 {
-	window_size: [240.000, 192.000]
+	window_size: [500.000, 350.000]
 }
 
 construction:
 {
 
+}
+
+shipment:
+{
+	flags: keep_items
 }

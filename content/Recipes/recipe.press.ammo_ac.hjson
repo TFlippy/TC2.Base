@@ -22,17 +22,17 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.750
+			amount: 6.000
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.200
+			amount: 2.000
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 1.000
+			material: "nitrocellulose"
+			amount: 8.000
 		}
 		{
 			type: "work"
@@ -47,7 +47,7 @@
 		{
 			type: "resource"
 			material: "ammo_ac"
-			amount: 1.000
+			amount: 4.000
 		}
 	]
 }

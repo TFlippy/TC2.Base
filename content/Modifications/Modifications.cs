@@ -10,7 +10,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.bomb_rigged",
-				category: "Explosives",
+				category: "Explosive",
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
 
@@ -31,9 +31,9 @@ namespace TC2.Base
 					var size = GUI.GetRemainingSpace();
 
 					var changed = false;
-					changed |= GUI.SliderInt("##amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
-					changed |= GUI.SliderFloat("##threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
@@ -94,7 +94,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.varnish",
-				category: "Health",
+				category: "Protection",
 				name: "Varnished Wood",
 				description: "Applies varnish on item's wooden parts, improving their durability.",
 
@@ -131,12 +131,12 @@ namespace TC2.Base
 						body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
 					}
 				}
-			));
+            ));
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
 				identifier: "health.smirgl_structure",
-				category: "Health",
+				category: "Protection",
 				name: "Smirgl-Reinforced Structure",
 				description: "Replaces entire structure with smirgl, greatly increasing durability.",
 
@@ -215,7 +215,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("##stuff", ref value, 0.50f, 10.00f, "%.2f");
+					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f, "%.2f");
 				},
 #endif
 
@@ -242,7 +242,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
@@ -258,7 +258,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref amount, 1, 40, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 40, "%d");
 				},
 #endif
 
@@ -286,7 +286,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.movement_cooling",
-				category: "Overheat",
+				category: "Heat Management",
 				name: "Movement Cooling",
 				description: "Increased cooling rate while in motion.",
 
@@ -307,7 +307,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.air_coolant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Air-Cooled",
 				description: "Increases cooling rate.",
 
@@ -323,7 +323,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("##stuff", ref amount, 1, 10, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 10, "%d");
 				},
 #endif
 
@@ -351,7 +351,7 @@ namespace TC2.Base
 			definitions.Add(Modification.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.heat_resistant",
-				category: "Cooling",
+				category: "Heat Management",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
@@ -394,10 +394,128 @@ namespace TC2.Base
 				}
 			));
 
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.random_activation",
+				category: "Utility",
+				name: "Random Activation",
+				description: "Item randomly activates on its own.",
+
+				// This randomly causes a left click and a space bar (at the same time)
+				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
+				// Due to the wide variety of uses this has, this costs a large amount of materials
+				// This doesn't aim, so using anything which uses aim direction requires additional setup
+
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
+					random_activation.duration += 0.20f;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
+
+					if (!context.GetComponent<Melee.Data>().IsNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.bulk",
+				category: "Crafting",
+				name: "Batch Production",
+				description: "More efficient manufacturing process by producing multiple items in bulk.",
+
+				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var batch_size = ref handle.GetData<int>();
+					batch_size = Maths.Clamp(batch_size, 1, 10);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var batch_size = ref handle.GetData<int>();
+					return GUI.SliderInt("Count", ref batch_size, 1, 10, "%d");
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref readonly var recipe_old = ref context.GetRecipeOld();
+					ref var recipe_new = ref context.GetRecipeNew();
+
+					ref var batch_size = ref handle.GetData<int>();
+
+					recipe_new.min *= batch_size;
+					recipe_new.max *= batch_size;
+					recipe_new.step *= batch_size;
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						ref var requirement = ref context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= MathF.Pow(0.99f, batch_size - 1);
+							}
+							else
+							{
+								requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= MathF.Pow(0.93f, batch_size - 1);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= MathF.Pow(0.90f, batch_size - 1);
+								}
+								break;
+
+								default:
+								{
+									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+>>>>>>> main
 			definitions.Add(Modification.Definition.New<Cover.Data>
 			(
 				identifier: "cover.chitin_lined",
-				category: "Cover",
+				category: "Protection",
 				name: "Chitin-Lined",
 				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
 
@@ -422,7 +540,61 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
+
+			//definitions.Add(Modification.Definition.New<Holdable.Data>
+			//(
+			//	identifier: "holdable.compact",
+			//	name: "Compact",
+			//	description: "Allows the item to be stored in toolbelt.",
+
+			//	can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		return !modifications.HasModification(handle) && !data.flags.HasAny(Holdable.Flags.Storable);
+			//	},
+
+			//	apply_0: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		data.flags.SetFlag(Holdable.Flags.Storable, true);
+			//	}
+			//));
+
+			definitions.Add(Modification.Definition.New<Telescope.Data>
+			(
+				identifier: "telescope.magnifying_lenses",
+				category: "Telescope",
+				name: "Magnifying Lenses",
+				description: "Increases maximum range at cost of reduced field of view.",
+
+				validate: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 4.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f, "%.2f");
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					data.max_distance *= value;
+					data.zoom_min /= 0.50f + (value * 0.50f);
+					data.zoom_max /= 0.50f + (value * 0.50f);
+				}
+			));
 		}
 	}
 }
-

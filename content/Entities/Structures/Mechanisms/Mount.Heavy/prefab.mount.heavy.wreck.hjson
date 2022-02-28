@@ -1,0 +1,151 @@
+$name: "Creaky Heavy Mount"
+$desc: "As if it wasn't slow enough already."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[1.750, 3.000]
+			[-2.000, 3.000]
+			[-1.000, -1.750]
+			[-0.500, -1.750]
+		]
+		offset: [0.000, 0.000]
+		mass: 4000.000
+		friction: 500.000
+		elasticity: 0.000
+		material: metal
+		layer: entity, solid, building, ignore_melee
+		mask: world
+	}
+
+	@shape.circle:
+	{
+		radius: 1.250
+		offset: [0.000, 0.000]
+		mass: 100.000
+		friction: 500.000
+		elasticity: 0.000
+		material: metal
+		layer: entity, building, ignore_melee
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 40000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.heavy.wreck"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+	window_offset: [0.000, 192.000]
+}
+
+mount:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "mount.heavy.wreck.fg"
+		}
+		z: 10.000
+	}
+}
+
+attachment:
+{
+
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 10.000
+		type: storage
+		flags: allow_ducts, ignore_mass
+	}
+}
+
+joint.base:
+{
+	offset_a: [0.000, 0.000]
+	max_force: 100000.000
+	max_torque: 100000.000
+	flags: control_write, no_stress, no_wrap, force_facing
+	
+	@sound.emitter:
+	{
+		file: "attachment_rotate_loop_01"
+		volume: 0.000
+		pitch: 1.000
+	}
+	
+	@sound.mixer:
+	{
+		volume_modifier: 1.000
+		pitch_modifier: 0.150
+		volume_min: 0.000
+		pitch_min: 0.800
+		volume_lerp_a: 0.050
+		volume_lerp_b: 0.300
+		pitch_lerp_a: 0.050
+		pitch_lerp_b: 0.050
+	}
+}
+
+joint.pivot:
+{
+	max_bias: 8.000
+}
+
+joint.gear:
+{
+	min: -1.400
+	max: 0.750
+	error_bias: 0.001
+	max_bias: 0.200
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.625]
+	}
+}

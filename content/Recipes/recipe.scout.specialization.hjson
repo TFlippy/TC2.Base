@@ -24,17 +24,13 @@
 	requirements:
 	[
 		{
-			type: "specialization"
-			specialization: "scout"
-		}
-		{
 			type: "level"
 			level: "strength"
 			amount: 3.000
 		}
 		{
 			type: "money"
-			amount: 500.000
+			amount: 50.000
 		}
 	]
 	

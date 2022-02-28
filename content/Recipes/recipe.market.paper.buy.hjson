@@ -1,0 +1,34 @@
+{
+	name: "Paper"
+	desc: "Stacks of paper."
+	
+	icon:
+	{
+		texture: "resource.paper"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 0.799
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "paper"
+			amount: 1.000
+		}
+	]
+}

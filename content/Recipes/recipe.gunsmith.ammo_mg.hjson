@@ -20,7 +20,7 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.150
+			amount: 0.400
 		}
 		{
 			type: "resource"
@@ -29,7 +29,7 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.400
 		}
 		{

@@ -29,7 +29,13 @@ organic.state:
 
 health:
 {
-	max: 3200.000
+	max: 2900.000
+}
+
+regen:
+{
+	amount: 50.000
+	interval: 5.000
 }
 
 animated.renderer:
@@ -72,8 +78,13 @@ control:
 
 torso:
 {
-	head_bob_speed: 22.000
-	head_bob_amplitude: 0.200
+
+}
+
+headbob:
+{
+	speed: 22.000
+	multiplier: [0.000, 0.200]
 }
 
 storage:
@@ -254,7 +265,13 @@ lootable:
 		
 		health:
 		{
-			max: 2400.000
+			max: 2100.000
+		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
 		}
 		
 		holdable:
@@ -439,7 +456,13 @@ lootable:
 		
 		health:
 		{
-			max: 3900.000
+			max: 3400.000
+		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
 		}
 		
 		equipment.slot:
@@ -487,7 +510,7 @@ lootable:
 		offset_a: [0.000, -0.100]
 		max_force: 5000.000
 		max_torque: 2000.000
-		flags: control_write
+		flags: control_write, no_wrap
 	}
 	
 	joint.pivot:
@@ -495,11 +518,11 @@ lootable:
 		max_bias: 6.000
 	}
 	
-	joint.rotarylimit:
-	{
-		max_bias: 6.000
-		error_bias: 0.000
-	}
+	// joint.rotarylimit:
+	// {
+	// 	max_bias: 6.000
+	// 	error_bias: 0.000
+	// }
 	
 	joint.gear:
 	{

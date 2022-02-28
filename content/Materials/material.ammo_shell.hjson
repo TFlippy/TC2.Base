@@ -1,0 +1,30 @@
+{
+	name: "Artillery Shell (Explosive)"
+	description: "Ammunition for cannons."
+	icon:
+	{
+		texture: "resource.ammo_shell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_shell
+	mass_per_unit: 40.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_shell"
+	
+	projectile_count: 1
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 4000.000
+	projectile_prefab: "projectile.shell"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

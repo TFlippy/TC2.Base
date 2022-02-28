@@ -17,7 +17,7 @@ body:
 			[0.200, -1.300]
 		]
 		offset: [0.000, 0.000]
-		mass: 20.000
+		mass: 5.000
 		friction: 0.990
 		elasticity: 0.050
 		material: metal
@@ -79,17 +79,19 @@ attachment:
 joint.base:
 {
 	offset_a: [0.000, 1.000]
-	max_force: 1000000.000
-	max_torque: 2000000.000
-	flags: no_wrap, no_stress, no_aiming
+	max_force: 100000.000
+	max_torque: 50000.000
+	flags: no_wrap, no_aiming
 }
 
 joint.pivot:
 {
-	max_bias: 8.000
+	max_bias: 40.000
+	error_bias: 0.001
 }
 
 joint.gear:
 {
-	max_bias: 8.000
+	max_bias: 50.000
+	error_bias: 0.001
 }

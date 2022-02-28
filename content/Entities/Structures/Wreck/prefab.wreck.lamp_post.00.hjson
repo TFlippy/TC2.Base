@@ -51,11 +51,7 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 45.000
-		}
-		{
-			material: "iron_ingot"
-			quantity: 4.000
+			quantity: 85.000
 		}
 	]
 }

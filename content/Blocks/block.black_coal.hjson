@@ -1,6 +1,6 @@
 {
 	name: "Black Coal"
-	desc: ""
+	desc: "High-quality coal that burns better than brown coal."
 	
 	material_type: stone
 	tile_flags: any
@@ -26,7 +26,7 @@
 	[
 		{
 			material: "black_coal"
-			quantity: 1.500
+			quantity: 0.600
 		}
 	]
 }

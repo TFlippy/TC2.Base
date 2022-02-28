@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 10000.000
 }
 
 animated.renderer:
@@ -70,9 +70,4 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: horizontal
 	flags: lockable
-}
-
-cover:
-{
-	threshold: 0.300
 }

@@ -1,0 +1,45 @@
+{
+	name: "Iron Ingot"
+	desc:
+		'''
+		An ingot of solid iron.
+		Used for construction, machinery, tools and more.
+		'''
+	
+	icon:
+	{
+		texture: "resource.iron_ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 50
+	step: 10
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 5.000
+		}
+	]
+}

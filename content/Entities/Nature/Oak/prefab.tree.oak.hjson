@@ -78,7 +78,7 @@ harvestable:
 		}
 		{
 			material: "resin"
-			quantity: 300.000
+			quantity: 150.000
 		}
 	]
 }

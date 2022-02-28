@@ -1,0 +1,57 @@
+$name: "Withered Log"
+$desc: "Very old remains of a very old tree."
+$tags: []
+
+body:
+{
+	type: dynamic
+	
+	@shape.line:
+	{
+		a: [-2.750, 0.000]
+		b: [2.750, -0.125]
+		mass: 400.000
+		radius: 0.625
+		friction: 1.000
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid, climbable, tree, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 30000.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "log.00"
+	}
+	z: -80.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 3700.000
+		}
+	]
+}

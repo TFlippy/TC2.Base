@@ -1,0 +1,63 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.500, 0.000]
+		b: [0.500, 0.000]
+		radius: 0.250
+		mass: 2.000
+		friction: 0.980
+		elasticity: 0.010
+		material: metal
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1200.000
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.400, 0.500]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "binoculars"
+	}
+
+	scale: [0.750, 0.750]
+}
+
+transform:
+{
+
+}
+
+telescope:
+{
+	speed: 3.000
+	deadzone: 2.000
+	zoom_modifier: 0.800
+	zoom_min: 0.500
+	zoom_max: 0.800
+	max_distance: 100.000
+}
+
+packable:
+{
+
+}

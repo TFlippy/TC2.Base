@@ -71,10 +71,11 @@ fuse:
 
 explosive:
 {
-	radius: 10.000
-	power: 6.000
+	radius: 8.000
+	power: 4.000
 	damage_entity: 8000.000
-	damage_terrain: 50000.000
+	damage_terrain: 90000.000
+	flags: explode_when_primed
 }
 
 packable:

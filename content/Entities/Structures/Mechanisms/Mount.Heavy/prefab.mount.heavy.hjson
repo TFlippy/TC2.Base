@@ -1,3 +1,5 @@
+$name: "Heavy Mount"
+$desc: "A heavy stationary mounting platform used for turrets, cranes and such."
 $tags: []
 
 body:
@@ -8,17 +10,29 @@ body:
 	{
 		points:
 		[
-			[1.750, 1.000]
-			[-1.750, 1.000]
-			[-0.250, -0.750]
-			[0.250, -0.750]
+			[1.750, 3.000]
+			[-2.000, 3.000]
+			[-1.000, -1.750]
+			[-0.500, -1.750]
 		]
 		offset: [0.000, 0.000]
 		mass: 4000.000
 		friction: 500.000
 		elasticity: 0.000
 		material: metal
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_melee
+		mask: world
+	}
+
+	@shape.circle:
+	{
+		radius: 1.250
+		offset: [0.000, 0.000]
+		mass: 100.000
+		friction: 500.000
+		elasticity: 0.000
+		material: metal
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -53,9 +67,27 @@ interactable:
 	window_offset: [0.000, 192.000]
 }
 
-mount:
+faction.colorable:
 {
 
+}
+
+claimable:
+{
+	
+}
+
+mount:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "mount.heavy.fg"
+		}
+		z: 10.000
+		mask: "mount.heavy.fg.mask"
+	}
 }
 
 attachment:
@@ -76,10 +108,10 @@ storage:
 
 joint.base:
 {
-	offset_a: [0.000, -0.700]
+	offset_a: [0.000, 0.000]
 	max_force: 100000.000
 	max_torque: 100000.000
-	flags: control_write
+	flags: control_write, no_stress, no_wrap, force_facing
 	
 	@sound.emitter:
 	{
@@ -108,11 +140,23 @@ joint.pivot:
 
 joint.gear:
 {
+	min: -1.400
+	max: 0.750
 	error_bias: 0.050
 	max_bias: 0.700
 }
 
-cover:
+vehicle:
 {
-	threshold: 0.400
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.625]
+	}
 }
