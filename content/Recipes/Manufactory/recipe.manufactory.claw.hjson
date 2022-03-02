@@ -15,7 +15,7 @@
 	
 	flags: no_amount_multiplier, blueprintable
 	type: workshop
-	tags: forge
+	tags: manufactory
 	
 	requirements:
 	[
