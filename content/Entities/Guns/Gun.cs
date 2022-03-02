@@ -535,7 +535,6 @@ namespace TC2.Base.Components
 						entity.SyncComponent(ref gun_state);
 
 						Sound.Play(ref region, sound_gun_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
-						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
 					}
 #endif
 				}
@@ -656,9 +655,7 @@ namespace TC2.Base.Components
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
 #if SERVER
-						ref var region = ref info.GetRegion();
-						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
-						WorldNotification.Push(ref region, "* No ammo *", 0xffff0000, transform.position);
+						Sound.Play(ref info.GetRegion(), gun.sound_empty, transform.position, volume: 0.50f);
 #endif
 					}
 
@@ -669,7 +666,6 @@ namespace TC2.Base.Components
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
-					ref var region = ref info.GetRegion();
 					var random = XorRandom.New();
 
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
@@ -684,8 +680,7 @@ namespace TC2.Base.Components
 
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
-						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
+						Sound.Play(ref info.GetRegion(), sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 					}
 					else
 					{
@@ -694,8 +689,7 @@ namespace TC2.Base.Components
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
-						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);
+						Sound.Play(ref info.GetRegion(), sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 					}
 #endif
 				}

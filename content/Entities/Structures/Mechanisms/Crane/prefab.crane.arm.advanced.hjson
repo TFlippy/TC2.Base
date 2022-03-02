@@ -49,15 +49,6 @@ joint.base:
 	max_force: 10000000.000
 	max_torque: 20000.000
 	flags: no_wrap, no_stress, control_write
-
-	@light:
-	{
-		color: [0.000, 1.000, 1.000, 2.000]
-		offset: [-2.875, 0.000]
-		scale: [6.000, 4.000]
-		intensity: 1.000
-		texture: "light_invsqr"
-	}
 }
 
 joint.pivot:
