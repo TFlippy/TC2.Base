@@ -93,9 +93,9 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
-				identifier: "health.dismantable",
+				identifier: "health.dismantlable",
 				category: "Utility",
-				name: "Dismantable",
+				name: "Dismantlable",
 				description: "Can be turned into some of the materials used to craft it using a wrench",
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -118,11 +118,6 @@ namespace TC2.Base
 						}
 					}
 				},
-
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					
-				}
 			));
 
 			definitions.Add(Modification.Definition.New<Health.Data>
