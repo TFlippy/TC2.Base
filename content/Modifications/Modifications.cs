@@ -93,6 +93,40 @@ namespace TC2.Base
 
 			definitions.Add(Modification.Definition.New<Health.Data>
 			(
+				identifier: "health.dismantable",
+				category: "Utility",
+				name: "Dismantable",
+				description: "Can be turned into some of the materials used to craft it using a wrench",
+
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return context.GetComponent<Dismantlable.Data>().IsNull();
+				},
+
+				finalize: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var dis = ref context.GetOrAddComponent<Dismantlable.Data>();
+					dis.yield = 0.5f;
+					dis.required_work = 10.0f;
+					int j = 0; 
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource && j < dis.ressources.length)
+						{
+							dis.resources[j] = new Resource.Data(requirement.material, requirement.amount);
+							j++;
+						}
+					}
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
 				identifier: "health.varnish",
 				category: "Protection",
 				name: "Varnished Wood",
