@@ -26,9 +26,14 @@ namespace TC2.Base.Components
 			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##}°C/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float cool_rate = 10.00f;
 
-			public Overheat.Flags flags;
+			public Overheat.Flags flags = default;
 
-			[Net.Ignore, Save.Ignore] public float next_steam;
+			[Net.Ignore, Save.Ignore] public float next_steam = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]

@@ -11,10 +11,15 @@ namespace TC2.Base.Components
 			public float sound_volume = 0.25f;
 			public float sound_pitch = 1.00f;
 
-			[Net.Ignore, Save.Ignore] public float next_step;
+			[Net.Ignore, Save.Ignore] public float next_step = default;
 		
 			public uint frame_count = 4;
 			public uint fps = 12;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]

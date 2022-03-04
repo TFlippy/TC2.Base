@@ -14,13 +14,18 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public Prefab.Handle prefab_stump;
+			public Prefab.Handle prefab_stump = default;
 			public float health_cut = 0.80f;
 
-			public Texture.Handle sprite_cut;
+			public Texture.Handle sprite_cut = default;
 			public Sound.Handle sound_cut = Tree.sound_tree_cut_default;
 
-			public Tree.Flags flags;
+			public Tree.Flags flags = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		public static readonly Sound.Handle sound_tree_cut_default = "tree_fall";

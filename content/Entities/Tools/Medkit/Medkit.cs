@@ -6,7 +6,7 @@
 		public struct Data: IComponent
 		{
 			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float power;
+			public float power = default;
 
 			[Statistics.Info("Healing (Integrity)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float integrity_multiplier = 1.00f;
@@ -15,10 +15,10 @@
 			public float durability_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float cooldown;
+			public float cooldown = default;
 
 			[Statistics.Info("Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance;
+			public float max_distance = default;
 
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float aoe = 0.25f;
@@ -35,7 +35,12 @@
 			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float pain = 0.00f;
 
-			[Save.Ignore, Net.Ignore] public float next_use;
+			[Save.Ignore, Net.Ignore] public float next_use = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if CLIENT

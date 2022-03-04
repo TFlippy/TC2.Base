@@ -16,6 +16,11 @@ namespace TC2.Base.Components
 			public float lift_modifier = 1.00f;
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
