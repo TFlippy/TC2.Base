@@ -27,7 +27,7 @@
 		{
 			type: "resource"
 			material: "leather"
-			amount: 2.000
+			amount: 1.000
 		}
 		{
 			type: "work"

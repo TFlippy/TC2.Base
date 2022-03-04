@@ -71,6 +71,11 @@ npc:
 	min_consciousness: 0.500
 }
 
+npc.wander:
+{
+	
+}
+
 npc.pathfinding:
 {
 	flags: air

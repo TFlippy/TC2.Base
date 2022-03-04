@@ -22,12 +22,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 4.000
+			amount: 5.000
 		}
 		{
 			type: "resource"
 			material: "leather"
-			amount: 7.000
+			amount: 5.000
 		}
 		{
 			type: "work"
