@@ -133,6 +133,41 @@ namespace TC2.Base
 				}
 			));
 
+			definitions.Add(Modification.Definition.New<Health.Data>
+			(
+				identifier: "health.reincarnating",
+				category: "Utility",
+				name: "Reincarnating",
+				description: "Reappears once when it dies",
+
+				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return true;
+				},
+
+				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var rec = ref context.GetOrAddComponent<Reincarnating.Data>();
+					rec.count += 1;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 2.00f;
+							requirement.difficulty += 1.00f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Material)
+						{
+							requirement.amount *= 2.00f;
+						}
+					}
+				}
+			));
+
 			definitions.Add(Modification.Definition.New<Holdable.Data>
 			(
 				identifier: "holdable.tiny_scope",
