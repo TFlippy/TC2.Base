@@ -48,7 +48,7 @@ namespace TC2.Base.Components
 								ref var expl = ref ent.GetComponent<Explosive.Data>();
 								expl.flags |= Explosive.Flags.Primed;
 							}
-							ref var dis = ref ent.GetComponent<Dismantlable.Data>();
+							ref var dis = ref ent.GetComponent<Dismantlable.Data>(); //No double dismantelling
 							if (!dis.IsNull())
 							{
 								dis.yield = -1;

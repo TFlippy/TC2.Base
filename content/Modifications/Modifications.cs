@@ -160,7 +160,7 @@ namespace TC2.Base
 							requirement.amount *= 2.00f;
 							requirement.difficulty += 1.00f;
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Material)
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							requirement.amount *= 2.00f;
 						}
