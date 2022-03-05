@@ -148,7 +148,8 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.damping = Maths.Clamp(data.damping * 1.35f, 0.00f, 1.00f);
+					data.knockback_modifier *= 0.65f;
+					data.pain_modifier *= 0.80f;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -171,7 +172,8 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.damping = Maths.Clamp(data.damping + 0.40f, 0.00f, 1.00f);
+					data.knockback_modifier = MathF.Max(data.knockback_modifier - 0.30f, data.knockback_modifier * 0.25f);
+					data.pain_modifier = MathF.Max((data.pain_modifier * 0.90f) - 0.30f, data.pain_modifier * 0.10f);
 				},
 
 				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
