@@ -6,10 +6,15 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Dive.State>()]
 		public partial struct Data: IComponent
 		{
-			public Sound.Handle sound;
+			public Sound.Handle sound = default;
 
 			public float cooldown = 1.00f;
 			public float speed = 20.00f;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]

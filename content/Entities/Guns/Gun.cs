@@ -118,32 +118,32 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
-			public Vector2 muzzle_offset;
-			public Vector2 particle_offset;
-			public float particle_rotation;
+			public Vector2 muzzle_offset = default;
+			public Vector2 particle_offset = default;
+			public float particle_rotation = default;
 
-			public Sound.Handle sound_shoot;
-			public Sound.Handle sound_cycle;
-			public Sound.Handle sound_reload;
-			public Sound.Handle sound_empty;
+			public Sound.Handle sound_shoot = default;
+			public Sound.Handle sound_cycle = default;
+			public Sound.Handle sound_reload = default;
+			public Sound.Handle sound_empty = default;
 
 			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_multiplier;
+			public float damage_multiplier = default;
 
 			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float velocity_multiplier;
+			public float velocity_multiplier = default;
 
 			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
-			public float jitter_multiplier;
+			public float jitter_multiplier = default;
 
 			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float recoil_multiplier;
+			public float recoil_multiplier = default;
 
 			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float reload_interval;
+			public float reload_interval = default;
 
 			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
-			public float cycle_interval;
+			public float cycle_interval = default;
 
 			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float stability = 1.00f;
@@ -152,7 +152,7 @@ namespace TC2.Base.Components
 			public float failure_rate = 0.00f;
 
 			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float max_ammo;
+			public float max_ammo = default;
 
 			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
@@ -174,19 +174,24 @@ namespace TC2.Base.Components
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public int projectile_count = 1;
 
-			public Gun.Flags flags;
+			public Gun.Flags flags = default;
 
 			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public Material.Flags ammo_filter;
+			public Material.Flags ammo_filter = default;
 
 			[Statistics.Info("Operation", description: "Operation mode of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Action action;
+			public Gun.Action action = default;
 
 			[Statistics.Info("Type", description: "Type of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Type type;
+			public Gun.Type type = default;
 
 			[Statistics.Info("Feed", description: "Method of loading ammunition.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Feed feed;
+			public Gun.Feed feed = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]

@@ -9,16 +9,26 @@ namespace TC2.Base.Components
 		{
 			public float interval = 10.00f;
 			public float amount_multiplier = 1.00f;
-			public int shipment_counter;
+			public int shipment_counter = default;
 
-			[Save.Ignore] public float next_update;
+			[Save.Ignore] public float next_update = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct State: IComponent
 		{
-			public float work_current;
+			public float work_current = default;
 			public float work_required = 100.00f;
+
+			public State()
+			{
+
+			}
 		}
 
 		public struct Product

@@ -1,0 +1,41 @@
+{
+	name: "Leather"
+	desc: "A bundle of leather."
+	
+	icon:
+	{
+		texture: "resource.leather"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "leather"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 7.000
+		}
+	]
+}

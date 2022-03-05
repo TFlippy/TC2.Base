@@ -64,19 +64,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Health.Data>
+			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "health.mushroom_glow",
 				category: "Utility",
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
 
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					return context.GetComponent<Light.Data>().IsNull();
 				},
 
-				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
 					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
@@ -85,7 +85,7 @@ namespace TC2.Base
 					light.texture = "light_invsqr";
 				},
 
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
 				}
@@ -427,7 +427,7 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Modification.Definition.New<Control.Data>
 			(
 				identifier: "body.random_activation",
 				category: "Utility",
@@ -439,13 +439,13 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
 					random_activation.duration += 0.20f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
 
@@ -596,6 +596,29 @@ namespace TC2.Base
 					data.max_distance *= value;
 					data.zoom_min /= 0.50f + (value * 0.50f);
 					data.zoom_max /= 0.50f + (value * 0.50f);
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Equipment.Data>
+			(
+				identifier: "equipment.cursed",
+				category: "Utility",
+				name: "Cursed",
+				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
+
+				can_add: static (ref Modification.Context context, in Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.flags.SetFlag(Equipment.Flags.Unremovable, true);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("tar", 15.00f));
 				}
 			));
 		}

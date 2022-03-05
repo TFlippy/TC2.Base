@@ -15,14 +15,19 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Random Activation Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float duration;
+			public float duration = default;
 
 			[Statistics.Info("Random Activation Chance", description: "Chance of a random activation being triggered.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float chance = 0.005f;
 
-			public RandomActivation.Flags flags;
+			public RandomActivation.Flags flags = default;
 
-			[Save.Ignore, Net.Ignore] public float time_stop;
+			[Save.Ignore, Net.Ignore] public float time_stop = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single), Exclude<Toolbelt.Data>(Source.Modifier.Parent)]

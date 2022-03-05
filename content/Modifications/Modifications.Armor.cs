@@ -74,7 +74,7 @@ namespace TC2.Base
 				identifier: "armor.chitin_lined",
 				category: "Protection",
 				name: "Chitin-Lined",
-				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
+				description: "Incorporate chitin lining into the armor, increasing its protection while slightly lowering its toughness.",
 
 				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -83,7 +83,8 @@ namespace TC2.Base
 
 				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.threshold = Maths.Clamp(data.threshold - 0.25f, 0.00f, 1.00f);
+					data.toughness *= 0.95f;
+					data.protection = Maths.Clamp(data.protection + ((1.00f - data.protection) * 0.50f), 0.00f, 1.00f);
 
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
@@ -95,6 +96,89 @@ namespace TC2.Base
 				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Armor.Data>
+			(
+				identifier: "armor.smirgl_plating",
+				category: "Protection",
+				name: "Smirgl Plating",
+				description: "Reinforce the armor with smirgl plating, increasing its toughness and weight.",
+
+				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.toughness += 350.00f;
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max += 500.00f;
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += 5.00f;
+					}
+				},
+
+				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 2.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Armor.Data>
+			(
+				identifier: "armor.cloth_padded",
+				category: "Protection",
+				name: "Cloth Padding",
+				description: "Pads the inner side of the armor with cloth.",
+
+				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.knockback_modifier *= 0.65f;
+					data.pain_modifier *= 0.80f;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 5.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Armor.Data>
+			(
+				identifier: "armor.mushroom_stuffed",
+				category: "Protection",
+				name: "Mushroom Stuffing",
+				description: "Stuffs the inner side of the armor with soft mushroom bits.",
+
+				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.knockback_modifier = MathF.Max(data.knockback_modifier - 0.30f, data.knockback_modifier * 0.25f);
+					data.pain_modifier = MathF.Max((data.pain_modifier * 0.90f) - 0.30f, data.pain_modifier * 0.10f);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", 20.00f));
 				}
 			));
 		}

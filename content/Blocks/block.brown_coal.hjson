@@ -26,7 +26,7 @@
 	[
 		{
 			material: "brown_coal"
-			quantity: 0.600
+			quantity: 1.000
 		}
 	]
 }

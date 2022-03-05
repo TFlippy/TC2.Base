@@ -15,15 +15,20 @@
 		{
 			public float crouch_offset_modifier = 0.50f;
 
-			[Save.Ignore, Net.Ignore] public Vector2 offset;
-			[Save.Ignore, Net.Ignore] public float lerp;
+			[Save.Ignore, Net.Ignore] public Vector2 offset = default;
+			[Save.Ignore, Net.Ignore] public float lerp = default;
 
-			[Save.Ignore] public Torso.Flags flags;
+			[Save.Ignore] public Torso.Flags flags = default;
 
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			[Save.Ignore, Net.Ignore] public float air_time;
+			[Save.Ignore, Net.Ignore] public float air_time = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]

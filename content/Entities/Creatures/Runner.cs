@@ -19,8 +19,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
-			public float walk_force;
-			public float jump_force;
+			public float walk_force = default;
+			public float jump_force = default;
 			public float max_speed = 10.00f;
 
 			public float walk_lerp = 0.15f;
@@ -30,18 +30,23 @@ namespace TC2.Base.Components
 
 			public float crouch_speed_modifier = 0.50f;
 
-			[Save.Ignore] public float air_modifier_current;
-			[Save.Ignore] public float walk_modifier_current;
-			[Save.Ignore] public float uphill_force_current;
-			[Save.Ignore] public float jump_force_current;
-			[Save.Ignore] public Runner.Flags flags;
+			[Save.Ignore] public float air_modifier_current = default;
+			[Save.Ignore] public float walk_modifier_current = default;
+			[Save.Ignore] public float uphill_force_current = default;
+			[Save.Ignore] public float jump_force_current = default;
+			[Save.Ignore] public Runner.Flags flags = default;
 
-			[Save.Ignore, Net.Ignore] public float air_time;
+			[Save.Ignore, Net.Ignore] public float air_time = default;
 
-			[Save.Ignore, Net.Ignore] public float last_jump;
-			[Save.Ignore, Net.Ignore] public float last_ground;
-			[Save.Ignore, Net.Ignore] public float last_climb;
-			[Save.Ignore, Net.Ignore] public float last_air;
+			[Save.Ignore, Net.Ignore] public float last_jump = default;
+			[Save.Ignore, Net.Ignore] public float last_ground = default;
+			[Save.Ignore, Net.Ignore] public float last_climb = default;
+			[Save.Ignore, Net.Ignore] public float last_air = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]

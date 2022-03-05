@@ -6,10 +6,10 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Biter.State>()]
 		public partial struct Data: IComponent
 		{
-			public Sound.Handle sound;
+			public Sound.Handle sound = default;
 
-			public float damage_base;
-			public float damage_bonus;
+			public float damage_base = default;
+			public float damage_bonus = default;
 
 			public float cooldown = 0.50f;
 			public float max_distance = 1.00f;
@@ -21,9 +21,14 @@ namespace TC2.Base.Components
 			public float penetration_falloff = 0.75f;
 			public int penetration = 1;
 
-			public Damage.Type damage_type;
-			public Physics.Layer hit_mask;
-			public Physics.Layer hit_exclude;
+			public Damage.Type damage_type = default;
+			public Physics.Layer hit_mask = default;
+			public Physics.Layer hit_exclude = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]

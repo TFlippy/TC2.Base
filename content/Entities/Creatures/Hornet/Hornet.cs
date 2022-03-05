@@ -6,6 +6,11 @@
 		public struct Data: IComponent
 		{
 			public int fps = 30;
+
+			public Data()
+			{
+
+			}
 		}
 
 		// Hack, used to register "hornet" tag for now

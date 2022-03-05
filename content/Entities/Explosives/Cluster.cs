@@ -8,7 +8,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public Prefab.Handle prefab;
+			public Prefab.Handle prefab = default;
 			public float spread = 0.00f;
 			public float speed = 0.00f;
 
@@ -17,7 +17,12 @@ namespace TC2.Base.Components
 			public float speed_modifier_min = 0.30f;
 			public float speed_modifier_max = 1.30f;
 
-			public int count;
+			public int count = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if SERVER
