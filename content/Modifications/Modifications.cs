@@ -155,7 +155,7 @@ namespace TC2.Base
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
-						if (requirement.type == Crafting.Requirement.Type.Work)
+						if (requirement.type == Crafting.Requirement.Type.Work) //Doubles both work and ressource cost since you get two objects for the price of well two, though you cant use em at the same time
 						{
 							requirement.amount *= 2.00f;
 							requirement.difficulty += 1.00f;
