@@ -3,7 +3,7 @@ $tags: []
 projectile:
 {
 	damage_base: 3.000
-	damage_bonus: 30.000
+	damage_bonus: 48.000
 	lifetime: 5.000
 	damage_type: bullet_sg
 	size: 0.100

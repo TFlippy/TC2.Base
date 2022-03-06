@@ -21,9 +21,9 @@ gun:
 	muzzle_offset: [1.500, 0.000]
 	sound_shoot: "crankgun_shoot"
 	sound_reload: "missing"
-	velocity_multiplier: 650.000
+	velocity_multiplier: 750.000
 	jitter_multiplier: 0.800
-	damage_multiplier: 3.000
+	damage_multiplier: 4.400
 	recoil_multiplier: 4.000
 	reload_interval: 4.000
 	cycle_interval: 0.125
