@@ -34,7 +34,7 @@ gun:
 	sound_reload: "shotgun_reload"
 	velocity_multiplier: 400.000
 	jitter_multiplier: 5.500
-	damage_multiplier: 1.500
+	damage_multiplier: 2.000
 	recoil_multiplier: 2.500
 	reload_interval: 0.600
 	cycle_interval: 0.500
