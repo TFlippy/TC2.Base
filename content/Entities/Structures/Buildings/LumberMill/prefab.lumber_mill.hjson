@@ -1,0 +1,92 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [7.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+interactable:
+{
+	window_size: [650.000, 400.000]
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "lumber_mill.bg"
+	}
+	z: -300.000
+}
+
+lumbermill:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "lumber_mill.fg"
+		}
+		z: -280.000
+	}
+}
+
+lumbermill.state:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "lumber_mill.saw"
+		}
+		z: -290.000
+		offset: [1.500, 1.000]
+	}
+}
+
+wheel:
+{
+	offset: [3.000, -0.125]
+	mass: 5.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
+		z: -140.000
+	}
+}
