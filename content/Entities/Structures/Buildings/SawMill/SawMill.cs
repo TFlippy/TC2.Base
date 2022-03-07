@@ -56,13 +56,14 @@
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
 		[Source.Owned] ref Joint.Slider slider)
 		{
-			slider.min = sawmill.slider_distance * sawmill_state.slider_ratio;
-			slider.max = slider.min;
+			var tmp = sawmill.slider_distance * sawmill_state.slider_ratio;
+			slider.min = tmp - 0.01f;
+			slider.max = tmp + 0.01f;
 		}
 
 #if CLIENT

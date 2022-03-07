@@ -100,7 +100,7 @@ attachment:
 
 joint.base:
 {
-	offset_a: [3.000, 1.500]
+	offset_a: [3.000, 0.875]
 	max_force: 50000.000
 	max_torque: 50000.000
 	flags: control_read, control_write
@@ -118,5 +118,7 @@ joint.slider:
 {
 	a: [0.000, 0.000]
 	b: [-6.000, 0.000]
+
 	max_force: 20000.000
+	speed: 2.000
 }
