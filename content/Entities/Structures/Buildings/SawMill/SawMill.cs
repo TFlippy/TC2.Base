@@ -128,8 +128,11 @@
 		public struct SawMillGUI: IGUICommand
 		{
 			public Entity ent_sawmill;
+
 			public SawMill.Data sawmill;
 			public SawMill.State sawmill_state;
+
+			public Wheel.Data wheel;
 
 			public void Draw()
 			{
@@ -140,24 +143,46 @@
 					ref var player = ref Client.GetPlayer();
 					ref var region = ref Client.GetRegion();
 
-					using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()), padding: new Vector2(4, 4)))
-					{
-						GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+					const float slider_h = 32;
 
-						var dirty = false;
-						if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, "%.2f", size: new Vector2(GUI.GetRemainingWidth(), 32)))
+					var frame_size = Inventory.GetFrameSize(4, 2);
+
+					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+					{
+						using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
 						{
-							dirty = true;
+							GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+
+							using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - slider_h)))
+							{
+								GUI.Label("Angular Velocity:", this.wheel.angular_velocity, "{0:0.00} rad/s");
+								GUI.Label("Torque:", this.wheel.old_tmp_torque, "{0:0.00} Nm/s");
+							}
+
+							var dirty = false;
+							if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, "%.2f", size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
+							{
+								dirty = true;
+							}
+
+							if (dirty)
+							{
+								var rpc = new SawMill.ConfigureRPC
+								{
+									gear_ratio = this.sawmill_state.gear_ratio,
+									slider_ratio = this.sawmill_state.slider_ratio
+								};
+								rpc.Send(this.ent_sawmill);
+							}
 						}
 
-						if (dirty)
+						GUI.SameLine();
+
+						using (var group = GUI.Group.Centered(GUI.GetRemainingSpace(), frame_size))
 						{
-							var rpc = new SawMill.ConfigureRPC
-							{
-								gear_ratio = this.sawmill_state.gear_ratio,
-								slider_ratio = this.sawmill_state.slider_ratio
-							};
-							rpc.Send(this.ent_sawmill);
+							GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+
+							GUI.DrawInventoryDock(Inventory.Type.Output, size: frame_size);
 						}
 					}
 				}
@@ -165,7 +190,7 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single)]
-		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Wheel.Data wheel, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)
 			{
@@ -175,6 +200,8 @@
 
 					sawmill = sawmill,
 					sawmill_state = sawmill_state,
+					
+					wheel = wheel
 				};
 				gui.Submit();
 			}

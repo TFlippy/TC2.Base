@@ -12,7 +12,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, support, ignore_melee
+		layer: entity, building, support, ignore_melee, storage
 		mask: world
 	}
 }
@@ -24,7 +24,7 @@ health:
 
 interactable:
 {
-	window_size: [300.000, 200.000]
+	window_size: [400.000, 220.000]
 }
 
 transform:
@@ -68,6 +68,14 @@ sawmill:
 		volume: 0.000
 		pitch: 1.000
 		size: 0.500
+	}
+
+	@inventory8:
+	{
+		name: "Output"
+		stack_size_multiplier: 8.000
+		type: output
+		flags: allow_ducts, ignore_mass, public
 	}
 }
 
