@@ -59,6 +59,14 @@ sawmill:
 		}
 		z: 270.000
 	}
+
+	@sound.emitter:
+	{
+		file: "sawmill.idle.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 0.500
+	}
 }
 
 sawmill.state:
@@ -72,6 +80,14 @@ sawmill.state:
 			texture: "sawmill.fg"
 		}
 		z: 280.000
+	}
+
+	@sound.emitter:
+	{
+		file: "sawmill.cut.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 0.600
 	}
 }
 

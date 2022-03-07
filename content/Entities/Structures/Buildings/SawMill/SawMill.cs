@@ -49,18 +49,16 @@
 		public const float update_interval = 0.20f;
 		public const float hit_interval = 0.10f;
 
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Wheel.Data wheel)
+		[Source.Owned] ref Joint.Slider slider)
 		{
-			if (info.WorldTime >= sawmill_state.next_update)
-			{
-				sawmill_state.next_update = info.WorldTime + update_interval;
-			}
+			var tmp = sawmill.slider_distance * sawmill_state.slider_ratio;
+			slider.min = tmp - 0.01f;
+			slider.max = tmp + 0.01f;
 		}
 
-#if SERVER
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
 		[Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
@@ -74,20 +72,11 @@
 				if (dist < sawmill.saw_radius)
 				{
 					sawmill_state.next_hit = info.WorldTime + hit_interval;
+#if SERVER
 					entity.Hit(entity, ent_health, transform.position, dir, -dir, 100.00f, Material.Type.Wood, Damage.Type.Saw, yield: 1.00f);
+#endif
 				}
 			}
-		}
-#endif
-
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateSlider(ISystem.Info info, Entity entity,
-		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Joint.Slider slider)
-		{
-			var tmp = sawmill.slider_distance * sawmill_state.slider_ratio;
-			slider.min = tmp - 0.01f;
-			slider.max = tmp + 0.01f;
 		}
 
 #if CLIENT
@@ -98,6 +87,30 @@
 		{
 			renderer_saw.rotation = (renderer_saw.rotation - (wheel.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
 			renderer_saw.offset = sawmill.saw_offset;
+		}
+
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		public static void UpdateSoundIdle(ISystem.Info info, Entity entity,
+		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
+		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
+		{
+			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var random = XorRandom.New();
+
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(wheel_speed * 0.20f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + (Maths.Clamp(wheel_speed * 0.20f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
+		}
+
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		public static void UpdateSoundCutting(ISystem.Info info, Entity entity,
+		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
+		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
+		{
+			var modifier_target = info.WorldTime < sawmill_state.next_hit ? 1.00f : 0.00f;
+			var random = XorRandom.New();
+
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier_target * 0.40f, 0.05f, 0.40f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.50f + (Maths.Clamp(modifier_target, 0.00f, 0.40f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.10f);
 		}
 #endif
 
