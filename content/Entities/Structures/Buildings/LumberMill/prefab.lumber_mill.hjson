@@ -60,6 +60,8 @@ lumbermill:
 
 lumbermill.state:
 {
+	gear_ratio_current: 1.000
+
 	@animated.renderer:
 	{
 		sprite:
@@ -67,13 +69,13 @@ lumbermill.state:
 			texture: "lumber_mill.saw"
 		}
 		z: -290.000
-		offset: [1.500, 1.375]
+		offset: [-1.500, 1.375]
 	}
 }
 
 wheel:
 {
-	offset: [3.125, 1.125]
+	offset: [-3.125, 1.125]
 	mass: 5.000
 	friction: 0.200
 	radius_a: 1.000

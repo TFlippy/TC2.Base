@@ -54,7 +54,7 @@
 		[Source.Owned] in LumberMill.Data lumbermill, [Source.Owned] in LumberMill.State lumbermill_state,
 		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Trait.Of<LumberMill.State>] ref Animated.Renderer.Data renderer_saw)
 		{
-			renderer_saw.rotation = (renderer_saw.rotation + (wheel.angular_velocity * info.DeltaTime * lumbermill_state.gear_ratio_current)) % MathF.Tau;
+			renderer_saw.rotation = (renderer_saw.rotation - (wheel.angular_velocity * info.DeltaTime * lumbermill_state.gear_ratio_current)) % MathF.Tau;
 		}
 #endif
 
