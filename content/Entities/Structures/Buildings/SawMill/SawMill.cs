@@ -5,9 +5,9 @@
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<SawMill.State>]
 		public struct Data: IComponent
 		{
-			public float slider_distance = 6.00f;
+			public float slider_distance = 5.00f;
 			public Vector2 saw_offset = default;
-			public float saw_radius = 1.00f; 
+			public float saw_radius = 1.00f;
 
 			public Data()
 			{
@@ -22,7 +22,7 @@
 			public float slider_ratio = default;
 
 			[Net.Ignore, Save.Ignore] public float next_update = default;
-			[Net.Ignore, Save.Ignore] public float next_hit = default;
+			[Net.Ignore, Save.Ignore] public float last_hit = default;
 
 			public State()
 			{
@@ -46,8 +46,7 @@
 #endif
 		}
 
-		public const float update_interval = 0.20f;
-		public const float hit_interval = 0.10f;
+		public const float update_interval = 0.10f;
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
@@ -59,23 +58,33 @@
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
-		[Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
+		[Source.Parent] ref Wheel.Data wheel, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
 		{
-			if (info.WorldTime >= sawmill_state.next_hit)
+			if (info.WorldTime >= sawmill_state.next_update)
 			{
-				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
+				var wheel_speed = MathF.Max(MathF.Abs(wheel.angular_velocity) - 2.00f, 0.00f);
+				//var modifier = MathF.Min(wheel_speed * 0.08f, 1.00f);
 
-				var overlap = body_child.GetClosestPoint(wpos_saw);
-				var dir = overlap.gradient;
-
-				if (overlap.distance < sawmill.saw_radius)
+				if (wheel_speed > 2.00f)
 				{
-					sawmill_state.next_hit = info.WorldTime + hit_interval;
+					var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
+
+					var overlap = body_child.GetClosestPoint(wpos_saw);
+					var dir = overlap.gradient;
+
+					if (overlap.distance < sawmill.saw_radius)
+					{
 #if SERVER
-					entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, 100.00f, overlap.material_type, Damage.Type.Saw, yield: 1.00f);
+						var damage = wheel.old_tmp_torque * 0.15f;
+						entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f);
 #endif
+
+						sawmill_state.last_hit = info.WorldTime;
+					}
 				}
+
+				sawmill_state.next_update = info.WorldTime + update_interval;
 			}
 		}
 
@@ -94,11 +103,11 @@
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
 		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var wheel_speed = MathF.Max(MathF.Abs(wheel.angular_velocity) - 2.00f, 0.00f);
 			var random = XorRandom.New();
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(wheel_speed * 0.20f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + (Maths.Clamp(wheel_speed * 0.20f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(wheel_speed * 0.08f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + (Maths.Clamp(wheel_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
@@ -106,11 +115,12 @@
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
 		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
 		{
-			var modifier_target = info.WorldTime < sawmill_state.next_hit ? 1.00f : 0.00f;
+			var wheel_speed = MathF.Max(MathF.Abs(wheel.angular_velocity) - 2.00f, 0.00f);
+			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? MathF.Min(wheel_speed * 0.08f, 1.00f) : 0.00f;
 			var random = XorRandom.New();
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier_target * 0.40f, 0.05f, 0.30f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.45f + (Maths.Clamp(modifier_target, 0.00f, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier * 0.60f, 0.05f, 0.30f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.45f + (MathF.Min(modifier, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
 		}
 #endif
 

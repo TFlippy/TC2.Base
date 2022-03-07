@@ -48,6 +48,8 @@ animated.renderer:
 
 sawmill:
 {
+	slider_distance: 5.00
+
 	saw_radius: 1.000
 	saw_offset: [-1.500, 1.375]
 
@@ -136,10 +138,10 @@ joint.gear:
 joint.slider:
 {
 	a: [0.000, 0.000]
-	b: [-6.000, 0.000]
+	b: [-5.000, 0.000]
 
 	min: 0.000
-	max: 6.000
+	max: 5.000
 
 	error_bias: 0.0001
 	max_force: 20000.000
