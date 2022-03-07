@@ -62,18 +62,20 @@
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
 		[Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
-		[Source.Owned] ref Health.Data health, [Source.Owned] in Transform.Data transform)
+		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
 		{
 			if (info.WorldTime >= sawmill_state.next_hit)
 			{
 				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
-				var dir = (transform.position - wpos_saw).GetNormalized(out var dist);
-				
-				if (dist < sawmill.saw_radius)
+
+				var overlap = body_child.GetClosestPoint(wpos_saw);
+				var dir = overlap.gradient;
+
+				if (overlap.distance < sawmill.saw_radius)
 				{
 					sawmill_state.next_hit = info.WorldTime + hit_interval;
 #if SERVER
-					entity.Hit(entity, ent_health, transform.position, dir, -dir, 100.00f, Material.Type.Wood, Damage.Type.Saw, yield: 1.00f);
+					entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, 100.00f, overlap.material_type, Damage.Type.Saw, yield: 1.00f);
 #endif
 				}
 			}
