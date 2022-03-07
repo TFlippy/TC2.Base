@@ -128,6 +128,7 @@ joint.gear:
 {
 	min: 1.570
 	max: 1.570
+
 	error_bias: 0.001
 	max_bias: 5.000
 }
@@ -137,6 +138,15 @@ joint.slider:
 	a: [0.000, 0.000]
 	b: [-6.000, 0.000]
 
+	min: 0.000
+	max: 6.000
+
 	max_force: 20000.000
-	speed: 2.000
+	max_bias: 10.000
+}
+
+joint.distance:
+{
+	max_force: 20000.000
+	max_bias: 2.000
 }

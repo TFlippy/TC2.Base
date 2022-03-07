@@ -52,11 +52,9 @@
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Joint.Slider slider)
+		[Source.Owned] ref Joint.Distance joint_distance)
 		{
-			var tmp = sawmill.slider_distance * sawmill_state.slider_ratio;
-			slider.min = tmp - 0.01f;
-			slider.max = tmp + 0.01f;
+			joint_distance.distance = sawmill.slider_distance * sawmill_state.slider_ratio;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -111,8 +109,8 @@
 			var modifier_target = info.WorldTime < sawmill_state.next_hit ? 1.00f : 0.00f;
 			var random = XorRandom.New();
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier_target * 0.40f, 0.05f, 0.40f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.50f + (Maths.Clamp(modifier_target, 0.00f, 0.40f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.10f);
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier_target * 0.40f, 0.05f, 0.30f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.45f + (Maths.Clamp(modifier_target, 0.00f, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
 		}
 #endif
 
