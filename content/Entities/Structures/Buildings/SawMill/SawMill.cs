@@ -6,6 +6,8 @@
 		public struct Data: IComponent
 		{
 			public float slider_distance = 6.00f;
+			public Vector2 saw_offset = default;
+			public float saw_radius = 1.00f; 
 
 			public Data()
 			{
@@ -36,6 +38,7 @@
 			public float slider_ratio = default;
 
 			[Net.Ignore, Save.Ignore] public float next_update = default;
+			[Net.Ignore, Save.Ignore] public float next_hit = default;
 
 			public State()
 			{
@@ -44,6 +47,7 @@
 		}
 
 		public const float update_interval = 0.20f;
+		public const float hit_interval = 0.10f;
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
@@ -55,6 +59,26 @@
 				sawmill_state.next_update = info.WorldTime + update_interval;
 			}
 		}
+
+#if SERVER
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
+		[Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
+		[Source.Owned] ref Health.Data health, [Source.Owned] in Transform.Data transform)
+		{
+			if (info.WorldTime >= sawmill_state.next_hit)
+			{
+				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
+				var dir = (transform.position - wpos_saw).GetNormalized(out var dist);
+				
+				if (dist < sawmill.saw_radius)
+				{
+					sawmill_state.next_hit = info.WorldTime + hit_interval;
+					entity.Hit(entity, ent_health, transform.position, dir, -dir, 100.00f, Material.Type.Wood, Damage.Type.Saw, yield: 1.00f);
+				}
+			}
+		}
+#endif
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
@@ -70,9 +94,10 @@
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
-		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.State>] ref Animated.Renderer.Data renderer_saw)
+		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
 		{
 			renderer_saw.rotation = (renderer_saw.rotation - (wheel.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
+			renderer_saw.offset = sawmill.saw_offset;
 		}
 #endif
 

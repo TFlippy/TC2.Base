@@ -48,13 +48,16 @@ animated.renderer:
 
 sawmill:
 {
+	saw_radius: 2.000
+	saw_offset: [-1.500, 1.375]
+
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "sawmill.fg"
+			texture: "sawmill.saw"
 		}
-		z: -280.000
+		z: 270.000
 	}
 }
 
@@ -66,10 +69,9 @@ sawmill.state:
 	{
 		sprite:
 		{
-			texture: "sawmill.saw"
+			texture: "sawmill.fg"
 		}
-		z: -290.000
-		offset: [-1.500, 1.375]
+		z: 280.000
 	}
 }
 
@@ -108,9 +110,9 @@ joint.base:
 
 joint.gear:
 {
-	min: 0.000
-	max: 0.000
-	error_bias: 0.050
+	min: 1.570
+	max: 1.570
+	error_bias: 0.001
 	max_bias: 2.000
 }
 
