@@ -24,7 +24,7 @@ health:
 
 interactable:
 {
-	window_size: [650.000, 400.000]
+	window_size: [300.000, 200.000]
 }
 
 transform:
@@ -41,32 +41,32 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "lumber_mill.bg"
+		texture: "sawmill.bg"
 	}
 	z: -300.000
 }
 
-lumbermill:
+sawmill:
 {
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "lumber_mill.fg"
+			texture: "sawmill.fg"
 		}
 		z: -280.000
 	}
 }
 
-lumbermill.state:
+sawmill.state:
 {
-	gear_ratio_current: 1.000
+	gear_ratio: 1.000
 
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "lumber_mill.saw"
+			texture: "sawmill.saw"
 		}
 		z: -290.000
 		offset: [-1.500, 1.375]
@@ -91,4 +91,32 @@ wheel:
 		}
 		z: -140.000
 	}
+}
+
+attachment:
+{
+
+}
+
+joint.base:
+{
+	offset_a: [3.000, 1.500]
+	max_force: 50000.000
+	max_torque: 50000.000
+	flags: control_read, control_write
+}
+
+joint.gear:
+{
+	min: 0.000
+	max: 0.000
+	error_bias: 0.050
+	max_bias: 2.000
+}
+
+joint.slider:
+{
+	a: [0.000, 0.000]
+	b: [-6.000, 0.000]
+	max_force: 20000.000
 }
