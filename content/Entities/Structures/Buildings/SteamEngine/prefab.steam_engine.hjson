@@ -46,7 +46,7 @@ steamengine:
 		{
 			texture: "steam_engine_piston"
 		}
-		z: -170.000
+		z: -290.000
 	}
 }
 
@@ -106,7 +106,7 @@ wheel:
 		{
 			texture: "steam_engine_flywheel"
 		}
-		z: -160.000
+		z: -280.000
 	}
 }
 
