@@ -15,6 +15,21 @@
 			}
 		}
 
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public struct State: IComponent
+		{
+			public float gear_ratio = 1.00f;
+			public float slider_ratio = default;
+
+			[Net.Ignore, Save.Ignore] public float next_update = default;
+			[Net.Ignore, Save.Ignore] public float next_hit = default;
+
+			public State()
+			{
+
+			}
+		}
+
 		public struct ConfigureRPC: Net.IRPC<SawMill.State>
 		{
 			public float gear_ratio;
@@ -29,21 +44,6 @@
 				data.Sync(entity);
 			}
 #endif
-		}
-
-		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct State: IComponent
-		{
-			public float gear_ratio = 1.00f;
-			public float slider_ratio = default;
-
-			[Net.Ignore, Save.Ignore] public float next_update = default;
-			[Net.Ignore, Save.Ignore] public float next_hit = default;
-
-			public State()
-			{
-
-			}
 		}
 
 		public const float update_interval = 0.20f;
@@ -80,7 +80,7 @@
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
 		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
