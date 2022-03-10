@@ -2135,6 +2135,12 @@ namespace TC2.Base
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
 				},
+
+				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					draw.DrawSprite("gun.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
+				},
 #endif
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
