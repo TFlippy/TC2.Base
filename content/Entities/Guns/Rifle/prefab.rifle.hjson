@@ -18,7 +18,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.125]
+	muzzle_offset: [1.250, -0.0625]
 	sound_shoot: "rifle_shoot"
 	sound_cycle: "rifle_cycle"
 	sound_reload: "rifle_reload"

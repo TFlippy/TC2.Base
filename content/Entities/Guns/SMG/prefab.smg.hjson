@@ -18,7 +18,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.000, -0.250]
+	muzzle_offset: [1.000, -0.1875]
 	sound_shoot: "smg_shoot"
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"

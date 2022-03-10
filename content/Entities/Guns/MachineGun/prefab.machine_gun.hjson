@@ -18,7 +18,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.700, 0.000]
+	muzzle_offset: [1.750, -0.0625]
 	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
