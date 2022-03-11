@@ -1948,6 +1948,23 @@ namespace TC2.Base
 					ref var simultaneous = ref handle.GetData<bool>();
 					return GUI.Checkbox("Simultaneous Fire", ref simultaneous, GUI.GetRemainingSpace());
 				},
+
+				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id)
+						{
+							count++;
+						}
+					}
+
+					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
+
+					//draw.DrawSprite("gun.extra_barrel", data.muzzle_offset, pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, data.muzzle_offset, pivot: new(0.50f, 0.50f));
+				},
 #endif
 
 				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
