@@ -3,9 +3,10 @@ namespace TC2.Base.Components
 {
 	public static partial class Alcohol
 	{
-		[IComponent.Data(Net.SendType.Reliable), ITrait.Data(Net.SendType.Reliable)]
-		public partial struct Effect: IComponent, ITrait
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public partial struct Effect: IComponent
 		{
+			[Statistics.Info("Alcohol", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float amount;
 
 			[Net.Ignore] public float modifier_current;
@@ -26,7 +27,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
-		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned, Trait.Of<Consumable.Data>] ref Alcohol.Effect alcohol)
+		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] ref Alcohol.Effect alcohol)
 		{
 			ref var alcohol_new = ref data.ent_organic.GetOrAddComponent<Alcohol.Effect>(sync: true);
 			alcohol_new.amount += alcohol.amount;
@@ -68,15 +69,15 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol)
+		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
 		{
 			var jitter = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
 
-			var amount_consumed = (1.00f + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s;
+			var amount_consumed = (1.00f + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s * 0.50f;
 			amount_consumed = Maths.Clamp(amount_consumed, 0.00f, alcohol.amount);
 
 			alcohol.jitter_current = jitter;
-			alcohol.modifier_current = alcohol.amount * 0.010f * 8.00f * App.fixed_update_interval_s;
+			alcohol.modifier_current = alcohol.amount * 0.15f * App.fixed_update_interval_s;
 			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (App.fixed_update_interval_s * 0.20f), 0.00f);
 			alcohol.amount -= amount_consumed;
 

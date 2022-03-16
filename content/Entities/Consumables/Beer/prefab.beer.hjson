@@ -34,11 +34,6 @@ transform:
 
 }
 
-norotate:
-{
-
-}
-
 health:
 {
 	max: 300.000
@@ -52,9 +47,9 @@ packable:
 consumable:
 {
 	sound_drink: "drink.00"
+}
 
-	@alcohol.effect:
-	{
-		amount: 100.000
-	}
+alcohol.effect:
+{
+	amount: 50.000
 }
