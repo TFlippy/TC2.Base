@@ -1,0 +1,65 @@
+$tags: []
+
+body:
+{
+	@shape.box:
+	{
+		size: [0.625, 1.125]
+		offset: [0.000, 0.000]
+		mass: 0.300
+		friction: 0.900
+		elasticity: 0.100
+		material: glass
+		layer: entity, solid
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "beer"
+	}
+}
+
+transform:
+{
+
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 300.000
+}
+
+packable:
+{
+
+}
+
+consumable:
+{
+	sound_drink: "drink.00"
+
+	@alcohol.effect:
+	{
+		amount: 100.000
+	}
+}
+
+drug:
+{
+
+}
