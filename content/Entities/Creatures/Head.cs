@@ -76,9 +76,11 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
-			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency;
+			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics);
+			no_rotate.speed *= Maths.Lerp(0.90f, 1.00f, organic.motorics);
+			no_rotate.bias += (1.00f - organic.motorics) * 0.05f;
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single)]
