@@ -7,8 +7,8 @@ body:
 		size: [0.625, 1.125]
 		offset: [0.000, 0.000]
 		mass: 0.300
-		friction: 0.900
-		elasticity: 0.100
+		friction: 0.500
+		elasticity: 0.300
 		material: glass
 		layer: entity, solid
 		mask: world
@@ -57,9 +57,4 @@ consumable:
 	{
 		amount: 100.000
 	}
-}
-
-drug:
-{
-
 }

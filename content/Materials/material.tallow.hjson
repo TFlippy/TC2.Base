@@ -8,7 +8,7 @@
 		frame: [3, 0]
 	}
 	
-	type: soil
+	type: rubber
 	flags: raw, despawnable
 	mass_per_unit: 0.170
 	quantity_max: 100.000

@@ -70,8 +70,8 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine($"{organic.dexterity}");
 
-			runner.walk_force *= organic.strength * organic.coordination;
-			runner.jump_force *= organic.strength * organic.coordination;
+			runner.walk_force *= Maths.Clamp(organic.strength, 0.50f, 1.80f) * organic.coordination * organic.motorics;
+			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics;
 			runner.max_speed *= organic_state.efficiency * organic.coordination;
 		}
 

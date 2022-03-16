@@ -1,11 +1,10 @@
-using Keg.Engine;
 
 namespace TC2.Base.Components
 {
-	public static class Alcohol
+	public static partial class Alcohol
 	{
 		[IComponent.Data(Net.SendType.Reliable), ITrait.Data(Net.SendType.Reliable)]
-		public struct Effect: IComponent, ITrait
+		public partial struct Effect: IComponent, ITrait
 		{
 			public float amount;
 
@@ -72,8 +71,6 @@ namespace TC2.Base.Components
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol)
 		{
 			var jitter = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
-			//var amount_consumed = MathF.Max(alcohol.amount * 0.010f, 1.00f) * App.fixed_update_interval_s;
-			//amount_consumed = Maths.Clamp(amount_consumed, 0.00f, alcohol.amount);
 
 			var amount_consumed = (1.00f + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s;
 			amount_consumed = Maths.Clamp(amount_consumed, 0.00f, alcohol.amount);
