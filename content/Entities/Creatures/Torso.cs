@@ -34,7 +34,7 @@
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Torso.Data torso)
 		{
-			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics);
+			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics) * organic.coordination;
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics) * 0.15f;
 		}
@@ -58,13 +58,13 @@
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateJoints([Source.Owned] in Runner.Data runner, [Source.Parent] ref Torso.Data torso, [Source.Parent] in Joint.Base joint)
+		public static void UpdateJoints([Source.Owned] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, [Source.Parent] ref Torso.Data torso, [Source.Parent] in Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
-				torso.air_time = runner.air_time;
+				torso.air_time = runner_state.air_time;
 
-				if (runner.flags.HasAll(Runner.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
+				if (runner_state.flags.HasAll(Runner.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
 				else torso.flags &= ~Torso.Flags.Crouching;
 			}
 		}

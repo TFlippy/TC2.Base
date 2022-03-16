@@ -16,8 +16,8 @@ namespace TC2.Base.Components
 			Climbing = 1 << 5,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable), IComponent.With<Runner.State>]
+		public partial struct Data: IComponent, IOverridable
 		{
 			public float walk_force = default;
 			public float jump_force = default;
@@ -25,11 +25,20 @@ namespace TC2.Base.Components
 
 			public float walk_lerp = 0.15f;
 
-			public float force_modifier = 1.00f;
-			public float speed_modifier = 1.00f;
+			//public float force_modifier = 1.00f;
+			//public float speed_modifier = 1.00f;
 
 			public float crouch_speed_modifier = 0.50f;
 
+			public Data()
+			{
+
+			}
+		}
+
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public partial struct State: IComponent
+		{
 			[Save.Ignore] public float air_modifier_current = default;
 			[Save.Ignore] public float walk_modifier_current = default;
 			[Save.Ignore] public float uphill_force_current = default;
@@ -43,28 +52,38 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_climb = default;
 			[Save.Ignore, Net.Ignore] public float last_air = default;
 
-			public Data()
+			public State()
 			{
 
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOrganic(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single)]
+		public static void Reset([Source.Owned, Original] in Runner.Data a, [Source.Owned, Override] ref Runner.Data b)
 		{
-			runner.force_modifier = organic.strength;
-			runner.speed_modifier = organic_state.efficiency;
+			b = a;
+		}
+
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateOrganic(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		{
+			//App.WriteLine($"{organic.dexterity}");
+
+			runner.walk_force *= organic.strength * organic.coordination;
+			runner.jump_force *= organic.strength * organic.coordination;
+			runner.max_speed *= organic_state.efficiency * organic.coordination;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateClimbing(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Parent] in Climber.Data climber)
+		public static void UpdateClimbing(ISystem.Info info, [Source.Owned] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
-			runner.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
-			if (runner.flags.HasAll(Runner.Flags.Climbing)) runner.last_climb = info.WorldTime;
+			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
+			if (runner_state.flags.HasAll(Runner.Flags.Climbing)) runner_state.last_climb = info.WorldTime;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateMovement(ISystem.Info info, [Source.Owned] ref Runner.Data runner, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
+		public static void UpdateMovement(ISystem.Info info, [Source.Owned] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
 
@@ -82,18 +101,18 @@ namespace TC2.Base.Components
 				body.Activate();
 			}
 
-			runner.flags.SetFlag(Runner.Flags.Walking, is_walking);
+			runner_state.flags.SetFlag(Runner.Flags.Walking, is_walking);
 
 			if (is_walking)
 			{
-				runner.walk_modifier_current = Maths.Lerp(runner.walk_modifier_current, 1.00f, runner.walk_lerp);
+				runner_state.walk_modifier_current = Maths.Lerp(runner_state.walk_modifier_current, 1.00f, runner.walk_lerp);
 
-				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner.walk_modifier_current;
-				if (velocity.X < +runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner.walk_modifier_current;
+				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner_state.walk_modifier_current;
+				if (velocity.X < +runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
 			}
 			else
 			{
-				runner.walk_modifier_current = 0.00f;
+				runner_state.walk_modifier_current = 0.00f;
 			}
 
 			var normal = default(Vector2);
@@ -124,44 +143,44 @@ namespace TC2.Base.Components
 
 				var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
 
-				runner.uphill_force_current = -MathF.Abs(dot * force.X) * friction * 0.50f;
+				runner_state.uphill_force_current = -MathF.Abs(dot * force.X) * friction * 0.50f;
 
-				force.Y = runner.uphill_force_current;
-				force.X *= 1.00f - dot;			
+				force.Y = runner_state.uphill_force_current;
+				force.X *= 1.00f - dot;
 			}
 			else
 			{
 				force.X *= 0.75f;
 				force.Y *= 0.00f;
 
-				force.Y -= runner.uphill_force_current * 0.75f;
-				runner.uphill_force_current *= 0.50f;
+				force.Y -= runner_state.uphill_force_current * 0.75f;
+				runner_state.uphill_force_current *= 0.50f;
 			}
 
 			if (is_grounded)
 			{
-				runner.flags.SetFlag(Runner.Flags.Grounded, true);
-				runner.last_ground = info.WorldTime;
+				runner_state.flags.SetFlag(Runner.Flags.Grounded, true);
+				runner_state.last_ground = info.WorldTime;
 			}
 			else
 			{
-				runner.flags.SetFlag(Runner.Flags.Grounded, false);
-				runner.last_air = info.WorldTime;
+				runner_state.flags.SetFlag(Runner.Flags.Grounded, false);
+				runner_state.last_air = info.WorldTime;
 			}
 
-			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner.last_jump) > 0.40f && (((info.WorldTime - runner.last_ground) < 0.20f) || (((info.WorldTime - runner.last_climb) > 0.00f) && (info.WorldTime - runner.last_climb) < 0.20f)))
+			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (((info.WorldTime - runner_state.last_ground) < 0.20f) || (((info.WorldTime - runner_state.last_climb) > 0.00f) && (info.WorldTime - runner_state.last_climb) < 0.20f)))
 			{
-				runner.jump_force_current = runner.jump_force;
-				runner.last_jump = info.WorldTime;
+				runner_state.jump_force_current = runner.jump_force;
+				runner_state.last_jump = info.WorldTime;
 			}
 
-			force.Y -= runner.jump_force_current;
-			runner.jump_force_current *= 0.50f;
+			force.Y -= runner_state.jump_force_current;
+			runner_state.jump_force_current *= 0.50f;
 
-			runner.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner.last_ground) <= 0.25f);
-			if (runner.flags.HasAll(Runner.Flags.Crouching))
+			runner_state.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner_state.last_ground) <= 0.25f);
+			if (runner_state.flags.HasAll(Runner.Flags.Crouching))
 			{
-				runner.jump_force_current *= 0.50f;
+				runner_state.jump_force_current *= 0.50f;
 				max_speed.X *= runner.crouch_speed_modifier;
 			}
 
@@ -171,7 +190,7 @@ namespace TC2.Base.Components
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 
-				if (!runner.flags.HasAll(Runner.Flags.Grounded))
+				if (!runner_state.flags.HasAll(Runner.Flags.Grounded))
 				{
 					required_force_dir.X *= 0.02f;
 					required_force_dir.Y *= 0.00f;
@@ -180,11 +199,11 @@ namespace TC2.Base.Components
 				force -= required_force_dir;
 			}
 
-			runner.air_time = info.WorldTime - MathF.Max(runner.last_climb, runner.last_ground);
-			runner.air_modifier_current = Maths.Lerp(runner.air_modifier_current, 1.00f - Maths.Clamp(runner.air_time - 0.50f, 0.00f, 1.00f), 0.20f);
+			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, runner_state.last_ground);
+			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.50f, 0.00f, 1.00f), 0.20f);
 
-			max_speed *= runner.speed_modifier;
-			force *= runner.force_modifier;
+			//max_speed *= runner.speed_modifier;
+			//force *= runner.force_modifier;
 			//force *= runner.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);
