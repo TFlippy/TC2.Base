@@ -92,7 +92,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
-		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
+		[Source.Owned] in Wheel.Data wheel, [Source.Owned, Pair.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
 		{
 			renderer_saw.rotation = (renderer_saw.rotation - (wheel.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
 			renderer_saw.offset = sawmill.saw_offset;
@@ -101,7 +101,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSoundIdle(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Pair.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var wheel_speed = MathF.Max(MathF.Abs(wheel.angular_velocity) - 2.00f, 0.00f);
 			var random = XorRandom.New();
@@ -113,7 +113,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSoundCutting(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Trait.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Wheel.Data wheel, [Source.Owned, Pair.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
 		{
 			var wheel_speed = MathF.Max(MathF.Abs(wheel.angular_velocity) - 2.00f, 0.00f);
 			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? MathF.Min(wheel_speed * 0.08f, 1.00f) : 0.00f;

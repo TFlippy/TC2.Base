@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Trait.Any] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}

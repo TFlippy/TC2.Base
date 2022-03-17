@@ -54,7 +54,7 @@
 		public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
-		[Source.Owned, Trait.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
+		[Source.Owned, Pair.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
 		{
 			var amount_total = 0.00f;
 			var mass_total = 0.00f;

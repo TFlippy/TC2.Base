@@ -58,14 +58,14 @@ namespace TC2.Base.Components
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
-		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Trait.Of<Overheat.Data>] ref Light.Data light)
+		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
 		{
 			light.intensity = MathF.Max(overheat.heat_current - 150.00f, 0.00f) / 250.00f;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Trait.Of<Overheat.Data>] ref Sound.Emitter sound)
+		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound)
 		{
 			var random = XorRandom.New();
 			ref var region = ref info.GetRegion();

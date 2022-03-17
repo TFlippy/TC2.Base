@@ -238,7 +238,7 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single)]
 		public static void OnGUI(ISystem.Info info,
-		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
 		{
 			if (player.IsLocal())
@@ -300,7 +300,7 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
@@ -310,7 +310,7 @@ namespace TC2.Base.Components
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight2([Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight2([Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}
@@ -320,7 +320,7 @@ namespace TC2.Base.Components
 		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Parent, Trait.Of<Storage.Data>] ref T inventory,
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Parent, Pair.Of<Storage.Data>] ref T inventory,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
 		{
 			if (gun_state.stage == Gun.Stage.Reloading)
@@ -397,7 +397,7 @@ namespace TC2.Base.Components
 		public static void OnUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
@@ -621,7 +621,7 @@ namespace TC2.Base.Components
 		public static void OnReady(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, gun_state.hints.HasAll(Gun.Hints.Cycled) && inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
 
