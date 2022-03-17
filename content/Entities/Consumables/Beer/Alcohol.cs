@@ -90,7 +90,6 @@ namespace TC2.Base.Components
 
 			if (alcohol.amount > 0.00f)
 			{
-				//var amount_released = (organic.absorption + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s * alcohol.release_rate_current;
 				var amount_released = Maths.Clamp(alcohol.release_rate_current, 0.00f, alcohol.amount) * App.fixed_update_interval_s;
 
 				alcohol.amount_active += amount_released;
@@ -102,7 +101,7 @@ namespace TC2.Base.Components
 			var amount_metabolized = Maths.Clamp(alcohol.amount_active * organic.absorption, 0.00f, alcohol.amount_active) * App.fixed_update_interval_s;
 
 			alcohol.amount_metabolized = amount_metabolized;
-			alcohol.modifier_current = alcohol.amount_active * (total_mass * 0.10f);
+			alcohol.modifier_current = amount_metabolized / (total_mass * 0.001f);
 			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (App.fixed_update_interval_s * 0.20f), 0.00f);
 
 			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
@@ -118,7 +117,7 @@ namespace TC2.Base.Components
 				alcohol.Sync(entity);
 			}
 
-			if (alcohol.amount <= 0.00f && alcohol.amount_active <= 0.00f)
+			if (alcohol.amount <= 0.01f && alcohol.amount_active <= 0.01f)
 			{
 				entity.RemoveComponent<Alcohol.Effect>();
 			}

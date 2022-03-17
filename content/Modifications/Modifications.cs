@@ -599,7 +599,7 @@ namespace TC2.Base
 				identifier: "pill.extended_release",
 				category: "Consumable",
 				name: "Extended Release",
-				description: "Lowers the release rate of the pill, spreading out the dose over longer time.",
+				description: "Lowers the release rate of a pill, spreading out the dose over a longer timespan.",
 
 				validate: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
