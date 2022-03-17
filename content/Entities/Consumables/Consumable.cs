@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent] in Organic.Data organic)
 		{
-			if (control.mouse.GetKeyDown(Mouse.Key.Left))
+			if (control.mouse.GetKeyDown(Mouse.Key.Right))
 			{
 				ref var region = ref info.GetRegion();
 

@@ -41,8 +41,8 @@ namespace TC2.Base.Components
 			var ratio = Maths.Ratio(alcohol.amount, alcohol_new.amount);
 
 			alcohol_new.amount += alcohol.amount;
-			alcohol_new.release_rate_target += consumable.release_rate * ratio;
-			alcohol_new.release_step += consumable.release_step * ratio;
+			alcohol_new.release_rate_target = Maths.Lerp(alcohol_new.release_rate_target + (alcohol_new.release_rate_target * ratio), consumable.release_rate, ratio);
+			alcohol_new.release_step = Maths.Lerp(alcohol_new.release_step, consumable.release_step, ratio);
 
 			App.WriteLine($"ratio: {ratio}");
 		}
