@@ -14,4 +14,6 @@
   <li><b>Jenny</b> - Lead artist, spritework, a bit of game design</li>
   <li><b>McSaucyNugget</b> - Spritework</li>
   <li><b>Vamist</b> - Server hosting, Linux support</li>
+  <li><b>Drakon-RBI</b> - Contributor, ideas, testing, walking encyclopedia</li>
+  <li><b>Wunarg</b> - Contributor, ideas, testing</li>
 </ul>
