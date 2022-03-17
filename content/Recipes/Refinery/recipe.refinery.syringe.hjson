@@ -1,0 +1,44 @@
+{
+	name: "Syringe"
+	desc:
+		'''
+		Syringes can be used for administering drugs through skin.
+		'''
+	
+	icon:
+	{
+		texture: "syringe"
+	}
+	
+	min: 1
+	max: 100
+	step: 1
+	
+	flags: blueprintable
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "glass"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 50.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "syringe"
+			amount: 10.000
+		}
+	]
+}
