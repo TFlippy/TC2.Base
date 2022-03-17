@@ -131,7 +131,7 @@ namespace TC2.Base
 						body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
 					}
 				}
-			));		
+			));
 
 			//definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
 			//(
@@ -553,8 +553,8 @@ namespace TC2.Base
 			(
 				identifier: "consumable.alcohol",
 				category: "Consumable",
-				name: "Alcohol",
-				description: "Adds alcohol to the item.",
+				name: "Mix: Alcohol",
+				description: "Mixes a dose of alcohol into the item.",
 
 				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -591,6 +591,46 @@ namespace TC2.Base
 
 					ref var material = ref Material.GetMaterial("alcohol");
 					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Pill.Data>
+			(
+				identifier: "pill.extended_release",
+				category: "Consumable",
+				name: "Extended Release",
+				description: "Lowers the release rate of the pill, spreading out the dose over longer time.",
+
+				validate: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.01f, 0.20f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, "%.2f");
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					ref var consumable = ref context.GetComponent<Consumable.Data>();
+					if (!consumable.IsNull())
+					{
+						consumable.release_rate *= value;
+					}
 				}
 			));
 		}

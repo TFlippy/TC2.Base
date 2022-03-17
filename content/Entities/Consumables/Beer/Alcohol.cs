@@ -9,6 +9,13 @@ namespace TC2.Base.Components
 			[Statistics.Info("Alcohol", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float amount;
 
+			public float amount_active;
+			public float amount_metabolized;
+
+			public float release_rate_current;
+			public float release_rate_target;
+			public float release_step;
+
 			[Net.Ignore] public float modifier_current;
 			[Net.Ignore] public float jitter_current;
 			public float hiccup_current;
@@ -27,10 +34,17 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
-		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] ref Alcohol.Effect alcohol)
+		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Alcohol.Effect alcohol)
 		{
 			ref var alcohol_new = ref data.ent_organic.GetOrAddComponent<Alcohol.Effect>(sync: true);
+
+			var ratio = Maths.Ratio(alcohol.amount, alcohol_new.amount);
+
 			alcohol_new.amount += alcohol.amount;
+			alcohol_new.release_rate_target += consumable.release_rate * ratio;
+			alcohol_new.release_step += consumable.release_step * ratio;
+
+			App.WriteLine($"ratio: {ratio}");
 		}
 #endif
 
@@ -48,6 +62,7 @@ namespace TC2.Base.Components
 			organic.strength *= Maths.Lerp01(1.00f, 1.30f, (modifier * 1.50f));
 			organic.motorics *= Maths.Lerp01(1.00f, 0.40f, (modifier_jitter * 1.10f) + (hiccup_modifier * 0.80f));
 			organic.coordination *= Maths.Lerp01(1.00f, 0.10f, (modifier_jitter * 0.30f) + (hiccup_modifier * 0.90f));
+			organic.absorption *= Maths.Lerp01(1.00f, 1.50f, (modifier * 1.50f));
 			organic.pain_modifier *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.20f));
 		}
 
@@ -71,15 +86,27 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
 		{
-			var jitter = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
+			alcohol.release_rate_current = Maths.MoveTowards(alcohol.release_rate_current, alcohol.release_rate_target, alcohol.release_step * App.fixed_update_interval_s);
 
-			var amount_consumed = (1.00f + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s * 0.50f;
-			amount_consumed = Maths.Clamp(amount_consumed, 0.00f, alcohol.amount);
+			if (alcohol.amount > 0.00f)
+			{
+				//var amount_released = (organic.absorption + (alcohol.amount * 0.010f)) * App.fixed_update_interval_s * alcohol.release_rate_current;
+				var amount_released = Maths.Clamp(alcohol.release_rate_current, 0.00f, alcohol.amount) * App.fixed_update_interval_s;
 
-			alcohol.jitter_current = jitter;
-			alcohol.modifier_current = alcohol.amount * 0.15f * App.fixed_update_interval_s;
+				alcohol.amount_active += amount_released;
+				alcohol.amount -= amount_released;
+			}
+
+			var total_mass = 70.00f; // TODO
+
+			var amount_metabolized = Maths.Clamp(alcohol.amount_active * organic.absorption, 0.00f, alcohol.amount_active) * App.fixed_update_interval_s;
+
+			alcohol.amount_metabolized = amount_metabolized;
+			alcohol.modifier_current = alcohol.amount_active * (total_mass * 0.10f);
 			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (App.fixed_update_interval_s * 0.20f), 0.00f);
-			alcohol.amount -= amount_consumed;
+
+			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
+			alcohol.amount_active -= amount_metabolized;
 
 #if SERVER
 			var random = XorRandom.New();
@@ -91,7 +118,7 @@ namespace TC2.Base.Components
 				alcohol.Sync(entity);
 			}
 
-			if (alcohol.amount <= 0.00f)
+			if (alcohol.amount <= 0.00f && alcohol.amount_active <= 0.00f)
 			{
 				entity.RemoveComponent<Alcohol.Effect>();
 			}

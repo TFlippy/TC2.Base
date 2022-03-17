@@ -7,6 +7,12 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public Sound.Handle sound_drink;
+
+			[Statistics.Info("Release Rate", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
+			public float release_rate;
+
+			[Statistics.Info("Release Step", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
+			public float release_step;
 		}
 
 		[IEvent.Data]
