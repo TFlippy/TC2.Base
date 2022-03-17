@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
-							explosive.owner_entity = projectile_init.owner;
+							explosive.ent_owner = projectile_init.owner;
 							ent.SyncComponent(ref explosive);
 						}
 					});
@@ -112,7 +112,7 @@ namespace TC2.Base.Components
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
-							explosive.owner_entity = projectile_init.owner;
+							explosive.ent_owner = projectile_init.owner;
 							ent.SyncComponent(ref explosive);
 						}
 					});

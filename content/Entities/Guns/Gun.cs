@@ -479,7 +479,7 @@ namespace TC2.Base.Components
 								ref var explosive = ref ent.GetComponent<Explosive.Data>();
 								if (!explosive.IsNull())
 								{
-									explosive.owner_entity = args.ent_owner;
+									explosive.ent_owner = args.ent_owner;
 									ent.SyncComponent(ref explosive);
 								}
 
