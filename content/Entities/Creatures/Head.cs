@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 			renderer.sprite.frame.X = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
 		}
 
-		[ISystem.Add(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		[ISystem.AddFirst(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnDeath(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = head.frame_dead;
