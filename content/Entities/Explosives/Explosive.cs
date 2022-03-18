@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 			explosive.modifier = MathF.Sqrt(resource.quantity / resource.material.GetDefinition().quantity_max);
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single)]
+		[ISystem.RemoveLast(ISystem.Mode.Single)]
 		public static void OnRemove(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))

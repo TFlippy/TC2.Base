@@ -83,7 +83,7 @@ namespace TC2.Base.Components
 			no_rotate.bias += (1.00f - organic.motorics) * 0.05f;
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single)]
+		[ISystem.RemoveLast(ISystem.Mode.Single)]
 		public static void OnRemoveHead([Source.Parent] ref Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Parent] in Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))

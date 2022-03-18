@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Remove<PrefabOnRemove.Data>(ISystem.Mode.Single)]
+		[ISystem.RemoveLast<PrefabOnRemove.Data>(ISystem.Mode.Single)]
 		public static void OnRemove(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefab_on_remove)
 		{
 			if (prefab_on_remove.count > 0 && prefab_on_remove.prefab.id != 0)

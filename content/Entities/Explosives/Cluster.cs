@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Remove(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
+		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
 		public static void OnRemoveProjectile(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
+		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
 		public static void OnRemoveBody(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
