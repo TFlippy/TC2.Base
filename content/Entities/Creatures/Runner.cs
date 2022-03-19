@@ -14,6 +14,7 @@ namespace TC2.Base.Components
 			Falling = 1 << 3,
 			Crouching = 1 << 4,
 			Climbing = 1 << 5,
+			Sitting = 1 << 6,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable), IComponent.With<Runner.State>]
@@ -64,6 +65,17 @@ namespace TC2.Base.Components
 			b = a;
 		}
 
+		[ISystem.AddFirst(ISystem.Mode.Single), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
+		public static void OnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
+		{
+			runner_state.flags.SetFlag(Runner.Flags.Sitting, true);
+		}
+
+		[ISystem.RemoveLast(ISystem.Mode.Single), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
+		public static void OnUnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
+		{
+			runner_state.flags.SetFlag(Runner.Flags.Sitting, false);
+		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateOrganic(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
@@ -92,7 +104,7 @@ namespace TC2.Base.Components
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
+			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
 			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 

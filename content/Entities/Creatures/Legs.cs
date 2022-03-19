@@ -12,7 +12,9 @@ namespace TC2.Base.Components
 			public float sound_pitch = 1.00f;
 
 			[Net.Ignore, Save.Ignore] public float next_step = default;
-		
+
+			public uint2 frame_sitting = default;
+
 			public uint frame_count = 4;
 			public uint fps = 12;
 
@@ -64,7 +66,8 @@ namespace TC2.Base.Components
 			if (organic_state.efficiency < 0.20f) goto dead;
 			else if (true) //runner.flags.HasAll(Runner.Flags.Grounded))
 			{
-				if (runner_state.flags.HasAll(Runner.Flags.Walking)) goto walking;
+				if (runner_state.flags.HasAll(Runner.Flags.Sitting)) goto sitting;
+				else if (runner_state.flags.HasAll(Runner.Flags.Walking)) goto walking;
 				else goto idle;
 			}
 			else
@@ -95,6 +98,22 @@ namespace TC2.Base.Components
 						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: legs.sound_volume, pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch, priority: 0.10f);
 					}
 				}
+
+				return;
+			}
+
+			sitting:
+			{
+				var offset = Vector2.Zero;
+
+				if (!headbob.IsNull())
+				{
+					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
+				}
+
+				renderer.sprite.fps = 0;
+				renderer.sprite.frame = legs.frame_sitting;
+				renderer.sprite.count = 0;
 
 				return;
 			}
