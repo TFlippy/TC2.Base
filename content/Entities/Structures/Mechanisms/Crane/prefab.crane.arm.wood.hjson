@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crane_arm.wood"
+		texture: "crane.arm.wood"
 	}
 	z: 100.000
 }
@@ -42,10 +42,17 @@ transform:
 
 }
 
+attachable:
+{
+	offset: [-4.000, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+}
+
 joint.base:
 {
 	offset_a: [4.000, 0.000]
-	offset_b: [-4.000, 0.000]
 	max_force: 1000000.000
 	max_torque: 200.000
 	flags: no_wrap, no_stress, control_write

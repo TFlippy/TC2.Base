@@ -42,10 +42,29 @@ transform:
 
 }
 
+crane:
+{
+	length_a: 8.000
+	length_b: 8.000
+	speed: 0.800
+}
+
+crane.state:
+{
+
+}
+
+attachable:
+{
+	offset: [-4.000, 0.000]
+
+	force_multiplier: 2.000
+	torque_multiplier: 2.000
+}
+
 joint.base:
 {
 	offset_a: [4.000, 0.000]
-	offset_b: [-4.000, 0.000]
 	max_force: 10000000.000
 	max_torque: 50000.000
 	flags: no_wrap, no_stress, control_write
@@ -77,4 +96,23 @@ joint.gear:
 attachment:
 {
 
+}
+
+sound.emitter:
+{
+	file: "essence_motor.loop.00"
+	volume: 0.000
+	pitch: 1.000
+}
+
+sound.mixer:
+{
+	volume_modifier: 1.500
+	pitch_modifier: 1.200
+	volume_min: 0.000
+	pitch_min: 0.900
+	volume_lerp_a: 0.200
+	volume_lerp_b: 0.200
+	pitch_lerp_a: 0.100
+	pitch_lerp_b: 0.100
 }
