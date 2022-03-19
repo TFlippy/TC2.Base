@@ -6,7 +6,7 @@ body:
 	{
 		a: [-4.000, 0.000]
 		b: [4.000, 0.000]
-		mass: 100.000
+		mass: 250.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.100
@@ -47,7 +47,7 @@ joint.base:
 	offset_a: [4.000, 0.000]
 	offset_b: [-4.000, 0.000]
 	max_force: 10000000.000
-	max_torque: 20000.000
+	max_torque: 50000.000
 	flags: no_wrap, no_stress, control_write
 
 	@light:
@@ -62,13 +62,13 @@ joint.base:
 
 joint.pivot:
 {
-	error_bias: 0.050
+	error_bias: 0.01
 	max_bias: 100.000
 }
 
 joint.gear:
 {
-	error_bias: 0.050
+	error_bias: 0.01
 	max_bias: 100.000
 	min: -30.000
 	max: 30.000
