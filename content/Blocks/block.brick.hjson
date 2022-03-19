@@ -1,0 +1,32 @@
+{
+	name: "Clay Bricks"
+	desc: "Clay bricks of varying sizes."
+	
+	material_type: stone
+	tile_flags: any
+	flags: artificial
+	
+	max_health: 24000.000
+	smoothing: 0.110
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.500
+	
+	texture: "terrain_brick"
+	pattern: "pattern_brick"
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.300
+	
+	fg_color: "#ff140e08"
+	bg_color: "#10322d29"
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 0.400
+		}
+	]
+}
