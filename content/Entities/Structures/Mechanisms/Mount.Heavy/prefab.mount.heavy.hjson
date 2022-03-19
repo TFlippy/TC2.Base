@@ -140,7 +140,7 @@ joint.pivot:
 
 joint.gear:
 {
-	min: -1.400
+	min: -2.500
 	max: 0.750
 	error_bias: 0.050
 	max_bias: 0.700
