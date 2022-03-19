@@ -63,23 +63,23 @@
 
 			ref var recipe = ref crafter.GetCurrentRecipe();
 
-			foreach (ref var requirement in recipe.requirements.AsSpan())
-			{
-				if (requirement.type == Crafting.Requirement.Type.Resource)
-				{
-					ref var material = ref requirement.material.GetDefinition();
-					if (material.id != 0)
-					{
-						var quantity = requirement.amount;
-						var mass = quantity * material.mass_per_unit;
+			//foreach (ref var requirement in recipe.requirements.AsSpan())
+			//{
+			//	if (requirement.type == Crafting.Requirement.Type.Resource)
+			//	{
+			//		ref var material = ref requirement.material.GetDefinition();
+			//		if (material.id != 0)
+			//		{
+			//			var quantity = requirement.amount;
+			//			var mass = quantity * material.mass_per_unit;
 
-						amount_total += quantity;
-						mass_total += mass;
-						specific_heat_total += quantity * material.specific_heat;
-						if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
-					}
-				}
-			}
+			//			amount_total += quantity;
+			//			mass_total += mass;
+			//			specific_heat_total += quantity * material.specific_heat;
+			//			if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
+			//		}
+			//	}
+			//}
 
 			//foreach (ref var resource in inventory.GetResources())
 			//{
@@ -91,7 +91,7 @@
 			//		amount_total += resource.quantity;
 			//		mass_total += mass;
 			//		specific_heat_total += resource.quantity * material.specific_heat;
-			//		//gas_amount_total += (mass * 1000.00) / material.molar_mass;
+			//		if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
 			//	}
 			//}
 

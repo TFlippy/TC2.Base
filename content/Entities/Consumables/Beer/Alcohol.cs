@@ -56,7 +56,7 @@ namespace TC2.Base.Components
 			var modifier_jitter = alcohol.modifier_current + (alcohol.jitter_current * 0.25f);
 			var hiccup_modifier = alcohol.hiccup_current * alcohol.hiccup_current;
 
-			organic.consciousness *= Maths.Lerp01(1.00f, 0.05f, (modifier_jitter * 0.50f) + (hiccup_modifier * modifier * 0.30f));
+			organic.consciousness *= Maths.Lerp01(1.00f, 0.05f, (modifier * 0.30f) + (hiccup_modifier * modifier * 0.30f));
 			organic.endurance *= Maths.Lerp01(1.00f, 1.75f, (modifier * 1.70f));
 			organic.dexterity *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.40f) + (hiccup_modifier * 0.50f));
 			organic.strength *= Maths.Lerp01(1.00f, 1.30f, (modifier * 1.50f));
