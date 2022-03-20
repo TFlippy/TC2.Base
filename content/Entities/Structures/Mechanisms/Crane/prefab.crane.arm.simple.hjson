@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crane.arm.wood"
+		texture: "crane.arm.simple"
 	}
 	z: 100.000
 }

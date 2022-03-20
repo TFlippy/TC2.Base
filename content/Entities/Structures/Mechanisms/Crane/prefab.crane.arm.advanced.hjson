@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crane.arm.advanced.a"
+		texture: "crane.arm.advanced"
 	}
 	z: 100.000
 }
@@ -66,12 +66,12 @@ joint.base:
 {
 	offset_a: [4.000, 0.000]
 	max_force: 10000000.000
-	max_torque: 50000.000
+	max_torque: 100000.000
 	flags: no_wrap, no_stress, control_write
 
 	@light:
 	{
-		color: [0.000, 1.000, 1.000, 2.000]
+		color: [0.000, 1.000, 1.000, 3.000]
 		offset: [-2.875, 0.000]
 		scale: [6.000, 4.000]
 		intensity: 1.000
