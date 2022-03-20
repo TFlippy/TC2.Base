@@ -101,7 +101,8 @@ namespace TC2.Base.Components
 			//Can_Reload = 1 << 0,
 			//Can_Shoot = 1 << 1,
 			Cycled = 1 << 2,
-			Loaded = 1 << 3
+			Loaded = 1 << 3,
+			Wants_Reload = 1 << 4
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -320,9 +321,17 @@ namespace TC2.Base.Components
 		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Parent, Pair.Of<Storage.Data>] ref T inventory,
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
 		{
+#if SERVER
+			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
+			{
+				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, false);
+				gun_state.stage = Gun.Stage.Reloading;
+			}
+#endif
+
 			if (gun_state.stage == Gun.Stage.Reloading)
 			{
 				var time = info.WorldTime;
@@ -639,7 +648,8 @@ namespace TC2.Base.Components
 				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
 #if SERVER
-					gun_state.stage = Gun.Stage.Reloading;
+					//gun_state.stage = Gun.Stage.Reloading;
+					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 					entity.SyncComponent(ref gun_state);
 #endif
 					return;
@@ -684,7 +694,9 @@ namespace TC2.Base.Components
 					{
 						//App.WriteLine("unjammed");
 
-						gun_state.stage = Gun.Stage.Reloading;
+						//gun_state.stage = Gun.Stage.Reloading;
+
+						gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 
 						entity.SyncComponent(ref gun_state);

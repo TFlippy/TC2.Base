@@ -15,7 +15,8 @@ namespace TC2.Base.Components
 		{
 			if (gun_state.stage != Gun.Stage.Reloading && inventory_magazine.resource.quantity < gun.ammo_per_shot)
 			{
-				gun_state.stage = Gun.Stage.Reloading;
+				//gun_state.stage = Gun.Stage.Reloading;
+				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 			}
 		}
 	}
