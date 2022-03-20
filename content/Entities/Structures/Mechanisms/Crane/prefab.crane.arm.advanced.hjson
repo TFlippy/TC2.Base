@@ -88,7 +88,7 @@ joint.pivot:
 joint.gear:
 {
 	error_bias: 0.01
-	max_bias: 100.000
+	max_bias: 2.000
 	min: -30.000
 	max: 30.000
 }
@@ -107,12 +107,18 @@ sound.emitter:
 
 sound.mixer:
 {
-	volume_modifier: 1.500
-	pitch_modifier: 1.200
+	volume_modifier: 1.000
+	pitch_modifier: 0.400
 	volume_min: 0.000
-	pitch_min: 0.900
-	volume_lerp_a: 0.200
+	pitch_min: 0.500
+	volume_lerp_a: 0.100
 	volume_lerp_b: 0.200
 	pitch_lerp_a: 0.100
-	pitch_lerp_b: 0.100
+	pitch_lerp_b: 0.050
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+	window_offset: [0.000, 192.000]
 }

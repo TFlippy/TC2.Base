@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Any] in Dive.State dive_state)
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Any] in Dive.State dive_state)
 		{
 			var elapsed = dive_state.next_dive - info.WorldTime;
 			if (elapsed > 2.20f)
