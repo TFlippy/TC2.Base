@@ -166,7 +166,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Joint.Gear gear)
 		{
 			var max = 0.50f;
-			//sound_mix.modifier = Maths.Clamp(MathF.Abs(gear.gear_ptr->bias) - 0.10f, 0.00f, max) / max;
+			sound_mix.modifier = Maths.Clamp(MathF.Abs(gear.GetCurrentSpeed()) - 0.10f, 0.00f, max) / max;
 		}
 	}
 }
