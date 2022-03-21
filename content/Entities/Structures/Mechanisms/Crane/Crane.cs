@@ -63,8 +63,18 @@ namespace TC2.Base.Components
 
 						var color = GUI.font_color_yellow;
 
-						GUI.DrawLine(GUI.WorldToCanvas(a), GUI.WorldToCanvas(b), color.WithAlphaMult(0.25f), GUI.GetWorldToCanvasScale() * 0.50f);
-						GUI.DrawLine(GUI.WorldToCanvas(b), GUI.WorldToCanvas(c), color.WithAlphaMult(0.25f), GUI.GetWorldToCanvasScale() * 0.50f);
+						var scale = GUI.GetWorldToCanvasScale();
+
+						var cpos_a = GUI.WorldToCanvas(a);
+						var cpos_b = GUI.WorldToCanvas(b);
+						var cpos_c = GUI.WorldToCanvas(c);
+
+						GUI.DrawLine(cpos_a, cpos_b, color.WithAlphaMult(0.40f), scale * 0.20f);
+						GUI.DrawLine(cpos_b, cpos_c, color.WithAlphaMult(0.40f), scale * 0.20f);
+
+						GUI.DrawCircleFilled(cpos_a, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
+						GUI.DrawCircleFilled(cpos_b, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
+						GUI.DrawCircleFilled(cpos_c, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
 
 						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 1.00f, 8.00f, "%.2f");
 						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 8.00f, "%.2f");
