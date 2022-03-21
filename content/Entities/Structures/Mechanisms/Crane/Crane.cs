@@ -76,8 +76,8 @@ namespace TC2.Base.Components
 						GUI.DrawCircleFilled(cpos_b, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
 						GUI.DrawCircleFilled(cpos_c, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
 
-						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 1.00f, 8.00f, "%.2f");
-						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 8.00f, "%.2f");
+						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 0.00f, 16.00f, "%.2f");
+						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 16.00f, "%.2f");
 
 						if (dirty)
 						{
@@ -132,10 +132,11 @@ namespace TC2.Base.Components
 			if (!joint_base.flags.HasAll(Joint.Flags.No_Aiming))
 			{
 				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
+				var invert = float.IsNegative(transform.scale.X * transform.scale.Y);
 
 				if (control.mouse.GetKey(Mouse.Key.Right))
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_parent.LocalToWorld(joint_base.offset_a), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles);
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_parent.LocalToWorld(joint_base.offset_a), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert);
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
 
@@ -147,7 +148,7 @@ namespace TC2.Base.Components
 				}
 
 				gear_parent.rotation = transform_parent.WorldToLocalRotation(crane_state.angle_a);
-				gear.rotation = crane_state.angle_b;
+				gear.rotation = invert ? MathF.PI - crane_state.angle_b : crane_state.angle_b;
 
 				if (dirty)
 				{
