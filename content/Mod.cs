@@ -1,4 +1,5 @@
-﻿
+﻿using TC2.Base.Components;
+
 namespace TC2.Base
 {
 	public sealed partial class ModInstance: Mod
@@ -12,6 +13,8 @@ namespace TC2.Base
 			Modification.OnInitialize += RegisterMedkitModifications;
 			Modification.OnInitialize += RegisterExplosiveModifications;
 			Modification.OnInitialize += RegisterArmorModifications;
+
+			Material.OnPostInitialize += Essence.Init;
 		}
 
 		protected override void OnInitialize(ModContext context)

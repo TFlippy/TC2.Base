@@ -17,6 +17,39 @@ namespace TC2.Base.Components
 			Cognition
 		}
 
+		private static Essence.Type[] material_to_essence;
+
+		public static void Init()
+		{
+			var materials = NetRegistry<Material.Definition>.GetAll();
+			material_to_essence = new Essence.Type[materials.Length];
+
+			for (int i = 0; i < material_to_essence.Length; i++)
+			{
+				ref var material = ref materials[i];
+				if (material.flags.HasAny(Material.Flags.Essence))
+				{
+					var identifier = material.identifier.ToString();
+
+					var char_index = identifier.LastIndexOf('.');
+					if (char_index != -1)
+					{
+						var enum_name = identifier.Substring(char_index + 1);
+						if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
+						{
+							material_to_essence[i] = essence_type;
+						}
+					}
+				}
+			}
+		}
+
+		public static Essence.Type GetEssenceType(in this Resource.Data resource) => Essence.GetEssenceType(resource.material.id);
+		public static Essence.Type GetEssenceType(this Material.Handle material)
+		{
+			return material.id < material_to_essence.Length ? material_to_essence[material.id] : default;
+		}
+
 		// TODO: Just for debugging (until essences get implemented properly)
 		public static Color32BGRA GetColor(Essence.Type type) => type switch
 		{
