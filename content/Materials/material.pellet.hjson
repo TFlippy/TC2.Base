@@ -1,5 +1,5 @@
 {
-	name: "Essence Pellet (Empty)"
+	name: "Arcane Pellets (Empty)"
 	description: "TODO: Desc"
 	icon:
 	{
@@ -10,7 +10,7 @@
 	
 	type: metal
 	flags: manufactured
-	mass_per_unit: 0.200
+	mass_per_unit: 0.75
 	quantity_max: 100.000
 	prefab: "resource.pellet"
 	

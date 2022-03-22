@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Essence
 	{
 		[Query]
-		public delegate void GetAllSurgesQuery(ISystem.Info info, Entity entity, [Source.Owned] in EssenceNode.Data surge, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
+		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, [Source.Owned] in EssenceNode.Data surge, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
 		public enum Type: uint
 		{
