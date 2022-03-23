@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crane.arm.advanced"
+		texture: "crane.arm.articulated"
 	}
 	z: 100.000
 }
