@@ -1,6 +1,6 @@
 {
-	name: "Arcane Pellets (Empty)"
-	description: "TODO: Desc"
+	name: "Arcanite Pellets (Empty)"
+	description: "Small arcanite pellets that can be infused with essences."
 	icon:
 	{
 		texture: "resource.pellet"
@@ -10,7 +10,7 @@
 	
 	type: metal
 	flags: manufactured
-	mass_per_unit: 0.75
+	mass_per_unit: 0.750
 	quantity_max: 100.000
 	prefab: "resource.pellet"
 	

@@ -1,8 +1,8 @@
 {
-	name: "Arcane Pellets (Empty)"
+	name: "Arcanite Pellets (Empty)"
 	desc:
 		'''
-		Small pellets made of smirgl that can be infused with essences.
+		Small arcanite pellets that can be infused with essences.
 		'''
 	
 	icon:
@@ -12,9 +12,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 5
+	min: 4
 	max: 100
-	step: 5
+	step: 4
 	type: workshop
 	tags: forge
 	
@@ -22,8 +22,8 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl_ingot"
-			amount: 0.200
+			material: "arcanite_ingot"
+			amount: 0.250
 		}
 		{
 			type: "work"
