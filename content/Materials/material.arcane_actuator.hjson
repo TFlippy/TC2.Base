@@ -6,7 +6,7 @@
 		'''
 	icon:
 	{
-		texture: "resource.arcane_actuators"
+		texture: "resource.arcane_actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -15,7 +15,7 @@
 	flags: manufactured
 	mass_per_unit: 1.650
 	quantity_max: 100.000
-	prefab: "resource.arcane_actuators"
+	prefab: "resource.arcane_actuator"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

@@ -7,14 +7,14 @@
 	
 	icon:
 	{
-		texture: "resource.arcane_actuators"
+		texture: "resource.arcane_actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	min: 4
+	min: 5
 	max: 100
-	step: 4
+	step: 5
 	type: workshop
 	tags: manufactory
 	
@@ -22,19 +22,19 @@
 	[
 		{
 			type: "resource"
+			material: "pellet.motion"
+			amount: 2.000
+		}
+		{
+			type: "resource"
 			material: "smirgl_ingot"
-			amount: 0.250
+			amount: 1.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 0.500
-		}
-		{
-			type: "resource"
-			material: "pellet.motion"
-			amount: 2.000
-		}
+			amount: 0.800
+		}	
 		{
 			type: "work"
 			work: "assembling"
@@ -47,7 +47,7 @@
 	[
 		{
 			type: "resource"
-			material: "arcane_actuators"
+			material: "arcane_actuator"
 			amount: 1.000
 		}
 	]

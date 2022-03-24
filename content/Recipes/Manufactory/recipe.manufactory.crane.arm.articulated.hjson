@@ -29,7 +29,7 @@
 		}
 		{
 			type: "resource"
-			material: "arcane_actuators"
+			material: "arcane_actuator"
 			amount: 10.000
 		}
 		{
