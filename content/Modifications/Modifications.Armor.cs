@@ -15,13 +15,14 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var material_iron = ref Material.GetMaterial("iron_ingot");
+
 					var has_ingot = false;
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Ingot))
+							if (requirement.material.id == material_iron.id)
 							{
 								has_ingot = true;
 								break;
@@ -34,6 +35,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					ref var material_iron = ref Material.GetMaterial("iron_ingot");
+
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -44,8 +47,7 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Ingot))
+							if (requirement.material.id == material_iron.id)
 							{
 								ingot_amount += requirement.amount;
 								requirement = default;
