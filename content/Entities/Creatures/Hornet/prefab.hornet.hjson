@@ -124,6 +124,7 @@ sound.emitter:
 	volume: 0.400
 	pitch: 1.000
 	size_max_modifier: 0.300
+	spread: 70.000
 	priority: 0.100
 }
 

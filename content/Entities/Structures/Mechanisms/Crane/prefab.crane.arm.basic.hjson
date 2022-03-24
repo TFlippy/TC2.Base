@@ -42,6 +42,11 @@ transform:
 
 }
 
+aimable:
+{
+
+}
+
 attachable:
 {
 	offset: [-4.000, 0.000]
