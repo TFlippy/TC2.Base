@@ -15,7 +15,7 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_sg, despawnable
-	mass_per_unit: 0.020
+	mass_per_unit: 0.050
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.buck.gp"
 	

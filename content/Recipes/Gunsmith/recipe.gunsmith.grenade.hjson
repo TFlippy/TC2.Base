@@ -19,13 +19,18 @@
 	[
 		{
 			type: "resource"
+			material: "wood"
+			amount: 5.000
+		}
+		{
+			type: "resource"
 			material: "gunpowder"
-			amount: 15.000
+			amount: 2.000
 		}
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.500
+			amount: 1.000
 		}
 		{
 			type: "resource"
