@@ -13,9 +13,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 10
+	min: 50
 	max: 500
-	step: 10
+	step: 50
 	type: workshop
 	tags: gunsmith
 	
@@ -24,23 +24,23 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.200
+			amount: 0.030
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.100
+			amount: 0.010
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 0.200
+			amount: 0.080
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 50.000
-			difficulty: 4.000
+			amount: 8.000
+			difficulty: 5.000
 		}
 	]
 	

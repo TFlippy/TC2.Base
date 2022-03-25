@@ -22,12 +22,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.500
+			amount: 0.750
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.500
+			amount: 0.750
 		}
 		{
 			type: "resource"
@@ -47,7 +47,7 @@
 		{
 			type: "resource"
 			material: "ammo_lc.hv"
-			amount: 10.000
+			amount: 50.000
 		}
 	]
 }
