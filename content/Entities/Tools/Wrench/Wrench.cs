@@ -6,7 +6,12 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public float test;
+			public int mode_index;
+		}
+
+		public interface IMode: IComponent
+		{
+			
 		}
 
 #if CLIENT

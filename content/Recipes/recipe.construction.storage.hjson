@@ -14,7 +14,7 @@
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
+	flags: no_amount_multiplier
 	type: construction
 
 	requirements:
