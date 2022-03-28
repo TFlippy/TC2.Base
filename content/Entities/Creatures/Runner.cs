@@ -149,7 +149,7 @@ namespace TC2.Base.Components
 
 			var is_grounded = false;
 
-			if (arbiter_count > 0 && normal.Y >= -0.20f && !layers.HasAll(Physics.Layer.Bounds))
+			if (arbiter_count > 0 && !layers.HasAll(Physics.Layer.Bounds))
 			{
 				is_grounded = MathF.Abs(normal.X) < 0.95f;
 
@@ -214,9 +214,9 @@ namespace TC2.Base.Components
 			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, runner_state.last_ground);
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.50f, 0.00f, 1.00f), 0.20f);
 
-			//max_speed *= runner.speed_modifier;
-			//force *= runner.force_modifier;
-			//force *= runner.air_modifier_current;
+			//max_speed *= runner_state.speed_modifier;
+			//force *= runner_state.force_modifier;
+			force *= runner_state.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 			body.AddForce(force);
