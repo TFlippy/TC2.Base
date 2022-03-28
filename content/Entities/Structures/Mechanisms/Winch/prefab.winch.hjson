@@ -140,6 +140,6 @@ joint.rope2:
 	
 	attachment:
 	{
-	
+		flags: use_center_of_gravity
 	}
 }
