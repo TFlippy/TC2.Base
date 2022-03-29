@@ -117,6 +117,11 @@ runner:
 	max_speed: 10.000
 }
 
+runner.state:
+{
+	
+}
+
 threat:
 {
 	priority: 2.000
@@ -298,6 +303,11 @@ lootable:
 			walk_force: 6000.000
 			jump_force: 1000.000
 			max_speed: 10.000
+		}
+		
+		runner.state:
+		{
+			
 		}
 		
 		transform:

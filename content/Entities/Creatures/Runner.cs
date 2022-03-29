@@ -17,7 +17,7 @@ namespace TC2.Base.Components
 			Sitting = 1 << 6,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable), IComponent.With<Runner.State>]
+		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent, IOverridable
 		{
 			public float walk_force = default;
@@ -25,10 +25,6 @@ namespace TC2.Base.Components
 			public float max_speed = 10.00f;
 
 			public float walk_lerp = 0.15f;
-
-			//public float force_modifier = 1.00f;
-			//public float speed_modifier = 1.00f;
-
 			public float crouch_speed_modifier = 0.50f;
 
 			public Data()
@@ -57,12 +53,6 @@ namespace TC2.Base.Components
 			{
 
 			}
-		}
-
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single)]
-		public static void Reset([Source.Owned, Original] in Runner.Data a, [Source.Owned, Override] ref Runner.Data b)
-		{
-			b = a;
 		}
 
 		[ISystem.AddFirst(ISystem.Mode.Single), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]

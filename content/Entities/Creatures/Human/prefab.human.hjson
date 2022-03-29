@@ -426,6 +426,11 @@ lootable:
 			jump_force: 35000.000
 		}
 		
+		runner.state:
+		{
+			
+		}
+		
 		organic:
 		{
 			@animated.renderer:
