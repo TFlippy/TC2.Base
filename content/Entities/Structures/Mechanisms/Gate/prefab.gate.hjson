@@ -81,16 +81,32 @@ joint.base:
 	flags: control_read, control_write
 }
 
+joint.gear:
+{
+	min: 0.000
+	max: 0.000
+
+	error_bias: 0.0001
+	max_bias: 20.000
+}
+
 joint.slider:
 {
 	a: [0.000, 0.000]
 	b: [0.000, 12.000]
-	max_force: 500000.000
+
+	min: 0.000
+	max: 12.000
+
+	error_bias: 0.0001
+	max_force: 20000.000
+	max_bias: 20.000
 }
 
-joint.rotarylimit:
+joint.distance:
 {
-
+	max_force: 20000.000
+	max_bias: 2.000
 }
 
 +door|child:
