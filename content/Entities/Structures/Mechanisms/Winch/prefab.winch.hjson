@@ -124,7 +124,7 @@ joint.rope2:
 	{
 		offset_a: [0.000, 0.500]
 		max_force: 100000000.000
-		max_torque: 1.000
+		max_torque: 1000.000
 		flags: no_wrap, no_stress, no_aiming
 	}
 	
@@ -133,9 +133,12 @@ joint.rope2:
 		max_bias: 8.000
 	}
 	
-	joint.rotarylimit:
+	joint.gear:
 	{
-		max_bias: 8.000
+		rotation: 1.570
+		min: 1.570
+		max: 1.570
+		// max_bias: 8.000
 	}
 	
 	attachment:
