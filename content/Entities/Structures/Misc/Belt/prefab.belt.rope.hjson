@@ -12,7 +12,7 @@ body:
 		radius: 0.500
 		friction: 0.990
 		elasticity: 0.700
-		material: wood
+		material: fabric
 		layer: entity, belt, ignore_melee
 		mask: world
 	}
@@ -28,7 +28,7 @@ belt.renderer:
 {
 	thickness: 0.250
 	z: 0.480
-	texture: "rope"
+	texture: "belt.rope"
 }
 
 transform:
