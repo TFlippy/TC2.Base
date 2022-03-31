@@ -20,7 +20,8 @@ body:
 
 belt:
 {
-
+	force: 1000.000
+	efficiency: 0.700
 }
 
 belt.renderer:
