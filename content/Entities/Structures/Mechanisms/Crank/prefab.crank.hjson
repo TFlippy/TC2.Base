@@ -25,7 +25,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "hand_crank.base"
+		texture: "crank.base"
 	}
 	z: -170.000
 }
@@ -40,7 +40,7 @@ crank:
 	{
 		sprite:
 		{
-			texture: "hand_crank.knob"
+			texture: "crank.knob"
 		}
 		z: -150.000
 	}
@@ -83,7 +83,7 @@ interactable:
 
 sound.emitter:
 {
-	file: "hand_crank_loop.wood"
+	file: "crank.wood.loop.00"
 	volume: 0.000
 	pitch: 1.000
 }
