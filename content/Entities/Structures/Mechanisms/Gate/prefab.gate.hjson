@@ -106,7 +106,7 @@ joint.slider:
 joint.distance:
 {
 	max_force: 20000.000
-	max_bias: 2.000
+	max_bias: 20.000
 }
 
 +door|child:
