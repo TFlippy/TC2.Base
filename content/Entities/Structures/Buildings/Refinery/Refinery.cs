@@ -133,7 +133,7 @@
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
-		[Source.Owned] ref Wheel.Data wheel)
+		[Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state)
 		{
 			if (info.WorldTime >= crafter_state.next_tick)
 			{
@@ -159,9 +159,9 @@
 
 				if (crafter.recipe.id != 0)
 				{
-					wheel.rotation %= MathF.Tau;
+					wheel_state.rotation %= MathF.Tau;
 
-					if (MathF.Abs(wheel.angular_velocity) > 1.00f)
+					if (MathF.Abs(wheel_state.angular_velocity) > 1.00f)
 					{
 						crafter_state.current_work += 1.00f * update_interval;
 					}
@@ -170,7 +170,7 @@
 						crafter_state.current_work = 0.00f;
 					}
 
-					entity.SyncComponent(ref wheel);
+					entity.SyncComponent(ref wheel_state);
 					entity.SyncComponent(ref crafter_state);
 
 					//App.WriteLine($"refinery: {ts.GetMilliseconds():0.0000} ms");					
@@ -321,18 +321,18 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 
 			sound_emitter.volume = Maths.Clamp(wheel_speed * 0.50f, 0.00f, 0.50f);
 			sound_emitter.pitch = Maths.Clamp(wheel_speed * 0.80f, 0.50f, 1.00f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
+		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
-			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 			if (wheel_speed > 1.00f && info.WorldTime >= state.next_smoke)
 			{
 				state.next_smoke = info.WorldTime + 0.50f;
