@@ -83,6 +83,9 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		public static float metabolization_modifier = 0.10f;
+		public static float elimination_modifier = 0.25f;
+
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
 		{
@@ -98,14 +101,14 @@ namespace TC2.Base.Components
 
 			var total_mass = 70.00f; // TODO
 
-			var amount_metabolized = Maths.Clamp(alcohol.amount_active * organic.absorption, 0.00f, alcohol.amount_active) * App.fixed_update_interval_s;
+			var amount_metabolized = Maths.Clamp(alcohol.amount_active * organic.absorption * metabolization_modifier, 0.00f, alcohol.amount_active) * App.fixed_update_interval_s;
 
 			alcohol.amount_metabolized = amount_metabolized;
 			alcohol.modifier_current = amount_metabolized / (total_mass * 0.001f);
 			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (App.fixed_update_interval_s * 0.20f), 0.00f);
 
 			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
-			alcohol.amount_active -= amount_metabolized;
+			alcohol.amount_active -= amount_metabolized * elimination_modifier;
 
 #if SERVER
 			var random = XorRandom.New();
@@ -140,7 +143,7 @@ namespace TC2.Base.Components
 				camera.zoom_modifier *= 1.00f - (Maths.Perlin(info.WorldTime * 0.15f, 0.00f, 4.00f) * 0.30f * modifier);
 				camera.rotation = rot;
 
-				Drunk.Color.W = Maths.Clamp(modifier, 0.00f, 0.95f);
+				Drunk.Color.W = Drunk.Color.W.Max(Maths.Clamp(modifier, 0.00f, 0.95f));
 
 				ref var low_pass = ref Audio.LowPass;
 				low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(MathF.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));

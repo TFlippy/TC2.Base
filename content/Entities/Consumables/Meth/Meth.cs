@@ -118,7 +118,7 @@ namespace TC2.Base.Components
 #endif
 
 		public static float metabolization_modifier = 0.02f;
-		public static float elimination_modifier = 0.01f;
+		public static float elimination_modifier = 0.40f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Meth.Effect meth, [Source.Owned, Override] in Organic.Data organic)
@@ -180,7 +180,7 @@ namespace TC2.Base.Components
 					Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 				}
 
-				meth_global.tinnitus_volume = Maths.Clamp01((modifier - 0.40f) * 0.25f);
+				meth_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.50f) * 2.00f, 3.00f);
 			}
 		}
 #endif

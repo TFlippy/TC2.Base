@@ -55,11 +55,11 @@ namespace TC2.Base.Components
 			organic.strength *= gr_strength.GetValue(modifier_a * 1.50f);
 			organic.motorics *= gr_motorics.GetValue(modifier_a * 0.50f);
 			organic.coordination *= gr_coordination.GetValue(modifier_a * 0.90f);
-			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.70f);
+			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.50f);
 		}
 
 		public static float metabolization_modifier = 0.10f;
-		public static float elimination_modifier = 0.12f;
+		public static float elimination_modifier = 0.40f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Morphine.Effect morphine, [Source.Owned, Override] in Organic.Data organic)
