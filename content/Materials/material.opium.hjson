@@ -1,6 +1,6 @@
 {
 	name: "Opium"
-	description: "Dried poppy resin used for production of opioids."
+	description: "Dried poppy resin used for production of opiates."
 	icon:
 	{
 		texture: "resource.opium"
