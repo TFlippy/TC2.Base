@@ -31,7 +31,7 @@ namespace TC2.Base
 					var size = GUI.GetRemainingSpace();
 
 					var changed = false;
-					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 10, 50, size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
 					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, size: new(size.X * 0.50f, size.Y));
 
@@ -47,12 +47,13 @@ namespace TC2.Base
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+					ref var material = ref Material.GetMaterial("nitroglycerine");
 
 					ref var explosive = ref context.GetOrAddComponent<Explosive.Data>();
-					explosive.power = 3.00f + (pair.amount * 0.80f);
-					explosive.radius = 2.00f + (pair.amount * 0.50f);
-					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f);
-					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f);
+					explosive.power = 3.00f + (pair.amount * 0.80f * material.mass_per_unit);
+					explosive.radius = 2.00f + (pair.amount * 0.50f * material.mass_per_unit);
+					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f * material.mass_per_unit);
+					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f * material.mass_per_unit);
 					explosive.health_threshold = pair.threshold;
 					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
 				},
@@ -233,7 +234,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 40, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 40);
 				},
 #endif
 
@@ -303,7 +304,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 10, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 10);
 				},
 #endif
 
@@ -427,7 +428,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
-					return GUI.SliderInt("Count", ref batch_size, 1, 10, "%d");
+					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
 
