@@ -80,6 +80,11 @@ animal:
 	retreat_distance: 15.000
 }
 
+animal.state:
+{
+
+}
+
 npc:
 {
 	navigation_state: searching
@@ -105,9 +110,14 @@ npc.emotions.state:
 
 }
 
-npc.pathfinding:
+pathfinding:
 {
 	flags: land
+}
+
+pathfinding.state:
+{
+	
 }
 
 runner:

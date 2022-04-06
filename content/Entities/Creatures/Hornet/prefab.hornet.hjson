@@ -76,9 +76,14 @@ npc.wander:
 	
 }
 
-npc.pathfinding:
+pathfinding:
 {
 	flags: air
+}
+
+pathfinding.state:
+{
+	
 }
 
 animal:
@@ -87,6 +92,11 @@ animal:
 	attack_cooldown: 2.000
 	charge_distance: 15.000
 	retreat_distance: 10.000
+}
+
+animal.state:
+{
+
 }
 
 threat:
