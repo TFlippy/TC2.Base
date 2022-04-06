@@ -694,7 +694,52 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("opium");
+					ref var material = ref Material.GetMaterial("morphine");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.codeine",
+				category: "Consumable",
+				name: "Mix: Codeine",
+				description: "Mixes a dose of codeine into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Codeine.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 100.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, "%.2f");
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var alcohol = ref context.GetOrAddComponent<Codeine.Effect>();
+					alcohol.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("codeine");
 					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
 				}
 			));
