@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 		{
 			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared) * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics) * organic.coordination;
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
-			no_rotate.bias += (1.00f - organic.motorics) * 0.15f;
+			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
