@@ -71,12 +71,12 @@ namespace TC2.Base.Components
 		public static Gradient gr_strength = new Gradient(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
 		public static Gradient gr_motorics = new Gradient(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
 		public static Gradient gr_coordination = new Gradient(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
+		public static Gradient gr_pain_modifier = new Gradient(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
 		[Source.All] ref Meth.Effect meth, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-
 			var modifier_a = meth.modifier_current;
 
 			organic.consciousness *= gr_consciousness.GetValue(modifier_a * 1.00f);
@@ -85,8 +85,9 @@ namespace TC2.Base.Components
 			organic.strength *= gr_strength.GetValue(modifier_a * 1.00f);
 			organic.motorics *= gr_motorics.GetValue(modifier_a * 1.00f);
 			organic.coordination *= gr_coordination.GetValue(modifier_a * 1.00f);
+			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
 
-			var modifier_b = MathF.Max(meth.modifier_withdrawal - meth.modifier_current, 0.00f);
+			var modifier_b = (meth.modifier_withdrawal - meth.modifier_current).Clamp0X();
 			if (modifier_b > 0.00f)
 			{
 				organic.consciousness *= Maths.Lerp01(1.00f, 0.60f, modifier_b);
@@ -158,11 +159,11 @@ namespace TC2.Base.Components
 				var modifier = MathF.Pow(meth.modifier_current, 1.10f);
 				var random = XorRandom.New();
 
-				var pos_modifier = MathF.Pow(MathF.Max(meth.modifier_current - 0.20f, 0.00f), 1.20f);
+				var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);
 				if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
 				camera.damp_modifier *= 1.00f + (modifier * 5.00f);
-				camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, MathF.Max(modifier - 0.20f, 0.00f));
+				camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
 
 				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
 
