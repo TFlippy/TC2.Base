@@ -588,7 +588,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 10.00f, 500.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, "%.2f");
 				},
 #endif
 
@@ -633,7 +633,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 10.00f, 500.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, "%.2f");
 				},
 #endif
 
@@ -650,6 +650,51 @@ namespace TC2.Base
 					ref var amount = ref handle.GetData<float>();
 
 					ref var material = ref Material.GetMaterial("meth");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.morphine",
+				category: "Consumable",
+				name: "Mix: Morphine",
+				description: "Mixes a dose of morphine into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Morphine.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 100.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, "%.2f");
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var alcohol = ref context.GetOrAddComponent<Morphine.Effect>();
+					alcohol.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("opium");
 					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
 				}
 			));
