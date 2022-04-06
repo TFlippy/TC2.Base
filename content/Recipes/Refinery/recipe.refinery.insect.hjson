@@ -43,8 +43,8 @@
 		{
 			type: "resource"
 			material: "lubricant"
-			amount_min: 1.000
-			amount_max: 5.000
+			amount_min: 5.000
+			amount_max: 25.000
 		}
 		{
 			type: "resource"

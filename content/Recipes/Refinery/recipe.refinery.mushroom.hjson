@@ -49,8 +49,8 @@
 		{
 			type: "resource"
 			material: "alcohol"
-			amount_min: 2.000
-			amount_max: 7.000
+			amount_min: 10.000
+			amount_max: 35.000
 		}
 	]
 }
