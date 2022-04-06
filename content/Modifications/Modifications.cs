@@ -33,7 +33,7 @@ namespace TC2.Base
 					var changed = false;
 					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
-					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
@@ -41,7 +41,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<Explosive.Data>().IsNull();
+					return !context.HasComponent<Explosive.Data>();
 				},
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -73,7 +73,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<Light.Data>().IsNull() && !modifications.HasModification(handle);
+					return !context.HasComponent<Light.Data>() && !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -180,7 +180,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f, "%.2f");
+					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f);
 				},
 #endif
 
@@ -197,6 +197,11 @@ namespace TC2.Base
 				category: "Explosives",
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
+
+				can_add: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
 
 				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -262,7 +267,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<MovementCooling.Data>().IsNull();
+					return !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -380,6 +385,11 @@ namespace TC2.Base
 				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
+
+				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
 
 				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -522,7 +532,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f, "%.2f");
+					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f);
 				},
 #endif
 
@@ -588,7 +598,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true);
 				},
 #endif
 
@@ -633,7 +643,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true);
 				},
 #endif
 
@@ -678,7 +688,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
@@ -723,7 +733,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
@@ -768,7 +778,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, "%.2f");
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
@@ -808,7 +818,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, "%.2f");
+					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f);
 				},
 #endif
 
