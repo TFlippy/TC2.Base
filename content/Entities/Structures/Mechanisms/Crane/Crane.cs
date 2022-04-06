@@ -76,8 +76,8 @@ namespace TC2.Base.Components
 						GUI.DrawCircleFilled(cpos_b, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
 						GUI.DrawCircleFilled(cpos_c, scale * 0.25f, color.WithAlphaMult(0.75f), 16);
 
-						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 0.00f, 16.00f, "%.2f");
-						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 16.00f, "%.2f");
+						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 0.00f, 16.00f);
+						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 16.00f);
 
 						if (dirty)
 						{

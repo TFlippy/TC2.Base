@@ -17,7 +17,7 @@ namespace TC2.Base
 				validate: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					pair.amount = Maths.Clamp(pair.amount, 1, 10);
+					pair.amount = Maths.Clamp(pair.amount, 10, 50);
 					pair.threshold = Maths.Clamp(pair.threshold, 0.20f, 0.99f);
 
 					return true;
@@ -607,8 +607,8 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var alcohol = ref context.GetOrAddComponent<Alcohol.Effect>();
-					alcohol.amount = amount;
+					ref var component = ref context.GetOrAddComponent<Alcohol.Effect>();
+					component.amount = amount;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -652,8 +652,8 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var alcohol = ref context.GetOrAddComponent<Meth.Effect>();
-					alcohol.amount = amount;
+					ref var component = ref context.GetOrAddComponent<Meth.Effect>();
+					component.amount = amount;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -697,8 +697,8 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var alcohol = ref context.GetOrAddComponent<Morphine.Effect>();
-					alcohol.amount = amount;
+					ref var component = ref context.GetOrAddComponent<Morphine.Effect>();
+					component.amount = amount;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -742,8 +742,8 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var alcohol = ref context.GetOrAddComponent<Codeine.Effect>();
-					alcohol.amount = amount;
+					ref var component = ref context.GetOrAddComponent<Codeine.Effect>();
+					component.amount = amount;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -787,8 +787,8 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var alcohol = ref context.GetOrAddComponent<Paxilon.Effect>();
-					alcohol.amount = amount;
+					ref var component = ref context.GetOrAddComponent<Paxilon.Effect>();
+					component.amount = amount;
 				},
 
 				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
