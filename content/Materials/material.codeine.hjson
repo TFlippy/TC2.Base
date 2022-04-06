@@ -1,6 +1,6 @@
 {
 	name: "Codeine"
-	description: "A strong analgesic extracted from opium."
+	description: "A mild analgesic similar to morphine."
 	icon:
 	{
 		texture: "resource.codeine"

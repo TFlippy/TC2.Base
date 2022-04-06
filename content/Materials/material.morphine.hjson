@@ -1,6 +1,6 @@
 {
 	name: "Morphine"
-	description: "A basic analgesic extracted from opium."
+	description: "A potent analgesic extracted from opium."
 	icon:
 	{
 		texture: "resource.morphine"
