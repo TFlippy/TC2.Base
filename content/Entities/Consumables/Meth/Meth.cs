@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Effect: IComponent
 		{
-			[Statistics.Info("Meth", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
+			[Statistics.Info("Meth", description: "TODO: Desc", format: "{0:0.##} mg", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float amount;
 
 			public float amount_active;
@@ -65,12 +65,12 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static Gradient gr_consciousness = new Gradient(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.65f);
+		public static Gradient gr_consciousness = new Gradient(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
 		public static Gradient gr_endurance = new Gradient(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
-		public static Gradient gr_dexterity = new Gradient(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.10f, 0.80f, 0.60f, 0.50f, 0.40f, 0.30f, 0.20f);
+		public static Gradient gr_dexterity = new Gradient(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.20f, 1.15f, 1.00f, 0.95f, 0.90f, 0.85f, 0.80f);
 		public static Gradient gr_strength = new Gradient(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
 		public static Gradient gr_motorics = new Gradient(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
-		public static Gradient gr_coordination = new Gradient(1.00f, 1.05f, 1.10f, 1.10f, 1.10f, 1.05f, 0.98f, 0.95f, 0.60f, 0.45f, 0.30f, 0.20f, 0.10f, 0.00f);
+		public static Gradient gr_coordination = new Gradient(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 			organic.motorics *= gr_motorics.GetValue(modifier_a * 1.00f);
 			organic.coordination *= gr_coordination.GetValue(modifier_a * 1.00f);
 
-			var modifier_b = MathF.Max(meth.modifier_current - meth.modifier_withdrawal, 0.00f);
+			var modifier_b = MathF.Max(meth.modifier_withdrawal - meth.modifier_current, 0.00f);
 			if (modifier_b > 0.00f)
 			{
 				organic.consciousness *= Maths.Lerp01(1.00f, 0.60f, modifier_b);
@@ -116,6 +116,9 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		public static float metabolization_modifier = 0.02f;
+		public static float elimination_modifier = 0.01f;
+
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Meth.Effect meth, [Source.Owned, Override] in Organic.Data organic)
 		{
@@ -131,9 +134,9 @@ namespace TC2.Base.Components
 
 			var total_mass = 70.00f; // TODO
 
-			meth.amount_metabolized = Maths.Clamp(meth.amount_active * organic.absorption, 0.00f, meth.amount_active) * App.fixed_update_interval_s;
+			meth.amount_metabolized = Maths.Clamp(meth.amount_active * organic.absorption * metabolization_modifier, 0.00f, meth.amount_active) * App.fixed_update_interval_s;
 			meth.amount_withdrawal = Maths.Lerp2(meth.amount_withdrawal, meth.amount_metabolized * 0.65f, 0.0008f, 0.0001f);
-			meth.amount_active -= meth.amount_metabolized;
+			meth.amount_active -= meth.amount_metabolized * elimination_modifier;
 
 			meth.modifier_current = meth.amount_metabolized / (total_mass * 0.001f);
 			meth.modifier_withdrawal = meth.amount_withdrawal / (total_mass * 0.001f);
@@ -152,28 +155,31 @@ namespace TC2.Base.Components
 		{
 			if (player.IsLocal())
 			{
-				var modifier = MathF.Pow(meth.modifier_current, 1.30f);
+				var modifier = MathF.Pow(meth.modifier_current, 1.10f);
 				var random = XorRandom.New();
 
-				camera.position_offset = random.NextUnitVector2Range(0.00f, 0.20f * modifier);
-				camera.damp_modifier *= 1.00f + (modifier * 5.00f);
+				var pos_modifier = MathF.Pow(MathF.Max(meth.modifier_current - 0.20f, 0.00f), 1.20f);
+				if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
-				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.50f, 0.00f, 0.85f));
+				camera.damp_modifier *= 1.00f + (modifier * 5.00f);
+				camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, MathF.Max(modifier - 0.20f, 0.00f));
+
+				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
 
 				ref var low_pass = ref Audio.LowPass;
 				low_pass.frequency = 10000.00f;
-				low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 1.20f);
+				low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 2.50f);
 
 				ref var high_pass = ref Audio.HighPass;
 				high_pass.frequency = 150.00f;
-				high_pass.resonance = MathF.Pow(0.70f + (modifier * 2.50f), 1.20f);
+				high_pass.resonance = MathF.Pow(0.70f + (modifier * 5.50f), 1.50f);
 
 				if (meth.modifier_current < meth.modifier_withdrawal)
 				{
 					Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 				}
 
-				meth_global.tinnitus_volume = Maths.Clamp01((modifier - 0.20f) * 0.20f);
+				meth_global.tinnitus_volume = Maths.Clamp01((modifier - 0.40f) * 0.25f);
 			}
 		}
 #endif

@@ -624,7 +624,7 @@ namespace TC2.Base
 				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 500.00f);
+					value = Maths.Clamp(value, 1.00f, 200.00f);
 
 					return true;
 				},
