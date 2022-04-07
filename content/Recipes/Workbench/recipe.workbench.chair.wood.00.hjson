@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "crate"
+		texture: "chair.wood.00"
 	}
 	
 	min: 1

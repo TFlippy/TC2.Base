@@ -632,7 +632,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			gun_state.hints.SetFlag(Gun.Hints.Loaded, gun_state.hints.HasAll(Gun.Hints.Cycled) && inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
