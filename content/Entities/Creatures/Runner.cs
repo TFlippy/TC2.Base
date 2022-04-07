@@ -90,7 +90,7 @@ namespace TC2.Base.Components
 			ref readonly var keyboard = ref control.keyboard;
 
 			var force = new Vector2(0, 0);
-			var max_speed = new Vector2(runner.max_speed, 10);
+			var max_speed = new Vector2(runner.max_speed, runner.max_speed);
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
