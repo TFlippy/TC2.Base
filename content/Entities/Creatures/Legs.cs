@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotateAlive(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		public static void UpdateNoRotateAlive(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
 			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics) * organic.coordination);
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateNoRotateDead(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		public static void UpdateNoRotateDead(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
 			no_rotate.multiplier = 0.00f;
 		}
@@ -50,7 +50,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
-		[Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
 		[Source.Owned] ref Legs.Data legs, [Source.Owned] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
 		{

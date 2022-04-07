@@ -68,7 +68,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateOrganic(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		public static void UpdateOrganic(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine($"{organic.dexterity}");
 
