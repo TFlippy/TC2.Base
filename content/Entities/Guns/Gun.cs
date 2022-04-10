@@ -198,8 +198,9 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore] public Gun.Stage stage;
-			[Save.Ignore] public Gun.Hints hints;
+			public Gun.Stage stage;
+			public Gun.Hints hints;
+
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 		}
