@@ -11,14 +11,14 @@ body:
 		friction: 0.990
 		elasticity: 0.030
 		material: metal
-		layer: entity, building, no_overlapped_placement, ignore_melee
+		layer: entity, building, no_overlapped_placement, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
 
 health:
 {
-	max: 1000.000
+	max: 4000.000
 }
 
 animated.renderer:
@@ -67,6 +67,12 @@ rope.renderer:
 	scale: 8.000
 }
 
+joint.base:
+{
+	max_force: 50000.000
+	max_torque: 5000.000
+}
+
 joint.rope2:
 {
 	distance: 30.000
@@ -88,7 +94,7 @@ joint.rope2:
 	{
 		sprite:
 		{
-			texture: "hook"
+			texture: "winch.hook"
 		}
 		z: -50.000
 	}
