@@ -74,10 +74,10 @@ holdable:
 
 animal:
 {
-	attack_distance: 1.000
+	attack_distance: 2.000
 	attack_cooldown: 1.500
 	charge_distance: 6.000
-	retreat_distance: 15.000
+	retreat_distance: 0.000
 }
 
 animal.state:
@@ -87,13 +87,15 @@ animal.state:
 
 npc:
 {
-	navigation_state: searching
+	navigation_state: none
 	find_distance_max: 10.000
-	lose_distance_max: 20.000
-	follow_distance_max: 0.000
-	follow_distance_min: 0.000
+	lose_distance_max: 30.000
+	follow_distance_max: 10.000
+	follow_distance_min: 8.000
 	pain_modifier: 1.000
 	min_consciousness: 0.500
+	avoid_distance: [0.125, 0.000]
+	idle_distance: [1.000, 1.000]
 }
 
 npc.emotions:
@@ -110,12 +112,37 @@ npc.emotions.state:
 
 }
 
+ai:
+{
+
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	flags: aggressive
+}
+
+ai.search:
+{
+
+}
+
 pathfinding:
 {
 	flags: land
 }
 
 pathfinding.state:
+{
+	
+}
+
+commandable:
 {
 	
 }

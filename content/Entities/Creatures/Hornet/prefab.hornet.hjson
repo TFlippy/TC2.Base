@@ -71,9 +71,37 @@ npc:
 	min_consciousness: 0.500
 }
 
-npc.wander:
+animal:
 {
-	
+	attack_distance: 1.900
+	attack_cooldown: 2.000
+	charge_distance: 15.000
+	retreat_distance: 10.000
+}
+
+animal.state:
+{
+
+}
+
+ai:
+{
+
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	flags: aggressive
+}
+
+ai.search:
+{
+
 }
 
 pathfinding:
@@ -86,17 +114,9 @@ pathfinding.state:
 	
 }
 
-animal:
+commandable:
 {
-	attack_distance: 1.900
-	attack_cooldown: 2.000
-	charge_distance: 15.000
-	retreat_distance: 10.000
-}
-
-animal.state:
-{
-
+	
 }
 
 threat:

@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "pump"
 	}
-	z: -280.000
+	z: -400.000
 }
 
 transform:
@@ -55,7 +55,7 @@ pump:
 		{
 			texture: "pump.slider"
 		}
-		z: -151.000
+		z: -401.000
 	}
 	
 	@inventory4:
