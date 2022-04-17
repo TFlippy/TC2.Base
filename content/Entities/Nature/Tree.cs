@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 				Shake.Emit(ref region, transform.position, 0.40f, 0.40f);
 
 				var random = XorRandom.New();
-				Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
+				//Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
 
 				body.type = Body.Type.Dynamic;
 				body.flags &= ~Body.Flags.NonDirty;

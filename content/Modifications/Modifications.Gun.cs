@@ -1025,7 +1025,13 @@ namespace TC2.Base
 					if (!health.IsNull())
 					{
 						health.max *= 1.40f;
-						health.armor += 70.00f;
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.material_type = Material.Type.Metal;
+						armor.toughness += 70.00f;
 					}
 				},
 

@@ -50,8 +50,8 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]
-		public static void OnDamage(ISystem.Info info, Entity entity, ref Health.DamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
+		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single)]
+		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
 			if (health.integrity <= explosive.health_threshold)
 			{
@@ -61,7 +61,7 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					switch (data.damage_type)
+					switch (data.damage.damage_type)
 					{
 						case Damage.Type.Bullet_LC:
 						case Damage.Type.Bullet_HC:
@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
 				{
-					if (!explosive.ent_owner.IsValid()) explosive.ent_owner = data.ent_attacker;
+					if (!explosive.ent_owner.IsValid()) explosive.ent_owner = data.damage.ent_attacker;
 
 					if (explosive.flags.HasAny(Explosive.Flags.Explode_When_Primed))
 					{

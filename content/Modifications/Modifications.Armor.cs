@@ -59,8 +59,13 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", total_amount));
 
 					data.max += total_amount * 1000.00f;
-					data.armor *= 1.35f;
-					data.armor += 200.00f;
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.material_type = Material.Type.Metal;
+						armor.toughness += 200.00f;
+					}
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
