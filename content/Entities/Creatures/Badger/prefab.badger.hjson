@@ -114,7 +114,7 @@ npc.emotions.state:
 
 ai:
 {
-
+	stance: aggressive
 }
 
 ai.movement:
@@ -124,7 +124,7 @@ ai.movement:
 
 ai.behavior:
 {
-	flags: aggressive
+	
 }
 
 ai.search:
