@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned] in Organic.Data organic, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Any] in Dive.State dive_state)
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Any] in Dive.State dive_state)
 		{
 			var elapsed = dive_state.next_dive - info.WorldTime;
 			if (elapsed > 2.20f)
@@ -40,7 +40,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info,
 		[Source.Owned] in Dive.Data dive, [Source.Owned] ref Dive.State dive_state,
-		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			if (organic_state.consciousness_shared > 0.60f && info.WorldTime > dive_state.next_dive && control.mouse.GetKey(Mouse.Key.Right))
 			{

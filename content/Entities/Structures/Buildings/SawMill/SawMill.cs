@@ -51,7 +51,7 @@
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Joint.Distance joint_distance)
+		[Source.Owned, Original] ref Joint.Distance joint_distance)
 		{
 			joint_distance.distance = sawmill.slider_distance * sawmill_state.slider_ratio;
 		}

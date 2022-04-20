@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOrganic(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		[Source.Owned] ref Flyer.Data flyer, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			flyer.force_modifier = organic.strength;
 			flyer.lift_modifier = organic_state.efficiency > 0.20f ? 1.00f : 0.00f;

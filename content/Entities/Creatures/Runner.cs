@@ -78,14 +78,14 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateClimbing(ISystem.Info info, [Source.Owned] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
+		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
 			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
 			if (runner_state.flags.HasAll(Runner.Flags.Climbing)) runner_state.last_climb = info.WorldTime;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateMovement(ISystem.Info info, [Source.Owned] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
+		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
 
