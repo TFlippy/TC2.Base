@@ -136,7 +136,7 @@ namespace TC2.Base.Components
 
 				if (control.mouse.GetKey(Mouse.Key.Right))
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_parent.LocalToWorld(joint_base.offset_a), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert);
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert);
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
 
