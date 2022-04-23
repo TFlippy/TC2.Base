@@ -1,0 +1,42 @@
+{
+	name: "Storage"
+	desc:
+		'''
+		A high-capacity storage building.
+		'''
+	
+	icon:
+	{
+		texture: "storage"
+	}
+	
+	type: build
+	flags: none
+
+	placement:
+	{ 
+		type: simple
+		flags: none
+		
+		size: [6.000, 4.000]
+		cooldown: 0.300
+		sound: "wood_place_0"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 0.200
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "storage"
+		}
+	]
+}

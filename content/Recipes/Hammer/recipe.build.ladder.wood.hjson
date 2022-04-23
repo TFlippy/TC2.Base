@@ -1,0 +1,45 @@
+{
+	name: "Ladder"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ladder.wood.cap"
+	}
+	
+	type: build
+	flags: none
+
+	placement:
+	{ 
+		type: line
+		flags: none
+		
+		length_max: 7.500
+		length_step: 0.625
+		
+		size: [0.625, 0.625]
+		cooldown: 0.300
+		sound: "wood_place_0"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 0.200
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "ladder.wood"
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	name: "Stone Bricks"
+	desc:
+		'''
+		Stone cut into bricks. Perfect for masonry.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	type: build
+	flags: none
+
+	placement:
+	{ 
+		type: rectangle
+		flags: continuous
+
+		size: [1.000, 1.000]
+		cooldown: 0.400
+		sound: "stone_place_0"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "stone"
+			amount: 0.500
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "block"
+			block: "stonebrick"
+			tile_flags: solid, becomebackgroundonbreak
+		}
+	]
+}
