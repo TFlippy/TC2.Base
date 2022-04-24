@@ -44,7 +44,7 @@ transform:
 
 }
 
-stripe:
+resizable:
 {
 	texture_stub: "ladder.wood.cap"
 	a: [0.000, -2.500]
