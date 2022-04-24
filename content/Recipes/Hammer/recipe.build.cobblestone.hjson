@@ -1,15 +1,15 @@
 {
-	name: "Stone Bricks"
+	name: "Cobblestone"
 	desc:
 		'''
-		Stone cut into bricks. Perfect for masonry.
+		Cheap, but difficult to build with precisely. Very useful as a filler.
 		'''
 	
 	icon:
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [1, 0]
 	}
 	
 	type: build
@@ -17,11 +17,11 @@
 
 	placement:
 	{ 
-		type: rectangle
+		type: circle
 		flags: continuous
 
-		size: [1.000, 1.000]
-		cooldown: 0.400
+		radius: 0.750
+		cooldown: 0.250
 		sound: "stone_place_0"
 	}
 
@@ -30,7 +30,7 @@
 		{
 			type: "resource"
 			material: "stone"
-			amount: 0.500
+			amount: 0.300
 		}
 	]
 	
@@ -38,7 +38,7 @@
 	[
 		{
 			type: "block"
-			block: "stonebrick"
+			block: "cobblestone"
 			tile_flags: solid, become_background_on_break
 		}
 	]

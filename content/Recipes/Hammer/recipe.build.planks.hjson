@@ -20,6 +20,9 @@
 		type: line
 		flags: none
 		
+		length_max: 8.000
+		length_step: 0.125
+
 		size: [0.625, 0.625]
 		cooldown: 0.300
 		sound: "wood_place_0"
@@ -39,7 +42,7 @@
 		{
 			type: "block"
 			block: "planks"
-			tile_flags: solid, becomebackgroundonbreak
+			tile_flags: solid, become_background_on_break
 		}
 	]
 }

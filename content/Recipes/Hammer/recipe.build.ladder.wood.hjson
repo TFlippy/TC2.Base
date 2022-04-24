@@ -16,14 +16,14 @@
 	placement:
 	{ 
 		type: line
-		flags: none
+		flags: allow_placement_over_buildings
 		
 		length_max: 7.500
 		length_step: 0.625
 		
 		size: [0.625, 0.625]
 		cooldown: 0.300
-		sound: "wood_place_0"
+		sound: "building_place"
 	}
 
 	requirements:

@@ -45,15 +45,10 @@ transform:
 
 }
 
-build:
+hammer:
 {
 
 }
-
-// hammer:
-// {
-
-// }
 
 packable:
 {
