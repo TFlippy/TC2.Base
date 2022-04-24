@@ -1,0 +1,47 @@
+{
+	name: "Glass (Background)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [5, 1]
+	}
+	
+	type: build
+	flags: none
+	tags: none
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.500, 1.500]
+		cooldown: 0.400
+		
+		sound: "metal_place_01"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "glass"
+			amount: 0.03125
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "glass"
+			tile_flags: none
+		}
+	]
+}

@@ -14,24 +14,26 @@
 	
 	type: build
 	flags: none
-
+	tags: none
+	
 	placement:
-	{ 
+	{
 		type: line
-		flags: none
+		flags: no_snapping
+		
+		size: [0.625, 0.625]
+		cooldown: 0.400
 		
 		length_max: 8.000
 		length_step: 0.125
-
-		size: [0.625, 0.625]
-		cooldown: 0.300
+		
 		sound: "wood_place_0"
 	}
-
+	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 0.200
 		}
@@ -40,7 +42,7 @@
 	products:
 	[
 		{
-			type: "block"
+			type: block
 			block: "planks"
 			tile_flags: solid, become_background_on_break
 		}

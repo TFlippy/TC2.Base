@@ -1,0 +1,46 @@
+{
+	name: "Cobblestone"
+	desc:
+		'''
+		Cheap, but difficult to build with precisely. Very useful as a filler.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: none
+	
+	placement:
+	{
+		type: circle
+		flags: continuous, no_snapping
+		radius: 0.750
+		cooldown: 0.250
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "stone"
+			amount: 0.300
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "cobblestone"
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}
