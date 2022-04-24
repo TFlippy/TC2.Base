@@ -12,6 +12,10 @@
 	
 	type: build
 	flags: none
+	tags: mechanisms
+
+	dismantle_work: 10.000
+	dismantle_yield: 0.500
 
 	placement:
 	{ 
@@ -30,8 +34,8 @@
 	[
 		{
 			type: "resource"
-			material: "wood"
-			amount: 0.200
+			material: "iron_ingot"
+			amount: 1.000
 		}
 	]
 	
