@@ -1,14 +1,14 @@
 {
-	name: "Storage"
+	name: "Market"
 	desc:
 		'''
-		A high-capacity storage building.
+		A place to trade at.
 		'''
 	
 	icon:
 	{
-		texture: "storage"
-		size: [48, 32]
+		texture: "market"
+		size: [50, 64]
 	}
 	
 	type: build
@@ -37,24 +37,22 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 500.000
+			amount: 900.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 800.000
-		}
-		{
-			type: work
-			work: "carpentry"
-			amount: 400.000
-			difficulty: 4.000
-		}
-		{
-			type: work
-			work: "masonry"
 			amount: 600.000
-			difficulty: 3.000
+		}
+		{
+			type: resource
+			material: "cloth"
+			amount: 2.000
+		}
+		{
+			type: resource
+			material: "paper"
+			amount: 15.000
 		}
 	]
 	
@@ -62,7 +60,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: "market"
 			amount: 1.000
 		}
 	]

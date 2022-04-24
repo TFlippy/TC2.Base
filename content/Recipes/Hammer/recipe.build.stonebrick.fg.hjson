@@ -8,11 +8,12 @@
 	icon:
 	{
 		texture: "block_icons"
+		size: [16, 16]
 	}
 	
 	type: build
 	flags: none
-	tags: none
+	tags: construction
 	
 	placement:
 	{
@@ -20,6 +21,7 @@
 		flags: continuous
 		
 		size: [1.000, 1.000]
+		
 		cooldown: 0.400
 		
 		sound: "stone_place_0"

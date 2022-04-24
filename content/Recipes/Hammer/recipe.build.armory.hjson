@@ -1,13 +1,13 @@
 {
-	name: "Storage"
+	name: "Armory"
 	desc:
 		'''
-		A high-capacity storage building.
+		Used for storing weapons, tools and equipment.
 		'''
 	
 	icon:
 	{
-		texture: "storage"
+		texture: "armory"
 		size: [48, 32]
 	}
 	
@@ -37,24 +37,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 500.000
+			amount: 350.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 800.000
-		}
-		{
-			type: work
-			work: "carpentry"
-			amount: 400.000
-			difficulty: 4.000
-		}
-		{
-			type: work
-			work: "masonry"
-			amount: 600.000
-			difficulty: 3.000
+			amount: 900.000
 		}
 	]
 	
@@ -62,7 +50,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: "armory"
 			amount: 1.000
 		}
 	]

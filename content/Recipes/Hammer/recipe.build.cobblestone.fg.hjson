@@ -14,13 +14,14 @@
 	
 	type: build
 	flags: none
-	tags: none
+	tags: construction
 	
 	placement:
 	{
 		type: circle
 		flags: continuous, no_snapping
 		radius: 0.750
+		
 		cooldown: 0.250
 		
 		sound: "stone_place_0"

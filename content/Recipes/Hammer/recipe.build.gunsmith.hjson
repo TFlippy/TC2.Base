@@ -1,13 +1,13 @@
 {
-	name: "Storage"
+	name: "Gunsmith"
 	desc:
 		'''
-		A high-capacity storage building.
+		A workshop equipped with various tools to construct guns.
 		'''
 	
 	icon:
 	{
-		texture: "storage"
+		texture: "gunsmith"
 		size: [48, 32]
 	}
 	
@@ -37,24 +37,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 500.000
+			amount: 600.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 800.000
-		}
-		{
-			type: work
-			work: "carpentry"
-			amount: 400.000
-			difficulty: 4.000
-		}
-		{
-			type: work
-			work: "masonry"
-			amount: 600.000
-			difficulty: 3.000
+			amount: 300.000
 		}
 	]
 	
@@ -62,7 +50,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: "gunsmith"
 			amount: 1.000
 		}
 	]

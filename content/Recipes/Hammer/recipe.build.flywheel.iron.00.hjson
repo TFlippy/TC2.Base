@@ -1,0 +1,50 @@
+{
+	name: "Flywheel (Iron)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "flywheel.iron.00"
+		size: [32, 32]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 30.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [4.000, 4.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 250.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "flywheel.iron.00"
+			amount: 1.000
+		}
+	]
+}

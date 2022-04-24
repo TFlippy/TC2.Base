@@ -1,0 +1,51 @@
+{
+	name: "Hatch (Metal)"
+	desc:
+		'''
+		A sturdy metal hatch to keep the intruders out.
+		'''
+	
+	icon:
+	{
+		texture: "hatch.metal"
+		size: [20, 24]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	dismantle_work: 20.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [2.500, 0.750]
+		
+		cooldown: 0.500
+		min_support: 0.300
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "hatch.metal"
+			amount: 1.000
+		}
+	]
+}

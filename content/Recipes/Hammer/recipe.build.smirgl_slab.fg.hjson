@@ -14,7 +14,7 @@
 	
 	type: build
 	flags: none
-	tags: none
+	tags: construction
 	
 	placement:
 	{
@@ -22,6 +22,7 @@
 		flags: no_snapping
 		
 		size: [1.500, 1.500]
+		
 		cooldown: 1.000
 		
 		length_max: 4.000

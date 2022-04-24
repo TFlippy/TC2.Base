@@ -1,30 +1,31 @@
 {
-	name: "Storage"
+	name: "Headquarters"
 	desc:
 		'''
-		A high-capacity storage building.
+		Faction's headquarters where one
+		can perform various administrative duties.
 		'''
 	
 	icon:
 	{
-		texture: "storage"
-		size: [48, 32]
+		texture: "headquarters"
+		size: [56, 40]
 	}
 	
 	type: build
 	flags: none
 	tags: buildings
 	
-	dismantle_work: 10.000
+	dismantle_work: 20.000
 	dismantle_yield: 0.500
 	
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x
+		flags: allow_mirror_x, require_claimed
 		
-		size: [6.000, 4.000]
-		offset: [0.000, -1.000]
+		size: [7.000, 5.000]
+		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
 		min_claim: 1.000
@@ -37,7 +38,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 500.000
+			amount: 1500.000
 		}
 		{
 			type: resource
@@ -45,16 +46,13 @@
 			amount: 800.000
 		}
 		{
-			type: work
-			work: "carpentry"
-			amount: 400.000
-			difficulty: 4.000
+			type: resource
+			material: "cloth"
+			amount: 8.000
 		}
 		{
-			type: work
-			work: "masonry"
-			amount: 600.000
-			difficulty: 3.000
+			type: money
+			amount: 100.000
 		}
 	]
 	
@@ -62,7 +60,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: "headquarters"
 			amount: 1.000
 		}
 	]

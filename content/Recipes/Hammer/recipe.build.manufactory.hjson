@@ -1,14 +1,14 @@
 {
-	name: "Storage"
+	name: "Manufactory"
 	desc:
 		'''
-		A high-capacity storage building.
+		A workshop used for producing vehicles and advanced equipment.
 		'''
 	
 	icon:
 	{
-		texture: "storage"
-		size: [48, 32]
+		texture: "manufactory"
+		size: [56, 40]
 	}
 	
 	type: build
@@ -23,8 +23,8 @@
 		type: simple
 		flags: allow_mirror_x
 		
-		size: [6.000, 4.000]
-		offset: [0.000, -1.000]
+		size: [7.000, 5.000]
+		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
 		min_claim: 1.000
@@ -37,24 +37,17 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 500.000
+			amount: 900.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 800.000
-		}
-		{
-			type: work
-			work: "carpentry"
 			amount: 400.000
-			difficulty: 4.000
 		}
 		{
-			type: work
-			work: "masonry"
-			amount: 600.000
-			difficulty: 3.000
+			type: resource
+			material: "iron_ingot"
+			amount: 10.000
 		}
 	]
 	
@@ -62,7 +55,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: "manufactory"
 			amount: 1.000
 		}
 	]
