@@ -18,7 +18,7 @@ body:
 		friction: 0.750
 		elasticity: 0.300
 		material: wood
-		layer: entity, solid, building
+		layer: entity, solid, building, door
 		mask: world, solid
 	}
 }
@@ -51,7 +51,7 @@ claimable:
 
 interactable:
 {
-
+	flags: once
 }
 
 transform:
