@@ -72,7 +72,7 @@ pump.state:
 
 }
 
-wheel:
+axle:
 {
 	offset: [0.750, 1.250]
 	mass: 5.000

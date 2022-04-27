@@ -133,7 +133,7 @@
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
-		[Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state)
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			if (info.WorldTime >= crafter_state.next_tick)
 			{
@@ -321,7 +321,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state, [Source.Owned] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 
@@ -330,7 +330,7 @@
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Wheel.State wheel_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
+		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
 			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 			if (wheel_speed > 1.00f && info.WorldTime >= state.next_smoke)

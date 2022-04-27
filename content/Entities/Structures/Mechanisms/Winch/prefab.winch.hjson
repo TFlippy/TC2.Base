@@ -30,7 +30,7 @@ animated.renderer:
 	z: -150.000
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 5.000

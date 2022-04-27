@@ -35,7 +35,7 @@ gate:
 
 }
 
-wheel:
+axle:
 {
 	offset: [-1.000, -5.500]
 	mass: 5.000

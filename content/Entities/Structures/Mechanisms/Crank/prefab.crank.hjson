@@ -46,7 +46,7 @@ crank:
 	}
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 5.000

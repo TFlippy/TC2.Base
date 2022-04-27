@@ -89,7 +89,7 @@ burner.state:
 	current_temperature: 300.000
 }
 
-wheel:
+axle:
 {
 	offset: [2.750, 0.000]
 	mass: 10.000

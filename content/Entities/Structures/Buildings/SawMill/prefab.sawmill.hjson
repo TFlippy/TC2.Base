@@ -101,7 +101,7 @@ sawmill.state:
 	}
 }
 
-wheel:
+axle:
 {
 	offset: [-3.125, 1.125]
 	mass: 5.000
