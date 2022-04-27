@@ -2,7 +2,7 @@
 	name: "Barbed Wire"
 	desc:
 		'''
-		TODO: Desc
+		Better not walk through it.
 		'''
 	
 	icon:
@@ -11,10 +11,10 @@
 	}
 	
 	type: build
-	flags: none
+	flags: blueprintable
 	tags: construction
 
-	dismantle_work: 10.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.500
 
 	placement:
@@ -22,11 +22,13 @@
 		type: line
 		flags: allow_placement_over_buildings
 		
-		length_max: 10.000
+		length_max: 8.000
 		length_step: 0.250
 
 		size: [0.500, 0.500]
 		cooldown: 0.300
+		min_support: 0.500
+
 		sound: "building_place"
 	}
 
