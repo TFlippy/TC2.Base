@@ -47,6 +47,14 @@ steamengine:
 		}
 		z: -290.000
 	}
+
+	@sound.emitter:
+	{
+		file: "steam_engine_loop"
+		volume: 0.000
+		pitch: 1.000
+		size: 0.700
+	}
 }
 
 steamengine.state:
@@ -117,12 +125,4 @@ transform:
 interactable:
 {
 	window_size: [192.000, 96.000]
-}
-
-sound.emitter:
-{
-	file: "steam_engine_loop"
-	volume: 0.000
-	pitch: 1.000
-	size: 0.700
 }
