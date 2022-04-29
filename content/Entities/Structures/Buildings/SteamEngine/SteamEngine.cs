@@ -173,7 +173,7 @@ namespace TC2.Base.Components
 				}
 			}
 
-			var (sin, cos) = MathF.SinCos(-wheel_state.rotation * MathF.CopySign(1.00f, transform.scale.X));
+			var (sin, cos) = MathF.SinCos(-wheel_state.rotation * transform.scale.GetParity());
 			renderer_piston.offset = wheel.offset + (new Vector2(cos, sin) * steam_engine.piston_radius);
 			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadians();
 		}
@@ -224,7 +224,7 @@ namespace TC2.Base.Components
 					texture = texture_smoke,
 					lifetime = random.NextFloatRange(0.50f, 1.00f) * steam_engine.steam_size,
 					pos = transform.LocalToWorldNoRotation(steam_engine.exhaust_offset) + random.NextVector2(0.20f),
-					vel = new Vector2((-3.00f - Maths.Clamp(delta, 0.00f, 3.00f)) * MathF.CopySign(1.00f, transform.scale.X), -0.50f),
+					vel = new Vector2((-3.00f - Maths.Clamp(delta, 0.00f, 3.00f)) * transform.scale.GetParity(), -0.50f),
 					force = new Vector2(0.30f, -0.40f),
 					fps = random.NextByteRange(10, 15),
 					frame_count = 64,

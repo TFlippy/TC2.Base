@@ -472,7 +472,7 @@ namespace TC2.Base.Components
 								gun_flags: gun.flags
 							);
 
-							region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: MathF.CopySign(1.00f, dir.X)).ContinueWith(ent =>
+							region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
 							{
 								ref var projectile = ref ent.GetComponent<Projectile.Data>();
 								if (!projectile.IsNull())
