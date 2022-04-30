@@ -33,7 +33,9 @@ namespace TC2.Base.Components
 		public partial struct State: IComponent
 		{
 			public float target_speed;
-			public float target_speed_current;
+			public float target_speed_current; 
+			
+			public float current_force;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
@@ -50,7 +52,7 @@ namespace TC2.Base.Components
 			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, state.target_speed);
 
 			state.target_speed_current = Maths.MoveTowards(state.target_speed_current, state.target_speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
-			wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, state.target_speed_current);
+			wheel_state.SetAngularVelocity(state.current_force * steam_engine.piston_radius, state.target_speed_current);
 
 			if (info.WorldTime >= state.next_tick)
 			{
