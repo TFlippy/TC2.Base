@@ -27,5 +27,5 @@
 	
 	specific_heat: 100.000
 	thermal_conductivity: 0.100
-	molar_mass: 63.012
+	molar_mass: 0.063012
 }
