@@ -46,17 +46,19 @@ namespace TC2.Base.Components
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info,
-		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State state,
-		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
+		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, 
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, state.target_speed);
 
-			state.target_speed_current = Maths.MoveTowards(state.target_speed_current, state.target_speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
-			wheel_state.SetAngularVelocity(state.current_force * steam_engine.piston_radius, state.target_speed_current);
+			steam_engine_state.target_speed_current = Maths.MoveTowards(steam_engine_state.target_speed_current, steam_engine_state.target_speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+			//wheel_state.SetAngularVelocity(steam_engine_state.current_force * steam_engine.piston_radius, steam_engine_state.target_speed_current);
+			wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, steam_engine_state.target_speed_current);
 
-			if (info.WorldTime >= state.next_tick)
+			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
-				state.next_tick = info.WorldTime + update_interval;
+				steam_engine_state.next_tick = info.WorldTime + update_interval;
 				//state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * steam_engine.speed_modifier, 0.00f);
 			}
 		}
