@@ -65,6 +65,7 @@ explosive:
 	sparks_amount: 0.800
 	volume: 1.500
 	pitch: 1.100
+	health_threshold: 0.700
 	flags: any_damage, explode_when_primed
 }
 
