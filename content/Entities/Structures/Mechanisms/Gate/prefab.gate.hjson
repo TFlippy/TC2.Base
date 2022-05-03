@@ -32,7 +32,7 @@ animated.renderer:
 
 gate:
 {
-
+	length: 6.000
 }
 
 axle:
@@ -70,6 +70,7 @@ rope.renderer:
 	texture: "rope"
 	thickness: 0.200
 	scale: 8.000
+	z: 100.000
 }
 
 joint.base:
