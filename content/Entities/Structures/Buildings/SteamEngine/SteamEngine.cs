@@ -16,7 +16,6 @@ namespace TC2.Base.Components
 			public float steam_interval = default;
 			public float piston_radius = default;
 
-			public float speed_modifier = 1.00f;
 			public float force = default;
 
 			public float volume_multiplier = 1.00f;
