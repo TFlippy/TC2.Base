@@ -124,11 +124,14 @@ namespace TC2.Base.Components
 			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
 			{
-				normal += arbiter.GetNormal();
-				friction += arbiter.GetFriction();
-				layers |= arbiter.GetLayerB();
+				if (arbiter.GetRigidity() > 0.90f)
+				{
+					normal += arbiter.GetNormal();
+					friction += arbiter.GetFriction();
+					layers |= arbiter.GetLayer();
 
-				arbiter_count++;
+					arbiter_count++;
+				}
 			}
 
 			if (arbiter_count > 0)
