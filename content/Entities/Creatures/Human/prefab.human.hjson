@@ -123,11 +123,6 @@ worker.state:
 
 }
 
-builder:
-{
-	flags: ruler
-}
-
 facing:
 {
 
