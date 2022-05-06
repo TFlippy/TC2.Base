@@ -1,5 +1,5 @@
 {
-	name: "Arcane Attractor"
+	name: "Arcane Attractor [WIP]"
 	desc: "Pulls essence nodes towards itself, which either collapse over time or can be harvested using an Arcane Infuser."
 	
 	icon:
