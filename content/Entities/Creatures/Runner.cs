@@ -15,6 +15,7 @@ namespace TC2.Base.Components
 			Crouching = 1 << 4,
 			Climbing = 1 << 5,
 			Sitting = 1 << 6,
+			WallClimbing = 1 << 7,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -49,6 +50,9 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_climb = default;
 			[Save.Ignore, Net.Ignore] public float last_air = default;
 
+			[Save.Ignore, Net.Ignore] public Vector2 last_force = default;
+			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force = default;
+
 			public State()
 			{
 
@@ -81,7 +85,12 @@ namespace TC2.Base.Components
 		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
 			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
-			if (runner_state.flags.HasAll(Runner.Flags.Climbing)) runner_state.last_climb = info.WorldTime;
+			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, (info.WorldTime - climber.last_wallclimb) < 0.10f);
+			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			{
+				runner_state.last_climb = info.WorldTime;
+				runner_state.last_wallclimb_force = climber.last_force;
+			}
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -155,7 +164,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				force.X *= 0.75f;
+				force.X *= (runner_state.flags.HasAny(Runner.Flags.WallClimbing)) ? 0.50f : 0.75f;
 				force.Y *= 0.00f;
 
 				force.Y -= runner_state.uphill_force_current * 0.75f;
@@ -212,6 +221,8 @@ namespace TC2.Base.Components
 			force *= runner_state.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);
+
+			runner_state.last_force = force;
 			body.AddForce(force);
 		}
 	}
