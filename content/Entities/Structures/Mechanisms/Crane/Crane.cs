@@ -3,11 +3,21 @@ namespace TC2.Base.Components
 {
 	public static partial class Crane
 	{
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+
+			Inverted = 1 << 0
+		}
+
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Crane.State>]
 		public partial struct Data: IComponent
 		{
 			public float length_a = 8.00f;
 			public float length_b = 8.00f;
+
+			public Crane.Flags flags = Flags.None;
 
 			public Data()
 			{
@@ -132,11 +142,25 @@ namespace TC2.Base.Components
 			if (!joint_base.flags.HasAll(Joint.Flags.No_Aiming))
 			{
 				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
-				var invert = float.IsNegative(transform.scale.X * transform.scale.Y);
+				var invert = float.IsNegative(transform.scale.GetParity()); // != crane.flags.HasAny(Crane.Flags.Inverted);
+
+				//if (crane.flags.HasAny(Crane.Flags.Inverted))
+				//{
+				//	invert = !invert;
+				//}
+
+				var transform_tmp = transform;
+				var transform_parent_tmp = transform_parent;
+			
+				//if (invert)
+				//{
+				//	transform_tmp.scale.X *= -1.00f;
+				//	transform_parent_tmp.scale.X *= -1.00f;
+				//}
 
 				if (control.mouse.GetKey(Mouse.Key.Right))
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert);
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
 
@@ -147,8 +171,14 @@ namespace TC2.Base.Components
 					}
 				}
 
-				gear_parent.rotation = transform_parent.WorldToLocalRotation(crane_state.angle_a);
-				gear.rotation = invert ? MathF.PI - crane_state.angle_b : crane_state.angle_b;
+				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a);
+				gear.rotation = crane_state.angle_b;
+
+				if (invert)
+				{
+					gear_parent.rotation = MathF.PI - gear_parent.rotation;
+					gear.rotation = MathF.PI - gear.rotation;
+				}
 
 				if (dirty)
 				{
