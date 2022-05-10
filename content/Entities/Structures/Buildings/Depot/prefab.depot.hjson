@@ -76,6 +76,11 @@ packer:
 	offset: [1.500, 0.250]
 }
 
+shipment:
+{
+	flags: keep_items, no_gui
+}
+
 stockpile:
 {
 
