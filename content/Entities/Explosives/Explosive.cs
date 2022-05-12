@@ -31,6 +31,8 @@ namespace TC2.Base.Components
 			[Statistics.Info("Terrain Damage", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float damage_terrain = default;
 
+			public Damage.Type damage_type = Damage.Type.Explosion;
+
 			public float smoke_amount = 1.00f;
 			public float sparks_amount = 0.00f;
 			public float volume = 1.00f;
@@ -100,12 +102,13 @@ namespace TC2.Base.Components
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))
 			{
-				var explosion_data = new Explosion.Data()
+				var explosion_tmp = new Explosion.Data()
 				{
 					power = explosive.power * explosive.modifier,
 					radius = explosive.radius * explosive.modifier,
 					damage_entity = explosive.damage_entity * explosive.modifier,
 					damage_terrain = explosive.damage_terrain * explosive.modifier,
+					damage_type = explosive.damage_type,
 					owner_entity = explosive.ent_owner,
 					smoke_amount = explosive.smoke_amount,
 					sparks_amount = explosive.sparks_amount,
@@ -113,23 +116,24 @@ namespace TC2.Base.Components
 					pitch = explosive.pitch,
 				};
 
-				if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_data.ent_ignored = entity;
+				if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
 
 				info.GetRegion().SpawnPrefab("explosion", transform.position).ContinueWith(x =>
 				{
 					ref var explosion = ref x.GetComponent<Explosion.Data>();
 					if (!explosion.IsNull())
 					{
-						explosion.power = explosion_data.power;
-						explosion.radius = explosion_data.radius;
-						explosion.damage_entity = explosion_data.damage_entity;
-						explosion.damage_terrain = explosion_data.damage_terrain;
-						explosion.owner_entity = explosion_data.owner_entity;
-						explosion.smoke_amount = explosion_data.smoke_amount;
-						explosion.sparks_amount = explosion_data.sparks_amount;
-						explosion.volume = explosion_data.volume;
-						explosion.pitch = explosion_data.pitch;
-						explosion.ent_ignored = explosion_data.ent_ignored;
+						explosion.power = explosion_tmp.power;
+						explosion.radius = explosion_tmp.radius;
+						explosion.damage_entity = explosion_tmp.damage_entity;
+						explosion.damage_terrain = explosion_tmp.damage_terrain;
+						explosion.damage_type = explosion_tmp.damage_type;
+						explosion.owner_entity = explosion_tmp.owner_entity;
+						explosion.smoke_amount = explosion_tmp.smoke_amount;
+						explosion.sparks_amount = explosion_tmp.sparks_amount;
+						explosion.volume = explosion_tmp.volume;
+						explosion.pitch = explosion_tmp.pitch;
+						explosion.ent_ignored = explosion_tmp.ent_ignored;
 
 						explosion.Sync(x);
 					}

@@ -17,6 +17,9 @@ namespace TC2.Base.Components
 			public float speed_modifier_min = 0.30f;
 			public float speed_modifier_max = 1.30f;
 
+			public float lifetime_modifier_min = 0.50f;
+			public float lifetime_modifier_max = 1.00f;
+
 			public int count = default;
 
 			public Data()
@@ -40,6 +43,7 @@ namespace TC2.Base.Components
 					(
 						damage_mult: cluster.damage_modifier,
 						vel: projectile.velocity.RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max),
+						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
 						owner: projectile.ent_owner,
 						faction_id: projectile.faction_id
 					);
@@ -59,6 +63,7 @@ namespace TC2.Base.Components
 							projectile.velocity = projectile_init.vel;
 							projectile.ent_owner = projectile_init.owner;
 							projectile.faction_id = projectile_init.faction_id;
+							projectile.lifetime *= projectile_init.lifetime_mult;
 
 							ent.SyncComponent(ref projectile);
 						}
