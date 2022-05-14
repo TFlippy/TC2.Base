@@ -53,7 +53,7 @@ shop:
 
 interactable:
 {
-	window_size: [548.000, 336.000]
+	window_size: [600.000, 400.000]
 }
 
 light:

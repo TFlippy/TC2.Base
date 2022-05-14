@@ -58,7 +58,7 @@ claimable:
 
 interactable:
 {
-	window_size: [504.000, 288.000]
+	window_size: [800.000, 500.000]
 }
 
 depot:
@@ -78,7 +78,7 @@ packer:
 
 shipment:
 {
-	flags: keep_items, no_gui
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }
 
 stockpile:
