@@ -92,8 +92,8 @@
 		}
 		{
 			prefab: "tree.oak"
-			position: [69.125, 62.750]
-			rotation: -0.05236
+			position: [69.375, 62.750]
+			rotation: -0.15708
 			scale: [-1.019097, 0.938889]
 		}
 		{
@@ -128,7 +128,7 @@
 		}
 		{
 			prefab: "tree.oak"
-			position: [233.125, 68.625]
+			position: [233.500, 68.625]
 			rotation: -0.10472
 			scale: [-1.148958, 1.004514]
 		}
@@ -290,7 +290,7 @@
 		}
 		{
 			prefab: "vine"
-			position: [63.625, 65.625]
+			position: [64.125, 65.250]
 			rotation: 0.000
 			scale: [-0.99375, 0.950]
 		}
@@ -530,14 +530,14 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5599, 62.50202]
-			rotation: -0.162443
+			position: [254.5597, 62.50204]
+			rotation: -0.162457
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7625, 63.35993]
-			rotation: 1.880388
+			position: [262.7626, 63.35995]
+			rotation: 1.880401
 			scale: [1.000, 1.000]
 		}
 		{
@@ -578,8 +578,8 @@
 		}
 		{
 			prefab: "ladder.wood"
-			position: [310.000, 59.250]
-			rotation: 0.000
+			position: [310.000, 58.000]
+			rotation: 0.017453
 			scale: [1.000, 1.000]
 		}
 		{
@@ -614,7 +614,7 @@
 		}
 		{
 			prefab: "vine"
-			position: [213.500, 62.250]
+			position: [216.250, 62.750]
 			rotation: 0.000
 			scale: [0.930554, 0.763889]
 		}
@@ -824,8 +824,8 @@
 		}
 		{
 			prefab: "ladder.wood"
-			position: [310.000, 53.250]
-			rotation: 0.000
+			position: [263.500, 41.875]
+			rotation: -0.10472
 			scale: [1.000, 1.000]
 		}
 		{
@@ -835,28 +835,28 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "ladder.wood"
-			position: [263.500, 42.125]
-			rotation: 0.000
-			scale: [1.000, 1.000]
+			prefab: "builder"
+			position: [569.2389, 48.0808]
+			rotation: -0.000002
+			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "ladder.wood"
-			position: [266.875, 60.500]
+			prefab: "miner"
+			position: [291.2663, 68.73003]
 			rotation: 0.000
-			scale: [1.000, 1.000]
+			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "ladder.wood"
-			position: [266.875, 54.375]
-			rotation: 0.000
-			scale: [1.000, 1.000]
+			prefab: "farmer"
+			position: [72.06139, 60.60172]
+			rotation: 0.000001
+			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "ladder.wood"
-			position: [266.875, 48.250]
+			prefab: "farmer"
+			position: [424.2798, 61.48001]
 			rotation: 0.000
-			scale: [1.000, 1.000]
+			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "wreck.crates.00"
@@ -902,8 +902,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.12989]
-			rotation: 0.000179
+			position: [260.8701, 44.12988]
+			rotation: 0.000198
 			scale: [1.000, 1.000]
 		}
 		{
@@ -914,14 +914,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.6011, 44.35445]
-			rotation: -1.569701
+			position: [268.6012, 44.35442]
+			rotation: -1.569632
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5393, 63.00901]
-			rotation: -0.109045
+			position: [268.5389, 63.00896]
+			rotation: -0.109296
 			scale: [1.000, 1.000]
 		}
 		{
@@ -931,9 +931,9 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "ladder.wood"
-			position: [312.375, 45.500]
-			rotation: 0.000
+			prefab: "wreck.ladder.wood"
+			position: [266.750, 59.375]
+			rotation: 0.069813
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1449,7 +1449,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [429.3317, 61.81053]
-			rotation: 0.104741
+			rotation: 0.10476
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1520,31 +1520,49 @@
 		}
 		{
 			prefab: "builder"
-			position: [436.8598, 61.60013]
-			rotation: 0.000002
+			position: [436.8638, 61.60067]
+			rotation: 0.000023
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "builder"
-			position: [569.2389, 48.0808]
-			rotation: -0.000002
-			scale: [-1.000, 1.000]
+			prefab: "wreck.ladder.wood"
+			position: [266.750, 47.375]
+			rotation: 0.017453
+			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "farmer"
-			position: [424.2798, 61.48001]
+			prefab: "wreck.ladder.wood"
+			position: [266.875, 53.250]
+			rotation: -0.034907
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "wreck.ladder.wood"
+			position: [310.000, 52.000]
+			rotation: -0.05236
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "wreck.ladder.wood"
+			position: [312.375, 45.000]
+			rotation: 0.122173
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "wreck.ladder.wood"
+			position: [82.750, 64.875]
+			rotation: -0.017453
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "roots"
+			position: [611.5001, 46.500]
 			rotation: 0.000
-			scale: [-1.000, 1.000]
+			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "farmer"
-			position: [72.0614, 60.60172]
-			rotation: 0.000001
-			scale: [-1.000, 1.000]
-		}
-		{
-			prefab: "miner"
-			position: [291.2663, 68.73003]
+			prefab: "vine"
+			position: [608.125, 34.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
