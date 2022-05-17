@@ -44,4 +44,7 @@ cluster:
 	spread: 0.400
 	speed: 0.000
 	count: 40
+
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
 }
