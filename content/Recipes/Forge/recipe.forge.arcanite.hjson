@@ -1,10 +1,10 @@
 {
-	name: "Recondite Powder"
-	desc: "A powdered mixture of smirgl and silver."
+	name: "Arcanite Powder"
+	desc: "A powdered mixture of smirgl and gold."
 	
 	icon:
 	{
-		texture: "resource.recondite_powder"
+		texture: "resource.arcanite_powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,25 +13,25 @@
 	max: 100
 	step: 10
 	type: workshop
-	tags: workbench
+	tags: forge
 	
 	requirements:
 	[
 		{
 			type: "resource"
 			material: "smirgl_powder"
-			amount: 0.700
+			amount: 0.600
 		}
 		{
 			type: "resource"
-			material: "silver_powder"
-			amount: 0.300
+			material: "gold_powder"
+			amount: 0.400
 		}
 		{
 			type: "work"
 			work: "mixing"
 			amount: 10.000
-			difficulty: 13.000
+			difficulty: 16.000
 		}
 	]
 	
@@ -39,7 +39,7 @@
 	[
 		{
 			type: "resource"
-			material: "recondite_powder"
+			material: "arcanite_powder"
 			amount: 1.000
 		}
 	]

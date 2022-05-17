@@ -1,6 +1,6 @@
 {
 	name: "Crane Arm (Cargo)"
-	desc: "An advanced crane arm with a built-in storage that can be provided to attached objects."
+	desc: "An advanced crane arm with a built-in storage that can be accessed by attached objects."
 	
 	icon:
 	{

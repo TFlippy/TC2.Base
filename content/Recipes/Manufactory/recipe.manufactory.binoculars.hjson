@@ -1,6 +1,6 @@
 {
 	name: "Binoculars"
-	desc: "Can be used to spy on the kingdoms far, far away."
+	desc: "Can be used to spy on kingdoms far, far away."
 	
 	icon:
 	{
@@ -13,7 +13,7 @@
 	
 	flags: blueprintable
 	type: workshop
-	tags: forge
+	tags: manufactory
 	
 	requirements:
 	[
