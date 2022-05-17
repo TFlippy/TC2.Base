@@ -504,7 +504,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					if (data.type == Gun.Type.AutoCannon) return false;
+					//if (data.type == Gun.Type.AutoCannon) return false;
 					return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
 				},
 
