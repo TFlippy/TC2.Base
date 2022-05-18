@@ -83,8 +83,3 @@ depot:
 
 	shipping_fee_base: 25.000
 }
-
-stockpile:
-{
-
-}
