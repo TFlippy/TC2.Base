@@ -576,9 +576,9 @@ namespace TC2.Base
 							gun.failure_rate = MathF.Max(0.00f, gun.failure_rate + (ratio * 0.50f));
 						}
 
-						gun.reload_interval *= 1.00f + (ratio * 0.70f);
+						gun.reload_interval *= 1.00f + (ratio * 0.20f);
 						gun.velocity_multiplier *= 1.00f - (ratio * 0.05f);
-						gun.jitter_multiplier += ratio;
+						gun.jitter_multiplier += ratio * 1.50f;
 					}
 
 					ref var melee = ref context.GetComponent<Melee.Data>();
@@ -586,6 +586,20 @@ namespace TC2.Base
 					{
 						melee.damage_base *= 1.00f - ratio;
 						melee.damage_bonus *= MathF.Pow(1.00f + ratio, 1.10f);
+					}
+
+					ref var holdable = ref context.GetComponent<Holdable.Data>();
+					if (!holdable.IsNull())
+					{
+						holdable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.50f), 1.30f);
+						holdable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.10f), 1.20f);
+					}
+
+					ref var attachable = ref context.GetComponent<Attachable.Data>();
+					if (!attachable.IsNull())
+					{
+						attachable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.40f), 1.20f);
+						attachable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.05f), 1.20f);
 					}
 				},
 

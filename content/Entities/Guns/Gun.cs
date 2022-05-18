@@ -330,6 +330,9 @@ namespace TC2.Base.Components
 			{
 				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, false);
 				gun_state.stage = Gun.Stage.Reloading;
+				gun_state.Sync(entity);
+
+				return;
 			}
 #endif
 
@@ -347,7 +350,9 @@ namespace TC2.Base.Components
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
-					entity.SyncComponent(ref gun_state);
+					gun_state.Sync(entity);
+
+					return;
 #endif
 				}
 				else
@@ -390,7 +395,9 @@ namespace TC2.Base.Components
 						if (done)
 						{
 							gun_state.stage = Gun.Stage.Cycling;
-							entity.SyncComponent(ref gun_state);
+							gun_state.Sync(entity);
+
+							return;
 						}
 #endif
 					}
@@ -424,6 +431,8 @@ namespace TC2.Base.Components
 
 				var failure_rate = gun.failure_rate;
 				var stability = gun.stability;
+
+				var force_jammed = false;
 
 #if CLIENT
 				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
@@ -459,45 +468,58 @@ namespace TC2.Base.Components
 						overheat.Sync(entity);
 					}
 
+					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
+
 					{
 						for (var i = 0; i < count; i++)
 						{
+							var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+
 							var args =
 							(
-								damage_mult: gun.damage_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(gun.jitter_multiplier * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random.NextFloatRange(0.90f, 1.10f),
+								damage_mult: gun.damage_multiplier * random_multiplier,
+								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
 								faction_id: faction.id,
 								gun_flags: gun.flags
 							);
 
-							region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
+							if (gun.type != Gun.Type.Launcher && args.vel.LengthSquared() < (80 * 80))
 							{
-								ref var projectile = ref ent.GetComponent<Projectile.Data>();
-								if (!projectile.IsNull())
+								force_jammed = true;
+								break;
+							}
+							else
+							{
+								region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
 								{
-									projectile.damage_base *= args.damage_mult;
-									projectile.damage_bonus *= args.damage_mult;
-									projectile.velocity = args.vel;
-									projectile.ent_owner = args.ent_owner;
-									projectile.faction_id = args.faction_id;
+									ref var projectile = ref ent.GetComponent<Projectile.Data>();
+									if (!projectile.IsNull())
+									{
+										projectile.damage_base *= args.damage_mult;
+										projectile.damage_bonus *= args.damage_mult;
+										projectile.velocity = args.vel;
+										projectile.ent_owner = args.ent_owner;
+										projectile.faction_id = args.faction_id;
 
-									ent.SyncComponent(ref projectile);
-								}
+										ent.SyncComponent(ref projectile);
+									}
 
-								ref var explosive = ref ent.GetComponent<Explosive.Data>();
-								if (!explosive.IsNull())
-								{
-									explosive.ent_owner = args.ent_owner;
-									ent.SyncComponent(ref explosive);
-								}
+									ref var explosive = ref ent.GetComponent<Explosive.Data>();
+									if (!explosive.IsNull())
+									{
+										explosive.ent_owner = args.ent_owner;
+										ent.SyncComponent(ref explosive);
+									}
 
-								if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
-								{
-									ent.AddRelation(args.ent_gun, Relation.Type.Child);
-								}
-							});
+									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
+									{
+										ent.AddRelation(args.ent_gun, Relation.Type.Child);
+									}
+								});
+							}
 						}
 					}
 
@@ -537,12 +559,12 @@ namespace TC2.Base.Components
 				}
 #endif
 
-				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
+				if (force_jammed || gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 
 #if SERVER
-					if (random.NextBool(failure_rate))
+					if (force_jammed || random.NextBool(failure_rate))
 					{
 						//App.WriteLine("jammed");
 
@@ -707,8 +729,6 @@ namespace TC2.Base.Components
 					}
 					else
 					{
-						//App.WriteLine("jammed");
-
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
