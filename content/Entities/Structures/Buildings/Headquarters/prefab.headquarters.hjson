@@ -92,7 +92,7 @@ shop:
 
 interactable:
 {
-	window_size: [504.000, 288.000]
+	window_size: [624.000, 384.000]
 }
 
 depot:

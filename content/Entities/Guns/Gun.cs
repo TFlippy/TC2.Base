@@ -8,7 +8,6 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle texture_muzzle_flash = "MuzzleFlash";
 
-		public static readonly Sound.Handle sound_gun_jam = "gun_jam";
 		public static readonly Sound.Handle sound_gun_break = "gun_break";
 
 		public enum Stage: uint
@@ -119,6 +118,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
+			public static readonly Sound.Handle sound_jam_default = "gun_jam";
+
 			public Vector2 muzzle_offset = default;
 			public Vector2 particle_offset = default;
 			public float particle_rotation = default;
@@ -127,6 +128,7 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_cycle = default;
 			public Sound.Handle sound_reload = default;
 			public Sound.Handle sound_empty = default;
+			public Sound.Handle sound_jam = sound_jam_default;
 
 			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_multiplier = default;
@@ -571,7 +573,7 @@ namespace TC2.Base.Components
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+						Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
 						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
 					}
 #endif
@@ -724,7 +726,7 @@ namespace TC2.Base.Components
 
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
 					}
 					else
@@ -732,7 +734,7 @@ namespace TC2.Base.Components
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);
 					}
 #endif
