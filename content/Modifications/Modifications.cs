@@ -496,6 +496,160 @@ namespace TC2.Base
 				}
 			));
 
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.recycled",
+				category: "Crafting",
+				name: "Scrap-Recycled",
+				description: "Lowers the production cost significantly, while also reducing overall item quality.",
+
+				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ratio = ref handle.GetData<float>();
+					ratio = Maths.Clamp(ratio, 0.10f, 0.65f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ratio = ref handle.GetData<float>();
+					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f);
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (modifications.HasModification(handle)) return false;
+
+					var has_valid_material = false;
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						ref var requirement = ref context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							{
+								has_valid_material = true;
+								break;
+							}
+						}
+					}
+
+					return has_valid_material;
+				},
+
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ratio = ref handle.GetData<float>();
+
+					ref var armor = ref context.GetComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.toughness *= 1.00f - ratio;
+						armor.protection *= 1.00f - ratio;
+
+						if (ratio > 0.15f)
+						{
+							armor.pain_modifier *= 1.00f + ratio;
+						}
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= MathF.Pow(1.00f - ratio, 1.20f);
+					}
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (!gun.IsNull())
+					{
+						gun.stability *= MathF.Pow(1.00f - ratio, 1.30f);
+						gun.failure_rate *= MathF.Pow(1.00f - ratio, 1.50f);
+
+						if (ratio > 0.10f)
+						{
+							gun.failure_rate = MathF.Max(0.00f, gun.failure_rate + (ratio * 0.50f));
+						}
+
+						gun.reload_interval *= 1.00f + (ratio * 0.70f);
+						gun.velocity_multiplier *= 1.00f - (ratio * 0.05f);
+						gun.jitter_multiplier += ratio;
+					}
+
+					ref var melee = ref context.GetComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.damage_base *= 1.00f - ratio;
+						melee.damage_bonus *= MathF.Pow(1.00f + ratio, 1.10f);
+					}
+				},
+
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ratio = ref handle.GetData<float>();
+
+					ref var material_scrap = ref Material.GetMaterial("scrap");
+					var total_mass = 0.00f;
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						ref var requirement = ref context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							{
+								if (material.flags.HasAll(Material.Flags.Manufactured))
+								{
+									var removed_amount = requirement.amount * (ratio);
+									requirement.amount -= removed_amount;
+
+									total_mass += material.mass_per_unit * removed_amount * 2.10f;
+								}
+								else
+								{
+									var removed_amount = requirement.amount * (ratio * 0.70f);
+									requirement.amount -= removed_amount;
+
+									total_mass += material.mass_per_unit * removed_amount * 1.70f;
+								}
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= MathF.Pow(1.00f - ratio, 1.50f);
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= MathF.Pow(1.00f - ratio, 1.30f);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= MathF.Pow(1.00f - (ratio * 0.80f), 1.10f);
+								}
+								break;
+							}
+						}
+					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap.id, total_mass / material_scrap.mass_per_unit));
+				}
+			));
+
 			//definitions.Add(Modification.Definition.New<Holdable.Data>
 			//(
 			//	identifier: "holdable.compact",
