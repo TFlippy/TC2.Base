@@ -263,7 +263,7 @@ namespace TC2.Base
 				identifier: "overheat.movement_cooling",
 				category: "Heat Management",
 				name: "Movement Cooling",
-				description: "Increased cooling rate while in motion.",
+				description: "Increases cooling rate while in motion.",
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -317,12 +317,12 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<int>();
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("copper_plate", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("iron_ingot");
+						ref var material = ref Material.GetMaterial("copper_plate");
 						body.mass_extra += amount * material.mass_per_unit;
 					}
 				}

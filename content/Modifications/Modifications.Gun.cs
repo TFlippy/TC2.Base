@@ -322,7 +322,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank;
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && !data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -373,7 +373,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank;
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -2206,7 +2206,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 				}
 			));
