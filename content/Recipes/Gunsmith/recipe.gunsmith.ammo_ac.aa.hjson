@@ -1,0 +1,56 @@
+{
+	name: "Autocannon Ammo (Anti-Air)"
+	desc: "Ammunition for autocannons. (Anti-Air)"
+	
+	icon:
+	{
+		texture: "resource.ammo_ac.aa"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 4
+	max: 100
+	step: 4
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.300
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.200
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 4.000
+		}
+		{
+			type: "resource"
+			material: "nitroglycerine"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 80.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_ac.aa"
+			amount: 1.000
+		}
+	]
+}
