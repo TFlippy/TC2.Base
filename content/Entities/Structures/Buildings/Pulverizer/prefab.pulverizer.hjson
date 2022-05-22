@@ -60,7 +60,7 @@ pulverizer.state:
 
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 100.000

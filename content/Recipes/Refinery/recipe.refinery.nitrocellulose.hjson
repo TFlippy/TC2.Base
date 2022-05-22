@@ -1,0 +1,60 @@
+{
+	name: "Nitrocellulose"
+	desc: "A simple method of producing nitrocellulose from cloth, nitric and sulfuric acid."
+	
+	icon:
+	{
+		texture: "resource.nitrocellulose"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "cloth"
+			amount: 20.000
+		}
+		{
+			type: "resource"
+			material: "nitric_acid"
+			amount: 25.000
+		}
+		{
+			type: "resource"
+			material: "sulfuric_acid"
+			amount: 15.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 10.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount_min: 150.000
+			amount_max: 250.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount_min: 10.000
+			amount_max: 25.000
+		}
+	]
+}

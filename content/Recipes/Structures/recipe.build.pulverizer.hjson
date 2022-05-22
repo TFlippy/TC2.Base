@@ -1,0 +1,61 @@
+{
+	name: "Pulverizer"
+	desc:
+		'''
+		A large machine used for reducing ores into smaller chunks.
+		'''
+	
+	icon:
+	{
+		texture: "pulverizer.icon"
+		size: [48, 48]
+	}
+	
+	type: build
+	flags: none
+	tags: industry
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [6.000, 6.000]
+		offset: [0.000, -2.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_plate"
+			amount: 100.000
+		}
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 20.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 500.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "pulverizer"
+			amount: 1.000
+		}
+	]
+}

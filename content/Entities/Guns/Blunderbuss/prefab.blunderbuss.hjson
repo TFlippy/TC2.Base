@@ -11,7 +11,7 @@ body:
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
@@ -22,9 +22,9 @@ gun:
 	sound_shoot: "blunderbuss_shoot"
 	sound_cycle: "blunderbuss_cycle"
 	sound_reload: "blunderbuss_reload"
-	velocity_multiplier: 220.000
+	velocity_multiplier: 250.000
 	jitter_multiplier: 8.000
-	damage_multiplier: 3.300
+	damage_multiplier: 4.800
 	recoil_multiplier: 2.500
 	reload_interval: 2.000
 	cycle_interval: 0.500

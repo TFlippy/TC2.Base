@@ -1,0 +1,30 @@
+{
+	name: "Opium"
+	description: "Dried poppy resin used for production of opiates."
+	icon:
+	{
+		texture: "resource.opium"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: rubber
+	flags: raw
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.opium"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

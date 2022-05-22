@@ -36,7 +36,7 @@
 			position: [133.1355, 33.66088]
 			rotation: 0.000
 			scale: [16.000, 16.000]
-		}		
+		}
 		{
 			prefab: "background.nostalgia"
 			position: [426.875, 58.125]
@@ -351,7 +351,7 @@
 		}
 		{
 			prefab: "tree.oak.dead"
-			position: [174.125, 46.625]
+			position: [176.375, 46.625]
 			rotation: 0.034907
 			scale: [-0.998016, 0.873016]
 		}
@@ -375,8 +375,8 @@
 		}
 		{
 			prefab: "shrubbery.00"
-			position: [211.625, 46.250]
-			rotation: 0.000
+			position: [211.500, 47.000]
+			rotation: 0.418879
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -411,7 +411,7 @@
 		}
 		{
 			prefab: "mine"
-			position: [332.375, 59.625]
+			position: [330.750, 60.000]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -471,7 +471,7 @@
 		}
 		{
 			prefab: "roots"
-			position: [325.625, 55.375]
+			position: [325.625, 54.250]
 			rotation: 0.000
 			scale: [-1.206348, 1.146032]
 		}
@@ -1653,8 +1653,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [794.5723, 47.99655]
-			rotation: -14.39864
+			position: [794.5723, 47.99656]
+			rotation: -14.39861
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1893,8 +1893,8 @@
 		}
 		{
 			prefab: "miner"
-			position: [327.7339, 60.89516]
-			rotation: -0.000001
+			position: [327.7299, 60.89557]
+			rotation: -0.000334
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1905,19 +1905,19 @@
 		}
 		{
 			prefab: "builder"
-			position: [821.3679, 48.23001]
+			position: [821.3674, 48.63001]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "farmer"
-			position: [24.44755, 9.100027]
-			rotation: -0.000001
+			position: [24.44157, 9.100027]
+			rotation: -0.000245
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [141.8089, 67.43239]
+			position: [141.8061, 67.43327]
 			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}

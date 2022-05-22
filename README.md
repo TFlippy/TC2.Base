@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://imgur.com/h5UIsdl.png"><br>Territory Control 2
+  <img src="https://imgur.com/h5UIsdl.png"><br><a href="https://store.steampowered.com/app/690290/Territory_Control_2/">Territory Control 2</a>
 </h1>
 <h3 align="center">Official Base Game Content</h3>
   
@@ -14,4 +14,6 @@
   <li><b>Jenny</b> - Lead artist, spritework, a bit of game design</li>
   <li><b>McSaucyNugget</b> - Spritework</li>
   <li><b>Vamist</b> - Server hosting, Linux support</li>
+  <li><b>Drakon-RBI</b> - Contributor, ideas, testing, walking encyclopedia</li>
+  <li><b>Wunarg</b> - Contributor, ideas, testing</li>
 </ul>

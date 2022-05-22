@@ -5,8 +5,9 @@ projectile:
 	damage_base: 100.000
 	damage_bonus: 300.000
 	lifetime: 2.000
-	damage_type: bullet_mg
+	damage_type: bullet_ac
 	size: 0.350
+	ricochet_count: 0
 }
 
 projectile.renderer:

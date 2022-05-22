@@ -1,0 +1,51 @@
+{
+	name: "Bomb"
+	desc: "A small throwable explosive."
+	
+	icon:
+	{
+		texture: "bomb.ball"
+	}
+	
+	min: 2
+	max: 16
+	step: 2
+	
+	flags: blueprintable
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 2.500
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "cloth"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 60.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "bomb.ball"
+			amount: 1.000
+		}
+	]
+}

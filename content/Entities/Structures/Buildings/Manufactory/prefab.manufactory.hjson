@@ -49,7 +49,7 @@ interactable:
 shop:
 {
 	name: "Manufactory"
-	tags: workbench
+	tags: manufactory
 }
 
 workshop:

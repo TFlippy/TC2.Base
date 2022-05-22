@@ -7,6 +7,11 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float max_depth = 8.00f;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]

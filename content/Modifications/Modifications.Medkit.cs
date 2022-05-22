@@ -4,7 +4,6 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		// TODO: Split this into multiple files
 		private static void RegisterMedkitModifications(ref List<Modification.Definition> definitions)
 		{
 			definitions.Add(Modification.Definition.New<Medkit.Data>
@@ -46,7 +45,6 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 8));
 				}
 			));
-
 
 			definitions.Add(Modification.Definition.New<Medkit.Data>
 			(

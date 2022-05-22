@@ -57,6 +57,11 @@ runner:
 	jump_force: 1200.000
 }
 
+runner.state:
+{
+	
+}
+
 norotate:
 {
 

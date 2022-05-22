@@ -17,7 +17,7 @@ namespace TC2.Base
 				validate: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					pair.amount = Maths.Clamp(pair.amount, 1, 10);
+					pair.amount = Maths.Clamp(pair.amount, 10, 50);
 					pair.threshold = Maths.Clamp(pair.threshold, 0.20f, 0.99f);
 
 					return true;
@@ -31,9 +31,9 @@ namespace TC2.Base
 					var size = GUI.GetRemainingSpace();
 
 					var changed = false;
-					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 10, "%d", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 10, 50, size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
-					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, "%.2f", size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
@@ -41,18 +41,19 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<Explosive.Data>().IsNull();
+					return !context.HasComponent<Explosive.Data>();
 				},
 
 				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
+					ref var material = ref Material.GetMaterial("nitroglycerine");
 
 					ref var explosive = ref context.GetOrAddComponent<Explosive.Data>();
-					explosive.power = 3.00f + (pair.amount * 0.80f);
-					explosive.radius = 2.00f + (pair.amount * 0.50f);
-					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f);
-					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f);
+					explosive.power = 3.00f + (pair.amount * 0.80f * material.mass_per_unit);
+					explosive.radius = 2.00f + (pair.amount * 0.50f * material.mass_per_unit);
+					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f * material.mass_per_unit);
+					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f * material.mass_per_unit);
 					explosive.health_threshold = pair.threshold;
 					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
 				},
@@ -64,19 +65,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Health.Data>
+			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "health.mushroom_glow",
 				category: "Utility",
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
 
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<Light.Data>().IsNull();
+					return !context.HasComponent<Light.Data>() && !modifications.HasModification(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
 					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
@@ -85,7 +86,7 @@ namespace TC2.Base
 					light.texture = "light_invsqr";
 				},
 
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
 				}
@@ -122,7 +123,6 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("resin", total_amount));
 
 					data.max += total_amount * 85.00f;
-					data.armor += 50.00f;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -195,6 +195,28 @@ namespace TC2.Base
 					}
 				}
 			));
+			//definitions.Add(Modification.Definition.New<Body.Data> // Can be used on any recipe which results in a prefab
+			//(
+			//	identifier: "body.efficient_crafting",
+			//	name: "Efficient Crafting",
+			//	description: "Rework the design to reduce material costs slightly.",
+
+			//	apply_1: static (ref Modification.Context context, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	{
+			//		foreach (ref var requirement in context.requirements_new)
+			//		{
+			//			if (requirement.type == Crafting.Requirement.Type.Resource)
+			//			{
+			//				requirement.amount *= 0.80f;
+			//			}
+			//			else if (requirement.type == Crafting.Requirement.Type.Work)
+			//			{
+			//				requirement.amount *= 1.05f;
+			//				requirement.difficulty += 2.50f;
+			//			}
+			//		}
+			//	}
+			//));
 
 			definitions.Add(Modification.Definition.New<Fuse.Data>
 			(
@@ -202,6 +224,11 @@ namespace TC2.Base
 				category: "Explosives",
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
+
+				can_add: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
 
 				validate: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -215,7 +242,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f, "%.2f");
+					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f);
 				},
 #endif
 
@@ -233,6 +260,11 @@ namespace TC2.Base
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
+				can_add: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					data.failure_chance = 0.00f;
@@ -246,6 +278,11 @@ namespace TC2.Base
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
+				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
@@ -258,7 +295,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 40, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 40);
 				},
 #endif
 
@@ -288,11 +325,11 @@ namespace TC2.Base
 				identifier: "overheat.movement_cooling",
 				category: "Heat Management",
 				name: "Movement Cooling",
-				description: "Increased cooling rate while in motion.",
+				description: "Increases cooling rate while in motion.",
 
 				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return context.GetComponent<MovementCooling.Data>().IsNull();
+					return !modifications.HasModification(handle);
 				},
 
 				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -311,6 +348,11 @@ namespace TC2.Base
 				name: "Air-Cooled",
 				description: "Increases cooling rate.",
 
+				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
 				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
@@ -323,7 +365,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 10, "%d");
+					return GUI.SliderInt("Amount", ref amount, 1, 10);
 				},
 #endif
 
@@ -337,12 +379,12 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<int>();
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("copper_plate", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("iron_ingot");
+						ref var material = ref Material.GetMaterial("copper_plate");
 						body.mass_extra += amount * material.mass_per_unit;
 					}
 				}
@@ -394,9 +436,9 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Modification.Definition.New<Control.Data>
 			(
-				identifier: "body.random_activation",
+				identifier: "control.random_activation",
 				category: "Utility",
 				name: "Random Activation",
 				description: "Item randomly activates on its own.",
@@ -406,19 +448,24 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
 					random_activation.duration += 0.20f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // High cost
 
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // Even higher cost on melee weapons
 					}
 				}
 			));
@@ -442,7 +489,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
-					return GUI.SliderInt("Count", ref batch_size, 1, 10, "%d");
+					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
 
@@ -510,33 +557,172 @@ namespace TC2.Base
 					}
 				}
 			));
-			
-			definitions.Add(Modification.Definition.New<Cover.Data>
-			(
-				identifier: "cover.chitin_lined",
-				category: "Protection",
-				name: "Chitin-Lined",
-				description: "Incorporate chitin lining into the armor, greatly improving its blocking capacity, while making it slightly more brittle.",
 
-				can_add: static (ref Modification.Context context, in Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			definitions.Add(Modification.Definition.New<Body.Data>
+			(
+				identifier: "body.recycled",
+				category: "Crafting",
+				name: "Scrap-Recycled",
+				description: "Lowers the production cost significantly, while also reducing overall item quality.",
+
+				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return !modifications.HasModification(handle);
+					ref var ratio = ref handle.GetData<float>();
+					ratio = Maths.Clamp(ratio, 0.10f, 0.65f);
+
+					return true;
 				},
 
-				apply_0: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					data.threshold = Maths.Clamp(data.threshold - 0.25f, 0.00f, 1.00f);
+					ref var ratio = ref handle.GetData<float>();
+					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f);
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (modifications.HasModification(handle)) return false;
+
+					var has_valid_material = false;
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						ref var requirement = ref context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							{
+								has_valid_material = true;
+								break;
+							}
+						}
+					}
+
+					return has_valid_material;
+				},
+
+				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var ratio = ref handle.GetData<float>();
+
+					ref var armor = ref context.GetComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.toughness *= 1.00f - ratio;
+						armor.protection *= 1.00f - ratio;
+
+						if (ratio > 0.15f)
+						{
+							armor.pain_modifier *= 1.00f + ratio;
+						}
+					}
 
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
 					{
-						health.max *= 0.95f;
+						health.max *= MathF.Pow(1.00f - ratio, 1.20f);
+					}
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (!gun.IsNull())
+					{
+						gun.stability *= MathF.Pow(1.00f - ratio, 1.30f);
+						gun.failure_rate *= MathF.Pow(1.00f - ratio, 1.50f);
+
+						if (ratio > 0.10f)
+						{
+							gun.failure_rate = MathF.Max(0.00f, gun.failure_rate + (ratio * 0.50f));
+						}
+
+						gun.reload_interval *= 1.00f + (ratio * 0.20f);
+						gun.velocity_multiplier *= 1.00f - (ratio * 0.05f);
+						gun.jitter_multiplier += ratio * 1.50f;
+					}
+
+					ref var melee = ref context.GetComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.damage_base *= 1.00f - ratio;
+						melee.damage_bonus *= MathF.Pow(1.00f + ratio, 1.10f);
+					}
+
+					ref var holdable = ref context.GetComponent<Holdable.Data>();
+					if (!holdable.IsNull())
+					{
+						holdable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.50f), 1.30f);
+						holdable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.10f), 1.20f);
+					}
+
+					ref var attachable = ref context.GetComponent<Attachable.Data>();
+					if (!attachable.IsNull())
+					{
+						attachable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.40f), 1.20f);
+						attachable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.05f), 1.20f);
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Cover.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
+					ref var ratio = ref handle.GetData<float>();
+
+					ref var material_scrap = ref Material.GetMaterial("scrap");
+					var total_mass = 0.00f;
+
+					for (int i = 0; i < context.requirements_new.Length; i++)
+					{
+						ref var requirement = ref context.requirements_new[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							{
+								if (material.flags.HasAll(Material.Flags.Manufactured))
+								{
+									var removed_amount = requirement.amount * (ratio);
+									requirement.amount -= removed_amount;
+
+									total_mass += material.mass_per_unit * removed_amount * 2.10f;
+								}
+								else
+								{
+									var removed_amount = requirement.amount * (ratio * 0.70f);
+									requirement.amount -= removed_amount;
+
+									total_mass += material.mass_per_unit * removed_amount * 1.70f;
+								}
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Machining:
+								{
+									requirement.amount *= MathF.Pow(1.00f - ratio, 1.50f);
+								}
+								break;
+
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= MathF.Pow(1.00f - ratio, 1.30f);
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= MathF.Pow(1.00f - (ratio * 0.80f), 1.10f);
+								}
+								break;
+							}
+						}
+					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap.id, total_mass / material_scrap.mass_per_unit));
 				}
 			));
 
@@ -576,7 +762,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f, "%.2f");
+					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f);
 				},
 #endif
 
@@ -592,6 +778,294 @@ namespace TC2.Base
 					data.max_distance *= value;
 					data.zoom_min /= 0.50f + (value * 0.50f);
 					data.zoom_max /= 0.50f + (value * 0.50f);
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Equipment.Data>
+			(
+				identifier: "equipment.cursed",
+				category: "Utility",
+				name: "Cursed",
+				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
+
+				can_add: static (ref Modification.Context context, in Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.flags.SetFlag(Equipment.Flags.Unremovable, true);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("tar", 15.00f));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.alcohol",
+				category: "Consumable",
+				name: "Mix: Alcohol",
+				description: "Mixes a dose of alcohol into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Alcohol.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 500.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Alcohol.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("alcohol");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.meth",
+				category: "Consumable",
+				name: "Mix: Methamphetamine",
+				description: "Mixes a dose of methamphetamine into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Meth.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 200.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Meth.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("meth");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.morphine",
+				category: "Consumable",
+				name: "Mix: Morphine",
+				description: "Mixes a dose of morphine into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Morphine.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 100.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Morphine.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("morphine");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.codeine",
+				category: "Consumable",
+				name: "Mix: Codeine",
+				description: "Mixes a dose of codeine into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Codeine.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 100.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Codeine.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("codeine");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Consumable.Data>
+			(
+				identifier: "consumable.paxilon",
+				category: "Consumable",
+				name: "Mix: Paxilon Hydrochlorate",
+				description: "Mixes a dose of paxilon hydrochlorate into the item.",
+
+				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !context.HasComponent<Paxilon.Effect>();
+				},
+
+				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 100.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Paxilon.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var material = ref Material.GetMaterial("paxilon");
+					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Pill.Data>
+			(
+				identifier: "pill.extended_release",
+				category: "Consumable",
+				name: "Extended Release",
+				description: "Lowers the release rate of a pill, spreading out the dose over a longer timespan.",
+
+				validate: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.01f, 0.20f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f);
+				},
+#endif
+
+				can_add: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return !modifications.HasModification(handle);
+				},
+
+				apply_1: static (ref Modification.Context context, ref Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					ref var consumable = ref context.GetComponent<Consumable.Data>();
+					if (!consumable.IsNull())
+					{
+						consumable.release_rate *= value;
+					}
 				}
 			));
 		}

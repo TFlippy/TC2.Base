@@ -11,20 +11,20 @@ body:
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [0.600, -0.200]
+	muzzle_offset: [0.600, -0.1875]
 	sound_shoot: "pistol_shoot"
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
 	velocity_multiplier: 280.000
 	jitter_multiplier: 0.300
-	damage_multiplier: 1.500
+	damage_multiplier: 2.750
 	recoil_multiplier: 0.300
 	reload_interval: 1.800
 	cycle_interval: 0.160

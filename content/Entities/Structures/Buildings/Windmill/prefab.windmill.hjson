@@ -56,7 +56,7 @@ windmill:
 	}
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 2.000]
 	mass: 2.000

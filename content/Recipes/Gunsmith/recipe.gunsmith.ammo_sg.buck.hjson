@@ -1,0 +1,64 @@
+{
+	name: "Shotgun Shell (Buckshot, Standard)"
+	desc:
+		'''
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
+		
+		Gunpowder is weaker, but cheap.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.buck"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.040
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 0.040
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 8.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.buck"
+			amount: 1.000
+		}
+	]
+}

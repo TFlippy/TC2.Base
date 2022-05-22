@@ -44,5 +44,5 @@ shipment:
 
 interactable:
 {
-	window_size: [384.000, 192.000]
+	window_size: [192.000, 192.000]
 }

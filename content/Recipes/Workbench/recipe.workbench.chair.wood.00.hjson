@@ -1,0 +1,44 @@
+{
+	name: "Chair (Wood)"
+	desc:
+		'''
+		A decently comfortable wooden chair.
+		'''
+	
+	icon:
+	{
+		texture: "chair.wood.00"
+	}
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: workbench
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 80.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 350.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "chair.wood.00"
+			amount: 1.000
+		}
+	]
+}

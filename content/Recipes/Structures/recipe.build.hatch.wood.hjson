@@ -1,0 +1,53 @@
+{
+	name: "Hatch (Wood)"
+	desc:
+		'''
+		A cheap wooden hatch to keep the intruders out.
+		'''
+	
+	icon:
+	{
+		texture: "hatch.wood"
+		size: [20, 24]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [2.500, 0.750]
+		
+		cooldown: 0.500
+		min_support: 0.300
+		min_claim: 1.000
+
+		rotation_max: 6.283
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 120.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "hatch.wood"
+			amount: 1.000
+		}
+	]
+}

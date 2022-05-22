@@ -1,6 +1,6 @@
 {
 	name: "Arcanite Ingot"
-	description: "An alloy of smirgl and gold capable of interacting with the immaterial world."
+	description: "An alloy of smirgl and gold with a peculiar property of becoming permeable to essences based on the electrical current flowing through it."
 	icon:
 	{
 		texture: "resource.arcanite_ingot"
@@ -11,7 +11,7 @@
 	type: metal
 	flags: ingot, metal
 	mass_per_unit: 3.303
-	quantity_max: 50.000
+	quantity_max: 250.000
 	prefab: "resource.arcanite_ingot"
 	
 	projectile_count: 0

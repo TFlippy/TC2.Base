@@ -1,0 +1,52 @@
+$tags: []
+
+body:
+{
+	@shape.polygon:	
+	{
+		points:
+		[
+			[1.000, 1.375]
+			[-1.000, 1.375]
+			[0.250, -1.500]
+			[0.400, -1.500]
+		]
+		offset: [0.000, 0.000]
+		mass: 30.000
+		friction: 0.950
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: none
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "barricade"
+	}
+	z: 10.000
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+	threshold: 0.700
+}

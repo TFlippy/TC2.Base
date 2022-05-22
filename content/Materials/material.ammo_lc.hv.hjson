@@ -5,11 +5,19 @@
 		Ammunition for pistols, revolvers
 		and submachine guns.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_lc.hv"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	type: metal

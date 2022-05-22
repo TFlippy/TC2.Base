@@ -1,0 +1,48 @@
+{
+	name: "Helmet"
+	desc: "TODO: Desc"
+	
+	icon:
+	{
+		texture: "helmet.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "leather"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 350.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "helmet.00"
+			amount: 1.000
+		}
+	]
+}

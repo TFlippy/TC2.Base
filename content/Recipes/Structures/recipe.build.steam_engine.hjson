@@ -1,0 +1,66 @@
+{
+	name: "Steam Engine"
+	desc:
+		'''
+		A powerful steam engine.
+		'''
+	
+	icon:
+	{
+		texture: "steam_engine"
+		size: [64, 40]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 20.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [8.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_plate"
+			amount: 80.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 25.000
+		}
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 20.000
+		}
+		{
+			type: resource
+			material: "copper_ingot"
+			amount: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "steam_engine"
+			amount: 1.000
+		}
+	]
+}

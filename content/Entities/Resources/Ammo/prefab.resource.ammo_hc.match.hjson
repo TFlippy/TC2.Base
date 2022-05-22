@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.500]
+		mass: 10.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.200
+		layer: entity, solid, resource
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_hc.match"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_hc.match"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}

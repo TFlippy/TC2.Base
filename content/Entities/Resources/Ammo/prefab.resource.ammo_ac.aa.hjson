@@ -1,0 +1,66 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.500]
+		mass: 10.000
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.200
+		layer: entity, solid, resource
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_ac.aa"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_ac.aa"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 250.000
+}
+
+explosive:
+{
+	radius: 4.500
+	power: 3.000
+	damage_entity: 4000.000
+	damage_terrain: 15000.000
+	health_threshold: 0.980
+	flags: any_damage, explode_when_primed
+}

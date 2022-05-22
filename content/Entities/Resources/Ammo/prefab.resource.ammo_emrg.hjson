@@ -12,6 +12,7 @@ body:
 		material: metal
 		layer: entity, solid, resource
 		mask: world
+		material: metal
 	}
 }
 
