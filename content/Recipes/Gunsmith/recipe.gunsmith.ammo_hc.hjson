@@ -1,9 +1,10 @@
 {
-	name: "High-Caliber Ammo"
+	name: "High-Caliber Ammo (Standard)"
 	desc:
 		'''
 		Ammunition for rifles
 		and other larger firearms.
+		
 		Gunpowder is weaker, but cheap.
 		'''
 	
@@ -18,7 +19,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [0, 0]
 	}
 	
 	min: 50

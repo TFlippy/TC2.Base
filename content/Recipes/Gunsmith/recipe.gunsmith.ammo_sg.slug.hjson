@@ -1,9 +1,11 @@
 {
-	name: "Shotgun Shell (Slug, Gunpowder)"
+	name: "Shotgun Shell (Slug, Standard)"
 	desc:
 		'''
 		Ammunition for shotguns. Fires single heavy projectile
 		with low velocity, which deals a large amount of damage.
+
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:

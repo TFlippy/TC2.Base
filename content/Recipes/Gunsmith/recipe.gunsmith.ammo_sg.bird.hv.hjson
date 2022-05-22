@@ -2,7 +2,7 @@
 	name: "Shotgun Shell (Birdshot, High-Velocity)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
+		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
 		'''
 	

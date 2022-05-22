@@ -1,9 +1,10 @@
 {
-	name: "Low-Caliber Ammo"
+	name: "Low-Caliber Ammo (Standard)"
 	desc:
 		'''
 		Ammunition for pistols, revolvers
 		and submachine guns.
+		
 		Gunpowder is weaker, but cheap.
 		'''
 	
@@ -18,7 +19,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [0, 0]
 	}
 	
 	min: 50

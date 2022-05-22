@@ -1,9 +1,10 @@
 {
-	name: "Shotgun Shell (Buckshot, Gunpowder)"
+	name: "Shotgun Shell (Buckshot, Standard)"
 	desc:
 		'''
 		Ammunition for shotguns. Fires multiple medium-sized
 		projectiles, very good for general combat.
+		
 		Gunpowder is weaker, but cheap.
 		'''
 	

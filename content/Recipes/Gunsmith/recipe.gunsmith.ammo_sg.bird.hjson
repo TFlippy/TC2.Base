@@ -1,9 +1,11 @@
 {
-	name: "Shotgun Shell (Birdshot, Gunpowder)"
+	name: "Shotgun Shell (Birdshot, Standard)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
+		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
+
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
