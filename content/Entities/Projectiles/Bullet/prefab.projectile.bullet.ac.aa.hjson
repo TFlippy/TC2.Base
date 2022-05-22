@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 500.000
 	lifetime: 0.060
 	ignore_time: 0.100
-	damage_type: bullet_mg
+	damage_type: bullet_ac
 	size: 0.350
 	ricochet_count: 0
 }
