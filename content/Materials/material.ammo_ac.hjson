@@ -1,6 +1,7 @@
 {
 	name: "Autocannon Ammo"
 	description: "Ammunition for autocannons."
+
 	icon:
 	{
 		texture: "resource.ammo_ac"
