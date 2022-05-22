@@ -26,11 +26,11 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // High cost
 
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
+						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // Even higher cost on melee weapons
 					}
 				}
 			));
@@ -55,6 +55,7 @@ namespace TC2.Base
 				{
 					ref var mindswap = ref context.GetOrAddComponent<Mindswap.Data>();
 					ref var runner = ref context.GetOrAddComponent<Runner.Data>();
+					ref var runnerstate = ref context.GetOrAddComponent<Runner.State>();
 					ref var threat = ref context.GetOrAddComponent<Threat.Data>();
 					if (threat.priority == 0) threat.priority = 7.00f;
 					if (runner.walk_force == 0) runner.walk_force = 1000.00f;
@@ -63,7 +64,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.cognition", 15.00f)); // High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.cognition", 15.00f)); // High cost
 				}
 			));
 			definitions.Add(Modification.Definition.New<Control.Data>
@@ -89,7 +90,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.cognition", 30.00f)); // Higher cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.cognition", 30.00f)); // Higher cost
 				}
 			));
 			/*definitions.Add(Modification.Definition.New<Control.Data>
@@ -111,11 +112,11 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // High cost
 
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 10.00f)); // Even higher cost on melee weapons
+						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // Even higher cost on melee weapons
 					}
 				}
 			));*/
