@@ -1,4 +1,5 @@
-﻿
+﻿using TC2.Base.Components;
+
 namespace TC2.Base
 {
 	public sealed partial class ModInstance: Mod
@@ -12,11 +13,24 @@ namespace TC2.Base
 			Modification.OnInitialize += RegisterMedkitModifications;
 			Modification.OnInitialize += RegisterExplosiveModifications;
 			Modification.OnInitialize += RegisterControlModifications;
+			Modification.OnInitialize += RegisterArmorModifications;
+
+			Material.OnPostInitialize += Essence.Init;
+
+#if SERVER
+			// TODO: hack, add a way to handle this with attributes
+			Player.OnCreate += OnCreatePlayer;
+#endif
+		}
+
+		private static void OnCreatePlayer(ref Region.Data region, ref Player.Data player)
+		{
+			player.ent_player.AddComponent<Selection.Data>();
 		}
 
 		protected override void OnInitialize(ModContext context)
 		{
-			
+
 		}
 
 		protected override void OnConfigure(ModContext context)

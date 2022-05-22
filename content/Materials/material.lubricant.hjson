@@ -10,8 +10,8 @@
 	
 	type: liquid
 	flags: manufactured
-	mass_per_unit: 0.500
-	quantity_max: 100.000
+	mass_per_unit: 0.100
+	quantity_max: 500.000
 	prefab: "resource.lubricant"
 	
 	projectile_count: 0

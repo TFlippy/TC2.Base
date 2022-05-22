@@ -64,8 +64,3 @@ packer:
 	size: [4.000, 3.000]
 	offset: [1.000, 1.000]
 }
-
-stockpile:
-{
-
-}

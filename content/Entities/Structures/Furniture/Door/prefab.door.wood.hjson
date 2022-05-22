@@ -18,14 +18,14 @@ body:
 		friction: 0.750
 		elasticity: 0.300
 		material: wood
-		layer: entity, solid, building
+		layer: entity, solid, building, door
 		mask: world, solid
 	}
 }
 
 health:
 {
-	max: 3500.000
+	max: 3000.000
 }
 
 animated.renderer:
@@ -52,7 +52,7 @@ claimable:
 
 interactable:
 {
-
+	flags: once
 }
 
 transform:

@@ -9,7 +9,7 @@ body:
 		mass: 2.000
 		friction: 0.980
 		elasticity: 0.010
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }

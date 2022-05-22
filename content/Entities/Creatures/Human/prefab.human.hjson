@@ -123,11 +123,6 @@ worker.state:
 
 }
 
-builder:
-{
-	flags: ruler
-}
-
 facing:
 {
 
@@ -424,6 +419,11 @@ lootable:
 		{
 			walk_force: 10000.000
 			jump_force: 35000.000
+		}
+		
+		runner.state:
+		{
+			
 		}
 		
 		organic:

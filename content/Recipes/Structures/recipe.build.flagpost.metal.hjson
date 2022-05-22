@@ -1,0 +1,65 @@
+{
+	name: "Flag Post"
+	desc:
+		'''
+		Claims a large area, but with low influence.
+
+		- Requires to be placed in owned territory
+		'''
+	
+	icon:
+	{
+		texture: "flagpost.metal"
+		size: [16, 80]
+	}
+	
+	type: build
+	flags: none
+	tags: buildings
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: require_claimed
+		
+		size: [0.500, 10.000]
+		offset: [0.250, -4.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.200
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 8.000
+		}
+		{
+			type: resource
+			material: "cloth"
+			amount: 15.000
+		}
+		{
+			type: money
+			amount: 50.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "flagpost.metal"
+			amount: 1.000
+		}
+	]
+}

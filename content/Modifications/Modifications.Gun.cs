@@ -25,7 +25,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var amount = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f);
 				},
 #endif
 
@@ -200,7 +200,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
@@ -213,7 +213,7 @@ namespace TC2.Base
 					{
 						case Gun.Type.Shotgun:
 						{
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 0.80f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 0.92f, ratio);
 							data.damage_multiplier *= Maths.Lerp(1.00f, 0.85f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.60f, ratio);
 						}
@@ -221,8 +221,8 @@ namespace TC2.Base
 
 						case Gun.Type.Rifle:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.55f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.22f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
@@ -230,8 +230,8 @@ namespace TC2.Base
 
 						case Gun.Type.MachineGun:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.60f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.24f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
 						}
@@ -239,8 +239,8 @@ namespace TC2.Base
 
 						case Gun.Type.SMG:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.50f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
 						}
@@ -248,19 +248,19 @@ namespace TC2.Base
 
 						case Gun.Type.Handgun:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.43f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.25f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.10f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
 							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
 
 						default:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.30f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.15f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
 						}
 						break;
 					}
@@ -297,7 +297,7 @@ namespace TC2.Base
 								case Work.Type.Machining:
 								{
 									requirement.difficulty *= Maths.Lerp(1.00f, 1.75f, ratio);
-									requirement.amount += Maths.Lerp(0.00f, 350.00f, ratio);
+									requirement.amount += Maths.Lerp(0.00f, 300.00f, ratio);
 								}
 								break;
 
@@ -322,7 +322,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank;
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && !data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -373,7 +373,7 @@ namespace TC2.Base
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					return data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank;
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
 				},
 
 				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
@@ -479,6 +479,171 @@ namespace TC2.Base
 			//	}
 			//));
 
+definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.autocannon_caliber_downgrade",
+				category: "Gun (Receiver)",
+				name: "Autocannon: Caliber Downgrade",
+				description: "Rechambers to a lower caliber, turning autocannon into oversized and sturdy machine gun.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.type != Gun.Type.AutoCannon) return false;
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+				},
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					{
+						data.ammo_filter |= Material.Flags.Ammo_MG;
+						data.ammo_filter &= ~Material.Flags.Ammo_AC;
+
+						data.damage_multiplier *= 0.16f;
+						data.velocity_multiplier *= 0.80f;
+						data.cycle_interval *= 0.45f;
+						data.recoil_multiplier *= 0.20f;
+						data.jitter_multiplier += 1.50f;
+						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+
+						data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+
+						data.sound_pitch *= 1.15f;
+						data.sound_volume *= 1.02f;
+
+						data.smoke_size *= 0.90f;
+						data.flash_size *= 0.90f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						data.ammo_filter |= Material.Flags.Ammo_HC;
+						data.ammo_filter &= ~Material.Flags.Ammo_MG;
+
+						data.damage_multiplier *= 0.90f;
+						data.velocity_multiplier *= 0.90f;
+						data.cycle_interval *= 0.45f;
+						data.recoil_multiplier *= 0.70f;
+						data.jitter_multiplier += 0.50f;
+						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+
+						data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+
+						data.sound_pitch *= 1.15f;
+						data.sound_volume *= 1.02f;
+
+						data.smoke_size *= 0.90f;
+						data.flash_size *= 0.90f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						data.ammo_filter |= Material.Flags.Ammo_LC;
+						data.ammo_filter &= ~Material.Flags.Ammo_HC;
+
+						data.damage_multiplier *= 0.90f;
+						data.velocity_multiplier *= 0.45f;
+						data.cycle_interval *= 0.90f;
+						data.recoil_multiplier *= 0.60f;
+						data.jitter_multiplier += 0.50f;
+						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+
+						data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+
+						data.sound_pitch *= 1.10f;
+						data.sound_volume *= 1.02f;
+
+						data.smoke_size *= 0.90f;
+						data.flash_size *= 0.90f;
+					}
+				}
+			));
+
+			definitions.Add(Modification.Definition.New<Gun.Data>
+			(
+				identifier: "gun.rapid_fire_mechanism",
+				category: "Gun (Receiver)",
+				name: "Rapid fire mechanism",
+				description: "Greatly increases fire rate, at the cost of worsened ballistics.",
+
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !modifications.HasModification(handle);
+				},
+
+
+				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.cycle_interval *= 0.50f;
+					data.damage_multiplier *= 0.72f;
+					data.velocity_multiplier *= 0.85f;
+				},
+
+				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					data.failure_rate *= 0.60f;
+					data.jitter_multiplier += 2.50f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 1.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.50f;
+							}
+						}
+					}
+				}
+			));
+
 			definitions.Add(Modification.Definition.New<Gun.Data>
 			(
 				identifier: "gun.caliber_conversion",
@@ -498,12 +663,13 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<int>();
-					return GUI.SliderInt("Caliber", ref value, -2, 2, "%d");
+					return GUI.SliderInt("Caliber", ref value, -2, 2);
 				},
 #endif
 
 				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
+					if (data.type == Gun.Type.AutoCannon) return false;
 					return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
 				},
 
@@ -611,7 +777,7 @@ namespace TC2.Base
 								data.ammo_filter |= Material.Flags.Ammo_HC;
 								data.ammo_filter &= ~Material.Flags.Ammo_MG;
 
-								data.damage_multiplier *= 1.35f;
+								data.damage_multiplier *= 1.05f;
 								data.velocity_multiplier *= 0.95f;
 								data.failure_rate *= 1.90f;
 								data.failure_rate += 0.50f;
@@ -632,7 +798,7 @@ namespace TC2.Base
 								data.ammo_filter |= Material.Flags.Ammo_LC;
 								data.ammo_filter &= ~Material.Flags.Ammo_HC;
 
-								data.damage_multiplier *= 1.20f;
+								data.damage_multiplier *= 1.02f;
 								data.velocity_multiplier *= 0.85f;
 								data.failure_rate *= 1.70f;
 								data.failure_rate += 0.50f;
@@ -677,7 +843,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
@@ -781,7 +947,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
 				},
 #endif
 
@@ -797,9 +963,9 @@ namespace TC2.Base
 							//var mult = Maths.Clamp(data.velocity_multiplier / (300.00f * (value * value)), 0.01f, 2.00f);
 							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.50f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.45f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.10f, value);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f * mult, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f * mult, ratio);
+							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.25f, value);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
 						}
 						break;
@@ -809,37 +975,37 @@ namespace TC2.Base
 							//var mult = Maths.Clamp(data.velocity_multiplier / (800.00f * (value)), 0.01f, 2.00f);
 							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.50f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.90f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.20f * value, ratio);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f * mult, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.27f * mult, ratio);
+							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.13f * value, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f * mult, ratio);
 						}
 						break;
 
 						case Gun.Type.Shotgun:
 						{
-							data.damage_multiplier *= 1.10f;
-							data.recoil_multiplier *= 1.30f;
+							data.damage_multiplier *= 1.21f;
+							data.recoil_multiplier *= 1.10f;
 							data.jitter_multiplier *= 0.40f;
-							data.velocity_multiplier *= 1.10f;
+							data.velocity_multiplier *= 1.21f;
 						}
 						break;
 
 						case Gun.Type.SMG:
 						{
 							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.30f;
+							data.recoil_multiplier *= 1.15f;
 							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.20f;
+							data.velocity_multiplier *= 1.07f;
 						}
 						break;
 
 						default:
 						{
 							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.30f;
+							data.recoil_multiplier *= 1.15f;
 							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.20f;
+							data.velocity_multiplier *= 1.07f;
 						}
 						break;
 					}
@@ -1024,7 +1190,13 @@ namespace TC2.Base
 					if (!health.IsNull())
 					{
 						health.max *= 1.40f;
-						health.armor += 70.00f;
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.material_type = Material.Type.Metal;
+						armor.toughness += 70.00f;
 					}
 				},
 
@@ -1154,7 +1326,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
@@ -1557,7 +1729,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
@@ -1698,7 +1870,7 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
 				},
 #endif
 
@@ -1799,7 +1971,7 @@ namespace TC2.Base
 					{
 						case Gun.Action.Blowback:
 						{
-							data.damage_multiplier *= 1.25f;
+							//data.damage_multiplier *= 1.25f; Too OP
 
 							data.failure_rate *= 0.30f;
 							data.cycle_interval *= 0.90f;
@@ -1947,6 +2119,23 @@ namespace TC2.Base
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 					return GUI.Checkbox("Simultaneous Fire", ref simultaneous, GUI.GetRemainingSpace());
+				},
+
+				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				{
+					var count = 0;
+					for (int i = 0; i < modifications.Length; i++)
+					{
+						if (modifications[i].id == handle.id)
+						{
+							count++;
+						}
+					}
+
+					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
+
+					//draw.DrawSprite("gun.extra_barrel", data.muzzle_offset, pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, data.muzzle_offset, pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2133,7 +2322,13 @@ namespace TC2.Base
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, "%.2f");
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+				},
+
+				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					draw.DrawSprite("gun.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2151,7 +2346,7 @@ namespace TC2.Base
 					data.sound_volume *= Maths.Lerp(1.15f, 1.35f, value);
 					data.sound_size *= Maths.Lerp(1.10f, 1.30f, value);
 					data.sound_pitch *= Maths.Lerp(0.98f, 0.96f, value);
-					data.recoil_multiplier *= Maths.Lerp(0.70f, 0.20f, value);
+					data.recoil_multiplier = Maths.Max(0.15f, data.recoil_multiplier * Maths.Lerp(0.80f, 0.50f, value));
 				}
 			));
 
@@ -2176,7 +2371,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 				}
 			));

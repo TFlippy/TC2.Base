@@ -1,9 +1,17 @@
 {
 	name: "Rocket Ammo"
 	description: "Ammunition for rocket launchers."
+
 	icon:
 	{
 		texture: "resource.ammo_rocket"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
 		frame: [0, 0]
 	}

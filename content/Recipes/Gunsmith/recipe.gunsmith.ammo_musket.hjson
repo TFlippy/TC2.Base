@@ -1,0 +1,51 @@
+{
+	name: "Musket Ammo"
+	desc:
+		'''
+		Ammunition for muskets,
+		blunderbusses, and pistols.
+		Fires a single projectile.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_musket"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 0.600
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 5.000
+			difficulty: 2.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_musket"
+			amount: 1.000
+		}
+	]
+}

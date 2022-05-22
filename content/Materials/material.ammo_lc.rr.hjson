@@ -1,0 +1,42 @@
+{
+	name: "Low-Caliber Ammo (Reduced recoil)"
+	description:
+		'''
+		Ammunition for pistols, revolvers
+		and submachine guns. Less recoil and heat, cheaper but weaker.
+		'''
+
+	icon:
+	{
+		texture: "resource.ammo_lc.rr"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_lc, despawnable
+	mass_per_unit: 0.010
+	quantity_max: 60.000
+	prefab: "resource.ammo_lc.rr"
+	
+	projectile_count: 1
+	projectile_speed_mult: 0.900
+	projectile_spread_mult: 0.700
+	projectile_heat: 10.500
+	projectile_prefab: "projectile.bullet.lc.rr"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

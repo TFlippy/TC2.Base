@@ -1,16 +1,24 @@
 {
 	name: "Artillery Shell (Explosive)"
 	description: "Ammunition for cannons."
+
 	icon:
 	{
 		texture: "resource.ammo_shell"
 		size: [16, 16]
 		frame: [0, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	type: metal
 	flags: manufactured, ammo, ammo_shell
-	mass_per_unit: 40.000
+	mass_per_unit: 10.000
 	quantity_max: 1.000
 	prefab: "resource.ammo_shell"
 	

@@ -10,22 +10,27 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage;
+			public float damage = default;
 
 			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance;
+			public float max_distance = default;
 
 			[Statistics.Info("Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float speed;
+			public float speed = default;
 
 			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float radius;
+			public float radius = default;
 
 			public Physics.Layer hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
-			public Physics.Layer hit_exclude = Physics.Layer.Crate;
+			public Physics.Layer hit_exclude = Physics.Layer.Crate | Physics.Layer.Climbable;
 
-			[Save.Ignore, Net.Ignore] public float last_hit;
-			[Save.Ignore, Net.Ignore] public float next_hit;
+			[Save.Ignore, Net.Ignore] public float last_hit = default;
+			[Save.Ignore, Net.Ignore] public float next_hit = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if CLIENT

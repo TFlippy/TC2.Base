@@ -120,7 +120,7 @@ boiler.state:
 	
 }
 
-wheel:
+axle:
 {
 	offset: [2.000, 2.000]
 	mass: 5.000

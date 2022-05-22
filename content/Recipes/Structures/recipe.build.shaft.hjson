@@ -1,0 +1,53 @@
+{
+	name: "Shaft"
+	desc:
+		'''
+		A wall-mounted wheel that
+		can be connected with belts.
+		'''
+	
+	icon:
+	{
+		texture: "shaft"
+		size: [16, 16]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 3.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.500
+		min_support: 0.200
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "shaft"
+			amount: 1.000
+		}
+	]
+}

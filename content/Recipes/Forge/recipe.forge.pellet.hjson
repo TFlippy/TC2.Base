@@ -1,0 +1,44 @@
+{
+	name: "Arcanite Pellets (Empty)"
+	desc:
+		'''
+		Small arcanite pellets that can be infused with essences.
+		'''
+	
+	icon:
+	{
+		texture: "resource.pellet"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 4
+	max: 100
+	step: 4
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "arcanite_ingot"
+			amount: 0.250
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 70.000
+			difficulty: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "pellet"
+			amount: 1.000
+		}
+	]
+}

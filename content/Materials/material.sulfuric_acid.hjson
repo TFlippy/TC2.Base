@@ -10,8 +10,8 @@
 	
 	type: liquid
 	flags: manufactured
-	mass_per_unit: 0.500
-	quantity_max: 100.000
+	mass_per_unit: 0.100
+	quantity_max: 500.000
 	prefab: "resource.sulfuric_acid"
 	
 	projectile_count: 0
@@ -27,5 +27,5 @@
 	
 	specific_heat: 100.000
 	thermal_conductivity: 0.100
-	molar_mass: 98.079
+	molar_mass: 0.098079
 }

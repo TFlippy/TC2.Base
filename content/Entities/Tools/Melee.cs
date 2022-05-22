@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Melee.State>]
 		public partial struct Data: IComponent
 		{
-			public Sound.Handle sound_swing;
+			public Sound.Handle sound_swing = default;
 			public float sound_volume = 1.00f;
 			public float sound_size = 2.00f;
 			public float sound_pitch = 1.00f;
@@ -43,10 +43,10 @@ namespace TC2.Base.Components
 			public float swing_rotation = -2.50f;
 
 			[Statistics.Info("Base Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_base;
+			public float damage_base = default;
 
 			[Statistics.Info("Bonus Damage", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_bonus;
+			public float damage_bonus = default;
 
 			[Statistics.Info("Primary Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float primary_damage_multiplier = 1.00f;
@@ -58,13 +58,13 @@ namespace TC2.Base.Components
 			public float terrain_damage_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float cooldown;
+			public float cooldown = default;
 
 			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance;
+			public float max_distance = default;
 
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float aoe;
+			public float aoe = default;
 
 			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float thickness = 0.30f;
@@ -79,18 +79,23 @@ namespace TC2.Base.Components
 			public float penetration_falloff = 0.75f;
 
 			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public int penetration;
+			public int penetration = default;
 
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public Damage.Type damage_type;
+			public Damage.Type damage_type = default;
 
 			[Statistics.Info("Category", description: "TODO: Desc", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Melee.Category category;
+			public Melee.Category category = default;
 
-			public Melee.Flags flags;
+			public Melee.Flags flags = default;
 
-			public Physics.Layer hit_mask;
-			public Physics.Layer hit_exclude;
+			public Physics.Layer hit_mask = default;
+			public Physics.Layer hit_exclude = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -116,7 +121,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit)
 			{
@@ -148,6 +153,7 @@ namespace TC2.Base.Components
 					{
 						ref var result = ref results[i];
 						if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
+						if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 						var is_terrain = !result.entity.IsValid();
 						if (is_terrain)

@@ -1,0 +1,67 @@
+{
+	name: "Headquarters"
+	desc:
+		'''
+		Faction's headquarters where one
+		can perform various administrative duties.
+		'''
+	
+	icon:
+	{
+		texture: "headquarters"
+		size: [56, 40]
+	}
+	
+	type: build
+	flags: none
+	tags: buildings
+	
+	dismantle_work: 20.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_claimed
+		
+		size: [7.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 1500.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 800.000
+		}
+		{
+			type: resource
+			material: "cloth"
+			amount: 8.000
+		}
+		{
+			type: money
+			amount: 100.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "headquarters"
+			amount: 1.000
+		}
+	]
+}

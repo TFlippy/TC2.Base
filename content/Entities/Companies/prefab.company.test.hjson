@@ -20,8 +20,8 @@
         work_required: 10.000
     }
 
-	stockpile:
+	nameable:
 	{
-
+		name: "Test Company"	
 	}
 }

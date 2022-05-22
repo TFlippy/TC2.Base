@@ -1,0 +1,54 @@
+{
+	name: "Universal Brown Sauce"
+	desc: "Produce universal brown sauce from water, flour and mushrooms."
+	
+	icon:
+	{
+		texture: "resource.sauce"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "water"
+			amount: 250.000
+		}
+		{
+			type: "resource"
+			material: "flour"
+			amount: 15.000
+		}
+		{
+			type: "resource"
+			material: "mushroom.brown"
+			amount: 10.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 40.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "sauce"
+			amount_min: 40.000
+			amount_max: 50.000
+		}
+	]
+}

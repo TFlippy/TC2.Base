@@ -1,0 +1,55 @@
+{
+	name: "Ladder (Wood)"
+	desc:
+		'''
+		Now you can go in places.
+		'''
+	
+	icon:
+	{
+		texture: "ladder.wood.cap"
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	dismantle_work: 1.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: line
+		flags: allow_placement_over_buildings
+		
+		size: [0.625, 0.625]
+		
+		cooldown: 0.500
+
+		min_support: 0.150
+		min_claim: 1.000
+
+		length_max: 7.500
+		length_step: 0.625
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 20.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "ladder.wood"
+			amount: 1.000
+		}
+	]
+}

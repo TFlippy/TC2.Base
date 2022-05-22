@@ -1,0 +1,56 @@
+{
+	name: "Barbed Wire [WIP]"
+	desc:
+		'''
+		Better not walk through it.
+		'''
+	
+	icon:
+	{
+		texture: "barbed_wire.cap"
+	}
+	
+	type: build
+	flags: blueprintable
+	tags: construction
+
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+
+	placement:
+	{ 
+		type: line
+		flags: allow_placement_over_buildings
+		
+		length_max: 8.000
+		length_step: 0.250
+
+		size: [0.500, 0.500]
+		cooldown: 0.300
+		min_support: 0.500
+
+		sound: "building_place"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 1.500
+		}
+		{
+			type: "resource"
+			material: "wood"
+			amount: 25.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "barbed_wire"
+		}
+	]
+}

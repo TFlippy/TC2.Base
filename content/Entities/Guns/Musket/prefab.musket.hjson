@@ -11,14 +11,14 @@ body:
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.250, -0.125]
+	muzzle_offset: [1.250, -0.1875]
 	sound_shoot: "musket_shoot"
 	sound_cycle: "musket_cycle"
 	sound_reload: "musket_reload"
