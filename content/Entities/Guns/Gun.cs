@@ -592,6 +592,7 @@ namespace TC2.Base.Components
 						particle.frame_count = 6;
 						particle.frame_count_total = 6;
 						particle.scale = gun.flash_size;
+						particle.lit = 1.00f;
 						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
 
 						Particle.Spawn(ref region, particle);
