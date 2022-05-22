@@ -1,14 +1,14 @@
 {
-	name: "Gunpowder Shotgun Ammo (Birdshot)"
+	name: "Shotgun Ammo (Birdshot, High-Velocity)"
 	description:
 		'''
 		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
-		Gunpowder is weaker, but cheap.
 		'''
+
 	icon:
 	{
-		texture: "resource.ammo_sg.bird.gp"
+		texture: "resource.ammo_sg.bird.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -17,13 +17,13 @@
 	flags: manufactured, ammo, ammo_sg, despawnable
 	mass_per_unit: 0.050
 	quantity_max: 24.000
-	prefab: "resource.ammo_sg.bird.gp"
+	prefab: "resource.ammo_sg.bird.hv"
 	
 	projectile_count: 7
-	projectile_speed_mult: 0.600
+	projectile_speed_mult: 1.200
 	projectile_spread_mult: 2.500
 	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.bird.gp"
+	projectile_prefab: "projectile.bullet.sg.bird.hv"
 	
 	fuel_energy: 0.000
 	fuel_drain: 1.000

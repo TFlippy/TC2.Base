@@ -1,14 +1,14 @@
 {
-	name: "Gunpowder Shotgun Shell (Slug)"
+	name: "Shotgun Shell (Buckshot, High-Velocity)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires single heavy projectile
-		with low velocity, which deals a large amount of damage.
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.slug.gp"
+		texture: "resource.ammo_sg.buck.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -17,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [1, 0]
 	}
 	
 	min: 10
@@ -40,7 +40,7 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.040
 		}
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.slug.gp"
+			material: "ammo_sg.buck.hv"
 			amount: 1.000
 		}
 	]

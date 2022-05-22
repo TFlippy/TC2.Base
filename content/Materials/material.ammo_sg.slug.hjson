@@ -4,7 +4,9 @@
 		'''
 		Ammunition for shotguns. Fires single heavy projectile
 		with low velocity, which deals a large amount of damage.
+		Gunpowder is weaker, but cheap.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_sg.slug"
@@ -19,7 +21,7 @@
 	prefab: "resource.ammo_sg.slug"
 	
 	projectile_count: 1
-	projectile_speed_mult: 0.850
+	projectile_speed_mult: 0.450
 	projectile_spread_mult: 0.500
 	projectile_heat: 50.000
 	projectile_prefab: "projectile.bullet.sg.slug"

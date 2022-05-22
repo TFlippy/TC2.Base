@@ -1,9 +1,10 @@
 {
-	name: "Shotgun Shell (Buckshot)"
+	name: "Shotgun Shell (Buckshot, Gunpowder)"
 	desc:
 		'''
 		Ammunition for shotguns. Fires multiple medium-sized
 		projectiles, very good for general combat.
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
@@ -11,6 +12,13 @@
 		texture: "resource.ammo_sg.buck"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 10
@@ -33,7 +41,7 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 0.040
 		}
 		{

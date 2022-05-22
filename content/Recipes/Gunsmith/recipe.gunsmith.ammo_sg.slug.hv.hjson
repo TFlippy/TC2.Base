@@ -1,14 +1,14 @@
 {
-	name: "Gunpowder Shotgun Shell (Birdshot)"
+	name: "Shotgun Shell (Slug, High-Velocity)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
-		typically used for hunting fowl (or when your aim is bad).
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.bird.gp"
+		texture: "resource.ammo_sg.slug.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -17,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [1, 0]
 	}
 	
 	min: 10
@@ -40,7 +40,7 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.040
 		}
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.bird.gp"
+			material: "ammo_sg.slug.hv"
 			amount: 1.000
 		}
 	]

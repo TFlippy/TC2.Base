@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_sg.buck.gp"
+		texture: "resource.ammo_sg.bird.hv"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "ammo_sg.buck.gp"
+	material: "ammo_sg.bird.hv"
 }
 
 hoverable:
