@@ -7,6 +7,7 @@ projectile:
 	lifetime: 2.000
 	damage_type: bullet_ac
 	size: 0.350
+	ricochet_count: 0
 }
 
 projectile.renderer:

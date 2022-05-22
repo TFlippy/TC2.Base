@@ -7,6 +7,7 @@ projectile:
 	lifetime: 15.000
 	damage_type: arrow
 	size: 0.400
+	ricochet_count: 0
 }
 
 animated.renderer:

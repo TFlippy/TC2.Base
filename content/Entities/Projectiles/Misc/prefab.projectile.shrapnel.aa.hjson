@@ -8,6 +8,7 @@ projectile:
 	ignore_time: 0.100
 	damage_type: bullet_musket
 	size: 0.350
+	ricochet_count: 0
 }
 
 projectile.renderer:
