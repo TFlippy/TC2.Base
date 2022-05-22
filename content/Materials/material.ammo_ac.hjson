@@ -8,6 +8,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	type: metal
 	flags: manufactured, ammo, ammo_ac, despawnable

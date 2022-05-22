@@ -5,9 +5,17 @@
 		Ammunition for machine guns
 		and other heavy weapons. Increased damage and muzzle velocity, great accuracy.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_mg.match"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
 		frame: [3, 0]
 	}

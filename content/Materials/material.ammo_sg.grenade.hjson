@@ -1,14 +1,22 @@
 {
-	name: "Shotgun Ammo (Grenade)"
+	name: "Shotgun Ammo (High-Explosive)"
 	description:
 		'''
 		Ammunition for shotguns. Fires a small low-powered grenade.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_sg.grenade"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [4, 0]
 	}
 	
 	type: metal

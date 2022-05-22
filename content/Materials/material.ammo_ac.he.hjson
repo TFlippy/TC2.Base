@@ -1,11 +1,19 @@
 {
 	name: "Autocannon Ammo (HE)"
 	description: "Ammunition for autocannons. (High-Explosive)"
+
 	icon:
 	{
 		texture: "resource.ammo_ac.he"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [4, 0]
 	}
 	
 	type: metal

@@ -5,9 +5,17 @@
 		Ammunition for rifles
 		and other larger firearms. Increased damage and muzzle velocity, great accuracy.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_hc.match"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
 		frame: [3, 0]
 	}
