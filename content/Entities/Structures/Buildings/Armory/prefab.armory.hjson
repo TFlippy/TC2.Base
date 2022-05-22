@@ -59,6 +59,11 @@ armory:
 	}
 }
 
+shipment:
+{
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+}
+
 interactable:
 {
 	window_size: [336.000, 216.000]

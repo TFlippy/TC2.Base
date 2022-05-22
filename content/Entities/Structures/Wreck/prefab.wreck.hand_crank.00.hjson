@@ -13,7 +13,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building
+		layer: entity
 		mask: world
 	}
 }

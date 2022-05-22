@@ -17,7 +17,7 @@ body:
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
@@ -29,7 +29,7 @@ gun:
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 900.000
 	jitter_multiplier: 0.500
-	damage_multiplier: 25.000
+	damage_multiplier: 7.000
 	recoil_multiplier: 30.000
 	reload_interval: 3.000
 	cycle_interval: 0.250

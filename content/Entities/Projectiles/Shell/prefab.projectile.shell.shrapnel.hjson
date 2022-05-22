@@ -8,6 +8,7 @@ projectile:
 	ignore_time: 0.100
 	damage_type: bullet_mg
 	size: 0.750
+	ricochet_count: 0
 }
 
 transform:
@@ -44,4 +45,7 @@ cluster:
 	spread: 0.400
 	speed: 0.000
 	count: 40
+
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
 }

@@ -1,0 +1,63 @@
+{
+	name: "Mount (Heavy)"
+	desc:
+		'''
+		A sturdy stationary mount.
+		Various objects can be attached to this.
+		'''
+	
+	icon:
+	{
+		texture: "mount.heavy"
+		size: [48, 48]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x
+		
+		size: [5.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 25.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 10.000
+		}
+		{
+			type: resource
+			material: "cement"
+			amount: 250.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "mount.heavy"
+			amount: 1.000
+		}
+	]
+}

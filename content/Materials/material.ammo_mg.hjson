@@ -5,17 +5,25 @@
 		Ammunition for machine guns
 		and other heavy weapons.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_mg"
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	type: metal
 	flags: manufactured, ammo, ammo_mg, despawnable
-	mass_per_unit: 0.040
-	quantity_max: 100.000
+	mass_per_unit: 0.120
+	quantity_max: 25.000
 	prefab: "resource.ammo_mg"
 	
 	projectile_count: 1

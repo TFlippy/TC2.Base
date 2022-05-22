@@ -22,7 +22,7 @@
 		{
 			type: "resource"
 			material: "water"
-			amount: 50.000
+			amount: 250.000
 		}
 		{
 			type: "resource"

@@ -1,0 +1,34 @@
+{
+	name: "Sugar"
+	desc: "Used in cooking and explosives."
+	
+	icon:
+	{
+		texture: "resource.sugar"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 1.199
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "sugar"
+			amount: 1.000
+		}
+	]
+}

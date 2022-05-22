@@ -1,0 +1,89 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 2.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "crank.base"
+	}
+	z: -170.000
+}
+
+crank:
+{
+	max_speed: 5.000
+	torque: 150.000
+	mod: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "crank.knob"
+		}
+		z: -150.000
+	}
+}
+
+axle:
+{
+	offset: [0.000, 0.000]
+	mass: 5.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
+		z: -160.000
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+interactable:
+{
+	flags: use_left_click
+}
+
+sound.emitter:
+{
+	file: "crank.wood.loop.00"
+	volume: 0.000
+	pitch: 1.000
+}

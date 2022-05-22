@@ -1,0 +1,61 @@
+{
+	name: "Windmill (Wood)"
+	desc:
+		'''
+		Generates mechanical power from the wind.
+		'''
+	
+	icon:
+	{
+		texture: "windmill"
+		size: [40, 64]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [5.000, 8.000]
+		offset: [0.000, -3.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 1000.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 350.000
+		}
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "windmill"
+			amount: 1.000
+		}
+	]
+}

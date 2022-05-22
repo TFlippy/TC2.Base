@@ -27,7 +27,7 @@
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount: 5.000
+			amount: 25.000
 		}
 		{
 			type: "work"
@@ -42,8 +42,8 @@
 		{
 			type: "resource"
 			material: "nitric_acid"
-			amount_min: 4.000
-			amount_max: 5.000
+			amount_min: 20.000
+			amount_max: 25.000
 		}
 		{
 			type: "resource"

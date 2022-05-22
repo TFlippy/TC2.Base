@@ -8,6 +8,7 @@ projectile:
 	damage_type: bullet_musket
 	size: 0.350
 	damp: 0.995
+	ricochet_count: 0
 }
 
 animated.renderer:

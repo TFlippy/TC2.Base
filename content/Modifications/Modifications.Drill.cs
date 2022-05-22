@@ -4,7 +4,6 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		// TODO: Split this into multiple files
 		private static void RegisterDrillModifications(ref List<Modification.Definition> definitions)
 		{
 			definitions.Add(Modification.Definition.New<Drill.Data>

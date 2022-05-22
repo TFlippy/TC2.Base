@@ -32,7 +32,7 @@
 		{
 			type: "resource"
 			material: "water"
-			amount: 20.000
+			amount: 100.000
 		}
 		{
 			type: "work"
@@ -47,8 +47,8 @@
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount_min: 5.000
-			amount_max: 13.000
+			amount_min: 25.000
+			amount_max: 65.000
 		}
 		{
 			type: "resource"

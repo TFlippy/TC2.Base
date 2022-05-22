@@ -11,7 +11,7 @@ body:
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
@@ -26,7 +26,7 @@ animated.renderer:
 
 gun:
 {
-	muzzle_offset: [1.250, 0.000]
+	muzzle_offset: [1.250, -0.0625]
 	particle_offset: [-2.500, 0.000]
 	particle_rotation: -3.140
 
@@ -115,7 +115,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 80.000
+	cool_rate: 100.000
 	
 	@light:
 	{

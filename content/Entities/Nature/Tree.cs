@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Modified<Split.Data>(ISystem.Mode.Single)]
-		public static void OnSplit(ISystem.Info info, Entity entity, [Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Trait.Of<Tree.Data>] in Foliage.Renderer.Data renderer)
+		public static void OnSplit(ISystem.Info info, Entity entity, [Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Pair.Of<Tree.Data>] in Foliage.Renderer.Data renderer)
 		{
 			if (split.rect_normalized.a.Y != 0.00f || split.rect_normalized.GetHeight() < 0.40f)
 			{
@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 				Shake.Emit(ref region, transform.position, 0.40f, 0.40f);
 
 				var random = XorRandom.New();
-				Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
+				//Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
 
 				body.type = Body.Type.Dynamic;
 				body.flags &= ~Body.Flags.NonDirty;

@@ -4,28 +4,28 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.000, 0.600]
-		b: [1.000, 0.150]
+		a: [-1.000, 0.000]
+		b: [1.000, -0.550]
 		mass: 60.000
 		radius: 0.400
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.500, 0.000]
+	muzzle_offset: [1.750, -0.5625]
 	sound_shoot: "crankgun_shoot"
-	sound_reload: "missing"
-	velocity_multiplier: 650.000
+	sound_reload: "cannon_reload"
+	velocity_multiplier: 750.000
 	jitter_multiplier: 0.800
-	damage_multiplier: 3.000
+	damage_multiplier: 4.400
 	recoil_multiplier: 4.000
-	reload_interval: 4.000
+	reload_interval: 3.000
 	cycle_interval: 0.125
 	flash_size: 0.800
 	failure_rate: 0.001
@@ -72,12 +72,20 @@ aimable:
 
 holdable:
 {
-	offset: [-0.875, 0.600]
+	offset: [-0.875, 0.000]
 	radius: 10.000
 	flags: storable
 
 	force_multiplier: 0.700
 	torque_multiplier: 0.500
+}
+
+attachable:
+{
+	offset: [-0.875, 0.600]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
 }
 
 animated.renderer:
@@ -86,7 +94,7 @@ animated.renderer:
 	{
 		texture: "crankgun"
 	}
-	offset: [0.000, 0.570]
+	offset: [0.000, 0.000]
 	scale: [0.875, 0.875]
 }
 

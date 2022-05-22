@@ -96,7 +96,7 @@
 			}
 		}
 
-		[ISystem.Remove2(ISystem.Mode.Single)]
+		[ISystem.Remove(ISystem.Mode.Single)]
 		public static void OnRemove(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player)

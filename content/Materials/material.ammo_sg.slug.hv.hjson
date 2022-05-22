@@ -1,0 +1,42 @@
+{
+	name: "Shotgun Ammo (Slug, High-Velocity)"
+	description:
+		'''
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
+		'''
+
+	icon:
+	{
+		texture: "resource.ammo_sg.slug.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_sg, despawnable
+	mass_per_unit: 0.050
+	quantity_max: 24.000
+	prefab: "resource.ammo_sg.slug.hv"
+	
+	projectile_count: 1
+	projectile_speed_mult: 0.850
+	projectile_spread_mult: 0.500
+	projectile_heat: 50.000
+	projectile_prefab: "projectile.bullet.sg.slug.hv"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

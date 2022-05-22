@@ -121,7 +121,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit)
 			{
@@ -153,6 +153,7 @@ namespace TC2.Base.Components
 					{
 						ref var result = ref results[i];
 						if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
+						if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 						var is_terrain = !result.entity.IsValid();
 						if (is_terrain)

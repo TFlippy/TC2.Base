@@ -10,8 +10,8 @@
 	
 	type: liquid
 	flags: raw
-	mass_per_unit: 0.500
-	quantity_max: 100.000
+	mass_per_unit: 0.100
+	quantity_max: 500.000
 	prefab: "resource.water"
 	
 	projectile_count: 0
@@ -25,7 +25,7 @@
 	fuel_purity: 0.500
 	fuel_temperature: 1200.000
 	
-	specific_heat: 100.000
+	specific_heat: 4182.000
 	thermal_conductivity: 0.100
-	molar_mass: 18.015
+	molar_mass: 0.0180153
 }

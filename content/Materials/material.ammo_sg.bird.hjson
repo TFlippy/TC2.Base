@@ -4,22 +4,31 @@
 		'''
 		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
+		Gunpowder is weaker, but cheap.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_sg.bird"
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	type: metal
 	flags: manufactured, ammo, ammo_sg, despawnable
-	mass_per_unit: 0.020
+	mass_per_unit: 0.050
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.bird"
 	
 	projectile_count: 7
-	projectile_speed_mult: 1.200
+	projectile_speed_mult: 0.600
 	projectile_spread_mult: 2.500
 	projectile_heat: 50.000
 	projectile_prefab: "projectile.bullet.sg.bird"

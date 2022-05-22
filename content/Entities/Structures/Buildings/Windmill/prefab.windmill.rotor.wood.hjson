@@ -31,7 +31,7 @@ windmill.rotor:
 	pitch_modifier: 0.050
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 2.000

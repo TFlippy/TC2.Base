@@ -1,0 +1,103 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-4.000, 0.000]
+		b: [4.000, 0.000]
+		mass: 50.000
+		radius: 0.500
+		friction: 0.950
+		elasticity: 0.100
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "crane.arm.cargo"
+	}
+	z: 100.000
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [-4.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+transform:
+{
+
+}
+
+attachable:
+{
+	offset: [-4.000, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+}
+
+joint.base:
+{
+	offset_a: [4.000, 0.000]
+	max_force: 10000000.000
+	max_torque: 200000.000
+	flags: no_wrap, no_stress, control_write, force_facing
+
+	@light:
+	{
+		color: [0.000, 1.000, 1.000, 3.000]
+		offset: [4.000, 0.000]
+		scale: [6.000, 4.000]
+		intensity: 1.000
+		texture: "essence.glow"
+	}
+}
+
+joint.pivot:
+{
+	error_bias: 0.01
+	max_bias: 40.000
+}
+
+joint.gear:
+{
+	error_bias: 0.01
+	max_bias: 2.000
+	min: -2.000
+	max: 2.000
+}
+
+attachment:
+{
+
+}
+
+storage:
+{
+	@inventory4:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: allow_ducts
+	}
+}
+
+interactable:
+{
+	window_size: [96.000, 96.000]
+}

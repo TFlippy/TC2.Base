@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Health.Data health, [Source.Owned] ref Regen.Data regen, [Source.Owned] in Transform.Data transform)
+		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Health.Data health, [Source.Owned] ref Regen.Data regen, [Source.Owned] in Transform.Data transform)
 		{
 			if (info.WorldTime >= regen.next_regen)
 			{

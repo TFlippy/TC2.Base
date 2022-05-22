@@ -1,0 +1,44 @@
+{
+	name: "Pill"
+	desc:
+		'''
+		Pills can be used for administering drugs through mouth.
+		'''
+	
+	icon:
+	{
+		texture: "pill"
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	
+	flags: blueprintable
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "flour"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 5.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "pill"
+			amount: 1.000
+		}
+	]
+}

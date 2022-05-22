@@ -17,7 +17,7 @@ body:
 			[0.200, -1.300]
 		]
 		offset: [0.000, 0.000]
-		mass: 5.000
+		mass: 25.000
 		friction: 0.990
 		elasticity: 0.050
 		material: metal

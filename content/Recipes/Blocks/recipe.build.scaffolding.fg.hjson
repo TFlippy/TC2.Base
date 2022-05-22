@@ -1,0 +1,51 @@
+{
+	name: "Scaffolding"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [6, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: line
+		flags: none
+		
+		size: [0.375, 0.375]
+		
+		cooldown: 0.500
+		
+		length_max: 10.000
+		length_step: 0.125
+		
+		sound: "metal_place_01"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 0.030
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "scaffolding"
+			tile_flags: solid
+		}
+	]
+}

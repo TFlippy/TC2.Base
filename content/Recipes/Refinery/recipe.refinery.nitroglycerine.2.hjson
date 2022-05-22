@@ -1,0 +1,60 @@
+{
+	name: "Nitroglycerine (Tallow)"
+	desc: "A dirty but efficient method of producing nitroglycerine."
+	
+	icon:
+	{
+		texture: "resource.nitroglycerine"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "nitric_acid"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "sulfuric_acid"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "tallow"
+			amount: 20.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 35.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "nitroglycerine"
+			amount_min: 60.000
+			amount_max: 100.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount_min: 15.000
+			amount_max: 45.000
+		}
+	]
+}

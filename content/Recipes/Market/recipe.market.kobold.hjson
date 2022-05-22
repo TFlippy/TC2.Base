@@ -1,0 +1,34 @@
+{
+	name: "Kobold [WIP]"
+	desc: "A well-trained kobold capable of performing various simple tasks."
+	
+	icon:
+	{
+		texture: "kobold.male.icon"
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 449.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "kobold.male"
+			amount: 1.000
+		}
+	]
+}

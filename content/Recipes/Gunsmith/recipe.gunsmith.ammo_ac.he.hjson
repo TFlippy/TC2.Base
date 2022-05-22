@@ -8,6 +8,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [4, 0]
+	}
 	
 	min: 4
 	max: 100
@@ -20,22 +27,22 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.500
+			amount: 0.100
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.500
+			amount: 0.200
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 2.000
+			amount: 4.000
 		}
 		{
 			type: "resource"
 			material: "nitroglycerine"
-			amount: 5.000
+			amount: 0.625
 		}
 		{
 			type: "work"

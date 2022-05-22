@@ -1,5 +1,5 @@
 {
-	name: "Autocannon Ammo"
+	name: "Autocannon Ammo (Standard)"
 	desc: "Ammunition for autocannons."
 	
 	icon:
@@ -7,6 +7,13 @@
 		texture: "resource.ammo_ac"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 4
@@ -20,17 +27,17 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 1.500
+			amount: 0.300
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.500
+			amount: 0.200
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 2.000
+			amount: 4.500
 		}
 		{
 			type: "work"

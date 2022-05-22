@@ -71,22 +71,52 @@ npc:
 	min_consciousness: 0.500
 }
 
-npc.wander:
-{
-	
-}
-
-npc.pathfinding:
-{
-	flags: air
-}
-
 animal:
 {
 	attack_distance: 1.900
 	attack_cooldown: 2.000
 	charge_distance: 15.000
 	retreat_distance: 10.000
+}
+
+animal.state:
+{
+
+}
+
+ai:
+{
+	stance: aggressive
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	
+}
+
+ai.search:
+{
+
+}
+
+pathfinding:
+{
+	flags: air
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
 }
 
 threat:
@@ -124,6 +154,7 @@ sound.emitter:
 	volume: 0.400
 	pitch: 1.000
 	size_max_modifier: 0.300
+	spread: 70.000
 	priority: 0.100
 }
 

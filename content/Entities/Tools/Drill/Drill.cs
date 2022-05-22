@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 			public float radius = default;
 
 			public Physics.Layer hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
-			public Physics.Layer hit_exclude = Physics.Layer.Crate;
+			public Physics.Layer hit_exclude = Physics.Layer.Crate | Physics.Layer.Climbable;
 
 			[Save.Ignore, Net.Ignore] public float last_hit = default;
 			[Save.Ignore, Net.Ignore] public float next_hit = default;

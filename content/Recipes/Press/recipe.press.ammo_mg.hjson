@@ -22,17 +22,17 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 4.000
+			amount: 1.600
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 1.500
+			amount: 0.400
 		}
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 4.000
+			amount: 5.000
 		}
 		{
 			type: "work"
