@@ -151,7 +151,7 @@ namespace TC2.Base.Components
 
 				var transform_tmp = transform;
 				var transform_parent_tmp = transform_parent;
-
+			
 				//if (invert)
 				//{
 				//	transform_tmp.scale.X *= -1.00f;
@@ -171,13 +171,13 @@ namespace TC2.Base.Components
 					}
 				}
 
-				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotationUnscaled(crane_state.angle_a);
+				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a);
 				gear.rotation = crane_state.angle_b;
 
 				if (invert)
 				{
-					gear_parent.rotation = -gear_parent.rotation;
-					gear.rotation = Maths.OppositeAngle(gear.rotation);
+					gear_parent.rotation = MathF.PI - gear_parent.rotation;
+					gear.rotation = MathF.PI - gear.rotation;
 				}
 
 				if (dirty)

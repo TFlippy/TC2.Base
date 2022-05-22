@@ -67,7 +67,7 @@ joint.base:
 	offset_a: [4.000, 0.000]
 	max_force: 10000000.000
 	max_torque: 200000.000
-	flags: no_wrap, no_stress, control_write, force_facing
+	flags: no_wrap, no_stress, control_write
 
 	@light:
 	{
