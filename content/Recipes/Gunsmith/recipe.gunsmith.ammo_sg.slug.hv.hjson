@@ -1,5 +1,5 @@
 {
-	name: "Gunpowder Shotgun Shell (Slug)"
+	name: "Shotgun Shell (Slug, High-Velocity)"
 	desc:
 		'''
 		Ammunition for shotguns. Fires single heavy projectile
@@ -8,9 +8,16 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.slug.gp"
+		texture: "resource.ammo_sg.slug.hv"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	min: 10
@@ -33,7 +40,7 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.040
 		}
 		{
@@ -48,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.slug.gp"
+			material: "ammo_sg.slug.hv"
 			amount: 1.000
 		}
 	]

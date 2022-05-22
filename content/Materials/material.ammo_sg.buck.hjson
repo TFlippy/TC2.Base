@@ -4,7 +4,9 @@
 		'''
 		Ammunition for shotguns. Fires multiple medium-sized
 		projectiles, very good for general combat.
+		Gunpowder is weaker, but cheap.
 		'''
+
 	icon:
 	{
 		texture: "resource.ammo_sg.buck"
@@ -19,7 +21,7 @@
 	prefab: "resource.ammo_sg.buck"
 	
 	projectile_count: 4
-	projectile_speed_mult: 0.900
+	projectile_speed_mult: 0.450
 	projectile_spread_mult: 1.200
 	projectile_heat: 50.000
 	projectile_prefab: "projectile.bullet.sg.buck"

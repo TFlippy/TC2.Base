@@ -1,9 +1,11 @@
 {
-	name: "Shotgun Shell (Birdshot)"
+	name: "Shotgun Shell (Birdshot, Standard)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
+		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
+
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
@@ -11,6 +13,13 @@
 		texture: "resource.ammo_sg.bird"
 		size: [16, 16]
 		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	min: 10
@@ -33,7 +42,7 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 0.040
 		}
 		{

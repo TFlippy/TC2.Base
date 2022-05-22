@@ -1,16 +1,14 @@
 {
-	name: "High-Caliber Ammo (Standard)"
+	name: "High-Caliber Ammo (Match grade)"
 	desc:
 		'''
 		Ammunition for rifles
-		and other larger firearms.
-		
-		Gunpowder is weaker, but cheap.
+		and other larger firearms. Increased damage and muzzle velocity, great accuracy.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_hc"
+		texture: "resource.ammo_hc.match"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [3, 0]
 	}
 	
 	min: 50
@@ -42,13 +40,13 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.080
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 8.000
+			amount: 24.000
 			difficulty: 5.000
 		}
 	]
@@ -57,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_hc"
+			material: "ammo_hc.match"
 			amount: 1.000
 		}
 	]

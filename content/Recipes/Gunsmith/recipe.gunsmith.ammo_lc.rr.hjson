@@ -1,16 +1,14 @@
 {
-	name: "High-Caliber Ammo (Standard)"
+	name: "Low-Caliber Ammo (Reduced recoil)"
 	desc:
 		'''
-		Ammunition for rifles
-		and other larger firearms.
-		
-		Gunpowder is weaker, but cheap.
+		Ammunition for pistols, revolvers
+		and submachine guns. Less recoil and heat, cheaper but weaker.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_hc"
+		texture: "resource.ammo_lc.rr"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [2, 0]
 	}
 	
 	min: 50
@@ -33,17 +31,17 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.030
-		}
-		{
-			type: "resource"
-			material: "copper_ingot"
 			amount: 0.010
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 0.080
+			material: "copper_ingot"
+			amount: 0.015
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.010
 		}
 		{
 			type: "work"
@@ -57,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_hc"
+			material: "ammo_lc.rr"
 			amount: 1.000
 		}
 	]

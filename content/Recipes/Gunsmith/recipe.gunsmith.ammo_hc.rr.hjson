@@ -1,21 +1,28 @@
 {
-	name: "Gunpowder Shotgun Shell (Birdshot)"
+	name: "High-Caliber Ammo (Reduced recoil)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a many tiny projectiles,
-		typically used for hunting fowl (or when your aim is bad).
+		Ammunition for rifles
+		and other larger firearms. Less recoil and heat, cheaper but weaker.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.bird.gp"
+		texture: "resource.ammo_hc.rr"
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [2, 0]
+	}
 	
-	min: 10
-	max: 100
-	step: 10
+	min: 50
+	max: 500
+	step: 50
 	type: workshop
 	tags: gunsmith
 	
@@ -24,23 +31,23 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 0.050
+			amount: 0.020
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount: 0.040
+			amount: 0.010
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
+			material: "nitrocellulose"
 			amount: 0.040
 		}
 		{
 			type: "work"
 			work: "assembling"
 			amount: 8.000
-			difficulty: 4.000
+			difficulty: 5.000
 		}
 	]
 	
@@ -48,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.bird.gp"
+			material: "ammo_hc.rr"
 			amount: 1.000
 		}
 	]

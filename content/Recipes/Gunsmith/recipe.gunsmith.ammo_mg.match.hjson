@@ -1,13 +1,10 @@
 {
-	name: "Shotgun Shell (High-Explosive)"
-	desc:
-		'''
-		Ammunition for shotguns. Fires a small low-powered grenade.
-		'''
+	name: "Machine Gun Ammo (Match grade)"
+	desc: "Ammunition for machine guns and other heavy weapons. Increased damage and muzzle velocity, great accuracy. "
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.grenade"
+		texture: "resource.ammo_mg.match"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,11 +13,11 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [4, 0]
+		frame: [3, 0]
 	}
 	
 	min: 10
-	max: 100
+	max: 500
 	step: 10
 	type: workshop
 	tags: gunsmith
@@ -29,18 +26,23 @@
 	[
 		{
 			type: "resource"
-			material: "copper_ingot"
-			amount: 0.020
+			material: "iron_ingot"
+			amount: 0.160
 		}
 		{
 			type: "resource"
-			material: "nitroglycerine"
-			amount: 0.280
+			material: "copper_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.500
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 16.000
+			amount: 150.000
 			difficulty: 4.000
 		}
 	]
@@ -49,7 +51,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.grenade"
+			material: "ammo_mg.match"
 			amount: 1.000
 		}
 	]

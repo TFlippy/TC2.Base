@@ -1,13 +1,14 @@
 {
-	name: "Shotgun Shell (High-Explosive)"
+	name: "Shotgun Shell (Buckshot, High-Velocity)"
 	desc:
 		'''
-		Ammunition for shotguns. Fires a small low-powered grenade.
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
 		'''
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.grenade"
+		texture: "resource.ammo_sg.buck.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [4, 0]
+		frame: [1, 0]
 	}
 	
 	min: 10
@@ -29,18 +30,23 @@
 	[
 		{
 			type: "resource"
-			material: "copper_ingot"
-			amount: 0.020
+			material: "iron_ingot"
+			amount: 0.050
 		}
 		{
 			type: "resource"
-			material: "nitroglycerine"
-			amount: 0.280
+			material: "copper_ingot"
+			amount: 0.040
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.040
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 16.000
+			amount: 8.000
 			difficulty: 4.000
 		}
 	]
@@ -49,7 +55,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_sg.grenade"
+			material: "ammo_sg.buck.hv"
 			amount: 1.000
 		}
 	]
