@@ -374,7 +374,7 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Control.Data>
+			definitions.Add(Modification.Definition.New<Body.Data>
 			(
 				identifier: "body.bulk",
 				category: "Crafting",
