@@ -2114,6 +2114,11 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				name: "Extra Barrel",
 				description: "Adds an extra barrel to the gun.",
 
+				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				{
+					return modifications.GetCount(handle) < 3;
+				},
+
 #if CLIENT
 				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
 				{
@@ -2123,14 +2128,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 
 				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id)
-						{
-							count++;
-						}
-					}
+					var count = modifications.GetCount(handle);
 
 					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
 
