@@ -4,16 +4,16 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterExplosiveModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterExplosiveAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Explosive.Data>
+			definitions.Add(Augment.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.directed",
 				category: "Explosive",
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
-				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					//var radius_log = MathF.Log2(data.radius);
 
@@ -24,16 +24,16 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Explosive.Data>
+			definitions.Add(Augment.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.nitroglycerine",
 				category: "Explosive",
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
 
-				can_add: static (ref Modification.Context context, in Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (modifications.HasModification(handle)) return false;
+					if (augments.HasAugment(handle)) return false;
 
 					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
 					foreach (ref var requirement in context.requirements_new)
@@ -51,7 +51,7 @@ namespace TC2.Base
 					return false;
 				},
 
-				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
 					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
@@ -88,14 +88,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Explosive.Data>
+			definitions.Add(Augment.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.dud",
 				category: "Explosive",
 				name: "Dud Explosive",
 				description: "Replaces all the explosive material with dirt.",
 
-				apply_1: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.damage_terrain = 0.00f;
 					data.damage_entity = 0.00f;

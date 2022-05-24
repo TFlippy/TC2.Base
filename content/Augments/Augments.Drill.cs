@@ -4,26 +4,26 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterDrillModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterDrillAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Drill.Data>
+			definitions.Add(Augment.Definition.New<Drill.Data>
 			(
 				identifier: "drill.overclocked_mechanism",
 				category: "Drill",
 				name: "Overclocked Mechanism",
 				description: "Increases drilling speed.",
 
-				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.speed *= 1.60f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -44,19 +44,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Drill.Data>
+			definitions.Add(Augment.Definition.New<Drill.Data>
 			(
 				identifier: "drill.larger_drill_head",
 				category: "Drill",
 				name: "Larger Drill Head",
 				description: "Increases drilling area, but reduces speed.",
 
-				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.speed *= 0.70f;
 					data.radius *= 2.00f;
@@ -68,7 +68,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -85,25 +85,25 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Drill.Data>
+			definitions.Add(Augment.Definition.New<Drill.Data>
 			(
 				identifier: "drill.smirgl_head",
 				category: "Drill",
 				name: "Smirgl Drill Head",
 				description: "Greatly increases drill power at cost of reduced speed.",
 
-				can_add: static (ref Modification.Context context, in Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.damage *= 1.90f;
 					data.speed *= 0.80f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Drill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{

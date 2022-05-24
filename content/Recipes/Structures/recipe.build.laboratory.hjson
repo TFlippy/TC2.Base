@@ -2,7 +2,7 @@
 	name: "Blueprint Laboratory"
 	desc:
 		'''
-		A building where one can design item modification blueprints.
+		A building where one can design item augment blueprints.
 		'''
 	
 	icon:
