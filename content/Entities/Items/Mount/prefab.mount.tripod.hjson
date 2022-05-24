@@ -6,8 +6,8 @@ body:
 	{
 		points:
 		[
-			[1.000, 0.500]
-			[-1.000, 0.500]
+			[1.125, 0.625]
+			[-1.250, 0.625]
 			[-0.400, -0.750]
 			[0.400, -0.750]
 		]
@@ -48,7 +48,7 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	window_size: [182.000, 240.000]
 	window_offset: [0.000, 192.000]
 }
 
@@ -83,32 +83,6 @@ norotate:
 
 }
 
-attachment:
-{
-
-}
-
-joint.base:
-{
-	offset_a: [0.250, -0.375]
-	max_force: 40000.000
-	max_torque: 5000.000
-	flags: control_write, no_wrap, force_facing, attachment
-}
-
-joint.pivot:
-{
-	max_bias: 8.000
-}
-
-joint.gear:
-{
-	min: -1.400
-	max: 0.750
-	error_bias: 0.000
-	max_bias: 8.000
-}
-
 vehicle:
 {
 
@@ -121,5 +95,56 @@ vehicle:
 	seat:
 	{
 		offset: [-0.750, -0.500]
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.250, -0.625]
+		max_force: 40000.000
+		max_torque: 5000.000
+		flags: control_write, no_wrap, force_facing, attachment
+		
+		@sound.emitter:
+		{
+			file: "crane_loop_b"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.200
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: -1.400
+		max: 0.750
+		error_bias: 0.010
+		max_bias: 8.000
+	}
+
+	attachment:
+	{
+		name: "Mount"
+
+		flags: none
+		flags_editable: locked, disabled, hold
 	}
 }
