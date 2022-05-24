@@ -4,10 +4,10 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.100, 0.000]
-		b: [1.100, 0.000]
+		a: [-0.875, 0.375]
+		b: [0.875, 0.000]
 		mass: 20.000
-		radius: 0.250
+		radius: 0.375
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
@@ -76,6 +76,14 @@ gun.state:
 interactable:
 {
 
+}
+
+attachable:
+{
+	offset: [-0.125, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
 }
 
 holdable:
