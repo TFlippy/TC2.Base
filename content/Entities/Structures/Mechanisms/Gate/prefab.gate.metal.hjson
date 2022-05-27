@@ -6,11 +6,11 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.000, 12.000]
+		size: [1.500, 12.000]
 		offset: [0.000, 0.000]
 		friction: 0.990
 		elasticity: 0.030
-		material: wood
+		material: metal
 		layer: entity, building
 		mask: world
 	}
@@ -18,14 +18,14 @@ body:
 
 health:
 {
-	max: 40000.000
+	max: 120000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "gate.base"
+		texture: "gate.metal.base"
 	}
 	z: -150.000
 }
@@ -37,7 +37,7 @@ gate:
 
 axle:
 {
-	offset: [-1.000, -5.500]
+	offset: [0.000, -5.750]
 	mass: 5.000
 	friction: 0.800
 	radius_a: 1.000
@@ -118,10 +118,11 @@ joint.distance:
 	{
 		@shape.box:
 		{
-			size: [0.500, 6.000]
+			size: [0.875, 6.000]
 			offset: [0.000, 0.000]
 			mass: 400.000
 			friction: 0.950
+			radius: 0.125
 			elasticity: 0.030
 			material: wood
 			layer: entity, solid
@@ -133,14 +134,14 @@ joint.distance:
 	{
 		sprite:
 		{
-			texture: "gate"
+			texture: "gate.metal"
 		}
-		z: 1000.000
+		z: 100.000
 	}
 	
 	health:
 	{
-		max: 30000.000
+		max: 120000.000
 	}
 	
 	transform:
