@@ -54,6 +54,7 @@ steamengine:
 		volume: 0.000
 		pitch: 1.000
 		size: 2.000
+		size_max_modifier: 0.800
 	}
 }
 

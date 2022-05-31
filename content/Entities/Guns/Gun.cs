@@ -163,7 +163,8 @@ namespace TC2.Base.Components
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
-			public float sound_size = 2.00f;
+			public float sound_size = 1.00f;
+			public float sound_dist_multiplier = 4.00f;
 
 			public float sound_pitch = 1.00f;
 
@@ -620,7 +621,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size);
+				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 
