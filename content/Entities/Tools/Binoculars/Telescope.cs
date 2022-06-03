@@ -23,7 +23,7 @@
 			public float max_distance = 50.00f;
 
 			[Save.Ignore, Net.Ignore] public float current_modifier = default;
-			[Save.Ignore, Net.Ignore] public Vector2 offset = default;
+			public Vector2 offset = default;
 
 			public Data()
 			{
@@ -60,6 +60,21 @@
 					control = control
 				};
 				gui.Submit();
+			}
+		}
+#endif
+
+#if SERVER
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void OnUpdate(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
+		{
+			//App.WriteLine("test");
+
+			if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+			{
+				telescope.offset = default;
+				telescope.Sync(entity);
 			}
 		}
 #endif
