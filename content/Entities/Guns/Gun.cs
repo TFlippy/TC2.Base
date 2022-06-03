@@ -672,7 +672,7 @@ namespace TC2.Base.Components
 					return;
 				}
 
-				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
 					//gun_state.stage = Gun.Stage.Reloading;
