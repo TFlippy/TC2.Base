@@ -406,7 +406,12 @@ namespace TC2.Base.Components
 					}
 					else
 					{
+						gun_state.next_reload = info.WorldTime + 0.10f;
+#if SERVER
 						gun_state.stage = Gun.Stage.Ready;
+						gun_state.Sync(entity);
+#endif
+						return;
 					}
 				}
 			}
@@ -429,6 +434,7 @@ namespace TC2.Base.Components
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var random = XorRandom.New();
+				var base_vel = body.GetVelocity();
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
 
@@ -514,6 +520,7 @@ namespace TC2.Base.Components
 									if (!explosive.IsNull())
 									{
 										explosive.ent_owner = args.ent_owner;
+
 										ent.SyncComponent(ref explosive);
 									}
 
@@ -595,6 +602,7 @@ namespace TC2.Base.Components
 						particle.scale = gun.flash_size;
 						particle.lit = 1.00f;
 						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
+						particle.vel = base_vel;
 
 						Particle.Spawn(ref region, particle);
 					}
@@ -602,14 +610,14 @@ namespace TC2.Base.Components
 					var smoke_count = (int)gun.smoke_amount;
 					for (var i = 0; i < smoke_count; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
-						particle.fps = (byte)random.NextFloatRange(6, 8);
+						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(2.00f, 8.00f));
+						particle.fps = random.NextByteRange(12, 16);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
-						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
+						particle.frame_offset = random.NextByteRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = (dir_particle * random.NextFloatRange(1.00f, 1.50f));
+						particle.vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f));
 						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
