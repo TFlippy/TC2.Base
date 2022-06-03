@@ -42,7 +42,7 @@ cluster:
 	count: 5
 
 	speed_modifier_min: 0.040
-	speed_modifier_max: 0.150
+	speed_modifier_max: 0.250
 
 	lifetime_modifier_min: 0.200
 	lifetime_modifier_max: 2.500

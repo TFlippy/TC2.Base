@@ -37,7 +37,7 @@ explosive:
 rocket:
 {
 	mass: 3.000
-	force: 50.000
+	force: 80.000
 	fuel_time: 1.000
 	
 	@light:
