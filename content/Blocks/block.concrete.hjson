@@ -7,16 +7,16 @@
 	flags: artificial
 	
 	max_health: 60000.000
-	smoothing: 0.100
+	smoothing: 0.180
 	mass: 8.000
-	friction: 0.950
+	friction: 0.850
 	elasticity: 0.600
 	stability: 0.500
 	
 	texture: "terrain_concrete"
 	pattern: "pattern_concrete"
 	
-	texture_scale: 1.000
+	texture_scale: 1.070
 	texture_overshoot: 0.000
 	
 	fg_color: "#ff140e08"

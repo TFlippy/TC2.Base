@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "ladder.metal.cap"
+		texture: "ladder.metal.icon"
 	}
 	
 	type: build
