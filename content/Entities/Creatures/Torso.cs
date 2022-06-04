@@ -88,7 +88,7 @@
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			//else if (torso.air_time > 0.10f) goto air;
+			else if (torso.air_time > 0.10f) goto air;
 			else if (walking) goto walking;
 			else goto idle;
 
@@ -136,8 +136,10 @@
 					headbob.offset = offset;
 				}
 
+				var t = Maths.Clamp01((torso.air_time) * 6.00f);
+
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)(5 + Maths.Clamp(torso.air_time * torso.fps, 0, 2));
+				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(5, 8, t));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
