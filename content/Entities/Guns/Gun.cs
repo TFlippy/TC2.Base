@@ -495,7 +495,7 @@ namespace TC2.Base.Components
 								gun_flags: gun.flags
 							);
 
-							if (gun.type != Gun.Type.Launcher && args.vel.LengthSquared() < (80 * 80))
+							if (args.vel.LengthSquared() < (material.projectile_velocity_min * material.projectile_velocity_min))
 							{
 								force_jammed = true;
 								break;
