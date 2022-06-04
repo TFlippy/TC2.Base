@@ -18,6 +18,8 @@ namespace TC2.Base.Components
 			public uint frame_count = 4;
 			public uint fps = 12;
 
+			public uint2 frames_jump = default;
+
 			public Data()
 			{
 
@@ -109,8 +111,8 @@ namespace TC2.Base.Components
 				var t = Maths.Clamp01((info.WorldTime - runner_state.last_jump) * 7.00f);
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(5, 8, t));
-				renderer.sprite.count = 1;
+				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));
+				renderer.sprite.count = 0;
 
 				return;
 			}
