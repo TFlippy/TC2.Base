@@ -23,7 +23,7 @@
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			public uint2 frames_jump = default;
+			public uint2 frames_air = default;
 
 			[Save.Ignore, Net.Ignore] public float air_time = default;
 
@@ -141,7 +141,7 @@
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(torso.frames_jump.X, torso.frames_jump.Y, t));
+				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.X, torso.frames_air.Y, t));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
