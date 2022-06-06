@@ -260,31 +260,10 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Overheat.Data>
 			(
-				identifier: "overheat.movement_cooling",
-				category: "Heat Management",
-				name: "Movement Cooling",
-				description: "Increases cooling rate while in motion.",
-
-				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
-					cooling.modifier = 0.10f;
-
-					data.cool_rate *= 0.70f;
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Overheat.Data>
-			(
 				identifier: "overheat.air_coolant",
 				category: "Heat Management",
 				name: "Air-Cooled",
-				description: "Increases cooling rate.",
+				description: "Increases cooling rate while in motion.",
 
 				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -310,7 +289,9 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					data.cool_rate += amount * 9.00f;
+				
+					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
+					cooling.modifier = 1.00f + (0.50f * amount);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
