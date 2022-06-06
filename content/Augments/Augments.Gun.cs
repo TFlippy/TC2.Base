@@ -561,7 +561,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.rapid_fire_mechanism",
 				category: "Gun (Receiver)",
-				name: "Rapid fire mechanism",
+				name: "Rapid-Fire Mechanism",
 				description: "Greatly increases fire rate, at the cost of worsened ballistics.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
