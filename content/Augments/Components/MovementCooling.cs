@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class MovementCooling
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, name: "Movement Cooling")]
 		public partial struct Data: IComponent
 		{
 			public float modifier;
