@@ -41,3 +41,12 @@ nameable:
 {
 	name: "Badger Den"
 }
+
+spawner:
+{
+	prefab: "badger"
+	interval: 60.000
+	interval_count_modifier: 60.000
+	max_count: 2
+	filter_tag: "badger"
+}
