@@ -11,8 +11,8 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.700
-		elasticity: 0.250
+		friction: 0.500
+		elasticity: 0.350
 		material: flesh
 		layer: entity, solid, creature
 		mask: world, vehicle

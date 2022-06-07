@@ -138,4 +138,14 @@ rope.renderer:
 			}
 		]
 	}
+
+	faction.new:
+	{
+		tag: "HOR"
+		name: "Hornets"
+		color_a: "0xff0030ff"
+		color_b: "0xff080a52"
+
+		id: 200
+	}
 }

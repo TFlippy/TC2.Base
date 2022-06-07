@@ -50,3 +50,13 @@ spawner:
 	max_count: 2
 	filter_tag: "badger"
 }
+
+faction.new:
+{
+	tag: "BAD"
+	name: "Badgers"
+	color_a: "0xff0030ff"
+	color_b: "0xff080a52"
+
+	id: 201
+}
