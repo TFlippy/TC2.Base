@@ -19,14 +19,20 @@
 	texture_scale: 1.250
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "copper_ore"
 			quantity: 2.000
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffaa6a2e"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }
