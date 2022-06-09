@@ -3,7 +3,7 @@
 	desc: "Natural stone."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 12000.000

@@ -3,7 +3,7 @@
 	desc: "Very dense natural stone."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 100000.000

@@ -3,7 +3,7 @@
 	desc: "Regular soil, fairly fertile."
 	
 	material_type: soil
-	tile_flags: any
+	tile_flags: non_empty
 	flags: none
 	
 	max_health: 3200.000

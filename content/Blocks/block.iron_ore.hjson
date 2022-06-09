@@ -3,7 +3,7 @@
 	desc: "A common mineral."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 20000.000

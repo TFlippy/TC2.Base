@@ -3,7 +3,7 @@
 	desc: "An uncommon mineral used in chemistry."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 14000.000

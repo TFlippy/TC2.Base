@@ -3,7 +3,7 @@
 	desc: "Smirgl slabs of varying sizes."
 	
 	material_type: metal
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 250000.000

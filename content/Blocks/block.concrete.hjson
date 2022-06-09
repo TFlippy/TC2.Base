@@ -3,7 +3,7 @@
 	desc: "Durable concrete slabs."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 60000.000

@@ -3,7 +3,7 @@
 	desc: ""
 	
 	material_type: none
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 100000.000

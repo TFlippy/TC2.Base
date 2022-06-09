@@ -3,7 +3,7 @@
 	desc: "Common mineral, mixture of copper and iron."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 16000.000

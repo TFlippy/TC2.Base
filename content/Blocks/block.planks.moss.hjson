@@ -3,7 +3,7 @@
 	desc: "Wooden planks mossed together."
 	
 	material_type: wood
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 2700.000

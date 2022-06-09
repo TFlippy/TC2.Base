@@ -3,7 +3,7 @@
 	desc: "A very heavy mineral."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 68000.000

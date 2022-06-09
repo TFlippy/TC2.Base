@@ -3,7 +3,7 @@
 	desc: "Nice green grass."
 	
 	material_type: soil
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 1600.000

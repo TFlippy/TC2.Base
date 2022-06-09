@@ -3,7 +3,7 @@
 	desc: "Clay bricks of varying sizes."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 24000.000

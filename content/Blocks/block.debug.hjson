@@ -3,7 +3,7 @@
 	desc: "Natural debug."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 1337.000
