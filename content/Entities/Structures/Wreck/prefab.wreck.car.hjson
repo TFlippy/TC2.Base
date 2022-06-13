@@ -77,3 +77,9 @@ cover:
 {
 	threshold: 0.200
 }
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
