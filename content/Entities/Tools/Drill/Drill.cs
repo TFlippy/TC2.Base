@@ -34,85 +34,53 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		//public struct DrillGUI: IGUICommand
-		//{
-		//	public Transform.Data transform;
-		//	public Vector2 world_position;
-		//	public Drill.Data drill;
-		//	public Entity entity;
-		//	public Specialization.Miner.Data mining;
-		//	public bool valid;
+		public struct DrillGUI: IGUICommand
+		{
+			public Transform.Data transform;
+			public Vector2 world_position;
+			public Drill.Data drill;
+			public Entity entity;
+			public Specialization.Miner.Data mining;
+			public bool valid;
 
-		//	public void Draw()
-		//	{
-		//		ref var region = ref this.entity.GetRegion();
+			public void Draw()
+			{
+				ref var region = ref this.entity.GetRegion();
 
-		//		var wpos = this.world_position;
-		//		var cpos = this.WorldToCanvas(wpos);
+				var wpos = this.world_position;
+				var radius = this.mining.ApplySize(this.drill.radius);
 
-		//		var radius = this.mining.ApplySize(this.drill.radius);
+				GUI.DrawTerrainOutline(ref region, wpos, radius * 2.00f);
+			}
+		}
 
-		//		var color = this.valid ? new Color32BGRA(0xff00ff00) : new Color32BGRA(0xffff0000);
-		//		var color_bg = color.WithAlphaMult(0.10f);
-		//		var color_fg = color.WithAlphaMult(0.40f);
+		[ISystem.GUI(ISystem.Mode.Single)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
+		{
+			if (player.IsLocal())
+			{
+				var dir = transform.GetDirection();
+				var len = (control.mouse.position - transform.position).Length();
+				var hit_position = transform.position + (dir * Maths.Clamp(len, 0.25f, drill.max_distance));
 
-		//		//Span<OverlapResult> hits = stackalloc OverlapResult[32];
-		//		//if (region.TryOverlapPointAll(wpos, radius * 0.50f, ref hits, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
-		//		//{
-		//		//	// TODO: add public API for drawing raw lines in GUI
-		//		//	foreach (ref var hit in hits)
-		//		//	{
-		//		//		//var shape = hit.info.shape;
-		//		//		//if (shape->klass->type == Chipmunk2D.cpShapeType.CP_SEGMENT_SHAPE)
-		//		//		//{
-		//		//		//	var segment = (cpSegmentShape*)shape;
+				var gui = new DrillGUI()
+				{
+					entity = entity,
+					transform = transform,
+					drill = drill,
+					world_position = hit_position,
+					mining = mining,
+					valid = true
+				};
 
-		//		//		//	var shape_a = this.WorldToCanvas(segment->ta);
-		//		//		//	var shape_b = this.WorldToCanvas(segment->tb);
+				//if (info.GetRegion().TryLinecast(transform.position, hit_position, drill.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
+				//{
+				//	gui.world_position = hit.world_position;
+				//}
 
-		//		//		//	var dist = hit.distance;
-
-		//		//		//	ref var block = ref Block.registry[segment->shape.block_id];
-		//		//		//	var alpha = 1.00f - Maths.Clamp(dist * 0.50f, 0.00f, 1.00f);
-		//		//		//	var color = new Vector4(0, 1, 0, 1);
-
-		//		//		//	color.W = alpha;
-		//		//		//	var color_u32 = ImGui.ColorConvertFloat4ToU32(color); // new(0, 1, 0, alpha));
-
-		//		//		//	draw.AddLine(shape_a, shape_b, color_u32, 2.00f);
-		//		//		//}
-		//		//	}
-		//		//}
-		//	}
-		//}
-
-		//[ISystem.GUI(ISystem.Mode.Single)]
-		//public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
-		//{
-		//	if (player.IsLocal())
-		//	{
-		//		var dir = transform.GetDirection();
-		//		var len = (control.mouse.position - transform.position).Length();
-		//		var hit_position = transform.position + (dir * Maths.Clamp(len, 0.25f, drill.max_distance));
-
-		//		var gui = new DrillGUI()
-		//		{
-		//			entity = entity,
-		//			transform = transform,
-		//			drill = drill,
-		//			world_position = hit_position,
-		//			mining = mining,
-		//			valid = true
-		//		};
-
-		//		//if (info.GetRegion().TryLinecast(transform.position, hit_position, drill.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
-		//		//{
-		//		//	gui.world_position = hit.world_position;
-		//		//}
-
-		//		gui.Submit();
-		//	}
-		//}
+				gui.Submit();
+			}
+		}
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
