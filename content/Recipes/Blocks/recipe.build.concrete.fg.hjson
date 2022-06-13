@@ -19,7 +19,7 @@
 	placement:
 	{
 		type: line
-		flags: none
+		flags: no_snapping
 		
 		size: [1.500, 1.500]
 		
