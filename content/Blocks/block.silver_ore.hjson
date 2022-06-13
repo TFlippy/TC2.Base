@@ -3,7 +3,7 @@
 	desc: "A precious metal."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 14400.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.200
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "silver_ore"
 			quantity: 0.700
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffccdfda"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

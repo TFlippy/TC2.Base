@@ -3,7 +3,7 @@
 	desc: "TODO: Desc"
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 10000.000
@@ -19,11 +19,14 @@
 	texture_scale: 1.550
 	texture_overshoot: -0.250
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
+	resources: []
 	
-	resources:
+	mappings:
 	[
-
+		{
+			color: "0xff201f1f"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
 	]
 }
