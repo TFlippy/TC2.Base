@@ -118,7 +118,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))
 			{
@@ -160,8 +160,11 @@ namespace TC2.Base.Components
 						{
 							ref var hit = ref hits[i];
 							if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
-							var is_terrain = !hit.entity.IsValid();
 
+							var hit_faction_id = hit.GetFactionID();
+							if (hit_faction_id != 0 && hit_faction_id == faction.id) continue;
+
+							var is_terrain = !hit.entity.IsValid();
 							if (is_terrain)
 							{
 								if (hit_terrain) continue;
