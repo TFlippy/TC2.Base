@@ -110,15 +110,15 @@ burner.state:
 	current_temperature: 300.000
 }
 
-boiler:
-{
+// boiler:
+// {
 
-}
+// }
 
-boiler.state:
-{
+// boiler.state:
+// {
 	
-}
+// }
 
 axle:
 {
