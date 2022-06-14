@@ -1203,8 +1203,8 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
-					data.failure_rate *= 0.90f;
-					data.stability += 0.10f;
+					data.failure_rate *= 0.80f;
+					data.stability += 0.20f;
 					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
 
 					return true;
