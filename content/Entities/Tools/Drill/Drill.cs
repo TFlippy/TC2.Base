@@ -12,6 +12,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage = default;
 
+			[Statistics.Info("Damage Multiplier (Terrain)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			public float damage_terrain_multiplier = 2.00f;
+
 			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float max_distance = default;
 
@@ -109,9 +112,11 @@ namespace TC2.Base.Components
 					var modifier = 1.00f;
 					overheat.heat_current += 4.00f;
 
-					Span<LinecastResult> hits = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref hits, mask: drill.hit_mask, exclude: drill.hit_exclude))
+					Span<LinecastResult> results = stackalloc LinecastResult[16];
+					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
+						results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+
 						var parent = body.GetParent();
 
 						var damage_base = drill.damage;
@@ -124,9 +129,9 @@ namespace TC2.Base.Components
 
 						var hit_terrain = false;
 
-						for (var i = 0; i < hits.Length && penetration >= 0; i++)
+						for (var i = 0; i < results.Length && penetration >= 0; i++)
 						{
-							ref var hit = ref hits[i];
+							ref var hit = ref results[i];
 							if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
 
 							var hit_faction_id = hit.GetFactionID();
@@ -181,7 +186,10 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							var damage_final = damage * modifier;
+							if (is_terrain) damage_final *= drill.damage_terrain_multiplier;
+
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
 #endif
 
 							flags |= Damage.Flags.No_Sound;
