@@ -537,10 +537,10 @@ namespace TC2.Base.Components
 					{
 						var explosion_data = new Explosion.Data()
 						{
-							power = 1.50f + (count * 0.80f),
-							radius = 5.50f + (count * 2.50f),
+							power = 1.50f, // + (count * 0.80f),
+							radius = 5.50f, // + (count * 2.50f),
 							damage_entity = (gun.damage_multiplier * (1.00f + ((count - 1) * 3.80f))) * 200.00f,
-							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.80f))) * 130.00f,
+							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
 							smoke_amount = 0.30f,
 							sparks_amount = 2.00f,
 							owner_entity = body.GetParent()
