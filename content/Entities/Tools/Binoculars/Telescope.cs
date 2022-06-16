@@ -5,21 +5,21 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public struct Data: IComponent
 		{
-			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Adjustment Speed", description: "How fast you can move the camera.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float speed = 2.00f;
 
 			public float deadzone = 5.00f;
 
-			[Statistics.Info("Zoom Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Zoom Modifier", description: "Multiplies how much you can zoom out both at max and at min.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float zoom_modifier = 0.50f;
 
-			[Statistics.Info("Zoom (Min)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Zoom (Min)", description: "Multiplies how close you can zoom in.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float zoom_min = 0.10f;
 
-			[Statistics.Info("Zoom (Max)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Zoom (Max)", description: "Multiplies how far you can zoom out.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float zoom_max = 1.00f;
 
-			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Maximum Distance", description: "How far away you can move the camera from your your character.", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_distance = 50.00f;
 
 			[Save.Ignore, Net.Ignore] public float current_modifier = default;

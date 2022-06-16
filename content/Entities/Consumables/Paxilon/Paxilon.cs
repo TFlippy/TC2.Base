@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Effect: IComponent
 		{
-			[Statistics.Info("Paxilon Hydrochlorate", description: "TODO: Desc", format: "{0:0.##} mg", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
+			[Statistics.Info("Amount", description: "Amount of paxilon hydrochlorate released over the total duration.", format: "{0:0.##} mg", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float amount;
 
 			public float amount_active;
