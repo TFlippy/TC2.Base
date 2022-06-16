@@ -1,0 +1,38 @@
+{
+	name: "Gold Bricks"
+	desc: "Gold bricks of varying sizes."
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial, rare, mineral
+	
+	max_health: 2000.000
+	smoothing: 0.150
+	mass: 5.000
+	friction: 0.300
+	elasticity: 0.700
+	stability: 0.200
+	
+	texture: "terrain_gold_brick"
+	pattern: "pattern_gold_brick"
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.300
+	
+	resources:
+	[
+		{
+			material: "gold_ingot"
+			quantity: 0.100
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffdc9145"
+			tile_flags: solid, non_empty
+			meta: 0
+		}
+	]
+}
