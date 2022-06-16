@@ -7,8 +7,9 @@
 	
 	icon:
 	{
-		texture: "gold_ingot"
+		texture: "block_icons"
 		size: [16, 16]
+		frame: [10, 1]
 	}
 	
 	type: build
