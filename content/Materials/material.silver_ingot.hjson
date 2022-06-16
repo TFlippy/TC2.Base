@@ -1,6 +1,6 @@
 {
 	name: "Silver Ingot"
-	description: "TODO: Desc"
+	description: "Valuable."
 	icon:
 	{
 		texture: "resource.silver_ingot"

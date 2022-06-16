@@ -2,7 +2,7 @@
 	name: "Track [WIP]"
 	desc:
 		'''
-		TODO: Desc
+		A metal track with which an operater can move an attachable item along it.
 		'''
 	
 	icon:

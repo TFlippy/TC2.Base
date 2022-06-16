@@ -1,6 +1,6 @@
 {
 	name: "Iron Ingot"
-	description: "TODO: Desc"
+	description: "Commonly used everywhere."
 	icon:
 	{
 		texture: "resource.iron_ingot"

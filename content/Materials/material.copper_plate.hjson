@@ -1,6 +1,6 @@
 {
 	name: "Copper Plate"
-	description: "TODO: Desc"
+	description: "Flat rectangles of copper, commonly used in mechanisms and advanced construction"
 	icon:
 	{
 		texture: "resource.copper_plate"

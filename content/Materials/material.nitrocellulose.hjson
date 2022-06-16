@@ -1,6 +1,6 @@
 {
 	name: "Nitrocellulose"
-	description: "TODO: Desc"
+	description: "Explosive powder, used in advanced ammuntion"
 	icon:
 	{
 		texture: "resource.nitrocellulose"

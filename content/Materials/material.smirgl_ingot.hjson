@@ -1,6 +1,6 @@
 {
 	name: "Smirgl Ingot"
-	description: "TODO: Desc"
+	description: "Extremely heavy and durable."
 	icon:
 	{
 		texture: "resource.smirgl_ingot"
