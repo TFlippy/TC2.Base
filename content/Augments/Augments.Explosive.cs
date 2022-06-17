@@ -122,19 +122,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Explosive.Data>
+			definitions.Add(Augment.Definition.New<Explosive.Data>
 			(
 				identifier: "explosive.addfuse",
 				category: "Explosive",
 				name: "Add fuse",
 				description: "Explosive can now be manually triggered, after a short time of which it will explode",
 
-				can_add: static (ref Modification.Context context, in Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					return context.GetComponent<Fuse.Data>().IsNull();
 				},
 
-				apply_0: static (ref Modification.Context context, ref Explosive.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					//var radius_log = MathF.Log2(data.radius);
 					ref var fuse = ref context.GetOrAddComponent<Fuse.Data>();

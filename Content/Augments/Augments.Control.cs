@@ -21,6 +21,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
+					random_activation.duration += 0.20f;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
