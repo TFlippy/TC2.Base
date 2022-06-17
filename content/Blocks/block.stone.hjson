@@ -3,7 +3,7 @@
 	desc: "Natural stone."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 12000.000
@@ -19,14 +19,25 @@
 	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "stone"
-			quantity: 2.000
+			quantity: 2.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff52443c"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+		{
+			color: "0xff332c29"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

@@ -1,0 +1,36 @@
+{
+	name: "Musket"
+	desc:
+		'''
+		A caplock musket.
+		Good for hunting and medium-ranged combat.
+		'''
+	
+	icon:
+	{
+		texture: "musket"
+	}
+	
+	min: 1
+	max: 5
+	step: 1
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 89.490
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "musket"
+			amount: 1.000
+		}
+	]
+}

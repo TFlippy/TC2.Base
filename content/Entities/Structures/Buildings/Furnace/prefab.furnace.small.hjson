@@ -42,7 +42,7 @@ furnace:
 	batch_amount_step: 10
 	batch_amount_current: 50
 	
-	@inventory4:
+	@inventory8:
 	{
 		name: "Output"
 		stack_size_multiplier: 2.000
@@ -102,5 +102,5 @@ burner.state:
 
 interactable:
 {
-	window_size: [144.000, 144.000]
+	window_size: [240.000, 144.000]
 }

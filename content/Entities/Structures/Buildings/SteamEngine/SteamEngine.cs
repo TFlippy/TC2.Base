@@ -60,6 +60,8 @@ namespace TC2.Base.Components
 				steam_engine_state.next_tick = info.WorldTime + update_interval;
 				//state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * steam_engine.speed_modifier, 0.00f);
 			}
+
+			steam_engine_state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * 1.00f, 0.00f);
 		}
 
 #if CLIENT

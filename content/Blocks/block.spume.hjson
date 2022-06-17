@@ -3,7 +3,7 @@
 	desc: "Very brittle pumice-like rock."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 2000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.400
 	texture_overshoot: -0.250
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
 			material: "smirgl_powder"
-			quantity: 0.02
+			quantity: 0.020
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffa39a5f"
+			tile_flags: solid, non_empty, become_background_on_break, ground
+			meta: 0
 		}
 	]
 }

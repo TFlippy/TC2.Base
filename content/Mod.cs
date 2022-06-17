@@ -6,14 +6,14 @@ namespace TC2.Base
 	{
 		protected override void OnRegister(ModContext context)
 		{
-			Modification.OnInitialize += RegisterModifications;
-			Modification.OnInitialize += RegisterGunModifications;
-			Modification.OnInitialize += RegisterMeleeModifications;
-			Modification.OnInitialize += RegisterDrillModifications;
-			Modification.OnInitialize += RegisterMedkitModifications;
-			Modification.OnInitialize += RegisterExplosiveModifications;
-			Modification.OnInitialize += RegisterControlModifications;
-			Modification.OnInitialize += RegisterArmorModifications;
+			Augment.OnInitialize += RegisterAugments;
+			Augment.OnInitialize += RegisterGunAugments;
+			Augment.OnInitialize += RegisterMeleeAugments;
+			Augment.OnInitialize += RegisterDrillAugments;
+			Augment.OnInitialize += RegisterMedkitAugments;
+			Augment.OnInitialize += RegisterExplosiveAugments;
+			Augment.OnInitialize += RegisterArmorAugments;
+			Augment.OnInitialize += RegisterControlAugments;
 
 			Material.OnPostInitialize += Essence.Init;
 

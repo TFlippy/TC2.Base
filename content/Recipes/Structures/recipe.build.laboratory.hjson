@@ -2,7 +2,7 @@
 	name: "Blueprint Laboratory"
 	desc:
 		'''
-		A building where one can design item modification blueprints.
+		A building where one can design item augment blueprints.
 		'''
 	
 	icon:
@@ -28,6 +28,8 @@
 		
 		cooldown: 0.500
 		min_claim: 1.000
+
+		rotation_max: 0.200
 		
 		sound: "building_place"
 	}

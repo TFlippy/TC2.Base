@@ -3,7 +3,7 @@
 	desc: "TODO: Desc"
 	
 	material_type: metal
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 100000.000
@@ -19,9 +19,6 @@
 	texture_scale: 0.820
 	texture_overshoot: -0.300
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
@@ -29,4 +26,6 @@
 			quantity: 0.070
 		}
 	]
+	
+	mappings: []
 }

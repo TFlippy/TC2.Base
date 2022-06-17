@@ -35,7 +35,7 @@
 		{
 			type: "resource"
 			material: "nitroglycerine"
-			amount: 0.280
+			amount: 4.000
 		}
 		{
 			type: "work"

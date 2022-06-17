@@ -3,7 +3,7 @@
 	desc: "A very precious metal."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, rare, mineral
 	
 	max_health: 10400.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.650
 	texture_overshoot: -0.650
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "gold_ore"
 			quantity: 0.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffdc9145"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

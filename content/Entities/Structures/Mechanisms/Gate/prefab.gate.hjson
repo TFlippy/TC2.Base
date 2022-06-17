@@ -18,7 +18,7 @@ body:
 
 health:
 {
-	max: 50000.000
+	max: 40000.000
 }
 
 animated.renderer:
@@ -140,7 +140,7 @@ joint.distance:
 	
 	health:
 	{
-		max: 40000.000
+		max: 30000.000
 	}
 	
 	transform:

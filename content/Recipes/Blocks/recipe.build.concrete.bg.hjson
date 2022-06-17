@@ -18,12 +18,15 @@
 	
 	placement:
 	{
-		type: rectangle
-		flags: continuous
+		type: line
+		flags: none
 		
-		size: [1.000, 1.000]
+		size: [1.500, 1.500]
 		
-		cooldown: 0.200
+		cooldown: 0.400
+		
+		length_max: 5.000
+		length_step: 0.125
 		
 		sound: "stone_place_0"
 	}
@@ -39,11 +42,6 @@
 			type: resource
 			material: "cement"
 			amount: 0.050
-		}
-		{
-			type: resource
-			material: "sand"
-			amount: 0.025
 		}
 	]
 	

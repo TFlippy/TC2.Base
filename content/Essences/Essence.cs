@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Essence
 	{
 		[Query]
-		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, [Source.Owned] in EssenceNode.Data surge, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
+		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, [Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
 		public enum Type: uint
 		{
@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: Just for debugging (until essences get implemented properly)
-		public static Color32BGRA GetColor(Essence.Type type) => type switch
+		public static ColorBGRA GetColor(Essence.Type type) => type switch
 		{
 			Essence.Type.Undefined => new Color32BGRA(255, 255, 255, 255),
 

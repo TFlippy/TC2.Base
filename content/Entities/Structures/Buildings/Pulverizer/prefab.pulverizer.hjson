@@ -90,4 +90,7 @@ sound.emitter:
 	file: "pulverizer_spin_loop"
 	volume: 0.000
 	pitch: 0.000
+
+	size: 2.000
+	size_max_modifier: 0.800
 }

@@ -11,8 +11,8 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.700
-		elasticity: 0.250
+		friction: 0.500
+		elasticity: 0.350
 		material: flesh
 		layer: entity, solid, creature
 		mask: world, vehicle
@@ -74,10 +74,16 @@ holdable:
 
 animal:
 {
-	attack_distance: 2.000
 	attack_cooldown: 1.500
+
+	attack_distance_melee: 2.000
+	attack_cooldown_melee: 0.800
+
+	attack_distance_ranged: 5.000
+	attack_cooldown_ranged: 2.000
+
 	charge_distance: 6.000
-	retreat_distance: 0.000
+	retreat_distance: 9.000
 }
 
 animal.state:
@@ -455,6 +461,7 @@ lootable:
 			sound: "badger_attack"
 			damage_base: 40.000
 			damage_bonus: 150.000
+
 			cooldown: 0.800
 			max_distance: 1.500
 			aoe: 0.250

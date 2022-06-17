@@ -3,7 +3,7 @@
 	desc: ""
 	
 	material_type: none
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 100000.000
@@ -13,14 +13,13 @@
 	elasticity: 0.700
 	stability: 0.500
 	
-	texture: "terrain_steel_beam"
+	texture: "missing"
 	pattern: "pattern_stone"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources: []
+	
+	mappings: []
 }
