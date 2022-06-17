@@ -24,8 +24,10 @@ namespace TC2.Base.Components
 			public float walk_force = default;
 			public float jump_force = default;
 			public float max_speed = 10.00f;
+			public float max_jump_speed = 10.00f;
 
 			public float walk_lerp = 0.15f;
+			public float jump_decay = 0.50f;
 			public float crouch_speed_modifier = 0.50f;
 
 			public Data()
@@ -99,7 +101,7 @@ namespace TC2.Base.Components
 			ref readonly var keyboard = ref control.keyboard;
 
 			var force = new Vector2(0, 0);
-			var max_speed = new Vector2(runner.max_speed, runner.max_speed);
+			var max_speed = new Vector2(runner.max_speed, runner.max_jump_speed);
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
@@ -149,18 +151,21 @@ namespace TC2.Base.Components
 				friction /= arbiter_count;
 			}
 
+			normal = normal.GetNormalized();
+
 			var is_grounded = false;
 
 			if (arbiter_count > 0 && !layers.HasAll(Physics.Layer.Bounds))
 			{
 				is_grounded = MathF.Abs(normal.X) < 0.95f;
 
-				var dot = Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0));
+				var dot = MathF.Abs(Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0)));
 
-				runner_state.uphill_force_current = -MathF.Abs(dot * force.X) * friction * 0.50f;
+				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
+				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
 
 				force.Y = runner_state.uphill_force_current;
-				force.X *= 1.00f - dot;
+				force.X *= (1.00f - dot);
 			}
 			else
 			{
@@ -189,7 +194,7 @@ namespace TC2.Base.Components
 			}
 
 			force.Y -= runner_state.jump_force_current;
-			runner_state.jump_force_current *= 0.50f;
+			runner_state.jump_force_current *= runner.jump_decay;
 
 			runner_state.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner_state.last_ground) <= 0.25f);
 			if (runner_state.flags.HasAll(Runner.Flags.Crouching))

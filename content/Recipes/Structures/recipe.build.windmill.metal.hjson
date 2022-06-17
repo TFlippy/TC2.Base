@@ -27,6 +27,8 @@
 		
 		cooldown: 0.500
 		min_claim: 1.000
+
+		rotation_max: 0.150
 		
 		sound: "building_place"
 	}

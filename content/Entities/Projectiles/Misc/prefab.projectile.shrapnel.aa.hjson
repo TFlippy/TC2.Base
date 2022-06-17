@@ -31,6 +31,6 @@ explosive:
 	smoke_amount: 0.400
 	sparks_amount: 0.700
 	volume: 0.500
-	pitch: 1.800
+	pitch: 1.600
 	flags: primed
 }

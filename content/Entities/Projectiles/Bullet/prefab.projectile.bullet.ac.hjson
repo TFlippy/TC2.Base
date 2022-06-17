@@ -24,7 +24,7 @@ explosive:
 {
 	radius: 2.000
 	power: 2.000
-	// damage_type: bullet_ac
+	damage_type: bullet_hc
 	damage_entity: 1000.000
 	damage_terrain: 1500.000
 	smoke_amount: 0.200

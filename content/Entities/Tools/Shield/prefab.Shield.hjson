@@ -15,7 +15,7 @@ body:
 		elasticity: 0.350
 		material: metal
 		layer: entity, solid, item
-		mask: world, creature
+		mask: world
 	}
 }
 

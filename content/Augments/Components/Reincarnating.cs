@@ -4,20 +4,25 @@ namespace TC2.Base.Components
 	// This component simply spawns 1 or more copies of the prefab when it dies, except the copies have reincarnating count set to 0 so this doesnt repeat
 	public static partial class Reincarnating
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Reincar. Quantity", description: "How many copies of this are created on death", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Quantity", description: "How many copies of this are created on death", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public int count;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if SERVER
-		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
-		public static void OnHealthModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] in Data reincarnating)
+		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single)]
+		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Data reincarnating)
 		{
 			if (health.integrity <= 0.00f)
 			{
-				entity.RemoveComponent<Reincarnating.Data>(); // Can only trigger once
+				entity.RemoveComponent<Reincarnating.Data>();
 			}
 		}
 

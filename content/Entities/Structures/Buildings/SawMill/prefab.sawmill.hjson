@@ -67,7 +67,7 @@ sawmill:
 		file: "sawmill.idle.loop.00"
 		volume: 0.000
 		pitch: 1.000
-		size: 0.500
+		size: 0.800
 	}
 
 	@inventory8:
@@ -97,7 +97,7 @@ sawmill.state:
 		file: "sawmill.cut.loop.00"
 		volume: 0.000
 		pitch: 1.000
-		size: 0.600
+		size: 1.400
 	}
 }
 

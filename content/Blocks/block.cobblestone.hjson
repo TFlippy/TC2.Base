@@ -3,7 +3,7 @@
 	desc: "Stones cobbled together."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 12000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.000
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
 			material: "stone"
 			quantity: 0.200
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff7d716b"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
 		}
 	]
 }

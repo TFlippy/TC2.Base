@@ -163,7 +163,8 @@ namespace TC2.Base.Components
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
-			public float sound_size = 2.00f;
+			public float sound_size = 1.00f;
+			public float sound_dist_multiplier = 4.00f;
 
 			public float sound_pitch = 1.00f;
 
@@ -405,7 +406,12 @@ namespace TC2.Base.Components
 					}
 					else
 					{
+						gun_state.next_reload = info.WorldTime + 0.10f;
+#if SERVER
 						gun_state.stage = Gun.Stage.Ready;
+						gun_state.Sync(entity);
+#endif
+						return;
 					}
 				}
 			}
@@ -428,6 +434,7 @@ namespace TC2.Base.Components
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var random = XorRandom.New();
+				var base_vel = body.GetVelocity();
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
 
@@ -488,7 +495,7 @@ namespace TC2.Base.Components
 								gun_flags: gun.flags
 							);
 
-							if (gun.type != Gun.Type.Launcher && args.vel.LengthSquared() < (80 * 80))
+							if (args.vel.LengthSquared() < (material.projectile_velocity_min * material.projectile_velocity_min))
 							{
 								force_jammed = true;
 								break;
@@ -513,6 +520,7 @@ namespace TC2.Base.Components
 									if (!explosive.IsNull())
 									{
 										explosive.ent_owner = args.ent_owner;
+
 										ent.SyncComponent(ref explosive);
 									}
 
@@ -529,10 +537,10 @@ namespace TC2.Base.Components
 					{
 						var explosion_data = new Explosion.Data()
 						{
-							power = 1.50f + (count * 0.80f),
-							radius = 5.50f + (count * 2.50f),
+							power = 1.50f, // + (count * 0.80f),
+							radius = 5.50f, // + (count * 2.50f),
 							damage_entity = (gun.damage_multiplier * (1.00f + ((count - 1) * 3.80f))) * 200.00f,
-							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.80f))) * 130.00f,
+							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
 							smoke_amount = 0.30f,
 							sparks_amount = 2.00f,
 							owner_entity = body.GetParent()
@@ -594,6 +602,7 @@ namespace TC2.Base.Components
 						particle.scale = gun.flash_size;
 						particle.lit = 1.00f;
 						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
+						particle.vel = base_vel;
 
 						Particle.Spawn(ref region, particle);
 					}
@@ -601,14 +610,14 @@ namespace TC2.Base.Components
 					var smoke_count = (int)gun.smoke_amount;
 					for (var i = 0; i < smoke_count; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
-						particle.fps = (byte)random.NextFloatRange(6, 8);
+						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(2.00f, 8.00f));
+						particle.fps = random.NextByteRange(12, 16);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
-						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
+						particle.frame_offset = random.NextByteRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = (dir_particle * random.NextFloatRange(1.00f, 1.50f));
+						particle.vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f));
 						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
@@ -620,7 +629,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size);
+				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 
@@ -671,7 +680,7 @@ namespace TC2.Base.Components
 					return;
 				}
 
-				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
 					//gun_state.stage = Gun.Stage.Reloading;

@@ -58,8 +58,10 @@ packable:
 
 consumable:
 {
+	flags: enable_use_on_self, enable_use_on_others
+
 	release_rate: 100.000
 	release_step: 0.300
 
-	sound_drink: "syringe.inject.00"
+	sound_use: "syringe.inject.00"
 }

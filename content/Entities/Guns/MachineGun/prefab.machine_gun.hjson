@@ -4,10 +4,10 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.800, 0.000]
-		b: [1.800, 0.000]
+		a: [-1.000, 0.150]
+		b: [1.250, -0.050]
 		mass: 20.000
-		radius: 0.250
+		radius: 0.350
 		friction: 0.900
 		elasticity: 0.250
 		material: metal

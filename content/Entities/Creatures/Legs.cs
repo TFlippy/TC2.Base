@@ -18,6 +18,8 @@ namespace TC2.Base.Components
 			public uint frame_count = 4;
 			public uint fps = 12;
 
+			public uint2 frames_jump = default;
+
 			public Data()
 			{
 
@@ -68,7 +70,8 @@ namespace TC2.Base.Components
 			else if (true) //runner.flags.HasAll(Runner.Flags.Grounded))
 			{
 				if (runner_state.flags.HasAll(Runner.Flags.Sitting)) goto sitting;
-				else if (runner_state.flags.HasAll(Runner.Flags.Walking)) goto walking;
+				else if (!runner_state.flags.HasAny(Runner.Flags.Grounded) && (info.WorldTime - runner_state.last_jump) < 1.00f) goto jumping;
+				else if (runner_state.flags.HasAll(Runner.Flags.Walking)) goto walking;	
 				else goto idle;
 			}
 			else
@@ -99,6 +102,17 @@ namespace TC2.Base.Components
 						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: legs.sound_volume, pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch, priority: 0.10f);
 					}
 				}
+
+				return;
+			}
+
+			jumping:
+			{
+				var t = Maths.Clamp01((info.WorldTime - runner_state.last_jump) * 7.00f);
+
+				renderer.sprite.fps = 0;
+				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));
+				renderer.sprite.count = 0;
 
 				return;
 			}

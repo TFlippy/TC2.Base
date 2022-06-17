@@ -150,5 +150,8 @@ vehicle:
 	attachment:
 	{
 		name: "Mount"
+
+		flags: none
+		flags_editable: locked, disabled, hold
 	}
 }

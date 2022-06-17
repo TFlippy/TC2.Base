@@ -4,16 +4,16 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterArmorModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterArmorAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Health.Data>
+			definitions.Add(Augment.Definition.New<Health.Data>
 			(
 				identifier: "health.smirgl_structure",
 				category: "Protection",
 				name: "Smirgl-Reinforced Structure",
 				description: "Replaces entire structure with smirgl, greatly increasing durability.",
 
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var material_iron = ref Material.GetMaterial("iron_ingot");
 
@@ -30,10 +30,10 @@ namespace TC2.Base
 						}
 					}
 
-					return has_ingot && !modifications.HasModification(handle);
+					return has_ingot && !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var material_iron = ref Material.GetMaterial("iron_ingot");
 
@@ -76,19 +76,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Armor.Data>
+			definitions.Add(Augment.Definition.New<Armor.Data>
 			(
 				identifier: "armor.chitin_lined",
 				category: "Protection",
 				name: "Chitin-Lined",
 				description: "Incorporate chitin lining into the armor, increasing its protection while slightly lowering its toughness.",
 
-				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.toughness *= 0.95f;
 					data.protection = Maths.Clamp(data.protection + ((1.00f - data.protection) * 0.50f), 0.00f, 1.00f);
@@ -100,25 +100,25 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Armor.Data>
+			definitions.Add(Augment.Definition.New<Armor.Data>
 			(
 				identifier: "armor.smirgl_plating",
 				category: "Protection",
 				name: "Smirgl Plating",
 				description: "Reinforce the armor with smirgl plating, increasing its toughness and weight.",
 
-				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.toughness += 350.00f;
 
@@ -135,55 +135,55 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 2.00f));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Armor.Data>
+			definitions.Add(Augment.Definition.New<Armor.Data>
 			(
 				identifier: "armor.cloth_padded",
 				category: "Protection",
 				name: "Cloth Padding",
 				description: "Pads the inner side of the armor with cloth.",
 
-				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.knockback_modifier *= 0.65f;
 					data.pain_modifier *= 0.80f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 5.00f));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Armor.Data>
+			definitions.Add(Augment.Definition.New<Armor.Data>
 			(
 				identifier: "armor.mushroom_stuffed",
 				category: "Protection",
 				name: "Mushroom Stuffing",
 				description: "Stuffs the inner side of the armor with soft mushroom bits.",
 
-				can_add: static (ref Modification.Context context, in Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.knockback_modifier = MathF.Max(data.knockback_modifier - 0.30f, data.knockback_modifier * 0.25f);
 					data.pain_modifier = MathF.Max((data.pain_modifier * 0.90f) - 0.30f, data.pain_modifier * 0.10f);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Armor.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", 20.00f));
 				}

@@ -7,8 +7,7 @@
 	
 	icon:
 	{
-		texture: "hatch.wood"
-		size: [20, 24]
+		texture: "hatch.wood.icon"
 	}
 	
 	type: build

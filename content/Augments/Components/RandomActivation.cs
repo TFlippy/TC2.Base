@@ -11,13 +11,13 @@ namespace TC2.Base.Components
 			Active = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, name: "Random Activation")]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Random Activation Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float duration = default;
 
-			[Statistics.Info("Random Activation Chance", description: "Chance of a random activation being triggered.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Chance", description: "Chance of a random activation being triggered.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float chance = 0.005f;
 
 			public RandomActivation.Flags flags = default;
