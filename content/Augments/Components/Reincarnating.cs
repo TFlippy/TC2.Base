@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Remove<Reincarnating.Data>(ISystem.Mode.Single)]
+		[ISystem.RemoveLast(ISystem.Mode.Single)]
 		public static void OnRemove(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data reincarnating)
 		{
 			if (reincarnating.count > 0)
