@@ -10,7 +10,7 @@ body:
 		offset: [0.000, 0.000]
 		mass: 100.000
 		friction: 0.950
-		elasticity: 0.100
+		elasticity: 0.500
 		layer: entity, crate, shipment, solid
 		mask: world, crate
 		material: wood
@@ -39,5 +39,5 @@ transform:
 
 interactable:
 {
-	window_size: [384.000, 192.000]
+	window_size: [192.000, 192.000]
 }

@@ -3,7 +3,7 @@
 	desc: "Smirgl slabs of varying sizes."
 	
 	material_type: metal
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 250000.000
@@ -19,14 +19,25 @@
 	texture_scale: 1.550
 	texture_overshoot: 0.000
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
 			material: "smirgl_ingot"
 			quantity: 0.100
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff4e3636"
+			tile_flags: solid, non_empty, become_background_on_break, ground
+			meta: 0
+		}
+		{
+			color: "0xff261b1b"
+			tile_flags: non_empty, ground
+			meta: 0
 		}
 	]
 }

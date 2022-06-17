@@ -1,0 +1,158 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [1.500, 12.000]
+		offset: [0.000, 0.000]
+		friction: 0.990
+		elasticity: 0.030
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 120000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "gate.metal.base"
+	}
+	z: -150.000
+}
+
+gate:
+{
+	length: 6.000
+}
+
+axle:
+{
+	offset: [0.000, -5.750]
+	mass: 5.000
+	friction: 0.800
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
+		z: -50.000
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+rope.renderer:
+{
+	texture: "rope"
+	thickness: 0.200
+	scale: 8.000
+	z: 100.000
+}
+
+joint.base:
+{
+	offset_a: [0.000, -6.000]
+	offset_b: [0.000, -3.000]
+	max_force: 500000.000
+	max_torque: 500000.000
+	flags: control_read, control_write
+}
+
+joint.gear:
+{
+	min: 0.000
+	max: 0.000
+
+	error_bias: 0.0001
+	max_force: 200000.000
+	max_bias: 20.000
+}
+
+joint.slider:
+{
+	a: [0.000, 0.000]
+	b: [0.000, 12.000]
+
+	min: 0.000
+	max: 12.000
+
+	error_bias: 0.0001
+	max_force: 200000.000
+	max_force_b: 200000.000
+	max_bias: 20.000
+}
+
+joint.distance:
+{
+	max_force: 100000.000
+	max_bias: 10.000
+}
+
++door|child:
+{
+	$tags: []
+	
+	body:
+	{
+		@shape.box:
+		{
+			size: [0.875, 6.000]
+			offset: [0.000, 0.000]
+			mass: 2000.000
+			friction: 0.950
+			radius: 0.125
+			elasticity: 0.030
+			material: metal
+			layer: entity, solid
+			mask: world, solid
+		}
+	}
+	
+	animated.renderer:
+	{
+		sprite:
+		{
+			texture: "gate.metal"
+		}
+		z: 100.000
+	}
+	
+	health:
+	{
+		max: 120000.000
+	}
+	
+	transform:
+	{
+	
+	}
+	
+	deletewithparent:
+	{
+	
+	}
+}

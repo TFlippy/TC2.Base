@@ -3,7 +3,7 @@
 	desc: "High-quality coal that burns better than brown coal."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 10800.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.550
 	texture_overshoot: -0.700
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "black_coal"
-			quantity: 0.600
+			quantity: 0.800
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff2f2f36"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

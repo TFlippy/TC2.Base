@@ -4,27 +4,27 @@ body:
 {
 	@shape.line:
 	{
-		a: [-0.900, 0.000]
-		b: [0.900, 0.000]
+		a: [-0.800, 0.250]
+		b: [0.800, 0.000]
 		mass: 4.000
 		radius: 0.230
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.000, -0.125]
+	muzzle_offset: [1.000, -0.0625]
 	sound_shoot: "carbine_shoot"
 	sound_cycle: "rifle_cycle"
 	sound_reload: "rifle_reload"
 	velocity_multiplier: 640.000
 	jitter_multiplier: 0.200
-	damage_multiplier: 2.500
+	damage_multiplier: 3.200
 	recoil_multiplier: 2.300
 	reload_interval: 0.600
 	cycle_interval: 0.350

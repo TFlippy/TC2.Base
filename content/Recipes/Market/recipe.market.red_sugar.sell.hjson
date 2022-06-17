@@ -1,0 +1,41 @@
+{
+	name: "Red Sugar"
+	desc: "A sweet substance produced by hornet larvae."
+	
+	icon:
+	{
+		texture: "resource.red_sugar"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 5
+	max: 100
+	step: 5
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "red_sugar"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 24.790
+		}
+	]
+}

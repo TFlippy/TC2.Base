@@ -50,7 +50,7 @@ grinder:
 		file: "grinder_loop"
 		volume: 0.000
 		pitch: 0.000
-		size: 0.600
+		size: 0.800
 	}
 }
 
@@ -65,7 +65,7 @@ grinder.state:
 	}
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 1.000

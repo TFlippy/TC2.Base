@@ -3,7 +3,7 @@
 	desc: ""
 	
 	material_type: glass
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 40.000
@@ -19,8 +19,19 @@
 	texture_scale: 1.000
 	texture_overshoot: 0.250
 	
-	fg_color: "#00000000"
-	bg_color: "#00000000"
-	
 	resources: []
+	
+	mappings:
+	[
+		{
+			color: "0xffe4fff5"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff485c55"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
 }

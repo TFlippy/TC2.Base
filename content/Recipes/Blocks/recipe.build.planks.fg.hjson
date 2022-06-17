@@ -1,0 +1,52 @@
+{
+	name: "Planks"
+	desc:
+		'''
+		Very cheap, but not particularly durable wooden boards.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: -91.000
+	
+	placement:
+	{
+		type: line
+		flags: none
+		
+		size: [0.625, 0.625]
+		
+		cooldown: 0.400
+		
+		length_max: 8.000
+		length_step: 0.125
+		
+		sound: "wood_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 0.200
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "planks"
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}

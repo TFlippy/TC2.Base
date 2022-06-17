@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "pump"
 	}
-	z: -280.000
+	z: -400.000
 }
 
 transform:
@@ -55,7 +55,7 @@ pump:
 		{
 			texture: "pump.slider"
 		}
-		z: -151.000
+		z: -401.000
 	}
 	
 	@inventory4:
@@ -72,7 +72,7 @@ pump.state:
 
 }
 
-wheel:
+axle:
 {
 	offset: [0.750, 1.250]
 	mass: 5.000
@@ -97,5 +97,5 @@ sound.emitter:
 	file: "pump_loop"
 	volume: 0.900
 	pitch: 1.000
-	size: 0.700
+	size: 1.000
 }

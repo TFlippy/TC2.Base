@@ -5,8 +5,13 @@
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Refinery.State>]
 		public struct Data: IComponent
 		{
-			public Vector2 smoke_offset;
+			public Vector2 smoke_offset = default;
 			public float tank_volume = 1.00f;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -49,7 +54,7 @@
 		public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
-		[Source.Owned, Trait.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
+		[Source.Owned, Pair.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
 		{
 			var amount_total = 0.00f;
 			var mass_total = 0.00f;
@@ -58,23 +63,23 @@
 
 			ref var recipe = ref crafter.GetCurrentRecipe();
 
-			foreach (ref var requirement in recipe.requirements.AsSpan())
-			{
-				if (requirement.type == Crafting.Requirement.Type.Resource)
-				{
-					ref var material = ref requirement.material.GetDefinition();
-					if (material.id != 0)
-					{
-						var quantity = requirement.amount;
-						var mass = quantity * material.mass_per_unit;
+			//foreach (ref var requirement in recipe.requirements.AsSpan())
+			//{
+			//	if (requirement.type == Crafting.Requirement.Type.Resource)
+			//	{
+			//		ref var material = ref requirement.material.GetDefinition();
+			//		if (material.id != 0)
+			//		{
+			//			var quantity = requirement.amount;
+			//			var mass = quantity * material.mass_per_unit;
 
-						amount_total += quantity;
-						mass_total += mass;
-						specific_heat_total += quantity * material.specific_heat;
-						if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
-					}
-				}
-			}
+			//			amount_total += quantity;
+			//			mass_total += mass;
+			//			specific_heat_total += quantity * material.specific_heat;
+			//			if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
+			//		}
+			//	}
+			//}
 
 			//foreach (ref var resource in inventory.GetResources())
 			//{
@@ -86,7 +91,7 @@
 			//		amount_total += resource.quantity;
 			//		mass_total += mass;
 			//		specific_heat_total += resource.quantity * material.specific_heat;
-			//		//gas_amount_total += (mass * 1000.00) / material.molar_mass;
+			//		if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
 			//	}
 			//}
 
@@ -128,7 +133,7 @@
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
-		[Source.Owned] ref Wheel.Data wheel)
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			if (info.WorldTime >= crafter_state.next_tick)
 			{
@@ -143,7 +148,7 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_energy * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				//refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -154,9 +159,9 @@
 
 				if (crafter.recipe.id != 0)
 				{
-					wheel.rotation %= MathF.Tau;
+					wheel_state.rotation %= MathF.Tau;
 
-					if (MathF.Abs(wheel.angular_velocity) > 1.00f)
+					if (MathF.Abs(wheel_state.angular_velocity) > 1.00f)
 					{
 						crafter_state.current_work += 1.00f * update_interval;
 					}
@@ -165,7 +170,7 @@
 						crafter_state.current_work = 0.00f;
 					}
 
-					entity.SyncComponent(ref wheel);
+					entity.SyncComponent(ref wheel_state);
 					entity.SyncComponent(ref crafter_state);
 
 					//App.WriteLine($"refinery: {ts.GetMilliseconds():0.0000} ms");					
@@ -316,18 +321,18 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 
 			sound_emitter.volume = Maths.Clamp(wheel_speed * 0.50f, 0.00f, 0.50f);
 			sound_emitter.pitch = Maths.Clamp(wheel_speed * 0.80f, 0.50f, 1.00f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wheel.Data wheel, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
+		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
-			var wheel_speed = MathF.Abs(wheel.angular_velocity);
+			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
 			if (wheel_speed > 1.00f && info.WorldTime >= state.next_smoke)
 			{
 				state.next_smoke = info.WorldTime + 0.50f;

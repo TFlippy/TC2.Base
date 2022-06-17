@@ -1,0 +1,51 @@
+{
+	name: "Musket ammo (Scrapshot)"
+	desc:
+		'''
+		Ammunition for muskets,
+		blunderbusses, and pistols.
+		Fires a lot of projectiles.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_musket.scrapshot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "gravel"
+			amount: 0.100
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 0.600
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 2.000
+			difficulty: 2.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_musket.scrapshot"
+			amount: 1.000
+		}
+	]
+}

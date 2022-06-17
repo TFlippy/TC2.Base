@@ -1,0 +1,60 @@
+{
+	name: "Machine Gun Ammo (Standard)"
+	desc: "Ammunition for machine guns and other heavy weapons."
+	
+	icon:
+	{
+		texture: "resource.ammo_mg"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 10
+	step: 10
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: press
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.160
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "pressing"
+			amount: 1.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_mg"
+			amount: 1.000
+		}
+	]
+}

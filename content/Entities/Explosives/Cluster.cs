@@ -8,7 +8,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public Prefab.Handle prefab;
+			public Prefab.Handle prefab = default;
 			public float spread = 0.00f;
 			public float speed = 0.00f;
 
@@ -17,11 +17,19 @@ namespace TC2.Base.Components
 			public float speed_modifier_min = 0.30f;
 			public float speed_modifier_max = 1.30f;
 
-			public int count;
+			public float lifetime_modifier_min = 0.50f;
+			public float lifetime_modifier_max = 1.00f;
+
+			public int count = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if SERVER
-		[ISystem.Remove(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
+		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
 		public static void OnRemoveProjectile(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
@@ -35,6 +43,7 @@ namespace TC2.Base.Components
 					(
 						damage_mult: cluster.damage_modifier,
 						vel: projectile.velocity.RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max),
+						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
 						owner: projectile.ent_owner,
 						faction_id: projectile.faction_id
 					);
@@ -54,6 +63,7 @@ namespace TC2.Base.Components
 							projectile.velocity = projectile_init.vel;
 							projectile.ent_owner = projectile_init.owner;
 							projectile.faction_id = projectile_init.faction_id;
+							projectile.lifetime *= projectile_init.lifetime_mult;
 
 							ent.SyncComponent(ref projectile);
 						}
@@ -61,7 +71,7 @@ namespace TC2.Base.Components
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
-							explosive.owner_entity = projectile_init.owner;
+							explosive.ent_owner = projectile_init.owner;
 							ent.SyncComponent(ref explosive);
 						}
 					});
@@ -69,7 +79,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
+		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
 		public static void OnRemoveBody(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
@@ -107,7 +117,7 @@ namespace TC2.Base.Components
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
-							explosive.owner_entity = projectile_init.owner;
+							explosive.ent_owner = projectile_init.owner;
 							ent.SyncComponent(ref explosive);
 						}
 					});

@@ -6,7 +6,9 @@ projectile:
 	damage_bonus: 500.000
 	lifetime: 15.000
 	ignore_time: 0.100
+	damage_type: bullet_musket
 	size: 0.500
+	ricochet_count: 0
 }
 
 transform:
@@ -36,8 +38,8 @@ explosive:
 rocket:
 {
 	mass: 3.000
-	force: 50.000
-	fuel_time: 1.000
+	force: 60.000
+	fuel_time: 2.000
 	
 	@light:
 	{

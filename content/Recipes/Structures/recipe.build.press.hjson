@@ -1,0 +1,68 @@
+{
+	name: "Stamping Press"
+	desc:
+		'''
+		A heavy stamping press for forming metal into various shapes.
+		'''
+	
+	icon:
+	{
+		texture: "press"
+		size: [24, 48]
+	}
+	
+	type: build
+	flags: none
+	tags: industry
+	
+	dismantle_work: 8.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [3.000, 6.000]
+		offset: [0.000, -2.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.100
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 35.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 20.000
+		}
+		{
+			type: resource
+			material: "copper_ingot"
+			amount: 5.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 200.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "press"
+			amount: 1.000
+		}
+	]
+}

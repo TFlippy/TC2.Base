@@ -5,25 +5,37 @@ body:
 	@shape.line:
 	{
 		a: [-0.500, 0.000]
-		b: [0.500, 0.000]
+		b: [0.000, 0.000]
 		mass: 25.000
-		radius: 0.350
-		friction: 0.950
+		radius: 0.500
+		friction: 0.750
 		elasticity: 0.050
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, item
 		mask: world
 	}
 }
 
 health:
 {
-	max: 10000.000
+	max: 3000.000
+}
+
+armor:
+{
+	toughness: 650.000
+	protection: 1.000
+	
+	knockback_modifier: 1.000
+	
+	material_type: metal
 }
 
 drill:
 {
-	damage: 350.000
+	damage: 250.000
+	damage_terrain_multiplier: 1.750
+
 	max_distance: 2.000
 	speed: 10.000
 	radius: 0.750

@@ -1,0 +1,64 @@
+{
+	name: "Low-Caliber Ammo (High-Velocity)"
+	desc:
+		'''
+		Ammunition for pistols, revolvers
+		and submachine guns.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_lc.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	min: 50
+	max: 50
+	step: 50
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: press
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.015
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.015
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.020
+		}
+		{
+			type: "work"
+			work: "pressing"
+			amount: 0.200
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_lc.hv"
+			amount: 1.000
+		}
+	]
+}

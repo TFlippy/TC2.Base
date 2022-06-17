@@ -1,0 +1,49 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 250.000
+	damage_bonus: 500.000
+	lifetime: 0.060
+	ignore_time: 0.100
+	damage_type: bullet_ac
+	size: 0.350
+	ricochet_count: 0
+}
+
+projectile.renderer:
+{
+	length: 8.000
+}
+
+transform:
+{
+
+}
+
+explosive:
+{
+	radius: 8.000
+	power: 1.500
+	damage_entity: 5000.000
+	damage_terrain: 1000.000
+	smoke_amount: 0.200
+	sparks_amount: 1.300
+	volume: 1.500
+	pitch: 1.300
+	flags: primed
+}
+
+cluster:
+{
+	prefab: "projectile.shrapnel.aa"
+	spread: 0.500
+	speed: 0.000
+	count: 5
+
+	speed_modifier_min: 0.040
+	speed_modifier_max: 0.250
+
+	lifetime_modifier_min: 0.200
+	lifetime_modifier_max: 2.500
+}

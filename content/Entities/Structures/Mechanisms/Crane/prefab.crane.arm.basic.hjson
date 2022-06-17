@@ -1,0 +1,99 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-4.000, 0.000]
+		b: [4.000, 0.000]
+		mass: 40.000
+		radius: 0.500
+		friction: 0.950
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "crane.arm.basic"
+	}
+	z: 100.000
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [-4.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+transform:
+{
+
+}
+
+aimable:
+{
+
+}
+
+attachable:
+{
+	offset: [-4.000, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+}
+
+joint.base:
+{
+	offset_a: [4.000, 0.000]
+	max_force: 1000000.000
+	max_torque: 10000.000
+	flags: no_wrap, no_stress, control_write, force_facing
+}
+
+joint.pivot:
+{
+	error_bias: 0.01
+	max_bias: 40.000
+}
+
+joint.motor:
+{
+	force: 10.000
+	speed: 0.000
+	error_bias: 0.500
+}
+
+joint.rotarylimit:
+{
+	max_torque: 100000.000
+	min: -2.800
+	max: 2.800
+	max_bias: 20.000
+	error_bias: 0.0001
+}
+
+// joint.gear:
+// {
+// 	error_bias: 0.01
+// 	max_bias: 100.000
+// 	min: -30.000
+// 	max: 30.000
+// }
+
+attachment:
+{
+
+}

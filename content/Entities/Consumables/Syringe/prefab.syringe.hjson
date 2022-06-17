@@ -1,0 +1,67 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.280, 0.000]
+		b: [0.280, 0.000]
+		offset: [0.000, 0.000]
+		mass: 0.100
+		friction: 0.800
+		elasticity: 0.700
+		material: glass
+		layer: entity, solid
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "syringe"
+	}
+	scale: [0.750, 0.750]
+}
+
+aimable:
+{
+
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 300.000
+}
+
+packable:
+{
+
+}
+
+consumable:
+{
+	flags: enable_use_on_self, enable_use_on_others
+
+	release_rate: 100.000
+	release_step: 0.300
+
+	sound_use: "syringe.inject.00"
+}

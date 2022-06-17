@@ -3,7 +3,7 @@
 	desc: ""
 	
 	material_type: soil
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, common
 	
 	max_health: 4000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.000
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "peat"
 			quantity: 1.200
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff352c1d"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

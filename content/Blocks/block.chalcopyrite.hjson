@@ -3,7 +3,7 @@
 	desc: "Common mineral, mixture of copper and iron."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 16000.000
@@ -19,9 +19,6 @@
 	texture_scale: 1.400
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
@@ -31,6 +28,15 @@
 		{
 			material: "chalcopyrite"
 			quantity: 1.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff6a5a43"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

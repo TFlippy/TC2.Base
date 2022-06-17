@@ -11,21 +11,21 @@ body:
 		friction: 0.600
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.000, -0.250]
+	muzzle_offset: [1.000, -0.1875]
 	sound_shoot: "smg_shoot"
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
 	velocity_multiplier: 330.000
 	jitter_multiplier: 0.700
 	damage_multiplier: 2.000
-	recoil_multiplier: 0.900
+	recoil_multiplier: 0.300
 	reload_interval: 2.000
 	cycle_interval: 0.070
 	failure_rate: 0.009
@@ -70,7 +70,7 @@ holdable:
 	flags: storable
 
 	force_multiplier: 1.500
-	torque_multiplier: 1.100
+	torque_multiplier: 2.900
 }
 
 animated.renderer:
@@ -112,7 +112,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 40.000
+	cool_rate: 70.000
 	
 	@light:
 	{

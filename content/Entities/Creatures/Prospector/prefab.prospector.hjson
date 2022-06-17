@@ -1,0 +1,160 @@
+$name: "Prospector"
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.800]
+		b: [0.000, -0.100]
+		mass: 70.000
+		radius: 0.700
+		friction: 0.500
+		elasticity: 0.050
+		material: flesh
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "prospector.male"
+	}
+	z: -60.000
+}
+
+holdable:
+{
+	offset: [0.200, 1.400]
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+facing:
+{
+
+}
+
+runner:
+{
+	walk_force: 7000.000
+	jump_force: 1200.000
+}
+
+runner.state:
+{
+	
+}
+
+norotate:
+{
+
+}
+
+organic:
+{
+	tags: brain
+}
+
+organic.state:
+{
+
+}
+
+interactable:
+{
+	window_size: [512.000, 280.000]
+}
+
+shop:
+{
+	name: "Prospector"
+	tags: miner
+}
+
+npc:
+{
+	follow_distance_max: 4.000
+	follow_distance_min: 0.000
+}
+
+worker:
+{
+
+}
+
+worker.state:
+{
+
+}
+
+experience:
+{
+	levels:
+	{
+		woodcutting:
+		{
+			experience: 0
+			level: 4
+			points: 0
+		}
+		construction:
+		{
+			experience: 0
+			level: 3
+			points: 0
+		}
+		masonry:
+		{
+			experience: 0
+			level: 2
+			points: 0
+		}
+		carpentry:
+		{
+			experience: 0
+			level: 5
+			points: 0
+		}
+		strength:
+		{
+			experience: 0
+			level: 7
+			points: 0
+		}
+		dexterity:
+		{
+			experience: 0
+			level: 4
+			points: 0
+		}
+		farming:
+		{
+			experience: 0
+			level: 10
+			points: 0
+		}
+		animals:
+		{
+			experience: 0
+			level: 6
+			points: 0
+		}
+	}
+}

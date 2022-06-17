@@ -11,14 +11,14 @@ body:
 		friction: 0.990
 		elasticity: 0.030
 		material: metal
-		layer: entity, building, no_overlapped_placement, ignore_melee
+		layer: entity, building, no_overlapped_placement, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
 
 health:
 {
-	max: 1000.000
+	max: 4000.000
 }
 
 animated.renderer:
@@ -30,7 +30,7 @@ animated.renderer:
 	z: -150.000
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, 0.000]
 	mass: 5.000
@@ -67,6 +67,12 @@ rope.renderer:
 	scale: 8.000
 }
 
+joint.base:
+{
+	max_force: 50000.000
+	max_torque: 5000.000
+}
+
 joint.rope2:
 {
 	distance: 30.000
@@ -88,7 +94,7 @@ joint.rope2:
 	{
 		sprite:
 		{
-			texture: "hook"
+			texture: "winch.hook"
 		}
 		z: -50.000
 	}
@@ -124,7 +130,7 @@ joint.rope2:
 	{
 		offset_a: [0.000, 0.500]
 		max_force: 100000000.000
-		max_torque: 1.000
+		max_torque: 1000.000
 		flags: no_wrap, no_stress, no_aiming
 	}
 	
@@ -133,13 +139,16 @@ joint.rope2:
 		max_bias: 8.000
 	}
 	
-	joint.rotarylimit:
+	joint.gear:
 	{
-		max_bias: 8.000
+		rotation: 1.570
+		min: 1.570
+		max: 1.570
+		// max_bias: 8.000
 	}
 	
 	attachment:
 	{
-	
+		flags: use_center_of_gravity
 	}
 }

@@ -4,21 +4,21 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.800, 0.000]
-		b: [1.800, 0.000]
+		a: [-1.000, 0.150]
+		b: [1.250, -0.050]
 		mass: 20.000
-		radius: 0.250
+		radius: 0.350
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.700, 0.000]
+	muzzle_offset: [1.750, -0.0625]
 	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
@@ -115,7 +115,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 80.000
+	cool_rate: 110.000
 	
 	@light:
 	{

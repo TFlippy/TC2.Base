@@ -1,40 +1,30 @@
 $tags: []
 
-control:
-{
-
-}
-
-aimable:
-{
-
-}
-
 body:
 {
 	@shape.line:
 	{
-		a: [-0.400, 0.000]
-		b: [0.400, 0.000]
+		a: [-0.300, 0.250]
+		b: [0.300, 0.100]
 		mass: 1.200
-		radius: 0.250
+		radius: 0.300
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
 
 gun:
 {
-	muzzle_offset: [0.600, 0.000]
+	muzzle_offset: [0.750, -0.1875]
 	sound_shoot: "revolver_shoot"
 	sound_cycle: "revolver_cycle"
 	sound_reload: "revolver_reload"
 	velocity_multiplier: 330.000
 	jitter_multiplier: 0.100
-	damage_multiplier: 2.000
+	damage_multiplier: 3.000
 	recoil_multiplier: 0.500
 	reload_interval: 0.500
 	cycle_interval: 0.100
@@ -104,6 +94,16 @@ transform:
 }
 
 packable:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
 {
 
 }

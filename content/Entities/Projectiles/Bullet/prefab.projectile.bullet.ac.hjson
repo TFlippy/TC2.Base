@@ -2,11 +2,12 @@ $tags: []
 
 projectile:
 {
-	damage_base: 600.000
+	damage_base: 900.000
 	damage_bonus: 300.000
 	lifetime: 2.000
-	damage_type: bullet_mg
+	damage_type: bullet_ac
 	size: 0.350
+	ricochet_count: 2
 }
 
 projectile.renderer:
@@ -23,8 +24,9 @@ explosive:
 {
 	radius: 2.000
 	power: 2.000
+	damage_type: bullet_hc
 	damage_entity: 1000.000
-	damage_terrain: 2000.000
+	damage_terrain: 1500.000
 	smoke_amount: 0.200
 	sparks_amount: 0.300
 	volume: 0.700

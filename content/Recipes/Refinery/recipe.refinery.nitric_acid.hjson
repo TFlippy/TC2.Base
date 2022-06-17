@@ -1,0 +1,55 @@
+{
+	name: "Nitric Acid (Saltpeter)"
+	desc: "Produce nitric acid from saltpeter and sulfuric acid."
+	
+	icon:
+	{
+		texture: "resource.nitric_acid"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "saltpeter"
+			amount: 25.000
+		}
+		{
+			type: "resource"
+			material: "sulfuric_acid"
+			amount: 25.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 10.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "nitric_acid"
+			amount_min: 20.000
+			amount_max: 25.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount_min: 20.000
+			amount_max: 35.000
+		}
+	]
+}

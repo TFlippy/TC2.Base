@@ -34,11 +34,10 @@ steamengine:
 {
 	piston_offset: [-1.000, 0.125]
 	steam_offset: [-2.500, -3.000]
-	step: 0.400
 	steam_interval: 0.800
 	piston_radius: 0.700
-	max_speed: 10.000
-	force: 5000.000
+	speed_modifier: 0.750
+	force: 15000.000
 	
 	@animated.renderer:
 	{
@@ -46,13 +45,22 @@ steamengine:
 		{
 			texture: "steam_engine_piston"
 		}
-		z: -170.000
+		z: -290.000
+	}
+
+	@sound.emitter:
+	{
+		file: "steam_engine_loop"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+		size_max_modifier: 0.800
 	}
 }
 
 steamengine.state:
 {
-
+	target_speed: 10.000
 }
 
 port:
@@ -90,15 +98,15 @@ burner.state:
 	current_temperature: 300.000
 }
 
-wheel:
+axle:
 {
 	offset: [2.750, 0.000]
 	mass: 10.000
 	friction: 0.200
-	radius_a: 1.000
-	radius_b: 1.000
+	radius_a: 1.250
+	radius_b: 1.250
 	radius_inner: 0.750
-	radius_outer: 1.000
+	radius_outer: 1.250
 	
 	@animated.renderer:
 	{
@@ -106,7 +114,7 @@ wheel:
 		{
 			texture: "steam_engine_flywheel"
 		}
-		z: -160.000
+		z: -280.000
 	}
 }
 
@@ -118,12 +126,4 @@ transform:
 interactable:
 {
 	window_size: [192.000, 96.000]
-}
-
-sound.emitter:
-{
-	file: "steam_engine_loop"
-	volume: 0.000
-	pitch: 1.000
-	size: 0.700
 }

@@ -1,0 +1,68 @@
+{
+	name: "Sawmill"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "sawmill.icon"
+		size: [56, 40]
+	}
+	
+	type: build
+	flags: none
+	tags: industry
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [7.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.150
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 10.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 8.000
+		}
+		{
+			type: resource
+			material: "wood"
+			amount: 600.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 250.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "sawmill"
+			amount: 1.000
+		}
+	]
+}

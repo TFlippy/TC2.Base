@@ -1,0 +1,110 @@
+$name: "Auto Shotgun"
+$desc:
+	'''
+	A semi-automatic shotgun.
+	Can use a wide range of ammunition.
+	'''
+
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.900, 0.170]
+		b: [0.900, 0.000]
+		mass: 7.000
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.125, -0.0625]
+	sound_shoot: "auto_shotgun_shoot"
+	sound_cycle: "auto_shotgun_cycle"
+	sound_reload: "auto_shotgun_reload"
+	velocity_multiplier: 360.000
+	jitter_multiplier: 5.500
+	damage_multiplier: 1.600
+	recoil_multiplier: 2.500
+	reload_interval: 2.500
+	cycle_interval: 0.500
+	failure_rate: 0.020
+	max_ammo: 4.000
+	flags: full_reload, cycle_on_shoot
+	ammo_filter: ammo_sg
+	action: blowback
+	type: shotgun
+	feed: magazine
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [28.000, 20.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.300, 0.000]
+	radius: 4.000
+	flags: storable
+
+	force_multiplier: 1.500
+	torque_multiplier: 1.100
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "auto_shotgun"
+	}
+}
+
+health:
+{
+	max: 2100.000
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}

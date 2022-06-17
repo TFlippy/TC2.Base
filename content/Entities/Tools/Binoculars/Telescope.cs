@@ -22,8 +22,13 @@
 			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_distance = 50.00f;
 
-			[Save.Ignore, Net.Ignore] public float current_modifier;
-			[Save.Ignore, Net.Ignore] public Vector2 offset;
+			[Save.Ignore, Net.Ignore] public float current_modifier = default;
+			public Vector2 offset = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if CLIENT
@@ -55,6 +60,21 @@
 					control = control
 				};
 				gui.Submit();
+			}
+		}
+#endif
+
+#if SERVER
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void OnUpdate(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
+		{
+			//App.WriteLine("test");
+
+			if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+			{
+				telescope.offset = default;
+				telescope.Sync(entity);
 			}
 		}
 #endif
@@ -91,7 +111,7 @@
 			}
 		}
 
-		[ISystem.Remove2(ISystem.Mode.Single)]
+		[ISystem.Remove(ISystem.Mode.Single)]
 		public static void OnRemove(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player)

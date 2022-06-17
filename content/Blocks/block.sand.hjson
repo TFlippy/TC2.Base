@@ -3,7 +3,7 @@
 	desc: "A sandy soil."
 	
 	material_type: gravel
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 4000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.700
 	texture_overshoot: -1.500
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "sand"
 			quantity: 1.600
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffc69971"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

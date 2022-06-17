@@ -1,0 +1,63 @@
+{
+	name: "Gate (Wood)"
+	desc:
+		'''
+		A large wooden gate to keep the intruders out.
+		'''
+	
+	icon:
+	{
+		texture: "gate.base"
+		size: [24, 96]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	
+	dismantle_work: 30.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [1.000, 12.000]
+		offset: [0.000, -5.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.100
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 1200.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 200.000
+		}
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "gate"
+			amount: 1.000
+		}
+	]
+}

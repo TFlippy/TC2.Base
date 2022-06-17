@@ -1,0 +1,52 @@
+{
+	name: "Asphalt"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [8, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: circle
+		flags: continuous, no_snapping
+		radius: 0.750
+		
+		cooldown: 0.250
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "gravel"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "tar"
+			amount: 0.200
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "asphalt"
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}

@@ -1,0 +1,62 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.200, 0.000]
+		b: [0.200, 0.000]
+		offset: [0.000, 0.000]
+		mass: 0.100
+		friction: 0.800
+		elasticity: 0.700
+		material: gravel
+		layer: entity, solid
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "pill"
+	}
+	scale: [0.750, 0.750]
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 300.000
+}
+
+packable:
+{
+
+}
+
+consumable:
+{
+	flags: enable_use_on_self
+
+	release_rate: 10.000
+	release_step: 0.04
+
+	sound_use: "drink.00"
+}
+
+pill:
+{
+
+}

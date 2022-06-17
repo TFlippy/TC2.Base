@@ -3,7 +3,7 @@
 	desc: "An uncommon mineral used in chemistry."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 14000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.100
 	texture_overshoot: -0.250
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "saltpeter"
 			quantity: 2.000
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffe8d1ba"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

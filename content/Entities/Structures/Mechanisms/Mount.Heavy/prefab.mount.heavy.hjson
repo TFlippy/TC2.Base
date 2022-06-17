@@ -10,10 +10,10 @@ body:
 	{
 		points:
 		[
-			[1.750, 3.000]
-			[-2.000, 3.000]
-			[-1.000, -1.750]
-			[-0.500, -1.750]
+			[3.000, 3.000]
+			[-3.000, 3.000]
+			[-2.000, -0.000]
+			[-0.000, -1.250]
 		]
 		offset: [0.000, 0.000]
 		mass: 4000.000
@@ -90,11 +90,6 @@ mount:
 	}
 }
 
-attachment:
-{
-
-}
-
 storage:
 {
 	@inventory1:
@@ -104,46 +99,6 @@ storage:
 		type: storage
 		flags: allow_ducts, ignore_mass
 	}
-}
-
-joint.base:
-{
-	offset_a: [0.000, 0.000]
-	max_force: 100000.000
-	max_torque: 100000.000
-	flags: control_write, no_stress, no_wrap, force_facing
-	
-	@sound.emitter:
-	{
-		file: "attachment_rotate_loop_00"
-		volume: 0.000
-		pitch: 1.000
-	}
-	
-	@sound.mixer:
-	{
-		volume_modifier: 1.200
-		pitch_modifier: 0.250
-		volume_min: 0.000
-		pitch_min: 0.700
-		volume_lerp_a: 0.020
-		volume_lerp_b: 0.100
-		pitch_lerp_a: 0.040
-		pitch_lerp_b: 0.010
-	}
-}
-
-joint.pivot:
-{
-	max_bias: 8.000
-}
-
-joint.gear:
-{
-	min: -1.400
-	max: 0.750
-	error_bias: 0.050
-	max_bias: 0.700
 }
 
 vehicle:
@@ -157,6 +112,57 @@ vehicle:
 	
 	seat:
 	{
-		offset: [-2.125, 0.625]
+		offset: [-2.125, 0.750]
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 100000.000
+		max_torque: 200000.000
+		flags: control_write, no_stress, no_wrap, force_facing
+		
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.200
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: -2.500
+		max: 0.750
+		error_bias: 0.050
+		max_bias: 0.700
+	}
+
+	attachment:
+	{
+		name: "Mount"
+
+		flags: none
+		flags_editable: locked, disabled, hold
 	}
 }

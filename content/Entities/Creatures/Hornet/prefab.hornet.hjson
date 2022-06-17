@@ -17,7 +17,7 @@ body:
 
 health:
 {
-	max: 1500.000
+	max: 1200.000
 }
 
 animated.renderer:
@@ -62,26 +62,64 @@ control:
 
 npc:
 {
-	navigation_state: searching
-	find_distance_max: 10.000
-	lose_distance_max: 128.000
-	follow_distance_max: 0.000
-	follow_distance_min: 0.000
 	pain_modifier: 0.500
 	min_consciousness: 0.500
-}
-
-npc.pathfinding:
-{
-	flags: air
+	avoid_distance: [0.125, 0.000]
+	idle_distance: [1.000, 1.000]
 }
 
 animal:
 {
-	attack_distance: 1.900
-	attack_cooldown: 2.000
-	charge_distance: 15.000
-	retreat_distance: 10.000
+	attack_cooldown: 0.500
+
+	attack_distance_melee: 1.000
+	attack_cooldown_melee: 0.500
+
+	attack_distance_ranged: 10.000
+	attack_cooldown_ranged: 2.000
+
+	charge_distance: 7.000
+	retreat_distance: 6.000
+}
+
+animal.state:
+{
+
+}
+
+ai:
+{
+	stance: aggressive
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	
+}
+
+ai.search:
+{
+
+}
+
+pathfinding:
+{
+	flags: air
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
 }
 
 threat:
@@ -115,10 +153,11 @@ norotate:
 
 sound.emitter:
 {
-	file: "hornet_loop"
-	volume: 0.400
+	file: "hornet.loop.00"
+	volume: 0.300
 	pitch: 1.000
-	size_max_modifier: 0.300
+	size_max_modifier: 0.800
+	spread: 70.000
 	priority: 0.100
 }
 

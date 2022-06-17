@@ -1,0 +1,62 @@
+{
+	name: "Low-Caliber Ammo (Reduced Recoil)"
+	desc:
+		'''
+		Ammunition for pistols, revolvers
+		and submachine guns. Less recoil and heat, cheaper but weaker.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_lc.rr"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	min: 50
+	max: 500
+	step: 50
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.010
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.015
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.010
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 8.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_lc.rr"
+			amount: 1.000
+		}
+	]
+}

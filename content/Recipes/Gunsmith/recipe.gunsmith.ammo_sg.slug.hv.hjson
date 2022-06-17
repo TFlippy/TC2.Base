@@ -1,0 +1,62 @@
+{
+	name: "Shotgun Shell (Slug, High-Velocity)"
+	desc:
+		'''
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.slug.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.040
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.040
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 8.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.slug.hv"
+			amount: 1.000
+		}
+	]
+}

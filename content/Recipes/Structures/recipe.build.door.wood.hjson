@@ -1,0 +1,52 @@
+{
+	name: "Door (Wood)"
+	desc:
+		'''
+		A cheap wooden door to keep the intruders out.
+		'''
+	
+	icon:
+	{
+		texture: "door.wood.icon"
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [0.750, 3.000]
+		offset: [0.000, -0.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.400
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 120.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "door.wood"
+			amount: 1.000
+		}
+	]
+}

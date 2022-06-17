@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
-			public float amount;
+			public float amount = default;
 			public float interval = 3.00f;
 
 			public float min_a = 0.70f;
@@ -17,12 +17,17 @@ namespace TC2.Base.Components
 			public float max_b = 1.00f;
 			public float multiplier_b = 1.00f;
 
-			[Save.Ignore, Net.Ignore] public float next_regen;	
+			[Save.Ignore, Net.Ignore] public float next_regen = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 #if SERVER
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Health.Data health, [Source.Owned] ref Regen.Data regen, [Source.Owned] in Transform.Data transform)
+		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Health.Data health, [Source.Owned] ref Regen.Data regen, [Source.Owned] in Transform.Data transform)
 		{
 			if (info.WorldTime >= regen.next_regen)
 			{

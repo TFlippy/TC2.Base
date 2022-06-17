@@ -1,0 +1,45 @@
+$name: "Rusty Ladder (Metal)"
+$desc:
+	'''
+	A deteriorated metal ladder.
+	Can be climbed.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 200.000
+		radius: 0.900
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, climbable, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1200.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.ladder.metal"
+	}
+	z: -290.000
+}
+
+transform:
+{
+
+}

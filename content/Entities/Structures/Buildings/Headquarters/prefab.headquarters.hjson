@@ -92,7 +92,7 @@ shop:
 
 interactable:
 {
-	window_size: [504.000, 288.000]
+	window_size: [624.000, 384.000]
 }
 
 depot:
@@ -102,9 +102,4 @@ depot:
 	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
 	shipping_fee_base: 13.000
-}
-
-stockpile:
-{
-
 }

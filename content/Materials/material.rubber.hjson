@@ -22,7 +22,7 @@
 	
 	fuel_energy: 25000000.000
 	fuel_drain: 350000.000
-	fuel_purity: 0.600
+	fuel_purity: 0.100
 	fuel_temperature: 1300.000
 	
 	specific_heat: 100.000

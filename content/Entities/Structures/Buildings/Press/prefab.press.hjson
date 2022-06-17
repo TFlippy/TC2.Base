@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, storage, support
 		mask: world
 	}
 }
@@ -46,6 +46,7 @@ press:
 	slider_offset: [0.000, -1.000]
 	slider_length: 0.500
 	speed: 2.200
+	load_multiplier: 1.000
 	
 	@animated.renderer:
 	{
@@ -93,7 +94,7 @@ crafter.state:
 	}
 }
 
-wheel:
+axle:
 {
 	offset: [0.000, -1.500]
 	mass: 5.000

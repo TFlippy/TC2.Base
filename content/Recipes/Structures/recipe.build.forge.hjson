@@ -1,0 +1,64 @@
+{
+	name: "Forge"
+	desc:
+		'''
+		A workshop fit for various metalworking-related tasks.
+		'''
+	
+	icon:
+	{
+		texture: "forge"
+		size: [56, 40]
+	}
+	
+	type: build
+	flags: none
+	tags: buildings
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x
+		
+		size: [7.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.200
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 900.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 400.000
+		}
+		{
+			type: resource
+			material: "iron_ingot"
+			amount: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "forge"
+			amount: 1.000
+		}
+	]
+}

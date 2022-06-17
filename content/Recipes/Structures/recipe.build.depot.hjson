@@ -1,0 +1,64 @@
+{
+	name: "Depot"
+	desc:
+		'''
+		A building used for transporting shipments
+		over long distances or storing them between maps.
+		'''
+	
+	icon:
+	{
+		texture: "depot"
+		size: [72, 48]
+	}
+	
+	type: build
+	flags: none
+	tags: buildings
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		
+		size: [9.000, 6.000]
+		offset: [0.000, -2.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.100
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 1000.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 400.000
+		}
+		{
+			type: resource
+			material: "paper"
+			amount: 20.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "depot"
+			amount: 1.000
+		}
+	]
+}

@@ -4,14 +4,14 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.100, 0.000]
-		b: [1.100, 0.000]
+		a: [-0.875, 0.375]
+		b: [0.875, 0.000]
 		mass: 20.000
-		radius: 0.250
+		radius: 0.375
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }
@@ -26,7 +26,7 @@ animated.renderer:
 
 gun:
 {
-	muzzle_offset: [1.250, 0.000]
+	muzzle_offset: [1.250, -0.0625]
 	particle_offset: [-2.500, 0.000]
 	particle_rotation: -3.140
 
@@ -35,8 +35,8 @@ gun:
 	velocity_multiplier: 40.000
 	jitter_multiplier: 0.100
 	damage_multiplier: 1.000
-	recoil_multiplier: 1.000
-	reload_interval: 1.000
+	recoil_multiplier: 1.500
+	reload_interval: 3.000
 	cycle_interval: 0.500
 	failure_rate: 0.000
 	max_ammo: 1.000
@@ -78,6 +78,14 @@ interactable:
 
 }
 
+attachable:
+{
+	offset: [-0.125, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+}
+
 holdable:
 {
 	offset: [-0.500, 0.500]
@@ -115,7 +123,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 80.000
+	cool_rate: 100.000
 	
 	@light:
 	{

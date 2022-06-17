@@ -3,7 +3,7 @@
 	desc: "Stone covered in moss."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 12000.000
@@ -19,14 +19,20 @@
 	texture_scale: 2.000
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "stone"
-			quantity: 1.800
+			quantity: 2.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff686a4c"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

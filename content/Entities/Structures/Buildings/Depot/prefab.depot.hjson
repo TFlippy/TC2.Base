@@ -6,8 +6,8 @@ body:
 	
 	@shape.box:
 	{
-		size: [8.000, 6.000]
-		offset: [-2.500, 0.000]
+		size: [9.000, 6.000]
+		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
@@ -33,13 +33,13 @@ animated.renderer:
 		texture: "depot"
 	}
 	z: -140.000
-	mask: "depot.mask"
+	// mask: "depot.mask"
 }
 
-faction.colorable:
-{
+// faction.colorable:
+// {
 
-}
+// }
 
 transform:
 {
@@ -58,13 +58,13 @@ claimable:
 
 interactable:
 {
-	window_size: [504.000, 288.000]
+	window_size: [800.000, 500.000]
 }
 
 depot:
 {
-	offset: [4.000, 0.500]
-	size: [5.000, 5.000]
+	size: [4.000, 5.500]
+	offset: [1.500, 0.250]
 	flags: allow_deposit, allow_withdraw, allow_send, allow_receive, allow_request, allow_local, allow_region, allow_world, local
 
 	shipping_fee_base: 8.000
@@ -72,11 +72,11 @@ depot:
 
 packer:
 {
-	size: [5.000, 5.000]
-	offset: [4.000, 0.500]
+	size: [4.000, 5.500]
+	offset: [1.500, 0.250]
 }
 
-stockpile:
+shipment:
 {
-
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }

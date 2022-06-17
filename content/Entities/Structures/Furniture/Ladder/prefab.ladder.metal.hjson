@@ -43,3 +43,11 @@ transform:
 {
 
 }
+
+resizable:
+{
+	texture_stub: "ladder.metal.cap"
+	a: [0.000, -2.500]
+	b: [0.000, 2.500]
+	cap_offset: 0.500
+}

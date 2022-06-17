@@ -18,7 +18,7 @@ body:
 
 health:
 {
-	max: 50000.000
+	max: 40000.000
 }
 
 animated.renderer:
@@ -32,10 +32,10 @@ animated.renderer:
 
 gate:
 {
-
+	length: 6.000
 }
 
-wheel:
+axle:
 {
 	offset: [-1.000, -5.500]
 	mass: 5.000
@@ -70,6 +70,7 @@ rope.renderer:
 	texture: "rope"
 	thickness: 0.200
 	scale: 8.000
+	z: 100.000
 }
 
 joint.base:
@@ -81,16 +82,32 @@ joint.base:
 	flags: control_read, control_write
 }
 
+joint.gear:
+{
+	min: 0.000
+	max: 0.000
+
+	error_bias: 0.0001
+	max_bias: 20.000
+}
+
 joint.slider:
 {
 	a: [0.000, 0.000]
 	b: [0.000, 12.000]
-	max_force: 500000.000
+
+	min: 0.000
+	max: 12.000
+
+	error_bias: 0.0001
+	max_force: 20000.000
+	max_bias: 20.000
 }
 
-joint.rotarylimit:
+joint.distance:
 {
-
+	max_force: 20000.000
+	max_bias: 20.000
 }
 
 +door|child:
@@ -123,7 +140,7 @@ joint.rotarylimit:
 	
 	health:
 	{
-		max: 40000.000
+		max: 30000.000
 	}
 	
 	transform:

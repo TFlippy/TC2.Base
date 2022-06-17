@@ -8,7 +8,6 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle texture_muzzle_flash = "MuzzleFlash";
 
-		public static readonly Sound.Handle sound_gun_jam = "gun_jam";
 		public static readonly Sound.Handle sound_gun_break = "gun_break";
 
 		public enum Stage: uint
@@ -101,7 +100,8 @@ namespace TC2.Base.Components
 			//Can_Reload = 1 << 0,
 			//Can_Shoot = 1 << 1,
 			Cycled = 1 << 2,
-			Loaded = 1 << 3
+			Loaded = 1 << 3,
+			Wants_Reload = 1 << 4
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -118,32 +118,35 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
-			public Vector2 muzzle_offset;
-			public Vector2 particle_offset;
-			public float particle_rotation;
+			public static readonly Sound.Handle sound_jam_default = "gun_jam";
 
-			public Sound.Handle sound_shoot;
-			public Sound.Handle sound_cycle;
-			public Sound.Handle sound_reload;
-			public Sound.Handle sound_empty;
+			public Vector2 muzzle_offset = default;
+			public Vector2 particle_offset = default;
+			public float particle_rotation = default;
+
+			public Sound.Handle sound_shoot = default;
+			public Sound.Handle sound_cycle = default;
+			public Sound.Handle sound_reload = default;
+			public Sound.Handle sound_empty = default;
+			public Sound.Handle sound_jam = sound_jam_default;
 
 			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_multiplier;
+			public float damage_multiplier = default;
 
 			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float velocity_multiplier;
+			public float velocity_multiplier = default;
 
 			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
-			public float jitter_multiplier;
+			public float jitter_multiplier = default;
 
 			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float recoil_multiplier;
+			public float recoil_multiplier = default;
 
 			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float reload_interval;
+			public float reload_interval = default;
 
 			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
-			public float cycle_interval;
+			public float cycle_interval = default;
 
 			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float stability = 1.00f;
@@ -152,7 +155,7 @@ namespace TC2.Base.Components
 			public float failure_rate = 0.00f;
 
 			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float max_ammo;
+			public float max_ammo = default;
 
 			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
@@ -160,7 +163,8 @@ namespace TC2.Base.Components
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
-			public float sound_size = 2.00f;
+			public float sound_size = 1.00f;
+			public float sound_dist_multiplier = 4.00f;
 
 			public float sound_pitch = 1.00f;
 
@@ -174,26 +178,32 @@ namespace TC2.Base.Components
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public int projectile_count = 1;
 
-			public Gun.Flags flags;
+			public Gun.Flags flags = default;
 
 			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public Material.Flags ammo_filter;
+			public Material.Flags ammo_filter = default;
 
 			[Statistics.Info("Operation", description: "Operation mode of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Action action;
+			public Gun.Action action = default;
 
 			[Statistics.Info("Type", description: "Type of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Type type;
+			public Gun.Type type = default;
 
 			[Statistics.Info("Feed", description: "Method of loading ammunition.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Gun.Feed feed;
+			public Gun.Feed feed = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore] public Gun.Stage stage;
-			[Save.Ignore] public Gun.Hints hints;
+			public Gun.Stage stage;
+			public Gun.Hints hints;
+
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 		}
@@ -233,7 +243,7 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single)]
 		public static void OnGUI(ISystem.Info info,
-		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
 		{
 			if (player.IsLocal())
@@ -295,7 +305,7 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
@@ -305,7 +315,7 @@ namespace TC2.Base.Components
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight2([Source.Owned, Trait.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight2([Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}
@@ -315,9 +325,20 @@ namespace TC2.Base.Components
 		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Parent, Trait.Of<Storage.Data>] ref T inventory,
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
 		{
+#if SERVER
+			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
+			{
+				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, false);
+				gun_state.stage = Gun.Stage.Reloading;
+				gun_state.Sync(entity);
+
+				return;
+			}
+#endif
+
 			if (gun_state.stage == Gun.Stage.Reloading)
 			{
 				var time = info.WorldTime;
@@ -332,7 +353,9 @@ namespace TC2.Base.Components
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
-					entity.SyncComponent(ref gun_state);
+					gun_state.Sync(entity);
+
+					return;
 #endif
 				}
 				else
@@ -375,13 +398,20 @@ namespace TC2.Base.Components
 						if (done)
 						{
 							gun_state.stage = Gun.Stage.Cycling;
-							entity.SyncComponent(ref gun_state);
+							gun_state.Sync(entity);
+
+							return;
 						}
 #endif
 					}
 					else
 					{
+						gun_state.next_reload = info.WorldTime + 0.10f;
+#if SERVER
 						gun_state.stage = Gun.Stage.Ready;
+						gun_state.Sync(entity);
+#endif
+						return;
 					}
 				}
 			}
@@ -392,7 +422,7 @@ namespace TC2.Base.Components
 		public static void OnUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
 		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
@@ -404,11 +434,14 @@ namespace TC2.Base.Components
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var random = XorRandom.New();
+				var base_vel = body.GetVelocity();
 
 				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
 
 				var failure_rate = gun.failure_rate;
 				var stability = gun.stability;
+
+				var force_jammed = false;
 
 #if CLIENT
 				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
@@ -444,45 +477,59 @@ namespace TC2.Base.Components
 						overheat.Sync(entity);
 					}
 
+					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
+
 					{
 						for (var i = 0; i < count; i++)
 						{
+							var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+
 							var args =
 							(
-								damage_mult: gun.damage_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(gun.jitter_multiplier * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random.NextFloatRange(0.90f, 1.10f),
+								damage_mult: gun.damage_multiplier * random_multiplier,
+								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
 								faction_id: faction.id,
 								gun_flags: gun.flags
 							);
 
-							region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: MathF.CopySign(1.00f, dir.X)).ContinueWith(ent =>
+							if (args.vel.LengthSquared() < (material.projectile_velocity_min * material.projectile_velocity_min))
 							{
-								ref var projectile = ref ent.GetComponent<Projectile.Data>();
-								if (!projectile.IsNull())
+								force_jammed = true;
+								break;
+							}
+							else
+							{
+								region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
 								{
-									projectile.damage_base *= args.damage_mult;
-									projectile.damage_bonus *= args.damage_mult;
-									projectile.velocity = args.vel;
-									projectile.ent_owner = args.ent_owner;
-									projectile.faction_id = args.faction_id;
+									ref var projectile = ref ent.GetComponent<Projectile.Data>();
+									if (!projectile.IsNull())
+									{
+										projectile.damage_base *= args.damage_mult;
+										projectile.damage_bonus *= args.damage_mult;
+										projectile.velocity = args.vel;
+										projectile.ent_owner = args.ent_owner;
+										projectile.faction_id = args.faction_id;
 
-									ent.SyncComponent(ref projectile);
-								}
+										ent.SyncComponent(ref projectile);
+									}
 
-								ref var explosive = ref ent.GetComponent<Explosive.Data>();
-								if (!explosive.IsNull())
-								{
-									explosive.owner_entity = args.ent_owner;
-									ent.SyncComponent(ref explosive);
-								}
+									ref var explosive = ref ent.GetComponent<Explosive.Data>();
+									if (!explosive.IsNull())
+									{
+										explosive.ent_owner = args.ent_owner;
 
-								if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
-								{
-									ent.AddRelation(args.ent_gun, Relation.Type.Child);
-								}
-							});
+										ent.SyncComponent(ref explosive);
+									}
+
+									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
+									{
+										ent.AddRelation(args.ent_gun, Relation.Type.Child);
+									}
+								});
+							}
 						}
 					}
 
@@ -490,10 +537,10 @@ namespace TC2.Base.Components
 					{
 						var explosion_data = new Explosion.Data()
 						{
-							power = 1.50f + (count * 0.80f),
-							radius = 5.50f + (count * 2.50f),
+							power = 1.50f, // + (count * 0.80f),
+							radius = 5.50f, // + (count * 2.50f),
 							damage_entity = (gun.damage_multiplier * (1.00f + ((count - 1) * 3.80f))) * 200.00f,
-							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.80f))) * 130.00f,
+							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
 							smoke_amount = 0.30f,
 							sparks_amount = 2.00f,
 							owner_entity = body.GetParent()
@@ -522,19 +569,20 @@ namespace TC2.Base.Components
 				}
 #endif
 
-				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
+				if (force_jammed || gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 
 #if SERVER
-					if (random.NextBool(failure_rate))
+					if (force_jammed || random.NextBool(failure_rate))
 					{
 						//App.WriteLine("jammed");
 
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref region, sound_gun_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+						Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
 					}
 #endif
 				}
@@ -552,7 +600,9 @@ namespace TC2.Base.Components
 						particle.frame_count = 6;
 						particle.frame_count_total = 6;
 						particle.scale = gun.flash_size;
+						particle.lit = 1.00f;
 						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
+						particle.vel = base_vel;
 
 						Particle.Spawn(ref region, particle);
 					}
@@ -560,14 +610,14 @@ namespace TC2.Base.Components
 					var smoke_count = (int)gun.smoke_amount;
 					for (var i = 0; i < smoke_count; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(3.00f, 12.00f));
-						particle.fps = (byte)random.NextFloatRange(6, 8);
+						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(2.00f, 8.00f));
+						particle.fps = random.NextByteRange(12, 16);
 						particle.frame_count = 64;
 						particle.frame_count_total = 64;
-						particle.frame_offset = (byte)random.NextFloatRange(0, 64);
+						particle.frame_offset = random.NextByteRange(0, 64);
 						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
 						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = (dir_particle * random.NextFloatRange(1.00f, 1.50f));
+						particle.vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f));
 						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
 						particle.rotation = random.NextFloat(10.00f);
 						particle.growth = random.NextFloatRange(0.15f, 0.30f);
@@ -579,7 +629,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size);
+				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 
@@ -615,9 +665,9 @@ namespace TC2.Base.Components
 		public static void OnReady(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned, Trait.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			gun_state.hints.SetFlag(Gun.Hints.Loaded, gun_state.hints.HasAll(Gun.Hints.Cycled) && inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
@@ -630,10 +680,11 @@ namespace TC2.Base.Components
 					return;
 				}
 
-				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
-					gun_state.stage = Gun.Stage.Reloading;
+					//gun_state.stage = Gun.Stage.Reloading;
+					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 					entity.SyncComponent(ref gun_state);
 #endif
 					return;
@@ -655,7 +706,9 @@ namespace TC2.Base.Components
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
 #if SERVER
-						Sound.Play(ref info.GetRegion(), gun.sound_empty, transform.position, volume: 0.50f);
+						ref var region = ref info.GetRegion();
+						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
+						WorldNotification.Push(ref region, "* No ammo *", 0xffff0000, transform.position);
 #endif
 					}
 
@@ -666,6 +719,7 @@ namespace TC2.Base.Components
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
+					ref var region = ref info.GetRegion();
 					var random = XorRandom.New();
 
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
@@ -675,21 +729,23 @@ namespace TC2.Base.Components
 					{
 						//App.WriteLine("unjammed");
 
-						gun_state.stage = Gun.Stage.Reloading;
+						//gun_state.stage = Gun.Stage.Reloading;
+
+						gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref info.GetRegion(), sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
 					}
 					else
 					{
-						//App.WriteLine("jammed");
-
 						gun_state.stage = Gun.Stage.Jammed;
 						entity.SyncComponent(ref gun_state);
 
-						Sound.Play(ref info.GetRegion(), sound_gun_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);
 					}
 #endif
 				}

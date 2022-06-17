@@ -6,18 +6,24 @@ projectile:
 	damage_bonus: 100.000
 	lifetime: 3.000
 	ignore_time: 0.100
-	damage_type: bullet_mg
+	damage_type: bullet_musket
 	size: 0.250
-}
-
-projectile.renderer:
-{
-	length: 5.000
+	ricochet_count: 0
 }
 
 transform:
 {
 
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "projectile.sg.grenade"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
 }
 
 explosive:
@@ -26,5 +32,9 @@ explosive:
 	power: 3.000
 	damage_entity: 2500.000
 	damage_terrain: 6000.000
+	smoke_amount: 0.800
+	sparks_amount: 0.100
+	volume: 1.000
+	pitch: 1.500
 	flags: primed
 }

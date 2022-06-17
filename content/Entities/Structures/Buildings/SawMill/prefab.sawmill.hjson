@@ -1,0 +1,163 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [7.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 5000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support, ignore_melee, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+interactable:
+{
+	window_size: [400.000, 220.000]
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "sawmill.bg"
+	}
+	z: -300.000
+}
+
+sawmill:
+{
+	slider_distance: 5.00
+
+	saw_radius: 1.000
+	saw_offset: [-1.500, 1.375]
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "sawmill.saw"
+		}
+		z: 270.000
+	}
+
+	@sound.emitter:
+	{
+		file: "sawmill.idle.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 0.800
+	}
+
+	@inventory8:
+	{
+		name: "Output"
+		stack_size_multiplier: 8.000
+		type: output
+		flags: allow_ducts, ignore_mass, public
+	}
+}
+
+sawmill.state:
+{
+	gear_ratio: 1.000
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "sawmill.fg"
+		}
+		z: 280.000
+	}
+
+	@sound.emitter:
+	{
+		file: "sawmill.cut.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 1.400
+	}
+}
+
+axle:
+{
+	offset: [-3.125, 1.125]
+	mass: 5.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
+		z: -140.000
+	}
+}
+
+attachment:
+{
+
+}
+
+joint.base:
+{
+	offset_a: [3.000, 0.875]
+	max_force: 50000.000
+	max_torque: 50000.000
+	flags: control_read, control_write, use_center_of_gravity
+}
+
+joint.gear:
+{
+	min: 1.570
+	max: 1.570
+
+	error_bias: 0.0001
+	max_bias: 20.000
+}
+
+joint.slider:
+{
+	a: [0.000, 0.000]
+	b: [-5.000, 0.000]
+
+	min: 0.000
+	max: 5.000
+
+	error_bias: 0.0001
+	max_force: 20000.000
+	max_bias: 20.000
+}
+
+joint.distance:
+{
+	max_force: 20000.000
+	max_bias: 2.000
+}

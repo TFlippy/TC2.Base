@@ -11,6 +11,7 @@ body:
 		elasticity: 0.200
 		layer: entity, solid, resource
 		mask: world
+		material: metal
 	}
 }
 
@@ -51,7 +52,7 @@ norotate:
 
 health:
 {
-	max: 400.000
+	max: 250.000
 }
 
 explosive:
@@ -60,5 +61,6 @@ explosive:
 	power: 3.000
 	damage_entity: 4000.000
 	damage_terrain: 15000.000
+	health_threshold: 0.980
 	flags: any_damage, explode_when_primed
 }

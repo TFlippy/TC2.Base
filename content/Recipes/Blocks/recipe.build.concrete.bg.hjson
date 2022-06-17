@@ -1,0 +1,56 @@
+{
+	name: "Concrete (Background)"
+	desc:
+		'''
+		A solid block of concrete. Very durable.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [2, 1]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: line
+		flags: none
+		
+		size: [1.500, 1.500]
+		
+		cooldown: 0.400
+		
+		length_max: 5.000
+		length_step: 0.125
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "gravel"
+			amount: 0.100
+		}
+		{
+			type: resource
+			material: "cement"
+			amount: 0.050
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "concrete"
+			tile_flags: none
+		}
+	]
+}

@@ -1,0 +1,33 @@
+{
+	name: "Arcane Actuators"
+	description:
+		'''
+		Advanced essence-infused actuators used to bring machines to motion.
+		'''
+	icon:
+	{
+		texture: "resource.arcane_actuator"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal
+	flags: manufactured
+	mass_per_unit: 1.650
+	quantity_max: 100.000
+	prefab: "resource.arcane_actuator"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 206.000
+	thermal_conductivity: 0.100
+}

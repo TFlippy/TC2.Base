@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 			Overheated = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, name: "Overheating")]
 		public partial struct Data: IComponent
 		{
 			public float heat_current = 0.00f;
@@ -26,9 +26,14 @@ namespace TC2.Base.Components
 			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##}°C/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float cool_rate = 10.00f;
 
-			public Overheat.Flags flags;
+			public Overheat.Flags flags = default;
 
-			[Net.Ignore, Save.Ignore] public float next_steam;
+			[Net.Ignore, Save.Ignore] public float next_steam = default;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
@@ -53,14 +58,14 @@ namespace TC2.Base.Components
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
-		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Trait.Of<Overheat.Data>] ref Light.Data light)
+		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
 		{
 			light.intensity = MathF.Max(overheat.heat_current - 150.00f, 0.00f) / 250.00f;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Trait.Of<Overheat.Data>] ref Sound.Emitter sound)
+		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound)
 		{
 			var random = XorRandom.New();
 			ref var region = ref info.GetRegion();

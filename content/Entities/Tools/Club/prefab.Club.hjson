@@ -14,9 +14,9 @@ body:
 		mass: 6.000
 		radius: 0.250
 		friction: 0.950
-		elasticity: 0.050
+		elasticity: 0.450
 		material: wood
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
 }

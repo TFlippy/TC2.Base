@@ -3,7 +3,7 @@
 	desc: "Very dense natural stone."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 100000.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.750
 	texture_overshoot: -0.500
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "stone"
 			quantity: 10.000
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff3d322b"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

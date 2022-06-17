@@ -11,8 +11,8 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.700
-		elasticity: 0.250
+		friction: 0.500
+		elasticity: 0.350
 		material: flesh
 		layer: entity, solid, creature
 		mask: world, vehicle
@@ -74,21 +74,34 @@ holdable:
 
 animal:
 {
-	attack_distance: 1.000
 	attack_cooldown: 1.500
+
+	attack_distance_melee: 2.000
+	attack_cooldown_melee: 0.800
+
+	attack_distance_ranged: 5.000
+	attack_cooldown_ranged: 2.000
+
 	charge_distance: 6.000
-	retreat_distance: 15.000
+	retreat_distance: 9.000
+}
+
+animal.state:
+{
+
 }
 
 npc:
 {
-	navigation_state: searching
+	navigation_state: none
 	find_distance_max: 10.000
-	lose_distance_max: 20.000
-	follow_distance_max: 0.000
-	follow_distance_min: 0.000
+	lose_distance_max: 30.000
+	follow_distance_max: 10.000
+	follow_distance_min: 8.000
 	pain_modifier: 1.000
 	min_consciousness: 0.500
+	avoid_distance: [0.125, 0.000]
+	idle_distance: [1.000, 1.000]
 }
 
 npc.emotions:
@@ -105,9 +118,39 @@ npc.emotions.state:
 
 }
 
-npc.pathfinding:
+ai:
+{
+	stance: aggressive
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	
+}
+
+ai.search:
+{
+
+}
+
+pathfinding:
 {
 	flags: land
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
 }
 
 runner:
@@ -115,6 +158,11 @@ runner:
 	walk_force: 8000.000
 	jump_force: 15000.000
 	max_speed: 10.000
+}
+
+runner.state:
+{
+	
 }
 
 threat:
@@ -166,6 +214,11 @@ lootable:
 			material: "meat"
 			min: 30.000
 			max: 50.000
+		}
+		{
+			material: "leather"
+			min: 10.000
+			max: 20.000
 		}
 	]
 }
@@ -295,6 +348,11 @@ lootable:
 			max_speed: 10.000
 		}
 		
+		runner.state:
+		{
+			
+		}
+		
 		transform:
 		{
 		
@@ -319,6 +377,11 @@ lootable:
 					material: "meat"
 					min: 30.000
 					max: 50.000
+				}
+				{
+					material: "leather"
+					min: 5.000
+					max: 20.000
 				}
 			]
 		}
@@ -398,6 +461,7 @@ lootable:
 			sound: "badger_attack"
 			damage_base: 40.000
 			damage_bonus: 150.000
+
 			cooldown: 0.800
 			max_distance: 1.500
 			aoe: 0.250
@@ -487,6 +551,11 @@ lootable:
 					material: "meat"
 					min: 10.000
 					max: 25.000
+				}
+				{
+					material: "leather"
+					min: 5.000
+					max: 15.000
 				}
 			]
 		}

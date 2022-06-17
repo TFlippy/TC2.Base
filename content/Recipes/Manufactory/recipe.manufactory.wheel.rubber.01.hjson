@@ -1,0 +1,52 @@
+{
+	name: "Wheel (Rubber, Medium)"
+	desc: "A medium high-friction wheel that can be attached to vehicles."
+	
+	icon:
+	{
+		texture: "wheel.rubber.01"
+	}
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: manufactory
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 14.000
+		}
+		{
+			type: "resource"
+			material: "rubber"
+			amount: 60.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 900.000
+			difficulty: 10.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 400.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "wheel.rubber.01"
+			amount: 1.000
+		}
+	]
+}

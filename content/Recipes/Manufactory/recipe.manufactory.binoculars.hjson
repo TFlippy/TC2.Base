@@ -1,0 +1,52 @@
+{
+	name: "Binoculars"
+	desc: "Can be used to spy on kingdoms far, far away."
+	
+	icon:
+	{
+		texture: "binoculars"
+	}
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: manufactory
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "glass"
+			amount: 2.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 150.000
+			difficulty: 6.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 200.000
+			difficulty: 12.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "binoculars"
+			amount: 1.000
+		}
+	]
+}

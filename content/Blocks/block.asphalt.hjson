@@ -1,0 +1,32 @@
+{
+	name: "Asphalt"
+	desc: "TODO: Desc"
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 10000.000
+	smoothing: 0.200
+	mass: 3.000
+	friction: 0.990
+	elasticity: 0.150
+	stability: 0.500
+	
+	texture: "terrain_asphalt"
+	pattern: "pattern_soil"
+	
+	texture_scale: 1.550
+	texture_overshoot: -0.250
+	
+	resources: []
+	
+	mappings:
+	[
+		{
+			color: "0xff201f1f"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+	]
+}

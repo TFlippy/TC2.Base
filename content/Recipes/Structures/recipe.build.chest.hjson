@@ -1,0 +1,54 @@
+{
+	name: "Chest"
+	desc:
+		'''
+		A small chest to store stuff in.
+		'''
+	
+	icon:
+	{
+		texture: "chest"
+		size: [16, 12]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: 90.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.500
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings
+		
+		size: [2.000, 1.500]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.300
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 300.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "chest"
+			amount: 1.000
+		}
+	]
+}
