@@ -9,7 +9,7 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [9, 0]
+		frame: [10, 0]
 	}
 	
 	type: build
