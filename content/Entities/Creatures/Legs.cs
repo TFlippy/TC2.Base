@@ -54,8 +54,8 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
-		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,
-		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
+		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
+		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;
