@@ -12,7 +12,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, support, ignore_melee
+		layer: entity, building, support, ignore_melee, storage
 		mask: world
 	}
 }
@@ -54,5 +54,11 @@ shop:
 
 workshop:
 {
-
+	@inventory8:
+	{
+		name: "Storage"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: standalone, allow_ducts, public
+	}
 }

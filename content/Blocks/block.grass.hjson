@@ -3,7 +3,7 @@
 	desc: "Nice green grass."
 	
 	material_type: soil
-	tile_flags: any
+	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 1600.000
@@ -19,14 +19,20 @@
 	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10211912"
-	
 	resources:
 	[
 		{
 			material: "soil"
 			quantity: 0.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff596917"
+			tile_flags: solid, non_empty, ground
+			meta: 0
 		}
 	]
 }

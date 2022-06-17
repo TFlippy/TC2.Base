@@ -5,16 +5,16 @@ namespace TC2.Base
 	public sealed partial class ModInstance
 	{
 		// TODO: Split this into multiple files
-		private static void RegisterModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Health.Data>
+			definitions.Add(Augment.Definition.New<Health.Data>
 			(
 				identifier: "health.bomb_rigged",
 				category: "Explosive",
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
 
-				validate: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					pair.amount = Maths.Clamp(pair.amount, 10, 50);
@@ -24,7 +24,7 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 
@@ -39,12 +39,12 @@ namespace TC2.Base
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Explosive.Data>();
 				},
 
-				apply_0: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					ref var material = ref Material.GetMaterial("nitroglycerine");
@@ -58,26 +58,26 @@ namespace TC2.Base
 					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					context.requirements_new.Add(Crafting.Requirement.Resource("nitroglycerine", pair.amount));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "health.mushroom_glow",
 				category: "Utility",
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !context.HasComponent<Light.Data>() && !modifications.HasModification(handle);
+					return !context.HasComponent<Light.Data>() && !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
 					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
@@ -86,25 +86,25 @@ namespace TC2.Base
 					light.texture = "light_invsqr";
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Health.Data>
+			definitions.Add(Augment.Definition.New<Health.Data>
 			(
 				identifier: "health.varnish",
 				category: "Protection",
 				name: "Varnished Wood",
 				description: "Applies varnish on item's wooden parts, improving their durability.",
 
-				can_add: static (ref Modification.Context context, in Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return context.requirements_new.HasMaterial("wood") && !modifications.HasModification(handle);
+					return context.requirements_new.HasMaterial("wood") && !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Health.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -133,19 +133,20 @@ namespace TC2.Base
 				}
             ));
 
-			definitions.Add(Modification.Definition.New<Fuse.Data>
+
+			definitions.Add(Augment.Definition.New<Fuse.Data>
 			(
 				identifier: "fuse.length",
 				category: "Explosives",
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
-				can_add: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.50f, 10.00f);
@@ -154,51 +155,51 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					data.time = value;
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Fuse.Data>
+			definitions.Add(Augment.Definition.New<Fuse.Data>
 			(
 				identifier: "fuse.inextinguishable",
 				category: "Explosives",
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
-				can_add: static (ref Modification.Context context, in Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Fuse.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_chance = 0.00f;
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.coolant",
 				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases cooling rate.",
 
-				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 					amount = Maths.Clamp(amount, 1, 40);
@@ -207,20 +208,20 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 					return GUI.SliderInt("Amount", ref amount, 1, 40);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 					data.cool_rate += amount * 4.00f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 
@@ -235,40 +236,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Overheat.Data>
-			(
-				identifier: "overheat.movement_cooling",
-				category: "Heat Management",
-				name: "Movement Cooling",
-				description: "Increases cooling rate while in motion.",
-
-				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					return !modifications.HasModification(handle);
-				},
-
-				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
-				{
-					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
-					cooling.modifier = 0.10f;
-
-					data.cool_rate *= 0.70f;
-				}
-			));
-
-			definitions.Add(Modification.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.air_coolant",
 				category: "Heat Management",
 				name: "Air-Cooled",
-				description: "Increases cooling rate.",
+				description: "Increases cooling rate while in motion.",
 
-				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 					amount = Maths.Clamp(amount, 1, 10);
@@ -277,20 +257,22 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 					return GUI.SliderInt("Amount", ref amount, 1, 10);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
-					data.cool_rate += amount * 9.00f;
+				
+					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
+					cooling.modifier = 1.00f + (0.50f * amount);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<int>();
 
@@ -305,25 +287,25 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Overheat.Data>
 			(
 				identifier: "overheat.heat_resistant",
 				category: "Heat Management",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
-				can_add: static (ref Modification.Context context, in Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cool_rate *= 0.80f;
 					data.heat_critical += 500.00f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Overheat.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var amount = 0.00f;
 
@@ -351,7 +333,7 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Control.Data>
+			definitions.Add(Augment.Definition.New<Control.Data>
 			(
 				identifier: "control.random_activation",
 				category: "Utility",
@@ -363,18 +345,18 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
-				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
 					random_activation.duration += 0.20f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // High cost
 
@@ -391,25 +373,25 @@ namespace TC2.Base
 			//	name: "Compact",
 			//	description: "Allows the item to be stored in toolbelt.",
 
-			//	can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 			//	{
-			//		return !modifications.HasModification(handle) && !data.flags.HasAny(Holdable.Flags.Storable);
+			//		return !augments.HasAugment(handle) && !data.flags.HasAny(Holdable.Flags.Storable);
 			//	},
 
-			//	apply_0: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 			//	{
 			//		data.flags.SetFlag(Holdable.Flags.Storable, true);
 			//	}
 			//));
 
-			definitions.Add(Modification.Definition.New<Telescope.Data>
+			definitions.Add(Augment.Definition.New<Telescope.Data>
 			(
 				identifier: "telescope.magnifying_lenses",
 				category: "Telescope",
 				name: "Magnifying Lenses",
 				description: "Increases maximum range at cost of reduced field of view.",
 
-				validate: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 4.00f);
@@ -418,19 +400,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Telescope.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -440,42 +422,42 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Equipment.Data>
+			definitions.Add(Augment.Definition.New<Equipment.Data>
 			(
 				identifier: "equipment.cursed",
 				category: "Utility",
 				name: "Cursed",
 				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
 
-				can_add: static (ref Modification.Context context, in Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.flags.SetFlag(Equipment.Flags.Unremovable, true);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Equipment.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("tar", 15.00f));
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Consumable.Data>
+			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
 				identifier: "consumable.alcohol",
 				category: "Consumable",
 				name: "Mix: Alcohol",
 				description: "Mixes a dose of alcohol into the item.",
 
-				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Alcohol.Effect>();
 				},
 
-				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 500.00f);
@@ -484,14 +466,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -499,7 +481,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -508,19 +490,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Consumable.Data>
+			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
 				identifier: "consumable.meth",
 				category: "Consumable",
 				name: "Mix: Methamphetamine",
 				description: "Mixes a dose of methamphetamine into the item.",
 
-				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Meth.Effect>();
 				},
 
-				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 200.00f);
@@ -529,14 +511,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -544,7 +526,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -553,19 +535,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Consumable.Data>
+			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
 				identifier: "consumable.morphine",
 				category: "Consumable",
 				name: "Mix: Morphine",
 				description: "Mixes a dose of morphine into the item.",
 
-				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Morphine.Effect>();
 				},
 
-				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 100.00f);
@@ -574,14 +556,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -589,7 +571,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -598,19 +580,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Consumable.Data>
+			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
 				identifier: "consumable.codeine",
 				category: "Consumable",
 				name: "Mix: Codeine",
 				description: "Mixes a dose of codeine into the item.",
 
-				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Codeine.Effect>();
 				},
 
-				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 100.00f);
@@ -619,14 +601,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -634,7 +616,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -643,19 +625,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Consumable.Data>
+			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
 				identifier: "consumable.paxilon",
 				category: "Consumable",
 				name: "Mix: Paxilon Hydrochlorate",
 				description: "Mixes a dose of paxilon hydrochlorate into the item.",
 
-				can_add: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !context.HasComponent<Paxilon.Effect>();
 				},
 
-				validate: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 1.00f, 100.00f);
@@ -664,14 +646,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -679,7 +661,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Consumable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -688,14 +670,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Pill.Data>
+			definitions.Add(Augment.Definition.New<Pill.Data>
 			(
 				identifier: "pill.extended_release",
 				category: "Consumable",
 				name: "Extended Release",
 				description: "Lowers the release rate of a pill, spreading out the dose over a longer timespan.",
 
-				validate: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value = Maths.Clamp(value, 0.01f, 0.20f);
@@ -704,19 +686,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Pill.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 

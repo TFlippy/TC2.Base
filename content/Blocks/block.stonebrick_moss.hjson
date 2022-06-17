@@ -3,7 +3,7 @@
 	desc: "Stone bricks of varying sizes covered in moss."
 	
 	material_type: stone
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 24000.000
@@ -19,14 +19,25 @@
 	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
 			material: "stone"
 			quantity: 0.400
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff40473d"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff20231f"
+			tile_flags: non_empty
+			meta: 0
 		}
 	]
 }

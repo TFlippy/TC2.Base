@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class AutomaticReload
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, name: "Auto-Reload")]
 		public partial struct Data: IComponent
 		{
 

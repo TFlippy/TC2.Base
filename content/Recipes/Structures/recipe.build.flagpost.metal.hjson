@@ -26,7 +26,7 @@
 		flags: require_claimed
 		
 		size: [0.500, 10.000]
-		offset: [0.250, -4.000]
+		offset: [0.000, -4.000]
 		
 		cooldown: 0.500
 		min_claim: 1.000

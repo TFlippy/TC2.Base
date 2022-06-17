@@ -4,16 +4,16 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterGunModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterGunAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.expanded_magazine",
 				category: "Gun (Ammo)",
 				name: "Expanded Magazine",
 				description: "Increases ammo capacity.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 1.00f, 5.00f);
@@ -22,20 +22,20 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front) return false;
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var amount = handle.GetData<float>();
 					var mass = 0.00f;
@@ -142,7 +142,7 @@ namespace TC2.Base
 					return true;
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					foreach (ref readonly var requirement in context.requirements_old)
@@ -176,14 +176,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.improved_rifling",
 				category: "Gun (Barrel)",
 				name: "Improved Rifling",
 				description: "Improves accuracy and damage.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
@@ -191,20 +191,20 @@ namespace TC2.Base
 					return true;
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -283,7 +283,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -313,19 +313,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic",
 				category: "Gun (Receiver)",
 				name: "Mode: Automatic",
 				description: "Converts fire mode to automatic.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && !data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && !data.flags.HasAny(Gun.Flags.Automatic) && !augments.HasAugment(handle);
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (!data.flags.HasAll(Gun.Flags.Automatic))
 					{
@@ -364,19 +364,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.semi_automatic",
 				category: "Gun (Receiver)",
 				name: "Mode: Semi-Automatic",
 				description: "Converts fire mode to semi-automatic.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && data.flags.HasAny(Gun.Flags.Automatic) && !modifications.HasModification(handle);
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && data.flags.HasAny(Gun.Flags.Automatic) && !augments.HasAugment(handle);
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.flags.HasAll(Gun.Flags.Automatic))
 					{
@@ -400,18 +400,18 @@ namespace TC2.Base
 				}
 			));
 
-			//definitions.Add(Modification.Definition.New<Gun.Data>
+			//definitions.Add(Augment.Definition.New<Gun.Data>
 			//(
 			//	identifier: "gun.caliber_downgrade",
 			//	name: "Caliber Downgrade",
 			//	description: "Rechambers to a lower caliber.",
 
-			//	can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 			//	{
-			//		return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+			//		return !augments.HasAugment(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
 			//	},
 
-			//	apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+			//	apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 			//	{
 			//		if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 			//		{
@@ -479,20 +479,20 @@ namespace TC2.Base
 			//	}
 			//));
 
-definitions.Add(Modification.Definition.New<Gun.Data>
+definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.autocannon_caliber_downgrade",
 				category: "Gun (Receiver)",
 				name: "Autocannon: Caliber Downgrade",
 				description: "Rechambers to a lower caliber, turning autocannon into oversized and sturdy machine gun.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.type != Gun.Type.AutoCannon) return false;
 					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
@@ -557,27 +557,27 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.rapid_fire_mechanism",
 				category: "Gun (Receiver)",
-				name: "Rapid fire mechanism",
+				name: "Rapid-Fire Mechanism",
 				description: "Greatly increases fire rate, at the cost of worsened ballistics.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !modifications.HasModification(handle);
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
 				},
 
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cycle_interval *= 0.50f;
 					data.damage_multiplier *= 0.72f;
 					data.velocity_multiplier *= 0.85f;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier += 2.50f;
@@ -628,7 +628,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -644,14 +644,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.caliber_conversion",
 				category: "Gun (Receiver)",
 				name: "Caliber Conversion",
 				description: "Rechambers to a different caliber.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<int>();
 					value = Maths.Clamp(value, -2, 2); // TODO: Make this clamped between available calibers
@@ -660,20 +660,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<int>();
 					return GUI.SliderInt("Caliber", ref value, -2, 2);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.type == Gun.Type.AutoCannon) return false;
-					return !modifications.HasModification(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
+					return !augments.HasAugment(handle) && data.ammo_filter.HasAny(Material.Flags.Ammo_LC | Material.Flags.Ammo_HC | Material.Flags.Ammo_MG | Material.Flags.Ammo_AC);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<int>();
 
@@ -819,14 +819,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.recoil_reduction",
 				category: "Gun (Frame)",
 				name: "Recoil Reduction",
 				description: "Reduces recoil.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
@@ -834,13 +834,13 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
@@ -848,7 +848,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 #endif
 
 				// TODO: lerp the values based on ratio
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -923,14 +923,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.barrel_extension",
 				category: "Gun (Barrel)",
 				name: "Barrel Extension",
 				description: "Increases muzzle velocity and damage.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 1.00f, 2.00f);
@@ -938,20 +938,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value - 1.00f;
@@ -1029,14 +1029,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.balanced_receiver",
 				category: "Gun (Receiver)",
 				name: "Balanced Receiver",
 				description: "Stabilizes the receiver, increasing reliability.",
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					switch (data.type)
 					{
@@ -1096,7 +1096,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1168,19 +1168,19 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.tempered_frame",
 				category: "Gun (Frame)",
 				name: "Tempered Frame",
 				description: "Greatly improves durability and stability of the gun.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.80f;
 					data.stability += 0.40f;
@@ -1200,17 +1200,17 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					}
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
-					data.failure_rate *= 0.90f;
-					data.stability += 0.10f;
+					data.failure_rate *= 0.80f;
+					data.stability += 0.20f;
 					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
 
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1235,26 +1235,26 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.hardened_frame",
 				category: "Gun (Frame)",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.50f;
 					data.stability += 0.20f;
 					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
 					data.failure_rate *= 0.70f;
@@ -1270,7 +1270,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -1307,14 +1307,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flimsy_frame",
 				category: "Gun (Frame)",
 				name: "Flimsy Frame",
 				description: "Lowers the basic resource cost, but makes problems more pronounced.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
@@ -1323,14 +1323,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1348,7 +1348,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					}
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1364,7 +1364,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1382,14 +1382,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.simple_frame",
 				category: "Gun (Frame)",
 				name: "Simple Frame",
 				description: "Simplifies the item, increasing reliability at cost of reduced performance.",
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
@@ -1399,7 +1399,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					data.damage_multiplier *= 0.98f;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier += 1.50f;
@@ -1450,7 +1450,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1466,20 +1466,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 			
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
 				category: "Gun (Receiver)",
 				name: "Gas Seal",
 				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
@@ -1489,7 +1489,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					data.recoil_multiplier *= 1.10f;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier *= 0.90f;
@@ -1503,7 +1503,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1548,20 +1548,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 						
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
 				category: "Gun (Frame)",
 				name: "Hand-Fitted Parts",
 				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
@@ -1571,7 +1571,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					data.recoil_multiplier *= 1.12f;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier *= 0.90f;
@@ -1585,7 +1585,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1630,20 +1630,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_side_gate_loading",
 				category: "Gun (Frame)",
 				name: "Side Gate Loading",
 				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
@@ -1651,7 +1651,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					data.reload_interval *= 2.00f;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier *= 0.90f;
@@ -1665,7 +1665,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1710,14 +1710,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.faster_cycling_mechanism",
 				category: "Gun (Receiver)",
 				name: "Faster Cycling Mechanism",
 				description: "Increases rate of fire, but lowers reliability.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
@@ -1726,14 +1726,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value;
@@ -1813,7 +1813,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					data.failure_rate += Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.35f, ratio);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1846,14 +1846,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.slower_cycling_mechanism",
 				category: "Gun (Receiver)",
 				name: "Slower Cycling Mechanism",
 				description: "Decreases fire rate, but increases reliability.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 1.00f, 2.00f);
@@ -1861,20 +1861,20 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					var ratio = value - 1.00f;
@@ -1948,7 +1948,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.gas_operation",
 				category: "Gun (Receiver)",
@@ -1960,12 +1960,12 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					[0] = Crafting.Requirement.Level(Experience.Type.Engineering, 10, Crafting.Requirement.Flags.No_Consume),
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return data.action == Gun.Action.Blowback;
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					switch (data.action)
 					{
@@ -1994,7 +1994,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -2041,32 +2041,32 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.single_shot",
 				category: "Gun (Receiver)",
 				name: "Feed: Single-Shot",
 				description: "Converts to single-shot feed mechanism.",
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return data.feed != Gun.Feed.Single && data.feed != Gun.Feed.Breech && data.feed != Gun.Feed.Front && !modifications.HasModification(handle);
+					return data.feed != Gun.Feed.Single && data.feed != Gun.Feed.Breech && data.feed != Gun.Feed.Front && !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.feed = Gun.Feed.Single;
 					data.max_ammo = 1;
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate = Maths.Clamp(data.failure_rate * 0.10f + (1.00f - Maths.Clamp(data.stability, 0.00f, 1.00f)), 0.00f, 1.00f);
 
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					for (int i = 0; i < context.requirements_new.Length; i++)
 					{
@@ -2107,30 +2107,28 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.extra_barrel",
 				category: "Gun (Barrel)",
 				name: "Extra Barrel",
 				description: "Adds an extra barrel to the gun.",
 
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 3;
+				},
+
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 					return GUI.Checkbox("Simultaneous Fire", ref simultaneous, GUI.GetRemainingSpace());
 				},
 
-				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
-					var count = 0;
-					for (int i = 0; i < modifications.Length; i++)
-					{
-						if (modifications[i].id == handle.id)
-						{
-							count++;
-						}
-					}
+					var count = augments.GetCount(handle);
 
 					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
 
@@ -2139,7 +2137,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
@@ -2221,7 +2219,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					}
 				},
 
-				finalize: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
 
@@ -2248,7 +2246,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var overheat = ref context.GetComponent<Overheat.Data>();
 					if (!overheat.IsNull())
@@ -2298,14 +2296,14 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.flared_barrel",
 				category: "Gun (Barrel)",
 				name: "Flared Barrel",
 				description: "Increases spread and loudness, but also greatly reduces recoil.",
 
-				validate: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
@@ -2313,26 +2311,26 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 					return true;
 				},
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
 				},
 
-				generate_sprite: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					draw.DrawSprite("gun.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -2350,7 +2348,7 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.automatic_reloading",
 				category: "Gun (Ammo)",
@@ -2359,17 +2357,17 @@ definitions.Add(Modification.Definition.New<Gun.Data>
 
 				// This is not extremely useful, but saves you from pressing a button and works nicely for mounted items
 
-				can_add: static (ref Modification.Context context, in Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();
 				},
 
-				apply_1: static (ref Modification.Context context, ref Gun.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));

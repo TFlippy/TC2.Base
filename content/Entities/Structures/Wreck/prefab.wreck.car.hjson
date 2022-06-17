@@ -8,15 +8,22 @@ $tags: []
 
 body:
 {
-	type: static
+	type: dynamic
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [4.500, 2.000]
+		points:
+		[
+			[1.750, 0.500]
+			[-2.500, 0.500]
+			[-1.000, -1.000]
+			[1.500, -0.500]
+		]
 		offset: [0.000, 0.000]
 		mass: 500.000
 		friction: 0.850
-		elasticity: 0.100
+		elasticity: 0.400
+		radius: 0.500
 		material: metal
 		layer: entity, solid, building
 		mask: world
@@ -69,4 +76,10 @@ harvestable:
 cover:
 {
 	threshold: 0.200
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
 }

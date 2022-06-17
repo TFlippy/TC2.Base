@@ -7,7 +7,7 @@
 		{
 			None = 0,
 
-			Crouching = 1 << 0
+			[Save.Ignore] Crouching = 1 << 0
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -18,10 +18,12 @@
 			[Save.Ignore, Net.Ignore] public Vector2 offset = default;
 			[Save.Ignore, Net.Ignore] public float lerp = default;
 
-			[Save.Ignore] public Torso.Flags flags = default;
+			public Torso.Flags flags = default;
 
 			public uint frame_count = 4;
 			public uint fps = 12;
+
+			public uint2 frames_air = default;
 
 			[Save.Ignore, Net.Ignore] public float air_time = default;
 
@@ -88,7 +90,7 @@
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			//else if (torso.air_time > 0.10f) goto air;
+			else if (torso.air_time > 0.10f) goto air;
 			else if (walking) goto walking;
 			else goto idle;
 
@@ -98,7 +100,7 @@
 
 				if (!headbob.IsNull())
 				{
-					headbob.offset = offset;
+					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.75f);
 				}
 
 				renderer.sprite.fps = (byte)Math.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
@@ -129,15 +131,17 @@
 
 			air:
 			{
+				var t = Maths.Clamp01((torso.air_time) * 6.00f);
+
 				var offset = Vector2.Zero;
 
 				if (!headbob.IsNull())
 				{
-					headbob.offset = offset;
+					headbob.offset = Vector2.Lerp(headbob.offset, new Vector2(0, 0.10f * Maths.Clamp01((torso.air_time) * 3.00f)), 0.50f);
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)(5 + Maths.Clamp(torso.air_time * torso.fps, 0, 2));
+				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.X, torso.frames_air.Y, t));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 

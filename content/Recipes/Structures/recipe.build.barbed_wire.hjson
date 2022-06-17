@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "barbed_wire.cap"
+		texture: "barbed_wire.icon"
 	}
 	
 	type: build

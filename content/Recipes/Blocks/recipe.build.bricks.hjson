@@ -1,0 +1,48 @@
+{
+	name: "Clay Brick"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.100
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "stone"
+			amount: 0.500
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "brick"
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}

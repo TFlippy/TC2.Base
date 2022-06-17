@@ -10,7 +10,7 @@ body:
 		offset: [0.000, 0.000]
 		mass: 30.000
 		friction: 0.950
-		elasticity: 0.100
+		elasticity: 0.500
 		layer: entity, crate, shipment, solid
 		mask: world, crate
 		material: wood

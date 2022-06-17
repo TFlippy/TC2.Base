@@ -49,3 +49,8 @@ nameable:
 {
 	flags: randomize
 }
+
+claimable:
+{
+	flags: no_menu
+}

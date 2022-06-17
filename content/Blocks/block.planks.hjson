@@ -3,7 +3,7 @@
 	desc: "Wooden planks hammered together."
 	
 	material_type: wood
-	tile_flags: any
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 3200.000
@@ -19,14 +19,25 @@
 	texture_scale: 0.800
 	texture_overshoot: -0.750
 	
-	fg_color: "#ff140e08"
-	bg_color: "#10322d29"
-	
 	resources:
 	[
 		{
 			material: "wood"
 			quantity: 0.400
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffbc7049"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff633e2b"
+			tile_flags: non_empty
+			meta: 0
 		}
 	]
 }
