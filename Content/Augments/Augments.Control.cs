@@ -4,9 +4,9 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterControlModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterControlAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Control.Data>
+			definitions.Add(Augment.Definition.New<Control.Data>
 			(
 				identifier: "control.random_activation",
 				category: "Control",
@@ -18,13 +18,12 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
-				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
-					random_activation.duration += 0.20f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // High cost
 
@@ -34,7 +33,7 @@ namespace TC2.Base
 					}
 				}
 			));
-			definitions.Add(Modification.Definition.New<Control.Data>
+			definitions.Add(Augment.Definition.New<Control.Data>
 			(
 				identifier: "control.mind_swap",
 				category: "Control",
@@ -46,12 +45,12 @@ namespace TC2.Base
 				//Also becomes a threat so that animals still attack you while you are an object
 				//Very hard to use if you are a gun since A you can't reload since you can't hold ammo and B you can only aim by flinging yourself around
 
-				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var mindswap = ref context.GetOrAddComponent<Mindswap.Data>();
 					ref var runner = ref context.GetOrAddComponent<Runner.Data>();
@@ -62,12 +61,12 @@ namespace TC2.Base
 					if (runner.jump_force == 0) runner.jump_force = 2000.00f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.cognition", 15.00f)); // High cost
 				}
 			));
-			definitions.Add(Modification.Definition.New<Control.Data>
+			definitions.Add(Augment.Definition.New<Control.Data>
 			(
 				identifier: "control.mind_control",
 				category: "Control",
@@ -76,24 +75,24 @@ namespace TC2.Base
 
 				//You can control multiple things this way if you want like turrets
 
-				can_add: static (ref Modification.Context context, in Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var mindcontrol = ref context.GetOrAddComponent<Mindcontrol.Data>();
 					ref var threat = ref context.GetOrAddComponent<Threat.Data>();
 					if (threat.priority == 0) threat.priority = 7.00f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.cognition", 30.00f)); // Higher cost
 				}
 			));
-			/*definitions.Add(Modification.Definition.New<Control.Data>
+			/*definitions.Add(Augment.Definition.New<Control.Data>
 			(
 				identifier: "control.auto_aim",
 				category: "Control",
@@ -101,7 +100,7 @@ namespace TC2.Base
 				description: "Tries to automaticly aim towards nearby other creatures.",
 				//APPARENTLY THIS JUST DOESNT WORK
 
-				apply_0: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var npc = ref context.GetOrAddComponent<NPC.Data>();
 					
@@ -110,7 +109,7 @@ namespace TC2.Base
 					npc.lose_distance_max = 128.00f;
 				},
 
-				apply_1: static (ref Modification.Context context, ref Control.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 10.00f)); // High cost
 
