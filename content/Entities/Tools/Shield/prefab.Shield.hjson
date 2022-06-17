@@ -117,5 +117,6 @@ shield:
 
 cover:
 {
-	threshold: 0.400
+	threshold: 0.100
+	flags: break_on_breach
 }
