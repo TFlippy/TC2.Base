@@ -4,22 +4,22 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterHoldableModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterHoldableAugments(ref List<Augment.Definition> definitions)
 		{
-			definitions.Add(Modification.Definition.New<Holdable.Data>
+			definitions.Add(Augment.Definition.New<Holdable.Data>
 			(
 				identifier: "holdable.sneaky",
 				category: "Utility",
 				name: "Sneaky",
 				description: "Hold this item BEHIND your body to make it less obvious",
 
-				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var renderer = ref context.GetComponent<Animated.Renderer.Data>();
-					return !modifications.HasModification(handle) && !renderer.IsNull();
+					return !Augments.HasAugment(handle) && !renderer.IsNull();
 				},
 
-				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var renderer = ref context.GetComponent<Animated.Renderer.Data>();
 					if (!renderer.IsNull())
@@ -50,19 +50,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Holdable.Data>
+			definitions.Add(Augment.Definition.New<Holdable.Data>
 			(
 				identifier: "holdable.rubber_grip",
-				category: "Body",
+				category: "Utility",
 				name: "Rubber Grip",
 				description: "Get a better grip on the item by adding a rubber grip",
 
-				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					data.force_multiplier *= 1.5f;
 					data.torque_multiplier *= 1.5f;
@@ -79,19 +79,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Holdable.Data>
+			definitions.Add(Augment.Definition.New<Holdable.Data>
 			(
 				identifier: "holdable.lubricated_grip",
-				category: "Body",
+				category: "Utility",
 				name: "Slippery Grip",
 				description: "Lubricate any grippable places of the object making it nearly unholdable",
 
-				can_add: static (ref Modification.Context context, in Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Holdable.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					data.force_multiplier *= 0.01f;
 					data.torque_multiplier *= 0.01f;
