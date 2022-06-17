@@ -4,10 +4,10 @@ namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{
-		private static void RegisterBodyModifications(ref List<Modification.Definition> definitions)
+		private static void RegisterBodyAugments(ref List<Augment.Definition> definitions)
 		{
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.efficient_crafting",
 				category: "Crafting",
@@ -16,7 +16,7 @@ namespace TC2.Base
 				
 				//This modifier is nearly always an option but only with many npcs or very high skills is this actually worth while since it ramps up crafting time a ton
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -33,19 +33,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.lightweight_design",
 				category: "Body",
 				name: "Lightweight Design",
 				description: "Redesign the object to have slightly less weight but be harder to produce",
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					data.mass_multiplier *= 0.80f;
 					data.gravity *= 0.90f;
@@ -60,14 +60,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.heavyweight_design",
 				category: "Body",
 				name: "Heavyweight Design",
 				description: "Redesign the object to be a lot heavier",
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					data.mass_multiplier *= 2.00f; 
 					data.gravity *= 1.10f;
@@ -83,19 +83,19 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.floaty",
 				category: "Body",
 				name: "Floaty",
 				description: "Makes the object fall slower",
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					data.gravity *= 0.20f; 
 					//Very fun modifer which makes an object behave very floaty
@@ -107,11 +107,11 @@ namespace TC2.Base
 							requirement.amount *= 1.30f;
 						}
 					}
-					context.requirements_new.Add(Crafting.Requirement.Resource("salt.motion", 2.00f)); // Low ish cost, but effect is not very usefull in nearly all cases
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 2.00f)); // Low ish cost, but effect is not very usefull in nearly all cases
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.mushroom_wood",
 				category: "Crafting",
@@ -121,12 +121,12 @@ namespace TC2.Base
 				//the purpose of this modifier is to add another use to mushroom scraps AND to allow people to use spare mushrooms as wood
 				//this modifier is likely to be more usefull once buildings can be blueprinted
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return context.requirements_new.Has(Crafting.Requirement.Resource("wood", 0.00f)) && !modifications.HasModification(handle);
+					return context.requirements_new.Has(Crafting.Requirement.Resource("wood", 0.00f)) && !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					var wood_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -152,14 +152,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.bulk",
 				category: "Crafting",
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
-				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					batch_size = Maths.Clamp(batch_size, 1, 10);
@@ -168,19 +168,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					return !modifications.HasModification(handle);
+					return !Augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref readonly var recipe_old = ref context.GetRecipeOld();
 					ref var recipe_new = ref context.GetRecipeNew();
@@ -240,14 +240,14 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Modification.Definition.New<Body.Data>
+			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.recycled",
 				category: "Crafting",
 				name: "Scrap-Recycled",
 				description: "Lowers the production cost significantly, while also reducing overall item quality.",
 
-				validate: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					ratio = Maths.Clamp(ratio, 0.10f, 0.65f);
@@ -256,16 +256,16 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f);
 				},
 #endif
 
-				can_add: static (ref Modification.Context context, in Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
-					if (modifications.HasModification(handle)) return false;
+					if (Augments.HasAugment(handle)) return false;
 
 					var has_valid_material = false;
 
@@ -287,7 +287,7 @@ namespace TC2.Base
 					return has_valid_material;
 				},
 
-				apply_0: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
@@ -347,7 +347,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Modification.Context context, ref Body.Data data, ref Modification.Handle handle, Span<Modification.Handle> modifications) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
