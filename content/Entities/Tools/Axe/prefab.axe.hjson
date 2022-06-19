@@ -51,7 +51,7 @@ melee.state:
 
 throwingDamage:
 {
-	damage: 100.000
+	damage: 30.000
 }
 
 holdable:

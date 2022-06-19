@@ -81,7 +81,7 @@ namespace TC2.Base.Components
 							if (ent_hit.IsValid() && vel_sq > 2.00f)
 							{
 								entity.Hit(ent_hit, ent_hit, arbiter.GetPosition(), -arbiter.GetNormal(), arbiter.GetNormal(), 
-								damage: throwing.damage, target_material_type: material_type, damage_type: damagetype);
+								damage: throwing.damage * vel_sq, target_material_type: material_type, damage_type: damagetype);
 							}
 						}
 					}
