@@ -18,6 +18,7 @@ body:
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
+		//mask: world
 	}
 }
 
@@ -47,6 +48,11 @@ melee:
 melee.state:
 {
 
+}
+
+throwingDamage:
+{
+	damage: 100.000
 }
 
 holdable:
