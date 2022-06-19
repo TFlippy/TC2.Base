@@ -662,6 +662,72 @@ namespace TC2.Base
 			//	}
 			//));
 
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.aggressive_throw",
+				category: "Utility",
+				name: "Agressive Throw",
+				description: "When throw the object now deals damage and collides with things",
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<ThrowingDamage.Data>();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var throwingdamage = ref context.GetOrAddComponent<ThrowingDamage.Data>();
+					throwingdamage.damage = 200.00f;
+					throwingdamage.damage_type = Damage.Type.Blunt;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.20f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<ThrowingDamage.Data>
+			(
+				identifier: "throwingDamage.added_spikes",
+				category: "Utility",
+				name: "Added Spikes",
+				description: "When thrown the object now deals more damage and stabs",
+
+				can_add: static (ref Augment.Context context, in ThrowingDamage.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref ThrowingDamage.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var throwingdamage = ref context.GetOrAddComponent<ThrowingDamage.Data>();
+					throwingdamage.damage += 200.00f;
+					throwingdamage.damage_type = Damage.Type.Stab;
+				},
+
+				apply_1: static (ref Augment.Context context, ref ThrowingDamage.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 1.30f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.10f;
+						}
+					}
+				}
+			));
+
 			definitions.Add(Augment.Definition.New<Telescope.Data>
 			(
 				identifier: "telescope.magnifying_lenses",

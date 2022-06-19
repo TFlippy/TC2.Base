@@ -6,12 +6,19 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
+			[Statistics.Info("Added Damage", description: "Added damage when throwing the object, multiplied by velocity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage = default;
 
-			public bool OverrideWithMelee = true; //Overrides the stats of this with melee components stats on this item if one exists
+			[Statistics.Info("Base Damage Type", description: "Type of damage dealt.", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
+			public Damage.Type damage_type = Damage.Type.Blunt;
+
+			[Statistics.Info("Includes Melee", description: "Whether or not throwing damage includes any pre existing melee damage and damage type.", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
+			public bool overrideWithMelee = true; 
 
 			[Save.Ignore, Net.Ignore] public float next_hit = default;
 			[Save.Ignore, Net.Ignore] public float last_attach = default;
+
+			public bool collision = false;
 
 			public Data()
 			{
@@ -21,7 +28,7 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref ThrowingDamage.Data throwing, [Source.Owned] ref Body.Data body, 
-		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Line shape)
+		[Source.Owned] in Transform.Data transform)
 		{
 			var ts = Timestamp.Now();
 
@@ -35,19 +42,11 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine("attach");
 				throwing.last_attach = info.WorldTime;
-				
-				if(shape.mask.HasFlag(Physics.Layer.Creature))
-				{
-					shape.mask.SetFlag(Physics.Layer.Creature, false);
-					shape.mask.SetFlag(Physics.Layer.Solid, false);
-					body.Rebuild();
-					shape.Sync<Shape.Line, Body.Data>(entity);
-				}
+				throwing.collision = false;
 			}
 			else
 			{
 				var time = info.WorldTime - throwing.last_attach;
-				
 				if(time < 0.20f)
 				{
 
@@ -55,24 +54,19 @@ namespace TC2.Base.Components
 				else if (time < 0.25f)
 				{
 					//App.WriteLine("drop");
-
-					shape.mask.SetFlag(Physics.Layer.Creature, true);
-					shape.mask.SetFlag(Physics.Layer.Solid, true);
-					body.Rebuild();
-					shape.Sync<Shape.Line, Body.Data>(entity);
+					throwing.collision = true;
 				}
-				else if(shape.mask.HasFlag(Physics.Layer.Creature))
+				else if(throwing.collision)
 				{
-
-					var damagetype = Damage.Type.Blunt;
+					var damagetype = throwing.damage_type;
 					var basedamage = throwing.damage * 0.1f;
 
 					ref var melee = ref entity.GetComponent<Melee.Data>(); //Copies melee damage type if the item has one
-					if(!melee.IsNull() && throwing.OverrideWithMelee)
+					if(!melee.IsNull() && throwing.overrideWithMelee)
 					{
 						damagetype = melee.damage_type;
 						var random = XorRandom.New();
-						basedamage = melee.damage_base * 0.1f + random.NextFloatRange(0.00f, melee.damage_bonus) * 0.1f;
+						basedamage = basedamage + melee.damage_base * 0.1f + random.NextFloatRange(0.00f, melee.damage_bonus) * 0.1f;
 						//This is multiplied by velocity so the 0.1 multiplier mitigates this and encourages high speed throwing attacks
 
 					}
@@ -88,7 +82,7 @@ namespace TC2.Base.Components
 							var vel_sq = vel.Length();
 							hit = true;
 							//App.WriteLine("speed" + vel + " " + vel_sq);
-							if (ent_hit.IsValid() && vel_sq > 2.00f)
+							if (ent_hit.IsValid() && vel_sq > 1.00f)
 							{
 								entity.Hit(ent_hit, ent_hit, arbiter.GetPosition(), -arbiter.GetNormal(), arbiter.GetNormal(), 
 								damage: basedamage * vel_sq, target_material_type: material_type, damage_type: damagetype);
@@ -102,15 +96,52 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine("stop");
 				throwing.next_hit = info.WorldTime + 0.40f;
-				throwing.Sync<ThrowingDamage.Data>(entity);
-				shape.mask.SetFlag(Physics.Layer.Creature, false);
-				shape.mask.SetFlag(Physics.Layer.Solid, false);
-				body.Rebuild();
-				shape.Sync<Shape.Line, Body.Data>(entity);
-
-				
+				throwing.collision = false;
 			}
 #endif
+		}
+
+
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void OnLateUpdateLine(ISystem.Info info, Entity entity, [Source.Owned] ref ThrowingDamage.Data throwing, [Source.Owned] ref Body.Data body, 
+		[Source.Owned, Pair.Of<Body.Data>] ref Shape.Line shape)
+		{
+			bool mask = shape.mask.HasFlag(Physics.Layer.Solid);
+			if(throwing.collision != mask)
+			{
+				shape.mask.SetFlag(Physics.Layer.Creature, throwing.collision);
+				shape.mask.SetFlag(Physics.Layer.Solid, throwing.collision);
+				body.Rebuild();
+				//shape.Sync<Shape.Line, Body.Data>(entity);
+			}
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void OnLateUpdateBox(ISystem.Info info, Entity entity, [Source.Owned] ref ThrowingDamage.Data throwing, [Source.Owned] ref Body.Data body, 
+		[Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape)
+		{
+			bool mask = shape.mask.HasFlag(Physics.Layer.Solid);
+			if(throwing.collision != mask)
+			{
+				shape.mask.SetFlag(Physics.Layer.Creature, throwing.collision);
+				shape.mask.SetFlag(Physics.Layer.Solid, throwing.collision);
+				body.Rebuild();
+				//shape.Sync<Shape.Box, Body.Data>(entity);
+			}
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void OnLateUpdateCircle(ISystem.Info info, Entity entity, [Source.Owned] ref ThrowingDamage.Data throwing, [Source.Owned] ref Body.Data body, 
+		[Source.Owned, Pair.Of<Body.Data>] ref Shape.Circle shape)
+		{
+			bool mask = shape.mask.HasFlag(Physics.Layer.Solid);
+			if(throwing.collision != mask)
+			{
+				shape.mask.SetFlag(Physics.Layer.Creature, throwing.collision);
+				shape.mask.SetFlag(Physics.Layer.Solid, throwing.collision);
+				body.Rebuild();
+				//shape.Sync<Shape.Circle, Body.Data>(entity);
+			}
 		}
 	}
 }

@@ -6,6 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
+			[Statistics.Info("Added Throwing Speed", description: "Speed added to this object when thrown", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float addedspeed = 10.00f;
 
 			[Save.Ignore, Net.Ignore] public bool last_attach = false;
@@ -29,13 +30,13 @@ namespace TC2.Base.Components
 			{
 				if(throwing.last_attach != true)
 				{
-					App.WriteLine("attach");
+					//App.WriteLine("attach");
 				 	throwing.last_attach = true;
 				}
 			}
 			else if(throwing.last_attach)
 			{
-				App.WriteLine("speed");
+				//App.WriteLine("speed");
 				var dir = body.GetVelocity();
 				dir = dir.GetNormalized();
 				body.AddForce(dir * body.GetMass() * throwing.addedspeed * App.tickrate);
