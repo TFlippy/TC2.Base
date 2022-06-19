@@ -32,6 +32,21 @@
 		
 		sound: "building_place"
 	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.2x12
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
+	}
 	
 	requirements:
 	[

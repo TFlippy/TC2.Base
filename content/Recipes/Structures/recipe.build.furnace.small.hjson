@@ -34,7 +34,7 @@
 		
 		sound: "building_place"
 	}
-	
+
 	requirements:
 	[
 		{
