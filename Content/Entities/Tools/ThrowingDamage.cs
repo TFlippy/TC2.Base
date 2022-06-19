@@ -33,6 +33,7 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine("attach");
 				throwing.last_attach = info.WorldTime;
+
 				shape.mask.SetFlag(Physics.Layer.Creature, false);
 				shape.mask.SetFlag(Physics.Layer.Solid, false);
 				body.Rebuild();
@@ -49,6 +50,7 @@ namespace TC2.Base.Components
 				else if (time < 0.25f)
 				{
 					App.WriteLine("drop");
+
 					shape.mask.SetFlag(Physics.Layer.Creature, true);
 					shape.mask.SetFlag(Physics.Layer.Solid, true);
 					body.Rebuild();
@@ -90,11 +92,14 @@ namespace TC2.Base.Components
 			{
 				App.WriteLine("stop");
 				throwing.next_hit = info.WorldTime + 0.40f;
+				throwing.Sync<ThrowingDamage.Data>(entity);
+
 				shape.mask.SetFlag(Physics.Layer.Creature, false);
 				shape.mask.SetFlag(Physics.Layer.Solid, false);
 				body.Rebuild();
 				shape.Sync<Shape.Line, Body.Data>(entity);
-				throwing.Sync<throwingDamage.Data>(entity);
+
+				
 			}
 #endif
 		}
