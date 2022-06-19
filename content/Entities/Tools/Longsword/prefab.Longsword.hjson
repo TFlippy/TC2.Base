@@ -51,6 +51,11 @@ melee.state:
 
 }
 
+throwingDamage:
+{
+
+}
+
 holdable:
 {
 	offset: [-0.200, 0.900]

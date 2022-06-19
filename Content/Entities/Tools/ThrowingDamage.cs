@@ -35,11 +35,14 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine("attach");
 				throwing.last_attach = info.WorldTime;
-
-				shape.mask.SetFlag(Physics.Layer.Creature, false);
-				shape.mask.SetFlag(Physics.Layer.Solid, false);
-				body.Rebuild();
-				shape.Sync<Shape.Line, Body.Data>(entity);
+				
+				if(shape.mask.HasFlag(Physics.Layer.Creature))
+				{
+					shape.mask.SetFlag(Physics.Layer.Creature, false);
+					shape.mask.SetFlag(Physics.Layer.Solid, false);
+					body.Rebuild();
+					shape.Sync<Shape.Line, Body.Data>(entity);
+				}
 			}
 			else
 			{
@@ -51,7 +54,7 @@ namespace TC2.Base.Components
 				}
 				else if (time < 0.25f)
 				{
-					App.WriteLine("drop");
+					//App.WriteLine("drop");
 
 					shape.mask.SetFlag(Physics.Layer.Creature, true);
 					shape.mask.SetFlag(Physics.Layer.Solid, true);
@@ -84,7 +87,7 @@ namespace TC2.Base.Components
 							var vel = arbiter.GetVelocity() - body.GetVelocity();
 							var vel_sq = vel.Length();
 							hit = true;
-							App.WriteLine("speed" + vel + " " + vel_sq);
+							//App.WriteLine("speed" + vel + " " + vel_sq);
 							if (ent_hit.IsValid() && vel_sq > 2.00f)
 							{
 								entity.Hit(ent_hit, ent_hit, arbiter.GetPosition(), -arbiter.GetNormal(), arbiter.GetNormal(), 
@@ -97,10 +100,9 @@ namespace TC2.Base.Components
 
 			if (hit)
 			{
-				App.WriteLine("stop");
+				//App.WriteLine("stop");
 				throwing.next_hit = info.WorldTime + 0.40f;
 				throwing.Sync<ThrowingDamage.Data>(entity);
-
 				shape.mask.SetFlag(Physics.Layer.Creature, false);
 				shape.mask.SetFlag(Physics.Layer.Solid, false);
 				body.Rebuild();

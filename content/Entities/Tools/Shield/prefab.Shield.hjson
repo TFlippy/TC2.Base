@@ -110,6 +110,11 @@ melee.state:
 
 }
 
+throwingDamage:
+{
+
+}
+
 shield:
 {
 
