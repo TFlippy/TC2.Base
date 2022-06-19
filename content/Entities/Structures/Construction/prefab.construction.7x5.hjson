@@ -6,7 +6,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 4.000]
+		size: [7.000, 5.000]
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
@@ -25,7 +25,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "storage.construction"
+		texture: "construction.7x5"
 	}
 	z: -300.000
 }
