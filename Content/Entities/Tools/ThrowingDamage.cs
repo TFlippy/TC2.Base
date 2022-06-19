@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class ThrowingDamage
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, name: "Throwing Damage")]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Added Damage", description: "Added damage when throwing the object, multiplied by velocity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]

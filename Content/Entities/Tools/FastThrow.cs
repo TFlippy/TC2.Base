@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class FastThrow
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, name: "Throwing Speed")]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Throwing Speed", description: "Additional speed added to this object when thrown", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
