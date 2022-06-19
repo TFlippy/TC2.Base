@@ -1,15 +1,15 @@
 {
-	name: "Glass (Background)"
+	name: "Mud Brick"
 	desc:
 		'''
-		See through and fragile glass panes.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [5, 1]
+		frame: [10, 0]
 	}
 	
 	type: build
@@ -21,20 +21,20 @@
 		type: rectangle
 		flags: continuous
 		
-		size: [1.500, 1.500]
+		size: [1.000, 1.000]
 		
-		cooldown: 0.400
+		cooldown: 0.100
 		min_claim: 1.000
 		
-		sound: "metal_place_01"
+		sound: "stone_place_0"
 	}
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "glass"
-			amount: 0.03125
+			material: "mudbrick_dry"
+			amount: 0.500
 		}
 	]
 	
@@ -42,8 +42,8 @@
 	[
 		{
 			type: block
-			block: "glass"
-			tile_flags: none
+			block: "mudbrick"
+			tile_flags: solid, become_background_on_break
 		}
 	]
 }
