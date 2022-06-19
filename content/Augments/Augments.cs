@@ -667,7 +667,7 @@ namespace TC2.Base
 				identifier: "holdable.aggressive_throw",
 				category: "Utility",
 				name: "Agressive Throw",
-				description: "When throw the object now deals damage and collides with things",
+				description: "When throw the object now deals damage and collides with things.",
 
 				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -693,12 +693,69 @@ namespace TC2.Base
 				}
 			));
 
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.throwing_leverage",
+				category: "Utility",
+				name: "Throwing Leverage",
+				description: "When thrown object now travels faster and further.",
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<FastThrow.Data>();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var fastthrow = ref context.GetOrAddComponent<FastThrow.Data>();
+					fastthrow.added_speed = 10.00f;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.40f;
+							requirement.difficulty += 2.00f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<FastThrow.Data>
+			(
+				identifier: "fastThrow.strange_acceleration",
+				category: "Utility",
+				name: "Unnatural Throw",
+				description: "When thrown object now travels faster using motion.",
+
+				apply_0: static (ref Augment.Context context, ref FastThrow.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var fastthrow = ref context.GetOrAddComponent<FastThrow.Data>();
+					fastthrow.added_speed += 10.00f;
+				},
+
+				apply_1: static (ref Augment.Context context, ref FastThrow.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.difficulty += 2.00f;
+						}
+					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 1.00f));
+				}
+			));
+
 			definitions.Add(Augment.Definition.New<ThrowingDamage.Data>
 			(
 				identifier: "throwingDamage.added_spikes",
 				category: "Utility",
 				name: "Added Spikes",
-				description: "When thrown the object now deals more damage and stabs",
+				description: "When thrown the object now deals more damage and stabs.",
 
 				can_add: static (ref Augment.Context context, in ThrowingDamage.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
