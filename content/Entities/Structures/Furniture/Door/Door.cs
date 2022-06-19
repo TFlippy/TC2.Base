@@ -99,7 +99,7 @@ namespace TC2.Base.Components
 						mask.SetFlag(Physics.Layer.Solid, true);
 
 						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[4];
-						if (region.TryOverlapShapeAll(ref shape, ref results, mask: mask, exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door))
+						if (region.TryOverlapShapeAll(ref shape, ref results, mask: mask, exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Static))
 						{
 							WorldNotification.Push(ref region, "* DOOR STUCK! *", 0xffff0000, transform.position);
 							Sound.Play(ref region, door.sound_stuck, transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
