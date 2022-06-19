@@ -56,7 +56,7 @@ throwingDamage:
 
 fastThrow:
 {
-	addedspeed: 40.00
+	addedspeed: 8.00
 }
 
 holdable:
