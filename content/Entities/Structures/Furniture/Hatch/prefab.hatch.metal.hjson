@@ -37,6 +37,7 @@ animated.renderer:
 		size: [20, 24]
 	}
 	z: 100.000
+	mask: "hatch.metal.mask"
 }
 
 faction.colorable:
@@ -69,4 +70,10 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: vertical
 	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 10.000
+	fps_open: 10.000
 }
