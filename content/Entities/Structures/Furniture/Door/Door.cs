@@ -36,6 +36,9 @@ namespace TC2.Base.Components
 
 			public float animation_progress;
 
+			[Net.Ignore, Save.Ignore]
+			public float last_use_time;
+
 			public Data()
 			{
 
@@ -114,7 +117,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				if (door.flags.HasAll(Door.Flags.Lockable | Door.Flags.Locked) && !is_same_faction)
+				if (door.flags.HasAll(Door.Flags.Lockable | Door.Flags.Locked) && (!is_same_faction || faction.id == 0))
 				{
 					Sound.Play(ref region, door.sound_locked, transform.position, volume: 0.70f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
 					WorldNotification.Push(ref region, "* Locked *", 0xffff0000, transform.position);
@@ -122,6 +125,7 @@ namespace TC2.Base.Components
 				else
 				{
 					var stuck = false;
+					door.last_use_time = info.WorldTime;
 
 					if (door.flags.HasAll(Door.Flags.Open))
 					{
