@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 					Entity next = parent.GetParent(Relation.Type.Instance);
 					bool stop = false;
 					float counter = 0;
-					while (!next.IsNull() && !(next == 0) && !stop)
+					while (!next.IsNull() && !(next == 0) && !stop && counter < 20)
 					{
 						parent = next;
 						//App.WriteLine(parent + "B" + counter);
