@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 
 			var is_grounded = false;
 
-			if (arbiter_count > 0 && !layers.HasAll(Physics.Layer.Bounds))
+			if (arbiter_count > 0) // && !layers.HasAll(Physics.Layer.Bounds))
 			{
 				is_grounded = MathF.Abs(normal.X) < 0.95f;
 

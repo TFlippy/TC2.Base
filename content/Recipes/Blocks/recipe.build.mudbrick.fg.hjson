@@ -1,29 +1,29 @@
 {
-	name: "Cobblestone"
+	name: "Mud Brick"
 	desc:
 		'''
-		Cheap, but difficult to build with precisely. Very useful as a filler.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [10, 0]
 	}
 	
 	type: build
 	flags: none
 	tags: construction
-	rank: -81.000
 	
 	placement:
 	{
-		type: circle
-		flags: continuous, no_snapping
-		radius: 0.750
+		type: rectangle
+		flags: continuous
 		
-		cooldown: 0.250
+		size: [1.000, 1.000]
+		
+		cooldown: 0.100
 		min_claim: 1.000
 		
 		sound: "stone_place_0"
@@ -33,8 +33,8 @@
 	[
 		{
 			type: resource
-			material: "stone"
-			amount: 0.300
+			material: "mudbrick_dry"
+			amount: 0.500
 		}
 	]
 	
@@ -42,7 +42,7 @@
 	[
 		{
 			type: block
-			block: "cobblestone"
+			block: "mudbrick"
 			tile_flags: solid, become_background_on_break
 		}
 	]

@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 					if (ent_holder.IsAlive())
 					{
 						Span<OverlapResult> results = stackalloc OverlapResult[8];
-						if (region.TryOverlapPointAll(control.mouse.position, 0.50f, ref results, mask: Physics.Layer.Organic | Physics.Layer.Creature))
+						if (region.TryOverlapPointAll(control.mouse.position, 0.01f, ref results, mask: Physics.Layer.Organic | Physics.Layer.Creature))
 						{
 							ref var result_nearest = ref results.GetNearest();
 							if (region.IsInLineOfSight(transform.position, result_nearest.world_position, 0.125f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Melee | Physics.Layer.Dynamic, query_flags: Physics.QueryFlag.Static))
