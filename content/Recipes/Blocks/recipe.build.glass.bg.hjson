@@ -24,6 +24,7 @@
 		size: [1.500, 1.500]
 		
 		cooldown: 0.400
+		min_claim: 1.000
 		
 		sound: "metal_place_01"
 	}

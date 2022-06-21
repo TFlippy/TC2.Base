@@ -16,7 +16,7 @@
 	tags: mechanisms
 	
 	dismantle_work: 20.000
-	dismantle_yield: 0.500
+	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -31,6 +31,21 @@
 		rotation_max: 0.100
 		
 		sound: "building_place"
+	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.8x5
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
 	}
 	
 	requirements:

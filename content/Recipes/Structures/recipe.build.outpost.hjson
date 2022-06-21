@@ -20,7 +20,7 @@
 	tags: buildings
 	
 	dismantle_work: 10.000
-	dismantle_yield: 0.500
+	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -36,6 +36,21 @@
 		rotation_max: 0.200
 		
 		sound: "building_place"
+	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.5x5
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
 	}
 	
 	requirements:

@@ -1,0 +1,30 @@
+{
+	name: "Mud Bricks (Dry)"
+	description: "TODO: Desc"
+	icon:
+	{
+		texture: "resource.mudbrick_dry"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: stone
+	flags: manufactured
+	mass_per_unit: 0.400
+	quantity_max: 500.000
+	prefab: "resource.mudbrick_dry"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

@@ -16,7 +16,7 @@
 	tags: industry
 	
 	dismantle_work: 15.000
-	dismantle_yield: 0.500
+	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -31,6 +31,21 @@
 		rotation_max: 0.150
 		
 		sound: "building_place"
+	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.7x5
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
 	}
 	
 	requirements:

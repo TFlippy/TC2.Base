@@ -1,0 +1,49 @@
+{
+	name: "Mud Brick"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [10, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.100
+		min_claim: 1.000
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "mudbrick_dry"
+			amount: 0.500
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "mudbrick"
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}

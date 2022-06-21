@@ -15,7 +15,7 @@
 	tags: construction
 	
 	dismantle_work: 5.000
-	dismantle_yield: 0.500
+	dismantle_yield: 0.800
 	
 	placement:
 	{
