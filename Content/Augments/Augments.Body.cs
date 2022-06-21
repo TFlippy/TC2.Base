@@ -38,7 +38,7 @@ namespace TC2.Base
 				identifier: "body.lightweight_design",
 				category: "Body",
 				name: "Lightweight Design",
-				description: "Redesign the object to have slightly less weight but be harder to produce",
+				description: "Redesign the object to have slightly less weight.",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
@@ -65,7 +65,7 @@ namespace TC2.Base
 				identifier: "body.heavyweight_design",
 				category: "Body",
 				name: "Heavyweight Design",
-				description: "Redesign the object to be a lot heavier",
+				description: "Redesign the object to be a lot heavier.",
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
@@ -88,7 +88,7 @@ namespace TC2.Base
 				identifier: "body.floaty",
 				category: "Body",
 				name: "Floaty",
-				description: "Makes the object fall slower",
+				description: "Use motion pellets to reduce the effects of gravity on an object.",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
@@ -116,7 +116,7 @@ namespace TC2.Base
 				identifier: "body.mushroom_wood",
 				category: "Crafting",
 				name: "Mushroom Wood",
-				description: "Uses mushroom scraps as a wood replacement",
+				description: "Uses mushroom scraps as a wood replacement.",
 
 				//the purpose of this modifier is to add another use to mushroom scraps AND to allow people to use spare mushrooms as wood
 				//this modifier is likely to be more usefull once buildings can be blueprinted
