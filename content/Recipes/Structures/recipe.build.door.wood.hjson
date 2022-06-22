@@ -20,6 +20,7 @@
 	placement:
 	{
 		type: simple
+		flags: allow_mirror_x
 		
 		size: [0.750, 3.000]
 		offset: [0.000, -0.500]
