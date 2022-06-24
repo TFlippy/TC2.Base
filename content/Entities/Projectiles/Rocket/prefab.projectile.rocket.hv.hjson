@@ -6,6 +6,7 @@ projectile:
 	damage_bonus: 800.000
 	lifetime: 15.000
 	ignore_time: 0.100
+	damage_type: bullet_musket
 	size: 0.500
 	ricochet_count: 0
 }
@@ -28,9 +29,9 @@ animated.renderer:
 explosive:
 {
 	radius: 5.000
-	power: 4.000
-	damage_entity: 14000.000
-	damage_terrain: 10000.000
+	power: 5.000
+	damage_entity: 17500.000
+	damage_terrain: 17500.000
 	flags: primed
 }
 

@@ -499,7 +499,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						data.ammo_filter |= Material.Flags.Ammo_MG;
 						data.ammo_filter &= ~Material.Flags.Ammo_AC;
 
-						data.damage_multiplier *= 0.16f;
+						data.damage_multiplier *= 0.60f;
 						data.velocity_multiplier *= 0.80f;
 						data.cycle_interval *= 0.45f;
 						data.recoil_multiplier *= 0.20f;

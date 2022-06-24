@@ -1,0 +1,34 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 150.000
+	damage_bonus: 250.000
+	lifetime: 2.000
+	damage_type: bullet_musket
+	size: 0.250
+	ricochet_count: 2
+}
+
+projectile.renderer:
+{
+	length: 9.000
+}
+
+transform:
+{
+
+}
+
+explosive:
+{
+	radius: 2.500
+	power: 3.000
+	damage_entity: 1500.000
+	damage_terrain: 500.000
+	smoke_amount: 0.800
+	sparks_amount: 0.100
+	volume: 1.000
+	pitch: 1.500
+	flags: primed
+}
