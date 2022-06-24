@@ -1,0 +1,40 @@
+$tags: []
+
+projectile:
+{
+	lifetime: 20.000
+	ignore_time: 0.100
+	size: 0.750
+	ricochet_count: 0
+
+	@sound.emitter:
+	{
+		file: "shell_whistle"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "projectile.shell.he"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
+}
+
+explosive:
+{
+	radius: 13.500
+	power: 9.000
+	damage_entity: 45000.000
+	damage_terrain: 37500.000
+	flags: primed
+}

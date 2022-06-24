@@ -24,7 +24,7 @@ explosive:
 {
 	radius: 2.500
 	power: 3.000
-	damage_entity: 1500.000
+	damage_entity: 2500.000
 	damage_terrain: 500.000
 	smoke_amount: 0.800
 	sparks_amount: 0.100
