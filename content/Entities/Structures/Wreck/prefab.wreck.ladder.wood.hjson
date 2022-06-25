@@ -36,10 +36,18 @@ animated.renderer:
 	{
 		texture: "wreck.ladder.wood"
 	}
-	z: -150.000
+	z: -290.000
 }
 
 transform:
 {
 
+}
+
+resizable:
+{
+	texture_stub: "ladder.wood.cap"
+	a: [0.000, -2.250]
+	b: [0.000, 2.250]
+	cap_offset: 0.500
 }
