@@ -1,10 +1,10 @@
 {
-	name: "Small Rocket (Smoke)"
-	desc: "Ammunition for rocket launchers. Produces large amount of smoke, explosion deals almost no damage, though the projectile itself can injure if it hits."
+	name: "Small Rocket (Standard)"
+	desc: "Ammunition for rocket launchers. Uses gunpowder filling, reduced damage and radius, creates more smoke on impact. Not very accurate."
 	
 	icon:
 	{
-		texture: "resource.ammo_rocket.smoke"
+		texture: "resource.ammo_rocket.gp"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,13 +31,8 @@
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
+			material: "gunpowder"
 			amount: 20.000
-		}
-		{
-			type: "resource"
-			material: "sulfur"
-			amount: 1.000
 		}
 		{
 			type: "resource"
@@ -62,7 +57,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_rocket.smoke"
+			material: "ammo_rocket.gp"
 			amount: 1.000
 		}
 	]

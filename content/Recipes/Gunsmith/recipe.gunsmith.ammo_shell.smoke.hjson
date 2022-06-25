@@ -36,7 +36,7 @@
 		}
 		{
 			type: "resource"
-			material: "resin"
+			material: "sulfur"
 			amount: 2.000
 		}
 		{

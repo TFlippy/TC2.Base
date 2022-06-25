@@ -646,6 +646,90 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.improved_ammo_loading",
+				category: "Gun (Receiver)",
+				name: "Improved ammo loading",
+				description: "Increases reliability and slightly speeds up fire rate, at the cost of increased work time.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
+				},
+
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.cycle_interval *= 0.70f;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate *= 0.60f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 1.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.50f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.caliber_conversion",
 				category: "Gun (Receiver)",
 				name: "Caliber Conversion",
