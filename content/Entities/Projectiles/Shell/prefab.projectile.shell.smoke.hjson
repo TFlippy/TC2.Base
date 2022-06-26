@@ -35,7 +35,7 @@ animated.renderer:
 
 explosive:
 {
-	radius: 9.000
+	radius: 20.000
 	power: 6.000
 	damage_entity: 1.000
 	damage_terrain: 1.000

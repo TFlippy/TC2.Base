@@ -730,6 +730,93 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.launcher_stacked_charge",
+				category: "Gun (Receiver)",
+				name: "Launcher: Stacked charge",
+				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					if (data.type != Gun.Type.Launcher) return false;
+					return augments.GetCount(handle) < 3;
+				},
+
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.max_ammo += 1;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate *= 1.10f;
+					data.reload_interval *= 1.10f;
+					data.jitter_multiplier *= 3.00f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.10f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 2.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.caliber_conversion",
 				category: "Gun (Receiver)",
 				name: "Caliber Conversion",

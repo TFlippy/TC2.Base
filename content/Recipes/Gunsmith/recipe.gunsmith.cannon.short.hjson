@@ -1,0 +1,52 @@
+{
+	name: "Short cannon"
+	desc: "A short cannon, which is based on antiquated imperial cannon that isn't renowned for its reliability. Compared to regular cannon, it's cheaper and lighter, at the cost of reduced performance."
+	
+	icon:
+	{
+		texture: "cannon.short"
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier, blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 40.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 25.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 2000.000
+			difficulty: 13.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 1500.000
+			difficulty: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "cannon.short"
+			amount: 1.000
+		}
+	]
+}
