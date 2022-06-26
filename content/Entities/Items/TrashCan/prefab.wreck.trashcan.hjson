@@ -45,6 +45,22 @@ transform:
 
 }
 
+storage:
+{
+	@inventory2:
+	{
+		name: "Rummage Can"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [48.000, 96.000]
+}
+
 harvestable:
 {
 	resources:
