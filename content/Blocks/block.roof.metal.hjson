@@ -16,8 +16,8 @@
 	texture: "terrain_roof.metal"
 	pattern: "pattern_scaffolding"
 	
-	texture_scale: 0.650
-	texture_overshoot: 0.000
+	texture_scale: 1.750
+	texture_overshoot: -0.250
 	
 	resources:
 	[
