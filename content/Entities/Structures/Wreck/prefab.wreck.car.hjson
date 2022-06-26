@@ -73,6 +73,22 @@ harvestable:
 	]
 }
 
+storage:
+{
+	@inventory4:
+	{
+		name: "Trunk"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 48.000]
+}
+
 cover:
 {
 	threshold: 0.200
