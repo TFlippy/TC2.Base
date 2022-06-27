@@ -355,40 +355,6 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Control.Data>
-			(
-				identifier: "control.random_activation",
-				category: "Utility",
-				name: "Random Activation",
-				description: "Item randomly activates on its own.",
-
-				// This randomly causes a left click and a space bar (at the same time)
-				// Working examples: guns, fuse explosives, drills, mounts (yes they will use whatever is on them), melee weapons, even medkits
-				// Due to the wide variety of uses this has, this costs a large amount of materials
-				// This doesn't aim, so using anything which uses aim direction requires additional setup
-
-				can_add: static (ref Augment.Context context, in Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
-					random_activation.duration += 0.20f;
-				},
-
-				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // High cost
-
-					if (!context.GetComponent<Melee.Data>().IsNull())
-					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // Even higher cost on melee weapons
-					}
-				}
-			));
-
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.bulk",

@@ -121,6 +121,27 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Resource("soil", amount_total));				
 				}
 			));
+
+			definitions.Add(Augment.Definition.New<Explosive.Data>
+			(
+				identifier: "explosive.addfuse",
+				category: "Explosive",
+				name: "Add fuse",
+				description: "Explosive can now be manually triggered, after a short time of which it will explode",
+
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					return context.GetComponent<Fuse.Data>().IsNull();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					//var radius_log = MathF.Log2(data.radius);
+					ref var fuse = ref context.GetOrAddComponent<Fuse.Data>();
+					fuse.failure_chance = 0.05f;
+					fuse.time = 5.00f;
+				}
+			));
 		}
 	}
 }
