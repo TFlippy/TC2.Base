@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: "multiple_rocket_launcher"
+		texture: "mrl"
 	}
 	
 	min: 1
@@ -24,36 +24,25 @@
 	[
 		{
 			type: "resource"
-			material: "wood"
-			amount: 50.000
-		}
-		{
-			type: "resource"
 			material: "iron_ingot"
 			amount: 30.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 10.000
+			amount: 40.000
 		}
 		{
 			type: "work"
 			work: "smithing"
 			amount: 1200.000
-			difficulty: 4.000
-		}
-		{
-			type: "work"
-			work: "woodworking"
-			amount: 150.000
-			difficulty: 3.000
+			difficulty: 6.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 150.000
-			difficulty: 4.000
+			amount: 1750.000
+			difficulty: 12.000
 		}
 	]
 	
@@ -61,7 +50,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "multiple_rocket_launcher"
+			prefab: "mrl"
 			amount: 1.000
 		}
 	]

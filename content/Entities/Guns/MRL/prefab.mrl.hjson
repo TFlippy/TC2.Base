@@ -4,9 +4,9 @@ body:
 {
 	@shape.box:
 	{
-		size: [1.500, 1.200]
-		offset: [0.000, 0.000]
-		mass: 30.000
+		size: [2.500, 1.375]
+		offset: [0.125, -0.250]
+		mass: 80.000
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "multiple_rocket_launcher"
+		texture: "mrl"
 	}
 }
 
@@ -32,9 +32,9 @@ gun:
 	sound_shoot: "mrl_shoot"
 	sound_reload: "mrl_reload"
 	velocity_multiplier: 60.000
-	jitter_multiplier: 0.100
+	jitter_multiplier: 1.300
 	damage_multiplier: 1.000
-	recoil_multiplier: 1.500
+	recoil_multiplier: 2.000
 	reload_interval: 3.000
 	cycle_interval: 0.500
 	failure_rate: 0.000
@@ -46,7 +46,7 @@ gun:
 	type: launcher
 	feed: single
 
-	smoke_amount: 6
+	smoke_amount: 4.000
 	smoke_size: 3.000
 	
 	@inventory1:
@@ -89,7 +89,7 @@ holdable:
 {
 	offset: [-0.500, 0.500]
 	radius: 4.000
-	flags: none
+	flags: disable_parent_facing
 
 	force_multiplier: 0.100
 	torque_multiplier: 0.100
@@ -97,7 +97,7 @@ holdable:
 
 health:
 {
-	max: 3500.000
+	max: 6000.000
 }
 
 control:
