@@ -57,10 +57,11 @@ health:
 
 explosive:
 {
-	radius: 6.000
-	power: 5.000
-	damage_entity: 14000.000
-	damage_terrain: 14000.000
+	radius: 5.000
+	power: 4.000
+	damage_entity: 10000.000
+	damage_terrain: 10000.000
+	smoke_amount: 2.000
 	health_threshold: 0.950
 	flags: any_damage, explode_when_primed
 }

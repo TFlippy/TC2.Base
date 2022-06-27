@@ -8,6 +8,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [8, 0]
+	}
 	
 	min: 1
 	max: 40

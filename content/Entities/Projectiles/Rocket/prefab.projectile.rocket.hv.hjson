@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "rocket.hv"
+		texture: "projectile.rocket.hv"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
