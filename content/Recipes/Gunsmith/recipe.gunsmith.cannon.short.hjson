@@ -1,6 +1,6 @@
 {
-	name: "Short cannon"
-	desc: "A short cannon, which is based on antiquated imperial cannon that isn't renowned for its reliability. Compared to regular cannon, it's cheaper and lighter, at the cost of reduced performance."
+	name: "Short Cannon"
+	desc: "A short cannon, which is based on antiquated imperial cannon that isn't renowned for its reliability. Compared to regular cannon, it's cheaper and lighter, including reduced performance."
 	
 	icon:
 	{

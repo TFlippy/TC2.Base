@@ -1,5 +1,5 @@
 {
-	name: "Artillery Shell (High-velocity)"
+	name: "Artillery Shell (High-Velocity)"
 	desc: "Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling."
 	
 	icon:

@@ -1,6 +1,6 @@
 {
-	name: "Automated nitrocellulose production"
-	desc: "An automated and much smaller scale method of producing nitrocellulose. The refinery automatically produces the intermediate steps, though it's much less efficient and slower. "
+	name: "Simple Nitrocellulose Production"
+	desc: "A simplified and much smaller-scale method of producing nitrocellulose. The refinery automatically produces the intermediate steps, though it's much slower and less efficient."
 	
 	icon:
 	{

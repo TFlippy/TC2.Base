@@ -648,8 +648,8 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.improved_ammo_loading",
 				category: "Gun (Receiver)",
-				name: "Improved ammo loading",
-				description: "Increases reliability and slightly speeds up fire rate, at the cost of increased work time.",
+				name: "Improved Ammo Loading",
+				description: "Improves reliability and slightly increases rate of fire, while also increasing manufacturing costs.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -732,7 +732,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.launcher_stacked_charge",
 				category: "Gun (Receiver)",
-				name: "Launcher: Stacked charge",
+				name: "Launcher: Stacked Charge",
 				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
