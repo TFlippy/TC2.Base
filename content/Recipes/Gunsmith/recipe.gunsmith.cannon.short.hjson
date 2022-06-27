@@ -1,6 +1,10 @@
 {
 	name: "Short Cannon"
-	desc: "A short cannon, which is based on antiquated imperial cannon that isn't renowned for its reliability. Compared to regular cannon, it's cheaper and lighter, including reduced performance."
+	desc: 
+		'''
+		A short cannon, which is based on the antiquated imperial cannon that isn't renowned for its reliability. 
+		Compared to the regular cannon, it's cheaper, lighter, and of worse performance.
+		'''
 	
 	icon:
 	{
@@ -25,7 +29,7 @@
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 25.000
+			amount: 20.000
 		}
 		{
 			type: "work"
@@ -36,7 +40,7 @@
 		{
 			type: "work"
 			work: "assembling"
-			amount: 1500.000
+			amount: 1200.000
 			difficulty: 10.000
 		}
 	]

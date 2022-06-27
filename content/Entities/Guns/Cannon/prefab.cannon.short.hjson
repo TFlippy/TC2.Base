@@ -1,5 +1,10 @@
 $name: "Short Cannon"
-$desc: "A short cannon, which is based on antiquated imperial cannon that isn't renowned for its reliability. Compared to regular cannon, it's cheaper and lighter, at the cost of reduced performance."
+$desc: 
+	'''
+	A short cannon, which is based on the antiquated imperial cannon that isn't renowned for its reliability. 
+	
+	Compared to the regular cannon, it's cheaper, lighter, and of worse performance.
+	'''
 $tags: []
 
 body:
@@ -7,10 +12,10 @@ body:
 	@shape.line:
 	{
 		a: [-2.000, 0.000]
-		b: [2.000, 0.000]
-		mass: 250.000
-		radius: 0.400
-		friction: 0.900
+		b: [1.875, -0.150]
+		mass: 260.000
+		radius: 0.450
+		friction: 0.800
 		elasticity: 0.250
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
@@ -20,23 +25,23 @@ body:
 
 gun:
 {
-	muzzle_offset: [2.500, -0.200]
+	muzzle_offset: [2.000, -0.250]
 	sound_shoot: "cannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 100.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 25.000
-	recoil_multiplier: 300.000
-	reload_interval: 3.500
+	recoil_multiplier: 400.000
+	reload_interval: 3.000
 	cycle_interval: 0.500
-	failure_rate: 0.01
+	failure_rate: 0.020
 	max_ammo: 1.000
-	sound_volume: 5.000
-	sound_pitch: 0.900
-	sound_size: 7.000
-	smoke_size: 10.000
-	smoke_amount: 6
-	flash_size: 2.000
+	sound_volume: 3.000
+	sound_pitch: 1.200
+	sound_size: 5.000
+	smoke_size: 4.000
+	smoke_amount: 7.000
+	flash_size: 1.500
 	projectile_count: 1
 	flags: full_reload, cycle_on_shoot
 	ammo_filter: ammo_shell
