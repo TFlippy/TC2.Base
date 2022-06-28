@@ -31,6 +31,7 @@ gun:
 
 	sound_shoot: "mrl_shoot"
 	sound_reload: "mrl_reload"
+	sound_pitch: 1.500
 	velocity_multiplier: 60.000
 	jitter_multiplier: 1.300
 	damage_multiplier: 1.000
