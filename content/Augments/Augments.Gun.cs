@@ -499,7 +499,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						data.ammo_filter |= Material.Flags.Ammo_MG;
 						data.ammo_filter &= ~Material.Flags.Ammo_AC;
 
-						data.damage_multiplier *= 0.16f;
+						data.damage_multiplier *= 0.60f;
 						data.velocity_multiplier *= 0.80f;
 						data.cycle_interval *= 0.45f;
 						data.recoil_multiplier *= 0.20f;
@@ -638,6 +638,177 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 							if (material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.50f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.improved_ammo_loading",
+				category: "Gun (Receiver)",
+				name: "Improved Ammo Loading",
+				description: "Improves reliability and slightly increases rate of fire, while also increasing manufacturing costs.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
+				},
+
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.cycle_interval *= 0.70f;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate *= 0.60f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 1.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.50f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.launcher_stacked_charge",
+				category: "Gun (Receiver)",
+				name: "Launcher: Stacked Charge",
+				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					if (data.type != Gun.Type.Launcher) return false;
+					return augments.GetCount(handle) < 3;
+				},
+
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.max_ammo += 1;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate *= 1.10f;
+					data.reload_interval *= 1.10f;
+					data.jitter_multiplier *= 3.00f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.10f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 2.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
 							}
 						}
 					}

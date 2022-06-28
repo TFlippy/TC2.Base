@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_rocket"
+		texture: "resource.ammo_rocket.hv"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "ammo_rocket"
+	material: "ammo_rocket.hv"
 }
 
 hoverable:
@@ -58,10 +58,9 @@ health:
 explosive:
 {
 	radius: 5.000
-	power: 4.000
-	damage_entity: 10000.000
-	damage_terrain: 10000.000
-	smoke_amount: 2.000
+	power: 5.000
+	damage_entity: 17500.000
+	damage_terrain: 17500.000
 	health_threshold: 0.950
 	flags: any_damage, explode_when_primed
 }

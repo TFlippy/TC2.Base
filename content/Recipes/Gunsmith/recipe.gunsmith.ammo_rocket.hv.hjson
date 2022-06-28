@@ -1,10 +1,10 @@
 {
-	name: "Small Rocket (Standard)"
-	desc: "Ammunition for rocket launchers. Uses gunpowder filling, reduced damage and radius, creates more smoke on impact. Not very accurate."
+	name: "Small Rocket (High-velocity)"
+	desc: "Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius."
 	
 	icon:
 	{
-		texture: "resource.ammo_rocket"
+		texture: "resource.ammo_rocket.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,9 +13,9 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [1, 0]
 	}
-
+	
 	min: 1
 	max: 40
 	step: 1
@@ -31,13 +31,13 @@
 		}
 		{
 			type: "resource"
-			material: "gunpowder"
-			amount: 20.000
+			material: "nitrocellulose"
+			amount: 25.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 0.500
+			amount: 1.000
 		}
 		{
 			type: "work"
@@ -57,7 +57,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_rocket.gp"
+			material: "ammo_rocket.hv"
 			amount: 1.000
 		}
 	]
