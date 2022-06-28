@@ -479,7 +479,7 @@ namespace TC2.Base
 			//	}
 			//));
 
-definitions.Add(Augment.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.autocannon_caliber_downgrade",
 				category: "Gun (Receiver)",
@@ -569,7 +569,6 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
 				},
 
-
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cycle_interval *= 0.50f;
@@ -656,7 +655,6 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
 				},
 
-
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cycle_interval *= 0.70f;
@@ -741,17 +739,18 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					return augments.GetCount(handle) < 3;
 				},
 
-
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.max_ammo += 1;
+					data.failure_rate += 0.05f * data.barrel_count;
+					data.failure_rate *= 1.20f;
+					data.stability -= MathF.Min(data.failure_rate * data.barrel_count, data.stability);
+					data.reload_interval *= 1.30f;
+					data.jitter_multiplier *= 2.00f;
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate *= 1.10f;
-					data.reload_interval *= 1.10f;
-					data.jitter_multiplier *= 3.00f;
+					data.max_ammo += data.barrel_count;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -826,7 +825,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				{
 					ref var value = ref handle.GetData<int>();
 					value = Maths.Clamp(value, -2, 2); // TODO: Make this clamped between available calibers
-					
+
 					return true;
 				},
 
@@ -1636,7 +1635,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					}
 				}
 			));
-			
+
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
@@ -1718,7 +1717,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					}
 				}
 			));
-						
+
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
@@ -2311,6 +2310,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
+					data.barrel_count++;
 
 					if (simultaneous)
 					{
@@ -2408,10 +2408,12 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 					}
 
+					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier += 0.30f;
+						body.mass_multiplier += 0.30f * barrel_count_inv;
 					}
 
 					return true;
@@ -2425,6 +2427,8 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						overheat.cool_rate *= 1.30f;
 					}
 
+					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+
 					for (int i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
@@ -2434,7 +2438,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Metal))
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * barrel_count_inv));
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -2443,21 +2447,21 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 							{
 								case Work.Type.Machining:
 								{
-									requirement.amount *= 0.50f;
+									requirement.amount *= 0.50f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.amount *= 0.75f;
+									requirement.amount *= 0.75f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
-									requirement.amount *= 0.70f;
+									requirement.amount *= 0.70f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
@@ -2536,6 +2540,8 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();
+
+					data.reload_interval *= 0.40f;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

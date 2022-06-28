@@ -33,7 +33,12 @@ namespace TC2.Base.Components
 
 			public Damage.Type damage_type = Damage.Type.Explosion;
 
+			public float fire_amount = 1.00f;
+
 			public float smoke_amount = 1.00f;
+			public float smoke_lifetime_multiplier = 1.00f;
+			public float smoke_velocity_multiplier = 1.00f;
+
 			public float sparks_amount = 0.00f;
 			public float volume = 1.00f;
 			public float pitch = 1.00f;
@@ -109,8 +114,11 @@ namespace TC2.Base.Components
 					damage_entity = explosive.damage_entity * explosive.modifier,
 					damage_terrain = explosive.damage_terrain * explosive.modifier,
 					damage_type = explosive.damage_type,
-					owner_entity = explosive.ent_owner,
+					ent_owner = explosive.ent_owner,
+					fire_amount = explosive.fire_amount,
 					smoke_amount = explosive.smoke_amount,
+					smoke_lifetime_multiplier = explosive.smoke_lifetime_multiplier,
+					smoke_velocity_multiplier = explosive.smoke_velocity_multiplier,
 					sparks_amount = explosive.sparks_amount,
 					volume = explosive.volume,
 					pitch = explosive.pitch,
@@ -128,8 +136,11 @@ namespace TC2.Base.Components
 						explosion.damage_entity = explosion_tmp.damage_entity;
 						explosion.damage_terrain = explosion_tmp.damage_terrain;
 						explosion.damage_type = explosion_tmp.damage_type;
-						explosion.owner_entity = explosion_tmp.owner_entity;
+						explosion.ent_owner = explosion_tmp.ent_owner;
+						explosion.fire_amount = explosion_tmp.fire_amount;
 						explosion.smoke_amount = explosion_tmp.smoke_amount;
+						explosion.smoke_lifetime_multiplier = explosion_tmp.smoke_lifetime_multiplier;
+						explosion.smoke_velocity_multiplier = explosion_tmp.smoke_velocity_multiplier;
 						explosion.sparks_amount = explosion_tmp.sparks_amount;
 						explosion.volume = explosion_tmp.volume;
 						explosion.pitch = explosion_tmp.pitch;

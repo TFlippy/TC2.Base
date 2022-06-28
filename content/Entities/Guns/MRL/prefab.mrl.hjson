@@ -41,6 +41,7 @@ gun:
 	failure_rate: 0.000
 	max_ammo: 6.000
 	projectile_count: 1
+	barrel_count: 6
 	flags: automatic, cycle_on_shoot
 	ammo_filter: ammo_rocket
 	action: manual

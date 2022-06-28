@@ -160,6 +160,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
 
+			[Statistics.Info("Barrel Count", description: "Number of barrels.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			public int barrel_count = 1;
+
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
@@ -543,7 +546,7 @@ namespace TC2.Base.Components
 							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
 							smoke_amount = 0.30f,
 							sparks_amount = 2.00f,
-							owner_entity = body.GetParent()
+							ent_owner = body.GetParent()
 						};
 
 						region.SpawnPrefab("explosion", transform.position).ContinueWith(x =>
@@ -555,7 +558,7 @@ namespace TC2.Base.Components
 								explosion.radius = explosion_data.radius;
 								explosion.damage_entity = explosion_data.damage_entity;
 								explosion.damage_terrain = explosion_data.damage_terrain;
-								explosion.owner_entity = explosion_data.owner_entity;
+								explosion.ent_owner = explosion_data.ent_owner;
 								explosion.smoke_amount = explosion_data.smoke_amount;
 
 								explosion.Sync(x);
