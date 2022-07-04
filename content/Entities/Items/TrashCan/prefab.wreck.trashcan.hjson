@@ -49,7 +49,7 @@ storage:
 {
 	@inventory2:
 	{
-		name: "Rummage Can"
+		name: "Trash Can"
 		stack_size_multiplier: 2.000
 		type: storage
 		flags: ignore_mass, public
@@ -58,7 +58,7 @@ storage:
 
 interactable:
 {
-	window_size: [48.000, 96.000]
+	window_size: [96.000, 48.000]
 }
 
 harvestable:
