@@ -26,9 +26,10 @@ namespace TC2.Base.Components
 			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##}°C/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float cool_rate = 10.00f;
 
-			public Overheat.Flags flags = default;
+			public Overheat.Flags flags;
 
-			[Net.Ignore, Save.Ignore] public float next_steam = default;
+			[Net.Ignore, Save.Ignore] public float next_steam;
+			[Net.Ignore, Save.Ignore] public float next_sync;
 
 			public Data()
 			{
@@ -40,8 +41,11 @@ namespace TC2.Base.Components
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control, [Source.Owned] in Body.Data body)
 		{
-			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, 30.00f, (overheat.cool_rate * info.DeltaTime) / MathF.Max(body.GetMass() * 0.05f, 1.00f));
-			
+			ref var region = ref info.GetRegion();
+			var ambient_temperature = Maths.KelvinToCelsius(Region.ambient_temperature);
+
+			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, ambient_temperature, (overheat.cool_rate * info.DeltaTime) / MathF.Max(body.GetMass() * 0.05f, 1.00f));
+
 			if (overheat.heat_current >= overheat.heat_critical)
 			{
 				overheat.flags |= Overheat.Flags.Overheated;
@@ -54,8 +58,17 @@ namespace TC2.Base.Components
 					overheat.flags &= ~Overheat.Flags.Overheated;
 				}
 			}
+
+//#if SERVER
+//			if (info.WorldTime >= overheat.next_sync && overheat.heat_current > ambient_temperature)
+//			{
+//				overheat.Sync(entity);
+//				overheat.next_sync = info.WorldTime + 3.00f;
+//			}
+//#endif
 		}
 
+#if CLIENT
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
 		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
@@ -70,13 +83,13 @@ namespace TC2.Base.Components
 			var random = XorRandom.New();
 			ref var region = ref info.GetRegion();
 
-#if CLIENT
-			sound.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 200.00f, 0.00f, 0.40f);
+			sound.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
+			sound.pitch = 0.50f + Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 
-			if (overheat.heat_current > 50.00f && info.WorldTime >= overheat.next_steam)
+			if (overheat.heat_current >= 100.00f && info.WorldTime >= overheat.next_steam)
 			{
 				var dir = transform.GetDirection();
-				var intensity = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 50.00f, 0.00f, 1.00f);
+				var intensity = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 50.00f, 0.00f, 0.30f);
 
 				overheat.next_steam = info.WorldTime + 0.04f;
 				Particle.Spawn(ref region, new Particle.Data()
@@ -90,15 +103,15 @@ namespace TC2.Base.Components
 					frame_count = 64,
 					frame_count_total = 64,
 					frame_offset = random.NextByteRange(0, 64),
-					scale = random.NextFloatRange(0.10f, 0.30f),
+					scale = random.NextFloatRange(0.30f, 0.50f),
 					rotation = random.NextFloat(10.00f),
 					angular_velocity = random.NextFloatRange(1.00f, 3.00f),
-					growth = 0.30f,
+					growth = 0.40f,
 					color_a = new Color32BGRA(0xc0ffffff).WithAlphaMult(intensity),
 					color_b = new Color32BGRA(0x00ffffff),
 				});
 			}
-#endif
 		}
+#endif
 	}
 }
