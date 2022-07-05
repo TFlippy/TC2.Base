@@ -57,7 +57,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_rocket.gp"
+			material: "ammo_rocket"
 			amount: 1.000
 		}
 	]

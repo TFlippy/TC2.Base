@@ -1,3 +1,12 @@
+$name: "Steam Engine"
+$desc:
+	'''
+	Standard Zimrman-design stationary steam engine.
+
+	Originally introduced in 712 S.D.
+	this model is still widely used throughout Imperial lands, 
+	owing to its ease of use and ability to run on almost any sort of fuel.
+	'''
 $tags: []
 
 body:

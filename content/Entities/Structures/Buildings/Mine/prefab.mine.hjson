@@ -1,5 +1,10 @@
 $name: "Mine"
-$desc: "Seems to be empty at the moment."
+$desc:
+	'''
+	A place where miners spend the rest of their lives digging rock.
+	
+	Periodically produces shipments containing various ores.
+	'''
 $tags: []
 
 body:
