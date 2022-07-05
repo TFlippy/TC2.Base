@@ -1,3 +1,8 @@
+$name: "Shipment"
+$desc:
+	'''
+	A tiny shipping crate used for storing and transport of various goods.
+	'''
 $tags: []
 
 body:

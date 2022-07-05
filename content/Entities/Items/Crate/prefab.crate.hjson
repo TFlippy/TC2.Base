@@ -1,3 +1,8 @@
+$name: "Crate"
+$desc:
+	'''
+	Portable storage - considerably larger than your pockets.
+	'''
 $tags: []
 
 body:
