@@ -43,13 +43,15 @@ building:
 
 interactable:
 {
-	window_size: [650.000, 400.000]
+	window_size: [740.000, 500.000]
 }
 
 shop:
 {
 	name: "Manufactory"
 	tags: manufactory
+
+	menu_columns: 7
 }
 
 workshop:
