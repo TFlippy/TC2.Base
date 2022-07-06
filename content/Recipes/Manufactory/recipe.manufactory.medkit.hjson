@@ -13,7 +13,7 @@
 	
 	flags: blueprintable
 	type: workshop
-	tags: workbench
+	tags: manufactory
 	
 	requirements:
 	[

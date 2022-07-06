@@ -47,8 +47,8 @@
 		{
 			type: "work"
 			work: "assembling"
-			amount: 2500.000
-			difficulty: 13.000
+			amount: 2800.000
+			difficulty: 20.000
 		}
 	]
 	

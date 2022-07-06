@@ -1,5 +1,5 @@
 {
-	name: "Small Rocket (High-velocity)"
+	name: "Small Rocket (High-Velocity)"
 	desc: "Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius."
 	
 	icon:
