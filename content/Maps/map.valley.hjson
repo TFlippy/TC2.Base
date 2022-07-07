@@ -80,6 +80,7 @@
 		{
 			prefab: "badger_den"
 			name: "West"
+			faction_id: 201
 			position: [109.875, 49.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -87,6 +88,7 @@
 		{
 			prefab: "badger_den"
 			name: "East"
+			faction_id: 201
 			position: [515.375, 45.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -525,8 +527,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [196.625, 45.250]
-			rotation: 0.034907
+			position: [196.7837, 44.9225]
+			rotation: 0.100425
 			scale: [1.000, 1.000]
 		}
 		{
@@ -729,8 +731,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [588.000, 70.000]
-			rotation: -0.471239
+			position: [589.0998, 69.20768]
+			rotation: -0.410796
 			scale: [1.000, 1.000]
 		}
 		{
@@ -879,8 +881,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [615.000, 28.500]
-			rotation: 0.15708
+			position: [615.0226, 28.20731]
+			rotation: 0.160166
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1494,18 +1496,24 @@
 			position: [736.750, 46.625]
 			rotation: 0.05236
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
 			position: [735.000, 51.000]
 			rotation: 0.017453
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
 			position: [736.375, 55.375]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.crates.00"
@@ -1548,6 +1556,8 @@
 			position: [760.4999, 49.750]
 			rotation: -0.10472
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "roots"
@@ -1644,6 +1654,8 @@
 			position: [809.875, 51.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.lamp_post.01"
@@ -1653,8 +1665,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [794.5723, 47.99656]
-			rotation: -14.39861
+			position: [794.5723, 47.99657]
+			rotation: -14.3986
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1767,8 +1779,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [927.375, 34.750]
-			rotation: 0.069813
+			position: [927.3835, 34.65447]
+			rotation: 0.110656
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1893,8 +1905,8 @@
 		}
 		{
 			prefab: "miner"
-			position: [327.7299, 60.89557]
-			rotation: -0.000334
+			position: [327.7301, 60.89549]
+			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1911,13 +1923,13 @@
 		}
 		{
 			prefab: "farmer"
-			position: [24.44157, 9.100027]
-			rotation: -0.000245
+			position: [24.44176, 9.100027]
+			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [141.8061, 67.43327]
+			position: [141.8059, 67.43331]
 			rotation: -0.000001
 			scale: [-1.000, 1.000]
 		}
@@ -2121,8 +2133,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [482.000, 61.500]
-			rotation: -0.541052
+			position: [481.7316, 61.09636]
+			rotation: -0.537779
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2136,6 +2148,70 @@
 			position: [871.5001, 58.250]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [88.250, -9.556229]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [342.3542, 40.13127]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [619.4583, -11.53539]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [682.2708, 4.922938]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [817.2222, 33.76669]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [56.375, 47.625]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [574.7122, 19.03335]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "water"
+			position: [899.250, 68.000]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [15.000, 10.000]
+			offset_b: [-15.000, 10.000]
+			offset_c: [-20.000, -4.000]
+			offset_d: [20.000, -4.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [276.3311, 45.14447]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [505.0877, 25.70003]
+			rotation: 0.000
+			scale: [1.000, 1.000]
 		}
 	]
 }

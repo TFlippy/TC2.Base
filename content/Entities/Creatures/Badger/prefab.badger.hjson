@@ -1,5 +1,6 @@
 $name: "Badger"
 $desc: "A badger with a troubled past, and nothing left to lose."
+$export: false
 $tags: 
 [
 	"badger"
