@@ -191,8 +191,8 @@
 		}
 		{
 			prefab: "log.00"
-			position: [114.6855, 80.66718]
-			rotation: 1.083012
+			position: [114.6855, 80.66721]
+			rotation: 1.082995
 			scale: [1.000, 1.000]
 		}
 		{
@@ -323,8 +323,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [97.125, 81.000]
-			rotation: -0.174533
+			position: [96.65771, 80.31553]
+			rotation: -0.170392
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -692,18 +692,24 @@
 			position: [504.875, 72.375]
 			rotation: 0.017453
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [517.500, 46.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [504.750, 78.375]
 			rotation: -0.034907
 			scale: [-1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "roots"
@@ -756,7 +762,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [507.5533, 80.71262]
-			rotation: 1.656503
+			rotation: 1.656509
 			scale: [1.000, 1.000]
 		}
 		{
@@ -808,9 +814,11 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "wreck.steam_engine.00"
-			position: [500.625, 41.750]
-			rotation: 0.000
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [500.375, 43.500]
+			rotation: -0.034907
 			scale: [1.000, 1.000]
 		}
 		{
@@ -818,6 +826,8 @@
 			position: [507.000, 61.750]
 			rotation: -0.05236
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.chain_fence.01"
@@ -830,6 +840,8 @@
 			position: [517.875, 58.625]
 			rotation: -0.15708
 			scale: [-1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "vine"
@@ -869,14 +881,14 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [505.2579, 58.10999]
-			rotation: 11.04716
+			position: [520.8806, 60.99387]
+			rotation: 4.405428
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [503.5979, 57.61859]
-			rotation: 0.126126
+			position: [503.5981, 57.61858]
+			rotation: 0.126369
 			scale: [1.000, 1.000]
 		}
 		{
@@ -899,8 +911,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [529.625, 82.375]
-			rotation: -0.017453
+			position: [529.6212, 82.27855]
+			rotation: 0.030258
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -954,7 +966,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [548.840, 82.91473]
-			rotation: -1.851249
+			rotation: -1.851284
 			scale: [1.000, 1.000]
 		}
 		{
@@ -992,24 +1004,32 @@
 			position: [517.375, 52.625]
 			rotation: 0.017453
 			scale: [-1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [507.125, 67.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [571.375, 69.625]
 			rotation: 0.017453
 			scale: [-1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [571.5001, 75.500]
 			rotation: -0.05236
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "vine"
@@ -1166,6 +1186,8 @@
 			position: [498.125, 68.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "roots"
@@ -1589,14 +1611,14 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [186.625, 69.500]
-			rotation: -0.05236
+			position: [186.6291, 69.26315]
+			rotation: 0.01813
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.3778, 81.95509]
-			rotation: 6.430851
+			position: [260.3779, 81.95511]
+			rotation: 6.430803
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1608,7 +1630,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [270.1564, 82.31907]
-			rotation: -1.170835
+			rotation: -1.17084
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2459,8 +2481,8 @@
 		}
 		{
 			prefab: "builder"
-			position: [91.1487, 47.5007]
-			rotation: -0
+			position: [91.14878, 47.50071]
+			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2471,26 +2493,26 @@
 		}
 		{
 			prefab: "miner"
-			position: [223.0777, 71.80766]
+			position: [223.0784, 71.8078]
+			rotation: 0.000312
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "miner"
+			position: [169.9787, 44.93361]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [169.9785, 44.93358]
-			rotation: 0.000
-			scale: [-1.000, 1.000]
-		}
-		{
-			prefab: "miner"
-			position: [452.7535, 60.11477]
-			rotation: 0.000
+			position: [452.7537, 60.1148]
+			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "farmer"
 			position: [363.1237, 69.00307]
-			rotation: -0.000004
+			rotation: -0.000003
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2516,6 +2538,140 @@
 			position: [449.625, 60.500]
 			rotation: -0.017453
 			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [36.11459, 13.30521]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [111.750, 56.55521]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [124.1562, 47.64896]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [220.8833, 14.79305]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [408.9944, 45.69583]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [466.9806, 21.80694]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [551.6889, 68.18195]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [619.2916, 42.54305]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [203.7895, -6.57813]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "wreck.chair.wood.01"
+			position: [504.8376, 57.81076]
+			rotation: 0.074765
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "barrel.metal.wreck.00"
+			position: [508.1251, 43.73001]
+			rotation: -1.570798
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "pallet.ingot.iron.wreck.00"
+			position: [438.9476, 59.43908]
+			rotation: 0.082452
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "barrel.metal.wreck.00"
+			position: [310.2396, 63.42327]
+			rotation: -0.055492
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "pallet.ingot.iron.wreck.00"
+			position: [544.0146, 59.56018]
+			rotation: 0.033761
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [403.125, 58.125]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [63.125, 41.250]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [200.125, 57.625]
+			rotation: 0.20944
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [294.500, 71.750]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [356.5909, 54.26169]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [222.7155, 39.16795]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [508.8413, 32.744]
+			rotation: 0.000
+			scale: [1.000, 1.000]
 		}
 	]
 }
