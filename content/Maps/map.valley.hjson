@@ -160,10 +160,14 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "tree.pine"
-			position: [39.500, 74.000]
-			rotation: 0.087267
-			scale: [1.079365, 1.069841]
+			prefab: "water"
+			position: [64.500, 71.000]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [23.625, 10.000]
+			offset_b: [-30.000, 10.000]
+			offset_c: [-34.000, -4.000]
+			offset_d: [33.125, -4.000]
 		}
 		{
 			prefab: "tree.oak"
@@ -528,7 +532,7 @@
 		{
 			prefab: "wreck.car"
 			position: [196.7837, 44.9225]
-			rotation: 0.100425
+			rotation: 0.100423
 			scale: [1.000, 1.000]
 		}
 		{
@@ -731,8 +735,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [589.0998, 69.20768]
-			rotation: -0.410796
+			position: [589.0952, 69.207]
+			rotation: -0.414786
 			scale: [1.000, 1.000]
 		}
 		{
@@ -881,8 +885,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [615.0226, 28.20731]
-			rotation: 0.160166
+			position: [615.0228, 28.20732]
+			rotation: 0.160159
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1253,8 +1257,8 @@
 		}
 		{
 			prefab: "tree.oak.dead"
-			position: [387.000, 71.375]
-			rotation: -0.034907
+			position: [391.000, 68.625]
+			rotation: -0.069813
 			scale: [1.097223, 1.009721]
 		}
 		{
@@ -1665,8 +1669,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [794.5723, 47.99657]
-			rotation: -14.3986
+			position: [794.5723, 47.99659]
+			rotation: -14.39858
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1761,7 +1765,7 @@
 		}
 		{
 			prefab: "vine"
-			position: [85.125, 57.625]
+			position: [81.375, 50.000]
 			rotation: 0.000
 			scale: [1.016666, 1.120833]
 		}
@@ -1779,8 +1783,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [927.3835, 34.65447]
-			rotation: 0.110656
+			position: [927.3835, 34.65443]
+			rotation: 0.110664
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1905,8 +1909,8 @@
 		}
 		{
 			prefab: "miner"
-			position: [327.7301, 60.89549]
-			rotation: -0.000001
+			position: [327.7216, 60.89595]
+			rotation: -0.00004
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1923,14 +1927,14 @@
 		}
 		{
 			prefab: "farmer"
-			position: [24.44176, 9.100027]
-			rotation: -0.000001
+			position: [24.43724, 9.100027]
+			rotation: -0
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "miner"
-			position: [141.8059, 67.43331]
-			rotation: -0.000001
+			position: [141.7995, 67.43529]
+			rotation: -0
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2054,10 +2058,14 @@
 			scale: [-1.000, 1.000]
 		}
 		{
-			prefab: "roots"
-			position: [88.375, 65.625]
+			prefab: "water"
+			position: [946.250, 69.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [20.000, 10.000]
+			offset_b: [-10.000, 10.000]
+			offset_c: [-15.000, -4.000]
+			offset_d: [20.000, -4.000]
 		}
 		{
 			prefab: "roots"
@@ -2066,10 +2074,14 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "vine"
-			position: [18.500, 64.875]
+			prefab: "water"
+			position: [10.375, 71.000]
 			rotation: 0.000
-			scale: [-1.000, 1.000]
+			scale: [1.000, 1.000]
+			offset_a: [12.000, 10.000]
+			offset_b: [-10.000, 10.000]
+			offset_c: [-10.000, -4.000]
+			offset_d: [15.000, -4.000]
 		}
 		{
 			prefab: "boulder.01"
@@ -2079,7 +2091,7 @@
 		}
 		{
 			prefab: "boulder.02"
-			position: [49.875, 74.625]
+			position: [49.250, 74.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -2133,8 +2145,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [481.7316, 61.09636]
-			rotation: -0.537779
+			position: [481.7313, 61.09626]
+			rotation: -0.53787
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2193,13 +2205,13 @@
 		}
 		{
 			prefab: "water"
-			position: [899.250, 68.000]
+			position: [900.250, 69.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
-			offset_a: [15.000, 10.000]
-			offset_b: [-15.000, 10.000]
-			offset_c: [-20.000, -4.000]
-			offset_d: [20.000, -4.000]
+			offset_a: [14.000, 10.000]
+			offset_b: [-12.000, 10.000]
+			offset_c: [-19.000, -4.000]
+			offset_d: [19.000, -4.000]
 		}
 		{
 			prefab: "essence_node.life"
@@ -2212,6 +2224,42 @@
 			position: [505.0877, 25.70003]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "water"
+			position: [128.125, 75.625]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [7.000, 4.000]
+			offset_b: [-8.000, 4.000]
+			offset_c: [-10.000, -4.000]
+			offset_d: [12.000, -4.000]
+		}
+		{
+			prefab: "roots"
+			position: [128.7312, 74.23437]
+			rotation: 0.000
+			scale: [-1.111111, 1.190972]
+		}
+		{
+			prefab: "water"
+			position: [261.875, 77.500]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [4.500, 3.000]
+			offset_b: [-5.500, 3.000]
+			offset_c: [-7.000, -3.500]
+			offset_d: [7.000, -3.500]
+		}
+		{
+			prefab: "water"
+			position: [377.875, 73.000]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [15.000, 4.500]
+			offset_b: [-5.000, 4.500]
+			offset_c: [-10.000, -4.000]
+			offset_d: [20.000, -4.000]
 		}
 	]
 }
