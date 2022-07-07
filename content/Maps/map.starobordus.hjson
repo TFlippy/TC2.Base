@@ -164,9 +164,9 @@
 		}
 		{
 			prefab: "tree.oak"
-			position: [289.250, 52.125]
+			position: [290.875, 51.875]
 			rotation: -0.087266
-			scale: [-1.150, 0.933333]
+			scale: [-0.994446, 0.988888]
 		}
 		{
 			prefab: "tree.oak"
@@ -428,14 +428,14 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [210.750, 69.500]
-			rotation: -0.453786
+			position: [210.6201, 69.01288]
+			rotation: -0.55094
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "wreck.car"
-			position: [418.500, 64.750]
-			rotation: 0.20944
+			position: [419.2249, 64.34615]
+			rotation: 0.191314
 			scale: [1.000, 1.000]
 		}
 		{
@@ -530,14 +530,14 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [254.5597, 62.50204]
-			rotation: -0.162457
+			position: [254.5591, 62.50209]
+			rotation: -0.162499
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [262.7626, 63.35995]
-			rotation: 1.880401
+			position: [262.7628, 63.36001]
+			rotation: 1.880431
 			scale: [1.000, 1.000]
 		}
 		{
@@ -581,6 +581,8 @@
 			position: [310.000, 58.000]
 			rotation: 0.017453
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "roots"
@@ -815,18 +817,24 @@
 			position: [442.250, 66.500]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
-			position: [442.250, 60.375]
+			position: [442.250, 60.250]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
 			position: [263.500, 41.875]
 			rotation: -0.10472
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "hatch.wood"
@@ -848,7 +856,7 @@
 		}
 		{
 			prefab: "farmer"
-			position: [72.06139, 60.60172]
+			position: [72.06136, 60.60172]
 			rotation: 0.000001
 			scale: [-1.000, 1.000]
 		}
@@ -891,7 +899,7 @@
 		{
 			prefab: "wreck.chain_fence.00"
 			position: [299.250, 48.000]
-			rotation: 0.000
+			rotation: -0.017453
 			scale: [1.000, 1.000]
 		}
 		{
@@ -902,8 +910,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [260.8701, 44.12988]
-			rotation: 0.000198
+			position: [260.8701, 44.12985]
+			rotation: 0.000249
 			scale: [1.000, 1.000]
 		}
 		{
@@ -914,14 +922,14 @@
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.6012, 44.35442]
-			rotation: -1.569632
+			position: [268.6013, 44.35434]
+			rotation: -1.569472
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.keg"
-			position: [268.5389, 63.00896]
-			rotation: -0.109296
+			position: [268.538, 63.00882]
+			rotation: -0.109932
 			scale: [1.000, 1.000]
 		}
 		{
@@ -935,6 +943,8 @@
 			position: [266.750, 59.375]
 			rotation: 0.069813
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.crates.00"
@@ -967,15 +977,17 @@
 			scale: [1.000, 1.000]
 		}
 		{
-			prefab: "door.wood"
-			position: [323.875, 42.875]
-			rotation: 0.000
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [321.875, 43.625]
+			rotation: -0.069813
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.car"
-			position: [327.750, 43.500]
-			rotation: 0.000
+			position: [327.753, 43.32322]
+			rotation: 0.018093
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1115,18 +1127,24 @@
 			position: [618.875, 51.625]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
 			position: [618.875, 57.750]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "ladder.wood"
 			position: [618.875, 63.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "tree.oak"
@@ -1449,7 +1467,7 @@
 		{
 			prefab: "wreck.trashcan"
 			position: [429.3317, 61.81053]
-			rotation: 0.10476
+			rotation: 0.104817
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1520,8 +1538,8 @@
 		}
 		{
 			prefab: "builder"
-			position: [436.8638, 61.60067]
-			rotation: 0.000023
+			position: [436.8676, 61.60115]
+			rotation: 0.000004
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1529,30 +1547,40 @@
 			position: [266.750, 47.375]
 			rotation: 0.017453
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [266.875, 53.250]
 			rotation: -0.034907
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [310.000, 52.000]
 			rotation: -0.05236
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [312.375, 45.000]
 			rotation: 0.122173
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "wreck.ladder.wood"
 			position: [82.750, 64.875]
 			rotation: -0.017453
 			scale: [1.000, 1.000]
+			offset_a: [0.000, -2.250]
+			offset_b: [0.000, 2.250]
 		}
 		{
 			prefab: "roots"
@@ -1565,6 +1593,142 @@
 			position: [608.125, 34.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [456.000, 64.375]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "badger_den"
+			name: "Badger Den"
+			faction_id: 201
+			position: [50.875, 45.750]
+			rotation: 0.139626
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "gutter.metal.wreck.00"
+			position: [258.000, 47.000]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+			offset_a: [-0.250, 4.125]
+			offset_b: [-0.250, -4.875]
+		}
+		{
+			prefab: "gutter.metal.wreck.00"
+			position: [325.000, 41.000]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [0.000, 0.000]
+			offset_b: [0.250, -9.000]
+		}
+		{
+			prefab: "barrel.metal.wreck.00"
+			position: [295.1842, 49.45935]
+			rotation: -1.90253
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "pallet.ingot.iron.wreck.00"
+			position: [261.9152, 53.91484]
+			rotation: 0.000585
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "barricade.wood.01"
+			position: [287.6675, 49.85159]
+			rotation: 0.064273
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "barricade.wood.01"
+			position: [216.8548, 67.23001]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "barricade.wood.01"
+			position: [445.625, 56.48001]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "pallet.ingot.iron.wreck.00"
+			position: [460.1794, 63.87762]
+			rotation: 0.097469
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "water"
+			position: [629.125, 72.750]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [10.000, 8.000]
+			offset_b: [-10.000, 8.000]
+			offset_c: [-10.000, -4.000]
+			offset_d: [10.000, -4.000]
+		}
+		{
+			prefab: "water"
+			position: [10.375, 74.375]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			offset_a: [18.000, 6.000]
+			offset_b: [-10.000, 6.000]
+			offset_c: [-10.000, -4.000]
+			offset_d: [18.000, -4.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [122.125, 51.875]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [251.9889, 37.16113]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [319.1524, 23.30696]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [385.6524, 44.34863]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [531.9858, 19.41807]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [135.3333, 21.74446]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [622.3333, 62.52224]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [38.000, 38.500]
+			rotation: 0.000
+			scale: [1.000, 1.000]
 		}
 	]
 }
