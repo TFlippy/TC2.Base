@@ -49,6 +49,16 @@ melee.state:
 
 }
 
+throwingDamage:
+{
+
+}
+
+fastThrow:
+{
+	addedspeed: 8.00
+}
+
 holdable:
 {
 	offset: [0.000, 0.500]
