@@ -28,7 +28,7 @@
 	
 	projectile_count: 1
 	projectile_speed_mult: 0.050
-	projectile_spread_mult: 1.000
+	projectile_spread_mult: 2.000
 	projectile_velocity_min: 10.000
 	projectile_heat: 25.000
 	projectile_prefab: "projectile.bullet.hc.arc.mt"
