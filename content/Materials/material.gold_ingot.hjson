@@ -1,6 +1,6 @@
 {
 	name: "Gold Ingot"
-	description: "Valuable and heavy."
+	description: "TODO: Desc"
 	icon:
 	{
 		texture: "resource.gold_ingot"

@@ -1,6 +1,6 @@
 {
 	name: "Sawdust"
-	description: "Flakes and chips of wood"
+	description: "TODO: Desc"
 	icon:
 	{
 		texture: "resource.sawdust"

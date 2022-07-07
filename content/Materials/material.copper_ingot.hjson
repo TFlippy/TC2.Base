@@ -1,6 +1,6 @@
 {
 	name: "Copper Ingot"
-	description: "Commonly used in mechanisms and ammunition."
+	description: "TODO: Desc"
 	icon:
 	{
 		texture: "resource.copper_ingot"

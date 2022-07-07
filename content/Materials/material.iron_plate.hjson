@@ -1,6 +1,6 @@
 {
 	name: "Iron Plate"
-	description: "Flat rectangles of iron, commonly used in advanced construction"
+	description: "TODO: Desc"
 	icon:
 	{
 		texture: "resource.iron_plate"

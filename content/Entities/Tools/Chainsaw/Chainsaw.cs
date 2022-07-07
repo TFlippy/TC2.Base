@@ -9,16 +9,16 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Damage", description: "Amount of damage the chainsaw deals.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage;
 
-			[Statistics.Info("Reach", description: "Distance at which the chainsaw can damage things.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Reach", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float max_distance;
 
-			[Statistics.Info("Speed", description: "How fast the chainsaw hits things.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float speed;
 
-			[Statistics.Info("Area of Effect", description: "Diameter of the area in which the chainsaw hits.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Area of Effect", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float radius;
 
 			[Save.Ignore, Net.Ignore] public float last_hit;

@@ -1,6 +1,6 @@
 {
 	name: "Sugar"
-	description: "Sweet."
+	description: "TODO: Desc"
 	icon:
 	{
 		texture: "resource.sugar"
