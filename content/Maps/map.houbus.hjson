@@ -650,6 +650,7 @@
 		{
 			prefab: "badger_den"
 			name: "Badger Den (Mushroom Hole)"
+			faction_id: 201
 			position: [398.750, 56.125]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -657,6 +658,7 @@
 		{
 			prefab: "badger_den"
 			name: "Badger Den (Sandpit)"
+			faction_id: 201
 			position: [116.625, 56.875]
 			rotation: 0.000
 			scale: [1.000, 1.000]
@@ -670,13 +672,13 @@
 		{
 			prefab: "mine"
 			position: [358.375, 58.125]
-			rotation: 0.000
+			rotation: -0.034907
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "mine"
 			position: [482.8889, 72.4762]
-			rotation: 0.000
+			rotation: -0.034907
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1059,20 +1061,20 @@
 		}
 		{
 			prefab: "market"
-			position: [50.000, 65.375]
-			rotation: 0.000
+			position: [50.500, 65.375]
+			rotation: -0.087266
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "market"
 			position: [266.125, 48.375]
-			rotation: 0.000
+			rotation: 0.034907
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "market"
-			position: [164.750, 49.875]
-			rotation: 0.000
+			position: [164.625, 49.875]
+			rotation: 0.017453
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1426,7 +1428,7 @@
 		{
 			prefab: "log.00"
 			position: [91.492, 59.75508]
-			rotation: -0.220901
+			rotation: -0.2209
 			scale: [-0.966667, 1.000]
 		}
 		{
@@ -1533,8 +1535,8 @@
 		}
 		{
 			prefab: "market"
-			position: [485.000, 62.500]
-			rotation: 0.000
+			position: [485.375, 62.625]
+			rotation: 0.017453
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1548,6 +1550,54 @@
 			position: [105.500, 52.375]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [69.81389, 40.5868]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [393.8709, 39.57812]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [467.3273, 60.50521]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [436.8044, 56.42188]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [307.3331, 34.98438]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.motion"
+			position: [146.750, 17.500]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.life"
+			position: [211.2869, 31.04687]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "essence_node.energy"
+			position: [251.5621, 35.36008]
+			rotation: 0.000
+			scale: [1.000, 1.000]
 		}
 	]
 }
