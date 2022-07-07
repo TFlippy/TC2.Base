@@ -1,0 +1,49 @@
+{
+	name: "Gold Brick"
+	desc:
+		'''
+		Gold cut into bricks. Perfect for luxury.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [10, 1]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.400
+		min_claim: 1.000
+		
+		sound: "stone_place_0"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "gold_ingot"
+			amount: 0.100
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "gold_brick"
+			tile_flags: solid
+		}
+	]
+}
