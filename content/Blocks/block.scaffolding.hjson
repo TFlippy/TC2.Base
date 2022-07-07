@@ -1,6 +1,6 @@
 {
 	name: "Scaffolding"
-	desc: "Manufactured from iron"
+	desc: "TODO: Desc"
 	
 	material_type: metal
 	tile_flags: non_empty

@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable, name: "Movement Cooling")]
 		public partial struct Data: IComponent
 		{
-			[Statistics.Info("Multiplier", description: "How much it is cooled through movement.", format: "{0:0.00}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Multiplier", description: "TODO: Desc", format: "{0:0.00}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float modifier;
 
 			[Save.Ignore, Net.Ignore] public float next_sync;

@@ -84,7 +84,7 @@ namespace TC2.Base.Components
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public Damage.Type damage_type = default;
 
-			[Statistics.Info("Category", description: "Type of damage this deals", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Category", description: "TODO: Desc", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Melee.Category category = default;
 
 			public Melee.Flags flags = default;
