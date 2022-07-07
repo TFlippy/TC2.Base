@@ -1,19 +1,22 @@
 {
-	name: "Roof (Metal)"
-	desc: "TODO: Desc"
+	name: "Metal Roof (Red)"
+	desc:
+		'''
+		A fancy red metal roof built to the Imperial standard.
+		'''
 	
 	material_type: metal
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 3600.000
+	max_health: 5000.000
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.950
 	elasticity: 0.200
 	stability: 0.500
 	
-	texture: "terrain_roof.metal"
+	texture: "terrain_roof.metal.red"
 	pattern: "pattern_scaffolding"
 	
 	texture_scale: 1.750
@@ -22,15 +25,15 @@
 	resources:
 	[
 		{
-			material: "iron_ingot"
-			quantity: 0.030
+			material: "iron_plate"
+			quantity: 0.050
 		}
 	]
 	
 	mappings:
 	[
 		{
-			color: "0xff5e916a"
+			color: "0xff8e5d5d"
 			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
