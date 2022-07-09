@@ -149,6 +149,8 @@ namespace TC2.Base.Components
 				//	invert = !invert;
 				//}
 
+				//App.WriteLine($"{control.mouse.GetKey(Mouse.Key.Right)}");
+
 				var transform_tmp = transform;
 				var transform_parent_tmp = transform_parent;
 
@@ -158,7 +160,7 @@ namespace TC2.Base.Components
 				//	transform_parent_tmp.scale.X *= -1.00f;
 				//}
 
-				if (control.mouse.GetKey(Mouse.Key.Right))
+				//if (control.mouse.GetKey(Mouse.Key.Right))
 				{
 					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;

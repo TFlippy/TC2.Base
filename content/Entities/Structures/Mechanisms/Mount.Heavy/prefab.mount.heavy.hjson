@@ -63,7 +63,7 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	window_size: [182.000, 192.000]
 	window_offset: [0.000, 192.000]
 }
 
@@ -163,6 +163,6 @@ vehicle:
 		name: "Mount"
 
 		flags: none
-		flags_editable: locked, disabled, hold
+		flags_editable: locked, disabled, hold, invert
 	}
 }
