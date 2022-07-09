@@ -85,7 +85,7 @@ joint.gear:
 
 attachment:
 {
-
+	flags: keyboard_write, mouse_write
 }
 
 storage:

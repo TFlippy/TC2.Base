@@ -47,6 +47,9 @@ crane:
 	length_a: 8.000
 	length_b: 8.000
 	speed: 0.800
+
+	flags: none
+	flags_editable: inverted, hold
 }
 
 crane.state:
@@ -95,7 +98,7 @@ joint.gear:
 
 attachment:
 {
-
+	flags: keyboard_write, mouse_write
 }
 
 sound.emitter:

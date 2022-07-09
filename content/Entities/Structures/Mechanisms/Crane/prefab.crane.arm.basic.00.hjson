@@ -95,7 +95,7 @@ joint.rotarylimit:
 
 attachment:
 {
-
+	flags: keyboard_write, mouse_write
 }
 
 resizable:

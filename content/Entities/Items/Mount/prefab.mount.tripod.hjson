@@ -144,7 +144,7 @@ vehicle:
 	{
 		name: "Mount"
 
-		flags: none
-		flags_editable: locked, disabled, hold
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, hold, invert
 	}
 }

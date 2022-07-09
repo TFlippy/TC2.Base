@@ -63,8 +63,7 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 192.000]
-	window_offset: [0.000, 192.000]
+	window_size: [182.000, 240.000]
 }
 
 faction.colorable:
@@ -162,7 +161,7 @@ vehicle:
 	{
 		name: "Mount"
 
-		flags: none
-		flags_editable: locked, disabled, hold, invert
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write
 	}
 }
