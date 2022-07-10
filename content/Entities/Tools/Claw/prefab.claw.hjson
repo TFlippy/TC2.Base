@@ -66,15 +66,23 @@ holdable:
 	radius: 0.000
 }
 
+attachable:
+{
+	offset: [0.000, -1.000]
+	radius: 0.000
+}
+
 grabber:
 {
 
 }
 
-attachment:
-{
 
-}
+
+// attachment:
+// {
+
+// }
 
 joint.base:
 {

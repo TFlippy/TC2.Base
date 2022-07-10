@@ -58,6 +58,12 @@ holdable:
 	flags: storable
 }
 
+attachable:
+{
+	offset: [-0.200, 0.000]
+	flags: none
+}
+
 animated.renderer:
 {
 	sprite:
