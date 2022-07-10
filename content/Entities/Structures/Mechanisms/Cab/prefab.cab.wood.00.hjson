@@ -9,7 +9,7 @@ body:
 		size: [3.000, 3.000]
 		offset: [0.000, 0.000]
 		radius: 0.250
-		mass: 80.000
+		mass: 150.000
 		friction: 0.750
 		elasticity: 0.750
 		material: wood

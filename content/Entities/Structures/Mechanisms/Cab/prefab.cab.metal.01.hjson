@@ -111,7 +111,7 @@ vehicle:
 	{
 		offset_a: [-0.375, -1.125]
 		max_force: 200000.000
-		max_torque: 25000.000
+		max_torque: 75000.000
 		flags: no_stress, control_write, force_facing
 		z: 0.000
 
@@ -145,7 +145,7 @@ vehicle:
 	{
 		error_bias: 0.01
 		max_bias: 1.500
-		min: -1.000
+		min: -2.000
 		max: 0.500
 	}
 
