@@ -4,12 +4,18 @@ body:
 {
 	inventory_weight_multiplier: 0.250
 
-	@shape.box:	
+	@shape.polygon:	
 	{
-		size: [2.500, 2.000]
+		points:
+		[
+			[1.500, 1.250]
+			[-1.500, 1.250]
+			[-0.750, -1.500]
+			[0.500, -1.500]
+		]
 		offset: [0.000, 0.000]
 		radius: 0.250
-		mass: 250.000
+		mass: 500.000
 		friction: 0.750
 		elasticity: 0.750
 		material: metal
@@ -95,7 +101,7 @@ vehicle:
 	seat:
 	{
 		offset: [-0.250, 0.125]
-		max_tilt: 2.000
+		max_tilt: 5.000
 	}
 }
 
@@ -105,7 +111,7 @@ vehicle:
 	{
 		offset_a: [-0.250, -1.000]
 		max_force: 200000.000
-		max_torque: 80000.000
+		max_torque: 25000.000
 		flags: no_stress, control_write, force_facing
 		z: 0.000
 	}
@@ -118,7 +124,7 @@ vehicle:
 
 	joint.gear:
 	{
-		error_bias: 0.001
+		error_bias: 0.01
 		max_bias: 5.000
 		min: -3.141
 		max: 3.141

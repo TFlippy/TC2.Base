@@ -81,7 +81,7 @@ holdable:
 
 attachable:
 {
-	offset: [-0.900, 0.100]
+	offset: [-1.500, 0.100]
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000
