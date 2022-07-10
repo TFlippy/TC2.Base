@@ -2,12 +2,14 @@ $tags: []
 
 body:
 {
-	@shape.circle:	
+	@shape.line:	
 	{
-		radius: 1.250
+		a: [0.000, 0.000]
+		b: [0.375, 0.000]
+		radius: 1.125
 		mass: 100.000
-		friction: 1.000
-		elasticity: 0.500
+		friction: 0.750
+		elasticity: 0.750
 		material: metal
 		layer: entity, solid
 		mask: world
@@ -16,7 +18,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 30000.000
 }
 
 holdable:
@@ -133,6 +135,6 @@ vehicle:
 		name: "Mount"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, hold, invert
+		flags_editable: locked, disabled, invert
 	}
 }
