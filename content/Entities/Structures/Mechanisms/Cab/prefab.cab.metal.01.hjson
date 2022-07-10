@@ -109,7 +109,7 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [-0.250, -1.000]
+		offset_a: [-0.375, -1.125]
 		max_force: 200000.000
 		max_torque: 25000.000
 		flags: no_stress, control_write, force_facing
