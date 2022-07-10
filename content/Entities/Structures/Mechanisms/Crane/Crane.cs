@@ -144,16 +144,16 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), Exclude<Joint.Base>(Source.Modifier.Parent)]
-		public static void UpdateControl(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Crane.Data crane, [Source.Owned] ref Control.Data control, [Source.Owned] ref Interactable.Data interactable)
-		{
-			if (interactable.ref_interactor.TryGetHandle(out var handle))
-			{
-				control = handle.Value.control;
-			}
-		}
+		//[ISystem.PreUpdate.Reset(ISystem.Mode.Single), Exclude<Joint.Base>(Source.Modifier.Parent)]
+		//public static void UpdateControl(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Transform.Data transform,
+		//[Source.Owned] ref Crane.Data crane, [Source.Owned] ref Control.Data control, [Source.Owned] ref Interactable.Data interactable)
+		//{
+		//	if (interactable.ref_interactor.TryGetHandle(out var handle))
+		//	{
+		//		control = handle.Value.control;
+		//	}
+		//}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
