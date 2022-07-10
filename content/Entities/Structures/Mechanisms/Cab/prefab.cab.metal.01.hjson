@@ -8,8 +8,8 @@ body:
 	{
 		points:
 		[
-			[1.500, 1.250]
-			[-1.500, 1.250]
+			[1.500, 1.000]
+			[-1.500, 1.000]
 			[-0.750, -1.500]
 			[0.500, -1.500]
 		]
@@ -114,6 +114,25 @@ vehicle:
 		max_torque: 25000.000
 		flags: no_stress, control_write, force_facing
 		z: 0.000
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
 	}
 
 	joint.pivot:
@@ -125,16 +144,16 @@ vehicle:
 	joint.gear:
 	{
 		error_bias: 0.01
-		max_bias: 5.000
-		min: -3.141
-		max: 3.141
+		max_bias: 1.500
+		min: -1.000
+		max: 0.500
 	}
 
 	attachment:
 	{
-		name: "Mount (Right)"
+		name: "Mount"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert
+		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
 	}
 }
