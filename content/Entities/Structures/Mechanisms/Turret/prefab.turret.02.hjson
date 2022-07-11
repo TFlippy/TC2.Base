@@ -44,7 +44,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "cab.metal.01"
+		texture: "turret.02"
 	}
 	offset: [0.000, 0.000]
 	z: -100.000
@@ -88,7 +88,7 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "cab.metal.fg.01"
+			texture: "turret.fg.02"
 		}
 		z: 10.000
 	}
