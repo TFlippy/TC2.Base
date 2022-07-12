@@ -1,3 +1,8 @@
+$name: "Cabin (Wood)"
+$desc:
+	'''
+	A wooden vehicle cabin with extra storage space.
+	'''
 $tags: []
 
 body:

@@ -1,3 +1,8 @@
+$name: "Turret (Tank)"
+$desc:
+	'''
+	Heavily armored metal turret with an attachment slot on top and a gunner seat.
+	'''
 $tags: []
 
 body:
@@ -17,7 +22,7 @@ body:
 		radius: 0.250
 		mass: 500.000
 		friction: 0.750
-		elasticity: 0.750
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid
 		mask: world
