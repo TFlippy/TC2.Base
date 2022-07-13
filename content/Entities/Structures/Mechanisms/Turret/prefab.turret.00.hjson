@@ -1,7 +1,7 @@
 $name: "Turret (Coaxial)"
 $desc:
 	'''
-	Armored metal turret with a coaxial attachment slot and a gunner seat.
+	Light metal turret with a coaxial attachment slot and a gunner seat.
 	'''
 $tags: []
 
@@ -12,7 +12,7 @@ body:
 		a: [0.000, 0.000]
 		b: [0.375, 0.000]
 		radius: 1.125
-		mass: 100.000
+		mass: 80.000
 		friction: 0.750
 		elasticity: 0.450
 		material: metal
