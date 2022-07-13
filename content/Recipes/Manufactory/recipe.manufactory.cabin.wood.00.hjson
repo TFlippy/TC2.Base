@@ -14,7 +14,6 @@
 	flags: no_amount_multiplier
 	type: workshop
 	tags: manufactory
-	rank: -550.000
 	
 	requirements:
 	[
