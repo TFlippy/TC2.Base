@@ -38,6 +38,6 @@ explosive:
 	damage_terrain: 100000.000
 	smoke_amount: 1.300
 	smoke_velocity_multiplier: 1.300
-	smoke_lifetime_multiplier: 0.200
+	smoke_lifetime_multiplier: 0.700
 	flags: primed
 }

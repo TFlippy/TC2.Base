@@ -22,9 +22,12 @@ transform:
 
 explosive:
 {
-	radius: 5.000
+	radius: 4.000
 	power: 4.000
 	damage_entity: 5000.000
-	damage_terrain: 15000.000
+	damage_terrain: 25000.000
+	smoke_amount: 0.800
+	smoke_velocity_multiplier: 1.300
+	smoke_lifetime_multiplier: 0.200
 	flags: primed
 }
