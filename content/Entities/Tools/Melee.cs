@@ -172,7 +172,7 @@ namespace TC2.Base.Components
 						Damage.Hit(attacker: entity, owner: parent, target: result.entity,
 							world_position: result.world_position, direction: dir, normal: -dir,
 							damage: damage * modifier, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
-							target_material_type: result.material_type, knockback: melee.knockback, size: melee.aoe, flags: flags);
+							target_material_type: result.material_type, knockback: melee.knockback, size: melee.aoe, flags: flags, faction_id: faction.id);
 
 						var data = new Melee.HitEvent();
 						data.ent_attacker = entity;
