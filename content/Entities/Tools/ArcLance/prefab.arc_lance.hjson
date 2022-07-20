@@ -1,0 +1,62 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-1.375, 0.000]
+		b: [1.375, 0.000]
+		mass: 20.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+aimable:
+{
+
+}
+
+// arclance:
+// {
+
+// }
+
+holdable:
+{
+	offset: [-0.750, -0.125]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "arc_lance"
+	}
+	scale: [0.800, 0.800]
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
+
+control:
+{
+
+}
