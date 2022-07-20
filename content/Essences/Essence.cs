@@ -10,11 +10,13 @@ namespace TC2.Base.Components
 		{
 			Undefined,
 
-			Energy,
+			Heat,
 			Motion,
 			Life,
 			Radiance,
-			Cognition
+			Cognition,
+			Electricity,
+			Failure
 		}
 
 		private static Essence.Type[] material_to_essence;
@@ -55,11 +57,13 @@ namespace TC2.Base.Components
 		{
 			Essence.Type.Undefined => new Color32BGRA(255, 255, 255, 255),
 
-			Essence.Type.Energy => new Color32BGRA(255, 255, 180, 0),
+			Essence.Type.Heat => new Color32BGRA(255, 255, 180, 0),
 			Essence.Type.Motion => new Color32BGRA(255, 0, 255, 255),
 			Essence.Type.Life => new Color32BGRA(255, 50, 255, 0),
 			Essence.Type.Radiance => new Color32BGRA(255, 255, 255, 255),
 			Essence.Type.Cognition => new Color32BGRA(255, 130, 0, 255),
+			Essence.Type.Electricity => new Color32BGRA(255, 165, 205, 255),
+			Essence.Type.Failure => new Color32BGRA(255, 165, 130, 90),
 
 			_ => new Color32BGRA(255, 255, 255, 255)
 		};

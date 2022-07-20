@@ -1,9 +1,9 @@
 {
-	name: "Arcanite Pellets (Energy)"
+	name: "Arcanite Pellets (Heat)"
 	description: "Small arcanite pellets that can be infused with essences."
 	icon:
 	{
-		texture: "resource.pellet.energy"
+		texture: "resource.pellet.heat"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -12,7 +12,7 @@
 	flags: manufactured, essence
 	mass_per_unit: 0.750
 	quantity_max: 100.000
-	prefab: "resource.pellet.energy"
+	prefab: "resource.pellet.heat"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
