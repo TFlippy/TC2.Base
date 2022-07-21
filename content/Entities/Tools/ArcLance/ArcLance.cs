@@ -126,9 +126,11 @@ namespace TC2.Base.Components
 			Sound.Play(ref region, "arcane_infuser.fizzle.00", data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
 			Shake.Emit(ref region, data.world_position, 0.50f, 0.80f, 20.00f);
 
+			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
+
 			Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
 				world_position: data.world_position, direction: data.direction, normal: -data.direction,
-				damage: random.NextFloatRange(2000.00f, 2500.00f), damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f,
+				damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f,
 				target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, flags: Damage.Flags.None);
 #endif
 
