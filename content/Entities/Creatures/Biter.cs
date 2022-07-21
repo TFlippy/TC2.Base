@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 				Span<LinecastResult> results = stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), biter.thickness, ref results, mask: biter.hit_mask, exclude: biter.hit_exclude))
 				{
-					results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+					results.SortByDistance();
 
 					var parent = body.GetParent();
 					var modifier = 1.00f;

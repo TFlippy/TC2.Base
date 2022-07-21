@@ -115,7 +115,7 @@ namespace TC2.Base.Components
 					Span<LinecastResult> results = stackalloc LinecastResult[16];
 					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
-						results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+						results.SortByDistance();
 
 						var parent = body.GetParent();
 
