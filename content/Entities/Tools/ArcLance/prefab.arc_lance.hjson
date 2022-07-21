@@ -26,10 +26,36 @@ aimable:
 
 }
 
-// arclance:
-// {
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 250.000
+	damage_bonus: 150.000
+	cooldown: 1.500
+	max_distance: 2.000
+	aoe: 0.300
+	knockback: 1.500
+	thickness: 0.250
+	hit_offset: [1.250, 0.000]
+	yield: 0.300
+	penetration_falloff: 0.900
+	penetration: 0
+	damage_type: stab
+	attack_type: thrust
+	category: pointed
+	hit_mask: world, destructible
+	hit_exclude: ignore_melee, decoration
+}
 
-// }
+melee.state:
+{
+
+}
+
+arclance:
+{
+
+}
 
 holdable:
 {
