@@ -35,6 +35,8 @@ namespace TC2.Base.Components
 			public Entity ent_attacker;
 			public Entity ent_target;
 			public Entity ent_owner;
+			public XorRandom random;
+			public Material.Type target_material_type;
 			public Vector2 world_position;
 			public Vector2 direction;
 		}
@@ -219,6 +221,7 @@ namespace TC2.Base.Components
 							world_position: result.world_position, direction: dir, normal: -dir,
 							damage: damage * modifier, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
 							target_material_type: result.material_type, knockback: melee.knockback, size: melee.aoe, flags: flags, faction_id: faction.id);
+#endif
 
 						var data = new Melee.HitEvent();
 						data.ent_attacker = entity;
@@ -226,8 +229,9 @@ namespace TC2.Base.Components
 						data.ent_target = result.entity;
 						data.world_position = result.world_position;
 						data.direction = dir;
+						data.random = random;
+						data.target_material_type = result.material_type;
 						entity.Notify(ref data);
-#endif
 
 						flags |= Damage.Flags.No_Sound;
 						modifier *= melee.penetration_falloff;
