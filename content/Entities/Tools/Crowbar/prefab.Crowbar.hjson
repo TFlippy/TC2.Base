@@ -27,7 +27,9 @@ melee:
 	damage_base: 120.000
 	damage_bonus: 200.000
 	cooldown: 0.800
-	max_distance: 2.000
+	max_distance: 1.750
+	thickness: 1.500
+	hit_offset: [0.375, 0.000]
 	aoe: 1.000
 	knockback: 0.900
 	yield: 0.850

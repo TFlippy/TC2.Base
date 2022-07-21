@@ -13,6 +13,14 @@ namespace TC2.Base.Components
 			Misc
 		}
 
+		public enum AttackType: byte
+		{
+			Undefined = 0,
+
+			Swing,
+			Thrust
+		}
+
 		[Flags]
 		public enum Flags: uint
 		{
@@ -39,8 +47,12 @@ namespace TC2.Base.Components
 			public float sound_size = 2.00f;
 			public float sound_pitch = 1.00f;
 
+			public Vector2 hit_offset = new(0.00f, 0.00f);
+
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
+
+			public Melee.AttackType attack_type = AttackType.Swing;
 
 			[Statistics.Info("Base Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_base = default;
@@ -113,8 +125,22 @@ namespace TC2.Base.Components
 			var max = melee_state.next_hit - melee_state.last_hit;
 			var alpha = 1.00f - Maths.Clamp(elapsed / (max * 0.80f), 0.00f, 1.00f);
 
-			renderer.offset = melee.swing_offset * alpha * alpha;
-			renderer.rotation = melee.swing_rotation * alpha * alpha;
+			switch (melee.attack_type)
+			{
+				case Melee.AttackType.Swing:
+				{
+					renderer.offset = melee.swing_offset * alpha * alpha;
+					renderer.rotation = melee.swing_rotation * alpha * alpha;
+				}
+				break;
+
+				case Melee.AttackType.Thrust:
+				{
+					renderer.offset = new Vector2(melee.max_distance * 0.75f * alpha * alpha * alpha, 0.00f);
+					renderer.rotation = 0.00f;
+				}
+				break;
+			}
 		}
 #endif
 
@@ -131,17 +157,37 @@ namespace TC2.Base.Components
 				melee_state.last_hit = info.WorldTime;
 				melee_state.next_hit = info.WorldTime + melee.cooldown;
 
-				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-				len = MathF.Min(len, melee.max_distance);
+				var pos = transform.LocalToWorld(melee.hit_offset);
+
+				var dir = default(Vector2);
+				var len = melee.max_distance;
+
+				switch (melee.attack_type)
+				{
+					default:
+					case Melee.AttackType.Swing:
+					{
+						//dir = transform.GetDirection();
+						dir = Vector2.Lerp(transform.GetDirection(), (control.mouse.position - transform.position).GetNormalized(), 0.50f);
+					}
+					break;
+
+					case Melee.AttackType.Thrust:
+					{
+						dir = (control.mouse.position - transform.position).GetNormalized();
+					}
+					break;
+				}
+
 
 #if CLIENT
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 #endif
 
 				Span<LinecastResult> results = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude))
+				if (region.TryLinecastAll(pos, pos + (dir * len), melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude))
 				{
-					results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+					results.SortByDistance();
 
 					var parent = body.GetParent();
 					var modifier = 1.00f;
