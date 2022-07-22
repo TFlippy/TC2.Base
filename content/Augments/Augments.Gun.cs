@@ -850,7 +850,7 @@ namespace TC2.Base
 					var count = Math.Abs(value);
 					if (value > 0)
 					{
-						for (int i = 0; i < count; i++)
+						for (var i = 0; i < count; i++)
 						{
 							if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 							{
@@ -919,7 +919,7 @@ namespace TC2.Base
 					}
 					else if (value < 0)
 					{
-						for (int i = 0; i < count; i++)
+						for (var i = 0; i < count; i++)
 						{
 							if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 							{
@@ -1268,7 +1268,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -1312,7 +1312,7 @@ namespace TC2.Base
 						}
 					}
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						var requirement = context.requirements_new[i];
 
@@ -1382,7 +1382,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -1442,7 +1442,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -2238,7 +2238,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						var requirement = context.requirements_new[i];
 
@@ -2429,7 +2429,7 @@ namespace TC2.Base
 
 					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
 
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 

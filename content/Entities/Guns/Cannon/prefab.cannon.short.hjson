@@ -1,9 +1,8 @@
 $name: "Short Cannon"
 $desc: 
 	'''
-	A short cannon, which is based on the antiquated imperial cannon that isn't renowned for its reliability. 
-	
-	Compared to the regular cannon, it's cheaper, lighter, and of worse performance.
+	A short cannon based on an antiquated imperial cannon model, 
+	which is cheaper, lighter and of worse performance.
 	'''
 $tags: []
 

@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 						ref var samples = ref this.prospector_pick_state.samples;
 
 						var total_count = 0.00f;
-						for (int i = 0; i < samples.Length; i++)
+						for (var i = 0; i < samples.Length; i++)
 						{
 							ref var sample = ref samples[i];
 							total_count += sample.quantity;
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 
 							GUI.Title("Ores");
 
-							for (int i = 0; i < samples.Length; i++)
+							for (var i = 0; i < samples.Length; i++)
 							{
 								ref var sample = ref samples[i];
 								if (sample.block.id != 0)
@@ -136,7 +136,7 @@ namespace TC2.Base.Components
 					ref var block = ref tile.Block;
 					if (block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
 					{
-						for (int i = 0; i < arg.samples.Length; i++)
+						for (var i = 0; i < arg.samples.Length; i++)
 						{
 							ref var sample = ref arg.samples[i];
 							if (sample.block.id == 0 || sample.block.id == block.id)

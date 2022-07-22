@@ -1,6 +1,4 @@
-﻿using TC2.Base.Components;
-
-namespace TC2.Base
+﻿namespace TC2.Base
 {
 	public sealed partial class ModInstance
 	{

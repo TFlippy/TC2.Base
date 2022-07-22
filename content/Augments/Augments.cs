@@ -428,7 +428,7 @@ namespace TC2.Base
 					recipe_new.max *= batch_size;
 					recipe_new.step *= batch_size;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 
@@ -506,7 +506,7 @@ namespace TC2.Base
 
 					var has_valid_material = false;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 
@@ -591,7 +591,7 @@ namespace TC2.Base
 					ref var material_scrap = ref Material.GetMaterial("scrap");
 					var total_mass = 0.00f;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 

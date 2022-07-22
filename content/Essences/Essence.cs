@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 			var materials = NetRegistry<Material.Definition>.GetAll();
 			material_to_essence = new Essence.Type[materials.Length];
 
-			for (int i = 0; i < material_to_essence.Length; i++)
+			for (var i = 0; i < material_to_essence.Length; i++)
 			{
 				ref var material = ref materials[i];
 				if (material.flags.HasAny(Material.Flags.Essence))

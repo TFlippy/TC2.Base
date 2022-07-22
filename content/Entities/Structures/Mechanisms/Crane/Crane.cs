@@ -1,7 +1,4 @@
-﻿
-using static Keg.Engine.Game.Attachment;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Crane
 	{

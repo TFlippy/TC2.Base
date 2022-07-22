@@ -1,7 +1,4 @@
-﻿
-using Keg.Engine;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Gun
 	{
@@ -228,7 +225,7 @@ namespace TC2.Base.Components
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(world_position_target), size: new(100, 100)))
+				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(this.world_position_target), size: new(100, 100)))
 				{
 					if (window.show)
 					{

@@ -120,7 +120,7 @@ namespace TC2.Base
 					if (data.flags.HasAny(Melee.Flags.No_Handle)) return false;
 
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -156,7 +156,7 @@ namespace TC2.Base
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -195,7 +195,7 @@ namespace TC2.Base
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -237,7 +237,7 @@ namespace TC2.Base
 					if (data.category != Melee.Category.Blunt) return false;
 
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}

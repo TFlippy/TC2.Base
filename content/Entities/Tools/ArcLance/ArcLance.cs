@@ -1,9 +1,4 @@
-﻿
-using Keg.Engine.Game;
-using static Keg.Engine.Game.Source;
-using static TC2.Base.Components.Pathfinding;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class ArcLance
 	{
