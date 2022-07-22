@@ -126,9 +126,11 @@ namespace TC2.Base.Components
 		public static void OnHit(ISystem.Info info, Entity entity, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
 		{
 			ref var region = ref info.GetRegion();
+			ref var terrain = ref region.GetTerrain();
+
 			var arg = (a: 0, samples: new FixedArray8<OreSample>());
 
-			region.GetTerrainHandle().IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
+			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
 			static void Func(ref Tile tile, int x, int y, byte mask, ref (int a, FixedArray8<OreSample> samples) arg)
 			{
 				if (tile.BlockID != 0)
