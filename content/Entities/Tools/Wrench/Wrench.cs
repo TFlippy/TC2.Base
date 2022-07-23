@@ -26,14 +26,43 @@ namespace TC2.Base.Components
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
 
-#if CLIENT
-					private ref struct HoveredEntityInfo
+					public ref struct TargetInfo
 					{
 						public Entity entity;
 						public ref Axle.Data axle;
 						public ref Transform.Data transform;
+
+						public float radius;
+						public Vector2 pos;
+
+						public bool is_src;
+						public bool alive;
+						public bool valid;
+
+						public TargetInfo(Entity entity, bool is_src)
+						{
+							this.entity = entity;
+							this.is_src = is_src;
+							this.alive = this.entity.IsAlive();
+							this.axle = ref Unsafe.NullRef<Axle.Data>();
+							this.transform = ref Unsafe.NullRef<Transform.Data>();
+
+							if (this.alive)
+							{
+								this.axle = ref this.entity.GetComponent<Axle.Data>();
+								this.transform = ref this.entity.GetComponent<Transform.Data>();
+
+								this.valid = !this.axle.IsNull() && !this.transform.IsNull();
+								if (this.valid)
+								{
+									this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
+									this.pos = this.transform.LocalToWorld(this.axle.offset);
+								}
+							}
+						}
 					}
 
+#if CLIENT
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var player = ref Client.GetPlayer();
@@ -42,80 +71,33 @@ namespace TC2.Base.Components
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
 
-						var ent_src_tmp = this.ent_src;
-						var ent_dst_tmp = this.ent_dst;
-						var ent_new = default(Entity);
-
-						var c_pos_src = default(Vector2?);
-						var c_pos_dst = default(Vector2?);
-						var c_pos_new = default(Vector2?);
 						var c_pos_mouse = GUI.WorldToCanvas(mouse.GetInterpolatedPosition());
 
-						ref var axle_src = ref Unsafe.NullRef<Axle.Data>();
-						ref var axle_dst = ref Unsafe.NullRef<Axle.Data>();
-						ref var axle_new = ref Unsafe.NullRef<Axle.Data>();
-
-						ref var transform_src = ref Unsafe.NullRef<Transform.Data>();
-						ref var transform_dst = ref Unsafe.NullRef<Transform.Data>();
-						ref var transform_new = ref Unsafe.NullRef<Transform.Data>();
-
 						var scale = GUI.GetWorldToCanvasScale();
+
+						var info_src = new TargetInfo(this.ent_src, true);
+						var info_dst = new TargetInfo(this.ent_dst, false);
+						var info_new = default(TargetInfo);
 
 						Span<OverlapResult> results = stackalloc OverlapResult[16];
 						if (region.TryOverlapPointAll(mouse.GetInterpolatedPosition(), 0.125f, ref results, mask: Physics.Layer.Entity))
 						{
 							foreach (ref var result in results)
 							{
-								if (result.entity.HasComponent<Axle.Data>())
+								info_new = new TargetInfo(result.entity, !info_src.valid);
+								if (info_new.valid)
 								{
-									ent_new = result.entity;
 									break;
 								}
 							}
 						}
 
-						var is_src_alive = this.ent_src.IsAlive();
-						var is_dst_alive = this.ent_dst.IsAlive();
-						var is_new_alive = ent_new.IsAlive();
-
-						if (is_new_alive)
+						if (info_new.valid)
 						{
-							if (!is_src_alive)
-							{
-								ent_src_tmp = ent_new;
-							}
-							else if (!is_dst_alive)
-							{
-								ent_dst_tmp = ent_new;
-							}
-
 							GUI.SetCursor(App.CursorType.Hand, 10);
 						}
 
-						if (is_src_alive)
-						{
-							axle_src = ref this.ent_src.GetComponent<Axle.Data>();
-							transform_src = ref this.ent_src.GetComponent<Transform.Data>();
-
-							if (!axle_src.IsNull() && !transform_src.IsNull())
-							{
-								c_pos_src = GUI.WorldToCanvas(transform_src.LocalToWorldNoRotation(axle_src.offset));
-							}
-						}
-
-						if (is_dst_alive)
-						{
-							axle_dst = ref this.ent_dst.GetComponent<Axle.Data>();
-							transform_dst = ref this.ent_dst.GetComponent<Transform.Data>();
-
-							if (!axle_dst.IsNull() && !transform_dst.IsNull())
-							{
-								c_pos_dst = GUI.WorldToCanvas(transform_dst.LocalToWorldNoRotation(axle_dst.offset));
-							}
-						}
-
 						var color = new Color32BGRA(0xffffff00);
-
 						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(mouse.GetInterpolatedPosition(), 1.00f), player.faction_id);
 						var is_allowed = claim_ratio > 0.90f;
 
@@ -124,37 +106,48 @@ namespace TC2.Base.Components
 							color = GUI.font_color_red;
 						}
 
-						if (c_pos_src.HasValue)
+						if (info_src.valid)
 						{
-							if (c_pos_dst.HasValue)
+							if (info_dst.valid)
 							{
-								GUI.DrawLine(c_pos_src.Value, c_pos_dst.Value, color, 4.00f);
+								GUI.DrawLine(info_src.pos.WorldToCanvas(), info_dst.pos.WorldToCanvas(), GUI.font_color_green, 1.00f);
+							}
+
+							if (info_new.valid)
+							{
+								GUI.DrawLine(info_src.pos.WorldToCanvas(), info_new.pos.WorldToCanvas(), color, 1.00f);
 							}
 							else
 							{
-								GUI.DrawLine(c_pos_src.Value, c_pos_mouse, color, 4.00f);
+								GUI.DrawLine(info_src.pos.WorldToCanvas(), c_pos_mouse, color, 1.00f);
 							}
 						}
 
-						if (c_pos_src.HasValue && !axle_src.IsNull() && !transform_src.IsNull())
+						if (info_src.valid)
 						{
-							GUI.DrawCircle(c_pos_src.Value, axle_src.radius_a * scale, color);
+							GUI.DrawCircle(info_src.pos.WorldToCanvas(), info_src.radius * scale, GUI.font_color_green, 1.00f);
 						}
 
-						if (c_pos_dst.HasValue && !axle_dst.IsNull() && !transform_dst.IsNull())
+						if (info_dst.valid)
 						{
-							GUI.DrawCircle(c_pos_dst.Value, axle_dst.radius_b * scale, color);
+							GUI.DrawCircle(info_dst.pos.WorldToCanvas(), info_dst.radius * scale, GUI.font_color_green, 1.00f);
 						}
 
-						if (mouse.GetKeyDown(Mouse.Key.Left))
+						if (info_new.valid)
+						{
+							GUI.DrawCircle(info_new.pos.WorldToCanvas(), info_new.radius * scale, color, 1.00f);
+						}
+
+						if (mouse.GetKeyDown(Mouse.Key.Left) && info_new.valid)
 						{
 							if (is_allowed)
 							{
 								var rpc = new Wrench.Mode.Belts.SetTargetRPC()
 								{
-									ent_src = ent_src_tmp,
-									ent_dst = ent_dst_tmp,
+									ent_src = info_new.is_src ? info_new.entity : this.ent_src,
+									ent_dst = !info_new.is_src ? info_new.entity : this.ent_dst,
 								};
+
 								rpc.Send(ent_wrench);
 							}
 							else
