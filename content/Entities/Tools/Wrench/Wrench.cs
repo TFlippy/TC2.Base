@@ -1,4 +1,6 @@
 ﻿
+using Keg;
+using static TC2.Base.Components.Pathfinding;
 using static TC2.Base.Components.Wrench;
 
 namespace TC2.Base.Components
@@ -22,7 +24,186 @@ namespace TC2.Base.Components
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)0, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
+
+#if CLIENT
+					private ref struct HoveredEntityInfo
+					{
+						public Entity entity;
+						public ref Axle.Data axle;
+						public ref Transform.Data transform;
+					}
+
+					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
+					{
+						ref var player = ref Client.GetPlayer();
+						ref var region = ref Client.GetRegion();
+
+						ref readonly var kb = ref Control.GetKeyboard();
+						ref readonly var mouse = ref Control.GetMouse();
+
+						var ent_src_tmp = this.ent_src;
+						var ent_dst_tmp = this.ent_dst;
+						var ent_new = default(Entity);
+
+						var c_pos_src = default(Vector2?);
+						var c_pos_dst = default(Vector2?);
+						var c_pos_new = default(Vector2?);
+						var c_pos_mouse = GUI.WorldToCanvas(mouse.GetInterpolatedPosition());
+
+						ref var axle_src = ref Unsafe.NullRef<Axle.Data>();
+						ref var axle_dst = ref Unsafe.NullRef<Axle.Data>();
+						ref var axle_new = ref Unsafe.NullRef<Axle.Data>();
+
+						ref var transform_src = ref Unsafe.NullRef<Transform.Data>();
+						ref var transform_dst = ref Unsafe.NullRef<Transform.Data>();
+						ref var transform_new = ref Unsafe.NullRef<Transform.Data>();
+
+						var scale = GUI.GetWorldToCanvasScale();
+
+						Span<OverlapResult> results = stackalloc OverlapResult[16];
+						if (region.TryOverlapPointAll(mouse.GetInterpolatedPosition(), 0.125f, ref results, mask: Physics.Layer.Entity))
+						{
+							foreach (ref var result in results)
+							{
+								if (result.entity.HasComponent<Axle.Data>())
+								{
+									ent_new = result.entity;
+									break;
+								}
+							}
+						}
+
+						var is_src_alive = this.ent_src.IsAlive();
+						var is_dst_alive = this.ent_dst.IsAlive();
+						var is_new_alive = ent_new.IsAlive();
+
+						if (is_new_alive)
+						{
+							if (!is_src_alive)
+							{
+								ent_src_tmp = ent_new;
+							}
+							else if (!is_dst_alive)
+							{
+								ent_dst_tmp = ent_new;
+							}
+
+							GUI.SetCursor(App.CursorType.Hand, 10);
+						}
+
+						if (is_src_alive)
+						{
+							axle_src = ref this.ent_src.GetComponent<Axle.Data>();
+							transform_src = ref this.ent_src.GetComponent<Transform.Data>();
+
+							if (!axle_src.IsNull() && !transform_src.IsNull())
+							{
+								c_pos_src = GUI.WorldToCanvas(transform_src.LocalToWorldNoRotation(axle_src.offset));
+							}
+						}
+
+						if (is_dst_alive)
+						{
+							axle_dst = ref this.ent_dst.GetComponent<Axle.Data>();
+							transform_dst = ref this.ent_dst.GetComponent<Transform.Data>();
+
+							if (!axle_dst.IsNull() && !transform_dst.IsNull())
+							{
+								c_pos_dst = GUI.WorldToCanvas(transform_dst.LocalToWorldNoRotation(axle_dst.offset));
+							}
+						}
+
+						var color = new Color32BGRA(0xffffff00);
+
+						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(mouse.GetInterpolatedPosition(), 1.00f), player.faction_id);
+						var is_allowed = claim_ratio > 0.90f;
+
+						if (!is_allowed)
+						{
+							color = GUI.font_color_red;
+						}
+
+						if (c_pos_src.HasValue)
+						{
+							if (c_pos_dst.HasValue)
+							{
+								GUI.DrawLine(c_pos_src.Value, c_pos_dst.Value, color, 4.00f);
+							}
+							else
+							{
+								GUI.DrawLine(c_pos_src.Value, c_pos_mouse, color, 4.00f);
+							}
+						}
+
+						if (c_pos_src.HasValue && !axle_src.IsNull() && !transform_src.IsNull())
+						{
+							GUI.DrawCircle(c_pos_src.Value, axle_src.radius_a * scale, color);
+						}
+
+						if (c_pos_dst.HasValue && !axle_dst.IsNull() && !transform_dst.IsNull())
+						{
+							GUI.DrawCircle(c_pos_dst.Value, axle_dst.radius_b * scale, color);
+						}
+
+						if (mouse.GetKeyDown(Mouse.Key.Left))
+						{
+							if (is_allowed)
+							{
+								var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+								{
+									ent_src = ent_src_tmp,
+									ent_dst = ent_dst_tmp,
+								};
+								rpc.Send(ent_wrench);
+							}
+							else
+							{
+								Sound.PlayGUI(GUI.sound_error, 0.50f);
+							}
+						}
+						else if (mouse.GetKeyDown(Mouse.Key.Right))
+						{
+							var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+							{
+								ent_src = default,
+								ent_dst = default,
+							};
+							rpc.Send(ent_wrench);
+						}
+					}
+#endif
+				}
+
+				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Belts.Data>
+				{
+					public Entity ent_src;
+					public Entity ent_dst;
+
+#if SERVER
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					{
+					App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
+
+						data.ent_src = this.ent_src;
+						data.ent_dst = this.ent_dst;
+
+						data.Sync(entity);
+					}
+#endif
+				}
+
+			}
+
+			public static partial class Ducts
+			{
+				[IComponent.Data(Net.SendType.Reliable)]
+				public partial struct Data: IComponent, Wrench.IMode
+				{
+					[Save.Ignore] public Entity ent_src;
+					[Save.Ignore] public Entity ent_dst;
+
+					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 1, 0);
 
 #if CLIENT
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
@@ -79,7 +260,7 @@ namespace TC2.Base.Components
 				{
 					using (GUI.Tooltip.New())
 					{
-						GUI.Title(info.name);
+						GUI.Title(info.identifier);
 					}
 				}
 			}
@@ -107,11 +288,14 @@ namespace TC2.Base.Components
 
 						ref var region = ref Client.GetRegion();
 
-						GUI.Text($"Derp: {wrench.selected_component_id}");
+						GUI.Text($"Derp: {this.wrench.selected_component_id}");
 
 						using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
 						{
 							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
+							GUI.SameLine();
+
+							Wrench.DrawModeButton<Wrench.Mode.Ducts.Data>(this.ent_wrench);
 							GUI.SameLine();
 
 							//var count = 4;
@@ -168,15 +352,15 @@ namespace TC2.Base.Components
 					{
 						GUI.Title(info.identifier);
 
-						this.mode.Draw(ent_wrench, ref this.wrench);
+						this.mode.Draw(this.ent_wrench, ref this.wrench);
 					}
 				}
 			}
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single)]
-		public static void OnGUI(ISystem.Info info, Entity entity, 
-		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, 
+		public static void OnGUI(ISystem.Info info, Entity entity,
+		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
@@ -194,8 +378,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateGUI(ISystem.Mode.Single)]
-		public static void OnGUIMode<T>(ISystem.Info info, Entity entity, 
-		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, 
+		public static void OnGUIMode<T>(ISystem.Info info, Entity entity,
+		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
 		{
 			if (player.IsLocal() && wrench.selected_component_id == ECS.GetID<T>())
@@ -204,7 +388,8 @@ namespace TC2.Base.Components
 				{
 					ent_wrench = entity,
 					transform = transform,
-					wrench = wrench
+					wrench = wrench,
+					mode = mode
 				};
 				gui.Submit();
 			}

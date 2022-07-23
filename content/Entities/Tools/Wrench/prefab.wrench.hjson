@@ -55,6 +55,11 @@ wrench.mode.belts:
 
 }
 
+wrench.mode.ducts:
+{
+
+}
+
 // wrenchold:
 // {
 
