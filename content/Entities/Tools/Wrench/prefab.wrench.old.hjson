@@ -45,20 +45,15 @@ transform:
 
 }
 
-wrench:
-{
-
-}
-
-wrench.mode.belts:
-{
-
-}
-
-// wrenchold:
+// wrench:
 // {
 
 // }
+
+wrenchold:
+{
+
+}
 
 sound.emitter:
 {
