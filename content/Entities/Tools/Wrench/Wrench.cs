@@ -24,44 +24,6 @@ namespace TC2.Base.Components
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
 
-					public ref struct TargetInfo
-					{
-						public Entity entity;
-						public ulong component_id;
-
-						public ref Axle.Data axle;
-						public ref Transform.Data transform;
-
-						public float radius;
-						public Vector2 pos;
-
-						public bool is_src;
-						public bool alive;
-						public bool valid;
-
-						public TargetInfo(Entity entity, bool is_src)
-						{
-							this.entity = entity;
-							this.is_src = is_src;
-							this.alive = this.entity.IsAlive();
-							this.axle = ref Unsafe.NullRef<Axle.Data>();
-							this.transform = ref Unsafe.NullRef<Transform.Data>();
-
-							if (this.alive)
-							{
-								this.axle = ref this.entity.GetComponent<Axle.Data>();
-								this.transform = ref this.entity.GetComponent<Transform.Data>();
-
-								this.valid = !this.axle.IsNull() && !this.transform.IsNull();
-								if (this.valid)
-								{
-									this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
-									this.pos = this.transform.LocalToWorld(this.axle.offset);
-								}
-							}
-						}
-					}
-
 #if CLIENT
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
 					{
@@ -80,19 +42,30 @@ namespace TC2.Base.Components
 						var info_dst = new TargetInfo(this.ent_dst, false);
 						var info_new = default(TargetInfo);
 
-						var distance = 0.00f;
+						var errors = Build.Errors.None;
 
-						Span<OverlapResult> results = stackalloc OverlapResult[16];
-						if (region.TryOverlapPointAll(pos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
+						// TODO: Make belts use recipes
+						var placement = new Placement()
 						{
-							foreach (ref var result in results)
-							{
-								if (result.entity == info_src.entity || result.entity == info_dst.entity) continue;
+							type = Placement.Type.Line,
+							length_max = 20.00f,
+							min_claim = 0.90f
+						};
 
-								info_new = new TargetInfo(result.entity, !info_src.valid);
-								if (info_new.valid)
+						//if (!info_src.valid || !info_dst.valid)
+						{
+							Span<OverlapResult> results = stackalloc OverlapResult[16];
+							if (region.TryOverlapPointAll(pos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
+							{
+								foreach (ref var result in results)
 								{
-									break;
+									if (result.entity == info_src.entity || result.entity == info_dst.entity) continue;
+
+									info_new = new TargetInfo(result.entity, !info_src.valid);
+									if (info_new.valid)
+									{
+										break;
+									}
 								}
 							}
 						}
@@ -102,118 +75,230 @@ namespace TC2.Base.Components
 							GUI.SetCursor(App.CursorType.Hand, 10);
 						}
 
-						var color = new Color32BGRA(0xffffff00);
-						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(pos_mouse, 1.00f), player.faction_id);
-						var is_allowed = claim_ratio > 0.90f;
-
-						if (!is_allowed)
+						var distance = 0.00f;
+						if (info_src.valid)
 						{
-							color = GUI.font_color_red;
+							if (info_dst.valid)
+							{
+								distance = Vector2.Distance(info_src.pos, info_dst.pos);
+							}
+							else if (info_new.valid)
+							{
+								distance = Vector2.Distance(info_src.pos, info_new.pos);
+							}
+							else
+							{
+								distance = Vector2.Distance(info_src.pos, mouse.position);
+							}
+						}
+
+						errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
+
+						var color = GUI.font_color_yellow;
+						var color_src = GUI.font_color_success;
+						var color_dst = GUI.font_color_success;
+						var color_new = GUI.font_color_yellow;
+
+						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(pos_mouse, 1.00f), player.faction_id);
+						errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+
+						//var is_allowed = claim_ratio > 0.90f;
+
+						//if (!is_allowed)
+						//{
+						//	color = GUI.font_color_red;
+						//}
+
+						if (errors != Build.Errors.None)
+						{
+							//color_src = GUI.font_color_error;
+							color_dst = GUI.font_color_error;
+							color_new = GUI.font_color_error;
 						}
 
 						if (info_src.valid)
 						{
 							if (!info_new.valid && !info_dst.valid)
 							{
-								var dir = (info_src.pos - pos_mouse).GetNormalized(out var len);
+								var dir = (info_src.pos - pos_mouse).GetNormalizedFast();
 								var n = new Vector2(-dir.Y, dir.X);
 								var offset_src = n * info_src.radius;
 								var offset_mouse = n * info_src.radius * 0.50f;
 
-								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (pos_mouse + offset_mouse).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
-								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (pos_mouse - offset_mouse).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
-
-								distance = len;
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (pos_mouse + offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (pos_mouse - offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
 							}
 
 							if (info_new.valid)
 							{
-								var dir = (info_src.pos - info_new.pos).GetNormalized(out var len);
+								var dir = (info_src.pos - info_new.pos).GetNormalizedFast();
 								var n = new Vector2(-dir.Y, dir.X);
 								var offset_src = n * info_src.radius;
 								var offset_new = n * info_new.radius;
 
-								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (info_new.pos + offset_new).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.50f), 2.00f);
-								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (info_new.pos - offset_new).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.50f), 2.00f);
-
-								distance = len;
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (info_new.pos + offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (info_new.pos - offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
 							}
 
 							if (info_dst.valid)
 							{
-								var dir = (info_src.pos - info_dst.pos).GetNormalized(out var len);
+								var dir = (info_src.pos - info_dst.pos).GetNormalizedFast();
 								var n = new Vector2(-dir.Y, dir.X);
 								var offset_src = n * info_src.radius;
 								var offset_dst = n * info_dst.radius;
 
-								GUI.DrawLine((info_src.pos + offset_src).WorldToCanvas(), (info_dst.pos + offset_dst).WorldToCanvas(), GUI.font_color_green, 2.00f);
-								GUI.DrawLine((info_src.pos - offset_src).WorldToCanvas(), (info_dst.pos - offset_dst).WorldToCanvas(), GUI.font_color_green, 2.00f);
-
-								distance = len;
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (info_dst.pos + offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (info_dst.pos - offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
 							}
 						}
 
 						if (info_src.valid)
 						{
-							GUI.DrawCircle(info_src.pos.WorldToCanvas(), info_src.radius * scale, GUI.font_color_green, 2.00f);
+							GUI.DrawCircle(info_src.pos.WorldToCanvas(), info_src.radius * scale, color_src, 2.00f);
 						}
 
 						if (info_dst.valid)
 						{
-							GUI.DrawCircle(info_dst.pos.WorldToCanvas(), info_dst.radius * scale, GUI.font_color_green, 2.00f);
+							GUI.DrawCircle(info_dst.pos.WorldToCanvas(), info_dst.radius * scale, color_dst, 2.00f);
 						}
 
 						if (info_new.valid)
 						{
-							GUI.DrawCircle(info_new.pos.WorldToCanvas(), info_new.radius * scale, color.WithAlphaMult(0.50f), 2.00f);
+							GUI.DrawCircle(info_new.pos.WorldToCanvas(), info_new.radius * scale, color_new.WithAlphaMult(0.50f), 2.00f);
 						}
 
-						if (mouse.GetKeyDown(Mouse.Key.Left) && info_new.valid)
+						if (mouse.GetKeyDown(Mouse.Key.Left))
 						{
-							if (is_allowed)
+							if (info_new.valid)
 							{
-								var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+								if (errors == Build.Errors.None)
 								{
-									ent_src = info_new.is_src ? info_new.entity : this.ent_src,
-									ent_dst = !info_new.is_src ? info_new.entity : this.ent_dst,
-								};
-								rpc.Send(ent_wrench);
+									var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+									{
+										ent_src = info_new.is_src ? info_new.entity : this.ent_src,
+										ent_dst = !info_new.is_src ? info_new.entity : this.ent_dst,
+									};
+									rpc.Send(ent_wrench);
 
-								Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.is_src ? 0.80f : 0.95f);
-							}
-							else
-							{
-								Sound.PlayGUI(GUI.sound_error, 0.50f);
+									Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.is_src ? 0.80f : 0.95f);
+								}
+								else
+								{
+									Sound.PlayGUI(GUI.sound_error, 0.50f);
+								}
 							}
 						}
 						else if (mouse.GetKeyDown(Mouse.Key.Right))
 						{
-							var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+							if (info_src.valid || info_dst.valid)
 							{
-								ent_src = default,
-								ent_dst = default,
-							};
-							rpc.Send(ent_wrench);
+								var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+								{
+									ent_src = info_dst.valid ? info_src.entity : default,
+									ent_dst = default,
+								};
+								rpc.Send(ent_wrench);
 
-							Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
+								Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
+							}
 						}
+
+						//if (info_src.valid)
+						//{
+						//	//var pos_mid = (info_src.pos + pos_mouse) * 0.50f;
+						//	//GUI.DrawText($"Distance: {distance:0.00}/20.00 m", pos_mid.WorldToCanvas());
+						//	GUI.DrawText($"Distance: {distance:0.00}/20.00 m", pos_mouse.WorldToCanvas());
+						//}
 
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight())))
 						{
-							GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/20.00 m");
+							GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
 
-							if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
-							{
-								var rpc = new Wrench.Mode.Belts.ConfirmRPC()
-								{
+							//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
+							//{
+							//	var rpc = new Wrench.Mode.Belts.ConfirmRPC()
+							//	{
 
-								};
-								rpc.Send(ent_wrench);
+							//	};
+							//	rpc.Send(ent_wrench);
+							//}
+						}
+
+						//if (info_src.valid)
+						if (info_src.valid && info_dst.valid)
+						{
+							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
+							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
+							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 0.50f)))
+							{
+								if (hud.show)
+								{
+									GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
+
+									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+									{
+										GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+										var reversed = false;
+
+										GUI.Checkbox("Reversed", ref reversed, size: new Vector2(GUI.GetRemainingWidth(), 32));
+									}
+
+									using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+									{
+										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
+										{
+											var rpc = new Wrench.Mode.Belts.ConfirmRPC()
+											{
+
+											};
+											rpc.Send(ent_wrench);
+										}
+										GUI.DrawHoverTooltip("Complete a belt connection.");
+									}
+								}
 							}
 						}
 					}
 #endif
+				}
+
+				public ref struct TargetInfo
+				{
+					public Entity entity;
+					public ulong component_id;
+
+					public ref Axle.Data axle;
+					public ref Transform.Data transform;
+
+					public float radius;
+					public Vector2 pos;
+
+					public bool is_src;
+					public bool alive;
+					public bool valid;
+
+					public TargetInfo(Entity entity, bool is_src)
+					{
+						this.entity = entity;
+						this.is_src = is_src;
+						this.alive = this.entity.IsAlive();
+						this.axle = ref Unsafe.NullRef<Axle.Data>();
+						this.transform = ref Unsafe.NullRef<Transform.Data>();
+
+						if (this.alive)
+						{
+							this.axle = ref this.entity.GetComponent<Axle.Data>();
+							this.transform = ref this.entity.GetComponent<Transform.Data>();
+
+							this.valid = !this.axle.IsNull() && !this.transform.IsNull();
+							if (this.valid)
+							{
+								this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
+								this.pos = this.transform.LocalToWorld(this.axle.offset);
+							}
+						}
+					}
 				}
 
 				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Belts.Data>
@@ -245,8 +330,8 @@ namespace TC2.Base.Components
 					{
 						ref var region = ref entity.GetRegion();
 
-						var info_src = new Belts.Data.TargetInfo(data.ent_src, true);
-						var info_dst = new Belts.Data.TargetInfo(data.ent_dst, false);
+						var info_src = new TargetInfo(data.ent_src, true);
+						var info_dst = new TargetInfo(data.ent_dst, false);
 
 						if (info_src.valid && info_dst.valid)
 						{
