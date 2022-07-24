@@ -1,7 +1,5 @@
 ﻿
-using Keg;
-using static TC2.Base.Components.Pathfinding;
-using static TC2.Base.Components.Wrench;
+using Keg.Engine.Game;
 
 namespace TC2.Base.Components
 {
@@ -29,6 +27,8 @@ namespace TC2.Base.Components
 					public ref struct TargetInfo
 					{
 						public Entity entity;
+						public ulong component_id;
+
 						public ref Axle.Data axle;
 						public ref Transform.Data transform;
 
@@ -71,7 +71,8 @@ namespace TC2.Base.Components
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
 
-						var c_pos_mouse = GUI.WorldToCanvas(mouse.GetInterpolatedPosition());
+						var pos_mouse = mouse.GetInterpolatedPosition();
+						var c_pos_mouse = GUI.WorldToCanvas(pos_mouse);
 
 						var scale = GUI.GetWorldToCanvasScale();
 
@@ -79,11 +80,15 @@ namespace TC2.Base.Components
 						var info_dst = new TargetInfo(this.ent_dst, false);
 						var info_new = default(TargetInfo);
 
+						var distance = 0.00f;
+
 						Span<OverlapResult> results = stackalloc OverlapResult[16];
-						if (region.TryOverlapPointAll(mouse.GetInterpolatedPosition(), 0.125f, ref results, mask: Physics.Layer.Entity))
+						if (region.TryOverlapPointAll(pos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
 						{
 							foreach (ref var result in results)
 							{
+								if (result.entity == info_src.entity || result.entity == info_dst.entity) continue;
+
 								info_new = new TargetInfo(result.entity, !info_src.valid);
 								if (info_new.valid)
 								{
@@ -98,7 +103,7 @@ namespace TC2.Base.Components
 						}
 
 						var color = new Color32BGRA(0xffffff00);
-						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(mouse.GetInterpolatedPosition(), 1.00f), player.faction_id);
+						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(pos_mouse, 1.00f), player.faction_id);
 						var is_allowed = claim_ratio > 0.90f;
 
 						if (!is_allowed)
@@ -108,34 +113,59 @@ namespace TC2.Base.Components
 
 						if (info_src.valid)
 						{
-							if (info_dst.valid)
+							if (!info_new.valid && !info_dst.valid)
 							{
-								GUI.DrawLine(info_src.pos.WorldToCanvas(), info_dst.pos.WorldToCanvas(), GUI.font_color_green, 1.00f);
+								var dir = (info_src.pos - pos_mouse).GetNormalized(out var len);
+								var n = new Vector2(-dir.Y, dir.X);
+								var offset_src = n * info_src.radius;
+								var offset_mouse = n * info_src.radius * 0.50f;
+
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (pos_mouse + offset_mouse).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (pos_mouse - offset_mouse).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+
+								distance = len;
 							}
 
 							if (info_new.valid)
 							{
-								GUI.DrawLine(info_src.pos.WorldToCanvas(), info_new.pos.WorldToCanvas(), color, 1.00f);
+								var dir = (info_src.pos - info_new.pos).GetNormalized(out var len);
+								var n = new Vector2(-dir.Y, dir.X);
+								var offset_src = n * info_src.radius;
+								var offset_new = n * info_new.radius;
+
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (info_new.pos + offset_new).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.50f), 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (info_new.pos - offset_new).WorldToCanvas(), GUI.font_color_green, color.WithAlphaMult(0.50f), 2.00f);
+
+								distance = len;
 							}
-							else
+
+							if (info_dst.valid)
 							{
-								GUI.DrawLine(info_src.pos.WorldToCanvas(), c_pos_mouse, color, 1.00f);
+								var dir = (info_src.pos - info_dst.pos).GetNormalized(out var len);
+								var n = new Vector2(-dir.Y, dir.X);
+								var offset_src = n * info_src.radius;
+								var offset_dst = n * info_dst.radius;
+
+								GUI.DrawLine((info_src.pos + offset_src).WorldToCanvas(), (info_dst.pos + offset_dst).WorldToCanvas(), GUI.font_color_green, 2.00f);
+								GUI.DrawLine((info_src.pos - offset_src).WorldToCanvas(), (info_dst.pos - offset_dst).WorldToCanvas(), GUI.font_color_green, 2.00f);
+
+								distance = len;
 							}
 						}
 
 						if (info_src.valid)
 						{
-							GUI.DrawCircle(info_src.pos.WorldToCanvas(), info_src.radius * scale, GUI.font_color_green, 1.00f);
+							GUI.DrawCircle(info_src.pos.WorldToCanvas(), info_src.radius * scale, GUI.font_color_green, 2.00f);
 						}
 
 						if (info_dst.valid)
 						{
-							GUI.DrawCircle(info_dst.pos.WorldToCanvas(), info_dst.radius * scale, GUI.font_color_green, 1.00f);
+							GUI.DrawCircle(info_dst.pos.WorldToCanvas(), info_dst.radius * scale, GUI.font_color_green, 2.00f);
 						}
 
 						if (info_new.valid)
 						{
-							GUI.DrawCircle(info_new.pos.WorldToCanvas(), info_new.radius * scale, color, 1.00f);
+							GUI.DrawCircle(info_new.pos.WorldToCanvas(), info_new.radius * scale, color.WithAlphaMult(0.50f), 2.00f);
 						}
 
 						if (mouse.GetKeyDown(Mouse.Key.Left) && info_new.valid)
@@ -147,8 +177,9 @@ namespace TC2.Base.Components
 									ent_src = info_new.is_src ? info_new.entity : this.ent_src,
 									ent_dst = !info_new.is_src ? info_new.entity : this.ent_dst,
 								};
-
 								rpc.Send(ent_wrench);
+
+								Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.is_src ? 0.80f : 0.95f);
 							}
 							else
 							{
@@ -163,6 +194,23 @@ namespace TC2.Base.Components
 								ent_dst = default,
 							};
 							rpc.Send(ent_wrench);
+
+							Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
+						}
+
+						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight())))
+						{
+							GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/20.00 m");
+							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
+
+							if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
+							{
+								var rpc = new Wrench.Mode.Belts.ConfirmRPC()
+								{
+
+								};
+								rpc.Send(ent_wrench);
+							}
 						}
 					}
 #endif
@@ -173,19 +221,87 @@ namespace TC2.Base.Components
 					public Entity ent_src;
 					public Entity ent_dst;
 
+					public ulong component_id_src;
+					public ulong component_id_dst;
+
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
 					{
-					App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
+						App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
+
+						ref var region = ref entity.GetRegion();
 
 						data.ent_src = this.ent_src;
 						data.ent_dst = this.ent_dst;
-
 						data.Sync(entity);
 					}
 #endif
 				}
 
+				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Belts.Data>
+				{
+#if SERVER
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					{
+						ref var region = ref entity.GetRegion();
+
+						var info_src = new Belts.Data.TargetInfo(data.ent_src, true);
+						var info_dst = new Belts.Data.TargetInfo(data.ent_dst, false);
+
+						if (info_src.valid && info_dst.valid)
+						{
+							var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
+							var ok = true;
+
+							Span<OverlapResult> hits = stackalloc OverlapResult[32];
+							if (region.TryOverlapPointAll(pos_mid, 1.00f, ref hits, mask: Physics.Layer.Belt))
+							{
+								foreach (ref var hit in hits)
+								{
+									ref var belt = ref hit.entity.GetComponent<Belt.Data>();
+									if (!belt.IsNull())
+									{
+										var ent_belt_src = belt.a.entity;
+										var ent_belt_dst = belt.b.entity;
+
+										if ((ent_belt_src == info_src.entity && ent_belt_dst == info_dst.entity) || (ent_belt_src == info_dst.entity && ent_belt_dst == info_src.entity))
+										{
+											ok = false;
+
+											break;
+										}
+									}
+								}
+							}
+
+							if (ok)
+							{
+								var arg = (data.ent_src, data.ent_dst);
+
+								region.SpawnPrefab("belt.rope", pos_mid).ContinueWith(ent =>
+								{
+									ref var belt = ref ent.GetComponent<Belt.Data>();
+									if (!belt.IsNull())
+									{
+										belt.a.Set(arg.ent_src);
+										belt.b.Set(arg.ent_dst);
+
+										belt.a_state.Set(arg.ent_src);
+										belt.b_state.Set(arg.ent_dst);
+
+										ent.MarkModified<Belt.Data>(sync: true);
+									}
+								});
+
+								data.ent_src = default;
+								data.ent_dst = default;
+							}
+						}
+
+						data.Sync(entity);
+					}
+#endif
+				}
 			}
 
 			public static partial class Ducts
@@ -270,7 +386,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				var window_size = new Vector2((48 * 8) + 32, (48 * 7) + 32 + 24);
+				var window_size = new Vector2(350, 400);
 
 				using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
 				{
@@ -281,8 +397,6 @@ namespace TC2.Base.Components
 
 						ref var region = ref Client.GetRegion();
 
-						GUI.Text($"Derp: {this.wrench.selected_component_id}");
-
 						using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
 						{
 							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
@@ -290,37 +404,11 @@ namespace TC2.Base.Components
 
 							Wrench.DrawModeButton<Wrench.Mode.Ducts.Data>(this.ent_wrench);
 							GUI.SameLine();
-
-							//var count = 4;
-							//for (var i = 0; i < count; i++)
-							//{
-							//	using (GUI.ID.Push(i + 1))
-							//	{
-							//		DrawModeButton<>
-
-							//		//if (GUI.DrawIconButton($"wrench.mode.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40)))
-							//		//{
-
-							//		//}
-
-							//		//if (GUI.IsItemHovered())
-							//		//{
-							//		//	using (GUI.Tooltip.New())
-							//		//	{
-							//		//		//GUI.Title(category_names[i]);
-							//		//	}
-							//		//}
-
-							//		if (i < count - 1) GUI.SameLine();
-							//	}
-							//}
 						}
 
 						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
 							GUI.Dock.New(Wrench.dock_identifier, size: GUI.GetRemainingSpace());
-							//var v = new WrenchModeGUI<Wrench.Mode.Belts.Data>();
-							//v.Draw();
 						}
 					}
 				}
@@ -343,7 +431,7 @@ namespace TC2.Base.Components
 				{
 					if (window.show)
 					{
-						GUI.Title(info.identifier);
+						//GUI.Title(info.identifier);
 
 						this.mode.Draw(this.ent_wrench, ref this.wrench);
 					}
@@ -358,8 +446,6 @@ namespace TC2.Base.Components
 		{
 			if (player.IsLocal())
 			{
-				//App.WriteLine("ye");
-
 				var gui = new WrenchGUI()
 				{
 					ent_wrench = entity,
