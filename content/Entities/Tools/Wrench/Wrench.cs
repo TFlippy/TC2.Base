@@ -14,21 +14,13 @@ namespace TC2.Base.Components
 		{
 			public static partial class Belts
 			{
-				// TODO: Make belts use recipes
-				public static Placement dev_placement = new Placement()
-				{
-					type = Placement.Type.Line,
-					length_max = 20.00f,
-					min_claim = 0.90f
-				};
-
 				[IComponent.Data(Net.SendType.Reliable)]
 				public partial struct Data: IComponent, Wrench.IMode
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					public Crafting.Recipe.Handle recipe;
+					public Crafting.Recipe.Handle selected_recipe;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
 
@@ -39,6 +31,8 @@ namespace TC2.Base.Components
 					{
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
+
+						var faction_id = player.faction_id;
 
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
@@ -52,7 +46,9 @@ namespace TC2.Base.Components
 						var info_dst = new TargetInfo(this.ent_dst, false);
 						var info_new = default(TargetInfo);
 
-						var errors = Build.Errors.None;
+						var errors_src = Build.Errors.None;
+						var errors_dst = Build.Errors.None;
+						var errors_new = Build.Errors.None;
 
 						//if (!info_src.valid || !info_dst.valid)
 						{
@@ -96,7 +92,6 @@ namespace TC2.Base.Components
 
 						//errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
 
-						var color = GUI.font_color_yellow;
 						var color_src = GUI.font_color_success;
 						var color_dst = GUI.font_color_success;
 						var color_new = GUI.font_color_yellow;
@@ -111,16 +106,58 @@ namespace TC2.Base.Components
 						//	color = GUI.font_color_red;
 						//}
 
-						if (info_src.valid && info_dst.valid)
 						{
-							ref var selected_recipe = ref this.recipe.GetRecipe();
-							errors |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_dst, ref selected_recipe, out _, player.faction_id);
+							ref var recipe = ref this.selected_recipe.GetRecipe();
+							if (!recipe.IsNull())
+							{
+								if (info_src.valid)
+								{
+									errors_src |= EvaluateBelt(ref region, ref info_src, ref recipe, faction_id: faction_id);
+									if (!info_new.valid)
+									{
+										errors_new.SetFlag(Build.Errors.MaxLength | Build.Errors.OutOfRange, Vector2.Distance(info_src.pos, wpos_mouse) > recipe.placement.Value.length_max);
+									}
+								}
+
+								if (info_dst.valid)
+								{
+									errors_dst |= EvaluateBelt(ref region, ref info_dst, ref recipe, faction_id: faction_id);
+									if (info_src.valid)
+									{
+										errors_dst |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+									}
+								}
+
+								if (info_new.valid)
+								{
+									errors_new |= EvaluateBelt(ref region, ref info_new, ref recipe, faction_id: faction_id);
+									if (info_src.valid)
+									{
+										errors_new |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_new, ref recipe, out _, player.faction_id);
+									}
+								}
+							}
 						}
 
-						if (errors != Build.Errors.None)
+						//if (errors != Build.Errors.None)
+						//{
+						//	//color_src = GUI.font_color_error;
+						//	color_dst = GUI.font_color_error;
+						//	color_new = GUI.font_color_error;
+						//}
+
+						if (errors_src != Build.Errors.None)
 						{
-							//color_src = GUI.font_color_error;
+							color_src = GUI.font_color_error;
+						}
+
+						if (errors_dst != Build.Errors.None)
+						{
 							color_dst = GUI.font_color_error;
+						}
+
+						if (errors_new != Build.Errors.None)
+						{
 							color_new = GUI.font_color_error;
 						}
 
@@ -133,8 +170,8 @@ namespace TC2.Base.Components
 								var offset_src = n * info_src.radius;
 								var offset_mouse = n * info_src.radius * 0.50f;
 
-								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (wpos_mouse + offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
-								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (wpos_mouse - offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (wpos_mouse + offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (wpos_mouse - offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
 							}
 
 							if (info_new.valid)
@@ -179,7 +216,7 @@ namespace TC2.Base.Components
 						{
 							if (info_new.valid)
 							{
-								if (errors == Build.Errors.None)
+								if (errors_new == Build.Errors.None)
 								{
 									var rpc = new Wrench.Mode.Belts.SetTargetRPC()
 									{
@@ -236,7 +273,7 @@ namespace TC2.Base.Components
 												using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
 												{
 													var frame_size = new Vector2(48, 48);
-													var selected = this.recipe.id == recipe.id;
+													var selected = this.selected_recipe.id == recipe.id;
 													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 													{
 														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
@@ -270,32 +307,34 @@ namespace TC2.Base.Components
 								}
 							}
 
-							ref var selected_recipe = ref this.recipe.GetRecipe();
-							if (!selected_recipe.IsNull() && selected_recipe.placement.HasValue)
 							{
-								var placement = selected_recipe.placement.Value;
+								ref var recipe = ref this.selected_recipe.GetRecipe();
+								if (!recipe.IsNull() && recipe.placement.HasValue)
+								{
+									var placement = recipe.placement.Value;
 
-								GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+									GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+								}
+								//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
+
+								//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
+								//{
+								//	var rpc = new Wrench.Mode.Belts.ConfirmRPC()
+								//	{
+
+								//	};
+								//	rpc.Send(ent_wrench);
+								//}
 							}
-							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
-
-							//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
-							//{
-							//	var rpc = new Wrench.Mode.Belts.ConfirmRPC()
-							//	{
-
-							//	};
-							//	rpc.Send(ent_wrench);
-							//}
 						}
 
 						//if (info_src.valid)
 						if (info_src.valid && info_dst.valid)
 						{
-							ref var selected_recipe = ref this.recipe.GetRecipe();
-							if (!selected_recipe.IsNull() && selected_recipe.placement.HasValue)
+							ref var recipe = ref this.selected_recipe.GetRecipe();
+							if (!recipe.IsNull() && recipe.placement.HasValue)
 							{
-								var placement = selected_recipe.placement.Value;
+								var placement = recipe.placement.Value;
 
 								//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
 								//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
@@ -315,7 +354,7 @@ namespace TC2.Base.Components
 
 										using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
 										{
-											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
+											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
 											{
 												var rpc = new Wrench.Mode.Belts.ConfirmRPC()
 												{
@@ -369,6 +408,25 @@ namespace TC2.Base.Components
 							}
 						}
 					}
+				}
+
+				public static Build.Errors EvaluateBelt(ref Region.Data region, ref TargetInfo info, ref Crafting.Recipe recipe, byte faction_id = 0)
+				{
+					var errors = Build.Errors.None;
+
+					if (!recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(Crafting.Recipe.Tags.Belt) && recipe.placement.HasValue && info.valid)
+					{
+						var placement = recipe.placement.Value;
+
+						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(info.pos, 1.00f), faction_id: faction_id);
+						errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+					}
+					else
+					{
+						errors |= Build.Errors.Invalid;
+					}
+
+					return errors;
 				}
 
 				public static Build.Errors EvaluateBeltConnection(ref Region.Data region, ref TargetInfo info_src, ref TargetInfo info_dst, ref Crafting.Recipe recipe, out float distance, byte faction_id = 0)
@@ -447,7 +505,7 @@ namespace TC2.Base.Components
 					{
 						if (this.recipe.HasValue)
 						{
-							data.recipe = this.recipe.Value;
+							data.selected_recipe = this.recipe.Value;
 						}
 
 						data.Sync(entity);
@@ -462,7 +520,7 @@ namespace TC2.Base.Components
 					{
 						ref var region = ref entity.GetRegion();
 						ref var player = ref connection.GetPlayer();
-						ref var recipe = ref data.recipe.GetRecipe();
+						ref var recipe = ref data.selected_recipe.GetRecipe();
 
 						if (!region.IsNull() && !player.IsNull() && !recipe.IsNull())
 						{
