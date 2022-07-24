@@ -1,6 +1,4 @@
 ﻿
-using Keg.Engine.Game;
-
 namespace TC2.Base.Components
 {
 	public static partial class Wrench
@@ -16,15 +14,27 @@ namespace TC2.Base.Components
 		{
 			public static partial class Belts
 			{
+				// TODO: Make belts use recipes
+				public static Placement dev_placement = new Placement()
+				{
+					type = Placement.Type.Line,
+					length_max = 20.00f,
+					min_claim = 0.90f
+				};
+
 				[IComponent.Data(Net.SendType.Reliable)]
 				public partial struct Data: IComponent, Wrench.IMode
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
+					public Crafting.Recipe.Handle recipe;
+
 					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
 
 #if CLIENT
+					public static List<(uint index, float rank)> recipe_indices = new List<(uint index, float rank)>(64);
+
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var player = ref Client.GetPlayer();
@@ -33,8 +43,8 @@ namespace TC2.Base.Components
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
 
-						var pos_mouse = mouse.GetInterpolatedPosition();
-						var c_pos_mouse = GUI.WorldToCanvas(pos_mouse);
+						var wpos_mouse = mouse.GetInterpolatedPosition();
+						var cpos_mouse = GUI.WorldToCanvas(wpos_mouse);
 
 						var scale = GUI.GetWorldToCanvasScale();
 
@@ -44,18 +54,10 @@ namespace TC2.Base.Components
 
 						var errors = Build.Errors.None;
 
-						// TODO: Make belts use recipes
-						var placement = new Placement()
-						{
-							type = Placement.Type.Line,
-							length_max = 20.00f,
-							min_claim = 0.90f
-						};
-
 						//if (!info_src.valid || !info_dst.valid)
 						{
 							Span<OverlapResult> results = stackalloc OverlapResult[16];
-							if (region.TryOverlapPointAll(pos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
+							if (region.TryOverlapPointAll(wpos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
 							{
 								foreach (ref var result in results)
 								{
@@ -92,15 +94,15 @@ namespace TC2.Base.Components
 							}
 						}
 
-						errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
+						//errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
 
 						var color = GUI.font_color_yellow;
 						var color_src = GUI.font_color_success;
 						var color_dst = GUI.font_color_success;
 						var color_new = GUI.font_color_yellow;
 
-						var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(pos_mouse, 1.00f), player.faction_id);
-						errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+						//var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(wpos_mouse, 1.00f), player.faction_id);
+						//errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
 
 						//var is_allowed = claim_ratio > 0.90f;
 
@@ -108,6 +110,12 @@ namespace TC2.Base.Components
 						//{
 						//	color = GUI.font_color_red;
 						//}
+
+						if (info_src.valid && info_dst.valid)
+						{
+							ref var selected_recipe = ref this.recipe.GetRecipe();
+							errors |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_dst, ref selected_recipe, out _, player.faction_id);
+						}
 
 						if (errors != Build.Errors.None)
 						{
@@ -120,13 +128,13 @@ namespace TC2.Base.Components
 						{
 							if (!info_new.valid && !info_dst.valid)
 							{
-								var dir = (info_src.pos - pos_mouse).GetNormalizedFast();
+								var dir = (info_src.pos - wpos_mouse).GetNormalizedFast();
 								var n = new Vector2(-dir.Y, dir.X);
 								var offset_src = n * info_src.radius;
 								var offset_mouse = n * info_src.radius * 0.50f;
 
-								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (pos_mouse + offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
-								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (pos_mouse - offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos + offset_src).WorldToCanvas(), (wpos_mouse + offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
+								GUI.DrawLine2((info_src.pos - offset_src).WorldToCanvas(), (wpos_mouse - offset_mouse).WorldToCanvas(), color_src, color.WithAlphaMult(0.00f), 2.00f, 2.00f);
 							}
 
 							if (info_new.valid)
@@ -212,7 +220,63 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight())))
 						{
-							GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+							using (var dropdown = GUI.Dropdown.Begin("wrench.belts.recipes", "Select recipe...", new Vector2(GUI.GetRemainingWidth(), 40), padding: new Vector2(4, 4), spacing: 0.00f))
+							{
+								if (dropdown.show)
+								{
+									//GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), padding: new(8));
+
+									var recipes = Shop.GetAllRecipes();
+									foreach (ref var recipe in recipes)
+									{
+										if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(Crafting.Recipe.Tags.Belt))
+										{
+											using (GUI.ID.Push(recipe.id))
+											{
+												using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
+												{
+													var frame_size = new Vector2(48, 48);
+													var selected = this.recipe.id == recipe.id;
+													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+													{
+														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+														GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
+
+														if (button.pressed)
+														{
+															var rpc = new Wrench.Mode.Belts.EditRPC
+															{
+																recipe = new Crafting.Recipe.Handle(recipe.id)
+															};
+															rpc.Send(ent_wrench);
+															dropdown.Close();
+														}
+													}
+													if (GUI.IsItemHovered())
+													{
+														using (GUI.Tooltip.New())
+														{
+															using (GUI.Wrap.Push(256))
+															{
+																GUI.Title(recipe.name);
+																GUI.Text(recipe.desc, color: GUI.font_color_default);
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+							ref var selected_recipe = ref this.recipe.GetRecipe();
+							if (!selected_recipe.IsNull() && selected_recipe.placement.HasValue)
+							{
+								var placement = selected_recipe.placement.Value;
+
+								GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+							}
 							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
 
 							//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
@@ -228,33 +292,39 @@ namespace TC2.Base.Components
 						//if (info_src.valid)
 						if (info_src.valid && info_dst.valid)
 						{
-							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 0.50f)))
+							ref var selected_recipe = ref this.recipe.GetRecipe();
+							if (!selected_recipe.IsNull() && selected_recipe.placement.HasValue)
 							{
-								if (hud.show)
+								var placement = selected_recipe.placement.Value;
+
+								//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
+								//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
+								using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 0.50f)))
 								{
-									GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
-
-									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+									if (hud.show)
 									{
-										GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
-										var reversed = false;
+										GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
 
-										GUI.Checkbox("Reversed", ref reversed, size: new Vector2(GUI.GetRemainingWidth(), 32));
-									}
-
-									using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
-									{
-										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
+										using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
 										{
-											var rpc = new Wrench.Mode.Belts.ConfirmRPC()
-											{
+											GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+											var reversed = false;
 
-											};
-											rpc.Send(ent_wrench);
+											GUI.Checkbox("Reversed", ref reversed, size: new Vector2(GUI.GetRemainingWidth(), 32));
 										}
-										GUI.DrawHoverTooltip("Complete a belt connection.");
+
+										using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+										{
+											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
+											{
+												var rpc = new Wrench.Mode.Belts.ConfirmRPC()
+												{
+
+												};
+												rpc.Send(ent_wrench);
+											}
+											GUI.DrawHoverTooltip("Create a belt connection.");
+										}
 									}
 								}
 							}
@@ -301,6 +371,51 @@ namespace TC2.Base.Components
 					}
 				}
 
+				public static Build.Errors EvaluateBeltConnection(ref Region.Data region, ref TargetInfo info_src, ref TargetInfo info_dst, ref Crafting.Recipe recipe, out float distance, byte faction_id = 0)
+				{
+					var errors = Build.Errors.None;
+					distance = 0.00f;
+
+					if (!recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(Crafting.Recipe.Tags.Belt) && recipe.placement.HasValue && info_src.valid && info_dst.valid && info_src.entity != info_dst.entity)
+					{
+						var placement = recipe.placement.Value;
+
+						var dir = (info_src.pos - info_dst.pos).GetNormalized(out distance);
+						errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
+
+						var claim_ratio = MathF.Min(Claim.GetOverlapRatio(ref region, AABB.Circle(info_src.pos, 1.00f), faction_id: faction_id), Claim.GetOverlapRatio(ref region, AABB.Circle(info_dst.pos, 1.00f), faction_id: faction_id));
+						errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+
+						var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
+
+						Span<OverlapResult> results = stackalloc OverlapResult[32];
+						if (region.TryOverlapPointAll(pos_mid, 1.00f, ref results, mask: Physics.Layer.Belt))
+						{
+							foreach (ref var result in results)
+							{
+								ref var belt = ref result.entity.GetComponent<Belt.Data>();
+								if (!belt.IsNull())
+								{
+									var ent_belt_src = belt.a.entity;
+									var ent_belt_dst = belt.b.entity;
+
+									if ((ent_belt_src == info_src.entity && ent_belt_dst == info_dst.entity) || (ent_belt_src == info_dst.entity && ent_belt_dst == info_src.entity))
+									{
+										errors.SetFlag(Build.Errors.Obstructed, true);
+										break;
+									}
+								}
+							}
+						}
+					}
+					else
+					{
+						errors |= Build.Errors.Invalid;
+					}
+
+					return errors;
+				}
+
 				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Belts.Data>
 				{
 					public Entity ent_src;
@@ -323,67 +438,70 @@ namespace TC2.Base.Components
 #endif
 				}
 
+				public struct EditRPC: Net.IRPC<Wrench.Mode.Belts.Data>
+				{
+					public Crafting.Recipe.Handle? recipe;
+
+#if SERVER
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					{
+						if (this.recipe.HasValue)
+						{
+							data.recipe = this.recipe.Value;
+						}
+
+						data.Sync(entity);
+					}
+#endif
+				}
+
 				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Belts.Data>
 				{
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
 					{
 						ref var region = ref entity.GetRegion();
+						ref var player = ref connection.GetPlayer();
+						ref var recipe = ref data.recipe.GetRecipe();
 
-						var info_src = new TargetInfo(data.ent_src, true);
-						var info_dst = new TargetInfo(data.ent_dst, false);
-
-						if (info_src.valid && info_dst.valid)
+						if (!region.IsNull() && !player.IsNull() && !recipe.IsNull())
 						{
-							var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
-							var ok = true;
+							var errors = Build.Errors.None;
 
-							Span<OverlapResult> hits = stackalloc OverlapResult[32];
-							if (region.TryOverlapPointAll(pos_mid, 1.00f, ref hits, mask: Physics.Layer.Belt))
+							var info_src = new TargetInfo(data.ent_src, true);
+							var info_dst = new TargetInfo(data.ent_dst, false);
+
+							if (info_src.valid && info_dst.valid)
 							{
-								foreach (ref var hit in hits)
+								var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
+				
+								errors |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+								if (errors == Build.Errors.None)
 								{
-									ref var belt = ref hit.entity.GetComponent<Belt.Data>();
-									if (!belt.IsNull())
+									var arg = (data.ent_src, data.ent_dst);
+
+									region.SpawnPrefab("belt.rope", pos_mid).ContinueWith(ent =>
 									{
-										var ent_belt_src = belt.a.entity;
-										var ent_belt_dst = belt.b.entity;
-
-										if ((ent_belt_src == info_src.entity && ent_belt_dst == info_dst.entity) || (ent_belt_src == info_dst.entity && ent_belt_dst == info_src.entity))
+										ref var belt = ref ent.GetComponent<Belt.Data>();
+										if (!belt.IsNull())
 										{
-											ok = false;
+											belt.a.Set(arg.ent_src);
+											belt.b.Set(arg.ent_dst);
 
-											break;
+											belt.a_state.Set(arg.ent_src);
+											belt.b_state.Set(arg.ent_dst);
+
+											ent.MarkModified<Belt.Data>(sync: true);
 										}
-									}
+									});
+
+									data.ent_src = default;
+									data.ent_dst = default;
 								}
 							}
 
-							if (ok)
-							{
-								var arg = (data.ent_src, data.ent_dst);
-
-								region.SpawnPrefab("belt.rope", pos_mid).ContinueWith(ent =>
-								{
-									ref var belt = ref ent.GetComponent<Belt.Data>();
-									if (!belt.IsNull())
-									{
-										belt.a.Set(arg.ent_src);
-										belt.b.Set(arg.ent_dst);
-
-										belt.a_state.Set(arg.ent_src);
-										belt.b_state.Set(arg.ent_dst);
-
-										ent.MarkModified<Belt.Data>(sync: true);
-									}
-								});
-
-								data.ent_src = default;
-								data.ent_dst = default;
-							}
+							data.Sync(entity);
 						}
-
-						data.Sync(entity);
 					}
 #endif
 				}
