@@ -12,7 +12,7 @@ body:
 		radius: 0.500
 		friction: 0.990
 		elasticity: 0.700
-		material: fabric
+		material: rubber
 		layer: entity, belt, ignore_melee
 		mask: world
 	}
@@ -20,8 +20,8 @@ body:
 
 belt:
 {
-	force: 800.000
-	efficiency: 0.500
+	force: 4500.000
+	efficiency: 0.950
 	speed_max: 15.000
 }
 
@@ -29,7 +29,7 @@ belt.renderer:
 {
 	thickness: 0.250
 	z: 0.480
-	texture: "belt.rope"
+	texture: "belt.rubber"
 }
 
 transform:

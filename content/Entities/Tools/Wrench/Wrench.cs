@@ -90,21 +90,9 @@ namespace TC2.Base.Components
 							}
 						}
 
-						//errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
-
 						var color_src = GUI.font_color_success;
 						var color_dst = GUI.font_color_success;
 						var color_new = GUI.font_color_yellow;
-
-						//var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(wpos_mouse, 1.00f), player.faction_id);
-						//errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
-
-						//var is_allowed = claim_ratio > 0.90f;
-
-						//if (!is_allowed)
-						//{
-						//	color = GUI.font_color_red;
-						//}
 
 						{
 							ref var recipe = ref this.selected_recipe.GetRecipe();
@@ -138,13 +126,6 @@ namespace TC2.Base.Components
 								}
 							}
 						}
-
-						//if (errors != Build.Errors.None)
-						//{
-						//	//color_src = GUI.font_color_error;
-						//	color_dst = GUI.font_color_error;
-						//	color_new = GUI.font_color_error;
-						//}
 
 						if (errors_src != Build.Errors.None)
 						{
@@ -538,7 +519,7 @@ namespace TC2.Base.Components
 								{
 									var arg = (data.ent_src, data.ent_dst);
 
-									region.SpawnPrefab("belt.rope", pos_mid).ContinueWith(ent =>
+									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{
 										ref var belt = ref ent.GetComponent<Belt.Data>();
 										if (!belt.IsNull())
