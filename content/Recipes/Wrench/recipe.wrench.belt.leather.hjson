@@ -23,7 +23,7 @@
 		flags: none
 		
 		length_min: 1.000
-		length_max: 15.000
+		length_max: 20.000
 
 		size: [0.500, 0.500]
 		cooldown: 0.300

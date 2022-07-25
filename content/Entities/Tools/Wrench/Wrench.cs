@@ -21,6 +21,7 @@ namespace TC2.Base.Components
 					[Save.Ignore] public Entity ent_dst;
 
 					public Crafting.Recipe.Handle selected_recipe;
+					public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
 
@@ -328,9 +329,15 @@ namespace TC2.Base.Components
 										using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
 										{
 											GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
-											var reversed = false;
 
-											GUI.Checkbox("Reversed", ref reversed, size: new Vector2(GUI.GetRemainingWidth(), 32));
+											if (GUI.Checkbox("Reversed", ref this.flags, Belt.Flags.Crossed, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+											{
+												var rpc = new Wrench.Mode.Belts.EditRPC
+												{
+													flags = this.flags
+												};
+												rpc.Send(ent_wrench);
+											}
 										}
 
 										using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
@@ -480,6 +487,7 @@ namespace TC2.Base.Components
 				public struct EditRPC: Net.IRPC<Wrench.Mode.Belts.Data>
 				{
 					public Crafting.Recipe.Handle? recipe;
+					public Belt.Flags? flags;
 
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
@@ -487,6 +495,11 @@ namespace TC2.Base.Components
 						if (this.recipe.HasValue)
 						{
 							data.selected_recipe = this.recipe.Value;
+						}
+
+						if (this.flags.HasValue)
+						{
+							data.flags = this.flags.Value;
 						}
 
 						data.Sync(entity);
@@ -517,7 +530,7 @@ namespace TC2.Base.Components
 								errors |= Wrench.Mode.Belts.EvaluateBeltConnection(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{
-									var arg = (data.ent_src, data.ent_dst);
+									var arg = (data.ent_src, data.ent_dst, data.flags);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{
@@ -529,6 +542,8 @@ namespace TC2.Base.Components
 
 											belt.a_state.Set(arg.ent_src);
 											belt.b_state.Set(arg.ent_dst);
+
+											belt.flags = arg.flags;
 
 											ent.MarkModified<Belt.Data>(sync: true);
 										}
