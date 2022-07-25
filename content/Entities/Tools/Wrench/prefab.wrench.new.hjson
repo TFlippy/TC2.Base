@@ -45,15 +45,25 @@ transform:
 
 }
 
-// wrench:
-// {
-
-// }
-
-wrenchold:
+wrench:
 {
 
 }
+
+wrench.mode.belts:
+{
+
+}
+
+wrench.mode.ducts:
+{
+
+}
+
+// wrenchold:
+// {
+
+// }
 
 sound.emitter:
 {

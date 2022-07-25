@@ -15,7 +15,8 @@ body:
 		elasticity: 0.500
 		material: stone
 		layer: entity, solid
-		mask: world
+		mask: world, solid
+		exclude: tree, resource, essence
 	}
 }
 

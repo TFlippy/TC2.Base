@@ -77,7 +77,7 @@ joint.rope2:
 {
 	distance: 30.000
 	offset_a: [0.800, 0.000]
-	offset_b: [0.000, -0.500]
+	offset_b: [-0.500, 0.000]
 	max_force: 5000000000.000
 }
 
@@ -103,8 +103,8 @@ joint.rope2:
 	{
 		@shape.line:
 		{
-			a: [0.000, -0.700]
-			b: [0.000, 0.700]
+			a: [-0.700, 0.000]
+			b: [0.700, 0.000]
 			mass: 5.000
 			radius: 0.250
 			friction: 0.950
@@ -128,7 +128,7 @@ joint.rope2:
 	
 	joint.base:
 	{
-		offset_a: [0.000, 0.500]
+		offset_a: [0.500, 0.000]
 		max_force: 100000000.000
 		max_torque: 1000.000
 		flags: no_wrap, no_stress, no_aiming
