@@ -1,3 +1,8 @@
+$name: "Hornet"
+$desc: 
+	'''
+	A dangerous pest.
+	'''
 $export: false
 $tags: ["hornet"]
 

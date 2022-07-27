@@ -1,3 +1,8 @@
+$name: "Club"
+$desc: 
+	'''
+	Unga.
+	'''
 $tags: []
 
 control:
