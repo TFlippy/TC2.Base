@@ -8,15 +8,19 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 piston_offset = default;
-			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 steam_offset = default;
-			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset = default;
+			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 piston_offset;
+			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 steam_offset;
+			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset;
 
 			public float steam_size = 1.00f;
-			public float steam_interval = default;
-			public float piston_radius = default;
+			public float steam_interval;
+			public float piston_radius;
 
-			public float force = default;
+			public float speed_max;
+			public float speed_target;
+
+			public float force;
+			public float efficiency;
 
 			public float volume_multiplier = 1.00f;
 			public float pitch_multiplier = 1.00f;
@@ -31,29 +35,67 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			public float target_speed;
-			public float target_speed_current; 
-			
-			public float current_force;
+			public float speed_current; 		
+			public float force_current;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
 			[Save.Ignore, Net.Ignore] public float next_tick;
 		}
 
+		public struct ConfigureRPC: Net.IRPC<SteamEngine.Data>
+		{
+			public float? speed_target;
+
+#if SERVER
+			public void Invoke(ref NetConnection connection, Entity entity, ref SteamEngine.Data data)
+			{
+				var sync = false;
+
+				if (this.speed_target.HasValue)
+				{
+					data.speed_target = Maths.Clamp(this.speed_target.Value, 0.00f, data.speed_max);
+					sync = true;
+				}
+
+				if (sync)
+				{
+					data.Sync(entity);
+				}
+			}
+#endif
+		}
+
 		public const float update_interval = 0.20f;
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info,
-		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, 
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, state.target_speed);
 
-			steam_engine_state.target_speed_current = Maths.MoveTowards(steam_engine_state.target_speed_current, steam_engine_state.target_speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, steam_engine.speed_target, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			//wheel_state.SetAngularVelocity(steam_engine_state.current_force * steam_engine.piston_radius, steam_engine_state.target_speed_current);
-			wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, steam_engine_state.target_speed_current);
+			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, steam_engine_state.speed_current);
+
+			var torque = steam_engine.force * steam_engine.piston_radius;
+			var power = (float)(burner_state.available_power * steam_engine.efficiency); // wheel_state.old_tmp_torque * MathF.Abs(wheel_state.angular_velocity);
+			var speed = power / torque;
+			steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+
+			wheel_state.SetAngularVelocity(torque, Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
+
+			//burner_state.modifier = 
+
+
+			//burner_state.modifier = 
+			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - speed));
+			//App.WriteLine(m);
+
+			burner_state.modifier = (burner_state.modifier + (m * 0.05f)).Clamp01();
+
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
@@ -61,7 +103,7 @@ namespace TC2.Base.Components
 				//state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * steam_engine.speed_modifier, 0.00f);
 			}
 
-			steam_engine_state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * 1.00f, 0.00f);
+			//steam_engine.speed_target = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * 1.00f, 0.00f);
 		}
 
 #if CLIENT
@@ -82,24 +124,46 @@ namespace TC2.Base.Components
 					this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						using (GUI.Group.New(new(168, 96)))
+						using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
 						{
-							GUI.DrawInventoryDock(Inventory.Type.Fuel, new(48, 48));
+							//Boiler.DrawGauge(this.steam_engine_state.speed_current, 0.00f, this.steam_engine.speed_max);
+							Boiler.DrawGauge(MathF.Abs(this.wheel_state.angular_velocity), 0.00f, this.steam_engine.speed_max);
 
-							using (GUI.Group.New(padding: new(4, 4)))
+							GUI.SameLine();
+
+							GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 2000, size: new Vector2(24, GUI.GetRemainingHeight()));
+							//GUI.SameLine();
+							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.GetRemainingHeight()));
+
+							GUI.SameLine();
+
+
+							using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
 							{
-								GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00}/{this.steam_engine_state.target_speed:0.00} rad/s");
-								GUI.Text($"{this.wheel_state.old_tmp_torque:0.00} Nm/s");
-								GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity)):0.00} W");
+								GUI.DrawInventoryDock(Inventory.Type.Fuel, new(48, 48));
+
+
+								using (GUI.Group.New(padding: new(4, 4)))
+								{
+									//GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00}/{this.steam_engine.speed_max:0.00} rad/s");
+									GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00} rad/s");
+									GUI.Text($"{(this.wheel_state.old_tmp_torque * 0.010f):0.00} kNm/s");
+									GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity) * 0.001f):0.00} kW");
+									//GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity)):0.00} W");
+									//GUI.Text($"{(this.burner_state.available_power):0.00} W");
+								}
 							}
 						}
 
-						GUI.SameLine();
-
-						using (GUI.Group.New(new(24, 96)))
+						//if (GUI.SliderFloat("Target Speed", ref this.steam_engine.speed_target, 0.00f, this.steam_engine.speed_max, size: new Vector2(160, 32)))
+						if (GUI.SliderFloat("Target Speed", ref this.steam_engine.speed_target, 0.00f, this.steam_engine.speed_max, size: new Vector2(160, 32)))
 						{
-
-						}
+							var rpc = new SteamEngine.ConfigureRPC()
+							{
+								speed_target = this.steam_engine.speed_target
+							};
+							rpc.Send(this.ent_steam_engine);
+						}		
 					}
 				}
 			}
@@ -142,15 +206,15 @@ namespace TC2.Base.Components
 
 				var delta = 0.00f;
 
-				if (steam_engine_state.target_speed_current != 0.00f)
+				if (steam_engine_state.speed_current != 0.00f)
 				{
-					if (float.IsNegative(steam_engine_state.target_speed_current))
+					if (float.IsNegative(steam_engine_state.speed_current))
 					{
-						delta = steam_engine_state.target_speed - steam_engine_state.target_speed_current;
+						delta = steam_engine.speed_target - steam_engine_state.speed_current;
 					}
 					else
 					{
-						delta = steam_engine_state.target_speed_current - steam_engine_state.target_speed;
+						delta = steam_engine_state.speed_current - steam_engine.speed_target;
 					}
 				}
 
@@ -203,15 +267,15 @@ namespace TC2.Base.Components
 			ref var region = ref info.GetRegion();
 			var delta = 0.00f;
 
-			if (steam_engine_state.target_speed_current != 0.00f)
+			if (steam_engine_state.speed_current != 0.00f)
 			{
-				if (float.IsNegative(steam_engine_state.target_speed_current))
+				if (float.IsNegative(steam_engine_state.speed_current))
 				{
-					delta = steam_engine_state.target_speed - steam_engine_state.target_speed_current;
+					delta = steam_engine.speed_target - steam_engine_state.speed_current;
 				}
 				else
 				{
-					delta = steam_engine_state.target_speed_current - steam_engine_state.target_speed;
+					delta = steam_engine_state.speed_current - steam_engine.speed_target;
 				}
 			}
 
