@@ -21,6 +21,7 @@ namespace TC2.Base.Components
 
 			public float force;
 			public float efficiency;
+			public float shake_multiplier = 1.00f;
 
 			public float volume_multiplier = 1.00f;
 			public float pitch_multiplier = 1.00f;
@@ -68,7 +69,19 @@ namespace TC2.Base.Components
 
 		public const float update_interval = 0.20f;
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void UpdateShake(ISystem.Info info,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] ref Body.Data body,
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
+		{
+			if (body.type == Body.Type.Dynamic)
+			{
+				body.AddForceLocal(new Vector2(MathF.Cos(wheel_state.rotation * 2.00f), (MathF.Sin(wheel_state.rotation * 2.00f)) * 1) * wheel_state.angular_velocity * wheel_state.angular_momentum * steam_engine.shake_multiplier, Vector2.Zero);
+			}
+		}
+
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, 
@@ -91,10 +104,10 @@ namespace TC2.Base.Components
 
 
 			//burner_state.modifier = 
-			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - speed));
+			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - wheel_state.angular_velocity));
 			//App.WriteLine(m);
 
-			burner_state.modifier = (burner_state.modifier + (m * 0.05f)).Clamp01();
+			burner_state.modifier = MathF.Abs((burner_state.modifier + (m * 0.02f))).Clamp01();
 
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
@@ -280,6 +293,12 @@ namespace TC2.Base.Components
 			}
 
 			delta = MathF.Max(0.00f, delta);
+
+			delta = 0;
+			//if (MathF.Abs(delta) < 0.10f) delta = 0.00f;
+
+			//if (delta > -0.10f) delta = 0.00f;
+			//App.WriteLine(delta);
 
 			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, Maths.Clamp(delta * 2.00f, 0.00f, 1.00f), 0.10f);
 			sound_emitter.pitch = 1.00f; // 0.60f + Maths.Clamp(delta * 0.10f, 0.00f, 0.50f);
