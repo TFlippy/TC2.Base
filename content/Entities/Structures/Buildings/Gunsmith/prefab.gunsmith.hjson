@@ -1,3 +1,8 @@
+$name: "Gunsmith"
+$desc:
+	'''
+	Workshop equipped with various tools for manufacturing firearms.
+	'''
 $tags: []
 
 body:

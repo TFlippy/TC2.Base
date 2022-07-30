@@ -1,3 +1,8 @@
+$name: "Munitions Workshop"
+$desc:
+	'''
+	A workshop for manufacturing ammunition and explosives.
+	'''
 $tags: []
 
 body:
