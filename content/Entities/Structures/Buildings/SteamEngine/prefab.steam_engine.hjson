@@ -125,7 +125,7 @@ burner.state:
 axle:
 {
 	offset: [2.750, 0.000]
-	mass: 10.000
+	mass: 100.000
 	friction: 0.200
 	radius_a: 1.250
 	radius_b: 1.250

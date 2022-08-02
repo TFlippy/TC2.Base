@@ -81,42 +81,27 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, 
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
-			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, state.target_speed);
-
-			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, steam_engine.speed_target, steam_engine.max_acceleration * App.fixed_update_interval_s);
-			//wheel_state.SetAngularVelocity(steam_engine_state.current_force * steam_engine.piston_radius, steam_engine_state.target_speed_current);
-			//wheel_state.SetAngularVelocity(steam_engine.force * steam_engine.piston_radius, steam_engine_state.speed_current);
-
 			var torque = steam_engine.force * steam_engine.piston_radius;
-			var power = (float)(burner_state.available_power * steam_engine.efficiency); // wheel_state.old_tmp_torque * MathF.Abs(wheel_state.angular_velocity);
+			var power = (float)(burner_state.available_power * steam_engine.efficiency);
 			var speed = power / torque;
-			steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.05f);
 
-			wheel_state.SetAngularVelocity(torque, Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
+			wheel_state.SetAngularVelocity(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
-			//burner_state.modifier = 
-
-
-			//burner_state.modifier = 
 			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - wheel_state.angular_velocity));
-			//App.WriteLine(m);
-
-			burner_state.modifier = MathF.Abs((burner_state.modifier + (m * 0.02f))).Clamp01();
-
+			burner_state.modifier = (burner_state.modifier + (m * 0.01f)).Clamp01();
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
 				steam_engine_state.next_tick = info.WorldTime + update_interval;
-				//state.target_speed = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * steam_engine.speed_modifier, 0.00f);
 			}
-
-			//steam_engine.speed_target = MathF.Max((burner_state.current_temperature - 500.00f) * 0.01f * 1.00f, 0.00f);
 		}
 
 #if CLIENT
@@ -203,7 +188,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateRenderer(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
@@ -219,19 +204,21 @@ namespace TC2.Base.Components
 
 				var delta = 0.00f;
 
-				if (steam_engine_state.speed_current != 0.00f)
+				if (wheel_state.angular_velocity != 0.00f)
 				{
-					if (float.IsNegative(steam_engine_state.speed_current))
+					if (float.IsNegative(wheel_state.angular_velocity))
 					{
-						delta = steam_engine.speed_target - steam_engine_state.speed_current;
+						delta = steam_engine.speed_target - wheel_state.angular_velocity;
 					}
 					else
 					{
-						delta = steam_engine_state.speed_current - steam_engine.speed_target;
+						delta = wheel_state.angular_velocity - steam_engine.speed_target;
 					}
 				}
 
-				if (delta <= 0.00f)
+
+				//App.WriteLine(delta);
+				if (delta <= 0.10f)
 				{
 					Particle.Spawn(ref region, new Particle.Data()
 					{
@@ -260,7 +247,7 @@ namespace TC2.Base.Components
 			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadians();
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned, Pair.Of<SteamEngine.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
@@ -271,30 +258,31 @@ namespace TC2.Base.Components
 			sound_emitter.pitch = 0.60f + Maths.Clamp(speed * 0.10f * steam_engine.pitch_multiplier, 0.00f, 2.00f);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSoundExhaust(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
 		[Source.Owned, Pair.Of<SteamEngine.State>] ref Sound.Emitter sound_emitter)
 		{
 			var random = XorRandom.New();
 			ref var region = ref info.GetRegion();
 			var delta = 0.00f;
 
-			if (steam_engine_state.speed_current != 0.00f)
+			if (wheel_state.angular_velocity != 0.00f)
 			{
-				if (float.IsNegative(steam_engine_state.speed_current))
+				if (float.IsNegative(wheel_state.angular_velocity))
 				{
-					delta = steam_engine.speed_target - steam_engine_state.speed_current;
+					delta = steam_engine.speed_target - wheel_state.angular_velocity;
 				}
 				else
 				{
-					delta = steam_engine_state.speed_current - steam_engine.speed_target;
+					delta = wheel_state.angular_velocity - steam_engine.speed_target;
 				}
 			}
 
 			delta = MathF.Max(0.00f, delta);
 
-			delta = 0;
+			//delta = 0;
 			//if (MathF.Abs(delta) < 0.10f) delta = 0.00f;
 
 			//if (delta > -0.10f) delta = 0.00f;
