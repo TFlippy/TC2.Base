@@ -27,6 +27,7 @@ namespace TC2.Base.Components
 			None = 0,
 
 			No_Handle = 1 << 0,
+			Use_RMB = 1 << 1,
 		}
 
 		[IEvent.Data]
@@ -151,7 +152,9 @@ namespace TC2.Base.Components
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit)
+			var key = melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left;
+
+			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit)
 			{
 				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();

@@ -42,3 +42,8 @@ interactable:
 {
 	window_size: [700.000, 512.000]
 }
+
+blueprint:
+{
+	
+}
