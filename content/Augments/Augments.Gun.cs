@@ -2525,6 +2525,84 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.bayonet",
+				category: "Gun (Barrel)",
+				name: "Bayonet",
+				description: "Attaches a bayonet to the gun, giving it a secondary melee attack.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, 0.00f, 1.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size, snap: 0.125f);
+					GUI.SameLine();
+					dirty |= GUI.SliderFloat("Y", ref offset.Y, 0.00f, 1.00f, size: size, snap: 0.125f);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("gun.bayonet", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Thrust;
+						melee.aoe = 0.250f;
+						melee.thickness = 0.125f;
+						melee.category = Melee.Category.Bladed;
+						melee.cooldown = 1.00f;
+						melee.damage_base = 75.00f;
+						melee.damage_bonus = 200.00f;
+						melee.damage_type = Damage.Type.Stab;
+						melee.knockback = 2.00f;
+						melee.max_distance = 1.30f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
+						melee.flags |= Melee.Flags.Use_RMB;
+						melee.hit_offset = data.muzzle_offset + offset;
+					}
+
+					ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+					if (!melee_state.IsNull())
+					{
+
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.automatic_reloading",
 				category: "Gun (Ammo)",
 				name: "Automatic Reloading",
