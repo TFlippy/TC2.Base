@@ -1351,6 +1351,7 @@ namespace TC2.Base
 
 					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
 					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset = Maths.Snap(offset, 0.125f);
 
 					return true;
 				},
@@ -1399,9 +1400,11 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-					GUI.SameLine();
-					dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
 					return dirty;
 				},
@@ -1409,7 +1412,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("gun.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -1451,6 +1454,7 @@ namespace TC2.Base
 
 					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
 					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset = Maths.Snap(offset, 0.125f);
 
 					return true;
 				},
@@ -1492,9 +1496,14 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-					GUI.SameLine();
-					dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+
+					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
 					return dirty;
 				},
@@ -1502,7 +1511,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("gun.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2366,7 +2375,7 @@ namespace TC2.Base
 				{
 					var count = augments.GetCount(handle);
 
-					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
+					var sprite = new Sprite("augment.extra_barrel", 15, 15, (uint)(count - 1), 0);
 
 					//draw.DrawSprite("gun.extra_barrel", data.muzzle_offset, pivot: new(0.50f, 0.50f));
 					draw.DrawSprite(sprite, data.muzzle_offset, pivot: new(0.50f, 0.50f));
@@ -2567,7 +2576,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					draw.DrawSprite("gun.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2621,9 +2630,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size, snap: 0.125f);
-					GUI.SameLine();
-					dirty |= GUI.SliderFloat("Y", ref offset.Y, 0.00f, 1.00f, size: size, snap: 0.125f);
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
 
 					return dirty;
 				},
@@ -2631,7 +2638,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("gun.bayonet", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.bayonet", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2645,7 +2652,7 @@ namespace TC2.Base
 						melee.attack_type = Melee.AttackType.Thrust;
 						melee.aoe = 0.250f;
 						melee.thickness = 0.125f;
-						melee.category = Melee.Category.Bladed;
+						melee.category = Melee.Category.Pointed;
 						melee.cooldown = 1.00f;
 						melee.damage_base = 75.00f;
 						melee.damage_bonus = 200.00f;
@@ -2669,10 +2676,10 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
-				identifier: "gun.scope",
-				category: "Gun (Receiver)",
-				name: "Scope",
-				description: "Attach a scope.",
+				identifier: "gun.axe",
+				category: "Gun (Barrel)",
+				name: "Axe Blade",
+				description: "Attach an axe blade to the gun, giving it a secondary melee attack.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2699,9 +2706,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size, snap: 0.125f);
-					GUI.SameLine();
-					dirty |= GUI.SliderFloat("Y", ref offset.Y, 0.00f, 1.00f, size: size, snap: 0.125f);
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
 
 					return dirty;
 				},
@@ -2709,7 +2714,86 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("gun.scope", new Vector2(offset.X, -offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.axe", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Swing;
+						melee.aoe = 0.500f;
+						melee.thickness = 0.75f;
+						melee.category = Melee.Category.Bladed;
+						melee.cooldown = 2.00f;
+						melee.damage_base = 250.00f;
+						melee.damage_bonus = 100.00f;
+						melee.damage_type = Damage.Type.Axe;
+						melee.knockback = 2.50f;
+						melee.max_distance = 1.30f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
+						melee.flags |= Melee.Flags.Use_RMB;
+						melee.hit_offset = data.muzzle_offset + offset;
+						//melee.swing_offset = new Vector2(-1, 1);
+						melee.swing_offset = new Vector2(-1.00f, 0.00f);
+						melee.swing_rotation = -1.50f;
+					}
+
+					ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+					if (!melee_state.IsNull())
+					{
+
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.scope",
+				category: "Gun (Receiver)",
+				name: "Scope",
+				description: "Attach a scope.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2748,7 +2832,9 @@ namespace TC2.Base
 				{
 					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();
 
-					data.reload_interval *= 0.40f;
+					data.reload_interval = 2.70f;
+					data.flags |= Gun.Flags.Full_Reload;
+					data.sound_reload = "gun.reload.arcane.00";
 				},
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
