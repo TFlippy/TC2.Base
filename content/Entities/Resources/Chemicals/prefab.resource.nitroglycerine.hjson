@@ -8,7 +8,7 @@ body:
 		mass: 50.000
 		radius: 0.750
 		friction: 0.650
-		elasticity: 0.500
+		elasticity: 0.100
 		material: glass
 		layer: entity, solid, resource
 		mask: world
@@ -59,11 +59,11 @@ explosive:
 {
 	radius: 20.000
 	power: 5.000
-	damage_entity: 75000.000
+	damage_entity: 25000.000
 	damage_terrain: 100000.000
-	smoke_amount: 0.250
-	smoke_lifetime_multiplier: 0.100
-	smoke_velocity_multiplier: 3.000
+	smoke_amount: 0.500
+	smoke_lifetime_multiplier: 0.200
+	smoke_velocity_multiplier: 1.500
 	volume: 3.000
 	pitch: 6.500
 	health_threshold: 0.970
