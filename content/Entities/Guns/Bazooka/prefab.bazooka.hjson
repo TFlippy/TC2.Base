@@ -78,13 +78,13 @@ interactable:
 
 }
 
-attachable:
-{
-	offset: [-0.125, 0.000]
+// attachable:
+// {
+// 	offset: [-0.125, 0.000]
 
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
-}
+// 	force_multiplier: 1.000
+// 	torque_multiplier: 1.000
+// }
 
 holdable:
 {

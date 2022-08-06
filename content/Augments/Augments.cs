@@ -993,7 +993,7 @@ namespace TC2.Base
 				identifier: "holdable.attachable",
 				category: "Utility",
 				name: "Attachment Connector",
-				description: "Enables mounting this item onto attachment slots.",
+				description: "Enables mounting this item to attachment slots.",
 
 				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

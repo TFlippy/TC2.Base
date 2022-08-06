@@ -2727,14 +2727,14 @@ namespace TC2.Base
 					{
 						melee.attack_type = Melee.AttackType.Swing;
 						melee.aoe = 0.500f;
-						melee.thickness = 0.75f;
+						melee.thickness = 1.75f;
 						melee.category = Melee.Category.Bladed;
 						melee.cooldown = 2.00f;
 						melee.damage_base = 250.00f;
 						melee.damage_bonus = 100.00f;
 						melee.damage_type = Damage.Type.Axe;
 						melee.knockback = 2.50f;
-						melee.max_distance = 1.30f;
+						melee.max_distance = 2.00f;
 						melee.sound_swing = "tool_swing_00";
 						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
 						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
@@ -2743,6 +2743,7 @@ namespace TC2.Base
 						//melee.swing_offset = new Vector2(-1, 1);
 						melee.swing_offset = new Vector2(-1.00f, 0.00f);
 						melee.swing_rotation = -1.50f;
+						melee.hit_direction = new Vector2(0.00f, 1.00f);
 					}
 
 					ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
