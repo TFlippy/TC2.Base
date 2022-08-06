@@ -34,7 +34,9 @@ explosive:
 	power: 4.000
 	damage_entity: 10000.000
 	damage_terrain: 10000.000
-	smoke_amount: 2.000
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 2.000
 	flags: primed
 }
 

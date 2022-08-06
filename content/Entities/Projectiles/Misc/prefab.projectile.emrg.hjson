@@ -27,15 +27,15 @@ transform:
 
 }
 
-// explosive:
-// {
-// 	radius: 3.000
-// 	power: 6.000
-// 	damage_entity: 5000.000
-// 	damage_terrain: 5000.000
-// 	smoke_amount: 0.500
-// 	sparks_amount: 3.000
-// 	volume: 0.700
-// 	pitch: 3.500
-// 	flags: primed
-// }
+explosive:
+{
+	radius: 20.000
+	power: 10.000
+	damage_entity: 20000.000
+	damage_terrain: 200000.000
+	smoke_amount: 1.000
+	sparks_amount: 5.000
+	volume: 8.500
+	pitch: 2.500
+	flags: primed
+}

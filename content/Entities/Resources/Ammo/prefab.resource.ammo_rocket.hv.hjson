@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	offset: [0.000, 0.500]
 }
 
 transform:
@@ -61,6 +62,11 @@ explosive:
 	power: 5.000
 	damage_entity: 17500.000
 	damage_terrain: 17500.000
-	health_threshold: 0.950
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.200
+	smoke_velocity_multiplier: 3.000
+	volume: 1.400
+	pitch: 1.800
+	health_threshold: 0.500
 	flags: any_damage, explode_when_primed
 }
