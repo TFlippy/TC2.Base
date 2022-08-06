@@ -6,9 +6,9 @@ body:
 	{
 		offset: [0.000, 0.000]
 		mass: 2.000
-		radius: 0.400
-		friction: 0.950
-		elasticity: 0.200
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
 		layer: entity, solid, resource
 		mask: world
 		material: metal
@@ -42,7 +42,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:
