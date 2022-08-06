@@ -46,6 +46,11 @@ melee.state:
 
 }
 
+aimable:
+{
+
+}
+
 holdable:
 {
 	offset: [0.000, 0.500]

@@ -26,11 +26,6 @@ health:
 	max: 1000.000
 }
 
-aimable:
-{
-
-}
-
 melee:
 {
 	sound_swing: "tool_swing_00"
@@ -53,6 +48,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

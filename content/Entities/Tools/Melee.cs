@@ -28,6 +28,7 @@ namespace TC2.Base.Components
 
 			No_Handle = 1 << 0,
 			Use_RMB = 1 << 1,
+			Sync_Hit_Event = 1 << 2
 		}
 
 		[IEvent.Data]
@@ -51,6 +52,7 @@ namespace TC2.Base.Components
 			public float sound_pitch = 1.00f;
 
 			public Vector2 hit_offset = new(0.00f, 0.00f);
+			public Vector2 hit_direction = new(1.00f, 0.00f);
 
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
@@ -172,8 +174,7 @@ namespace TC2.Base.Components
 					default:
 					case Melee.AttackType.Swing:
 					{
-						//dir = transform.GetDirection();
-						dir = Vector2.Lerp(transform.GetDirection(), (control.mouse.position - transform.position).GetNormalized(), 0.50f);
+						dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.50f));
 					}
 					break;
 
@@ -183,7 +184,6 @@ namespace TC2.Base.Components
 					}
 					break;
 				}
-
 
 #if CLIENT
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
@@ -234,7 +234,17 @@ namespace TC2.Base.Components
 						data.direction = dir;
 						data.random = random;
 						data.target_material_type = result.material_type;
-						entity.Notify(ref data);
+
+						if (melee.flags.HasAny(Melee.Flags.Sync_Hit_Event))
+						{
+#if SERVER
+							entity.NotifyDeferred(data, sync: true);
+#endif
+						}
+						else
+						{
+							entity.Notify(ref data);
+						}
 
 						flags |= Damage.Flags.No_Sound;
 						modifier *= melee.penetration_falloff;

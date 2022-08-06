@@ -32,7 +32,7 @@ melee:
 	damage_base: 150.000
 	damage_bonus: 50.000
 	cooldown: 0.700
-	max_distance: 1.500
+	max_distance: 1.800
 	thickness: 1.500
 	hit_offset: [0.500, 0.000]
 	aoe: 0.100
@@ -47,6 +47,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

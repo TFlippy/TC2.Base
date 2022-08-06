@@ -48,6 +48,7 @@ melee:
 	damage_type: stab
 	attack_type: thrust
 	category: pointed
+	flags: sync_hit_event
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration
 }
