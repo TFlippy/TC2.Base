@@ -27,7 +27,7 @@
 	
 	projectile_count: 1
 	projectile_speed_mult: 0.160
-	projectile_spread_mult: 0.600
+	projectile_spread_mult: 0.400
 	projectile_heat: 70.000
 	projectile_velocity_min: 10.000
 	projectile_prefab: "projectile.bullet.sg.grenade"
