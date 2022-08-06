@@ -79,8 +79,8 @@ joint.motor:
 joint.rotarylimit:
 {
 	max_torque: 100000.000
-	min: -2.800
-	max: 2.800
+	min: -3.298
+	max: 0.157
 	max_bias: 20.000
 	error_bias: 0.0001
 }
