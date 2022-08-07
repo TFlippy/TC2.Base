@@ -1,7 +1,7 @@
 $name: "Shipment"
 $desc:
 	'''
-	A large shipping crate used for storing and transport of various goods.
+	A large shipping crate used for storage and transport of various goods.
 	'''
 $tags: []
 

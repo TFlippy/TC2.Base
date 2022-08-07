@@ -1,7 +1,7 @@
 $name: "Shipment"
 $desc:
 	'''
-	A tiny shipping crate used for storing and transport of various goods.
+	A tiny shipping crate used for storage and transport of various goods.
 	'''
 $tags: []
 
@@ -13,7 +13,7 @@ body:
 	{
 		size: [2.000, 1.125]
 		offset: [0.000, 0.000]
-		mass: 10.000
+		mass: 15.000
 		friction: 0.950
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid
