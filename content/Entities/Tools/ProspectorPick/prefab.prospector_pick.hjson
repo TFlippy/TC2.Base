@@ -1,3 +1,8 @@
+$name: "Prospector Pick"
+$desc:
+	'''
+	Can be used to examine the mineral composition of ground, which may come in handy when searching for ores.
+	'''
 $tags: []
 
 body:
@@ -46,6 +51,11 @@ melee.state:
 prospectorpick:
 {
 	max_depth: 10.000
+}
+
+aimable:
+{
+	
 }
 
 holdable:

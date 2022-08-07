@@ -1,3 +1,8 @@
+$name: "Chainsaw"
+$desc: 
+	'''
+	A powerful woodcutting tool powered by a high-speed ARC-MT motor.
+	'''
 $tags: []
 
 body:

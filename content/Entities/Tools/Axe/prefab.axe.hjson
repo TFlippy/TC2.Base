@@ -1,3 +1,8 @@
+$name: "Axe"
+$desc:
+	'''
+	Basic woodcutting tool and weapon.
+	'''
 $tags: []
 
 control:

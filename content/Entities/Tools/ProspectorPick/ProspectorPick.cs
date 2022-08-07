@@ -72,7 +72,7 @@ namespace TC2.Base.Components
 							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
 							GUI.DrawCircleFilled(b, 0.075f * GUI.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
 
-							GUI.Title("Ores");
+							GUI.Title("Minerals");
 
 							for (var i = 0; i < samples.Length; i++)
 							{

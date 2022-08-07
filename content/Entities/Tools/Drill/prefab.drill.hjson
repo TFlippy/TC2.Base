@@ -1,7 +1,7 @@
 $name: "Mining Drill"
 $desc: 
 	'''
-	A heavy-duty mining drill powered by a high-torque ARC-MT engine.
+	A heavy-duty mining drill powered by a high-torque ARC-MT motor.
 	'''
 $tags: []
 

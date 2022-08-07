@@ -1,3 +1,8 @@
+$name: "Pickaxe"
+$desc:
+	'''
+	Basic mining tool.
+	'''
 $tags: []
 
 control:
