@@ -1093,111 +1093,111 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Gun.Data>
-			(
-				identifier: "gun.barrel_extension",
-				category: "Gun (Barrel)",
-				name: "Barrel Extension",
-				description: "Increases muzzle velocity and damage.",
+//			definitions.Add(Augment.Definition.New<Gun.Data>
+//			(
+//				identifier: "gun.barrel_extension",
+//				category: "Gun (Barrel)",
+//				name: "Barrel Extension",
+//				description: "Increases muzzle velocity and damage.",
 
-				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var amount = ref handle.GetData<float>();
-					amount = Maths.Clamp(amount, 1.00f, 2.00f);
+//				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var amount = ref handle.GetData<float>();
+//					amount = Maths.Clamp(amount, 1.00f, 2.00f);
 
-					return true;
-				},
+//					return true;
+//				},
 
-				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
+//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					return !augments.HasAugment(handle);
+//				},
 
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
-				},
-#endif
+//#if CLIENT
+//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var value = ref handle.GetData<float>();
+//					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
+//				},
+//#endif
 
-				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var value = ref handle.GetData<float>();
-					var ratio = value - 1.00f;
+//				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var value = ref handle.GetData<float>();
+//					var ratio = value - 1.00f;
 
-					switch (data.type)
-					{
-						case Gun.Type.Handgun:
-						{
-							//var mult = Maths.Clamp(data.velocity_multiplier / (300.00f * (value * value)), 0.01f, 2.00f);
-							var mult = 1.00f - ratio;
+//					switch (data.type)
+//					{
+//						case Gun.Type.Handgun:
+//						{
+//							//var mult = Maths.Clamp(data.velocity_multiplier / (300.00f * (value * value)), 0.01f, 2.00f);
+//							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.25f, value);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
-						}
-						break;
+//							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f * mult, ratio);
+//							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f * mult, ratio);
+//							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.25f, value);
+//							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
+//						}
+//						break;
 
-						case Gun.Type.Rifle:
-						{
-							//var mult = Maths.Clamp(data.velocity_multiplier / (800.00f * (value)), 0.01f, 2.00f);
-							var mult = 1.00f - ratio;
+//						case Gun.Type.Rifle:
+//						{
+//							//var mult = Maths.Clamp(data.velocity_multiplier / (800.00f * (value)), 0.01f, 2.00f);
+//							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.27f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.13f * value, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f * mult, ratio);
-						}
-						break;
+//							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f * mult, ratio);
+//							data.damage_multiplier *= Maths.Lerp(1.00f, 1.27f * mult, ratio);
+//							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.13f * value, ratio);
+//							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f * mult, ratio);
+//						}
+//						break;
 
-						case Gun.Type.Shotgun:
-						{
-							data.damage_multiplier *= 1.21f;
-							data.recoil_multiplier *= 1.10f;
-							data.jitter_multiplier *= 0.40f;
-							data.velocity_multiplier *= 1.21f;
-						}
-						break;
+//						case Gun.Type.Shotgun:
+//						{
+//							data.damage_multiplier *= 1.21f;
+//							data.recoil_multiplier *= 1.10f;
+//							data.jitter_multiplier *= 0.40f;
+//							data.velocity_multiplier *= 1.21f;
+//						}
+//						break;
 
-						case Gun.Type.SMG:
-						{
-							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.15f;
-							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.07f;
-						}
-						break;
+//						case Gun.Type.SMG:
+//						{
+//							data.damage_multiplier *= 1.15f;
+//							data.recoil_multiplier *= 1.15f;
+//							data.jitter_multiplier *= 0.70f;
+//							data.velocity_multiplier *= 1.07f;
+//						}
+//						break;
 
-						default:
-						{
-							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.15f;
-							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.07f;
-						}
-						break;
-					}
+//						default:
+//						{
+//							data.damage_multiplier *= 1.15f;
+//							data.recoil_multiplier *= 1.15f;
+//							data.jitter_multiplier *= 0.70f;
+//							data.velocity_multiplier *= 1.07f;
+//						}
+//						break;
+//					}
 
-					switch (data.action)
-					{
-						case Gun.Action.Blowback:
-						{
-							data.cycle_interval *= 1.20f;
-						}
-						break;
+//					switch (data.action)
+//					{
+//						case Gun.Action.Blowback:
+//						{
+//							data.cycle_interval *= 1.20f;
+//						}
+//						break;
 
-						case Gun.Action.Gas:
-						{
-							data.cycle_interval *= 1.14f;
-							data.failure_rate += 0.01f;
-							data.failure_rate *= 1.10f;
-						}
-						break;
-					}
-				}
-			));
+//						case Gun.Action.Gas:
+//						{
+//							data.cycle_interval *= 1.14f;
+//							data.failure_rate += 0.01f;
+//							data.failure_rate *= 1.10f;
+//						}
+//						break;
+//					}
+//				}
+//			));
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(

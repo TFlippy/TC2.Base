@@ -174,7 +174,7 @@ namespace TC2.Base.Components
 					default:
 					case Melee.AttackType.Swing:
 					{
-						dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.50f));
+						dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
 					}
 					break;
 
@@ -184,6 +184,8 @@ namespace TC2.Base.Components
 					}
 					break;
 				}
+
+				//App.WriteLine(dir);
 
 #if CLIENT
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
@@ -203,6 +205,10 @@ namespace TC2.Base.Components
 					for (var i = 0; i < results.Length && penetration >= 0; i++)
 					{
 						ref var result = ref results[i];
+
+						//App.WriteLine($"{result.entity}");
+
+
 						if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 						if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 

@@ -12,7 +12,8 @@ namespace TC2.Base.Components
 			public float force = default;
 			public float fuel_time = 1.00f;
 			public float smoke_amount = 1.00f;
-			
+			public Vector2 velocity;
+
 			[Net.Ignore, Save.Ignore] public float smoke_accumulator = 0.00f;
 
 			public Data()
@@ -21,8 +22,21 @@ namespace TC2.Base.Components
 			}
 		}
 
+
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile)
+		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile)
+		{
+			if (rocket.fuel_time > 0.00f)
+			{
+				var dir = projectile.velocity.GetNormalized();
+				projectile.velocity += dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
+			}
+
+			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+		}
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile)
 		{
 			if (rocket.fuel_time > 0.00f)
 			{
