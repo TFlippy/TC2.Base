@@ -224,6 +224,11 @@ lootable:
 	]
 }
 
+faction:
+{
+	id: "badger"
+}
+
 +0|instance:
 {
 	$tags: []

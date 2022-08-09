@@ -56,6 +56,11 @@ building:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

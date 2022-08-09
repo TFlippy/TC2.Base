@@ -30,6 +30,11 @@ animated.renderer:
 	z: -300.000
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

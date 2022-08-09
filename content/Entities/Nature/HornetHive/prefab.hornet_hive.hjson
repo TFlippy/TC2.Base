@@ -139,13 +139,18 @@ rope.renderer:
 		]
 	}
 
-	faction.new:
+	faction:
 	{
-		tag: "HOR"
-		name: "Hornets"
-		color_a: "0xff0030ff"
-		color_b: "0xff080a52"
-
-		id: 200
+		id: "hornet"
 	}
+
+	// faction.new:
+	// {
+	// 	tag: "HOR"
+	// 	name: "Hornets"
+	// 	color_a: "0xff0030ff"
+	// 	color_b: "0xff080a52"
+
+	// 	id: 200
+	// }
 }

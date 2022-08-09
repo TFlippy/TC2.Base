@@ -64,6 +64,11 @@ nameable:
 	flags: no_rename, randomize
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: allow_enemy_unclaim

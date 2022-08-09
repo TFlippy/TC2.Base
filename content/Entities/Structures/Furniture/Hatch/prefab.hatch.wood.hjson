@@ -45,6 +45,11 @@ faction.colorable:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 

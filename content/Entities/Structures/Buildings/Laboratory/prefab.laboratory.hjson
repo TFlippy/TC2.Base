@@ -55,6 +55,11 @@ nameable:
 	flags: randomize
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

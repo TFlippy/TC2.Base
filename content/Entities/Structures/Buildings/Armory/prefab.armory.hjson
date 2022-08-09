@@ -42,6 +42,11 @@ faction.colorable:
 	intensity_b: 0.600
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

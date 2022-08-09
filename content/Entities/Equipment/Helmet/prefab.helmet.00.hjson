@@ -38,9 +38,9 @@ faction.colorable:
 	intensity_b: 0.700
 }
 
-claimable:
+faction:
 {
-	flags: no_menu
+	
 }
 
 transform:
