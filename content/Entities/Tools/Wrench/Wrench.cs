@@ -398,7 +398,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				public static Build.Errors EvaluateBelt(ref Region.Data region, ref TargetInfo info, ref Crafting.Recipe recipe, byte faction_id = 0)
+				public static Build.Errors EvaluateBelt(ref Region.Data region, ref TargetInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default)
 				{
 					var errors = Build.Errors.None;
 
@@ -417,7 +417,7 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static Build.Errors EvaluateBeltConnection(ref Region.Data region, ref TargetInfo info_src, ref TargetInfo info_dst, ref Crafting.Recipe recipe, out float distance, byte faction_id = 0)
+				public static Build.Errors EvaluateBeltConnection(ref Region.Data region, ref TargetInfo info_src, ref TargetInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default)
 				{
 					var errors = Build.Errors.None;
 					distance = 0.00f;

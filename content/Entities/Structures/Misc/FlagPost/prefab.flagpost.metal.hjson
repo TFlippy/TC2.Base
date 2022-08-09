@@ -45,6 +45,11 @@ transform:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu
