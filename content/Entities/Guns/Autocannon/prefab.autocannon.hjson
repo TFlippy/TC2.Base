@@ -34,7 +34,7 @@ gun:
 	reload_interval: 3.000
 	cycle_interval: 0.700
 	failure_rate: 0.002
-	max_ammo: 30.000
+	max_ammo: 10.000
 	sound_volume: 3.000
 	sound_size: 2.500
 	projectile_count: 1
