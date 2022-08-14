@@ -1,7 +1,7 @@
 $name: "Trash Can"
 $desc:
 	'''
-	A generic trash can.
+	A standard Imperial trash can.
 	Maybe it contains some treasure?
 	'''
 $tags: []
@@ -15,8 +15,8 @@ body:
 		size: [1.200, 1.700]
 		offset: [0.000, 0.000]
 		mass: 5.000
-		friction: 0.950
-		elasticity: 0.100
+		friction: 0.650
+		elasticity: 0.700
 		material: metal
 		layer: entity, solid, storage
 		mask: world

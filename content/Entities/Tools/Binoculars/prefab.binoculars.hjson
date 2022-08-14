@@ -6,10 +6,10 @@ body:
 	{
 		a: [-0.500, 0.000]
 		b: [0.500, 0.000]
-		radius: 0.250
+		radius: 0.300
 		mass: 2.000
-		friction: 0.980
-		elasticity: 0.010
+		friction: 0.850
+		elasticity: 0.500
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world

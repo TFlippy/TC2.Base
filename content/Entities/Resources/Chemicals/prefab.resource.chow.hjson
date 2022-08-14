@@ -23,7 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	offset: [0.000, -0.100]
+	offset: [0.000, -0.000]
 }
 
 transform:

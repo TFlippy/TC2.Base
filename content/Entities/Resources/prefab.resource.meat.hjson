@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	offset: [0.000, 0.250]
 }
 
 transform:
@@ -42,7 +43,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [0.000, 1.000]
 }
 
 norotate:

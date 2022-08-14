@@ -135,7 +135,7 @@ namespace TC2.Base.Components
 			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
 			{
-				if (arbiter.GetRigidity() > 0.90f)
+				if (arbiter.GetRigidityDynamic() > 0.90f)
 				{
 					normal += arbiter.GetNormal();
 					friction += arbiter.GetFriction();
