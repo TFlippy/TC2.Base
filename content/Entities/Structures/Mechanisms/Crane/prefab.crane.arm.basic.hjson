@@ -47,7 +47,7 @@ aimable:
 
 }
 
-attachable:
+attachment:
 {
 	offset: [-4.000, 0.000]
 
@@ -93,7 +93,7 @@ joint.rotarylimit:
 // 	max: 30.000
 // }
 
-attachment:
+attachment.slot:
 {
 	flags: keyboard_write, mouse_write
 }

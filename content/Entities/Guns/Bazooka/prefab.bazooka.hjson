@@ -78,7 +78,7 @@ interactable:
 
 }
 
-// attachable:
+// attachment:
 // {
 // 	offset: [-0.125, 0.000]
 

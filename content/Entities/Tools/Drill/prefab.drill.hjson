@@ -65,7 +65,7 @@ holdable:
 	flags: storable
 }
 
-attachable:
+attachment:
 {
 	offset: [-0.200, 0.000]
 	flags: none

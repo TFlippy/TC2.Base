@@ -576,7 +576,7 @@ namespace TC2.Base
 						holdable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.10f), 1.20f);
 					}
 
-					ref var attachable = ref context.GetComponent<Attachable.Data>();
+					ref var attachable = ref context.GetComponent<Attachment.Data>();
 					if (!attachable.IsNull())
 					{
 						attachable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.40f), 1.20f);
@@ -1008,7 +1008,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !context.HasComponent<Attachable.Data>();
+					return !context.HasComponent<Attachment.Data>();
 				},
 
 #if CLIENT
@@ -1040,7 +1040,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					ref var attachable = ref context.GetOrAddComponent<Attachable.Data>();
+					ref var attachable = ref context.GetOrAddComponent<Attachment.Data>();
 					if (!attachable.IsNull())
 					{
 						attachable.offset = offset;

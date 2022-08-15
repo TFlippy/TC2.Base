@@ -39,7 +39,7 @@ holdable:
 	flags: disable_parent_facing, disable_pickup_offset
 }
 
-attachable:
+attachment:
 {
 	offset: [0.000, 0.000]
 }
@@ -142,7 +142,7 @@ vehicle:
 		max_bias: 8.000
 	}
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 

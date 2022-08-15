@@ -107,7 +107,7 @@ interactable:
 	// 	max_bias: 0.700
 	// }
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 
@@ -153,7 +153,7 @@ interactable:
 			flags: disable_parent_facing
 		}
 
-		attachable:
+		attachment:
 		{
 			offset: [0.000, 0.000]
 			radius: 0.000

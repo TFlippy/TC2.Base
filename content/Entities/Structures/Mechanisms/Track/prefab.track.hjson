@@ -92,7 +92,7 @@ mount:
 
 +mount|instance:
 {
-	attachment:	
+	attachment.slot:	
 	{
 		name: "Mount"
 

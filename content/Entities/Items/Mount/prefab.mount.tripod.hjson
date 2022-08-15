@@ -140,7 +140,7 @@ vehicle:
 		max_bias: 8.000
 	}
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 

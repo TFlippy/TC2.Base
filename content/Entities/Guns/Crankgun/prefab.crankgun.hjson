@@ -80,7 +80,7 @@ holdable:
 	torque_multiplier: 0.500
 }
 
-attachable:
+attachment:
 {
 	offset: [-0.875, 0.600]
 

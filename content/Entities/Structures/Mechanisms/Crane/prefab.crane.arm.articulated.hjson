@@ -62,7 +62,7 @@ crane.state:
 
 }
 
-attachable:
+attachment:
 {
 	offset: [-4.000, 0.000]
 
@@ -101,7 +101,7 @@ joint.gear:
 	max: 30.000
 }
 
-attachment:
+attachment.slot:
 {
 	flags: keyboard_write, mouse_write
 }

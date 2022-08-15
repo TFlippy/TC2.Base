@@ -46,7 +46,7 @@ holdable:
 	flags: disable_parent_facing, disable_pickup_offset
 }
 
-attachable:
+attachment:
 {
 	offset: [0.000, 0.000]
 }
