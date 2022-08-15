@@ -81,6 +81,13 @@ namespace TC2.Base.Components
 			runner.walk_force *= Maths.Clamp(organic.strength, 0.50f, 1.80f) * organic.coordination * organic.motorics;
 			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics;
 			runner.max_speed *= organic_state.efficiency * organic.coordination;
+			runner.max_jump_speed *= organic_state.efficiency * organic.consciousness;
+		
+			if (organic_state.efficiency < 0.50f)
+			{
+				runner.max_speed *= 0.50f;
+				runner.max_jump_speed *= 0.20f;
+			}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]

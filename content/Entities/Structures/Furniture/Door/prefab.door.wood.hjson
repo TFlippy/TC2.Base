@@ -82,8 +82,3 @@ door:
 	fps_close: 8.000
 	fps_open: 6.000
 }
-
-threat:
-{
-	priority: 2.000
-}

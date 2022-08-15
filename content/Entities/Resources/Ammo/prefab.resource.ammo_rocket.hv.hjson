@@ -67,6 +67,6 @@ explosive:
 	smoke_velocity_multiplier: 3.000
 	volume: 1.400
 	pitch: 1.800
-	health_threshold: 0.500
+	health_threshold: 0.900
 	flags: any_damage, explode_when_primed
 }

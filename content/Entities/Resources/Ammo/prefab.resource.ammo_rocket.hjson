@@ -65,6 +65,6 @@ explosive:
 	smoke_amount: 3.000
 	smoke_lifetime_multiplier: 0.300
 	smoke_velocity_multiplier: 2.000
-	health_threshold: 0.500
+	health_threshold: 0.900
 	flags: any_damage, explode_when_primed
 }
