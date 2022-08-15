@@ -349,7 +349,7 @@
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 				}
-				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
+				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAll(Gun.Hints.Loaded))
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
@@ -683,6 +683,7 @@
 				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
+
 					//gun_state.stage = Gun.Stage.Reloading;
 					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 					entity.SyncComponent(ref gun_state);
