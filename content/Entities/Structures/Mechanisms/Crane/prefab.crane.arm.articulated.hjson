@@ -39,7 +39,7 @@ holdable:
 {
 	offset: [-4.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_control
 }
 
 transform:

@@ -91,7 +91,7 @@ holdable:
 {
 	offset: [-0.500, 0.500]
 	radius: 4.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_control
 
 	force_multiplier: 0.100
 	torque_multiplier: 0.100

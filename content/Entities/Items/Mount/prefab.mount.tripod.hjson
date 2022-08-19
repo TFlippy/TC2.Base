@@ -29,6 +29,7 @@ health:
 holdable:
 {
 	offset: [0.000, 0.000]
+	flags: disable_control
 }
 
 animated.renderer:

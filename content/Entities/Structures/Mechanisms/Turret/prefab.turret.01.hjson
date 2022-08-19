@@ -36,7 +36,7 @@ armor:
 holdable:
 {
 	radius: 0.000
-	flags: disable_parent_facing, disable_pickup_offset
+	flags: disable_parent_facing, disable_pickup_offset, disable_control
 }
 
 attachment:
