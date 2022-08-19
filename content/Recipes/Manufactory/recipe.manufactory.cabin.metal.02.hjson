@@ -1,10 +1,10 @@
 {
-	name: "Turret (Tank)"
-	desc: "Heavily armored metal turret with an attachment slot on top and a gunner seat."
+	name: "Cabin (Tank)"
+	desc: "Heavily armored metal cabin with an attachment slot on top and a gunner seat."
 	
 	icon:
 	{
-		texture: "turret.icon.02"
+		texture: "cabin.metal.icon.02"
 	}
 	
 	min: 1
@@ -45,7 +45,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "turret.02"
+			prefab: "cabin.metal.02"
 			amount: 1.000
 		}
 	]

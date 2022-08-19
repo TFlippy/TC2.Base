@@ -1,7 +1,7 @@
-$name: "Turret (Tank)"
+$name: "Cabin (Tank)"
 $desc:
 	'''
-	Heavily armored metal turret with an attachment slot on top and a gunner seat.
+	Heavily armored metal cabin with an attachment slot on top and a gunner seat.
 	'''
 $tags: []
 
@@ -61,7 +61,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "turret.02"
+		texture: "cabin.metal.02"
 	}
 	offset: [0.000, 0.000]
 	z: -100.000
@@ -105,7 +105,7 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "turret.fg.02"
+			texture: "cabin.metal.fg.02"
 		}
 		z: 10.000
 	}
