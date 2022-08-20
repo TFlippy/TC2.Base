@@ -76,6 +76,12 @@
 			scale: [-1.000, 1.000]
 		}
 		{
+			prefab: "soundscape.forest.day.00"
+			position: [145.000, 30.000]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
 			prefab: "tree.pine"
 			position: [315.750, 66.875]
 			rotation: 0.174533
