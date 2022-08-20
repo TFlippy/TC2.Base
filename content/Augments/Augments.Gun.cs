@@ -2676,6 +2676,117 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.silencer",
+				category: "Gun (Barrel)",
+				name: "Silencer",
+				description: "Attach a silencer to the gun.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.25f, 0.25f);
+					offset.Y = Maths.Clamp(offset.Y, -0.125f, 0.125f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_SG | Material.Flags.Ammo_HC | Material.Flags.Ammo_LC) && !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.25f, -0.125f), max: new Vector2(0.25f, 0.125f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var frame_y = 0u;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						frame_y = 3u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						frame_y = 2u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						frame_y = 1u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						frame_y = 0u;
+					}
+
+					var sprite = new Sprite("augment.silencer", 16, 8, 0, frame_y);
+
+					draw.DrawSprite(sprite, data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.25f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					data.sound_pitch *= 1.60f;
+					data.sound_volume *= 0.80f;
+					data.sound_size += 4.00f; // Diffuses the sound
+					data.sound_dist_multiplier *= 0.65f;
+					data.flash_size *= 0.65f;
+
+					data.velocity_multiplier *= 0.90f;
+					data.damage_multiplier *= 0.90f;
+					data.recoil_multiplier *= 0.60f;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						data.recoil_multiplier *= 0.50f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						data.recoil_multiplier *= 0.60f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						data.recoil_multiplier *= 0.60f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						data.recoil_multiplier *= 0.80f;
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += 0.50f;
+					}
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", 1.00f));
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 10));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.axe",
 				category: "Gun (Barrel)",
 				name: "Axe Blade",
