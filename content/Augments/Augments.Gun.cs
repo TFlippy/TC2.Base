@@ -2679,7 +2679,7 @@ namespace TC2.Base
 				identifier: "gun.silencer",
 				category: "Gun (Barrel)",
 				name: "Silencer",
-				description: "Attach a silencer to the gun.",
+				description: "Attach a silencer to the gun. Reduces sound intensity, muzzle velocity and recoil.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

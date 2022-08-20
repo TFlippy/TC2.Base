@@ -159,8 +159,6 @@
 
 				if (crafter.recipe.id != 0)
 				{
-					wheel_state.rotation %= MathF.Tau;
-
 					if (MathF.Abs(wheel_state.angular_velocity) > 1.00f)
 					{
 						crafter_state.current_work += 1.00f * update_interval;
