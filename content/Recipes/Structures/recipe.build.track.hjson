@@ -1,8 +1,8 @@
 {
-	name: "Track [WIP]"
+	name: "Rail [WIP]"
 	desc:
 		'''
-		TODO: Desc
+		A rail with a sliding mount on it.
 		'''
 	
 	icon:

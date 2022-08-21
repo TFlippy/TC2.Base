@@ -3,7 +3,7 @@
 	[
 		{
 			sound: "amb.city.day.loop.00"
-			volume: 0.115
+			volume: 0.105
 			pitch: 0.850
 			
 			mix: 

@@ -2745,7 +2745,7 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					data.sound_pitch *= 1.60f;
-					data.sound_volume *= 0.80f;
+					data.sound_volume *= 0.75f;
 					data.sound_size += 4.00f; // Diffuses the sound
 					data.sound_dist_multiplier *= 0.65f;
 					data.flash_size *= 0.65f;
