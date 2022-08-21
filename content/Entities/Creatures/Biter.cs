@@ -89,7 +89,7 @@ namespace TC2.Base.Components
 							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags);
 #endif
 
-						flags |= Damage.Flags.No_Sound;
+						//flags |= Damage.Flags.No_Sound;
 						modifier *= biter.penetration_falloff;
 						penetration--;
 					}

@@ -252,7 +252,7 @@ namespace TC2.Base.Components
 							entity.Notify(ref data);
 						}
 
-						flags |= Damage.Flags.No_Sound;
+						//flags |= Damage.Flags.No_Sound;
 						modifier *= melee.penetration_falloff;
 						penetration--;
 					}
