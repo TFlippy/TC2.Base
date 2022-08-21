@@ -1,6 +1,6 @@
 {
 	name: "Balloon (Heavy) [WIP]"
-	desc: "An armored hot-air balloon with arcane levitators."
+	desc: "An armored hot-air balloon."
 	
 	icon:
 	{
@@ -26,28 +26,28 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 40.000
+			amount: 65.000
 		}
 		{
 			type: "resource"
-			material: "smirgl_ingot"
-			amount: 25.000
+			material: "wood"
+			amount: 200.000
 		}
 		{
 			type: "resource"
-			material: "arcane_actuator"
-			amount: 35.000
+			material: "machine_parts"
+			amount: 45.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 4000.000
+			amount: 3000.000
 			difficulty: 18.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 2800.000
+			amount: 2000.000
 			difficulty: 20.000
 		}
 	]
