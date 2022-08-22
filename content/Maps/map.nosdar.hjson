@@ -106,7 +106,7 @@
 		{
 			prefab: "sign.kobold.arrow.00"
 			faction: "kobold.00"
-			position: [90.375, 56.500]
+			position: [89.375, 56.375]
 			rotation: 0.05236
 			scale: [1.000, 1.000]
 		}
@@ -866,8 +866,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [99.89252, 62.32525]
-			rotation: 1.773228
+			position: [99.89268, 62.32527]
+			rotation: 1.773182
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1270,7 +1270,7 @@
 		}
 		{
 			prefab: "barricade.wood.01"
-			position: [608.7501, 42.3549]
+			position: [608.7501, 42.35488]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -1311,8 +1311,8 @@
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [648.3474, 57.26898]
-			rotation: -5.252884
+			position: [648.3474, 57.269]
+			rotation: -5.252908
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1333,8 +1333,8 @@
 		}
 		{
 			prefab: "barrel.metal.wreck.00"
-			position: [620.6547, 72.37738]
-			rotation: -1.518954
+			position: [620.6426, 72.39216]
+			rotation: -1.554853
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1446,13 +1446,13 @@
 		{
 			prefab: "barrel.metal.00"
 			position: [598.4581, 42.60817]
-			rotation: 0.111967
+			rotation: 0.111973
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "pallet.ingot.iron.wreck.00"
 			position: [600.1218, 42.54496]
-			rotation: 0.057316
+			rotation: 0.05732
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1463,8 +1463,8 @@
 		}
 		{
 			prefab: "wreck.car"
-			position: [572.0443, 63.35485]
-			rotation: -0.002651
+			position: [572.0443, 63.35484]
+			rotation: -0.002647
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -1519,8 +1519,8 @@
 		}
 		{
 			prefab: "trashcan"
-			position: [676.7507, 56.62967]
-			rotation: 0.000554
+			position: [676.7507, 56.62965]
+			rotation: 0.000573
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1533,8 +1533,8 @@
 		}
 		{
 			prefab: "trashcan"
-			position: [652.1199, 42.75458]
-			rotation: 0.000694
+			position: [652.1199, 42.75457]
+			rotation: 0.000719
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1622,7 +1622,7 @@
 		}
 		{
 			prefab: "wreck.chain_fence.01"
-			position: [723.250, 68.125]
+			position: [723.375, 68.125]
 			rotation: 0.000
 			scale: [-1.000, 1.000]
 		}
@@ -1737,8 +1737,8 @@
 		}
 		{
 			prefab: "winch"
-			position: [739.6716, 53.72523]
-			rotation: 0.582397
+			position: [739.6674, 53.72522]
+			rotation: 0.579614
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1761,8 +1761,8 @@
 		}
 		{
 			prefab: "chair.wood.00"
-			position: [740.751, 44.10474]
-			rotation: 0.000406
+			position: [740.751, 44.10472]
+			rotation: 0.000443
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1807,13 +1807,13 @@
 		}
 		{
 			prefab: "lantern"
-			position: [748.3637, 35.41326]
+			position: [748.3638, 35.41322]
 			rotation: 0.000002
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "lantern"
-			position: [736.3102, 53.91728]
+			position: [736.3102, 53.91722]
 			rotation: 0.000005
 			scale: [1.000, 1.000]
 		}
@@ -1868,7 +1868,7 @@
 		{
 			prefab: "barrel.metal.wreck.00"
 			position: [737.7197, 70.77892]
-			rotation: 1.745346
+			rotation: 1.745344
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1893,14 +1893,14 @@
 		}
 		{
 			prefab: "barrel.metal.wreck.00"
-			position: [716.4225, 31.35474]
-			rotation: 0.000241
+			position: [716.4225, 31.35472]
+			rotation: 0.000257
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.car"
 			position: [703.0168, 31.35198]
-			rotation: -0.000979
+			rotation: -0.000981
 			scale: [1.000, 1.000]
 		}
 		{
@@ -1929,8 +1929,8 @@
 		}
 		{
 			prefab: "wreck.chair.wood.01"
-			position: [722.2762, 41.60407]
-			rotation: 0.001478
+			position: [722.2762, 41.60405]
+			rotation: 0.001512
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2143,8 +2143,8 @@
 		}
 		{
 			prefab: "chair.wood.00"
-			position: [656.0845, 48.60466]
-			rotation: 0.00054
+			position: [656.0845, 48.60464]
+			rotation: 0.000574
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2292,14 +2292,14 @@
 		}
 		{
 			prefab: "lantern"
-			position: [56.28603, 55.79226]
-			rotation: 0.000003
+			position: [58.00002, 55.79251]
+			rotation: 0.000
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "chair.wood.00"
-			position: [35.37853, 55.47963]
-			rotation: -0.000589
+			position: [35.37891, 55.47953]
+			rotation: -0.000748
 			scale: [-1.000, 1.000]
 		}
 		{
@@ -2329,24 +2329,24 @@
 		{
 			prefab: "barrel.metal.wreck.00"
 			position: [61.08765, 63.60662]
-			rotation: -1.289206
+			rotation: -1.289212
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "barrel.metal.00"
-			position: [34.8763, 61.35492]
+			position: [34.87638, 61.35492]
 			rotation: 0.000109
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "barrel.metal.00"
-			position: [25.67183, 61.53261]
-			rotation: -1.496254
+			position: [25.67185, 61.5326]
+			rotation: -1.496248
 			scale: [-1.000, 1.000]
 		}
 		{
 			prefab: "barrel.metal.wreck.00"
-			position: [45.02369, 61.85491]
+			position: [45.02377, 61.85491]
 			rotation: 0.00012
 			scale: [1.000, 1.000]
 		}
@@ -2396,44 +2396,44 @@
 		}
 		{
 			prefab: "steam_engine.small"
-			position: [28.37446, 60.85501]
-			rotation: -0
+			position: [27.6242, 60.855]
+			rotation: -0.000001
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "trashcan"
-			position: [42.67901, 48.50478]
-			rotation: 0.000357
+			position: [42.67912, 48.50476]
+			rotation: 0.000395
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.chair.wood.01"
-			position: [56.28578, 48.62397]
-			rotation: 0.095967
+			position: [56.28595, 48.62395]
+			rotation: 0.096022
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.chair.wood.01"
-			position: [80.12751, 50.60476]
-			rotation: 0.0003
+			position: [80.12762, 50.60472]
+			rotation: 0.000338
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "lantern"
-			position: [78.57289, 50.79233]
+			position: [78.57293, 50.79231]
 			rotation: -0.000001
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "wreck.trashcan"
-			position: [77.68525, 68.07691]
-			rotation: -0.87849
+			position: [77.68562, 68.07721]
+			rotation: -0.878282
 			scale: [1.000, 1.000]
 		}
 		{
 			prefab: "crate"
-			position: [50.68888, 55.50502]
-			rotation: -0
+			position: [48.74787, 55.50275]
+			rotation: -0.000864
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2522,8 +2522,8 @@
 		}
 		{
 			prefab: "wheel.rubber.00"
-			position: [39.27778, 55.65502]
-			rotation: 0.000
+			position: [39.125, 55.65502]
+			rotation: 0.538552
 			scale: [1.000, 1.000]
 		}
 		{
@@ -2596,7 +2596,7 @@
 		{
 			prefab: "crate.small"
 			position: [47.7057, 42.38001]
-			rotation: 0.000
+			rotation: 0.000003
 			scale: [1.000, 1.000]
 		}
 		{
@@ -3130,8 +3130,8 @@
 		{
 			prefab: "tractor"
 			faction: "kobold.00"
-			position: [49.16145, 61.91178]
-			rotation: 0.023256
+			position: [49.15974, 61.91006]
+			rotation: 0.022502
 			scale: [1.000, 1.000]
 		}
 		{
@@ -3303,6 +3303,232 @@
 			position: [561.423, 54.59015]
 			rotation: 0.000
 			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "resource.scrap"
+			position: [49.31511, 48.23001]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 148.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [41.49928, 55.35501]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 104.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [60.75676, 55.35203]
+			rotation: -0
+			scale: [1.000, 1.000]
+			quantity: 101.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [36.125, 61.35501]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 240.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [40.467, 41.98001]
+			rotation: -0
+			scale: [1.000, 1.000]
+			quantity: 241.000
+		}
+		{
+			prefab: "resource.mayo"
+			position: [56.74993, 55.35411]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 251.000
+		}
+		{
+			prefab: "resource.chow"
+			position: [45.750, 41.97777]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 341.000
+		}
+		{
+			prefab: "resource.meth"
+			position: [55.62514, 55.35501]
+			rotation: -0
+			scale: [1.000, 1.000]
+			quantity: 40.000
+		}
+		{
+			prefab: "resource.meth"
+			position: [37.61841, 55.35501]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 140.000
+		}
+		{
+			prefab: "resource.sauce"
+			position: [52.625, 55.35501]
+			rotation: -0
+			scale: [1.000, 1.000]
+			quantity: 100.000
+		}
+		{
+			prefab: "resource.sauce"
+			position: [43.750, 48.35351]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 37.000
+		}
+		{
+			prefab: "resource.meat"
+			position: [51.375, 55.00502]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 240.000
+		}
+		{
+			prefab: "resource.flour"
+			position: [40.250, 48.35411]
+			rotation: -0
+			scale: [1.000, 1.000]
+			quantity: 500.000
+		}
+		{
+			prefab: "resource.tar"
+			position: [33.750, 61.35288]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 500.000
+		}
+		{
+			prefab: "garbage.01"
+			position: [8.500, 60.500]
+			rotation: -0.191986
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.00"
+			position: [33.125, 48.000]
+			rotation: -0.139626
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.00"
+			position: [91.000, 58.125]
+			rotation: 0.000
+			scale: [-1.000, 1.000]
+		}
+		{
+			prefab: "garbage.00"
+			position: [217.875, 72.000]
+			rotation: -0.15708
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.01"
+			position: [534.2646, 49.95279]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.00"
+			position: [666.9136, 56.38058]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.01"
+			position: [723.739, 68.51391]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "garbage.00"
+			position: [587.8452, 42.50838]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "levitator.00"
+			position: [75.42231, 67.22591]
+			rotation: 1.767296
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "wreck.chair.wood.01"
+			position: [47.99749, 33.47132]
+			rotation: -0.141633
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "binoculars"
+			position: [50.6704, 36.77584]
+			rotation: 0.359341
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "resource.meth"
+			position: [45.60112, 33.59393]
+			rotation: 0.000013
+			scale: [1.000, 1.000]
+			quantity: 40.000
+		}
+		{
+			prefab: "lamp.02"
+			position: [49.500, 34.375]
+			rotation: 1.256637
+			scale: [1.000, 1.000]
+		}
+		{
+			prefab: "resource.scrap"
+			position: [105.7724, 63.98001]
+			rotation: 0.000
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [199.1652, 72.73003]
+			rotation: -0.000013
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [424.0887, 50.22995]
+			rotation: 0.000016
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [589.1559, 59.1675]
+			rotation: 0.000053
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [635.2817, 61.98001]
+			rotation: 0.000001
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.scrap"
+			position: [601.4863, 42.69088]
+			rotation: 0.000005
+			scale: [1.000, 1.000]
+			quantity: 250.000
+		}
+		{
+			prefab: "resource.paper"
+			position: [660.1274, 48.48001]
+			rotation: -0.000003
+			scale: [1.000, 1.000]
+			quantity: 500.000
 		}
 	]
 }
