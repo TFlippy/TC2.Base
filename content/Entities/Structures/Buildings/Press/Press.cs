@@ -63,7 +63,7 @@
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
 					Sound.Play(snd_smash[(press.current_sound_index++) % snd_smash.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.70f);
-					Shake.Emit(ref region, transform.position, 0.30f, 0.30f, radius: 16.00f);
+					Shake.Emit(ref region, transform.position, 0.40f, 0.40f, radius: 16.00f);
 
 					light.intensity = 1.00f;
 
@@ -74,17 +74,17 @@
 						Particle.Spawn(ref region, new Particle.Data()
 						{
 							texture = bigger_smoke_light,
-							lifetime = random.NextFloatRange(1.50f, 2.00f),
+							lifetime = random.NextFloatRange(1.50f, 3.00f),
 							pos = pos + random.NextVector2(0.50f),
 							vel = random.NextVector2Range(-1.00f, 1.00f),
 							fps = random.NextByteRange(5, 10),
 							frame_count = 64,
 							frame_count_total = 64,
 							frame_offset = random.NextByteRange(0, 64),
-							scale = random.NextFloatRange(0.70f, 1.00f),
+							scale = random.NextFloatRange(0.50f, 0.80f),
 							rotation = random.NextFloat(10.00f),
 							angular_velocity = random.NextFloatRange(-1.00f, 1.00f),
-							growth = random.NextFloatRange(0.25f, 0.40f),
+							growth = random.NextFloatRange(0.40f, 0.60f),
 							drag = random.NextFloatRange(0.01f, 0.03f),
 							force = new Vector2(0.00f, random.NextFloatRange(0, -2)),
 							color_a = random.NextColor32Range(0x80ffffff, 0xa0ffffff),
