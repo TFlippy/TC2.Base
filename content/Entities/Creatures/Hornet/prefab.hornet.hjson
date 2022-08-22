@@ -71,6 +71,7 @@ npc:
 	min_consciousness: 0.500
 	avoid_distance: [0.125, 0.000]
 	idle_distance: [1.000, 1.000]
+	wander_radius: 32.000
 }
 
 animal:
