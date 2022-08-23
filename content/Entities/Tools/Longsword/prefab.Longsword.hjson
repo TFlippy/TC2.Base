@@ -31,17 +31,17 @@ melee:
 	sound_swing: "tool_swing_00"
 	swing_offset: [1.500, 2.000]
 	swing_rotation: -2.500
-	damage_base: 250.000
-	damage_bonus: 150.000
+	damage_base: 350.000
+	damage_bonus: 200.000
 	cooldown: 2.500
-	max_distance: 2.000
-	thickness: 1.750
+	max_distance: 2.300
+	thickness: 0.850
 	hit_offset: [0.250, 0.000]
-	aoe: 0.300
+	aoe: 0.800
 	knockback: 2.500
 	yield: 0.300
 	penetration_falloff: 0.900
-	penetration: 3
+	penetration: 4
 	damage_type: slash
 	category: bladed
 	hit_mask: world, destructible
