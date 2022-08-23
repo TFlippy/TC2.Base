@@ -147,10 +147,10 @@ namespace TC2.Base.Components
 					color = Color32BGRA.Grey;
 				}
 
-				GUI.DrawTerrainOutline(ref region, this.pos_target, radius, color.WithAlphaMult(0.75f));
+				GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, color.WithAlphaMult(0.75f));
 
-				//GUI.DrawCircleFilled(c_pos, c_radius, GUI.font_color_green.WithAlphaMult(0.10f), segments: 16);
-				//GUI.DrawCircle(c_pos, c_radius, GUI.font_color_green.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
+				GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
+				GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
 
 				GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
 			}
@@ -198,7 +198,7 @@ namespace TC2.Base.Components
 				var hit_solid = false;
 
 				Span<LinecastResult> results = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude))
+				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 				{
 					results.SortByDistance();
 
@@ -215,24 +215,31 @@ namespace TC2.Base.Components
 							penetration = 0;
 							hit_terrain |= !result.entity.IsValid();
 							hit_any = true;
+							hit_solid = true;
 
-							pos_hit = pos + (dir * len * result.alpha) + (dir * melee.thickness);
+							pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
 							pos_hit = result.world_position;
 						}
 					}
 
-					for (var i = 0; i < results.Length && !hit_terrain && penetration >= 0; i++)
+					for (var i = 0; i < results.Length && !hit_solid && penetration >= 0; i++)
 					{
 						ref var result = ref results[i];
-						if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+						//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
 						{
 							//if (result.alpha <= 0.00f) continue;
 							if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 							if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
+							var closest_result = result.GetClosestPoint(pos_target, true);
+							if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+
 							modifier *= melee.penetration_falloff;
 							penetration--;
 							hit_any = true;
+
+							//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
+							pos_hit = closest_result.world_position;
 						}
 					}
 				}
@@ -390,7 +397,7 @@ namespace TC2.Base.Components
 								hit_any = true;
 								hit_solid = true;
 
-								pos_hit = pos + (dir * len * result.alpha) + (dir * melee.thickness);
+								pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
 								pos_hit = result.world_position;
 							}
 						}
@@ -405,11 +412,16 @@ namespace TC2.Base.Components
 								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
-								Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
+								var closest_result = result.GetClosestPoint(pos_target, true);
+								if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+
+								Melee.Hit(ref region, entity, parent, result.entity, closest_result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
 
 								modifier *= melee.penetration_falloff;
 								penetration--;
 								hit_any = true;
+
+								pos_hit = closest_result.world_position;
 							}
 						}
 					}
@@ -424,7 +436,6 @@ namespace TC2.Base.Components
 					{
 						material_type = tile.Block.material_type;
 					}
-
 
 					if (material_type != Material.Type.None)
 					{
