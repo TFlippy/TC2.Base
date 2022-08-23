@@ -140,12 +140,6 @@ namespace TC2.Base.Components
 				var radius = this.melee.aoe;
 				var c_radius = radius * GUI.GetWorldToCanvasScale();
 				var c_pos = GUI.WorldToCanvas(this.pos_target);
-				//var color = GUI.font_color_red;
-
-				//if (!this.valid)
-				//{
-				//	color = Color32BGRA.Grey;
-				//}
 
 				GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, color.WithAlphaMult(0.75f));
 
@@ -264,9 +258,6 @@ namespace TC2.Base.Components
 						hit_terrain = true;
 					}
 				}
-
-				//pos_hit += (dir * melee.aoe);
-
 
 				var gui = new BlockGUI()
 				{
@@ -445,8 +436,6 @@ namespace TC2.Base.Components
 
 									var closest_result = result.GetClosestPoint(pos_target, true);
 									if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
-
-									App.WriteLine("mine");
 
 									Melee.Hit(ref region, entity, parent, result.entity, closest_result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
 

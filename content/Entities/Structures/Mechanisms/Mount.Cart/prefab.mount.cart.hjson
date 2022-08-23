@@ -12,8 +12,8 @@ body:
 			[-1.500, 1.500]
 		]
 		mass: 7000.000
-		friction: 500.000
-		elasticity: 0.000
+		friction: 0.800
+		elasticity: 0.400
 		material: metal
 		layer: entity, solid
 		mask: world
