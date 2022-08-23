@@ -131,7 +131,7 @@ namespace TC2.Base.Components
 			public Melee.Data melee;
 			public Melee.State melee_state;
 			public Entity entity;
-			public bool valid;
+			public Color32BGRA color;
 
 			public void Draw()
 			{
@@ -140,12 +140,12 @@ namespace TC2.Base.Components
 				var radius = this.melee.aoe;
 				var c_radius = radius * GUI.GetWorldToCanvasScale();
 				var c_pos = GUI.WorldToCanvas(this.pos_target);
-				var color = GUI.font_color_red;
+				//var color = GUI.font_color_red;
 
-				if (!this.valid)
-				{
-					color = Color32BGRA.Grey;
-				}
+				//if (!this.valid)
+				//{
+				//	color = Color32BGRA.Grey;
+				//}
 
 				GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, color.WithAlphaMult(0.75f));
 
@@ -201,48 +201,70 @@ namespace TC2.Base.Components
 				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 				{
 					results.SortByDistance();
+					//var index_max = results.Length;
 
-					for (var i = 0; i < results.Length && !hit_terrain && penetration >= 0; i++)
+					for (var i = 0; i < results.Length && !hit_solid && penetration >= 0; i++)
 					{
 						ref var result = ref results[i];
-						if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+						if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
 						{
-							if (result.alpha <= 0.00f) continue;
+							//if (result.alpha <= 0.00f) continue;
 							if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 							if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
-							modifier *= melee.penetration_falloff;
-							penetration = 0;
+							//Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
+
+							//modifier *= melee.penetration_falloff;
+							//penetration = 0;
 							hit_terrain |= !result.entity.IsValid();
 							hit_any = true;
 							hit_solid = true;
+							//index_max = i;
 
 							pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
 							pos_hit = result.world_position;
 						}
 					}
 
-					for (var i = 0; i < results.Length && !hit_solid && penetration >= 0; i++)
+					if (!hit_solid)
 					{
-						ref var result = ref results[i];
-						//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+						for (var i = 0; i < results.Length && penetration >= 0; i++)
 						{
-							//if (result.alpha <= 0.00f) continue;
-							if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-							if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+							ref var result = ref results[i];
+							//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+							{
+								//if (result.alpha <= 0.00f) continue;
+								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
+								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
-							var closest_result = result.GetClosestPoint(pos_target, true);
-							if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+								var closest_result = result.GetClosestPoint(pos_target, true);
+								if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
 
-							modifier *= melee.penetration_falloff;
-							penetration--;
-							hit_any = true;
+								modifier *= melee.penetration_falloff;
+								penetration--;
+								hit_any = true;
 
-							//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-							pos_hit = closest_result.world_position;
+								//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
+								pos_hit = closest_result.world_position;
+							}
 						}
 					}
 				}
+
+				if (!hit_any)
+				{
+					var material_type = default(Material.Type);
+					if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
+					{
+						material_type = tile.Block.material_type;
+					}
+
+					if (material_type != Material.Type.None)
+					{
+						hit_terrain = true;
+					}
+				}
+
 				//pos_hit += (dir * melee.aoe);
 
 
@@ -254,8 +276,13 @@ namespace TC2.Base.Components
 					melee_state = melee_state,
 					pos_target = pos_target,
 					pos_hit = pos_hit,
-					valid = hit_any
+					//valid = hit_any
 				};
+
+				if (hit_terrain) gui.color = Color32BGRA.Yellow;
+				else if (hit_any) gui.color = Color32BGRA.Red;
+				else gui.color = Color32BGRA.Grey;
+
 				gui.Submit();
 			}
 		}
@@ -379,49 +406,56 @@ namespace TC2.Base.Components
 					if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 					{
 						results.SortByDistance();
+						var index_max = results.Length;
 
-						for (var i = 0; i < results.Length && !hit_terrain && penetration >= 0; i++)
+						for (var i = 0; i < index_max && !hit_solid && penetration >= 0; i++)
 						{
 							ref var result = ref results[i];
-							if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
-							{
-								if (result.alpha <= 0.00f) continue;
-								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-								Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-								modifier *= melee.penetration_falloff;
-								penetration = 0;
-								hit_terrain |= !result.entity.IsValid();
-								hit_any = true;
-								hit_solid = true;
-
-								pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-								pos_hit = result.world_position;
-							}
-						}
-
-						for (var i = 0; i < results.Length && !hit_solid && penetration >= 0; i++)
-						{
-							ref var result = ref results[i];
-
-							//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+							if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
 							{
 								//if (result.alpha <= 0.00f) continue;
 								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
 								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
-								var closest_result = result.GetClosestPoint(pos_target, true);
-								if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
-
-								Melee.Hit(ref region, entity, parent, result.entity, closest_result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-								modifier *= melee.penetration_falloff;
-								penetration--;
+								//modifier *= melee.penetration_falloff;
+								//penetration = 0;
+								hit_terrain |= !result.entity.IsValid();
 								hit_any = true;
+								hit_solid = true;
+								index_max = i;
 
-								pos_hit = closest_result.world_position;
+								pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
+								pos_hit = result.world_position;
+
+								Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
+							}
+						}
+
+						if (!hit_solid)
+						{
+							for (var i = 0; i < results.Length && penetration >= 0; i++)
+							{
+								ref var result = ref results[i];
+
+								//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+								{
+									//if (result.alpha <= 0.00f) continue;
+									if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
+									if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+
+									var closest_result = result.GetClosestPoint(pos_target, true);
+									if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+
+									App.WriteLine("mine");
+
+									Melee.Hit(ref region, entity, parent, result.entity, closest_result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
+
+									modifier *= melee.penetration_falloff;
+									penetration--;
+									hit_any = true;
+
+									pos_hit = closest_result.world_position;
+								}
 							}
 						}
 					}
@@ -429,8 +463,6 @@ namespace TC2.Base.Components
 
 				if (!hit_any)
 				{
-					App.WriteLine("empty");
-
 					var material_type = default(Material.Type);
 					if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
 					{
