@@ -42,7 +42,7 @@ animated.renderer:
 	{
 		texture: "grenade"
 	}
-	offset: [0.125, -0.125]
+	offset: [0.000, -0.0625]
 	scale: [0.800, 0.800]
 }
 

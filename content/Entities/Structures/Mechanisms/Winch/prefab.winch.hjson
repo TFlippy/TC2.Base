@@ -1,4 +1,4 @@
-$tags: []
+c$tags: []
 
 body:
 {
@@ -151,11 +151,11 @@ joint.rope2:
 		offset: [-0.500, 0.000]
 	}
 
-	attachment:
-	{
-		offset: [-0.500, 0.000]
-		flags: none
-	}
+	// attachment:
+	// {
+	// 	offset: [-0.500, 0.000]
+	// 	flags: none
+	// }
 
 	control:
 	{
