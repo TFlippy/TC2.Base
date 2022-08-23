@@ -3,6 +3,13 @@ namespace TC2.Base.Components
 {
 	public static partial class Climber_DEV
 	{
+		public static Sound.Handle[] snd_walljump =
+		{
+			"walljump.00",
+			"walljump.01",
+			"walljump.02"
+		};
+
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void OnUpdate(ISystem.Info info, Entity entity,
@@ -116,6 +123,11 @@ namespace TC2.Base.Components
 							max_speed.Y *= 2.50f;
 
 							climber.last_walljump = info.WorldTime;
+
+#if CLIENT
+							var random = XorRandom.New();
+							Sound.Play(snd_walljump.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.22f, 0.25f), pitch: random.NextFloatRange(0.85f, 0.95f));
+#endif
 						}
 					}
 
@@ -358,7 +370,7 @@ namespace TC2.Base.Components
 			}
 
 			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, runner_state.last_ground);
-			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.50f, 0.00f, 1.00f), 0.20f);
+			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 
 			//max_speed *= runner_state.speed_modifier;
 			//force *= runner_state.force_modifier;
