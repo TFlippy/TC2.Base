@@ -10,8 +10,8 @@
 	
 	type: metal
 	flags: manufactured, essence
-	mass_per_unit: 0.750
-	quantity_max: 100.000
+	mass_per_unit: 0.500
+	quantity_max: 500.000
 	prefab: "resource.pellet.life"
 	
 	projectile_count: 0

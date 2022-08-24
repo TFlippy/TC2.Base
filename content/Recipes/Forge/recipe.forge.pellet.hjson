@@ -12,9 +12,10 @@
 		frame: [3, 0]
 	}
 	
-	min: 4
-	max: 100
-	step: 4
+	min: 5
+	max: 500
+	step: 5
+
 	type: workshop
 	tags: forge
 	
@@ -23,7 +24,7 @@
 		{
 			type: "resource"
 			material: "arcanite_ingot"
-			amount: 0.250
+			amount: 0.200
 		}
 		{
 			type: "work"

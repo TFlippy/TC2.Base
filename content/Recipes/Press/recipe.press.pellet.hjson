@@ -12,9 +12,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 4
-	max: 4
-	step: 4
+	min: 5
+	max: 5
+	step: 5
 	
 	flags: no_amount_multiplier
 	type: crafter
@@ -25,7 +25,7 @@
 		{
 			type: "resource"
 			material: "arcanite_ingot"
-			amount: 0.250
+			amount: 0.200
 		}
 		{
 			type: "work"

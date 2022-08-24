@@ -52,6 +52,19 @@ namespace TC2.Base.Components
 			return material.id < material_to_essence.Length ? material_to_essence[material.id] : default;
 		}
 
+		public static Prefab.Handle GetEssencePrefab(Essence.Type type) => type switch
+		{
+			Essence.Type.Heat => "essence_node.heat",
+			Essence.Type.Motion => "essence_node.motion",
+			Essence.Type.Life => "essence_node.life",
+			Essence.Type.Radiance => "essence_node.radiance",
+			Essence.Type.Cognition => "essence_node.cognition",
+			Essence.Type.Electricity => "essence_node.electricity",
+			Essence.Type.Failure => "essence_node.failure",
+
+			_ => default
+		};
+
 		// TODO: Just for debugging (until essences get implemented properly)
 		public static ColorBGRA GetColor(Essence.Type type) => type switch
 		{
