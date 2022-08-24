@@ -11,7 +11,7 @@
 	type: metal
 	flags: manufactured, essence
 	mass_per_unit: 0.500
-	quantity_max: 500.000
+	quantity_max: 100.000
 	prefab: "resource.pellet.failure"
 	
 	projectile_count: 0
