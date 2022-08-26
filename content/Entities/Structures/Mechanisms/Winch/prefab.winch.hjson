@@ -4,13 +4,15 @@ body:
 {
 	type: dynamic
 	
-	@shape.circle:
+	@shape.line:
 	{
-		radius: 0.750
+		a: [-0.125, 0.000]
+		b: [0.375, 0.000]
+		radius: 0.625
 		mass: 20.000
 		offset: [0.000, 0.000]
 		friction: 0.750
-		elasticity: 0.100
+		elasticity: 0.400
 		material: metal
 		layer: entity, solid, ignore_melee, ignore_bullet
 		mask: world
@@ -114,9 +116,9 @@ joint.rope2:
 		{
 			a: [-0.700, 0.000]
 			b: [0.700, 0.000]
-			mass: 3.000
+			mass: 4.000
 			radius: 0.250
-			friction: 0.550
+			friction: 0.450
 			elasticity: 0.500
 			material: metal
 			layer: entity, solid
