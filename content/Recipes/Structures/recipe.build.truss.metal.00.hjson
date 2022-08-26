@@ -39,7 +39,7 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 2.500
+			amount: 2.000
 		}
 	]
 	
