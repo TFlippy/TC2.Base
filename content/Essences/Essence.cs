@@ -5,11 +5,12 @@ namespace TC2.Base.Components
 	{
 		public interface IPowered: IComponent
 		{
-			public float AvailableEssence { get; set; }
+			public float EssenceAvailable { get; set; }
+			public float EssenceRate { get; set; }
 
 			public static void UpdateInventory<T>(ref T powered, ref Inventory1.Data inventory) where T : unmanaged, Essence.IPowered
 			{
-				powered.AvailableEssence = inventory.resource.quantity * essence_per_pellet;
+				powered.EssenceAvailable = inventory.resource.quantity * essence_per_pellet;
 			}
 		}
 
@@ -32,7 +33,7 @@ namespace TC2.Base.Components
 		private static Essence.Type[] material_to_essence;
 
 		public const float essence_per_pellet = 5.00f;
-		public const float force_per_motion_essence = 4000.00f;
+		public const float force_per_motion_essence = 2000.00f;
 
 		public static void Init()
 		{

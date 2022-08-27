@@ -44,7 +44,7 @@ melee:
 	terrain_damage_multiplier: 6.000
 	cooldown: 0.900
 	max_distance: 2.000
-	thickness: 0.500
+	thickness: 0.250
 	hit_offset: [0.500, 0.000]
 	aoe: 1.000
 	knockback: 1.000

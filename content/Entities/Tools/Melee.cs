@@ -137,7 +137,7 @@ namespace TC2.Base.Components
 			{
 				ref var region = ref Client.GetRegion();
 
-				var radius = this.melee.aoe;
+				var radius = this.melee.thickness;
 				var c_radius = radius * GUI.GetWorldToCanvasScale();
 				var c_pos = GUI.WorldToCanvas(this.pos_target);
 
@@ -168,21 +168,23 @@ namespace TC2.Base.Components
 				var pos = transform.LocalToWorld(melee.hit_offset);
 				var dir = default(Vector2);
 
-				switch (melee.attack_type)
-				{
-					default:
-					case Melee.AttackType.Swing:
-					{
-						dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
-					}
-					break;
+				//switch (melee.attack_type)
+				//{
+				//	default:
+				//	case Melee.AttackType.Swing:
+				//	{
+				//		dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
+				//	}
+				//	break;
 
-					case Melee.AttackType.Thrust:
-					{
-						dir = (control.mouse.position - transform.position).GetNormalized();
-					}
-					break;
-				}
+				//	case Melee.AttackType.Thrust:
+				//	{
+				//		dir = (control.mouse.position - transform.position).GetNormalized();
+				//	}
+				//	break;
+				//}
+				dir = (control.mouse.position - transform.position).GetNormalized();
+
 
 				//var len = melee.max_distance; // MathF.Min(melee.max_distance, Vector2.Distance(control.mouse.position, pos));
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
@@ -194,14 +196,14 @@ namespace TC2.Base.Components
 				var hit_any = false;
 				var hit_terrain = false;
 				var hit_solid = false;
+				var index_max = -1;
+				var dist_max = -1.00f;
 
 				Span<LinecastResult> results = stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 				{
 					results.SortByDistance();
-					var index_max = -1;
-					var dist_max = 0.00f;
-
+					
 					// Find first solid/blocking shape
 					for (var i = 0; i < results.Length; i++)
 					{
@@ -231,7 +233,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					if (dist_max <= 0.00f)
+					if (dist_max < 0.00f)
 					{
 						dist_max = len;
 					}
@@ -248,7 +250,7 @@ namespace TC2.Base.Components
 								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 								var closest_result = result.GetClosestPoint(pos_target, true);
-								if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+								if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 								modifier *= melee.penetration_falloff;
 								penetration--;
@@ -259,6 +261,8 @@ namespace TC2.Base.Components
 								//pos_target = closest_result.world_position; // pos + (dir * len * result.alpha) + (dir * melee.thickness);
 								//pos_target = pos + (dir * dist_max);
 								pos_hit = closest_result.world_position;
+
+								if (i == index_max) break;
 							}
 						}
 					}
@@ -299,7 +303,7 @@ namespace TC2.Base.Components
 					transform = transform,
 					melee = melee,
 					melee_state = melee_state,
-					pos_target = pos_target,
+					pos_target = pos_target.ClampRadius(pos, dist_max + melee.thickness),
 					pos_hit = pos_hit,
 					//valid = hit_any
 				};
@@ -394,21 +398,22 @@ namespace TC2.Base.Components
 				var pos = transform.LocalToWorld(melee.hit_offset);
 				var dir = default(Vector2);
 
-				switch (melee.attack_type)
-				{
-					default:
-					case Melee.AttackType.Swing:
-					{
-						dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
-					}
-					break;
+				//switch (melee.attack_type)
+				//{
+				//	default:
+				//	case Melee.AttackType.Swing:
+				//	{
+				//		dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
+				//	}
+				//	break;
 
-					case Melee.AttackType.Thrust:
-					{
-						dir = (control.mouse.position - transform.position).GetNormalized();
-					}
-					break;
-				}
+				//	case Melee.AttackType.Thrust:
+				//	{
+				//		dir = (control.mouse.position - transform.position).GetNormalized();
+				//	}
+				//	break;
+				//}
+				dir = (control.mouse.position - transform.position).GetNormalized();
 
 				//var len = MathF.Min(melee.max_distance, Vector2.Distance(control.mouse.position, pos));
 				//var pos_target = pos + (dir * len);
@@ -442,7 +447,7 @@ namespace TC2.Base.Components
 					{
 						results.SortByDistance();
 						var index_max = -1;
-						var dist_max = 0.00f;
+						var dist_max = -1.00f;
 
 						// Find first solid/blocking shape
 						for (var i = 0; i < results.Length; i++)
@@ -473,7 +478,7 @@ namespace TC2.Base.Components
 							}
 						}
 
-						if (dist_max <= 0.00f)
+						if (dist_max < 0.00f)
 						{
 							dist_max = len;
 						}
@@ -490,7 +495,7 @@ namespace TC2.Base.Components
 									if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 									var closest_result = result.GetClosestPoint(pos_target, true);
-									if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
+									if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 									modifier *= melee.penetration_falloff;
 									penetration--;
@@ -503,6 +508,8 @@ namespace TC2.Base.Components
 									pos_hit = closest_result.world_position;
 
 									Melee.Hit(ref region, entity, parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
+
+									if (i == index_max) break;
 								}
 							}
 						}

@@ -187,8 +187,8 @@ badger:
 norotate:
 {
 	bias: 0.100
-	multiplier: 1.000
-	mass_multiplier: 15.000
+	multiplier: 2.000
+	mass_multiplier: 25.000
 }
 
 interactable:
@@ -237,8 +237,8 @@ faction:
 	joint.base:
 	{
 		offset_a: [-0.875, 0.000]
-		max_force: 8000.000
-		max_torque: 500.000
+		max_force: 20000.000
+		max_torque: 1500.000
 		flags: organic, control_write
 
 		@animated.renderer:
@@ -256,7 +256,7 @@ faction:
 	
 	joint.pivot:
 	{
-	
+		max_bias: 10.000
 	}
 	
 	joint.rotaryspring:
@@ -268,6 +268,7 @@ faction:
 	joint.rotarylimit:
 	{
 		max_torque: 8000.000
+		max_bias: 8.000
 		min: -0.500
 		max: 0.500
 	}
@@ -292,9 +293,9 @@ faction:
 		
 		norotate:
 		{
-			bias: 0.010
+			bias: 0.100
 			multiplier: 1.000
-			mass_multiplier: 25.000
+			mass_multiplier: 15.000
 		}
 		
 		organic:
@@ -402,8 +403,8 @@ faction:
 	joint.base:
 	{
 		offset_a: [0.500, -0.300]
-		max_force: 12000.000
-		max_torque: 1000.000
+		max_force: 22000.000
+		max_torque: 2000.000
 		flags: organic, control_write
 
 		@animated.renderer:
@@ -421,7 +422,7 @@ faction:
 	
 	joint.pivot:
 	{
-	
+		max_bias: 10.000
 	}
 	
 	joint.rotaryspring:
@@ -433,6 +434,7 @@ faction:
 	joint.rotarylimit:
 	{
 		max_torque: 8000.000
+		max_bias: 8.000
 		min: -1.000
 		max: 1.000
 	}
