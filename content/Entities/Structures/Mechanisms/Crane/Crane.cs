@@ -191,10 +191,13 @@
 						dirty |= true;
 					}
 
-					gear.rotation = crane_state.angle_b;
 				}
 
-				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotationUnscaled(crane_state.angle_a);
+				var parity = transform_tmp.scale.GetParity();
+
+				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a * parity);
+				gear.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b * parity, rotation: false);
+
 				//if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right)) 
 
 				if (invert)
@@ -202,6 +205,9 @@
 					gear_parent.rotation = -gear_parent.rotation;
 					gear.rotation = Maths.OppositeAngle(gear.rotation);
 				}
+
+				gear_parent.rotation = Maths.NormalizeAngle(gear_parent.rotation);
+				gear.rotation = Maths.NormalizeAngle(gear.rotation);
 
 				if (dirty)
 				{
