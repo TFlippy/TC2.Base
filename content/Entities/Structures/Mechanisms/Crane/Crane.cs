@@ -152,7 +152,7 @@
 		//	}
 		//}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body,
@@ -195,8 +195,13 @@
 
 				var parity = transform_tmp.scale.GetParity();
 
-				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a * parity);
-				gear.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b * parity, rotation: false);
+				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a) * parity;
+				gear.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b, rotation: false) * parity;
+
+				if (joint_base.flags.HasAny(Joint.Flags.Invert_Facing))
+				{
+					gear.rotation = Maths.OppositeAngle(gear.rotation);
+				}
 
 				//if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right)) 
 
