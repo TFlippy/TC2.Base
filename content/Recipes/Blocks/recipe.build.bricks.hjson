@@ -34,7 +34,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.500
+			amount: 0.150
 		}
 	]
 	
