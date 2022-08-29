@@ -149,7 +149,10 @@ namespace TC2.Base.Components
 				GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
 				GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
 
-				GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
+				if (this.melee.category == Melee.Category.Pointed)
+				{
+					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
+				}
 			}
 		}
 
@@ -238,7 +241,7 @@ namespace TC2.Base.Components
 						dist_max = len;
 					}
 
-					if (len <= dist_max)
+					if (len <= dist_max + melee.thickness)
 					{
 						for (var i = 0; i < results.Length && penetration >= 0; i++)
 						{
@@ -250,7 +253,7 @@ namespace TC2.Base.Components
 								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 								var closest_result = result.GetClosestPoint(pos_target, true);
-								if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+								if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 								modifier *= melee.penetration_falloff;
 								penetration--;
@@ -483,7 +486,7 @@ namespace TC2.Base.Components
 							dist_max = len;
 						}
 
-						if (len <= dist_max)
+						if (len <= dist_max + melee.thickness)
 						{
 							for (var i = 0; i < results.Length && penetration >= 0; i++)
 							{
@@ -495,7 +498,7 @@ namespace TC2.Base.Components
 									if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 									var closest_result = result.GetClosestPoint(pos_target, true);
-									if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+									if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 									modifier *= melee.penetration_falloff;
 									penetration--;
