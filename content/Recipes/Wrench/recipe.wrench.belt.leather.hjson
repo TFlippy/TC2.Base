@@ -2,7 +2,9 @@
 	name: "Belt (Leather)"
 	desc:
 		'''
-		TODO: Desc
+		Used for general medium-range belt drives.
+
+		Offers a balanced mix of performance and durability.
 		'''
 	
 	icon:

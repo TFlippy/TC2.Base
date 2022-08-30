@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 					public Crafting.Recipe.Handle selected_recipe;
 					public Belt.Flags flags;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 0, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
 
 #if CLIENT
 					public static List<(uint index, float rank)> recipe_indices = new List<(uint index, float rank)>(64);
@@ -237,66 +237,66 @@ namespace TC2.Base.Components
 						//	GUI.DrawText($"Distance: {distance:0.00}/20.00 m", pos_mouse.WorldToCanvas());
 						//}
 
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight())))
+						using (GUI.Group.New(size: new Vector2(48 + 32 - 5, GUI.GetRemainingHeight())))
 						{
-							using (var dropdown = GUI.Dropdown.Begin("wrench.belts.recipes", "Select recipe...", new Vector2(GUI.GetRemainingWidth(), 40), padding: new Vector2(4, 4), spacing: 0.00f))
+							using (var dropdown = GUI.Scrollbox.New("wrench.belts.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
 							{
-								if (dropdown.show)
+								//if (dropdown.show)
+								//{
+								GUI.DrawBackground(GUI.tex_window, dropdown.group_frame.GetInnerRect(), padding: new(8));
+
+								var recipes = Shop.GetAllRecipes();
+								foreach (ref var recipe in recipes)
 								{
-									//GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), padding: new(8));
-
-									var recipes = Shop.GetAllRecipes();
-									foreach (ref var recipe in recipes)
+									if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(Crafting.Recipe.Tags.Belt))
 									{
-										if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(Crafting.Recipe.Tags.Belt))
+										using (GUI.ID.Push(recipe.id))
 										{
-											using (GUI.ID.Push(recipe.id))
+											using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
 											{
-												using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
+												var frame_size = new Vector2(48, 48);
+												var selected = this.selected_recipe.id == recipe.id;
+												using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 												{
-													var frame_size = new Vector2(48, 48);
-													var selected = this.selected_recipe.id == recipe.id;
-													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
-													{
-														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-														GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
+													GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+													GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
 
-														if (button.pressed)
-														{
-															var rpc = new Wrench.Mode.Belts.EditRPC
-															{
-																recipe = new Crafting.Recipe.Handle(recipe.id)
-															};
-															rpc.Send(ent_wrench);
-															dropdown.Close();
-														}
-													}
-													if (GUI.IsItemHovered())
+													if (button.pressed)
 													{
-														using (GUI.Tooltip.New())
+														var rpc = new Wrench.Mode.Belts.EditRPC
 														{
-															using (GUI.Wrap.Push(256))
-															{
-																GUI.Title(recipe.name);
-																GUI.Text(recipe.desc, color: GUI.font_color_default);
-															}
+															recipe = new Crafting.Recipe.Handle(recipe.id)
+														};
+														rpc.Send(ent_wrench);
+														//dropdown.Close();
+													}
+												}
+												if (GUI.IsItemHovered())
+												{
+													using (GUI.Tooltip.New())
+													{
+														using (GUI.Wrap.Push(256))
+														{
+															GUI.Title(recipe.name);
+															GUI.Text(recipe.desc, color: GUI.font_color_default);
 														}
 													}
 												}
 											}
 										}
 									}
+									//}
 								}
 							}
 
 							{
-								ref var recipe = ref this.selected_recipe.GetRecipe();
-								if (!recipe.IsNull() && recipe.placement.HasValue)
-								{
-									var placement = recipe.placement.Value;
+								//ref var recipe = ref this.selected_recipe.GetRecipe();
+								//if (!recipe.IsNull() && recipe.placement.HasValue)
+								//{
+								//	var placement = recipe.placement.Value;
 
-									GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
-								}
+								//	GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+								//}
 								//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
 
 								//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
@@ -308,6 +308,53 @@ namespace TC2.Base.Components
 								//	rpc.Send(ent_wrench);
 								//}
 							}
+						}
+
+						GUI.SameLine();
+
+						using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new(4)))
+						{
+							GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), padding: new(8));
+
+							ref var recipe = ref this.selected_recipe.GetRecipe();
+							if (!recipe.IsNull() && recipe.placement.HasValue)
+							{
+								using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
+								{
+									GUI.TitleCentered(recipe.name, size: 24, pivot: new Vector2(0.00f, 0.50f));
+								}
+
+								GUI.SeparatorThick();
+
+								using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 6)))
+								{
+									using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+									{
+										GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
+
+										GUI.NewLine();
+
+										if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
+										{
+											var root = prefab.Root;
+											if (root != null)
+											{
+												if (root.TryGetComponentData<Belt.Data>(out var belt_data, initialized: true))
+												{
+													GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
+
+													//belt_data.speed_max
+												}
+											}
+										}
+									}
+								}
+
+								var placement = recipe.placement.Value;
+
+								//GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+							}
+							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
 						}
 
 						//if (info_src.valid)
@@ -569,7 +616,7 @@ namespace TC2.Base.Components
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, 1, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
 
 #if CLIENT
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
@@ -613,7 +660,7 @@ namespace TC2.Base.Components
 
 			using (GUI.ID.Push(info.id))
 			{
-				if (GUI.DrawIconButton($"wrench.mode.{info.identifier}", T.Icon, new(40, 40)))
+				if (GUI.DrawIconButton($"wrench.mode.{info.identifier}", T.Icon, new(64, 64)))
 				{
 					var rpc = new Wrench.SelectModeRPC()
 					{
@@ -663,6 +710,8 @@ namespace TC2.Base.Components
 							GUI.SameLine();
 						}
 
+						GUI.SeparatorThick();
+
 						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
 							GUI.Dock.New(Wrench.dock_identifier, size: GUI.GetRemainingSpace());
@@ -684,7 +733,7 @@ namespace TC2.Base.Components
 			{
 				ref var info = ref ECS.GetInfo<T>();
 
-				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier, padding: new(8, 8)))
+				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier, padding: new(0, 0)))
 				{
 					if (window.show)
 					{

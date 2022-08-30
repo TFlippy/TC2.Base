@@ -2,7 +2,9 @@
 	name: "Belt (Rubber)"
 	desc:
 		'''
-		TODO: Desc
+		Used for medium-range high-speed belt drives. 
+		
+		Very efficient, but not particularly durable.
 		'''
 	
 	icon:

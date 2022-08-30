@@ -2,7 +2,9 @@
 	name: "Belt (Chain)"
 	desc:
 		'''
-		TODO: Desc
+		Used for short-range high-performance belt drives. 
+		
+		Due to lack of slippage, the belt connections are synchronous, which may result in stalling or catastrophic failure if used improperly.
 		'''
 	
 	icon:
