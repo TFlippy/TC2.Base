@@ -20,7 +20,7 @@ body:
 
 belt:
 {
-	force: 4500.000
+	force: 8000.000
 	efficiency: 0.750
 	speed_max: 20.000
 }

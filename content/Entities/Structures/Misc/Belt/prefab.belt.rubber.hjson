@@ -22,7 +22,7 @@ belt:
 {
 	force: 4500.000
 	efficiency: 0.950
-	speed_max: 15.000
+	speed_max: 30.000
 }
 
 belt.renderer:

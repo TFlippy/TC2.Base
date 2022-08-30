@@ -3,7 +3,7 @@
 	desc:
 		'''
 		Used for short-range high-performance belt drives. 
-		
+
 		Due to lack of slippage, the belt connections are synchronous, which may result in stalling or catastrophic failure if used improperly.
 		'''
 	
@@ -25,7 +25,7 @@
 		flags: none
 		
 		length_min: 1.000
-		length_max: 15.000
+		length_max: 10.000
 
 		size: [0.500, 0.500]
 		cooldown: 0.300

@@ -230,20 +230,11 @@ namespace TC2.Base.Components
 							}
 						}
 
-						//if (info_src.valid)
-						//{
-						//	//var pos_mid = (info_src.pos + pos_mouse) * 0.50f;
-						//	//GUI.DrawText($"Distance: {distance:0.00}/20.00 m", pos_mid.WorldToCanvas());
-						//	GUI.DrawText($"Distance: {distance:0.00}/20.00 m", pos_mouse.WorldToCanvas());
-						//}
-
 						using (GUI.Group.New(size: new Vector2(48 + 32 - 5, GUI.GetRemainingHeight())))
 						{
-							using (var dropdown = GUI.Scrollbox.New("wrench.belts.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
+							using (var scrollbox = GUI.Scrollbox.New("wrench.belts.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
 							{
-								//if (dropdown.show)
-								//{
-								GUI.DrawBackground(GUI.tex_window, dropdown.group_frame.GetInnerRect(), padding: new(8));
+								GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
 
 								var recipes = Shop.GetAllRecipes();
 								foreach (ref var recipe in recipes)
@@ -268,7 +259,6 @@ namespace TC2.Base.Components
 															recipe = new Crafting.Recipe.Handle(recipe.id)
 														};
 														rpc.Send(ent_wrench);
-														//dropdown.Close();
 													}
 												}
 												if (GUI.IsItemHovered())
@@ -285,28 +275,7 @@ namespace TC2.Base.Components
 											}
 										}
 									}
-									//}
 								}
-							}
-
-							{
-								//ref var recipe = ref this.selected_recipe.GetRecipe();
-								//if (!recipe.IsNull() && recipe.placement.HasValue)
-								//{
-								//	var placement = recipe.placement.Value;
-
-								//	GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
-								//}
-								//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
-
-								//if (GUI.DrawButton("Confirm", new Vector2(128, 40), enabled: info_src.valid && info_dst.valid, color: GUI.col_button_ok))
-								//{
-								//	var rpc = new Wrench.Mode.Belts.ConfirmRPC()
-								//	{
-
-								//	};
-								//	rpc.Send(ent_wrench);
-								//}
 							}
 						}
 
@@ -349,12 +318,7 @@ namespace TC2.Base.Components
 										}
 									}
 								}
-
-								var placement = recipe.placement.Value;
-
-								//GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 							}
-							//GUI.LabelShaded("Distance:", distance, "{0:0.00}m");
 						}
 
 						//if (info_src.valid)
