@@ -141,16 +141,15 @@ namespace TC2.Base.Components
 				var c_radius = radius * GUI.GetWorldToCanvasScale();
 				var c_pos = GUI.WorldToCanvas(this.pos_target);
 
-				//if (!entity.IsValid())
-				{
-					GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
-				}
-
-				GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
-				GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
-
 				if (this.melee.category == Melee.Category.Pointed)
 				{
+					//if (!entity.IsValid())
+					{
+						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
+					}
+
+					GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
+					GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
 					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
 				}
 			}
@@ -206,7 +205,7 @@ namespace TC2.Base.Components
 				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 				{
 					results.SortByDistance();
-					
+
 					// Find first solid/blocking shape
 					for (var i = 0; i < results.Length; i++)
 					{

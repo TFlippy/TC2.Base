@@ -47,20 +47,15 @@ cover:
 
 }
 
-shipment:
+storage:
 {
-	flags: keep_items, allow_withdraw, allow_deposit
-}
-
-loot.container:
-{
-	rolls: 1
-	rolls_extra: 3
-
-	tables:
-	[
-		"construction.00"
-	]
+	@inventory16:
+	{
+		name: "Crates"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: ignore_mass, public
+	}
 }
 
 interactable:
