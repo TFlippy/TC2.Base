@@ -48,20 +48,25 @@ transform:
 
 }
 
-storage:
+shipment:
 {
-	@inventory2:
-	{
-		name: "Trash Can"
-		stack_size_multiplier: 2.000
-		type: storage
-		flags: ignore_mass, public
-	}
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 1
+
+	tables:
+	[
+		"trashcan"
+	]
 }
 
 interactable:
 {
-	window_size: [96.000, 48.000]
+	window_size: [192.000, 192.000]
 }
 
 cover:
