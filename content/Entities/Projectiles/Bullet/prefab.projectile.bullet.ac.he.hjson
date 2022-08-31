@@ -26,6 +26,7 @@ explosive:
 	power: 4.000
 	damage_entity: 5000.000
 	damage_terrain: 25000.000
+	sparks_amount: 0.800
 	smoke_amount: 0.800
 	smoke_velocity_multiplier: 1.300
 	smoke_lifetime_multiplier: 0.200

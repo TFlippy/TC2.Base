@@ -36,5 +36,6 @@ explosive:
 	power: 6.000
 	damage_entity: 30000.000
 	damage_terrain: 25000.000
+	sparks_amount: 2.500
 	flags: primed
 }

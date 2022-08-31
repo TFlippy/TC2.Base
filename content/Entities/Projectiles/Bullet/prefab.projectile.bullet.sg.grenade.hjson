@@ -28,14 +28,14 @@ animated.renderer:
 
 explosive:
 {
-	radius: 3.000
+	radius: 4.000
 	power: 3.000
 	damage_entity: 2500.000
 	damage_terrain: 6000.000
-	smoke_amount: 1.300
+	smoke_amount: 0.800
 	smoke_lifetime_multiplier: 0.200
 	smoke_velocity_multiplier: 3.000
-	sparks_amount: 0.200
+	sparks_amount: 0.400
 	volume: 1.000
 	pitch: 1.500
 	flags: primed

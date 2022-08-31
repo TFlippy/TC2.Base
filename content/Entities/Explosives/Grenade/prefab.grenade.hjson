@@ -22,6 +22,7 @@ body:
 		elasticity: 0.600
 		layer: entity, solid
 		mask: world
+		material: metal
 	}
 }
 
@@ -64,7 +65,12 @@ explosive:
 	power: 2.000
 	damage_entity: 8000.000
 	damage_terrain: 3000.000
-	smoke_amount: 0.700
+	sparks_amount: 2.000
+	smoke_amount: 1.200
+	smoke_lifetime_multiplier: 0.700
+	smoke_velocity_multiplier: 2.000
+	volume: 1.000
+	pitch: 3.500
 }
 
 packable:
