@@ -45,8 +45,8 @@
 		{
 			type: "resource"
 			material: "gunpowder"
-			amount_min: 1.000
-			amount_max: 1.500
+			amount: 1.000
+			amount_extra: 0.500
 		}
 	]
 }

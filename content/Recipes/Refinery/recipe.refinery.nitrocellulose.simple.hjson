@@ -52,14 +52,14 @@
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount_min: 100.000
-			amount_max: 200.000
+			amount: 100.000
+			amount_extra: 100.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 50.000
-			amount_max: 150.500
+			amount: 50.000
+			amount_extra: 100.500
 		}
 	]
 }

@@ -47,26 +47,26 @@
 		{
 			type: "resource"
 			material: "opium"
-			amount_min: 15.000
-			amount_max: 60.000
+			amount: 15.000
+			amount_extra: 45.000
 		}
 		{
 			type: "resource"
 			material: "morphine"
-			amount_min: 15.000
-			amount_max: 55.000
+			amount: 15.000
+			amount_extra: 40.000
 		}
 		{
 			type: "resource"
 			material: "codeine"
-			amount_min: 0.000
-			amount_max: 15.000
+			amount: 0.000
+			amount_extra: 15.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 35.000
-			amount_max: 100.000
+			amount: 35.000
+			amount_extra: 65.000
 		}
 	]
 }
