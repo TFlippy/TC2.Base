@@ -1,0 +1,45 @@
+{
+	name: "Paralyx"
+	description:
+		'''
+		Lethal paralysis-inducing formula.
+		200mg alcohol, 20mg morphine, 25mg paxilon hydrochlorate
+		'''
+	prefab: "syringe"
+	recipe: "refinery.syringe"
+	augments:
+	[
+		{
+			identifier: "consumable.alcohol"
+			data: 1128792064
+		}
+		{
+			identifier: "consumable.morphine"
+			data: 1101004800
+		}
+		{
+			identifier: "consumable.paxilon"
+			data: 1103626240
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}
