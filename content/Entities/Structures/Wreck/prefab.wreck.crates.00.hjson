@@ -54,8 +54,8 @@ shipment:
 
 loot.container:
 {
-	rolls: 1
-	rolls_extra: 3
+	rolls: 4
+	rolls_extra: 0
 
 	tables:
 	[

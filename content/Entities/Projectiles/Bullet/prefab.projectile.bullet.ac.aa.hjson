@@ -27,8 +27,10 @@ explosive:
 	power: 1.500
 	damage_entity: 5000.000
 	damage_terrain: 1000.000
-	smoke_amount: 0.200
-	sparks_amount: 1.300
+	smoke_amount: 0.500
+	smoke_lifetime_multiplier: 1.200
+	smoke_velocity_multiplier: 1.500
+	sparks_amount: 1.800
 	volume: 1.500
 	pitch: 1.300
 	flags: primed
@@ -37,13 +39,15 @@ explosive:
 cluster:
 {
 	prefab: "projectile.shrapnel.aa"
-	spread: 0.500
+	spread: 0.550
 	speed: 0.000
 	count: 5
 
-	speed_modifier_min: 0.040
-	speed_modifier_max: 0.250
+	speed_modifier_min: 0.080
+	speed_modifier_max: 0.350
 
 	lifetime_modifier_min: 0.200
 	lifetime_modifier_max: 2.500
+
+	min_explode_lifetime: 0.030
 }
