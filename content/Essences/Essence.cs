@@ -3,16 +3,45 @@ namespace TC2.Base.Components
 {
 	public static partial class Essence
 	{
-		public interface IPowered: IComponent
-		{
-			public float EssenceAvailable { get; set; }
-			public float EssenceRate { get; set; }
+		//public interface IPowered: IComponent
+		//{
+		//	public float EssenceAvailable { get; set; }
+		//	public float EssenceRate { get; set; }
 
-			public static void UpdateInventory<T>(ref T powered, ref Inventory1.Data inventory) where T : unmanaged, Essence.IPowered
+		//	public static void UpdateInventory<T>(ref T powered, ref Inventory1.Data inventory) where T : unmanaged, Essence.IPowered
+		//	{
+		//		powered.EssenceAvailable = inventory.resource.quantity * essence_per_pellet;
+		//	}
+		//}
+
+#if SERVER
+		public static void Explode(ref Region.Data region, Essence.Type type, float amount, Vector2 position)
+		{
+			if (type != Essence.Type.Undefined)
 			{
-				powered.EssenceAvailable = inventory.resource.quantity * essence_per_pellet;
+				var prefab = Essence.GetEssencePrefab(type);
+				if (prefab.id != 0)
+				{
+					if (amount >= 5.00f)
+					{
+						region.SpawnPrefab(prefab, position).ContinueWith(x =>
+						{
+							ref var essence_node = ref x.GetComponent<EssenceNode.Data>();
+							if (!essence_node.IsNull())
+							{
+								essence_node.type = type;
+								essence_node.amount = amount;
+								essence_node.stability = 0.00f;
+								essence_node.volatility = 1.00f;
+
+								essence_node.Sync(x);
+							}
+						});
+					}
+				}
 			}
 		}
+#endif
 
 		[Query]
 		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, [Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
