@@ -34,9 +34,11 @@ explosive:
 	damage_terrain: 1.000
 	fire_amount: 0.000
 	smoke_amount: 8.000
-	smoke_lifetime_multiplier: 2.500
+	smoke_lifetime_multiplier: 2.000
 	smoke_velocity_multiplier: 8.500
-	sparks_amount: 0.100
+	flash_duration_multiplier: 0.080
+	flash_intensity_multiplier: 0.700
+	sparks_amount: 1.500
 	volume: 0.700
 	pitch: 3.000
 	flags: primed
