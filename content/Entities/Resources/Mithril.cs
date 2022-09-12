@@ -23,7 +23,7 @@
 				{
 					foreach (ref var result in results)
 					{
-						entity.Hit(entity, result.entity, result.world_position, result.gradient, -result.gradient, 25.00f, result.material_type, Damage.Type.Radiation);
+						entity.Hit(entity, result.entity, result.world_position, result.gradient, -result.gradient, 25.00f, result.material_type, Damage.Type.Radiation, speed: 0.50f);
 					}
 				}
 				//App.WriteLine($"{ts.GetMilliseconds():0.0000} ms");

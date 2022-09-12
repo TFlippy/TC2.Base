@@ -125,8 +125,8 @@
 
 			Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
 				world_position: data.world_position, direction: data.direction, normal: -data.direction,
-				damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f,
-				target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, flags: Damage.Flags.None);
+				damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
+				target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
 #endif
 
 		}

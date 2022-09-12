@@ -34,11 +34,11 @@ aimable:
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 250.000
+	damage_base: 350.000
 	damage_bonus: 150.000
 	cooldown: 1.500
 	max_distance: 2.500
-	aoe: 0.300
+	aoe: 1.000
 	knockback: 1.500
 	thickness: 0.250
 	hit_offset: [1.250, 0.000]

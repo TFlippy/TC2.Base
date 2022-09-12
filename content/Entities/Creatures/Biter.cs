@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 						Damage.Hit(attacker: entity, owner: parent, target: result.entity,
 							world_position: result.world_position, direction: dir, normal: -dir,
 							damage: damage * modifier, damage_type: biter.damage_type,
-							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags);
+							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags, speed: 8.00f);
 #endif
 
 						//flags |= Damage.Flags.No_Sound;

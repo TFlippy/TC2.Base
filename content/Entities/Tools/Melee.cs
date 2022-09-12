@@ -511,6 +511,8 @@ namespace TC2.Base.Components
 
 									Melee.Hit(ref region, entity, parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
 
+									//App.WriteLine(result.entity.IsAlive());
+
 									if (i == index_max) break;
 								}
 							}

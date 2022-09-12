@@ -156,7 +156,7 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 8.00f);
 #endif
 
 							//flags |= Damage.Flags.No_Sound;
