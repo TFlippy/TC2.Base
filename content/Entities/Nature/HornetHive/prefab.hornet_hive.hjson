@@ -59,6 +59,18 @@ rope.renderer:
 	z: -10.000
 }
 
+faction:
+{
+	id: "hornet"
+}
+
+claimer:
+{
+	radius: 32.000
+	strength: 1.300
+	falloff: 0.500
+}
+
 +bottom|child:
 {
 	$tags: []

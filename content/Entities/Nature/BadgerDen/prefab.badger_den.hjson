@@ -56,6 +56,13 @@ faction:
 	id: "badger"
 }
 
+claimer:
+{
+	radius: 12.000
+	strength: 1.300
+	falloff: 0.500
+}
+
 // faction.new:
 // {
 // 	tag: "BAD"
