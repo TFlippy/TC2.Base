@@ -5,7 +5,16 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Invert = 1 << 0
+			}
+
 			public float speed = 0.01f;
+			public Track.Data.Flags flags;
 
 			public Data()
 			{
@@ -42,7 +51,13 @@
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
 		{
-			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * track_state.slider_ratio;
+			var ratio = track_state.slider_ratio.Clamp01();
+			if (track.flags.HasAny(Track.Data.Flags.Invert))
+			{
+				ratio = 1.00f - ratio;
+			}
+
+			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * ratio;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -75,14 +90,28 @@
 			joint_slider.max = Vector2.Distance(resizable.a, resizable.b);
 		}
 
-		public struct ConfigureRPC: Net.IRPC<Track.State>
+		public struct ConfigureRPC: Net.IRPC<Track.Data>
 		{
-			public float slider_ratio;
+			public float? slider_ratio;
+			public Track.Data.Flags? flags;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Track.State data)
+			public void Invoke(ref NetConnection connection, Entity entity, ref Track.Data data)
 			{
-				data.slider_ratio = Maths.Clamp01(this.slider_ratio);
+				if (this.slider_ratio.HasValue)
+				{
+					ref var state = ref entity.GetComponent<Track.State>();
+					if (!state.IsNull())
+					{
+						state.slider_ratio = Maths.Clamp01(this.slider_ratio.Value);
+						state.Sync(entity);
+					}
+				}
+
+				if (this.flags.HasValue)
+				{
+					data.flags = this.flags.Value;
+				}
 
 				data.Sync(entity);
 			}
@@ -117,7 +146,13 @@
 								GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
 								var dirty = false;
+								
 								if (GUI.SliderFloat("Slider", ref this.track_state.slider_ratio, 0.00f, 1.00f, "%.2f", size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								{
+									dirty = true;
+								}
+
+								if (GUI.Checkbox("Invert", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, 32)))
 								{
 									dirty = true;
 								}
@@ -126,7 +161,8 @@
 								{
 									var rpc = new Track.ConfigureRPC
 									{
-										slider_ratio = this.track_state.slider_ratio
+										slider_ratio = this.track_state.slider_ratio,
+										flags = this.track.flags
 									};
 									rpc.Send(this.ent_track);
 								}
