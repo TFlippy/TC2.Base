@@ -15,6 +15,7 @@ body:
 		radius: 0.200
 		friction: 0.980
 		elasticity: 0.600
+		material: paper
 		layer: entity, solid
 		mask: world
 	}
@@ -48,7 +49,7 @@ transform:
 fuse:
 {
 	time: 5.000
-	failure_chance: 0.020
+	failure_chance: 0.010
 	sound: "fuse_set"
 	flags: sparkle
 	
@@ -69,6 +70,11 @@ fuse:
 	}
 }
 
+health:
+{
+	max: 100.000
+}
+
 explosive:
 {
 	radius: 9.000
@@ -82,7 +88,8 @@ explosive:
 	flash_intensity_multiplier: 1.500
 	volume: 1.500
 	pitch: 2.500
-	flags: explode_when_primed
+	health_threshold: 0.800
+	flags: any_damage, explode_when_primed
 }
 
 packable:

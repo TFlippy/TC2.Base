@@ -44,5 +44,6 @@ explosive:
 	sparks_amount: 2.500
 	volume: 2.000
 	pitch: 1.000
+	health_threshold: 0.700
 	flags: primed
 }

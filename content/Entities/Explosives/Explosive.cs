@@ -38,6 +38,7 @@ namespace TC2.Base.Components
 			public float smoke_amount = 1.00f;
 			public float smoke_lifetime_multiplier = 1.00f;
 			public float smoke_velocity_multiplier = 1.00f;
+			public Color32BGRA smoke_color;
 
 			public float flash_duration_multiplier = 1.00f;
 			public float flash_intensity_multiplier = 1.00f;

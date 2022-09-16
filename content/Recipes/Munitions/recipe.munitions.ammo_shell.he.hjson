@@ -1,6 +1,6 @@
 {
 	name: "Artillery Shell (High-Explosive)"
-	desc: "Ammunition for cannons. Greatly increased damage and explosion radius."
+	desc: "Ammunition for cannons. Greatly increased damage, but slightly lowered radius."
 	
 	icon:
 	{
