@@ -175,6 +175,8 @@
 
 			public float shake_amount = 0.20f;
 
+			public float heuristic_range = 30.00f;
+
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public int projectile_count = 1;
 

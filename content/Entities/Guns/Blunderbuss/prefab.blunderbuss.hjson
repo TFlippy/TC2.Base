@@ -42,6 +42,8 @@ gun:
 	type: shotgun
 	feed: breech
 
+	heuristic_range: 8.000
+
 	shake_amount: 0.500
 
 	sound_pitch: 1.100

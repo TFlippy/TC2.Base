@@ -42,6 +42,8 @@ gun:
 	action: blowback
 	type: shotgun
 	feed: magazine
+
+	heuristic_range: 25.000
 	
 	@inventory1:
 	{

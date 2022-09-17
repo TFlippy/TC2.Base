@@ -37,6 +37,8 @@ gun:
 	type: rifle
 	feed: magazine
 
+	heuristic_range: 35.000
+
 	shake_amount: 0.310
 	
 	@inventory1:

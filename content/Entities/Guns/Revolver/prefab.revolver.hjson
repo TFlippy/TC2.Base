@@ -38,6 +38,8 @@ gun:
 	type: handgun
 	feed: cylinder
 
+	heuristic_range: 25.000
+	
 	shake_amount: 0.390
 	
 	@inventory1:
