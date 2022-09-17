@@ -54,7 +54,7 @@ telescope:
 	zoom_modifier: 0.800
 	zoom_min: 0.500
 	zoom_max: 0.800
-	max_distance: 100.000
+	max_distance: 160.000
 }
 
 packable:
