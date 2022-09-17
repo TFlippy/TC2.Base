@@ -8,8 +8,6 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.400
-	
 	@shape.box:
 	{
 		size: [1.200, 1.700]
@@ -18,7 +16,7 @@ body:
 		friction: 0.650
 		elasticity: 0.700
 		material: metal
-		layer: entity, solid, storage
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -69,7 +67,17 @@ interactable:
 	window_size: [192.000, 192.000]
 }
 
-cover:
+harvestable:
 {
-	threshold: 0.500
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 45.000
+		}
+		{
+			material: "iron_plate"
+			quantity: 5.000
+		}
+	]
 }
