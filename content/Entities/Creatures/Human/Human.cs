@@ -28,7 +28,7 @@
 			"kobold.scream.01",
 		};
 
-		[ISystem.AddFirst(ISystem.Mode.Single), HasTag("human", true, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("human", true, Source.Modifier.Owned)]
 		public static void UpdateHuman(ISystem.Info info, [Source.Owned] ref Human.Data human)
 		{
 
