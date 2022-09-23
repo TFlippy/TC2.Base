@@ -49,12 +49,12 @@ transform:
 
 telescope:
 {
-	speed: 3.000
+	speed: 2.000
 	deadzone: 2.000
 	zoom_modifier: 0.800
 	zoom_min: 0.500
-	zoom_max: 0.800
-	max_distance: 160.000
+	zoom_max: 1.000
+	max_distance: 200.000
 }
 
 packable:

@@ -13,6 +13,9 @@
 			[Statistics.Info("Zoom Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public float zoom_modifier = 0.50f;
 
+			[Statistics.Info("Shake Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
+			public float shake_modifier = 1.00f;
+
 			[Statistics.Info("Zoom (Min)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float zoom_min = 0.10f;
 
@@ -92,11 +95,11 @@
 				var dir = (control.mouse.position - pos).GetNormalized(out var len);
 				var dist = (pos - transform.position).Length();
 
-				var modifier = Maths.Lerp(telescope.zoom_min, telescope.zoom_max, MathF.Pow(Maths.Normalize(dist, telescope.max_distance), telescope.zoom_modifier));
+				var modifier = Maths.Lerp(telescope.zoom_max, telescope.zoom_min, MathF.Pow(Maths.Normalize(dist, telescope.max_distance), telescope.zoom_modifier));
 
 				telescope.current_modifier = Maths.Lerp(telescope.current_modifier, modifier, 0.10f);
 
-				camera.override_target_position = pos;
+				camera.override_target_position = pos + (new Vector2(Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f, -Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier * 0.40f);
 				camera.distance_modifier = 0.00f;
 				camera.zoom_modifier *= telescope.current_modifier;
 
@@ -107,6 +110,8 @@
 				{
 					telescope.offset += dir * (telescope.speed * len * App.fixed_update_interval_s);
 				}
+
+				telescope.offset += (new Vector2(Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f, Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier) * 0.07f;
 
 				telescope.offset = telescope.offset.ClampRadius(Vector2.Zero, telescope.max_distance);
 			}
