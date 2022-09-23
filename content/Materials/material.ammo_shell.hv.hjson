@@ -24,7 +24,7 @@
 	
 	projectile_count: 1
 	projectile_speed_mult: 1.350
-	projectile_spread_mult: 0.100
+	projectile_spread_mult: 0.150
 	projectile_heat: 6000.000
 	projectile_prefab: "projectile.shell.hv"
 	
