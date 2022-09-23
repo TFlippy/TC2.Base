@@ -295,7 +295,7 @@ faction:
 		{
 			bias: 0.100
 			multiplier: 1.000
-			mass_multiplier: 15.000
+			mass_multiplier: 35.000
 		}
 		
 		organic:

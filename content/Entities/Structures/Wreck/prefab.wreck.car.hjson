@@ -25,7 +25,7 @@ body:
 		elasticity: 0.400
 		radius: 0.500
 		material: metal
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_bullet
 		mask: world
 	}
 }
@@ -92,11 +92,6 @@ loot.container:
 interactable:
 {
 	window_size: [192.000, 192.000]
-}
-
-cover:
-{
-	threshold: 0.200
 }
 
 holdable:

@@ -71,7 +71,8 @@
 		{
 			//App.WriteLine("test");
 
-			if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+			if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 			{
 				telescope.offset = default;
 				telescope.Sync(entity);
