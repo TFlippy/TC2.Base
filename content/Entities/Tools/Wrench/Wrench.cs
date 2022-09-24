@@ -15,7 +15,7 @@ namespace TC2.Base.Components
 			public static partial class Belts
 			{
 				[IComponent.Data(Net.SendType.Reliable)]
-				public partial struct Data: IComponent, Wrench.IMode
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.IConnectable<Belts.TargetInfo, Belt.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
@@ -24,6 +24,8 @@ namespace TC2.Base.Components
 					public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
+					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;
+					public Physics.Layer LayerMask => Physics.Layer.Belt;
 
 #if CLIENT
 					public static List<(uint index, float rank)> recipe_indices = new List<(uint index, float rank)>(64);
@@ -371,13 +373,12 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public ref struct TargetInfo
+				public struct TargetInfo: ITargetInfo
 				{
 					public Entity entity;
-					public ulong component_id;
 
-					public ref Axle.Data axle;
-					public ref Transform.Data transform;
+					public Axle.Data axle;
+					public Transform.Data transform;
 
 					public float radius;
 					public Vector2 pos;
@@ -386,20 +387,26 @@ namespace TC2.Base.Components
 					public bool alive;
 					public bool valid;
 
+					Entity ITargetInfo.Entity => this.entity;
+					Vector2 ITargetInfo.Position => this.pos;
+
+					bool ITargetInfo.IsSource => this.is_src;
+					bool ITargetInfo.IsAlive => this.alive;
+					bool ITargetInfo.IsValid => this.valid;
+
 					public TargetInfo(Entity entity, bool is_src)
 					{
 						this.entity = entity;
 						this.is_src = is_src;
 						this.alive = this.entity.IsAlive();
-						this.axle = ref Unsafe.NullRef<Axle.Data>();
-						this.transform = ref Unsafe.NullRef<Transform.Data>();
-
+	
 						if (this.alive)
 						{
-							this.axle = ref this.entity.GetComponent<Axle.Data>();
-							this.transform = ref this.entity.GetComponent<Transform.Data>();
+							this.valid = true;
 
-							this.valid = !this.axle.IsNull() && !this.transform.IsNull();
+							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetValue(out this.axle);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValue(out this.transform);
+
 							if (this.valid)
 							{
 								this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
@@ -595,10 +602,95 @@ namespace TC2.Base.Components
 		public interface IMode: IComponent
 		{
 			public static abstract Sprite Icon { get; }
+			public Crafting.Recipe.Tags RecipeTags { get; }
+
+			public bool IsRecipeValid(ref Region.Data region, ref Crafting.Recipe recipe)
+			{
+				return !recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(this.RecipeTags) && recipe.placement.HasValue;
+			}
 
 #if CLIENT
 			public void Draw(Entity ent_wrench, ref Wrench.Data wrench);
 #endif
+		}
+
+		public interface ITargetInfo
+		{
+			public Entity Entity { get; }
+			public Vector2 Position { get; }
+
+			public bool IsSource { get; }
+			public bool IsAlive { get; }
+			public bool IsValid { get; }
+		}
+
+		public interface IConnectable<TInfo, TLink>: IMode where TInfo: unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		{
+			public Physics.Layer LayerMask { get; }
+
+			public Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default)
+			{
+				var errors = Build.Errors.None;
+
+				if (this.IsRecipeValid(ref region, ref recipe) && info.IsValid)
+				{
+					var placement = recipe.placement.Value;
+
+					var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(info.Position, 1.00f), faction_id: faction_id);
+					errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+				}
+				else
+				{
+					errors |= Build.Errors.Invalid;
+				}
+
+				return errors;
+			}
+
+			public Build.Errors EvaluateNodePair(ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default)
+			{
+				var errors = Build.Errors.None;
+				distance = 0.00f;
+
+				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsValid && info_dst.IsValid && info_src.Entity != info_dst.Entity)
+				{
+					var placement = recipe.placement.Value;
+
+					var dir = (info_src.Position - info_dst.Position).GetNormalized(out distance);
+					errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
+
+					var claim_ratio = MathF.Min(Claim.GetOverlapRatio(ref region, AABB.Circle(info_src.Position, 1.00f), faction_id: faction_id), Claim.GetOverlapRatio(ref region, AABB.Circle(info_dst.Position, 1.00f), faction_id: faction_id));
+					errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+
+					var pos_mid = (info_src.Position + info_dst.Position) * 0.50f;
+
+					Span<OverlapResult> results = stackalloc OverlapResult[32];
+					if (region.TryOverlapPointAll(pos_mid, 1.00f, ref results, mask: this.LayerMask))
+					{
+						foreach (ref var result in results)
+						{
+							ref var link = ref result.entity.GetComponent<TLink>();
+							if (!link.IsNull())
+							{
+								var ent_belt_src = link.EntityA;
+								var ent_belt_dst = link.EntityB;
+
+								if ((ent_belt_src == info_src.Entity && ent_belt_dst == info_dst.Entity) || (ent_belt_src == info_dst.Entity && ent_belt_dst == info_src.Entity))
+								{
+									errors.SetFlag(Build.Errors.Obstructed, true);
+									break;
+								}
+							}
+						}
+					}
+				}
+				else
+				{
+					errors |= Build.Errors.Invalid;
+				}
+
+				return errors;
+			}
 		}
 
 		public struct SelectModeRPC: Net.IRPC<Wrench.Data>
