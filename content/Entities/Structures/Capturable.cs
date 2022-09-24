@@ -8,6 +8,11 @@ namespace TC2.Base.Components
 		{
 			public Workshop.Order order;
 
+			public IFaction.Handle capturing_faction_id;
+
+			[Net.Ignore, Save.Ignore]
+			public float next_check;
+
 			public Data()
 			{
 
@@ -21,12 +26,15 @@ namespace TC2.Base.Components
 #if SERVER
 			public void Invoke(ref NetConnection connection, Entity entity, ref Capturable.Data data)
 			{
+				ref var player = ref connection.GetPlayer();
+				data.capturing_faction_id = player.faction_id;
+
 				ref var order = ref data.order;
 				order.amount_multiplier = 1.00f;
 				order.flags = Workshop.Order.Flags.InProgress;
 
 				var work_span = order.work.AsSpan();
-				work_span[0] = new Work.Amount(Work.Type.Capturing, 10.00f, 1000.00f, 0.00f);
+				work_span[0] = new Work.Amount(Work.Type.Capturing, 10.00f, 200.00f, 0.00f);
 
 				data.Sync(entity);
 			}
@@ -75,28 +83,52 @@ namespace TC2.Base.Components
 				worker_state.next_work = info.WorldTime + (cooldown * 5.00f);
 			}
 		}
-#endif
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Capturable.Data capturable, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform)
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Capturable.Data capturable)
 		{
-			//var ts = Timestamp.Now();
-
-			if (body.HasArbiters())
+			if (info.WorldTime >= capturable.next_check)
 			{
-#if SERVER
-				var random = XorRandom.New();
-#endif
-
-				foreach (var arbiter in body.GetArbiters())
+				capturable.next_check = info.WorldTime + 1.00f;
+				if (capturable.capturing_faction_id.id != 0)
 				{
-#if SERVER
+					ref var order = ref capturable.order;
 
-#endif
+					var sync = false;
+
+					var done = true;
+					foreach (ref var work in order.work.AsSpan())
+					{
+						done &= work.type == Work.Type.Undefined || work.current >= work.required;
+					}
+
+					if (done)
+					{
+						order.flags &= ~Workshop.Order.Flags.InProgress;
+						order.flags |= Workshop.Order.Flags.Complete;
+
+						sync = true;
+					}
+
+					if (capturable.order.flags.HasAny(Workshop.Order.Flags.Complete))
+					{
+						entity.SetFaction(capturable.capturing_faction_id);
+
+						capturable.capturing_faction_id = default;
+						capturable.order = default;
+
+						sync = true;
+					}
+
+					if (sync)
+					{
+						capturable.Sync(entity);
+					}
 				}
 			}
-			//App.WriteLine($"{ts.GetMilliseconds():0.0000} ms");
 		}
+#endif
 
 #if CLIENT
 		public struct CapturableGUI: IGUICommand
@@ -125,6 +157,8 @@ namespace TC2.Base.Components
 						var has_resources = true;
 						var has_worker = false;
 
+						var faction_id = player.faction_id;
+						ref var faction = ref faction_id.GetValue();
 						//var frame_size = Inventory.GetFrameSize(4, 2);
 
 						//using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
@@ -139,16 +173,16 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
-							for (var i = 0; i < order.work.Length; i++)
+							for (var i = 0; i < 1; i++)
 							{
 								ref var work = ref order.work[i];
 								using (GUI.ID.Push(i))
 								{
-									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 32)))
+									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
 									{
-										var button_size = new Vector2(24 * 4, 32);
+										var button_size = new Vector2(24 * 4, 48);
 
-										GUI.DrawWork(ref experience, work, new(GUI.GetRemainingWidth() - button_size.X, GUI.GetRemainingHeight()), 0xffff8000);
+										GUI.DrawWork(ref experience, work, new(GUI.GetRemainingWidth() - button_size.X, GUI.GetRemainingHeight()), Color32BGRA.Lerp(GUI.col_button, faction.color_a, 0.50f));
 										GUI.OffsetLine(GUI.GetRemainingWidth() - button_size.X);
 
 										if (work.type != Work.Type.Undefined)
@@ -198,7 +232,7 @@ namespace TC2.Base.Components
 								}
 							}
 
-							if (GUI.DrawButton("Capture", new Vector2(120, 48)))
+							if (GUI.DrawButton("DEV: Reset", new Vector2(120, 48)))
 							{
 								var rpc = new Capturable.CaptureRPC()
 								{
