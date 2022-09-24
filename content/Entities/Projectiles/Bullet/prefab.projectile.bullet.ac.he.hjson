@@ -4,10 +4,11 @@ projectile:
 {
 	damage_base: 100.000
 	damage_bonus: 300.000
-	lifetime: 3.000
+	lifetime: 1.500
 	damage_type: bullet_ac
 	size: 0.350
 	ricochet_count: 0
+	damp: 0.980
 }
 
 projectile.renderer:

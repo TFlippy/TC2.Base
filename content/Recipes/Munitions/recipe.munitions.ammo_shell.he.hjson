@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_shell"
+		texture: "resource.ammo_shell.he"
 		size: [16, 16]
 		frame: [3, 0]
 	}

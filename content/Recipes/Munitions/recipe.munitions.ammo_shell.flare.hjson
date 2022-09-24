@@ -1,10 +1,10 @@
 {
-	name: "Artillery Shell (Standard)"
-	desc: "Ammunition for cannons."
+	name: "Artillery Shell (Flare)"
+	desc: "Ammunition for cannons. Emits a very intense light."
 	
 	icon:
 	{
-		texture: "resource.ammo_shell"
+		texture: "resource.ammo_shell.flare"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,9 +13,9 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [9, 0]
 	}
-	
+
 	min: 1
 	max: 20
 	step: 1
@@ -32,12 +32,12 @@
 		{
 			type: "resource"
 			material: "gunpowder"
-			amount: 120.000
+			amount: 20.000
 		}
 		{
 			type: "resource"
-			material: "nitrocellulose"
-			amount: 20.000
+			material: "sulfur"
+			amount: 40.000
 		}
 		{
 			type: "resource"
@@ -62,7 +62,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell"
+			material: "ammo_shell.flare"
 			amount: 1.000
 		}
 	]

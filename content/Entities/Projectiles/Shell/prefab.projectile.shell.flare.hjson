@@ -4,20 +4,13 @@ projectile:
 {
 	damage_base: 3000.000
 	damage_bonus: 2000.000
-	lifetime: 15.000
+	lifetime: 30.000
 	ignore_time: 0.100
-	damage_type: bullet_mg
+	damage_type: bullet_musket
 	size: 0.750
 	ricochet_count: 0
 	damp: 0.978
-	gravity: 0.300
-
-	@sound.emitter:
-	{
-		file: "shell_whistle"
-		volume: 1.000
-		pitch: 1.000
-	}
+	gravity: 0.150
 }
 
 transform:
@@ -55,13 +48,16 @@ transform:
 
 flare:
 {
-	lifetime: 15.000
+	lifetime: 30.000
 	smoke_amount: 0.400
-	sparks_amount: 0.400
+	sparks_amount: 0.300
 	flicker: 0.500
 	flicker_interval: 0.030
-	lerp: 0.100
+	lerp: 0.050
 	size: 1500.000
+
+	sound_volume: 3.000
+	sound_pitch: 0.700
 
 	@light:
 	{
@@ -70,5 +66,12 @@ flare:
 		scale: [1500.000, 1500.000]
 		intensity: 1.000
 		texture: "light_invsqr"
+	}
+
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		size: 1.500
+		size_max_modifier: 2.000
 	}
 }

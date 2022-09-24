@@ -8,6 +8,7 @@ projectile:
 	damage_type: bullet_ac
 	size: 0.350
 	ricochet_count: 2
+	damp: 0.980
 }
 
 projectile.renderer:
