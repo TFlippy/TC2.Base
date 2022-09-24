@@ -60,6 +60,11 @@ wrench.mode.ducts:
 
 }
 
+wrench.mode.deconstruct:
+{
+
+}
+
 // wrenchold:
 // {
 
