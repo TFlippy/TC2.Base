@@ -39,20 +39,20 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default) where T : unmanaged, IConnectable<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNode(ref region, ref info, ref recipe, faction_id: faction_id);
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, IConnectable<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out distance, faction_id: faction_id);
 		}
 
-		public interface ITargeter<TInfo>: IMode where TInfo : unmanaged, ITargetInfo
+		public interface ITargeterMode<TInfo>: IMode where TInfo : unmanaged, ITargetInfo
 		{
-			public ref Entity EntityTarget { get; }
+			public ref Entity EntTarget { get; }
 
 			public Physics.Layer LayerMask { get; }
 			public TInfo CreateTargetInfo(Entity entity);
@@ -80,7 +80,7 @@ namespace TC2.Base.Components
 
 				var scale = GUI.GetWorldToCanvasScale();
 
-				var info_target = this.CreateTargetInfo(this.EntityTarget);
+				var info_target = this.CreateTargetInfo(this.EntTarget);
 				var info_new = default(TInfo);
 
 				var errors_target = Build.Errors.None;
@@ -189,16 +189,6 @@ namespace TC2.Base.Components
 					}
 				}
 
-				using (GUI.Group.New(size: new Vector2(48 + 32 - 5, GUI.GetRemainingHeight())))
-				{
-					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
-					{
-						GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
-					}
-				}
-
-				GUI.SameLine();
-
 				using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new(4)))
 				{
 					GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), padding: new(8));
@@ -214,7 +204,7 @@ namespace TC2.Base.Components
 		}
 
 
-		public interface IConnectable<TInfo, TLink>: IMode where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public interface ILinkerMode<TInfo, TLink>: IMode where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			public ref Entity EntitySrc { get; }
 			public ref Entity EntityDst { get; }
@@ -616,7 +606,7 @@ namespace TC2.Base.Components
 							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
 							GUI.SameLine();
 
-							Wrench.DrawModeButton<Wrench.Mode.Ducts.Data>(this.ent_wrench);
+							Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
 							GUI.SameLine();
 
 							Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);

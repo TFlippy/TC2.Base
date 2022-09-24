@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 			public static partial class Belts
 			{
 				[IComponent.Data(Net.SendType.Reliable)]
-				public partial struct Data: IComponent, Wrench.IConnectable<Belts.TargetInfo, Belt.Data>
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Belts.TargetInfo, Belt.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;

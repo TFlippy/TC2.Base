@@ -55,7 +55,7 @@ wrench.mode.belts:
 
 }
 
-wrench.mode.ducts:
+wrench.mode.conveyors:
 {
 
 }

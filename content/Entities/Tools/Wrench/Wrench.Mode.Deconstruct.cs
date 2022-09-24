@@ -10,12 +10,12 @@ namespace TC2.Base.Components
 			public static partial class Deconstruct
 			{
 				[IComponent.Data(Net.SendType.Reliable)]
-				public partial struct Data: IComponent, Wrench.IMode, Wrench.ITargeter<TargetInfo>
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.ITargeterMode<TargetInfo>
 				{
 					[Save.Ignore] public Entity ent_target;
 
 					[UnscopedRef]
-					public ref Entity EntityTarget => ref this.ent_target;
+					public ref Entity EntTarget => ref this.ent_target;
 
 					public TargetInfo CreateTargetInfo(Entity entity)
 					{
@@ -38,14 +38,29 @@ namespace TC2.Base.Components
 
 					public void DrawInfo(Entity ent_wrench, ref TargetInfo info)
 					{
-						
+
 					}
 
-					public void DrawHUD(Entity ent_wrench, ref TargetInfo info)
+					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_target)
 					{
-						
-					}
+						using (var hud = GUI.Window.Standalone("Wrench.HUD", position: info_target.pos.WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 0.50f)))
+						{
+							if (hud.show)
+							{
+								GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
 
+								using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+								{
+
+								}
+
+								using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+								{
+							
+								}
+							}
+						}
+					}
 #endif
 				}
 
@@ -105,7 +120,7 @@ namespace TC2.Base.Components
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
 }

@@ -7,10 +7,10 @@ namespace TC2.Base.Components
 	{
 		public static partial class Mode
 		{
-			public static partial class Ducts
+			public static partial class Conveyors
 			{
 				[IComponent.Data(Net.SendType.Reliable)]
-				public partial struct Data: IComponent, Wrench.IConnectable<Ducts.TargetInfo, Duct.Data>
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
@@ -19,8 +19,8 @@ namespace TC2.Base.Components
 					//public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Duct;
-					public Physics.Layer LayerMask => Physics.Layer.Duct;
+					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Conveyor;
+					public Physics.Layer LayerMask => Physics.Layer.Conveyor;
 
 					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
 					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;
@@ -111,7 +111,7 @@ namespace TC2.Base.Components
 									{
 										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
 										{
-											var rpc = new Wrench.Mode.Ducts.ConfirmRPC()
+											var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
 											{
 
 											};
@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Ducts.Data>
+				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
 				{
 					public Entity ent_src;
 					public Entity ent_dst;
@@ -179,7 +179,7 @@ namespace TC2.Base.Components
 					public ulong component_id_dst;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Ducts.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
 					{
 						App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
@@ -192,7 +192,7 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public struct EditRPC: Net.IRPC<Wrench.Mode.Ducts.Data>
+				public struct EditRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
 				{
 					public Crafting.Recipe.Handle? recipe;
 
@@ -206,7 +206,7 @@ namespace TC2.Base.Components
 
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Ducts.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
 					{
 						if (this.recipe.HasValue)
 						{
@@ -218,10 +218,10 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Ducts.Data>
+				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
 				{
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Ducts.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
 					{
 						ref var region = ref entity.GetRegion();
 						ref var player = ref connection.GetPlayer();
@@ -238,7 +238,7 @@ namespace TC2.Base.Components
 							{
 								var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
 				
-								errors |= data.EvaluateNodePair<Wrench.Mode.Ducts.Data, Wrench.Mode.Ducts.TargetInfo, Duct.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Duct.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{
 									var arg = (data.ent_src, data.ent_dst);
