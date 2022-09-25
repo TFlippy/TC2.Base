@@ -401,56 +401,7 @@ namespace TC2.Base.Components
 					color_new = GUI.font_color_error;
 				}
 
-				if (info_src.IsValid)
-				{
-					if (!info_new.IsValid && !info_dst.IsValid)
-					{
-						var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
-						var n = new Vector2(-dir.Y, dir.X);
-						var offset_src = n * info_src.Radius;
-						var offset_mouse = n * info_src.Radius * 0.50f;
-
-						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (wpos_mouse + offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
-						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (wpos_mouse - offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
-					}
-
-					if (info_new.IsValid)
-					{
-						var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
-						var n = new Vector2(-dir.Y, dir.X);
-						var offset_src = n * info_src.Radius;
-						var offset_new = n * info_new.Radius;
-
-						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (info_new.Position + offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
-						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (info_new.Position - offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
-					}
-
-					if (info_dst.IsValid)
-					{
-						var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
-						var n = new Vector2(-dir.Y, dir.X);
-						var offset_src = n * info_src.Radius;
-						var offset_dst = n * info_dst.Radius;
-
-						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (info_dst.Position + offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
-						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (info_dst.Position - offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
-					}
-				}
-
-				if (info_src.IsValid)
-				{
-					GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * scale, color_src, 2.00f);
-				}
-
-				if (info_dst.IsValid)
-				{
-					GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * scale, color_dst, 2.00f);
-				}
-
-				if (info_new.IsValid)
-				{
-					GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * scale, color_new.WithAlphaMult(0.50f), 2.00f);
-				}
+				DrawGizmos(ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
 				{
@@ -532,6 +483,60 @@ namespace TC2.Base.Components
 				if (info_src.IsValid && info_dst.IsValid)
 				{
 					this.DrawHUD(ent_wrench, ref info_src, ref info_dst, errors_src, errors_dst, distance);
+				}
+			}
+
+			public void DrawGizmos(ref Vector2 wpos_mouse, ref TInfo info_src, ref TInfo info_dst, ref TInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+			{
+				if (info_src.IsValid)
+				{
+					if (!info_new.IsValid && !info_dst.IsValid)
+					{
+						var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
+						var n = new Vector2(-dir.Y, dir.X);
+						var offset_src = n * info_src.Radius;
+						var offset_mouse = n * info_src.Radius * 0.50f;
+
+						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (wpos_mouse + offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
+						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (wpos_mouse - offset_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
+					}
+
+					if (info_new.IsValid)
+					{
+						var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
+						var n = new Vector2(-dir.Y, dir.X);
+						var offset_src = n * info_src.Radius;
+						var offset_new = n * info_new.Radius;
+
+						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (info_new.Position + offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
+						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (info_new.Position - offset_new).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
+					}
+
+					if (info_dst.IsValid)
+					{
+						var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
+						var n = new Vector2(-dir.Y, dir.X);
+						var offset_src = n * info_src.Radius;
+						var offset_dst = n * info_dst.Radius;
+
+						GUI.DrawLine2((info_src.Position + offset_src).WorldToCanvas(), (info_dst.Position + offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
+						GUI.DrawLine2((info_src.Position - offset_src).WorldToCanvas(), (info_dst.Position - offset_dst).WorldToCanvas(), color_src, color_dst, 2.00f, 2.00f);
+					}
+				}
+
+				if (info_src.IsValid)
+				{
+					GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * GUI.GetWorldToCanvasScale(), color_src, 2.00f);
+				}
+
+				if (info_dst.IsValid)
+				{
+					GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * GUI.GetWorldToCanvasScale(), color_dst, 2.00f);
+				}
+
+				if (info_new.IsValid)
+				{
+					GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * GUI.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
 				}
 			}
 #endif

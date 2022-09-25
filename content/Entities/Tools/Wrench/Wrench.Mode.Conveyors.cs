@@ -158,7 +158,7 @@ namespace TC2.Base.Components
 											};
 											rpc.Send(ent_wrench);
 										}
-										GUI.DrawHoverTooltip("Create a belt connection.");
+										GUI.DrawHoverTooltip("Create a conveyor connection.");
 									}
 								}
 							}
@@ -190,6 +190,51 @@ namespace TC2.Base.Components
 							}
 						}
 					}
+
+					void Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>.DrawGizmos(ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+					{
+						if (info_src.IsValid)
+						{
+							if (!info_new.IsValid && !info_dst.IsValid)
+							{
+								var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
+
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (wpos_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 4.00f, 4.00f);
+							}
+
+							if (info_new.IsValid)
+							{
+								var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
+
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_new.Position).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 4.00f, 4.00f);
+							}
+
+							if (info_dst.IsValid)
+							{
+								var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
+
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_dst.Position).WorldToCanvas(), color_src, color_dst, 4.00f, 4.00f);
+							}
+						}
+
+						if (info_src.IsValid)
+						{
+							//GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * GUI.GetWorldToCanvasScale(), color_src, 2.00f);
+							GUI.DrawEntity(info_src.Entity, color_src.WithAlphaMult(0.50f));
+						}
+
+						if (info_dst.IsValid)
+						{
+							//GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * GUI.GetWorldToCanvasScale(), color_dst, 2.00f);
+							GUI.DrawEntity(info_dst.Entity, color_dst.WithAlphaMult(0.50f));
+						}
+
+						if (info_new.IsValid)
+						{
+							//GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * GUI.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
+							GUI.DrawEntity(info_new.Entity, color_new.WithAlphaMult(0.50f));
+						}
+					}
 #endif
 				}
 
@@ -206,13 +251,12 @@ namespace TC2.Base.Components
 					public bool alive;
 					public bool valid;
 
-					Entity ITargetInfo.Entity => this.entity;
-					Vector2 ITargetInfo.Position => this.pos;
-					float ITargetInfo.Radius => this.radius;
-
-					bool ITargetInfo.IsSource => this.is_src;
-					bool ITargetInfo.IsAlive => this.alive;
-					bool ITargetInfo.IsValid => this.valid;
+					public Entity Entity => this.entity;
+					public Vector2 Position => this.pos;
+					public float Radius => this.radius;
+					public bool IsSource => this.is_src;
+					public bool IsAlive => this.alive;
+					public bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity, bool is_src)
 					{
