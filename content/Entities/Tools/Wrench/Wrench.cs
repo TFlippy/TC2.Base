@@ -30,6 +30,8 @@ namespace TC2.Base.Components
 		public interface ITargetInfo
 		{
 			public Entity Entity { get; }
+			public ulong ComponentID { get; }
+
 			public Vector2 Position { get; }
 			public float Radius { get; }
 
@@ -245,7 +247,7 @@ namespace TC2.Base.Components
 				var errors = Build.Errors.None;
 				distance = 0.00f;
 
-				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsValid && info_dst.IsValid && info_src.Entity != info_dst.Entity)
+				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsValid && info_dst.IsValid && (info_src.Entity != info_dst.Entity || info_src.ComponentID != info_dst.ComponentID))
 				{
 					var placement = recipe.placement.Value;
 

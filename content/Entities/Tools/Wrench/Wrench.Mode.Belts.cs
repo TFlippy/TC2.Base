@@ -149,13 +149,13 @@ namespace TC2.Base.Components
 					public bool alive;
 					public bool valid;
 
-					Entity ITargetInfo.Entity => this.entity;
-					Vector2 ITargetInfo.Position => this.pos;
-					float ITargetInfo.Radius => this.radius;
-
-					bool ITargetInfo.IsSource => this.is_src;
-					bool ITargetInfo.IsAlive => this.alive;
-					bool ITargetInfo.IsValid => this.valid;
+					public Entity Entity => this.entity;
+					public ulong ComponentID => ECS.GetID<Belt.Data>();
+					public Vector2 Position => this.pos;
+					public float Radius => this.radius;
+					public bool IsSource => this.is_src;
+					public bool IsAlive => this.alive;
+					public bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity, bool is_src)
 					{

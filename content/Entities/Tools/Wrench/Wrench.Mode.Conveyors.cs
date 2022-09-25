@@ -241,6 +241,7 @@ namespace TC2.Base.Components
 				public struct TargetInfo: ITargetInfo
 				{
 					public Entity entity;
+					public ulong inventory_id;
 
 					public Transform.Data transform;
 
@@ -252,6 +253,7 @@ namespace TC2.Base.Components
 					public bool valid;
 
 					public Entity Entity => this.entity;
+					public ulong ComponentID => this.inventory_id;
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => this.is_src;

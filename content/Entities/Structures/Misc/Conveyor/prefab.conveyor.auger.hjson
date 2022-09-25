@@ -21,6 +21,11 @@ body:
 duct:
 {
 	interval: 1.000
+
+	throughput_min: 1.000
+	throughput_max: 25.000
+
+	filter_flags: ore, gravel, powder
 }
 
 duct.state:
