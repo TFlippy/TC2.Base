@@ -15,6 +15,9 @@ namespace TC2.Base.Components
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
+					[Save.Ignore] public ulong inventory_id_src;
+					[Save.Ignore] public ulong inventory_id_dst;
+
 					public Crafting.Recipe.Handle selected_recipe;
 					//public Belt.Flags flags;
 
@@ -96,15 +99,53 @@ namespace TC2.Base.Components
 
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 0.50f)))
+							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 200), pivot: new(0.50f, 0.50f)))
 							{
 								if (hud.show)
 								{
-									GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
+									GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
+
+									var inventories_src = info_src.entity.GetInventories();
+									var inventories_dst = info_dst.entity.GetInventories();
+
+									var sync = false;
 
 									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
 									{
-										GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+										//GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+
+										var w = GUI.GetRemainingWidth();
+
+										using (GUI.ID.Push(this.ent_src))
+										{
+											using (GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											{
+												DrawInventories(ref inventories_src, ref this.inventory_id_src, ref sync);
+											}
+										}
+
+										GUI.SameLine();
+
+										using (GUI.ID.Push(this.ent_dst))
+										{
+											using (GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											{
+												DrawInventories(ref inventories_dst, ref this.inventory_id_dst, ref sync);
+											}
+										}
+									}
+
+									if (sync)
+									{
+										var rpc = new SetTargetRPC
+										{
+											ent_src = this.ent_src,
+											ent_dst = this.ent_dst,
+
+											component_id_src = this.inventory_id_src,
+											component_id_dst = this.inventory_id_dst,
+										};
+										rpc.Send(ent_wrench);
 									}
 
 									using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
@@ -123,6 +164,32 @@ namespace TC2.Base.Components
 							}
 						}
 					}
+
+					private static void DrawInventories(scoped ref Inventory.Handle.List inventories, scoped ref ulong selected_inventory_id, scoped ref bool sync)
+					{
+						foreach (var h_inventory in inventories)
+						{
+							if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts))
+							{
+								using (GUI.ID.Push(h_inventory.ID))
+								{
+									using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 32), padding: new(4)))
+									{
+										GUI.DrawBackground(GUI.tex_panel, group_row.GetOuterRect(), new Vector4(4));
+
+										GUI.TitleCentered(h_inventory.Name, pivot: new(0.50f, 0.50f));
+
+										var is_selected = selected_inventory_id == h_inventory.ID;
+										if (GUI.Selectable3(h_inventory.Name, group_row.GetOuterRect(), is_selected))
+										{
+											selected_inventory_id = is_selected ? 0 : h_inventory.ID;
+											sync = true;
+										}
+									}
+								}
+							}
+						}
+					}
 #endif
 				}
 
@@ -130,7 +197,6 @@ namespace TC2.Base.Components
 				{
 					public Entity entity;
 
-					public Axle.Data axle;
 					public Transform.Data transform;
 
 					public float radius;
@@ -158,13 +224,26 @@ namespace TC2.Base.Components
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetValue(out this.axle);
 							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValue(out this.transform);
+
+							var has_inventory = false;
+
+							var inventories = this.entity.GetInventories();
+							foreach (var h_inventory in inventories)
+							{
+								if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts))
+								{
+									has_inventory = true;
+									break;
+								}
+							}
+
+							valid &= has_inventory;
 
 							if (this.valid)
 							{
-								this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
-								this.pos = this.transform.LocalToWorld(this.axle.offset);
+								this.radius = 1.00f;
+								this.pos = this.transform.position;
 							}
 						}
 					}
@@ -187,6 +266,10 @@ namespace TC2.Base.Components
 
 						data.ent_src = this.ent_src;
 						data.ent_dst = this.ent_dst;
+
+						data.inventory_id_src = this.component_id_src;
+						data.inventory_id_dst = this.component_id_dst;
+
 						data.Sync(entity);
 					}
 #endif
@@ -241,13 +324,18 @@ namespace TC2.Base.Components
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Duct.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{
-									var arg = (data.ent_src, data.ent_dst);
+									var arg = (data.ent_src, data.ent_dst, data.inventory_id_src, data.inventory_id_dst);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{
 										ref var duct = ref ent.GetComponent<Duct.Data>();
 										if (!duct.IsNull())
 										{
+											duct.a.Set(arg.ent_src, arg.inventory_id_src);
+											duct.b.Set(arg.ent_dst, arg.inventory_id_dst);
+
+											ent.MarkModified<Duct.Data>(sync: true);
+
 											//belt.a.Set(arg.ent_src);
 											//belt.b.Set(arg.ent_dst);
 
@@ -262,6 +350,9 @@ namespace TC2.Base.Components
 
 									data.ent_src = default;
 									data.ent_dst = default;
+
+									data.inventory_id_src = default;
+									data.inventory_id_dst = default;
 								}
 							}
 
