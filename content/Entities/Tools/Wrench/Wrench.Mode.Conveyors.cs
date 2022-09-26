@@ -199,21 +199,21 @@ namespace TC2.Base.Components
 							{
 								var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
 
-								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (wpos_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 4.00f, 4.00f);
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (wpos_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 8.00f, 8.00f);
 							}
 
 							if (info_new.IsValid)
 							{
 								var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
 
-								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_new.Position).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 4.00f, 4.00f);
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_new.Position).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 8.00f, 8.00f);
 							}
 
 							if (info_dst.IsValid)
 							{
 								var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
 
-								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_dst.Position).WorldToCanvas(), color_src, color_dst, 4.00f, 4.00f);
+								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_dst.Position).WorldToCanvas(), color_src, color_dst, 8.00f, 8.00f);
 							}
 						}
 
@@ -392,6 +392,9 @@ namespace TC2.Base.Components
 
 											//ent.MarkModified<Duct.Data>(sync: true);
 										}
+
+										//ent.AddRel2<Duct.Link>(arg.ent_src, default, false, false, false);
+										//ent.AddRel2<Duct.Link>(arg.ent_dst, default, false, false, false);
 									});
 
 									data.ent_src = default;

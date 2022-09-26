@@ -48,7 +48,7 @@ namespace TC2.Base.Components
 
 							var cling_force = climber.cling_force;
 							var climb_speed = climber.climb_speed;
-							cling_force *= MathF.Round(organic_state.efficiency * organic_state.consciousness_shared) * organic.strength;
+							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength;
 							climber.cling_entity = ent_arbiter;
 
 							var vel = Vector2.Zero;
