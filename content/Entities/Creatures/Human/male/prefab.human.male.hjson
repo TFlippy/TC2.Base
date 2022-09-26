@@ -600,7 +600,7 @@ lootable:
 	{
 		sound: "swish.00"
 		damage_base: 30.000
-		damage_bonus: 180.000
+		damage_bonus: 160.000
 
 		cooldown: 0.500
 		max_distance: 1.000

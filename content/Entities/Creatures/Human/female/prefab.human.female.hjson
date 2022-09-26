@@ -588,15 +588,15 @@ lootable:
 	puncher:
 	{
 		sound: "swish.00"
-		damage_base: 20.000
-		damage_bonus: 120.000
+		damage_base: 15.000
+		damage_bonus: 90.000
 
-		cooldown: 0.400
+		cooldown: 0.250
 		max_distance: 1.000
 		aoe: 0.250
 		damage_type: punch
 		hit_mask: destructible
-		knockback: 2.000
+		knockback: 1.500
 		penetration: 0
 
 		frame: [9, 0]
