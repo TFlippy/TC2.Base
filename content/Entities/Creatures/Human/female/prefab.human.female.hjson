@@ -584,6 +584,24 @@ lootable:
 	{
 		max_force: 6000.000
 	}
+
+	puncher:
+	{
+		sound: "swish.00"
+		damage_base: 20.000
+		damage_bonus: 120.000
+
+		cooldown: 0.400
+		max_distance: 1.000
+		aoe: 0.250
+		damage_type: punch
+		hit_mask: destructible
+		knockback: 2.000
+		penetration: 0
+
+		frame: [9, 0]
+		offset: [0.250, -0.125]
+	}
 }
 
 +toolbelt|instance:
