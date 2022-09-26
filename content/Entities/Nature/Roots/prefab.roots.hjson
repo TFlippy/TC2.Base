@@ -19,7 +19,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: wood
-		layer: entity, climbable, ignore_bullet
+		layer: entity, climbable, ignore_bullet, ignore_melee
 		mask: world
 	}
 }
