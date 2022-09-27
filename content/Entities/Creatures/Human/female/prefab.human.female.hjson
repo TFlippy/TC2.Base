@@ -592,10 +592,10 @@ lootable:
 		damage_bonus: 90.000
 
 		cooldown: 0.250
-		max_distance: 1.000
+		max_distance: 1.100
 		aoe: 0.250
 		damage_type: punch
-		hit_mask: destructible
+		hit_mask: destructible, world
 		knockback: 1.500
 		penetration: 0
 
