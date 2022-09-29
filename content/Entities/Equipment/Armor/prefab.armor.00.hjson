@@ -1,4 +1,8 @@
-$name: "Body Armor"
+$name: "Uniform (Heavy Infantry)"
+$desc:
+	'''
+	Heavy Imperial military uniform consisting of a trenchcoat, thick ballistic vest, shoulderpads and faulds. 
+	'''
 $tags: []
 
 body:
@@ -60,10 +64,10 @@ equipment:
 
 armor:
 {
-	toughness: 350.000
-	protection: 0.90
+	toughness: 400.000
+	protection: 0.95
 	
-	knockback_modifier: 1.30
+	knockback_modifier: 1.40
 	pain_modifier: 0.90
 
 	material_type: metal

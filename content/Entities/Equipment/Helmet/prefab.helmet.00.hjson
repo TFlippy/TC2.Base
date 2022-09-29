@@ -1,4 +1,8 @@
-$name: "Helmet"
+$name: "Helmet (Standard)"
+$desc:
+	'''
+	Standard Imperial military helmet.
+	'''
 $tags: []
 
 body:
