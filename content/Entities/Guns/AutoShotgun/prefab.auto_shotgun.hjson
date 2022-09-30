@@ -70,7 +70,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.000]
+	offset: [-0.300, 0.0625]
 	radius: 4.000
 	flags: storable
 
