@@ -108,3 +108,14 @@ depot:
 
 	shipping_fee_base: 13.000
 }
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	flags: faction
+}
