@@ -1175,6 +1175,29 @@ namespace TC2.Base
 					
 				}
 			));
+
+			definitions.Add(Augment.Definition.New<LandMine.Data>
+			(
+				identifier: "landmine.safety",
+				category: "Utility",
+				name: "Safety Markings",
+				description: "Prevents faction members from stepping on the land mine.",
+
+				can_add: static (ref Augment.Context context, in LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.flags |= LandMine.Flags.Faction;
+				},
+
+				apply_1: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("paper", 1));
+				}
+			));
 		}
 	}
 }

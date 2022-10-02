@@ -104,6 +104,9 @@ namespace TC2.Base.Components
 		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
 			explosive.modifier = MathF.Sqrt(Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max));
+			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
+			//explosive.modifier = MathF.Log2(resource.quantity / MathF.Max(resource.material.GetDefinition().quantity_max, 1.00f));
+			//App.WriteLine(explosive.modifier);
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single)]
@@ -137,8 +140,8 @@ namespace TC2.Base.Components
 					ref var explosion = ref x.GetComponent<Explosion.Data>();
 					if (!explosion.IsNull())
 					{
-						explosion.power = explosive_tmp.power * explosive_tmp.modifier;
-						explosion.radius = explosive_tmp.radius * explosive_tmp.modifier;
+						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier);
+						explosion.radius = Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier);
 						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier;
 						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier;
 						explosion.damage_type = explosive_tmp.damage_type;
