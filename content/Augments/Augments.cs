@@ -2,7 +2,7 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		// TODO: Split this into multiple files
 		private static void RegisterAugments(ref List<Augment.Definition> definitions)

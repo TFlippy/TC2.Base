@@ -1,6 +1,6 @@
 ﻿namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterArmorAugments(ref List<Augment.Definition> definitions)
 		{
