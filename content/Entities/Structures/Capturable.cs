@@ -147,9 +147,9 @@ namespace TC2.Base.Components
 					{
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
-						ref var experience = ref player.GetExperience().Value;
+						ref var experience = ref player.GetExperience().data;
 						var ref_worker = player.ent_controlled.GetComponentWithOwner<Worker.Data>(Relation.Type.Instance);
-						ref var worker = ref ref_worker.Value;
+						ref var worker = ref ref_worker.data;
 
 						ref var order = ref this.capturable.order;
 						ref var recipe = ref order.recipe.GetRecipe();
@@ -206,7 +206,7 @@ namespace TC2.Base.Components
 														order_index = (ushort)0,
 														work_index = (ushort)i,
 													};
-													rpc.Send(ref_worker.Entity);
+													rpc.Send(ref_worker.entity);
 												}
 											}
 											else
@@ -217,7 +217,7 @@ namespace TC2.Base.Components
 													{
 														ent_target = default
 													};
-													rpc.Send(ref_worker.Entity);
+													rpc.Send(ref_worker.entity);
 												}
 											}
 										}

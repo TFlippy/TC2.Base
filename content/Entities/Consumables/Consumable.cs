@@ -68,7 +68,7 @@ namespace TC2.Base.Components
 									Sound.Play(ref region, consumable.sound_use, result_nearest.world_position);
 
 									var data = new Consumable.ConsumeEvent();
-									data.ent_organic = oc_organic.Entity;
+									data.ent_organic = oc_organic.entity;
 									data.ent_holder = ent_holder;
 									data.ent_consumable = entity;
 									data.world_position = result_nearest.world_position;
@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 						Sound.Play(ref region, consumable.sound_use, transform.position);
 
 						var data = new Consumable.ConsumeEvent();
-						data.ent_organic = oc_organic.Entity;
+						data.ent_organic = oc_organic.entity;
 						data.ent_holder = ent_holder;
 						data.ent_consumable = entity;
 						data.world_position = transform.position;
