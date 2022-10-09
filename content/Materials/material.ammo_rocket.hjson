@@ -1,5 +1,5 @@
 {
-	name: "Rocket Ammo"
+	name: "Rocket Ammo (Standard)"
 	description: "Ammunition for rocket launchers. Uses gunpowder filling, reduced damage and radius, creates more smoke on impact. Not very accurate."
 
 	icon:

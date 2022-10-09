@@ -1,6 +1,9 @@
 {
 	name: "Autocannon Ammo (High-Explosive)"
-	desc: "Ammunition for autocannons. (High-Explosive)"
+	desc: 
+		'''
+		Ammunition for autocannons. Explodes upon impact.
+		'''
 	
 	icon:
 	{

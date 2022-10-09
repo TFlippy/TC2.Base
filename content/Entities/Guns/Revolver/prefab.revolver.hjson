@@ -38,7 +38,7 @@ gun:
 	type: handgun
 	feed: cylinder
 
-	heuristic_range: 25.000
+	heuristic_range: 18.000
 	
 	shake_amount: 0.390
 	
