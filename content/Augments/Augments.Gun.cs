@@ -2917,11 +2917,12 @@ namespace TC2.Base
 					if (!scope.IsNull())
 					{
 						scope.speed = 3.00f;
-						scope.deadzone = 0.50f;
-						scope.zoom_modifier = 0.00f;
+						scope.deadzone = 3.00f;
+						scope.zoom_modifier = 0.50f;
 						scope.zoom_min = 0.50f;
-						scope.zoom_max = 1.00f;
-						scope.max_distance = 50.00f;
+						scope.zoom_max = 0.50f;
+						scope.min_distance = 10.00f;
+						scope.max_distance = 60.00f;
 					}
 				}
 			));
