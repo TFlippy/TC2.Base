@@ -94,13 +94,13 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
