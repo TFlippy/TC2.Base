@@ -152,98 +152,101 @@ namespace TC2.Base.Components
 						ref var worker = ref ref_worker.data;
 
 						ref var order = ref this.capturable.order;
-						ref var recipe = ref order.recipe.GetRecipe();
+						ref var recipe = ref order.recipe.GetData();
 
 						var has_resources = true;
 						var has_worker = false;
 
 						var faction_id = player.faction_id;
-						ref var faction = ref faction_id.GetValue();
-						//var frame_size = Inventory.GetFrameSize(4, 2);
-
-						//using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
-						//{
-						//	using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
-						//	{
-						//		GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
-
-
-						//	}
-						//}
-
-						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+						ref var faction = ref faction_id.GetData();
+						if (!faction.IsNull())
 						{
-							for (var i = 0; i < 1; i++)
+							//var frame_size = Inventory.GetFrameSize(4, 2);
+
+							//using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+							//{
+							//	using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+							//	{
+							//		GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+
+
+							//	}
+							//}
+
+							using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 							{
-								ref var work = ref order.work[i];
-								using (GUI.ID.Push(i))
+								for (var i = 0; i < 1; i++)
 								{
-									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
+									ref var work = ref order.work[i];
+									using (GUI.ID.Push(i))
 									{
-										var button_size = new Vector2(24 * 4, 48);
-
-										GUI.DrawWork(ref experience, work, new(GUI.GetRemainingWidth() - button_size.X, GUI.GetRemainingHeight()), Color32BGRA.Lerp(GUI.col_button, faction.color_a, 0.50f));
-										GUI.OffsetLine(GUI.GetRemainingWidth() - button_size.X);
-
-										if (work.type != Work.Type.Undefined)
+										using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
 										{
-											var button_color = has_resources ? GUI.col_button_yellow : GUI.font_color_default_dark;
+											var button_size = new Vector2(24 * 4, 48);
 
-											if (work.current >= work.required)
+											GUI.DrawWork(ref experience, work, new(GUI.GetRemainingWidth() - button_size.X, GUI.GetRemainingHeight()), Color32BGRA.Lerp(GUI.col_button, faction.color_a, 0.50f));
+											GUI.OffsetLine(GUI.GetRemainingWidth() - button_size.X);
+
+											if (work.type != Work.Type.Undefined)
+											{
+												var button_color = has_resources ? GUI.col_button_yellow : GUI.font_color_default_dark;
+
+												if (work.current >= work.required)
+												{
+													if (GUI.DrawButton("", button_size, enabled: false))
+													{
+
+													}
+												}
+												else if (worker.work_index != i)
+												{
+													if (GUI.DrawButton("Capture", button_size, enabled: work.current < work.required && has_resources, color: button_color))
+													{
+														var rpc = new Worker.SetTargetRPC
+														{
+															ent_target = this.ent_capturable,
+															order_index = (ushort)0,
+															work_index = (ushort)i,
+														};
+														rpc.Send(ref_worker.entity);
+													}
+												}
+												else
+												{
+													if (GUI.DrawButton("Stop", button_size, enabled: work.current < work.required && has_resources, color: button_color))
+													{
+														var rpc = new Worker.SetTargetRPC
+														{
+															ent_target = default
+														};
+														rpc.Send(ref_worker.entity);
+													}
+												}
+											}
+											else
 											{
 												if (GUI.DrawButton("", button_size, enabled: false))
 												{
 
 												}
 											}
-											else if (worker.work_index != i)
-											{
-												if (GUI.DrawButton("Capture", button_size, enabled: work.current < work.required && has_resources, color: button_color))
-												{
-													var rpc = new Worker.SetTargetRPC
-													{
-														ent_target = this.ent_capturable,
-														order_index = (ushort)0,
-														work_index = (ushort)i,
-													};
-													rpc.Send(ref_worker.entity);
-												}
-											}
-											else
-											{
-												if (GUI.DrawButton("Stop", button_size, enabled: work.current < work.required && has_resources, color: button_color))
-												{
-													var rpc = new Worker.SetTargetRPC
-													{
-														ent_target = default
-													};
-													rpc.Send(ref_worker.entity);
-												}
-											}
-										}
-										else
-										{
-											if (GUI.DrawButton("", button_size, enabled: false))
-											{
-
-											}
 										}
 									}
 								}
-							}
 
-							if (GUI.DrawButton("DEV: Reset", new Vector2(120, 48)))
-							{
-								var rpc = new Capturable.CaptureRPC()
+								if (GUI.DrawButton("DEV: Reset", new Vector2(120, 48)))
 								{
+									var rpc = new Capturable.CaptureRPC()
+									{
 
-								};
-								rpc.Send(this.ent_capturable);
+									};
+									rpc.Send(this.ent_capturable);
+								}
+
+								//GUI.SameLine();
+
+								//GUI.DrawWorkH(0.50f, size: new Vector2(GUI.GetRemainingWidth(), 48));
 							}
-
-							//GUI.SameLine();
-
-							//GUI.DrawWorkH(0.50f, size: new Vector2(GUI.GetRemainingWidth(), 48));
 						}
 					}
 				}

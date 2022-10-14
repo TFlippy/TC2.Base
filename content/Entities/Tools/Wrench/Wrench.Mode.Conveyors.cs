@@ -18,7 +18,7 @@ namespace TC2.Base.Components
 					[Save.Ignore] public ulong inventory_id_src;
 					[Save.Ignore] public ulong inventory_id_dst;
 
-					public Crafting.Recipe.Handle selected_recipe;
+					public IRecipe.Handle selected_recipe;
 					//public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 
 					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
 					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;
-					[UnscopedRef] public ref Crafting.Recipe.Handle SelectedRecipe => ref this.selected_recipe;
+					[UnscopedRef] public ref IRecipe.Handle SelectedRecipe => ref this.selected_recipe;
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{
@@ -45,7 +45,7 @@ namespace TC2.Base.Components
 						rpc.Send(ent_wrench);
 					}
 
-					public void SendSetRecipeRPC(Entity ent_wrench, Crafting.Recipe.Handle recipe)
+					public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe)
 					{
 						var rpc = new EditRPC
 						{
@@ -56,7 +56,7 @@ namespace TC2.Base.Components
 
 					public void DrawInfo(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
-						ref var recipe = ref this.selected_recipe.GetRecipe();
+						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
 						{
 							using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
-						ref var recipe = ref this.selected_recipe.GetRecipe();
+						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
 						{
 							var placement = recipe.placement.Value;
@@ -323,7 +323,7 @@ namespace TC2.Base.Components
 
 				public struct EditRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
 				{
-					public Crafting.Recipe.Handle? recipe;
+					public IRecipe.Handle? recipe;
 
 					public float? throughput_min;
 					public float? throughput_max;
@@ -354,7 +354,7 @@ namespace TC2.Base.Components
 					{
 						ref var region = ref entity.GetRegion();
 						ref var player = ref connection.GetPlayer();
-						ref var recipe = ref data.selected_recipe.GetRecipe();
+						ref var recipe = ref data.selected_recipe.GetData();
 
 						if (!region.IsNull() && !player.IsNull() && !recipe.IsNull())
 						{

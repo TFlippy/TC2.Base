@@ -17,7 +17,7 @@ namespace TC2.Base.Components
 			public static abstract Sprite Icon { get; }
 			public Crafting.Recipe.Tags RecipeTags { get; }
 
-			public bool IsRecipeValid(ref Region.Data region, ref Crafting.Recipe recipe)
+			public bool IsRecipeValid(ref Region.Data region, ref IRecipe.Data recipe)
 			{
 				return !recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(this.RecipeTags) && recipe.placement.HasValue;
 			}
@@ -41,13 +41,13 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNode(ref region, ref info, ref recipe, faction_id: faction_id);
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out distance, faction_id: faction_id);
 		}
@@ -210,19 +210,19 @@ namespace TC2.Base.Components
 		{
 			public ref Entity EntitySrc { get; }
 			public ref Entity EntityDst { get; }
-			public ref Crafting.Recipe.Handle SelectedRecipe { get; }
+			public ref IRecipe.Handle SelectedRecipe { get; }
 
 			public Physics.Layer LayerMask { get; }
 			public TInfo CreateTargetInfo(Entity entity, bool is_src);
 
 #if CLIENT
 			public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst);
-			public void SendSetRecipeRPC(Entity ent_wrench, Crafting.Recipe.Handle recipe);
+			public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe);
 
 			public void DrawInfo(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
 			public void DrawHUD(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
 #endif
-			public Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref Crafting.Recipe recipe, IFaction.Handle faction_id = default)
+			public Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default)
 			{
 				var errors = Build.Errors.None;
 
@@ -242,7 +242,7 @@ namespace TC2.Base.Components
 			}
 
 			[MethodImpl(MethodImplOptions.NoInlining)]
-			public Build.Errors EvaluateNodePair(ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref Crafting.Recipe recipe, out float distance, IFaction.Handle faction_id = default)
+			public Build.Errors EvaluateNodePair(ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default)
 			{
 				var errors = Build.Errors.None;
 				distance = 0.00f;
@@ -356,7 +356,7 @@ namespace TC2.Base.Components
 				var color_new = GUI.font_color_yellow;
 
 				{
-					ref var recipe = ref this.SelectedRecipe.GetRecipe();
+					ref var recipe = ref this.SelectedRecipe.GetData();
 					if (!recipe.IsNull())
 					{
 						if (info_src.IsValid)
@@ -435,35 +435,39 @@ namespace TC2.Base.Components
 					{
 						GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
 
-						var recipes = Shop.GetAllRecipes();
-						foreach (ref var recipe in recipes)
+						var recipes = IRecipe.Database.GetAssets();
+						foreach (var d_recipe in recipes)
 						{
-							if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(this.RecipeTags))
+							ref var recipe = ref d_recipe.GetData();
+							if (recipe.IsNotNull())
 							{
-								using (GUI.ID.Push(recipe.id))
+								if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(this.RecipeTags))
 								{
-									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
+									using (GUI.ID.Push(d_recipe.id))
 									{
-										var frame_size = new Vector2(48, 48);
-										var selected = this.SelectedRecipe.id == recipe.id;
-										using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+										using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
 										{
-											GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-											GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
+											var frame_size = new Vector2(48, 48);
+											var selected = this.SelectedRecipe.id == d_recipe.id;
+											using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+											{
+												GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+												GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
 
-											if (button.pressed)
-											{
-												this.SendSetRecipeRPC(ent_wrench, new Crafting.Recipe.Handle(recipe.id));
-											}
-										}
-										if (GUI.IsItemHovered())
-										{
-											using (GUI.Tooltip.New())
-											{
-												using (GUI.Wrap.Push(256))
+												if (button.pressed)
 												{
-													GUI.Title(recipe.name);
-													GUI.Text(recipe.desc, color: GUI.font_color_default);
+													this.SendSetRecipeRPC(ent_wrench, d_recipe);
+												}
+											}
+											if (GUI.IsItemHovered())
+											{
+												using (GUI.Tooltip.New())
+												{
+													using (GUI.Wrap.Push(256))
+													{
+														GUI.Title(recipe.name);
+														GUI.Text(recipe.desc, color: GUI.font_color_default);
+													}
 												}
 											}
 										}

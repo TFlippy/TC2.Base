@@ -215,7 +215,7 @@
 								if (!recipe.IsNull())
 								{
 									ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
-									GUI.DrawShopRecipe(ref region, ref recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
+									GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 								}
 							}
 						}

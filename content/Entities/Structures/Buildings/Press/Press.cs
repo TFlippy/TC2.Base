@@ -25,7 +25,7 @@
 			public float load_multiplier;
 
 			[Net.Ignore, Save.Ignore]
-			public Crafting.Recipe.Handle recipe_cached;
+			public IRecipe.Handle recipe_cached;
 
 			[Net.Ignore, Save.Ignore]
 			public int current_sound_index;
@@ -233,7 +233,7 @@
 									{
 										ref var inventory_data = ref this.ent_press.GetTrait<Crafter.State, Inventory8.Data>();
 
-										GUI.DrawShopRecipe(ref region, ref recipe, this.ent_press, player.ent_controlled, transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
+										GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 									}
 								}
 							}
