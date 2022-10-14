@@ -11,6 +11,7 @@
 	type: powder
 	flags: manufactured, despawnable
 	mass_per_unit: 0.200
+	market_price: 1.500
 	quantity_max: 500.000
 	prefab: "resource.sugar"
 	

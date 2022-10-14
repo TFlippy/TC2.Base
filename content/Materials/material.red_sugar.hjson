@@ -11,6 +11,7 @@
 	type: glass
 	flags: raw, organic
 	mass_per_unit: 0.200
+	market_price: 22.000
 	quantity_max: 100.000
 	prefab: "resource.red_sugar"
 	

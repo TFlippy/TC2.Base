@@ -42,7 +42,7 @@
 		{
 			type: "resource"
 			material: "nitric_acid"
-			amount: 20.000
+			amount: 25.000
 			amount_extra: 5.000
 		}
 		{

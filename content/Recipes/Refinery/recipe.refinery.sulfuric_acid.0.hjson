@@ -32,7 +32,7 @@
 		{
 			type: "resource"
 			material: "water"
-			amount: 100.000
+			amount: 80.000
 		}
 		{
 			type: "work"
@@ -48,7 +48,7 @@
 			type: "resource"
 			material: "sulfuric_acid"
 			amount: 45.000
-			amount_extra: 20.000
+			amount_extra: 50.000
 		}
 		{
 			type: "resource"

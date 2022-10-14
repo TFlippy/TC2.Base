@@ -50,7 +50,7 @@
 		{
 			type: "resource"
 			material: "arcane_actuator"
-			amount: 1.000
+			amount: 3.000
 		}
 	]
 }

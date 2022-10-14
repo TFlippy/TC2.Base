@@ -22,7 +22,12 @@
 		{
 			type: "resource"
 			material: "mushroom.yellow"
-			amount: 25.000
+			amount: 30.000
+		}
+		{
+			type: "resource"
+			material: "water"
+			amount: 200.000
 		}
 		{
 			type: "work"
@@ -43,8 +48,8 @@
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount: 50.000
-			amount_extra: 125.000
+			amount: 100.000
+			amount_extra: 60.000
 		}
 		{
 			type: "resource"
