@@ -52,8 +52,8 @@
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount: 100.000
-			amount_extra: 100.000
+			amount: 30.000
+			amount_extra: 60.000
 		}
 		{
 			type: "resource"
