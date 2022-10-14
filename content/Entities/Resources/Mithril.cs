@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 {
 	public static class Radioactive
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct Data: IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_update;

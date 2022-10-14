@@ -393,7 +393,7 @@ namespace TC2.Base
 			(
 				identifier: "body.bulk",
 				category: "Crafting",
-				name: "Batch Production",
+				name: "Bulk Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
 				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
