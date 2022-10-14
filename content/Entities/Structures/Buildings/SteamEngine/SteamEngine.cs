@@ -125,7 +125,7 @@ namespace TC2.Base.Components
 						using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
 						{
 							//Boiler.DrawGauge(this.steam_engine_state.speed_current, 0.00f, this.steam_engine.speed_max);
-							Boiler.DrawGauge(MathF.Abs(this.wheel_state.angular_velocity), 0.00f, this.steam_engine.speed_max);
+							GUI.DrawGauge(MathF.Abs(this.wheel_state.angular_velocity), 0.00f, this.steam_engine.speed_max);
 
 							GUI.SameLine();
 

@@ -22,6 +22,27 @@
 	
 	sounds_random:
 	[
+		{
+			time_minmax: [15.000, 40.000]
+			volume_minmax: [0.250, 0.300]
+			pitch_minmax: [0.850, 1.050]
 
+			sounds:
+			[
+				// "amb.urban.tram.00"
+				"amb.urban.tram.01"
+				"amb.urban.wind.00"
+			]
+		}
+		{
+			time_minmax: [50.000, 150.000]
+			volume_minmax: [0.200, 0.300]
+			pitch_minmax: [0.950, 1.050]
+
+			sounds:
+			[
+				"amb.urban.train.00"
+			]
+		}
 	]
 }
