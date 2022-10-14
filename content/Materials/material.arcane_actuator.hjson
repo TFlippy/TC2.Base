@@ -18,6 +18,7 @@
 	type: metal
 	flags: manufactured
 	mass_per_unit: 1.650
+	market_price: 120.000
 	quantity_max: 100.000
 	prefab: "resource.arcane_actuator"
 	
