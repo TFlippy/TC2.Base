@@ -11,6 +11,7 @@
 	type: powder
 	flags: raw, powder, smeltable, metal, despawnable
 	mass_per_unit: 0.760
+	market_price: 5.000
 	quantity_max: 250.000
 	prefab: "resource.smirgl_powder"
 	
