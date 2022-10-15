@@ -23,7 +23,7 @@
 	sounds_random:
 	[
 		{
-			time_minmax: [15.000, 40.000]
+			time_minmax: [15.000, 30.000]
 			volume_minmax: [0.250, 0.300]
 			pitch_minmax: [0.850, 1.050]
 
@@ -34,6 +34,17 @@
 				"amb.urban.wind.00"
 			]
 		}
+		// {
+		// 	time_minmax: [20.000, 40.000]
+		// 	volume_minmax: [0.200, 0.250]
+		// 	pitch_minmax: [0.850, 1.050]
+
+		// 	sounds:
+		// 	[
+		// 		"amb.industry.cutter.00"
+		// 		"amb.industry.solder.00"
+		// 	]
+		// }
 		{
 			time_minmax: [50.000, 150.000]
 			volume_minmax: [0.200, 0.300]
