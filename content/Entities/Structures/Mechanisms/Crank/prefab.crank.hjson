@@ -127,7 +127,7 @@ interactable:
 				friction: 0.800
 				elasticity: 0.050
 				material: metal
-				layer: entity, solid
+				layer: entity, solid, ignore_bullet, ignore_melee
 				mask: world
 			}
 		}
