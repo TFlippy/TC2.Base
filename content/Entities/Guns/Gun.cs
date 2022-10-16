@@ -117,8 +117,12 @@
 		{
 			public static readonly Sound.Handle sound_jam_default = "gun_jam";
 
+			[Editor.Picker.Position(true, true)]
 			public Vector2 muzzle_offset = default;
+
+			[Editor.Picker.Position(true, true)]
 			public Vector2 particle_offset = default;
+
 			public float particle_rotation = default;
 
 			public Sound.Handle sound_shoot = default;
@@ -237,6 +241,8 @@
 						}
 					}
 				}
+
+				//GUI.DrawLine((transform.position).WorldToCanvas(), (transform.position + (transform.GetDirection() * 10.00f)).WorldToCanvas(), Color32BGRA.Red);
 
 				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 				GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
@@ -438,8 +444,6 @@
 				var random = XorRandom.New();
 				var base_vel = body.GetVelocity();
 
-				body.AddImpulseWorld(-dir * 70.00f * gun.recoil_multiplier, pos_w_offset);
-
 				var failure_rate = gun.failure_rate;
 				var stability = gun.stability;
 
@@ -449,10 +453,26 @@
 				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
 #endif
 
-#if SERVER
 				ref var material = ref inventory_magazine.resource.material.GetDefinition();
 				if (material.projectile_prefab.id != 0)
 				{
+					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
+
+					var recoil_mass = material.mass_per_unit * gun.ammo_per_shot;
+					var recoil_speed = gun.velocity_multiplier * material.projectile_speed_mult;
+					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * material.projectile_recoil_mult * App.tickrate * 20.00f);
+
+					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
+
+					App.WriteLine($"{body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f}; {recoil_force.Length()}");
+
+					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
+					//body.AddForce(recoil_force); //, pos_w_offset);
+					body.AddForceWorld(recoil_force, pos_w_offset);
+
+
+#if SERVER
 					var loaded_ammo = new Resource.Data()
 					{
 						material = inventory_magazine.resource.material,
@@ -463,9 +483,6 @@
 					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
 
 					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
-
-					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
-					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
 					if (!overheat.IsNull())
 					{
@@ -574,8 +591,8 @@
 
 						entity.Delete();
 					}
-				}
 #endif
+				}
 
 				if (force_jammed || gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{

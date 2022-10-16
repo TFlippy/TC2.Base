@@ -21,7 +21,7 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_sg, despawnable
-	mass_per_unit: 0.025
+	mass_per_unit: 0.150
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.grenade"
 	

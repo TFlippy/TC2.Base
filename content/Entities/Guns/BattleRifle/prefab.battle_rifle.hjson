@@ -6,7 +6,7 @@ body:
 	{
 		a: [-0.500, 0.125]
 		b: [0.850, -0.125]
-		mass: 5.000
+		mass: 7.000
 		radius: 0.250
 		friction: 0.600
 		elasticity: 0.250
@@ -25,7 +25,7 @@ gun:
 	velocity_multiplier: 750.000
 	jitter_multiplier: 0.400
 	damage_multiplier: 4.400
-	recoil_multiplier: 1.800
+	recoil_multiplier: 1.000
 	reload_interval: 2.000
 	cycle_interval: 0.400
 	failure_rate: 0.006

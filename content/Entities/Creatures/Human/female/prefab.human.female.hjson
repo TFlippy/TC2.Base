@@ -547,15 +547,15 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.100, -0.050]
-		max_force: 24000.000
-		max_torque: 700.000
+		max_force: 15000.000
+		max_torque: 2000.000
 		flags: control_write, no_wrap
 	}
 	
 	joint.pivot:
 	{
-		error_bias: 0.020
-		max_bias: 12.000
+		error_bias: 0.0005
+		max_bias: 8.000
 	}
 	
 	// joint.rotarylimit:
@@ -566,8 +566,8 @@ lootable:
 	
 	joint.gear:
 	{
-		error_bias: 0.001
-		max_bias: 8.000
+		error_bias: 0.0005
+		max_bias: 5.000
 	}
 	
 	interactor:
