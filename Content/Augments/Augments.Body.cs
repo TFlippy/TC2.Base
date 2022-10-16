@@ -22,11 +22,11 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							requirement.amount *= 0.95f;
+							requirement.amount *= 0.95f; //Tiny cost reduction effect
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							requirement.amount *= 1.50f;
+							requirement.amount *= 1.50f; //Large work cost increase
 							requirement.difficulty += 3.00f;
 						}
 					}
@@ -83,33 +83,33 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Body.Data>
-			(
-				identifier: "body.floaty",
-				category: "Body",
-				name: "Floaty",
-				description: "Use motion pellets to reduce the effects of gravity on an object.",
-
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
-				{
-					return !Augments.HasAugment(handle);
-				},
-
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
-				{
-					data.gravity *= 0.20f; 
-					//Very fun modifer which makes an object behave very floaty
-
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							requirement.amount *= 1.30f;
-						}
-					}
-					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 2.00f)); // Low ish cost, but effect is not very usefull in nearly all cases
-				}
-			));
+			//definitions.Add(Augment.Definition.New<Body.Data>
+			//(
+			//	identifier: "body.floaty",
+			//	category: "Body",
+			//	name: "Floaty",
+			//	description: "Use motion pellets to partially counteract gravity on an object.",
+			//
+			//	can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+			//	{
+			//		return !Augments.HasAugment(handle);
+			//	},
+			//
+			//	apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+			//	{
+			//		data.gravity *= 0.20f; 
+			//		//Very fun modifer which makes an object behave very floaty
+			//
+			//		foreach (ref var requirement in context.requirements_new)
+			//		{
+			//			if (requirement.type == Crafting.Requirement.Type.Work)
+			//			{
+			//				requirement.amount *= 1.30f;
+			//			}
+			//		}
+			//		context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", 2.00f)); // Low ish cost, but effect is not very usefull in nearly all cases
+			//	}
+			//));
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
