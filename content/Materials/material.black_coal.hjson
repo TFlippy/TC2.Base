@@ -11,6 +11,7 @@
 	type: stone
 	flags: raw, fuel, mineral
 	mass_per_unit: 0.200
+	market_price: 0.450
 	quantity_max: 500.000
 	prefab: "resource.black_coal"
 	

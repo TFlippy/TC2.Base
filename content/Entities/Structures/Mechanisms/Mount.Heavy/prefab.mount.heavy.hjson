@@ -63,11 +63,15 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 96.000]
-	window_offset: [0.000, 192.000]
+	window_size: [300.000, 160.000]
 }
 
 faction.colorable:
+{
+
+}
+
+faction:
 {
 
 }
@@ -158,11 +162,11 @@ vehicle:
 		max_bias: 0.700
 	}
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 
-		flags: none
-		flags_editable: locked, disabled, hold
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write, manual_aim
 	}
 }

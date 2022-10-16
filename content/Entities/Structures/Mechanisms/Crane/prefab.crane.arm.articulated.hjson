@@ -1,3 +1,8 @@
+$name: "Crane Arm (Articulated)"
+$desc:
+	'''
+	An advanced crane arm capable of more complex movement via ARC-MT rotary joints.
+	'''
 $tags: []
 
 body:
@@ -34,7 +39,7 @@ holdable:
 {
 	offset: [-4.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_control
 }
 
 transform:
@@ -47,6 +52,9 @@ crane:
 	length_a: 8.000
 	length_b: 8.000
 	speed: 0.800
+
+	flags: none
+	flags_editable: inverted, hold
 }
 
 crane.state:
@@ -54,7 +62,7 @@ crane.state:
 
 }
 
-attachable:
+attachment:
 {
 	offset: [-4.000, 0.000]
 
@@ -93,9 +101,9 @@ joint.gear:
 	max: 30.000
 }
 
-attachment:
+attachment.slot:
 {
-
+	flags: keyboard_write, mouse_write
 }
 
 sound.emitter:

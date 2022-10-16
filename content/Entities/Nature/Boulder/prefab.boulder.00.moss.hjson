@@ -48,3 +48,14 @@ cover:
 {
 	threshold: 0.200
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 650.000
+		}
+	]
+}

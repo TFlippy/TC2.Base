@@ -37,6 +37,8 @@ gun:
 	type: rifle
 	feed: clip
 
+	heuristic_range: 50.000
+
 	shake_amount: 0.340
 	
 	@inventory1:

@@ -11,6 +11,7 @@
 	type: fabric
 	flags: manufactured, despawnable
 	mass_per_unit: 0.060
+	market_price: 7.000
 	quantity_max: 100.000
 	prefab: "resource.leather"
 	

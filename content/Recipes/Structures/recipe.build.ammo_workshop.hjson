@@ -1,0 +1,74 @@
+{
+	name: "Munitions Workshop"
+	desc:
+		'''
+		A workshop for manufacturing ammunition and explosives.
+		'''
+	
+	icon:
+	{
+		texture: "ammo_workshop"
+		size: [48, 32]
+	}
+	
+	type: build
+	flags: none
+	tags: buildings
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x
+		
+		size: [6.000, 4.000]
+		offset: [0.000, -1.000]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+
+		rotation_max: 0.200
+		
+		sound: "building_place"
+	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.6x4
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 600.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 80.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "ammo_workshop"
+			amount: 1.000
+		}
+	]
+}

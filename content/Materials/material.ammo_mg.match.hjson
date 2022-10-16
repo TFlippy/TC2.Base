@@ -1,5 +1,5 @@
 {
-	name: "Machine Gun Ammo (Match grade)"
+	name: "Machine Gun Ammo (Match Grade)"
 	description:
 		'''
 		Ammunition for machine guns
@@ -23,7 +23,7 @@
 	type: metal
 	flags: manufactured, ammo, ammo_mg, despawnable
 	mass_per_unit: 0.120
-	quantity_max: 25.000
+	quantity_max: 50.000
 	prefab: "resource.ammo_mg.match"
 	
 	projectile_count: 1

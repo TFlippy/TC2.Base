@@ -1,0 +1,39 @@
+{
+	name: "Rocket Ammo (High-Velocity)"
+	description: "Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius."
+
+	icon:
+	{
+		texture: "resource.ammo_rocket.hv"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_rocket
+	mass_per_unit: 4.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_rocket.hv"
+	
+	projectile_count: 1
+	projectile_speed_mult: 1.800
+	projectile_spread_mult: 1.000
+	projectile_heat: 1000.000
+	projectile_velocity_min: 10.000
+	projectile_prefab: "projectile.rocket.hv"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

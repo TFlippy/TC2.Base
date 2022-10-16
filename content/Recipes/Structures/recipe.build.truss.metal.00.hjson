@@ -1,0 +1,53 @@
+{
+	name: "Truss (Metal)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "truss.metal.icon.00"
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+
+	dismantle_work: 30.000
+	dismantle_yield: 0.900
+
+	placement:
+	{ 
+		type: line
+		flags: none
+		
+		length_min: 1.000
+		length_max: 16.000
+		length_step: 0.250
+
+		size: [0.500, 0.500]
+		cooldown: 0.300
+		min_support: 0.05
+		min_claim: 1.000
+
+		sound: "building_place"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "truss.metal.00"
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	sounds_looped:
+	[
+		{
+			sound: "amb.city.day.loop.00"
+			volume: 0.105
+			pitch: 0.850
+			
+			mix: 
+			{
+				front_left: 0.500
+				front_right: 0.500
+				center: 0.150
+				lfe: 0.100
+				side_left: 0.200
+				side_right: 0.200
+				back_left: 0.350
+				back_right: 0.350
+			}
+		}
+	]
+	
+	sounds_random:
+	[
+
+	]
+}

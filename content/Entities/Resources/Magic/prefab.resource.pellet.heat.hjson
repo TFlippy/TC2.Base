@@ -1,0 +1,60 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 200.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.300
+		material: metal
+		layer: entity, solid, resource
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.pellet.heat"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "pellet.heat"
+	
+	@light:
+	{
+		color: [1.000, 0.700, 0.000, 1.500]
+		offset: [0.000, 0.250]
+		scale: [16.000, 16.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}

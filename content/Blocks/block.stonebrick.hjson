@@ -1,6 +1,13 @@
 {
 	name: "Stone Bricks"
 	desc: "Stone bricks of varying sizes."
+
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
@@ -23,7 +30,7 @@
 	[
 		{
 			material: "stone"
-			quantity: 0.400
+			quantity: 0.100
 		}
 	]
 	

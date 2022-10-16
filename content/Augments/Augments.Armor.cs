@@ -1,8 +1,6 @@
-﻿using TC2.Base.Components;
-
-namespace TC2.Base
+﻿namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterArmorAugments(ref List<Augment.Definition> definitions)
 		{
@@ -11,7 +9,7 @@ namespace TC2.Base
 				identifier: "health.smirgl_structure",
 				category: "Protection",
 				name: "Smirgl-Reinforced Structure",
-				description: "Replaces entire structure with smirgl, greatly increasing durability.",
+				description: "Replaces entire structure with smirgl, greatly increasing durability and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -72,6 +70,7 @@ namespace TC2.Base
 					{
 						ref var material = ref Material.GetMaterial("smirgl_ingot");
 						body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
+						body.override_shape_mask |= Physics.Layer.Essence;
 					}
 				}
 			));
@@ -111,7 +110,7 @@ namespace TC2.Base
 				identifier: "armor.smirgl_plating",
 				category: "Protection",
 				name: "Smirgl Plating",
-				description: "Reinforce the armor with smirgl plating, increasing its toughness and weight.",
+				description: "Reinforce the armor with smirgl plating, increasing its toughness, weight and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -132,60 +131,13 @@ namespace TC2.Base
 					if (!body.IsNull())
 					{
 						body.mass_extra += 5.00f;
+						body.override_shape_mask |= Physics.Layer.Essence;
 					}
 				},
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 2.00f));
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Armor.Data>
-			(
-				identifier: "armor.cloth_padded",
-				category: "Protection",
-				name: "Cloth Padding",
-				description: "Pads the inner side of the armor with cloth.",
-
-				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					data.knockback_modifier *= 0.65f;
-					data.pain_modifier *= 0.80f;
-				},
-
-				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 5.00f));
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Armor.Data>
-			(
-				identifier: "armor.mushroom_stuffed",
-				category: "Protection",
-				name: "Mushroom Stuffing",
-				description: "Stuffs the inner side of the armor with soft mushroom bits.",
-
-				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					data.knockback_modifier = MathF.Max(data.knockback_modifier - 0.30f, data.knockback_modifier * 0.25f);
-					data.pain_modifier = MathF.Max((data.pain_modifier * 0.90f) - 0.30f, data.pain_modifier * 0.10f);
-				},
-
-				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", 20.00f));
 				}
 			));
 		}

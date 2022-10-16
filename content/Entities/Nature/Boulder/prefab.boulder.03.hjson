@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 50000.000
+	max: 60000.000
 }
 
 animated.renderer:
@@ -42,4 +42,15 @@ transform:
 cover:
 {
 	threshold: 0.200
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 1350.000
+		}
+	]
 }

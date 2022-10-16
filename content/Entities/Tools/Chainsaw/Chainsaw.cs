@@ -110,10 +110,12 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			var random = XorRandom.New();
-			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))
+
+
+			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
 				{
@@ -156,14 +158,17 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 8.00f);
 #endif
 
-							flags |= Damage.Flags.No_Sound;
+							//flags |= Damage.Flags.No_Sound;
 							modifier *= 0.60f;
 							penetration--;
 
-							overheat.heat_current += damage * 0.09f;
+							if (!overheat.IsNull())
+							{
+								overheat.heat_current += damage * 0.09f;
+							}
 						}
 
 #if CLIENT

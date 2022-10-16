@@ -17,7 +17,7 @@
 	tags: buildings
 	
 	dismantle_work: 20.000
-	dismantle_yield: 0.500
+	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -34,6 +34,21 @@
 		
 		sound: "building_place"
 	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.7x5
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
+	}
 	
 	requirements:
 	[
@@ -45,7 +60,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 800.000
+			amount: 215.000
 		}
 		{
 			type: resource

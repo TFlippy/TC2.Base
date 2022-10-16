@@ -1,0 +1,51 @@
+{
+	name: "Land Mine"
+	desc: "Small deployable explosive that detonates upon contact."
+	
+	icon:
+	{
+		texture: "landmine"
+	}
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: munitions
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "nitroglycerine"
+			amount: 10.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 150.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "landmine"
+			amount: 1.000
+		}
+	]
+}

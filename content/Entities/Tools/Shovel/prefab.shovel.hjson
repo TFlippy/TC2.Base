@@ -1,3 +1,8 @@
+$name: "Shovel"
+$desc:
+	'''
+	Basic excavating tool.
+	'''
 $tags: []
 
 control:
@@ -31,13 +36,40 @@ aimable:
 
 }
 
-shovel:
+melee:
 {
-	radius: 4.000
-	damage: 700.000
+	sound_swing: "tool_swing_00"
+	damage_base: 100.000
+	damage_bonus: 150.000
+	terrain_damage_multiplier: 7.000
 	cooldown: 0.900
-	max_distance: 4.000
+	max_distance: 2.000
+	thickness: 0.500
+	hit_offset: [0.500, 0.000]
+	aoe: 0.750
+	knockback: 1.750
+	yield: 1.100
+	penetration_falloff: 0.500
+	penetration: 1
+	damage_type: shovel
+	attack_type: thrust
+	category: bladed
+	hit_mask: world, destructible
+	hit_exclude: ignore_melee
 }
+
+melee.state:
+{
+
+}
+
+// shovel:
+// {
+// 	radius: 4.000
+// 	damage: 700.000
+// 	cooldown: 0.900
+// 	max_distance: 4.000
+// }
 
 holdable:
 {

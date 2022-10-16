@@ -12,6 +12,8 @@
 	friction: 0.900
 	elasticity: 0.300
 	stability: 0.500
+
+	collision_mask: essence
 	
 	texture: "terrain_smirgl"
 	pattern: "pattern_stone"

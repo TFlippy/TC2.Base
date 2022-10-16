@@ -45,6 +45,11 @@ faction.colorable:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 
@@ -70,4 +75,10 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: horizontal
 	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 8.000
+	fps_open: 6.000
 }

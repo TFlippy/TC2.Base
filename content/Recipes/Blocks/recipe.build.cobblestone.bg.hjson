@@ -15,7 +15,7 @@
 	type: build
 	flags: none
 	tags: construction
-	rank: -80.000
+	rank: -97.000
 	
 	placement:
 	{
@@ -24,6 +24,7 @@
 		radius: 0.750
 		
 		cooldown: 0.200
+		min_claim: 1.000
 		
 		sound: "stone_place_0"
 	}
@@ -33,7 +34,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.150
+			amount: 0.040
 		}
 	]
 	

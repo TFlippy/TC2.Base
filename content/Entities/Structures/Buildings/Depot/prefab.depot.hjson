@@ -1,3 +1,8 @@
+$name: "Depot"
+$desc:
+	'''
+	A building used for transporting shipments over long distances, or storing them between maps.
+	'''
 $tags: []
 
 body:
@@ -47,6 +52,11 @@ transform:
 }
 
 building:
+{
+
+}
+
+faction:
 {
 
 }

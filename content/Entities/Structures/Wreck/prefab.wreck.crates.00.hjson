@@ -18,7 +18,7 @@ body:
 		friction: 0.850
 		elasticity: 0.100
 		material: wood
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_melee
 		mask: world
 	}
 }
@@ -47,15 +47,20 @@ cover:
 
 }
 
-storage:
+shipment:
 {
-	@inventory16:
-	{
-		name: "Crates"
-		stack_size_multiplier: 4.000
-		type: storage
-		flags: ignore_mass, public
-	}
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 4
+	rolls_extra: 0
+
+	tables:
+	[
+		"construction.00"
+	]
 }
 
 interactable:

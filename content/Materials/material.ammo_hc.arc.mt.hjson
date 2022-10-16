@@ -1,0 +1,43 @@
+{
+	name: "High-Caliber Ammo (ARC-MT)"
+	description:
+		'''
+		Ammunition for rifles and other larger firearms.
+		Special self-propelled variant utilizing arcanite infused with motion essence.
+		'''
+
+	icon:
+	{
+		texture: "resource.ammo_hc.arc.mt"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_hc, despawnable
+	mass_per_unit: 0.070
+	quantity_max: 50.000
+	prefab: "resource.ammo_hc.arc.mt"
+	
+	projectile_count: 1
+	projectile_speed_mult: 0.050
+	projectile_spread_mult: 2.000
+	projectile_velocity_min: 2.000
+	projectile_heat: 25.000
+	projectile_prefab: "projectile.bullet.hc.arc.mt"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

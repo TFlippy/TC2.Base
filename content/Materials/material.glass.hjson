@@ -11,6 +11,7 @@
 	type: glass
 	flags: manufactured
 	mass_per_unit: 0.700
+	market_price: 6.000
 	quantity_max: 100.000
 	prefab: "resource.glass"
 	

@@ -1,3 +1,8 @@
+$name: "Club"
+$desc: 
+	'''
+	Unga.
+	'''
 $tags: []
 
 control:
@@ -14,7 +19,7 @@ body:
 		mass: 6.000
 		radius: 0.250
 		friction: 0.950
-		elasticity: 0.450
+		elasticity: 0.650
 		material: wood
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -32,7 +37,9 @@ melee:
 	damage_base: 150.000
 	damage_bonus: 100.000
 	cooldown: 1.500
-	max_distance: 3.000
+	max_distance: 1.500
+	thickness: 1.000
+	hit_offset: [0.500, 0.000]
 	aoe: 1.250
 	knockback: 1.400
 	yield: 0.600
@@ -45,6 +52,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

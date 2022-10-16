@@ -1,0 +1,72 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		mass: 10.000
+		radius: 0.500
+		friction: 0.990
+		elasticity: 0.700
+		material: metal
+		layer: entity, conveyor, ignore_melee
+		mask: world
+	}
+}
+
+duct:
+{
+	interval: 1.000
+
+	throughput_min: 1.000
+	throughput_max: 25.000
+
+	filter_flags: ore, gravel, powder
+}
+
+duct.state:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "conveyor.auger"
+	}
+	z: -200.000
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "conveyor.auger.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "conveyor.auger.cap"
+	}
+	
+	flags: mirror_cap_b, dynamic
+	
+	a: [0.000, 0.000]
+	b: [10.000, 0.000]
+	cap_offset: 0.000
+}
+
+transform:
+{
+
+}
+
+dismantlable:
+{
+
+}

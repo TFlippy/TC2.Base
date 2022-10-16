@@ -1,0 +1,74 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 20.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		material: powder
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.gunpowder"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "gunpowder"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 5000.000
+}
+
+explosive:
+{
+	radius: 20.000
+	power: 2.000
+	damage_entity: 15000.000
+	damage_terrain: 15000.000
+	smoke_amount: 3.500
+	sparks_amount: 0.000
+	smoke_lifetime_multiplier: 2.000
+	smoke_velocity_multiplier: 6.000
+	flash_duration_multiplier: 0.500
+	flash_intensity_multiplier: 0.300
+	volume: 1.000
+	pitch: 1.700
+	health_threshold: 0.999
+	flags: explode_when_primed
+}

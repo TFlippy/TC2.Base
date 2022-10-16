@@ -15,8 +15,10 @@
 	min: 5
 	max: 100
 	step: 5
+	
 	type: workshop
 	tags: manufactory
+	rank: -540.000
 	
 	requirements:
 	[
@@ -48,7 +50,7 @@
 		{
 			type: "resource"
 			material: "arcane_actuator"
-			amount: 1.000
+			amount: 3.000
 		}
 	]
 }

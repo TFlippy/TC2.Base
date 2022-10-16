@@ -25,23 +25,25 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.125, -0.0625]
+	muzzle_offset: [0.875, -0.250]
 	sound_shoot: "auto_shotgun_shoot"
-	sound_cycle: "auto_shotgun_cycle"
-	sound_reload: "auto_shotgun_reload"
+	sound_reload: "machine_gun_reload"
+	sound_empty: "gun_empty"
 	velocity_multiplier: 360.000
 	jitter_multiplier: 5.500
 	damage_multiplier: 1.600
-	recoil_multiplier: 2.500
+	recoil_multiplier: 2.000
 	reload_interval: 2.500
-	cycle_interval: 0.500
+	cycle_interval: 0.300
 	failure_rate: 0.020
-	max_ammo: 4.000
+	max_ammo: 6.000
 	flags: full_reload, cycle_on_shoot
 	ammo_filter: ammo_sg
 	action: blowback
 	type: shotgun
 	feed: magazine
+
+	heuristic_range: 25.000
 	
 	@inventory1:
 	{
@@ -68,7 +70,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.000]
+	offset: [-0.300, 0.0625]
 	radius: 4.000
 	flags: storable
 

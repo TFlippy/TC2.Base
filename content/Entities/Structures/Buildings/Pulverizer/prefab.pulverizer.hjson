@@ -3,6 +3,7 @@ $tags: []
 body:
 {
 	type: static
+	inventory_weight_multiplier: 0.500
 	
 	@shape.box:
 	{

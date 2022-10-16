@@ -39,8 +39,8 @@ faction.colorable:
 
 holdable:
 {
-	force_multiplier: 3.000
-	torque_multiplier: 1.000
+	force_multiplier: 20.000
+	torque_multiplier: 20000.000
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -91,9 +91,9 @@ melee:
 	damage_base: 80.000
 	damage_bonus: 30.000
 	cooldown: 0.600
-	max_distance: 1.500
+	max_distance: 1.000
 	aoe: 1.000
-	thickness: 1.750
+	thickness: 1.000
 	knockback: 4.000
 	yield: 0.000
 	penetration_falloff: 0.800
@@ -101,6 +101,7 @@ melee:
 	damage_type: club
 	category: blunt
 	flags: no_handle
+	attack_type: thrust
 	hit_mask: item, creature
 	hit_exclude: ignore_melee, decoration, tree
 }
@@ -117,5 +118,6 @@ shield:
 
 cover:
 {
-	threshold: 0.400
+	threshold: 0.100
+	flags: break_on_breach
 }

@@ -11,6 +11,7 @@
 	type: wood
 	flags: raw, fuel, organic, despawnable
 	mass_per_unit: 0.060
+	market_price: 0.200
 	quantity_max: 500.000
 	prefab: "resource.wood"
 	

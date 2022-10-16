@@ -2,8 +2,7 @@
 	name: "Crate"
 	desc:
 		'''
-		A portable storage - considerably larger
-		than your pockets.
+		Portable storage - considerably larger than your pockets.
 		'''
 	
 	icon:

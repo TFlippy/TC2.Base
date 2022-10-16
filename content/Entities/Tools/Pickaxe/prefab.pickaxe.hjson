@@ -1,3 +1,8 @@
+$name: "Pickaxe"
+$desc:
+	'''
+	Basic mining tool.
+	'''
 $tags: []
 
 control:
@@ -26,12 +31,35 @@ health:
 	max: 1000.000
 }
 
-pickaxe:
+aimable:
 {
-	damage: 700.000
-	max_distance: 4.000
-	radius: 4.000
+
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 150.000
+	damage_bonus: 250.000
+	terrain_damage_multiplier: 6.000
 	cooldown: 0.900
+	max_distance: 2.000
+	thickness: 0.250
+	hit_offset: [0.500, 0.000]
+	aoe: 1.000
+	knockback: 1.000
+	yield: 1.100
+	penetration_falloff: 0.500
+	penetration: 0
+	damage_type: pickaxe
+	category: pointed
+	hit_mask: world, destructible
+	hit_exclude: ignore_melee
+}
+
+melee.state:
+{
+
 }
 
 holdable:

@@ -1,0 +1,57 @@
+{
+	name: "Vacuum Cleaner [WIP]"
+	desc: "A handheld cleaning device."
+	
+	icon:
+	{
+		texture: "vacuum_cleaner"
+	}
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: manufactory
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 5.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 7.000
+		}
+		{
+			type: "resource"
+			material: "arcane_actuator"
+			amount: 3.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 700.000
+			difficulty: 11.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 700.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "vacuum_cleaner"
+			amount: 1.000
+		}
+	]
+}

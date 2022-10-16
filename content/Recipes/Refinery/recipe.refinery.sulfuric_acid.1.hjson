@@ -32,7 +32,7 @@
 		{
 			type: "resource"
 			material: "water"
-			amount: 75.000
+			amount: 80.000
 		}
 		{
 			type: "work"
@@ -47,20 +47,20 @@
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount_min: 15.000
-			amount_max: 50.000
+			amount: 20.000
+			amount_extra: 30.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 30.000
-			amount_max: 60.000
+			amount: 15.000
+			amount_extra: 30.000
 		}
 		{
 			type: "resource"
 			material: "gunpowder"
-			amount_min: 5.000
-			amount_max: 20.000
+			amount: 5.000
+			amount_extra: 15.000
 		}
 	]
 }

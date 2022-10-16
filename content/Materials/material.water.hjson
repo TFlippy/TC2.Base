@@ -11,6 +11,7 @@
 	type: liquid
 	flags: raw
 	mass_per_unit: 0.100
+	market_price: 0.100
 	quantity_max: 500.000
 	prefab: "resource.water"
 	

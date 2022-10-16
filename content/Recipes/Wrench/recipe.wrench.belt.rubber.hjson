@@ -1,0 +1,54 @@
+{
+	name: "Belt (Rubber)"
+	desc:
+		'''
+		Used for medium-range high-speed belt drives. 
+
+		Very efficient, but not particularly durable.
+		'''
+	
+	icon:
+	{
+		texture: "belt.rubber"
+	}
+	
+	type: wrench
+	flags: none
+	tags: belt
+
+	dismantle_work: 10.000
+	dismantle_yield: 0.900
+
+	placement:
+	{ 
+		type: line
+		flags: none
+		
+		length_min: 1.000
+		length_max: 20.000
+
+		size: [0.500, 0.500]
+		cooldown: 0.300
+		min_support: 0.05
+		min_claim: 0.900
+
+		sound: "building_place"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "rubber"
+			amount: 0.200
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "belt.rubber"
+		}
+	]
+}

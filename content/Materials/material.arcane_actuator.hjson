@@ -1,8 +1,12 @@
 {
-	name: "Arcane Actuators"
+	name: "ARC-MT Actuators"
 	description:
 		'''
-		Advanced essence-infused actuators used to bring machines to motion.
+		Advanced essence-infused actuators used in robotics and mechanics.
+
+		After the discovery of controlled essence manipulation in 739 S.D., 
+		these small devices have sparked a new industrial revolution
+		and have granted the Empire a massive technological edge.
 		'''
 	icon:
 	{
@@ -14,6 +18,7 @@
 	type: metal
 	flags: manufactured
 	mass_per_unit: 1.650
+	market_price: 120.000
 	quantity_max: 100.000
 	prefab: "resource.arcane_actuator"
 	

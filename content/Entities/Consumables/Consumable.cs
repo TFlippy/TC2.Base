@@ -43,7 +43,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Parent)]
 		public static void Update(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent, Override] in Organic.Data organic)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent, Override] in Organic.Data organic, [Source.Parent] in Arm.Data arm)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Use_On_Others) && control.mouse.GetKeyDown(Mouse.Key.Left))
 			{
@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 					if (ent_holder.IsAlive())
 					{
 						Span<OverlapResult> results = stackalloc OverlapResult[8];
-						if (region.TryOverlapPointAll(control.mouse.position, 0.50f, ref results, mask: Physics.Layer.Organic | Physics.Layer.Creature))
+						if (region.TryOverlapPointAll(control.mouse.position, 0.01f, ref results, mask: Physics.Layer.Organic | Physics.Layer.Creature))
 						{
 							ref var result_nearest = ref results.GetNearest();
 							if (region.IsInLineOfSight(transform.position, result_nearest.world_position, 0.125f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Melee | Physics.Layer.Dynamic, query_flags: Physics.QueryFlag.Static))
@@ -68,7 +68,7 @@ namespace TC2.Base.Components
 									Sound.Play(ref region, consumable.sound_use, result_nearest.world_position);
 
 									var data = new Consumable.ConsumeEvent();
-									data.ent_organic = oc_organic.Entity;
+									data.ent_organic = oc_organic.entity;
 									data.ent_holder = ent_holder;
 									data.ent_consumable = entity;
 									data.world_position = result_nearest.world_position;
@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 						Sound.Play(ref region, consumable.sound_use, transform.position);
 
 						var data = new Consumable.ConsumeEvent();
-						data.ent_organic = oc_organic.Entity;
+						data.ent_organic = oc_organic.entity;
 						data.ent_holder = ent_holder;
 						data.ent_consumable = entity;
 						data.world_position = transform.position;

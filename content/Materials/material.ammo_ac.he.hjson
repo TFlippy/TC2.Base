@@ -23,8 +23,8 @@
 	prefab: "resource.ammo_ac.he"
 	
 	projectile_count: 1
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
+	projectile_speed_mult: 0.800
+	projectile_spread_mult: 1.100
 	projectile_heat: 300.000
 	projectile_prefab: "projectile.bullet.ac.he"
 	

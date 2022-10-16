@@ -80,6 +80,7 @@ animated.renderer:
 	{
 		texture: "derringer"
 	}
+	scale: [0.900, 0.900]
 }
 
 health:

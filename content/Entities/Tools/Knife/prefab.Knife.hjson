@@ -9,12 +9,12 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, 0.400]
-		b: [0.000, -0.400]
+		a: [0.400, 0.000]
+		b: [-0.400, 0.000]
 		mass: 2.000
 		radius: 0.250
-		friction: 0.950
-		elasticity: 0.050
+		friction: 0.750
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -32,13 +32,16 @@ melee:
 	damage_base: 50.000
 	damage_bonus: 250.000
 	cooldown: 0.300
-	max_distance: 2.000
-	aoe: 0.100
+	max_distance: 1.250
+	thickness: 0.500
+	hit_offset: [0.250, 0.000]
+	aoe: 0.250
 	knockback: 0.200
 	yield: 0.800
 	penetration_falloff: 0.900
 	penetration: 0
-	damage_type: slash
+	damage_type: stab
+	attack_type: thrust
 	category: bladed
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration, tree
@@ -49,9 +52,14 @@ melee.state:
 
 }
 
+aimable:
+{
+
+}
+
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [-0.500, 0.000]
 	flags: storable
 }
 

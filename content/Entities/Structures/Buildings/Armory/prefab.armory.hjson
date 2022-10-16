@@ -1,3 +1,8 @@
+$name: "Armory"
+$desc:
+	'''
+	Used for storing weapons, tools and other equipment.
+	'''
 $tags: []
 
 body:
@@ -35,6 +40,11 @@ faction.colorable:
 {
 	intensity_a: 0.600
 	intensity_b: 0.600
+}
+
+faction:
+{
+
 }
 
 claimable:

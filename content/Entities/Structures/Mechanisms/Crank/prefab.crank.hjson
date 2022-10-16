@@ -30,22 +30,6 @@ animated.renderer:
 	z: -170.000
 }
 
-crank:
-{
-	max_speed: 5.000
-	torque: 150.000
-	mod: 1.000
-	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "crank.knob"
-		}
-		z: -150.000
-	}
-}
-
 axle:
 {
 	offset: [0.000, 0.000]
@@ -56,14 +40,14 @@ axle:
 	radius_inner: 0.750
 	radius_outer: 1.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "wheel_1000.iron"
-		}
-		z: -160.000
-	}
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: "wheel_1000.iron"
+	// 	}
+	// 	z: -160.000
+	// }
 }
 
 transform:
@@ -81,9 +65,120 @@ interactable:
 	flags: use_left_click
 }
 
-sound.emitter:
++slot|instance:
 {
-	file: "crank.wood.loop.00"
-	volume: 0.000
-	pitch: 1.000
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 100000.000
+		max_torque: 200.000
+		flags: control_write, no_stress, no_wrap, force_facing
+		
+		@sound.emitter:
+		{
+			file: "crank.wood.loop.00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.200
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	// joint.gear:
+	// {
+	// 	min: -10.000
+	// 	max: 10.000
+	// 	error_bias: 0.050
+	// 	max_bias: 0.700
+	// }
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write
+	}
+
+	+wheel|child:
+	{
+		body:
+		{
+			@shape.circle:
+			{
+				offset: [0.000, 0.000]
+				mass: 5.000
+				radius: 1.125
+				friction: 0.800
+				elasticity: 0.050
+				material: metal
+				layer: entity, solid, ignore_bullet, ignore_melee
+				mask: world
+			}
+		}
+
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "wheel_1000.iron"
+			}
+			z: 110.000
+		}
+
+		health:
+		{
+			max: 25000.000
+		}
+
+		holdable:
+		{
+			offset: [0.000, 0.000]
+			radius: 0.000
+			flags: disable_parent_facing
+		}
+
+		attachment:
+		{
+			offset: [0.000, 0.000]
+			radius: 0.000
+			flags: disable_parent_facing
+		}
+
+		transform:
+		{
+
+		}
+
+		crank:
+		{
+			max_speed: 5.000
+			torque: 150.000
+			mod: 1.000
+			
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "crank.knob"
+				}
+				z: -150.000
+			}
+		}
+	}
 }

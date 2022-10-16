@@ -2,7 +2,7 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterMeleeAugments(ref List<Augment.Definition> definitions)
 		{
@@ -110,6 +110,65 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Melee.Data>
 			(
+				identifier: "melee.spiked",
+				category: "Melee",
+				name: "Spiked",
+				description: "Attaches a large spike to the item, increasing its damage and making it functionally similar to a pickaxe.",
+
+				validate: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -0.50f, 0.50f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && data.category == Melee.Category.Blunt;
+				},
+
+				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.damage_type = Damage.Type.Pickaxe;
+					data.damage_base += 75.00f;
+					data.damage_bonus += data.damage_base * 0.10f;
+					data.penetration = 0;
+					data.hit_mask |= Physics.Layer.World;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.50f), max: new Vector2(0.50f, 0.50f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.spike", data.hit_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", 1));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Melee.Data>
+			(
 				identifier: "melee.longer_handle",
 				category: "Melee",
 				name: "Longer Handle",
@@ -120,7 +179,7 @@ namespace TC2.Base
 					if (data.flags.HasAny(Melee.Flags.No_Handle)) return false;
 
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -156,7 +215,7 @@ namespace TC2.Base
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -195,7 +254,7 @@ namespace TC2.Base
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}
@@ -237,7 +296,7 @@ namespace TC2.Base
 					if (data.category != Melee.Category.Blunt) return false;
 
 					var count = 0;
-					for (int i = 0; i < augments.Length; i++)
+					for (var i = 0; i < augments.Length; i++)
 					{
 						if (augments[i].id == handle.id) count++;
 					}

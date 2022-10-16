@@ -1,0 +1,191 @@
+$name: "Track"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		offset: [0.000, 0.000]
+		mass: 25.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, ignore_melee
+		mask: none
+	}
+}
+
+health:
+{
+	max: 50000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "track"
+	}
+	z: -200.000
+}
+
+transform:
+{
+
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "track.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "track.cap"
+	}
+	
+	flags: mirror_cap_b
+	
+	a: [0.000, 0.000]
+	b: [10.000, 0.000]
+	cap_offset: 1.000
+}
+
+track:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "track.mover"
+		}
+		z: -190.000
+	}
+}
+
+track.state:
+{
+
+}
+
+interactable:
+{
+	window_size: [400.000, 264.000]
+}
+
+control:
+{
+
+}
+
+mount:
+{
+
+}
+
++mount|instance:
+{
+	attachment.slot:	
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
+	}
+
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 100000.000
+		max_torque: 200000.000
+		flags: control_read, control_write, no_stress, no_wrap, force_facing
+		// flags: control_read, control_write
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.0001
+		max_bias: 2.000
+
+		// @sound.emitter:
+		// {
+		// 	file: "crane_loop_b"
+		// 	volume: 0.000
+		// 	pitch: 1.000
+		// }
+
+		// @sound.mixer:
+		// {
+		// 	volume_modifier: 0.400
+		// 	pitch_modifier: 0.400
+		// 	volume_min: 0.000
+		// 	pitch_min: 0.400
+		// 	volume_lerp_a: 0.100
+		// 	volume_lerp_b: 0.100
+		// 	pitch_lerp_a: 0.050
+		// 	pitch_lerp_b: 0.030
+		// }
+	}
+
+	joint.slider:
+	{
+		a: [0.000, 0.000]
+		b: [10.000, 0.000]
+
+		min: 0.000
+		max: 10.000
+
+		error_bias: 0.000
+		max_force_b: 0.000
+		max_force_b: 1000000.000
+		max_bias: 20.000
+	}
+
+	joint.distance:
+	{
+		max_force: 200000.000
+		max_bias: 5.000
+
+		@sound.emitter:
+		{
+			file: "track.move.loop.00"
+			volume: 0.000
+			pitch: 1.000
+			size: 0.750
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 0.700
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.500
+			volume_lerp_a: 0.050
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.020
+			pitch_lerp_b: 0.050
+		}
+	}
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-2.125, 0.750]
+	}
+}

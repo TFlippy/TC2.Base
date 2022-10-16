@@ -1,0 +1,41 @@
+{
+	name: "Majzl A-749"
+	description: "Advanced MG-caliber carbine with a bayonet."
+	prefab: "carbine"
+	recipe: "gunsmith.carbine"
+	augments:
+	[
+		{
+			identifier: "gun.caliber_conversion"
+			data: 1
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.recoil_reduction"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1083241922
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			data: 0
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 1056964608
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 9223372037894963200
+		}
+		{
+			identifier: "gun.bayonet"
+			data: 4503599627370496000
+		}
+	]
+}

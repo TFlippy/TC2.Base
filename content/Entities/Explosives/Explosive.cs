@@ -33,7 +33,16 @@ namespace TC2.Base.Components
 
 			public Damage.Type damage_type = Damage.Type.Explosion;
 
+			public float fire_amount = 1.00f;
+
 			public float smoke_amount = 1.00f;
+			public float smoke_lifetime_multiplier = 1.00f;
+			public float smoke_velocity_multiplier = 1.00f;
+			public Color32BGRA smoke_color;
+
+			public float flash_duration_multiplier = 1.00f;
+			public float flash_intensity_multiplier = 1.00f;
+
 			public float sparks_amount = 0.00f;
 			public float volume = 1.00f;
 			public float pitch = 1.00f;
@@ -94,7 +103,10 @@ namespace TC2.Base.Components
 		[ISystem.Modified<Resource.Data>(ISystem.Mode.Single)]
 		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
-			explosive.modifier = MathF.Sqrt(resource.quantity / resource.material.GetDefinition().quantity_max);
+			explosive.modifier = MathF.Sqrt(Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max));
+			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
+			//explosive.modifier = MathF.Log2(resource.quantity / MathF.Max(resource.material.GetDefinition().quantity_max, 1.00f));
+			//App.WriteLine(explosive.modifier);
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single)]
@@ -102,38 +114,49 @@ namespace TC2.Base.Components
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))
 			{
-				var explosion_tmp = new Explosion.Data()
-				{
-					power = explosive.power * explosive.modifier,
-					radius = explosive.radius * explosive.modifier,
-					damage_entity = explosive.damage_entity * explosive.modifier,
-					damage_terrain = explosive.damage_terrain * explosive.modifier,
-					damage_type = explosive.damage_type,
-					owner_entity = explosive.ent_owner,
-					smoke_amount = explosive.smoke_amount,
-					sparks_amount = explosive.sparks_amount,
-					volume = explosive.volume,
-					pitch = explosive.pitch,
-				};
+				//var explosion_tmp = new Explosion.Data()
+				//{
+				//	power = explosive.power * explosive.modifier,
+				//	radius = explosive.radius * explosive.modifier,
+				//	damage_entity = explosive.damage_entity * explosive.modifier,
+				//	damage_terrain = explosive.damage_terrain * explosive.modifier,
+				//	damage_type = explosive.damage_type,
+				//	ent_owner = explosive.ent_owner,
+				//	fire_amount = explosive.fire_amount,
+				//	smoke_amount = explosive.smoke_amount,
+				//	smoke_lifetime_multiplier = explosive.smoke_lifetime_multiplier,
+				//	smoke_velocity_multiplier = explosive.smoke_velocity_multiplier,
+				//	sparks_amount = explosive.sparks_amount,
+				//	volume = explosive.volume,
+				//	pitch = explosive.pitch,
+				//};
 
-				if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
+				var explosive_tmp = explosive;
+
+				//if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
 
 				info.GetRegion().SpawnPrefab("explosion", transform.position).ContinueWith(x =>
 				{
 					ref var explosion = ref x.GetComponent<Explosion.Data>();
 					if (!explosion.IsNull())
 					{
-						explosion.power = explosion_tmp.power;
-						explosion.radius = explosion_tmp.radius;
-						explosion.damage_entity = explosion_tmp.damage_entity;
-						explosion.damage_terrain = explosion_tmp.damage_terrain;
-						explosion.damage_type = explosion_tmp.damage_type;
-						explosion.owner_entity = explosion_tmp.owner_entity;
-						explosion.smoke_amount = explosion_tmp.smoke_amount;
-						explosion.sparks_amount = explosion_tmp.sparks_amount;
-						explosion.volume = explosion_tmp.volume;
-						explosion.pitch = explosion_tmp.pitch;
-						explosion.ent_ignored = explosion_tmp.ent_ignored;
+						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier);
+						explosion.radius = Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier);
+						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier;
+						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier;
+						explosion.damage_type = explosive_tmp.damage_type;
+						explosion.ent_owner = explosive_tmp.ent_owner;
+						explosion.fire_amount = explosive_tmp.fire_amount;
+						explosion.smoke_amount = explosive_tmp.smoke_amount;
+						explosion.smoke_lifetime_multiplier = explosive_tmp.smoke_lifetime_multiplier;
+						explosion.smoke_velocity_multiplier = explosive_tmp.smoke_velocity_multiplier;
+						explosion.flash_duration_multiplier = explosive_tmp.flash_duration_multiplier;
+						explosion.flash_intensity_multiplier = explosive_tmp.flash_intensity_multiplier;
+						explosion.sparks_amount = explosive_tmp.sparks_amount;
+						explosion.volume = explosive_tmp.volume;
+						explosion.pitch = explosive_tmp.pitch;
+
+						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 
 						explosion.Sync(x);
 					}
