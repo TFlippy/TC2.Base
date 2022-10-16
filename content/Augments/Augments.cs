@@ -726,10 +726,15 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<FastThrow.Data>
 			(
-				identifier: "fastThrow.strange_acceleration",
+				identifier: "fastThrow.motion_acceleration",
 				category: "Utility",
-				name: "Unnatural Throw",
+				name: "Accelerated Throw",
 				description: "When thrown object now travels faster using motion.",
+
+				can_add: static (ref Augment.Context context, in FastThrow.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				apply_0: static (ref Augment.Context context, ref FastThrow.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
