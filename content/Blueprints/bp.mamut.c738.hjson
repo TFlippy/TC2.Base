@@ -1,0 +1,46 @@
+{
+	name: "Mamut C-738"
+	description:
+		'''
+		High-powered anti-materiel rifle with two barrels and a scope.
+		Capable of firing explosive ammunition.
+
+		'''
+	prefab: "rifle"
+	recipe: "gunsmith.rifle"
+	augments:
+	[
+		{
+			identifier: "gun.extra_barrel"
+			data: 0
+		}
+		{
+			identifier: "gun.single_shot"
+			data: 0
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			data: 2
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			data: 13692384018778030080
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 1040187392
+		}
+		{
+			identifier: "gun.scope"
+			data: 13744986065922424832
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 4467570833547591680
+		}
+	]
+}

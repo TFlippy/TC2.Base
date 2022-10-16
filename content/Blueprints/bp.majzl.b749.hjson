@@ -1,0 +1,41 @@
+{
+	name: "Majzl B-749"
+	description: "Advanced MG-caliber carbine with a scope, ARC-MT recoil stabilizer and auto-loader."
+	prefab: "carbine"
+	recipe: "gunsmith.carbine"
+	augments:
+	[
+		{
+			identifier: "gun.caliber_conversion"
+			data: 1
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1084227584
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			data: 13692384018778030080
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 1056964608
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 4467570831391719424
+		}
+		{
+			identifier: "gun.scope"
+			data: 13744986065922424832
+		}
+	]
+}
