@@ -396,7 +396,7 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
-		max_force: 20000.000
+		max_force: 40000.000
 		max_torque: 10000.000
 		flags: organic, control_write
 		
@@ -568,13 +568,7 @@ lootable:
 		error_bias: 0.0005
 		max_bias: 8.000
 	}
-	
-	// joint.rotarylimit:
-	// {
-	// 	max_bias: 6.000
-	// 	error_bias: 0.000
-	// }
-	
+
 	joint.gear:
 	{
 		error_bias: 0.0005

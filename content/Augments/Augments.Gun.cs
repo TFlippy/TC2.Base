@@ -224,7 +224,7 @@ namespace TC2.Base
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
 
@@ -233,7 +233,7 @@ namespace TC2.Base
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.20f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
 
@@ -242,7 +242,7 @@ namespace TC2.Base
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio);
 						}
 						break;
 
@@ -251,7 +251,7 @@ namespace TC2.Base
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.10f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.05f, ratio);
 						}
 						break;
 
@@ -260,7 +260,7 @@ namespace TC2.Base
 							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
 							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
 							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.30f, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
 						}
 						break;
 					}
@@ -502,7 +502,6 @@ namespace TC2.Base
 						data.damage_multiplier *= 0.60f;
 						data.velocity_multiplier *= 0.80f;
 						data.cycle_interval *= 0.45f;
-						data.recoil_multiplier *= 0.20f;
 						data.jitter_multiplier += 1.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
@@ -522,7 +521,6 @@ namespace TC2.Base
 						data.damage_multiplier *= 0.90f;
 						data.velocity_multiplier *= 0.90f;
 						data.cycle_interval *= 0.45f;
-						data.recoil_multiplier *= 0.70f;
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
@@ -542,7 +540,6 @@ namespace TC2.Base
 						data.damage_multiplier *= 0.90f;
 						data.velocity_multiplier *= 0.45f;
 						data.cycle_interval *= 0.90f;
-						data.recoil_multiplier *= 0.60f;
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
@@ -861,7 +858,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 0.90f;
 								data.failure_rate *= 1.60f;
 								data.failure_rate += 0.40f;
-								data.recoil_multiplier *= 1.70f;
+								//data.recoil_multiplier *= 1.70f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
 								data.stability -= MathF.Min(data.stability, 0.30f);
@@ -882,7 +879,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 0.85f;
 								data.failure_rate *= 1.40f;
 								data.failure_rate += 0.40f;
-								data.recoil_multiplier *= 1.80f;
+								//data.recoil_multiplier *= 1.80f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
 
 								data.stability -= MathF.Min(data.stability, 0.40f);
@@ -903,7 +900,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 0.50f;
 								data.failure_rate *= 2.20f;
 								data.failure_rate += 0.40f;
-								data.recoil_multiplier *= 3.50f;
+								//data.recoil_multiplier *= 3.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
 
 								data.stability -= MathF.Min(data.stability, 0.80f);
@@ -930,7 +927,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 1.10f;
 								data.failure_rate *= 0.20f;
 								data.failure_rate += 0.10f;
-								data.recoil_multiplier *= 0.50f;
+								//data.recoil_multiplier *= 0.50f;
 								data.jitter_multiplier += 1.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
@@ -951,7 +948,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 0.95f;
 								data.failure_rate *= 1.90f;
 								data.failure_rate += 0.50f;
-								data.recoil_multiplier *= 0.70f;
+								//data.recoil_multiplier *= 0.70f;
 								data.jitter_multiplier += 0.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
@@ -972,7 +969,7 @@ namespace TC2.Base
 								data.velocity_multiplier *= 0.85f;
 								data.failure_rate *= 1.70f;
 								data.failure_rate += 0.50f;
-								data.recoil_multiplier *= 0.60f;
+								//data.recoil_multiplier *= 0.60f;
 								data.jitter_multiplier += 0.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
@@ -1039,7 +1036,7 @@ namespace TC2.Base
 						case Gun.Type.AutoCannon:
 						{
 							data.recoil_multiplier = MathF.Max(0.10f, data.recoil_multiplier - 0.07f);
-							data.recoil_multiplier *= 0.65f;
+							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.91f;
 							data.damage_multiplier *= 0.94f;
 							data.stability = Maths.Clamp(data.stability * 1.09f, 0.00f, 1.00f);
@@ -1066,7 +1063,7 @@ namespace TC2.Base
 						default:
 						{
 							data.recoil_multiplier = MathF.Max(0.10f, data.recoil_multiplier - 0.07f);
-							data.recoil_multiplier *= 0.60f;
+							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.87f;
 							data.damage_multiplier *= 0.95f;
 							data.stability = Maths.Clamp(data.stability * 1.07f, 0.00f, 1.00f);
@@ -1816,7 +1813,7 @@ namespace TC2.Base
 					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.damage_multiplier *= 1.12f;
 					data.velocity_multiplier *= 1.06f;
-					data.recoil_multiplier *= 1.12f;
+					//data.recoil_multiplier *= 1.12f;
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2422,7 +2419,7 @@ namespace TC2.Base
 
 								data.sound_volume *= 1.50f;
 								data.sound_pitch *= 0.80f;
-								data.recoil_multiplier *= 2.00f;
+								//data.recoil_multiplier *= 2.00f;
 							}
 							else
 							{
@@ -2450,7 +2447,7 @@ namespace TC2.Base
 
 								data.sound_volume *= 1.50f;
 								data.sound_pitch *= 0.80f;
-								data.recoil_multiplier *= 2.00f;
+								//data.recoil_multiplier *= 2.00f;
 							}
 							else
 							{
@@ -2759,23 +2756,23 @@ namespace TC2.Base
 
 					data.velocity_multiplier *= 0.90f;
 					data.damage_multiplier *= 0.90f;
-					data.recoil_multiplier *= 0.60f;
+					data.recoil_multiplier *= 0.90f;
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
-						data.recoil_multiplier *= 0.50f;
+						data.recoil_multiplier *= 0.75f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
-						data.recoil_multiplier *= 0.60f;
+						data.recoil_multiplier *= 0.80f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
-						data.recoil_multiplier *= 0.60f;
+						data.recoil_multiplier *= 0.85f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
-						data.recoil_multiplier *= 0.80f;
+						data.recoil_multiplier *= 0.90f;
 					}
 
 					ref var body = ref context.GetComponent<Body.Data>();

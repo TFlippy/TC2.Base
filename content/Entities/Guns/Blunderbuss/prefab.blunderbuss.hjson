@@ -30,7 +30,7 @@ gun:
 	velocity_multiplier: 250.000
 	jitter_multiplier: 8.000
 	damage_multiplier: 4.800
-	recoil_multiplier: 2.500
+	recoil_multiplier: 1.200
 	reload_interval: 2.000
 	cycle_interval: 0.500
 	failure_rate: 0.200

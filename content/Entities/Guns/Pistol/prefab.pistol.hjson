@@ -1,4 +1,4 @@
-$tags: []
+c$tags: []
 
 body:
 {
@@ -25,7 +25,7 @@ gun:
 	velocity_multiplier: 280.000
 	jitter_multiplier: 0.300
 	damage_multiplier: 2.750
-	recoil_multiplier: 0.300
+	recoil_multiplier: 2.000
 	reload_interval: 1.800
 	cycle_interval: 0.160
 	failure_rate: 0.010
@@ -71,8 +71,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 2.000
-	torque_multiplier: 1.300
+	force_multiplier: 0.900
+	torque_multiplier: 0.200
 }
 
 animated.renderer:
