@@ -113,7 +113,7 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "health.mushroom_glow",
+				identifier: "utility.mushroom_glow",
 				category: "Utility",
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
