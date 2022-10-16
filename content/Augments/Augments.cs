@@ -138,8 +138,8 @@ namespace TC2.Base
 			(
 				identifier: "health.reincarnating",
 				category: "Utility",
-				name: "Reincarnating",
-				description: "Reappears once when it dies",
+				name: "Contains itself",
+				description: "Reappears once when destroyed",
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
 				{
@@ -165,6 +165,12 @@ namespace TC2.Base
 						{
 							requirement.amount *= 2.00f;
 						}
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>(); //Becomes twice as heavy (for obvious reasons)
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 2.00f;
 					}
 				}
 			));
