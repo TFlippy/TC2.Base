@@ -329,7 +329,7 @@ lootable:
 		
 		threat:
 		{
-			priority: 10.000
+			priority: 5.000
 		}
 		
 		transform:
