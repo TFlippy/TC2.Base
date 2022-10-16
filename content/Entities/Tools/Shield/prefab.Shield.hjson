@@ -39,8 +39,8 @@ faction.colorable:
 
 holdable:
 {
-	force_multiplier: 3.000
-	torque_multiplier: 1.000
+	force_multiplier: 20.000
+	torque_multiplier: 20000.000
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -101,6 +101,7 @@ melee:
 	damage_type: club
 	category: blunt
 	flags: no_handle
+	attack_type: thrust
 	hit_mask: item, creature
 	hit_exclude: ignore_melee, decoration, tree
 }

@@ -1,0 +1,93 @@
+$name: "Heavy Shield"
+$desc: "Huge durable protective shield."
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000,-0.400]
+		b: [0.000, 0.400]
+		offset: [0.050, 0.000]
+		mass: 20.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.350
+		material: metal
+		layer: entity, solid, item
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "shield.heavy"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	mask: "shield.heavy.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+holdable:
+{
+	force_multiplier: 20.000
+	torque_multiplier: 200000.000
+	offset: [-0.625, 0.200]
+	radius: 5.000
+	flags: storable
+}
+
+health:
+{
+	max: 9000.000
+}
+
+armor:
+{
+	toughness: 650.000
+	protection: 1.00
+	
+	knockback_modifier: 1.50
+	
+	material_type: metal
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}
+
+shield:
+{
+
+}
+
+cover:
+{
+	threshold: 0.100
+	flags: break_on_breach
+}
