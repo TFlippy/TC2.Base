@@ -169,37 +169,6 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Holdable.Data>
-			(
-				identifier: "holdable.tiny_scope",
-				category: "Utility",
-				name: "Tiny Scope",
-				description: "Allows you to see further when holding this item",
-
-				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
-				{
-					return context.GetComponent<Telescope.Data>().IsNull();
-				},
-
-				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
-				{
-					ref var tel = ref context.GetOrAddComponent<Telescope.Data>();
-					tel.speed = 3.0f;
-					tel.deadzone = 1.0f;
-					tel.max_distance = 30f;
-					tel.zoom_min = 1.0f;
-					tel.zoom_max = 1.0f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("glass", 4.00f));
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							requirement.difficulty += 2.00f;
-						}
-					}
-				}
-			));
-
 			definitions.Add(Augment.Definition.New<Health.Data>
 			(
 				identifier: "health.varnish",
