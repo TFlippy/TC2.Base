@@ -140,54 +140,6 @@
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 2.00f));
 				}
 			));
-
-			definitions.Add(Augment.Definition.New<Armor.Data>
-			(
-				identifier: "armor.cloth_padded",
-				category: "Protection",
-				name: "Cloth Padding",
-				description: "Pads the inner side of the armor with cloth.",
-
-				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					data.knockback_modifier *= 0.65f;
-					data.pain_modifier *= 0.80f;
-				},
-
-				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 5.00f));
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Armor.Data>
-			(
-				identifier: "armor.mushroom_stuffed",
-				category: "Protection",
-				name: "Mushroom Stuffing",
-				description: "Stuffs the inner side of the armor with soft mushroom bits.",
-
-				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					data.knockback_modifier = MathF.Max(data.knockback_modifier - 0.30f, data.knockback_modifier * 0.25f);
-					data.pain_modifier = MathF.Max((data.pain_modifier * 0.90f) - 0.30f, data.pain_modifier * 0.10f);
-				},
-
-				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", 20.00f));
-				}
-			));
 		}
 	}
 }
