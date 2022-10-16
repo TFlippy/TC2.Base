@@ -331,7 +331,7 @@ namespace TC2.Base.Components
 
 					public Material.Flags? filter_flags;
 					public Material.Type? filter_type;
-					public Material.Handle? filter_material;
+					public IMaterial.Handle? filter_material;
 
 
 #if SERVER

@@ -103,7 +103,11 @@ namespace TC2.Base.Components
 		[ISystem.Modified<Resource.Data>(ISystem.Mode.Single)]
 		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
-			explosive.modifier = MathF.Sqrt(Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max));
+			ref var material = ref resource.material.GetData();
+			if (material.IsNotNull())
+			{
+				explosive.modifier = MathF.Sqrt(Maths.NormalizeClamp(resource.quantity, material.quantity_max));
+			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
 			//explosive.modifier = MathF.Log2(resource.quantity / MathF.Max(resource.material.GetDefinition().quantity_max, 1.00f));
 			//App.WriteLine(explosive.modifier);

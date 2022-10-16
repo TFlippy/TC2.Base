@@ -58,8 +58,11 @@ namespace TC2.Base.Components
 		[ISystem.Modified(ISystem.Mode.Single)]
 		public static void OnModifiedResource(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned] in Resource.Data resource)
 		{
-			ref var material = ref resource.material.GetDefinition();
-			mithril.modifier = 0.50f + (MathF.Log2(1.00f + (resource.quantity / MathF.Max(material.quantity_max, 1.00f))) * 0.50f);
+			ref var material = ref resource.material.GetData();
+			if (material.IsNotNull())
+			{
+				mithril.modifier = 0.50f + (MathF.Log2(1.00f + (resource.quantity / MathF.Max(material.quantity_max, 1.00f))) * 0.50f);
+			}
 		}
 
 #if CLIENT

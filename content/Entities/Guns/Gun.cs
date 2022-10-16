@@ -369,7 +369,9 @@
 				else
 				{
 					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
-					if (inventory_magazine.resource.material.id != 0 && !inventory_magazine.resource.material.GetDefinition().flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
+
+					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
+					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
 					{
@@ -377,7 +379,9 @@
 						for (var i = 0; i < count; i++)
 						{
 							ref var resource = ref inventory[i];
-							if (resource.material.GetDefinition().flags.HasAll(gun.ammo_filter))
+
+							ref var material = ref resource.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter))
 							{
 								inventory_magazine.resource.material = resource.material;
 								break;
@@ -453,8 +457,8 @@
 				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
 #endif
 
-				ref var material = ref inventory_magazine.resource.material.GetDefinition();
-				if (material.projectile_prefab.id != 0)
+				ref var material = ref inventory_magazine.resource.material.GetData();
+				if (material.IsNotNull() && material.projectile_prefab.id != 0)
 				{
 					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
