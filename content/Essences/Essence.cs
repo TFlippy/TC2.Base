@@ -59,40 +59,43 @@ namespace TC2.Base.Components
 			Failure
 		}
 
-		private static Essence.Type[] material_to_essence;
+		public static readonly Dictionary<IMaterial.Handle, Essence.Type> material_to_essence = new Dictionary<IAsset2<IMaterial, IMaterial.Data>.Handle, Type>();
 
 		public const float essence_per_pellet = 5.00f;
 		public const float force_per_motion_essence = 2000.00f;
 
-		public static void Init()
-		{
-			var materials = NetRegistry<Material.Definition>.GetAll();
-			material_to_essence = new Essence.Type[materials.Length];
+		//public static void Init()
+		//{
+		//	var materials = NetRegistry<Material.Definition>.GetAll();
+		//	material_to_essence = new Essence.Type[materials.Length];
 
-			for (var i = 0; i < material_to_essence.Length; i++)
-			{
-				ref var material = ref materials[i];
-				if (material.flags.HasAny(Material.Flags.Essence))
-				{
-					var identifier = material.identifier.ToString();
+		//	for (var i = 0; i < material_to_essence.Length; i++)
+		//	{
+		//		ref var material = ref materials[i];
+		//		if (material.flags.HasAny(Material.Flags.Essence))
+		//		{
+		//			var identifier = material.identifier.ToString();
 
-					var char_index = identifier.LastIndexOf('.');
-					if (char_index != -1)
-					{
-						var enum_name = identifier.Substring(char_index + 1);
-						if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
-						{
-							material_to_essence[i] = essence_type;
-						}
-					}
-				}
-			}
-		}
+		//			var char_index = identifier.LastIndexOf('.');
+		//			if (char_index != -1)
+		//			{
+		//				var enum_name = identifier.Substring(char_index + 1);
+		//				if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
+		//				{
+		//					material_to_essence[i] = essence_type;
+		//				}
+		//			}
+		//		}
+		//	}
+		//}
 
 		public static Essence.Type GetEssenceType(in this Resource.Data resource) => Essence.GetEssenceType(resource.material.id);
-		public static Essence.Type GetEssenceType(this Material.Handle material)
+		public static Essence.Type GetEssenceType(this IMaterial.Handle material)
 		{
-			return material.id < material_to_essence.Length ? material_to_essence[material.id] : default;
+			material_to_essence.TryGetValue(material, out var essence_type);
+			return essence_type;
+
+			//return material.id < material_to_essence.Length ? material_to_essence[material.id] : default;
 		}
 
 		public static Prefab.Handle GetEssencePrefab(Essence.Type type) => type switch

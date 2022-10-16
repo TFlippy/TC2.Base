@@ -14,12 +14,30 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterExplosiveAugments;
 			Augment.OnInitialize += RegisterArmorAugments;
 
-			Material.OnPostInitialize += Essence.Init;
+			IMaterial.Database.AddAssetPostProcessor((IMaterial.Definition definition, ref IMaterial.Data data) =>
+			{
+				if (data.flags.HasAny(Material.Flags.Essence))
+				{
+					var identifier = definition.identifier;
 
-//#if SERVER
-//			// TODO: hack, add a way to handle this with attributes
-//			Player.OnCreate += OnCreatePlayer;
-//#endif
+					var char_index = identifier.LastIndexOf('.');
+					if (char_index != -1)
+					{
+						var enum_name = identifier.Substring(char_index + 1);
+						if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
+						{
+							Essence.material_to_essence[definition.GetHandle()] = essence_type;
+						}
+					}
+				}
+			});
+
+			//Material.OnPostInitialize += Essence.Init;
+
+			//#if SERVER
+			//			// TODO: hack, add a way to handle this with attributes
+			//			Player.OnCreate += OnCreatePlayer;
+			//#endif
 		}
 
 		//private static void OnCreatePlayer(ref Region.Data region, ref Player.Data player)
