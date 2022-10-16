@@ -47,8 +47,8 @@
 		{
 			type: "resource"
 			material: "sauce"
-			amount_min: 40.000
-			amount_max: 50.000
+			amount: 40.000
+			amount_extra: 10.000
 		}
 	]
 }

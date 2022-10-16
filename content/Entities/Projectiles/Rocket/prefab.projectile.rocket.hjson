@@ -9,6 +9,8 @@ projectile:
 	damage_type: bullet_musket
 	size: 0.500
 	ricochet_count: 0
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
 }
 
 transform:
@@ -20,7 +22,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "rocket"
+		texture: "projectile.rocket"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
@@ -28,10 +30,14 @@ animated.renderer:
 
 explosive:
 {
-	radius: 6.000
-	power: 5.000
-	damage_entity: 14000.000
-	damage_terrain: 14000.000
+	radius: 5.000
+	power: 4.000
+	damage_entity: 5000.000
+	damage_terrain: 7000.000
+	sparks_amount: 0.600
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 2.000
 	flags: primed
 }
 

@@ -1,0 +1,46 @@
+{
+	name: "Explosive Keg"
+	desc: "A simple but powerful explosive. Very heavy."
+	
+	icon:
+	{
+		texture: "keg"
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: munitions
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 250.000
+		}
+		{
+			type: "resource"
+			material: "wood"
+			amount: 100.000
+		}
+		{
+			type: "work"
+			work: "woodworking"
+			amount: 700.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "keg"
+			amount: 1.000
+		}
+	]
+}

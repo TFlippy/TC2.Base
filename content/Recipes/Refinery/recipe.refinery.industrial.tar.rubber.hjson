@@ -1,0 +1,56 @@
+{
+	name: "Tar-Based Rubber"
+	desc: "Turn tar into rubber and lubricant."
+	
+	icon:
+	{
+		texture: "resource.rubber"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "tar"
+			amount: 30.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 10.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "rubber"
+			amount: 3.000
+			amount_extra: 4.000
+		}
+		{
+			type: "resource"
+			material: "lubricant"
+			amount: 5.000
+			amount_extra: 20.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount: 10.000
+			amount_extra: 20.000
+		}
+	]
+}

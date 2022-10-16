@@ -64,6 +64,13 @@ holdable:
 {
 	offset: [0.000, -1.000]
 	radius: 0.000
+	flags: disable_control
+}
+
+attachment:
+{
+	offset: [0.000, -1.000]
+	radius: 0.000
 }
 
 grabber:
@@ -71,10 +78,12 @@ grabber:
 
 }
 
-attachment:
-{
 
-}
+
+// attachment.slot:
+// {
+
+// }
 
 joint.base:
 {

@@ -1,0 +1,82 @@
+$tags: []
+
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 5.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wrench"
+	}
+}
+
+transform:
+{
+
+}
+
+wrench:
+{
+
+}
+
+wrench.mode.belts:
+{
+
+}
+
+wrench.mode.conveyors:
+{
+
+}
+
+wrench.mode.deconstruct:
+{
+
+}
+
+// wrenchold:
+// {
+
+// }
+
+sound.emitter:
+{
+	volume: 0.000
+	pitch: 0.000
+}
+
+packable:
+{
+
+}

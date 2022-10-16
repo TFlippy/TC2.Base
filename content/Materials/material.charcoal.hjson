@@ -11,6 +11,7 @@
 	type: stone
 	flags: raw, fuel
 	mass_per_unit: 0.200
+	market_price: 9.000
 	quantity_max: 500.000
 	prefab: "resource.charcoal"
 	

@@ -5,7 +5,7 @@ projectile:
 	damage_base: 500.000
 	damage_bonus: 350.000
 	lifetime: 2.000
-	damage_type: bullet_mg
+	damage_type: bullet_musket
 	size: 0.250
 }
 

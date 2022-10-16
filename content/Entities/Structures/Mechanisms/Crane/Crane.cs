@@ -1,5 +1,4 @@
-﻿
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Crane
 	{
@@ -8,7 +7,8 @@ namespace TC2.Base.Components
 		{
 			None = 0,
 
-			Inverted = 1 << 0
+			Inverted = 1 << 0,
+			Hold = 1 << 1,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Crane.State>]
@@ -17,7 +17,8 @@ namespace TC2.Base.Components
 			public float length_a = 8.00f;
 			public float length_b = 8.00f;
 
-			public Crane.Flags flags = Flags.None;
+			public Crane.Flags flags = Crane.Flags.None;
+			public Crane.Flags flags_editable = Crane.Flags.None;
 
 			public Data()
 			{
@@ -38,12 +39,14 @@ namespace TC2.Base.Components
 		{
 			public float length_a;
 			public float length_b;
+			public Crane.Flags flags;
 
 #if SERVER
 			public void Invoke(ref NetConnection connection, Entity entity, ref Crane.Data crane)
 			{
 				crane.length_a = this.length_a;
 				crane.length_b = this.length_b;
+				crane.flags = (crane.flags & ~crane.flags_editable) | (this.flags & crane.flags_editable);
 
 				entity.SyncComponent(ref crane);
 			}
@@ -89,14 +92,30 @@ namespace TC2.Base.Components
 						dirty |= GUI.SliderFloat("A", ref this.crane.length_a, 0.00f, 16.00f);
 						dirty |= GUI.SliderFloat("B", ref this.crane.length_b, 0.00f, 16.00f);
 
+						var flags = this.crane.flags;
+
+						var edit_rpc = new Crane.ConfigureRPC
+						{
+							length_a = this.crane.length_a,
+							length_b = this.crane.length_b,
+							flags = flags
+						};
+
+						if (this.crane.flags_editable.HasAny(Crane.Flags.Hold) && GUI.Checkbox("Hold", ref flags, Crane.Flags.Hold, new Vector2(96, 24)))
+						{
+							dirty = true;
+							edit_rpc.flags = flags;
+						}
+
+						if (this.crane.flags_editable.HasAny(Crane.Flags.Inverted) && GUI.Checkbox("Invert", ref flags, Crane.Flags.Inverted, new Vector2(96, 24)))
+						{
+							dirty = true;
+							edit_rpc.flags = flags;
+						}
+
 						if (dirty)
 						{
-							var rpc = new Crane.ConfigureRPC
-							{
-								length_a = this.crane.length_a,
-								length_b = this.crane.length_b,
-							};
-							rpc.Send(this.ent_crane);
+							edit_rpc.Send(this.ent_crane);
 						}
 					}
 				}
@@ -122,18 +141,18 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), Exclude<Joint.Base>(Source.Modifier.Parent)]
-		public static void UpdateControl(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Crane.Data crane, [Source.Owned] ref Control.Data control, [Source.Owned] ref Interactable.Data interactable)
-		{
-			if (interactable.ref_interactor.TryGetHandle(out var handle))
-			{
-				control = handle.Value.control;
-			}
-		}
+		//[ISystem.PreUpdate.Reset(ISystem.Mode.Single), Exclude<Joint.Base>(Source.Modifier.Parent)]
+		//public static void UpdateControl(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Transform.Data transform,
+		//[Source.Owned] ref Crane.Data crane, [Source.Owned] ref Control.Data control, [Source.Owned] ref Interactable.Data interactable)
+		//{
+		//	if (interactable.ref_interactor.TryGetHandle(out var handle))
+		//	{
+		//		control = handle.Value.control;
+		//	}
+		//}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body,
@@ -149,6 +168,8 @@ namespace TC2.Base.Components
 				//	invert = !invert;
 				//}
 
+				//App.WriteLine($"{control.mouse.GetKey(Mouse.Key.Right)}");
+
 				var transform_tmp = transform;
 				var transform_parent_tmp = transform_parent;
 
@@ -158,7 +179,7 @@ namespace TC2.Base.Components
 				//	transform_parent_tmp.scale.X *= -1.00f;
 				//}
 
-				if (control.mouse.GetKey(Mouse.Key.Right))
+				if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right))
 				{
 					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
@@ -169,16 +190,29 @@ namespace TC2.Base.Components
 						crane_state.next_sync = info.WorldTime + 0.20f;
 						dirty |= true;
 					}
+
 				}
 
-				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotationUnscaled(crane_state.angle_a);
-				gear.rotation = crane_state.angle_b;
+				var parity = transform_tmp.scale.GetParity();
+
+				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a) * parity;
+				gear.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b, rotation: false) * parity;
+
+				if (joint_base.flags.HasAny(Joint.Flags.Invert_Facing))
+				{
+					gear.rotation = Maths.OppositeAngle(gear.rotation);
+				}
+
+				//if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right)) 
 
 				if (invert)
 				{
 					gear_parent.rotation = -gear_parent.rotation;
 					gear.rotation = Maths.OppositeAngle(gear.rotation);
 				}
+
+				gear_parent.rotation = Maths.NormalizeAngle(gear_parent.rotation);
+				gear.rotation = Maths.NormalizeAngle(gear.rotation);
 
 				if (dirty)
 				{

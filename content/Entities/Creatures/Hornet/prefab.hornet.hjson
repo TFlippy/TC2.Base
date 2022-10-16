@@ -1,3 +1,8 @@
+$name: "Hornet"
+$desc: 
+	'''
+	A dangerous pest.
+	'''
 $export: false
 $tags: ["hornet"]
 
@@ -64,8 +69,9 @@ npc:
 {
 	pain_modifier: 0.500
 	min_consciousness: 0.500
-	avoid_distance: [0.125, 0.000]
-	idle_distance: [1.000, 1.000]
+	min_distance: [0.125, 0.000]
+	max_distance: [1.000, 1.000]
+	wander_radius: 32.000
 }
 
 animal:
@@ -104,7 +110,7 @@ ai.behavior:
 
 ai.search:
 {
-
+	radius: 32.000
 }
 
 pathfinding:
@@ -195,4 +201,9 @@ lootable:
 			max: 5.000
 		}
 	]
+}
+
+faction:
+{
+	id: "hornet"
 }

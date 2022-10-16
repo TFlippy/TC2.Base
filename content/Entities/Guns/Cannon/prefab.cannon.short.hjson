@@ -1,0 +1,144 @@
+$name: "Short Cannon"
+$desc: 
+	'''
+	A short cannon based on an antiquated imperial cannon model, 
+	which is cheaper, lighter and of worse performance.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-2.000, 0.000]
+		b: [1.875, -0.150]
+		mass: 260.000
+		radius: 0.450
+		friction: 0.800
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [2.000, -0.250]
+	sound_shoot: "cannon_shoot"
+	sound_reload: "cannon_reload"
+	velocity_multiplier: 100.000
+	jitter_multiplier: 0.800
+	damage_multiplier: 25.000
+	recoil_multiplier: 400.000
+	reload_interval: 3.000
+	cycle_interval: 0.500
+	failure_rate: 0.020
+	max_ammo: 1.000
+	sound_volume: 3.000
+	sound_pitch: 1.200
+	sound_size: 5.000
+	smoke_size: 4.000
+	smoke_amount: 7.000
+	flash_size: 1.500
+	projectile_count: 1
+	flags: full_reload, cycle_on_shoot
+	ammo_filter: ammo_shell
+	action: manual
+	type: cannon
+	feed: single
+
+	shake_amount: 0.900
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 4.000]
+		offset: [4.000, -0.250]
+		scale: [50.000, 50.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.500, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_control
+
+	force_multiplier: 4.000
+	torque_multiplier: 1.000
+}
+
+attachment:
+{
+	offset: [-1.375, 0.000]
+
+	force_multiplier: 4.000
+	torque_multiplier: 1.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "cannon.short"
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+transform:
+{
+
+}
+
+overheat:
+{
+	heat_medium: 350.000
+	heat_high: 500.000
+	heat_critical: 750.000
+	cool_rate: 200.000
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, 0.125]
+		scale: [16.000, 4.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+	}
+}

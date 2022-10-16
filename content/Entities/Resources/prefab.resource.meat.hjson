@@ -6,9 +6,9 @@ body:
 	{
 		offset: [0.000, 0.600]
 		mass: 50.000
-		radius: 0.400
-		friction: 0.950
-		elasticity: 0.200
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
 		material: flesh
 		layer: entity, solid, resource
 		mask: world
@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	offset: [0.000, 0.250]
 }
 
 transform:
@@ -42,7 +43,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 1.000]
 }
 
 norotate:

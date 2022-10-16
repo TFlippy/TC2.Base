@@ -34,7 +34,7 @@ holdable:
 {
 	offset: [-4.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_control
 }
 
 transform:
@@ -47,7 +47,7 @@ aimable:
 
 }
 
-attachable:
+attachment:
 {
 	offset: [-4.000, 0.000]
 
@@ -79,8 +79,8 @@ joint.motor:
 joint.rotarylimit:
 {
 	max_torque: 100000.000
-	min: -2.800
-	max: 2.800
+	min: -3.298
+	max: 0.157
 	max_bias: 20.000
 	error_bias: 0.0001
 }
@@ -93,7 +93,7 @@ joint.rotarylimit:
 // 	max: 30.000
 // }
 
-attachment:
+attachment.slot:
 {
-
+	flags: keyboard_write, mouse_write
 }

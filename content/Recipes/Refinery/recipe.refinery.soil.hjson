@@ -37,20 +37,20 @@
 		{
 			type: "resource"
 			material: "saltpeter"
-			amount_min: 0.000
-			amount_max: 2.000
+			amount: 0.000
+			amount_extra: 2.000
 		}
 		{
 			type: "resource"
 			material: "sulfur"
-			amount_min: 0.000
-			amount_max: 0.500
+			amount: 0.000
+			amount_extra: 0.500
 		}
 		{
 			type: "resource"
 			material: "soil_dry"
-			amount_min: 8.000
-			amount_max: 10.000
+			amount: 8.000
+			amount_extra: 2.000
 		}
 	]
 }

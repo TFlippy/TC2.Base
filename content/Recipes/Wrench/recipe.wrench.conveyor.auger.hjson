@@ -1,0 +1,52 @@
+{
+	name: "Conveyor (Auger)"
+	desc:
+		'''
+		A helical conveyor used for transporting liquids and granular materials.
+		'''
+	
+	icon:
+	{
+		texture: "conveyor.auger"
+	}
+	
+	type: wrench
+	flags: none
+	tags: conveyor
+
+	dismantle_work: 10.000
+	dismantle_yield: 0.900
+
+	placement:
+	{ 
+		type: line
+		flags: none
+		
+		length_min: 1.000
+		length_max: 10.000
+
+		size: [0.500, 0.500]
+		cooldown: 0.300
+		min_support: 0.05
+		min_claim: 0.900
+
+		sound: "building_place"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.500
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "conveyor.auger"
+		}
+	]
+}

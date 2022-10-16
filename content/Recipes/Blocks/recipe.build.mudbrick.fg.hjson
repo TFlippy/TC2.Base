@@ -15,6 +15,7 @@
 	type: build
 	flags: none
 	tags: construction
+	rank: -92.500
 	
 	placement:
 	{

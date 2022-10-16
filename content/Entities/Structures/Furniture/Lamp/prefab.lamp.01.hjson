@@ -1,0 +1,53 @@
+$name: "Lamp"
+$desc: "A small wall-mounted lamp."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 4.000
+		radius: 0.600
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, no_overlapped_placement, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 600.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "lamp.01"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.000
+	
+	@light:
+	{
+		color: [1.000, 0.750, 0.100, 1.250]
+		offset: [0.000, -0.250]
+		scale: [64.000, 48.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}

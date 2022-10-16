@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 				Span<LinecastResult> results = stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), biter.thickness, ref results, mask: biter.hit_mask, exclude: biter.hit_exclude))
 				{
-					results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+					results.SortByDistance();
 
 					var parent = body.GetParent();
 					var modifier = 1.00f;
@@ -86,10 +86,10 @@ namespace TC2.Base.Components
 						Damage.Hit(attacker: entity, owner: parent, target: result.entity,
 							world_position: result.world_position, direction: dir, normal: -dir,
 							damage: damage * modifier, damage_type: biter.damage_type,
-							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags);
+							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags, speed: 8.00f);
 #endif
 
-						flags |= Damage.Flags.No_Sound;
+						//flags |= Damage.Flags.No_Sound;
 						modifier *= biter.penetration_falloff;
 						penetration--;
 					}

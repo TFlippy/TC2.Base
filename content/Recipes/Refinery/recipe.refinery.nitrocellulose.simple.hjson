@@ -1,0 +1,65 @@
+{
+	name: "Simple Nitrocellulose Production"
+	desc: "A simplified and much smaller-scale method of producing nitrocellulose. The refinery automatically produces the intermediate steps, though it's much slower and less efficient."
+	
+	icon:
+	{
+		texture: "resource.nitrocellulose"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "cloth"
+			amount: 20.000
+		}
+		{
+			type: "resource"
+			material: "saltpeter"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "sulfur"
+			amount: 30.000
+		}
+		{
+			type: "resource"
+			material: "water"
+			amount: 200.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 50.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 30.000
+			amount_extra: 60.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount: 50.000
+			amount_extra: 100.500
+		}
+	]
+}

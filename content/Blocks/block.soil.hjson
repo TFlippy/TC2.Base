@@ -10,13 +10,13 @@
 	smoothing: 0.200
 	mass: 5.000
 	friction: 0.800
-	elasticity: 0.200
+	elasticity: 0.400
 	stability: 0.800
 	
 	texture: "terrain_soil"
 	pattern: "pattern_soil"
 	
-	texture_scale: 1.000
+	texture_scale: 1.500
 	texture_overshoot: -0.750
 	
 	resources:

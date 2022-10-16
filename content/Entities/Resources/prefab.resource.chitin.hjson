@@ -4,9 +4,9 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.500]
+		offset: [0.000, 0.250]
 		mass: 20.000
-		radius: 0.400
+		radius: 0.750
 		friction: 0.990
 		elasticity: 0.000
 		material: glass
@@ -42,7 +42,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:

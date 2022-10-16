@@ -1,0 +1,59 @@
+{
+	sounds_looped:
+	[
+		{
+			sound: "amb.city.day.loop.01"
+			volume: 0.140
+			pitch: 1.200
+			
+			mix: 
+			{
+				front_left: 0.500
+				front_right: 0.500
+				center: 0.150
+				lfe: 0.100
+				side_left: 0.200
+				side_right: 0.200
+				back_left: 0.350
+				back_right: 0.350
+			}
+		}
+	]
+	
+	sounds_random:
+	[
+		{
+			time_minmax: [15.000, 30.000]
+			volume_minmax: [0.250, 0.300]
+			pitch_minmax: [0.850, 1.050]
+
+			sounds:
+			[
+				// "amb.urban.tram.00"
+				"amb.urban.tram.01"
+				"amb.urban.wind.00"
+			]
+		}
+		// {
+		// 	time_minmax: [20.000, 40.000]
+		// 	volume_minmax: [0.200, 0.250]
+		// 	pitch_minmax: [0.850, 1.050]
+
+		// 	sounds:
+		// 	[
+		// 		"amb.industry.cutter.00"
+		// 		"amb.industry.solder.00"
+		// 	]
+		// }
+		{
+			time_minmax: [50.000, 150.000]
+			volume_minmax: [0.200, 0.300]
+			pitch_minmax: [0.950, 1.050]
+
+			sounds:
+			[
+				"amb.urban.train.00"
+			]
+		}
+	]
+}

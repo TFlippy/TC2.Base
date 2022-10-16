@@ -6,7 +6,7 @@ body:
 	{
 		a: [-0.300, 0.250]
 		b: [0.300, 0.100]
-		mass: 1.200
+		mass: 2.200
 		radius: 0.300
 		friction: 0.900
 		elasticity: 0.250
@@ -24,21 +24,23 @@ gun:
 	sound_reload: "revolver_reload"
 	velocity_multiplier: 330.000
 	jitter_multiplier: 0.100
-	damage_multiplier: 3.000
+	damage_multiplier: 2.500
 	recoil_multiplier: 0.500
-	reload_interval: 0.500
+	reload_interval: 0.600
 	cycle_interval: 0.100
 	failure_rate: 0.002
 	max_ammo: 6.000
 	flash_size: 0.700
 	projectile_count: 1
 	flags: none
-	ammo_filter: ammo_lc
+	ammo_filter: ammo_hc
 	action: revolver
 	type: handgun
 	feed: cylinder
 
-	shake_amount: 0.340
+	heuristic_range: 18.000
+	
+	shake_amount: 0.390
 	
 	@inventory1:
 	{

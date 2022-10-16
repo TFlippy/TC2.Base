@@ -1,0 +1,27 @@
+{
+	sounds_looped:
+	[
+		{
+			sound: "amb_forest_day_loop_7"
+			volume: 0.120
+			pitch: 0.850
+			
+			mix: 
+			{
+				front_left: 0.000
+				front_right: 0.000
+				center: 0.000
+				lfe: 0.000
+				side_left: 0.000
+				side_right: 0.000
+				back_left: 1.000
+				back_right: 1.000
+			}
+		}
+	]
+	
+	sounds_random:
+	[
+
+	]
+}

@@ -37,20 +37,20 @@
 		{
 			type: "resource"
 			material: "rubber"
-			amount_min: 3.000
-			amount_max: 7.000
+			amount: 3.000
+			amount_extra: 4.000
 		}
 		{
 			type: "resource"
 			material: "lubricant"
-			amount_min: 5.000
-			amount_max: 25.000
+			amount: 5.000
+			amount_extra: 20.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 10.000
-			amount_max: 30.000
+			amount: 10.000
+			amount_extra: 20.000
 		}
 	]
 }

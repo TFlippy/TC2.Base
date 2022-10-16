@@ -16,7 +16,7 @@ body:
 		friction: 0.750
 		elasticity: 0.600
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -38,11 +38,33 @@ animated.renderer:
 	{
 		texture: "wreck.trashcan"
 	}
+	z: 10.000
 }
 
 transform:
 {
 
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 1
+
+	tables:
+	[
+		"trashcan"
+	]
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
 }
 
 harvestable:
@@ -58,9 +80,4 @@ harvestable:
 			quantity: 3.000
 		}
 	]
-}
-
-cover:
-{
-	threshold: 0.600
 }

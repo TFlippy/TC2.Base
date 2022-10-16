@@ -1,0 +1,50 @@
+{
+	name: "Resin-Based tar"
+	desc: "Turn resin into tar."
+	
+	icon:
+	{
+		texture: "resource.tar"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "resin"
+			amount: 30.000
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 10.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "tar"
+			amount: 30.000
+			amount_extra: 40.000
+		}
+		{
+			type: "resource"
+			material: "sludge"
+			amount: 10.000
+			amount_extra: 20.000
+		}
+	]
+}

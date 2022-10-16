@@ -1,8 +1,6 @@
-﻿using TC2.Base.Components;
-
-namespace TC2.Base
+﻿namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterArmorAugments(ref List<Augment.Definition> definitions)
 		{
@@ -11,7 +9,7 @@ namespace TC2.Base
 				identifier: "health.smirgl_structure",
 				category: "Protection",
 				name: "Smirgl-Reinforced Structure",
-				description: "Replaces entire structure with smirgl, greatly increasing durability.",
+				description: "Replaces entire structure with smirgl, greatly increasing durability and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -72,6 +70,7 @@ namespace TC2.Base
 					{
 						ref var material = ref Material.GetMaterial("smirgl_ingot");
 						body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
+						body.override_shape_mask |= Physics.Layer.Essence;
 					}
 				}
 			));
@@ -111,7 +110,7 @@ namespace TC2.Base
 				identifier: "armor.smirgl_plating",
 				category: "Protection",
 				name: "Smirgl Plating",
-				description: "Reinforce the armor with smirgl plating, increasing its toughness and weight.",
+				description: "Reinforce the armor with smirgl plating, increasing its toughness, weight and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -132,6 +131,7 @@ namespace TC2.Base
 					if (!body.IsNull())
 					{
 						body.mass_extra += 5.00f;
+						body.override_shape_mask |= Physics.Layer.Essence;
 					}
 				},
 

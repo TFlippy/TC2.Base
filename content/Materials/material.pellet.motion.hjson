@@ -10,7 +10,8 @@
 	
 	type: metal
 	flags: manufactured, essence
-	mass_per_unit: 0.750
+	mass_per_unit: 0.500
+	market_price: 110.000
 	quantity_max: 100.000
 	prefab: "resource.pellet.motion"
 	

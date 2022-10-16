@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 		{
 			ref var paxilon_new = ref data.ent_organic.GetOrAddComponent<Paxilon.Effect>(sync: true);
 
-			var ratio = Maths.Ratio(paxilon.amount, paxilon_new.amount);
+			var ratio = Maths.SumRatio(paxilon.amount, paxilon_new.amount);
 
 			paxilon_new.amount += paxilon.amount;
 			paxilon_new.release_rate_target = Maths.Lerp(paxilon_new.release_rate_target + (paxilon_new.release_rate_target * ratio), consumable.release_rate, ratio);

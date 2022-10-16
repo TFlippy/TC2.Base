@@ -13,9 +13,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 10
+	min: 5
 	max: 50
-	step: 10
+	step: 5
 	type: buy
 	tags: market
 	
@@ -23,7 +23,7 @@
 	[
 		{
 			type: "money"
-			amount: 9.999
+			amount: 14.999
 		}
 	]
 	

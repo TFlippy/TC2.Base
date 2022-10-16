@@ -22,7 +22,12 @@
 		{
 			type: "resource"
 			material: "mushroom.yellow"
-			amount: 25.000
+			amount: 30.000
+		}
+		{
+			type: "resource"
+			material: "water"
+			amount: 200.000
 		}
 		{
 			type: "work"
@@ -37,20 +42,20 @@
 		{
 			type: "resource"
 			material: "sulfur"
-			amount_min: 7.000
-			amount_max: 25.000
+			amount: 7.000
+			amount_extra: 18.000
 		}
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount_min: 50.000
-			amount_max: 175.000
+			amount: 100.000
+			amount_extra: 60.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 40.000
-			amount_max: 80.000
+			amount: 40.000
+			amount_extra: 40.000
 		}
 	]
 }

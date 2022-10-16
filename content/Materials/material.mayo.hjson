@@ -1,0 +1,31 @@
+{
+	name: "Mayonnaise"
+	description: "A popular Imperial delicacy, often eaten directly or as a side dish."
+	icon:
+	{
+		texture: "resource.mayo"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.500
+	quantity_max: 500.000
+	prefab: "resource.mayo"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+	molar_mass: 18.015
+}

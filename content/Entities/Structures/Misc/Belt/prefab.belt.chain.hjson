@@ -20,13 +20,14 @@ body:
 
 belt:
 {
-	force: 100000.000
+	force: 25000.000
 	efficiency: 1.000
+	speed_max: 30.000
 }
 
 belt.renderer:
 {
-	thickness: 0.250
+	thickness: 0.375
 	z: 0.480
 	texture: "belt.chain"
 }

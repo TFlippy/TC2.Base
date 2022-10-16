@@ -1,0 +1,104 @@
+$name: "Mount (Fixed)"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		radius: 1.000
+		mass: 500.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, solid, building, ignore_melee
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 10000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.fixed.00"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [182.000, 240.000]
+}
+
+axle:
+{
+	offset: [0.000, 0.000]
+	mass: 5.000
+	friction: 0.800
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.iron"
+		}
+		z: -50.000
+	}
+}
+
+vehicle:
+{
+
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 100000.000
+		max_torque: 200000.000
+		flags: control_write, no_stress, no_wrap, force_facing
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.001
+		max_bias: 3.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write
+	}
+}

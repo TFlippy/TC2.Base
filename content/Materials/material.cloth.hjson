@@ -10,7 +10,8 @@
 	
 	type: fabric
 	flags: manufactured, despawnable
-	mass_per_unit: 0.040
+	mass_per_unit: 0.400
+	market_price: 4.000
 	quantity_max: 50.000
 	prefab: "resource.cloth"
 	

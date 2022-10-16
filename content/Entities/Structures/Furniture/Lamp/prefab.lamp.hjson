@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 500.000
+	max: 200.000
 }
 
 animated.renderer:
@@ -46,7 +46,7 @@ lamp:
 	{
 		color: [1.000, 0.750, 0.100, 1.250]
 		offset: [0.000, -0.250]
-		scale: [48.000, 48.000]
+		scale: [64.000, 64.000]
 		intensity: 1.000
 		texture: "light_invsqr"
 	}

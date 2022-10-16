@@ -12,9 +12,9 @@ body:
 		a: [0.000, 0.900]
 		b: [0.000, -0.900]
 		mass: 8.000
-		radius: 0.250
-		friction: 0.950
-		elasticity: 0.050
+		radius: 0.330
+		friction: 0.750
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -31,15 +31,17 @@ melee:
 	sound_swing: "tool_swing_00"
 	swing_offset: [1.500, 2.000]
 	swing_rotation: -2.500
-	damage_base: 250.000
-	damage_bonus: 150.000
+	damage_base: 350.000
+	damage_bonus: 200.000
 	cooldown: 2.500
-	max_distance: 4.000
-	aoe: 0.300
+	max_distance: 2.300
+	thickness: 0.850
+	hit_offset: [0.250, 0.000]
+	aoe: 0.800
 	knockback: 2.500
 	yield: 0.300
 	penetration_falloff: 0.900
-	penetration: 3
+	penetration: 4
 	damage_type: slash
 	category: bladed
 	hit_mask: world, destructible
@@ -47,6 +49,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

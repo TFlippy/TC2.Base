@@ -9,6 +9,7 @@ projectile:
 	damage_type: bullet_musket
 	size: 0.350
 	ricochet_count: 0
+	damp: 0.98
 }
 
 projectile.renderer:
@@ -28,9 +29,13 @@ explosive:
 	damage_entity: 3000.000
 	damage_terrain: 1000.000
 	damage_type: bullet_lc
-	smoke_amount: 0.400
-	sparks_amount: 0.700
+	smoke_amount: 0.700
+	smoke_lifetime_multiplier: 1.600
+	smoke_velocity_multiplier: 2.500
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 0.300
+	sparks_amount: 1.900
 	volume: 0.500
-	pitch: 1.600
+	pitch: 1.400
 	flags: primed
 }

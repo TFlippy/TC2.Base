@@ -9,11 +9,13 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: build
 	flags: none
 	tags: construction
+	rank: -96.500
 	
 	placement:
 	{
@@ -33,7 +35,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.500
+			amount: 0.125
 		}
 	]
 	

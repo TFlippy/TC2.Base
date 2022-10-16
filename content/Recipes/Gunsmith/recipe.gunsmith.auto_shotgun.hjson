@@ -40,7 +40,7 @@
 			type: "work"
 			work: "smithing"
 			amount: 400.000
-			difficulty: 15.000
+			difficulty: 17.000
 		}
 		{
 			type: "work"
@@ -52,7 +52,7 @@
 			type: "work"
 			work: "assembling"
 			amount: 650.000
-			difficulty: 15.000
+			difficulty: 18.000
 		}
 	]
 	

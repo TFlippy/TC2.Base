@@ -88,7 +88,7 @@ interactable:
 
 sound.emitter:
 {
-	file: "windmill.blade.metal_loop_00"
+	file: "windmill.blade.metal.loop.00"
 	volume: 0.000
 	pitch: 1.000
 }

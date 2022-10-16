@@ -17,7 +17,7 @@
 	pattern: "pattern_concrete"
 	
 	texture_scale: 1.070
-	texture_overshoot: 0.000
+	texture_overshoot: -0.400
 	
 	resources:
 	[
@@ -32,6 +32,11 @@
 		{
 			color: "0xff524f4b"
 			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff3d3b38"
+			tile_flags: non_empty
 			meta: 0
 		}
 	]

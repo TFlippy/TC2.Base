@@ -16,8 +16,8 @@
 	texture: "terrain_scaffolding"
 	pattern: "pattern_scaffolding"
 	
-	texture_scale: 0.650
-	texture_overshoot: 0.000
+	texture_scale: 1.000
+	texture_overshoot: -0.500
 	
 	resources:
 	[

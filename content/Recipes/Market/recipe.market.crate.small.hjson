@@ -2,8 +2,7 @@
 	name: "Small Crate"
 	desc:
 		'''
-		A small portable storage - slightly larger
-		than your pockets.
+		Small portable storage - can be attached to toolbelt.
 		'''
 	
 	icon:

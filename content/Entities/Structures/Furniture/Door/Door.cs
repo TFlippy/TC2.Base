@@ -88,7 +88,7 @@ namespace TC2.Base.Components
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
 		public static void OnInteract(ISystem.Info info, Entity entity, [Source.Owned] ref Interactable.InteractEvent data, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
-		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape, [Source.Shared, Optional] in Faction.Data faction)
+		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape, [Source.Owned, Optional] in Faction.Data faction)
 		{
 			ref var region = ref info.GetRegion();
 			var random = XorRandom.New();

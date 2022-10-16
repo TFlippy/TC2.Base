@@ -2,7 +2,7 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterGunAugments(ref List<Augment.Definition> definitions)
 		{
@@ -44,7 +44,7 @@ namespace TC2.Base
 					{
 						case Gun.Feed.Drum:
 						{
-							amount *= 10.00f;
+							amount *= 3.00f;
 							mass += amount * 0.60f;
 						}
 						break;
@@ -58,14 +58,14 @@ namespace TC2.Base
 
 						case Gun.Feed.Clip:
 						{
-							amount += amount * 2.00f;
+							amount += amount * 3.00f;
 							mass += amount * 0.20f;
 						}
 						break;
 
 						case Gun.Feed.Magazine:
 						{
-							amount += amount * 5.00f;
+							amount += amount * 4.00f;
 							mass += amount * 0.30f;
 						}
 						break;
@@ -136,7 +136,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra += mass;
+						body.mass_extra += mass * 0.50f;
 					}
 
 					return true;
@@ -479,7 +479,7 @@ namespace TC2.Base
 			//	}
 			//));
 
-definitions.Add(Augment.Definition.New<Gun.Data>
+			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.autocannon_caliber_downgrade",
 				category: "Gun (Receiver)",
@@ -499,7 +499,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						data.ammo_filter |= Material.Flags.Ammo_MG;
 						data.ammo_filter &= ~Material.Flags.Ammo_AC;
 
-						data.damage_multiplier *= 0.16f;
+						data.damage_multiplier *= 0.60f;
 						data.velocity_multiplier *= 0.80f;
 						data.cycle_interval *= 0.45f;
 						data.recoil_multiplier *= 0.20f;
@@ -568,7 +568,6 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				{
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
 				},
-
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -646,6 +645,177 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.improved_ammo_loading",
+				category: "Gun (Receiver)",
+				name: "Improved Ammo Loading",
+				description: "Improves reliability and slightly increases rate of fire, while also increasing manufacturing costs.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.cycle_interval *= 0.70f;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate *= 0.60f;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 0.90f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 1.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.50f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.launcher_stacked_charge",
+				category: "Gun (Receiver)",
+				name: "Launcher: Stacked Charge",
+				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					if (data.type != Gun.Type.Launcher) return false;
+					return augments.GetCount(handle) < 3;
+				},
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.failure_rate += 0.05f * data.barrel_count;
+					data.failure_rate *= 1.20f;
+					data.stability -= MathF.Min(data.failure_rate * data.barrel_count, data.stability);
+					data.reload_interval *= 1.30f;
+					data.jitter_multiplier *= 2.00f;
+				},
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.max_ammo += data.barrel_count;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 1.10f;
+					}
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Woodworking:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 1.20f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+
+								case Work.Type.Assembling:
+								{
+									requirement.amount *= 2.50f;
+									requirement.difficulty *= 1.20f;
+								}
+								break;
+							}
+						}
+					}
+
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetDefinition();
+							if (material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								requirement.amount *= 1.10f;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.caliber_conversion",
 				category: "Gun (Receiver)",
 				name: "Caliber Conversion",
@@ -655,7 +825,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				{
 					ref var value = ref handle.GetData<int>();
 					value = Maths.Clamp(value, -2, 2); // TODO: Make this clamped between available calibers
-					
+
 					return true;
 				},
 
@@ -680,7 +850,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					var count = Math.Abs(value);
 					if (value > 0)
 					{
-						for (int i = 0; i < count; i++)
+						for (var i = 0; i < count; i++)
 						{
 							if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 							{
@@ -749,7 +919,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					}
 					else if (value < 0)
 					{
-						for (int i = 0; i < count; i++)
+						for (var i = 0; i < count; i++)
 						{
 							if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 							{
@@ -923,111 +1093,111 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Gun.Data>
-			(
-				identifier: "gun.barrel_extension",
-				category: "Gun (Barrel)",
-				name: "Barrel Extension",
-				description: "Increases muzzle velocity and damage.",
+			//			definitions.Add(Augment.Definition.New<Gun.Data>
+			//			(
+			//				identifier: "gun.barrel_extension",
+			//				category: "Gun (Barrel)",
+			//				name: "Barrel Extension",
+			//				description: "Increases muzzle velocity and damage.",
 
-				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var amount = ref handle.GetData<float>();
-					amount = Maths.Clamp(amount, 1.00f, 2.00f);
+			//				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					ref var amount = ref handle.GetData<float>();
+			//					amount = Maths.Clamp(amount, 1.00f, 2.00f);
 
-					return true;
-				},
+			//					return true;
+			//				},
 
-				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle);
-				},
+			//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					return !augments.HasAugment(handle);
+			//				},
 
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
-				},
-#endif
+			//#if CLIENT
+			//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					ref var value = ref handle.GetData<float>();
+			//					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
+			//				},
+			//#endif
 
-				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var value = ref handle.GetData<float>();
-					var ratio = value - 1.00f;
+			//				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					ref var value = ref handle.GetData<float>();
+			//					var ratio = value - 1.00f;
 
-					switch (data.type)
-					{
-						case Gun.Type.Handgun:
-						{
-							//var mult = Maths.Clamp(data.velocity_multiplier / (300.00f * (value * value)), 0.01f, 2.00f);
-							var mult = 1.00f - ratio;
+			//					switch (data.type)
+			//					{
+			//						case Gun.Type.Handgun:
+			//						{
+			//							//var mult = Maths.Clamp(data.velocity_multiplier / (300.00f * (value * value)), 0.01f, 2.00f);
+			//							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.25f, value);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
-						}
-						break;
+			//							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f * mult, ratio);
+			//							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f * mult, ratio);
+			//							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.25f, value);
+			//							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.20f, ratio);
+			//						}
+			//						break;
 
-						case Gun.Type.Rifle:
-						{
-							//var mult = Maths.Clamp(data.velocity_multiplier / (800.00f * (value)), 0.01f, 2.00f);
-							var mult = 1.00f - ratio;
+			//						case Gun.Type.Rifle:
+			//						{
+			//							//var mult = Maths.Clamp(data.velocity_multiplier / (800.00f * (value)), 0.01f, 2.00f);
+			//							var mult = 1.00f - ratio;
 
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f * mult, ratio);
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.27f * mult, ratio);
-							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.13f * value, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f * mult, ratio);
-						}
-						break;
+			//							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f * mult, ratio);
+			//							data.damage_multiplier *= Maths.Lerp(1.00f, 1.27f * mult, ratio);
+			//							data.recoil_multiplier *= Maths.Lerp(1.00f, 1.13f * value, ratio);
+			//							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.30f * mult, ratio);
+			//						}
+			//						break;
 
-						case Gun.Type.Shotgun:
-						{
-							data.damage_multiplier *= 1.21f;
-							data.recoil_multiplier *= 1.10f;
-							data.jitter_multiplier *= 0.40f;
-							data.velocity_multiplier *= 1.21f;
-						}
-						break;
+			//						case Gun.Type.Shotgun:
+			//						{
+			//							data.damage_multiplier *= 1.21f;
+			//							data.recoil_multiplier *= 1.10f;
+			//							data.jitter_multiplier *= 0.40f;
+			//							data.velocity_multiplier *= 1.21f;
+			//						}
+			//						break;
 
-						case Gun.Type.SMG:
-						{
-							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.15f;
-							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.07f;
-						}
-						break;
+			//						case Gun.Type.SMG:
+			//						{
+			//							data.damage_multiplier *= 1.15f;
+			//							data.recoil_multiplier *= 1.15f;
+			//							data.jitter_multiplier *= 0.70f;
+			//							data.velocity_multiplier *= 1.07f;
+			//						}
+			//						break;
 
-						default:
-						{
-							data.damage_multiplier *= 1.15f;
-							data.recoil_multiplier *= 1.15f;
-							data.jitter_multiplier *= 0.70f;
-							data.velocity_multiplier *= 1.07f;
-						}
-						break;
-					}
+			//						default:
+			//						{
+			//							data.damage_multiplier *= 1.15f;
+			//							data.recoil_multiplier *= 1.15f;
+			//							data.jitter_multiplier *= 0.70f;
+			//							data.velocity_multiplier *= 1.07f;
+			//						}
+			//						break;
+			//					}
 
-					switch (data.action)
-					{
-						case Gun.Action.Blowback:
-						{
-							data.cycle_interval *= 1.20f;
-						}
-						break;
+			//					switch (data.action)
+			//					{
+			//						case Gun.Action.Blowback:
+			//						{
+			//							data.cycle_interval *= 1.20f;
+			//						}
+			//						break;
 
-						case Gun.Action.Gas:
-						{
-							data.cycle_interval *= 1.14f;
-							data.failure_rate += 0.01f;
-							data.failure_rate *= 1.10f;
-						}
-						break;
-					}
-				}
-			));
+			//						case Gun.Action.Gas:
+			//						{
+			//							data.cycle_interval *= 1.14f;
+			//							data.failure_rate += 0.01f;
+			//							data.failure_rate *= 1.10f;
+			//						}
+			//						break;
+			//					}
+			//				}
+			//			));
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
@@ -1098,7 +1268,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -1142,7 +1312,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						}
 					}
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						var requirement = context.requirements_new[i];
 
@@ -1174,6 +1344,17 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				category: "Gun (Frame)",
 				name: "Tempered Frame",
 				description: "Greatly improves durability and stability of the gun.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset = Maths.Snap(offset, 0.125f);
+
+					return true;
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1210,9 +1391,34 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					return true;
 				},
 
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -1242,6 +1448,17 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
 
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset = Maths.Snap(offset, 0.125f);
+
+					return true;
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1270,9 +1487,37 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					return true;
 				},
 
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+
+					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -1465,7 +1710,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					}
 				}
 			));
-			
+
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_gas_seal", // Should allow the use of silencer attachment on revolver in the future
@@ -1547,7 +1792,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 					}
 				}
 			));
-						
+
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
 				identifier: "gun.revolver_hand_fitted_parts",
@@ -2068,7 +2313,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						var requirement = context.requirements_new[i];
 
@@ -2130,7 +2375,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				{
 					var count = augments.GetCount(handle);
 
-					var sprite = new Sprite("gun.extra_barrel", 15, 15, (uint)(count - 1), 0);
+					var sprite = new Sprite("augment.extra_barrel", 15, 15, (uint)(count - 1), 0);
 
 					//draw.DrawSprite("gun.extra_barrel", data.muzzle_offset, pivot: new(0.50f, 0.50f));
 					draw.DrawSprite(sprite, data.muzzle_offset, pivot: new(0.50f, 0.50f));
@@ -2140,6 +2385,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
+					data.barrel_count++;
 
 					if (simultaneous)
 					{
@@ -2237,10 +2483,12 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 					}
 
+					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier += 0.30f;
+						body.mass_multiplier += 0.30f * barrel_count_inv;
 					}
 
 					return true;
@@ -2254,7 +2502,9 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 						overheat.cool_rate *= 1.30f;
 					}
 
-					for (int i = 0; i < context.requirements_old.Length; i++)
+					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+
+					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
 						var requirement = context.requirements_old[i];
 
@@ -2263,7 +2513,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 							ref var material = ref requirement.material.GetDefinition();
 							if (material.flags.HasAll(Material.Flags.Metal))
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * barrel_count_inv));
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -2272,21 +2522,21 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 							{
 								case Work.Type.Machining:
 								{
-									requirement.amount *= 0.50f;
+									requirement.amount *= 0.50f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.amount *= 0.75f;
+									requirement.amount *= 0.75f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
-									requirement.amount *= 0.70f;
+									requirement.amount *= 0.70f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
@@ -2326,7 +2576,7 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					draw.DrawSprite("gun.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2350,12 +2600,339 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.bayonet",
+				category: "Gun (Barrel)",
+				name: "Bayonet",
+				description: "Attach a bayonet to the gun, giving it a secondary melee attack.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, 0.00f, 1.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.bayonet", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Thrust;
+						melee.aoe = 0.250f;
+						melee.thickness = 0.125f;
+						melee.category = Melee.Category.Pointed;
+						melee.cooldown = 1.00f;
+						melee.damage_base = 75.00f;
+						melee.damage_bonus = 200.00f;
+						melee.damage_type = Damage.Type.Stab;
+						melee.knockback = 2.00f;
+						melee.max_distance = 1.30f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
+						melee.flags |= Melee.Flags.Use_RMB;
+						melee.hit_offset = data.muzzle_offset + offset;
+					}
+
+					ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+					if (!melee_state.IsNull())
+					{
+
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.silencer",
+				category: "Gun (Barrel)",
+				name: "Silencer",
+				description: "Attach a silencer to the gun. Reduces sound intensity, muzzle velocity and recoil.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.25f, 0.25f);
+					offset.Y = Maths.Clamp(offset.Y, -0.125f, 0.125f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_SG | Material.Flags.Ammo_HC | Material.Flags.Ammo_LC) && !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.25f, -0.125f), max: new Vector2(0.25f, 0.125f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var frame_y = 0u;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						frame_y = 3u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						frame_y = 2u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						frame_y = 1u;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						frame_y = 0u;
+					}
+
+					var sprite = new Sprite("augment.silencer", 16, 8, 0, frame_y);
+
+					draw.DrawSprite(sprite, data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.25f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					data.sound_pitch *= 1.60f;
+					data.sound_volume *= 0.75f;
+					data.sound_size += 4.00f; // Diffuses the sound
+					data.sound_dist_multiplier *= 0.65f;
+					data.flash_size *= 0.65f;
+
+					data.velocity_multiplier *= 0.90f;
+					data.damage_multiplier *= 0.90f;
+					data.recoil_multiplier *= 0.60f;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						data.recoil_multiplier *= 0.50f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						data.recoil_multiplier *= 0.60f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						data.recoil_multiplier *= 0.60f;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						data.recoil_multiplier *= 0.80f;
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += 0.50f;
+					}
+				},
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", 1.00f));
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 10));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.axe",
+				category: "Gun (Barrel)",
+				name: "Axe Blade",
+				description: "Attach an axe blade to the gun, giving it a secondary melee attack.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, 0.00f, 1.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.axe", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Swing;
+						melee.aoe = 0.500f;
+						melee.thickness = 1.75f;
+						melee.category = Melee.Category.Bladed;
+						melee.cooldown = 2.00f;
+						melee.damage_base = 250.00f;
+						melee.damage_bonus = 100.00f;
+						melee.damage_type = Damage.Type.Axe;
+						melee.knockback = 2.50f;
+						melee.max_distance = 2.00f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
+						melee.flags |= Melee.Flags.Use_RMB;
+						melee.hit_offset = data.muzzle_offset + offset;
+						//melee.swing_offset = new Vector2(-1, 1);
+						melee.swing_offset = new Vector2(-1.00f, 0.00f);
+						melee.swing_rotation = -1.50f;
+						melee.hit_direction = new Vector2(0.00f, 1.00f);
+					}
+
+					ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+					if (!melee_state.IsNull())
+					{
+
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.scope",
+				category: "Gun (Receiver)",
+				name: "Scope",
+				description: "Attach a scope.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
+					if (!scope.IsNull())
+					{
+						scope.speed = 3.00f;
+						scope.deadzone = 3.00f;
+						scope.zoom_modifier = 0.50f;
+						scope.zoom_min = 0.50f;
+						scope.zoom_max = 0.50f;
+						scope.min_distance = 10.00f;
+						scope.max_distance = 60.00f;
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.automatic_reloading",
 				category: "Gun (Ammo)",
-				name: "Automatic Reloading",
+				name: "ARC-MT Auto-Loader",
 				description: "Automatically reloads the weapon once the magazine is empty.",
-
-				// This is not extremely useful, but saves you from pressing a button and works nicely for mounted items
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2365,12 +2942,72 @@ definitions.Add(Augment.Definition.New<Gun.Data>
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();
+
+					data.reload_interval = 2.70f;
+					data.flags |= Gun.Flags.Full_Reload;
+					data.sound_reload = "gun.reload.arcane.00";
 				},
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.recoil_compensator",
+				category: "Gun (Frame)",
+				name: "ARC-MT Recoil Compensator",
+				description: "Applies force in opposite direction upon being fired. Needs careful calibration.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var amount = ref handle.GetData<Vector2>();
+					amount.X = Maths.Clamp(amount.X, 1.00f, 4.00f);
+					amount.Y = Maths.Clamp(amount.Y, -2.00f, 2.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<Vector2>();
+					var dirty = false;
+
+					var size = GUI.GetRemainingSpace();
+
+					dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
+					GUI.SameLine();
+					dirty |= GUI.SliderFloat("Adjustment", ref value.Y, -2.00f, 2.00f, snap: 0.01f, size: new(size.X * 0.50f, size.Y));
+
+					return dirty;
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<Vector2>();
+
+					var mass = context.base_mass;
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						mass += body.mass_extra;
+					}
+
+					data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", value.X));
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 15));
 				}
 			));
 		}

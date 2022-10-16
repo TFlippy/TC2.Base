@@ -20,13 +20,14 @@ body:
 
 belt:
 {
-	force: 1000.000
-	efficiency: 0.700
+	force: 800.000
+	efficiency: 0.500
+	speed_max: 15.000
 }
 
 belt.renderer:
 {
-	thickness: 0.250
+	thickness: 0.300
 	z: 0.480
 	texture: "belt.rope"
 }

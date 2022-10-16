@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 		{
 			ref var morphine_new = ref data.ent_organic.GetOrAddComponent<Morphine.Effect>(sync: true);
 
-			var ratio = Maths.Ratio(morphine.amount, morphine_new.amount);
+			var ratio = Maths.SumRatio(morphine.amount, morphine_new.amount);
 
 			morphine_new.amount += morphine.amount;
 			morphine_new.release_rate_target = Maths.Lerp(morphine_new.release_rate_target + (morphine_new.release_rate_target * ratio), consumable.release_rate, ratio);

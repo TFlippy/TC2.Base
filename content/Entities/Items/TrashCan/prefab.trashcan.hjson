@@ -1,24 +1,22 @@
 $name: "Trash Can"
 $desc:
 	'''
-	A generic trash can.
+	A standard Imperial trash can.
 	Maybe it contains some treasure?
 	'''
 $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.400
-	
 	@shape.box:
 	{
 		size: [1.200, 1.700]
 		offset: [0.000, 0.000]
 		mass: 5.000
-		friction: 0.950
-		elasticity: 0.100
+		friction: 0.650
+		elasticity: 0.700
 		material: metal
-		layer: entity, solid, storage
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -48,7 +46,38 @@ transform:
 
 }
 
-cover:
+shipment:
 {
-	threshold: 0.500
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 1
+
+	tables:
+	[
+		"trashcan"
+	]
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 45.000
+		}
+		{
+			material: "iron_plate"
+			quantity: 5.000
+		}
+	]
 }

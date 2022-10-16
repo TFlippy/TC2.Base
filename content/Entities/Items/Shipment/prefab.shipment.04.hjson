@@ -1,3 +1,8 @@
+$name: "Shipment"
+$desc:
+	'''
+	A huge shipping crate used for storage and transport of various goods.
+	'''
 $tags: []
 
 body:
@@ -8,7 +13,7 @@ body:
 	{
 		size: [4.750, 2.750]
 		offset: [0.000, 0.000]
-		mass: 150.000
+		mass: 200.000
 		friction: 0.950
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid

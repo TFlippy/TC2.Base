@@ -6,10 +6,10 @@ body:
 	{
 		a: [-0.500, 0.000]
 		b: [0.500, 0.000]
-		radius: 0.250
+		radius: 0.300
 		mass: 2.000
-		friction: 0.980
-		elasticity: 0.010
+		friction: 0.850
+		elasticity: 0.500
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -49,12 +49,12 @@ transform:
 
 telescope:
 {
-	speed: 3.000
+	speed: 2.000
 	deadzone: 2.000
 	zoom_modifier: 0.800
 	zoom_min: 0.500
-	zoom_max: 0.800
-	max_distance: 100.000
+	zoom_max: 1.000
+	max_distance: 200.000
 }
 
 packable:

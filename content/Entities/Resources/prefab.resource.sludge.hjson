@@ -4,9 +4,9 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.500]
+		offset: [0.000, 0.250]
 		mass: 50.000
-		radius: 0.400
+		radius: 0.750
 		friction: 0.980
 		elasticity: 0.050
 		layer: entity, solid, resource
@@ -41,7 +41,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:

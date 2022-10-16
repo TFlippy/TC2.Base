@@ -11,6 +11,7 @@
 	type: mushroom
 	flags: raw, organic, despawnable
 	mass_per_unit: 0.040
+	market_price: 0.500
 	quantity_max: 500.000
 	prefab: "resource.mushroom.brown"
 	

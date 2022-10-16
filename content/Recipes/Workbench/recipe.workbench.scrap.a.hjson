@@ -35,26 +35,26 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount_min: 0.040
-			amount_max: 0.190
+			amount: 0.040
+			amount_extra: 0.150
 		}
 		{
 			type: "resource"
 			material: "iron_plate"
-			amount_min: 0.020
-			amount_max: 0.170
+			amount: 0.020
+			amount_extra: 0.150
 		}
 		{
 			type: "resource"
 			material: "copper_ingot"
-			amount_min: 0.010
-			amount_max: 0.070
+			amount: 0.010
+			amount_extra: 0.060
 		}
 		{
 			type: "resource"
 			material: "scrap"
-			amount_min: 0.200
-			amount_max: 0.600
+			amount: 0.200
+			amount_extra: 0.400
 		}
 	]
 }

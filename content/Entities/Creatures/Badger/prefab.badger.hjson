@@ -1,5 +1,6 @@
 $name: "Badger"
 $desc: "A badger with a troubled past, and nothing left to lose."
+$export: false
 $tags: 
 [
 	"badger"
@@ -93,15 +94,11 @@ animal.state:
 
 npc:
 {
-	navigation_state: none
-	find_distance_max: 10.000
-	lose_distance_max: 30.000
-	follow_distance_max: 10.000
-	follow_distance_min: 8.000
 	pain_modifier: 1.000
 	min_consciousness: 0.500
-	avoid_distance: [0.125, 0.000]
-	idle_distance: [1.000, 1.000]
+	min_distance: [0.125, 0.000]
+	max_distance: [1.000, 1.000]
+	wander_radius: 8.000
 }
 
 npc.emotions:
@@ -135,7 +132,7 @@ ai.behavior:
 
 ai.search:
 {
-
+	radius: 16.000
 }
 
 pathfinding:
@@ -185,8 +182,8 @@ badger:
 norotate:
 {
 	bias: 0.100
-	multiplier: 1.000
-	mass_multiplier: 15.000
+	multiplier: 2.000
+	mass_multiplier: 25.000
 }
 
 interactable:
@@ -223,6 +220,11 @@ lootable:
 	]
 }
 
+faction:
+{
+	id: "badger"
+}
+
 +0|instance:
 {
 	$tags: []
@@ -230,8 +232,8 @@ lootable:
 	joint.base:
 	{
 		offset_a: [-0.875, 0.000]
-		max_force: 8000.000
-		max_torque: 500.000
+		max_force: 20000.000
+		max_torque: 1500.000
 		flags: organic, control_write
 
 		@animated.renderer:
@@ -249,7 +251,7 @@ lootable:
 	
 	joint.pivot:
 	{
-	
+		max_bias: 10.000
 	}
 	
 	joint.rotaryspring:
@@ -261,6 +263,7 @@ lootable:
 	joint.rotarylimit:
 	{
 		max_torque: 8000.000
+		max_bias: 8.000
 		min: -0.500
 		max: 0.500
 	}
@@ -285,9 +288,9 @@ lootable:
 		
 		norotate:
 		{
-			bias: 0.010
+			bias: 0.100
 			multiplier: 1.000
-			mass_multiplier: 25.000
+			mass_multiplier: 35.000
 		}
 		
 		organic:
@@ -395,8 +398,8 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.500, -0.300]
-		max_force: 12000.000
-		max_torque: 1000.000
+		max_force: 22000.000
+		max_torque: 2000.000
 		flags: organic, control_write
 
 		@animated.renderer:
@@ -414,7 +417,7 @@ lootable:
 	
 	joint.pivot:
 	{
-	
+		max_bias: 10.000
 	}
 	
 	joint.rotaryspring:
@@ -426,6 +429,7 @@ lootable:
 	joint.rotarylimit:
 	{
 		max_torque: 8000.000
+		max_bias: 8.000
 		min: -1.000
 		max: 1.000
 	}

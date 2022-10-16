@@ -1,0 +1,63 @@
+{
+	name: "Crane [WIP]"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "crane.arm.basic"
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+
+	placement:
+	{ 
+		type: line
+		flags: allow_placement_over_buildings, place_line_rotated
+		
+		length_min: 1.000
+		length_max: 10.000
+		length_step: 0.500
+
+		size: [0.500, 0.500]
+		cooldown: 0.300
+		min_claim: 1.000
+		sound: "building_place"
+	}
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 50.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 8.000
+			flags: no_scaling
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 5.000
+			flags: no_scaling
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "crane.arm.basic.00"
+		}
+	]
+}
