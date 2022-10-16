@@ -34,8 +34,8 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.20f;
 							}
@@ -114,8 +114,8 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Ingot))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Ingot))
 							{
 								requirement.amount *= 1.25f;
 							}
@@ -128,9 +128,12 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("smirgl_ingot");
-						body.mass_multiplier *= 1.10f;
-						body.mass_extra += amount * material.mass_per_unit;
+						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						if (material.IsNotNull())
+						{
+							body.mass_multiplier *= 1.10f;
+							body.mass_extra += amount * material.mass_per_unit;
+						}
 					}
 				}
 			));

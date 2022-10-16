@@ -151,8 +151,8 @@ namespace TC2.Base
 						{
 							case Crafting.Requirement.Type.Resource:
 							{
-								ref var material = ref requirement.material.GetDefinition();
-								if (!material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
+								ref var material = ref requirement.material.GetData();
+								if (material.IsNotNull() && !material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
 								{
 									context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * amount));
 								}
@@ -633,8 +633,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.50f;
 							}
@@ -716,8 +716,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.50f;
 							}
@@ -804,8 +804,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.10f;
 							}
@@ -1274,14 +1274,17 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull())
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
-							}
-							else if (material.flags.HasAll(Material.Flags.Metal))
-							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.25f));
+								if (material.flags.HasAll(Material.Flags.Manufactured))
+								{
+									context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
+								}
+								else if (material.flags.HasAll(Material.Flags.Metal))
+								{
+									context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.25f));
+								}
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -1523,8 +1526,8 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
 							}
@@ -1617,8 +1620,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (!material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && !material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= Maths.Lerp(0.80f, 0.60f, value);
 							}
@@ -1701,8 +1704,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 0.78f;
 							}
@@ -1754,8 +1757,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.10f;
 							}
@@ -1836,8 +1839,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 1.10f;
 							}
@@ -1916,8 +1919,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 0.90f;
 							}
@@ -2060,6 +2063,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					var h_mat_machine_parts = new IMaterial.Handle("machine_parts");
+
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
@@ -2081,8 +2086,7 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.identifier == "machine_parts")
+							if (requirement.material == h_mat_machine_parts)
 							{
 								requirement.amount *= 1.20f;
 							}
@@ -2245,14 +2249,17 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull())
 							{
-								requirement.amount *= 0.90f;
-							}
-							else if (material.flags.HasAll(Material.Flags.Metal))
-							{
-								requirement.amount *= 0.85f;
+								if (material.flags.HasAll(Material.Flags.Manufactured))
+								{
+									requirement.amount *= 0.90f;
+								}
+								else if (material.flags.HasAll(Material.Flags.Metal))
+								{
+									requirement.amount *= 0.85f;
+								}
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -2319,8 +2326,8 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
 								requirement.amount *= 0.50f;
 							}
@@ -2510,8 +2517,8 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Metal))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Metal))
 							{
 								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * barrel_count_inv));
 							}

@@ -35,13 +35,13 @@ namespace TC2.Base
 				{
 					if (augments.HasAugment(handle)) return false;
 
-					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
+					var material_nitroglycerine_handle = new IMaterial.Handle("nitroglycerine");
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
 							{
 								return true;
 							}
@@ -53,37 +53,39 @@ namespace TC2.Base
 
 				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					var material_nitroglycerine_handle = new Material.Handle("nitroglycerine");
-					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetDefinition();
-
-					data.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
-					data.health_threshold = 0.70f;
-
-					var has_any = false;
-
-					foreach (ref var requirement in context.requirements_new)
+					var material_nitroglycerine_handle = new IMaterial.Handle("nitroglycerine");
+					ref var material_nitroglycerine = ref material_nitroglycerine_handle.GetData();
+					if (material_nitroglycerine.IsNotNull())
 					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
+						data.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
+						data.health_threshold = 0.70f;
+
+						var has_any = false;
+
+						foreach (ref var requirement in context.requirements_new)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive))
+							if (requirement.type == Crafting.Requirement.Type.Resource)
 							{
-								var amount_new = (requirement.amount * material.mass_per_unit) / material_nitroglycerine.mass_per_unit;
+								ref var material = ref requirement.material.GetData();
+								if (material.IsNotNull() && requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive))
+								{
+									var amount_new = (requirement.amount * material.mass_per_unit) / material_nitroglycerine.mass_per_unit;
 
-								requirement.amount = amount_new;
-								requirement.material = material_nitroglycerine_handle;
+									requirement.amount = amount_new;
+									requirement.material = material_nitroglycerine_handle;
 
-								has_any = true;
+									has_any = true;
+								}
 							}
 						}
-					}
 
-					if (has_any)
-					{
-						data.radius += MathF.Sqrt(data.radius * 1.50f);
-						data.power += MathF.Sqrt(data.power * 2.50f);
-						data.damage_terrain += MathF.Pow(data.damage_terrain * 3.50f, 0.75f);
-						data.damage_entity += MathF.Pow(data.damage_entity * 2.50f, 0.75f);
+						if (has_any)
+						{
+							data.radius += MathF.Sqrt(data.radius * 1.50f);
+							data.power += MathF.Sqrt(data.power * 2.50f);
+							data.damage_terrain += MathF.Pow(data.damage_terrain * 3.50f, 0.75f);
+							data.damage_entity += MathF.Pow(data.damage_entity * 2.50f, 0.75f);
+						}
 					}
 				}
 			));
@@ -109,8 +111,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAny(Material.Flags.Explosive))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Explosive))
 							{
 								amount_total += requirement.amount;
 								requirement = default;
@@ -145,8 +147,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAny(Material.Flags.Explosive))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Explosive))
 							{
 								amount_total += requirement.amount;
 								requirement = default;

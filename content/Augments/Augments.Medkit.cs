@@ -68,8 +68,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Ingot))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Ingot))
 							{
 								ingot_amount += requirement.amount;
 								requirement = default;

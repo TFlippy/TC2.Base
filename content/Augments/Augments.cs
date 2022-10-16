@@ -47,15 +47,18 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					ref var material = ref Material.GetMaterial("nitroglycerine");
 
-					ref var explosive = ref context.GetOrAddComponent<Explosive.Data>();
-					explosive.power = 3.00f + (pair.amount * 0.80f * material.mass_per_unit);
-					explosive.radius = 2.00f + (pair.amount * 0.50f * material.mass_per_unit);
-					explosive.damage_entity = 1200.00f + (pair.amount * 400.00f * material.mass_per_unit);
-					explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f * material.mass_per_unit);
-					explosive.health_threshold = pair.threshold;
-					explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
+					ref var material = ref IMaterial.Database.GetData("nitroglycerine");
+					if (material.IsNotNull())
+					{
+						ref var explosive = ref context.GetOrAddComponent<Explosive.Data>();
+						explosive.power = 3.00f + (pair.amount * 0.80f * material.mass_per_unit);
+						explosive.radius = 2.00f + (pair.amount * 0.50f * material.mass_per_unit);
+						explosive.damage_entity = 1200.00f + (pair.amount * 400.00f * material.mass_per_unit);
+						explosive.damage_terrain = 1800.00f + (pair.amount * 400.00f * material.mass_per_unit);
+						explosive.health_threshold = pair.threshold;
+						explosive.flags |= Explosive.Flags.Any_Damage | Explosive.Flags.Explode_When_Primed;
+					}
 				},
 
 				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -111,8 +114,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.type == Material.Type.Wood)
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.type == Material.Type.Wood)
 							{
 								amount += requirement.amount;
 							}
@@ -127,8 +130,11 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("resin");
-						body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
+						ref var material = ref IMaterial.Database.GetData("resin");
+						if (material.IsNotNull())
+						{
+							body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
+						}
 					}
 				}
 			));
@@ -252,8 +258,11 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("water");
-						body.mass_extra += amount * material.mass_per_unit;
+						ref var material = ref IMaterial.Database.GetData("water");
+						if (material.IsNotNull())
+						{
+							body.mass_extra += amount * material.mass_per_unit;
+						}
 					}
 				}
 			));
@@ -303,8 +312,11 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("copper_plate");
-						body.mass_extra += amount * material.mass_per_unit;
+						ref var material = ref IMaterial.Database.GetData("copper_plate");
+						if (material.IsNotNull())
+						{
+							body.mass_extra += amount * material.mass_per_unit;
+						}
 					}
 				}
 			));
@@ -335,8 +347,8 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAny(Material.Flags.Manufactured | Material.Flags.Metal))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Manufactured | Material.Flags.Metal))
 							{
 								amount += requirement.amount * 0.20f;
 							}
@@ -349,8 +361,11 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("smirgl_ingot");
-						body.mass_extra += amount * material.mass_per_unit;
+						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						if (material.IsNotNull())
+						{
+							body.mass_extra += amount * material.mass_per_unit;
+						}
 					}
 				}
 			));
@@ -434,14 +449,17 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.flags.HasAll(Material.Flags.Manufactured))
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull())
 							{
-								requirement.amount *= MathF.Pow(0.99f, batch_size - 1);
-							}
-							else
-							{
-								requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
+								if (material.flags.HasAll(Material.Flags.Manufactured))
+								{
+									requirement.amount *= MathF.Pow(0.99f, batch_size - 1);
+								}
+								else
+								{
+									requirement.amount *= MathF.Pow(0.98f, batch_size - 1);
+								}
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -512,8 +530,8 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber))
 							{
 								has_valid_material = true;
 								break;
@@ -588,60 +606,63 @@ namespace TC2.Base
 				{
 					ref var ratio = ref handle.GetData<float>();
 
-					ref var material_scrap = ref Material.GetMaterial("scrap");
-					var total_mass = 0.00f;
-
-					for (var i = 0; i < context.requirements_new.Length; i++)
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					if (material_scrap.IsNotNull())
 					{
-						ref var requirement = ref context.requirements_new[i];
+						var total_mass = 0.00f;
 
-						if (requirement.type == Crafting.Requirement.Type.Resource)
+						for (var i = 0; i < context.requirements_new.Length; i++)
 						{
-							ref var material = ref requirement.material.GetDefinition();
-							if (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber)
+							ref var requirement = ref context.requirements_new[i];
+
+							if (requirement.type == Crafting.Requirement.Type.Resource)
 							{
-								if (material.flags.HasAll(Material.Flags.Manufactured))
+								ref var material = ref requirement.material.GetData();
+								if (material.IsNotNull() && (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber))
 								{
-									var removed_amount = requirement.amount * (ratio);
-									requirement.amount -= removed_amount;
+									if (material.flags.HasAll(Material.Flags.Manufactured))
+									{
+										var removed_amount = requirement.amount * (ratio);
+										requirement.amount -= removed_amount;
 
-									total_mass += material.mass_per_unit * removed_amount * 2.10f;
+										total_mass += material.mass_per_unit * removed_amount * 2.10f;
+									}
+									else
+									{
+										var removed_amount = requirement.amount * (ratio * 0.70f);
+										requirement.amount -= removed_amount;
+
+										total_mass += material.mass_per_unit * removed_amount * 1.70f;
+									}
 								}
-								else
+							}
+							else if (requirement.type == Crafting.Requirement.Type.Work)
+							{
+								switch (requirement.work)
 								{
-									var removed_amount = requirement.amount * (ratio * 0.70f);
-									requirement.amount -= removed_amount;
+									case Work.Type.Machining:
+									{
+										requirement.amount *= MathF.Pow(1.00f - ratio, 1.50f);
+									}
+									break;
 
-									total_mass += material.mass_per_unit * removed_amount * 1.70f;
+									case Work.Type.Smithing:
+									{
+										requirement.amount *= MathF.Pow(1.00f - ratio, 1.30f);
+									}
+									break;
+
+									case Work.Type.Assembling:
+									{
+										requirement.amount *= MathF.Pow(1.00f - (ratio * 0.80f), 1.10f);
+									}
+									break;
 								}
 							}
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Machining:
-								{
-									requirement.amount *= MathF.Pow(1.00f - ratio, 1.50f);
-								}
-								break;
 
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= MathF.Pow(1.00f - ratio, 1.30f);
-								}
-								break;
-
-								case Work.Type.Assembling:
-								{
-									requirement.amount *= MathF.Pow(1.00f - (ratio * 0.80f), 1.10f);
-								}
-								break;
-							}
-						}
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, total_mass / material_scrap.mass_per_unit));
 					}
-
-					context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap.id, total_mass / material_scrap.mass_per_unit));
 				}
 			));
 
@@ -942,8 +963,11 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("alcohol");
-					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+					ref var material = ref IMaterial.Database.GetData("alcohol", out var material_id);
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					}
 				}
 			));
 
@@ -987,8 +1011,11 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("meth");
-					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+					ref var material = ref IMaterial.Database.GetData("meth", out var material_id);
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					}
 				}
 			));
 
@@ -1032,8 +1059,11 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("morphine");
-					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+					ref var material = ref IMaterial.Database.GetData("morphine", out var material_id);
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					}
 				}
 			));
 
@@ -1077,8 +1107,11 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("codeine");
-					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+					ref var material = ref IMaterial.Database.GetData("codeine", out var material_id);
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					}
 				}
 			));
 
@@ -1122,8 +1155,11 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref Material.GetMaterial("paxilon");
-					context.requirements_new.Add(Crafting.Requirement.Resource(material.id, amount * 0.001f / material.mass_per_unit));
+					ref var material = ref IMaterial.Database.GetData("paxilon", out var material_id);
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					}
 				}
 			));
 

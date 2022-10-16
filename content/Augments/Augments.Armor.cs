@@ -13,14 +13,14 @@
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var material_iron = ref Material.GetMaterial("iron_ingot");
+					var h_mat = new IMaterial.Handle("iron_ingot");
 
 					var has_ingot = false;
 					foreach (ref var requirement in context.requirements_new)
 					{
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							if (requirement.material.id == material_iron.id)
+							if (requirement.material == h_mat)
 							{
 								has_ingot = true;
 								break;
@@ -33,7 +33,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var material_iron = ref Material.GetMaterial("iron_ingot");
+					var h_mat = new IMaterial.Handle("iron_ingot");
 
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -45,7 +45,7 @@
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
-							if (requirement.material.id == material_iron.id)
+							if (requirement.material == h_mat)
 							{
 								ingot_amount += requirement.amount;
 								requirement = default;
@@ -68,9 +68,12 @@
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref Material.GetMaterial("smirgl_ingot");
-						body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
-						body.override_shape_mask |= Physics.Layer.Essence;
+						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						if (material.IsNotNull())
+						{
+							body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
+							body.override_shape_mask |= Physics.Layer.Essence;
+						}
 					}
 				}
 			));
