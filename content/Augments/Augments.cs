@@ -65,33 +65,6 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Body.Data>
-			(
-				identifier: "health.mushroom_glow",
-				category: "Utility",
-				name: "Mushroom Glow",
-				description: "Glows in the dark.",
-
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !context.HasComponent<Light.Data>() && !augments.HasAugment(handle);
-				},
-
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var light = ref context.GetOrAddComponent<Light.Data>();
-					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
-					light.scale = new Vector2(32.000f, 32.000f);
-					light.intensity = 1.000f;
-					light.texture = "light_invsqr";
-				},
-
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
-				}
-			));
-
 			definitions.Add(Augment.Definition.New<Health.Data>
 			(
 				identifier: "health.varnish",

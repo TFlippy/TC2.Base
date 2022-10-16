@@ -113,6 +113,33 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
+				identifier: "health.mushroom_glow",
+				category: "Utility",
+				name: "Mushroom Glow",
+				description: "Glows in the dark.",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<Light.Data>() && !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var light = ref context.GetOrAddComponent<Light.Data>();
+					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
+					light.scale = new Vector2(32.000f, 32.000f);
+					light.intensity = 1.000f;
+					light.texture = "light_invsqr";
+				},
+
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
 				identifier: "body.mushroom_wood",
 				category: "Crafting",
 				name: "Mushroom Wood",
@@ -159,7 +186,7 @@ namespace TC2.Base
 				name: "Batch Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
-				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					batch_size = Maths.Clamp(batch_size, 1, 10);
@@ -168,19 +195,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !Augments.HasAugment(handle);
+					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref readonly var recipe_old = ref context.GetRecipeOld();
 					ref var recipe_new = ref context.GetRecipeNew();
@@ -247,7 +274,7 @@ namespace TC2.Base
 				name: "Scrap-Recycled",
 				description: "Lowers the production cost significantly, while also reducing overall item quality.",
 
-				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					ratio = Maths.Clamp(ratio, 0.10f, 0.65f);
@@ -256,16 +283,16 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (Augments.HasAugment(handle)) return false;
+					if (augments.HasAugment(handle)) return false;
 
 					var has_valid_material = false;
 
@@ -287,7 +314,7 @@ namespace TC2.Base
 					return has_valid_material;
 				},
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
@@ -347,7 +374,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
