@@ -1,0 +1,41 @@
+{
+	name: "Codeine 20mg IR"
+	description: "Immediate-release 20mg codeine tablet."
+	prefab: "pill"
+	recipe: "refinery.pill"
+	augments:
+	[
+		{
+			identifier: "consumable.codeine"
+			data: 1101004800
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}

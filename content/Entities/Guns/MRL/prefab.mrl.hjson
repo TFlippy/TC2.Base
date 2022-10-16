@@ -1,0 +1,147 @@
+$tags: []
+
+body:
+{
+	@shape.box:
+	{
+		size: [2.500, 1.375]
+		offset: [0.125, -0.250]
+		mass: 80.000
+		friction: 0.900
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mrl"
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.250, -0.0625]
+	particle_offset: [-2.500, 0.000]
+	particle_rotation: -3.140
+
+	sound_shoot: "mrl_shoot"
+	sound_reload: "mrl_reload"
+	sound_pitch: 1.500
+	velocity_multiplier: 60.000
+	jitter_multiplier: 1.300
+	damage_multiplier: 1.000
+	recoil_multiplier: 2.000
+	reload_interval: 2.000
+	cycle_interval: 0.500
+	failure_rate: 0.000
+	max_ammo: 6.000
+	projectile_count: 1
+	barrel_count: 6
+	flags: automatic, cycle_on_shoot
+	ammo_filter: ammo_rocket
+	action: manual
+	type: launcher
+	feed: single
+
+	smoke_amount: 4.000
+	smoke_size: 3.000
+	
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [30.000, 30.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+interactable:
+{
+
+}
+
+attachment:
+{
+	offset: [-0.125, 0.000]
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+}
+
+holdable:
+{
+	offset: [-0.500, 0.500]
+	radius: 4.000
+	flags: disable_parent_facing, disable_control
+
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+}
+
+health:
+{
+	max: 6000.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
+
+overheat:
+{
+	heat_medium: 350.000
+	heat_high: 500.000
+	heat_critical: 750.000
+	cool_rate: 600.000
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+	}
+}

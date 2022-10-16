@@ -38,6 +38,11 @@ faction.colorable:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

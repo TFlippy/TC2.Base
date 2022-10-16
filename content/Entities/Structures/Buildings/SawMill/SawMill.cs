@@ -77,7 +77,7 @@
 					{
 #if SERVER
 						var damage = wheel_state.old_tmp_torque * 0.15f;
-						entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f);
+						entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: wheel_speed);
 #endif
 
 						sawmill_state.last_hit = info.WorldTime;

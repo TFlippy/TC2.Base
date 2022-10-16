@@ -4,11 +4,11 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.500]
+		offset: [0.000, 0.250]
 		mass: 50.000
-		radius: 0.400
-		friction: 0.950
-		elasticity: 0.200
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
 		material: glass
 		layer: entity, solid, resource
 		mask: world
@@ -42,7 +42,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:
@@ -57,13 +57,17 @@ health:
 
 explosive:
 {
-	radius: 6.000
-	power: 10.000
-	damage_entity: 21000.000
-	damage_terrain: 28000.000
+	radius: 18.000
+	power: 5.000
+	damage_entity: 25000.000
+	damage_terrain: 100000.000
 	smoke_amount: 1.000
-	volume: 2.000
-	pitch: 3.500
+	smoke_lifetime_multiplier: 0.500
+	smoke_velocity_multiplier: 2.500
+	flash_duration_multiplier: 0.050
+	flash_intensity_multiplier: 1.500
+	volume: 3.000
+	pitch: 6.500
 	health_threshold: 0.970
 	flags: any_damage, explode_when_primed
 }

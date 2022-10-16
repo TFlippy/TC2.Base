@@ -11,6 +11,7 @@
 	type: metal
 	flags: ingot, metal
 	mass_per_unit: 1.000
+	market_price: 11.000
 	quantity_max: 250.000
 	prefab: "resource.iron_ingot"
 	

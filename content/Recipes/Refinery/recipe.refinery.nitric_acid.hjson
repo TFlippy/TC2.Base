@@ -42,14 +42,14 @@
 		{
 			type: "resource"
 			material: "nitric_acid"
-			amount_min: 20.000
-			amount_max: 25.000
+			amount: 25.000
+			amount_extra: 5.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 20.000
-			amount_max: 35.000
+			amount: 20.000
+			amount_extra: 15.000
 		}
 	]
 }

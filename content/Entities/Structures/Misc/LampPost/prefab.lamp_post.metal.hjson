@@ -48,7 +48,7 @@ lamp:
 	{
 		color: [1.000, 0.750, 0.100, 1.500]
 		offset: [0.000, -2.500]
-		scale: [80.000, 80.000]
+		scale: [96.000, 96.000]
 		intensity: 1.000
 		texture: "light_invsqr"
 	}

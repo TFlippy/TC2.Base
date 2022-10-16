@@ -1,3 +1,8 @@
+$name: "Mining Drill"
+$desc: 
+	'''
+	A heavy-duty mining drill powered by a high-torque ARC-MT motor.
+	'''
 $tags: []
 
 body:
@@ -58,6 +63,12 @@ holdable:
 {
 	offset: [-0.200, 0.000]
 	flags: storable
+}
+
+attachment:
+{
+	offset: [-0.200, 0.000]
+	flags: none
 }
 
 animated.renderer:

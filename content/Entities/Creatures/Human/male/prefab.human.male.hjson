@@ -1,0 +1,626 @@
+$export: false
+$tags: 
+[
+	"male"
+	"human"
+]
+
+body:
+{
+	inventory_weight_multiplier: 0.200
+	
+	@shape.circle:
+	{
+		mass: 25.000
+		radius: 0.600
+		friction: 0.500
+		elasticity: 0.050
+		material: flesh
+		layer: entity, solid, creature, storage
+		mask: world
+	}
+}
+
+organic:
+{
+
+}
+
+organic.state:
+{
+
+}
+
+faction:
+{
+
+}
+
+health:
+{
+	max: 2900.000
+}
+
+human:
+{
+	
+}
+
+regen:
+{
+	amount: 50.000
+	interval: 5.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "human.male.torso.shirt"
+		size: [16, 16]
+	}
+	z: -40.000
+	mask: "human.male.torso.shirt.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+threat:
+{
+	priority: 7.000
+}
+
+climber:
+{
+	climb_force: 5000.000
+	cling_force: 8000.000
+
+	@shape.circle:
+	{
+		mass: 0.001
+		radius: 0.500
+		friction: 0.000
+		elasticity: 0.000
+		rigidity_dynamic: 0.000
+		rigidity_static: 0.000
+		layer: entity
+		mask: climbable
+		flags: no_mass
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+torso:
+{
+	frames_air: [5, 8]
+}
+
+headbob:
+{
+	speed: 22.000
+	multiplier: [0.000, 0.200]
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Backpack"
+		stack_size_multiplier: 1.000
+		type: storage
+	}
+}
+
+tooltip:
+{
+
+}
+
+seat.attachable:
+{
+
+}
+
+holdable:
+{
+
+}
+
+worker:
+{
+
+}
+
+worker.state:
+{
+
+}
+
+facing:
+{
+
+}
+
+interactable:
+{
+	window_size: [192.000, 232.000]
+}
+
+equipment.slot:
+{
+	type: chest
+}
+
+norotate:
+{
+	bias: 0.020
+	multiplier: 1.000
+	mass_multiplier: 140.000
+}
+
+speechbubble:
+{
+
+}
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 40.000
+			max: 60.000
+		}
+	]
+}
+
++slot_head|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.125, -0.375]
+		max_force: 50000.000
+		max_torque: 20000.000
+		flags: organic, control_write
+		
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [2, 0]
+			}
+			offset: [0.100, -0.400]
+			z: -39.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		min: -0.500
+		max: 0.500
+		max_bias: 8.000
+	}
+
+	joint.rotaryspring:
+	{
+		stiffness: 400.000
+		damping: 40.000
+	}
+	
+	+head|child:
+	{
+		$tags: 
+		[
+			"male"
+			"human"
+		]
+		
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 10.000
+				radius: 0.400
+				friction: 0.700
+				elasticity: 0.250
+				material: flesh
+				layer: entity, solid, creature
+				mask: world
+			}
+		}
+		
+		hair:
+		{
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "human.male.head.hair"
+					count: 1
+					size: [24, 24]
+				}
+				z: -34.900
+			}
+		}
+		
+		beard:
+		{
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "human.male.head.beard"
+					count: 1
+					size: [16, 16]
+				}
+				z: -34.800
+			}
+		}
+		
+		organic:
+		{
+			tags: brain
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 2100.000
+		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.350]
+		}
+		
+		equipment.slot:
+		{
+			type: head
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.male.head"
+				count: 1
+				size: [16, 16]
+			}
+			z: -35.000
+			
+			@damagesprite:
+			{
+			
+			}
+		}
+		
+		threat:
+		{
+			priority: 10.000
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+			voice_pitch: 1.000
+
+			sound_pain: "human.pain.00"
+			sound_death: "human.death.00"
+
+			frame_pain: 1
+			frame_dead: 2
+		}
+		
+		human:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+		
+		emote:
+		{
+			voice_pitch: 0.900
+		}
+		
+		lookat:
+		{
+			
+		}
+
+		// norotate:
+		// {
+		// 	bias: 0.070
+		// 	multiplier: 1.000
+		// 	mass_multiplier: 60.000
+		// }
+		
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 12.000
+					max: 18.000
+				}
+			]
+		}
+	}
+}
+
++slot_waist|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.000, 0.375]
+		max_force: 20000.000
+		max_torque: 10000.000
+		flags: organic, control_write
+		
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [1, 0]
+			}
+			offset: [0.000, 0.500]
+			z: -38.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		min: -0.500
+		max: 0.500
+		max_bias: 8.000
+	}
+	
+	+waist|child:
+	{
+		$tags: 
+		[
+			"male"
+			"human"
+		]
+			
+		transform:
+		{
+		
+		}
+		
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 40.000
+				radius: 0.500
+				friction: 1.200
+				elasticity: 0.100
+				material: flesh
+				layer: entity, solid, creature
+				mask: world
+			}
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.male.waist.pants"
+				size: [16, 8]
+			}
+			z: -50.000
+		}
+		
+		runner:
+		{
+			walk_force: 10000.000
+			jump_force: 35000.000
+		}
+
+		runner.state:
+		{
+			
+		}
+		
+		organic:
+		{
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "human.gore.stub"
+					size: [16, 16]
+				}
+				z: -49.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		threat:
+		{
+			priority: 5.000
+		}
+		
+		control:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 3400.000
+		}
+
+		regen:
+		{
+			amount: 50.000
+			interval: 5.000
+		}
+		
+		equipment.slot:
+		{
+			type: legs, feet
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		legs:
+		{
+			multiplier: 10.000
+
+			frame_sitting: [6, 0]
+			frames_jump: [5, 8]
+		}
+		
+		norotate:
+		{
+			bias: 0.150
+			multiplier: 1.000
+			mass_multiplier: 200.000
+		}
+		
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 60.000
+					max: 80.000
+				}
+			]
+		}
+	}
+}
+
++arm|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.000, -0.100]
+		max_force: 30000.000
+		max_torque: 900.000
+		flags: control_write, no_wrap
+	}
+	
+	joint.pivot:
+	{
+		error_bias: 0.020
+		max_bias: 12.000
+	}
+	
+	// joint.rotarylimit:
+	// {
+	// 	max_bias: 6.000
+	// 	error_bias: 0.000
+	// }
+	
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 6.000
+	}
+	
+	interactor:
+	{
+	
+	}
+	
+	arm:
+	{
+	
+	}
+	
+	drag:
+	{
+		max_force: 7500.000
+	}
+
+	puncher:
+	{
+		sound: "swish.00"
+		damage_base: 40.000
+		damage_bonus: 180.000
+
+		cooldown: 0.500
+		max_distance: 1.000
+		aoe: 0.250
+		damage_type: punch
+		hit_mask: destructible, world
+		knockback: 3.000
+		penetration: 0
+
+		frame: [9, 0]
+		offset: [0.250, -0.125]
+	}
+}
+
++toolbelt|instance:
+{
+	$tags: []
+	
+	toolbelt:
+	{
+	
+	}
+}

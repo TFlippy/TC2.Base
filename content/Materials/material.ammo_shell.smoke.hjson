@@ -1,0 +1,38 @@
+{
+	name: "Artillery Shell (Smoke)"
+	description: "Ammunition for cannons. Produces a lot of smoke on impact, explosion deals almost no damage, though the projectile itself is extremely dangerous if it hits."
+
+	icon:
+	{
+		texture: "resource.ammo_shell.smoke"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [8, 0]
+	}
+
+	type: metal
+	flags: manufactured, ammo, ammo_shell
+	mass_per_unit: 8.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_shell.smoke"
+	
+	projectile_count: 1
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 0.500
+	projectile_heat: 4000.000
+	projectile_prefab: "projectile.shell.smoke"
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+}

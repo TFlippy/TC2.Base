@@ -1,0 +1,55 @@
+$name: "Lamp Post (Metal)"
+$desc: "A lamp on a metal post."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.000, -2.375]
+		b: [-1.000, 2.375]
+		offset: [0.000, 0.000]
+		mass: 25.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "lamp_post.metal.02"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.000
+	
+	@light:
+	{
+		color: [1.000, 0.750, 0.100, 1.500]
+		offset: [0.000, -2.500]
+		scale: [96.000, 96.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
+}

@@ -1,3 +1,8 @@
+$name: "Blueprint Laboratory"
+$desc:
+	'''
+	Building used for designing custom item augment blueprints.
+	'''
 $tags: []
 
 body:
@@ -48,6 +53,11 @@ interactable:
 nameable:
 {
 	flags: randomize
+}
+
+faction:
+{
+
 }
 
 claimable:

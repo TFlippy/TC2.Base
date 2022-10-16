@@ -25,7 +25,7 @@ body:
 		elasticity: 0.400
 		radius: 0.500
 		material: metal
-		layer: entity, solid, building
+		layer: entity, solid, building, ignore_bullet
 		mask: world
 	}
 }
@@ -73,9 +73,25 @@ harvestable:
 	]
 }
 
-cover:
+shipment:
 {
-	threshold: 0.200
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 2
+
+	tables:
+	[
+		"car"
+	]
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
 }
 
 holdable:

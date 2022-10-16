@@ -12,6 +12,8 @@
 	friction: 0.700
 	elasticity: 0.600
 	stability: 0.900
+
+	collision_mask: essence
 	
 	texture: "terrain_smirgl_slab.moss"
 	pattern: "pattern_smirgl_slab.moss"

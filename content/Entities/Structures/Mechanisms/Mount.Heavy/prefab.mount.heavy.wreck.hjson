@@ -147,11 +147,11 @@ vehicle:
 		max_bias: 0.200
 	}
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 
-		flags: none
+		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold
 	}
 }

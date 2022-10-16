@@ -1,0 +1,64 @@
+$name: "Abandoned Crates"
+$desc:
+	'''
+	Several old crates stacked on top of eachother.
+	May still contain some goods.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [3.250, 2.250]
+		offset: [0.000, 0.250]
+		mass: 100.000
+		friction: 0.850
+		elasticity: 0.100
+		material: wood
+		layer: entity, solid, building, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.crates.00"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+
+}
+
+storage:
+{
+	@inventory16:
+	{
+		name: "Crates"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: ignore_mass, public
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}

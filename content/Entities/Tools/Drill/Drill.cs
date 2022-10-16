@@ -89,9 +89,9 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && !overheat.flags.HasAll(Overheat.Flags.Overheated))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
 			{
 				var random = XorRandom.New();
 				if (info.WorldTime >= drill.next_hit)
@@ -110,12 +110,16 @@ namespace TC2.Base.Components
 					var pos_b = transform.position + (dir * max_distance * 0.75f);
 
 					var modifier = 1.00f;
-					overheat.heat_current += 4.00f;
+
+					if (!overheat.IsNull())
+					{
+						overheat.heat_current += 4.00f;
+					}
 
 					Span<LinecastResult> results = stackalloc LinecastResult[16];
 					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
-						results.Sort(static (a, b) => a.alpha.CompareTo(b.alpha));
+						results.SortByDistance();
 
 						var parent = body.GetParent();
 
@@ -189,14 +193,17 @@ namespace TC2.Base.Components
 							var damage_final = damage * modifier;
 							if (is_terrain) damage_final *= drill.damage_terrain_multiplier;
 
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f);
+							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 4.00f);
 #endif
 
-							flags |= Damage.Flags.No_Sound;
+							//flags |= Damage.Flags.No_Sound;
 							modifier *= 0.70f;
 							penetration--;
 
-							overheat.heat_current += heat;
+							if (!overheat.IsNull())
+							{
+								overheat.heat_current += heat;
+							}
 						}
 					}
 

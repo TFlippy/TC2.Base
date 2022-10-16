@@ -1,0 +1,104 @@
+$name: "Arc Lance"
+$desc: 
+	'''
+	A powerful spear-like weapon tipped with 2 electrodes connected to an ARC-EL pellet power source.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		mass: 15.000
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+aimable:
+{
+
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 350.000
+	damage_bonus: 150.000
+	cooldown: 1.500
+	max_distance: 2.500
+	aoe: 1.000
+	knockback: 1.500
+	thickness: 0.250
+	hit_offset: [1.250, 0.000]
+	yield: 0.300
+	penetration_falloff: 0.900
+	penetration: 0
+	damage_type: stab
+	attack_type: thrust
+	category: pointed
+	flags: sync_hit_event
+	hit_mask: world, destructible
+	hit_exclude: ignore_melee, decoration
+}
+
+melee.state:
+{
+
+}
+
+arclance:
+{
+	// @light:
+	// {
+	// 	color: [0.650, 0.800, 1.000, 1.500]
+	// 	offset: [1.000, 0.000]
+	// 	scale: [8.000, 8.000]
+	// 	intensity: 1.000
+	// 	texture: "light_invsqr"
+	// }
+}
+
+holdable:
+{
+	offset: [-0.750, -0.125]
+	radius: 5.000
+	force_multiplier: 1.500
+	torque_multiplier: 10.000
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "arc_lance"
+	}
+	scale: [0.800, 0.800]
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
+
+control:
+{
+
+}

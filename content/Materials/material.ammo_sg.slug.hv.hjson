@@ -28,7 +28,7 @@
 	
 	projectile_count: 1
 	projectile_speed_mult: 0.850
-	projectile_spread_mult: 0.500
+	projectile_spread_mult: 0.200
 	projectile_heat: 50.000
 	projectile_prefab: "projectile.bullet.sg.slug.hv"
 	

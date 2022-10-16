@@ -1,10 +1,15 @@
-﻿
-using Keg.Engine;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Cluster
 	{
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+
+			No_Impact = 1 << 0
+		}
+
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
@@ -20,7 +25,11 @@ namespace TC2.Base.Components
 			public float lifetime_modifier_min = 0.50f;
 			public float lifetime_modifier_max = 1.00f;
 
+			public float min_explode_lifetime = 0.00f;
+
 			public int count = default;
+
+			public Cluster.Flags flags;
 
 			public Data()
 			{
@@ -34,6 +43,9 @@ namespace TC2.Base.Components
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
 			{
+				if (projectile.flags.HasAny(Projectile.Flags.Impact) && cluster.flags.HasAny(Cluster.Flags.No_Impact)) return;
+				if (projectile.elapsed < cluster.min_explode_lifetime) return;
+
 				ref var region = ref info.GetRegion();
 				var random = XorRandom.New();
 

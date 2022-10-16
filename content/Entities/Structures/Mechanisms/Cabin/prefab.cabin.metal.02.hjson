@@ -1,0 +1,176 @@
+$name: "Cabin (Tank)"
+$desc:
+	'''
+	Heavily armored metal cabin with an attachment slot on top and a gunner seat.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.250
+
+	@shape.polygon:	
+	{
+		points:
+		[
+			[1.500, 1.000]
+			[-1.500, 1.000]
+			[-0.750, -1.500]
+			[0.500, -1.500]
+		]
+		offset: [0.000, 0.000]
+		radius: 0.250
+		mass: 500.000
+		friction: 0.750
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+armor:
+{
+	toughness: 1500.000
+	protection: 0.500
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_pickup_offset, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 1.250]
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "cabin.metal.02"
+	}
+	offset: [0.000, 0.000]
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [182.000, 240.000]
+	window_offset: [0.000, 192.000]
+}
+
+storage:
+{
+	@inventory4:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: allow_ducts
+	}
+}
+
+control:
+{
+
+}
+
+threat:
+{
+
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "cabin.metal.fg.02"
+		}
+		z: 10.000
+	}
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-0.500, 0.125]
+		max_tilt: 5.000
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.625, -1.125]
+		max_force: 200000.000
+		max_torque: 75000.000
+		flags: no_stress, control_write, force_facing
+		z: 0.000
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 10.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 1.500
+		min: -2.000
+		max: 0.500
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
+	}
+}

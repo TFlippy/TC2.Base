@@ -1,0 +1,64 @@
+{
+	name: "Shotgun Shell (Slug, Standard)"
+	desc:
+		'''
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
+
+		Gunpowder is weaker, but cheap.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.slug"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	type: workshop
+	tags: munitions
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.040
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 0.040
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 8.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.slug"
+			amount: 1.000
+		}
+	]
+}

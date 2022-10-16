@@ -24,13 +24,13 @@
 		}
 		{
 			type: "resource"
-			material: "copper_ingot"
-			amount: 2.000
+			material: "machine_parts"
+			amount: 13.000
 		}
 		{
 			type: "resource"
-			material: "machine_parts"
-			amount: 15.000
+			material: "arcane_actuator"
+			amount: 2.000
 		}
 		{
 			type: "work"

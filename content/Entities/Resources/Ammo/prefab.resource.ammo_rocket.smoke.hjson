@@ -1,0 +1,74 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		layer: entity, solid, resource
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_rocket.smoke"
+		count: 4
+		size: [16, 16]
+	}
+	offset: [0.000, 0.500]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_rocket.smoke"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 300.000
+}
+
+explosive:
+{
+	radius: 5.000
+	power: 4.000
+	damage_entity: 1.000
+	damage_terrain: 1.000
+	fire_amount: 0.000
+	smoke_amount: 8.000
+	smoke_lifetime_multiplier: 2.500
+	smoke_velocity_multiplier: 8.500
+	sparks_amount: 0.100
+	volume: 0.700
+	pitch: 3.000
+	health_threshold: 0.950
+	flags: any_damage, explode_when_primed
+}

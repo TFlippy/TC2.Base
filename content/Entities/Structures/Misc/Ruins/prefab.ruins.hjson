@@ -40,3 +40,13 @@ spawn:
 {
 	flags: none
 }
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+}

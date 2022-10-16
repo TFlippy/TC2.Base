@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 		{
 			ref var meth_new = ref data.ent_organic.GetOrAddComponent<Meth.Effect>(sync: true);
 
-			var ratio = Maths.Ratio(meth.amount, meth_new.amount);
+			var ratio = Maths.SumRatio(meth.amount, meth_new.amount);
 
 			meth_new.amount += meth.amount;
 			meth_new.release_rate_target = Maths.Lerp(meth_new.release_rate_target + (meth_new.release_rate_target * ratio), consumable.release_rate, ratio);

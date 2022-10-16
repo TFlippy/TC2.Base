@@ -4,14 +4,14 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.500]
+		offset: [0.000, 0.250]
 		mass: 50.000
-		radius: 0.400
-		friction: 0.950
+		radius: 0.750
+		friction: 0.650
 		elasticity: 0.300
 		material: metal
 		layer: entity, solid, resource
-		mask: world
+		mask: world, essence
 	}
 }
 
@@ -33,6 +33,15 @@ transform:
 resource:
 {
 	material: "arcane_actuator"
+
+	@light:
+	{
+		color: [0.000, 1.000, 1.000, 1.000]
+		offset: [0.000, 0.250]
+		scale: [16.000, 16.000]
+		intensity: 1.000
+		texture: "light_invsqr"
+	}
 }
 
 hoverable:
@@ -42,7 +51,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:

@@ -1,0 +1,64 @@
+{
+	name: "Small Rocket (Standard)"
+	desc: "Ammunition for rocket launchers. Uses gunpowder filling, reduced damage and radius, creates more smoke on impact. Not very accurate."
+	
+	icon:
+	{
+		texture: "resource.ammo_rocket"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	min: 1
+	max: 40
+	step: 1
+	type: workshop
+	tags: munitions
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "gunpowder"
+			amount: 20.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 200.000
+			difficulty: 7.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 250.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_rocket"
+			amount: 1.000
+		}
+	]
+}

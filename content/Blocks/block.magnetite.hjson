@@ -23,7 +23,7 @@
 	[
 		{
 			material: "stone"
-			quantity: 0.500
+			quantity: 0.100
 		}
 		{
 			material: "magnetite"

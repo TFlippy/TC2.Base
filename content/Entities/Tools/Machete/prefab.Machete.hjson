@@ -13,8 +13,8 @@ body:
 		b: [0.000, -0.500]
 		mass: 5.000
 		radius: 0.250
-		friction: 0.950
-		elasticity: 0.050
+		friction: 0.750
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -32,8 +32,10 @@ melee:
 	damage_base: 150.000
 	damage_bonus: 150.000
 	cooldown: 1.100
-	max_distance: 3.000
-	aoe: 0.100
+	max_distance: 1.300
+	thickness: 0.750
+	hit_offset: [0.500, 0.000]
+	aoe: 0.700
 	knockback: 1.400
 	yield: 0.700
 	penetration_falloff: 0.500
@@ -45,6 +47,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

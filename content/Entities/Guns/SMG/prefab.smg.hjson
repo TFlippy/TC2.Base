@@ -25,7 +25,7 @@ gun:
 	velocity_multiplier: 330.000
 	jitter_multiplier: 0.700
 	damage_multiplier: 2.000
-	recoil_multiplier: 0.300
+	recoil_multiplier: 0.700
 	reload_interval: 2.000
 	cycle_interval: 0.070
 	failure_rate: 0.009
@@ -37,6 +37,8 @@ gun:
 	action: blowback
 	type: smg
 	feed: drum
+
+	heuristic_range: 25.000
 
 	shake_amount: 0.200
 	

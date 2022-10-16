@@ -1,0 +1,43 @@
+{
+	name: "Concrete (Mossy)"
+	desc: "Mossy concrete slabs."
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 60000.000
+	smoothing: 0.180
+	mass: 8.000
+	friction: 0.850
+	elasticity: 0.600
+	stability: 0.500
+	
+	texture: "terrain_concrete.moss"
+	pattern: "pattern_concrete"
+	
+	texture_scale: 1.070
+	texture_overshoot: -0.400
+	
+	resources:
+	[
+		{
+			material: "gravel"
+			quantity: 0.350
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff465133"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff30322a"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
+}

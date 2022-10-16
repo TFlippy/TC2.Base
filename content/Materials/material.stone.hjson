@@ -10,7 +10,8 @@
 	
 	type: stone
 	flags: raw, despawnable
-	mass_per_unit: 0.400
+	mass_per_unit: 1.500
+	market_price: 0.110
 	quantity_max: 500.000
 	prefab: "resource.stone"
 	

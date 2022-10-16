@@ -45,6 +45,11 @@ transform:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu
@@ -57,7 +62,7 @@ claimer:
 	falloff: 0.500
 }
 
-interactable:
-{
-	window_size: [96.000, 96.000]
-}
+// interactable:
+// {
+// 	window_size: [96.000, 96.000]
+// }

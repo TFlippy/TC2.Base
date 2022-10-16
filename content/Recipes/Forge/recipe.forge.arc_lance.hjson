@@ -1,0 +1,65 @@
+{
+	name: "Arc Lance"
+	desc:
+		'''
+		A powerful spear-like weapon tipped with 2 electrodes connected to an ARC-EL pellet power source.
+		'''
+	
+	icon:
+	{
+		texture: "arc_lance"
+	}
+	
+	min: 1
+	max: 4
+	step: 1
+
+	flags: blueprintable
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "smirgl_ingot"
+			amount: 3.000
+		}
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 5.000
+		}
+		{
+			type: "resource"
+			material: "pellet.electricity"
+			amount: 2.000
+		}
+		{
+			type: "resource"
+			material: "wood"
+			amount: 40.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 350.000
+			difficulty: 8.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 500.000
+			difficulty: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "arc_lance"
+			amount: 1.000
+		}
+	]
+}

@@ -11,6 +11,7 @@
 	type: liquid
 	flags: raw, fuel
 	mass_per_unit: 0.100
+	market_price: 15.000
 	quantity_max: 100.000
 	prefab: "resource.phlogiston"
 	

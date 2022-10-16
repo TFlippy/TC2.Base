@@ -1,0 +1,52 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 50.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		material: glass
+		layer: entity, solid, resource
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.mayo"
+		count: 4
+		size: [16, 16]
+	}
+	offset: [0.000, -0.100]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "mayo"
+}
+
+hoverable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}

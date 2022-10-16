@@ -38,7 +38,7 @@ namespace TC2.Base.Components
 		{
 			ref var alcohol_new = ref data.ent_organic.GetOrAddComponent<Alcohol.Effect>(sync: true);
 
-			var ratio = Maths.Ratio(alcohol.amount, alcohol_new.amount);
+			var ratio = Maths.SumRatio(alcohol.amount, alcohol_new.amount);
 
 			alcohol_new.amount += alcohol.amount;
 			alcohol_new.release_rate_target = Maths.Lerp(alcohol_new.release_rate_target + (alcohol_new.release_rate_target * ratio), consumable.release_rate, ratio);

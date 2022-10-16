@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	inventory_weight_multiplier: 0.250
+
 	@shape.line:
 	{
 		a: [-4.000, 0.000]
@@ -34,7 +36,7 @@ holdable:
 {
 	offset: [-4.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_control
 }
 
 transform:
@@ -42,7 +44,7 @@ transform:
 
 }
 
-attachable:
+attachment:
 {
 	offset: [-4.000, 0.000]
 
@@ -81,9 +83,9 @@ joint.gear:
 	max: 2.000
 }
 
-attachment:
+attachment.slot:
 {
-
+	flags: keyboard_write, mouse_write
 }
 
 storage:

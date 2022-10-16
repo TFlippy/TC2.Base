@@ -1,0 +1,69 @@
+$name: "Munitions Workshop"
+$desc:
+	'''
+	A workshop for manufacturing ammunition and explosives.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		offset: [0.000, 0.000]
+		mass: 2000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support, ignore_melee, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 12000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ammo_workshop"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [700.000, 480.000]
+}
+
+shop:
+{
+	name: "Munitions Workshop"
+	tags: munitions
+}
+
+workshop:
+{
+	@inventory8:
+	{
+		name: "Storage"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: standalone, allow_ducts, public
+	}
+}

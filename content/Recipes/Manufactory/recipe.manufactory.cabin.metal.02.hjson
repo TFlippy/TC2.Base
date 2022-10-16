@@ -1,0 +1,52 @@
+{
+	name: "Cabin (Tank)"
+	desc: "Heavily armored metal cabin with an attachment slot on top and a gunner seat."
+	
+	icon:
+	{
+		texture: "cabin.metal.icon.02"
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier
+	type: workshop
+	tags: manufactory
+
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 55.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 25.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 2000.000
+			difficulty: 15.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 1200.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "cabin.metal.02"
+			amount: 1.000
+		}
+	]
+}

@@ -1,8 +1,14 @@
+$name: "Small Crate"
+$desc:
+	'''
+	Small portable storage.
+	Sightly larger than your pockets.
+	'''
 $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.300
+	inventory_weight_multiplier: 0.500
 	
 	@shape.box:
 	{
@@ -10,9 +16,9 @@ body:
 		offset: [0.000, 0.000]
 		mass: 20.000
 		friction: 0.950
-		elasticity: 0.500
+		elasticity: 0.700
 		material: wood
-		layer: entity, solid, crate, storage
+		layer: entity, solid, crate, storage, ignore_bullet
 		mask: world
 	}
 }
@@ -56,9 +62,4 @@ storage:
 interactable:
 {
 	window_size: [96.000, 96.000]
-}
-
-cover:
-{
-	threshold: 0.600
 }

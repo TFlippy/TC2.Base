@@ -14,7 +14,7 @@
 		}
 
 		// Hack, used to register "hornet" tag for now
-		[ISystem.AddFirst(ISystem.Mode.Single), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateHornet(ISystem.Info info, [Source.Owned] ref Hornet.Data hornet)
 		{
 

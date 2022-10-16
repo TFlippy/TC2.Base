@@ -15,7 +15,7 @@
 	type: build
 	flags: none
 	tags: construction
-	rank: -90.000
+	rank: -98.000
 	
 	placement:
 	{
@@ -25,6 +25,7 @@
 		size: [0.625, 0.625]
 		
 		cooldown: 0.400
+		min_claim: 1.000
 		
 		length_max: 8.000
 		length_step: 0.125

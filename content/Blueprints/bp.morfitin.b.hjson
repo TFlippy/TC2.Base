@@ -1,0 +1,45 @@
+{
+	name: "Morfitin-B"
+	description:
+		'''
+		Experimental formula combining stimulating and anesthetic effects of
+		20mg Methamphetamine and 25mg Morphine.
+		'''
+	prefab: "syringe"
+	recipe: "refinery.syringe"
+	augments:
+	[
+		{
+			identifier: "consumable.meth"
+			data: 1101004800
+		}
+		{
+			identifier: "consumable.morphine"
+			data: 1103626240
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}

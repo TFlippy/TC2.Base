@@ -1,0 +1,158 @@
+$name: "Turret (Coaxial)"
+$desc:
+	'''
+	Light metal turret with a coaxial attachment slot and a gunner seat.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:	
+	{
+		a: [0.000, 0.000]
+		b: [0.375, 0.000]
+		radius: 1.125
+		mass: 80.000
+		friction: 0.750
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9000.000
+}
+
+armor:
+{
+	toughness: 1100.000
+	protection: 0.500
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_pickup_offset, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 0.000]
+}
+
+aimable:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "turret.00"
+	}
+	offset: [0.000, 0.000]
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [182.000, 240.000]
+	window_offset: [0.000, 192.000]
+}
+
+mount:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "turret.fg.00"
+		}
+		z: 100.000
+	}
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 10.000
+		type: storage
+		flags: allow_ducts
+	}
+}
+
+control:
+{
+
+}
+
+threat:
+{
+
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [0.000, 0.000]
+		max_tilt: 5.000
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.500, 0.000]
+		max_force: 100000.000
+		max_torque: 200000.000
+		z: 90.000
+		flags: control_write, no_wrap, force_facing, attachment
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0010
+		max_bias: 8.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, invert
+	}
+}

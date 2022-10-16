@@ -6,9 +6,9 @@ body:
 	{
 		offset: [0.000, 0.000]
 		mass: 2.000
-		radius: 0.400
-		friction: 0.950
-		elasticity: 0.200
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
 		layer: entity, solid, resource
 		mask: world
 		material: metal
@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	offset: [0.000, 0.500]
 }
 
 transform:
@@ -42,7 +43,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:
@@ -57,10 +58,13 @@ health:
 
 explosive:
 {
-	radius: 6.000
-	power: 5.000
-	damage_entity: 14000.000
-	damage_terrain: 14000.000
-	health_threshold: 0.950
+	radius: 5.000
+	power: 4.000
+	damage_entity: 10000.000
+	damage_terrain: 10000.000
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 2.000
+	health_threshold: 0.900
 	flags: any_damage, explode_when_primed
 }

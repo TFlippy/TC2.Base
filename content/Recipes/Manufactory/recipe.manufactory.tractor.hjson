@@ -11,9 +11,10 @@
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
+	flags: no_amount_multiplier
 	type: workshop
 	tags: manufactory
+	rank: -160.000
 	
 	requirements:
 	[
@@ -25,23 +26,23 @@
 		{
 			type: "resource"
 			material: "iron_plate"
-			amount: 200.000
+			amount: 100.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 80.000
+			amount: 50.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 3500.000
+			amount: 1800.000
 			difficulty: 15.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 5000.000
+			amount: 2000.000
 			difficulty: 15.000
 		}
 	]

@@ -1,0 +1,41 @@
+{
+	name: "R750 Automat"
+	description: "Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an ARC-MT auto-loader."
+	prefab: "smg"
+	recipe: "gunsmith.smg"
+	augments:
+	[
+		{
+			identifier: "gun.automatic_reloading"
+			data: 0
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			data: 1
+		}
+		{
+			identifier: "gun.rapid_fire_mechanism"
+			data: 0
+		}
+		{
+			identifier: "gun.improved_ammo_loading"
+			data: 0
+		}
+		{
+			identifier: "gun.gas_operation"
+			data: 0
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1082130432
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 13690942868246495232
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 13690942868254883840
+		}
+	]
+}

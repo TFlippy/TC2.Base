@@ -121,7 +121,7 @@ axle:
 	}
 }
 
-attachment:
+attachment.slot:
 {
 
 }

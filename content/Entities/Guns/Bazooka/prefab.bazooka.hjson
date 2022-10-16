@@ -47,6 +47,8 @@ gun:
 	type: launcher
 	feed: single
 
+	heuristic_range: 13.000
+
 	smoke_amount: 6
 	smoke_size: 3.000
 	
@@ -78,13 +80,13 @@ interactable:
 
 }
 
-attachable:
-{
-	offset: [-0.125, 0.000]
+// attachment:
+// {
+// 	offset: [-0.125, 0.000]
 
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
-}
+// 	force_multiplier: 1.000
+// 	torque_multiplier: 1.000
+// }
 
 holdable:
 {

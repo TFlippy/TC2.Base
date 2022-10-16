@@ -9,11 +9,13 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: build
 	flags: none
 	tags: construction
+	rank: -96.500
 	
 	placement:
 	{
@@ -23,6 +25,7 @@
 		size: [1.000, 1.000]
 		
 		cooldown: 0.400
+		min_claim: 1.000
 		
 		sound: "stone_place_0"
 	}
@@ -32,7 +35,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.500
+			amount: 0.125
 		}
 	]
 	

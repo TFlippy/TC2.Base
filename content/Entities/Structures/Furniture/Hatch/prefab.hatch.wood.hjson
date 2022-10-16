@@ -37,9 +37,15 @@ animated.renderer:
 		size: [20, 24]
 	}
 	z: 100.000
+	mask: "hatch.wood.mask"
 }
 
 faction.colorable:
+{
+
+}
+
+faction:
 {
 
 }
@@ -69,4 +75,10 @@ door:
 	offset_closed: [0.000, 0.000]
 	direction: vertical
 	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 8.000
+	fps_open: 6.000
 }

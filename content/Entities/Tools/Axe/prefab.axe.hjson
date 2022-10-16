@@ -1,3 +1,8 @@
+$name: "Axe"
+$desc:
+	'''
+	Basic woodcutting tool and weapon.
+	'''
 $tags: []
 
 control:
@@ -9,12 +14,12 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, 0.500]
-		b: [0.000, -0.500]
+		a: [-0.125, 0.500]
+		b: [-0.125, -0.500]
 		mass: 5.000
-		radius: 0.200
-		friction: 0.950
-		elasticity: 0.050
+		radius: 0.375
+		friction: 0.650
+		elasticity: 0.500
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -33,7 +38,9 @@ melee:
 	damage_bonus: 50.000
 	cooldown: 0.700
 	max_distance: 2.000
-	aoe: 0.100
+	thickness: 0.500
+	hit_offset: [0.500, 0.000]
+	aoe: 0.750
 	knockback: 1.000
 	yield: 1.100
 	penetration_falloff: 0.500
@@ -45,6 +52,11 @@ melee:
 }
 
 melee.state:
+{
+
+}
+
+aimable:
 {
 
 }

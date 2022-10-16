@@ -32,7 +32,7 @@
 		{
 			type: "resource"
 			material: "water"
-			amount: 100.000
+			amount: 80.000
 		}
 		{
 			type: "work"
@@ -47,14 +47,14 @@
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount_min: 45.000
-			amount_max: 65.000
+			amount: 45.000
+			amount_extra: 50.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 30.000
-			amount_max: 60.000
+			amount: 30.000
+			amount_extra: 30.000
 		}
 	]
 }

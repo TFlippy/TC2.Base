@@ -1,3 +1,8 @@
+$name: "Grenade"
+$desc: 
+	'''
+	A handy stick grenade.
+	'''
 $tags: []
 
 control:
@@ -17,6 +22,7 @@ body:
 		elasticity: 0.600
 		layer: entity, solid
 		mask: world
+		material: metal
 	}
 }
 
@@ -37,7 +43,7 @@ animated.renderer:
 	{
 		texture: "grenade"
 	}
-	offset: [0.125, -0.125]
+	offset: [0.000, -0.0625]
 	scale: [0.800, 0.800]
 }
 
@@ -55,11 +61,19 @@ fuse:
 
 explosive:
 {
-	radius: 16.000
+	radius: 12.000
 	power: 2.000
 	damage_entity: 8000.000
 	damage_terrain: 3000.000
-	smoke_amount: 0.700
+	sparks_amount: 1.500
+	smoke_amount: 1.000
+	smoke_lifetime_multiplier: 1.200
+	smoke_velocity_multiplier: 2.000
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 0.200
+	volume: 1.000
+	pitch: 2.000
+	damage_type: bullet_sg
 }
 
 packable:
