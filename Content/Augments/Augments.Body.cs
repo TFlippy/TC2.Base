@@ -2,11 +2,10 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterBodyAugments(ref List<Augment.Definition> definitions)
 		{
-
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.efficient_crafting",
@@ -267,6 +266,7 @@ namespace TC2.Base
 				}
 			));
 
+			
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.recycled",
@@ -366,7 +366,7 @@ namespace TC2.Base
 						holdable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.10f), 1.20f);
 					}
 
-					ref var attachable = ref context.GetComponent<Attachable.Data>();
+					ref var attachable = ref context.GetComponent<Attachment.Data>();
 					if (!attachable.IsNull())
 					{
 						attachable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.40f), 1.20f);

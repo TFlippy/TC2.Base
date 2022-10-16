@@ -851,7 +851,7 @@ namespace TC2.Base
 				},
 
 				apply_1: static (ref Augment.Context context, ref Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
+	    		{
 					ref var value = ref handle.GetData<float>();
 
 					ref var consumable = ref context.GetComponent<Consumable.Data>();
@@ -861,12 +861,95 @@ namespace TC2.Base
 					}
 				}
 			));
-		}
-	}
+
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.attachable",
+				category: "Utility",
+				name: "Attachment Connector",
+				description: "Enables mounting this item to attachment slots.",
+
+				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset.X = Maths.Clamp(offset.X, -1.00f, 1.00f);
+					offset.Y = Maths.Clamp(offset.Y, -1.00f, 1.00f);
+					offset = Maths.Snap(offset, 0.125f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<Attachment.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-1.00f, -1.00f), max: new Vector2(1.00f, 1.00f));
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.attachable", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var attachable = ref context.GetOrAddComponent<Attachment.Data>();
+					if (!attachable.IsNull())
+					{
+						attachable.offset = offset;
+					}
 				},
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<LandMine.Data>
+			(
+				identifier: "landmine.safety",
+				category: "Utility",
+				name: "Safety Markings",
+				description: "Prevents faction members from stepping on the land mine.",
+
+				can_add: static (ref Augment.Context context, in LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.flags |= LandMine.Flags.Faction;
+				},
+
+				apply_1: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("paper", 1));
+				}
+			));
+		}
+	}
 }
 
