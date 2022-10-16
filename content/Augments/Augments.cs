@@ -521,7 +521,7 @@ namespace TC2.Base
 			definitions.Add(Augment.Definition.New<Equipment.Data>
 			(
 				identifier: "equipment.cursed",
-				category: "Utility",
+				category: "Equipment",
 				name: "Cursed",
 				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
 
@@ -538,6 +538,62 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("tar", 15.00f));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Equipment.Data>
+			(
+				identifier: "equipment.cloth_padded",
+				category: "Equipment",
+				name: "Cloth Padding",
+				description: "Pads the inner side of the armor with cloth.",
+
+				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var armor = ref context.GetComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.knockback_modifier *= 0.65f;
+						armor.pain_modifier *= 0.80f;
+					}
+				},
+
+				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 5.00f));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Equipment.Data>
+			(
+				identifier: "equipment.mushroom_stuffed",
+				category: "Equipment",
+				name: "Mushroom Stuffing",
+				description: "Stuffs the inner side of the armor with soft mushroom bits.",
+
+				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var armor = ref context.GetComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.knockback_modifier = MathF.Max(armor.knockback_modifier - 0.30f, armor.knockback_modifier * 0.25f);
+						armor.pain_modifier = MathF.Max((armor.pain_modifier * 0.90f) - 0.30f, armor.pain_modifier * 0.10f);
+					}
+				},
+
+				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom", 20.00f));
 				}
 			));
 
