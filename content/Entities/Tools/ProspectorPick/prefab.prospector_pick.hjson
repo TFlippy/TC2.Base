@@ -1,3 +1,8 @@
+$name: "Prospector Pick"
+$desc:
+	'''
+	Can be used to examine the mineral composition of ground, which may come in handy when searching for ores.
+	'''
 $tags: []
 
 body:
@@ -24,18 +29,22 @@ health:
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 1800.000
-	damage_bonus: 100.000
-	cooldown: 1.500
-	max_distance: 3.000
-	aoe: 0.500
-	knockback: 0.400
-	yield: 0.000
-	penetration_falloff: 0.900
-	penetration: 0
+	damage_base: 150.000
+	damage_bonus: 250.000
+	terrain_damage_multiplier: 6.000
+	cooldown: 0.900
+	max_distance: 1.500
+	thickness: 0.500
+	hit_offset: [1.000, -0.500]
+	aoe: 1.000
+	knockback: 1.000
+	yield: 1.100
+	penetration_falloff: 0.500
+	penetration: 1
 	damage_type: pickaxe
-	category: blunt
+	category: pointed
 	hit_mask: world
+	hit_exclude: ignore_melee
 }
 
 melee.state:
@@ -46,6 +55,11 @@ melee.state:
 prospectorpick:
 {
 	max_depth: 10.000
+}
+
+aimable:
+{
+	
 }
 
 holdable:

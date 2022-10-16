@@ -9,6 +9,7 @@ projectile:
 	damage_type: bullet_mg
 	size: 0.750
 	ricochet_count: 0
+	damp: 0.988
 }
 
 transform:
@@ -28,14 +29,18 @@ animated.renderer:
 
 explosive:
 {
-	radius: 3.000
+	radius: 4.000
 	power: 2.000
 	damage_entity: 5000.000
 	damage_terrain: 5000.000
-	smoke_amount: 1.000
-	sparks_amount: 0.800
+	smoke_amount: 3.000
+	smoke_velocity_multiplier: 7.000
+	smoke_lifetime_multiplier: 0.750
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 1.500
+	sparks_amount: 2.500
 	volume: 1.500
-	pitch: 1.100
+	pitch: 1.500
 	flags: primed
 }
 

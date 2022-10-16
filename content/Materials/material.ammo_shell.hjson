@@ -24,7 +24,7 @@
 	
 	projectile_count: 1
 	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
+	projectile_spread_mult: 0.500
 	projectile_heat: 4000.000
 	projectile_prefab: "projectile.shell"
 	

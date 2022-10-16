@@ -6,6 +6,7 @@ projectile:
 	damage_bonus: 800.000
 	lifetime: 15.000
 	ignore_time: 0.100
+	damage_type: bullet_musket
 	size: 0.500
 	ricochet_count: 0
 }
@@ -19,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "rocket"
+		texture: "projectile.rocket.hv"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
@@ -28,9 +29,15 @@ animated.renderer:
 explosive:
 {
 	radius: 5.000
-	power: 4.000
-	damage_entity: 14000.000
-	damage_terrain: 10000.000
+	power: 5.000
+	damage_entity: 9500.000
+	damage_terrain: 12000.000
+	sparks_amount: 0.800
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.200
+	smoke_velocity_multiplier: 3.000
+	volume: 1.400
+	pitch: 1.800
 	flags: primed
 }
 

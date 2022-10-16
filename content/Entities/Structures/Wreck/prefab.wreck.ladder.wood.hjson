@@ -20,7 +20,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, climbable, building, no_overlapped_placement
+		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
 		mask: world
 	}
 }
@@ -36,10 +36,29 @@ animated.renderer:
 	{
 		texture: "wreck.ladder.wood"
 	}
-	z: -150.000
+	z: -290.000
 }
 
 transform:
 {
 
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "ladder.wood.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "ladder.wood.cap"
+	}
+	
+	flags: mirror_cap_b
+	
+	a: [0.000, -2.250]
+	b: [0.000, 2.250]
+	cap_offset: 0.500
 }

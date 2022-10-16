@@ -1,0 +1,61 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [9.000, 6.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "construction.9x6"
+	}
+	z: -300.000
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [500.000, 350.000]
+}
+
+construction:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items
+}

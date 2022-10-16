@@ -27,12 +27,12 @@
 		{
 			type: "resource"
 			material: "nitric_acid"
-			amount: 25.000
+			amount: 50.000
 		}
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount: 15.000
+			amount: 30.000
 		}
 		{
 			type: "work"
@@ -47,14 +47,14 @@
 		{
 			type: "resource"
 			material: "nitrocellulose"
-			amount_min: 150.000
-			amount_max: 250.000
+			amount: 70.000
+			amount_extra: 20.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 10.000
-			amount_max: 25.000
+			amount: 10.000
+			amount_extra: 15.000
 		}
 	]
 }

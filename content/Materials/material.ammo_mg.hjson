@@ -23,7 +23,7 @@
 	type: metal
 	flags: manufactured, ammo, ammo_mg, despawnable
 	mass_per_unit: 0.120
-	quantity_max: 25.000
+	quantity_max: 50.000
 	prefab: "resource.ammo_mg"
 	
 	projectile_count: 1

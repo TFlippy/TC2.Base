@@ -1,0 +1,41 @@
+{
+	name: "Rachejtla"
+	description: "A shoddy triple-barreled derringer."
+	prefab: "derringer"
+	recipe: "gunsmith.derringer"
+	augments:
+	[
+		{
+			identifier: "gun.extra_barrel"
+			data: 0
+		}
+		{
+			identifier: "gun.extra_barrel"
+			data: 0
+		}
+		{
+			identifier: "gun.bayonet"
+			data: 4521614026920165376
+		}
+		{
+			identifier: "body.recycled"
+			data: 1054615797
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}

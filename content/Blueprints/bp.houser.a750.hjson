@@ -1,0 +1,41 @@
+{
+	name: "Houser A-750"
+	description: "Small high-caliber semi-automatic handgun with a bayonet."
+	prefab: "machine_pistol"
+	recipe: "gunsmith.machine_pistol"
+	augments:
+	[
+		{
+			identifier: "gun.semi_automatic"
+			data: 0
+		}
+		{
+			identifier: "gun.gas_operation"
+			data: 0
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			data: 1
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1075838976
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.bayonet"
+			data: 4503599630558167040
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 13690942868259078144
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 13690942869353791488
+		}
+	]
+}

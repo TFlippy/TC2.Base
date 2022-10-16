@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 						ref var samples = ref this.prospector_pick_state.samples;
 
 						var total_count = 0.00f;
-						for (int i = 0; i < samples.Length; i++)
+						for (var i = 0; i < samples.Length; i++)
 						{
 							ref var sample = ref samples[i];
 							total_count += sample.quantity;
@@ -72,9 +72,9 @@ namespace TC2.Base.Components
 							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
 							GUI.DrawCircleFilled(b, 0.075f * GUI.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
 
-							GUI.Title("Ores");
+							GUI.Title("Minerals");
 
-							for (int i = 0; i < samples.Length; i++)
+							for (var i = 0; i < samples.Length; i++)
 							{
 								ref var sample = ref samples[i];
 								if (sample.block.id != 0)
@@ -126,9 +126,11 @@ namespace TC2.Base.Components
 		public static void OnHit(ISystem.Info info, Entity entity, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
 		{
 			ref var region = ref info.GetRegion();
+			ref var terrain = ref region.GetTerrain();
+
 			var arg = (a: 0, samples: new FixedArray8<OreSample>());
 
-			region.GetTerrainHandle().IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
+			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
 			static void Func(ref Tile tile, int x, int y, byte mask, ref (int a, FixedArray8<OreSample> samples) arg)
 			{
 				if (tile.BlockID != 0)
@@ -136,7 +138,7 @@ namespace TC2.Base.Components
 					ref var block = ref tile.Block;
 					if (block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
 					{
-						for (int i = 0; i < arg.samples.Length; i++)
+						for (var i = 0; i < arg.samples.Length; i++)
 						{
 							ref var sample = ref arg.samples[i];
 							if (sample.block.id == 0 || sample.block.id == block.id)

@@ -35,26 +35,26 @@
 		{
 			type: "resource"
 			material: "copper_plate"
-			amount_min: 0.020
-			amount_max: 0.110
+			amount: 0.020
+			amount_extra: 0.090
 		}
 		{
 			type: "resource"
 			material: "glass"
-			amount_min: 0.010
-			amount_max: 0.140
+			amount: 0.010
+			amount_extra: 0.130
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount_min: 0.020
-			amount_max: 0.150
+			amount: 0.020
+			amount_extra: 0.130
 		}
 		{
 			type: "resource"
 			material: "scrap"
-			amount_min: 0.500
-			amount_max: 0.700
+			amount: 0.500
+			amount_extra: 0.200
 		}
 	]
 }

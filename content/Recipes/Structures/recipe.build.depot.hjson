@@ -33,6 +33,21 @@
 		
 		sound: "building_place"
 	}
+
+	construction:
+	{
+		flags: none
+		prefab: construction.9x6
+
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 50.000
+			}
+		]
+	}
 	
 	requirements:
 	[
@@ -44,7 +59,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 400.000
+			amount: 105.000
 		}
 		{
 			type: resource

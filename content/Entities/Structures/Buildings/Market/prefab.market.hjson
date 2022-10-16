@@ -65,6 +65,11 @@ light:
 	texture: "light_invsqr"
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu

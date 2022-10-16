@@ -11,6 +11,7 @@
 	type: powder
 	flags: manufactured, explosive, despawnable
 	mass_per_unit: 0.100
+	market_price: 5.000
 	quantity_max: 500.000
 	prefab: "resource.gunpowder"
 	

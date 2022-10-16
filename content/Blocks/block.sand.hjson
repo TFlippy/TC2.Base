@@ -16,8 +16,8 @@
 	texture: "terrain_sand"
 	pattern: "pattern_soil"
 	
-	texture_scale: 1.700
-	texture_overshoot: -1.500
+	texture_scale: 1.500
+	texture_overshoot: -0.500
 	
 	resources:
 	[

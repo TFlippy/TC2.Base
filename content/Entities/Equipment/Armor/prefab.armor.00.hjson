@@ -1,0 +1,84 @@
+$name: "Uniform (Heavy Infantry)"
+$desc:
+	'''
+	Heavy Imperial military uniform consisting of a trenchcoat, thick ballistic vest, shoulderpads and faulds. 
+	'''
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		mass: 5.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.050
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "armor.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	mask: "armor.00.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.700
+	intensity_b: 0.700
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+equipment:
+{
+	type: chest
+	flags: copy_frames
+
+	frame_default: 0
+	frame_equipped_male: 1
+	frame_equipped_female: 2
+}
+
+armor:
+{
+	toughness: 400.000
+	protection: 0.95
+	
+	knockback_modifier: 1.40
+	pain_modifier: 0.90
+
+	material_type: metal
+}
+
+norotate:
+{
+
+}
+
+packable:
+{
+
+}

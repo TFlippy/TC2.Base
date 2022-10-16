@@ -11,6 +11,7 @@
 	type: powder
 	flags: powder, smeltable, metal, despawnable
 	mass_per_unit: 0.615
+	market_price: 6.500
 	quantity_max: 250.000
 	prefab: "resource.recondite_powder"
 	

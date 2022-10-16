@@ -39,6 +39,8 @@ gun:
 	type: shotgun
 	feed: single
 
+	heuristic_range: 15.000
+
 	shake_amount: 0.350
 	
 	@inventory1:

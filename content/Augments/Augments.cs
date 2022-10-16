@@ -2,7 +2,7 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		// TODO: Split this into multiple files
 		private static void RegisterAugments(ref List<Augment.Definition> definitions)
@@ -393,7 +393,7 @@ namespace TC2.Base
 			(
 				identifier: "body.bulk",
 				category: "Crafting",
-				name: "Batch Production",
+				name: "Bulk Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 
 				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -428,7 +428,7 @@ namespace TC2.Base
 					recipe_new.max *= batch_size;
 					recipe_new.step *= batch_size;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 
@@ -506,7 +506,7 @@ namespace TC2.Base
 
 					var has_valid_material = false;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 
@@ -576,7 +576,7 @@ namespace TC2.Base
 						holdable.torque_multiplier *= MathF.Pow(1.00f - (ratio * 0.10f), 1.20f);
 					}
 
-					ref var attachable = ref context.GetComponent<Attachable.Data>();
+					ref var attachable = ref context.GetComponent<Attachment.Data>();
 					if (!attachable.IsNull())
 					{
 						attachable.force_multiplier *= MathF.Pow(1.00f - (ratio * 0.40f), 1.20f);
@@ -591,7 +591,7 @@ namespace TC2.Base
 					ref var material_scrap = ref Material.GetMaterial("scrap");
 					var total_mass = 0.00f;
 
-					for (int i = 0; i < context.requirements_new.Length; i++)
+					for (var i = 0; i < context.requirements_new.Length; i++)
 					{
 						ref var requirement = ref context.requirements_new[i];
 
@@ -787,15 +787,15 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Telescope.Data>
 			(
-				identifier: "telescope.magnifying_lenses",
+				identifier: "telescope.long_focus_lens",
 				category: "Telescope",
-				name: "Magnifying Lenses",
+				name: "Long-Focus Lens",
 				description: "Increases maximum range at cost of reduced field of view.",
 
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 4.00f);
+					value = Maths.Clamp(value, 1.00f, 2.00f);
 
 					return true;
 				},
@@ -804,7 +804,48 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Power", ref value, 1.00f, 4.00f);
+					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f);
+				},
+#endif
+
+				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) <= 4;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					data.zoom_modifier += data.zoom_modifier * 0.10f * value;
+					data.max_distance *= value;
+					data.zoom_min /= 0.50f + (value * 0.50f);
+					data.zoom_max /= 0.50f + (value * 0.50f);
+
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150, 10));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Telescope.Data>
+			(
+				identifier: "telescope.wide_angle_lens",
+				category: "Telescope",
+				name: "Wide-Angle Lens",
+				description: "Increases field of view.",
+
+				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 1.00f, 3.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f);
 				},
 #endif
 
@@ -817,9 +858,91 @@ namespace TC2.Base
 				{
 					ref var value = ref handle.GetData<float>();
 
-					data.max_distance *= value;
-					data.zoom_min /= 0.50f + (value * 0.50f);
-					data.zoom_max /= 0.50f + (value * 0.50f);
+					data.zoom_modifier += data.zoom_modifier * 0.05f * value;
+					data.max_distance /= 0.50f + (value * 0.50f);
+					data.zoom_min += (value * 0.50f);
+					data.zoom_max *= value;
+
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250, 5));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Telescope.Data>
+			(
+				identifier: "telescope.precise_optics",
+				category: "Telescope",
+				name: "High-Precision Optics",
+				description: "Reduces side-effects caused by high magnification.",
+
+				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.00f, 1.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+				},
+#endif
+
+				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) <= 3;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					data.zoom_modifier = Maths.Lerp(data.zoom_modifier, 0.50f, value * 0.90f);
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 120, (byte)MathF.Pow(7, 1.00f + (value * 1.50f))));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Telescope.Data>
+			(
+				identifier: "telescope.adjustable_optics",
+				category: "Telescope",
+				name: "Adjustable Optics",
+				description: "Improves scope's adjustment speed.",
+
+				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.00f, 1.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+				},
+#endif
+
+				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) <= 2;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+
+					data.zoom_modifier = MathF.Pow(data.zoom_modifier, 1.00f + (value * 0.02f));
+					data.shake_modifier += data.shake_modifier * value * 0.40f;
+					data.speed *= 1.00f + (value * 3.00f);
+					data.zoom_min /= 1.00f + (value * 0.50f);
+					data.zoom_max *= 1.00f + (value * 0.25f);
+
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150, 7));
 				}
 			));
 
@@ -1108,6 +1231,94 @@ namespace TC2.Base
 					{
 						consumable.release_rate *= value;
 					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.attachable",
+				category: "Utility",
+				name: "Attachment Connector",
+				description: "Enables mounting this item to attachment slots.",
+
+				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset.X = Maths.Clamp(offset.X, -1.00f, 1.00f);
+					offset.Y = Maths.Clamp(offset.Y, -1.00f, 1.00f);
+					offset = Maths.Snap(offset, 0.125f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<Attachment.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-1.00f, -1.00f), max: new Vector2(1.00f, 1.00f));
+
+					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+					//GUI.SameLine();
+					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.attachable", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var attachable = ref context.GetOrAddComponent<Attachment.Data>();
+					if (!attachable.IsNull())
+					{
+						attachable.offset = offset;
+					}
+				},
+
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<LandMine.Data>
+			(
+				identifier: "landmine.safety",
+				category: "Utility",
+				name: "Safety Markings",
+				description: "Prevents faction members from stepping on the land mine.",
+
+				can_add: static (ref Augment.Context context, in LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.flags |= LandMine.Flags.Faction;
+				},
+
+				apply_1: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("paper", 1));
 				}
 			));
 		}

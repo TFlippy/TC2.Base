@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 			public byte frame_pain = default;
 			public byte frame_dead = default;
 
-			[Save.Ignore, Net.Ignore] public float next_pain = default;
+			[Save.Ignore, Net.Ignore] public float next_sound = default;
 
 			public Data()
 			{
@@ -61,17 +61,17 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		{
-			if (info.WorldTime > head.next_pain)
-			{
-				//App.WriteLine(organic_state.pain_shared);
-				if (organic_state.pain_shared > 500.00f && organic_state.consciousness_shared > 0.30f)
-				{
-					ref var region = ref info.GetRegion();
-					var random = XorRandom.New();
-					Sound.Play(ref region, head.sound_pain, transform.position, volume: 0.20f + Maths.Clamp(organic_state.pain_shared / 2000.00f, 0.20f, 0.50f), pitch: random.NextFloatRange(0.70f, 1.10f) * (1.00f + Maths.Clamp((organic_state.pain_shared_new / 2000.00f), 0.00f, 0.10f)) * head.voice_pitch);
-					head.next_pain = info.WorldTime + (Maths.Clamp(10.00f - (organic_state.pain_shared / 300.00f), 5.00f, 10.00f) * random.NextFloatRange(0.80f, 1.30f));
-				}
-			}
+			//if (info.WorldTime > head.next_sound)
+			//{
+			//	//App.WriteLine(organic_state.pain_shared);
+			//	if (organic_state.pain_shared > 500.00f && organic_state.consciousness_shared > 0.30f)
+			//	{
+			//		ref var region = ref info.GetRegion();
+			//		var random = XorRandom.New();
+			//		Sound.Play(ref region, head.sound_pain, transform.position, volume: 0.20f + Maths.Clamp(organic_state.pain_shared / 2000.00f, 0.20f, 0.50f), pitch: random.NextFloatRange(0.70f, 1.10f) * (1.00f + Maths.Clamp((organic_state.pain_shared_new / 2000.00f), 0.00f, 0.10f)) * head.voice_pitch);
+			//		head.next_sound = info.WorldTime + (Maths.Clamp(10.00f - (organic_state.pain_shared / 300.00f), 5.00f, 10.00f) * random.NextFloatRange(0.80f, 1.30f));
+			//	}
+			//}
 		}
 #endif
 
@@ -94,13 +94,13 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;

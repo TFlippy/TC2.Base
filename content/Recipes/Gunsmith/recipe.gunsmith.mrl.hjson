@@ -1,0 +1,57 @@
+{
+	name: "MRL"
+	desc:
+		'''
+		A heavy and unwieldy rocket launcher.
+		Good at blowing up stuff from distance.
+		Needs to be placed on mount.
+		'''
+	
+	icon:
+	{
+		texture: "mrl"
+	}
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: gunsmith
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 30.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 40.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 1200.000
+			difficulty: 6.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 1750.000
+			difficulty: 12.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "mrl"
+			amount: 1.000
+		}
+	]
+}

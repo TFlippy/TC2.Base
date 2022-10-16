@@ -1,0 +1,67 @@
+$name: "Shitty Chair (Wood)"
+$desc:
+	'''
+	Closer inspection reveals that it also serves as a latrine.
+	'''
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points:
+		[
+			[0.625, 0.750]
+			[-0.500, 0.750]
+			[-0.500, -0.750]
+			[0.250, -0.750]
+		]
+		offset: [0.000, 0.000]
+		mass: 10.000
+		friction: 0.950
+		elasticity: 0.300
+		material: wood
+		layer: entity
+		mask: world
+	}
+}
+
+health:
+{
+	max: 1500.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: none
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.chair.wood.01"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+vehicle:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [0.125, -0.250]
+	}
+}

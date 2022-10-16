@@ -1,0 +1,41 @@
+{
+	name: "Pervitin 50mg ER"
+	description: "Extended-release 50mg methamphetamine tablet."
+	prefab: "pill"
+	recipe: "refinery.pill"
+	augments:
+	[
+		{
+			identifier: "consumable.meth"
+			data: 1112014848
+		}
+		{
+			identifier: "pill.extended_release"
+			data: 1017370378
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}

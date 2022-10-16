@@ -4,11 +4,11 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.500]
+		offset: [0.000, 0.250]
 		mass: 50.000
-		radius: 0.400
-		friction: 0.950
-		elasticity: 0.200
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
 		material: powder
 		layer: entity, solid, resource
 		mask: world
@@ -42,7 +42,7 @@ hoverable:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	offset: [0.000, 0.750]
 }
 
 norotate:
@@ -52,15 +52,22 @@ norotate:
 
 health:
 {
-	max: 100.000
+	max: 5000.000
 }
 
 explosive:
 {
-	radius: 20.000
-	power: 6.000
-	damage_entity: 8000.000
-	damage_terrain: 10000.000
-	smoke_amount: 1.800
+	radius: 24.000
+	power: 5.000
+	damage_entity: 18000.000
+	damage_terrain: 50000.000
+	smoke_amount: 1.200
+	smoke_lifetime_multiplier: 1.200
+	smoke_velocity_multiplier: 1.700
+	flash_duration_multiplier: 0.500
+	flash_intensity_multiplier: 0.300
+	volume: 3.000
 	pitch: 1.500
+	health_threshold: 0.999
+	flags: explode_when_primed
 }

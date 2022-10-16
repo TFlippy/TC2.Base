@@ -29,6 +29,7 @@ health:
 holdable:
 {
 	offset: [0.000, 0.000]
+	flags: disable_control
 }
 
 animated.renderer:
@@ -73,10 +74,10 @@ control:
 
 }
 
-threat:
-{
+// threat:
+// {
 
-}
+// }
 
 norotate:
 {
@@ -140,11 +141,11 @@ vehicle:
 		max_bias: 8.000
 	}
 
-	attachment:
+	attachment.slot:
 	{
 		name: "Mount"
 
-		flags: none
-		flags_editable: locked, disabled, hold
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, hold, invert
 	}
 }

@@ -1,3 +1,8 @@
+$name: "Wrench"
+$desc:
+	'''
+	Can be used to place belts, pipes, ducts and deconstruct or repair buildings.
+	'''
 $tags: []
 
 control:

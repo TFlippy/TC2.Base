@@ -1,3 +1,12 @@
+$name: "Steam Engine"
+$desc:
+	'''
+	Standard Zimrman-design stationary steam engine.
+
+	Originally introduced in 712 S.D.
+	this model is still widely used throughout Imperial lands, 
+	owing to its ease of use and ability to run on almost any sort of fuel.
+	'''
 $tags: []
 
 body:
@@ -34,10 +43,15 @@ steamengine:
 {
 	piston_offset: [-1.000, 0.125]
 	steam_offset: [-2.500, -3.000]
-	steam_interval: 0.800
+	steam_interval: 0.200
 	piston_radius: 0.700
 	speed_modifier: 0.750
 	force: 15000.000
+	volume_multiplier: 0.200
+	pitch_multiplier: 0.400
+	max_acceleration: 3.000
+	speed_max: 20.000
+	efficiency: 0.300
 	
 	@animated.renderer:
 	{
@@ -60,7 +74,13 @@ steamengine:
 
 steamengine.state:
 {
-	target_speed: 10.000
+	@sound.emitter:
+	{
+		file: "tractor.steam.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+	}
 }
 
 port:
@@ -75,6 +95,8 @@ burner:
 	energy_loss: 100000.000
 	efficiency: 0.400
 	drain_multiplier: 1.500
+	volume_modifier: 0.800
+	pitch_modifier: 0.500
 	
 	@inventory1:
 	{
@@ -90,6 +112,8 @@ burner:
 		file: "furnace_loop"
 		volume: 0.000
 		pitch: 0.500
+		size: 0.700
+		size_max_modifier: 0.600
 	}
 }
 
@@ -101,7 +125,7 @@ burner.state:
 axle:
 {
 	offset: [2.750, 0.000]
-	mass: 10.000
+	mass: 100.000
 	friction: 0.200
 	radius_a: 1.250
 	radius_b: 1.250
@@ -125,5 +149,5 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	window_size: [300.000, 200.000]
 }

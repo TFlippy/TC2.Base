@@ -15,6 +15,7 @@
 	type: metal
 	flags: manufactured
 	mass_per_unit: 0.2575
+	market_price: 10.000
 	quantity_max: 250.000
 	prefab: "resource.machine_parts"
 	

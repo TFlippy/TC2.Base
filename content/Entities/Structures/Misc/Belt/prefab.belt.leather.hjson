@@ -1,0 +1,43 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		mass: 10.000
+		radius: 0.500
+		friction: 0.990
+		elasticity: 0.700
+		material: leather
+		layer: entity, belt, ignore_melee
+		mask: world
+	}
+}
+
+belt:
+{
+	force: 8000.000
+	efficiency: 0.750
+	speed_max: 20.000
+}
+
+belt.renderer:
+{
+	thickness: 0.275
+	z: 0.480
+	texture: "belt.leather"
+}
+
+transform:
+{
+
+}
+
+dismantlable:
+{
+
+}

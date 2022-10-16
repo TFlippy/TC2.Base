@@ -2,7 +2,7 @@
 
 namespace TC2.Base
 {
-	public sealed partial class ModInstance
+	public sealed partial class BaseMod
 	{
 		private static void RegisterMedkitAugments(ref List<Augment.Definition> definitions)
 		{

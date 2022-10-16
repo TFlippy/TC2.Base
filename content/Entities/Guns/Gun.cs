@@ -1,7 +1,4 @@
-﻿
-using Keg.Engine;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Gun
 	{
@@ -160,6 +157,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
 
+			[Statistics.Info("Barrel Count", description: "Number of barrels.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			public int barrel_count = 1;
+
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 
@@ -174,6 +174,8 @@ namespace TC2.Base.Components
 			public float smoke_amount = 1.00f;
 
 			public float shake_amount = 0.20f;
+
+			public float heuristic_range = 30.00f;
 
 			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public int projectile_count = 1;
@@ -225,7 +227,7 @@ namespace TC2.Base.Components
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(world_position_target), size: new(100, 100)))
+				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(this.world_position_target), size: new(100, 100)))
 				{
 					if (window.show)
 					{
@@ -349,7 +351,7 @@ namespace TC2.Base.Components
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 				}
-				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKey(Mouse.Key.Left))
+				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAll(Gun.Hints.Loaded))
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
@@ -423,7 +425,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
-		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional] ref Overheat.Data overheat)
+		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional(true)] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
 			ref var region = ref info.GetRegion();
@@ -462,23 +464,29 @@ namespace TC2.Base.Components
 
 					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
-					if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
-					{
-						var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.10f, 1.00f);
-						overheat.heat_current += heat;
-
-						var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
-						if (heat_excess > 0.00f)
-						{
-							failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
-							stability = Maths.Clamp(stability - (heat_excess * 0.005f), 0.00f, 1.00f);
-						}
-
-						overheat.Sync(entity);
-					}
-
 					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
+
+					if (!overheat.IsNull())
+					{
+						if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
+						{
+							var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.10f, 1.00f);
+							overheat.heat_current += heat;
+
+							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
+							if (heat_excess > 0.00f)
+							{
+								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
+								stability = Maths.Clamp(stability - (heat_excess * 0.005f), 0.00f, 1.00f);
+
+								angle_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.01f);
+								velocity_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.005f);
+							}
+
+							overheat.Sync(entity);
+						}
+					}
 
 					{
 						for (var i = 0; i < count; i++)
@@ -543,7 +551,7 @@ namespace TC2.Base.Components
 							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
 							smoke_amount = 0.30f,
 							sparks_amount = 2.00f,
-							owner_entity = body.GetParent()
+							ent_owner = body.GetParent()
 						};
 
 						region.SpawnPrefab("explosion", transform.position).ContinueWith(x =>
@@ -555,7 +563,7 @@ namespace TC2.Base.Components
 								explosion.radius = explosion_data.radius;
 								explosion.damage_entity = explosion_data.damage_entity;
 								explosion.damage_terrain = explosion_data.damage_terrain;
-								explosion.owner_entity = explosion_data.owner_entity;
+								explosion.ent_owner = explosion_data.ent_owner;
 								explosion.smoke_amount = explosion_data.smoke_amount;
 
 								explosion.Sync(x);
@@ -683,6 +691,7 @@ namespace TC2.Base.Components
 				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
+
 					//gun_state.stage = Gun.Stage.Reloading;
 					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 					entity.SyncComponent(ref gun_state);

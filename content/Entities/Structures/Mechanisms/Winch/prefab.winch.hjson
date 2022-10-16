@@ -1,24 +1,27 @@
-$tags: []
+c$tags: []
 
 body:
 {
-	type: static
+	type: dynamic
 	
-	@shape.box:
+	@shape.line:
 	{
-		size: [2.000, 2.000]
+		a: [-0.125, 0.000]
+		b: [0.375, 0.000]
+		radius: 0.625
+		mass: 20.000
 		offset: [0.000, 0.000]
-		friction: 0.990
-		elasticity: 0.030
+		friction: 0.750
+		elasticity: 0.400
 		material: metal
-		layer: entity, building, no_overlapped_placement, ignore_melee, ignore_bullet
+		layer: entity, solid, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
 
 health:
 {
-	max: 4000.000
+	max: 10000.000
 }
 
 animated.renderer:
@@ -27,27 +30,7 @@ animated.renderer:
 	{
 		texture: "winch"
 	}
-	z: -150.000
-}
-
-axle:
-{
-	offset: [0.000, 0.000]
-	mass: 5.000
-	friction: 0.800
-	radius_a: 1.000
-	radius_b: 1.000
-	radius_inner: 0.750
-	radius_outer: 1.000
-	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "wheel_1000.iron"
-		}
-		z: -50.000
-	}
+	z: 200.000
 }
 
 transform:
@@ -55,16 +38,56 @@ transform:
 
 }
 
+control:
+{
+
+}
+
 winch:
 {
-	length: 30.000
+	length_min: 0.500
+	length_max: 30.000
+	speed: 3.000
+
+	@sound.emitter:
+	{
+		file: "winch.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 0.500
+	}
+	
+	@sound.mixer:
+	{
+		volume_modifier: 0.500
+		pitch_modifier: 0.200
+		volume_min: 0.000
+		pitch_min: 0.500
+		volume_lerp_a: 1.000
+		volume_lerp_b: 1.000
+		pitch_lerp_a: 0.250
+		pitch_lerp_b: 0.250
+	}
 }
 
 rope.renderer:
 {
 	texture: "rope"
-	thickness: 0.125
+	thickness: 0.150
 	scale: 8.000
+	z: 1000.000
+}
+
+holdable:
+{
+	radius: 4.000
+	offset: [0.000, 0.000]
+	flags: none
+}
+
+attachment:
+{
+	offset: [0.000, 0.000]
 }
 
 joint.base:
@@ -76,79 +99,79 @@ joint.base:
 joint.rope2:
 {
 	distance: 30.000
-	offset_a: [0.800, 0.000]
-	offset_b: [0.000, -0.500]
-	max_force: 5000000000.000
+	offset_a: [0.600, 0.100]
+	offset_b: [-0.500, 0.000]
+	max_force: 500000.000
 }
 
 +hook|rope:
 {
 	$tags: []
 	
-	transform:
+	body:
 	{
-	
+		type: dynamic
+		
+		@shape.line:
+		{
+			a: [-0.700, 0.000]
+			b: [0.700, 0.000]
+			mass: 4.000
+			radius: 0.250
+			friction: 0.450
+			elasticity: 0.500
+			material: metal
+			layer: entity, solid
+			mask: world
+			exclude: dynamic
+		}
 	}
 	
+	health:
+	{
+		max: 50000.000
+	}
+
 	animated.renderer:
 	{
 		sprite:
 		{
 			texture: "winch.hook"
 		}
-		z: -50.000
+		z: 1100.000
 	}
 	
-	body:
+	transform:
 	{
-		@shape.line:
-		{
-			a: [0.000, -0.700]
-			b: [0.000, 0.700]
-			mass: 5.000
-			radius: 0.250
-			friction: 0.950
-			elasticity: 0.100
-			material: metal
-			layer: entity, solid
-			mask: world
-		}
-	}
 	
+	}
+
 	holdable:
 	{
-		radius: 0.000
-		flags: disable_parent_facing
+		radius: 4.000
+		flags: disable_rotation
+		offset: [-0.500, 0.000]
 	}
-	
-	interactable:
+
+	// attachment:
+	// {
+	// 	offset: [-0.500, 0.000]
+	// 	flags: none
+	// }
+
+	control:
 	{
-	
+		
 	}
-	
-	joint.base:
+
+	aimable:
 	{
-		offset_a: [0.000, 0.500]
-		max_force: 100000000.000
-		max_torque: 1000.000
-		flags: no_wrap, no_stress, no_aiming
+
 	}
-	
-	joint.pivot:
+
+	sticky:
 	{
-		max_bias: 8.000
-	}
-	
-	joint.gear:
-	{
-		rotation: 1.570
-		min: 1.570
-		max: 1.570
-		// max_bias: 8.000
-	}
-	
-	attachment:
-	{
-		flags: use_center_of_gravity
+		max_force: 50000.000
+		offset: [0.625, 0.000]
 	}
 }

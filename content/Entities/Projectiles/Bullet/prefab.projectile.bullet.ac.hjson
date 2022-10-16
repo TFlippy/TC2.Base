@@ -2,12 +2,13 @@ $tags: []
 
 projectile:
 {
-	damage_base: 900.000
-	damage_bonus: 300.000
-	lifetime: 2.000
+	damage_base: 1200.000
+	damage_bonus: 400.000
+	lifetime: 10.000
 	damage_type: bullet_ac
 	size: 0.350
 	ricochet_count: 2
+	damp: 0.980
 }
 
 projectile.renderer:
@@ -20,16 +21,17 @@ transform:
 
 }
 
-explosive:
-{
-	radius: 2.000
-	power: 2.000
-	damage_type: bullet_hc
-	damage_entity: 1000.000
-	damage_terrain: 1500.000
-	smoke_amount: 0.200
-	sparks_amount: 0.300
-	volume: 0.700
-	pitch: 1.100
-	flags: primed
-}
+// explosive:
+// {
+// 	radius: 2.000
+// 	power: 2.000
+// 	damage_type: bullet_musket
+// 	// damage_entity: 1000.000
+// 	damage_entity: 0.000
+// 	damage_terrain: 1800.000
+// 	smoke_amount: 0.200
+// 	sparks_amount: 0.300
+// 	volume: 0.700
+// 	pitch: 1.100
+// 	flags: primed
+// }

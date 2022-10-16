@@ -37,6 +37,8 @@ gun:
 	type: rifle
 	feed: breech
 
+	heuristic_range: 20.000
+
 	shake_amount: 0.400
 
 	sound_volume: 1.900

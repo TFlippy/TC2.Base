@@ -47,7 +47,7 @@ transform:
 fuse:
 {
 	time: 5.000
-	failure_chance: 0.200
+	failure_chance: 0.050
 	sound: "fuse_set"
 	flags: sparkle
 	
@@ -72,9 +72,16 @@ explosive:
 {
 	radius: 4.000
 	power: 6.000
-	damage_entity: 4000.000
-	damage_terrain: 18000.000
+	damage_entity: 10000.000
+	damage_terrain: 12000.000
 	smoke_amount: 1.200
+	sparks_amount: 2.000
+	smoke_lifetime_multiplier: 1.500
+	smoke_velocity_multiplier: 1.200
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 0.200
+	volume: 1.000
+	pitch: 2.000
 }
 
 packable:

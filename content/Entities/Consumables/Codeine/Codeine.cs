@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 		{
 			ref var codeine_new = ref data.ent_organic.GetOrAddComponent<Codeine.Effect>(sync: true);
 
-			var ratio = Maths.Ratio(codeine.amount, codeine_new.amount);
+			var ratio = Maths.SumRatio(codeine.amount, codeine_new.amount);
 
 			codeine_new.amount += codeine.amount;
 			codeine_new.release_rate_target = Maths.Lerp(codeine_new.release_rate_target + (codeine_new.release_rate_target * ratio), consumable.release_rate, ratio);

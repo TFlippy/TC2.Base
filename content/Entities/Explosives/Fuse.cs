@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 
 			[Net.Ignore] public float failure_time = default;
 
-			[Statistics.Info("Failure Chance", format: "{0:0.##}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Failure Chance", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_chance = 0.00f;
 
 			public Vector2 sparkle_offset = new Vector2(0.40f, -0.25f);

@@ -1,8 +1,8 @@
 {
-	name: "Track [WIP]"
+	name: "Rail [WIP]"
 	desc:
 		'''
-		TODO: Desc
+		A rail with a sliding mount on it.
 		'''
 	
 	icon:
@@ -22,7 +22,8 @@
 		type: line
 		flags: allow_placement_over_buildings
 		
-		length_max: 20.000
+		length_min: 1.000
+		length_max: 32.000
 		length_step: 0.500
 
 		size: [0.500, 0.500]
@@ -36,12 +37,12 @@
 		{
 			type: "resource"
 			material: "iron_ingot"
-			amount: 3.500
+			amount: 3.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 2.000
+			amount: 1.500
 		}
 	]
 	

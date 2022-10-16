@@ -47,14 +47,14 @@
 		{
 			type: "resource"
 			material: "nitroglycerine"
-			amount_min: 60.000
-			amount_max: 100.000
+			amount: 60.000
+			amount_extra: 40.000
 		}
 		{
 			type: "resource"
 			material: "sludge"
-			amount_min: 15.000
-			amount_max: 45.000
+			amount: 15.000
+			amount_extra: 30.000
 		}
 	]
 }

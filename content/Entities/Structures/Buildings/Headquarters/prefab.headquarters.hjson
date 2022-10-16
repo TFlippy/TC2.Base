@@ -72,6 +72,11 @@ headquarters:
 
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: no_menu
@@ -102,4 +107,15 @@ depot:
 	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
 	shipping_fee_base: 13.000
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	flags: faction
 }

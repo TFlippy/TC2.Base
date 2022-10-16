@@ -27,14 +27,14 @@ gun:
 	muzzle_offset: [2.500, 0.000]
 	sound_shoot: "autocannon_shoot"
 	sound_reload: "cannon_reload"
-	velocity_multiplier: 900.000
+	velocity_multiplier: 800.000
 	jitter_multiplier: 0.500
 	damage_multiplier: 7.000
-	recoil_multiplier: 30.000
+	recoil_multiplier: 80.000
 	reload_interval: 3.000
-	cycle_interval: 0.250
+	cycle_interval: 0.600
 	failure_rate: 0.002
-	max_ammo: 30.000
+	max_ammo: 10.000
 	sound_volume: 3.000
 	sound_size: 2.500
 	projectile_count: 1
@@ -79,9 +79,9 @@ holdable:
 	torque_multiplier: 1.000
 }
 
-attachable:
+attachment:
 {
-	offset: [-0.900, 0.100]
+	offset: [-1.500, 0.100]
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000

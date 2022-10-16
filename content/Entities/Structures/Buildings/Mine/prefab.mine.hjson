@@ -1,5 +1,10 @@
 $name: "Mine"
-$desc: "Seems to be empty at the moment."
+$desc:
+	'''
+	A place where miners spend the rest of their lives digging rock.
+	
+	Periodically produces shipments containing various ores.
+	'''
 $tags: []
 
 body:
@@ -21,7 +26,7 @@ body:
 
 health:
 {
-	max: 20000.000
+	max: 100000.000
 }
 
 animated.renderer:
@@ -59,6 +64,11 @@ nameable:
 	flags: no_rename, randomize
 }
 
+faction:
+{
+
+}
+
 claimable:
 {
 	flags: allow_enemy_unclaim
@@ -66,13 +76,13 @@ claimable:
 
 mine:
 {
-	amount_multiplier: 3.000
+	amount_multiplier: 8.000
 }
 
 mine.state:
 {
-	work_current: 900.000
-	work_required: 900.000
+	work_current: 1500.000
+	work_required: 1500.000
 }
 
 depot:
@@ -82,4 +92,6 @@ depot:
 	flags: allow_withdraw, allow_deposit, allow_send, allow_local, local, public
 
 	shipping_fee_base: 25.000
+	shipping_fee_per_kg: 0.500
+	// shipping_fee_per_km: 0.070
 }

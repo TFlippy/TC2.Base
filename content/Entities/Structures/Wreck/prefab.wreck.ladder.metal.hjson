@@ -20,7 +20,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, climbable, building, no_overlapped_placement
+		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
 		mask: world
 	}
 }
@@ -42,4 +42,23 @@ animated.renderer:
 transform:
 {
 
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "ladder.metal.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "ladder.metal.cap"
+	}
+
+	flags: mirror_cap_b
+	
+	a: [0.000, -2.500]
+	b: [0.000, 2.500]
+	cap_offset: 0.500
 }

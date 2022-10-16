@@ -1,0 +1,58 @@
+{
+	name: "Machine Gun Ammo (Match grade)"
+	desc: "Ammunition for machine guns and other heavy weapons. Increased damage and muzzle velocity, great accuracy. "
+	
+	icon:
+	{
+		texture: "resource.ammo_mg.match"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 500
+	step: 10
+	type: workshop
+	tags: munitions
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.160
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.050
+		}
+		{
+			type: "resource"
+			material: "nitrocellulose"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 150.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_mg.match"
+			amount: 1.000
+		}
+	]
+}

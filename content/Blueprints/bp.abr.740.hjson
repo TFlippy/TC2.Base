@@ -1,0 +1,41 @@
+{
+	name: "ABR 740"
+	description: "Reliable automatic battle rifle with a bayonet."
+	prefab: "battle_rifle"
+	recipe: "gunsmith.battle_rifle"
+	augments:
+	[
+		{
+			identifier: "gun.gas_operation"
+			data: 0
+		}
+		{
+			identifier: "gun.rapid_fire_mechanism"
+			data: 0
+		}
+		{
+			identifier: "gun.recoil_reduction"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1073741824
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 0
+		}
+		{
+			identifier: "gun.automatic"
+			data: 0
+		}
+		{
+			identifier: "gun.bayonet"
+			data: 4503599628410683392
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 9223372036854775808
+		}
+	]
+}

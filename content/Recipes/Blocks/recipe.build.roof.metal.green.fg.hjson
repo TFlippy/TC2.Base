@@ -1,0 +1,53 @@
+{
+	name: "Metal Roof (Green)"
+	desc:
+		'''
+		A fancy green metal roof built to the Imperial standard.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [12, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: 6.000
+	
+	placement:
+	{
+		type: line
+		flags: none
+		
+		size: [0.750, 0.750]
+		
+		cooldown: 0.500
+		min_claim: 1.000
+		
+		length_max: 5.000
+		length_step: 0.125
+		
+		sound: "metal_place_01"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "iron_plate"
+			amount: 0.050
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "roof.metal.green"
+			tile_flags: solid
+		}
+	]
+}

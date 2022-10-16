@@ -11,6 +11,7 @@
 	type: metal
 	flags: manufactured, metal
 	mass_per_unit: 0.250
+	market_price: 5.000
 	quantity_max: 100.000
 	prefab: "resource.iron_plate"
 	

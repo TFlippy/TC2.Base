@@ -51,12 +51,24 @@ spawner:
 	filter_tag: "badger"
 }
 
-faction.new:
+faction:
 {
-	tag: "BAD"
-	name: "Badgers"
-	color_a: "0xff0030ff"
-	color_b: "0xff080a52"
-
-	id: 201
+	id: "badger"
 }
+
+claimer:
+{
+	radius: 12.000
+	strength: 1.300
+	falloff: 0.500
+}
+
+// faction.new:
+// {
+// 	tag: "BAD"
+// 	name: "Badgers"
+// 	color_a: "0xff0030ff"
+// 	color_b: "0xff080a52"
+
+// 	id: 201
+// }
