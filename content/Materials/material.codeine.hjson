@@ -11,6 +11,7 @@
 	type: powder
 	flags: manufactured
 	mass_per_unit: 0.100
+	market_price: 130.000
 	quantity_max: 500.000
 	prefab: "resource.codeine"
 	
