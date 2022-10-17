@@ -24,13 +24,13 @@ body:
 
 gun:
 {
-	muzzle_offset: [2.500, 0.000]
+	muzzle_offset: [2.750, -0.0625]
 	sound_shoot: "autocannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 800.000
 	jitter_multiplier: 0.500
 	damage_multiplier: 7.000
-	recoil_multiplier: 1.000
+	recoil_multiplier: 1.300
 	reload_interval: 3.000
 	cycle_interval: 0.600
 	failure_rate: 0.002
@@ -44,6 +44,8 @@ gun:
 	type: autocannon
 	feed: magazine
 
+	smoke_size: 5.000
+	smoke_amount: 2.000
 	shake_amount: 0.600
 	
 	@inventory1:
