@@ -19,7 +19,7 @@
 	type: metal
 	flags: manufactured, ammo, ammo_rocket
 	mass_per_unit: 3.000
-	quantity_max: 1.000
+	quantity_max: 4.000
 	prefab: "resource.ammo_rocket"
 	
 	projectile_count: 1
