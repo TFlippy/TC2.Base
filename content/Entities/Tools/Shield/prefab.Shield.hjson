@@ -37,6 +37,11 @@ faction.colorable:
 	intensity_b: 0.500
 }
 
+faction:
+{
+	
+}
+
 holdable:
 {
 	force_multiplier: 20.000

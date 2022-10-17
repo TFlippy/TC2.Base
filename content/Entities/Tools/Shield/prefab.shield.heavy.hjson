@@ -37,6 +37,11 @@ faction.colorable:
 	intensity_b: 0.500
 }
 
+faction:
+{
+	
+}
+
 holdable:
 {
 	force_multiplier: 20.000
@@ -48,7 +53,7 @@ holdable:
 
 health:
 {
-	max: 9000.000
+	max: 7000.000
 }
 
 armor:
