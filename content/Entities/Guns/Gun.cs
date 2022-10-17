@@ -98,7 +98,7 @@
 			//Can_Shoot = 1 << 1,
 			Cycled = 1 << 2,
 			Loaded = 1 << 3,
-			Wants_Reload = 1 << 4
+			Wants_Reload = 1 << 4,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -469,7 +469,7 @@
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
 
-					App.WriteLine($"{body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f}; {recoil_force.Length()}");
+					//App.WriteLine($"{body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f}; {recoil_force.Length()}");
 
 					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
 					//body.AddForce(recoil_force); //, pos_w_offset);

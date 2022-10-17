@@ -71,8 +71,13 @@ gun:
 
 gun.state:
 {
-
+	
 }
+
+// backblast:
+// {
+// 	exhaust_offset: [-1.500, -0.375]
+// }
 
 interactable:
 {
