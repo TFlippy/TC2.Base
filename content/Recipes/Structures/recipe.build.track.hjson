@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "track.cap"
+		texture: "track.icon"
 	}
 	
 	type: build
