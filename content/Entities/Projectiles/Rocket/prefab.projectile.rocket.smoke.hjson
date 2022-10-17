@@ -53,8 +53,8 @@ rocket:
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 4.000]
-		offset: [0.000, 0.000]
-		scale: [64.000, 64.000]
+		offset: [-6.000, 0.000]
+		scale: [64.000, 32.000]
 		intensity: 1.000
 		texture: "light_invsqr"
 	}
