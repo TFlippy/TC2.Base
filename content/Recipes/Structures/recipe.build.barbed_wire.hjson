@@ -22,6 +22,7 @@
 		type: line
 		flags: allow_placement_over_buildings
 		
+		length_min: 1.000
 		length_max: 8.000
 		length_step: 0.250
 

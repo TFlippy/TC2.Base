@@ -29,6 +29,7 @@
 		min_support: 0.150
 		min_claim: 1.000
 
+		length_min: 1.000
 		length_max: 7.500
 		length_step: 0.625
 		
