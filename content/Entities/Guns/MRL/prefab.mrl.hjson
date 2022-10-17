@@ -6,7 +6,7 @@ body:
 	{
 		size: [2.500, 1.375]
 		offset: [0.125, -0.250]
-		mass: 80.000
+		mass: 500.000
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
@@ -35,7 +35,7 @@ gun:
 	velocity_multiplier: 60.000
 	jitter_multiplier: 1.300
 	damage_multiplier: 1.000
-	recoil_multiplier: 2.000
+	recoil_multiplier: 0.500
 	reload_interval: 2.000
 	cycle_interval: 0.500
 	failure_rate: 0.000
