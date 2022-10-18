@@ -55,35 +55,35 @@ attachment:
 	torque_multiplier: 1.000
 }
 
-joint.base:
-{
-	offset_a: [4.000, 0.000]
-	max_force: 1000000.000
-	max_torque: 10000.000
-	flags: no_wrap, no_stress, control_write, force_facing
-}
+// joint.base:
+// {
+// 	offset_a: [4.000, 0.000]
+// 	max_force: 1000000.000
+// 	max_torque: 10000.000
+// 	flags: no_wrap, no_stress, control_write, force_facing
+// }
 
-joint.pivot:
-{
-	error_bias: 0.01
-	max_bias: 40.000
-}
+// joint.pivot:
+// {
+// 	error_bias: 0.01
+// 	max_bias: 40.000
+// }
 
-joint.motor:
-{
-	force: 10.000
-	speed: 0.000
-	error_bias: 0.500
-}
+// joint.motor:
+// {
+// 	force: 10.000
+// 	speed: 0.000
+// 	error_bias: 0.500
+// }
 
-joint.rotarylimit:
-{
-	max_torque: 100000.000
-	min: -3.926
-	max: 0.785
-	max_bias: 20.000
-	error_bias: 0.0001
-}
+// joint.rotarylimit:
+// {
+// 	max_torque: 100000.000
+// 	min: -3.926
+// 	max: 0.785
+// 	max_bias: 20.000
+// 	error_bias: 0.0001
+// }
 
 // joint.gear:
 // {
@@ -93,9 +93,16 @@ joint.rotarylimit:
 // 	max: 30.000
 // }
 
-attachment.slot:
+// attachment.slot:
+// {
+// 	flags: keyboard_write, mouse_write
+// }
+
+interactable_data:
 {
-	flags: keyboard_write, mouse_write
+	window_size: [192.000, 136.000]
+	window_offset: [0.000, 0.000]
+	flags: none
 }
 
 resizable:
@@ -117,4 +124,50 @@ resizable:
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]
 	cap_offset: 0.000
+}
+
+vehicle:
+{
+
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [4.000, 0.000]
+		max_force: 1000000.000
+		max_torque: 10000.000
+		flags: no_wrap, no_stress, control_write, force_facing
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 40.000
+	}
+
+	joint.motor:
+	{
+		force: 10.000
+		speed: 0.000
+		error_bias: 0.500
+	}
+
+	joint.rotarylimit:
+	{
+		max_torque: 100000.000
+		min: -3.926
+		max: 0.785
+		max_bias: 20.000
+		error_bias: 0.0001
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: keyboard_write, mouse_write
+	}
 }

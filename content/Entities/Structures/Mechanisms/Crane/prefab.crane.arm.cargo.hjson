@@ -52,42 +52,6 @@ attachment:
 	torque_multiplier: 1.000
 }
 
-joint.base:
-{
-	offset_a: [4.000, 0.000]
-	max_force: 10000000.000
-	max_torque: 200000.000
-	flags: no_wrap, no_stress, control_write, force_facing
-
-	@light:
-	{
-		color: [0.000, 1.000, 1.000, 3.000]
-		offset: [4.000, 0.000]
-		scale: [6.000, 4.000]
-		intensity: 1.000
-		texture: "essence.glow"
-	}
-}
-
-joint.pivot:
-{
-	error_bias: 0.01
-	max_bias: 40.000
-}
-
-joint.gear:
-{
-	error_bias: 0.01
-	max_bias: 2.000
-	min: -2.000
-	max: 2.000
-}
-
-attachment.slot:
-{
-	flags: keyboard_write, mouse_write
-}
-
 storage:
 {
 	@inventory4:
@@ -99,7 +63,47 @@ storage:
 	}
 }
 
-interactable:
+interactable_data:
 {
-	window_size: [96.000, 96.000]
+	window_size: [192.000, 136.000]
+	window_offset: [0.000, 0.000]
+	flags: none
+}
+
+vehicle:
+{
+
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [4.000, 0.000]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: no_wrap, no_stress, control_write, force_facing
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.010
+		max_bias: 10.000
+	}
+
+	joint.gear:
+	{
+		min: -2.000
+		max: 2.000
+		error_bias: 0.010
+		max_bias: 0.700
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, keyboard_write, mouse_write, loose
+	}
 }

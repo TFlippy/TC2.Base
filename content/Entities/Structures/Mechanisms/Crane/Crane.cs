@@ -26,11 +26,13 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable | Net.SendType.NoDelay)]
+		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
 			public float angle_a;
 			public float angle_b;
+
+			public float rotation_b;
 
 			[Save.Ignore, Net.Ignore] public float next_sync;
 		}
@@ -153,35 +155,22 @@
 		//}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
+		public static void UpdateA(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body,
-		[Source.Parent] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Gear gear, [Source.Parent, Override] ref Joint.Gear gear_parent, [Source.Owned] ref Crane.Data crane, [Source.Owned] ref Crane.State crane_state)
+		[Source.Parent] ref Joint.Base joint_base_parent, [Source.Parent, Override] ref Joint.Gear gear_parent, [Source.Owned] ref Crane.Data crane, [Source.Owned] ref Crane.State crane_state)
 		{
-			if (!joint_base.flags.HasAll(Joint.Flags.No_Aiming))
+			if (!joint_base_parent.flags.HasAll(Joint.Flags.No_Aiming))
 			{
 				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
 				var invert = float.IsNegative(transform.scale.GetParity()); // != crane.flags.HasAny(Crane.Flags.Inverted);
 
-				//if (crane.flags.HasAny(Crane.Flags.Inverted))
-				//{
-				//	invert = !invert;
-				//}
-
-				//App.WriteLine($"{control.mouse.GetKey(Mouse.Key.Right)}");
-
 				var transform_tmp = transform;
 				var transform_parent_tmp = transform_parent;
 
-				//if (invert)
-				//{
-				//	transform_tmp.scale.X *= -1.00f;
-				//	transform_parent_tmp.scale.X *= -1.00f;
-				//}
-
 				if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right))
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base_parent.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
 
@@ -190,29 +179,26 @@
 						crane_state.next_sync = info.WorldTime + 0.20f;
 						dirty |= true;
 					}
-
 				}
 
 				var parity = transform_tmp.scale.GetParity();
 
 				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a) * parity;
-				gear.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b, rotation: false) * parity;
+				crane_state.rotation_b = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b, rotation: false) * parity;
 
-				if (joint_base.flags.HasAny(Joint.Flags.Invert_Facing))
+				if (joint_base_parent.flags.HasAny(Joint.Flags.Invert_Facing))
 				{
-					gear.rotation = Maths.OppositeAngle(gear.rotation);
+					crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
 				}
-
-				//if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right)) 
 
 				if (invert)
 				{
 					gear_parent.rotation = -gear_parent.rotation;
-					gear.rotation = Maths.OppositeAngle(gear.rotation);
+					crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
 				}
 
 				gear_parent.rotation = Maths.NormalizeAngle(gear_parent.rotation);
-				gear.rotation = Maths.NormalizeAngle(gear.rotation);
+				crane_state.rotation_b = Maths.NormalizeAngle(crane_state.rotation_b);
 
 				if (dirty)
 				{
@@ -223,6 +209,13 @@
 #endif
 				}
 			}
+		}
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateB(ISystem.Info info, Entity entity, [Source.Owned] ref Joint.Base joint_base,
+		[Source.Owned, Override] ref Joint.Gear gear, [Source.Shared] ref Crane.State crane_state)
+		{
+			gear.rotation = crane_state.rotation_b;
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
