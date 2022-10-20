@@ -24,12 +24,12 @@ namespace TC2.Base.Components
 
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile)
+		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
 			{
-				var dir = projectile.velocity.GetNormalized();
-				projectile.velocity += dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
+				var dir = transform.GetDirection();
+				body.AddForce(dir * (rocket.force));
 			}
 
 			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
@@ -49,7 +49,48 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateSmoke(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
+		public static void UpdateSmokeBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
+		{
+			if (rocket.fuel_time > 0.00f)
+			{
+				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
+
+				var random = XorRandom.New();
+				ref var region = ref info.GetRegion();
+
+				rocket.smoke_accumulator += rocket.smoke_amount;
+
+				while (rocket.smoke_accumulator >= 1.00f)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = texture_smoke,
+						pos = transform.position,
+						lifetime = random.NextFloatRange(5.00f, 10.00f),
+						fps = random.NextByteRange(1, 3),
+						frame_count = 64,
+						frame_count_total = 64,
+						frame_offset = random.NextByteRange(0, 64),
+						scale = random.NextFloatRange(0.05f, 0.125f) * modifier,
+						angular_velocity = random.NextFloatRange(-0.20f, 0.20f),
+						vel = -body.GetVelocity() * 0.25f,
+						force = new Vector2(0, -random.NextFloatRange(0.00f, 0.40f)),
+						rotation = random.NextFloat(10.00f),
+						growth = random.NextFloatRange(0.30f, 0.50f),
+						color_a = new Color32BGRA(150, 220, 220, 220).WithAlphaMult(modifier),
+						color_b = new Color32BGRA(000, 150, 150, 150),
+						drag = 0.15f
+					});
+
+					rocket.smoke_accumulator -= 1.00f;
+				}
+
+				//Particle.Spawn(ref region, particle);
+			}
+		}
+
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateSmokeProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
 			{

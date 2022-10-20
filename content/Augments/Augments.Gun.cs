@@ -2920,13 +2920,13 @@ namespace TC2.Base
 					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
 					if (!scope.IsNull())
 					{
-						scope.speed = 3.00f;
+						scope.speed = 6.00f;
 						scope.deadzone = 3.00f;
 						scope.zoom_modifier = 0.50f;
-						scope.zoom_min = 0.50f;
-						scope.zoom_max = 0.50f;
-						scope.min_distance = 10.00f;
-						scope.max_distance = 60.00f;
+						scope.zoom_min = 0.90f;
+						scope.zoom_max = 0.90f;
+						scope.min_distance = 12.00f;
+						scope.max_distance = 80.00f;
 					}
 				}
 			));
