@@ -99,6 +99,22 @@ vehicle:
 		max_bias: 0.700
 	}
 
+	joint.rotarylimit:
+	{
+		max_torque: 500000.000
+		min: -3.926
+		max: 0.785
+		max_bias: 20.000
+		error_bias: 0.0001
+	}
+
+	joint_motor:
+	{
+		force: 100.000
+		speed: 0.000
+		error_bias: 0.000
+	}
+
 	attachment.slot:
 	{
 		name: "Mount"

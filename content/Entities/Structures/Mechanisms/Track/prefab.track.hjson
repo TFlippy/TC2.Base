@@ -105,7 +105,7 @@ mount:
 		offset_a: [0.000, 0.000]
 		max_force: 100000.000
 		max_torque: 200000.000
-		flags: control_read, control_write, no_stress, no_wrap, force_facing
+		flags: control_read, control_write, no_stress, no_wrap, force_facing, no_resizable_offset
 		// flags: control_read, control_write
 	}
 
