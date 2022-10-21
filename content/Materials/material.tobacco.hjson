@@ -1,9 +1,9 @@
 {
-	name: "Opium"
-	description: "Dried poppy resin used for production of opiates."
+	name: "Tobacco"
+	description: "Dried tobacco leaves used in cigarettes and cigars."
 	icon:
 	{
-		texture: "resource.opium"
+		texture: "resource.tobacco"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -11,9 +11,9 @@
 	type: powder
 	flags: raw
 	mass_per_unit: 0.100
-	market_price: 50.000
+	market_price: 30.000
 	quantity_max: 500.000
-	prefab: "resource.opium"
+	prefab: "resource.tobacco"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

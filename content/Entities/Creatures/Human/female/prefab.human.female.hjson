@@ -330,6 +330,8 @@ lootable:
 			sound_pain: "human.pain.00"
 			sound_death: "human.death.00"
 
+			offset_mouth: [0.300, 0.250]
+
 			frame_pain: 1
 			frame_dead: 2
 		}

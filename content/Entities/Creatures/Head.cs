@@ -24,6 +24,9 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_pain = default;
 			public Sound.Handle sound_attack = default;
 
+			[Editor.Picker.Position(true, true)]
+			public Vector2 offset_mouth;
+
 			public byte frame_pain = default;
 			public byte frame_dead = default;
 
@@ -100,9 +103,24 @@ namespace TC2.Base.Components
 			renderer.offset = headbob.offset;
 		}
 
+		//[ISystem.Update(ISystem.Mode.Single)]
+		//public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		//{
+		//	//App.WriteLine($"{info.WorldTime}");
+		//	renderer.offset = headbob.offset;
+		//}
+
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Of<Hair.Data>] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
+			//App.WriteLine($"{info.WorldTime}");
+			renderer.offset = headbob.offset;
+		}
+
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void UpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Of<Beard.Data>] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		{
+			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 #endif
