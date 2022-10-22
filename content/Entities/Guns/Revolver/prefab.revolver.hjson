@@ -4,8 +4,8 @@ body:
 {
 	@shape.line:
 	{
-		a: [-0.300, 0.250]
-		b: [0.300, 0.100]
+		a: [-0.300, 0.000]
+		b: [0.300, -0.100]
 		mass: 2.200
 		radius: 0.300
 		friction: 0.900
@@ -18,7 +18,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [0.625, 0.000]
+	muzzle_offset: [0.625, -0.250]
 	sound_shoot: "revolver_shoot"
 	sound_cycle: "revolver_cycle"
 	sound_reload: "revolver_reload"
@@ -67,7 +67,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.300]
+	offset: [-0.300, 0.100]
 	radius: 4.000
 	flags: storable
 
@@ -81,7 +81,7 @@ animated.renderer:
 	{
 		texture: "revolver"
 	}
-	offset: [0.000, 0.200]
+	offset: [0.000, 0.000]
 	scale: [0.900, 0.900]
 }
 

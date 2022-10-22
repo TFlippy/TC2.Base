@@ -63,5 +63,7 @@ consumable:
 	release_rate: 100.000
 	release_step: 0.300
 
+	uses_rem: 4
+
 	sound_use: "syringe.inject.00"
 }

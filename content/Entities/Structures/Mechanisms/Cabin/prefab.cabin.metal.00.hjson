@@ -107,6 +107,6 @@ vehicle:
 	seat:
 	{
 		offset: [0.350, 0.125]
-		max_tilt: 2.000
+		max_tilt: 5.000
 	}
 }

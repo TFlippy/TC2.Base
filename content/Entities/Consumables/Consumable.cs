@@ -19,11 +19,18 @@ namespace TC2.Base.Components
 
 			public Sound.Handle sound_use;
 
+			public int uses_rem = 1;
+
 			[Statistics.Info("Release Rate", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float release_rate;
 
 			[Statistics.Info("Release Step", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float release_step;
+
+			public Data()
+			{
+
+			}
 		}
 
 		[IEvent.Data]
@@ -94,6 +101,8 @@ namespace TC2.Base.Components
 					{
 						Sound.Play(ref region, consumable.sound_use, transform.position);
 
+						consumable.uses_rem--;
+
 						var data = new Consumable.ConsumeEvent();
 						data.ent_organic = oc_organic.entity;
 						data.ent_holder = ent_holder;
@@ -102,7 +111,10 @@ namespace TC2.Base.Components
 
 						entity.Notify(ref data);
 
-						entity.Delete();
+						if (consumable.uses_rem <= 0)
+						{
+							entity.Delete();
+						}
 					}
 				}
 			}

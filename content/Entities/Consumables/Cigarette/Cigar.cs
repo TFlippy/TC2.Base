@@ -32,14 +32,14 @@ namespace TC2.Base.Components
 			{
 				sprite = sprite,
 				z = renderer.z + 1.10f,
-				rotation = renderer.rotation + Maths.Lerp(0.20f, -0.20f, lerp),
+				rotation = renderer.rotation + Maths.Lerp(-0.20f, -0.40f, lerp),
 				scale = new Vector2(0.65f),
 				offset = renderer.offset + head.offset_mouth
 			});
 
 			if (info.WorldTime >= smoker.t_next_smoke)
 			{
-				smoker.t_next_smoke = info.WorldTime + random.NextFloatRange(0.35f, 0.50f);
+				smoker.t_next_smoke = info.WorldTime + random.NextFloatRange(0.25f, 0.35f);
 
 				Particle.Spawn(ref region, new Particle.Data()
 				{
