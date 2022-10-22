@@ -2658,8 +2658,8 @@ namespace TC2.Base
 						melee.thickness = 0.125f;
 						melee.category = Melee.Category.Pointed;
 						melee.cooldown = 1.00f;
-						melee.damage_base = 75.00f;
-						melee.damage_bonus = 200.00f;
+						melee.damage_base = 125.00f;
+						melee.damage_bonus = 250.00f;
 						melee.damage_type = Damage.Type.Stab;
 						melee.knockback = 2.00f;
 						melee.max_distance = 1.30f;
@@ -2845,8 +2845,8 @@ namespace TC2.Base
 						melee.thickness = 1.75f;
 						melee.category = Melee.Category.Bladed;
 						melee.cooldown = 2.00f;
-						melee.damage_base = 250.00f;
-						melee.damage_bonus = 100.00f;
+						melee.damage_base = 275.00f;
+						melee.damage_bonus = 125.00f;
 						melee.damage_type = Damage.Type.Axe;
 						melee.knockback = 2.50f;
 						melee.max_distance = 2.00f;

@@ -267,6 +267,26 @@
 				gui.Submit();
 			}
 		}
+
+		// TODO: Shithack
+		[ISystem.GUI(ISystem.Mode.Single)]
+		public static void OnGUIVehicle(ISystem.Info info,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Parent] in Vehicle.Data vehicle)
+		{
+			if (vehicle.ent_seat_driver.IsValid() && vehicle.ent_seat_driver == Client.GetControlledEntity())
+			{
+				var gui = new HoldGUI()
+				{
+					transform = transform,
+					world_position_target = control.mouse.position,
+					state = state,
+					inventory = inventory,
+					gun = gun
+				};
+				gui.Submit();
+			}
+		}
 #endif
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]

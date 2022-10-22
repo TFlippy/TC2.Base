@@ -12,9 +12,21 @@ namespace TC2.Base.Components
 			Enable_Use_On_Others = 1 << 1
 		}
 
+		public enum Action: uint
+		{
+			Undefined = 0,
+
+			Eat,
+			Drink,
+			Inject,
+			Inhale,
+			Smoke
+		}
+
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
+			public Consumable.Action action;
 			public Consumable.Flags flags;
 
 			public Sound.Handle sound_use;
@@ -74,15 +86,33 @@ namespace TC2.Base.Components
 								{
 									Sound.Play(ref region, consumable.sound_use, result_nearest.world_position);
 
+									consumable.uses_rem--;
+
 									var data = new Consumable.ConsumeEvent();
 									data.ent_organic = oc_organic.entity;
 									data.ent_holder = ent_holder;
 									data.ent_consumable = entity;
 									data.world_position = result_nearest.world_position;
 
+									var message = string.Empty;
+									switch (consumable.action)
+									{
+										case Action.Eat: message = $"Ate {entity.GetName()}."; break;
+										case Action.Drink: message = $"Drank {entity.GetName()}."; break;
+										case Action.Inject: message = $"Injected {entity.GetName()}."; break;
+										case Action.Inhale: message = $"Inhaled {entity.GetName()}."; break;
+										case Action.Smoke: message = $"Smoked {entity.GetName()}."; break;
+										default: message = $"Used {entity.GetName()}."; break;
+									}
+
+									WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 5.00f, send_type: Net.SendType.Reliable);
+
 									entity.Notify(ref data);
 
-									entity.Delete();
+									if (consumable.uses_rem <= 0)
+									{
+										entity.Delete();
+									}
 								}
 							}
 						}
@@ -108,6 +138,19 @@ namespace TC2.Base.Components
 						data.ent_holder = ent_holder;
 						data.ent_consumable = entity;
 						data.world_position = transform.position;
+
+						var message = string.Empty;
+						switch (consumable.action)
+						{
+							case Action.Eat: message = $"Eats {entity.GetName()}."; break;
+							case Action.Drink: message = $"Drinks {entity.GetName()}."; break;
+							case Action.Inject: message = $"Injects {entity.GetName()}."; break;
+							case Action.Inhale: message = $"Inhales {entity.GetName()}."; break;
+							case Action.Smoke: message = $"Smokes {entity.GetName()}."; break;
+							default: message = $"Uses {entity.GetName()}."; break;
+						}
+
+						WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 5.00f, send_type: Net.SendType.Reliable);
 
 						entity.Notify(ref data);
 

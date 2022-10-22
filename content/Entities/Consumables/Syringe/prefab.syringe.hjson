@@ -58,6 +58,7 @@ packable:
 
 consumable:
 {
+	action: inject
 	flags: enable_use_on_self, enable_use_on_others
 
 	release_rate: 100.000

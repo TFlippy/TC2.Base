@@ -47,6 +47,7 @@ packable:
 
 consumable:
 {
+	action: smoke
 	flags: enable_use_on_self, enable_use_on_others
 
 	release_rate: 10.000

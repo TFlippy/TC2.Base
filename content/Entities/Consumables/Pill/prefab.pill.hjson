@@ -48,10 +48,13 @@ packable:
 
 consumable:
 {
+	action: eat
 	flags: enable_use_on_self
 
 	release_rate: 10.000
 	release_step: 0.04
+
+	uses_rem: 6
 
 	sound_use: "drink.00"
 }
