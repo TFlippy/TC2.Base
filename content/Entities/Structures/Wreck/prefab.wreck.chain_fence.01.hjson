@@ -13,7 +13,7 @@ body:
 		mass: 100.000
 		friction: 0.850
 		elasticity: 0.100
-		material: metal
+		material: wire
 		layer: entity, ignore_melee
 		mask: world
 	}
