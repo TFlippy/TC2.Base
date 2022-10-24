@@ -6,12 +6,12 @@ projectile:
 	damage_bonus: 180.000
 	lifetime: 5.000
 	damage_type: bullet_musket
-	size: 0.300
+	size: 0.100
 }
 
 projectile.renderer:
 {
-
+	length: 3.000
 }
 
 transform:
