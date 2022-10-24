@@ -8,8 +8,8 @@ body:
 		[
 			[1.125, 0.625]
 			[-1.250, 0.625]
-			[-0.400, -0.750]
-			[0.400, -0.750]
+			[-0.400, -1.250]
+			[0.400, -1.250]
 		]
 		offset: [0.000, 0.000]
 		mass: 100.000
@@ -40,6 +40,22 @@ animated.renderer:
 	}
 	offset: [0.000, -0.350]
 	z: -100.000
+	mask: "mount.tripod.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	
 }
 
 transform:
@@ -95,7 +111,7 @@ vehicle:
 	
 	seat:
 	{
-		offset: [-0.750, -0.500]
+		offset: [-1.000, -0.500]
 	}
 }
 
@@ -103,7 +119,7 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [0.250, -0.625]
+		offset_a: [0.000, -0.750]
 		max_force: 40000.000
 		max_torque: 5000.000
 		flags: control_write, no_wrap, force_facing, attachment

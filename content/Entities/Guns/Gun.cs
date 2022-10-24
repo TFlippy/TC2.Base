@@ -57,7 +57,8 @@
 			Magazine,
 			Belt,
 			Breech,
-			Front
+			Front,
+			Funnel
 		}
 
 		public enum Action: byte
@@ -73,7 +74,8 @@
 			Gas,
 			Matchlock,
 			Flintlock,
-			Crank
+			Crank,
+			Motor
 		}
 
 		//public enum Operation: byte
@@ -455,7 +457,7 @@
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
-		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger, [Source.Parent, Optional] in Faction.Data faction, [Source.Owned, Optional(true)] ref Overheat.Data overheat)
+		[Source.Owned, Optional(true)] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
 			ref var region = ref info.GetRegion();
@@ -529,6 +531,13 @@
 						}
 					}
 
+					//var faction_id = default(IFaction.Handle);
+					
+					//if (body_parent.IsNotNull())
+					//{
+
+					//}
+
 					{
 						for (var i = 0; i < count; i++)
 						{
@@ -540,7 +549,7 @@
 								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
-								faction_id: faction.id,
+								faction_id: body.GetFaction(),
 								gun_flags: gun.flags
 							);
 
@@ -644,37 +653,43 @@
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
 					{
-						var particle = Particle.New(texture_muzzle_flash, transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset + new Vector2(1.50f * gun.flash_size, 0.00f).RotateByRad(gun.particle_rotation)), 0.25f);
-						particle.fps = 24;
-						particle.frame_count = 6;
-						particle.frame_count_total = 6;
-						particle.scale = gun.flash_size;
-						particle.lit = 1.00f;
-						particle.rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0);
-						particle.vel = base_vel;
-
-						Particle.Spawn(ref region, particle);
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = texture_muzzle_flash,
+							pos = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset + new Vector2(1.50f * gun.flash_size, 0.00f).RotateByRad(gun.particle_rotation)),
+							lifetime = 0.25f,
+							fps = 24,
+							frame_count = 6,
+							frame_count_total = 6,
+							scale = gun.flash_size,
+							lit = 1.00f,
+							rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0),
+							vel = base_vel
+						});
 					}
 
 					var smoke_count = (int)gun.smoke_amount;
 					for (var i = 0; i < smoke_count; i++)
 					{
-						var particle = Particle.New(texture_smoke, pos_w_offset_particle + (dir_particle * i * 0.50f), random.NextFloatRange(2.00f, 8.00f));
-						particle.fps = random.NextByteRange(12, 16);
-						particle.frame_count = 64;
-						particle.frame_count_total = 64;
-						particle.frame_offset = random.NextByteRange(0, 64);
-						particle.scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size;
-						particle.angular_velocity = random.NextFloatRange(-0.10f, 0.10f);
-						particle.vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f));
-						particle.force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f));
-						particle.rotation = random.NextFloat(10.00f);
-						particle.growth = random.NextFloatRange(0.15f, 0.30f);
-						particle.drag = random.NextFloatRange(0.01f, 0.02f);
-						particle.color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((smoke_count - i) * 0.04f), 0.20f, 1.00f));
-						particle.color_b = new Color32BGRA(000, 150, 150, 150);
-
-						Particle.Spawn(ref region, particle);
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = texture_smoke,
+							pos = pos_w_offset_particle + (dir_particle * i * 0.50f),
+							lifetime = random.NextFloatRange(2.00f, 8.00f),
+							fps = random.NextByteRange(12, 16),
+							frame_count = 64,
+							frame_count_total = 64,
+							frame_offset = random.NextByteRange(0, 64),
+							scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size,
+							angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
+							vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f)),
+							force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f)),
+							rotation = random.NextFloat(10.00f),
+							growth = random.NextFloatRange(0.15f, 0.30f),
+							drag = random.NextFloatRange(0.07f, 0.10f),
+							color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((smoke_count - i) * 0.04f), 0.20f, 1.00f)),
+							color_b = new Color32BGRA(000, 150, 150, 150)
+						});
 					}
 				}
 
@@ -695,7 +710,7 @@
 					else
 					{
 						var cycle_interval = gun.cycle_interval;
-						if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
+						//if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
