@@ -92,16 +92,19 @@ namespace TC2.Base.Components
 				ref var region = ref info.GetRegion();
 				var random = XorRandom.New();
 
-				var particle = Particle.New(tex_spark, transform.LocalToWorld(fuse.sparkle_offset), 0.10f);
-				particle.frame_count = 3;
-				particle.frame_count_total = 3;
-				particle.fps = 30;
-				particle.rotation = random.NextFloat(MathF.PI);
-				particle.vel = random.NextUnitVector2Range(2, 6);
-				particle.angular_velocity = random.NextFloat(10);
-				particle.force = new Vector2(0, -30.00f);
-
-				Particle.Spawn(ref region, particle);
+				Particle.Spawn(ref region, new Particle.Data()
+				{
+					texture = tex_spark,
+					lifetime = random.NextFloatRange(0.05f, 0.15f),
+					pos = transform.LocalToWorld(fuse.sparkle_offset),
+					frame_count = 3,
+					frame_count_total = 3,
+					fps = 30,
+					rotation = random.NextFloat(MathF.PI),
+					vel = random.NextUnitVector2Range(2, 6),
+					angular_velocity = random.NextFloat(10),
+					force = new Vector2(0, -30.00f),
+				});
 			}
 #endif
 

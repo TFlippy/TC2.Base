@@ -652,6 +652,7 @@
 #if CLIENT
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
+					if (gun.flash_size > 0.00f)
 					{
 						Particle.Spawn(ref region, new Particle.Data()
 						{
@@ -668,28 +669,31 @@
 						});
 					}
 
-					var smoke_count = (int)gun.smoke_amount;
-					for (var i = 0; i < smoke_count; i++)
+					if (gun.smoke_size > 0.00f && gun.smoke_amount > 0.00f)
 					{
-						Particle.Spawn(ref region, new Particle.Data()
+						var smoke_count = (int)gun.smoke_amount;
+						for (var i = 0; i < smoke_count; i++)
 						{
-							texture = texture_smoke,
-							pos = pos_w_offset_particle + (dir_particle * i * 0.50f),
-							lifetime = random.NextFloatRange(2.00f, 8.00f),
-							fps = random.NextByteRange(12, 16),
-							frame_count = 64,
-							frame_count_total = 64,
-							frame_offset = random.NextByteRange(0, 64),
-							scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size,
-							angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
-							vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f)),
-							force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f)),
-							rotation = random.NextFloat(10.00f),
-							growth = random.NextFloatRange(0.15f, 0.30f),
-							drag = random.NextFloatRange(0.07f, 0.10f),
-							color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((smoke_count - i) * 0.04f), 0.20f, 1.00f)),
-							color_b = new Color32BGRA(000, 150, 150, 150)
-						});
+							Particle.Spawn(ref region, new Particle.Data()
+							{
+								texture = texture_smoke,
+								pos = pos_w_offset_particle + (dir_particle * i * 0.50f),
+								lifetime = random.NextFloatRange(2.00f, 8.00f),
+								fps = random.NextByteRange(12, 16),
+								frame_count = 64,
+								frame_count_total = 64,
+								frame_offset = random.NextByteRange(0, 64),
+								scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size,
+								angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
+								vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f)),
+								force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f)),
+								rotation = random.NextFloat(10.00f),
+								growth = random.NextFloatRange(0.15f, 0.30f),
+								drag = random.NextFloatRange(0.07f, 0.10f),
+								color_a = random.NextColor32Range(new Color32BGRA(255, 240, 240, 240), new Color32BGRA(255, 220, 220, 220)).WithAlphaMult(Maths.Clamp(0.40f + ((smoke_count - i) * 0.04f), 0.20f, 1.00f)),
+								color_b = new Color32BGRA(000, 150, 150, 150)
+							});
+						}
 					}
 				}
 

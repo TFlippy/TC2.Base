@@ -17,9 +17,6 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public struct State: IComponent
 		{
-			[Net.Ignore, Save.Ignore] public int current_sound_index;
-			[Net.Ignore, Save.Ignore] public float next_smoke;
-
 			public float amount;
 			public float mass;
 			public double specific_heat;
@@ -32,6 +29,9 @@
 
 			public float temperature_target;
 			public double pressure_target;
+
+			[Net.Ignore, Save.Ignore] public int current_sound_index;
+			[Net.Ignore, Save.Ignore] public float next_smoke;
 		}
 
 		public struct ConfigureRPC: Net.IRPC<Refinery.State>
