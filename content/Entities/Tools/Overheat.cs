@@ -37,7 +37,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control, [Source.Owned] in Body.Data body)
 		{
@@ -69,7 +69,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.05f)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
 		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
 		{

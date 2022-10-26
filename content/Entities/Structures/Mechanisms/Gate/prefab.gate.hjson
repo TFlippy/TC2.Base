@@ -100,7 +100,8 @@ joint.slider:
 	max: 12.000
 
 	error_bias: 0.0001
-	max_force: 20000.000
+	max_force: 50000.000
+	max_force_b: 50000.000
 	max_bias: 20.000
 }
 

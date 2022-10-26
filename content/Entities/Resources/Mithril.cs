@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
 		public static void UpdateFX(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril)
 		{
 			if (info.WorldTime >= mithril.next_smoke && mithril.modifier > 0.01f)
@@ -97,7 +97,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
 		public static void UpdateLight(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned, Pair.Of<Mithril.Data>] ref Light.Data light)
 		{
 			light.intensity = mithril.modifier;
