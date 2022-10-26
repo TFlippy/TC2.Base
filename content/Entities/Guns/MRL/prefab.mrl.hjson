@@ -25,14 +25,14 @@ animated.renderer:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.0625]
+	muzzle_offset: [1.250, -0.250]
 	particle_offset: [-2.500, 0.000]
 	particle_rotation: -3.140
 
 	sound_shoot: "mrl_shoot"
 	sound_reload: "mrl_reload"
 	sound_pitch: 1.500
-	velocity_multiplier: 60.000
+	velocity_multiplier: 50.000
 	jitter_multiplier: 1.300
 	damage_multiplier: 1.000
 	recoil_multiplier: 0.500
@@ -46,10 +46,12 @@ gun:
 	ammo_filter: ammo_rocket
 	action: manual
 	type: launcher
-	feed: single
+	feed: breech
 
 	smoke_amount: 4.000
 	smoke_size: 3.000
+
+	shake_amount: 0.400
 	
 	@inventory1:
 	{

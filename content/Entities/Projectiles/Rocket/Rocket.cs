@@ -66,20 +66,20 @@ namespace TC2.Base.Components
 					{
 						texture = texture_smoke,
 						pos = transform.position,
-						lifetime = random.NextFloatRange(5.00f, 10.00f),
+						lifetime = random.NextFloatRange(10.00f, 15.00f),
 						fps = random.NextByteRange(1, 3),
 						frame_count = 64,
 						frame_count_total = 64,
 						frame_offset = random.NextByteRange(0, 64),
-						scale = random.NextFloatRange(0.05f, 0.125f) * modifier,
-						angular_velocity = random.NextFloatRange(-0.20f, 0.20f),
-						vel = -body.GetVelocity() * 0.25f,
-						force = new Vector2(0, -random.NextFloatRange(0.00f, 0.40f)),
+						scale = random.NextFloatRange(0.10f, 0.15f) * modifier,
+						angular_velocity = random.NextFloatRange(-0.70f, 0.70f),
+						force = new Vector2(random.NextFloatRange(4.00f, 8.00f), -random.NextFloatRange(0.10f, 0.50f)),
 						rotation = random.NextFloat(10.00f),
-						growth = random.NextFloatRange(0.30f, 0.50f),
-						color_a = new Color32BGRA(150, 220, 220, 220).WithAlphaMult(modifier),
+						growth = random.NextFloatRange(0.10f, 0.20f),
+						color_a = new Color32BGRA(140, 220, 220, 220).WithAlphaMult(modifier * random.NextFloatRange(0.70f, 1.00f)),
 						color_b = new Color32BGRA(000, 150, 150, 150),
-						drag = 0.15f
+						drag = 0.15f,
+						vel = -body.GetVelocity() * 0.25f
 					});
 
 					rocket.smoke_accumulator -= 1.00f;
@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSmokeProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f)
+			if (rocket.fuel_time > 0.00f && projectile.elapsed >= 0.15f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
 
@@ -106,21 +106,22 @@ namespace TC2.Base.Components
 					Particle.Spawn(ref region, new Particle.Data()
 					{
 						texture = texture_smoke,
-						pos = transform.position,
-						lifetime = random.NextFloatRange(5.00f, 10.00f),
+						pos = transform.position - (projectile.velocity * App.fixed_update_interval_s * 4.00f),
+						lifetime = random.NextFloatRange(10.00f, 15.00f),
 						fps = random.NextByteRange(1, 3),
 						frame_count = 64,
 						frame_count_total = 64,
 						frame_offset = random.NextByteRange(0, 64),
-						scale = random.NextFloatRange(0.05f, 0.125f) * modifier,
-						angular_velocity = random.NextFloatRange(-0.20f, 0.20f),
-						vel = -projectile.velocity * 0.25f,
-						force = new Vector2(0, -random.NextFloatRange(0.00f, 0.40f)),
+						scale = random.NextFloatRange(0.15f, 0.20f),
+						angular_velocity = random.NextFloatRange(-0.70f, 0.70f),		
+						force = new Vector2(random.NextFloatRange(4.00f, 8.00f), -random.NextFloatRange(0.10f, 0.50f)),
 						rotation = random.NextFloat(10.00f),
-						growth = random.NextFloatRange(0.30f, 0.50f),
-						color_a = new Color32BGRA(150, 220, 220, 220).WithAlphaMult(modifier),
+						growth = random.NextFloatRange(0.10f, 0.20f),
+						color_a = new Color32BGRA(140, 220, 220, 220).WithAlphaMult(modifier * random.NextFloatRange(0.70f, 1.00f)),
 						color_b = new Color32BGRA(000, 150, 150, 150),
-						drag = 0.15f
+						drag = random.NextFloatRange(0.06f, 0.08f),
+						stretch = new Vector2(1, 2),
+						vel = (-projectile.velocity * 0.40f) + random.NextUnitVector2Range(0.50f, 1.50f),
 					});
 
 					rocket.smoke_accumulator -= 1.00f;
