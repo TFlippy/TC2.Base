@@ -212,6 +212,7 @@
 			public Gun.Stage stage;
 			public Gun.Hints hints;
 
+			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 		}
@@ -496,7 +497,7 @@
 					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
 					//body.AddForce(recoil_force); //, pos_w_offset);
 					body.AddForceWorld(recoil_force, pos_w_offset);
-
+					gun_state.last_recoil = recoil_force;
 
 #if SERVER
 					var loaded_ammo = new Resource.Data()

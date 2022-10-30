@@ -910,7 +910,7 @@ namespace TC2.Base
 								data.sound_volume *= 1.25f;
 
 								data.smoke_size *= 1.50f;
-								data.flash_size *= 1.70f;
+								data.flash_size *= 1.10f;
 							}
 						}
 					}
@@ -3000,15 +3000,21 @@ namespace TC2.Base
 				{
 					ref var value = ref handle.GetData<Vector2>();
 
-					var mass = context.base_mass;
+					//var mass = context.base_mass;
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
+					//ref var body = ref context.GetComponent<Body.Data>();
+					//if (!body.IsNull())
+					//{
+					//	mass += body.mass_extra;
+					//}
+
+					ref var recoil_compensator = ref context.GetOrAddComponent<RecoilCompensator.Data>();
+					if (!recoil_compensator.IsNull())
 					{
-						mass += body.mass_extra;
+						
 					}
 
-					data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+					data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
 
 					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", value.X));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 15));
