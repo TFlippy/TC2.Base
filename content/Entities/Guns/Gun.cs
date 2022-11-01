@@ -248,7 +248,49 @@
 				//GUI.DrawLine((transform.position).WorldToCanvas(), (transform.position + (transform.GetDirection() * 10.00f)).WorldToCanvas(), Color32BGRA.Red);
 
 				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
-				GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				Gun.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+			}
+		}
+
+		public static void DrawCrosshair(Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
+		{
+			var dist = Vector2.Distance(position_a, position_b);
+			var cpos_target = GUI.WorldToCanvas(position_a + (dir * dist));
+
+			radius = MathF.Min(radius, 20.00f);
+			radius *= MathF.Sqrt(dist);
+			var line_length = MathF.Max(15.00f, radius * 2.00f);
+
+			var color = new Color32BGRA(0xffff0000);
+
+			if (ammo_count == 0)
+			{
+				color = 0xffffff00;
+			}
+
+			var color_circle = color.WithAlphaMult(0.30f);
+			var color_line = color.WithAlphaMult(0.80f);
+
+			GUI.DrawCircle(cpos_target, radius, color_circle);
+			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
+
+			if (ammo_count_max > 0.00f)
+			{
+				var step = MathF.Tau / ammo_count_max;
+				var count = (int)ammo_count_max;
+
+				for (var i = 0; i < count; i++)
+				{
+					var (sin, cos) = MathF.SinCos(i * -step);
+
+					var col = new Color32BGRA(0xffff0000);
+					col = col.WithColorMult(i < ammo_count ? 1.00f : 0.10f);
+					col = col.WithAlphaMult(0.60f);
+
+					var r = 3.50f;
+					GUI.DrawCircleFilled(cpos_target + (new Vector2(cos, sin) * 24), r, col);
+				}
 			}
 		}
 
