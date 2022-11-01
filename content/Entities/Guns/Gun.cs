@@ -294,6 +294,51 @@
 			}
 		}
 
+		//[ISystem.Render(ISystem.Mode.Single)]
+		//public static void RenderLaserExample(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Gun.Data gun, [Source.Owned] in Animated.Renderer.Data renderer)
+		//{
+		//	var rmb = control.mouse.GetKey(Mouse.Key.Right);
+		//	if (true || rmb)
+		//	{
+		//		ref var region = ref info.GetRegion();
+
+		//		var aim_dir = transform.GetInterpolatedDirection();
+		//		var pos_a = transform.LocalToWorldInterpolated(renderer.offset + gun.muzzle_offset); // + (aim_dir * 0.25f);
+		//		var pos_b = pos_a + (aim_dir * 50.00f);
+
+		//		var hit_pos = pos_b;
+
+		//		Span<LinecastResult> results = stackalloc LinecastResult[16];
+		//		if (region.TryLinecastAll(pos_a, pos_b, 0.00f, ref results, mask: Physics.Layer.Solid | Physics.Layer.World, exclude: Physics.Layer.Essence | Physics.Layer.Ignore_Bullet))
+		//		{
+		//			results.SortByDistance();
+
+		//			foreach (ref var result in results)
+		//			{
+		//				if (result.material_type == Material.Type.Glass) continue;
+		//				if (result.alpha <= 0.00f && !result.layer.HasAny(Physics.Layer.Static | Physics.Layer.World)) continue;
+
+		//				hit_pos = result.world_position;
+
+		//				break;
+		//			}
+		//		}
+
+		//		var dist = Vector2.Distance(pos_a, hit_pos);
+
+		//		var transform_tmp = transform;
+		//		transform_tmp.SetPosition(hit_pos);
+
+		//		Projectile.Renderer.Draw(transform_tmp, new()
+		//		{
+		//			color_a = 0x80ff0000,
+		//			color_b = 0x80ff0000,
+		//			length = dist
+		//		});
+		//	}
+		//}
+
 		[ISystem.GUI(ISystem.Mode.Single)]
 		public static void OnGUI(ISystem.Info info,
 		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
