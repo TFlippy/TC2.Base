@@ -14,6 +14,7 @@
 	type: build
 	flags: none
 	tags: industry
+	rank: 500.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800
