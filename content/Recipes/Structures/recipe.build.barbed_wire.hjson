@@ -20,15 +20,16 @@
 	placement:
 	{ 
 		type: line
-		flags: allow_placement_over_buildings
+		flags: allow_placement_over_buildings, terrain_is_support
 		
 		length_min: 1.000
 		length_max: 8.000
 		length_step: 0.250
 
-		size: [0.500, 0.500]
+		size: [2.500, 2.500]
+		snap: [0.250, 0.250]
 		cooldown: 0.300
-		min_support: 0.500
+		min_support: 0.100
 		min_claim: 1.000
 
 		sound: "building_place"

@@ -21,6 +21,7 @@
 	placement:
 	{
 		type: simple
+		flags: allow_placement_over_buildings, terrain_is_support
 		
 		size: [2.500, 0.750]
 		

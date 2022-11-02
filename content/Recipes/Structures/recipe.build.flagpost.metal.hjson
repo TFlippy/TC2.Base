@@ -24,7 +24,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_claimed
+		flags: require_claimed, require_terrain
 		
 		size: [0.500, 10.000]
 		offset: [0.000, -4.000]

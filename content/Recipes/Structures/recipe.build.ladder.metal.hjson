@@ -2,7 +2,8 @@
 	name: "Ladder (Metal)"
 	desc:
 		'''
-		Now you can go in places.
+		More durable ladder with longer placement range.
+		Can be also directly embedded in ground.
 		'''
 	
 	icon:
@@ -20,7 +21,7 @@
 	placement:
 	{
 		type: line
-		flags: allow_placement_over_buildings
+		flags: allow_placement_over_buildings, terrain_is_support
 		
 		size: [0.625, 0.625]
 		

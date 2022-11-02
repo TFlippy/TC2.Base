@@ -22,7 +22,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings
+		flags: allow_placement_over_buildings, require_terrain
 		
 		size: [1.000, 6.000]
 		offset: [0.000, -2.000]

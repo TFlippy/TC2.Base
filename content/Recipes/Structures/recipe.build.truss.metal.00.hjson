@@ -21,7 +21,7 @@
 	placement:
 	{ 
 		type: line
-		flags: none
+		flags: allow_placement_over_buildings, require_terrain
 		
 		length_min: 1.000
 		length_max: 16.000
@@ -29,7 +29,6 @@
 
 		size: [0.500, 0.500]
 		cooldown: 0.300
-		min_support: 0.05
 		min_claim: 1.000
 
 		sound: "building_place"
