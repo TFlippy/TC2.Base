@@ -8,7 +8,7 @@
 	icon:
 	{
 		texture: "chest"
-		size: [16, 12]
+		size: [16, 14]
 	}
 	
 	type: build
@@ -22,11 +22,14 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings
+		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [2.000, 1.500]
+		size: [2.000, 2.500]
+		offset: [0.000, -0.250]
 		
 		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.750
 		min_claim: 1.000
 
 		rotation_max: 0.300

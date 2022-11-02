@@ -1,5 +1,5 @@
 $name: "Chest"
-$desc: "A small wooden chest usable for storage."
+$desc: "Small wooden chest for storage."
 $tags: []
 
 body:
@@ -8,7 +8,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [2.000, 1.500]
+		size: [2.000, 1.750]
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500

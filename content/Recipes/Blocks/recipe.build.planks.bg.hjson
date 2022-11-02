@@ -20,7 +20,7 @@
 	placement:
 	{
 		type: line
-		flags: none
+		flags: continuous
 		
 		size: [0.625, 0.625]
 		

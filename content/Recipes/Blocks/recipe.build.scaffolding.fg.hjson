@@ -21,9 +21,9 @@
 	placement:
 	{
 		type: line
-		flags: none
+		flags: continuous
 		
-		size: [0.375, 0.375]
+		size: [0.500, 0.500]
 		
 		cooldown: 0.500
 		min_support: 0.020

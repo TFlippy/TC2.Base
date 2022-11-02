@@ -28,6 +28,7 @@
 		cooldown: 0.500
 
 		min_support: 0.150
+		min_clearance: 0.750
 		min_claim: 1.000
 
 		length_min: 1.000
