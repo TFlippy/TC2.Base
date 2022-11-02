@@ -2,7 +2,7 @@
 	name: "Metal Roof (Red)"
 	desc:
 		'''
-		A fancy red metal roof built to the Imperial standard.
+		Fancy red metal roof built to the Imperial standard.
 		'''
 	
 	icon:
@@ -25,6 +25,7 @@
 		size: [0.750, 0.750]
 		
 		cooldown: 0.500
+		min_support: 0.300
 		min_claim: 1.000
 		
 		length_max: 5.000

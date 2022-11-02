@@ -24,6 +24,7 @@
 		radius: 0.750
 		
 		cooldown: 0.250
+		min_support: 0.250
 		min_claim: 1.000
 		
 		sound: "stone_place_0"

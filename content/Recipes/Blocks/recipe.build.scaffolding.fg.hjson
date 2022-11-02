@@ -2,7 +2,8 @@
 	name: "Scaffolding"
 	desc:
 		'''
-		TODO: Desc
+		Decently durable metal scaffolding.
+		Has a long placement range.
 		'''
 	
 	icon:
@@ -25,6 +26,7 @@
 		size: [0.375, 0.375]
 		
 		cooldown: 0.500
+		min_support: 0.020
 		min_claim: 1.000
 		
 		length_max: 10.000

@@ -2,7 +2,7 @@
 	name: "Smirgl Slabs"
 	desc:
 		'''
-		An extremely durable armor made of smirgl slabs.
+		Extremely durable armor made of smirgl slabs fused together with phlogiston.
 		'''
 	
 	icon:
@@ -25,6 +25,7 @@
 		size: [1.500, 1.500]
 		
 		cooldown: 1.000
+		min_support: 0.050
 		min_claim: 1.000
 		
 		length_max: 4.000
