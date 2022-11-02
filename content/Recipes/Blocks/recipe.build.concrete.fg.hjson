@@ -19,18 +19,13 @@
 	
 	placement:
 	{
-		type: line
-		flags: none
+		type: circle
+		flags: continuous, replace
+		radius: 0.750
 		
-		size: [1.500, 1.500]
-		
-		cooldown: 0.400
-		min_support: 0.050
+		cooldown: 0.200
+		min_support: 0.000
 		min_claim: 1.000
-		
-		length_min: 1.500
-		length_max: 7.500
-		length_step: 0.125
 		
 		sound: "stone_place_0"
 	}
