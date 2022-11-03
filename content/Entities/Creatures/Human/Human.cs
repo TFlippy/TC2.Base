@@ -5,7 +5,7 @@
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
-			[Save.Ignore, Net.Ignore] public float next_scream = default;
+			[Save.Ignore, Net.Ignore] public float next_pain = default;
 
 			public Data()
 			{
@@ -22,10 +22,28 @@
 			"kobold.grunt.00",
 		};
 
-		public static Sound.Handle[] snd_scream =
+		public static Sound.Handle[] snd_oof =
 		{
-			"kobold.scream.00",
-			"kobold.scream.01",
+			"human.oof.00",
+			"human.oof.01",
+			"human.oof.02",
+			"human.oof.03",
+			"human.oof.04",
+		};
+
+		public static Sound.Handle[] snd_pain_fast =
+		{
+			"human.pain.fast.00",
+			"human.pain.fast.01",
+			"human.pain.fast.02"
+		};
+
+		public static Sound.Handle[] snd_pain_slow =
+		{
+			"human.pain.slow.00",
+			"human.pain.slow.01",
+			"human.pain.slow.02",
+			"human.pain.slow.03",
 		};
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("human", true, Source.Modifier.Owned)]
@@ -53,15 +71,36 @@
 			}
 
 			var pain_delta = MathF.Max(organic_state.pain, 0.00f);
-			//if (time >= human.next_scream && organic_state.consciousness_shared > 0.80f && pain_delta >= 1000.00f)
-			//{
-			//	if (random.NextBool(0.90f))
-			//	{
-			//		Sound.Play(ref region, snd_scream.GetRandom(ref random), transform.position, volume: 0.65f, pitch: random.NextFloatRange(0.70f, 1.00f) * head.voice_pitch);
-			//		head.next_sound = time + random.NextFloatRange(1.50f, 3.00f);
-			//	}
-			//	human.next_scream = time + 30.00f;
-			//}
+			if (time >= human.next_pain && organic_state.consciousness_shared > 0.40f)
+			{
+				if (pain_delta >= 800.00f)
+				{
+					if (random.NextBool(0.90f))
+					{
+						Sound.Play(ref region, snd_pain_fast.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
+						head.next_sound = time + random.NextFloatRange(1.50f, 3.00f);
+					}
+					human.next_pain = time + 3.00f;
+				}
+				//else if (pain_delta >= 300.00f)
+				//{
+				//	if (random.NextBool(0.90f))
+				//	{
+				//		Sound.Play(ref region, snd_oof.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
+				//		head.next_sound = time + random.NextFloatRange(1.50f, 2.00f);
+				//	}
+				//	human.next_pain = time + 1.00f;
+				//}
+				else if (organic_state.pain >= 200.00f)
+				{
+					if (random.NextBool(0.20f))
+					{
+						Sound.Play(ref region, snd_pain_slow.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
+						head.next_sound = time + random.NextFloatRange(3.50f, 6.00f);
+					}
+					human.next_pain = time + 3.00f;
+				}
+			}
 
 			if (time >= head.next_sound)
 			{
