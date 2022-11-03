@@ -117,9 +117,9 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Steam Engine", this.ent_steam_engine))
+				using (var window = GUI.Window.InteractionMisc("Steam Engine", this.ent_steam_engine, new Vector2(280, 132)))
 				{
-					this.StoreCurrentWindowTypeID();
+					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
 						using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
@@ -161,7 +161,7 @@ namespace TC2.Base.Components
 								speed_target = this.steam_engine.speed_target
 							};
 							rpc.Send(this.ent_steam_engine);
-						}		
+						}
 					}
 				}
 			}

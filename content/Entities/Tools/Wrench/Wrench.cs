@@ -429,7 +429,8 @@ namespace TC2.Base.Components
 					}
 				}
 
-				using (GUI.Group.New(size: new Vector2(48 + 32 - 5, GUI.GetRemainingHeight())))
+				//using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.GetRemainingHeight())))
+				using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.GetRemainingHeight())))
 				{
 					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
 					{

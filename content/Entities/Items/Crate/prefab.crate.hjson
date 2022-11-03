@@ -55,7 +55,7 @@ storage:
 		name: "Crate"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: public
+		flags: standalone, public
 	}
 }
 
