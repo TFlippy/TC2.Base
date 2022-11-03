@@ -20,13 +20,13 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, terrain_is_support
+		flags: allow_placement_over_buildings, allow_mirror_x, terrain_is_support
 		
 		size: [0.750, 3.000]
 		offset: [0.000, -0.500]
 		
 		cooldown: 0.500
-		min_support: 0.150
+		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
 

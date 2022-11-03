@@ -18,7 +18,7 @@ body:
 		friction: 0.750
 		elasticity: 0.300
 		material: wood
-		layer: entity, solid, building, door
+		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid
 	}
 }

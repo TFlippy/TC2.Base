@@ -22,12 +22,14 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x
+		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [5.000, 5.000]
+		size: [6.000, 6.000]
 		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.900
 		min_claim: 1.000
 
 		rotation_max: 0.200
@@ -38,7 +40,7 @@
 	construction:
 	{
 		flags: none
-		prefab: construction.5x5
+		prefab: construction.6x6
 
 		requirements:
 		[

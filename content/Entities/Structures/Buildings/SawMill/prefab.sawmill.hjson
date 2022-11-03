@@ -51,7 +51,7 @@ sawmill:
 	slider_distance: 5.00
 
 	saw_radius: 1.000
-	saw_offset: [-1.500, 1.375]
+	saw_offset: [-1.500, 0.875]
 
 	@animated.renderer:
 	{
@@ -103,7 +103,7 @@ sawmill.state:
 
 axle:
 {
-	offset: [-3.125, 1.125]
+	offset: [-3.125, 0.625]
 	mass: 5.000
 	friction: 0.200
 	radius_a: 1.000
@@ -128,7 +128,7 @@ attachment.slot:
 
 joint.base:
 {
-	offset_a: [3.000, 0.875]
+	offset_a: [3.000, 0.375]
 	max_force: 50000.000
 	max_torque: 50000.000
 	flags: control_read, control_write, use_center_of_gravity

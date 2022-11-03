@@ -54,6 +54,7 @@ animated.renderer:
 		texture: "mount.heavy"
 	}
 	z: -100.000
+	mask: "mount.heavy.mask"
 }
 
 transform:
