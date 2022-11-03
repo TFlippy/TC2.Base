@@ -26,7 +26,6 @@
 		size: [0.625, 0.625]
 		
 		cooldown: 0.500
-
 		min_support: 0.150
 		min_clearance: 0.750
 		min_claim: 1.000

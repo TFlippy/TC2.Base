@@ -6,8 +6,8 @@ body:
 	
 	@shape.box:
 	{
-		size: [3.000, 4.500]
-		offset: [0.250, -0.125]
+		size: [4.000, 5.000]
+		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
 		material: metal

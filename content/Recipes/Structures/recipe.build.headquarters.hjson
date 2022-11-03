@@ -22,12 +22,14 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_claimed
+		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support
 		
 		size: [7.000, 5.000]
 		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.900
 		min_claim: 1.000
 
 		rotation_max: 0.200
