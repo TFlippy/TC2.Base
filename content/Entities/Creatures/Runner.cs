@@ -174,6 +174,7 @@ namespace TC2.Base.Components
 			public float walk_lerp = 0.15f;
 			public float jump_decay = 0.50f;
 			public float crouch_speed_modifier = 0.50f;
+			public float air_brake_modifier = 0.10f;
 
 			public Data()
 			{
@@ -225,8 +226,8 @@ namespace TC2.Base.Components
 
 			runner.walk_force *= Maths.Clamp(organic.strength, 0.50f, 1.80f) * organic.coordination * organic.motorics;
 			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics;
-			runner.max_speed *= organic_state.efficiency * organic.coordination;
-			runner.max_jump_speed *= organic_state.efficiency * organic.consciousness;
+			runner.max_speed *= (organic_state.efficiency * organic.coordination).Clamp01();
+			runner.max_jump_speed *= (organic_state.efficiency * organic.consciousness).Clamp01();
 
 			if (organic_state.efficiency < 0.50f)
 			{
@@ -363,7 +364,7 @@ namespace TC2.Base.Components
 
 				if (!runner_state.flags.HasAll(Runner.Flags.Grounded))
 				{
-					required_force_dir.X *= 0.02f;
+					required_force_dir.X *= runner.air_brake_modifier;
 					required_force_dir.Y *= 0.00f;
 				}
 

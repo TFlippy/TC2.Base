@@ -1,3 +1,9 @@
+$name: "Beer"
+$desc:
+	'''
+	
+	'''
+
 $tags: []
 
 body:
@@ -47,13 +53,18 @@ packable:
 
 consumable:
 {
-	release_rate: 10.000
-	release_step: 0.02
+	action: drink
+	flags: enable_use_on_self
 
-	sound_drink: "drink.00"
+	release_rate: 1.000
+	release_step: 0.030
+
+	uses_max: 4
+
+	sound_use: "drink.00"
 }
 
 alcohol.effect:
 {
-	amount: 50.000
+	amount: 40.000
 }

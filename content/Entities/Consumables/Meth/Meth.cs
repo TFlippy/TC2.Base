@@ -58,8 +58,8 @@ namespace TC2.Base.Components
 		{
 			sound_emitter.file = sound_tinnitus;
 			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, meth_global.tinnitus_volume, 0.10f);
-			sound_emitter.pitch = 1.10f;
-			sound_emitter.mix_3d = 0.00f;
+			sound_emitter.pitch = 1.50f;
+			sound_emitter.mix_3d = 0.50f;
 
 			meth_global.tinnitus_volume = 0.00f;
 		}
@@ -135,11 +135,12 @@ namespace TC2.Base.Components
 
 			var total_mass = 70.00f; // TODO
 
-			meth.amount_metabolized = Maths.Clamp(meth.amount_active * organic.absorption * metabolization_modifier, 0.00f, meth.amount_active) * App.fixed_update_interval_s;
+			meth.amount_metabolized = Maths.Clamp(meth.amount_active * organic.absorption * metabolization_modifier, 0.10f, meth.amount_active) * App.fixed_update_interval_s;
 			meth.amount_withdrawal = Maths.Lerp2(meth.amount_withdrawal, meth.amount_metabolized * 0.65f, 0.0008f, 0.0001f);
 			meth.amount_active -= meth.amount_metabolized * elimination_modifier;
 
-			meth.modifier_current = meth.amount_metabolized / (total_mass * 0.001f);
+			//meth.modifier_current = meth.amount_metabolized / (total_mass * 0.001f);
+			meth.modifier_current = Maths.Lerp(meth.modifier_current, (meth.amount_metabolized * 1.50f) / (total_mass * 0.001f), 0.02f);
 			meth.modifier_withdrawal = meth.amount_withdrawal / (total_mass * 0.001f);
 
 #if SERVER
@@ -150,19 +151,55 @@ namespace TC2.Base.Components
 #endif
 		}
 
+		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
+		public static void UpdatePuncher(ISystem.Info info, Entity entity, Entity ent_body,
+		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref Puncher.Data puncher, [Source.Owned] ref Puncher.State puncher_state, [Source.Shared] in Meth.Effect meth)
+		{
+			var modifier = meth.modifier_current;
+			puncher.cooldown *= Maths.Lerp01(1.00f, 0.50f, modifier * 2.50f);
+		}
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Meth.Effect meth)
+		{
+			var modifier = meth.modifier_current;
+			runner.air_brake_modifier += Maths.Lerp01(0.00f, 0.50f, modifier * 2.00f);
+		}
+
 #if CLIENT
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth)
+		{
+			var color = GUI.font_color_default;
+			//color = Color32BGRA.FromHSV((1.00f - Maths.Clamp01(alcohol.modifier_current)) * 2.00f, 1.00f, 1.00f);
+
+			if (meth.modifier_current <= 0.35f) color = GUI.font_color_default;
+			else if (meth.modifier_current <= 0.85f) color = GUI.font_color_yellow;
+			else color = GUI.font_color_red;
+
+			IStatusEffect.ScheduleDraw(new()
+			{
+				icon = "ui_icon_effect.alcohol",
+				//icon_extra = "beer",
+				value = $"Stimmed\n{meth.modifier_current:P2}",
+				text_color = color,
+				name = $"Meth\nAmount: {meth.amount:0.00}\nActive: {meth.amount_active:0.00}"
+			});
+		}
+
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Global] ref Meth.Global meth_global)
 		{
 			if (player.IsLocal())
 			{
-				var modifier = MathF.Pow(meth.modifier_current, 1.10f);
+				var modifier = MathF.Pow(meth.modifier_current, 1.40f);
 				var random = XorRandom.New();
 
 				var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);
 				if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
-				camera.damp_modifier *= 1.00f + (modifier * 5.00f);
+				camera.damp_modifier *= 1.00f + (modifier * 14.00f);
+				camera.distance_modifier *= 1.00f + (modifier * 2.00f);
 				camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
 
 				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
@@ -180,7 +217,11 @@ namespace TC2.Base.Components
 					Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 				}
 
-				meth_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.50f) * 2.00f, 3.00f);
+				meth_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
+
+				Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 1.20f).Clamp01());
+				Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 1.10f).Clamp01());
+				Postprocess.Saturation = Maths.Lerp(Postprocess.Saturation, Postprocess.Saturation + 0.30f, (modifier * 1.20f).Clamp01());
 			}
 		}
 #endif

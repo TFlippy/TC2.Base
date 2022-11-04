@@ -9,8 +9,8 @@ namespace TC2.Base.Components
 			[Statistics.Info("Alcohol", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float amount;
 
-			public float amount_active;
-			public float amount_metabolized;
+			public float amount_bloodstream;
+			//public float amount_metabolized;
 
 			public float release_rate_current;
 			public float release_rate_target;
@@ -34,17 +34,42 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
-		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Alcohol.Effect alcohol)
+		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Alcohol.Effect alcohol_src)
 		{
-			ref var alcohol_new = ref data.ent_organic.GetOrAddComponent<Alcohol.Effect>(sync: true);
+			ref var alcohol_dst = ref data.ent_organic.GetOrAddComponent<Alcohol.Effect>(sync: true);
 
-			var ratio = Maths.SumRatio(alcohol.amount, alcohol_new.amount);
+			switch (consumable.action)
+			{
+				case Consumable.Action.Inject:
+				{
+					alcohol_dst.amount_bloodstream += alcohol_src.amount * data.amount_modifier;
+				}
+				break;
 
-			alcohol_new.amount += alcohol.amount;
-			alcohol_new.release_rate_target = Maths.Lerp(alcohol_new.release_rate_target + (alcohol_new.release_rate_target * ratio), consumable.release_rate, ratio);
-			alcohol_new.release_step = Maths.Lerp(alcohol_new.release_step, consumable.release_step, ratio);
+				case Consumable.Action.Drink:
+				{
+					var ratio = Maths.SumRatio(alcohol_src.amount * data.amount_modifier, alcohol_dst.amount);
 
-			App.WriteLine($"ratio: {ratio}");
+					alcohol_dst.amount += alcohol_src.amount * data.amount_modifier;
+					alcohol_dst.release_rate_target = Maths.Lerp(alcohol_dst.release_rate_target + (alcohol_dst.release_rate_target * ratio), consumable.release_rate, ratio);
+					alcohol_dst.release_step = Maths.Lerp(alcohol_dst.release_step, consumable.release_step, ratio);
+
+					App.WriteLine($"ratio: {ratio}");
+				}
+				break;
+
+				default:
+				{
+					var ratio = Maths.SumRatio(alcohol_src.amount * data.amount_modifier, alcohol_dst.amount);
+
+					alcohol_dst.amount += alcohol_src.amount * data.amount_modifier;
+					alcohol_dst.release_rate_target = Maths.Lerp(alcohol_dst.release_rate_target + (alcohol_dst.release_rate_target * ratio), consumable.release_rate, ratio);
+					alcohol_dst.release_step = Maths.Lerp(alcohol_dst.release_step, consumable.release_step, ratio);
+
+					App.WriteLine($"ratio: {ratio}");
+				}
+				break;
+			}
 		}
 #endif
 
@@ -60,9 +85,9 @@ namespace TC2.Base.Components
 			organic.endurance *= Maths.Lerp01(1.00f, 1.75f, (modifier * 1.70f));
 			organic.dexterity *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.40f) + (hiccup_modifier * 0.50f));
 			organic.strength *= Maths.Lerp01(1.00f, 1.30f, (modifier * 1.50f));
-			organic.motorics *= Maths.Lerp01(1.00f, 0.40f, (modifier_jitter * 1.10f) + (hiccup_modifier * 0.80f));
-			organic.coordination *= Maths.Lerp01(1.00f, 0.10f, (modifier_jitter * 0.30f) + (hiccup_modifier * 0.90f));
-			organic.absorption *= Maths.Lerp01(1.00f, 1.50f, (modifier * 1.50f));
+			organic.motorics *= Maths.Lerp01(1.00f, 0.40f, (modifier_jitter * 0.40f) + (hiccup_modifier * 0.80f));
+			organic.coordination *= Maths.Lerp01(1.00f, 0.10f, (modifier_jitter * 0.10f) + (hiccup_modifier * 0.90f));
+			organic.absorption *= Maths.Lerp01(1.00f, 2.50f, (modifier * 1.50f));
 			organic.pain_modifier *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.20f));
 		}
 
@@ -83,32 +108,33 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static float metabolization_modifier = 0.10f;
-		public static float elimination_modifier = 0.25f;
+		public static float metabolization_modifier = 0.20f;
+		public static float elimination_modifier = 0.10f;
+		public static float modifier_lerp = 0.02f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
 		{
-			alcohol.release_rate_current = Maths.MoveTowards(alcohol.release_rate_current, alcohol.release_rate_target, alcohol.release_step * App.fixed_update_interval_s);
+			alcohol.release_rate_current = Maths.MoveTowards(alcohol.release_rate_current, alcohol.release_rate_target, alcohol.release_step * info.DeltaTime);
 
 			if (alcohol.amount > 0.00f)
 			{
-				var amount_released = Maths.Clamp(alcohol.release_rate_current, 0.00f, alcohol.amount) * App.fixed_update_interval_s;
+				var amount_released = Maths.Clamp(alcohol.release_rate_current, 0.00f, alcohol.amount) * info.DeltaTime;
 
-				alcohol.amount_active += amount_released;
+				alcohol.amount_bloodstream += amount_released;
 				alcohol.amount -= amount_released;
 			}
 
 			var total_mass = 70.00f; // TODO
 
-			var amount_metabolized = Maths.Clamp(alcohol.amount_active * organic.absorption * metabolization_modifier, 0.00f, alcohol.amount_active) * App.fixed_update_interval_s;
+			var amount_metabolized = Maths.Clamp(alcohol.amount_bloodstream * metabolization_modifier, 0.10f, alcohol.amount_bloodstream) * info.DeltaTime;
 
-			alcohol.amount_metabolized = amount_metabolized;
-			alcohol.modifier_current = amount_metabolized / (total_mass * 0.001f);
-			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (App.fixed_update_interval_s * 0.20f), 0.00f);
+			//alcohol.amount_metabolized = amount_metabolized;
+			alcohol.modifier_current = Maths.Lerp(alcohol.modifier_current, (amount_metabolized * 0.40f) / (total_mass * 0.001f), modifier_lerp);
+			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (info.DeltaTime * 0.20f), 0.00f);
 
 			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
-			alcohol.amount_active -= amount_metabolized * elimination_modifier;
+			alcohol.amount_bloodstream -= amount_metabolized * elimination_modifier;
 
 #if SERVER
 			var random = XorRandom.New();
@@ -120,7 +146,7 @@ namespace TC2.Base.Components
 				alcohol.Sync(entity);
 			}
 
-			if (alcohol.amount <= 0.01f && alcohol.amount_active <= 0.01f)
+			if (alcohol.amount <= 0.01f && alcohol.amount_bloodstream <= 0.01f)
 			{
 				entity.RemoveComponent<Alcohol.Effect>();
 			}
@@ -128,6 +154,26 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
+		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
+		{
+			var color = GUI.font_color_default;
+			//color = Color32BGRA.FromHSV((1.00f - Maths.Clamp01(alcohol.modifier_current)) * 2.00f, 1.00f, 1.00f);
+
+			if (alcohol.modifier_current <= 0.35f) color = GUI.font_color_default;
+			else if (alcohol.modifier_current <= 0.85f) color = GUI.font_color_yellow;
+			else color = GUI.font_color_red;
+
+			IStatusEffect.ScheduleDraw(new()
+			{
+				icon = "ui_icon_effect.alcohol",
+				//icon_extra = "beer",
+				value = $"Drunk\n{alcohol.modifier_current:P2}",
+				text_color = color,
+				name = $"Alcohol\nAmount: {alcohol.amount:0.00}\nActive: {alcohol.amount_bloodstream:0.00}"
+			});
+		}
+
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{

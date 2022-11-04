@@ -1,3 +1,9 @@
+$name: "Cigarettes"
+$desc: 
+	'''
+	Pack of cigarettes that can be lit and smoked.
+	'''
+
 $tags: []
 
 body:
@@ -48,12 +54,12 @@ packable:
 consumable:
 {
 	action: smoke
-	flags: enable_use_on_self, enable_use_on_others
+	flags: enable_use_on_self, separate_uses
 
 	release_rate: 10.000
 	release_step: 0.04
 
-	uses_rem: 10
+	uses_max: 10
 
 	sound_use: "cigar.00"
 }
