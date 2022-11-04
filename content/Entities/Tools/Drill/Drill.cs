@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single)]
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
 		{
 			if (player.IsLocal())

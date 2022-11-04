@@ -658,7 +658,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single)]
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
@@ -675,7 +675,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateGUI(ISystem.Mode.Single)]
+		[ISystem.LateGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUIMode<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode

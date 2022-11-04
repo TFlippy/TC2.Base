@@ -339,7 +339,7 @@
 		//	}
 		//}
 
-		[ISystem.GUI(ISystem.Mode.Single)]
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info,
 		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)

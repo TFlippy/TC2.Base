@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single)]
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)

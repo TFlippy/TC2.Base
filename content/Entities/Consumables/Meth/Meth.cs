@@ -151,7 +151,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Global] ref Meth.Global meth_global)
 		{
 			if (player.IsLocal())
