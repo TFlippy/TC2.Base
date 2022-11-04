@@ -1,0 +1,36 @@
+{
+	name: "Houser A-750"
+	desc: 
+	'''
+	Small high-caliber semi-automatic handgun with a bayonet.
+	'''
+
+	icon:
+	{
+		texture: "machine_pistol"
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	type: buy
+	tags: vending_machine
+	rank: -10.000
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 219.99
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "bp.houser.a750"
+			amount: 1.000
+		}
+	]
+}

@@ -1,0 +1,48 @@
+{
+	name: "Low-Caliber Ammo (Reduced Recoil)"
+	desc:
+		'''
+		Cheap low-caliber ammunition.
+		- Low damage
+		- Medium accuracy
+		- Medium velocity
+		- Low recoil	
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_lc.rr"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	min: 20
+	max: 60
+	step: 20
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 1.190
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_lc.rr"
+			amount: 1.000
+		}
+	]
+}

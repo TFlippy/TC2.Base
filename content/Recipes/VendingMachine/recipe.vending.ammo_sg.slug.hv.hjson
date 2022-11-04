@@ -1,0 +1,49 @@
+{
+	name: "Shotgun Shell (Slug, High-Velocity)"
+	desc:
+		'''
+		Used against armored targets.
+		- Single heavy projectile
+		- High damage
+		- Medium accuracy
+		- High recoil
+		- Low range
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.slug.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	min: 4
+	max: 24
+	step: 4
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 8.790
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.slug.hv"
+			amount: 1.000
+		}
+	]
+}

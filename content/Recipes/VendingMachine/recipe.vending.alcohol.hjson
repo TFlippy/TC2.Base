@@ -1,0 +1,37 @@
+{
+	name: "Alcohol"
+	desc: 
+		'''
+		Industrial alcohol, used as a disinfectant and solvent.
+		'''
+	
+	icon:
+	{
+		texture: "resource.alcohol"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 4.990
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "alcohol"
+			amount: 1.000
+		}
+	]
+}

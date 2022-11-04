@@ -1,0 +1,48 @@
+{
+	name: "High-Caliber Ammo (Reduced Recoil)"
+	desc:
+		'''
+		Cheap high-caliber ammunition.
+		- Medium damage
+		- Medium accuracy
+		- Medium velocity
+		- Low recoil	
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_hc.rr"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	min: 10
+	max: 50
+	step: 10
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 2.390
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_hc.rr"
+			amount: 1.000
+		}
+	]
+}

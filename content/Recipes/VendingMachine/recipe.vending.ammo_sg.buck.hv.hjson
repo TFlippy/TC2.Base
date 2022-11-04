@@ -1,0 +1,48 @@
+{
+	name: "Shotgun Shell (Buckshot, High-Velocity)"
+	desc:
+		'''
+		Used for general-purpose combat against unarmored or lightly-armored targets.
+		- Multiple medium-sized projectiles
+		- Medium damage
+		- Medium accuracy
+		- Medium range
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_sg.buck.hv"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	min: 4
+	max: 24
+	step: 4
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 8.790
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_sg.buck.hv"
+			amount: 1.000
+		}
+	]
+}

@@ -1,0 +1,37 @@
+{
+	name: "Water"
+	desc: 
+		'''
+		Pure water.
+		'''
+	
+	icon:
+	{
+		texture: "resource.water"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 5.990
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "water"
+			amount: 1.000
+		}
+	]
+}

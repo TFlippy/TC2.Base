@@ -1,0 +1,48 @@
+{
+	name: "Machine Gun Ammo (Standard)"
+	desc: 
+		'''
+		Used against vehicles and large or armored targets.
+		- High damage
+		- Medium accuracy
+		- High velocity
+		- Very high recoil	
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_mg"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 10
+	max: 50
+	step: 10
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 5.490
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "ammo_mg"
+			amount: 1.000
+		}
+	]
+}

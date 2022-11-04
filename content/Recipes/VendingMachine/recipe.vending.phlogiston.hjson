@@ -1,0 +1,37 @@
+{
+	name: "Phlogiston"
+	desc: 
+		'''
+		Concentrated fire - a very potent fuel.
+		'''
+	
+	icon:
+	{
+		texture: "resource.phlogiston"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 100
+	step: 10
+	type: buy
+	tags: vending_machine
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 17.990
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "phlogiston"
+			amount: 1.000
+		}
+	]
+}
