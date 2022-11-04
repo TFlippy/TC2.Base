@@ -1,6 +1,6 @@
 {
 	name: "Universal Brown Sauce"
-	description: "Key ingredient of the imperial cuisine."
+	description: "Key ingredient of the Imperial cuisine."
 	icon:
 	{
 		texture: "resource.sauce"

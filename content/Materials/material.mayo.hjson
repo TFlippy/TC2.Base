@@ -1,6 +1,6 @@
 {
 	name: "Mayonnaise"
-	description: "A popular Imperial delicacy, often eaten directly or as a side dish."
+	description: "Popular Imperial delicacy, often eaten directly or as a side dish."
 	icon:
 	{
 		texture: "resource.mayo"
@@ -11,6 +11,7 @@
 	type: liquid
 	flags: manufactured
 	mass_per_unit: 0.500
+	market_price: 40.000
 	quantity_max: 500.000
 	prefab: "resource.mayo"
 	
