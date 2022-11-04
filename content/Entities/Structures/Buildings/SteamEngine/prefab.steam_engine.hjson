@@ -149,5 +149,5 @@ transform:
 
 interactable:
 {
-	window_size: [300.000, 200.000]
+	window_size: [320.000, 192.000]
 }

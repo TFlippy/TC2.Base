@@ -64,7 +64,7 @@ transform:
 
 interactable:
 {
-	window_size: [300.000, 160.000]
+	window_size: [224.000, 192.000]
 }
 
 faction.colorable:

@@ -60,7 +60,7 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Outpost"
+		name: "Storage"
 		stack_size_multiplier: 5.000
 		type: storage
 		flags: ignore_mass, public
