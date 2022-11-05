@@ -160,15 +160,17 @@ namespace TC2.Base.Components
 			var color = GUI.font_color_default;
 			//color = Color32BGRA.FromHSV((1.00f - Maths.Clamp01(alcohol.modifier_current)) * 2.00f, 1.00f, 1.00f);
 
-			if (alcohol.modifier_current <= 0.35f) color = GUI.font_color_default;
-			else if (alcohol.modifier_current <= 0.85f) color = GUI.font_color_yellow;
+			if (alcohol.modifier_current <= 0.05f) color = GUI.font_color_default;
+			else if (alcohol.modifier_current <= 0.10f) color = GUI.font_color_green;
+			else if (alcohol.modifier_current <= 0.30f) color = GUI.font_color_yellow;
+			else if (alcohol.modifier_current <= 0.55f) color = GUI.font_color_orange;
 			else color = GUI.font_color_red;
 
 			IStatusEffect.ScheduleDraw(new()
 			{
 				icon = "ui_icon_effect.alcohol",
 				//icon_extra = "beer",
-				value = $"Drunk\n{alcohol.modifier_current:P2}",
+				value = $"Drunk\n{alcohol.modifier_current.Clamp01():P2}",
 				text_color = color,
 				name = $"Alcohol\nAmount: {alcohol.amount:0.00}\nActive: {alcohol.amount_bloodstream:0.00}"
 			});

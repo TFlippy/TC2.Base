@@ -163,7 +163,15 @@ namespace TC2.Base.Components
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Meth.Effect meth)
 		{
 			var modifier = meth.modifier_current;
-			runner.air_brake_modifier += Maths.Lerp01(0.00f, 0.50f, modifier * 2.00f);
+			
+			runner.air_brake_modifier += Maths.Lerp01(0.00f, 0.50f, modifier * 3.00f);
+			runner.crouch_speed_modifier = Maths.Lerp01(runner.crouch_speed_modifier, 0.80f, modifier * 3.00f);
+			runner.max_speed *= Maths.Lerp01(1.00f, 1.20f, modifier * 3.00f);
+			runner.walk_lerp = Maths.Lerp01(runner.walk_lerp, 0.75f, modifier * 3.00f);
+
+			var jump_multiplier = Maths.Lerp01(1.00f, 1.30f, modifier * 3.00f);
+			runner.jump_decay /= jump_multiplier * 1.30f;
+			runner.max_jump_speed *= jump_multiplier; 
 		}
 
 #if CLIENT
@@ -173,15 +181,17 @@ namespace TC2.Base.Components
 			var color = GUI.font_color_default;
 			//color = Color32BGRA.FromHSV((1.00f - Maths.Clamp01(alcohol.modifier_current)) * 2.00f, 1.00f, 1.00f);
 
-			if (meth.modifier_current <= 0.35f) color = GUI.font_color_default;
-			else if (meth.modifier_current <= 0.85f) color = GUI.font_color_yellow;
+			if (meth.modifier_current <= 0.05f) color = GUI.font_color_default;
+			else if (meth.modifier_current <= 0.15f) color = GUI.font_color_green;
+			else if (meth.modifier_current <= 0.45f) color = GUI.font_color_yellow;
+			else if (meth.modifier_current <= 0.75f) color = GUI.font_color_orange;
 			else color = GUI.font_color_red;
 
 			IStatusEffect.ScheduleDraw(new()
 			{
 				icon = "ui_icon_effect.alcohol",
 				//icon_extra = "beer",
-				value = $"Stimmed\n{meth.modifier_current:P2}",
+				value = $"Stimmed\n{meth.modifier_current.Clamp01():P2}",
 				text_color = color,
 				name = $"Meth\nAmount: {meth.amount:0.00}\nActive: {meth.amount_active:0.00}"
 			});

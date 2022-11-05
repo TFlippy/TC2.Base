@@ -73,15 +73,15 @@
 			var pain_delta = MathF.Max(organic_state.pain, 0.00f);
 			if (time >= human.next_pain && organic_state.consciousness_shared > 0.40f)
 			{
-				if (pain_delta >= 800.00f)
-				{
-					if (random.NextBool(0.90f))
-					{
-						Sound.Play(ref region, snd_pain_fast.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
-						head.next_sound = time + random.NextFloatRange(1.50f, 3.00f);
-					}
-					human.next_pain = time + 3.00f;
-				}
+				//if (pain_delta >= 800.00f)
+				//{
+				//	if (random.NextBool(0.90f))
+				//	{
+				//		Sound.Play(ref region, Kobold.snd_scream.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.60f, 0.80f) * head.voice_pitch);
+				//		head.next_sound = time + random.NextFloatRange(1.50f, 3.00f);
+				//	}
+				//	human.next_pain = time + 3.00f;
+				//}
 				//else if (pain_delta >= 300.00f)
 				//{
 				//	if (random.NextBool(0.90f))
@@ -91,15 +91,15 @@
 				//	}
 				//	human.next_pain = time + 1.00f;
 				//}
-				else if (organic_state.pain >= 200.00f)
-				{
-					if (random.NextBool(0.20f))
-					{
-						Sound.Play(ref region, snd_pain_slow.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
-						head.next_sound = time + random.NextFloatRange(3.50f, 6.00f);
-					}
-					human.next_pain = time + 3.00f;
-				}
+				//else if (organic_state.pain >= 200.00f)
+				//{
+				//	if (random.NextBool(0.20f))
+				//	{
+				//		Sound.Play(ref region, snd_pain_slow.GetRandom(ref random), transform.position, volume: 0.45f, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
+				//		head.next_sound = time + random.NextFloatRange(3.50f, 6.00f);
+				//	}
+				//	human.next_pain = time + 3.00f;
+				//}
 			}
 
 			if (time >= head.next_sound)
