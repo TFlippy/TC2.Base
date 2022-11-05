@@ -2,8 +2,8 @@
 	name: "Carbine"
 	desc:
 		'''
-		A lever-action carbine.
-		Useful in close quarters, while keeping the accuracy for longer ranges.
+		Lever-action carbine.
+		Useful in close quarters, while still keeping the accuracy for longer ranges.
 		'''
 	
 	icon:

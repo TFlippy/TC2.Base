@@ -1,6 +1,6 @@
 {
 	name: "Mining Drill"
-	desc: "A heavy-duty tool used for mining."
+	desc: "Advanced tool used for mining."
 	
 	icon:
 	{

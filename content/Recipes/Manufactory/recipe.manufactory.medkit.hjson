@@ -1,6 +1,6 @@
 {
 	name: "Medkit"
-	desc: "A bag with various tools for treating injuries."
+	desc: "Bag with various tools for treating injuries."
 	
 	icon:
 	{

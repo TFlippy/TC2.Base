@@ -2,8 +2,8 @@
 	name: "MRL"
 	desc:
 		'''
-		A heavy and unwieldy rocket launcher.
-		Good at blowing up stuff from distance.
+		Heavy and unwieldy rocket launcher.
+		Good at blowing up stuff from safe distance.
 		Needs to be placed on mount.
 		'''
 	

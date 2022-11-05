@@ -2,8 +2,7 @@
 	name: "Revolver"
 	desc:
 		'''
-		A small revolver, very
-		useful in tight spaces.
+		Small revolver capable of using high-caliber ammunition.
 		'''
 	
 	icon:

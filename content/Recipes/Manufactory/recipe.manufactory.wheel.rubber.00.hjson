@@ -1,6 +1,6 @@
 {
 	name: "Wheel (Rubber, Small)"
-	desc: "A small high-friction wheel that can be attached to vehicles."
+	desc: "Small high-friction wheel that can be attached to vehicles."
 	
 	icon:
 	{

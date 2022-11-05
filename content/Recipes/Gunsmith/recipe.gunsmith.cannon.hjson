@@ -1,6 +1,6 @@
 {
 	name: "Cannon"
-	desc: "A heavy artillery cannon."
+	desc: "Heavy artillery cannon for long-range shelling."
 	
 	icon:
 	{

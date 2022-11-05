@@ -1,6 +1,6 @@
 {
 	name: "Wheel (Rubber, Medium)"
-	desc: "A medium high-friction wheel that can be attached to vehicles."
+	desc: "Medium high-friction wheel that can be attached to vehicles."
 	
 	icon:
 	{

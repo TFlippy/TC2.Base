@@ -14,7 +14,7 @@
 	max: 4
 	step: 1
 	
-	flags: blueprintable
+	// flags: blueprintable
 	type: workshop
 	tags: workbench
 	

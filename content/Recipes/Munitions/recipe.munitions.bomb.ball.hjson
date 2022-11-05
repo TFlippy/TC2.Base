@@ -1,6 +1,6 @@
 {
 	name: "Bomb"
-	desc: "A small throwable explosive."
+	desc: "Small throwable explosive."
 	
 	icon:
 	{

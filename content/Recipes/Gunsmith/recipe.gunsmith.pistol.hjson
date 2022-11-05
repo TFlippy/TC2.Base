@@ -1,6 +1,6 @@
 {
 	name: "Pistol"
-	desc: "A semi-automatic pistol."
+	desc: "Semi-automatic pistol."
 	
 	icon:
 	{

@@ -2,8 +2,7 @@
 	name: "SMG"
 	desc:
 		'''
-		An automatic submachine gun
-		with high ammo capacity.
+		Automatic submachine gun with a high ammo capacity.
 		'''
 	
 	icon:

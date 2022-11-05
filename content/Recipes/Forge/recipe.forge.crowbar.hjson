@@ -1,6 +1,6 @@
 {
 	name: "Crowbar"
-	desc: "A metal stick that looks like a crow."
+	desc: "Metal stick that looks like a crow."
 	
 	icon:
 	{

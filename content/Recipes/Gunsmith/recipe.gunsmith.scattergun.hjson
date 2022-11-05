@@ -2,7 +2,7 @@
 	name: "Scattergun"
 	desc:
 		'''
-		A break-action shotgun.
+		Break-action shotgun.
 		Can use a wide range of ammunition.
 		'''
 	

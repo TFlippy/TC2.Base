@@ -1,6 +1,6 @@
 {
 	name: "Pickaxe"
-	desc: "A tool useful for mining."
+	desc: "Basic mining tool."
 	
 	icon:
 	{

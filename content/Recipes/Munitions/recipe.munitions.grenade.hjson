@@ -1,6 +1,6 @@
 {
 	name: "Grenade"
-	desc: "A small throwable anti-infantry explosive."
+	desc: "Small throwable anti-infantry explosive."
 	
 	icon:
 	{

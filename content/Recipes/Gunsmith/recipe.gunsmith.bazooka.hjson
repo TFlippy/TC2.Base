@@ -2,8 +2,8 @@
 	name: "Bazooka"
 	desc:
 		'''
-		A heavy rocket launcher.
-		Good at blowing up stuff from distance.
+		Portable rocket launcher.
+		Good for blowing up stuff from distance.
 		'''
 	
 	icon:

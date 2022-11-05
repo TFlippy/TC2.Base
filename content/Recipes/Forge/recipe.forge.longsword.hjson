@@ -1,6 +1,6 @@
 {
 	name: "Longsword"
-	desc: "A long-ranged melee weapon."
+	desc: "Bladed melee weapon with a long reach."
 	
 	icon:
 	{

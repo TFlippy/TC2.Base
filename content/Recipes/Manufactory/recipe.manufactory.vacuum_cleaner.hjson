@@ -1,6 +1,6 @@
 {
 	name: "Vacuum Cleaner [WIP]"
-	desc: "A handheld cleaning device."
+	desc: "Handheld cleaning device."
 	
 	icon:
 	{
