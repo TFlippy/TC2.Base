@@ -66,5 +66,5 @@ consumable:
 
 alcohol.effect:
 {
-	amount: 40.000
+	amount: 50.000
 }

@@ -1,6 +1,6 @@
 {
-	name: "Scrub's Chow"
-	desc: "TODO: Desc"
+	name: "Scrub's Chow (Pudding)"
+	desc: "Sweet pudding loved by children of all ages."
 	
 	icon:
 	{
@@ -8,6 +8,16 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "resource.sugar"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-2, -7]
+	icon_extra_scale: 1.000
 	
 	min: 1
 	max: 1
@@ -21,13 +31,18 @@
 	[
 		{
 			type: "resource"
-			material: "sauce"
-			amount: 8.000
+			material: "water"
+			amount: 10.000
 		}
 		{
 			type: "resource"
-			material: "meat"
-			amount: 4.000
+			material: "sugar"
+			amount: 10.000
+		}
+		{
+			type: "resource"
+			material: "insect"
+			amount: 5.000
 		}
 		{
 			type: "resource"

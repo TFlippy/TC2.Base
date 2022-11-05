@@ -1,0 +1,59 @@
+{
+	name: "Beer"
+	desc:
+		'''
+		Common man's water substitute.
+		'''
+	
+	icon:
+	{
+		texture: "beer"
+	}
+	
+	min: 4
+	max: 40
+	step: 4
+	
+	flags: blueprintable
+	type: crafter
+	tags: refinery
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "glass"
+			amount: 0.500
+		}
+		{
+			type: "resource"
+			material: "sauce"
+			amount: 0.250
+		}
+		{
+			type: "resource"
+			material: "water"
+			amount: 3.000
+		}
+		{
+			type: "resource"
+			material: "alcohol"
+			amount: 0.500
+		}
+		{
+			type: "work"
+			work: "refining"
+			amount: 5.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "beer"
+			amount: 1.000
+		}
+	]
+}
