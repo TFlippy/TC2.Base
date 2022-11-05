@@ -13,6 +13,7 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterMedkitAugments;
 			Augment.OnInitialize += RegisterExplosiveAugments;
 			Augment.OnInitialize += RegisterArmorAugments;
+			Augment.OnInitialize += RegisterWrenchAugments;
 
 			IMaterial.Database.AddAssetPostProcessor((IMaterial.Definition definition, ref IMaterial.Data data) =>
 			{
