@@ -14,7 +14,7 @@
 	max: 40
 	step: 4
 	
-	flags: blueprintable
+	flags: hidden, blueprintable
 	type: crafter
 	tags: refinery
 	
@@ -35,11 +35,11 @@
 			material: "water"
 			amount: 3.000
 		}
-		{
-			type: "resource"
-			material: "alcohol"
-			amount: 0.500
-		}
+		// {
+		// 	type: "resource"
+		// 	material: "alcohol"
+		// 	amount: 0.500
+		// }
 		{
 			type: "work"
 			work: "refining"

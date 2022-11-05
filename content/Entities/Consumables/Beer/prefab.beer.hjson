@@ -64,7 +64,7 @@ consumable:
 	sound_use: "drink.00"
 }
 
-alcohol.effect:
-{
-	amount: 50.000
-}
+// alcohol.effect:
+// {
+// 	amount: 50.000
+// }

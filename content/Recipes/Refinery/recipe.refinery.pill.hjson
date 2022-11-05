@@ -14,7 +14,7 @@
 	max: 100
 	step: 10
 	
-	flags: blueprintable
+	flags: hidden, blueprintable
 	type: crafter
 	tags: refinery
 	

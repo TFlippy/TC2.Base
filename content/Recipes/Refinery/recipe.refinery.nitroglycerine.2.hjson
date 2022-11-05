@@ -8,6 +8,16 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+
+	icon_extra:
+	{
+		texture: "resource.tallow"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	icon_extra_offset: [4, -7]
+	icon_extra_scale: 1.000
 	
 	min: 1
 	max: 1
