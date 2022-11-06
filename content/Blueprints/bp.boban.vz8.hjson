@@ -1,0 +1,41 @@
+{
+	name: "Boban vz.8"
+	description: "Land mine with safety markings to prevent accidental detonation."
+	prefab: "landmine"
+	recipe: "munitions.landmine"
+	augments:
+	[
+		{
+			identifier: "landmine.safety"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			data: 0
+		}
+	]
+}

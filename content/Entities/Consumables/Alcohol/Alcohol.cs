@@ -82,19 +82,20 @@ namespace TC2.Base.Components
 			var hiccup_modifier = alcohol.hiccup_current * alcohol.hiccup_current;
 
 			organic.consciousness *= Maths.Lerp01(1.00f, 0.05f, (modifier * 0.30f) + (hiccup_modifier * modifier * 0.30f));
-			organic.endurance *= Maths.Lerp01(1.00f, 1.75f, (modifier * 1.70f));
+			organic.endurance *= Maths.Lerp01(1.00f, 1.60f, (modifier * 1.70f));
 			organic.dexterity *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.40f) + (hiccup_modifier * 0.50f));
 			organic.strength *= Maths.Lerp01(1.00f, 1.30f, (modifier * 1.50f));
 			organic.motorics *= Maths.Lerp01(1.00f, 0.40f, (modifier_jitter * 0.40f) + (hiccup_modifier * 0.80f));
 			organic.coordination *= Maths.Lerp01(1.00f, 0.10f, (modifier_jitter * 0.10f) + (hiccup_modifier * 0.90f));
-			organic.absorption *= Maths.Lerp01(1.00f, 2.50f, (modifier * 1.50f));
-			organic.pain_modifier *= Maths.Lerp01(1.00f, 0.20f, (modifier * 1.20f));
+			organic.absorption *= Maths.Lerp01(1.00f, 2.50f, (modifier * 2.50f));
+			organic.regeneration *= Maths.Lerp01(1.00f, 1.50f, (modifier * 3.20f));
+			organic.pain_modifier *= Maths.Lerp01(1.00f, 0.10f, (modifier * 1.20f));
 		}
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateHead(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.All] ref Alcohol.Effect alcohol, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
+		[Source.Owned] in Transform.Data transform, [Source.All] ref Alcohol.Effect alcohol, [Source.Owned] ref Head.Data head)
 		{
 			var modifier = alcohol.modifier_current + (alcohol.jitter_current * 0.75f);
 
@@ -106,11 +107,17 @@ namespace TC2.Base.Components
 				alcohol.next_sound = info.WorldTime + random.NextFloatRange(2.00f, 5.00f);
 			}
 		}
+
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void UpdateRegen(ISystem.Info info, Entity entity, [Source.Owned, Override] ref Regen.Data regen, [Source.Any] in Alcohol.Effect alcohol)
+		//{
+		//	var modifier = alcohol.modifier_current + (alcohol.jitter_current * 0.75f);
+		//}
 #endif
 
 		public static float metabolization_modifier = 0.20f;
 		public static float elimination_modifier = 0.10f;
-		public static float modifier_lerp = 0.02f;
+		public static float modifier_lerp = 0.001f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
@@ -130,7 +137,7 @@ namespace TC2.Base.Components
 			var amount_metabolized = Maths.Clamp(alcohol.amount_bloodstream * metabolization_modifier, 0.10f, alcohol.amount_bloodstream) * info.DeltaTime;
 
 			//alcohol.amount_metabolized = amount_metabolized;
-			alcohol.modifier_current = Maths.Lerp(alcohol.modifier_current, (amount_metabolized * 0.40f) / (total_mass * 0.001f), modifier_lerp);
+			alcohol.modifier_current = Maths.Lerp(alcohol.modifier_current, (amount_metabolized * organic.water_ratio) / (total_mass * 0.001f), modifier_lerp);
 			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (info.DeltaTime * 0.20f), 0.00f);
 
 			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
@@ -163,14 +170,14 @@ namespace TC2.Base.Components
 			if (alcohol.modifier_current <= 0.05f) color = GUI.font_color_default;
 			else if (alcohol.modifier_current <= 0.10f) color = GUI.font_color_green;
 			else if (alcohol.modifier_current <= 0.30f) color = GUI.font_color_yellow;
-			else if (alcohol.modifier_current <= 0.55f) color = GUI.font_color_orange;
+			else if (alcohol.modifier_current <= 0.85f) color = GUI.font_color_orange;
 			else color = GUI.font_color_red;
 
 			IStatusEffect.ScheduleDraw(new()
 			{
 				icon = "ui_icon_effect.alcohol",
 				//icon_extra = "beer",
-				value = $"Drunk\n{alcohol.modifier_current.Clamp01():P2}",
+				value = $"Drunk\n{alcohol.modifier_current * 10.00f:0.00} \u2030",
 				text_color = color,
 				name = $"Alcohol\nAmount: {alcohol.amount:0.00}\nActive: {alcohol.amount_bloodstream:0.00}"
 			});

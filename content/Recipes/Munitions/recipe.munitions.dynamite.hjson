@@ -13,7 +13,7 @@
 	
 	flags: blueprintable
 	type: workshop
-	tags: munitions
+	tags: munitions, kitchen
 	
 	requirements:
 	[

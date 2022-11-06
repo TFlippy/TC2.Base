@@ -15,7 +15,7 @@
 	
 	flags: no_amount_multiplier
 	type: crafter
-	tags: refinery
+	tags: refinery, kitchen
 	
 	requirements:
 	[

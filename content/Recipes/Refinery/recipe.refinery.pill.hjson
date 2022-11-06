@@ -16,7 +16,7 @@
 	
 	flags: hidden, blueprintable
 	type: crafter
-	tags: refinery
+	tags: refinery, kitchen
 	
 	requirements:
 	[
