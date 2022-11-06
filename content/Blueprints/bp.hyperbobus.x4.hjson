@@ -1,0 +1,47 @@
+{
+	name:
+		'''
+		Hyperbobus X-4
+		'''
+	description:
+		'''
+		Heavy rocket launcher that can hold up to 4 rockets.
+		'''
+	prefab: "bazooka"
+	recipe: "gunsmith.bazooka"
+	augments:
+	[
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.launcher_stacked_charge"
+			data: 0
+		}
+		{
+			identifier: "gun.launcher_stacked_charge"
+			data: 0
+		}
+		{
+			identifier: "gun.launcher_stacked_charge"
+			data: 0
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			data: 0
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 4467570831400108032
+		}
+		{
+			identifier: "gun.slower_cycling_mechanism"
+			data: 1065688760
+		}
+		{
+			identifier: "overheat.coolant"
+			data: 40
+		}
+	]
+}

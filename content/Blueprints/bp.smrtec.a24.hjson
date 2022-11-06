@@ -1,0 +1,48 @@
+{
+	name:
+		'''
+		Smrtec A-24
+		'''
+	description:
+		'''
+		Fully-automatic shotgun with a huge ammo capacity - primarily designed to be used as a grenade launcher.
+		Extremely illegal in most Imperial provinces.
+		'''
+	prefab: "auto_shotgun"
+	recipe: "gunsmith.auto_shotgun"
+	augments:
+	[
+		{
+			identifier: "gun.automatic"
+			data: 0
+		}
+		{
+			identifier: "gun.gas_operation"
+			data: 0
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1084227584
+		}
+		{
+			identifier: "gun.improved_ammo_loading"
+			data: 0
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 4467570831408496640
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 4467570833539203072
+		}
+		{
+			identifier: "gun.scope"
+			data: 13726971666372755456
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+	]
+}

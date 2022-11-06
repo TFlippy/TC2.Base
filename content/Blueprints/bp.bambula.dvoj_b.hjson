@@ -1,0 +1,44 @@
+{
+	name: "Bambula Dvoj-B"
+	description:
+		'''
+		Break-action shotgun with two barrels, a timeless classic.
+		'''
+	prefab: "scattergun"
+	recipe: "gunsmith.scattergun"
+	augments:
+	[
+		{
+			identifier: "gun.extra_barrel"
+			data: 1
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 1048576000
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 4467570832499015680
+		}
+		{
+			identifier: "gun.simple_frame"
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			data: 0
+		}
+	]
+}

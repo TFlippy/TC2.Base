@@ -1,0 +1,47 @@
+{
+	name:
+		'''
+		Hromus 500
+		'''
+	description:
+		'''
+		Extremely powerful MG-caliber revolver.
+		'''
+	prefab: "revolver"
+	recipe: "gunsmith.revolver"
+	augments:
+	[
+		{
+			identifier: "gun.recoil_reduction"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			data: 1
+		}
+		{
+			identifier: "gun.revolver_gas_seal"
+			data: 0
+		}
+		{
+			identifier: "gun.revolver_hand_fitted_parts"
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			data: 1065353216
+		}
+		{
+			identifier: "gun.hardened_frame"
+			data: 13690942868263272448
+		}
+		{
+			identifier: "gun.tempered_frame"
+			data: 9223372037903351808
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			data: 1081585172
+		}
+	]
+}
