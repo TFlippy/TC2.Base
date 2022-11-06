@@ -9,11 +9,12 @@ projectile:
 	size: 0.350
 	ricochet_count: 0
 	damp: 0.980
+	tracer_length: 8.000
 }
 
 projectile.renderer:
 {
-	length: 8.000
+
 }
 
 transform:

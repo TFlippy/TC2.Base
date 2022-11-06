@@ -7,11 +7,12 @@ projectile:
 	lifetime: 5.000
 	damage_type: bullet_musket
 	size: 0.100
+	tracer_length: 3.000
 }
 
 projectile.renderer:
 {
-	length: 3.000
+	
 }
 
 transform:

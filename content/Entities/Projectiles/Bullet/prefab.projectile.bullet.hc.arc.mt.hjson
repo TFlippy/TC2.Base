@@ -12,6 +12,7 @@ projectile:
 	ricochet_threshold_multiplier: 1.700
 	ricochet_velocity_min: 1.000
 	damp: 0.750
+	tracer_length: 1.000
 
 	@sound.emitter:
 	{
@@ -36,7 +37,6 @@ projectile:
 
 projectile.renderer:
 {
-	length: 1.000
 	color_a: "0xff00ffc4"
 }
 
