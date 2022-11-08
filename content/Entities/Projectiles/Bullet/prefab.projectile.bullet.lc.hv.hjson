@@ -8,12 +8,14 @@ projectile:
 	damage_type: bullet_lc
 	size: 0.125
 	ricochet_threshold_multiplier: 0.700
-	tracer_length: 4.000
+	tracer_length: 2.500
 }
 
 projectile.renderer:
-{
-	
+{	
+	intensity: 1.800
+	thickness_a: 0.050
+	thickness_b: 0.100
 }
 
 transform:

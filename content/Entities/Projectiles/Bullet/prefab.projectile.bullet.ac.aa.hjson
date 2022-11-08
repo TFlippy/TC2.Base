@@ -10,12 +10,14 @@ projectile:
 	size: 0.350
 	ricochet_count: 0
 	damp: 0.988
-	tracer_length: 8.000
+	tracer_length: 2.000
 }
 
 projectile.renderer:
-{
-	
+{	
+	intensity: 0.500
+	thickness_a: 0.400
+	thickness_b: 0.250
 }
 
 transform:

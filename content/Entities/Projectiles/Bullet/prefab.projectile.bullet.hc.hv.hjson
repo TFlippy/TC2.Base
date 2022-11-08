@@ -7,12 +7,14 @@ projectile:
 	lifetime: 2.000
 	damage_type: bullet_hc
 	size: 0.175
-	tracer_length: 6.000
+	tracer_length: 8.000
 }
 
 projectile.renderer:
-{
-	
+{	
+	intensity: 3.000
+	thickness_a: 0.100
+	thickness_b: 0.050
 }
 
 transform:
