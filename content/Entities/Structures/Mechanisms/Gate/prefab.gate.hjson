@@ -148,6 +148,11 @@ joint.distance:
 	{
 	
 	}
+
+	threat:
+	{
+		priority: 0.500
+	}
 	
 	deletewithparent:
 	{
