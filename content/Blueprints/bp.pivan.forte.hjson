@@ -1,0 +1,57 @@
+{
+	name: "Pivan Forte"
+	description: "The Pivan beer that makes you punch a bear."
+	prefab: "beer"
+	recipe: "refinery.beer"
+	augments:
+	[
+		{
+			identifier: "consumable.alcohol"
+			flags: none
+			modifier: 0.000
+			data: 1097859072
+		}
+		{
+			identifier: "consumable.meth"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

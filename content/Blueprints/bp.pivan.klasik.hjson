@@ -1,0 +1,57 @@
+{
+	name: "Pivan Klasik"
+	description: "The Pivan beer that even a bear could afford."
+	prefab: "beer"
+	recipe: "refinery.beer"
+	augments:
+	[
+		{
+			identifier: "consumable.alcohol"
+			flags: none
+			modifier: 0.000
+			data: 1112014848
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

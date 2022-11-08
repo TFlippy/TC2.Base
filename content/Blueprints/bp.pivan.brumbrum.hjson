@@ -1,0 +1,57 @@
+{
+	name: "Pivan Brum-Brum"
+	description: "The Pivan beer that could knock out even a bear."
+	prefab: "beer"
+	recipe: "refinery.beer"
+	augments:
+	[
+		{
+			identifier: "consumable.alcohol"
+			flags: none
+			modifier: 0.000
+			data: 1109393408
+		}
+		{
+			identifier: "consumable.paxilon"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "consumable.codeine"
+			flags: none
+			modifier: 0.000
+			data: 1092616192
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

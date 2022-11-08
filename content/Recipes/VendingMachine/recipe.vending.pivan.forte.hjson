@@ -1,8 +1,8 @@
 {
-	name: "Beer"
+	name: "Pivan Forte"
 	desc: 
 	'''
-	A refreshing beverage.
+	Pivan Forte - a beer that makes you punch a bear.
 	'''
 
 	icon:
@@ -20,7 +20,7 @@
 	[
 		{
 			type: "money"
-			amount: 11.990
+			amount: 21.990
 		}
 	]
 	
@@ -28,7 +28,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "beer"
+			prefab: "bp.pivan.forte"
 			amount: 1.000
 		}
 	]
