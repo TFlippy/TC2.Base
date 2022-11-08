@@ -44,7 +44,7 @@ namespace TC2.Base.Components
 			ref var region = ref info.GetRegion();
 			var ambient_temperature = Maths.KelvinToCelsius(Region.ambient_temperature);
 
-			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, ambient_temperature, (overheat.cool_rate * info.DeltaTime) / MathF.Max(body.GetMass() * 0.05f, 1.00f));
+			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, ambient_temperature, overheat.cool_rate * info.DeltaTime);
 
 			if (overheat.heat_current >= overheat.heat_critical)
 			{

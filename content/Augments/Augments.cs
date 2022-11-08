@@ -174,26 +174,26 @@ namespace TC2.Base
 					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var amount = ref handle.GetData<float>();
-					amount = Maths.Clamp(amount, 0.50f, 10.00f);
+				//validate: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//{
+				//	ref var modifier = ref handle.GetData<float>();
+				//	modifier = Maths.Clamp(modifier, 0.50f, 10.00f);
 
-					return true;
-				},
+				//	return true;
+				//},
 
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Timer", ref value, 0.50f, 10.00f);
+					ref var modifier = ref handle.GetModifier();
+					return GUI.SliderFloatLerp("Timer", ref modifier, 0.50f, 10.00f);
 				},
 #endif
 
 				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var value = ref handle.GetData<float>();
-					data.time = value;
+					ref var modifier = ref handle.GetModifier();
+					data.time = Maths.Lerp(0.50f, 10.00f, modifier);
 				}
 			));
 
@@ -227,31 +227,32 @@ namespace TC2.Base
 					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var amount = ref handle.GetData<int>();
-					amount = Maths.Clamp(amount, 1, 40);
+				//validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//{
+				//	ref var amount = ref handle.GetData<int>();
+				//	amount = Maths.Clamp(amount, 1, 40);
 
-					return true;
-				},
+				//	return true;
+				//},
 
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 40);
+					ref var modifier = ref handle.GetModifier();
+					return GUI.SliderIntLerp("Amount", ref modifier, 1, 50);
 				},
 #endif
 
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
-					data.cool_rate += amount * 4.00f;
+					ref var modifier = ref handle.GetModifier();
+					data.cool_rate += (Maths.LerpInt(1, 50, modifier) * 10.00f) / (context.base_mass);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
+					ref var modifier = ref handle.GetModifier();
+					var amount = Maths.LerpInt(1, 50, modifier);
 
 					context.requirements_new.Add(Crafting.Requirement.Resource("water", amount));
 

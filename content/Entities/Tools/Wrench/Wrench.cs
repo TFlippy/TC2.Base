@@ -618,11 +618,11 @@ namespace TC2.Base.Components
 							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
 							GUI.SameLine();
 
-							Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
-							GUI.SameLine();
+							//Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
+							//GUI.SameLine();
 
-							Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
-							GUI.SameLine();
+							//Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
+							//GUI.SameLine();
 						}
 
 						GUI.SeparatorThick();
