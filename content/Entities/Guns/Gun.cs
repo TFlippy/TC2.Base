@@ -570,7 +570,7 @@
 				ref var material = ref inventory_magazine.resource.material.GetData();
 				if (material.IsNotNull() && material.projectile_prefab.id != 0)
 				{
-					var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
 					var recoil_mass = material.mass_per_unit * gun.ammo_per_shot;
@@ -629,7 +629,9 @@
 					{
 						for (var i = 0; i < count; i++)
 						{
-							var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+							var random_multiplier = 1.00f + random.NextFloat(velocity_jitter);
+							App.WriteLine(random_multiplier);
 
 							var args =
 							(

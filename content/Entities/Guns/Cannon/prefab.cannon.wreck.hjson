@@ -20,7 +20,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [2.500, -0.200]
+	muzzle_offset: [2.500, 0.000]
 	sound_shoot: "cannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 100.000
