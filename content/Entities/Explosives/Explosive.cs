@@ -19,10 +19,10 @@ namespace TC2.Base.Components
 		{
 			public Entity ent_owner = default;
 
-			[Statistics.Info("Radius", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Radius", description: "Size of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float radius = 2.00f;
 
-			[Statistics.Info("Power", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Power", description: "Strength of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float power = 1.00f;
 
 			[Statistics.Info("Entity Damage", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]

@@ -631,7 +631,7 @@
 						{
 							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
 							var random_multiplier = 1.00f + random.NextFloat(velocity_jitter);
-							App.WriteLine(random_multiplier);
+							//App.WriteLine(random_multiplier);
 
 							var args =
 							(

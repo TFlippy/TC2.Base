@@ -1349,8 +1349,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset.X = Maths.Clamp(offset.X, context.rect.a.X, context.rect.b.X);
+					offset.Y = Maths.Clamp(offset.Y, context.rect.a.Y, context.rect.b.Y);
 					offset = Maths.Snap(offset, 0.125f);
 
 					return true;
@@ -1400,7 +1400,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
 					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
 					//GUI.SameLine();
@@ -1452,8 +1452,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+					offset.X = Maths.Clamp(offset.X, context.rect.a.X, context.rect.b.X);
+					offset.Y = Maths.Clamp(offset.Y, context.rect.a.Y, context.rect.b.Y);
 					offset = Maths.Snap(offset, 0.125f);
 
 					return true;
@@ -1496,7 +1496,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.20f), max: new Vector2(0.50f, 0.10f));
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
 					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
 					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
@@ -1603,7 +1603,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_multiplier *= 0.90f;
+						body.mass_multiplier *= 0.80f;
 					}
 
 					return true;
@@ -2950,7 +2950,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -3007,8 +3007,49 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f));
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+					var extra_mass = 0.00f;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 500.00f, 20));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 5.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250.00f, 20));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 10));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 200.00f, 20));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 15));
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += extra_mass;
+					}
 				}
 			));
 
