@@ -2992,7 +2992,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.auto_loader", 24, 16, frame_index, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? 1.00f : -1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y + data.muzzle_offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? 1.00f : -1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
