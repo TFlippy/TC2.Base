@@ -2943,6 +2943,59 @@ namespace TC2.Base
 					return !augments.HasAugment(handle);
 				},
 
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var dirty = false;
+
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var frame_index = 0u;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					{
+						frame_index = 6;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					{
+						frame_index = 5;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					{
+						frame_index = 4;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						frame_index = 3;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						frame_index = 2;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						frame_index = 1;
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						frame_index = 0;
+					}
+
+					var sprite = new Sprite("augment.auto_loader", 24, 16, frame_index, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? 1.00f : -1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var automatic_reload = ref context.GetOrAddComponent<AutomaticReload.Data>();

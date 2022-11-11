@@ -239,20 +239,47 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					return GUI.SliderIntLerp("Amount", ref modifier, 1, 50);
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var modifier = ref handle.GetModifier();
+					var amount = Maths.LerpInt(1, 200, modifier);
+
+					var frame_index = 0u;
+
+					if (amount <= 10) frame_index = 0;
+					else if (amount <= 50) frame_index = 1;
+					else if (amount <= 100) frame_index = 2;
+					else frame_index = 3;
+
+					var sprite = new Sprite("augment.coolant", 24, 16, frame_index, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					data.cool_rate += (Maths.LerpInt(1, 50, modifier) * 10.00f) / (context.base_mass);
+					data.cool_rate += (Maths.LerpInt(1, 200, modifier) * 10.00f) / (context.base_mass);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					var amount = Maths.LerpInt(1, 50, modifier);
+					var amount = Maths.LerpInt(1, 200, modifier);
 
 					context.requirements_new.Add(Crafting.Requirement.Resource("water", amount));
 
