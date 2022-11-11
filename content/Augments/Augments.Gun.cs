@@ -725,35 +725,46 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
-				identifier: "gun.launcher_stacked_charge",
+				identifier: "gun.stacked_charge",
 				category: "Gun (Receiver)",
-				name: "Launcher: Stacked Charge",
+				name: "Stacked Charge",
 				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (data.type != Gun.Type.Launcher) return false;
-					return augments.GetCount(handle) < 3;
+					return (data.feed == Gun.Feed.Funnel || data.feed == Gun.Feed.Front || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Single) && !augments.HasAugment(handle);
 				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+				},
+#endif
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate += 0.05f * data.barrel_count;
+					ref var modifier = ref handle.GetModifier();
+					var count = Maths.LerpInt(1, 3, modifier);
+
+					data.failure_rate += 0.05f * data.barrel_count * count;
 					data.failure_rate *= 1.20f;
 					data.stability -= MathF.Min(data.failure_rate * data.barrel_count, data.stability);
-					data.reload_interval *= 1.30f;
-					data.jitter_multiplier *= 2.00f;
+					data.jitter_multiplier *= MathF.Pow(1.50f, count);
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.max_ammo += data.barrel_count;
+					ref var modifier = ref handle.GetModifier();
+					var count = Maths.LerpInt(1, 3, modifier);
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier *= 1.10f;
-					}
+					data.max_ammo += data.barrel_count * count;
+
+					//ref var body = ref context.GetComponent<Body.Data>();
+					//if (!body.IsNull())
+					//{
+					//	body.mass_multiplier *= 1.10f;
+					//}
 
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -784,7 +795,7 @@ namespace TC2.Base
 
 								case Work.Type.Assembling:
 								{
-									requirement.amount *= 2.50f;
+									requirement.amount *= 1.10f;
 									requirement.difficulty *= 1.20f;
 								}
 								break;
@@ -1554,6 +1565,85 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.reinforced_frame",
+				category: "Gun (Frame)",
+				name: "Reinforced Frame",
+				description: "Increases weight, durability and stability.",
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+
+					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.00f, 2.50f, size: GUI.GetRemainingSpace());
+				},
+#endif
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+
+					var mult = Maths.Lerp(0.00f, 2.50f, modifier);
+
+					var extra_mass = 0.00f;
+
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.type == Material.Type.Metal && !material.flags.HasAny(Material.Flags.Manufactured))
+							{
+								var amount_added = requirement.amount * mult;
+								requirement.amount += amount_added;
+								extra_mass += amount_added * material.mass_per_unit;
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 1.00f + (mult * 0.25f);
+								}
+								break;
+							}
+						}
+					}
+
+					extra_mass += context.base_mass * mult * 0.20f;
+
+					data.stability += extra_mass * 0.01f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
+					data.stability = Maths.Clamp(data.stability, 0.00f, 1.00f);
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max += extra_mass * 50.00f;
+					}
+
+					ref var armor = ref context.GetComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.toughness *= 1.00f + (mult * 0.15f);
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>();
+					if (!body.IsNull())
+					{
+						body.mass_extra += extra_mass;
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.flimsy_frame",
 				category: "Gun (Frame)",
 				name: "Flimsy Frame",
@@ -1720,8 +1810,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !augments.HasAugment(handle);
+					return data.feed == Gun.Feed.Cylinder && !augments.HasAugment(handle);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1802,8 +1891,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !augments.HasAugment(handle);
+					return data.feed == Gun.Feed.Cylinder && !augments.HasAugment(handle);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1884,8 +1972,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (data.feed != Gun.Feed.Cylinder) return false;
-					return !augments.HasAugment(handle);
+					return data.feed == Gun.Feed.Cylinder && !augments.HasAugment(handle);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2305,7 +2392,45 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.feed = Gun.Feed.Single;
+					data.flags.SetFlag(Gun.Flags.Full_Reload, false);
+					data.flags.SetFlag(Gun.Flags.Automatic, false);
 					data.max_ammo = 1;
+
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					{
+						data.reload_interval = 3.00f;
+						data.sound_reload = "cannon_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
+					{
+						data.reload_interval = 0.50f;
+						data.sound_reload = "musket_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					{
+						data.reload_interval = 2.00f;
+						data.sound_reload = "bazooka_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
+					{
+						data.reload_interval = 0.50f;
+						data.sound_reload = "musket_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
+					{
+						data.reload_interval = 0.50f;
+						data.sound_reload = "scattergun_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
+					{
+						data.reload_interval = 0.50f;
+						data.sound_reload = "rifle_reload";
+					}
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
+					{
+						data.reload_interval = 0.50f;
+						data.sound_reload = "revolver_reload";
+					}
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2336,18 +2461,21 @@ namespace TC2.Base
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 0.50f;
+									requirement.difficulty *= 0.20f;
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.amount *= 0.75f;
+									requirement.amount *= 0.65f;
+									requirement.difficulty *= 0.20f;
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
-									requirement.amount *= 0.20f;
+									requirement.amount *= 0.30f;
+									requirement.difficulty *= 0.20f;
 								}
 								break;
 							}
@@ -2365,7 +2493,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return augments.GetCount(handle) < 3;
+					return data.type != Gun.Type.Cannon && data.type != Gun.Type.Launcher && augments.GetCount(handle) < 3;
 				},
 
 #if CLIENT
@@ -2622,7 +2750,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle);
+					return !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
@@ -2809,7 +2937,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle);
+					return !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
@@ -2889,7 +3017,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle);
+					return !augments.HasAugment(handle) && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
 				},
 
 #if CLIENT
@@ -2940,7 +3068,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle);
+					return !augments.HasAugment(handle) && data.type != Gun.Type.Handgun;
 				},
 
 #if CLIENT
@@ -3105,7 +3233,7 @@ namespace TC2.Base
 					ref var recoil_compensator = ref context.GetOrAddComponent<RecoilCompensator.Data>();
 					if (!recoil_compensator.IsNull())
 					{
-						
+
 					}
 
 					data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
