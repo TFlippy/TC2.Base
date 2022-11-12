@@ -74,17 +74,17 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 240.000]
-	window_offset: [0.000, 192.000]
+	window_size: [200.000, 160.000]
+	window_offset: [0.000, 0.000]
 }
 
 storage:
 {
 	@inventory4:
 	{
-		name: "Cargo"
+		name: "Ammo"
 		stack_size_multiplier: 4.000
-		type: storage
+		type: ammo
 		flags: allow_ducts
 	}
 }
@@ -120,6 +120,11 @@ vehicle:
 		offset: [-0.500, 0.125]
 		max_tilt: 5.000
 	}
+}
+
+mount:
+{
+	flags: no_torque_without_controller
 }
 
 +mount|instance:
@@ -168,9 +173,12 @@ vehicle:
 
 	attachment.slot:
 	{
-		name: "Mount"
+		name: "Turret"
+		identifier: "turret"
 
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [0.000, 96.000]
 	}
 }

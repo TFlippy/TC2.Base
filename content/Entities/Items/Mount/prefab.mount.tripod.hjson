@@ -65,7 +65,7 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 240.000]
+	window_size: [224.000, 192.000]
 	window_offset: [0.000, 192.000]
 }
 
@@ -159,9 +159,12 @@ vehicle:
 
 	attachment.slot:
 	{
-		name: "Mount"
+		name: "Turret"
+		identifier: "turret"
 
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, hold, invert
+
+		gui_size: [0.000, 64.000]
 	}
 }
