@@ -63,7 +63,7 @@ tree:
 	@foliage.renderer:
 	{
 		offset: [-0, -9.000]
-		z: 100.000
+		z: -45.000
 		texture: "tree.pine.foliage"
 	}
 }

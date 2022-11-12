@@ -63,7 +63,7 @@ tree:
 	@foliage.renderer:
 	{
 		offset: [0.125, -6.000]
-		z: 90.000
+		z: -45.000
 		texture: "tree.maple.foliage"
 	}
 }
