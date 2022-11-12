@@ -739,6 +739,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
+					return GUI.SliderIntLerp("Count", ref modifier, 1, 3);
 				},
 #endif
 
@@ -1619,7 +1620,7 @@ namespace TC2.Base
 
 					extra_mass += context.base_mass * mult * 0.20f;
 
-					data.stability += extra_mass * 0.01f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
+					data.stability += extra_mass * 0.03f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
 					data.stability = Maths.Clamp(data.stability, 0.00f, 1.00f);
 
 					ref var health = ref context.GetComponent<Health.Data>();

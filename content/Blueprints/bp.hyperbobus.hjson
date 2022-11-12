@@ -1,0 +1,60 @@
+{
+	name: "Hyperbobus"
+	description:
+		'''
+		Heavy AC-caliber shotgun.
+		'''
+	prefab: "machine_gun"
+	recipe: "gunsmith.machine_gun"
+	augments:
+	[
+		{
+			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
+			data: 2
+		}
+		{
+			identifier: "gun.single_shot"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.stacked_charge"
+			flags: none
+			modifier: 1.000
+			data: 0
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 4539628427585519616
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

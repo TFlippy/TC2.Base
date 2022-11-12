@@ -218,6 +218,91 @@
 		}
 
 #if CLIENT
+		public static void DrawTrajectory(ref Region.Data region, IMaterial.Handle material_ammo, in Gun.Data gun, in Transform.Data transform)
+		{
+			var ts = Timestamp.Now();
+
+			ref var material = ref material_ammo.GetData();
+			if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			{
+				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+				//var dir = transform.GetDirection();
+
+				//var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+
+				if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
+				{
+					//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+
+
+					//var random_multiplier = ((0.90f * velocity_jitter) + 1.10f) * 0.50f;
+
+
+					var vel = transform.GetDirection() * gun.velocity_multiplier * material.projectile_speed_mult; // * random_multiplier;
+
+					var pos_a = pos_w_offset;
+					var pos_b = pos_w_offset;
+
+					//GUI.Text($"{vel}");
+
+					var iter_count = 500;
+					var iter_count_inv = 1.00f / iter_count;
+
+					var pos_last = pos_a;
+					var dist_delta = 0.00f;
+
+
+					var line_len = 4.00f;
+					var line_gap = 2.00f;
+
+					for (int i = 0; i < iter_count; i++)
+					{
+						var pos = pos_b;
+						var alpha = i * iter_count_inv;
+
+						vel *= projectile.damp;
+						vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
+
+						var step = vel * App.fixed_update_interval_s;
+						pos += step;
+
+						pos_a = pos_b;
+						pos_b = pos;
+
+						dist_delta += Vector2.Distance(pos_a, pos_b);
+
+						if (dist_delta >= line_len)
+						{
+							var dir = (pos - pos_last).GetNormalized(out var len);
+							len -= line_gap;
+
+							var pos_line_a = pos_last;
+							var pos_line_b = pos_last + (dir * len);
+
+							if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+							{
+								//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
+								//var dir_perp = dir.GetPerpendicular() * 10;
+
+								//GUI.DrawLine((pos_line_mid - (dir_perp)).WorldToCanvas(), (pos_line_mid + (dir_perp)).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(0.50f), 4.00f);
+
+
+								break;
+							}
+
+							GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
+
+							pos_last = pos;
+							dist_delta = 0;
+						}
+					}
+				}
+			}
+
+			var elapsed_ms = ts.GetMilliseconds();
+			//GUI.Text($"trace in {elapsed_ms:0.0000} ms");
+		}
+
 		public struct HoldGUI: IGUICommand
 		{
 			public Transform.Data transform;
