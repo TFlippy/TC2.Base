@@ -1,3 +1,9 @@
+$name: "Musket"
+$desc:
+	'''
+	Caplock musket.
+	Good for hunting and medium-range combat.
+	'''
 $tags: []
 
 body:

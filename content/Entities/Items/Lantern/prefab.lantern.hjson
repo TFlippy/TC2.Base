@@ -1,3 +1,8 @@
+$name: "Lantern"
+$desc: 
+	'''
+	Small portable oil lamp.
+	'''
 $tags: []
 
 body:

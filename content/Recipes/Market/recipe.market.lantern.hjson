@@ -1,6 +1,6 @@
 {
 	name: "Lantern"
-	desc: "A small, portable oil lamp."
+	desc: "Small portable oil lamp."
 	
 	icon:
 	{

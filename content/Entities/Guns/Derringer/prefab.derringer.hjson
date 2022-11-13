@@ -1,3 +1,8 @@
+$name: "Derringer"
+$desc:
+	'''
+	Cheap caplock derringer pistol, very useful in tight spaces.
+	'''
 $tags: []
 
 body:

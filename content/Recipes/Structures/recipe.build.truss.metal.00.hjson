@@ -2,7 +2,7 @@
 	name: "Truss (Metal)"
 	desc:
 		'''
-		TODO: Desc
+		Metal framework for supporting structures.
 		'''
 	
 	icon:
