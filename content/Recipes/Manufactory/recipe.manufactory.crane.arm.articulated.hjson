@@ -1,6 +1,6 @@
 {
 	name: "Crane Arm (Articulated)"
-	desc: "An advanced crane arm with a configurable articulated rotary joint."
+	desc: "Advanced crane arm with a configurable articulated rotary joint."
 	
 	icon:
 	{

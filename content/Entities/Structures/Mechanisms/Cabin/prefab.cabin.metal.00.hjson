@@ -1,7 +1,7 @@
 $name: "Cabin (Metal)"
 $desc:
 	'''
-	A metal vehicle cabin with extra storage space.
+	Metal vehicle cabin with extra storage space.
 	'''
 $tags: []
 
@@ -72,16 +72,16 @@ interactable:
 	// window_offset: [0.000, 192.000]
 }
 
-// storage:
-// {
-// 	@inventory4:
-// 	{
-// 		name: "Cargo"
-// 		stack_size_multiplier: 4.000
-// 		type: storage
-// 		flags: allow_ducts
-// 	}
-// }
+storage:
+{
+	@inventory4:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: allow_ducts
+	}
+}
 
 control:
 {

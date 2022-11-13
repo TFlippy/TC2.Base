@@ -2,8 +2,7 @@
 	name: "Winch"
 	desc:
 		'''
-		A mountable reel with
-		a rope and a hook attached to it.
+		Mountable reel with a rope and a hook.
 		'''
 	
 	icon:

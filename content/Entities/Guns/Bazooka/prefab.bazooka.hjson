@@ -1,3 +1,9 @@
+$name: "Bazooka"
+$desc:
+	'''
+	Portable rocket launcher.
+	Good for blowing up stuff from distance.
+	'''
 $tags: []
 
 body:

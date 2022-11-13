@@ -1,7 +1,7 @@
 $name: "Cabin (Wood)"
 $desc:
 	'''
-	A wooden vehicle cabin with extra storage space.
+	Wooden vehicle cabin with extra storage space.
 	'''
 $tags: []
 
@@ -14,7 +14,7 @@ body:
 		size: [3.000, 3.000]
 		offset: [0.000, 0.000]
 		radius: 0.250
-		mass: 150.000
+		mass: 110.000
 		friction: 0.750
 		elasticity: 0.750
 		material: wood
@@ -60,16 +60,16 @@ interactable:
 	// window_offset: [0.000, 192.000]
 }
 
-// storage:
-// {
-// 	@inventory4:
-// 	{
-// 		name: "Cargo"
-// 		stack_size_multiplier: 4.000
-// 		type: storage
-// 		flags: allow_ducts
-// 	}
-// }
+storage:
+{
+	@inventory4:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: allow_ducts
+	}
+}
 
 control:
 {

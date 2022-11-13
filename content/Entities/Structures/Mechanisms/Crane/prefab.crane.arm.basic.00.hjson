@@ -1,3 +1,9 @@
+$name: "Crane Arm (Wood)"
+$desc:
+	'''
+	Basic wooden crane arm with an attachment slot.
+	'''
+	
 $tags: []
 
 body:

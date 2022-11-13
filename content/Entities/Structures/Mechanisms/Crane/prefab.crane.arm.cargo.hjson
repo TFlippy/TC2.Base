@@ -1,3 +1,8 @@
+$name: "Crane Arm (Cargo)"
+$desc:
+	'''
+	Advanced crane arm with a built-in storage that can be accessed by attached objects.
+	'''
 $tags: []
 
 body:

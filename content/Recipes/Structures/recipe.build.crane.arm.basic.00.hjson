@@ -1,8 +1,8 @@
 {
-	name: "Crane [WIP]"
+	name: "Crane Arm (Wood)"
 	desc:
 		'''
-		TODO: Desc
+		Basic wooden crane arm with an attachment slot.
 		'''
 	
 	icon:

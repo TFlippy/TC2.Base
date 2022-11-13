@@ -1,3 +1,8 @@
+$name: "Crowbar"
+$desc: 
+	'''
+	Metal stick that looks like a crow.
+	'''
 $tags: []
 
 body:

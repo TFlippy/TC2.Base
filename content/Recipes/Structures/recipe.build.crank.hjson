@@ -2,7 +2,7 @@
 	name: "Hand Crank"
 	desc:
 		'''
-		A simple mechanical power generator utilizing human arms.
+		Simple mechanical power generator powered by hand.
 		'''
 	
 	icon:
