@@ -103,7 +103,19 @@ holdable:
 
 health:
 {
-	max: 3500.000
+	max: 7500.000
+}
+
+armor:
+{
+	toughness: 150.000
+	protection: 0.900
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 control:

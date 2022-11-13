@@ -86,7 +86,7 @@ animated.renderer:
 
 health:
 {
-	max: 2100.000
+	max: 3200.000
 }
 
 control:

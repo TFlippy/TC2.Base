@@ -14,8 +14,8 @@ body:
 		b: [1.000, -0.550]
 		mass: 60.000
 		radius: 0.400
-		friction: 0.900
-		elasticity: 0.250
+		friction: 0.600
+		elasticity: 0.350
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -107,6 +107,18 @@ animated.renderer:
 health:
 {
 	max: 15000.000
+}
+
+armor:
+{
+	toughness: 600.000
+	protection: 0.900
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 transform:
