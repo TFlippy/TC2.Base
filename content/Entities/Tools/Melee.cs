@@ -214,7 +214,12 @@ namespace TC2.Base.Components
 						{
 							//if (result.alpha <= 0.00f) continue;
 							if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-							if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+							//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+
+							if (faction.id != 0)
+							{
+								if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
+							}
 
 							//Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
 
@@ -459,7 +464,12 @@ namespace TC2.Base.Components
 							{
 								//if (result.alpha <= 0.00f) continue;
 								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+								//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+
+								if (faction.id != 0)
+								{
+									if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
+								}
 
 								//Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
 
@@ -494,7 +504,12 @@ namespace TC2.Base.Components
 								{
 									//if (result.alpha <= 0.00f) continue;
 									if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-									if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+									//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
+
+									if (faction.id != 0)
+									{
+										if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
+									}
 
 									var closest_result = result.GetClosestPoint(pos_target, true);
 									if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
