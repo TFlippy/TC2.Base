@@ -213,6 +213,8 @@
 			public Gun.Stage stage;
 			public Gun.Hints hints;
 
+			public float muzzle_velocity;
+
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
@@ -239,7 +241,7 @@
 					//var random_multiplier = ((0.90f * velocity_jitter) + 1.10f) * 0.50f;
 
 					var p = pos_target - pos_muzzle;
-					p.Y *= 1.00f;
+					p.Y *= -1;
 
 					var v = speed; // velocity_multiplier * material.projectile_speed_mult;
 					var g = gravity; /// region.GetGravity().Y * projectile.gravity;
@@ -631,6 +633,7 @@
 							{
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
+								gun_state.muzzle_velocity = gun.velocity_multiplier * material.projectile_speed_mult;
 
 								break;
 							}

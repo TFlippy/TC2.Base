@@ -27,19 +27,18 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotateAlive(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs, [Source.Owned] bool dead)
 		{
-			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics) * organic.coordination);
 			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.20f), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateNoRotateDead(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
-		{
-			no_rotate.multiplier = 0.00f;
-		}
+		//[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		//public static void UpdateNoRotateDead(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
+		//{
+		//	no_rotate.multiplier = 0.00f;
+		//}
 
 		public static readonly Sound.Handle[] walk_sounds = new Sound.Handle[]
 		{

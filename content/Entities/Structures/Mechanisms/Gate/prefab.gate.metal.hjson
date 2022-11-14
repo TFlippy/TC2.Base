@@ -60,6 +60,11 @@ transform:
 
 }
 
+faction:
+{
+
+}
+
 interactable:
 {
 
@@ -149,6 +154,11 @@ joint.distance:
 	transform:
 	{
 	
+	}
+
+	faction:
+	{
+		
 	}
 
 	threat:

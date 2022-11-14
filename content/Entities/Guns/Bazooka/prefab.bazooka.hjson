@@ -53,7 +53,7 @@ gun:
 	type: launcher
 	feed: single
 
-	heuristic_range: 13.000
+	heuristic_range: 25.000
 
 	smoke_amount: 6
 	smoke_size: 3.000
