@@ -101,6 +101,7 @@
 			Cycled = 1 << 2,
 			Loaded = 1 << 3,
 			Wants_Reload = 1 << 4,
+			Artillery = 1 << 5,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -217,6 +218,65 @@
 			[Save.Ignore, Net.Ignore] public float next_reload;
 		}
 
+		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)
+		{
+			angle_shallow = null;
+			angle_steep = null;
+
+			//ref var material = ref material_ammo.GetData();
+			//if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			{
+				//var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+				//var dir = transform.GetDirection();
+
+				//var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
+
+				//if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
+				{
+					//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+
+
+					//var random_multiplier = ((0.90f * velocity_jitter) + 1.10f) * 0.50f;
+
+					var p = pos_target - pos_muzzle;
+					p.Y *= 1.00f;
+
+					var v = speed; // velocity_multiplier * material.projectile_speed_mult;
+					var g = gravity; /// region.GetGravity().Y * projectile.gravity;
+					//var d = projectile.damp;
+
+					var sqrt = MathF.Sqrt((v * v * v * v) - (g * (g * (p.X * p.X) + (2.00f * p.Y * (v * v)))));
+					
+					var a = MathF.Atan(((v * v) - sqrt) / (g * p.X));
+					var b = MathF.Atan(((v * v) + sqrt) / (g * p.X));
+
+					if (!float.IsNaN(a))
+					{
+						angle_shallow = a;
+
+						if (!float.IsNaN(b))
+						{
+							if (MathF.Abs(a) < MathF.Abs(b))
+							{
+								angle_steep = b;
+							}
+							else
+							{
+								angle_steep = a;
+								angle_shallow = b;
+							}
+						}
+					}
+					else if (!float.IsNaN(b))
+					{
+						angle_shallow = b;
+					}
+				}
+			}
+
+			return angle_shallow.HasValue || angle_steep.HasValue;
+		}
+
 #if CLIENT
 		public static void DrawTrajectory(ref Region.Data region, IMaterial.Handle material_ammo, in Gun.Data gun, in Transform.Data transform)
 		{
@@ -226,18 +286,9 @@
 			if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
 			{
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
-				//var dir = transform.GetDirection();
-
-				//var velocity_jitter = 1.00f - (Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f);
 
 				if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 				{
-					//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
-
-
-					//var random_multiplier = ((0.90f * velocity_jitter) + 1.10f) * 0.50f;
-
-
 					var vel = transform.GetDirection() * gun.velocity_multiplier * material.projectile_speed_mult; // * random_multiplier;
 
 					var pos_a = pos_w_offset;
@@ -579,6 +630,8 @@
 							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter))
 							{
 								inventory_magazine.resource.material = resource.material;
+								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
+
 								break;
 							}
 						}
