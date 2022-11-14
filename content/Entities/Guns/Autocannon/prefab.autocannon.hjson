@@ -44,6 +44,8 @@ gun:
 	type: autocannon
 	feed: magazine
 
+	heuristic_range: 50.000
+
 	smoke_size: 5.000
 	smoke_amount: 2.000
 	shake_amount: 0.600
@@ -73,9 +75,9 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.900, 0.100]
-	radius: 0.000
-	flags: disable_parent_facing
+	offset: [-1.200, 0.100]
+	radius: 2.000
+	flags: none
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000

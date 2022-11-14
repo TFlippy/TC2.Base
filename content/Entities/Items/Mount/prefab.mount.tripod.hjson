@@ -26,9 +26,14 @@ body:
 	}
 }
 
+attachment:
+{
+	offset: [0.000, 0.000]
+}
+
 health:
 {
-	max: 7000.000
+	max: 8000.000
 }
 
 holdable:

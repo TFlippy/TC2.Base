@@ -42,6 +42,8 @@ gun:
 	action: crank
 	type: machinegun
 	feed: drum
+
+	heuristic_range: 25.000
 	
 	@inventory1:
 	{

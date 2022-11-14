@@ -36,6 +36,8 @@ gun:
 	type: machinegun
 	feed: drum
 
+	heuristic_range: 30.000
+
 	shake_amount: 0.400
 	
 	@inventory1:
