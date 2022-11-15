@@ -120,9 +120,3 @@ shield:
 {
 
 }
-
-cover:
-{
-	threshold: 0.100
-	flags: break_on_breach
-}
