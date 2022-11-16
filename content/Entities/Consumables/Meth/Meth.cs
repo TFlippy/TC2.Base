@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 			meth_new.release_rate_target = Maths.Lerp(meth_new.release_rate_target + (meth_new.release_rate_target * ratio), consumable.release_rate, ratio);
 			meth_new.release_step = Maths.Lerp(meth_new.release_step, consumable.release_step, ratio);
 
-			App.WriteLine($"ratio: {ratio}");
+			//App.WriteLine($"ratio: {ratio}");
 		}
 #endif
 
@@ -108,7 +108,7 @@ namespace TC2.Base.Components
 				var random = XorRandom.New();
 				if (meth.modifier_current > 0.25f && random.NextBool(0.001f * meth.modifier_current))
 				{
-					App.WriteLine("spasm");
+					//App.WriteLine("spasm");
 
 					control.mouse.SetKeyPressed(Mouse.Key.Left, true);
 					meth.next_spasm = info.WorldTime + (random.NextFloatRange(3.00f, 15.00f) * Maths.Lerp01(1.00f, 0.50f, meth.modifier_current));

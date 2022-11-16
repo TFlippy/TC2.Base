@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 					alcohol_dst.release_rate_target = Maths.Lerp(alcohol_dst.release_rate_target + (alcohol_dst.release_rate_target * ratio), consumable.release_rate, ratio);
 					alcohol_dst.release_step = Maths.Lerp(alcohol_dst.release_step, consumable.release_step, ratio);
 
-					App.WriteLine($"ratio: {ratio}");
+					//App.WriteLine($"ratio: {ratio}");
 				}
 				break;
 
@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 					alcohol_dst.release_rate_target = Maths.Lerp(alcohol_dst.release_rate_target + (alcohol_dst.release_rate_target * ratio), consumable.release_rate, ratio);
 					alcohol_dst.release_step = Maths.Lerp(alcohol_dst.release_step, consumable.release_step, ratio);
 
-					App.WriteLine($"ratio: {ratio}");
+					//App.WriteLine($"ratio: {ratio}");
 				}
 				break;
 			}

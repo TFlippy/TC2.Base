@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 					food_dst.release_rate_target = Maths.Lerp(food_dst.release_rate_target + (food_dst.release_rate_target * ratio), consumable.release_rate, ratio);
 					food_dst.release_step = Maths.Lerp(food_dst.release_step, consumable.release_step, ratio);
 
-					App.WriteLine($"ratio: {ratio}");
+					//App.WriteLine($"ratio: {ratio}");
 				}
 				break;
 
@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 					food_dst.release_rate_target = Maths.Lerp(food_dst.release_rate_target + (food_dst.release_rate_target * ratio), consumable.release_rate, ratio);
 					food_dst.release_step = Maths.Lerp(food_dst.release_step, consumable.release_step, ratio);
 
-					App.WriteLine($"ratio: {ratio}");
+					//App.WriteLine($"ratio: {ratio}");
 				}
 				break;
 			}

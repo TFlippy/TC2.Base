@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 			codeine_new.release_rate_target = Maths.Lerp(codeine_new.release_rate_target + (codeine_new.release_rate_target * ratio), consumable.release_rate, ratio);
 			codeine_new.release_step = Maths.Lerp(codeine_new.release_step, consumable.release_step, ratio);
 
-			App.WriteLine($"ratio: {ratio}");
+			//App.WriteLine($"ratio: {ratio}");
 		}
 #endif
 
