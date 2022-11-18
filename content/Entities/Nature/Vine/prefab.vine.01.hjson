@@ -1,0 +1,42 @@
+$name: "Vines"
+$desc:
+	'''
+	A bunch of hanging vines.
+	Can be climbed.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, 0.000]
+		b: [0.000, 5.000]
+		mass: 30.000
+		radius: 1.000
+		friction: 0.950
+		elasticity: 0.500
+		material: foliage
+		layer: entity, climbable, ignore_bullet, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 900.000
+}
+
+foliage.renderer:
+{
+	offset: [0.000, 3.000]
+	z: -250.000
+	texture: "vine.01"
+}
+
+transform:
+{
+
+}
