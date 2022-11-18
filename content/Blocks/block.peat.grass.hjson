@@ -13,7 +13,7 @@
 	elasticity: 0.400
 	stability: 0.500
 	
-	texture: "terrain_peat"
+	texture: "terrain_peat.grass"
 	pattern: "pattern_stone"
 	
 	texture_scale: 2.100
@@ -30,7 +30,7 @@
 	mappings:
 	[
 		{
-			color: "0xff352c1d"
+			color: "0xff635a30"
 			tile_flags: solid, non_empty, ground
 			meta: 0
 		}
