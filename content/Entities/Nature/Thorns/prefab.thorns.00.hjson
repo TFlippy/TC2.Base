@@ -1,5 +1,5 @@
-$name: "Bramble"
-$desc: "You have an irresistible urge to throw yourself into one of these."
+$name: "Thorns"
+$desc: "Can scratch your back greatly."
 $tags: []
 
 body:
@@ -9,12 +9,12 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 25.000
-		radius: 1.250
+		mass: 250.000
+		radius: 4.500
 		friction: 1.000
 		elasticity: 0.400
-		rigidity_dynamic: 0.250
-		rigidity_static: 0.250
+		rigidity_dynamic: 0.200
+		rigidity_static: 0.200
 		material: wood
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed
 		mask: solid, creature
@@ -29,14 +29,14 @@ transform:
 
 health:
 {
-	max: 3000.000
+	max: 15000.000
 }
 
 foliage.renderer:
 {
 	z: 50.000
-	offset: [-0.125, -0.250]
-	texture: "bramble.00"
+	offset: [0.250, 0.000]
+	texture: "thorns.00"
 }
 
 barbedwire:

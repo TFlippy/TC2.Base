@@ -10,7 +10,7 @@ body:
 	{
 		a: [-2.750, 0.000]
 		b: [2.750, -0.125]
-		mass: 400.000
+		mass: 300.000
 		radius: 0.625
 		friction: 1.000
 		elasticity: 0.100
@@ -27,7 +27,7 @@ transform:
 
 health:
 {
-	max: 30000.000
+	max: 20000.000
 }
 
 holdable:

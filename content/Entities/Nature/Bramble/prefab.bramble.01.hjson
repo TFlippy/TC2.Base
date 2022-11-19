@@ -1,5 +1,5 @@
 $name: "Bramble"
-$desc: "Thorny shrubbery that keeps tearing clothing and skin."
+$desc: "You have an irresistible urge to throw yourself into one of these."
 $tags: []
 
 body:
@@ -16,7 +16,7 @@ body:
 		rigidity_dynamic: 0.250
 		rigidity_static: 0.250
 		material: wood
-		layer: entity, ignore_bullet, no_overlapped_placement
+		layer: entity, ignore_bullet, no_overlapped_placement, barbed
 		mask: solid, creature
 		exclude: tree
 	}
