@@ -1,0 +1,45 @@
+$name: "Bramble"
+$desc: "Thorny shrubbery that keeps tearing clothing and skin."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 25.000
+		radius: 1.250
+		friction: 1.000
+		elasticity: 0.400
+		rigidity_dynamic: 0.250
+		rigidity_static: 0.250
+		material: wood
+		layer: entity, ignore_bullet, no_overlapped_placement
+		mask: solid, creature
+		exclude: tree
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 3000.000
+}
+
+foliage.renderer:
+{
+	z: 50.000
+	offset: [-0.125, -0.250]
+	texture: "bramble.01"
+}
+
+barbedwire:
+{
+	damage: 100.000
+}
