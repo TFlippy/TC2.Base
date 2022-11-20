@@ -13,9 +13,9 @@ body:
 		radius: 1.250
 		friction: 1.000
 		elasticity: 0.400
-		rigidity_dynamic: 0.250
-		rigidity_static: 0.250
-		material: wood
+		rigidity_dynamic: 0.150
+		rigidity_static: 0.150
+		material: foliage
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed
 		mask: solid, creature
 		exclude: tree

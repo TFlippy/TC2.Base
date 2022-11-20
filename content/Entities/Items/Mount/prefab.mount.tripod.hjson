@@ -17,19 +17,19 @@ body:
 			[0.400, -1.250]
 		]
 		offset: [0.000, 0.000]
-		mass: 100.000
-		friction: 500.000
-		elasticity: 0.000
-		material: metal
+		mass: 50.000
+		friction: 1.000
+		elasticity: 0.300
+		material: wire
 		layer: entity, solid
 		mask: world
 	}
 }
 
-attachment:
-{
-	offset: [0.000, 0.000]
-}
+// attachment:
+// {
+// 	offset: [0.000, 0.000]
+// }
 
 health:
 {
@@ -38,7 +38,7 @@ health:
 
 holdable:
 {
-	offset: [0.000, 0.000]
+	offset: [0.000, 0.625]
 	flags: disable_control
 }
 
@@ -107,12 +107,25 @@ control:
 
 norotate:
 {
-
+	bias: 0.500
+	mass_multiplier: 10.000
 }
 
 vehicle:
 {
 
+}
+
+sticky:
+{
+	min_contact_count: 2
+	min_contact_distance: 0.800
+	max_force: 20000.000
+	flags: attach_on_collide
+	mask: world, solid
+	exclude: dynamic, essence
+
+	sound: "item.adjust.00"
 }
 
 +seat|instance:

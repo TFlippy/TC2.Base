@@ -8,12 +8,12 @@
 			
 			mix: 
 			{
-				front_left: 0.000
-				front_right: 0.000
-				center: 0.000
+				front_left: 0.800
+				front_right: 0.800
+				center: 0.200
 				lfe: 0.000
-				side_left: 0.000
-				side_right: 0.000
+				side_left: 0.700
+				side_right: 0.700
 				back_left: 1.000
 				back_right: 1.000
 			}

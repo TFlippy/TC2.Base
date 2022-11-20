@@ -28,8 +28,8 @@ animated.renderer:
 
 explosive:
 {
-	radius: 3.000
-	power: 3.000
+	radius: 4.000
+	power: 3.500
 	damage_entity: 2500.000
 	damage_terrain: 6000.000
 	sparks_amount: 1.000
