@@ -2,7 +2,7 @@
 	name: "Scrap"
 	desc: "Assorted garbage."
 	
-	material_type: metal
+	material_type: scrap
 	tile_flags: non_empty
 	flags: artificial
 	
@@ -14,7 +14,7 @@
 	stability: 0.900
 	
 	texture: "terrain_scrap.00"
-	pattern: "pattern_stone"
+	pattern: "pattern_scrap"
 	
 	texture_scale: 1.632
 	texture_overshoot: -0.750
@@ -31,7 +31,12 @@
 	[
 		{
 			color: "0xff8e3b22"
-			tile_flags: solid, non_empty, ground
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff4a2114"
+			tile_flags: non_empty
 			meta: 0
 		}
 	]
