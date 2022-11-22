@@ -1,0 +1,53 @@
+{
+	name: "Sawdust"
+	desc: "Grind wood into sawdust."
+	
+	icon:
+	{
+		texture: "resource.wood"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "resource.sawdust"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-4, -7]
+	icon_extra_scale: 1.000
+	
+	min: 50
+	max: 500
+	step: 50
+
+	type: workshop
+	tags: lathe
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "wood"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "machining"
+			amount: 3.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "sawdust"
+			amount: 0.700
+			amount_extra: 0.300
+		}
+	]
+}

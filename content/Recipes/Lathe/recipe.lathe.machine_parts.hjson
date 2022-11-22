@@ -1,0 +1,59 @@
+{
+	name: "Machine Parts"
+	desc: "TODO: Desc"
+	
+	icon:
+	{
+		texture: "resource.machine_parts"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 100
+	step: 5
+
+	type: workshop
+	tags: lathe
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "iron_ingot"
+			amount: 0.400
+		}
+		{
+			type: "resource"
+			material: "copper_ingot"
+			amount: 0.200
+		}
+		{
+			type: "work"
+			work: "machining"
+			amount: 15.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "iron_powder"
+			amount: 0.400
+			amount_extra: 0.600
+		}
+		{
+			type: "resource"
+			material: "copper_powder"
+			amount: 0.400
+			amount_extra: 0.200
+		}
+	]
+}
