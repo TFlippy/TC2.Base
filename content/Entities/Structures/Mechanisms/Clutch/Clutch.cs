@@ -36,7 +36,7 @@ namespace TC2.Base.Components
 				ref var region = ref entity.GetRegion();
 				if (region.GetWorldTime() >= data.t_next_switch)
 				{
-					data.t_next_switch = region.GetWorldTime() + 0.50f;
+					data.t_next_switch = region.GetWorldTime() + 0.30f;
 
 					var sync = false;
 
@@ -108,12 +108,12 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Clutch", this.ent_clutch, new Vector2(128, 48)))
+				using (var window = GUI.Window.InteractionMisc("Clutch", this.ent_clutch, new Vector2(48, 96)))
 				{
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						if (GUI.SliderInt("Engaged", ref this.clutch.state, 0, 1, size: new Vector2(GUI.GetRemainingWidth(), 48)))
+						if (GUI.SliderInt("State", ref this.clutch.state, 1, 0, size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), snap: -1, vertical: true))
 						{
 							var rpc = new Clutch.ConfigureRPC()
 							{

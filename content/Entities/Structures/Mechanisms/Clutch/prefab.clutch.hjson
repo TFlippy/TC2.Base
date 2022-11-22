@@ -1,7 +1,9 @@
 $name: "Clutch"
 $desc:
 	'''
-	Used for toggling mechanical power transmission on and off.
+	Toggles mechanical power transmission on/off.
+
+	Many hands were lost to this device.
 	'''
 $tags: []
 
@@ -83,6 +85,6 @@ transform:
 
 interactable:
 {
-	window_size: [160.000, 96.000]
-	window_offset: [0.000, 96.000]
+	window_size: [96.000, 160.000]
+	window_offset: [-112.000, -24.000]
 }
