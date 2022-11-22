@@ -92,6 +92,13 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.20f)]
+		public static void UpdateEffects(ISystem.Info info, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Of<Clutch.Data>] ref Animated.Renderer.Data renderer)
+		{
+			renderer.sprite.frame.X = (uint)clutch.state;
+		}
+
 		public partial struct ClutchGUI: IGUICommand
 		{
 			public Entity ent_clutch;

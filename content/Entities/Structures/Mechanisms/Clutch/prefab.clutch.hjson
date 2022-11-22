@@ -70,6 +70,7 @@ clutch:
 		sprite:
 		{
 			texture: "clutch.fg"
+			size: [16, 24]
 		}
 		z: 150.000
 	}
