@@ -1,0 +1,38 @@
+{
+	name: "Scrap"
+	desc: "Assorted garbage."
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 3000.000
+	smoothing: 0.160
+	mass: 8.000
+	friction: 0.950
+	elasticity: 0.100
+	stability: 0.900
+	
+	texture: "terrain_scrap.00"
+	pattern: "pattern_stone"
+	
+	texture_scale: 1.632
+	texture_overshoot: -0.750
+	
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 0.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff8e3b22"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}
