@@ -30,14 +30,14 @@ gun:
 	velocity_multiplier: 750.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 4.400
-	recoil_multiplier: 4.000
+	recoil_multiplier: 2.000
 	reload_interval: 3.000
-	cycle_interval: 0.125
+	cycle_interval: 0.001
 	flash_size: 0.800
 	failure_rate: 0.000
 	max_ammo: 60.000
 	projectile_count: 1
-	flags: automatic, full_reload, cycle_on_shoot
+	flags: automatic, full_reload, no_lmb_cycle
 	ammo_filter: ammo_hc
 	action: crank
 	type: machinegun
@@ -90,7 +90,7 @@ holdable:
 
 attachment:
 {
-	offset: [-0.875, 0.600]
+	offset: [-0.875, 0.125]
 
 	force_multiplier: 1.000
 	torque_multiplier: 1.000
@@ -155,4 +155,47 @@ overheat:
 		volume: 0.000
 		pitch: 1.000
 	}
+}
+
+axle:
+{
+	offset: [-0.875, 0.125]
+	mass: 10.000
+	friction: 0.200
+	radius_a: 0.500
+	radius_b: 0.500
+	radius_inner: 0.250
+	radius_outer: 0.500
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0500.iron"
+		}
+		z: 100.000
+	}
+}
+
+crank:
+{
+	max_speed: 5.000
+	torque: 150.000
+	keys: left, right
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "crank.knob"
+		}
+		z: 150.000
+	}
+}
+
+sound.emitter:
+{
+	file: "winch.loop.00"
+	volume: 0.000
+	pitch: 1.000
 }

@@ -29,7 +29,9 @@
 
 			No_Particles = 1u << 4,
 
-			Child_Projectiles = 1u << 5
+			Child_Projectiles = 1u << 5,
+			No_LMB_Cycle = 1u << 6,
+
 		}
 
 		public enum Type: byte
@@ -970,7 +972,7 @@
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun.flags.HasAny(Gun.Flags.No_LMB_Cycle) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
