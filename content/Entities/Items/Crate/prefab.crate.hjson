@@ -55,13 +55,13 @@ storage:
 		name: "Crate"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: standalone, public
+		flags: public
 	}
 }
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	window_size: [224.000, 160.000]
 }
 
 cover:

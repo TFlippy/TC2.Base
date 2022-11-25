@@ -31,6 +31,11 @@ animated.renderer:
 	z: 100.000
 }
 
+health:
+{
+	max: 7000.000
+}
+
 control:
 {
 

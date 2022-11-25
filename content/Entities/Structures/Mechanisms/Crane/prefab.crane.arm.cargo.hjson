@@ -7,7 +7,7 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.250
+	inventory_weight_multiplier: 0.200
 
 	@shape.line:
 	{
@@ -30,6 +30,11 @@ animated.renderer:
 		texture: "crane.arm.cargo"
 	}
 	z: 100.000
+}
+
+health:
+{
+	max: 17000.000
 }
 
 control:
@@ -62,7 +67,7 @@ storage:
 	@inventory4:
 	{
 		name: "Cargo"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		type: storage
 		flags: allow_ducts
 	}
@@ -70,7 +75,7 @@ storage:
 
 interactable_data:
 {
-	window_size: [192.000, 136.000]
+	window_size: [192.000, 160.000]
 	window_offset: [0.000, 0.000]
 	flags: none
 }

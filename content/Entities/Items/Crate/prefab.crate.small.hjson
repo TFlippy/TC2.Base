@@ -55,11 +55,11 @@ storage:
 		name: "Small Crate"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: standalone, public
+		flags: public
 	}
 }
 
 interactable:
 {
-	window_size: [96.000, 96.000]
+	window_size: [128.000, 160.000]
 }

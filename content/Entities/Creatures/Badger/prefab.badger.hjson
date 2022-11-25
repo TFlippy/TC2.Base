@@ -96,9 +96,9 @@ npc:
 {
 	pain_modifier: 1.000
 	min_consciousness: 0.500
-	min_distance: [0.125, 0.000]
-	max_distance: [1.000, 1.000]
-	wander_radius: 8.000
+	min_distance: [0.500, 0.000]
+	max_distance: [2.000, 2.000]
+	wander_radius: 12.000
 }
 
 npc.emotions:

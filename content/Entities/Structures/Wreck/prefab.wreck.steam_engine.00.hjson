@@ -49,7 +49,7 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 1200.000
+			quantity: 700.000
 		}
 		{
 			material: "iron_plate"

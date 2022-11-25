@@ -76,13 +76,13 @@ claimable:
 
 mine:
 {
-	amount_multiplier: 8.000
+	amount_multiplier: 2.000
 }
 
 mine.state:
 {
-	work_current: 1500.000
-	work_required: 1500.000
+	work_current: 500.000
+	work_required: 500.000
 }
 
 depot:

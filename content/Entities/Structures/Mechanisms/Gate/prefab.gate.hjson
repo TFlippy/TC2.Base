@@ -146,7 +146,7 @@ joint.distance:
 	
 	health:
 	{
-		max: 30000.000
+		max: 25000.000
 	}
 	
 	transform:

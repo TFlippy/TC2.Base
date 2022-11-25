@@ -90,7 +90,7 @@ storage:
 	{
 		name: "Ammo"
 		stack_size_multiplier: 4.000
-		type: storage
+		type: ammo
 		flags: allow_ducts
 	}
 }

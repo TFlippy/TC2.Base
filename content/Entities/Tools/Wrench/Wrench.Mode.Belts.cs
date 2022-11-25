@@ -173,7 +173,7 @@ namespace TC2.Base.Components
 							if (this.valid)
 							{
 								this.radius = this.is_src ? this.axle.radius_a : this.axle.radius_b;
-								this.pos = this.transform.LocalToWorld(this.axle.offset);
+								this.pos = this.transform.LocalToWorld(this.axle.offset + (this.is_src ? this.axle.offset_inner : default));
 							}
 						}
 					}

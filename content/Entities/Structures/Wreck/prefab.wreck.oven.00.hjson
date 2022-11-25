@@ -20,7 +20,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 4000.000
 }
 
 animated.renderer:
@@ -46,4 +46,25 @@ harvestable:
 			quantity: 150.000
 		}
 	]
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 1
+	rolls_extra: 2
+
+	tables:
+	[
+		"oven"
+	]
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
 }
