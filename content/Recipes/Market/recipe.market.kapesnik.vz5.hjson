@@ -1,8 +1,10 @@
 {
-	name: "Derringer"
+	name: "Kapesnik vz.5"
 	desc:
 		'''
-		A caplock derringer pistol, very useful in tight spaces.
+		5th iteration of an extremely popular multi-purpose pocket knife.
+		
+		Quickly decommissioned and made available for civilian use.
 		'''
 	
 	icon:
@@ -28,7 +30,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "derringer"
+			prefab: "bp.kapesnik.vz5"
 			amount: 1.000
 		}
 	]

@@ -1,0 +1,62 @@
+{
+	name: "Kapesnik vz.5"
+	description:
+		'''
+		5th iteration of an extremely popular multi-purpose pocket knife.
+		
+		Quickly decommissioned and made available for civilian use.
+		'''
+	prefab: "derringer"
+	recipe: "gunsmith.derringer"
+	augments:
+	[
+		{
+			identifier: "gun.bayonet"
+			flags: none
+			modifier: 0.000
+			data: 4503599627370496000
+		}
+		{
+			identifier: "melee.battering"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.flimsy_frame"
+			flags: none
+			modifier: 0.000
+			data: 1048576000
+		}
+		{
+			identifier: "gun.simple_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.simple_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.resourceful_sharpening"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.uneven_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.uneven_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

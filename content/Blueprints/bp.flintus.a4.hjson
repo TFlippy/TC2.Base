@@ -1,0 +1,63 @@
+{
+	name: "Flintus A-4"
+	description:
+		'''
+		High-tech blunderbuss utilizing high-precision optics.
+
+		Imperial official responsible for reviewing the order of 50 000 units has been promptly executed for wasting paper and government budget.
+		Now available for civilian use at a heavily discounted rate.
+		'''
+	prefab: "blunderbuss"
+	recipe: "gunsmith.blunderbuss"
+	augments:
+	[
+		{
+			identifier: "gun.scope"
+			flags: none
+			modifier: 0.000
+			data: 13744986063787524096
+		}
+		{
+			identifier: "telescope.adjustable_optics"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 4521614026932748288
+		}
+		{
+			identifier: "gun.stacked_charge"
+			flags: none
+			modifier: 1.000
+			data: 0
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 4467570830351532032
+		}
+		{
+			identifier: "gun.hardened_frame"
+			flags: none
+			modifier: 0.000
+			data: 3187671040
+		}
+		{
+			identifier: "telescope.long_focus_lens"
+			flags: none
+			modifier: 0.000
+			data: 1073741824
+		}
+	]
+}

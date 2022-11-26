@@ -1,0 +1,62 @@
+{
+	name: "Muskant vz.2"
+	description:
+		'''
+		Decommissioned model of a bladed double-barelled musket.
+		
+		Now widely popular among civilians living on the frontier.
+		'''
+	prefab: "musket"
+	recipe: "gunsmith.musket"
+	augments:
+	[
+		{
+			identifier: "gun.axe"
+			flags: none
+			modifier: 0.000
+			data: 4539628427577131008
+		}
+		{
+			identifier: "gun.simple_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.flimsy_frame"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.simple_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.battering"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.uneven_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

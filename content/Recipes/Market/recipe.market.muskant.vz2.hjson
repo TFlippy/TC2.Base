@@ -1,9 +1,10 @@
 {
-	name: "Musket"
+	name: "Muskant vz.2"
 	desc:
 		'''
-		A caplock musket.
-		Good for hunting and medium-ranged combat.
+		Decommissioned model of a bladed double-barelled musket.
+		
+		Now widely popular among civilians living on the frontier.
 		'''
 	
 	icon:
@@ -29,7 +30,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "musket"
+			prefab: "bp.muskant.vz2"
 			amount: 1.000
 		}
 	]
