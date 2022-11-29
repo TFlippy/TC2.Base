@@ -221,6 +221,10 @@ namespace TC2.Base.Components
 
 			public void DrawInfo(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
 			public void DrawHUD(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
+			public void DrawNode(Entity ent_wrench, ref TInfo info, Color32BGRA color)
+			{
+
+			}
 #endif
 			public Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default)
 			{
@@ -403,7 +407,7 @@ namespace TC2.Base.Components
 					color_new = GUI.font_color_error;
 				}
 
-				DrawGizmos(ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);
+				DrawGizmos(ent_wrench, ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
 				{
@@ -493,7 +497,7 @@ namespace TC2.Base.Components
 				}
 			}
 
-			public void DrawGizmos(ref Vector2 wpos_mouse, ref TInfo info_src, ref TInfo info_dst, ref TInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+			public void DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TInfo info_src, ref TInfo info_dst, ref TInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 			{
 				if (info_src.IsValid)
 				{
@@ -534,16 +538,19 @@ namespace TC2.Base.Components
 				if (info_src.IsValid)
 				{
 					GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * GUI.GetWorldToCanvasScale(), color_src, 2.00f);
+					this.DrawNode(ent_wrench, ref info_src, color_src);
 				}
 
 				if (info_dst.IsValid)
 				{
 					GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * GUI.GetWorldToCanvasScale(), color_dst, 2.00f);
+					this.DrawNode(ent_wrench, ref info_dst, color_dst);
 				}
 
 				if (info_new.IsValid)
 				{
 					GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * GUI.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
+					this.DrawNode(ent_wrench, ref info_new, color_new);
 				}
 			}
 #endif

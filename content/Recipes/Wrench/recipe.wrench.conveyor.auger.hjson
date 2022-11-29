@@ -2,7 +2,7 @@
 	name: "Conveyor (Auger)"
 	desc:
 		'''
-		A helical conveyor used for transporting liquids and granular materials.
+		Helical conveyor used for transporting liquids and granular materials.
 		'''
 	
 	icon:

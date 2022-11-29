@@ -52,7 +52,7 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Crate"
+		name: "Inventory"
 		stack_size_multiplier: 4.000
 		type: storage
 		flags: public

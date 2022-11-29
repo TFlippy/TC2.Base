@@ -76,14 +76,20 @@ namespace TC2.Base.Components
 										var root = prefab.Root;
 										if (root != null)
 										{
-											if (root.TryGetComponentData<Belt.Data>(out var belt_data, initialized: true))
-											{
-												GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
-											}
+											GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
 										}
 									}
 								}
 							}
+						}
+					}
+
+					public void DrawNode(Entity ent_wrench, ref TargetInfo info, Color32BGRA color)
+					{
+						ref var axle_state = ref info.entity.GetComponent<Axle.State>();
+						if (axle_state.IsNotNull())
+						{
+							GUI.DrawTextCentered($"{axle_state.angular_velocity:0.00} rad/s\n{axle_state.new_tmp_torque:0.00} Nm/s", info.Position.WorldToCanvas());
 						}
 					}
 

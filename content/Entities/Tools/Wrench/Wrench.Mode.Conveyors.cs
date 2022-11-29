@@ -79,10 +79,7 @@ namespace TC2.Base.Components
 										var root = prefab.Root;
 										if (root != null)
 										{
-											if (root.TryGetComponentData<Duct.Data>(out var belt_data, initialized: true))
-											{
-												GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
-											}
+											GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
 										}
 									}
 								}
@@ -243,7 +240,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					void Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>.DrawGizmos(ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+					void Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 					{
 						if (info_src.IsValid)
 						{
@@ -338,7 +335,7 @@ namespace TC2.Base.Components
 								}
 							}
 
-							valid &= has_inventory;
+							this.valid &= has_inventory;
 
 							if (this.valid)
 							{
@@ -439,13 +436,13 @@ namespace TC2.Base.Components
 
 											ent.MarkModified<Duct.Data>(sync: true);
 
-											//belt.a.Set(arg.ent_src);
-											//belt.b.Set(arg.ent_dst);
+											//duct.a.Set(arg.ent_src);
+											//duct.b.Set(arg.ent_dst);
 
-											//belt.a_state.Set(arg.ent_src);
-											//belt.b_state.Set(arg.ent_dst);
+											//duct.a_state.Set(arg.ent_src);
+											//duct.b_state.Set(arg.ent_dst);
 
-											//belt.flags = arg.flags;
+											//duct.flags = arg.flags;
 
 											//ent.MarkModified<Duct.Data>(sync: true);
 										}
