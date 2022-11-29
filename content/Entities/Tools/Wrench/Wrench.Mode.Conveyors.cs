@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{
-						return new TargetInfo(entity, is_src);
+						return new TargetInfo(entity, 0, is_src);
 					}
 
 #if CLIENT
@@ -105,10 +105,36 @@ namespace TC2.Base.Components
 								{
 									GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
 
+									var hud_rect = hud.group.GetOuterRect();
+
 									var inventories_src = info_src.entity.GetInventories();
 									var inventories_dst = info_dst.entity.GetInventories();
 
 									var sync = false;
+
+									if (this.ent_src.TryGetInventory(this.inventory_id_src, out var h_inv_src))
+									{
+										//var h_inventory = new Inventory.Handle()
+										using (var window = GUI.Window.Standalone($"inv_src", position: new(hud_rect.a.X, hud_rect.a.Y), pivot: new(1.00f, 0.00f), size: h_inv_src.GetPreferedFrameSize() + new Vector2(0, 0)))
+										{
+											if (window.show)
+											{
+												GUI.DrawInventory(h_inv_src, is_readonly: true);
+											}
+										}
+									}
+
+									if (this.ent_dst.TryGetInventory(this.inventory_id_dst, out var h_inv_dst))
+									{
+										//var h_inventory = new Inventory.Handle()
+										using (var window = GUI.Window.Standalone($"inv_dst", position: new(hud_rect.b.X, hud_rect.a.Y), pivot: new(0.00f, 0.00f), size: h_inv_dst.GetPreferedFrameSize() + new Vector2(0, 0)))
+										{
+											if (window.show)
+											{
+												GUI.DrawInventory(h_inv_dst, is_readonly: true);
+											}
+										}
+									}
 
 									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
 									{
@@ -118,8 +144,17 @@ namespace TC2.Base.Components
 
 										using (GUI.ID.Push(this.ent_src))
 										{
-											using (GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
 											{
+												GUI.DrawBackground(GUI.tex_panel, group_col.GetOuterRect(), new Vector4(4));
+
+												using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 24), padding: new(4)))
+												{
+													GUI.TitleCentered($"From: {this.ent_src.GetName()}", size: 16, pivot: new(0.50f, 0.50f));
+												}
+
+												GUI.SeparatorThick();
+
 												DrawInventories(ref inventories_src, ref this.inventory_id_src, ref sync);
 											}
 										}
@@ -128,8 +163,17 @@ namespace TC2.Base.Components
 
 										using (GUI.ID.Push(this.ent_dst))
 										{
-											using (GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
 											{
+												GUI.DrawBackground(GUI.tex_panel, group_col.GetOuterRect(), new Vector4(4));
+
+												using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 24), padding: new(4)))
+												{
+													GUI.TitleCentered($"To: {this.ent_dst.GetName()}", size: 16, pivot: new(0.50f, 0.50f));
+												}
+
+												GUI.SeparatorThick();
+
 												DrawInventories(ref inventories_dst, ref this.inventory_id_dst, ref sync);
 											}
 										}
@@ -186,6 +230,14 @@ namespace TC2.Base.Components
 											sync = true;
 										}
 									}
+
+									//if (GUI.IsItemHovered())
+									//{
+									//	using (GUI.Tooltip.New(size: h_inventory.GetPreferedFrameSize() + new Vector2(16, 16)))
+									//	{
+									//		GUI.DrawInventory(h_inventory);
+									//	}
+									//}
 								}
 							}
 						}
@@ -260,7 +312,7 @@ namespace TC2.Base.Components
 					public bool IsAlive => this.alive;
 					public bool IsValid => this.valid;
 
-					public TargetInfo(Entity entity, bool is_src)
+					public TargetInfo(Entity entity, ulong inventory_id, bool is_src)
 					{
 						this.entity = entity;
 						this.is_src = is_src;
@@ -277,9 +329,11 @@ namespace TC2.Base.Components
 							var inventories = this.entity.GetInventories();
 							foreach (var h_inventory in inventories)
 							{
-								if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts))
+								if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts) && (inventory_id == 0 || h_inventory.ID == inventory_id))
 								{
 									has_inventory = true;
+									this.inventory_id = h_inventory.ID;
+
 									break;
 								}
 							}
@@ -310,11 +364,14 @@ namespace TC2.Base.Components
 
 						ref var region = ref entity.GetRegion();
 
-						data.ent_src = this.ent_src;
-						data.ent_dst = this.ent_dst;
+						var info_src = new TargetInfo(this.ent_src, this.component_id_src, true);
+						var info_dst = new TargetInfo(this.ent_dst, this.component_id_dst, false);
 
-						data.inventory_id_src = this.component_id_src;
-						data.inventory_id_dst = this.component_id_dst;
+						data.ent_src = info_src.entity;
+						data.ent_dst = info_dst.entity;
+
+						data.inventory_id_src = info_src.inventory_id;
+						data.inventory_id_dst = info_dst.inventory_id;
 
 						data.Sync(entity);
 					}
@@ -360,8 +417,8 @@ namespace TC2.Base.Components
 						{
 							var errors = Build.Errors.None;
 
-							var info_src = new TargetInfo(data.ent_src, true);
-							var info_dst = new TargetInfo(data.ent_dst, false);
+							var info_src = new TargetInfo(data.ent_src, data.inventory_id_src, true);
+							var info_dst = new TargetInfo(data.ent_dst, data.inventory_id_dst, false);
 
 							if (info_src.valid && info_dst.valid)
 							{
@@ -370,7 +427,7 @@ namespace TC2.Base.Components
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Duct.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{
-									var arg = (data.ent_src, data.ent_dst, data.inventory_id_src, data.inventory_id_dst);
+									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{

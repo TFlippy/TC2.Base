@@ -49,14 +49,33 @@ namespace TC2.Base.Components
 							{
 								GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
 
-								using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
-								{
+								//using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+								//{
 
+								//}
+
+								var items_span = info_target.dismantlable.items.AsSpan();
+
+								for (int i = 0; i < items_span.Length; i++)
+								{
+									ref var item = ref items_span[i];
+									switch (item.type)
+									{
+										case Shipment.Item.Type.Resource:
+										{
+											var resource = new Resource.Data(item.material, item.quantity);
+											GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32));
+										}
+										break;
+									}
 								}
 
 								using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
 								{
-							
+									if (GUI.DrawButton("Dismantle", size: GUI.GetRemainingSpace()))
+									{
+
+									}
 								}
 							}
 						}
