@@ -46,6 +46,7 @@ axle:
 	radius_b: 0.500
 	radius_inner: 0.500
 	radius_outer: 0.500
+	z: -140.000
 	
 	@animated.renderer:
 	{
@@ -74,7 +75,7 @@ clutch:
 			texture: "clutch.fg"
 			size: [16, 24]
 		}
-		z: 150.000
+		z: -100.000
 	}
 }
 

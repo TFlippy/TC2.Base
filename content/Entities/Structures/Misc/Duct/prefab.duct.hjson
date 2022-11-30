@@ -18,12 +18,12 @@ body:
 	}
 }
 
-duct:
+conveyor:
 {
 	interval: 1.000
 }
 
-duct.state:
+conveyor.state:
 {
 
 }

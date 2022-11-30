@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 			public static partial class Conveyors
 			{
 				[IComponent.Data(Net.SendType.Reliable)]
-				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 										var root = prefab.Root;
 										if (root != null)
 										{
-											if (root.TryGetComponentData<Duct.Data>(out var duct_data, true))
+											if (root.TryGetComponentData<Conveyor.Data>(out var duct_data, true))
 											{
 												inventory_filter.flags = duct_data.filter_flags;
 												inventory_filter.type = duct_data.filter_type;
@@ -256,7 +256,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					void Wrench.ILinkerMode<Conveyors.TargetInfo, Duct.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+					void Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 					{
 						if (info_src.IsValid)
 						{
@@ -346,6 +346,7 @@ namespace TC2.Base.Components
 								{
 									has_inventory = true;
 									this.inventory_id = h_inventory.ID;
+									this.pos = this.transform.LocalToWorld(h_inventory.Offset);
 
 									break;
 								}
@@ -356,7 +357,7 @@ namespace TC2.Base.Components
 							if (this.valid)
 							{
 								this.radius = 1.00f;
-								this.pos = this.transform.position;
+								//this.pos = this.transform.LocalToWorld(invento;
 							}
 						}
 					}
@@ -435,36 +436,36 @@ namespace TC2.Base.Components
 
 							if (info_src.valid && info_dst.valid)
 							{
-								var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
+								var pos_mid = info_src.pos; // (info_src.pos + info_dst.pos) * 0.50f;
 				
-								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Duct.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{
 									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{
-										ref var duct = ref ent.GetComponent<Duct.Data>();
-										if (!duct.IsNull())
+										ref var conveyor = ref ent.GetComponent<Conveyor.Data>();
+										if (!conveyor.IsNull())
 										{
-											duct.a.Set(arg.ent_src, arg.inventory_id_src);
-											duct.b.Set(arg.ent_dst, arg.inventory_id_dst);
+											conveyor.a.Set(arg.ent_src, arg.inventory_id_src);
+											conveyor.b.Set(arg.ent_dst, arg.inventory_id_dst);
 
-											ent.MarkModified<Duct.Data>(sync: true);
+											ent.MarkModified<Conveyor.Data>(sync: true);
 
-											//duct.a.Set(arg.ent_src);
-											//duct.b.Set(arg.ent_dst);
+											//conveyor.a.Set(arg.ent_src);
+											//conveyor.b.Set(arg.ent_dst);
 
-											//duct.a_state.Set(arg.ent_src);
-											//duct.b_state.Set(arg.ent_dst);
+											//conveyor.a_state.Set(arg.ent_src);
+											//conveyor.b_state.Set(arg.ent_dst);
 
-											//duct.flags = arg.flags;
+											//conveyor.flags = arg.flags;
 
-											//ent.MarkModified<Duct.Data>(sync: true);
+											//ent.MarkModified<Conveyor.Data>(sync: true);
 										}
 
-										//ent.AddRel2<Duct.Link>(arg.ent_src, default, false, false, false);
-										//ent.AddRel2<Duct.Link>(arg.ent_dst, default, false, false, false);
+										//ent.AddRel2<Conveyor.Link>(arg.ent_src, default, false, false, false);
+										//ent.AddRel2<Conveyor.Link>(arg.ent_dst, default, false, false, false);
 									});
 
 									data.ent_src = default;

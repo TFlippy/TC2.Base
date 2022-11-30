@@ -106,6 +106,7 @@ burner:
 		filter_flags: fuel
 		type: fuel
 		flags: allow_ducts, ignore_mass
+		offset: [-1.000, 1.500]
 	}
 	
 	@sound.emitter:
@@ -132,6 +133,7 @@ axle:
 	radius_b: 1.250
 	radius_inner: 0.750
 	radius_outer: 1.250
+	z: -280.000
 	
 	@animated.renderer:
 	{
