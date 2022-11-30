@@ -109,6 +109,22 @@ namespace TC2.Base.Components
 
 									var sync = false;
 
+									var inventory_filter = new Inventory.Filter();
+
+									if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
+									{
+										var root = prefab.Root;
+										if (root != null)
+										{
+											if (root.TryGetComponentData<Duct.Data>(out var duct_data, true))
+											{
+												inventory_filter.flags = duct_data.filter_flags;
+												inventory_filter.type = duct_data.filter_type;
+												inventory_filter.material = duct_data.filter_material;
+											}
+										}
+									}
+
 									if (this.ent_src.TryGetInventory(this.inventory_id_src, out var h_inv_src))
 									{
 										//var h_inventory = new Inventory.Handle()
@@ -116,7 +132,7 @@ namespace TC2.Base.Components
 										{
 											if (window.show)
 											{
-												GUI.DrawInventory(h_inv_src, is_readonly: true);
+												GUI.DrawInventory(h_inv_src, is_readonly: true, filter: inventory_filter);
 											}
 										}
 									}
@@ -128,7 +144,7 @@ namespace TC2.Base.Components
 										{
 											if (window.show)
 											{
-												GUI.DrawInventory(h_inv_dst, is_readonly: true);
+												GUI.DrawInventory(h_inv_dst, is_readonly: true, filter: inventory_filter);
 											}
 										}
 									}

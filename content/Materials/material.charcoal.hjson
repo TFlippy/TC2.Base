@@ -9,7 +9,7 @@
 	}
 	
 	type: stone
-	flags: raw, fuel
+	flags: raw, fuel, gravel
 	mass_per_unit: 0.200
 	market_price: 9.000
 	quantity_max: 500.000

@@ -585,6 +585,7 @@ lootable:
 	drag:
 	{
 		max_force: 6000.000
+		max_distance: 3.000
 	}
 
 	puncher:
