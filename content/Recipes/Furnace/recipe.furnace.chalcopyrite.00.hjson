@@ -1,0 +1,73 @@
+{
+	name: "Chalcopyrite Decomposition"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.chalcopyrite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.iron.gravel"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-2, -6]
+	icon_extra_scale: 1.000
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 855.000
+		}
+		{
+			type: resource
+			material: "chalcopyrite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "charcoal"
+			amount: 0.100
+		}
+		{
+			type: work
+			work: heating
+			amount: 7.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "iron.gravel"
+			amount: 0.475
+			amount_extra: 0.040
+		}
+		{
+			type: resource
+			material: "copper.ore"
+			amount: 0.395
+			amount_extra: 0.070
+			flags: byproduct
+		}
+	]
+}

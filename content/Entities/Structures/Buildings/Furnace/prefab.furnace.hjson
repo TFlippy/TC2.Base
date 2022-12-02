@@ -40,7 +40,7 @@ shop:
 	name: "Recipes"
 	tags: furnace
 
-	menu_columns: 3
+	menu_columns: 4
 }
 
 furnace:
@@ -120,5 +120,5 @@ crafter.state:
 
 interactable:
 {
-	window_size: [500.000, 400.000]
+	window_size: [650.000, 480.000]
 }

@@ -1,22 +1,19 @@
 {
-	name: "Iron Ore"
-	description:
-		'''
-		Medium-purity iron ore.
-		Yield: 40% to 70%
-		'''
+	name: "Sulfur Dioxide"
+	description: "Toxic gas."
 	icon:
 	{
-		texture: "resource.iron.ore"
+		texture: "resource.sulfur_dioxide"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	type: stone
-	flags: raw, ore, smeltable, metal, despawnable
-	mass_per_unit: 1.800
+	type: gas
+	flags: none
+	mass_per_unit: 0.050
+	market_price: 6.000
 	quantity_max: 500.000
-	prefab: "resource.iron.ore"
+	prefab: "resource.sulfur_dioxide"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
@@ -29,6 +26,7 @@
 	fuel_purity: 0.500
 	fuel_temperature: 1200.000
 	
-	specific_heat: 206.000
-	thermal_conductivity: 0.0395
+	specific_heat: 100.000
+	thermal_conductivity: 0.100
+	molar_mass: 0.098079
 }

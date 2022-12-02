@@ -12,7 +12,7 @@
 	flags: raw, powder, smeltable, metal, despawnable
 	mass_per_unit: 0.200
 	market_price: 2.200
-	quantity_max: 250.000
+	quantity_max: 500.000
 	prefab: "resource.iron.powder"
 	
 	projectile_count: 0

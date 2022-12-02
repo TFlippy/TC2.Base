@@ -14,7 +14,7 @@
 	
 	type: stone
 	flags: raw, ore, smeltable, metal, despawnable
-	mass_per_unit: 0.1075
+	mass_per_unit: 1.150
 	quantity_max: 500.000
 	prefab: "resource.chalcopyrite"
 	

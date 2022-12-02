@@ -1,0 +1,73 @@
+{
+	name: "High-Grade Carbon Steel"
+	desc: 
+		'''
+		Fast and efficient steel production method.
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.iron.powder"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+
+	min: 10
+	max: 200
+	step: 10
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "iron.powder"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "charcoal"
+			amount: 0.100
+		}
+		{
+			type: work
+			work: melting
+			amount: 50.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 0.600
+			amount_extra: 0.200
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.110
+			amount_extra: 0.150
+			flags: waste
+		}
+	]
+}
