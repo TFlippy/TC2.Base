@@ -54,7 +54,7 @@
 					}
 
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", total_amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", total_amount));
 
 					data.max += total_amount * 1000.00f;
 
@@ -68,7 +68,7 @@
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
@@ -140,7 +140,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", 2.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", 2.00f));
 				}
 			));
 		}
