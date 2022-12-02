@@ -13,7 +13,7 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain.grass_tall"
+	texture: "terrain.grass.tall"
 	pattern: "pattern.soil"
 	
 	texture_scale: 2.000

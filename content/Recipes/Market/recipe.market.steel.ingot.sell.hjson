@@ -1,8 +1,8 @@
 {
-	name: "Iron Ingot"
+	name: "Steel Ingot"
 	desc:
 		'''
-		An ingot of solid iron.
+		An ingot of solid steel.
 		Used for construction, machinery, tools and more.
 		'''
 	

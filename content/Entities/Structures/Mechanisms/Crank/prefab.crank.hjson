@@ -49,7 +49,7 @@ axle:
 	// {
 	// 	sprite:
 	// 	{
-	// 		texture: "wheel_1000.iron"
+	// 		texture: "wheel_1000.steel"
 	// 	}
 	// 	z: -160.000
 	// }
@@ -138,7 +138,7 @@ transform:
 		{
 			sprite:
 			{
-				texture: "wheel_1000.iron"
+				texture: "wheel_1000.steel"
 			}
 			z: 110.000
 		}

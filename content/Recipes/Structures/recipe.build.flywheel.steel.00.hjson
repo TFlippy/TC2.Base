@@ -1,5 +1,5 @@
 {
-	name: "Flywheel (Iron) [WIP]"
+	name: "Flywheel (Steel) [WIP]"
 	desc:
 		'''
 		TODO: Desc
@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "flywheel.iron.00"
+		texture: "flywheel.steel.00"
 		size: [32, 32]
 	}
 	
@@ -47,7 +47,7 @@
 	[
 		{
 			type: prefab
-			prefab: "flywheel.iron.00"
+			prefab: "flywheel.steel.00"
 			amount: 1.000
 		}
 	]

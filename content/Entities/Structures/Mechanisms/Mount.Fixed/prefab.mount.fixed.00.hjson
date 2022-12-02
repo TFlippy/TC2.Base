@@ -60,7 +60,7 @@ axle:
 	{
 		sprite:
 		{
-			texture: "wheel_1000.iron"
+			texture: "wheel_1000.steel"
 		}
 		z: -50.000
 	}
