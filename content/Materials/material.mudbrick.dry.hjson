@@ -3,7 +3,7 @@
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.mudbrick_dry"
+		texture: "resource.mudbrick.dry"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -12,7 +12,7 @@
 	flags: manufactured
 	mass_per_unit: 0.400
 	quantity_max: 500.000
-	prefab: "resource.mudbrick_dry"
+	prefab: "resource.mudbrick.dry"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
