@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.arcanite_powder"
+		texture: "resource.arcanite.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,12 +19,12 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl_powder"
+			material: "smirgl.powder"
 			amount: 0.600
 		}
 		{
 			type: "resource"
-			material: "gold_powder"
+			material: "gold.powder"
 			amount: 0.400
 		}
 		{
@@ -39,7 +39,7 @@
 	[
 		{
 			type: "resource"
-			material: "arcanite_powder"
+			material: "arcanite.powder"
 			amount: 1.000
 		}
 	]

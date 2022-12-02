@@ -3,7 +3,7 @@
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.smirgl_ingot"
+		texture: "resource.smirgl.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 3.800
 	market_price: 25.000
 	quantity_max: 250.000
-	prefab: "resource.smirgl_ingot"
+	prefab: "resource.smirgl.ingot"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

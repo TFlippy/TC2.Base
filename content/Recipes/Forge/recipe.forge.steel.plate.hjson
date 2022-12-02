@@ -1,0 +1,41 @@
+{
+	name: "Steel Plate"
+	desc: "Used for various kinds of machinery."
+	
+	icon:
+	{
+		texture: "resource.steel.plate"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 4
+	max: 100
+	step: 4
+	type: workshop
+	tags: forge
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "steel.ingot"
+			amount: 0.250
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 20.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "steel.plate"
+			amount: 1.000
+		}
+	]
+}

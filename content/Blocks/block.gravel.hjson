@@ -13,8 +13,8 @@
 	elasticity: 0.250
 	stability: 0.500
 	
-	texture: "terrain_gravel"
-	pattern: "pattern_soil"
+	texture: "terrain.gravel"
+	pattern: "pattern.soil"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750

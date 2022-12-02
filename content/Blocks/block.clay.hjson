@@ -13,8 +13,8 @@
 	elasticity: 0.090
 	stability: 0.500
 	
-	texture: "terrain_clay"
-	pattern: "pattern_stone"
+	texture: "terrain.clay"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.750

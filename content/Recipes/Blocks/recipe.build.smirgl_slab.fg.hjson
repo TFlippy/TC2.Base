@@ -38,7 +38,7 @@
 	[
 		{
 			type: resource
-			material: "smirgl_ingot"
+			material: "smirgl.ingot"
 			amount: 0.100
 		}
 		{

@@ -7,7 +7,7 @@
 		'''
 	icon:
 	{
-		texture: "resource.gold_gravel"
+		texture: "resource.gold.gravel"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,7 +16,7 @@
 	flags: raw, gravel, smeltable, metal, despawnable
 	mass_per_unit: 0.500
 	quantity_max: 500.000
-	prefab: "resource.gold_gravel"
+	prefab: "resource.gold.gravel"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

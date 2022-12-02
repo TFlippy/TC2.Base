@@ -13,8 +13,8 @@
 	elasticity: 0.700
 	stability: 0.500
 	
-	texture: "terrain_hardstone"
-	pattern: "pattern_stone"
+	texture: "terrain.hardstone"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.500

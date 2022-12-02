@@ -3,7 +3,7 @@
 	description: "A mixture of various rare metals and waste from smelting."
 	icon:
 	{
-		texture: "resource.slag_rich"
+		texture: "resource.slag.rich"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -12,7 +12,7 @@
 	flags: manufactured
 	mass_per_unit: 0.800
 	quantity_max: 500.000
-	prefab: "resource.slag_rich"
+	prefab: "resource.slag.rich"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

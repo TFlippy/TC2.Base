@@ -13,8 +13,8 @@
 	elasticity: 0.010
 	stability: 0.500
 	
-	texture: "terrain_sand"
-	pattern: "pattern_soil"
+	texture: "terrain.sand"
+	pattern: "pattern.soil"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.500

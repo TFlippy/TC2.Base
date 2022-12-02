@@ -23,7 +23,7 @@
 	[
 		{
 			type: "resource"
-			material: "arcanite_ingot"
+			material: "arcanite.ingot"
 			amount: 0.200
 		}
 		{

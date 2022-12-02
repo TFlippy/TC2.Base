@@ -29,12 +29,12 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "steel.ingot"
 			amount: 0.100
 		}
 		{
 			type: "resource"
-			material: "copper_ingot"
+			material: "copper.ingot"
 			amount: 0.200
 		}
 		{

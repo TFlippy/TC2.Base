@@ -23,12 +23,12 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "steel.ingot"
 			amount: 0.200
 		}
 		{
 			type: "resource"
-			material: "copper_plate"
+			material: "copper.plate"
 			amount: 0.200
 		}
 		{

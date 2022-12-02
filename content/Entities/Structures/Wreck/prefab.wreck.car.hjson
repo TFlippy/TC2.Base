@@ -59,11 +59,11 @@ harvestable:
 			quantity: 450.000
 		}
 		{
-			material: "iron_ingot"
+			material: "steel.ingot"
 			quantity: 11.000
 		}
 		{
-			material: "iron_plate"
+			material: "steel.plate"
 			quantity: 37.000
 		}
 		{

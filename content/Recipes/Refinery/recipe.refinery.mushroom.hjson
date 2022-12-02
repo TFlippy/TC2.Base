@@ -42,7 +42,7 @@
 		}
 		{
 			type: "resource"
-			material: "soil_rich"
+			material: "soil.rich"
 			amount: 3.000
 			amount_extra: 13.000
 		}

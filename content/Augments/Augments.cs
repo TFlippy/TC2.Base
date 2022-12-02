@@ -335,12 +335,12 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<int>();
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("copper_plate", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("copper.plate", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("copper_plate");
+						ref var material = ref IMaterial.Database.GetData("copper.plate");
 						if (material.IsNotNull())
 						{
 							body.mass_extra += amount * material.mass_per_unit;
@@ -384,12 +384,12 @@ namespace TC2.Base
 					}
 
 					amount = MathF.Ceiling(amount);
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_extra += amount * material.mass_per_unit;

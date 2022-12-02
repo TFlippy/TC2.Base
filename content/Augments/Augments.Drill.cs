@@ -123,12 +123,12 @@ namespace TC2.Base
 					}
 
 					var amount = 5.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl_ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl_ingot");
+						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_multiplier *= 1.10f;

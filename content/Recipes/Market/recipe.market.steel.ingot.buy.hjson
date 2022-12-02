@@ -1,0 +1,38 @@
+{
+	name: "Steel Ingot"
+	desc:
+		'''
+		An ingot of solid steel.
+		Used for construction, machinery, tools and more.
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	type: buy
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "money"
+			amount: 14.999
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "steel.ingot"
+			amount: 1.000
+		}
+	]
+}

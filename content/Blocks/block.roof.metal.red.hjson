@@ -16,8 +16,8 @@
 	elasticity: 0.200
 	stability: 0.500
 	
-	texture: "terrain_roof.metal.red"
-	pattern: "pattern_scaffolding"
+	texture: "terrain.roof.metal.red"
+	pattern: "pattern.scaffolding"
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.250
@@ -25,7 +25,7 @@
 	resources:
 	[
 		{
-			material: "iron_plate"
+			material: "steel.plate"
 			quantity: 0.050
 		}
 	]

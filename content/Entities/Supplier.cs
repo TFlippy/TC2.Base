@@ -44,7 +44,7 @@ namespace TC2.Base.Components
 		public static readonly WeightedList<Supplier.Product> products = new()
 		{
 			new(60.00f, new(Shipment.Item.Resource("wood", 100.00f, 700.00f), step: 50.00f)),
-			new(40.00f, new(Shipment.Item.Resource("iron_plate", 10.00f, 20.00f), step: 10.00f))
+			new(40.00f, new(Shipment.Item.Resource("steel.plate", 10.00f, 20.00f), step: 10.00f))
 		};
 
 		public static readonly WeightedList<Supplier.Product> products_creatures = new()

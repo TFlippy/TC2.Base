@@ -7,7 +7,7 @@
 		'''
 	icon:
 	{
-		texture: "resource.smirgl_gravel"
+		texture: "resource.smirgl.gravel"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,7 +16,7 @@
 	flags: raw, gravel, smeltable, metal, despawnable
 	mass_per_unit: 0.760
 	quantity_max: 500.000
-	prefab: "resource.smirgl_gravel"
+	prefab: "resource.smirgl.gravel"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

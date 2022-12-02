@@ -2913,7 +2913,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("iron_ingot", 1.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 10));
 				}
 			));

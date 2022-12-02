@@ -66,12 +66,12 @@
 		}
 		{
 			type: resource
-			material: "iron_ingot"
+			material: "steel.ingot"
 			amount: 7.000
 		}
 		{
 			type: resource
-			material: "iron_plate"
+			material: "steel.plate"
 			amount: 20.000
 		}
 	]

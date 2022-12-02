@@ -8,7 +8,7 @@
 		'''
 	icon:
 	{
-		texture: "resource.copper_ore"
+		texture: "resource.copper.ore"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -17,7 +17,7 @@
 	flags: raw, ore, smeltable, metal, despawnable
 	mass_per_unit: 1.150
 	quantity_max: 500.000
-	prefab: "resource.copper_ore"
+	prefab: "resource.copper.ore"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

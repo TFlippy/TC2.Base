@@ -19,7 +19,7 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "steel.ingot"
 			amount: 6.000
 		}
 		{

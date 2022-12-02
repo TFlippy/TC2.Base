@@ -13,8 +13,8 @@
 	elasticity: 0.400
 	stability: 0.500
 	
-	texture: "terrain_planks"
-	pattern: "pattern_planks"
+	texture: "terrain.planks"
+	pattern: "pattern.planks"
 	
 	texture_scale: 0.800
 	texture_overshoot: -0.750

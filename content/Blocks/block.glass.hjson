@@ -13,8 +13,8 @@
 	elasticity: 0.500
 	stability: 0.500
 	
-	texture: "terrain_glass"
-	pattern: "pattern_glass"
+	texture: "terrain.glass"
+	pattern: "pattern.glass"
 	
 	texture_scale: 1.000
 	texture_overshoot: 0.250

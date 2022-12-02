@@ -3,7 +3,7 @@
 	description: "Very fertile soil."
 	icon:
 	{
-		texture: "resource.soil_rich"
+		texture: "resource.soil.rich"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -12,7 +12,7 @@
 	flags: raw, despawnable
 	mass_per_unit: 0.130
 	quantity_max: 500.000
-	prefab: "resource.soil_rich"
+	prefab: "resource.soil.rich"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

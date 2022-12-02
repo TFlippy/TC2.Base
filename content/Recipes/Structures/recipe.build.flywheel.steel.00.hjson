@@ -1,0 +1,54 @@
+{
+	name: "Flywheel (Steel) [WIP]"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "flywheel.steel.00"
+		size: [32, 32]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	rank: 20.000
+	
+	dismantle_work: 30.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings
+		
+		size: [4.000, 4.000]
+		
+		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.500
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 250.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "flywheel.steel.00"
+			amount: 1.000
+		}
+	]
+}

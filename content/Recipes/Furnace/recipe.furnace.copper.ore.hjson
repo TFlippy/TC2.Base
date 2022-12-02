@@ -1,0 +1,67 @@
+{
+	name: "Copper Ore"
+	desc: 
+		'''
+		Smelt unpurified copper ore.
+
+		Inefficient, but yields a decent amount of sulfur.
+		'''
+	
+	icon:
+	{
+		texture: "resource.copper.ore"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 10
+	max: 200
+	step: 10
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1357.000
+		}
+		{
+			type: resource
+			material: "copper.ore"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 45.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "copper.ingot"
+			amount: 0.200
+			amount_extra: 0.300
+		}
+		{
+			type: resource
+			material: "sulfur"
+			amount: 0.045
+			amount_extra: 0.400
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.210
+			amount_extra: 0.310
+			flags: waste
+		}
+	]
+}

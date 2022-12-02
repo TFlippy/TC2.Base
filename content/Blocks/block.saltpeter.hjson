@@ -13,8 +13,8 @@
 	elasticity: 0.050
 	stability: 0.500
 	
-	texture: "terrain_saltpeter"
-	pattern: "pattern_stone"
+	texture: "terrain.saltpeter"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.100
 	texture_overshoot: -0.250

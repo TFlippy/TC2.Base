@@ -13,8 +13,8 @@
 	elasticity: 0.200
 	stability: 0.500
 	
-	texture: "terrain_scaffolding"
-	pattern: "pattern_scaffolding"
+	texture: "terrain.scaffolding"
+	pattern: "pattern.scaffolding"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.500
@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "iron_ingot"
+			material: "steel.ingot"
 			quantity: 0.030
 		}
 	]

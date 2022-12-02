@@ -1,0 +1,45 @@
+{
+	name: "Smirgl Slabs"
+	desc: "Smirgl slabs of varying sizes."
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 250000.000
+	smoothing: 0.150
+	mass: 5.000
+	friction: 0.700
+	elasticity: 0.600
+	stability: 0.900
+
+	collision_mask: essence
+	
+	texture: "terrain.smirgl.slab"
+	pattern: "pattern.smirgl.slab"
+	
+	texture_scale: 1.550
+	texture_overshoot: 0.000
+	
+	resources:
+	[
+		{
+			material: "smirgl.ingot"
+			quantity: 0.100
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff4e3636"
+			tile_flags: solid, non_empty, become_background_on_break, ground
+			meta: 0
+		}
+		{
+			color: "0xff261b1b"
+			tile_flags: non_empty, ground
+			meta: 0
+		}
+	]
+}
