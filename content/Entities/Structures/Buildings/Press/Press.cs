@@ -179,12 +179,12 @@
 				{
 					if (MathF.Abs(wheel_state.angular_velocity) >= 3.00f)
 					{
-						crafter_state.current_work += 1.00f;
+						crafter_state.work += 1.00f;
 						press_state.flags.SetFlag(Press.State.Flags.Success, true);
 					}
 					else
 					{
-						crafter_state.current_work = 0.00f;
+						crafter_state.work = 0.00f;
 					}
 
 					press_state.flags.SetFlag(Press.State.Flags.Smashed, true);
@@ -260,7 +260,7 @@
 								using (GUI.Group.New(padding: new(12, 12)))
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
 								}
 							}
 						}

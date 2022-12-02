@@ -161,11 +161,11 @@
 				{
 					if (MathF.Abs(wheel_state.angular_velocity) > 1.00f)
 					{
-						crafter_state.current_work += 1.00f * update_interval;
+						crafter_state.work += 1.00f * update_interval;
 					}
 					else
 					{
-						crafter_state.current_work = 0.00f;
+						crafter_state.work = 0.00f;
 					}
 
 					entity.SyncComponent(ref wheel_state);
@@ -284,7 +284,7 @@
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
 
-									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
 									GUI.SameLine();
 									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 								}
@@ -292,11 +292,15 @@
 						}
 					}
 				}
+			
 			}
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single)]
-		public static void OnGUI(Entity entity, [Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, [Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State state, [Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI(Entity entity, 
+		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, 
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State state, 
+		[Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)
 			{
