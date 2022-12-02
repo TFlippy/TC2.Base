@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.arcanite_ingot"
+		texture: "resource.arcanite.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "arcanite_ingot"
+	material: "arcanite.ingot"
 }
 
 hoverable:

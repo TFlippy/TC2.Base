@@ -48,7 +48,7 @@
 		}
 		{
 			type: "resource"
-			material: "soil_dry"
+			material: "soil.dry"
 			amount: 8.000
 			amount_extra: 2.000
 		}

@@ -4,14 +4,14 @@
 	
 	icon:
 	{
-		texture: "resource.recondite_ingot"
+		texture: "resource.recondite.ingot"
 		size: [16, 16]
 		frame: [2, 0]
 	}
 
 	icon_extra:
 	{
-		texture: "resource.recondite_powder"
+		texture: "resource.recondite.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 	[
 		{
 			type: "resource"
-			material: "recondite_ingot"
+			material: "recondite.ingot"
 			amount: 1.000
 		}
 		{
@@ -45,7 +45,7 @@
 	[
 		{
 			type: "resource"
-			material: "recondite_powder"
+			material: "recondite.powder"
 			amount: 4.000
 			amount_extra: 1.000
 		}

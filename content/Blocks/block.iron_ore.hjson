@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "iron_ore"
+			material: "iron.ore"
 			quantity: 2.500
 		}
 	]

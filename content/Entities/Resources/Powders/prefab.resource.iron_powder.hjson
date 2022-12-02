@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.iron_powder"
+		texture: "resource.iron.powder"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "iron_powder"
+	material: "iron.powder"
 }
 
 hoverable:

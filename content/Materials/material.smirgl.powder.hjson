@@ -3,7 +3,7 @@
 	description: "High-purity smirgl powder."
 	icon:
 	{
-		texture: "resource.smirgl_powder"
+		texture: "resource.smirgl.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 0.760
 	market_price: 5.000
 	quantity_max: 250.000
-	prefab: "resource.smirgl_powder"
+	prefab: "resource.smirgl.powder"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

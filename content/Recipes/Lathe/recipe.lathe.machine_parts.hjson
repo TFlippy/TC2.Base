@@ -20,12 +20,12 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 0.400
 		}
 		{
 			type: "resource"
-			material: "copper_ingot"
+			material: "copper.ingot"
 			amount: 0.200
 		}
 		{
@@ -45,13 +45,13 @@
 		}
 		{
 			type: "resource"
-			material: "iron_powder"
+			material: "iron.powder"
 			amount: 0.400
 			amount_extra: 0.600
 		}
 		{
 			type: "resource"
-			material: "copper_powder"
+			material: "copper.powder"
 			amount: 0.400
 			amount_extra: 0.200
 		}

@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.smirgl_gravel"
+		texture: "resource.smirgl.gravel"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "smirgl_gravel"
+	material: "smirgl.gravel"
 }
 
 hoverable:

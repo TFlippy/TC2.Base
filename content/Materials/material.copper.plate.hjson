@@ -3,7 +3,7 @@
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.copper_plate"
+		texture: "resource.copper.plate"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 0.2875
 	market_price: 14.000
 	quantity_max: 100.000
-	prefab: "resource.copper_plate"
+	prefab: "resource.copper.plate"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

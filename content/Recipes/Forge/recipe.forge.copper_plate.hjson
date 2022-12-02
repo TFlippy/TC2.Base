@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.copper_plate"
+		texture: "resource.copper.plate"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,7 +19,7 @@
 	[
 		{
 			type: "resource"
-			material: "copper_ingot"
+			material: "copper.ingot"
 			amount: 0.250
 		}
 		{
@@ -34,7 +34,7 @@
 	[
 		{
 			type: "resource"
-			material: "copper_plate"
+			material: "copper.plate"
 			amount: 1.000
 		}
 	]

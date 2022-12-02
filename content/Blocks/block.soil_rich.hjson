@@ -13,7 +13,7 @@
 	elasticity: 0.350
 	stability: 0.800
 	
-	texture: "terrain_soil_rich"
+	texture: "terrain_soil.rich"
 	pattern: "pattern_soil"
 	
 	texture_scale: 1.000
@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "soil_rich"
+			material: "soil.rich"
 			quantity: 0.700
 		}
 	]

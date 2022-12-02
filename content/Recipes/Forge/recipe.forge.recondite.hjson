@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.recondite_powder"
+		texture: "resource.recondite.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,12 +19,12 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl_powder"
+			material: "smirgl.powder"
 			amount: 0.700
 		}
 		{
 			type: "resource"
-			material: "silver_powder"
+			material: "silver.powder"
 			amount: 0.300
 		}
 		{
@@ -39,7 +39,7 @@
 	[
 		{
 			type: "resource"
-			material: "recondite_powder"
+			material: "recondite.powder"
 			amount: 1.000
 		}
 	]

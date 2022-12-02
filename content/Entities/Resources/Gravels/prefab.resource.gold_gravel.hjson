@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.gold_gravel"
+		texture: "resource.gold.gravel"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "gold_gravel"
+	material: "gold.gravel"
 }
 
 hoverable:

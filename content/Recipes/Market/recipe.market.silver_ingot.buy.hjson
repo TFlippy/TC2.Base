@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.silver_ingot"
+		texture: "resource.silver.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,7 +31,7 @@
 	[
 		{
 			type: "resource"
-			material: "silver_ingot"
+			material: "silver.ingot"
 			amount: 1.000
 		}
 	]

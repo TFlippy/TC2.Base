@@ -24,7 +24,7 @@
 	resources:
 	[
 		{
-			material: "smirgl_ingot"
+			material: "smirgl.ingot"
 			quantity: 0.100
 		}
 	]

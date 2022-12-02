@@ -4,14 +4,14 @@
 	
 	icon:
 	{
-		texture: "resource.silver_ingot"
+		texture: "resource.silver.ingot"
 		size: [16, 16]
 		frame: [2, 0]
 	}
 
 	icon_extra:
 	{
-		texture: "resource.silver_powder"
+		texture: "resource.silver.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 	[
 		{
 			type: "resource"
-			material: "silver_ingot"
+			material: "silver.ingot"
 			amount: 1.000
 		}
 		{
@@ -45,7 +45,7 @@
 	[
 		{
 			type: "resource"
-			material: "silver_powder"
+			material: "silver.powder"
 			amount: 4.000
 			amount_extra: 1.000
 		}

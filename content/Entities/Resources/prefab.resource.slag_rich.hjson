@@ -18,7 +18,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.slag_rich"
+		texture: "resource.slag.rich"
 		count: 4
 		size: [16, 16]
 	}
@@ -31,7 +31,7 @@ transform:
 
 resource:
 {
-	material: "slag_rich"
+	material: "slag.rich"
 }
 
 hoverable:

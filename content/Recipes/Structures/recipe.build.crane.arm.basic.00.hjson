@@ -46,7 +46,7 @@
 		}
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 8.000
 			flags: no_scaling
 		}

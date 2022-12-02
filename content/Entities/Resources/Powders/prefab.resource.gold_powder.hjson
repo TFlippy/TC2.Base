@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.gold_powder"
+		texture: "resource.gold.powder"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "gold_powder"
+	material: "gold.powder"
 }
 
 hoverable:

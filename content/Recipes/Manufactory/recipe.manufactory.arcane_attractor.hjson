@@ -20,12 +20,12 @@
 	[
 		{
 			type: "resource"
-			material: "recondite_ingot"
+			material: "recondite.ingot"
 			amount: 18.000
 		}
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 9.000
 		}
 		{

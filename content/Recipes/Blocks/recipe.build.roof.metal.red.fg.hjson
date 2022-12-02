@@ -38,7 +38,7 @@
 	[
 		{
 			type: resource
-			material: "iron_plate"
+			material: "iron.plate"
 			amount: 0.050
 		}
 	]

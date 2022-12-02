@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.steel_ingot"
+		texture: "resource.steel.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "steel_ingot"
+	material: "steel.ingot"
 }
 
 hoverable:

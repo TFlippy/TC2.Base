@@ -129,7 +129,7 @@ claimer:
 		items:
 		[
 			{
-				material: "soil_dry"
+				material: "soil.dry"
 				min: 500.000
 				max: 800.000
 			}

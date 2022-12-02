@@ -20,12 +20,12 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 30.000
 		}
 		{
 			type: "resource"
-			material: "iron_plate"
+			material: "iron.plate"
 			amount: 100.000
 		}
 		{

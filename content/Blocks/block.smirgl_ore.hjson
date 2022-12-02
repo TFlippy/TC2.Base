@@ -24,7 +24,7 @@
 	resources:
 	[
 		{
-			material: "smirgl_ore"
+			material: "smirgl.ore"
 			quantity: 2.000
 		}
 	]

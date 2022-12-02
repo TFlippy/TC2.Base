@@ -3,7 +3,7 @@
 	description: "An alloy of smirgl and silver capable of interacting with the immaterial world."
 	icon:
 	{
-		texture: "resource.recondite_ingot"
+		texture: "resource.recondite.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 3.076
 	market_price: 32.500
 	quantity_max: 250.000
-	prefab: "resource.recondite_ingot"
+	prefab: "resource.recondite.ingot"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

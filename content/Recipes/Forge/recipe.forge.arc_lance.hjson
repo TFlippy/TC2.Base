@@ -22,12 +22,12 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl_ingot"
+			material: "smirgl.ingot"
 			amount: 3.000
 		}
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 5.000
 		}
 		{

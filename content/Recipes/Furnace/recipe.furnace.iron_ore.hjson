@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: "resource.iron_ore"
+		texture: "resource.iron.ore"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 		}
 		{
 			type: resource
-			material: "iron_ore"
+			material: "iron.ore"
 			amount: 1.000
 		}
 		{
@@ -45,7 +45,7 @@
 	[
 		{
 			type: resource
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 0.400
 			amount_extra: 0.300
 		}

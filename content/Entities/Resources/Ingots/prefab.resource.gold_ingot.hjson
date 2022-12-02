@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.gold_ingot"
+		texture: "resource.gold.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "gold_ingot"
+	material: "gold.ingot"
 }
 
 hoverable:

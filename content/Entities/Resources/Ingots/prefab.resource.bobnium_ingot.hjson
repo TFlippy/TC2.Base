@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.bobnium_ingot"
+		texture: "resource.bobnium.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "bobnium_ingot"
+	material: "bobnium.ingot"
 }
 
 hoverable:

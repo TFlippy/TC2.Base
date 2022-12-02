@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "silver_ore"
+			material: "silver.ore"
 			quantity: 0.700
 		}
 	]

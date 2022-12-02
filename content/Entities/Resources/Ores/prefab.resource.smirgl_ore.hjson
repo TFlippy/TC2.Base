@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.smirgl_ore"
+		texture: "resource.smirgl.ore"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "smirgl_ore"
+	material: "smirgl.ore"
 }
 
 hoverable:

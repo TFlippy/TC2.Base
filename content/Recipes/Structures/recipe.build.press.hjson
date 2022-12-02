@@ -56,7 +56,7 @@
 	[
 		{
 			type: resource
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 35.000
 		}
 		{
@@ -66,7 +66,7 @@
 		}
 		{
 			type: resource
-			material: "copper_ingot"
+			material: "copper.ingot"
 			amount: 5.000
 		}
 		{

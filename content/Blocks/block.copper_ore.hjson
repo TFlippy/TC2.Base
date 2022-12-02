@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "copper_ore"
+			material: "copper.ore"
 			quantity: 2.000
 		}
 	]

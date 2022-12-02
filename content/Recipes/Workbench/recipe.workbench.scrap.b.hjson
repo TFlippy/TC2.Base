@@ -34,7 +34,7 @@
 	[
 		{
 			type: "resource"
-			material: "copper_plate"
+			material: "copper.plate"
 			amount: 0.020
 			amount_extra: 0.090
 		}

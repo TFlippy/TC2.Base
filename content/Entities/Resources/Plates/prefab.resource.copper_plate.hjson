@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper_plate"
+		texture: "resource.copper.plate"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "copper_plate"
+	material: "copper.plate"
 }
 
 hoverable:

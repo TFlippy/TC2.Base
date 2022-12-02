@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.recondite_ingot"
+		texture: "resource.recondite.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "recondite_ingot"
+	material: "recondite.ingot"
 }
 
 hoverable:

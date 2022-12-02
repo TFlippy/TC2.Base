@@ -3,7 +3,7 @@
 	description: "High-purity silver powder."
 	icon:
 	{
-		texture: "resource.silver_powder"
+		texture: "resource.silver.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 0.266
 	market_price: 10.000
 	quantity_max: 250.000
-	prefab: "resource.silver_powder"
+	prefab: "resource.silver.powder"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

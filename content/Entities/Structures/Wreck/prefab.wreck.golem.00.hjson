@@ -46,15 +46,15 @@ harvestable:
 			quantity: 150.000
 		}
 		{
-			material: "smirgl_ingot"
+			material: "smirgl.ingot"
 			quantity: 35.000
 		}
 		{
-			material: "arcanite_ingot"
+			material: "arcanite.ingot"
 			quantity: 15.000
 		}
 		{
-			material: "recondite_ingot"
+			material: "recondite.ingot"
 			quantity: 4.000
 		}
 	]

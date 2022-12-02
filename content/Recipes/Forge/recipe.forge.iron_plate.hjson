@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.iron_plate"
+		texture: "resource.iron.plate"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,7 +19,7 @@
 	[
 		{
 			type: "resource"
-			material: "iron_ingot"
+			material: "iron.ingot"
 			amount: 0.250
 		}
 		{
@@ -34,7 +34,7 @@
 	[
 		{
 			type: "resource"
-			material: "iron_plate"
+			material: "iron.plate"
 			amount: 1.000
 		}
 	]

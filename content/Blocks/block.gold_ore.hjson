@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "gold_ore"
+			material: "gold.ore"
 			quantity: 0.500
 		}
 	]

@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.soil_rich"
+		texture: "resource.soil.rich"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "soil_rich"
+	material: "soil.rich"
 }
 
 hoverable:
