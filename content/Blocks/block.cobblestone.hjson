@@ -13,8 +13,8 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain_cobblestone"
-	pattern: "pattern_cobblestone"
+	texture: "terrain.cobblestone"
+	pattern: "pattern.cobblestone"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.750

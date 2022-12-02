@@ -20,8 +20,8 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain_stonebrick"
-	pattern: "pattern_stonebrick"
+	texture: "terrain.stonebrick"
+	pattern: "pattern.stonebrick"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300

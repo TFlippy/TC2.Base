@@ -13,8 +13,8 @@
 	elasticity: 0.050
 	stability: 0.900
 	
-	texture: "terrain_spume"
-	pattern: "pattern_spume"
+	texture: "terrain.spume"
+	pattern: "pattern.spume"
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.250

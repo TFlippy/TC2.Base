@@ -13,8 +13,8 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain_concrete.moss"
-	pattern: "pattern_concrete"
+	texture: "terrain.concrete.moss"
+	pattern: "pattern.concrete"
 	
 	texture_scale: 1.070
 	texture_overshoot: -0.400

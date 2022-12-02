@@ -13,8 +13,8 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain_stone_moss"
-	pattern: "pattern_stone_moss"
+	texture: "terrain.stone.moss"
+	pattern: "pattern.stone.moss"
 	
 	texture_scale: 2.000
 	texture_overshoot: -0.750

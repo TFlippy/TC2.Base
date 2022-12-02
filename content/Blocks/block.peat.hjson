@@ -13,8 +13,8 @@
 	elasticity: 0.400
 	stability: 0.500
 	
-	texture: "terrain_peat"
-	pattern: "pattern_stone"
+	texture: "terrain.peat"
+	pattern: "pattern.stone"
 	
 	texture_scale: 2.100
 	texture_overshoot: -0.700

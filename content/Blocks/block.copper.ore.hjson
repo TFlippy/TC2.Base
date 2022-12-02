@@ -13,8 +13,8 @@
 	elasticity: 0.300
 	stability: 0.500
 	
-	texture: "terrain_copper"
-	pattern: "pattern_stone"
+	texture: "terrain.copper.ore"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.250
 	texture_overshoot: -0.750

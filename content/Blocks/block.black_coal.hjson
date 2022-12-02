@@ -13,8 +13,8 @@
 	elasticity: 0.050
 	stability: 0.500
 	
-	texture: "terrain_black_coal"
-	pattern: "pattern_stone"
+	texture: "terrain.black_coal"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.700

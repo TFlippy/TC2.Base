@@ -15,8 +15,8 @@
 
 	collision_mask: essence
 	
-	texture: "terrain_smirgl_slab"
-	pattern: "pattern_smirgl_slab"
+	texture: "terrain.smirgl.slab"
+	pattern: "pattern.smirgl.slab"
 	
 	texture_scale: 1.550
 	texture_overshoot: 0.000

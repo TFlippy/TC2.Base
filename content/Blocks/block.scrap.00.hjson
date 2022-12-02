@@ -13,8 +13,8 @@
 	elasticity: 0.100
 	stability: 0.900
 	
-	texture: "terrain_scrap.00"
-	pattern: "pattern_scrap"
+	texture: "terrain.scrap.00"
+	pattern: "pattern.scrap"
 	
 	texture_scale: 1.632
 	texture_overshoot: -0.750

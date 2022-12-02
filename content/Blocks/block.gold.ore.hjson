@@ -13,8 +13,8 @@
 	elasticity: 0.300
 	stability: 0.500
 	
-	texture: "terrain_gold"
-	pattern: "pattern_stone"
+	texture: "terrain.gold.ore"
+	pattern: "pattern.stone"
 	
 	texture_scale: 1.650
 	texture_overshoot: -0.650

@@ -13,8 +13,8 @@
 	elasticity: 0.600
 	stability: 0.500
 	
-	texture: "terrain_brick"
-	pattern: "pattern_plaster.00"
+	texture: "terrain.brick"
+	pattern: "pattern.plaster.00"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
