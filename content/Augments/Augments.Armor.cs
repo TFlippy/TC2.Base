@@ -13,7 +13,7 @@
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					var h_mat = new IMaterial.Handle("iron_ingot");
+					var h_mat = new IMaterial.Handle("steel.ingot");
 
 					var has_ingot = false;
 					foreach (ref var requirement in context.requirements_new)
@@ -33,7 +33,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					var h_mat = new IMaterial.Handle("iron_ingot");
+					var h_mat = new IMaterial.Handle("steel.ingot");
 
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)

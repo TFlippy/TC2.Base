@@ -1,9 +1,9 @@
 {
-	name: "Iron Plate"
+	name: "Steel Plate"
 	description: "TODO: Desc"
 	icon:
 	{
-		texture: "resource.iron.plate"
+		texture: "resource.steel.plate"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,7 +13,7 @@
 	mass_per_unit: 0.250
 	market_price: 5.000
 	quantity_max: 100.000
-	prefab: "resource.iron.plate"
+	prefab: "resource.steel.plate"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000

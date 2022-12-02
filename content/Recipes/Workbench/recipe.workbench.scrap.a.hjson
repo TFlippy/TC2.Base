@@ -34,13 +34,13 @@
 	[
 		{
 			type: "resource"
-			material: "iron.ingot"
+			material: "steel.ingot"
 			amount: 0.040
 			amount_extra: 0.150
 		}
 		{
 			type: "resource"
-			material: "iron.plate"
+			material: "steel.plate"
 			amount: 0.020
 			amount_extra: 0.150
 		}

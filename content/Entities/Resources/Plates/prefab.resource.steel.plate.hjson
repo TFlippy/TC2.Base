@@ -8,7 +8,7 @@ body:
 		mass: 50.000
 		radius: 0.750
 		friction: 0.650
-		elasticity: 0.300
+		elasticity: 0.500
 		material: metal
 		layer: entity, solid, resource
 		mask: world
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.iron.ingot"
+		texture: "resource.steel.plate"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "iron.ingot"
+	material: "steel.plate"
 }
 
 hoverable:

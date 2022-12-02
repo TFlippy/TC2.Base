@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.iron.ingot"
+		texture: "resource.steel.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,7 +31,7 @@
 	[
 		{
 			type: "resource"
-			material: "iron.ingot"
+			material: "steel.ingot"
 			amount: 1.000
 		}
 	]

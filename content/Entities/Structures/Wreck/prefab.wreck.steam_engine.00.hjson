@@ -52,7 +52,7 @@ harvestable:
 			quantity: 700.000
 		}
 		{
-			material: "iron.plate"
+			material: "steel.plate"
 			quantity: 40.000
 		}
 		{

@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "iron.ingot"
+			material: "steel.ingot"
 			quantity: 0.070
 		}
 	]

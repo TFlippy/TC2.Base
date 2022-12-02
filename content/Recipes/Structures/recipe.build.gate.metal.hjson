@@ -55,12 +55,12 @@
 	[
 		{
 			type: resource
-			material: "iron.ingot"
+			material: "steel.ingot"
 			amount: 150.000
 		}
 		{
 			type: resource
-			material: "iron.plate"
+			material: "steel.plate"
 			amount: 50.000
 		}
 	]
