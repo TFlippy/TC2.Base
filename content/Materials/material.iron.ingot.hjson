@@ -1,0 +1,43 @@
+{
+	name: "Iron Ingot"
+	description: "TODO: Desc"
+	icon:
+	{
+		texture: "resource.iron.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal
+	flags: ingot, metal
+	mass_per_unit: 1.000
+	market_price: 11.000
+	quantity_max: 250.000
+	prefab: "resource.iron.ingot"
+	
+	projectile_count: 0
+	projectile_speed_mult: 1.000
+	projectile_spread_mult: 1.000
+	projectile_heat: 0.000
+	projectile_prefab: ""
+	
+	fuel_energy: 0.000
+	fuel_drain: 1.000
+	fuel_purity: 0.500
+	fuel_temperature: 1200.000
+	
+	specific_heat: 206.000
+	thermal_conductivity: 0.079
+
+	palette:
+	[
+		"0xff0c0c0b"
+		"0xff1f201c"
+		"0xff373933"
+		"0xff5f6154"
+		"0xff808672"
+		"0xffa3a690"
+		"0xffc0c6ac"
+		"0xfff7ffdd"
+	]
+}
