@@ -1,6 +1,6 @@
 {
 	name: "Smirgl Slabs"
-	desc: "Smirgl slabs of varying sizes."
+	desc: "Phlogiston-welded slabs of solid smirgl. Extremely durable and overgrown."
 	
 	material_type: metal
 	tile_flags: non_empty
@@ -9,7 +9,7 @@
 	max_health: 250000.000
 	smoothing: 0.150
 	mass: 5.000
-	friction: 0.700
+	friction: 0.800
 	elasticity: 0.600
 	stability: 0.900
 
@@ -18,8 +18,8 @@
 	texture: "terrain.smirgl.slab.moss"
 	pattern: "pattern.smirgl.slab.moss"
 	
-	texture_scale: 1.550
-	texture_overshoot: -0.750
+	texture_scale: 1.500
+	texture_overshoot: -0.125
 	
 	resources:
 	[
