@@ -24,7 +24,7 @@
 	fuel_energy: 30000000.000
 	fuel_drain: 190000.000
 	fuel_purity: 0.800
-	fuel_temperature: 1600.000
+	fuel_temperature: 1873.150
 	
 	specific_heat: 100.000
 	thermal_conductivity: 0.100

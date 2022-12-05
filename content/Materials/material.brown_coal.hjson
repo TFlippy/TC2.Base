@@ -1,6 +1,6 @@
 {
 	name: "Brown Coal"
-	description: "An abudant fuel, but not very efficient."
+	description: "Abundant, but not very efficient fuel."
 	icon:
 	{
 		texture: "resource.brown_coal"
@@ -24,7 +24,7 @@
 	fuel_energy: 18000000.000
 	fuel_drain: 120000.000
 	fuel_purity: 0.400
-	fuel_temperature: 1350.000
+	fuel_temperature: 1623.150
 	
 	specific_heat: 100.000
 	thermal_conductivity: 0.100
