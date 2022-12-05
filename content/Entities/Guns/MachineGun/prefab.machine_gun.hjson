@@ -27,8 +27,8 @@ gun:
 	recoil_multiplier: 0.200
 	reload_interval: 2.500
 	cycle_interval: 0.090
-	failure_rate: 0.003
-	max_ammo: 40.000
+	failure_rate: 0.002
+	max_ammo: 50.000
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
 	ammo_filter: ammo_mg
