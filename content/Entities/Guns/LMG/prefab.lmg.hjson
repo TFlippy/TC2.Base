@@ -1,0 +1,151 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-1.000, 0.150]
+		b: [0.750, -0.050]
+		mass: 18.000
+		radius: 0.350
+		friction: 0.900
+		elasticity: 0.250
+		material: metal
+		layer: entity, solid, ignore_bullet, ignore_melee, item
+		mask: world
+	}
+}
+
+gun:
+{
+	muzzle_offset: [1.375, -0.250]
+	sound_shoot: "lmg.shoot.00"
+	sound_reload: "machine_gun_reload"
+	sound_dist_multiplier: 3.000
+	velocity_multiplier: 700.000
+	jitter_multiplier: 2.200
+	damage_multiplier: 3.000
+	recoil_multiplier: 0.300
+	reload_interval: 2.500
+	cycle_interval: 0.120
+	failure_rate: 0.003
+	max_ammo: 30.000
+	projectile_count: 1
+	flags: automatic, full_reload, cycle_on_shoot
+	ammo_filter: ammo_mg
+	action: blowback
+	type: machinegun
+	feed: drum
+
+	heuristic_range: 30.000
+
+	shake_amount: 0.250
+	flash_size: 0.850
+
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: hidden, ignore_mass
+	}
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [1.000, -0.250]
+		scale: [30.000, 20.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.375, -0.125]
+	offset_attachment: [-0.400, 0.300]
+	radius: 8.000
+	flags: storable
+
+	force_multiplier: 1.000
+	torque_multiplier: 0.700
+}
+
+attachment:
+{
+	offset: [-0.400, 0.300]
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "lmg"
+	}
+}
+
+health:
+{
+	max: 7500.000
+}
+
+armor:
+{
+	toughness: 150.000
+	protection: 0.900
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+packable:
+{
+
+}
+
+overheat:
+{
+	heat_medium: 350.000
+	heat_high: 500.000
+	heat_critical: 750.000
+	cool_rate: 110.000
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 0.000
+		texture: "light_invsqr"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+	}
+}
