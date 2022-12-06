@@ -28,6 +28,7 @@ namespace TC2.Base
 						if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
 						{
 							Essence.material_to_essence[definition.GetHandle()] = essence_type;
+							Essence.essence_to_material[essence_type] = definition.GetHandle();
 						}
 					}
 				}
