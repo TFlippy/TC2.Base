@@ -1566,9 +1566,9 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
-				identifier: "gun.casing.hardened",
+				identifier: "gun.casing.steel",
 				category: "Gun (Frame)",
-				name: "Hardened Casing",
+				name: "Steel Casing",
 				description: "Improves reliability of the gun.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1597,7 +1597,7 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 9, modifier);
 
-					var sprite = new Sprite("augment.casing.hardened", 24, 16, (uint)type, 0);
+					var sprite = new Sprite("augment.casing.steel", 24, 16, (uint)type, 0);
 
 					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
 				},
@@ -1642,9 +1642,9 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
-				identifier: "gun.framework.hardened",
+				identifier: "gun.framework.steel",
 				category: "Gun (Frame)",
-				name: "Hardened Framework",
+				name: "Steel Framework",
 				description: "Improves reliability of the gun.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1673,7 +1673,7 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 9, modifier);
 
-					var sprite = new Sprite("augment.framework.hardened", 24, 16, (uint)type, 0);
+					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
 
 					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
 				},
