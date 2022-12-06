@@ -1566,6 +1566,158 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.casing.hardened",
+				category: "Gun (Frame)",
+				name: "Hardened Casing",
+				description: "Improves reliability of the gun.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 3;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 9, modifier);
+
+					var sprite = new Sprite("augment.casing.hardened", 24, 16, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					for (var i = 0; i < context.requirements_old.Length; i++)
+					{
+						var requirement = context.requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.20f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.05f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.framework.hardened",
+				category: "Gun (Frame)",
+				name: "Hardened Framework",
+				description: "Improves reliability of the gun.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 3;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 9, modifier);
+
+					var sprite = new Sprite("augment.framework.hardened", 24, 16, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					for (var i = 0; i < context.requirements_old.Length; i++)
+					{
+						var requirement = context.requirements_old[i];
+
+						if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							ref var material = ref requirement.material.GetData();
+							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+							}
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							switch (requirement.work)
+							{
+								case Work.Type.Smithing:
+								{
+									requirement.amount *= 0.20f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+
+								case Work.Type.Machining:
+								{
+									requirement.amount *= 0.05f;
+									context.requirements_new.Add(requirement);
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.reinforced_frame",
 				category: "Gun (Frame)",
 				name: "Reinforced Frame",

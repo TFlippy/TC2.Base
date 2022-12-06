@@ -227,14 +227,6 @@ namespace TC2.Base
 					return !augments.HasAugment(handle);
 				},
 
-				//validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				//{
-				//	ref var amount = ref handle.GetData<int>();
-				//	amount = Maths.Clamp(amount, 1, 40);
-
-				//	return true;
-				//},
-
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
