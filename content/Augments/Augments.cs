@@ -220,7 +220,7 @@ namespace TC2.Base
 				identifier: "overheat.coolant",
 				category: "Heat Management",
 				name: "Water-Cooled",
-				description: "Increases cooling rate.",
+				description: "Increases heat capacity.",
 
 				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -264,7 +264,7 @@ namespace TC2.Base
 					else if (amount <= 100) frame_index = 2;
 					else frame_index = 3;
 
-					var sprite = new Sprite("augment.coolant", 24, 16, frame_index, 0);
+					var sprite = new Sprite(context.HasComponent<Gun.Data>() ? "augment.coolant.gun" : "augment.coolant", 24, 16, frame_index, 0);
 
 					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
@@ -273,7 +273,12 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					data.cool_rate += (Maths.LerpInt(1, 200, modifier) * 10.00f) / (context.base_mass);
+					var amount = Maths.LerpInt(1, 200, modifier);
+
+					data.capacity_extra += amount * 2.00f;
+
+					//data.cool_rate += (Maths.LerpInt(1, 200, modifier) * 10.00f) / (context.base_mass);
+
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -297,54 +302,150 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Overheat.Data>
 			(
-				identifier: "overheat.air_coolant",
+				identifier: "overheat.radiator",
 				category: "Heat Management",
-				name: "Air-Cooled",
-				description: "Increases cooling rate while in motion.",
+				name: "Radiator",
+				description: "Increases cooling rate.",
 
 				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				validate: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var amount = ref handle.GetData<int>();
-					amount = Maths.Clamp(amount, 1, 10);
-
-					return true;
-				},
-
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
-					return GUI.SliderInt("Amount", ref amount, 1, 10);
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 5, modifier);
+
+					var sprite = new Sprite("augment.radiator", 24, 16, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
-				
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 5, modifier);
+					var amount = 0.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							amount = 100.00f;
+						}
+						break;
+
+						case 1:
+						{
+							amount = 500.00f;
+						}
+						break;
+
+						case 2:
+						{
+							amount = 1000.00f;
+						}
+						break;
+
+						case 3:
+						{
+							amount = 2500.00f;
+						}
+						break;
+
+						case 4:
+						{
+							amount = 4500.00f;
+						}
+						break;
+
+						case 5:
+						{
+							amount = 10000.00f;
+						}
+						break;
+					}
+
+					var size = MathF.Max(0.50f, data.offset.Length());
+					var dist = Vector2.Distance(offset, data.offset);
+					var dist_modifier = size / MathF.Max(size, dist);
+
 					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
-					cooling.modifier = 1.00f + (0.50f * amount);
+					cooling.modifier = 1.00f + ((type + 1.00f) * 0.30f) * dist_modifier;
+
+					data.cool_rate += (amount / context.base_mass) * dist_modifier;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<int>();
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 5, modifier);
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("copper.plate", amount));
+					var added_mass = 0.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 1.00f), ref added_mass);
+						}
+						break;
+
+						case 1:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 2.00f), ref added_mass);
+						}
+						break;
+
+						case 2:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 5.00f), ref added_mass);
+						}
+						break;
+
+						case 3:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 12.00f), ref added_mass);
+						}
+						break;
+
+						case 4:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 25.00f), ref added_mass);
+						}
+						break;
+
+						case 5:
+						{
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 40.00f), ref added_mass);
+						}
+						break;
+					}
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("copper.plate");
-						if (material.IsNotNull())
-						{
-							body.mass_extra += amount * material.mass_per_unit;
-						}
+						body.mass_extra += added_mass;
 					}
 				}
 			));
