@@ -19,14 +19,14 @@ body:
 gun:
 {
 	muzzle_offset: [1.750, -0.0625]
-	sound_shoot: "machine_gun_shoot"
+	sound_shoot: "lmg.shoot.00"
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 3.500
-	recoil_multiplier: 0.200
+	recoil_multiplier: 0.500
 	reload_interval: 2.500
-	cycle_interval: 0.090
+	cycle_interval: 0.085
 	failure_rate: 0.002
 	max_ammo: 50.000
 	projectile_count: 1

@@ -1,14 +1,13 @@
 {
-	name: "Machine Gun"
+	name: "LMG"
 	desc:
 		'''
-		High-powered machine gun.
-		Very difficult to handle, may need to be placed on a mount.
+		Lightweight machine gun capable of firing high-powered rounds.
 		'''
 	
 	icon:
 	{
-		texture: "machine_gun"
+		texture: "lmg"
 	}
 	
 	min: 1
@@ -24,35 +23,35 @@
 		{
 			type: "resource"
 			material: "wood"
-			amount: 60.000
+			amount: 30.000
 		}
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 20.000
+			amount: 10.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 17.000
+			amount: 14.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 600.000
+			amount: 400.000
 			difficulty: 18.000
 		}
 		{
 			type: "work"
 			work: "woodworking"
-			amount: 100.000
+			amount: 80.000
 			difficulty: 4.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 750.000
-			difficulty: 9.000
+			amount: 600.000
+			difficulty: 12.000
 		}
 	]
 	
@@ -60,7 +59,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "machine_gun"
+			prefab: "lmg"
 			amount: 1.000
 		}
 	]

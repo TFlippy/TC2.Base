@@ -120,7 +120,7 @@
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
-			public static readonly Sound.Handle sound_jam_default = "gun_jam";
+			public static readonly Sound.Handle sound_jam_default = "gun.jam.00";
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 muzzle_offset = default;
@@ -745,10 +745,10 @@
 					{
 						if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
 						{
-							var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.10f, 1.00f);
+							var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							overheat.heat_current += heat;
 
-							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
+							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_high, 0.00f);
 							if (heat_excess > 0.00f)
 							{
 								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);

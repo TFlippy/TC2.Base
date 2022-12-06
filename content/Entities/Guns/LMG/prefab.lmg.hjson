@@ -4,7 +4,7 @@ body:
 {
 	@shape.line:
 	{
-		a: [-1.000, 0.150]
+		a: [-0.750, 0.150]
 		b: [0.750, -0.050]
 		mass: 18.000
 		radius: 0.350
@@ -19,13 +19,13 @@ body:
 gun:
 {
 	muzzle_offset: [1.375, -0.250]
-	sound_shoot: "lmg.shoot.00"
+	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
-	sound_dist_multiplier: 3.000
-	velocity_multiplier: 700.000
+	sound_dist_multiplier: 4.000
+	velocity_multiplier: 660.000
 	jitter_multiplier: 2.200
 	damage_multiplier: 3.000
-	recoil_multiplier: 0.300
+	recoil_multiplier: 0.280
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	failure_rate: 0.003
@@ -132,7 +132,10 @@ overheat:
 	heat_high: 500.000
 	heat_critical: 750.000
 	cool_rate: 110.000
-	
+
+	offset: [0.750, -0.125]
+	size: [1.000, 0.500]
+
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
