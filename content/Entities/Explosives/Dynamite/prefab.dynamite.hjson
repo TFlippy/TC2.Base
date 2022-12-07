@@ -14,10 +14,10 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, 0.500]
-		b: [0.000, -0.500]
+		a: [0.000, 0.300]
+		b: [0.000, -0.300]
 		mass: 0.300
-		radius: 0.200
+		radius: 0.350
 		friction: 0.980
 		elasticity: 0.600
 		material: paper

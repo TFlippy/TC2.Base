@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 		[Serializable]
 		public struct OreSample
 		{
-			public Block.Handle block;
+			public IBlock.Handle block;
 			public float quantity;
 		}
 
@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 								ref var sample = ref samples[i];
 								if (sample.block.id != 0)
 								{
-									ref var block = ref sample.block.GetDefinition();
+									ref var block = ref sample.block.GetData();
 
 									var ratio = sample.quantity / total_count;
 									var color = Color32BGRA.FromHSV(ratio * 2.00f, 1.00f, 1.00f);
@@ -141,9 +141,9 @@ namespace TC2.Base.Components
 						for (var i = 0; i < arg.samples.Length; i++)
 						{
 							ref var sample = ref arg.samples[i];
-							if (sample.block.id == 0 || sample.block.id == block.id)
+							if (sample.block.id == 0 || sample.block.id == tile.BlockID)
 							{
-								sample.block = block.id;
+								sample.block = tile.BlockID;
 								sample.quantity += 1.00f;
 
 								break;

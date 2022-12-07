@@ -6,18 +6,16 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 3200.000
-	smoothing: 0.150
+	max_health: 1200.000
+	smoothing: 0.110
 	mass: 1.000
 	friction: 0.950
 	elasticity: 0.400
 	stability: 0.500
 	
-	texture: "terrain.planks"
+	texture: "terrain.planks.mithril"
 	pattern: "pattern.planks"
 
-	// block_mithril: "block.planks.mithril"
-	
 	texture_scale: 0.800
 	texture_overshoot: -0.750
 	
@@ -25,20 +23,19 @@
 	[
 		{
 			material: "wood"
-			quantity: 0.400
+			quantity: 0.100
+		}
+		{
+			material: "mithril"
+			quantity: 0.050
 		}
 	]
 	
 	mappings:
 	[
 		{
-			color: "0xffbc7049"
+			color: "0xff53ae7c"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
-		}
-		{
-			color: "0xff633e2b"
-			tile_flags: non_empty
 			meta: 0
 		}
 	]

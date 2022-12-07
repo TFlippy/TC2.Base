@@ -10,9 +10,9 @@ body:
 	@shape.circle:
 	{
 		mass: 3.500
-		radius: 0.300
+		radius: 0.400
 		friction: 0.500
-		elasticity: 0.100
+		elasticity: 0.800
 		material: metal
 		layer: entity, solid
 		mask: world
@@ -53,9 +53,9 @@ fuse:
 	
 	@light:
 	{
-		color: [1.000, 0.600, 0.000, 2.000]
+		color: [1.000, 0.600, 0.000, 3.000]
 		offset: [-0.100, 0.100]
-		scale: [8.000, 8.000]
+		scale: [14.000, 14.000]
 		intensity: 0.000
 		texture: "light_invsqr"
 	}

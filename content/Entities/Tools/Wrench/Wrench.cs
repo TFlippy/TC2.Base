@@ -15,6 +15,7 @@ namespace TC2.Base.Components
 		public interface IMode: IComponent
 		{
 			public static abstract Sprite Icon { get; }
+			public static abstract string Name { get; }
 			public Crafting.Recipe.Tags RecipeTags { get; }
 
 			public bool IsRecipeValid(ref Region.Data region, ref IRecipe.Data recipe)
@@ -592,7 +593,7 @@ namespace TC2.Base.Components
 				{
 					using (GUI.Tooltip.New())
 					{
-						GUI.Title(info.identifier);
+						GUI.Title(T.Name);
 					}
 				}
 			}

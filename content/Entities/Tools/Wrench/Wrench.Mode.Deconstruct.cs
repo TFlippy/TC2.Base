@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 		{
 			public static partial class Deconstruct
 			{
-				[IComponent.Data(Net.SendType.Reliable)]
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Demolish)")]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ITargeterMode<TargetInfo>
 				{
 					[Save.Ignore] public Entity ent_target;
@@ -22,7 +22,8 @@ namespace TC2.Base.Components
 						return new TargetInfo(entity);
 					}
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 2, 0);
+					public static string Name { get; } = "Demolish";
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Duct;
 					public Physics.Layer LayerMask => Physics.Layer.Duct;
 

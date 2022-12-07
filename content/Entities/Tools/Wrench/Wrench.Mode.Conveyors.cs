@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 		{
 			public static partial class Conveyors
 			{
-				[IComponent.Data(Net.SendType.Reliable)]
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Conveyors)")]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
@@ -22,6 +22,7 @@ namespace TC2.Base.Components
 					//public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
+					public static string Name { get; } = "Conveyors";
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Conveyor;
 					public Physics.Layer LayerMask => Physics.Layer.Conveyor;
 

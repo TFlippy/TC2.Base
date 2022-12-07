@@ -17,7 +17,7 @@ body:
 		a: [0.000, 0.400]
 		b: [0.000, -0.400]
 		mass: 0.800
-		radius: 0.200
+		radius: 0.250
 		friction: 0.980
 		elasticity: 0.600
 		layer: entity, solid

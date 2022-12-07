@@ -22,9 +22,9 @@
 	icon_extra_offset: [0, -6]
 	icon_extra_scale: 1.000
 
-	min: 10
+	min: 5
 	max: 200
-	step: 10
+	step: 5
 	
 	flags: none
 	type: crafter
@@ -39,18 +39,18 @@
 		{
 			type: resource
 			material: "iron.ingot"
-			amount: 1.000
+			amount: 0.800
 		}
 		{
 			type: resource
-			material: "charcoal"
-			amount: 0.100
+			material: "scrap"
+			amount: 1.000
 		}
 		{
 			type: work
 			work: melting
-			amount: 50.000
-			difficulty: 7.000
+			amount: 80.000
+			difficulty: 5.000
 		}
 	]
 	
@@ -60,7 +60,7 @@
 			type: resource
 			material: "steel.ingot"
 			amount: 0.600
-			amount_extra: 0.200
+			amount_extra: 0.400
 		}
 		{
 			type: resource
