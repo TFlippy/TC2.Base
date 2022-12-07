@@ -65,6 +65,18 @@ namespace TC2.Base.Components
 				entity.SyncComponent(ref fuse);
 			}
 		}
+
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
+		{
+			ref var region = ref info.GetRegion();
+			var random = XorRandom.New();
+
+			fuse.failure_time = fuse.time;
+			fuse.failure_chance += random.NextFloatRange(0.10f, 0.80f);
+			fuse.failure_chance = fuse.failure_chance.Clamp01();
+			fuse.Sync(entity);
+		}
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]

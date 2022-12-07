@@ -60,8 +60,25 @@ namespace TC2.Base.Components
 
 			}
 		}
-
 #if SERVER
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)
+		{
+			var random = XorRandom.New();
+			if (random.NextBool(data.power * 0.20f))
+			{
+				explosive.flags |= Explosive.Flags.Primed | Explosive.Flags.Any_Damage;
+				explosive.health_threshold = 0.99f;
+				
+				if (random.NextBool(0.50f))
+				{
+					explosive.flags |= Explosive.Flags.Explode_When_Primed;
+				}
+
+				explosive.Sync(entity);
+			}
+		}
+
 		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single)]
 		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{

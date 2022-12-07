@@ -519,6 +519,25 @@
 		}
 #endif
 
+#if SERVER
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
+		{
+			ref var region = ref info.GetRegion();
+			var random = XorRandom.New();
+
+			gun_state.stage = Gun.Stage.Jammed;
+			gun_state.Sync(entity);
+
+			gun.jitter_multiplier += random.NextFloatRange(0.50f, 3.00f);
+			gun.stability -= MathF.Min(gun.stability, random.NextFloatRange(0.10f, 0.30f));
+			gun.failure_rate += random.NextFloatRange(0.02f, 0.08f);
+			gun.failure_rate *= random.NextFloatRange(1.10f, 1.80f);
+			gun.failure_rate = gun.failure_rate.Clamp01();
+			gun.Sync(entity);
+		}
+#endif
+
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)

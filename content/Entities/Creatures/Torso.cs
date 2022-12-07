@@ -71,6 +71,22 @@
 			}
 		}
 
+#if SERVER
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Torso.Data torso)
+		{
+			var random = XorRandom.New();
+			if (random.NextBool(data.power * 0.20f))
+			{
+				ref var region = ref info.GetRegion();
+				WorldNotification.Push(ref region, $"* Sudden Heart Failure! *", Color32BGRA.Red, transform.position, lifetime: 3.00f, velocity: Vector2.Zero);
+
+				organic_state.pain += 10000.00f;
+				organic_state.Sync(entity);
+			}
+		}
+#endif
+
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity, 
