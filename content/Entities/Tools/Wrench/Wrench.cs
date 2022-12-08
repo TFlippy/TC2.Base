@@ -275,7 +275,7 @@ namespace TC2.Base.Components
 								var ent_link_src = link.EntityA;
 								var ent_link_dst = link.EntityB;
 
-								if ((ent_link_src == info_src.Entity && ent_link_dst == info_dst.Entity) || (ent_link_src == info_dst.Entity && ent_link_dst == info_src.Entity))
+								if ((ent_link_src == info_src.Entity && ent_link_dst == info_dst.Entity && link.ComponentA == info_src.ComponentID && link.ComponentB == info_dst.ComponentID) || (ent_link_src == info_dst.Entity && ent_link_dst == info_src.Entity && link.ComponentA == info_dst.ComponentID && link.ComponentB == info_src.ComponentID))
 								{
 									errors.SetFlag(Build.Errors.Obstructed, true);
 									break;
@@ -387,7 +387,7 @@ namespace TC2.Base.Components
 							errors_new |= this.EvaluateNode(ref region, ref info_new, ref recipe, faction_id: faction_id);
 							if (info_src.IsValid)
 							{
-								errors_new |= this.EvaluateNodePair(ref region, ref info_src, ref info_new, ref recipe, out _, player.faction_id);
+								//errors_new |= this.EvaluateNodePair(ref region, ref info_src, ref info_new, ref recipe, out _, player.faction_id);
 							}
 						}
 					}

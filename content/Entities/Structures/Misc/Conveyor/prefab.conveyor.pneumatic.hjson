@@ -24,6 +24,8 @@ conveyor:
 
 	throughput_min: 10.000
 	throughput_max: 25.000
+
+	scale_multiplier: 0.100
 }
 
 conveyor.state:
@@ -31,32 +33,20 @@ conveyor.state:
 
 }
 
-animated.renderer:
-{
-	sprite:
-	{
-		texture: "conveyor.chute"
-	}
-	z: -200.000
-}
+// animated.renderer:
+// {
+// 	sprite:
+// 	{
+// 		texture: "conveyor.pneumatic"
+// 	}
+// 	z: -200.000
+// }
 
-resizable:
+rope.renderer:
 {
-	cap_a:
-	{
-		texture: "conveyor.auger.cap"
-	}
-	
-	cap_b:
-	{
-		texture: "conveyor.auger.cap"
-	}
-	
-	flags: mirror_cap_b, dynamic
-	
-	a: [0.000, 0.000]
-	b: [10.000, 0.000]
-	cap_offset: 0.000
+	texture: "conveyor.pneumatic"
+	thickness: 0.500
+	scale: 8.000
 }
 
 transform:

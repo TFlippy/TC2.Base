@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{
-						return new TargetInfo(entity, 0, is_src);
+						return new TargetInfo(entity, is_src ? this.inventory_id_src : this.inventory_id_dst, is_src);
 					}
 
 #if CLIENT
@@ -97,7 +97,7 @@ namespace TC2.Base.Components
 
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 200), pivot: new(0.50f, 0.50f)))
+							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 200), pivot: new(0.50f, 0.50f), force_position: false))
 							{
 								if (hud.show)
 								{
