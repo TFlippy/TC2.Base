@@ -20,8 +20,12 @@ namespace TC2.Base.Components
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
 					public static string Name { get; } = "Belts";
+
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;
 					public Physics.Layer LayerMask => Physics.Layer.Belt;
+					public Color32BGRA ColorOk => Color32BGRA.Green;
+					public Color32BGRA ColorError => Color32BGRA.Red;
+					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
 					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
 					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;

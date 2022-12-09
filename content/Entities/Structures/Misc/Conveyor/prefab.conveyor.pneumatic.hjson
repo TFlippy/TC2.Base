@@ -42,6 +42,25 @@ conveyor.state:
 // 	z: -200.000
 // }
 
+resizable:
+{
+	cap_a:
+	{
+		texture: "conveyor.auger.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "conveyor.auger.cap"
+	}
+	
+	flags: mirror_cap_b, dynamic
+	
+	a: [0.000, 0.000]
+	b: [10.000, 0.000]
+	cap_offset: 0.000
+}
+
 rope.renderer:
 {
 	texture: "conveyor.pneumatic"

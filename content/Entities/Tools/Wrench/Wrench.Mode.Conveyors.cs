@@ -23,8 +23,12 @@ namespace TC2.Base.Components
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 1, 0);
 					public static string Name { get; } = "Conveyors";
+
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Conveyor;
 					public Physics.Layer LayerMask => Physics.Layer.Conveyor;
+					public Color32BGRA ColorOk => Color32BGRA.Green;
+					public Color32BGRA ColorError => Color32BGRA.Red;
+					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
 					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
 					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;
@@ -93,15 +97,18 @@ namespace TC2.Base.Components
 						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
 						{
+							ref var region = ref Client.GetRegion();
 							var placement = recipe.placement.Value;
+							var pos = ((info_src.pos + info_dst.pos) * 0.50f);
 
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 200), pivot: new(0.50f, 0.50f), force_position: false))
+							using (var hud = GUI.Window.Standalone("Wrench.HUD", position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 0), pivot: new(0.50f, 0.50f), force_position: false))
 							{
 								if (hud.show)
 								{
-									GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
+									//GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
+									GUI.DrawWindowBackground(GUI.tex_window, padding: new Vector4(4));
 
 									var hud_rect = hud.group.GetOuterRect();
 
@@ -150,7 +157,7 @@ namespace TC2.Base.Components
 										}
 									}
 
-									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+									using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 24 * 6), padding: new(4)))
 									{
 										//GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 
@@ -206,18 +213,89 @@ namespace TC2.Base.Components
 										rpc.Send(ent_wrench);
 									}
 
-									using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
-									{
-										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
-										{
-											var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
-											{
+									var errors = errors_src | errors_dst;
 
-											};
-											rpc.Send(ent_wrench);
+									using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 4)))
+									{
+										using (GUI.Group.New2(size: new(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(6, 0, 6, 4)))
+										{
+											GUI.Title("Requires");
+											GUI.SeparatorThick();
+											GUI.NewLine(4);
+
+											var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
+											if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 										}
-										GUI.DrawHoverTooltip("Create a conveyor connection.");
+
+										using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+										{
+											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
+											{
+												var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
+												{
+
+												};
+												rpc.Send(ent_wrench);
+											}
+											if (GUI.IsItemHovered())
+											{
+												using (GUI.Tooltip.New(size: new(244, 0)))
+												{
+													//GUI.Title("Requires");
+													//GUI.SeparatorThick();
+													//GUI.NewLine(4);
+													//var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
+													//if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
+
+													using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+													{
+														if (errors != Build.Errors.None)
+														{
+															GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: GUI.font_color_error);
+														}
+													}
+												}
+											}
+										}
 									}
+
+									//using (GUI.Group.Centered(outer_size: new(GUI.GetRemainingWidth(), 40), inner_size: new(100, 40)))
+									//{
+									//	if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
+									//	{
+									//		var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
+									//		{
+
+									//		};
+									//		rpc.Send(ent_wrench);
+									//	}
+									//	if (GUI.IsItemHovered())
+									//	{
+									//		using (GUI.Tooltip.New(size: new(244, 0)))
+									//		{
+									//			GUI.Title("Requires");
+									//			GUI.SeparatorThick();
+									//			GUI.NewLine(4);
+									//			var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
+									//			if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
+
+									//			using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+									//			{
+									//				if (errors != Build.Errors.None)
+									//				{
+									//					GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: GUI.font_color_error);
+									//				}
+									//			}
+									//		}
+									//	}
+
+									//	//GUI.DrawHoverTooltip("Create a conveyor connection.");
+									//}
+
+									//if (errors != Build.Errors.None)
+									//	{
+									//		GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: color_error);
+									//	}
 								}
 							}
 						}
@@ -438,10 +516,15 @@ namespace TC2.Base.Components
 							if (info_src.valid && info_dst.valid)
 							{
 								var pos_mid = info_src.pos; // (info_src.pos + info_dst.pos) * 0.50f;
-				
+								var dir = (info_dst.pos - info_src.pos).GetNormalized(out var distance);
+
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+								if (!Crafting.Evaluate(entity, connection.GetEntity(), pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + distance)) errors |= Build.Errors.RequirementsNotMet;
+
 								if (errors == Build.Errors.None)
 								{
+									Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + distance, sync: true);
+
 									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>

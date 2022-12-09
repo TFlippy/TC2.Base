@@ -18,6 +18,10 @@ namespace TC2.Base.Components
 			public static abstract string Name { get; }
 			public Crafting.Recipe.Tags RecipeTags { get; }
 
+			public Color32BGRA ColorOk { get; }
+			public Color32BGRA ColorError { get; }
+			public Color32BGRA ColorNew { get; }
+
 			public bool IsRecipeValid(ref Region.Data region, ref IRecipe.Data recipe)
 			{
 				return !recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(this.RecipeTags) && recipe.placement.HasValue;
@@ -112,8 +116,8 @@ namespace TC2.Base.Components
 					GUI.SetCursor(App.CursorType.Hand, 10);
 				}
 
-				var color_target = GUI.font_color_success;
-				var color_new = GUI.font_color_yellow;
+				var color_target = this.ColorOk;
+				var color_new = this.ColorNew;
 
 				//{
 				//	ref var recipe = ref this.SelectedRecipe.GetRecipe();
@@ -150,22 +154,24 @@ namespace TC2.Base.Components
 
 				if (errors_target != Build.Errors.None)
 				{
-					color_target = GUI.font_color_error;
+					color_target = this.ColorError;
 				}
 
 				if (errors_new != Build.Errors.None)
 				{
-					color_new = GUI.font_color_error;
+					color_new = this.ColorError;
 				}
 
 				if (info_target.IsValid)
 				{
-					GUI.DrawCircle(info_target.Position.WorldToCanvas(), info_target.Radius * scale, color_target, 2.00f);
+					//GUI.DrawCircle(info_target.Position.WorldToCanvas(), info_target.Radius * scale, color_target, 2.00f);
+					GUI.DrawEntity(info_target.Entity, color_target.WithAlphaMult(0.50f));
 				}
 
 				if (info_new.IsValid)
 				{
-					GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * scale, color_new.WithAlphaMult(0.50f), 2.00f);
+					//GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * scale, color_new.WithAlphaMult(0.50f), 2.00f);
+					GUI.DrawEntity(info_new.Entity, color_new.WithAlphaMult(0.50f));
 				}
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
@@ -356,9 +362,9 @@ namespace TC2.Base.Components
 					}
 				}
 
-				var color_src = GUI.font_color_success;
-				var color_dst = GUI.font_color_success;
-				var color_new = GUI.font_color_yellow;
+				var color_src = this.ColorOk;
+				var color_dst = this.ColorOk;
+				var color_new = this.ColorNew;
 
 				{
 					ref var recipe = ref this.SelectedRecipe.GetData();
@@ -395,17 +401,17 @@ namespace TC2.Base.Components
 
 				if (errors_src != Build.Errors.None)
 				{
-					color_src = GUI.font_color_error;
+					color_src = this.ColorError;
 				}
 
 				if (errors_dst != Build.Errors.None)
 				{
-					color_dst = GUI.font_color_error;
+					color_dst = this.ColorError;
 				}
 
 				if (errors_new != Build.Errors.None)
 				{
-					color_new = GUI.font_color_error;
+					color_new = this.ColorError;
 				}
 
 				DrawGizmos(ent_wrench, ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);

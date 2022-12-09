@@ -37,8 +37,12 @@ namespace TC2.Base.Components
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 2, 0);
 					public static string Name { get; } = "Demolish";
+
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Duct;
 					public Physics.Layer LayerMask => Physics.Layer.Duct;
+					public Color32BGRA ColorOk => Color32BGRA.Red;
+					public Color32BGRA ColorError => Color32BGRA.Grey;
+					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
 					public Data()
 					{
@@ -62,7 +66,7 @@ namespace TC2.Base.Components
 
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_target)
 					{
-						using (var hud = GUI.Window.Standalone("Wrench.HUD", position: info_target.pos.WorldToCanvas(), size: new(168, 200), pivot: new(0.50f, 0.50f)))
+						using (var hud = GUI.Window.Standalone("Wrench.HUD", position: info_target.pos.WorldToCanvas(), size: new(168, 200), pivot: new(0.50f, 0.50f), force_position: false))
 						{
 							if (hud.show)
 							{
@@ -155,12 +159,10 @@ namespace TC2.Base.Components
 				}
 
 #if SERVER
-				[ISystem.Update(ISystem.Mode.Single, interval: 0.25f)]
+				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f)]
 				public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
 				{
 					ref var region = ref info.GetRegion();
-
-					//var valid = false;
 
 					if (deconstruct.flags.HasAny(Deconstruct.Flags.Active) && deconstruct.ref_dismantlable.TryGetHandle(out var h_dismantlable))
 					{
@@ -177,6 +179,7 @@ namespace TC2.Base.Components
 								{
 									h_dismantlable.data.flags.SetFlag(Dismantlable.Flags.Active, true);
 									h_dismantlable.data.yield = Maths.Clamp(h_dismantlable.data.yield, 0.00f, 1.00f);
+									h_dismantlable.Sync();
 									h_dismantlable.entity.Delete();
 
 									deconstruct.ref_dismantlable.Reset();
@@ -185,55 +188,13 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									Sound.Play(ref region, deconstruct.sound_dismantle, transform.position, volume: random.NextFloatRange(0.70f, 0.80f), pitch: random.NextFloatRange(0.95f, 1.10f));
+									Sound.Play(ref region, deconstruct.sound_dismantle, transform.position, volume: random.NextFloatRange(0.70f, 0.80f), pitch: random.NextFloatRange(0.95f, 1.05f));
 
 									h_dismantlable.Sync();
 								}
 							}
 						}
-
-						//var dismantlable_ptr = default(Dismantlable.Data*);
-
-						//valid = Vector2.DistanceSquared(transform.position, control.mouse.position_new) < (4.00f * 4.00f)
-						//	&& target.IsAlive()
-						//	&& (dismantlable_ptr = target.GetComponentUnsafe<Dismantlable.Data>()) != null;
-						////&& region.IsInLineOfSight(transform.position, control.mouse.position_new, 0.125f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Melee | Physics.Layer.Dynamic, query_flags: Physics.QueryFlag.Static);
-
-						//if (valid)
-						//{
-						//	var found = false;
-						//	valid &= found && !region.TryLinecast(transform.position, control.mouse.position_new, 0.00f, out _, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static);
-
-						//	if (valid)
-						//	{
-						//		wrench.work += 1.00f * engineer.DismantleSpeedModifier * WrenchOld.update_interval;
-						//		if (wrench.work >= dismantlable_ptr->required_work)
-						//		{
-						//			dismantlable_ptr->flags |= Dismantlable.Flags.Active;
-						//			dismantlable_ptr->yield = Maths.Clamp(dismantlable_ptr->yield * engineer.DismantleYieldModifier, 0.00f, 1.00f);
-						//			wrench.target_a.Delete();
-
-						//			valid = false;
-						//		}
-						//		else
-						//		{
-						//			entity.SyncComponent(ref wrench);
-						//		}
-						//	}
-						//}
 					}
-
-					//if (!valid && wrench.target_a.id != 0)
-					//{
-					//	wrench.work = 0.00f;
-					//	wrench.target_a = default;
-					//	entity.SyncComponent(ref wrench);
-
-					//	sound_emitter.file = default;
-					//	sound_emitter.volume = 0.00f;
-					//	sound_emitter.pitch = 1.00f;
-					//	entity.SyncComponent(ref sound_emitter);
-					//}
 				}
 #endif
 
