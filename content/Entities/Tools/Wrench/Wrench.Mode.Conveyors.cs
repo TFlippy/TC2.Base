@@ -519,7 +519,7 @@ namespace TC2.Base.Components
 								var dir = (info_dst.pos - info_src.pos).GetNormalized(out var distance);
 
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
-								if (!Crafting.Evaluate(entity, connection.GetEntity(), pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
+								if (!Crafting.Evaluate(entity, ref player, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
 
 								if (errors == Build.Errors.None)
 								{
