@@ -22,9 +22,9 @@
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
 
-	min: 10
-	max: 200
-	step: 10
+	min: 50
+	max: 2500
+	step: 50
 	
 	flags: none
 	type: crafter
@@ -43,13 +43,13 @@
 		}
 		{
 			type: resource
-			material: "charcoal"
+			material: "coke"
 			amount: 0.100
 		}
 		{
 			type: work
 			work: melting
-			amount: 50.000
+			amount: 80.000
 			difficulty: 7.000
 		}
 	]
@@ -59,15 +59,8 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 0.600
-			amount_extra: 0.200
-		}
-		{
-			type: resource
-			material: "slag"
-			amount: 0.110
-			amount_extra: 0.150
-			flags: waste
+			amount: 0.200
+			amount_extra: 0.000
 		}
 	]
 }

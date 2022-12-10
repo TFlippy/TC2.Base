@@ -44,13 +44,13 @@
 		{
 			type: resource
 			material: "scrap"
-			amount: 1.000
+			amount: 2.000
 		}
 		{
 			type: work
 			work: melting
-			amount: 80.000
-			difficulty: 5.000
+			amount: 340.000
+			difficulty: 6.000
 		}
 	]
 	
@@ -66,7 +66,7 @@
 			type: resource
 			material: "slag"
 			amount: 0.110
-			amount_extra: 0.150
+			amount_extra: 0.400
 			flags: waste
 		}
 	]

@@ -12,9 +12,9 @@
 		frame: [3, 0]
 	}
 
-	min: 10
-	max: 200
-	step: 10
+	min: 100
+	max: 500
+	step: 100
 	
 	flags: none
 	type: crafter
@@ -24,18 +24,18 @@
 	[
 		{
 			type: temperature
-			amount: 1811.000
+			amount: 600.000
 		}
 		{
 			type: resource
-			material: "iron.ore"
+			material: "wood"
 			amount: 1.000
 		}
 		{
 			type: work
 			work: heating
-			amount: 70.000
-			difficulty: 7.000
+			amount: 12.000
+			difficulty: 15.000
 		}
 	]
 	
@@ -43,15 +43,15 @@
 	[
 		{
 			type: resource
-			material: "iron.ingot"
-			amount: 0.400
-			amount_extra: 0.300
+			material: "charcoal"
+			amount: 0.040
+			amount_extra: 0.050
 		}
 		{
 			type: resource
-			material: "slag"
-			amount: 0.220
-			amount_extra: 0.150
+			material: "tar"
+			amount: 0.012
+			amount_extra: 0.095
 			flags: waste
 		}
 	]
