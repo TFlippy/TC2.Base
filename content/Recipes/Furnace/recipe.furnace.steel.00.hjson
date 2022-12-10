@@ -44,12 +44,12 @@
 		{
 			type: resource
 			material: "charcoal"
-			amount: 0.200
+			amount: 0.700
 		}
 		{
 			type: work
 			work: melting
-			amount: 650.000
+			amount: 95.000
 			difficulty: 14.000
 		}
 	]

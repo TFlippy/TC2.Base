@@ -2,7 +2,9 @@
 	name: "Coal Coke"
 	desc: 
 		'''
-
+		High-energy fuel often used in metallurgy and steelmaking.
+		
+		Very slow to produce.
 		'''
 	
 	icon:
@@ -34,8 +36,8 @@
 		{
 			type: work
 			work: heating
-			amount: 45.000
-			difficulty: 20.000
+			amount: 75.000
+			difficulty: 17.000
 		}
 	]
 	
