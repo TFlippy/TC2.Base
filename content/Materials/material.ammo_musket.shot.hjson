@@ -9,7 +9,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_musket, despawnable, granular
+	flags: manufactured, ammo, ammo_musket, despawnable, granular, magnetic
 	mass_per_unit: 0.090
 	quantity_max: 24.000
 	prefab: "resource.ammo_musket.shot"

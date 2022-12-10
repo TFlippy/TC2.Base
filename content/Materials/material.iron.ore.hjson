@@ -13,7 +13,7 @@
 	}
 	
 	type: stone
-	flags: raw, ore, smeltable, metal, despawnable, granular
+	flags: raw, ore, smeltable, metal, despawnable, granular, magnetic
 	mass_per_unit: 1.800
 	quantity_max: 500.000
 	prefab: "resource.iron.ore"

@@ -9,7 +9,7 @@
 	}
 	
 	type: metal
-	flags: raw, manufactured, despawnable, granular
+	flags: raw, manufactured, despawnable, granular, magnetic
 	mass_per_unit: 0.300
 	market_price: 0.100
 	quantity_max: 250.000

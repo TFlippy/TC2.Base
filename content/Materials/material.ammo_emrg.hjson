@@ -9,7 +9,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_emrg, despawnable
+	flags: manufactured, ammo, ammo_emrg, despawnable, magnetic
 	mass_per_unit: 0.500
 	quantity_max: 8.000
 	prefab: "resource.ammo_emrg"

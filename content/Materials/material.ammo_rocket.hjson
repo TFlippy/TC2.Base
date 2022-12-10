@@ -17,7 +17,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_rocket, explosive
+	flags: manufactured, ammo, ammo_rocket, explosive, magnetic
 	mass_per_unit: 3.000
 	quantity_max: 4.000
 	prefab: "resource.ammo_rocket"

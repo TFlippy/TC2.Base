@@ -17,7 +17,7 @@
 	}
 
 	type: metal
-	flags: manufactured, ammo, ammo_shell, explosive
+	flags: manufactured, ammo, ammo_shell, explosive, magnetic
 	mass_per_unit: 8.000
 	quantity_max: 1.000
 	prefab: "resource.ammo_shell.flare"
