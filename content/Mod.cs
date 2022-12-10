@@ -33,26 +33,9 @@ namespace TC2.Base
 					}
 				}
 			});
-
-			//Material.OnPostInitialize += Essence.Init;
-
-			//#if SERVER
-			//			// TODO: hack, add a way to handle this with attributes
-			//			Player.OnCreate += OnCreatePlayer;
-			//#endif
 		}
-
-		//private static void OnCreatePlayer(ref Region.Data region, ref Player.Data player)
-		//{
-		//	player.ent_player.AddComponent<Selection.Data>();
-		//}
 
 		protected override void OnInitialize(ModContext context)
-		{
-
-		}
-
-		protected override void OnConfigure(ModContext context)
 		{
 
 		}

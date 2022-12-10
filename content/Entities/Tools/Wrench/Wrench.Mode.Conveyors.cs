@@ -223,7 +223,7 @@ namespace TC2.Base.Components
 											GUI.SeparatorThick();
 											GUI.NewLine(4);
 
-											var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
+											var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 											if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 										}
 
@@ -276,7 +276,7 @@ namespace TC2.Base.Components
 									//			GUI.Title("Requires");
 									//			GUI.SeparatorThick();
 									//			GUI.NewLine(4);
-									//			var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
+									//			var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 									//			if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 
 									//			using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
@@ -519,11 +519,11 @@ namespace TC2.Base.Components
 								var dir = (info_dst.pos - info_src.pos).GetNormalized(out var distance);
 
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
-								if (!Crafting.Evaluate(entity, connection.GetEntity(), pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + distance)) errors |= Build.Errors.RequirementsNotMet;
+								if (!Crafting.Evaluate(entity, connection.GetEntity(), pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
 
 								if (errors == Build.Errors.None)
 								{
-									Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + distance, sync: true);
+									Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance), sync: true);
 
 									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
 

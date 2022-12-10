@@ -2,7 +2,9 @@
 	name: "Conveyor (Chute)"
 	desc:
 		'''
-		
+		Cheap conveyor that can carry all materials, but only downwards.
+
+		Steeper angles are more effective.
 		'''
 	
 	icon:
@@ -37,8 +39,8 @@
 	[
 		{
 			type: "resource"
-			material: "steel.ingot"
-			amount: 0.500
+			material: "steel.plate"
+			amount: 3.500
 		}
 	]
 	
