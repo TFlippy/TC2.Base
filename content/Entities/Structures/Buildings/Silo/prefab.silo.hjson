@@ -32,7 +32,7 @@ animated.renderer:
 	{
 		texture: "silo"
 	}
-	z: -200.000
+	z: -250.000
 }
 
 faction.colorable:

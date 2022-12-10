@@ -26,6 +26,7 @@ conveyor:
 	throughput_max: 15.000
 
 	sound: "conveyor.move.05"
+	sound_volume: 0.000
 }
 
 conveyor.state:

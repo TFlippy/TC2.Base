@@ -20,18 +20,20 @@ body:
 
 conveyor:
 {
-	interval: 0.500
+	interval: 0.800
 
 	throughput_min: 1.000
-	throughput_max: 5.000
+	throughput_max: 10.000
 
-	sound: "conveyor.move.04"
-	sound_volume: 0.000
+	sound: "conveyor.move.02"
+	sound_volume: 0.400
 
 	filter:
 	{
-		exclude: granular
+		require: magnetic, granular
 	}
+
+	scale_multiplier: 0.375
 }
 
 conveyor.state:
@@ -39,25 +41,32 @@ conveyor.state:
 
 }
 
-animated.renderer:
+// animated.renderer:
+// {
+// 	sprite:
+// 	{
+// 		texture: "conveyor.magnetic"
+// 	}
+// 	z: -200.000
+// }
+
+rope.renderer:
 {
-	sprite:
-	{
-		texture: "conveyor.roller"
-	}
-	z: -200.000
+	texture: "conveyor.magnetic.rope"
+	thickness: 1.500
+	scale: 8.000
 }
 
 resizable:
 {
 	cap_a:
 	{
-		texture: "conveyor.roller.cap"
+		texture: "conveyor.magnetic.cap"
 	}
 	
 	cap_b:
 	{
-		texture: "conveyor.roller.cap"
+		texture: "conveyor.magnetic.cap"
 	}
 	
 	flags: mirror_cap_b, dynamic, orthogonal
