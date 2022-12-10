@@ -126,9 +126,7 @@ namespace TC2.Base.Components
 										{
 											if (root.TryGetComponentData<Conveyor.Data>(out var duct_data, true))
 											{
-												inventory_filter.flags = duct_data.filter_flags;
-												inventory_filter.type = duct_data.filter_type;
-												inventory_filter.material = duct_data.filter_material;
+												inventory_filter = duct_data.filter;
 											}
 										}
 									}
@@ -152,7 +150,7 @@ namespace TC2.Base.Components
 										{
 											if (window.show)
 											{
-												GUI.DrawInventory(h_inv_dst, is_readonly: true, filter: inventory_filter);
+												GUI.DrawInventory(h_inv_dst, is_readonly: true);
 											}
 										}
 									}

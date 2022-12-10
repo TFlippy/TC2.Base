@@ -207,7 +207,7 @@
 					{
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 96 - 12)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
 							{
@@ -222,7 +222,7 @@
 
 						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
 							{
@@ -266,7 +266,7 @@
 					{
 						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(padding: new(12, 12)))
 							{
@@ -276,7 +276,7 @@
 
 						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(padding: new(12, 12)))
 							{

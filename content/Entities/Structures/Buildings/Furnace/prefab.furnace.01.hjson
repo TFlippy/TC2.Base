@@ -66,7 +66,7 @@ burner:
 	@inventory1:
 	{
 		name: "Fuel"
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 2.000
 		filter_flags: fuel
 		type: fuel
 		flags: allow_ducts, ignore_mass
@@ -97,7 +97,7 @@ burner.state:
 
 crafter:
 {
-	sound_produce: "refinery_produce_00"
+	sound_produce: "furnace.produce.00"
 	
 	@inventory8:
 	{
