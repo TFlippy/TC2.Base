@@ -54,7 +54,7 @@ resizable:
 		texture: "conveyor.auger.cap"
 	}
 	
-	flags: mirror_cap_b, dynamic
+	flags: mirror_cap_b, dynamic, orthogonal
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]

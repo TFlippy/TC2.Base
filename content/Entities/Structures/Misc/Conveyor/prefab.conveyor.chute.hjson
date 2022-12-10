@@ -44,15 +44,15 @@ resizable:
 {
 	cap_a:
 	{
-		texture: "conveyor.auger.cap"
+		texture: "conveyor.chute.cap"
 	}
 	
 	cap_b:
 	{
-		texture: "conveyor.auger.cap"
+		texture: "conveyor.chute.cap"
 	}
 	
-	flags: mirror_cap_b, dynamic
+	flags: mirror_cap_b, dynamic, orthogonal
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]
