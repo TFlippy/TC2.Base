@@ -9,7 +9,7 @@
 	}
 	
 	type: stone
-	flags: manufactured
+	flags: manufactured, granular
 	mass_per_unit: 0.800
 	quantity_max: 500.000
 	prefab: "resource.slag.rich"

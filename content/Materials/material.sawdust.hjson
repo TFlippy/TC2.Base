@@ -9,7 +9,7 @@
 	}
 	
 	type: powder
-	flags: manufactured
+	flags: manufactured, granular
 	mass_per_unit: 0.060
 	quantity_max: 500.000
 	prefab: "resource.sawdust"

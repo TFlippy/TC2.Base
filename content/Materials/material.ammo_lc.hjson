@@ -21,7 +21,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_lc, despawnable
+	flags: manufactured, ammo, ammo_lc, despawnable, granular
 	mass_per_unit: 0.015
 	quantity_max: 60.000
 	prefab: "resource.ammo_lc"

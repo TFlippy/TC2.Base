@@ -13,7 +13,7 @@
 	}
 	
 	type: glass
-	flags: raw, fuel, organic, despawnable
+	flags: raw, fuel, organic, despawnable, granular
 	mass_per_unit: 0.200
 	quantity_max: 100.000
 	prefab: "resource.resin"

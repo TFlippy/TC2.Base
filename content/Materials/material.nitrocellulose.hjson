@@ -9,7 +9,7 @@
 	}
 	
 	type: powder
-	flags: manufactured, explosive
+	flags: manufactured, explosive, granular
 	mass_per_unit: 0.100
 	market_price: 11.000
 	quantity_max: 500.000

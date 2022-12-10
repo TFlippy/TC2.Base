@@ -9,7 +9,7 @@
 	}
 	
 	type: soil
-	flags: raw
+	flags: raw, granular
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.sludge"

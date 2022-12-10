@@ -9,7 +9,7 @@
 	}
 	
 	type: stone
-	flags: raw, ore, smeltable, metal, despawnable
+	flags: raw, ore, smeltable, metal, despawnable, granular
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.magnetite"
