@@ -16,7 +16,7 @@ body:
 		friction: 0.800
 		elasticity: 0.400
 		material: paper
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world
 	}
 }

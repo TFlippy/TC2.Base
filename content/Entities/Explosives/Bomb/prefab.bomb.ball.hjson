@@ -14,7 +14,7 @@ body:
 		friction: 0.500
 		elasticity: 0.800
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world
 	}
 }

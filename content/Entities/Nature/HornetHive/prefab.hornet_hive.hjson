@@ -14,7 +14,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: soil
-		layer: entity
+		layer: entity, flammable
 		mask: world
 	}
 }
@@ -89,7 +89,7 @@ claimer:
 			friction: 0.950
 			elasticity: 0.500
 			material: soil
-			layer: entity, solid
+			layer: entity, solid, flammable
 			mask: world
 		}
 	}
