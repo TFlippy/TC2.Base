@@ -16,7 +16,7 @@ body:
 		friction: 0.500
 		elasticity: 0.050
 		material: flesh
-		layer: entity, solid, creature, storage
+		layer: entity, solid, creature, storage, flammable
 		mask: world
 	}
 }
@@ -247,7 +247,7 @@ lootable:
 				friction: 0.700
 				elasticity: 0.250
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world
 			}
 		}
@@ -449,7 +449,7 @@ lootable:
 				friction: 1.200
 				elasticity: 0.100
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world
 			}
 		}

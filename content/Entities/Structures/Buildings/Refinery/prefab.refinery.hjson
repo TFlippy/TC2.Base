@@ -11,7 +11,7 @@ body:
 		radius: 0.000
 		friction: 0.950
 		elasticity: 0.500
-		material: wood
+		material: metal
 		layer: entity, building, ignore_melee
 		mask: world
 	}

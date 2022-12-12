@@ -18,7 +18,7 @@ body:
 		rigidity_dynamic: 0.450
 		rigidity_static: 0.450
 		material: wood
-		layer: entity, ignore_bullet, no_overlapped_placement, barbed
+		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable
 		mask: solid, creature
 		exclude: tree
 	}

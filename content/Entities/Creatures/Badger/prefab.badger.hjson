@@ -15,7 +15,7 @@ body:
 		friction: 0.500
 		elasticity: 0.350
 		material: flesh
-		layer: entity, solid, creature
+		layer: entity, solid, creature, flammable
 		mask: world, vehicle
 	}
 }
@@ -281,7 +281,7 @@ faction:
 				friction: 0.700
 				elasticity: 0.250
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world, vehicle
 			}
 		}
@@ -447,7 +447,7 @@ faction:
 				friction: 0.700
 				elasticity: 0.250
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world, vehicle
 			}
 		}

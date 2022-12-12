@@ -12,7 +12,7 @@ body:
 		friction: 0.500
 		elasticity: 0.050
 		material: flesh
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world
 	}
 }
