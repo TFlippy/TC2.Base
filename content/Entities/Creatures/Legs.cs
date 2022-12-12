@@ -56,6 +56,11 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
+			//App.WriteLine($"{Unsafe.AsRef(in headbob).IsNull()}");
+
+			//if (headbob.IsNull()) return;
+			//return;
+
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;
 

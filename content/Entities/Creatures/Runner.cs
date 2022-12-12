@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 			ref var keyboard = ref control.keyboard;
 
 			climber.MaxForce = 0.00f;
-			climber.OffsetA = body.GetWorldCenterOfGravity() + (body.GetVelocity() * App.fixed_update_interval_s);
+			climber.OffsetA = body.GetPosition() + (body.GetVelocity() * App.fixed_update_interval_s);
 			climber.cling_entity = default;
 
 			var is_climbing = false;
