@@ -148,9 +148,9 @@ namespace TC2.Base.Components
 						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
 					}
 
-					GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
-					GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
-					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
+					GUI.DrawCircleFilled(c_pos, c_radius, this.color.WithAlphaMult(0.10f), segments: 16);
+					GUI.DrawCircle(c_pos, c_radius, this.color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
+					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, this.color, segments: 4);
 				}
 			}
 		}

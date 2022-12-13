@@ -30,8 +30,8 @@
 		{
 			type: "work"
 			work: "pressing"
-			amount: 6.000
-			difficulty: 5.000
+			amount: 4.000
+			difficulty: 7.000
 		}
 	]
 	

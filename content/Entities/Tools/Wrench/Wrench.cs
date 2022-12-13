@@ -1,6 +1,4 @@
 ﻿
-using System.Diagnostics.CodeAnalysis;
-
 namespace TC2.Base.Components
 {
 	public static partial class Wrench
@@ -414,7 +412,7 @@ namespace TC2.Base.Components
 					color_new = this.ColorError;
 				}
 
-				DrawGizmos(ent_wrench, ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);
+				this.DrawGizmos(ent_wrench, ref wpos_mouse, ref info_src, ref info_dst, ref info_new, ref color_src, ref color_dst, ref color_new);
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
 				{

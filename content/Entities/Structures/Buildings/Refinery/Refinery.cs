@@ -284,8 +284,8 @@
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
 
-									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
-									GUI.SameLine();
+									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									//GUI.SameLine();
 									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 								}
 							}

@@ -84,7 +84,7 @@ namespace TC2.Base.Components
 
 									var items_span = info_target.dismantlable.items.AsSpan();
 
-									for (int i = 0; i < items_span.Length; i++)
+									for (var i = 0; i < items_span.Length; i++)
 									{
 										ref var item = ref items_span[i];
 										switch (item.type)

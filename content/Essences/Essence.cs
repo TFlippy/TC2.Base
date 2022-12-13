@@ -59,8 +59,8 @@ namespace TC2.Base.Components
 			Failure
 		}
 
-		public static readonly Dictionary<IMaterial.Handle, Essence.Type> material_to_essence = new Dictionary<IMaterial.Handle, Essence.Type>();
-		public static readonly Dictionary<Essence.Type, IMaterial.Handle> essence_to_material = new Dictionary<Essence.Type, IMaterial.Handle>();
+		public static readonly Dictionary<IMaterial.Handle, Essence.Type> material_to_essence = new();
+		public static readonly Dictionary<Essence.Type, IMaterial.Handle> essence_to_material = new();
 
 		public const float essence_per_pellet = 5.00f;
 		public const float force_per_motion_essence = 2000.00f;
