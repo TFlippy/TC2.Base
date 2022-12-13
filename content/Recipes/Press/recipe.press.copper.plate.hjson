@@ -1,6 +1,9 @@
 {
 	name: "Copper Plate"
-	desc: "TODO: Desc"
+	desc: 
+		'''
+		Brute-force method of producing metal plates by mashing a copper ingot until it's thin enough.
+		'''
 	
 	icon:
 	{
@@ -27,8 +30,8 @@
 		{
 			type: "work"
 			work: "pressing"
-			amount: 4.000
-			difficulty: 3.000
+			amount: 6.000
+			difficulty: 5.000
 		}
 	]
 	

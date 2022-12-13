@@ -1,6 +1,9 @@
 {
 	name: "Steel Plate"
-	description: "TODO: Desc"
+	description:
+		'''
+		Steel formed into a plate.
+		'''
 	icon:
 	{
 		texture: "resource.steel.plate"

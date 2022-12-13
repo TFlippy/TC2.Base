@@ -1,6 +1,11 @@
 {
 	name: "Steel Ingot"
-	description: "TODO: Desc"
+	description: 
+		'''
+		Solid steel ingot.
+		
+		Used in construction, machinery, tools and more.
+		'''
 	icon:
 	{
 		texture: "resource.steel.ingot"

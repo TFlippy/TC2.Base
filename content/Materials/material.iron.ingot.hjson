@@ -1,6 +1,11 @@
 {
 	name: "Iron Ingot"
-	description: "TODO: Desc"
+	description:
+		'''
+		Solid iron ingot.
+		
+		Most often processed further into steel, but can be used on its own (such as in cheap tools or flywheels).
+		'''
 	icon:
 	{
 		texture: "resource.iron.ingot"
