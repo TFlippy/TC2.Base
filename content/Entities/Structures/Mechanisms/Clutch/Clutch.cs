@@ -50,11 +50,11 @@ namespace TC2.Base.Components
 
 							if (this.state == 0)
 							{
-								WorldNotification.Push(ref region, $"* Off *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, $"* Off *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else
 							{
-								WorldNotification.Push(ref region, $"* On *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, $"* On *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
 							}
 						}
 
@@ -113,7 +113,7 @@ namespace TC2.Base.Components
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						if (GUI.SliderInt("State", ref this.clutch.state, 1, 0, size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), snap: -1, vertical: true))
+						if (GUI.SliderInt("State", ref this.clutch.state, 0, 1, size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), snap: 1, vertical: true))
 						{
 							var rpc = new Clutch.ConfigureRPC()
 							{
