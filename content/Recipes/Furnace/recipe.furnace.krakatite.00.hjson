@@ -1,5 +1,5 @@
 {
-	name: "Magnetite Separation"
+	name: "Chalcopyrite Decomposition"
 	desc: 
 		'''
 		
@@ -7,19 +7,19 @@
 	
 	icon:
 	{
-		texture: "resource.magnetite"
+		texture: "resource.krakatite"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.iron.powder"
+		texture: "resource.iron.gravel"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 
-	icon_extra_offset: [-4, -6]
+	icon_extra_offset: [-2, -6]
 	icon_extra_scale: 1.000
 	
 	min: 50
@@ -34,11 +34,11 @@
 	[
 		{
 			type: temperature
-			amount: 1450.000
+			amount: 855.000
 		}
 		{
 			type: resource
-			material: "magnetite"
+			material: "chalcopyrite"
 			amount: 1.000
 		}
 		{
@@ -51,22 +51,23 @@
 			work: heating
 			amount: 15.000
 			difficulty: 5.000
-		}	
+		}
 	]
 	
 	products:
 	[
 		{
 			type: resource
-			material: "iron.powder"
-			amount: 1.100
-			amount_extra: 1.700
+			material: "iron.gravel"
+			amount: 0.475
+			amount_extra: 0.040
 		}
 		{
 			type: resource
-			material: "iron.gravel"
-			amount: 0.200
-			amount_extra: 0.420
+			material: "copper.ore"
+			amount: 0.395
+			amount_extra: 0.070
+			flags: byproduct
 		}
 	]
 }

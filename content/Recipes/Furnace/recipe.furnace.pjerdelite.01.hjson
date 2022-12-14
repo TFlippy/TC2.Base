@@ -1,13 +1,13 @@
 {
-	name: "Smelt Magnetite"
+	name: "Pjerdelite Iron"
 	desc: 
 		'''
-
+		
 		'''
 	
 	icon:
 	{
-		texture: "resource.magnetite"
+		texture: "resource.pjerdelite"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,14 +16,14 @@
 	{
 		texture: "resource.iron.ingot"
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [0, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
-
+	
 	min: 50
-	max: 500
+	max: 200
 	step: 50
 	
 	flags: none
@@ -38,14 +38,19 @@
 		}
 		{
 			type: resource
-			material: "magnetite"
+			material: "pjerdelite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "scrap"
 			amount: 1.000
 		}
 		{
 			type: work
 			work: melting
-			amount: 70.000
-			difficulty: 7.000
+			amount: 25.000
+			difficulty: 5.000
 		}
 	]
 	
@@ -54,14 +59,21 @@
 		{
 			type: resource
 			material: "iron.ingot"
-			amount: 0.450
-			amount_extra: 0.300
+			amount: 0.400
+			amount_extra: 0.200
 		}
 		{
 			type: resource
-			material: "slag"
-			amount: 0.324
-			amount_extra: 0.453
+			material: "smirgl.ore"
+			amount: 0.245
+			amount_extra: 0.200
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "slag.rich"
+			amount: 0.315
+			amount_extra: 0.220
 			flags: waste
 		}
 	]

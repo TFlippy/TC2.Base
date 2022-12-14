@@ -1,0 +1,82 @@
+{
+	name: "Kruskite Decomposition"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.kruskite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.sand"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-2, -6]
+	icon_extra_scale: 1.000
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1014.000
+		}
+		{
+			type: resource
+			material: "kruskite"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: heating
+			amount: 55.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "sand"
+			amount: 0.775
+			amount_extra: 0.072
+		}
+		{
+			type: resource
+			material: "saltpeter"
+			amount: 0.114
+			amount_extra: 0.352
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "silver.powder"
+			amount: 0.025
+			amount_extra: 0.292
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "gold.powder"
+			amount: 0.007
+			amount_extra: 0.123
+			flags: byproduct
+		}
+	]
+}

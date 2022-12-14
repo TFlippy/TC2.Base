@@ -1,8 +1,8 @@
 {
-	name: "Magnetite Separation"
+	name: "Magnetite Steel"
 	desc: 
 		'''
-		
+
 		'''
 	
 	icon:
@@ -14,14 +14,14 @@
 	
 	icon_extra:
 	{
-		texture: "resource.iron.powder"
+		texture: "resource.steel.ingot"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [0, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
-	
+
 	min: 50
 	max: 500
 	step: 50
@@ -34,7 +34,7 @@
 	[
 		{
 			type: temperature
-			amount: 1450.000
+			amount: 1811.000
 		}
 		{
 			type: resource
@@ -43,30 +43,31 @@
 		}
 		{
 			type: resource
-			material: "charcoal"
+			material: "coke"
 			amount: 0.100
 		}
 		{
 			type: work
-			work: heating
-			amount: 15.000
-			difficulty: 5.000
-		}	
+			work: melting
+			amount: 70.000
+			difficulty: 7.000
+		}
 	]
 	
 	products:
 	[
 		{
 			type: resource
-			material: "iron.powder"
-			amount: 1.100
-			amount_extra: 1.700
+			material: "steel.ingot"
+			amount: 0.200
+			amount_extra: 0.350
 		}
 		{
 			type: resource
-			material: "iron.gravel"
-			amount: 0.200
-			amount_extra: 0.420
+			material: "slag"
+			amount: 0.220
+			amount_extra: 0.750
+			flags: waste
 		}
 	]
 }

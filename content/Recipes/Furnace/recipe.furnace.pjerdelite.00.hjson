@@ -1,0 +1,80 @@
+{
+	name: "Pjerdelite Smirgl Retrieval"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.pjerdelite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.smirgl.gravel"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-2, -6]
+	icon_extra_scale: 1.000
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 2055.000
+		}
+		{
+			type: resource
+			material: "pjerdelite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "sand"
+			amount: 0.400
+		}
+		{
+			type: work
+			work: heating
+			amount: 20.000
+			difficulty: 9.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "smirgl.gravel"
+			amount: 1.174
+			amount_extra: 0.570
+		}
+		{
+			type: resource
+			material: "cement"
+			amount: 2.058
+			amount_extra: 1.470
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.542
+			amount_extra: 0.770
+			flags: byproduct
+		}
+	]
+}
