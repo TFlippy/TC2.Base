@@ -1,0 +1,42 @@
+{
+	name: "Krakatite"
+	desc: "TODO: Desc"
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, ore, common, mineral
+	
+	max_health: 16000.000
+	smoothing: 0.130
+	mass: 8.000
+	friction: 0.900
+	elasticity: 0.200
+	stability: 0.900
+	
+	texture: "terrain.krakatite"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.400
+	texture_overshoot: -0.750
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 0.050
+		}
+		{
+			material: "krakatite"
+			quantity: 1.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff977864"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}

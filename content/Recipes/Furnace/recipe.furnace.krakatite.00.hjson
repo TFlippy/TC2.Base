@@ -1,5 +1,5 @@
 {
-	name: "Chalcopyrite Decomposition"
+	name: "Krakatite Enrichment"
 	desc: 
 		'''
 		
@@ -14,12 +14,12 @@
 	
 	icon_extra:
 	{
-		texture: "resource.iron.gravel"
+		texture: "resource.gunpowder"
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
 
-	icon_extra_offset: [-2, -6]
+	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
 	
 	min: 50
@@ -34,23 +34,23 @@
 	[
 		{
 			type: temperature
-			amount: 855.000
+			amount: 625.000
 		}
 		{
 			type: resource
-			material: "chalcopyrite"
+			material: "krakatite"
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "charcoal"
-			amount: 0.100
+			material: "brown_coal"
+			amount: 0.700
 		}
 		{
 			type: work
 			work: heating
-			amount: 15.000
-			difficulty: 5.000
+			amount: 24.000
+			difficulty: 7.000
 		}
 	]
 	
@@ -58,16 +58,22 @@
 	[
 		{
 			type: resource
-			material: "iron.gravel"
-			amount: 0.475
-			amount_extra: 0.040
+			material: "stone"
+			amount: 0.591
+			amount_extra: 0.110
+			flags: byproduct
 		}
 		{
 			type: resource
-			material: "copper.ore"
-			amount: 0.395
-			amount_extra: 0.070
-			flags: byproduct
+			material: "saltpeter"
+			amount: 0.212
+			amount_extra: 0.371
+		}
+		{
+			type: resource
+			material: "gunpowder"
+			amount: 0.372
+			amount_extra: 1.471
 		}
 	]
 }

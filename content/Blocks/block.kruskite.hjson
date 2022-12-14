@@ -1,0 +1,42 @@
+{
+	name: "Kruskite"
+	desc: "TODO: Desc"
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, ore, common, mineral
+	
+	max_health: 11000.000
+	smoothing: 0.140
+	mass: 8.000
+	friction: 0.900
+	elasticity: 0.200
+	stability: 0.900
+	
+	texture: "terrain.kruskite"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.300
+	texture_overshoot: -0.750
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 0.050
+		}
+		{
+			material: "kruskite"
+			quantity: 1.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffb59772"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}

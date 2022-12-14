@@ -1,0 +1,42 @@
+{
+	name: "Pjerdelite"
+	desc: "TODO: Desc"
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, ore, common, mineral
+	
+	max_health: 37000.000
+	smoothing: 0.160
+	mass: 8.000
+	friction: 0.700
+	elasticity: 0.200
+	stability: 0.900
+	
+	texture: "terrain.pjerdelite"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.400
+	texture_overshoot: -0.650
+	
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 0.050
+		}
+		{
+			material: "pjerdelite"
+			quantity: 1.500
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff8e8970"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}

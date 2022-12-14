@@ -1,5 +1,5 @@
 {
-	name: "Chalcopyrite Copper Extraction"
+	name: "Kruskite Slagging"
 	desc: 
 		'''
 		
@@ -14,9 +14,9 @@
 	
 	icon_extra:
 	{
-		texture: "resource.copper.ingot"
+		texture: "resource.slag.rich"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [2, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
@@ -34,22 +34,22 @@
 	[
 		{
 			type: temperature
-			amount: 1357.000
+			amount: 1450.000
 		}
 		{
 			type: resource
-			material: "chalcopyrite"
+			material: "kruskite"
 			amount: 1.000
 		}
 		{
 			type: resource
 			material: "sand"
-			amount: 0.500
+			amount: 0.400
 		}
 		{
 			type: work
 			work: melting
-			amount: 45.000
+			amount: 22.000
 			difficulty: 5.000
 		}
 	]
@@ -58,22 +58,16 @@
 	[
 		{
 			type: resource
-			material: "copper.ingot"
-			amount: 0.400
-			amount_extra: 0.100
+			material: "slag.rich"
+			amount: 0.415
+			amount_extra: 0.220
+			flags: waste
 		}
 		{
 			type: resource
-			material: "sulfur"
-			amount: 0.045
-			amount_extra: 0.400
-			flags: byproduct
-		}
-		{
-			type: resource
-			material: "slag"
-			amount: 0.615
-			amount_extra: 0.120
+			material: "cement"
+			amount: 0.815
+			amount_extra: 0.520
 			flags: waste
 		}
 	]
