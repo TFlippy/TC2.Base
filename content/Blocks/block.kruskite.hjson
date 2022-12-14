@@ -34,7 +34,7 @@
 	mappings:
 	[
 		{
-			color: "0xffb59772"
+			color: "0xff80775f"
 			tile_flags: solid, non_empty, ground
 			meta: 0
 		}

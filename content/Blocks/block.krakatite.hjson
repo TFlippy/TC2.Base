@@ -1,6 +1,11 @@
 {
 	name: "Krakatite"
-	desc: "TODO: Desc"
+	desc: 
+		'''
+		Waxy, green-colored nitrogen-rich rock with traces of sulfur.
+
+		Commonly found in swamps, bogs and mushroom forests.
+		'''
 	
 	material_type: stone
 	tile_flags: non_empty
@@ -16,8 +21,8 @@
 	texture: "terrain.krakatite"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.400
-	texture_overshoot: -0.750
+	texture_scale: 1.500
+	texture_overshoot: -0.650
 	
 	resources:
 	[
@@ -34,7 +39,7 @@
 	mappings:
 	[
 		{
-			color: "0xff977864"
+			color: "0xff917d54"
 			tile_flags: solid, non_empty, ground
 			meta: 0
 		}
