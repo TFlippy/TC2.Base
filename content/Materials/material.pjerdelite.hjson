@@ -1,18 +1,21 @@
 {
-	name: "Magnetite"
-	description: "High-purity iron ore."
+	name: "Pjerdelite"
+	description:
+		'''
+		Dense smirgl-iron rock with traces of silver.
+		'''
 	icon:
 	{
-		texture: "resource.magnetite"
+		texture: "resource.pjerdelite"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	type: stone
 	flags: raw, ore, smeltable, metal, despawnable, granular, magnetic
-	mass_per_unit: 1.000
+	mass_per_unit: 2.300
 	quantity_max: 500.000
-	prefab: "resource.magnetite"
+	prefab: "resource.pjerdelite"
 	
 	projectile_count: 0
 	projectile_speed_mult: 1.000
@@ -25,6 +28,6 @@
 	fuel_purity: 0.500
 	fuel_temperature: 1200.000
 	
-	specific_heat: 206.000
+	specific_heat: 99.625
 	thermal_conductivity: 0.0395
 }
