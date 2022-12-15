@@ -1,3 +1,8 @@
+$name: "Human"
+$desc:
+	'''
+	Common human.
+	'''
 $export: false
 $tags: 
 [
@@ -232,6 +237,11 @@ lootable:
 	
 	+head|child:
 	{
+		$name: "Human (Head)"
+		$desc:
+			'''
+			Common human.
+			'''
 		$tags: 
 		[
 			"male"
@@ -393,6 +403,11 @@ lootable:
 
 +slot_waist|instance:
 {
+	$name: "Human (Waist)"
+	$desc:
+		'''
+		Common human.
+		'''
 	$tags: []
 	
 	joint.base:

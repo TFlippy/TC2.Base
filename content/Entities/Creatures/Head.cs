@@ -97,6 +97,23 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
+		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		public static void OnGUIParent(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
+		{
+			IStatusEffect.ScheduleDraw(new()
+			{
+				icon = "ui_icon_effect.burning",
+				//icon_extra = "beer",
+				value = $"{entity.GetName()}\n{health.integrity:0.00}",
+				text_color = GUI.font_color_default,
+				name = $""
+			});
+		}
+
+		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
+			=> OnGUIParent(info, entity, in player, in health, in organic);
+
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
