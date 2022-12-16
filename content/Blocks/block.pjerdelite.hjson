@@ -6,7 +6,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 37000.000
+	max_health: 43000.000
 	smoothing: 0.160
 	mass: 8.000
 	friction: 0.700
@@ -23,11 +23,11 @@
 	[
 		{
 			material: "stone"
-			quantity: 0.050
+			quantity: 0.750
 		}
 		{
 			material: "pjerdelite"
-			quantity: 1.500
+			quantity: 0.600
 		}
 	]
 	

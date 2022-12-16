@@ -6,7 +6,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 16000.000
+	max_health: 22000.000
 	smoothing: 0.130
 	mass: 8.000
 	friction: 0.900
@@ -22,12 +22,12 @@
 	resources:
 	[
 		{
-			material: "stone"
-			quantity: 0.050
+			material: "chalcopyrite"
+			quantity: 0.450
 		}
 		{
-			material: "chalcopyrite"
-			quantity: 1.500
+			material: "stone"
+			quantity: 0.550
 		}
 	]
 	
