@@ -1,9 +1,6 @@
 {
 	name: "Charcoal"
-	desc: 
-		'''
-
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -11,13 +8,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	min: 100
 	max: 500
 	step: 100
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	
 	requirements:
@@ -33,7 +30,7 @@
 		}
 		{
 			type: work
-			work: heating
+			work: "heating"
 			amount: 7.000
 			difficulty: 15.000
 		}
@@ -52,7 +49,6 @@
 			material: "tar"
 			amount: 0.012
 			amount_extra: 0.095
-			flags: waste
 		}
 	]
 }

@@ -1,6 +1,6 @@
 {
 	name: "Medium-Grade Carbon Steel"
-	desc: 
+	desc:
 		'''
 		Basic steel production method involving re-melting iron ingots and enriching it with carbon.
 		'''
@@ -18,16 +18,15 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
+	
+	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 10
 	max: 200
 	step: 10
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	
 	requirements:
@@ -48,7 +47,7 @@
 		}
 		{
 			type: work
-			work: melting
+			work: "melting"
 			amount: 95.000
 			difficulty: 14.000
 		}
@@ -67,7 +66,6 @@
 			material: "slag"
 			amount: 0.050
 			amount_extra: 0.050
-			flags: waste
 		}
 	]
 }
