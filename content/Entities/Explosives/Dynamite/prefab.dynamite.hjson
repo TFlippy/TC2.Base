@@ -75,17 +75,12 @@ fuse:
 	}
 }
 
-health:
-{
-	max: 100.000
-}
-
 explosive:
 {
-	radius: 9.000
-	power: 5.000
+	radius: 6.500
+	power: 6.500
 	damage_entity: 25000.000
-	damage_terrain: 250000.000
+	damage_terrain: 270000.000
 	smoke_amount: 0.800
 	smoke_lifetime_multiplier: 0.200
 	smoke_velocity_multiplier: 1.500

@@ -1,6 +1,6 @@
 {
 	name: "Smelt Iron (Basic)"
-	desc: 
+	desc:
 		'''
 		Smelt unpurified iron ore.
 
@@ -20,16 +20,15 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-
+	
+	icon_extra_offset: [-4.000, -6.000]
+	
 	min: 50
 	max: 200
 	step: 50
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	
 	requirements:
@@ -45,8 +44,8 @@
 		}
 		{
 			type: work
-			work: melting
-			amount: 40.000
+			work: "melting"
+			amount: 24.000
 			difficulty: 7.000
 		}
 	]
@@ -56,15 +55,14 @@
 		{
 			type: resource
 			material: "iron.ingot"
-			amount: 0.400
-			amount_extra: 0.300
+			amount: 0.240
+			amount_extra: 0.180
 		}
 		{
 			type: resource
 			material: "slag"
-			amount: 0.220
-			amount_extra: 0.150
-			flags: waste
+			amount: 0.132
+			amount_extra: 0.090
 		}
 	]
 }
