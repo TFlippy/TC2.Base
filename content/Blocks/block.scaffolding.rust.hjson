@@ -1,0 +1,43 @@
+{
+	name: "Scaffolding"
+	desc: "TODO: Desc"
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 3600.000
+	smoothing: 0.150
+	mass: 1.000
+	friction: 0.950
+	elasticity: 0.200
+	stability: 0.500
+	
+	texture: "terrain.scaffolding.rust"
+	pattern: "pattern.scaffolding"
+	
+	texture_scale: 1.000
+	texture_overshoot: -0.500
+	
+	resources:
+	[
+		{
+			material: "steel.ingot"
+			quantity: 0.030
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffb17564"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff525445"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
+}
