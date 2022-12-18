@@ -4,14 +4,15 @@ $tags: []
 
 body:
 {
-	type: static
+	type: dynamic
 	
 	@shape.box:
 	{
-		size: [2.000, 3.000]
+		size: [3.000, 1.500]
 		offset: [0.000, 0.000]
-		friction: 0.500
-		elasticity: 0.500
+		mass: 250.000
+		friction: 0.900
+		elasticity: 0.400
 		material: metal
 		layer: entity, building
 		mask: world
@@ -29,6 +30,7 @@ animated.renderer:
 	{
 		texture: "bed.00"
 	}
+	offset: [0.000, -0.250]
 	z: -300.000
 }
 
