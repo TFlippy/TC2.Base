@@ -9,8 +9,11 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none

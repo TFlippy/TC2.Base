@@ -12,6 +12,10 @@
 		size: [56, 40]
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: buildings
@@ -31,17 +35,16 @@
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
-
+		
 		rotation_max: 0.200
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.7x5
-
+		prefab: "construction.7x5"
+		
 		requirements:
 		[
 			{
@@ -81,6 +84,7 @@
 			type: prefab
 			prefab: "headquarters"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

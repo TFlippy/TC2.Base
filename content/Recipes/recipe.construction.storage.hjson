@@ -1,9 +1,6 @@
 {
 	name: "Storage"
-	desc:
-		'''
-		
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -14,41 +11,31 @@
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier
 	type: construction
-
+	flags: no_amount_multiplier
+	tags: none
+	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 500.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "stone"
 			amount: 215.000
 		}
-		// {
-		// 	type: "work"
-		// 	work: "carpentry"
-		// 	amount: 400.000
-		// 	difficulty: 4.000
-		// }
-		// {
-		// 	type: "work"
-		// 	work: "masonry"
-		// 	amount: 600.000
-		// 	difficulty: 3.000
-		// }
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "storage"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

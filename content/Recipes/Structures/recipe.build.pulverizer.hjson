@@ -11,6 +11,10 @@
 		size: [48, 48]
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: industry
@@ -36,12 +40,11 @@
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.6x6
-
+		prefab: "construction.6x6"
+		
 		requirements:
 		[
 			{
@@ -77,6 +80,7 @@
 			type: prefab
 			prefab: "pulverizer"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }
