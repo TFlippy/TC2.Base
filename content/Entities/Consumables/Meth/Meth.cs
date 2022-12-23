@@ -163,7 +163,7 @@ namespace TC2.Base.Components
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Meth.Effect meth)
 		{
 			var modifier = meth.modifier_current;
-			
+
 			runner.air_brake_modifier += Maths.Lerp01(0.00f, 0.50f, modifier * 3.00f);
 			runner.crouch_speed_modifier = Maths.Lerp01(runner.crouch_speed_modifier, 0.80f, modifier * 3.00f);
 			runner.max_speed *= Maths.Lerp01(1.00f, 1.20f, modifier * 3.00f);
@@ -171,7 +171,7 @@ namespace TC2.Base.Components
 
 			var jump_multiplier = Maths.Lerp01(1.00f, 1.30f, modifier * 3.00f);
 			runner.jump_decay /= jump_multiplier * 1.30f;
-			runner.max_jump_speed *= jump_multiplier; 
+			runner.max_jump_speed *= jump_multiplier;
 		}
 
 #if CLIENT

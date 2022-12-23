@@ -250,7 +250,7 @@
 					//var d = projectile.damp;
 
 					var sqrt = MathF.Sqrt((v * v * v * v) - (g * (g * (p.X * p.X) + (2.00f * p.Y * (v * v)))));
-					
+
 					var a = MathF.Atan(((v * v) - sqrt) / (g * p.X));
 					var b = MathF.Atan(((v * v) + sqrt) / (g * p.X));
 
@@ -310,7 +310,7 @@
 					var line_len = 4.00f;
 					var line_gap = 2.00f;
 
-					for (int i = 0; i < iter_count; i++)
+					for (var i = 0; i < iter_count; i++)
 					{
 						var pos = pos_b;
 						var alpha = i * iter_count_inv;
@@ -782,7 +782,7 @@
 					}
 
 					//var faction_id = default(IFaction.Handle);
-					
+
 					//if (body_parent.IsNotNull())
 					//{
 

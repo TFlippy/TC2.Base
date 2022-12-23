@@ -89,7 +89,7 @@
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateAnimation(ISystem.Info info, Entity entity, 
+		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Torso.Data torso, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control)
