@@ -5,13 +5,15 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public float test = 8.00f;
+			public Sound.Handle sound_hit = ArcLance.sound_hit_default;
 
 			public Data()
 			{
 
 			}
 		}
+
+		public static readonly Sound.Handle sound_hit_default = "arcane_infuser.fizzle.00";
 
 		public static readonly Texture.Handle tex_blank = "blank";
 		public static readonly Texture.Handle tex_light = "light_invsqr";
@@ -118,7 +120,7 @@
 #endif
 
 #if SERVER
-			Sound.Play(ref region, "arcane_infuser.fizzle.00", data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
+			Sound.Play(ref region, arc_lance.sound_hit, data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
 			Shake.Emit(ref region, data.world_position, 0.50f, 0.80f, 20.00f);
 
 			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
