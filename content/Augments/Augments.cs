@@ -235,7 +235,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, snap: 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 

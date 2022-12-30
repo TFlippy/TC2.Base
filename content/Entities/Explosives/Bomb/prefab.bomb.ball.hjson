@@ -1,3 +1,8 @@
+$name: "Bomb"
+$desc:
+	'''
+	Cheap throwable bomb.
+	'''
 $tags: []
 
 control:
@@ -47,6 +52,7 @@ transform:
 fuse:
 {
 	time: 5.000
+	sparkle_offset: [0.375, -0.500]
 	failure_chance: 0.050
 	sound: "fuse_set"
 	flags: sparkle
@@ -54,7 +60,7 @@ fuse:
 	@light:
 	{
 		color: [1.000, 0.600, 0.000, 3.000]
-		offset: [-0.100, 0.100]
+		offset: [0.375, -0.500]
 		scale: [14.000, 14.000]
 		intensity: 0.000
 		texture: "light_invsqr"
@@ -72,16 +78,16 @@ explosive:
 {
 	radius: 4.000
 	power: 6.000
-	damage_entity: 10000.000
-	damage_terrain: 12000.000
+	damage_entity: 8000.000
+	damage_terrain: 7000.000
 	smoke_amount: 1.200
-	sparks_amount: 2.000
+	sparks_amount: 2.500
 	smoke_lifetime_multiplier: 1.500
 	smoke_velocity_multiplier: 1.200
-	flash_duration_multiplier: 0.150
+	flash_duration_multiplier: 0.550
 	flash_intensity_multiplier: 0.200
 	volume: 1.000
-	pitch: 2.000
+	pitch: 2.300
 }
 
 packable:

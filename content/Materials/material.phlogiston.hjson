@@ -1,6 +1,9 @@
 {
 	name: "Phlogiston"
-	description: "Concentrated fire - a very potent fuel."
+	description:
+		'''
+		Extremely potent fuel extracted from ancient underground pipelines.
+		'''
 	icon:
 	{
 		texture: "resource.phlogiston"
