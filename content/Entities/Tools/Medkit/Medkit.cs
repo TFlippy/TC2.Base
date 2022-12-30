@@ -117,7 +117,7 @@
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Medkit.Data medkit, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Parent, Optional] in Player.Data player, [Source.Parent, Optional] in Specialization.Medic.Data medic)
 		{
@@ -135,7 +135,6 @@
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
 					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic))
 					{
-						var random = XorRandom.New();
 						var total_healed_amount = 0.00f;
 
 						var power = medkit.power;

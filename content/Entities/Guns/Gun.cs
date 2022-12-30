@@ -521,10 +521,9 @@
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
 		{
 			ref var region = ref info.GetRegion();
-			var random = XorRandom.New();
 
 			gun_state.stage = Gun.Stage.Jammed;
 			gun_state.Sync(entity);
@@ -703,7 +702,7 @@
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
@@ -717,7 +716,6 @@
 				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
-				var random = XorRandom.New();
 				var base_vel = body.GetVelocity();
 
 				var failure_rate = gun.failure_rate;
@@ -982,7 +980,7 @@
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnReady(ISystem.Info info, Entity entity,
+		public static void OnReady(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
@@ -1041,7 +1039,6 @@
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
 					ref var region = ref info.GetRegion();
-					var random = XorRandom.New();
 
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 

@@ -62,9 +62,8 @@ namespace TC2.Base.Components
 		}
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)
 		{
-			var random = XorRandom.New();
 			if (random.NextBool(data.power * 0.20f))
 			{
 				explosive.flags |= Explosive.Flags.Primed | Explosive.Flags.Any_Damage;

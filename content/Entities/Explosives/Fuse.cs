@@ -40,7 +40,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", false, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Player.Data player)
 		{
@@ -55,7 +55,6 @@ namespace TC2.Base.Components
 				Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
 				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);
 
-				var random = XorRandom.New();
 				if (fuse.failure_chance > 0.00f && random.NextBool(fuse.failure_chance))
 				{
 					fuse.failure_time = fuse.time * random.NextFloatRange(0.30f, 0.70f);
@@ -67,10 +66,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
 		{
 			ref var region = ref info.GetRegion();
-			var random = XorRandom.New();
 
 			fuse.failure_time = fuse.time;
 			fuse.failure_chance += random.NextFloatRange(0.10f, 0.80f);

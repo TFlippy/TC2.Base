@@ -386,7 +386,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -394,7 +394,6 @@ namespace TC2.Base.Components
 
 			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit)
 			{
-				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
 
 				var parent = body.GetParent();

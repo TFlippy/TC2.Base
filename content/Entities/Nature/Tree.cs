@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
-		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnModified(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (!tree.flags.HasAll(Tree.Flags.Cut) && health.integrity < tree.health_cut)
 			{
@@ -53,7 +53,6 @@ namespace TC2.Base.Components
 				Sound.Play(ref region, tree.sound_cut, transform.position);
 				Shake.Emit(ref region, transform.position, 0.40f, 0.40f);
 
-				var random = XorRandom.New();
 				//Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
 
 				body.type = Body.Type.Dynamic;

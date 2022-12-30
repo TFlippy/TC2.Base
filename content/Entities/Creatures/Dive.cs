@@ -38,14 +38,13 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void Update(ISystem.Info info,
+		public static void Update(ISystem.Info info, ref XorRandom random,
 		[Source.Owned] in Dive.Data dive, [Source.Owned] ref Dive.State dive_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			if (organic_state.consciousness_shared > 0.60f && info.WorldTime > dive_state.next_dive && control.mouse.GetKey(Mouse.Key.Right))
 			{
 				ref var region = ref info.GetRegion();
-				var random = XorRandom.New();
 
 				dive_state.next_dive = info.WorldTime + dive.cooldown;
 

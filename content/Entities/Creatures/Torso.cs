@@ -73,9 +73,8 @@
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Torso.Data torso)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Torso.Data torso)
 		{
-			var random = XorRandom.New();
 			if (random.NextBool(data.power * 0.20f))
 			{
 				ref var region = ref info.GetRegion();

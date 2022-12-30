@@ -94,14 +94,13 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateHead(ISystem.Info info, Entity entity,
+		public static void UpdateHead(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.All] ref Alcohol.Effect alcohol, [Source.Owned] ref Head.Data head)
 		{
 			var modifier = alcohol.modifier_current + (alcohol.jitter_current * 0.75f);
 
 			if (info.WorldTime >= alcohol.next_sound && alcohol.hiccup_current > 0.90f)
 			{
-				var random = XorRandom.New();
 				Sound.Play(ref info.GetRegion(), sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
 
 				alcohol.next_sound = info.WorldTime + random.NextFloatRange(2.00f, 5.00f);
@@ -120,7 +119,7 @@ namespace TC2.Base.Components
 		public static float modifier_lerp = 0.001f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
+		public static void UpdateAmount(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Alcohol.Effect alcohol, [Source.Owned, Override] in Organic.Data organic)
 		{
 			alcohol.release_rate_current = Maths.MoveTowards(alcohol.release_rate_current, alcohol.release_rate_target, alcohol.release_step * info.DeltaTime);
 
@@ -144,8 +143,6 @@ namespace TC2.Base.Components
 			alcohol.amount_bloodstream -= amount_metabolized * elimination_modifier;
 
 #if SERVER
-			var random = XorRandom.New();
-
 			var modifier = alcohol.modifier_current;
 			if (modifier > 0.30f && alcohol.hiccup_current < 0.05f && random.NextBool(modifier * 0.005f))
 			{

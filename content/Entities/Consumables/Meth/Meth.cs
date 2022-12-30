@@ -101,11 +101,10 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateControls(ISystem.Info info, Entity entity, [Source.SharedAny] ref Meth.Effect meth, [Source.SharedAny, Override] in Organic.Data organic, [Source.Owned] in Arm.Data arm, [Source.SharedAny] ref Control.Data control)
+		public static void UpdateControls(ISystem.Info info, Entity entity, ref XorRandom random, [Source.SharedAny] ref Meth.Effect meth, [Source.SharedAny, Override] in Organic.Data organic, [Source.Owned] in Arm.Data arm, [Source.SharedAny] ref Control.Data control)
 		{
 			if (info.WorldTime >= meth.next_spasm)
 			{
-				var random = XorRandom.New();
 				if (meth.modifier_current > 0.25f && random.NextBool(0.001f * meth.modifier_current))
 				{
 					//App.WriteLine("spasm");

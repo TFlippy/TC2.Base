@@ -11,10 +11,8 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, Entity ent_attachment_slot, ref EssenceNode.FailureEvent data, [Source.Owned] ref Control.Data control)
+		public static void OnFailure(ISystem.Info info, Entity entity, Entity ent_attachment_slot, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Control.Data control)
 		{
-			var random = XorRandom.New();
-
 			control.mouse.SetKeyPressed(Mouse.Key.Left, random.NextBool(0.50f));
 			control.mouse.SetKeyPressed(Mouse.Key.Right, random.NextBool(0.50f));
 

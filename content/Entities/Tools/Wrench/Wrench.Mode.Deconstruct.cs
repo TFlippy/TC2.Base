@@ -160,7 +160,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f)]
-				public static void Update(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
+				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
 				{
 					ref var region = ref info.GetRegion();
 
@@ -169,8 +169,6 @@ namespace TC2.Base.Components
 						ref var target_transform = ref deconstruct.ref_dismantlable.entity.GetComponent<Transform.Data>();
 						if (target_transform.IsNotNull())
 						{
-							var random = XorRandom.New();
-
 							var dir = (target_transform.position - transform.position).GetNormalized(out var dist);
 							if (dist <= 4.00f && region.IsInLineOfSight(transform.position, target_transform.position, 0.125f, mask: Physics.Layer.World, exclude: Physics.Layer.Essence))
 							{
