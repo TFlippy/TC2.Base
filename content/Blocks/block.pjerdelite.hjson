@@ -18,6 +18,8 @@
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.650
+
+	color_preview: "0xff80775f"
 	
 	resources:
 	[

@@ -30,7 +30,7 @@
 	mappings:
 	[
 		{
-			color: "0xffff00ff"
+			color: "0xff800080"
 			tile_flags: solid, non_empty, ground
 			meta: 0
 		}
