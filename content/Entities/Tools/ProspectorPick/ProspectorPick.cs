@@ -43,6 +43,7 @@ namespace TC2.Base.Components
 			public void Draw()
 			{
 				ref var region = ref Client.GetRegion();
+				ref var terrain = ref region.GetTerrain();
 
 				var pos = GUI.WorldToCanvas(this.prospector_pick_state.position);
 
@@ -89,6 +90,30 @@ namespace TC2.Base.Components
 									//else color = GUI.font_color_default.WithColorMult(0.50f);
 
 									GUI.LabelShaded($"{block.name}:", ratio, "{0:P0}", color_a: color, color_b: GUI.font_color_default);
+								}
+							}
+
+							var offset = Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * prospector_pick.max_depth).WorldToCanvas();
+
+							var random = XorRandom.New((uint)(App.GetFixedTime() * 15.00));
+
+							var alpha = 1.00f; // (this.prospector_pick_state.next_hit - region.GetWorldTime()); //.Clamp0X();
+
+							var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
+							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
+							
+							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
+							static void Func(ref Tile tile, int x, int y, byte mask, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args)
+							{
+								if (tile.BlockID != 0)
+								{
+									ref var block = ref tile.Block;
+									//if (args.random.NextBool(0.05f) && block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
+									if (args.random.NextBool(0.10f) && block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
+									{
+										var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
+										GUI.DrawRectFilled(pos - new Vector2(args.random.NextFloatRange(-8.50f, 15.00f)), pos + new Vector2(args.random.NextFloatRange(-20.50f, 15.00f)), block.color_preview.WithAlphaMult(args.alpha * args.random.NextFloatRange(0.10f, 0.50f)));
+									}
 								}
 							}
 
