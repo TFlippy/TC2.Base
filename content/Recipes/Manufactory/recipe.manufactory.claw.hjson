@@ -12,9 +12,8 @@
 	min: 1
 	max: 1
 	step: 1
-	
-	// flags: no_amount_multiplier, blueprintable
-	flags: no_amount_multiplier
+
+	flags: no_amount_multiplier, blueprintable
 	type: workshop
 	tags: manufactory
 	
