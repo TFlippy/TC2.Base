@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace TC2.Base.Components
 {
 	public static partial class SteamEngine
@@ -11,6 +13,7 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 piston_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 steam_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset;
+			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 burst_offset;
 
 			public float steam_size = 1.00f;
 			public float steam_interval;
@@ -36,12 +39,23 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			public float speed_current; 		
+			public float speed_current;
 			public float force_current;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
 			[Save.Ignore, Net.Ignore] public float next_tick;
+		}
+
+		[IEvent.Data]
+		public partial struct ExplodeEvent: IEvent
+		{
+			public float power = 0.00f;
+
+			public ExplodeEvent()
+			{
+
+			}
 		}
 
 		public struct ConfigureRPC: Net.IRPC<SteamEngine.Data>
@@ -69,7 +83,8 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, 
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
 			ref var region = ref info.GetRegion();
 
@@ -81,7 +96,95 @@ namespace TC2.Base.Components
 
 		public const float update_interval = 0.20f;
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		//[ISystem.AddFirst(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		[ISystem.Event<SteamEngine.ExplodeEvent>(ISystem.Mode.Single)]
+		public static void OnExplode(ISystem.Info info, Entity entity, ref XorRandom random, ref SteamEngine.ExplodeEvent data,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
+		{
+			ref var region = ref info.GetRegion();
+
+			var max_radius = Maths.Clamp(data.power * 10.00f, 10.00f, 100.00f);
+
+			App.WriteLine("steam engine damaged");
+#if CLIENT
+			Sound.Play("explosion.steam.01", transform.position, volume: 1.00f);
+			Shake.Emit(ref region, transform.position, 1.00f, 1.00f, max_radius * 2.00f);
+
+			var smoke_count = (int)Maths.Clamp(data.power * 10.00f, 10.00f, 50.00f);
+			for (var i = 0; i < smoke_count; i++)
+			{
+				Particle.Spawn(ref region, new Particle.Data()
+				{
+					texture = texture_smoke,
+					lifetime = random.NextFloatRange(7.00f, 24.00f),
+					pos = transform.position + random.NextVector2(0.40f),
+					vel = random.NextUnitVector2Range(0.00f, 15.00f) + new Vector2(random.NextFloatRange(-40, 40), random.NextFloatRange(-30, 10)),
+					force = random.NextUnitVector2Range(0.00f, 2.00f) + new Vector2(random.NextFloatRange(0, 2), -random.NextFloatRange(1, 2)),
+					fps = random.NextByteRange(3, 8),
+					frame_count = 64,
+					frame_count_total = 64,
+					frame_offset = random.NextByteRange(0, 64),
+					scale = random.NextFloatRange(1.50f, 2.00f),
+					//rotation = random.NextFloat(4.00f),
+					angular_velocity = random.NextFloat(1.00f),
+					growth = random.NextFloatRange(0.05f, 0.20f),
+					drag = random.NextFloatRange(0.05f, 0.10f),
+					color_a = random.NextColor32Range(new Color32BGRA(200, 255, 255, 255), new Color32BGRA(140, 240, 240, 240)),
+					color_b = new Color32BGRA(0, 240, 240, 240),
+					stretch = new Vector2(random.NextFloatRange(0.40f, 1.00f), random.NextFloatRange(0.40f, 1.00f)),
+					face_dir_ratio = random.NextFloatRange(0.00f, 1.00f),
+				});
+			}
+#endif
+
+#if SERVER
+			entity.AddTag<SteamEngine.Data>("damaged");
+#endif
+		}
+
+#if CLIENT
+		[ISystem.Render(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		public static void RenderBurst(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Animated.Renderer.Data renderer,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
+		{
+			Animated.Renderer.Draw(transform, new()
+			{
+				sprite =new Sprite("steam_engine.burst.00", 32, 24, 1, 0),
+				z = renderer.z + 0.01f,
+				//rotation = -(resizable.flags.HasAny(Resizable.Flags.Orthogonal) ? Maths.Snap(rot, MathF.PI * 0.50f) : rot),
+				rotation = 0.00f,
+				scale = Vector2.One,
+				offset = steam_engine.burst_offset
+			});
+		}
+#endif
+
+#if SERVER
+		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		public static void OnPostDamage(ISystem.Info info, Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
+		[Source.Owned] ref Health.Data health, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
+		{
+			var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
+			if (modifier > 0.30f)
+			{
+				var health_min = MathF.Min(health.integrity, health.durability);
+				if (health_min <= 0.50f && random.NextBool(1.00f - health_min + (modifier * 0.20f)))
+				{
+					var power = MathF.Pow(steam_engine.force * modifier * 0.001f, 0.50f);
+
+					var ev = new SteamEngine.ExplodeEvent()
+					{
+						power = power
+					};
+					entity.NotifyDeferred(ev, sync: true);
+				}
+			}
+		}
+#endif
+
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
 		public static void UpdateShake(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] ref Body.Data body,
@@ -93,10 +196,10 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info,
+		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
-		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, 
+		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			var torque = steam_engine.force * steam_engine.piston_radius;
@@ -109,6 +212,53 @@ namespace TC2.Base.Components
 
 			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - wheel_state.angular_velocity));
 			burner_state.modifier = (burner_state.modifier + (m * 0.01f)).Clamp01();
+
+			if (info.WorldTime >= steam_engine_state.next_tick)
+			{
+				steam_engine_state.next_tick = info.WorldTime + update_interval;
+			}
+		}
+
+		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		public static void UpdateOverloaded(ISystem.Info info, Entity entity, ref XorRandom random,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Health.Data health)
+		{
+#if SERVER
+			if (wheel_state.flags.HasAny(Axle.State.Flags.Revolved))
+			{
+				var health_min = MathF.Min(health.integrity, health.durability);
+				if (health_min < 0.80f)
+				{
+					var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
+					var chance = (1.00f - health_min) * (modifier * 0.10f);
+
+					//App.WriteLine($"{chance}");
+					if (random.NextBool(chance))
+					{
+						entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), random.NextFloatRange(10, 100), Material.Type.Metal, Damage.Type.Impact);
+						//App.WriteLine("overloaded");
+					}
+				}
+			}
+#endif
+		}
+
+		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		public static void UpdateDamaged(ISystem.Info info,
+		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
+		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
+		{
+			var torque = steam_engine.force * steam_engine.piston_radius;
+			var speed = 0.00f;
+			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
+			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.25f);
+
+			wheel_state.SetAngularVelocity(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
+
+			burner_state.modifier = 0.00f;
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
