@@ -111,7 +111,8 @@
 
 			walking:
 			{
-				var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos(info.WorldTime * bob_speed) + 1.00f) * 0.50f), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
+				//var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos(info.WorldTime * bob_speed) + 1.00f) * 0.50f), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
+				var offset = new Vector2(-bob_amplitude.X * Maths.HvCos(info.WorldTime * bob_speed), -bob_amplitude.Y * Maths.HvSin(info.WorldTime * bob_speed));
 
 				if (!headbob.IsNull())
 				{

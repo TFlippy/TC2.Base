@@ -69,6 +69,7 @@ rope.renderer:
 	texture: "conveyor.pneumatic"
 	thickness: 0.500
 	scale: 8.000
+	z: 15.000
 }
 
 transform:
