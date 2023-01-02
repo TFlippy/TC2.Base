@@ -2,6 +2,10 @@ $tags: []
 
 projectile:
 {
+	damage_base: 2000.000
+	damage_bonus: 500.000
+	damage_type: bullet_ac
+
 	lifetime: 20.000
 	ignore_time: 0.100
 	size: 0.750
@@ -34,9 +38,9 @@ animated.renderer:
 explosive:
 {
 	radius: 8.000
-	power: 5.000
-	damage_entity: 40000.000
-	damage_terrain: 45000.000
+	power: 4.000
+	damage_entity: 20000.000
+	damage_terrain: 35000.000
 	smoke_amount: 1.700
 	smoke_velocity_multiplier: 1.500
 	smoke_lifetime_multiplier: 1.500

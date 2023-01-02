@@ -36,6 +36,8 @@ explosive:
 	smoke_amount: 3.000
 	smoke_lifetime_multiplier: 0.200
 	smoke_velocity_multiplier: 3.000
+	flash_duration_multiplier: 0.650
+	flash_intensity_multiplier: 0.700
 	volume: 1.400
 	pitch: 1.800
 	flags: primed
