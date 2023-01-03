@@ -2,13 +2,15 @@ $tags: []
 
 projectile:
 {
-	damage_base: 200.000
-	damage_bonus: 500.000
+	damage_base: 100.000
+	damage_bonus: 200.000
 	lifetime: 15.000
 	ignore_time: 0.100
-	damage_type: bullet_musket
+	damage_type: bullet_ac
 	size: 0.500
 	ricochet_count: 0
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
 }
 
 transform:
@@ -30,8 +32,8 @@ explosive:
 {
 	radius: 7.000
 	power: 4.000
-	damage_entity: 100.000
-	damage_terrain: 200.000
+	damage_entity: 200.000
+	damage_terrain: 500.000
 	fire_amount: 0.000
 	smoke_amount: 9.000
 	smoke_lifetime_multiplier: 2.500

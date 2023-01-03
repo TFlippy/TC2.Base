@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 2500.000
-	damage_bonus: 500.000
+	damage_base: 350.000
+	damage_bonus: 100.000
 	damage_type: bullet_ac
 
 	lifetime: 20.000

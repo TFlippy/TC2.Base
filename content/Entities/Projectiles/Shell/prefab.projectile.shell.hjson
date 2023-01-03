@@ -2,7 +2,7 @@ $tags: []
 
 projectile:
 {
-	damage_base: 2000.000
+	damage_base: 200.000
 	damage_bonus: 500.000
 	damage_type: bullet_ac
 
@@ -39,7 +39,7 @@ explosive:
 {
 	radius: 8.000
 	power: 4.000
-	damage_entity: 20000.000
+	damage_entity: 15000.000
 	damage_terrain: 35000.000
 	smoke_amount: 1.700
 	smoke_velocity_multiplier: 1.500
