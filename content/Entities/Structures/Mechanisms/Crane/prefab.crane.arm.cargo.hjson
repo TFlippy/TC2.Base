@@ -34,7 +34,19 @@ animated.renderer:
 
 health:
 {
-	max: 17000.000
+	max: 35000.000
+}
+
+armor:
+{
+	toughness: 800.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 control:

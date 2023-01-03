@@ -58,10 +58,10 @@ health:
 
 armor:
 {
-	toughness: 650.000
-	protection: 1.00
+	toughness: 950.000
+	protection: 0.900
 	
-	knockback_modifier: 1.50
+	knockback_modifier: 1.500
 	
 	material_type: metal
 }

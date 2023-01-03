@@ -31,15 +31,15 @@ body:
 
 health:
 {
-	max: 15000.000
+	max: 35000.000
 }
 
 armor:
 {
 	toughness: 1500.000
-	protection: 0.500
+	protection: 0.850
 	
-	knockback_modifier: 1.300
+	knockback_modifier: 1.500
 	pain_modifier: 0.000
 
 	material_type: metal
@@ -86,6 +86,7 @@ storage:
 		stack_size_multiplier: 4.000
 		type: ammo
 		flags: allow_ducts
+		offset: [-1.000, 0.375]
 	}
 }
 
@@ -133,7 +134,7 @@ mount:
 	{
 		offset_a: [-0.625, -1.125]
 		max_force: 200000.000
-		max_torque: 125000.000
+		max_torque: 200000.000
 		flags: no_stress, control_write, force_facing
 		z: 0.000
 

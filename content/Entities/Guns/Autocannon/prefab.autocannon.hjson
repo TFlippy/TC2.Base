@@ -101,12 +101,12 @@ animated.renderer:
 
 health:
 {
-	max: 13000.000
+	max: 20000.000
 }
 
 armor:
 {
-	toughness: 300.000
+	toughness: 800.000
 	protection: 0.900
 	
 	knockback_modifier: 1.300

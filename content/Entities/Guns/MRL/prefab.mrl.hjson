@@ -111,8 +111,8 @@ health:
 
 armor:
 {
-	toughness: 600.000
-	protection: 0.900
+	toughness: 800.000
+	protection: 0.800
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000

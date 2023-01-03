@@ -23,15 +23,15 @@ body:
 
 health:
 {
-	max: 3000.000
+	max: 6000.000
 }
 
 armor:
 {
 	toughness: 650.000
-	protection: 1.000
+	protection: 0.850
 	
-	knockback_modifier: 1.000
+	knockback_modifier: 1.500
 	
 	material_type: metal
 }

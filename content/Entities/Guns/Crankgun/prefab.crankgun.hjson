@@ -108,7 +108,7 @@ animated.renderer:
 
 health:
 {
-	max: 15000.000
+	max: 12000.000
 }
 
 armor:
