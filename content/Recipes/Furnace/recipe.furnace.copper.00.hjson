@@ -49,8 +49,8 @@
 		{
 			type: work
 			work: melting
-			amount: 70.000
-			difficulty: 3.000
+			amount: 80.000
+			difficulty: 4.000
 		}
 	]
 	

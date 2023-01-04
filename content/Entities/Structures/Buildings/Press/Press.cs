@@ -245,6 +245,8 @@
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
 
+						Crafting.Context.NewFromPlayer(ref Client.GetRegion(), ref player, ent_this: this.ent_press, out var context);
+
 						var w_right = (48 * 4) + 24;
 
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
@@ -255,7 +257,8 @@
 
 								using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
 								{
-									CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+									CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 
 									//ref var recipe = ref this.crafter.GetCurrentRecipe();
 									//if (!recipe.IsNull())
@@ -265,8 +268,13 @@
 									//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 									//}
 
-									load_graph[load_graph_index] = this.axle_state.new_tmp_load;
-									GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.GetRemainingSpace(), scale_min: 0.00f, scale_max: 10000.00f);
+									using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
+									{
+										GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
+
+										load_graph[load_graph_index] = this.axle_state.new_tmp_load;
+										GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.GetRemainingSpace(), scale_min: 0.00f, scale_max: 10000.00f);
+									}
 								}
 							}
 						}

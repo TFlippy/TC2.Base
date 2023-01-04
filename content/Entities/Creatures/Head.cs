@@ -86,33 +86,34 @@ namespace TC2.Base.Components
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.05f;
 		}
 
-		[ISystem.RemoveLast(ISystem.Mode.Single)]
-		public static void OnRemoveHead([Source.Parent, Override] ref Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Parent] in Joint.Base joint)
-		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
-			{
-				organic_state.consciousness_shared = 0.00f;
-				organic_state.motorics_shared = 0.00f;
-			}
-		}
+		// TODO: this causes a weird crash in Flecs
+		//[ISystem.RemoveLast(ISystem.Mode.Single)]
+		//public static void OnRemoveHead([Source.Parent, Override] ref Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Parent] in Joint.Base joint)
+		//{
+		//	if (joint.flags.HasAll(Joint.Flags.Organic))
+		//	{
+		//		organic_state.consciousness_shared = 0.00f;
+		//		organic_state.motorics_shared = 0.00f;
+		//	}
+		//}
 
 #if CLIENT
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUIParent(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
-		{
-			IStatusEffect.ScheduleDraw(new()
-			{
-				icon = "ui_icon_effect.burning",
-				//icon_extra = "beer",
-				value = $"{entity.GetName()}\n{health.integrity:0.00}",
-				text_color = GUI.font_color_default,
-				name = $""
-			});
-		}
+		//[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		//public static void OnGUIParent(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
+		//{
+		//	IStatusEffect.ScheduleDraw(new()
+		//	{
+		//		icon = "ui_icon_effect.burning",
+		//		//icon_extra = "beer",
+		//		value = $"{entity.GetName()}\n{health.integrity:0.00}",
+		//		text_color = GUI.font_color_default,
+		//		name = $""
+		//	});
+		//}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
-		public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
-			=> OnGUIParent(info, entity, in player, in health, in organic);
+		//[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		//public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
+		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)

@@ -99,7 +99,7 @@ crafter:
 {
 	sound_produce: "furnace.produce.00"
 	
-	@inventory8:
+	@inventory16:
 	{
 		name: "Output"
 		stack_size_multiplier: 4.000

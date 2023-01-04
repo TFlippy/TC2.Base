@@ -33,7 +33,19 @@ body:
 
 health:
 {
-	max: 40000.000
+	max: 30000.000
+}
+
+armor:
+{
+	toughness: 400.000
+	protection: 0.650
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:
@@ -49,6 +61,7 @@ steamengine:
 {
 	piston_offset: [-1.000, 0.125]
 	steam_offset: [-2.500, -3.000]
+	burst_offset: [0.500, 0.125]
 	steam_interval: 0.200
 	piston_radius: 0.700
 	speed_modifier: 0.750

@@ -6,6 +6,7 @@ namespace TC2.Base.Components
 	public static partial class SteamEngine
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
+		public static readonly Sprite sprite_burst_default = new Sprite("steam_engine.burst.00", 32, 24, 1, 0);
 
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
@@ -15,15 +16,19 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 burst_offset;
 
+			public Sprite sprite_burst = SteamEngine.sprite_burst_default;
+
 			public float steam_size = 1.00f;
 			public float steam_interval;
 			public float piston_radius;
 
 			public float speed_max;
-			public float speed_target;
+			public float speed_target; // TODO: Move this into SteamEngine.State
 
 			public float force;
 			public float efficiency;
+			public float burst_threshold = 0.85f;
+			public float burst_chance_modifier = 1.00f;
 			public float shake_multiplier = 1.00f;
 
 			public float volume_multiplier = 1.00f;
@@ -150,7 +155,7 @@ namespace TC2.Base.Components
 		{
 			Animated.Renderer.Draw(transform, new()
 			{
-				sprite =new Sprite("steam_engine.burst.00", 32, 24, 1, 0),
+				sprite = steam_engine.sprite_burst,
 				z = renderer.z + 0.01f,
 				//rotation = -(resizable.flags.HasAny(Resizable.Flags.Orthogonal) ? Maths.Snap(rot, MathF.PI * 0.50f) : rot),
 				rotation = 0.00f,
@@ -170,7 +175,10 @@ namespace TC2.Base.Components
 			if (modifier > 0.30f)
 			{
 				var health_min = MathF.Min(health.integrity, health.durability);
-				if (health_min <= 0.50f && random.NextBool(1.00f - health_min + (modifier * 0.20f)))
+				var chance = (1.00f - (health_min * 1.50f)) * modifier * 0.15f * steam_engine.burst_chance_modifier;
+
+				//App.WriteLine($"boom {chance}");
+				if (health_min <= steam_engine.burst_threshold && random.NextBool(chance))
 				{
 					var power = MathF.Pow(steam_engine.force * modifier * 0.001f, 0.50f);
 
@@ -229,15 +237,16 @@ namespace TC2.Base.Components
 			if (wheel_state.flags.HasAny(Axle.State.Flags.Revolved))
 			{
 				var health_min = MathF.Min(health.integrity, health.durability);
-				if (health_min < 0.80f)
+				var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
+
+				if (health_min < steam_engine.burst_threshold * modifier)
 				{
-					var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
-					var chance = (1.00f - health_min) * (modifier * 0.10f);
+					var chance = (1.00f - (health_min * health_min)) * (modifier * 0.20f * steam_engine.burst_chance_modifier);
 
 					//App.WriteLine($"{chance}");
 					if (random.NextBool(chance))
 					{
-						entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), random.NextFloatRange(10, 100), Material.Type.Metal, Damage.Type.Impact);
+						entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), random.NextFloatRange(50, steam_engine.force * modifier * 0.10f), Material.Type.Metal, Damage.Type.Blunt);
 						//App.WriteLine("overloaded");
 					}
 				}

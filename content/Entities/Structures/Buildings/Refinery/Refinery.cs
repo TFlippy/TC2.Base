@@ -269,6 +269,8 @@
 					ref var player = ref Client.GetPlayer();
 					ref var region = ref Client.GetRegion();
 
+					Crafting.Context.NewFromPlayer(ref Client.GetRegion(), ref player, ent_this: this.ent_refinery, out var context);
+
 					var w_right = (48 * 4) + 24;
 
 					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
@@ -281,7 +283,9 @@
 							{
 								GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
 
-								CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+								CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
+								//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+								//CrafterExt.DrawRecipe(context: ref context, recipe: ref this.crafter.GetCurrentRecipe(), current_index: this.crafter_state.current_index, progress: this.crafter_state.progress.AsSpan(), amount_multiplier: this.crafter.amount_multiplier);
 
 
 								//ref var recipe = ref this.crafter.GetCurrentRecipe();
