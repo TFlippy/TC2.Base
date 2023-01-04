@@ -12,7 +12,7 @@
 	flags: raw, powder, smeltable, metal, despawnable, granular
 	mass_per_unit: 0.230
 	market_price: 7.400
-	quantity_max: 250.000
+	quantity_max: 500.000
 	prefab: "resource.copper.powder"
 	
 	projectile_count: 0
