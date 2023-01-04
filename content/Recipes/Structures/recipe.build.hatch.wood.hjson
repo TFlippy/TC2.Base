@@ -10,6 +10,10 @@
 		texture: "hatch.wood.icon"
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: construction
@@ -29,7 +33,7 @@
 		min_support: 0.300
 		min_clearance: 0.850
 		min_claim: 1.000
-
+		
 		rotation_max: 6.283
 		
 		sound: "building_place"
@@ -40,7 +44,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 120.000
+			amount: 12.000
 		}
 	]
 	
@@ -50,6 +54,7 @@
 			type: prefab
 			prefab: "hatch.wood"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

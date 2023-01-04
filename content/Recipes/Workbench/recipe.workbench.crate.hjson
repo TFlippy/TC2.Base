@@ -14,19 +14,19 @@
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
 	type: workshop
+	flags: no_amount_multiplier, blueprintable
 	tags: workbench
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 100.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 200.000
 			difficulty: 7.000
@@ -36,9 +36,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "crate"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

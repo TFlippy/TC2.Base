@@ -9,24 +9,24 @@
 	{
 		texture: "crate.small"
 	}
-
+	
 	min: 1
 	max: 8
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable
 	tags: workbench
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 40.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 150.000
 			difficulty: 6.000
@@ -36,9 +36,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "crate.small"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

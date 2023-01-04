@@ -31,7 +31,7 @@
 		{
 			type: work
 			work: "heating"
-			amount: 7.000
+			amount: 70.000
 			difficulty: 15.000
 		}
 	]
@@ -41,14 +41,14 @@
 		{
 			type: resource
 			material: "charcoal"
-			amount: 0.040
-			amount_extra: 0.050
+			amount: 0.400
+			amount_extra: 0.500
 		}
 		{
 			type: resource
 			material: "tar"
-			amount: 0.012
-			amount_extra: 0.095
+			amount: 0.120
+			amount_extra: 0.950
 		}
 	]
 }

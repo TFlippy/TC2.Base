@@ -23,7 +23,7 @@
 	[
 		{
 			material: "wood"
-			quantity: 0.100
+			quantity: 0.010
 		}
 		{
 			material: "mithril"

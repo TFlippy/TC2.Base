@@ -1,6 +1,9 @@
 {
 	name: "Wood"
-	desc: "Good-quality lumber used in construction and as a fuel."
+	desc:
+		'''
+		Good-quality lumber used in construction and as a fuel.
+		'''
 	
 	icon:
 	{
@@ -8,24 +11,25 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	min: 100
 	max: 500
 	step: 100
+	
 	type: sell
+	flags: none
 	tags: market
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 1.000
 		}
@@ -34,8 +38,9 @@
 	products:
 	[
 		{
-			type: "money"
-			amount: 0.199
+			type: money
+			amount: 1.990
+			amount_extra: 0.000
 		}
 	]
 }

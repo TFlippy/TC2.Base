@@ -10,6 +10,10 @@
 		texture: "ladder.wood.icon"
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: construction
@@ -28,7 +32,7 @@
 		min_support: 0.150
 		min_clearance: 0.750
 		min_claim: 1.000
-
+		
 		length_min: 1.000
 		length_max: 7.500
 		length_step: 0.625
@@ -41,7 +45,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 20.000
+			amount: 2.000
 		}
 	]
 	
@@ -51,6 +55,7 @@
 			type: prefab
 			prefab: "ladder.wood"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

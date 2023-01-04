@@ -1,6 +1,9 @@
 {
 	name: "Crossbow"
-	desc: "A ranged weapon that's a bit more advanced than a bow."
+	desc:
+		'''
+		A ranged weapon that's a bit more advanced than a bow.
+		'''
 	
 	icon:
 	{
@@ -10,29 +13,31 @@
 	min: 1
 	max: 5
 	step: 1
+	
 	type: workshop
+	flags: none
 	tags: workbench
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 60.000
+			amount: 6.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "cloth"
 			amount: 2.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 170.000
 			difficulty: 6.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "assembling"
 			amount: 300.000
 			difficulty: 5.000
@@ -42,9 +47,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "crossbow"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }
