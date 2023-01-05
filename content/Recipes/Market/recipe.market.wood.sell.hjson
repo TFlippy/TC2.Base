@@ -18,9 +18,9 @@
 		size: [16, 16]
 	}
 	
-	min: 100
+	min: 50
 	max: 500
-	step: 100
+	step: 50
 	
 	type: sell
 	flags: none
@@ -39,7 +39,7 @@
 	[
 		{
 			type: money
-			amount: 1.990
+			amount: 0.790
 			amount_extra: 0.000
 		}
 	]

@@ -25,7 +25,7 @@
 		{
 			type: "work"
 			work: "scavenging"
-			amount: 15.000
+			amount: 8.000
 			difficulty: 10.000
 		}
 	]

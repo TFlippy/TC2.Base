@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 500.000
+			quantity: 200.000
 		}
 	]
 }

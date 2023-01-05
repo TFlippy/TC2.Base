@@ -25,7 +25,7 @@
 		{
 			type: "work"
 			work: "scavenging"
-			amount: 8.000
+			amount: 3.000
 			difficulty: 6.000
 		}
 	]
@@ -35,7 +35,7 @@
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 0.040
+			amount: 0.070
 			amount_extra: 0.150
 		}
 		{

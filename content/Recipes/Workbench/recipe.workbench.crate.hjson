@@ -29,7 +29,7 @@
 			type: work
 			work: "woodworking"
 			amount: 200.000
-			difficulty: 7.000
+			difficulty: 3.000
 		}
 	]
 	

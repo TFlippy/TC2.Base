@@ -67,7 +67,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 4000.000
+			quantity: 700.000
 		}
 		{
 			material: "resin"
