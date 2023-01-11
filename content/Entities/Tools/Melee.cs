@@ -160,7 +160,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (player.IsLocal())
+			if (player.IsLocal() && !GUI.IsHovered)
 			{
 				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
@@ -232,6 +232,12 @@ namespace TC2.Base.Components
 							dist_max = MathF.Max(dist_max, result.alpha * melee.max_distance);
 							index_max = i;
 
+							if (result.entity.IsValid())
+							{
+								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+								GUI.SetCursor(App.CursorType.Attack, 1000);
+							}
+
 							break;
 
 							//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
@@ -257,7 +263,8 @@ namespace TC2.Base.Components
 								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
 
 								var closest_result = result.GetClosestPoint(pos_target, true);
-								if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+								//if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+								if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 								modifier *= melee.penetration_falloff;
 								penetration--;
@@ -268,6 +275,12 @@ namespace TC2.Base.Components
 								//pos_target = closest_result.world_position; // pos + (dir * len * result.alpha) + (dir * melee.thickness);
 								//pos_target = pos + (dir * dist_max);
 								pos_hit = closest_result.world_position;
+
+								if (result.entity.IsValid())
+								{
+									GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+									GUI.SetCursor(App.CursorType.Attack, 1000);
+								}
 
 								if (i == index_max) break;
 							}
@@ -511,7 +524,8 @@ namespace TC2.Base.Components
 									}
 
 									var closest_result = result.GetClosestPoint(pos_target, true);
-									if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+									//if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+									if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 									modifier *= melee.penetration_falloff;
 									penetration--;

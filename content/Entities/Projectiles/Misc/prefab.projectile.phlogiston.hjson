@@ -2,15 +2,15 @@ $tags: []
 
 projectile:
 {
-	damage_base: 0.000
-	damage_bonus: 0.000
-	lifetime: 30.000
-	ignore_time: 0.100
+	damage_base: 100.000
+	damage_bonus: 500.000
+	lifetime: 10.000
+	ignore_time: 0.150
 	damage_type: fire
-	size: 0.250
+	size: 0.050
 	ricochet_count: 0
-	gravity: 2.000
-	damp: 0.997
+	gravity: 1.000
+	damp: 0.989
 
 	@light:
 	{
@@ -18,7 +18,7 @@ projectile:
 		offset: [0.000, 0.000]
 		scale: [30.000, 10.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.fire.00"
 	}
 }
 
@@ -61,11 +61,41 @@ cluster:
 {
 	prefab: "fire.phlogiston"
 	spread: 0.400
-	speed: 1.000
+	speed: 10.000
 	count: 1
 
 	speed_modifier_min: 0.300
 	speed_modifier_max: 1.300
+}
+
+flare:
+{
+	lifetime: 8.000
+	smoke_amount: 0.400
+	sparks_amount: 0.800
+	flicker: 0.500
+	flicker_interval: 0.030
+	lerp: 0.050
+	size: 4.000
+
+	sound_volume: 3.000
+	sound_pitch: 1.500
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 1.000]
+		offset: [0.000, 0.000]
+		scale: [4.000, 32.000]
+		intensity: 1.000
+		texture: "light.fire.00"
+	}
+
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		size: 1.500
+		size_max_modifier: 2.000
+	}
 }
 
 // body:

@@ -227,32 +227,32 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
-		public static void UpdateOverloaded(ISystem.Info info, Entity entity, ref XorRandom random,
-		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
-		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Health.Data health)
-		{
-#if SERVER
-			if (wheel_state.flags.HasAny(Axle.State.Flags.Revolved))
-			{
-				var health_min = MathF.Min(health.integrity, health.durability);
-				var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
+//		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+//		public static void UpdateOverloaded(ISystem.Info info, Entity entity, ref XorRandom random,
+//		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
+//		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, [Source.Owned] in Transform.Data transform,
+//		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Health.Data health)
+//		{
+//#if SERVER
+//			if (wheel_state.flags.HasAny(Axle.State.Flags.Revolved))
+//			{
+//				var health_min = MathF.Min(health.integrity, health.durability);
+//				var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
 
-				if (health_min < steam_engine.burst_threshold * modifier)
-				{
-					var chance = (1.00f - (health_min * health_min)) * (modifier * 0.20f * steam_engine.burst_chance_modifier);
+//				if (health_min < steam_engine.burst_threshold * modifier)
+//				{
+//					var chance = (1.00f - (health_min * health_min)) * (modifier * 0.20f * steam_engine.burst_chance_modifier);
 
-					//App.WriteLine($"{chance}");
-					if (random.NextBool(chance))
-					{
-						entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), random.NextFloatRange(50, steam_engine.force * modifier * 0.10f), Material.Type.Metal, Damage.Type.Blunt);
-						//App.WriteLine("overloaded");
-					}
-				}
-			}
-#endif
-		}
+//					//App.WriteLine($"{chance}");
+//					if (random.NextBool(chance))
+//					{
+//						entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), random.NextFloatRange(50, steam_engine.force * modifier * 0.10f), Material.Type.Metal, Damage.Type.Blunt);
+//						//App.WriteLine("overloaded");
+//					}
+//				}
+//			}
+//#endif
+//		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
 		public static void UpdateDamaged(ISystem.Info info,

@@ -124,11 +124,6 @@ storage:
 	}
 }
 
-tooltip:
-{
-
-}
-
 seat.attachable:
 {
 

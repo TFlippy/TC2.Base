@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 	public static partial class Flare
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
-		public static readonly Texture.Handle tex_light = "light_invsqr";
+		public static readonly Texture.Handle tex_light = "light.fire.00";
 		public static readonly Texture.Handle texture_metal_spark = "Metal_Spark";
 
 		[IComponent.Data(Net.SendType.Unreliable)]
