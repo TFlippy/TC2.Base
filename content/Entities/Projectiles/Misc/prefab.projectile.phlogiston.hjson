@@ -46,7 +46,7 @@ transform:
 // 		offset: [0.000, 0.500]
 // 		scale: [16.000, 16.000]
 // 		intensity: 2.000
-// 		texture: "light_invsqr"
+// 		texture: "light.circle.00"
 // 	}
 
 // 	@sound.emitter:
@@ -126,7 +126,7 @@ flare:
 // 		offset: [0.000, 0.500]
 // 		scale: [16.000, 32.000]
 // 		intensity: 2.000
-// 		texture: "light_invsqr"
+// 		texture: "light.circle.00"
 // 	}
 // }
 

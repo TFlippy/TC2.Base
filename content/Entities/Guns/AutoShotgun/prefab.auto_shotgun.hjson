@@ -59,7 +59,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [28.000, 20.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

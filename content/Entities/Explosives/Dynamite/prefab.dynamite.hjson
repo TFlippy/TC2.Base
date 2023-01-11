@@ -64,7 +64,7 @@ fuse:
 		offset: [-0.100, 0.100]
 		scale: [12.000, 12.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:

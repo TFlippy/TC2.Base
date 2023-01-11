@@ -62,7 +62,7 @@ light:
 	offset: [-1.250, -2.600]
 	scale: [32.000, 32.000]
 	intensity: 0.800
-	texture: "light_invsqr"
+	texture: "light.circle.00"
 }
 
 faction:

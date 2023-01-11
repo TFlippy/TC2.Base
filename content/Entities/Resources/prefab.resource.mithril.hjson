@@ -57,7 +57,7 @@ mithril:
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 1.600
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

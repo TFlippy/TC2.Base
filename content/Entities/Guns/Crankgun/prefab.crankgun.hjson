@@ -59,7 +59,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [30.000, 20.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -146,7 +146,7 @@ overheat:
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:
