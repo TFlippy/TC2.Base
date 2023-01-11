@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 				var prefab = Essence.GetEssencePrefab(type);
 				if (prefab.id != 0)
 				{
-					if (amount >= 5.00f)
+					if (amount >= 1.00f)
 					{
 						region.SpawnPrefab(prefab, position).ContinueWith(x =>
 						{

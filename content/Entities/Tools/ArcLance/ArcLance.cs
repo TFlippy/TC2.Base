@@ -16,7 +16,7 @@
 		public static readonly Sound.Handle sound_hit_default = "arcane_infuser.fizzle.00";
 
 		public static readonly Texture.Handle tex_blank = "blank";
-		public static readonly Texture.Handle tex_light = "light_invsqr";
+		public static readonly Texture.Handle tex_light = "light.circle.00";
 		public static readonly Texture.Handle tex_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
