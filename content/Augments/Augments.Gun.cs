@@ -637,6 +637,8 @@ namespace TC2.Base
 							}
 						}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 5.00f));
 				}
 			));
 
@@ -2333,6 +2335,8 @@ namespace TC2.Base
 							}
 						}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 5.00f));
 				}
 			));
 

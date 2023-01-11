@@ -38,6 +38,11 @@
 			amount: 0.800
 		}	
 		{
+			type: "resource"
+			material: "lubricant"
+			amount: 1.000
+		}	
+		{
 			type: "work"
 			work: "assembling"
 			amount: 150.000

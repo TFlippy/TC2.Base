@@ -32,15 +32,18 @@ namespace TC2.Base
 							requirement.amount *= 1.30f;
 							requirement.difficulty += 3.00f;
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								requirement.amount *= 1.20f;
-							}
-						}
+						//else if (requirement.type == Crafting.Requirement.Type.Resource)
+						//{
+						//	ref var material = ref requirement.material.GetData();
+						//	if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+						//	{
+						//		requirement.amount *= 1.20f;
+						//	}
+						//}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 10.00f));
 				}
 			));
 

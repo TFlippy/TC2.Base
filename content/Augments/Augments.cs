@@ -86,7 +86,7 @@ namespace TC2.Base
 					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
 					light.scale = new Vector2(32.000f, 32.000f);
 					light.intensity = 1.000f;
-					light.texture = "light_invsqr";
+					light.texture = "light.circle.00";
 				},
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -212,6 +212,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_chance = 0.00f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 4.00f));
 				}
 			));
 
@@ -478,6 +479,7 @@ namespace TC2.Base
 
 					amount = MathF.Ceiling(amount);
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 20.00f));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -1430,7 +1432,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f));
 				}
 			));
 

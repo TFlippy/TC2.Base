@@ -44,6 +44,11 @@
 		}
 		{
 			type: "resource"
+			material: "lubricant"
+			amount: 0.200
+		}
+		{
+			type: "resource"
 			material: "machine_parts"
 			amount: 4.000
 			flags: no_scaling
