@@ -129,14 +129,14 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Of<Hair.Data>] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Of<Beard.Data>] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void UpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;

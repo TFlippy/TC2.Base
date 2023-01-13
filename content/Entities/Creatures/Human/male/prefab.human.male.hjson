@@ -257,32 +257,26 @@ lootable:
 			}
 		}
 		
-		hair:
+		animated.renderer|"hair":
 		{
-			@animated.renderer:
+			sprite:
 			{
-				sprite:
-				{
-					texture: "human.male.head.hair"
-					count: 1
-					size: [24, 24]
-				}
-				z: -34.900
+				texture: "human.male.head.hair"
+				count: 1
+				size: [24, 24]
 			}
+			z: -34.900
 		}
 		
-		beard:
+		animated.renderer|"beard":
 		{
-			@animated.renderer:
+			sprite:
 			{
-				sprite:
-				{
-					texture: "human.male.head.beard"
-					count: 1
-					size: [16, 16]
-				}
-				z: -34.800
+				texture: "human.male.head.beard"
+				count: 1
+				size: [16, 16]
 			}
+			z: -34.800
 		}
 		
 		organic:
