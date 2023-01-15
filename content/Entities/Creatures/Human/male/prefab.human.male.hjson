@@ -48,7 +48,7 @@ health:
 
 human:
 {
-	
+
 }
 
 regen:
@@ -94,7 +94,7 @@ climber:
 		rigidity_static: 0.000
 		layer: entity
 		mask: climbable
-		flags: no_mass
+		// flags: no_mass
 	}
 }
 

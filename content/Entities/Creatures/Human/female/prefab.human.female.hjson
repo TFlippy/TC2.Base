@@ -247,20 +247,17 @@ lootable:
 			}
 		}
 		
-		hair:
+		animated.renderer|"hair":
 		{
-			@animated.renderer:
+			sprite:
 			{
-				sprite:
-				{
-					texture: "human.female.head.hair"
-					count: 1
-					size: [24, 24]
-				}
-				z: -34.900
+				texture: "human.female.head.hair"
+				count: 1
+				size: [24, 24]
 			}
+			z: -34.900
 		}
-		
+
 		organic:
 		{
 			tags: brain
