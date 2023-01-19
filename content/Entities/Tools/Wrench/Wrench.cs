@@ -44,13 +44,13 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Wrench.Mode.Build.Errors EvaluateNode<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNode(ref region, ref info, ref recipe, faction_id: faction_id);
 		}
 
 		// TODO: shithack, can't access default interface methods on structs without boxing
-		public static Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
+		public static Wrench.Mode.Build.Errors EvaluateNodePair<T, TInfo, TLink>(ref this T self, ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default) where T : unmanaged, ILinkerMode<TInfo, TLink> where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
 			return self.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out distance, faction_id: faction_id);
 		}
@@ -88,8 +88,8 @@ namespace TC2.Base.Components
 				var info_target = this.CreateTargetInfo(this.EntTarget);
 				var info_new = default(TInfo);
 
-				var errors_target = Build.Errors.None;
-				var errors_new = Build.Errors.None;
+				var errors_target = Wrench.Mode.Build.Errors.None;
+				var errors_new = Wrench.Mode.Build.Errors.None;
 
 				//if (!info_src.valid || !info_dst.valid)
 				{
@@ -150,12 +150,12 @@ namespace TC2.Base.Components
 				//	}
 				//}
 
-				if (errors_target != Build.Errors.None)
+				if (errors_target != Wrench.Mode.Build.Errors.None)
 				{
 					color_target = this.ColorError;
 				}
 
-				if (errors_new != Build.Errors.None)
+				if (errors_new != Wrench.Mode.Build.Errors.None)
 				{
 					color_new = this.ColorError;
 				}
@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 				{
 					if (info_new.IsValid)
 					{
-						if (errors_new == Build.Errors.None)
+						if (errors_new == Wrench.Mode.Build.Errors.None)
 						{
 							this.SendSetTargetRPC(ent_wrench, ent_target: info_new.Entity);
 							Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.IsSource ? 0.80f : 0.95f);
@@ -224,36 +224,36 @@ namespace TC2.Base.Components
 			public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst);
 			public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe);
 
-			public void DrawInfo(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
-			public void DrawHUD(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance);
+			public void DrawInfo(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Wrench.Mode.Build.Errors errors_src, Wrench.Mode.Build.Errors errors_dst, float distance);
+			public void DrawHUD(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Wrench.Mode.Build.Errors errors_src, Wrench.Mode.Build.Errors errors_dst, float distance);
 			public void DrawNode(Entity ent_wrench, ref TInfo info, Color32BGRA color)
 			{
 
 			}
 #endif
-			public Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default)
+			public Wrench.Mode.Build.Errors EvaluateNode(ref Region.Data region, ref TInfo info, ref IRecipe.Data recipe, IFaction.Handle faction_id = default)
 			{
-				var errors = Build.Errors.None;
+				var errors = Wrench.Mode.Build.Errors.None;
 
 				if (this.IsRecipeValid(ref region, ref recipe) && info.IsValid)
 				{
 					var placement = recipe.placement.Value;
 
 					var claim_ratio = Claim.GetOverlapRatio(ref region, AABB.Circle(info.Position, 1.00f), faction_id: faction_id);
-					errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+					errors.SetFlag(Wrench.Mode.Build.Errors.Claimed, claim_ratio < placement.min_claim);
 				}
 				else
 				{
-					errors |= Build.Errors.Invalid;
+					errors |= Wrench.Mode.Build.Errors.Invalid;
 				}
 
 				return errors;
 			}
 
 			[MethodImpl(MethodImplOptions.NoInlining)]
-			public Build.Errors EvaluateNodePair(ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default)
+			public Wrench.Mode.Build.Errors EvaluateNodePair(ref Region.Data region, ref TInfo info_src, ref TInfo info_dst, ref IRecipe.Data recipe, out float distance, IFaction.Handle faction_id = default)
 			{
-				var errors = Build.Errors.None;
+				var errors = Wrench.Mode.Build.Errors.None;
 				distance = 0.00f;
 
 				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsValid && info_dst.IsValid && (info_src.Entity != info_dst.Entity || info_src.ComponentID != info_dst.ComponentID))
@@ -261,10 +261,10 @@ namespace TC2.Base.Components
 					var placement = recipe.placement.Value;
 
 					var dir = (info_src.Position - info_dst.Position).GetNormalized(out distance);
-					errors.SetFlag(Build.Errors.OutOfRange | Build.Errors.MaxLength, distance > placement.length_max);
+					errors.SetFlag(Wrench.Mode.Build.Errors.OutOfRange | Wrench.Mode.Build.Errors.MaxLength, distance > placement.length_max);
 
 					var claim_ratio = MathF.Min(Claim.GetOverlapRatio(ref region, AABB.Circle(info_src.Position, 1.00f), faction_id: faction_id), Claim.GetOverlapRatio(ref region, AABB.Circle(info_dst.Position, 1.00f), faction_id: faction_id));
-					errors.SetFlag(Build.Errors.Claimed, claim_ratio < placement.min_claim);
+					errors.SetFlag(Wrench.Mode.Build.Errors.Claimed, claim_ratio < placement.min_claim);
 
 					var pos_mid = (info_src.Position + info_dst.Position) * 0.50f;
 
@@ -281,7 +281,7 @@ namespace TC2.Base.Components
 
 								if ((ent_link_src == info_src.Entity && ent_link_dst == info_dst.Entity && link.ComponentA == info_src.ComponentID && link.ComponentB == info_dst.ComponentID) || (ent_link_src == info_dst.Entity && ent_link_dst == info_src.Entity && link.ComponentA == info_dst.ComponentID && link.ComponentB == info_src.ComponentID))
 								{
-									errors.SetFlag(Build.Errors.Obstructed, true);
+									errors.SetFlag(Wrench.Mode.Build.Errors.Obstructed, true);
 									break;
 								}
 							}
@@ -290,7 +290,7 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					errors |= Build.Errors.Invalid;
+					errors |= Wrench.Mode.Build.Errors.Invalid;
 				}
 
 				return errors;
@@ -316,9 +316,9 @@ namespace TC2.Base.Components
 				var info_dst = this.CreateTargetInfo(this.EntityDst, false);
 				var info_new = default(TInfo);
 
-				var errors_src = Build.Errors.None;
-				var errors_dst = Build.Errors.None;
-				var errors_new = Build.Errors.None;
+				var errors_src = Wrench.Mode.Build.Errors.None;
+				var errors_dst = Wrench.Mode.Build.Errors.None;
+				var errors_new = Wrench.Mode.Build.Errors.None;
 
 				//if (!info_src.valid || !info_dst.valid)
 				{
@@ -373,7 +373,7 @@ namespace TC2.Base.Components
 							errors_src |= this.EvaluateNode(ref region, ref info_src, ref recipe, faction_id: faction_id);
 							if (!info_new.IsValid)
 							{
-								errors_new.SetFlag(Build.Errors.MaxLength | Build.Errors.OutOfRange, Vector2.Distance(info_src.Position, wpos_mouse) > recipe.placement.Value.length_max);
+								errors_new.SetFlag(Wrench.Mode.Build.Errors.MaxLength | Wrench.Mode.Build.Errors.OutOfRange, Vector2.Distance(info_src.Position, wpos_mouse) > recipe.placement.Value.length_max);
 							}
 						}
 
@@ -397,17 +397,17 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (errors_src != Build.Errors.None)
+				if (errors_src != Wrench.Mode.Build.Errors.None)
 				{
 					color_src = this.ColorError;
 				}
 
-				if (errors_dst != Build.Errors.None)
+				if (errors_dst != Wrench.Mode.Build.Errors.None)
 				{
 					color_dst = this.ColorError;
 				}
 
-				if (errors_new != Build.Errors.None)
+				if (errors_new != Wrench.Mode.Build.Errors.None)
 				{
 					color_new = this.ColorError;
 				}
@@ -418,7 +418,7 @@ namespace TC2.Base.Components
 				{
 					if (info_new.IsValid)
 					{
-						if (errors_new == Build.Errors.None)
+						if (errors_new == Wrench.Mode.Build.Errors.None)
 						{
 							this.SendSetTargetRPC(ent_wrench, ent_src: info_new.IsSource ? info_new.Entity : this.EntitySrc, ent_dst: !info_new.IsSource ? info_new.Entity : this.EntityDst);
 							Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.IsSource ? 0.80f : 0.95f);
@@ -614,7 +614,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				var window_size = new Vector2(350, 400);
+				var window_size = new Vector2(426, 500);
 
 				using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
 				{
@@ -627,6 +627,9 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
 						{
+							Wrench.DrawModeButton<Wrench.Mode.Build.Data>(this.ent_wrench);
+							GUI.SameLine();
+
 							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
 							GUI.SameLine();
 
@@ -634,9 +637,6 @@ namespace TC2.Base.Components
 							GUI.SameLine();
 
 							Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
-							GUI.SameLine();
-
-							Wrench.DrawModeButton<Wrench.Mode.Construct.Data>(this.ent_wrench);
 							GUI.SameLine();
 						}
 
