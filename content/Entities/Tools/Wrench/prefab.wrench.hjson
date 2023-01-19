@@ -71,6 +71,11 @@ wrench.mode.deconstruct:
 
 }
 
+wrench.mode.construct:
+{
+
+}
+
 sound.emitter:
 {
 	volume: 0.000

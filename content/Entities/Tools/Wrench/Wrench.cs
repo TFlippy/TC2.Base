@@ -462,7 +462,7 @@ namespace TC2.Base.Components
 											using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 											{
 												GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-												GUI.DrawSpriteCentered(recipe.icon, button.bb, scale: 2.00f);
+												GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
 
 												if (button.pressed)
 												{
@@ -634,6 +634,9 @@ namespace TC2.Base.Components
 							GUI.SameLine();
 
 							Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
+							GUI.SameLine();
+
+							Wrench.DrawModeButton<Wrench.Mode.Construct.Data>(this.ent_wrench);
 							GUI.SameLine();
 						}
 
