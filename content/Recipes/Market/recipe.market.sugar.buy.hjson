@@ -9,9 +9,9 @@
 		frame: [3, 0]
 	}
 	
-	min: 50
+	min: 5
 	max: 500
-	step: 50
+	step: 5
 	type: buy
 	tags: market
 	
