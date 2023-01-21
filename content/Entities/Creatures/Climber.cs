@@ -26,19 +26,27 @@ namespace TC2.Base.Components
 			climber.OffsetA = body.GetPosition() + (body.GetVelocity() * App.fixed_update_interval_s);
 			climber.cling_entity = default;
 
+			//App.WriteLine(climber.wallclimb_timer);
+
 			var is_climbing = false;
+			var is_wallclimbing = false;
 			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
 			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var force = new Vector2(0, float.Epsilon);
 			var normal = new Vector2(0, 0);
+			var climb_force = 0.00f;
 
 			if (can_move && body.HasArbiters())
 			{
-				var climb_force = 0.00f;
-
 				foreach (var arbiter in body.GetArbiters())
 				{
+
+//#if CLIENT
+//					region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
+//					region.DrawCircle(arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+//#endif
+
 					var layer = arbiter.GetLayer();
 					if (!layer.HasAny(Physics.Layer.Bounds))
 					{
@@ -72,11 +80,19 @@ namespace TC2.Base.Components
 						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						{
 							normal += arbiter.GetNormal();
-							//if (normal.Y >= -0.40f)
+
+							var dot = MathF.Abs(normal.X);
+							if (dot >= 0.90f)
 							{
 								var f = MathF.Abs(normal.X) * arbiter.GetFriction() * climber.climb_force;
 								climb_force = MathF.Max(climb_force, f);
+								is_wallclimbing = true;
 							}
+
+//#if CLIENT
+//							region.DrawText(arbiter.GetContact(0), $"{dot:0.00}", Color32BGRA.Green);
+//							region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
+//#endif
 						}
 						else if (!is_climbing && layer.HasAny(Physics.Layer.Water))
 						{
@@ -102,8 +118,11 @@ namespace TC2.Base.Components
 						}
 					}
 				}
+			}
 
-				if (can_wallclimb && climb_force > 0.00f)
+			if (can_wallclimb && is_wallclimbing)
+			{
+				if (climber.wallclimb_timer <= 0.50f)
 				{
 					climb_force *= climber.climb_force;
 					climb_force *= organic_state.efficiency * organic.strength;
@@ -135,14 +154,32 @@ namespace TC2.Base.Components
 					force.Y += -climb_force;
 					force = Physics.LimitForce(ref body, force, max_speed);
 
+					//App.WriteLine("climb");
+
 					body.AddForce(force);
 
 					climber.last_wallclimb = info.WorldTime;
 					climber.last_force = force;
+
+					//climber.wallclimb_timer += info.DeltaTime;
+
+					//if (climber.wallclimb_timer >= 0.50f)
+					//{
+					//	climber.wallclimb_timer *= -1.00f;
+					//}
+
+
+					climber.wallclimb_timer += info.DeltaTime;
 				}
 			}
+			else
+			{
+				climber.wallclimb_timer = Maths.MoveTowards(climber.wallclimb_timer, 0.00f, info.DeltaTime * 0.70f);
+			}
 
-			//App.WriteLine($"climber in {ts.GetMilliseconds():0.0000} ms");
+//#if CLIENT
+//			region.DrawText(body.GetPosition(), $"{climber.wallclimb_timer:0.00}", Color32BGRA.White);
+//#endif
 		}
 	}
 }

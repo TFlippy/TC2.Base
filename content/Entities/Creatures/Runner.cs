@@ -53,6 +53,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_climb = default;
 			[Save.Ignore, Net.Ignore] public float last_air = default;
 
+			[Save.Ignore, Net.Ignore] public Vector2 last_normal = default;
 			[Save.Ignore, Net.Ignore] public Vector2 last_force = default;
 			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force = default;
 
@@ -95,10 +96,15 @@ namespace TC2.Base.Components
 		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
 			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
-			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, (info.WorldTime - climber.last_wallclimb) < 0.10f);
-			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
+
+			if (runner_state.flags.HasAny(Runner.Flags.Climbing))
 			{
 				runner_state.last_climb = info.WorldTime;
+			}
+
+			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			{
 				runner_state.last_wallclimb_force = climber.last_force;
 			}
 		}
@@ -107,6 +113,7 @@ namespace TC2.Base.Components
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
+			ref var region = ref info.GetRegion();
 
 			var force = new Vector2(0, 0);
 			var max_speed = new Vector2(runner.max_speed, runner.max_jump_speed);
@@ -160,14 +167,17 @@ namespace TC2.Base.Components
 			}
 
 			normal = normal.GetNormalized();
+			runner_state.last_normal = Vector2.Lerp(runner_state.last_normal, normal, 0.20f).GetNormalized();
 
 			var is_grounded = false;
 
 			if (arbiter_count > 0) // && !layers.HasAll(Physics.Layer.Bounds))
 			{
-				is_grounded = MathF.Abs(normal.X) < 0.95f;
+				//is_grounded = MathF.Abs(normal.X) < 0.35f;
 
-				var dot = MathF.Abs(Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0)));
+
+				var dot = MathF.Abs(runner_state.last_normal.X);
+				is_grounded = dot < 0.90f;
 
 				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
 				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
@@ -177,11 +187,22 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				force.X *= (runner_state.flags.HasAny(Runner.Flags.WallClimbing)) ? 0.50f : 0.75f;
+				force.X *= 0.75f;
 				force.Y *= 0.00f;
 
 				force.Y -= runner_state.uphill_force_current * 0.75f;
 				runner_state.uphill_force_current *= 0.50f;
+			}
+
+//#if CLIENT
+//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
+//#endif
+
+			if (runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			{
+				force.X *= 0.70f;
+				force.Y *= 0.20f;
+				//runner_state.uphill_force_current *= 0.00f;
 			}
 
 			if (is_grounded)
@@ -195,7 +216,8 @@ namespace TC2.Base.Components
 				runner_state.last_air = info.WorldTime;
 			}
 
-			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (((info.WorldTime - runner_state.last_ground) < 0.20f) || (((info.WorldTime - runner_state.last_climb) > 0.00f) && (info.WorldTime - runner_state.last_climb) < 0.20f)))
+			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (info.WorldTime - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && MathF.Min(info.WorldTime - runner_state.last_ground, info.WorldTime - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = info.WorldTime;
@@ -237,6 +259,10 @@ namespace TC2.Base.Components
 
 			runner_state.last_force = force;
 			body.AddForce(force);
+
+//#if CLIENT
+//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
+//#endif
 		}
 	}
 }
