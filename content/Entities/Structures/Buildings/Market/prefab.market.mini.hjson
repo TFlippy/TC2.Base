@@ -1,0 +1,90 @@
+$name: "Market (Mini)"
+$desc: "A place to trade at."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 5.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 20000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "market.mini"
+	}
+	offset: [0.000, 0.000]
+	z: -100.000
+	// mask: "market.small.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	name: "Market"
+	tags: market
+}
+
+interactable:
+{
+	window_size: [600.000, 400.000]
+}
+
+light:
+{
+	color: [1.000, 0.750, 0.100, 2.000]
+	offset: [0.000, 0.000]
+	scale: [12.000, 10.000]
+	intensity: 0.800
+	texture: "light.box.00"
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+nameable:
+{
+	flags: randomize, no_rename
+}
+
+depot:
+{
+	offset: [0.000, 0.000]
+	size: [4.000, 3.000]
+	flags: allow_withdraw, allow_deposit, allow_send, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
+
+	shipping_fee_base: 20.000
+}

@@ -109,6 +109,20 @@ namespace TC2.Base.Components
 			}
 		}
 
+//		[ISystem.LateUpdate(ISystem.Mode.Single)]
+//		public static void UpdateTest(ISystem.Info info, [Source.Owned] ref Body.Data body, [Source.Owned] in Organic.Data organic)
+//		{
+//			ref var region = ref info.GetRegion();
+
+//#if CLIENT
+//			var color = new Color32BGRA(0xff00ff00);
+//#else
+//			var color = new Color32BGRA(0xffff0000);
+//#endif
+
+//			region.DrawDebugBody(ref body, color.WithAlphaMult(0.50f));
+//		}
+
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
@@ -260,9 +274,9 @@ namespace TC2.Base.Components
 			runner_state.last_force = force;
 			body.AddForce(force);
 
-//#if CLIENT
-//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
-//#endif
+			//#if CLIENT
+			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
+			//#endif
 		}
 	}
 }

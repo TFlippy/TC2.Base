@@ -77,7 +77,7 @@ holdable:
 {
 	offset: [-1.200, 0.100]
 	radius: 2.000
-	flags: none
+	flags: full_rotate
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000
