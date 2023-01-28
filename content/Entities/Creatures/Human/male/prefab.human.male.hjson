@@ -261,7 +261,7 @@ lootable:
 		{
 			sprite:
 			{
-				texture: "human.male.head.hair"
+				texture: "human.male.head.hair.gray"
 				count: 1
 				size: [24, 24]
 			}
@@ -272,7 +272,7 @@ lootable:
 		{
 			sprite:
 			{
-				texture: "human.male.head.beard"
+				texture: "human.male.head.beard.gray"
 				count: 1
 				size: [16, 16]
 			}

@@ -27,8 +27,7 @@ namespace TC2.Base.Components
 
 					public Sound.Handle sound_dismantle = sound_dismantle_default;
 
-					[UnscopedRef]
-					public ref Entity EntTarget => ref this.ref_dismantlable.entity;
+					public Entity EntTarget => this.ref_dismantlable.entity;
 
 					public TargetInfo CreateTargetInfo(Entity entity)
 					{
@@ -128,7 +127,7 @@ namespace TC2.Base.Components
 					{
 						ref var region = ref entity.GetRegion();
 
-						data.EntTarget = this.ent_target;
+						data.ref_dismantlable.entity = this.ent_target;
 						data.Sync(entity);
 					}
 #endif

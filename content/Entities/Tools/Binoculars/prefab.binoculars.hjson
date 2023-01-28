@@ -1,3 +1,8 @@
+$name: "Binoculars"
+$desc: 
+	'''
+	Can be used to spy on kingdoms far, far away.
+	'''
 $tags: []
 
 body:

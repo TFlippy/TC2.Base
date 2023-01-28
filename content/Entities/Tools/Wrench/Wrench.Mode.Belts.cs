@@ -27,9 +27,9 @@ namespace TC2.Base.Components
 					public Color32BGRA ColorError => Color32BGRA.Red;
 					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
-					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;
-					[UnscopedRef] public ref IRecipe.Handle SelectedRecipe => ref this.selected_recipe;
+					public Entity EntitySrc => this.ent_src;
+					public Entity EntityDst => this.ent_dst;
+					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{

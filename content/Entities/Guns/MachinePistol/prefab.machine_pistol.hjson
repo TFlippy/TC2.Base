@@ -1,3 +1,9 @@
+$name: "Machine Pistol"
+$desc:
+	'''
+	Compact automatic pistol.
+	Burns through ammunition rather quick.
+	'''
 $tags: []
 
 body:

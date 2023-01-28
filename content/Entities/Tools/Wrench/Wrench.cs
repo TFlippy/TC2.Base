@@ -57,7 +57,7 @@ namespace TC2.Base.Components
 
 		public interface ITargeterMode<TInfo>: IMode where TInfo : unmanaged, ITargetInfo
 		{
-			public ref Entity EntTarget { get; }
+			public Entity EntTarget { get; }
 
 			public Physics.Layer LayerMask { get; }
 			public TInfo CreateTargetInfo(Entity entity);
@@ -213,9 +213,9 @@ namespace TC2.Base.Components
 
 		public interface ILinkerMode<TInfo, TLink>: IMode where TInfo : unmanaged, ITargetInfo where TLink : unmanaged, IComponent, ILink
 		{
-			public ref Entity EntitySrc { get; }
-			public ref Entity EntityDst { get; }
-			public ref IRecipe.Handle SelectedRecipe { get; }
+			public Entity EntitySrc { get; }
+			public Entity EntityDst { get; }
+			public IRecipe.Handle SelectedRecipe { get; }
 
 			public Physics.Layer LayerMask { get; }
 			public TInfo CreateTargetInfo(Entity entity, bool is_src);

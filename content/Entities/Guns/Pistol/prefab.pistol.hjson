@@ -1,4 +1,9 @@
-c$tags: []
+$name: "Pistol"
+$desc:
+	'''
+	Semi-automatic pistol.
+	'''
+$tags: []
 
 body:
 {

@@ -251,7 +251,7 @@ lootable:
 		{
 			sprite:
 			{
-				texture: "human.female.head.hair"
+				texture: "human.female.head.hair.gray"
 				count: 1
 				size: [24, 24]
 			}
