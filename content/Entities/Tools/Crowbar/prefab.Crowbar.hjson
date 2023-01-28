@@ -51,6 +51,11 @@ melee.state:
 
 }
 
+throwingDamage:
+{
+
+}
+
 aimable:
 {
 

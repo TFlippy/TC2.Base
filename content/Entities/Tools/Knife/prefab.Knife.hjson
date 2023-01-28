@@ -52,9 +52,19 @@ melee.state:
 
 }
 
+throwingDamage:
+{
+
+}
+
 aimable:
 {
 
+}
+
+fastThrow:
+{
+	addedspeed: 8.00
 }
 
 holdable:
