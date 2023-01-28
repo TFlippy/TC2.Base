@@ -7,7 +7,7 @@ projectile:
 	lifetime: 0.080
 	ignore_time: 0.100
 	damage_type: bullet_ac
-	size: 0.350
+	size: 0.075
 	ricochet_count: 0
 	damp: 0.988
 	tracer_length: 2.000

@@ -13,7 +13,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [10, 0]
 	}
 	
 	type: metal

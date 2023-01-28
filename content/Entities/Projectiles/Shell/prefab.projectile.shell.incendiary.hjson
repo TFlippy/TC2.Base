@@ -7,7 +7,7 @@ projectile:
 	lifetime: 0.500
 	ignore_time: 0.100
 	damage_type: bullet_mg
-	size: 0.250
+	size: 0.150
 	ricochet_count: 0
 	damp: 0.988
 }

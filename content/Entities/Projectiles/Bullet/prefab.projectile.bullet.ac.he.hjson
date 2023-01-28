@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 300.000
 	lifetime: 1.500
 	damage_type: bullet_ac
-	size: 0.350
+	size: 0.075
 	ricochet_count: 0
 	damp: 0.980
 	tracer_length: 2.000
