@@ -74,7 +74,7 @@ transform:
 
 interactable:
 {
-	window_size: [200.000, 160.000]
+	window_size: [224.000, 256.000]
 	window_offset: [0.000, 0.000]
 }
 
@@ -133,7 +133,7 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.625, -1.125]
-		max_force: 200000.000
+		max_force: 300000.000
 		max_torque: 200000.000
 		flags: no_stress, control_write, force_facing
 		z: 0.000

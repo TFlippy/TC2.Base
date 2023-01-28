@@ -35,6 +35,7 @@ namespace TC2.Base.Components
 
 			public float fire_amount = 1.00f;
 			public float shake_multiplier = 1.00f;
+			public float force_multiplier = 1.00f;
 
 			public float smoke_amount = 1.00f;
 			public float smoke_lifetime_multiplier = 1.00f;
@@ -177,6 +178,7 @@ namespace TC2.Base.Components
 						explosion.volume = explosive_tmp.volume;
 						explosion.pitch = explosive_tmp.pitch;
 						explosion.shake_multiplier = explosive_tmp.shake_multiplier;
+						explosion.force_multiplier = explosive_tmp.force_multiplier;
 
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 

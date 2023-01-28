@@ -109,19 +109,33 @@ namespace TC2.Base.Components
 			}
 		}
 
-//		[ISystem.LateUpdate(ISystem.Mode.Single)]
-//		public static void UpdateTest(ISystem.Info info, [Source.Owned] ref Body.Data body, [Source.Owned] in Organic.Data organic)
-//		{
-//			ref var region = ref info.GetRegion();
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		{
+			no_rotate.multiplier *= (1.00f - runner_state.air_time.Clamp01());
+			no_rotate.mass_multiplier *= (1.00f - runner_state.air_time.Clamp01());
+		}
 
-//#if CLIENT
-//			var color = new Color32BGRA(0xff00ff00);
-//#else
-//			var color = new Color32BGRA(0xffff0000);
-//#endif
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
+		{
+			no_rotate.multiplier *= (1.00f - runner_state.air_time.Clamp01());
+			no_rotate.mass_multiplier *= (1.00f - runner_state.air_time.Clamp01());
+		}
 
-//			region.DrawDebugBody(ref body, color.WithAlphaMult(0.50f));
-//		}
+		//		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		//		public static void UpdateTest(ISystem.Info info, [Source.Owned] ref Body.Data body, [Source.Owned] in Organic.Data organic)
+		//		{
+		//			ref var region = ref info.GetRegion();
+
+		//#if CLIENT
+		//			var color = new Color32BGRA(0xff00ff00);
+		//#else
+		//			var color = new Color32BGRA(0xffff0000);
+		//#endif
+
+		//			region.DrawDebugBody(ref body, color.WithAlphaMult(0.50f));
+		//		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)

@@ -6,9 +6,15 @@ body:
 {
 	type: dynamic
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [3.000, 2.500]
+		points:
+		[
+			[-1.500, -1.250]
+			[1.500, -0.750]
+			[1.500, 1.250]
+			[-1.500, 1.250]
+		]
 		offset: [0.000, 0.000]
 		mass: 400.000
 		friction: 0.900
