@@ -15,6 +15,10 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterArmorAugments;
 			Augment.OnInitialize += RegisterWrenchAugments;
 
+#if CLIENT
+			HitEffects.Init();
+#endif
+
 			IMaterial.Database.AddAssetPostProcessor((IMaterial.Definition definition, ref IMaterial.Data data) =>
 			{
 				if (data.flags.HasAny(Material.Flags.Essence))
