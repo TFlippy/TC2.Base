@@ -34,5 +34,10 @@
 			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
+		{
+			color: "0xff403935"
+			tile_flags: non_empty
+			meta: 0
+		}
 	]
 }
