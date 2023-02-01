@@ -21,7 +21,6 @@
 	flags: manufactured, magnetic, essence
 	mass_per_unit: 0.500
 	quantity_max: 100.000
-	market_price: 160.000
 	prefab: "resource.pellet.electricity"
 	
 	specific_heat: 45.500

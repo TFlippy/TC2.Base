@@ -21,7 +21,6 @@
 	flags: manufactured, magnetic
 	mass_per_unit: 0.500
 	quantity_max: 500.000
-	market_price: 6.000
 	prefab: "resource.chow"
 	molar_mass: 18.015
 	

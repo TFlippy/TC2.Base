@@ -25,7 +25,6 @@
 	flags: manufactured, magnetic
 	mass_per_unit: 1.650
 	quantity_max: 100.000
-	market_price: 120.000
 	prefab: "resource.arcane_actuator"
 	
 	specific_heat: 206.000

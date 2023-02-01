@@ -21,7 +21,6 @@
 	flags: none
 	mass_per_unit: 0.050
 	quantity_max: 500.000
-	market_price: 6.000
 	prefab: "resource.sulfur_dioxide"
 	molar_mass: 0.098079
 	

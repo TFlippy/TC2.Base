@@ -22,7 +22,6 @@
 	flags: raw, gravel, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.760
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.smirgl.gravel"
 	
 	specific_heat: 45.500

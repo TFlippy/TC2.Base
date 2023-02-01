@@ -21,7 +21,6 @@
 	flags: manufactured
 	mass_per_unit: 0.500
 	quantity_max: 100.000
-	market_price: 1.000
 	prefab: "resource.sauce"
 	molar_mass: 18.015
 }

@@ -21,12 +21,7 @@
 	flags: manufactured, ammo, ammo_arrow, despawnable
 	mass_per_unit: 0.500
 	quantity_max: 20.000
-	market_price: 1.000
 	prefab: "resource.ammo_arrow"
-	
-	projectile_count: 1
-	projectile_velocity_min: 4.000
-	projectile_prefab: "projectile.arrow"
 	
 	ammo:
 	{

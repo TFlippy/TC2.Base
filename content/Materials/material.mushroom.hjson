@@ -21,7 +21,6 @@
 	flags: raw, organic, despawnable
 	mass_per_unit: 0.232
 	quantity_max: 500.000
-	market_price: 1.300
 	prefab: "resource.mushroom"
 	
 	commodity:

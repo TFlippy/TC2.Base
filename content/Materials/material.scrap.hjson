@@ -21,7 +21,6 @@
 	flags: raw, manufactured, magnetic, granular, despawnable
 	mass_per_unit: 0.300
 	quantity_max: 500.000
-	market_price: 0.100
 	prefab: "resource.scrap"
 	
 	specific_heat: 206.000

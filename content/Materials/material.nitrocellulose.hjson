@@ -21,7 +21,6 @@
 	flags: manufactured, granular, explosive
 	mass_per_unit: 0.100
 	quantity_max: 500.000
-	market_price: 11.000
 	prefab: "resource.nitrocellulose"
 	
 	commodity:

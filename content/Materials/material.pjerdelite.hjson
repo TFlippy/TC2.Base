@@ -21,7 +21,6 @@
 	flags: raw, ore, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 3.170
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.pjerdelite"
 	
 	specific_heat: 99.625

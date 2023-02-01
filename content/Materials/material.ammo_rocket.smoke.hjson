@@ -22,13 +22,7 @@
 	flags: manufactured, ammo, ammo_rocket, magnetic, explosive
 	mass_per_unit: 3.000
 	quantity_max: 4.000
-	market_price: 1.000
 	prefab: "resource.ammo_rocket.smoke"
-	
-	projectile_count: 1
-	projectile_heat: 1000.000
-	projectile_velocity_min: 10.000
-	projectile_prefab: "projectile.rocket.smoke"
 	
 	ammo:
 	{

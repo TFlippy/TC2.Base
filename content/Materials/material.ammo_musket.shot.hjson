@@ -21,13 +21,7 @@
 	flags: manufactured, ammo, ammo_musket, magnetic, granular, despawnable
 	mass_per_unit: 0.090
 	quantity_max: 24.000
-	market_price: 1.000
 	prefab: "resource.ammo_musket.shot"
-	
-	projectile_count: 4
-	projectile_spread_mult: 2.000
-	projectile_heat: 30.000
-	projectile_prefab: "projectile.musket.shot"
 	
 	ammo:
 	{

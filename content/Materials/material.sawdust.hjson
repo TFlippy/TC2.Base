@@ -21,7 +21,5 @@
 	flags: manufactured, granular
 	mass_per_unit: 0.060
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.sawdust"
-	fuel_temperature: 1573.150
 }

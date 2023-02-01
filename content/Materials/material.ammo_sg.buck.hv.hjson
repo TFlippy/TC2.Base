@@ -24,14 +24,7 @@
 	flags: manufactured, ammo, ammo_sg, granular, despawnable
 	mass_per_unit: 0.050
 	quantity_max: 24.000
-	market_price: 1.000
 	prefab: "resource.ammo_sg.buck.hv"
-	
-	projectile_count: 4
-	projectile_speed_mult: 0.900
-	projectile_spread_mult: 1.200
-	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.buck.hv"
 	
 	ammo:
 	{

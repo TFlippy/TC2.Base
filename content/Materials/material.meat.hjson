@@ -21,6 +21,5 @@
 	flags: raw, granular, organic, despawnable
 	mass_per_unit: 0.400
 	quantity_max: 250.000
-	market_price: 1.000
 	prefab: "resource.meat"
 }

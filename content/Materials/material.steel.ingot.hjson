@@ -23,7 +23,6 @@
 	flags: ingot, magnetic, metal
 	mass_per_unit: 1.000
 	quantity_max: 250.000
-	market_price: 11.000
 	prefab: "resource.steel.ingot"
 	
 	specific_heat: 206.000

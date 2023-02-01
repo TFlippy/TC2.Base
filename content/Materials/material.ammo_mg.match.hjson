@@ -24,14 +24,7 @@
 	flags: manufactured, ammo, ammo_mg, magnetic, granular, despawnable
 	mass_per_unit: 0.120
 	quantity_max: 50.000
-	market_price: 1.000
 	prefab: "resource.ammo_mg.match"
-	
-	projectile_count: 1
-	projectile_speed_mult: 1.050
-	projectile_spread_mult: 0.400
-	projectile_heat: 70.000
-	projectile_prefab: "projectile.bullet.mg.match"
 	
 	ammo:
 	{

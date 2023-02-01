@@ -22,15 +22,7 @@
 	flags: manufactured, ammo, ammo_shell, magnetic
 	mass_per_unit: 20.000
 	quantity_max: 1.000
-	market_price: 1.000
 	prefab: "resource.ammo_shell.kinetic"
-	
-	projectile_count: 1
-	projectile_speed_mult: 1.600
-	projectile_spread_mult: 0.050
-	projectile_recoil_mult: 0.800
-	projectile_heat: 8999.999
-	projectile_prefab: "projectile.shell.kinetic"
 	
 	ammo:
 	{

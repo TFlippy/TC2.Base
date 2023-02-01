@@ -22,7 +22,6 @@
 	flags: raw, gravel, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.500
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.gold.gravel"
 	
 	specific_heat: 64.500

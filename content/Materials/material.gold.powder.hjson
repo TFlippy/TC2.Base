@@ -21,7 +21,6 @@
 	flags: raw, powder, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.500
 	quantity_max: 500.000
-	market_price: 55.000
 	prefab: "resource.gold.powder"
 	
 	specific_heat: 64.500

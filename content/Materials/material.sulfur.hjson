@@ -21,7 +21,6 @@
 	flags: raw, granular, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	market_price: 2.000
 	prefab: "resource.sulfur"
 	
 	commodity:

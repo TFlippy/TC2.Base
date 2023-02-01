@@ -20,12 +20,7 @@
 	flags: manufactured, ammo, ammo_grapple, magnetic
 	mass_per_unit: 5.000
 	quantity_max: 1.000
-	market_price: 1.000
 	prefab: "resource.ammo_grapple"
-	
-	projectile_count: 1
-	projectile_heat: 1000.000
-	projectile_prefab: "projectile.grapple.spike"
 	
 	ammo:
 	{

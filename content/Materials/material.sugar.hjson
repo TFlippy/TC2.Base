@@ -21,7 +21,6 @@
 	flags: manufactured, granular, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	market_price: 1.500
 	prefab: "resource.sugar"
 	
 	commodity:

@@ -21,13 +21,7 @@
 	flags: raw, fuel, granular, organic
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.peat"
-	
-	fuel_energy: 20000000.000
-	fuel_drain: 70000.000
-	fuel_purity: 0.300
-	fuel_temperature: 900.000
 	
 	fuel:
 	{

@@ -21,7 +21,6 @@
 	flags: ingot, metal
 	mass_per_unit: 2.500
 	quantity_max: 250.000
-	market_price: 275.000
 	prefab: "resource.gold.ingot"
 	
 	specific_heat: 64.500

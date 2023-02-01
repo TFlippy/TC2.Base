@@ -24,14 +24,7 @@
 	flags: manufactured, ammo, ammo_sg, granular, despawnable
 	mass_per_unit: 0.050
 	quantity_max: 24.000
-	market_price: 1.000
 	prefab: "resource.ammo_sg.bird"
-	
-	projectile_count: 7
-	projectile_speed_mult: 0.600
-	projectile_spread_mult: 2.500
-	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.bird"
 	
 	ammo:
 	{

@@ -21,7 +21,6 @@
 	flags: manufactured, despawnable
 	mass_per_unit: 0.060
 	quantity_max: 100.000
-	market_price: 7.000
 	prefab: "resource.leather"
 	
 	commodity:

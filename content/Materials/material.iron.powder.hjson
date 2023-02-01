@@ -21,7 +21,6 @@
 	flags: raw, powder, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	market_price: 2.200
 	prefab: "resource.iron.powder"
 	
 	specific_heat: 206.000

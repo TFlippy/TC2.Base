@@ -22,7 +22,6 @@
 	flags: raw, gravel, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 1.100
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.iron.gravel"
 	
 	specific_heat: 206.000

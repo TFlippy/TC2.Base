@@ -23,13 +23,7 @@
 	flags: manufactured, ammo, ammo_hc, magnetic, granular, despawnable
 	mass_per_unit: 0.025
 	quantity_max: 50.000
-	market_price: 1.000
 	prefab: "resource.ammo_hc"
-	
-	projectile_count: 1
-	projectile_speed_mult: 0.600
-	projectile_heat: 25.000
-	projectile_prefab: "projectile.bullet.hc"
 	
 	ammo:
 	{

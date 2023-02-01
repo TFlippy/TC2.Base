@@ -21,7 +21,5 @@
 	flags: raw, granular, despawnable
 	mass_per_unit: 0.170
 	quantity_max: 500.000
-	market_price: 1.000
 	prefab: "resource.tar"
-	fuel_purity: 0.100
 }
