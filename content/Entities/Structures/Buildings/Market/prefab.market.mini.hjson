@@ -45,15 +45,9 @@ transform:
 
 }
 
-shop:
+market:
 {
-	name: "Market"
-	tags: market
-}
-
-interactable:
-{
-	window_size: [600.000, 400.000]
+	
 }
 
 light:
@@ -78,6 +72,11 @@ claimable:
 nameable:
 {
 	flags: randomize, no_rename
+}
+
+interactable:
+{
+	window_size: [800.000, 500.000]
 }
 
 depot:

@@ -20,7 +20,7 @@
 	placement:
 	{
 		type: line
-		flags: no_snapping
+		flags: no_snapping, continuous
 		
 		size: [1.500, 1.500]
 		
@@ -52,7 +52,7 @@
 	[
 		{
 			type: block
-			block: "smirgl_slab"
+			block: "smirgl.slab"
 			tile_flags: solid
 		}
 	]

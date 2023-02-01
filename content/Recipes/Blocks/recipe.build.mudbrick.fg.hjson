@@ -20,11 +20,11 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous, no_snapping
+		flags: continuous
 		
 		size: [1.000, 1.000]
 		
-		cooldown: 0.100
+		cooldown: 0.300
 		min_support: 0.050
 		min_claim: 1.000
 		
@@ -35,7 +35,7 @@
 	[
 		{
 			type: resource
-			material: "mudbrick_dry"
+			material: "mudbrick.dry"
 			amount: 0.500
 		}
 	]
