@@ -4,6 +4,7 @@
 		'''
 		Extremely potent fuel extracted from ancient underground pipelines.
 		'''
+	
 	icon:
 	{
 		texture: "resource.phlogiston"
@@ -11,16 +12,20 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: liquid
 	flags: raw, fuel, ammo
 	mass_per_unit: 0.100
-	market_price: 15.000
 	quantity_max: 100.000
+	market_price: 15.000
 	prefab: "resource.phlogiston"
 	
 	projectile_count: 1
 	projectile_speed_mult: 0.150
-	projectile_spread_mult: 1.000
 	projectile_heat: 120.000
 	projectile_velocity_min: 1.000
 	projectile_prefab: "projectile.phlogiston"
@@ -30,6 +35,27 @@
 	fuel_purity: 0.990
 	fuel_temperature: 2573.150
 	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	commodity:
+	{
+		market_price: 15.000
+	}
+	
+	fuel:
+	{
+		energy: 50000000.000
+		drain: 500000.000
+		purity: 0.990
+		temperature: 2573.150
+	}
+	
+	ammo:
+	{
+		count: 1
+		speed_mult: 0.150
+		spread_mult: 1.000
+		recoil_mult: 1.000
+		heat: 120.000
+		velocity_min: 1.000
+		prefab: "projectile.phlogiston"
+	}
 }

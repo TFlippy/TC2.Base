@@ -5,14 +5,14 @@
 		Ammunition for rifles
 		and other larger firearms.
 		'''
-
+	
 	icon:
 	{
 		texture: "resource.ammo_hc.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -21,22 +21,24 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_hc, despawnable, granular, magnetic
+	flags: manufactured, ammo, ammo_hc, magnetic, granular, despawnable
 	mass_per_unit: 0.025
 	quantity_max: 50.000
+	market_price: 1.000
 	prefab: "resource.ammo_hc.hv"
 	
 	projectile_count: 1
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
 	projectile_heat: 25.000
 	projectile_prefab: "projectile.bullet.hc.hv"
 	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 1
+		speed_mult: 1.000
+		spread_mult: 1.000
+		recoil_mult: 1.000
+		heat: 25.000
+		velocity_min: 80.000
+		prefab: "projectile.bullet.hc.hv"
+	}
 }

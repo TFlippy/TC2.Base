@@ -28,4 +28,17 @@
 	fuel_drain: 120000.000
 	fuel_purity: 0.400
 	fuel_temperature: 1623.150
+	
+	commodity:
+	{
+		market_price: 0.378
+	}
+	
+	fuel:
+	{
+		energy: 25200000.000
+		drain: 120000.000
+		purity: 0.400
+		temperature: 1623.150
+	}
 }

@@ -228,7 +228,7 @@
 			angle_steep = null;
 
 			//ref var material = ref material_ammo.GetData();
-			//if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			//if (material.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 			{
 				//var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				//var dir = transform.GetDirection();
@@ -245,7 +245,7 @@
 					var p = pos_target - pos_muzzle;
 					p.Y *= -1;
 
-					var v = speed; // velocity_multiplier * material.projectile_speed_mult;
+					var v = speed; // velocity_multiplier * ammo.speed_mult;
 					var g = gravity; /// region.GetGravity().Y * projectile.gravity;
 					//var d = projectile.damp;
 
@@ -287,68 +287,72 @@
 			var ts = Timestamp.Now();
 
 			ref var material = ref material_ammo.GetData();
-			if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			if (material.IsNotNull())
 			{
-				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
-
-				if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
+				ref var ammo = ref material.ammo.GetRef();
+				if (ammo.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 				{
-					var vel = transform.GetDirection() * gun.velocity_multiplier * material.projectile_speed_mult; // * random_multiplier;
+					var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 
-					var pos_a = pos_w_offset;
-					var pos_b = pos_w_offset;
-
-					//GUI.Text($"{vel}");
-
-					var iter_count = 500;
-					var iter_count_inv = 1.00f / iter_count;
-
-					var pos_last = pos_a;
-					var dist_delta = 0.00f;
-
-
-					var line_len = 4.00f;
-					var line_gap = 2.00f;
-
-					for (var i = 0; i < iter_count; i++)
+					if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
-						var pos = pos_b;
-						var alpha = i * iter_count_inv;
+						var vel = transform.GetDirection() * gun.velocity_multiplier * ammo.speed_mult; // * random_multiplier;
 
-						vel *= projectile.damp;
-						vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
+						var pos_a = pos_w_offset;
+						var pos_b = pos_w_offset;
 
-						var step = vel * App.fixed_update_interval_s;
-						pos += step;
+						//GUI.Text($"{vel}");
 
-						pos_a = pos_b;
-						pos_b = pos;
+						var iter_count = 500;
+						var iter_count_inv = 1.00f / iter_count;
 
-						dist_delta += Vector2.Distance(pos_a, pos_b);
+						var pos_last = pos_a;
+						var dist_delta = 0.00f;
 
-						if (dist_delta >= line_len)
+
+						var line_len = 4.00f;
+						var line_gap = 2.00f;
+
+						for (var i = 0; i < iter_count; i++)
 						{
-							var dir = (pos - pos_last).GetNormalized(out var len);
-							len -= line_gap;
+							var pos = pos_b;
+							var alpha = i * iter_count_inv;
 
-							var pos_line_a = pos_last;
-							var pos_line_b = pos_last + (dir * len);
+							vel *= projectile.damp;
+							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
 
-							if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+							var step = vel * App.fixed_update_interval_s;
+							pos += step;
+
+							pos_a = pos_b;
+							pos_b = pos;
+
+							dist_delta += Vector2.Distance(pos_a, pos_b);
+
+							if (dist_delta >= line_len)
 							{
-								//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
-								//var dir_perp = dir.GetPerpendicular() * 10;
+								var dir = (pos - pos_last).GetNormalized(out var len);
+								len -= line_gap;
 
-								//GUI.DrawLine((pos_line_mid - (dir_perp)).WorldToCanvas(), (pos_line_mid + (dir_perp)).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(0.50f), 4.00f);
+								var pos_line_a = pos_last;
+								var pos_line_b = pos_last + (dir * len);
+
+								if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+								{
+									//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
+									//var dir_perp = dir.GetPerpendicular() * 10;
+
+									//GUI.DrawLine((pos_line_mid - (dir_perp)).WorldToCanvas(), (pos_line_mid + (dir_perp)).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(0.50f), 4.00f);
 
 
-								break;
+									break;
+								}
+
+								GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
+
+								pos_last = pos;
+								dist_delta = 0;
 							}
-
-							GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
-
-							pos_last = pos;
-							dist_delta = 0;
 						}
 					}
 				}
@@ -649,11 +653,13 @@
 							ref var resource = ref inventory[i];
 
 							ref var material = ref resource.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter))
+							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter) && material.ammo.HasValue)
 							{
+								ref var ammo = ref material.ammo.GetRef();
+
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
-								gun_state.muzzle_velocity = gun.velocity_multiplier * material.projectile_speed_mult;
+								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
 
 								break;
 							}
@@ -728,14 +734,16 @@
 #endif
 
 				ref var material = ref inventory_magazine.resource.material.GetData();
-				if (material.IsNotNull() && material.projectile_prefab.id != 0)
+				if (material.IsNotNull() && material.ammo.HasValue)
 				{
+					ref var ammo = ref material.ammo.GetRef();
+
 					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
 					var recoil_mass = material.mass_per_unit * gun.ammo_per_shot;
-					var recoil_speed = gun.velocity_multiplier * material.projectile_speed_mult;
-					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * material.projectile_recoil_mult * App.tickrate * 20.00f);
+					var recoil_speed = gun.velocity_multiplier * ammo.speed_mult;
+					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate * 20.00f);
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
 
@@ -756,13 +764,13 @@
 					var amount = gun.ammo_per_shot;
 					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
 
-					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
+					var count = (ammo.count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
 					if (!overheat.IsNull())
 					{
-						if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
+						if (overheat.heat_critical > 0.00f && ammo.heat > 0.00f)
 						{
-							var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / MathF.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							overheat.heat_current += heat;
 
 							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_high, 0.00f);
@@ -796,21 +804,21 @@
 							var args =
 							(
 								damage_mult: gun.damage_multiplier * random_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random_multiplier,
+								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * gun.velocity_multiplier * ammo.speed_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
 								faction_id: body.GetFaction(),
 								gun_flags: gun.flags
 							);
 
-							if (args.vel.LengthSquared() < (material.projectile_velocity_min * material.projectile_velocity_min))
+							if (args.vel.LengthSquared() < (ammo.velocity_min * ammo.velocity_min))
 							{
 								force_jammed = true;
 								break;
 							}
 							else
 							{
-								region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
+								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
 								{
 									ref var projectile = ref ent.GetComponent<Projectile.Data>();
 									if (!projectile.IsNull())

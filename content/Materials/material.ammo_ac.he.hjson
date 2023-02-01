@@ -1,14 +1,17 @@
 {
 	name: "Autocannon Ammo (HE)"
-	description: "Ammunition for autocannons. (High-Explosive)"
-
+	description:
+		'''
+		Ammunition for autocannons. (High-Explosive)
+		'''
+	
 	icon:
 	{
 		texture: "resource.ammo_ac.he"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -17,9 +20,10 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_ac, despawnable, explosive, magnetic
+	flags: manufactured, ammo, ammo_ac, magnetic, explosive, despawnable
 	mass_per_unit: 0.450
 	quantity_max: 10.000
+	market_price: 1.000
 	prefab: "resource.ammo_ac.he"
 	
 	projectile_count: 1
@@ -28,11 +32,14 @@
 	projectile_heat: 300.000
 	projectile_prefab: "projectile.bullet.ac.he"
 	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 1
+		speed_mult: 0.700
+		spread_mult: 1.100
+		recoil_mult: 1.000
+		heat: 300.000
+		velocity_min: 80.000
+		prefab: "projectile.bullet.ac.he"
+	}
 }

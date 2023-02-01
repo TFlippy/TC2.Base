@@ -4,6 +4,7 @@
 		'''
 		Crumbly rock with traces of gold, silver and niter.
 		'''
+	
 	icon:
 	{
 		texture: "resource.kruskite"
@@ -11,22 +12,17 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: stone
-	flags: raw, ore, smeltable, metal, despawnable, granular
+	flags: raw, ore, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.900
 	quantity_max: 500.000
+	market_price: 1.000
 	prefab: "resource.kruskite"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 99.625
 	thermal_conductivity: 0.0395

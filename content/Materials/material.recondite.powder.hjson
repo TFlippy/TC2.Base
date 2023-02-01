@@ -1,6 +1,10 @@
 {
 	name: "Recondite Powder"
-	description: "A powdered mixture of smirgl and silver capable of interacting with the immaterial world."
+	description:
+		'''
+		A powdered mixture of smirgl and silver capable of interacting with the immaterial world.
+		'''
+	
 	icon:
 	{
 		texture: "resource.recondite.powder"
@@ -8,24 +12,23 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: powder
-	flags: powder, smeltable, metal, despawnable, granular, magnetic
+	flags: powder, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.615
-	market_price: 6.500
 	quantity_max: 500.000
+	market_price: 6.500
 	prefab: "resource.recondite.powder"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 66.596
 	thermal_conductivity: 0.692
+	
+	commodity:
+	{
+		market_price: 6.500
+	}
 }

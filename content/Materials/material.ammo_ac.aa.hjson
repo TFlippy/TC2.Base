@@ -1,14 +1,17 @@
 {
 	name: "Autocannon Ammo (AA)"
-	description: "Ammunition for autocannons. (Anti-Air)"
-
+	description:
+		'''
+		Ammunition for autocannons. (Anti-Air)
+		'''
+	
 	icon:
 	{
 		texture: "resource.ammo_ac.aa"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -17,22 +20,25 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_ac, despawnable, magnetic
+	flags: manufactured, ammo, ammo_ac, magnetic, despawnable
 	mass_per_unit: 0.450
 	quantity_max: 10.000
+	market_price: 1.000
 	prefab: "resource.ammo_ac.aa"
 	
 	projectile_count: 1
 	projectile_speed_mult: 0.700
-	projectile_spread_mult: 1.000
 	projectile_heat: 200.000
 	projectile_prefab: "projectile.bullet.ac.aa"
 	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 1
+		speed_mult: 0.700
+		spread_mult: 1.000
+		recoil_mult: 1.000
+		heat: 200.000
+		velocity_min: 80.000
+		prefab: "projectile.bullet.ac.aa"
+	}
 }

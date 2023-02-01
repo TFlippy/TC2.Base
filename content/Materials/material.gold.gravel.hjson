@@ -5,6 +5,7 @@
 		Low-purity gold gravel.
 		Yield: 30% to 40%
 		'''
+	
 	icon:
 	{
 		texture: "resource.gold.gravel"
@@ -12,22 +13,17 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: gravel
-	flags: raw, gravel, smeltable, metal, despawnable, granular
+	flags: raw, gravel, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.500
 	quantity_max: 500.000
+	market_price: 1.000
 	prefab: "resource.gold.gravel"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 64.500
 	thermal_conductivity: 0.192

@@ -1,6 +1,10 @@
 {
 	name: "Copper Ingot"
-	description: "TODO: Desc"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
 	icon:
 	{
 		texture: "resource.copper.ingot"
@@ -8,24 +12,23 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: metal
 	flags: ingot, metal
 	mass_per_unit: 1.150
-	market_price: 37.000
 	quantity_max: 250.000
+	market_price: 37.000
 	prefab: "resource.copper.ingot"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 192.500
 	thermal_conductivity: 0.400
+	
+	commodity:
+	{
+		market_price: 37.000
+	}
 }

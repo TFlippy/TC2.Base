@@ -1,6 +1,10 @@
 {
 	name: "Sawdust"
-	description: "TODO: Desc"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
 	icon:
 	{
 		texture: "resource.sawdust"
@@ -8,23 +12,16 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: powder
 	flags: manufactured, granular
 	mass_per_unit: 0.060
 	quantity_max: 500.000
+	market_price: 1.000
 	prefab: "resource.sawdust"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
 	fuel_temperature: 1573.150
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
 }

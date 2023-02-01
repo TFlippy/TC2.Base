@@ -8,6 +8,7 @@
 		these small devices have sparked a new industrial revolution
 		and have granted the Empire a massive technological edge.
 		'''
+	
 	icon:
 	{
 		texture: "resource.arcane_actuator"
@@ -15,24 +16,22 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: metal
 	flags: manufactured, magnetic
 	mass_per_unit: 1.650
-	market_price: 120.000
 	quantity_max: 100.000
+	market_price: 120.000
 	prefab: "resource.arcane_actuator"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
 	specific_heat: 206.000
-	thermal_conductivity: 0.100
+	
+	commodity:
+	{
+		market_price: 120.000
+	}
 }

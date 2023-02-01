@@ -5,6 +5,7 @@
 		Medium-purity smirgl ore.
 		Yield: 50% to 80%
 		'''
+	
 	icon:
 	{
 		texture: "resource.smirgl.ore"
@@ -12,22 +13,17 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: stone
-	flags: raw, ore, smeltable, metal, despawnable, granular, magnetic
+	flags: raw, ore, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 2.760
 	quantity_max: 500.000
+	market_price: 1.000
 	prefab: "resource.smirgl.ore"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 45.500
 	thermal_conductivity: 0.480
