@@ -28,6 +28,7 @@
 	
 	commodity:
 	{
+		categories: components, construction_materials, consumer, industrial, military, toys
 		market_price: 10.000
 	}
 }

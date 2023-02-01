@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: wood, construction_materials, fuel, industrial, toys
 		market_price: 0.779
 	}
 	

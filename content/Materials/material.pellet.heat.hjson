@@ -28,6 +28,7 @@
 	
 	commodity:
 	{
+		categories: components, arcane, fuel, energy
 		market_price: 150.000
 	}
 }

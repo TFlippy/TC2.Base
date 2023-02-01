@@ -22,4 +22,10 @@
 	mass_per_unit: 0.500
 	quantity_max: 500.000
 	prefab: "resource.mithril"
+	
+	commodity:
+	{
+		categories: chemicals, arcane, technology, minerals, illegal, dangerous, industrial, military
+		market_price: 75.000
+	}
 }

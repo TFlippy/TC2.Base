@@ -23,4 +23,10 @@
 	quantity_max: 100.000
 	prefab: "resource.sauce"
 	molar_mass: 18.015
+	
+	commodity:
+	{
+		categories: food, cooking, consumer
+		market_price: 6.000
+	}
 }

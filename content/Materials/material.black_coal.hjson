@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: coal, fuel
 		market_price: 0.450
 	}
 	

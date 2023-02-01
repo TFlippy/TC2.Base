@@ -28,6 +28,7 @@
 	
 	commodity:
 	{
+		categories: beverages, water, consumer, industrial
 		market_price: 0.100
 	}
 }

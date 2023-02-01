@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: chemicals, explosives, arcane, fuel, energy, munitions, dangerous, consumer, industrial, military
 		market_price: 15.000
 	}
 	

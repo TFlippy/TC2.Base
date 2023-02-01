@@ -22,4 +22,10 @@
 	mass_per_unit: 0.170
 	quantity_max: 500.000
 	prefab: "resource.tar"
+	
+	commodity:
+	{
+		categories: chemicals, construction_materials, industrial, toys
+		market_price: 1.300
+	}
 }

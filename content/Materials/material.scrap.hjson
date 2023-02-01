@@ -27,6 +27,7 @@
 	
 	commodity:
 	{
+		categories: scrap, waste, industrial, toys
 		market_price: 0.100
 	}
 }

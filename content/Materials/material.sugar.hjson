@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: cooking, consumer, toys
 		market_price: 1.500
 	}
 }

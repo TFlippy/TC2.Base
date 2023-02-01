@@ -26,6 +26,7 @@
 	
 	commodity:
 	{
+		categories: components, chemicals, dangerous, consumer, industrial
 		market_price: 6.000
 	}
 }

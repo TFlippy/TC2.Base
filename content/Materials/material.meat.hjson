@@ -22,4 +22,10 @@
 	mass_per_unit: 0.400
 	quantity_max: 250.000
 	prefab: "resource.meat"
+	
+	commodity:
+	{
+		categories: animals, cooking, meat, consumer, industrial, toys
+		market_price: 5.000
+	}
 }

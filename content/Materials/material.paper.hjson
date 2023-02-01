@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: paper, textiles, consumer, industrial, military, toys
 		market_price: 0.600
 	}
 }

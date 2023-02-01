@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: coal, fuel, consumer, industrial, military, toys
 		market_price: 9.000
 	}
 	

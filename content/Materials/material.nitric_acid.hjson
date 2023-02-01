@@ -26,6 +26,7 @@
 	
 	commodity:
 	{
+		categories: chemicals, dangerous, industrial, military
 		market_price: 9.000
 	}
 }

@@ -22,4 +22,10 @@
 	mass_per_unit: 0.800
 	quantity_max: 500.000
 	prefab: "resource.slag"
+	
+	commodity:
+	{
+		categories: scrap, rocks, waste
+		market_price: 0.200
+	}
 }

@@ -22,4 +22,10 @@
 	mass_per_unit: 0.170
 	quantity_max: 100.000
 	prefab: "resource.tallow"
+	
+	commodity:
+	{
+		categories: food, medicine, cooking, consumer, industrial, toys
+		market_price: 5.000
+	}
 }

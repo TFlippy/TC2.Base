@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: chemicals, minerals, industrial, military
 		market_price: 2.000
 	}
 }

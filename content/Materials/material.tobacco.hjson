@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: drugs, chemicals, herbs, plants, tobacco, consumer, industrial, toys
 		market_price: 30.000
 	}
 }

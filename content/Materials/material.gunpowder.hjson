@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: chemicals, explosives, dangerous, industrial, military, toys
 		market_price: 5.000
 	}
 }

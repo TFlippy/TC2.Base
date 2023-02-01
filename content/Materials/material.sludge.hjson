@@ -18,8 +18,14 @@
 	}
 	
 	type: soil
-	flags: raw, granular
+	flags: manufactured, granular
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.sludge"
+	
+	commodity:
+	{
+		categories: chemicals, waste, dangerous, industrial
+		market_price: 0.200
+	}
 }

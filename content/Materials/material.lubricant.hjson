@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: chemicals, tools, consumer, industrial, toys
 		market_price: 20.000
 	}
 }

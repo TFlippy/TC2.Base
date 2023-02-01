@@ -31,6 +31,7 @@
 	
 	commodity:
 	{
+		categories: machinery, components, arcane, technology, industrial, military, toys
 		market_price: 120.000
 	}
 }

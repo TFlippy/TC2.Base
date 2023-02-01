@@ -22,4 +22,10 @@
 	mass_per_unit: 0.250
 	quantity_max: 250.000
 	prefab: "resource.insect"
+	
+	commodity:
+	{
+		categories: chemicals, cooking, waste, fertilizers, meat, industrial, toys
+		market_price: 2.000
+	}
 }

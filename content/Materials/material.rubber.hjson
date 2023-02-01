@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: components, chemicals, textiles, consumer, industrial, military, toys
 		market_price: 15.000
 	}
 	

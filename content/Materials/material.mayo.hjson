@@ -26,6 +26,7 @@
 	
 	commodity:
 	{
+		categories: food, cooking, luxury, consumer, industrial, military, toys
 		market_price: 40.000
 	}
 }

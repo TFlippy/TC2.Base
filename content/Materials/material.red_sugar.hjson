@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: food, chemicals, medicine, cooking, luxury, consumer, industrial, toys
 		market_price: 22.000
 	}
 }

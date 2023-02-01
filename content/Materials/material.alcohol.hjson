@@ -26,6 +26,7 @@
 	
 	commodity:
 	{
+		categories: beverages, alcohol, chemicals, medicine, consumer, industrial, toys
 		market_price: 4.000
 	}
 }

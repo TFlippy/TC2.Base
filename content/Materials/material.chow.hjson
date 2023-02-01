@@ -26,6 +26,7 @@
 	
 	commodity:
 	{
-		market_price: 6.000
+		categories: food
+		market_price: 12.000
 	}
 }
