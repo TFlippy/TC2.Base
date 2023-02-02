@@ -25,7 +25,7 @@
 	
 	commodity:
 	{
-		categories: paper, textiles, consumer, industrial, military, toys
+		categories: refined, paper, textiles, consumer, industrial, military, toys
 		market_price: 0.600
 	}
 }

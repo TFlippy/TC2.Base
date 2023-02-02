@@ -25,7 +25,7 @@
 	
 	commodity:
 	{
-		categories: textiles
+		categories: refined, natural, textiles
 		market_price: 4.000
 	}
 }

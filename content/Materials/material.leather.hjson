@@ -25,6 +25,7 @@
 	
 	commodity:
 	{
+		categories: natural, raw, leather
 		market_price: 7.000
 	}
 }

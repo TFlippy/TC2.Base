@@ -3,4 +3,5 @@
 	name: "Kobold Squatters"
 	color_a: "0xff400000"
 	color_b: "0xff101000"
+	kind: commune
 }
