@@ -49,7 +49,7 @@ market:
 {
 	@animated.renderer:
 	{
-		offset: [-1.250, -0.500]
+		offset: [0.125, -1.750]
 		z: -80.000
 	}
 }

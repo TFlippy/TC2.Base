@@ -19,7 +19,7 @@
 	// block_mithril: "block.planks.mithril"
 	
 	texture_scale: 0.800
-	texture_overshoot: -0.750
+	texture_overshoot: -0.275
 	
 	resources:
 	[
