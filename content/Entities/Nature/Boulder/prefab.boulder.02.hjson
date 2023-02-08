@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 22000.000
+	max: 62000.000
 }
 
 animated.renderer:
@@ -55,7 +55,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 650.000
+			quantity: 1950.000
 		}
 	]
 }

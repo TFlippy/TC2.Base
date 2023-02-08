@@ -58,10 +58,10 @@ spawn:
 
 storage:
 {
-	@inventory8:
+	@inventory16:
 	{
 		name: "Storage"
-		stack_size_multiplier: 5.000
+		stack_size_multiplier: 2.000
 		type: storage
 		flags: ignore_mass, public
 	}
@@ -112,4 +112,21 @@ minimap.marker:
 		frame: [1, 0]
 	}
 	flags: faction
+}
+
+armory:
+{
+	@inventory4:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 4.000
+		filter_flags: ammo
+		type: ammo
+		flags: ignore_mass
+	}
+}
+
+shipment:
+{
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }

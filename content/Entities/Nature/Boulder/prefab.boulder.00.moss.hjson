@@ -55,7 +55,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 650.000
+			quantity: 1350.000
 		}
 	]
 }

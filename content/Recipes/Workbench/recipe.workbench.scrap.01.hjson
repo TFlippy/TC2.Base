@@ -13,7 +13,7 @@
 	max: 500
 	step: 50
 	type: workshop
-	tags: workbench
+	tags: workbench, forge
 	
 	requirements:
 	[

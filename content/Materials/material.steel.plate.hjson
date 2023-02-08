@@ -28,6 +28,6 @@
 	commodity:
 	{
 		categories: metals, components, construction_materials, industrial
-		market_price: 5.000
+		market_price: 2.500
 	}
 }
