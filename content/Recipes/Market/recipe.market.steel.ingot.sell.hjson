@@ -2,8 +2,9 @@
 	name: "Steel Ingot"
 	desc:
 		'''
-		An ingot of solid steel.
-		Used for construction, machinery, tools and more.
+		Solid steel ingot.
+	
+		Used in construction, machinery, tools and more.
 		'''
 	
 	icon:
@@ -20,9 +21,9 @@
 		frame: [0, 0]
 	}
 	
-	min: 10
+	min: 5
 	max: 50
-	step: 10
+	step: 5
 	type: sell
 	tags: market
 	

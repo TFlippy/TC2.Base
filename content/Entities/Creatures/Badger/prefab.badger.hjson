@@ -464,7 +464,7 @@ faction:
 		{
 			sound: "badger_attack"
 			damage_base: 40.000
-			damage_bonus: 150.000
+			damage_bonus: 110.000
 
 			cooldown: 0.800
 			max_distance: 1.500

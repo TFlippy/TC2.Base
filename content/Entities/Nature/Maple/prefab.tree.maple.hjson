@@ -50,7 +50,7 @@ animated.renderer:
 		texture: "tree.maple"
 	}
 	offset: [0.000, -3.000]
-	z: -50.000
+	z: -80.000
 }
 
 tree:

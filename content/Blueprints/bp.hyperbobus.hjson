@@ -4,8 +4,13 @@
 		'''
 		Heavy AC-caliber shotgun.
 		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
 	prefab: "machine_gun"
 	recipe: "gunsmith.machine_gun"
+	
 	augments:
 	[
 		{
@@ -52,6 +57,54 @@
 		}
 		{
 			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
 			flags: none
 			modifier: 0.000
 			data: 0

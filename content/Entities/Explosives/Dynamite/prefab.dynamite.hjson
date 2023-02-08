@@ -43,7 +43,9 @@ animated.renderer:
 	{
 		texture: "dynamite"
 	}
+	color: "0xffd33900"
 	offset: [0.125, -0.125]
+	mask: "dynamite.mask"
 }
 
 transform:

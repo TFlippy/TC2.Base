@@ -50,7 +50,7 @@ animated.renderer:
 		texture: "tree.oak"
 	}
 	offset: [-0, -5.500]
-	z: -50.000
+	z: -80.000
 }
 
 tree:
