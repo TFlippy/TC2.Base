@@ -6,7 +6,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 12800.000
+	max_health: 30000.000
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.900
@@ -25,7 +25,7 @@
 	[
 		{
 			material: "copper.ore"
-			quantity: 2.000
+			quantity: 1.500
 		}
 	]
 	
