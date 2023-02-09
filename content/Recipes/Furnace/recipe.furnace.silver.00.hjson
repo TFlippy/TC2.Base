@@ -1,20 +1,20 @@
 {
-	name: "Smelt Copper"
+	name: "Smelt Silver"
 	desc: 
 		'''
-		Smelt pure copper powder.
+		Smelt pure silver powder.
 		'''
 	
 	icon:
 	{
-		texture: "resource.copper.ingot"
+		texture: "resource.silver.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.copper.powder"
+		texture: "resource.silver.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -34,11 +34,11 @@
 	[
 		{
 			type: temperature
-			amount: 1358.000
+			amount: 1235.000
 		}
 		{
 			type: resource
-			material: "copper.powder"
+			material: "silver.powder"
 			amount: 5.000
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "copper.ingot"
+			material: "silver.ingot"
 			amount: 1.000
 		}
 	]

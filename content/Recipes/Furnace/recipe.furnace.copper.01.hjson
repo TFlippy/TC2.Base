@@ -1,5 +1,5 @@
 {
-	name: "Magnetite Steel"
+	name: "Smelt Copper"
 	desc: 
 		'''
 
@@ -7,14 +7,14 @@
 	
 	icon:
 	{
-		texture: "resource.steel.ingot"
+		texture: "resource.copper.ingot"
 		size: [16, 16]
 		frame: [2, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.magnetite"
+		texture: "resource.copper.ore"
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -22,9 +22,9 @@
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
 
-	min: 50
-	max: 500
-	step: 50
+	min: 10
+	max: 200
+	step: 10
 	
 	flags: none
 	type: crafter
@@ -34,23 +34,23 @@
 	[
 		{
 			type: temperature
-			amount: 1811.000
+			amount: 1358.000
 		}
 		{
 			type: resource
-			material: "magnetite"
-			amount: 1.000
+			material: "copper.powder"
+			amount: 3.500
 		}
 		{
 			type: resource
-			material: "coke"
-			amount: 0.100
+			material: "copper.gravel"
+			amount: 1.500
 		}
 		{
 			type: work
 			work: melting
-			amount: 70.000
-			difficulty: 7.000
+			amount: 80.000
+			difficulty: 4.000
 		}
 	]
 	
@@ -58,16 +58,15 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 0.200
-			amount_extra: 0.350
+			material: "copper.ingot"
+			amount: 0.820
+			amount_extra: 0.100
 		}
 		{
 			type: resource
-			material: "slag"
-			amount: 0.220
-			amount_extra: 0.750
-			flags: waste
+			material: "sulfur_dioxide"
+			amount: 1.150
+			amount_extra: 0.380
 		}
 	]
 }

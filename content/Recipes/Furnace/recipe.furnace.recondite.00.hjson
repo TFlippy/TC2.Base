@@ -1,22 +1,22 @@
 {
-	name: "Smelt Copper"
+	name: "Smelt Recondite"
 	desc: 
 		'''
-		Smelt pure copper powder.
+		Smelt pure recondite powder.
 		'''
 	
 	icon:
 	{
-		texture: "resource.copper.ingot"
+		texture: "resource.recondite.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.copper.powder"
+		texture: "resource.silver.powder"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
@@ -34,12 +34,17 @@
 	[
 		{
 			type: temperature
-			amount: 1358.000
+			amount: 2055.000
 		}
 		{
-			type: resource
-			material: "copper.powder"
-			amount: 5.000
+			type: "resource"
+			material: "smirgl.powder"
+			amount: 3.500
+		}
+		{
+			type: "resource"
+			material: "silver.powder"
+			amount: 1.500
 		}
 		{
 			type: work
@@ -53,7 +58,7 @@
 	[
 		{
 			type: resource
-			material: "copper.ingot"
+			material: "recondite.ingot"
 			amount: 1.000
 		}
 	]

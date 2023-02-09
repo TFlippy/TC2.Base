@@ -1,20 +1,20 @@
 {
-	name: "Smelt Copper"
+	name: "Smelt Arcanite"
 	desc: 
 		'''
-		Smelt pure copper powder.
+		Smelt pure arcanite powder.
 		'''
 	
 	icon:
 	{
-		texture: "resource.copper.ingot"
+		texture: "resource.arcanite.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.copper.powder"
+		texture: "resource.arcanite.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -34,11 +34,11 @@
 	[
 		{
 			type: temperature
-			amount: 1358.000
+			amount: 2055.000
 		}
 		{
 			type: resource
-			material: "copper.powder"
+			material: "arcanite.powder"
 			amount: 5.000
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "copper.ingot"
+			material: "arcanite.ingot"
 			amount: 1.000
 		}
 	]
