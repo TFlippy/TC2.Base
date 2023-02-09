@@ -1,6 +1,14 @@
 {
 	name: "Asphalt"
-	desc: "TODO: Desc"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
@@ -12,12 +20,15 @@
 	friction: 0.990
 	elasticity: 0.150
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.asphalt"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.250
+	color_preview: "0x00000000"
 	
 	resources: []
 	

@@ -1,6 +1,14 @@
 {
 	name: "Smirgl"
-	desc: "A very heavy mineral."
+	desc:
+		'''
+		A very heavy mineral.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
@@ -12,7 +20,7 @@
 	friction: 0.900
 	elasticity: 0.300
 	stability: 0.500
-
+	collision_layer: none
 	collision_mask: essence
 	
 	texture: "terrain.smirgl.ore"
@@ -20,7 +28,6 @@
 	
 	texture_scale: 1.650
 	texture_overshoot: -0.950
-
 	color_preview: "0xff784b39"
 	
 	resources:

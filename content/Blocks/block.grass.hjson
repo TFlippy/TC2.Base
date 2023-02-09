@@ -1,6 +1,14 @@
 {
 	name: "Grass"
-	desc: "Nice green grass."
+	desc:
+		'''
+		Nice green grass.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: soil
 	tile_flags: non_empty
@@ -12,12 +20,15 @@
 	friction: 0.900
 	elasticity: 0.600
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.grass"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.800
 	texture_overshoot: -0.750
+	color_preview: "0x00000000"
 	
 	resources:
 	[

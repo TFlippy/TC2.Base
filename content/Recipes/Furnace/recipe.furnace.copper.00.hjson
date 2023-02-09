@@ -1,6 +1,6 @@
 {
 	name: "Smelt Copper"
-	desc: 
+	desc:
 		'''
 		Smelt pure copper powder.
 		'''
@@ -18,17 +18,17 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-
+	
+	icon_extra_offset: [-4.000, -6.000]
+	
 	min: 5
 	max: 100
 	step: 5
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
+	rank: -90.000
 	
 	requirements:
 	[
@@ -55,6 +55,7 @@
 			type: resource
 			material: "copper.ingot"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }
