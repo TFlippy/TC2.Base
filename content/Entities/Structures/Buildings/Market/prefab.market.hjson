@@ -72,7 +72,14 @@ faction:
 
 claimable:
 {
-	flags: no_menu
+	// flags: no_menu
+	requirements:
+	[
+		{
+			type: money
+			amount: 500.000
+		}
+	]
 }
 
 nameable:

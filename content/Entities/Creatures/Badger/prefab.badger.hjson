@@ -12,8 +12,8 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.500
-		elasticity: 0.350
+		friction: 0.200
+		elasticity: 0.450
 		material: flesh
 		layer: entity, solid, creature, flammable
 		mask: world, vehicle
@@ -183,7 +183,7 @@ norotate:
 {
 	bias: 0.100
 	multiplier: 2.000
-	mass_multiplier: 25.000
+	mass_multiplier: 35.000
 }
 
 interactable:
@@ -278,7 +278,7 @@ faction:
 			{
 				mass: 25.000
 				radius: 0.500
-				friction: 0.700
+				friction: 0.300
 				elasticity: 0.250
 				material: flesh
 				layer: entity, solid, creature, flammable
@@ -467,7 +467,7 @@ faction:
 			damage_bonus: 110.000
 
 			cooldown: 0.800
-			max_distance: 1.500
+			max_distance: 2.000
 			aoe: 0.250
 			damage_type: bite
 			hit_mask: destructible

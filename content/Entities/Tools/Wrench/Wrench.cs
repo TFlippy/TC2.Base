@@ -614,7 +614,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				var window_size = new Vector2(426, 500);
+				var window_size = new Vector2(422, 500);
 
 				using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
 				{
@@ -627,17 +627,29 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
 						{
-							Wrench.DrawModeButton<Wrench.Mode.Build.Data>(this.ent_wrench);
-							GUI.SameLine();
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Build.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Build.Data>(this.ent_wrench);
+								GUI.SameLine();
+							}
 
-							Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
-							GUI.SameLine();
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Belts.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
+								GUI.SameLine();
+							}
 
-							Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
-							GUI.SameLine();
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Conveyors.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
+								GUI.SameLine();
+							}
 
-							Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
-							GUI.SameLine();
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Deconstruct.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
+								GUI.SameLine();
+							}
 						}
 
 						GUI.SeparatorThick();
@@ -709,11 +721,23 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Wrench.Data wrench, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
+#if SERVER
+		[ISystem.Add(ISystem.Mode.Single)]
+		public static void OnAdd<T>(ISystem.Info info, Entity entity, [Source.Owned] ref T mode, [Source.Owned] ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
-
+			if (wrench.selected_component_id == 0)
+			{
+				wrench.selected_component_id = ECS.GetID<T>();
+				wrench.Sync(entity);
+			}
 		}
+#endif
+
+		//[ISystem.Update(ISystem.Mode.Single)]
+		//public static void Update(ISystem.Info info, Entity entity,
+		//[Source.Owned] ref Wrench.Data wrench, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
+		//{
+
+		//}
 	}
 }

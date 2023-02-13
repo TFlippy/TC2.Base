@@ -1500,38 +1500,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (var i = 0; i < context.requirements_old.Length; i++)
-					{
-						var requirement = context.requirements_old[i];
 
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
-							}
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= 0.20f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-
-								case Work.Type.Machining:
-								{
-									requirement.amount *= 0.05f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-							}
-						}
-					}
 				}
 			));
 
@@ -1576,38 +1545,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (var i = 0; i < context.requirements_old.Length; i++)
-					{
-						var requirement = context.requirements_old[i];
-
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
-							}
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= 0.20f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-
-								case Work.Type.Machining:
-								{
-									requirement.amount *= 0.05f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-							}
-						}
-					}
+					//switch ()
 				}
 			));
 
@@ -1652,38 +1590,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					for (var i = 0; i < context.requirements_old.Length; i++)
-					{
-						var requirement = context.requirements_old[i];
 
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
-							}
-						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work)
-							{
-								case Work.Type.Smithing:
-								{
-									requirement.amount *= 0.20f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-
-								case Work.Type.Machining:
-								{
-									requirement.amount *= 0.05f;
-									context.requirements_new.Add(requirement);
-								}
-								break;
-							}
-						}
-					}
 				}
 			));
 

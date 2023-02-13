@@ -60,7 +60,34 @@ namespace TC2.Base.Components
 
 					public void DrawInfo(Entity ent_wrench, ref TargetInfo info)
 					{
+						GUI.TitleCentered("Deconstruct", size: 24, pivot: new Vector2(0.50f, 0.50f));
 
+
+						//using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
+						//{
+						//	GUI.TitleCentered("Deconstruct", size: 24, pivot: new Vector2(0.00f, 0.50f));
+						//}
+
+						//GUI.SeparatorThick();
+
+						//using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 6)))
+						//{
+						//	using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+						//	{
+						//		//GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
+
+						//		//GUI.NewLine();
+
+						//		//if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
+						//		//{
+						//		//	var root = prefab.Root;
+						//		//	if (root != null)
+						//		//	{
+						//		//		GUI.DrawStats(root, priority_min: Statistics.Priority.Low);
+						//		//	}
+						//		//}
+						//	}
+						//}
 					}
 
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_target)
