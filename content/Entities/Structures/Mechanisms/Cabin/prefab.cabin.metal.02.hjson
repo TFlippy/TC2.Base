@@ -178,7 +178,7 @@ mount:
 		identifier: "turret"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
 
 		gui_size: [0.000, 96.000]
 	}
