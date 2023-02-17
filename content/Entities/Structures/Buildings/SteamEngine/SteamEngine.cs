@@ -326,7 +326,7 @@ namespace TC2.Base.Components
 						}
 
 						//if (GUI.SliderFloat("Target Speed", ref this.steam_engine.speed_target, 0.00f, this.steam_engine.speed_max, size: new Vector2(160, 32)))
-						if (GUI.SliderFloat("Target Speed", ref this.steam_engine.speed_target, 0.00f, this.steam_engine.speed_max, size: new Vector2(160, 32)))
+						if (GUI.SliderFloat("Target Speed", ref this.steam_engine.speed_target, 0.00f, this.steam_engine.speed_max, size: new Vector2(160, 32), snap: 0.100f))
 						{
 							var rpc = new SteamEngine.ConfigureRPC()
 							{

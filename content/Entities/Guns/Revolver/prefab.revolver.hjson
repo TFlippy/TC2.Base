@@ -1,3 +1,8 @@
+$name: "Revolver"
+$desc:
+	'''
+	Small revolver capable of using high-caliber ammunition.
+	'''
 $tags: []
 
 body:

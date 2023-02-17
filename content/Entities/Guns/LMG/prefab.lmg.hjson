@@ -1,3 +1,8 @@
+$name: "LMG"
+$desc:
+	'''
+	Light machine gun capable of firing high-powered rounds.
+	'''
 $tags: []
 
 body:

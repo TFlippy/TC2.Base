@@ -4,8 +4,13 @@
 		'''
 		Cutting-edge rapid-fire cannon utilizing arcane technology.
 		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
 	prefab: "cannon.short"
 	recipe: "gunsmith.cannon.short"
+	
 	augments:
 	[
 		{

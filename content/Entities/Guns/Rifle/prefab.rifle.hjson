@@ -1,3 +1,10 @@
+$name: "Rifle"
+$desc:
+	'''
+	Reliable bolt-action rifle.
+
+	Good for hunting and long-range combat.
+	'''
 $tags: []
 
 body:

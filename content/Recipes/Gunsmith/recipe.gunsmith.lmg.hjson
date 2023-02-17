@@ -2,7 +2,7 @@
 	name: "LMG"
 	desc:
 		'''
-		Lightweight machine gun capable of firing high-powered rounds.
+		Light machine gun capable of firing high-powered rounds.
 		'''
 	
 	icon:

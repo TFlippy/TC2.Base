@@ -14,6 +14,7 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterExplosiveAugments;
 			Augment.OnInitialize += RegisterArmorAugments;
 			Augment.OnInitialize += RegisterWrenchAugments;
+			Augment.OnInitialize += RegisterVehicleAugments;
 
 #if CLIENT
 			HitEffects.Init();

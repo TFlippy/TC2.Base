@@ -7,8 +7,13 @@
 		Imperial official responsible for reviewing the order of 50 000 units has been promptly executed for wasting paper and government budget.
 		Now available for civilian use at a heavily discounted rate.
 		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
 	prefab: "blunderbuss"
 	recipe: "gunsmith.blunderbuss"
+	
 	augments:
 	[
 		{
@@ -58,6 +63,54 @@
 			flags: none
 			modifier: 0.000
 			data: 1073741824
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }
