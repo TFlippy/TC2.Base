@@ -63,8 +63,21 @@ animated.renderer:
 	{
 		texture: "cabin.metal.02"
 	}
-	offset: [0.000, 0.000]
-	z: -100.000
+	z: 70.000
+	mask: "cabin.metal.mask.02"
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "cabin.metal.fg.02"
+		}
+		z: 80.000
+		mask: "cabin.metal.fg.mask.02"
+	}
 }
 
 faction.colorable:
@@ -114,19 +127,6 @@ threat:
 
 }
 
-vehicle:
-{
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "cabin.metal.fg.02"
-		}
-		z: 10.000
-		mask: "cabin.metal.fg.mask.02"
-	}
-}
-
 +seat|instance:
 {
 	$tags: []
@@ -147,11 +147,11 @@ mount:
 {
 	joint.base:
 	{
-		offset_a: [-0.625, -1.125]
+		offset_a: [-0.500, -1.250]
 		max_force: 300000.000
 		max_torque: 200000.000
 		flags: no_stress, control_write, force_facing
-		z: 0.000
+		z: 75.000
 
 		@sound.emitter:
 		{
