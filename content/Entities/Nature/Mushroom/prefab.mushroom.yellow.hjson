@@ -39,11 +39,12 @@ animated.renderer:
 	}
 	offset: [0.500, -3.500]
 	z: -200.000
+	flags: has_damage
+}
 
-	@damagesprite:
-	{
-		frame_count: 3
-	}
+damage.effects:
+{
+	frame_count: 3
 }
 
 harvestable:

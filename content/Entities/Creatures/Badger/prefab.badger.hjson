@@ -43,11 +43,12 @@ animated.renderer:
 		size: [16, 16]
 	}
 	z: -30.000
+	flags: has_damage
+}
+
+damage.effects:
+{
 	
-	@damagesprite:
-	{
-	
-	}
 }
 
 transform:
@@ -337,11 +338,12 @@ faction:
 				size: [16, 16]
 			}
 			z: -40.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
 			
-			@damagesprite:
-			{
-			
-			}
 		}
 		
 		runner:
@@ -514,13 +516,14 @@ faction:
 				size: [16, 8]
 			}
 			z: -30.000
-			
-			@damagesprite:
-			{
-			
-			}
+			flags: has_damage
 		}
-		
+
+		damage.effects:
+		{
+			
+		}
+				
 		threat:
 		{
 			priority: 4.000

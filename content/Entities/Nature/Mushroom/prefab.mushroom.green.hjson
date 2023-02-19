@@ -39,6 +39,7 @@ animated.renderer:
 	}
 	offset: [0.200, -1.800]
 	z: -200.000
+	flags: has_damage
 	
 	@light:
 	{
@@ -48,11 +49,11 @@ animated.renderer:
 		intensity: 1.000
 		texture: "light.circle.00"
 	}
+}
 
-	@damagesprite:
-	{
-		frame_count: 3
-	}
+damage.effects:
+{
+	frame_count: 3
 }
 
 harvestable:

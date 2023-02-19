@@ -62,9 +62,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "cabin.metal.02"
+		size: [32, 32]
 	}
 	z: 70.000
 	mask: "cabin.metal.mask.02"
+	flags: has_damage
 }
 
 vehicle:
@@ -74,10 +76,17 @@ vehicle:
 		sprite:
 		{
 			texture: "cabin.metal.fg.02"
+			size: [32, 32]
 		}
 		z: 80.000
 		mask: "cabin.metal.fg.mask.02"
+		flags: has_damage
 	}
+}
+
+damage.effects:
+{
+
 }
 
 faction.colorable:
