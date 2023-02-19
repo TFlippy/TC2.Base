@@ -7,7 +7,7 @@ projectile:
 	lifetime: 2.000
 	damage_type: bullet_hc
 	size: 0.020
-	tracer_length: 8.000
+	tracer_length: 5.000
 }
 
 projectile.renderer:

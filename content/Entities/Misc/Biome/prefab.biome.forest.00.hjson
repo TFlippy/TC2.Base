@@ -24,8 +24,8 @@ sky:
 {
 	handle: forest.00
 
-	radius_min: 800.000
-	radius_max: 1000.000
+	radius_min: 100.000
+	radius_max: 600.000
 
 	weight: 10.000
 }
@@ -34,8 +34,8 @@ soundscape:
 {
 	handle: forest.day.00
 
-	radius_min: 800.000
-	radius_max: 1000.000
+	radius_min: 100.000
+	radius_max: 600.000
 
 	weight: 10.000
 }

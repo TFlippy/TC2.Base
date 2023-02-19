@@ -67,6 +67,17 @@ animated.renderer:
 	z: -100.000
 }
 
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
+}
+
 transform:
 {
 
@@ -92,7 +103,10 @@ storage:
 
 control:
 {
-
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
 }
 
 threat:
@@ -109,6 +123,7 @@ vehicle:
 			texture: "cabin.metal.fg.02"
 		}
 		z: 10.000
+		mask: "cabin.metal.fg.mask.02"
 	}
 }
 

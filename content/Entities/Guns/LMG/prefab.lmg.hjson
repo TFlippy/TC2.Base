@@ -1,7 +1,7 @@
 $name: "LMG"
 $desc:
 	'''
-	Light machine gun capable of firing high-powered rounds.
+	Light machine gun with high ammo capacity and fast rate of fire.
 	'''
 $tags: []
 
@@ -30,14 +30,14 @@ gun:
 	velocity_multiplier: 660.000
 	jitter_multiplier: 2.200
 	damage_multiplier: 3.000
-	recoil_multiplier: 0.280
+	recoil_multiplier: 1.300
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	failure_rate: 0.003
-	max_ammo: 30.000
+	max_ammo: 50.000
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
-	ammo_filter: ammo_mg
+	ammo_filter: ammo_hc
 	action: blowback
 	type: machinegun
 	feed: drum
