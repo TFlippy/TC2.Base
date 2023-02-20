@@ -104,6 +104,7 @@
 			Loaded = 1 << 3,
 			Wants_Reload = 1 << 4,
 			Artillery = 1 << 5,
+			Hold_RMB = 1 << 6,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -522,6 +523,20 @@
 			}
 		}
 #endif
+
+		[ISystem.Add(ISystem.Mode.Single)]
+		public static void OnAddVehicle(ISystem.Info info, Entity ent_gun,
+		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
+		{
+			vehicle.ent_gun = ent_gun;
+		}
+
+		[ISystem.Remove(ISystem.Mode.Single)]
+		public static void OnRemVehicle(ISystem.Info info, Entity ent_gun,
+		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
+		{
+			vehicle.ent_gun = default;
+		}
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]

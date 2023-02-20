@@ -3,6 +3,13 @@
 	description:
 		'''
 		Ammunition for autocannons.
+
+		Effective against armored targets.
+		
+		- High damage
+		- Large radius
+		- Low velocity
+		- Low recoil
 		'''
 	
 	icon:
@@ -29,7 +36,7 @@
 		count: 1
 		speed_mult: 1.000
 		spread_mult: 1.000
-		recoil_mult: 1.000
+		recoil_mult: 1.300
 		heat: 300.000
 		velocity_min: 80.000
 		prefab: "projectile.bullet.ac"

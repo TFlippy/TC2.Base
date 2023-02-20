@@ -4,12 +4,12 @@ projectile:
 {
 	damage_base: 100.000
 	damage_bonus: 300.000
-	lifetime: 1.500
+	lifetime: 8.000
 	damage_type: bullet_ac
 	size: 0.075
 	ricochet_count: 0
-	damp: 0.980
-	tracer_length: 2.000
+	damp: 0.990
+	tracer_length: 1.700
 }
 
 projectile.renderer:
@@ -17,9 +17,9 @@ projectile.renderer:
 	color_a: "0x40ff0000"
 	color_b: "0xffff0000"
 
-	intensity: 1.500
-	thickness_a: 0.350
-	thickness_b: 0.150
+	intensity: 2.500
+	thickness_a: 0.250
+	thickness_b: 0.100
 }
 
 transform:
@@ -29,15 +29,17 @@ transform:
 
 explosive:
 {
-	radius: 5.000
-	power: 4.000
-	damage_entity: 9000.000
-	damage_terrain: 25000.000
-	sparks_amount: 1.200
+	radius: 6.500
+	power: 3.000
+	damage_entity: 6000.000
+	damage_terrain: 10000.000
+	sparks_amount: 0.800
 	smoke_amount: 1.500
-	smoke_velocity_multiplier: 1.300
+	shake_multiplier: 0.100
+	smoke_velocity_multiplier: 1.900
 	smoke_lifetime_multiplier: 0.200
-	flash_duration_multiplier: 0.150
-	flash_intensity_multiplier: 1.000
+	flash_duration_multiplier: 0.100
+	flash_intensity_multiplier: 0.300
 	flags: primed
+	pitch: 1.400
 }

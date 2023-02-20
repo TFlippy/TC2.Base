@@ -276,7 +276,7 @@ namespace TC2.Base.Components
 				force -= required_force_dir;
 			}
 
-			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, runner_state.last_ground);
+			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f));
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 
 			//max_speed *= runner_state.speed_modifier;
