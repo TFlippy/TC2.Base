@@ -56,7 +56,7 @@
 								case Material.Type.Rubber:
 								case Material.Type.Wood:
 								{
-									entity.Hit(ent_owner, result.entity, result.world_position, dir, result.normal, 1000.00f, result.material_type, Damage.Type.Explosion, knockback: 4.00f);
+									//entity.Hit(ent_owner, result.entity, result.world_position, dir, result.normal, 1000.00f, result.material_type, Damage.Type.Explosion, knockback: 4.00f);
 
 									ref var burning = ref result.entity.GetOrAddComponent<Burning.Data>(sync: true);
 									if (!burning.IsNull())

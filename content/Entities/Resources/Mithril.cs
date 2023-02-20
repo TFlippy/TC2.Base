@@ -19,14 +19,14 @@ namespace TC2.Base.Components
 				ref var region = ref info.GetRegion();
 
 				//var ts = Timestamp.Now();
-				Span<OverlapResult> results = stackalloc OverlapResult[8];
-				if (region.TryOverlapPointAll(transform.position, 4.00f, ref results, mask: Physics.Layer.Destructible))
-				{
-					foreach (ref var result in results)
-					{
-						entity.Hit(entity, result.entity, result.world_position, result.gradient, -result.gradient, 25.00f, result.material_type, Damage.Type.Radiation, speed: 0.50f);
-					}
-				}
+				//Span<OverlapResult> results = stackalloc OverlapResult[8];
+				//if (region.TryOverlapPointAll(transform.position, 4.00f, ref results, mask: Physics.Layer.Destructible))
+				//{
+				//	foreach (ref var result in results)
+				//	{
+				//		entity.Hit(entity, result.entity, result.world_position, result.gradient, -result.gradient, 25.00f, result.material_type, Damage.Type.Radiation, speed: 0.50f);
+				//	}
+				//}
 				//App.WriteLine($"{ts.GetMilliseconds():0.0000} ms");
 
 				radioactive.next_update = info.WorldTime + random.NextFloatRange(0.10f, 0.20f);

@@ -125,10 +125,16 @@
 
 			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
 
-			Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
-				world_position: data.world_position, direction: data.direction, normal: -data.direction,
-				damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
-				target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
+			//Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
+			//	world_position: data.world_position, direction: data.direction, normal: -data.direction,
+			//	damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
+			//	target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
+
+			Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: data.ent_target,
+				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,
+				damage_integrity: 400.00f * multiplier, damage_durability: 4000.00f * multiplier, damage_terrain: 200.00f * multiplier,
+				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
+				yield: 0.00f, size: 1.50f, impulse: 0.00f);
 
 			if (random.NextBool(0.10f))
 			{

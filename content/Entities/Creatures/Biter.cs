@@ -83,11 +83,17 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-						var damage = biter.damage_base + random.NextFloatRange(0.00f, biter.damage_bonus);
-						Damage.Hit(attacker: entity, owner: parent, target: result.entity,
-							world_position: result.world_position, direction: dir, normal: -dir,
-							damage: damage * modifier, damage_type: biter.damage_type,
-							target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags, speed: 8.00f);
+						var damage = (biter.damage_base + random.NextFloatRange(0.00f, biter.damage_bonus)) * modifier;
+						//Damage.Hit(attacker: entity, owner: parent, target: result.entity,
+						//	world_position: result.world_position, direction: dir, normal: -dir,
+						//	damage: damage * modifier, damage_type: biter.damage_type,
+						//	target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags, speed: 8.00f);
+
+						Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: result.entity,
+							position: result.world_position, velocity: dir * 8.00f, normal: -dir,
+							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
+							target_material_type: result.material_type, damage_type: biter.damage_type,
+							yield: 0.00f, size: biter.aoe, impulse: 0.00f, flags: flags);
 #endif
 
 						//flags |= Damage.Flags.No_Sound;

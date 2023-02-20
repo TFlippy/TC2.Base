@@ -192,7 +192,13 @@ namespace TC2.Base.Components
 							var damage_final = damage * modifier;
 							if (is_terrain) damage_final *= drill.damage_terrain_multiplier;
 
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 4.00f);
+							//Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 4.00f);
+
+							Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: hit.entity,
+								position: hit.world_position, velocity: dir * 4.00f, normal: -dir,
+								damage_integrity: damage_final, damage_durability: damage_final, damage_terrain: damage_final,
+								target_material_type: hit.material_type, damage_type: Damage.Type.Saw,
+								yield: 0.90f, size: drill.radius * 1.50f, impulse: 0.00f, faction_id: faction.id, flags: flags);
 #endif
 
 							//flags |= Damage.Flags.No_Sound;
