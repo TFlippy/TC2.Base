@@ -5,13 +5,15 @@ projectile:
 	damage_base: 3000.000
 	damage_bonus: 3500.000
 	damage_type: bullet_emrg
-	knockback_multiplier: 30.000
+	knockback_multiplier: 13.000
 
 	lifetime: 20.000
 	ignore_time: 0.020
 	size: 0.250
 	ricochet_count: 1
 	damp: 0.998
+
+	mass: 17.000
 
 	@sound.emitter:
 	{

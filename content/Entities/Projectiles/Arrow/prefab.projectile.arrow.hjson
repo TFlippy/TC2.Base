@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 300.000
 	lifetime: 15.000
 	damage_type: arrow
-	size: 0.400
+	size: 0.200
 	ricochet_count: 0
 }
 

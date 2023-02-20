@@ -7,7 +7,7 @@ projectile:
 	lifetime: 10.000
 	ignore_time: 0.100
 	damage_type: bullet_musket
-	size: 0.250
+	size: 0.050
 	ricochet_count: 0
 }
 

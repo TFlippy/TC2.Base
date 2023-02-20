@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 120.000
 	lifetime: 2.000
 	damage_type: bullet_sg
-	size: 0.150
+	size: 0.030
 	ricochet_count: 0
 	tracer_length: 3.000
 }
