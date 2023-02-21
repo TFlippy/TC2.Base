@@ -21,7 +21,7 @@ body:
 		friction: 0.950
 		elasticity: 0.300
 		material: wood
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, ignore_bullet
 		mask: world
 	}
 }

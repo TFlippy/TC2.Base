@@ -52,12 +52,12 @@ lamp:
 	}
 }
 
-essencecontainer:
-{
-	type: radiance
-	available: 1.000
-	rate: 1.000
-	stability: 0.000
-	health_threshold: 0.9999
-	flags: none
-}
+// essencecontainer:
+// {
+// 	type: radiance
+// 	available: 1.000
+// 	rate: 1.000
+// 	stability: 0.000
+// 	health_threshold: 0.9999
+// 	flags: none
+// }

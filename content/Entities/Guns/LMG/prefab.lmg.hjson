@@ -11,7 +11,7 @@ body:
 	{
 		a: [-0.750, 0.150]
 		b: [0.750, -0.050]
-		mass: 18.000
+		mass: 12.000
 		radius: 0.350
 		friction: 0.900
 		elasticity: 0.250
@@ -26,11 +26,11 @@ gun:
 	muzzle_offset: [1.375, -0.250]
 	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
-	sound_dist_multiplier: 4.000
-	velocity_multiplier: 660.000
-	jitter_multiplier: 2.200
+	sound_dist_multiplier: 3.000
+	velocity_multiplier: 640.000
+	jitter_multiplier: 2.800
 	damage_multiplier: 3.000
-	recoil_multiplier: 1.300
+	recoil_multiplier: 1.100
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	failure_rate: 0.003
@@ -136,7 +136,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 110.000
+	cool_rate: 60.000
 
 	offset: [0.750, -0.125]
 	size: [1.000, 0.500]
@@ -144,7 +144,7 @@ overheat:
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
-		offset: [0.000, 0.000]
+		offset: [0.750, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 0.000
 		texture: "light.circle.00"

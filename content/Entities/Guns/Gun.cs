@@ -970,7 +970,14 @@
 					}
 				}
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
+				var pitch_modifier = 1.00f;
+				if (overheat.IsNotNull())
+				{
+					pitch_modifier += (Maths.InvLerp(overheat.heat_medium, overheat.heat_high, overheat.heat_current).Clamp01() * 0.08f);
+				}
+				pitch_modifier *= random.NextFloatRange(0.98f, 1.02f);
+
+				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch * pitch_modifier, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 
