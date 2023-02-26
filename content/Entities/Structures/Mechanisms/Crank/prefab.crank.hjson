@@ -170,7 +170,7 @@ transform:
 		crank:
 		{
 			max_speed: 5.000
-			torque: 1000.000
+			torque: 80.000
 			mod: 1.000
 			
 			@animated.renderer:

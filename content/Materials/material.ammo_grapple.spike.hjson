@@ -27,9 +27,9 @@
 		count: 1
 		speed_mult: 1.000
 		spread_mult: 1.000
-		recoil_mult: 1.000
+		recoil_mult: 0.100
 		heat: 1000.000
-		velocity_min: 80.000
+		velocity_min: 5.000
 		prefab: "projectile.grapple.spike"
 	}
 }

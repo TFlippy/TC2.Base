@@ -30,7 +30,8 @@
 			No_Particles = 1u << 4,
 
 			Child_Projectiles = 1u << 5,
-			No_LMB_Cycle = 1u << 6,
+			Rope_Projectiles = 1u << 6,
+			No_LMB_Cycle = 1u << 7,
 
 		}
 
@@ -858,6 +859,17 @@
 									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
 									{
 										ent.AddRelation(args.ent_gun, Relation.Type.Child);
+									}
+
+									if (args.gun_flags.HasAll(Gun.Flags.Rope_Projectiles))
+									{
+										var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
+										if (ent_child.IsAlive())
+										{
+											ent_child.RemoveRelation(entity, Relation.Type.Rope);
+											ent_child.Delete();
+										}
+										ent.AddRelation(args.ent_gun, Relation.Type.Rope);
 									}
 								});
 							}

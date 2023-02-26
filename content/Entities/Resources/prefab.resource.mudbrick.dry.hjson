@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.mudbrick_dry"
+		texture: "resource.mudbrick.dry"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "mudbrick_dry"
+	material: "mudbrick.dry"
 }
 
 hoverable:

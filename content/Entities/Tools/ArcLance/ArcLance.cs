@@ -136,10 +136,10 @@
 				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
 				yield: 0.00f, size: 1.50f, impulse: 0.00f);
 
-			if (random.NextBool(0.10f))
-			{
-				Fire.Ignite(data.ent_target, random.NextFloatRange(1.00f, 4.00f), Fire.Flags.No_Radius_Ignite);
-			}
+			//if (random.NextBool(0.10f))
+			//{
+			//	Fire.Ignite(data.ent_target, random.NextFloatRange(1.00f, 4.00f), Fire.Flags.No_Radius_Ignite);
+			//}
 #endif
 
 		}

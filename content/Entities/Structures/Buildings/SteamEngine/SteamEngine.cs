@@ -114,7 +114,7 @@ namespace TC2.Base.Components
 
 			App.WriteLine("steam engine damaged");
 #if CLIENT
-			Sound.Play("explosion.steam.01", transform.position, volume: 1.00f);
+			Sound.Play("explosion.steam.01", transform.position, volume: 1.50f, size: 1.00f, priority: 0.70f, dist_multiplier: 2.20f);
 			Shake.Emit(ref region, transform.position, 1.00f, 1.00f, max_radius * 2.00f);
 
 			var smoke_count = (int)Maths.Clamp(data.power * 10.00f, 10.00f, 50.00f);
@@ -123,7 +123,7 @@ namespace TC2.Base.Components
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = texture_smoke,
-					lifetime = random.NextFloatRange(7.00f, 24.00f),
+					lifetime = random.NextFloatRange(12.00f, 30.00f),
 					pos = transform.position + random.NextVector2(0.40f),
 					vel = random.NextUnitVector2Range(0.00f, 15.00f) + new Vector2(random.NextFloatRange(-40, 40), random.NextFloatRange(-30, 10)),
 					force = random.NextUnitVector2Range(0.00f, 2.00f) + new Vector2(random.NextFloatRange(0, 2), -random.NextFloatRange(1, 2)),

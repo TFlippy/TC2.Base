@@ -112,7 +112,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
-			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f))).Clamp01();
+			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 0.50f))).Clamp01();
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
@@ -121,7 +121,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
 		{
-			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f))).Clamp01();
+			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 0.50f))).Clamp01();
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
