@@ -136,7 +136,7 @@
 		}
 #endif
 
-		public static readonly Gradient gradient_work = new Gradient(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
+		public static readonly Gradient<float> gradient_work = new Gradient<float>(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
 
 		[ISystem.Update.Modify(ISystem.Mode.Single)]
 		public static void UpdateWheel(ISystem.Info info, Entity entity,

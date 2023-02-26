@@ -65,13 +65,13 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static Gradient gr_consciousness = new Gradient(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
-		public static Gradient gr_endurance = new Gradient(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
-		public static Gradient gr_dexterity = new Gradient(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f);
-		public static Gradient gr_strength = new Gradient(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
-		public static Gradient gr_motorics = new Gradient(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
-		public static Gradient gr_coordination = new Gradient(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
-		public static Gradient gr_pain_modifier = new Gradient(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
+		public static Gradient<float> gr_consciousness = new Gradient<float>(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
+		public static Gradient<float> gr_endurance = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
+		public static Gradient<float> gr_dexterity = new Gradient<float>(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f);
+		public static Gradient<float> gr_strength = new Gradient<float>(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
+		public static Gradient<float> gr_motorics = new Gradient<float>(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
+		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
+		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
