@@ -112,15 +112,19 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
-			no_rotate.multiplier *= (1.00f - runner_state.air_time.Clamp01());
-			no_rotate.mass_multiplier *= (1.00f - runner_state.air_time.Clamp01());
+			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f))).Clamp01();
+
+			no_rotate.multiplier *= modifier;
+			no_rotate.mass_multiplier *= modifier;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
 		{
-			no_rotate.multiplier *= (1.00f - runner_state.air_time.Clamp01());
-			no_rotate.mass_multiplier *= (1.00f - runner_state.air_time.Clamp01());
+			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f))).Clamp01();
+
+			no_rotate.multiplier *= modifier;
+			no_rotate.mass_multiplier *= modifier;
 		}
 
 		//		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -276,7 +280,7 @@ namespace TC2.Base.Components
 				force -= required_force_dir;
 			}
 
-			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 1.00f));
+			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 
 			//max_speed *= runner_state.speed_modifier;
