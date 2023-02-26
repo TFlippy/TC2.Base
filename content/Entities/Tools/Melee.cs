@@ -429,7 +429,8 @@ namespace TC2.Base.Components
 			Terrain = 1u << 2,
 		}
 
-		public static void HitMethod(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, in Melee.Data melee, ref Melee.State melee_state, out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit)
+		// TODO: come up with a better name
+		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, in Melee.Data melee, ref Melee.State melee_state, out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit)
 		{
 			var penetration = melee.penetration;
 			var index_max = -1;
@@ -503,7 +504,7 @@ namespace TC2.Base.Components
 
 							if (do_hit)
 							{
-								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: h_faction);
+								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
 							}
 
 							if (i == index_max) break;
@@ -524,7 +525,7 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
-						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: h_faction);
+						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
 					}
 				}
 			}
@@ -543,7 +544,7 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
-						Melee.Hit(ref region, ent_melee, ent_parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: h_faction);
+						Melee.Hit(ref region, ent_melee, ent_parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
 					}
 				}
 			}
@@ -617,22 +618,7 @@ namespace TC2.Base.Components
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
 				var len = Vector2.Distance(pos, pos_target);
 
-				HitMethod(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: true, do_hit: false);
-
-				//if (!hit_results.HasAny(Melee.HitResults.Any))
-				//{
-				//	var material_type = default(Material.Type);
-				//	if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
-				//	{
-				//		material_type = tile.Block.material_type;
-				//	}
-
-				//	if (material_type != Material.Type.None)
-				//	{
-				//		//hit_terrain = true;
-				//		hit_results.SetFlag(HitResults.Terrain, true);
-				//	}
-				//}
+				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: true, do_hit: false);
 
 				var gui = new BlockGUI()
 				{
@@ -679,10 +665,12 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle faction = default)
+		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
 #if CLIENT
 			var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
+
+			Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 			Shake.Emit(ref region, hit_pos, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
 #endif
 
@@ -697,7 +685,7 @@ namespace TC2.Base.Components
 				position: hit_pos, velocity: dir * 8.00f, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
 				target_material_type: material_type, damage_type: melee.damage_type,
-				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: faction.id);
+				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id);
 #endif
 
 			var data = new Melee.HitEvent();
@@ -760,25 +748,7 @@ namespace TC2.Base.Components
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
 				var len = Vector2.Distance(pos, pos_target);
 
-#if CLIENT
-				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
-#endif
-
-				HitMethod(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: false, do_hit: true);
-
-				//if (!hit_results.HasAny(Melee.HitResults.Any))
-				//{
-				//	var material_type = default(Material.Type);
-				//	if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
-				//	{
-				//		material_type = tile.Block.material_type;
-				//	}
-
-				//	if (material_type != Material.Type.None)
-				//	{
-				//		Melee.Hit(ref region, entity, parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-				//	}
-				//}
+				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: false, do_hit: true);
 			}
 		}
 	}
