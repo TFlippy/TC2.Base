@@ -1,3 +1,8 @@
+$name: "SMG"
+$desc:
+	'''
+	Automatic submachine gun with high ammo capacity.
+	'''
 $tags: []
 
 body:

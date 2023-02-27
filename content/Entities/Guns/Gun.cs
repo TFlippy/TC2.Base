@@ -659,7 +659,7 @@
 					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
-					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAny(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
 					{
@@ -669,7 +669,7 @@
 							ref var resource = ref inventory[i];
 
 							ref var material = ref resource.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter) && material.ammo.HasValue)
+							if (material.IsNotNull() && material.flags.HasAny(gun.ammo_filter) && material.ammo.HasValue)
 							{
 								ref var ammo = ref material.ammo.GetRef();
 

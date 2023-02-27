@@ -1,3 +1,9 @@
+$name: "Carbine"
+$desc:
+	'''
+	Lever-action carbine.
+	Easier to handle in cramped environments thanks to its smaller size.
+	'''
 $tags: []
 
 body:

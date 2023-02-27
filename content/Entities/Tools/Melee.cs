@@ -451,8 +451,12 @@ namespace TC2.Base.Components
 					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
 					{
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
-						if (h_faction.id != 0 && result.GetFactionID() == h_faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
-
+						if (!result.mask.HasAll(Physics.Layer.Solid))
+						{
+							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+							if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+						}
+						
 						dist_max = MathF.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
 						index_max = i;
 
@@ -481,7 +485,11 @@ namespace TC2.Base.Components
 						//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
 						{
 							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
-							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
+							if (!result.mask.HasAll(Physics.Layer.Solid))
+							{
+								if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+								if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+							}
 
 							var closest_result = result.GetClosestPoint(pos_target, true);
 							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;

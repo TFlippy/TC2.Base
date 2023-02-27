@@ -1,3 +1,9 @@
+$name: "Bow"
+$desc:
+	'''
+	Cheap primitive ranged weapon used to shoot arrows.
+	While outclassed by more modern fireams, it still remains a fairly formidable weapon.
+	'''
 $tags: []
 
 control:

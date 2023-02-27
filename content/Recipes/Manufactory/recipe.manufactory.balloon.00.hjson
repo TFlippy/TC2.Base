@@ -1,8 +1,8 @@
 {
-	name: "Balloon [WIP]"
+	name: "Balloon"
 	desc:
 		'''
-		A light hot-air balloon.
+		Basic hot-air balloon.
 		'''
 	
 	icon:

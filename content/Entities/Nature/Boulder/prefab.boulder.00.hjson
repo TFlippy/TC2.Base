@@ -1,5 +1,10 @@
 $name: "Boulder"
-$desc: ""
+$desc: 
+	'''
+	A really pretty boulder.
+
+	Can be mined with a pickaxe for a large amount of stone.
+	'''
 $tags: []
 
 body:

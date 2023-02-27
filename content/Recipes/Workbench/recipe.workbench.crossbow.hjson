@@ -2,7 +2,8 @@
 	name: "Crossbow"
 	desc:
 		'''
-		A ranged weapon that's a bit more advanced than a bow.
+		Ranged weapon similar to bow, although more advanced.
+		Specially designed to use arrows instead of bolts.
 		'''
 	
 	icon:

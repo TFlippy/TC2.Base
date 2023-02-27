@@ -2,7 +2,8 @@
 	name: "Bow"
 	desc:
 		'''
-		A basic ranged weapon.
+		Cheap primitive ranged weapon used to shoot arrows.
+		While outclassed by more modern fireams, it still remains a fairly formidable weapon.
 		'''
 	
 	icon:

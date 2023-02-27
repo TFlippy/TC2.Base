@@ -1,3 +1,9 @@
+$name: "Scattergun"
+$desc:
+	'''
+	Break-action shotgun.
+	Can use a wide range of ammunition.
+	'''
 $tags: []
 
 body:
@@ -6,7 +12,7 @@ body:
 	{
 		a: [-0.900, 0.170]
 		b: [0.900, 0.000]
-		mass: 7.000
+		mass: 4.000
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.250
@@ -22,22 +28,22 @@ gun:
 	sound_shoot: "scattergun_shoot"
 	sound_cycle: "scattergun_open"
 	sound_reload: "scattergun_reload"
-	velocity_multiplier: 360.000
-	jitter_multiplier: 10.000
-	damage_multiplier: 1.600
-	recoil_multiplier: 2.000
+	velocity_multiplier: 450.000
+	jitter_multiplier: 3.000
+	damage_multiplier: 2.000
+	recoil_multiplier: 3.000
 	reload_interval: 1.100
-	cycle_interval: 0.500
-	failure_rate: 0.010
+	cycle_interval: 0.100
+	failure_rate: 0.000
 	max_ammo: 1.000
 	sound_volume: 1.400
 	sound_pitch: 1.100
 	smoke_amount: 2.000
 	flags: none
-	ammo_filter: ammo_sg
+	ammo_filter: ammo_sg, ammo_mg
 	action: manual
 	type: shotgun
-	feed: single
+	feed: breech
 
 	heuristic_range: 15.000
 

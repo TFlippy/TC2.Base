@@ -1,3 +1,9 @@
+$name: "Pump Shotgun"
+$desc:
+	'''
+	Reliable pump-action shotgun.
+	Can use a wide range of ammunition.
+	'''
 $tags: []
 
 body:
@@ -28,7 +34,7 @@ gun:
 	recoil_multiplier: 2.000
 	reload_interval: 0.600
 	cycle_interval: 0.500
-	failure_rate: 0.010
+	failure_rate: 0.002
 	max_ammo: 4.000
 	flags: none
 	ammo_filter: ammo_sg
