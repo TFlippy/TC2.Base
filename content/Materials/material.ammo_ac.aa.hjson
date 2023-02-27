@@ -2,7 +2,7 @@
 	name: "Autocannon Ammo (AA)"
 	description:
 		'''
-		Ammunition for autocannons. (Anti-Air)
+		30x210mm ammunition, primarily used by autocannons. (Anti-Air)
 		'''
 	
 	icon:
@@ -21,13 +21,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_ac, magnetic, despawnable
-	mass_per_unit: 0.450
+	mass_per_unit: 1.150
 	quantity_max: 10.000
 	prefab: "resource.ammo_ac.aa"
 	
 	ammo:
 	{
 		count: 1
+		mass: 0.700
 		speed_mult: 0.700
 		spread_mult: 1.000
 		recoil_mult: 1.000

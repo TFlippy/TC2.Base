@@ -2,7 +2,7 @@
 	name: "Autocannon Ammo"
 	description:
 		'''
-		Ammunition for autocannons.
+		30x210mm ammunition, primarily used by autocannons.
 
 		Effective against armored targets.
 		
@@ -27,13 +27,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_ac, magnetic, despawnable
-	mass_per_unit: 0.450
+	mass_per_unit: 0.950
 	quantity_max: 20.000
 	prefab: "resource.ammo_ac"
 	
 	ammo:
 	{
 		count: 1
+		mass: 0.450
 		speed_mult: 1.000
 		spread_mult: 1.000
 		recoil_mult: 1.000

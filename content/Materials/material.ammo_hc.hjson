@@ -2,8 +2,9 @@
 	name: "High-Caliber Ammo"
 	description:
 		'''
-		Ammunition for rifles
-		and other larger firearms. Gunpowder is weaker, but cheap.
+		Ammunition for medium-sized firearms.
+		
+		Gunpowder is weaker, but cheap.
 		'''
 	
 	icon:
@@ -21,13 +22,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_hc, magnetic, granular, despawnable
-	mass_per_unit: 0.025
+	mass_per_unit: 0.035
 	quantity_max: 50.000
 	prefab: "resource.ammo_hc"
 	
 	ammo:
 	{
 		count: 1
+		mass: 0.017
 		speed_mult: 0.600
 		spread_mult: 1.000
 		recoil_mult: 1.000

@@ -22,13 +22,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_sg, granular, despawnable
-	mass_per_unit: 0.050
+	mass_per_unit: 0.090
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.bird.hv"
 	
 	ammo:
 	{
 		count: 7
+		mass: 0.050
 		speed_mult: 1.200
 		spread_mult: 2.500
 		recoil_mult: 1.000

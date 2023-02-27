@@ -22,13 +22,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_hc, magnetic, granular, despawnable
-	mass_per_unit: 0.025
+	mass_per_unit: 0.035
 	quantity_max: 50.000
 	prefab: "resource.ammo_hc.hv"
 	
 	ammo:
 	{
 		count: 1
+		mass: 0.017
 		speed_mult: 1.000
 		spread_mult: 1.000
 		recoil_mult: 1.000

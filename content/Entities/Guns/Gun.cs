@@ -757,7 +757,7 @@
 					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
-					var recoil_mass = material.mass_per_unit * gun.ammo_per_shot;
+					var recoil_mass = ammo.mass * gun.ammo_per_shot;
 					var recoil_speed = gun.velocity_multiplier * ammo.speed_mult;
 					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate * 20.00f);
 
@@ -767,6 +767,7 @@
 
 					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
 					//body.AddForce(recoil_force); //, pos_w_offset);
+
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
 

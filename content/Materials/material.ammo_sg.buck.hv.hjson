@@ -22,13 +22,14 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_sg, granular, despawnable
-	mass_per_unit: 0.050
+	mass_per_unit: 0.100
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.buck.hv"
 	
 	ammo:
 	{
 		count: 4
+		mass: 0.050
 		speed_mult: 0.900
 		spread_mult: 1.200
 		recoil_mult: 1.000
