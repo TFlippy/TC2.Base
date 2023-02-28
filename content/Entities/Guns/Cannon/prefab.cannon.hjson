@@ -12,7 +12,7 @@ body:
 		a: [-3.000, 0.000]
 		b: [2.000, 0.000]
 		mass: 320.000
-		radius: 0.400
+		radius: 0.600
 		friction: 0.900
 		elasticity: 0.250
 		material: metal

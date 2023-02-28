@@ -27,6 +27,7 @@
 	ammo:
 	{
 		count: 1
+		mass: 6.000
 		speed_mult: 1.350
 		spread_mult: 0.150
 		recoil_mult: 1.000
