@@ -136,8 +136,9 @@ namespace TC2.Base.Components
 						var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
 						var damage = damage_base + damage_bonus;
 
+#if SERVER
 						var flags = Damage.Flags.None;
-
+#endif
 						var penetration = 0;
 
 						var hit_terrain = false;
