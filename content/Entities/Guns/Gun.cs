@@ -621,8 +621,7 @@
 		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory,
-		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory) where T : unmanaged, IInventory
 		{
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
@@ -656,7 +655,7 @@
 				}
 				else
 				{
-					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
+					gun_state.next_reload = info.WorldTime + gun.reload_interval;
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
 					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAny(gun.ammo_filter)) inventory_magazine.resource.material = default;
@@ -687,7 +686,7 @@
 #if SERVER
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done = true;

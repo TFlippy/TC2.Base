@@ -49,4 +49,6 @@ minimap.marker:
 		size: [16, 16]
 		frame: [0, 0]
 	}
+
+	flags: spawner
 }

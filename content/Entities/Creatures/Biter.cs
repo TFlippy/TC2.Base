@@ -16,6 +16,7 @@ namespace TC2.Base.Components
 			public float aoe = 0.125f;
 			public float thickness = 0.125f;
 			public float velocity = 30.00f;
+			public float force = 500.00f;
 			public float knockback = 1.00f;
 
 			public float penetration_falloff = 0.75f;
@@ -93,7 +94,7 @@ namespace TC2.Base.Components
 							position: result.world_position, velocity: dir * 8.00f, normal: -dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 							target_material_type: result.material_type, damage_type: biter.damage_type,
-							yield: 0.00f, size: biter.aoe, impulse: 0.00f, flags: flags);
+							yield: 0.00f, size: biter.aoe, impulse: biter.force, flags: flags);
 #endif
 
 						//flags |= Damage.Flags.No_Sound;

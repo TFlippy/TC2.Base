@@ -43,7 +43,6 @@ namespace TC2.Base.Components
 			public Vector2 world_position;
 			public Drill.Data drill;
 			public Entity entity;
-			public Specialization.Miner.Data mining;
 			public bool valid;
 
 			public void Draw()
@@ -51,14 +50,14 @@ namespace TC2.Base.Components
 				ref var region = ref this.entity.GetRegion();
 
 				var wpos = this.world_position;
-				var radius = this.mining.ApplySize(this.drill.radius);
+				var radius = this.drill.radius;
 
 				GUI.DrawTerrainOutline(ref region, wpos, radius * 2.00f);
 			}
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
 			{
@@ -72,7 +71,6 @@ namespace TC2.Base.Components
 					transform = transform,
 					drill = drill,
 					world_position = hit_position,
-					mining = mining,
 					valid = true
 				};
 

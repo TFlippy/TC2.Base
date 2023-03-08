@@ -49,7 +49,6 @@
 			public Transform.Data transform;
 			public Control.Data control;
 			public Medkit.Data medkit;
-			public Specialization.Medic.Data medic;
 			public Entity entity;
 
 			public void Draw()
@@ -57,7 +56,6 @@
 				ref var region = ref Client.GetRegion();
 
 				var max_distance = this.medkit.max_distance;
-				this.medic.ApplyReach(ref max_distance);
 
 				var pos_w_base = this.transform.GetInterpolatedPosition();
 				var dir = (this.control.mouse.position - pos_w_base).GetNormalized(out var len);
@@ -90,7 +88,7 @@
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Medkit.Data medkit, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Parent] in Player.Data player, [Source.Parent, Optional] in Specialization.Medic.Data medic)
+		[Source.Parent] in Player.Data player)
 		{
 			if (player.IsLocal())
 			{
@@ -99,7 +97,6 @@
 					entity = entity,
 					transform = transform,
 					medkit = medkit,
-					medic = medic,
 					control = control
 				};
 				gui.Submit();
@@ -119,7 +116,7 @@
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Medkit.Data medkit, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Parent, Optional] in Player.Data player, [Source.Parent, Optional] in Specialization.Medic.Data medic)
+		[Source.Parent, Optional] in Player.Data player)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= medkit.next_use)
 			{
@@ -127,7 +124,6 @@
 				medkit.next_use = info.WorldTime + medkit.cooldown;
 
 				var max_distance = medkit.max_distance;
-				medic.ApplyReach(ref max_distance);
 
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
 				if (len < max_distance)
@@ -138,7 +134,6 @@
 						var total_healed_amount = 0.00f;
 
 						var power = medkit.power;
-						medic.ApplyEffectiveness(ref power);
 
 						foreach (ref var hit in hits)
 						{
@@ -147,7 +142,7 @@
 							ref var health = ref hit.entity.GetComponent<Health.Data>();
 							if (!health.IsNull())
 							{
-								var heal_integrity_max = Maths.Clamp((1.00f - medkit.heal_min_integrity) + (medic.level_reconstruction / 3.00f), 0.00f, 1.00f);
+								var heal_integrity_max = Maths.Clamp(1.00f - medkit.heal_min_integrity, 0.00f, 1.00f);
 								if (heal_integrity_max > 0.00f && (1.00f - health.integrity) <= heal_integrity_max)
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);

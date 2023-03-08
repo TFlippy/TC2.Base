@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 			public Vector2 world_position;
 			public Chainsaw.Data chainsaw;
 			public Entity entity;
-			public Specialization.Miner.Data mining;
+			//public Specialization.Miner.Data mining;
 			public bool valid;
 
 			public void Draw()
@@ -42,7 +42,7 @@ namespace TC2.Base.Components
 				var wpos = this.world_position;
 				var cpos = this.WorldToCanvas(wpos);
 
-				var radius = this.mining.ApplySize(this.chainsaw.radius);
+				var radius = this.chainsaw.radius;
 
 				var color = this.valid ? new Color32BGRA(0xff00ff00) : new Color32BGRA(0xffff0000);
 				var color_bg = color.WithAlphaMult(0.10f);
@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
 			{
@@ -93,7 +93,6 @@ namespace TC2.Base.Components
 					transform = transform,
 					chainsaw = chainsaw,
 					world_position = hit_position,
-					mining = mining,
 					valid = true
 				};
 

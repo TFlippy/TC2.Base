@@ -109,4 +109,31 @@ minimap.marker:
 		size: [16, 16]
 		frame: [0, 0]
 	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring
+	characters_capacity: 8
+	characters_initial_count: 3
+}
+
+armory:
+{
+	@inventory4:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 4.000
+		filter_flags: ammo
+		type: ammo
+		flags: ignore_mass
+	}
+}
+
+shipment:
+{
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }
