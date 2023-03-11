@@ -66,7 +66,8 @@ control:
 
 facing:
 {
-
+	offset: -0.250
+	threshold: 1.500
 }
 
 holdable:
@@ -156,6 +157,9 @@ runner:
 	walk_force: 8000.000
 	jump_force: 15000.000
 	max_speed: 10.000
+	max_jump_time: 0.000
+	max_air_time: 0.200
+	air_brake_modifier: 0.000
 }
 
 runner.state:
@@ -172,7 +176,8 @@ dive:
 {
 	sound: "badger_pounce"
 	cooldown: 2.000
-	speed: 20.000
+	speed: 25.000
+	offset: [-0.250, -0.250]
 }
 
 badger:
@@ -195,6 +200,7 @@ interactable:
 legs:
 {
 	sound_interval_multiplier: 1.100
+	frames_jump: [1, 3]
 	frame_count: 5
 }
 
@@ -232,7 +238,7 @@ faction:
 	
 	joint.base:
 	{
-		offset_a: [-0.875, 0.000]
+		offset_a: [-0.375, -0.125]
 		max_force: 20000.000
 		max_torque: 1500.000
 		flags: organic, control_write
@@ -326,7 +332,7 @@ faction:
 		
 		holdable:
 		{
-			offset: [0.000, 0.000]
+			offset: [0.250, -0.125]
 		}
 		
 		animated.renderer:
@@ -337,6 +343,7 @@ faction:
 				count: 1
 				size: [16, 16]
 			}
+			offset: [-0.300, 0.000]
 			z: -40.000
 			flags: has_damage
 		}
@@ -351,6 +358,9 @@ faction:
 			walk_force: 6000.000
 			jump_force: 1000.000
 			max_speed: 10.000
+			max_jump_time: 0.100
+			max_air_time: 1.500
+			air_brake_modifier: 0.000
 		}
 		
 		runner.state:
@@ -371,6 +381,7 @@ faction:
 		legs:
 		{
 			sound_interval_multiplier: 1.100
+			frames_jump: [0, 2]
 			frame_count: 5
 		}
 

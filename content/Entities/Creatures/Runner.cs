@@ -21,10 +21,12 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent, IOverridable
 		{
-			public float walk_force = default;
-			public float jump_force = default;
+			public float walk_force;
+			public float jump_force;
 			public float max_speed = 10.00f;
 			public float max_jump_speed = 10.00f;
+			public float max_jump_time = 0.50f;
+			public float max_air_time = 1.00f;
 
 			public float walk_lerp = 0.15f;
 			public float jump_decay = 0.50f;
@@ -40,22 +42,22 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore] public float air_modifier_current = default;
-			[Save.Ignore] public float walk_modifier_current = default;
-			[Save.Ignore] public float uphill_force_current = default;
-			[Save.Ignore] public float jump_force_current = default;
-			[Save.Ignore] public Runner.Flags flags = default;
+			[Save.Ignore] public float air_modifier_current;
+			[Save.Ignore] public float walk_modifier_current;
+			[Save.Ignore] public float uphill_force_current;
+			[Save.Ignore] public float jump_force_current;
+			[Save.Ignore] public Runner.Flags flags;
 
-			[Save.Ignore, Net.Ignore] public float air_time = default;
+			[Save.Ignore, Net.Ignore] public float air_time;
 
-			[Save.Ignore, Net.Ignore] public float last_jump = default;
-			[Save.Ignore, Net.Ignore] public float last_ground = default;
-			[Save.Ignore, Net.Ignore] public float last_climb = default;
-			[Save.Ignore, Net.Ignore] public float last_air = default;
+			[Save.Ignore, Net.Ignore] public float last_jump;
+			[Save.Ignore, Net.Ignore] public float last_ground;
+			[Save.Ignore, Net.Ignore] public float last_climb;
+			[Save.Ignore, Net.Ignore] public float last_air;
 
-			[Save.Ignore, Net.Ignore] public Vector2 last_normal = default;
-			[Save.Ignore, Net.Ignore] public Vector2 last_force = default;
-			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force = default;
+			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
+			[Save.Ignore, Net.Ignore] public Vector2 last_force;
+			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force;
 
 			public State()
 			{
@@ -112,7 +114,8 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
-			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 0.50f))).Clamp01();
+			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
@@ -121,7 +124,8 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
 		{
-			var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + 0.50f))).Clamp01();
+			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
