@@ -30,14 +30,9 @@ namespace TC2.Base.Components
 		[Source.Owned] in Dive.Data dive, [Source.Owned] ref Dive.State dive_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
-			ref var region = ref info.GetRegion();
-
-			var pos = transform.LocalToWorld(dive.offset);
-			var dir = (control.mouse.position - pos).GetNormalized();
-
-#if CLIENT
-			region.DrawDebugDir(pos, dir, Color32BGRA.Red);
-#endif
+//#if CLIENT
+//			region.DrawDebugDir(pos, dir, Color32BGRA.Red);
+//#endif
 
 			if (organic_state.consciousness_shared > 0.60f && info.WorldTime > dive_state.next_dive && control.mouse.GetKey(Mouse.Key.Right))
 			{
@@ -45,6 +40,11 @@ namespace TC2.Base.Components
 				dive_state.next_dive = info.WorldTime + dive.cooldown;
 
 				//var dir = transform.GetDirection(); // (control.mouse.position - pos).GetNormalized();
+
+				ref var region = ref info.GetRegion();
+
+				var pos = transform.LocalToWorld(dive.offset);
+				var dir = (control.mouse.position - pos).GetNormalized();
 
 				var force = dir * body.GetMass() * dive.speed * App.tickrate * organic_state.efficiency;
 				force = Physics.LimitForce(ref body, force, new Vector2(dive.speed, dive.speed));

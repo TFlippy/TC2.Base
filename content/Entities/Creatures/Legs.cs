@@ -115,7 +115,7 @@ namespace TC2.Base.Components
 
 			jumping:
 			{
-				var t = Maths.Clamp01(runner_state.air_time * 7.00f);
+				var t = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));

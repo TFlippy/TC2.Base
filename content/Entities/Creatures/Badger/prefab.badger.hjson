@@ -241,7 +241,7 @@ faction:
 		offset_a: [-0.375, -0.125]
 		max_force: 20000.000
 		max_torque: 1500.000
-		flags: organic, control_write
+		flags: organic, control_write, facing_reset_pos
 
 		@animated.renderer:
 		{
@@ -413,7 +413,7 @@ faction:
 		offset_a: [0.500, -0.300]
 		max_force: 22000.000
 		max_torque: 2000.000
-		flags: organic, control_write
+		flags: organic, control_write, facing_reset_pos
 
 		@animated.renderer:
 		{

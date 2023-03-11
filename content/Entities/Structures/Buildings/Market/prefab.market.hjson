@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 25000.000
+	max: 75000.000
 }
 
 animated.renderer:
@@ -107,7 +107,7 @@ minimap.marker:
 	{
 		texture: "ui_icons_minimap"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [7, 0]
 	}
 
 	flags: faction, spawner
@@ -116,24 +116,17 @@ minimap.marker:
 dormitory:
 {
 	species: "human"
-	flags: no_hiring
-	characters_capacity: 8
-	characters_initial_count: 3
-}
-
-armory:
-{
-	@inventory4:
+	flags: no_hiring, no_kit_selection
+	max_kits: 2
+	kit_default: "survival"
+	characters_capacity: 4
+	characters_initial_count: 2
+	repopulate_interval: 120.000
+	character_flags_filter: 
 	{
-		name: "Ammo"
-		stack_size_multiplier: 4.000
-		filter_flags: ammo
-		type: ammo
-		flags: ignore_mass
+		require: none
+		include: bureaucrat, farmer, social, commerce, miner, hunter, artist, lower_middle_class, middle_class
+		exclude: upper_class, elite_class, lowlife, criminal, sedentary
+		weight: 2.000
 	}
-}
-
-shipment:
-{
-	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }
