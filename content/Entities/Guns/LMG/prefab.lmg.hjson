@@ -1,7 +1,7 @@
 $name: "LMG"
 $desc:
 	'''
-	Light machine gun with high ammo capacity and fast rate of fire.
+	Light machine gun with large ammo capacity and quite high rate of fire.
 	'''
 $tags: []
 
@@ -27,10 +27,10 @@ gun:
 	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
 	sound_dist_multiplier: 3.000
-	velocity_multiplier: 640.000
-	jitter_multiplier: 2.800
-	damage_multiplier: 3.000
-	recoil_multiplier: 1.100
+	velocity_multiplier: 600.000
+	jitter_multiplier: 2.400
+	damage_multiplier: 3.500
+	recoil_multiplier: 1.500
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	failure_rate: 0.003
@@ -77,8 +77,8 @@ holdable:
 	radius: 8.000
 	flags: storable
 
-	force_multiplier: 1.000
-	torque_multiplier: 0.700
+	force_multiplier: 0.500
+	torque_multiplier: 1.200
 }
 
 attachment:

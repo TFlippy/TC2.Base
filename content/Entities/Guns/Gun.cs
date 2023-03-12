@@ -557,6 +557,7 @@
 		}
 #endif
 
+#if CLIENT
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)
@@ -615,6 +616,7 @@
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}
+#endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -1018,6 +1020,13 @@
 				}
 				break;
 			}
+		}
+
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.500f)]
+		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
+		{
+			aimable.offset = gun.muzzle_offset; // new Vector2(0.00f, gun.muzzle_offset.Y);
+			aimable.deadzone = gun.muzzle_offset.Length();
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]

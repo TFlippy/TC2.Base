@@ -31,7 +31,7 @@
 		mass: 0.006
 		speed_mult: 0.700
 		spread_mult: 1.000
-		recoil_mult: 1.000
+		recoil_mult: 1.400
 		heat: 15.000
 		velocity_min: 80.000
 		prefab: "projectile.bullet.lc"

@@ -29,8 +29,8 @@ gun:
 	sound_cycle: "scattergun_open"
 	sound_reload: "scattergun_reload"
 	velocity_multiplier: 450.000
-	jitter_multiplier: 3.000
-	damage_multiplier: 2.000
+	jitter_multiplier: 2.000
+	damage_multiplier: 2.500
 	recoil_multiplier: 1.500
 	reload_interval: 1.100
 	cycle_interval: 0.100
@@ -78,8 +78,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.500
-	torque_multiplier: 1.100
+	force_multiplier: 1.100
+	torque_multiplier: 1.400
 }
 
 animated.renderer:

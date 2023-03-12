@@ -12,7 +12,7 @@ body:
 	{
 		a: [-0.300, -0.050]
 		b: [0.400, 0.050]
-		mass: 1.500
+		mass: 2.500
 		radius: 0.350
 		friction: 0.900
 		elasticity: 0.250
@@ -29,7 +29,7 @@ gun:
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
 	velocity_multiplier: 280.000
-	jitter_multiplier: 0.600
+	jitter_multiplier: 1.900
 	damage_multiplier: 2.750
 	recoil_multiplier: 2.700
 	reload_interval: 2.000
@@ -87,8 +87,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 2.000
-	torque_multiplier: 1.300
+	force_multiplier: 0.200
+	torque_multiplier: 0.400
 }
 
 animated.renderer:
