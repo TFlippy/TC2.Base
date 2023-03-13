@@ -30,7 +30,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f), Exclude<Toolbelt.Data>(Source.Modifier.Parent)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, ref XorRandom random, Entity entity,
 		[Source.Owned] ref Control.Data control, [Source.Owned] ref RandomActivation.Data random_activation)
 		{

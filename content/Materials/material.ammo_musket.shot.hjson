@@ -31,7 +31,7 @@
 		spread_mult: 2.000
 		recoil_mult: 1.400
 		heat: 30.000
-		velocity_min: 80.000
+		velocity_min: 20.000
 		prefab: "projectile.musket.shot"
 	}
 }

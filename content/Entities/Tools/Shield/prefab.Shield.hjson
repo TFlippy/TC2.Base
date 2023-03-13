@@ -45,7 +45,7 @@ faction:
 holdable:
 {
 	force_multiplier: 20.000
-	torque_multiplier: 20000.000
+	torque_multiplier: 0.300
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -91,25 +91,31 @@ melee:
 {
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
+	sound_size: 2.000
 	sound_pitch: 0.700
+	hit_offset: [0.000, 0.000]
+	hit_direction: [1.000, 0.000]
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
+	attack_type: thrust
 	damage_base: 80.000
 	damage_bonus: 30.000
+	primary_damage_multiplier: 0.300
+	secondary_damage_multiplier: 1.100
+	terrain_damage_multiplier: 1.000
 	cooldown: 0.600
 	max_distance: 1.000
 	aoe: 1.000
 	thickness: 1.000
-	knockback: 4.000
+	knockback: 60.000
 	yield: 0.000
 	penetration_falloff: 0.800
 	penetration: 3
 	damage_type: club
 	category: blunt
 	flags: no_handle
-	attack_type: thrust
 	hit_mask: item, creature
-	hit_exclude: ignore_melee, decoration, tree
+	hit_exclude: decoration, tree, ignore_melee
 }
 
 melee.state:

@@ -27,11 +27,13 @@
 	{
 		count: 8
 		mass: 0.050
-		speed_mult: 1.000
-		spread_mult: 3.500
+		speed_mult: 0.700
+		spread_mult: 4.500
 		recoil_mult: 1.200
 		heat: 30.000
-		velocity_min: 80.000
+		velocity_min: 20.000
+		failure_mult: 1.000
+		stability_mult: 1.000
 		prefab: "projectile.musket.scrapshot"
 	}
 }

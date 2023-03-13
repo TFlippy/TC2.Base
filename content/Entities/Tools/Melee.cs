@@ -1,4 +1,6 @@
 ﻿
+using Keg.Engine.Infrastructure;
+
 namespace TC2.Base.Components
 {
 	public static partial class Melee
@@ -456,7 +458,7 @@ namespace TC2.Base.Components
 							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
 							if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
 						}
-						
+
 						dist_max = MathF.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
 						index_max = i;
 
@@ -591,8 +593,8 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player,
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -678,7 +680,7 @@ namespace TC2.Base.Components
 #if CLIENT
 			var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
 
-			Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
+			//Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 			Shake.Emit(ref region, hit_pos, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
 #endif
 
@@ -755,6 +757,10 @@ namespace TC2.Base.Components
 
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
 				var len = Vector2.Distance(pos, pos_target);
+
+#if CLIENT
+				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
+#endif
 
 				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: false, do_hit: true);
 			}

@@ -45,7 +45,7 @@ faction:
 holdable:
 {
 	force_multiplier: 20.000
-	torque_multiplier: 200000.000
+	torque_multiplier: 0.400
 	offset: [-0.625, 0.200]
 	radius: 5.000
 	flags: storable
@@ -100,11 +100,11 @@ melee:
 	max_distance: 1.000
 	aoe: 1.000
 	thickness: 1.000
-	knockback: 6.000
+	knockback: 140.000
 	yield: 0.000
 	penetration_falloff: 0.800
 	penetration: 3
-	damage_type: club
+	damage_type: ram
 	category: blunt
 	flags: no_handle
 	attack_type: thrust

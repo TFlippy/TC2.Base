@@ -297,10 +297,10 @@ faction:
 		norotate:
 		{
 			rotation: 0.000
-			bias: 0.200
-			speed: 3.000
-			multiplier: 5.000
-			mass_multiplier: 200.000
+			bias: 0.100
+			speed: 5.000
+			multiplier: 7.000
+			mass_multiplier: 240.000
 		}
 		
 		organic:
@@ -475,20 +475,56 @@ faction:
 			deadzone: 0.350
 		}
 		
-		biter:
-		{
-			sound: "badger_attack"
-			damage_base: 40.000
-			damage_bonus: 110.000
-			velocity: 45.000
-			force: -270.000
+		// biter:
+		// {
+		// 	sound: "badger_attack"
+		// 	damage_base: 40.000
+		// 	damage_bonus: 140.000
+		// 	velocity: 45.000
+		// 	force: -270.000
 
+		// 	cooldown: 0.800
+		// 	max_distance: 2.200
+		// 	penetration: 1
+		// 	aoe: 0.450
+		// 	damage_type: bite
+		// 	hit_mask: destructible
+		// }
+
+		melee:
+		{
+			sound_swing: "null"
+			sound_volume: 1.000
+			sound_size: 2.000
+			sound_pitch: 1.000
+			hit_offset: [0.000, 0.000]
+			hit_direction: [1.000, 0.000]
+			swing_offset: [0.000, 0.000]
+			swing_rotation: 0.000
+			attack_type: thrust
+			damage_base: 40.000
+			damage_bonus: 140.000
+			primary_damage_multiplier: 1.000
+			secondary_damage_multiplier: 1.000
+			terrain_damage_multiplier: 1.000
 			cooldown: 0.800
-			max_distance: 2.000
-			penetration: 0
-			aoe: 0.250
+			max_distance: 1.250
+			aoe: 0.750
+			thickness: 0.750
+			knockback: -450.000
+			yield: 0.800
+			penetration_falloff: 0.900
+			penetration: 1
 			damage_type: bite
+			category: pointed
+			flags: no_handle
 			hit_mask: destructible
+			hit_exclude: decoration, tree, ignore_melee, world
+		}
+
+		melee.state:
+		{
+
 		}
 		
 		organic:
