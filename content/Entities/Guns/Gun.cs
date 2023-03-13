@@ -769,6 +769,9 @@
 					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
 					//body.AddForce(recoil_force); //, pos_w_offset);
 
+					failure_rate = Maths.Clamp01((failure_rate + ammo.failure_base) * ammo.failure_mult);
+					stability = Maths.Clamp01((stability + ammo.stability_base) * ammo.stability_mult);
+
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
 
@@ -914,27 +917,28 @@
 #endif
 				}
 
-				if (force_jammed || gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
-
-#if SERVER
-					if (force_jammed || random.NextBool(failure_rate))
-					{
-						//App.WriteLine("jammed");
-
-						gun_state.stage = Gun.Stage.Jammed;
-						entity.SyncComponent(ref gun_state);
-
-						Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
-						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
-					}
-#endif
 				}
 				else
 				{
 					gun_state.stage = Gun.Stage.Ready;
 				}
+
+
+#if SERVER
+				if (force_jammed || random.NextBool(failure_rate))
+				{
+					//App.WriteLine("jammed");
+
+					gun_state.stage = Gun.Stage.Jammed;
+					gun_state.Sync(entity, true);
+
+					Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+					WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
+				}
+#endif
 
 #if CLIENT
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))

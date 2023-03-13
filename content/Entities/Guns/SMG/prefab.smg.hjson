@@ -76,8 +76,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.500
-	torque_multiplier: 1.000
+	force_multiplier: 0.280
+	torque_multiplier: 0.800
 }
 
 animated.renderer:
