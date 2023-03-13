@@ -111,7 +111,7 @@ minimap.marker:
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	flags: faction
+	flags: faction, spawner
 }
 
 armory:
@@ -129,4 +129,22 @@ armory:
 shipment:
 {
 	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring
+	max_kits: 2
+	kit_default: "null"
+	characters_capacity: 3
+	characters_initial_count: 1
+	repopulate_interval: 120.000
+	character_flags_filter: 
+	{
+		require: none
+		include: armed, soldier, farmer, miner, hunter, lower_middle_class, middle_class
+		exclude: upper_class, elite_class, lowlife, criminal, sedentary
+		weight: 1.000
+	}
 }

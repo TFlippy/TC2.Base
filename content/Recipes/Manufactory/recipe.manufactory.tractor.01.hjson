@@ -1,10 +1,14 @@
 {
-	name: "Tractor"
-	desc: "Utility vehicle used for transporting heavy equipment."
-	
+	name: "Tractor (Heavy)"
+	desc:
+		'''
+		Sturdier variant of the standard tractor with a front-mounted cabin, heavy attachment slot and an internal Aubucht steam engine.
+		'''
+
 	icon:
 	{
-		texture: "tractor"
+		texture: "tractor.01"
+		size: [64, 32]
 	}
 	
 	min: 1
@@ -51,7 +55,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "tractor"
+			prefab: "tractor.01"
 			amount: 1.000
 		}
 	]

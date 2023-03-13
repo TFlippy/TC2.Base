@@ -146,7 +146,8 @@ worker.state:
 
 facing:
 {
-
+	threshold: 1.000
+	offset: 0.000
 }
 
 interactable:
@@ -346,7 +347,7 @@ lootable:
 
 		lookat:
 		{
-			
+			deadzone: 1.000
 		}
 
 		// norotate:
@@ -594,7 +595,7 @@ lootable:
 		hit_mask: destructible, world
 		knockback: 1.500
 		penetration: 0
-		force: 500.000
+		force: 300.000
 
 		frame: [9, 0]
 		offset: [0.250, -0.125]

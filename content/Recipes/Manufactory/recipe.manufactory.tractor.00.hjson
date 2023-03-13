@@ -1,11 +1,14 @@
 {
-	name: "Tank"
-	desc: "Heavily armored vehicle."
+	name: "Tractor (Light)"
+	desc:
+		'''
+		Standard tractor with 1 device attachment slot, back-mounted cabin and an internal Aubucht steam engine.
+		'''
 	
 	icon:
 	{
-		texture: "tank.00.bg"
-		size: [80, 40]
+		texture: "tractor.00.fg"
+		size: [64, 32]
 	}
 	
 	min: 1
@@ -22,28 +25,28 @@
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 450.000
+			amount: 30.000
 		}
 		{
 			type: "resource"
 			material: "steel.plate"
-			amount: 120.000
+			amount: 100.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 140.000
+			amount: 50.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 4500.000
+			amount: 1800.000
 			difficulty: 15.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 7000.000
+			amount: 2000.000
 			difficulty: 15.000
 		}
 	]
@@ -52,7 +55,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "tank.00"
+			prefab: "tractor.00"
 			amount: 1.000
 		}
 	]

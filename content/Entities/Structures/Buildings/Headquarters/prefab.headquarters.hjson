@@ -89,12 +89,6 @@ claimer:
 	falloff: 2.000
 }
 
-shop:
-{
-	name: "Headquarters"
-	tags: headquarters
-}
-
 interactable:
 {
 	window_size: [624.000, 384.000]
@@ -117,5 +111,29 @@ minimap.marker:
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	flags: faction
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring
+	max_kits: 2
+	kit_default: "null"
+	characters_capacity: 6
+	characters_initial_count: 2
+	repopulate_interval: 120.000
+	kit_filter: 
+	{
+		require: custom
+		include: none
+		exclude: none
+	}
+	character_flags_filter: 
+	{
+		require: none
+		include: bureaucrat, construction, scientist, educated, military, medical, artisan, professional, armed, law, social, commerce, chemist, culinary, soldier, artist, lower_middle_class, middle_class, upper_middle_class
+		exclude: slave, criminal, unskilled, lowlife, elite_class
+		weight: 1.000
+	}
 }

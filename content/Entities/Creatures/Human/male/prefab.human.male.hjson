@@ -152,7 +152,7 @@ worker.state:
 facing:
 {
 	threshold: 1.000
-	offset: 0.500
+	offset: 0.000
 }
 
 interactable:
@@ -368,7 +368,7 @@ lootable:
 		
 		lookat:
 		{
-			
+			deadzone: 1.000
 		}
 
 		// norotate:

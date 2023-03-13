@@ -1506,7 +1506,53 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "gun.framework.steel",
+				identifier: "body.casing.steel.large",
+				category: "Misc",
+				name: "Steel Casing (Large)",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 8;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var sprite = new Sprite("augment.casing.large.steel", 48, 24, (uint)type, 0);
+					sprite.count = 4;
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.framework.steel",
 				category: "Misc",
 				name: "Steel Framework",
 				description: "TODO: Desc",
@@ -1539,7 +1585,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -1551,14 +1597,14 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "gun.framework.large.steel",
+				identifier: "body.framework.steel.large",
 				category: "Misc",
 				name: "Steel Framework (Large)",
 				description: "TODO: Desc",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return augments.GetCount(handle) < 4;
+					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
@@ -1583,8 +1629,55 @@ namespace TC2.Base
 					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.framework.large.steel", 48, 24, (uint)type, 0);
+					sprite.count = 4;
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.plating.smirgl.large",
+				category: "Misc",
+				name: "Smirgl Plating (Large)",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 8;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var sprite = new Sprite("augment.plating.large.smirgl", 48, 24, (uint)type, 0);
+					sprite.count = 4;
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
 				},
 #endif
 
