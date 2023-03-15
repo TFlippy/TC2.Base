@@ -17,6 +17,27 @@ namespace TC2.Base.Components
 					Active = 1 << 0,
 				}
 
+				[Flags]
+				public enum Filter: uint
+				{
+					None = 0,
+
+					[Name("Buildings")]
+					Buildings = 1u << 0,
+
+					[Name("Belts")]
+					Belts = 1u << 1,
+
+					[Name("Conveyors")]
+					Conveyors = 1u << 2,
+
+					[Name("Ladders")]
+					Ladders = 1u << 3,
+
+					[Name("Doors")]
+					Doors = 1u << 4,
+				}
+
 				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Demolish)")]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ITargeterMode<TargetInfo>
 				{
@@ -24,8 +45,11 @@ namespace TC2.Base.Components
 
 					public EntRef<Dismantlable.Data> ref_dismantlable;
 					public Deconstruct.Flags flags;
-
+					public Deconstruct.Filter filter = Filter.Buildings | Filter.Belts | Filter.Conveyors | Filter.Ladders | Filter.Doors;
 					public Sound.Handle sound_dismantle = sound_dismantle_default;
+
+					//[Save.Ignore, Net.Ignore]
+					//public Vector2 target_pos;
 
 					public Entity EntTarget => this.ref_dismantlable.entity;
 
@@ -37,11 +61,46 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 2, 0);
 					public static string Name { get; } = "Demolish";
 
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Duct;
-					public Physics.Layer LayerMask => Physics.Layer.Duct;
-					public Color32BGRA ColorOk => Color32BGRA.Red;
+					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.None;
+					public Physics.Layer LayerMask
+					{
+						get
+						{
+							var mask = Physics.Layer.None;
+
+							if (this.filter.HasAny(Deconstruct.Filter.Buildings))
+							{
+								mask |= Physics.Layer.Building;
+							}
+
+							if (this.filter.HasAny(Deconstruct.Filter.Belts))
+							{
+								mask |= Physics.Layer.Belt;
+							}
+
+							if (this.filter.HasAny(Deconstruct.Filter.Conveyors))
+							{
+								mask |= Physics.Layer.Conveyor;
+							}
+
+							if (this.filter.HasAny(Deconstruct.Filter.Ladders))
+							{
+								mask |= Physics.Layer.Climbable;
+							}
+
+							if (this.filter.HasAny(Deconstruct.Filter.Doors))
+							{
+								mask |= Physics.Layer.Door;
+							}
+
+							return mask;
+						}
+					}
+					public Physics.Layer LayerRequire => Physics.Layer.Dismantlable;
+
+					public Color32BGRA ColorOk => Color32BGRA.Orange;
 					public Color32BGRA ColorError => Color32BGRA.Grey;
-					public Color32BGRA ColorNew => Color32BGRA.Yellow;
+					public Color32BGRA ColorNew => Color32BGRA.White;
 
 					public Data()
 					{
@@ -60,7 +119,79 @@ namespace TC2.Base.Components
 
 					public void DrawInfo(Entity ent_wrench, ref TargetInfo info)
 					{
-						GUI.TitleCentered("Deconstruct", size: 24, pivot: new Vector2(0.50f, 0.50f));
+						var dirty = false;
+						var rpc = new ConfigureRPC
+						{
+
+						};
+
+						var filter_tmp = this.filter;
+						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 40), padding: new(0, 0)))
+						{
+							if (GUI.EnumInput("filter", ref filter_tmp, new Vector2(GUI.GetRemainingWidth() - 80, 40), show_label: false))
+							{
+								rpc.filter = filter_tmp;
+								dirty = true;
+							}
+
+							GUI.SameLine();
+
+							GUI.TitleCentered("Filter", size: 24, pivot: new(0.50f, 0.50f));
+						}
+
+						GUI.SeparatorThick();
+
+						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 32), padding: new(8, 4)))
+						{
+							GUI.TitleCentered(info.alive ? info.entity.GetPrefabName() : "<no target selected>", size: 32, pivot: new(0.00f, 0.50f));
+						}
+
+						GUI.SeparatorThick();
+
+						using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(8, 8)))
+						{
+							GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
+
+							GUI.Title("Retrievable resources:", size: 16);
+							//GUI.SeparatorThick();
+
+							var items_span = info.dismantlable.items.AsSpan();
+
+							for (var i = 0; i < items_span.Length; i++)
+							{
+								ref var item = ref items_span[i];
+								switch (item.type)
+								{
+									case Shipment.Item.Type.Resource:
+									{
+										var resource = new Resource.Data(item.material, item.quantity);
+										GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32), GUI.font_color_green);
+									}
+									break;
+								}
+							}
+						}
+
+						using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(0, 0)))
+						{
+							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - 120, GUI.GetRemainingHeight()), padding: new(8, 8)))
+							{
+								GUI.TitleCentered($"{info.dismantlable.current_work:0.00}/{info.dismantlable.required_work:0.00}", size: 16, pivot: new(0.50f, 1.00f));
+							}
+
+							GUI.SameLine();
+
+							var active = !this.flags.HasAny(Deconstruct.Flags.Active);
+							if (GUI.DrawButton("Dismantle", size: GUI.GetRemainingSpace(), enabled: info.IsAlive, color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
+							{
+								rpc.active = active;
+								dirty = true;
+							}
+						}
+
+						//GUI.TitleCentered("Deconstruct", size: 24, pivot: new Vector2(0.50f, 0.50f));
+
+
 
 
 						//using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
@@ -88,59 +219,97 @@ namespace TC2.Base.Components
 						//		//}
 						//	}
 						//}
+
+						if (dirty)
+						{
+							rpc.Send(ent_wrench);
+						}
 					}
 
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_target)
 					{
-						using (var hud = GUI.Window.Standalone("Wrench.HUD", position: info_target.pos.WorldToCanvas(), size: new(168, 200), pivot: new(0.50f, 0.50f), force_position: false))
+						if (info_target.IsAlive)
 						{
-							if (hud.show)
+							ref var transform_wrench = ref ent_wrench.GetComponent<Transform.Data>();
+							if (transform_wrench.IsNotNull())
 							{
-								GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
-
-								//using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
-								//{
-
-								//}
-
-								using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(8, 8)))
+								var target_pos = info_target.Position;
+								ref var target_body = ref info_target.entity.GetComponent<Body.Data>();
+								if (target_body.IsNotNull())
 								{
-									GUI.Title("Produces:");
-									GUI.SeparatorThick();
-
-									var items_span = info_target.dismantlable.items.AsSpan();
-
-									for (var i = 0; i < items_span.Length; i++)
-									{
-										ref var item = ref items_span[i];
-										switch (item.type)
-										{
-											case Shipment.Item.Type.Resource:
-											{
-												var resource = new Resource.Data(item.material, item.quantity);
-												GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32), GUI.font_color_green);
-											}
-											break;
-										}
-									}
-
-									GUI.TitleCentered($"{info_target.dismantlable.current_work:0.00}/{info_target.dismantlable.required_work:0.00}", pivot: new(0.50f, 1.00f));
+									target_pos = target_body.GetClosestPoint(transform_wrench.GetInterpolatedPosition(), true).world_position;
 								}
-
-								using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+								else
 								{
-									var active = !this.flags.HasAny(Deconstruct.Flags.Active);
-									if (GUI.DrawButton("Dismantle", size: GUI.GetRemainingSpace(), color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
+									ref var target_transform = ref info_target.transform;
+									if (target_transform.IsNotNull())
 									{
-										var rpc = new ConfigureRPC
-										{
-											active = active
-										};
-										rpc.Send(ent_wrench);
+										target_pos = target_transform.GetInterpolatedPosition();
 									}
 								}
+
+								//var text = "Dismantling...";
+
+								var dist_sq = Vector2.DistanceSquared(transform_wrench.GetInterpolatedPosition(), target_pos);
+								var color = dist_sq <= (2.00f * 2.00f) ? Color32BGRA.Green : Color32BGRA.Red;
+								var target_pos_c = target_pos.WorldToCanvas();
+
+								GUI.DrawLine(transform_wrench.GetInterpolatedPosition().WorldToCanvas(), target_pos_c, color.WithAlphaMult(0.25f), 4);
+								GUI.DrawCircleFilled(target_pos_c, 0.20f * GUI.GetWorldToCanvasScale(), color.WithAlphaMult(0.50f));
+								//GUI.DrawTextCentered(text, target_pos_c + new Vector2(0, 20), font: GUI.Font.Superstar, size: 16, color: GUI.font_color_title);
 							}
 						}
+
+						//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: info_target.pos.WorldToCanvas(), size: new(168, 200), pivot: new(0.50f, 0.50f), force_position: false))
+						//{
+						//	if (hud.show)
+						//	{
+						//		GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
+
+						//		//using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+						//		//{
+
+						//		//}
+
+						//		using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(8, 8)))
+						//		{
+						//			GUI.Title("Produces:");
+						//			GUI.SeparatorThick();
+
+						//			var items_span = info_target.dismantlable.items.AsSpan();
+
+						//			for (var i = 0; i < items_span.Length; i++)
+						//			{
+						//				ref var item = ref items_span[i];
+						//				switch (item.type)
+						//				{
+						//					case Shipment.Item.Type.Resource:
+						//					{
+						//						var resource = new Resource.Data(item.material, item.quantity);
+						//						GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32), GUI.font_color_green);
+						//					}
+						//					break;
+						//				}
+						//			}
+
+						//			GUI.TitleCentered($"{info_target.dismantlable.current_work:0.00}/{info_target.dismantlable.required_work:0.00}", pivot: new(0.50f, 1.00f));
+						//		}
+
+						//		using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+						//		{
+						//			var active = !this.flags.HasAny(Deconstruct.Flags.Active);
+						//			if (GUI.DrawButton("Dismantle", size: GUI.GetRemainingSpace(), color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
+						//			{
+						//				var rpc = new ConfigureRPC
+						//				{
+						//					active = active
+						//				};
+						//				rpc.Send(ent_wrench);
+						//			}
+						//		}
+						//	}
+						//}
+
 					}
 #endif
 				}
@@ -154,7 +323,8 @@ namespace TC2.Base.Components
 					{
 						ref var region = ref entity.GetRegion();
 
-						data.ref_dismantlable.entity = this.ent_target;
+						data.flags.SetFlag(Flags.Active, false);
+						data.ref_dismantlable.Set(this.ent_target);
 						data.Sync(entity);
 					}
 #endif
@@ -162,6 +332,7 @@ namespace TC2.Base.Components
 
 				public struct ConfigureRPC: Net.IRPC<Wrench.Mode.Deconstruct.Data>
 				{
+					public Deconstruct.Filter? filter;
 					public bool? active;
 
 #if SERVER
@@ -170,6 +341,12 @@ namespace TC2.Base.Components
 						ref var region = ref entity.GetRegion();
 
 						var sync = false;
+
+						if (this.filter.TryGetValue(out var v_filter))
+						{
+							data.filter = v_filter;
+							sync = true;
+						}
 
 						if (this.active.TryGetValue(out var v_active) && data.flags.TrySetFlag(Deconstruct.Flags.Active, v_active))
 						{
@@ -185,18 +362,35 @@ namespace TC2.Base.Components
 				}
 
 #if SERVER
-				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f)]
-				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
+				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f), HasTag("dead", false, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, 
+				[Source.Owned] in Transform.Data transform, [Source.Parent] in Interactor.Data interactor,
+				[Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
 				{
 					ref var region = ref info.GetRegion();
 
 					if (deconstruct.flags.HasAny(Deconstruct.Flags.Active) && deconstruct.ref_dismantlable.TryGetHandle(out var h_dismantlable))
 					{
-						ref var target_transform = ref deconstruct.ref_dismantlable.entity.GetComponent<Transform.Data>();
-						if (target_transform.IsNotNull())
+						var target_pos = transform.position;
+						ref var target_body = ref deconstruct.ref_dismantlable.entity.GetComponent<Body.Data>();
+						if (target_body.IsNotNull())
 						{
-							var dir = (target_transform.position - transform.position).GetNormalized(out var dist);
-							if (dist <= 4.00f && region.IsInLineOfSight(transform.position, target_transform.position, 0.125f, mask: Physics.Layer.World, exclude: Physics.Layer.Essence))
+							target_pos = target_body.GetClosestPoint(transform.position, true).world_position;
+						}
+						else
+						{
+							ref var target_transform = ref deconstruct.ref_dismantlable.entity.GetComponent<Transform.Data>();
+							if (target_transform.IsNotNull())
+							{
+								target_pos = target_transform.position;
+							}
+						}
+
+						//ref var target_transform = ref deconstruct.ref_dismantlable.entity.GetComponent<Transform.Data>();
+						//if (target_transform.IsNotNull())
+						{
+							var dir = (target_pos - transform.position).GetNormalized(out var dist);
+							if (dist <= 2.00f && region.IsInLineOfSight(transform.position, target_pos, 0.125f, mask: Physics.Layer.World, exclude: Physics.Layer.Essence))
 							{
 								h_dismantlable.data.current_work += 1.00f * info.DeltaTime;
 								if (h_dismantlable.data.current_work >= h_dismantlable.data.required_work)
