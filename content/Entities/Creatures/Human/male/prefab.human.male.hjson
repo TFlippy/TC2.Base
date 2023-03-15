@@ -151,7 +151,7 @@ worker.state:
 
 facing:
 {
-	threshold: 1.000
+	threshold: 0.350
 	offset: 0.000
 }
 
