@@ -1,3 +1,10 @@
+$name: "Belt (Rope)"
+$desc:
+	'''
+	Used for cheap long-range belt drives.
+
+	Prone to slippage and can't transmit high amounts of torque.
+	'''
 $tags: []
 
 body:

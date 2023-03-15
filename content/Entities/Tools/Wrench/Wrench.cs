@@ -60,6 +60,7 @@ namespace TC2.Base.Components
 			public Entity EntTarget { get; }
 
 			public Physics.Layer LayerMask { get; }
+			public Physics.Layer LayerRequire { get; }
 			public TInfo CreateTargetInfo(Entity entity);
 
 #if CLIENT
@@ -94,7 +95,7 @@ namespace TC2.Base.Components
 				//if (!info_src.valid || !info_dst.valid)
 				{
 					Span<OverlapResult> results = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(wpos_mouse, 0.125f, ref results, mask: Physics.Layer.Entity))
+					if (region.TryOverlapPointAll(wpos_mouse, 0.125f, ref results, mask: this.LayerMask, require: this.LayerRequire))
 					{
 						foreach (ref var result in results)
 						{
@@ -196,7 +197,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new(4)))
+				using (var group = GUI.Group.New(size: GUI.GetAvailableSize(), padding: new(4)))
 				{
 					GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), padding: new(8));
 					this.DrawInfo(ent_wrench, ref info_target);

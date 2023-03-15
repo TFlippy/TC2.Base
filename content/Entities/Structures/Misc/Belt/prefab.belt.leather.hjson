@@ -1,3 +1,10 @@
+$name: "Belt (Leather)"
+$desc:
+	'''
+	Used for general medium-range belt drives.
+
+	Offers a balanced mix of performance and durability.
+	'''
 $tags: []
 
 body:

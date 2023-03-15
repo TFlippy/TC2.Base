@@ -1,3 +1,10 @@
+$name: "Belt (Rubber)"
+$desc:
+	'''
+	Used for medium-range high-speed belt drives. 
+
+	Very efficient, but not particularly durable.
+	'''
 $tags: []
 
 body:

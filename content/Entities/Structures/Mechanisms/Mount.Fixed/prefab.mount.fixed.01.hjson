@@ -11,10 +11,10 @@ body:
 		[
 			[-0.250, -0.625]
 			[0.250, -0.625]
-			[1.125, 0.250]
-			[-1.125, 0.250]
+			[1.625, 0.250]
+			[-1.625, 0.250]
 		]
-		mass: 500.000
+		mass: 4000.000
 		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
@@ -30,14 +30,14 @@ control:
 
 health:
 {
-	max: 20000.000
+	max: 45000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "mount.fixed.00"
+		texture: "mount.fixed.01"
 	}
 	z: -100.000
 }
@@ -62,7 +62,7 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.000, -0.625]
-		max_force: 2000000.000
+		max_force: 20000000.000
 		max_torque: 4000000.000
 		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
 	}
@@ -70,13 +70,14 @@ vehicle:
 	joint.pivot:
 	{
 		max_bias: 8.000
+		error_bias: 0.000
 	}
 
 	joint.gear:
 	{
 		min: 0.000
 		max: 0.000
-		error_bias: 0.0001
+		error_bias: 0.000
 		max_bias: 3.000
 	}
 

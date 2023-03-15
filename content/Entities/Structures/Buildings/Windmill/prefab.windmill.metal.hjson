@@ -65,6 +65,7 @@ axle:
 	radius_b: 1.000
 	radius_inner: 0.750
 	radius_outer: 1.000
+	z: -160.000
 	
 	@animated.renderer:
 	{

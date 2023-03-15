@@ -451,7 +451,7 @@ namespace TC2.Base.Components
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
 					{
-						App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
+						//App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
 						ref var region = ref entity.GetRegion();
 
