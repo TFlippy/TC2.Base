@@ -28,7 +28,7 @@ gun:
 	sound_shoot: "musket_shoot"
 	sound_cycle: "musket_cycle"
 	sound_reload: "musket_reload"
-	velocity_multiplier: 270.000
+	velocity_multiplier: 250.000
 	jitter_multiplier: 2.000
 	damage_multiplier: 5.000
 	recoil_multiplier: 1.300

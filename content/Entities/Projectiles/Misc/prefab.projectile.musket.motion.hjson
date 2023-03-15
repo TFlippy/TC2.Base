@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 450.000
 	lifetime: 3.000
 	damage_type: bullet_musket
-	knockback_multiplier: 15.000
+	knockback_multiplier: 30.000
 	size: 0.020
 	gravity: 1.300
 	ricochet_count: 2
