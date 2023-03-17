@@ -1,11 +1,7 @@
-$name: "Steam Engine (Zimrman)"
+$name: "Steam Engine (Humprecht)"
 $desc:
 	'''
-	Standard Zimrman-design stationary steam engine.
-
-	Originally introduced in 712 S.D.,
-	this model is still widely used throughout Imperial lands, 
-	owing to its ease of use and ability to run on almost any sort of fuel.
+	Standard Humprecht-design stationary steam engine.
 	'''
 $tags: []
 
@@ -15,12 +11,12 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
+		points: 
 		[
-			[-3.500, -0.625]
-			[3.625, -0.875]
-			[4.000, 2.500]
-			[-3.625, 2.500]
+			[-1.500, -1.500]
+			[1.125, -2.000]
+			[1.750, 2.375]
+			[-1.750, 2.375]
 		]
 		offset: [0.000, 0.000]
 		friction: 0.500
@@ -52,31 +48,42 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "steam_engine"
+		texture: "steam_engine.01"
 	}
 	z: -280.000
 }
 
 steamengine:
 {
-	piston_offset: [-1.000, 0.125]
-	steam_offset: [-2.500, -3.000]
-	burst_offset: [0.500, 0.125]
+	piston_offset: [0.750, -0.500]
+	steam_offset: [2.125, -1.875]
+	exhaust_offset: [0.375, -0.375]
+	burst_offset: [-1.000, -0.625]
+	smoke_direction: [2.000, -1.000]
+	sprite_burst:
+	{
+		texture: "steam_engine.burst.00"
+		size: [32, 24]
+		frame: [1, 0]
+	}
+	steam_size: 0.750
 	steam_interval: 0.200
-	piston_radius: 0.700
-	speed_modifier: 0.750
-	force: 15000.000
+	piston_radius: 0.375
+	speed_max: 18.000
+	force: 8000.000
+	efficiency: 0.600
+	burst_threshold: 0.850
+	burst_chance_modifier: 1.000
+	shake_multiplier: 1.000
 	volume_multiplier: 0.200
 	pitch_multiplier: 0.400
-	max_acceleration: 3.000
-	speed_max: 20.000
-	efficiency: 0.300
+	max_acceleration: 2.000
 	
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "steam_engine_piston"
+			texture: "steam_engine.01.piston"
 		}
 		z: -290.000
 	}
@@ -104,18 +111,20 @@ steamengine.state:
 
 burner:
 {
-	smoke_offset: [-1.900, -2.300]
-	capacity: 8.000
-	energy_loss: 100000.000
-	efficiency: 0.400
+	smoke_offset: [-1.375, -2.625]
+	smoke_direction: [0.000, -1.000]
+	capacity: 3.000
+	energy_loss: 50000.000
+	efficiency: 0.600
 	drain_multiplier: 1.500
+	temperature_multiplier: 1.000
 	volume_modifier: 0.800
 	pitch_modifier: 0.500
 	
 	@inventory1:
 	{
 		name: "Fuel"
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 0.500
 		filter_flags: fuel
 		type: fuel
 		flags: allow_ducts, ignore_mass
@@ -139,20 +148,23 @@ burner.state:
 
 axle:
 {
-	offset: [2.750, 0.000]
-	mass: 100.000
+	offset: [0.875, 1.125]
+	offset_inner: [0.000, 0.000]
+	mass: 50.000
 	friction: 0.200
-	radius_a: 1.000
-	radius_b: 1.250
-	radius_inner: 0.750
-	radius_outer: 1.250
-	z: -280.000
+	modifier: 1.000
+	ratio: 1.000
+	radius_a: 0.750
+	radius_b: 0.750
+	radius_inner: 0.500
+	radius_outer: 0.750
+	z: -200.000
 	
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "steam_engine_flywheel"
+			texture: "wheel_0750.steel"
 		}
 		z: -280.000
 	}

@@ -11,6 +11,14 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Linear_Piston = 1u << 0
+			}
+
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 piston_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 steam_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset;
@@ -19,9 +27,12 @@ namespace TC2.Base.Components
 
 			public Sprite sprite_burst = SteamEngine.sprite_burst_default;
 
+			public SteamEngine.Data.Flags flags;
+
 			public float steam_size = 1.00f;
 			public float steam_interval;
 			public float piston_radius;
+			public float water_capacity = 10.00f;
 
 			public float speed_max;
 			public float speed_target; // TODO: Move this into SteamEngine.State
@@ -47,6 +58,8 @@ namespace TC2.Base.Components
 		{
 			public float speed_current;
 			public float force_current;
+			public float temperature_current;
+			public float pressure_current;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
@@ -211,9 +224,11 @@ namespace TC2.Base.Components
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
+			steam_engine_state.temperature_current = Maths.MoveTowards(steam_engine_state.temperature_current, Region.ambient_temperature, 1.00f);
+
 			var torque = steam_engine.force * steam_engine.piston_radius;
 			var power = (float)(burner_state.available_power * steam_engine.efficiency);
-			var speed = power / torque;
+			var speed = torque > 0.00f ? power / torque : 0.00f;
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.05f);
 
@@ -299,8 +314,10 @@ namespace TC2.Base.Components
 							//Boiler.DrawGauge(this.steam_engine_state.speed_current, 0.00f, this.steam_engine.speed_max);
 							GUI.DrawGauge(MathF.Abs(this.wheel_state.angular_velocity), 0.00f, this.steam_engine.speed_max);
 
-							GUI.SameLine();
+							//GUI.SameLine();
+							//GUI.DrawTemperatureRange(this.steam_engine_state.temperature_current, Maths.CelsiusToKelvin(100), Maths.CelsiusToKelvin(375), size: new Vector2(24, GUI.GetRemainingHeight()), color_a: GUI.col_white, color_b: GUI.col_white);
 
+							GUI.SameLine();
 							GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 2000, size: new Vector2(24, GUI.GetRemainingHeight()));
 							//GUI.SameLine();
 							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.GetRemainingHeight()));
@@ -398,7 +415,7 @@ namespace TC2.Base.Components
 						lifetime = random.NextFloatRange(3.00f, 6.00f) * steam_engine.steam_size,
 						pos = transform.LocalToWorld(steam_engine.steam_offset) + random.NextVector2(0.20f),
 						vel = transform.LocalToWorld(steam_engine.smoke_direction * random.NextFloatRange(0.90f, 1.10f), position: false),
-						force = new Vector2(0.30f, -0.40f),
+						force = new Vector2(random.NextFloatRange(-0.20f, 0.20f), -random.NextFloatRange(0.40f, 2.00f)),
 						fps = random.NextByteRange(8, 10),
 						frame_count = 64,
 						frame_count_total = 64,
@@ -407,7 +424,7 @@ namespace TC2.Base.Components
 						rotation = random.NextFloat(10.00f),
 						angular_velocity = random.NextFloat(0.50f),
 						growth = 0.30f * steam_engine.steam_size,
-						//drag = random.NextFloatRange(0.01f, 0.02f),
+						drag = random.NextFloatRange(0.001f, 0.01f),
 						color_a = new Color32BGRA(150, 240, 240, 240),
 						color_b = new Color32BGRA(0, 240, 240, 240)
 					});

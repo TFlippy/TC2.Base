@@ -1,3 +1,8 @@
+$name: "Windmill (Metal)"
+$desc:
+	'''
+	Generates mechanical power from the wind.
+	'''
 $tags: []
 
 body:

@@ -42,8 +42,12 @@ armor:
 
 holdable:
 {
+	force_multiplier: 0.500
+	torque_multiplier: 0.500
+	offset: [0.000, 0.000]
+	offset_attachment: [0.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_pickup_offset, disable_control
+	flags: disable_parent_facing, disable_control
 }
 
 attachment:
