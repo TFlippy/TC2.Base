@@ -3,12 +3,12 @@
 	[
 		{
 			sound: "amb.wasteland.day.loop.00"
-			volume: 0.150
-			pitch: 0.850
-
+			volume: 0.600
+			pitch: 1.000
+			
 			daytime_range: [0.170, 0.950]
 			
-			mix: 
+			mix:
 			{
 				front_left: 0.000
 				front_right: 0.000
@@ -24,6 +24,42 @@
 	
 	sounds_random:
 	[
-
+		{
+			time_minmax: [25.000, 60.000]
+			volume_minmax: [0.140, 0.160]
+			pitch_minmax: [0.850, 0.950]
+			
+			sounds:
+			[
+				"amb.industry.metal.groan.00"
+				"amb.industry.metal.groan.01"
+				"amb.industry.metal.groan.02"
+				"amb.industry.metal.groan.03"
+				"amb.industry.metal.groan.04"
+			]
+		}
+		{
+			time_minmax: [30.000, 80.000]
+			volume_minmax: [0.150, 0.160]
+			pitch_minmax: [0.850, 1.050]
+			
+			sounds:
+			[
+				"amb.industry.metal.deep.00"
+				"amb.industry.metal.deep.01"
+			]
+		}
+		{
+			time_minmax: [50.000, 150.000]
+			volume_minmax: [0.200, 0.300]
+			pitch_minmax: [0.950, 1.050]
+			
+			sounds:
+			[
+				"amb.urban.train.00"
+				"amb.ship.horn.00"
+				"amb.ship.horn.01"
+			]
+		}
 	]
 }
