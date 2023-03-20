@@ -649,7 +649,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.last_hit;
@@ -719,7 +719,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)

@@ -1,0 +1,113 @@
+{
+	name: "ZRD Bobmistr 750"
+	description:
+		'''
+		Triple-barreled ARC-MT heavy machine gun.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "machine_gun"
+	recipe: "gunsmith.machine_gun"
+	
+	augments:
+	[
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.333333
+			data: 4521614025879977984
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 0.502513
+			data: 13726971667441254400
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.666667
+			data: 4467570833562271744
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 2147483648
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.444444
+			data: 13726971667429720064
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 4539628427602296832
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
+			data: 4469011981923254272
+		}
+		{
+			identifier: "gun.hardened_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "overheat.heat_resistant"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

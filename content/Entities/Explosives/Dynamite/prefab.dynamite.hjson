@@ -81,7 +81,7 @@ explosive:
 {
 	radius: 5.500
 	power: 6.500
-	damage_entity: 25000.000
+	damage_entity: 13000.000
 	damage_terrain: 200000.000
 	smoke_amount: 0.800
 	smoke_lifetime_multiplier: 0.200

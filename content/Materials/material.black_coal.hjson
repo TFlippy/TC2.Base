@@ -35,5 +35,6 @@
 		drain: 170000.000
 		purity: 0.700
 		temperature: 1823.150
+		ignition_temperature: 1000.000
 	}
 }

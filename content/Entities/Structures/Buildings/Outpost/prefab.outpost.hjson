@@ -144,7 +144,7 @@ dormitory:
 	{
 		require: none
 		include: armed, soldier, farmer, miner, hunter, lower_middle_class, middle_class
-		exclude: upper_class, elite_class, lowlife, criminal, sedentary
+		exclude: upper_middle_class, upper_class, elite_class, sedentary
 		weight: 1.000
 	}
 }
