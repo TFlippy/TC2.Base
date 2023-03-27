@@ -22,7 +22,7 @@ body:
 
 organic:
 {
-
+	h_species: "badger"
 }
 
 organic.state:
@@ -305,6 +305,8 @@ faction:
 		
 		organic:
 		{
+			h_species: "badger"
+
 			@animated.renderer:
 			{
 				sprite:
@@ -493,7 +495,6 @@ faction:
 
 		melee:
 		{
-			sound_swing: "null"
 			sound_volume: 1.000
 			sound_size: 2.000
 			sound_pitch: 1.000
@@ -530,6 +531,7 @@ faction:
 		organic:
 		{
 			tags: brain
+			h_species: "badger"
 
 			@animated.renderer:
 			{

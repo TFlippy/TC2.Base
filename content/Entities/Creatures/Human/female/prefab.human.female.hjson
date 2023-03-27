@@ -23,7 +23,7 @@ body:
 
 organic:
 {
-
+	h_species: "human"
 }
 
 organic.state:
@@ -262,6 +262,7 @@ lootable:
 		organic:
 		{
 			tags: brain
+			h_species: "human"
 		}
 		
 		organic.state:
@@ -458,6 +459,8 @@ lootable:
 		
 		organic:
 		{
+			h_species: "human"
+
 			@animated.renderer:
 			{
 				sprite:

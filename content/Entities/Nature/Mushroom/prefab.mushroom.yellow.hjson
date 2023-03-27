@@ -1,5 +1,8 @@
 $name: "Yellow Mushroom"
-$desc: "A group of tall, yellow-capped mushrooms."
+$desc: 
+	'''
+	Colony of tall, yellow-capped mushrooms that can be processed into sulfuric acid.
+	'''
 $tags: []
 
 body:

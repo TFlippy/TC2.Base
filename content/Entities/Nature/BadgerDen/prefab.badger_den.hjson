@@ -84,7 +84,7 @@ dormitory:
 {
 	species: "badger"
 	flags: no_hiring, no_kit_selection
-	max_kits: 0
+	kits_max: 0
 	characters_capacity: 4
 	characters_initial_count: 2
 }

@@ -1,5 +1,10 @@
 $name: "Ruins"
-$desc: "People often use these landmarks for navigation."
+$desc: 
+	'''
+	Some old overgrown ruins.
+
+	Various travelers often turn up here.
+	'''
 $tags: []
 
 body:
