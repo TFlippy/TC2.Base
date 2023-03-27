@@ -10,7 +10,7 @@ body:
 		friction: 0.990
 		elasticity: 0.000
 		material: glass
-		layer: entity, solid, resource, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
 }

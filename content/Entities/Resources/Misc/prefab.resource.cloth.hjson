@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.300
-		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable, ignore_melee, ignore_bullet
 		mask: world
 	}
 }

@@ -4,8 +4,8 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, -0.375]
-		b: [0.000, 0.375]
+		a: [0.000, -0.200]
+		b: [0.000, 0.200]
 		mass: 50.000
 		radius: 0.625
 		friction: 0.650
@@ -24,6 +24,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	scale: [0.850, 0.850]
 }
 
 transform:
