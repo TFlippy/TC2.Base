@@ -35,11 +35,6 @@ resource:
 	material: "ammo_arrow"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.000]

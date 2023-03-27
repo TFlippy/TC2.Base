@@ -36,11 +36,6 @@ resource:
 	material: "ammo_shell.hv"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.500]

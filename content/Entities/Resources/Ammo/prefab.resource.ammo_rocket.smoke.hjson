@@ -36,11 +36,6 @@ resource:
 	material: "ammo_rocket.smoke"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]

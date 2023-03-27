@@ -35,11 +35,6 @@ resource:
 	material: "steel.plate"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]

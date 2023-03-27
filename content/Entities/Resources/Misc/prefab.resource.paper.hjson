@@ -35,11 +35,6 @@ resource:
 	material: "paper"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]

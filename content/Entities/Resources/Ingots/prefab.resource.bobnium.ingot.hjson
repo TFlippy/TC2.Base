@@ -37,11 +37,6 @@ resource:
 	material: "bobnium.ingot"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]

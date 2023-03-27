@@ -35,11 +35,6 @@ resource:
 	material: "ammo_sg.bird"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]

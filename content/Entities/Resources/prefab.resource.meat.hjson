@@ -36,11 +36,6 @@ resource:
 	material: "meat"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 1.000]
