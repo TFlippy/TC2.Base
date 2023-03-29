@@ -8,11 +8,11 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, 0.000]
-		b: [0.125, -2.875]
+		a: [0.125, -0.375]
+		b: [0.250, -2.375]
 		mass: 1500.000
-		radius: 0.500
-		friction: 1.500
+		radius: 1.000
+		friction: 0.500
 		elasticity: 0.010
 		material: mushroom
 		layer: entity, solid, ignore_bullet

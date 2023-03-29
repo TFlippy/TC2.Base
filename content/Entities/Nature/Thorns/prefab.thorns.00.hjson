@@ -6,15 +6,21 @@ body:
 {
 	type: static
 	
-	@shape.circle:
+	@shape.polygon:
 	{
-		offset: [0.000, 0.000]
+		points:
+		[
+			[-2.875, -1.000]
+			[2.250, -2.500]
+			[2.625, 0.750]
+			[-3.125, 2.625]
+		]
 		mass: 250.000
-		radius: 4.500
-		friction: 1.000
+		radius: 1.250
+		friction: 0.100
 		elasticity: 0.400
-		rigidity_dynamic: 0.200
-		rigidity_static: 0.200
+		rigidity_dynamic: 0.010
+		rigidity_static: 0.010
 		material: wood
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable
 		mask: solid, creature
@@ -42,4 +48,6 @@ foliage.renderer:
 barbedwire:
 {
 	damage: 100.000
+	speed_multiplier: 0.800
+	damage_type: scratch
 }

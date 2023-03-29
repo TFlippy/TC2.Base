@@ -11,9 +11,15 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [8.000, 6.000]
+		points: 
+		[
+			[0.125, -2.875]
+			[3.750, -1.750]
+			[4.000, 2.875]
+			[-4.000, 2.875]
+		]
 		mass: 2000.000
 		radius: 0.000
 		friction: 0.950
