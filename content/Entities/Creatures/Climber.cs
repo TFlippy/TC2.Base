@@ -30,7 +30,7 @@ namespace TC2.Base.Components
 
 			var is_climbing = false;
 			var is_wallclimbing = false;
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
+			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove) && !body.GetParent().IsValid();
 			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var force = new Vector2(0, float.Epsilon);

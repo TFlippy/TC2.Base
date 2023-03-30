@@ -183,24 +183,21 @@ namespace TC2.Base.Components
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{
-			if (player.IsLocal())
-			{
-				var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);
+			var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);
 
-				var rot = 0.00f;
-				rot += MathF.Sin(info.WorldTime / 2.53f) * 0.18f * modifier;
-				rot += MathF.Cos(info.WorldTime / 1.43f) * 0.15f * modifier;
-				rot += MathF.Sin(380 + info.WorldTime / 0.70f) * 0.10f * modifier;
+			var rot = 0.00f;
+			rot += MathF.Sin(info.WorldTime / 2.53f) * 0.18f * modifier;
+			rot += MathF.Cos(info.WorldTime / 1.43f) * 0.15f * modifier;
+			rot += MathF.Sin(380 + info.WorldTime / 0.70f) * 0.10f * modifier;
 
-				camera.zoom_modifier *= 1.00f - (Maths.Perlin(info.WorldTime * 0.15f, 0.00f, 4.00f) * 0.30f * modifier);
-				camera.rotation = rot;
+			camera.zoom_modifier *= 1.00f - (Maths.Perlin(info.WorldTime * 0.15f, 0.00f, 4.00f) * 0.30f * modifier);
+			camera.rotation = rot;
 
-				Drunk.Color.W = Drunk.Color.W.Max(Maths.Clamp(modifier, 0.00f, 0.95f));
+			Drunk.Color.W = Drunk.Color.W.Max(Maths.Clamp(modifier, 0.00f, 0.95f));
 
-				ref var low_pass = ref Audio.LowPass;
-				low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(MathF.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));
-				low_pass.resonance = Maths.Lerp01(low_pass.resonance, 0.200f, MathF.Pow(alcohol.modifier_current, 0.30f));
-			}
+			ref var low_pass = ref Audio.LowPass;
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(MathF.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));
+			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 0.200f, MathF.Pow(alcohol.modifier_current, 0.30f));
 		}
 #endif
 	}

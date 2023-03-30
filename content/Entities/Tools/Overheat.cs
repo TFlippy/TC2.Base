@@ -37,12 +37,17 @@ namespace TC2.Base.Components
 			public Vector2 size = new Vector2(0.50f, 0.25f);
 
 			[Net.Ignore, Save.Ignore] public float next_steam;
-			[Net.Ignore, Save.Ignore] public float next_sync;
 
 			public Data()
 			{
 
 			}
+		}
+
+		public static void AddHeat(ref this Overheat.Data overheat, float amount, float mass)
+		{
+			var heat = amount / MathF.Max(overheat.capacity_extra + (mass * 0.10f), 1.00f);
+			overheat.heat_current += heat;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f)]

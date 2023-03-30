@@ -131,7 +131,7 @@ namespace TC2.Base.Components
 						var mask = shape.GetCombinedMask(); 
 						mask.SetFlag(Physics.Layer.Solid, true);
 
-						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[4];
+						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[8];
 						if (region.TryOverlapShapeAll(ref shape, ref results, mask: mask, exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Static))
 						{
 							WorldNotification.Push(ref region, "* DOOR STUCK! *", 0xffff0000, transform.position);
@@ -144,7 +144,9 @@ namespace TC2.Base.Components
 								if (!hit_body.IsNull())
 								{
 									var dir = door.offset_open.GetNormalized();
-									var force = Physics.LimitForce(ref hit_body, dir * -10000.00f, new Vector2(4, 4));
+									dir.Y = 1.000f;
+									
+									var force = Physics.LimitForce(ref hit_body, dir * -15000.00f, new Vector2(6, 6));
 
 									hit_body.AddForceWorld(force, transform.position);
 								}

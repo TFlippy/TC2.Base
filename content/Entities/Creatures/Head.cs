@@ -18,19 +18,20 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float voice_pitch = 1.00f;
+			public float concussion;
 
-			public Sound.Handle sound_death = default;
-			public Sound.Handle sound_hit = default;
-			public Sound.Handle sound_pain = default;
-			public Sound.Handle sound_attack = default;
+			public Sound.Handle sound_death;
+			public Sound.Handle sound_hit;
+			public Sound.Handle sound_pain;
+			public Sound.Handle sound_attack;
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 offset_mouth;
 
-			public byte frame_pain = default;
-			public byte frame_dead = default;
+			public byte frame_pain;
+			public byte frame_dead;
 
-			[Save.Ignore, Net.Ignore] public float next_sound = default;
+			[Save.Ignore, Net.Ignore] public float next_sound;
 
 			public Data()
 			{
@@ -39,7 +40,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnUpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
 		}
@@ -62,7 +63,7 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
+		public static void OnUpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		{
 			//if (info.WorldTime > head.next_sound)
 			//{
@@ -78,8 +79,64 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]
+		public static void OnPostDamage(ISystem.Info info, ref Health.DamageEvent data, [Source.Owned] in Health.Data health, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
+		{
+			var amount = MathF.Abs(MathF.Max(data.knockback * 0.0002f, data.damage_durability * 0.002f));
+
+			switch (data.damage_type)
+			{
+				case Damage.Type.Life:
+				case Damage.Type.Fire:
+				case Damage.Type.Radiation:
+				case Damage.Type.Scratch:
+				case Damage.Type.Slash:
+				case Damage.Type.Stab:
+				case Damage.Type.Bite:
+				case Damage.Type.Electricity:
+				case Damage.Type.Sting:
+				{
+					amount *= 0.10f;
+				}
+				break;
+
+				case Damage.Type.Impact:
+				case Damage.Type.Blunt:
+				case Damage.Type.Club:
+				case Damage.Type.Ram:
+				case Damage.Type.Crush:
+				{
+					amount *= 1.20f;
+				}
+				break;
+
+				case Damage.Type.Shockwave:
+				case Damage.Type.Explosion:
+				{
+					amount *= 5.00f;
+				}
+				break;
+
+				default:
+				{
+					amount *= 1.00f;
+				}
+				break;
+			}
+
+			//App.WriteLine(amount, App.Color.Cyan);
+
+			head.concussion = Maths.Clamp(head.concussion + amount, 0.00f, 1.50f);
+		}
+
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head)
+		{
+			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.10f);
+		}
+
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
+		public static void OnUpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
 			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics;
 			no_rotate.speed *= Maths.Lerp(0.90f, 1.00f, organic.motorics);
@@ -96,6 +153,64 @@ namespace TC2.Base.Components
 		//		organic_state.motorics_shared = 0.00f;
 		//	}
 		//}
+
+#if CLIENT
+		[IGlobal.Data(persist: false), IComponent.With<Sound.Emitter>()]
+		public struct Global: IGlobal
+		{
+			public float tinnitus_volume = 0.00f;
+
+			public Global()
+			{
+
+			}
+		}
+
+		public static Sound.Handle sound_tinnitus = "tinnitus.loop.00";
+
+		[ISystem.AddFirst(ISystem.Mode.Single, defer: false)]
+		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		{
+			App.WriteLine("add", App.Color.Magenta);
+
+			sound_emitter.file = sound_tinnitus;
+			sound_emitter.channel_type = Sound.ChannelType.Master;
+			sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
+			sound_emitter.pitch = 1.50f;
+			sound_emitter.mix_3d = 0.50f;
+			sound_emitter.spread = 150.00f;
+		}
+
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		{
+			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, head_global.tinnitus_volume, 0.10f);
+
+			//if (!sound_emitter.flags.HasAny(Sound.Emitter.Flags.No_DSP))
+			//{
+			//	sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
+			//	sound_emitter.Refresh();
+			//}
+
+			head_global.tinnitus_volume = 0.00f;
+		}
+
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Global] ref Head.Global head_global, [Source.Global] ref Camera.Global camera)
+		{
+			var modifier = Maths.Clamp01(head.concussion);
+
+			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
+
+			Drunk.Color.W = Drunk.Color.W.Max(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
+
+			ref var low_pass = ref Audio.LowPass;
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(MathF.Max(modifier * 1.80f, 0.00f), 0.50f));
+			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.500f, MathF.Pow(modifier * 4.50f, 0.70f));
+
+			camera.rotation = random.NextFloatRange(-0.10f, 0.10f) * Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
+		}
+#endif
 
 #if CLIENT
 		//[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
@@ -116,7 +231,7 @@ namespace TC2.Base.Components
 		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}
@@ -129,14 +244,14 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
