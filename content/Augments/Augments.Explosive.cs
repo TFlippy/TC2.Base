@@ -140,12 +140,12 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					ref var type = ref handle.GetData<Essence.Type>();
+					ref var h_essence = ref handle.GetData<IEssence.Handle>();
 
 					var dirty = false;
 
-					dirty |= GUI.EnumInput("Essence", ref type, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false, close_on_select: true);
-					GUI.SameLine();
+					//dirty |= GUI.EnumInput("Essence", ref h_essence, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false, close_on_select: true);
+					//GUI.SameLine();
 					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.GetRemainingSpace());
 
 
@@ -156,19 +156,22 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
-					ref var type = ref handle.GetData<Essence.Type>();
-
-					var amount = Maths.LerpInt(1, 20, modifier);
-
-					ref var essence_container = ref context.GetOrAddComponent<EssenceContainer.Data>();
-					if (essence_container.IsNotNull())
+					ref var h_essence = ref handle.GetData<IEssence.Handle>();
+					ref var essence_data = ref h_essence.GetData();
+					if (essence_data.IsNotNull())
 					{
-						essence_container.type = type;
-						essence_container.stability = 0.25f;
-						essence_container.available = amount * Essence.essence_per_pellet;
-					}
+						var amount = Maths.LerpInt(1, 20, modifier);
 
-					context.requirements_new.Add(Crafting.Requirement.Resource(Essence.GetEssenceMaterial(type), amount));
+						ref var essence_container = ref context.GetOrAddComponent<EssenceContainer.Data>();
+						if (essence_container.IsNotNull())
+						{
+							essence_container.h_essence = h_essence;
+							essence_container.stability = 0.25f;
+							essence_container.available = amount * Essence.essence_per_pellet;
+						}
+
+						context.requirements_new.Add(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount));
+					}
 				}
 			));
 

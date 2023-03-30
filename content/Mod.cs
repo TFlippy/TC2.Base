@@ -26,14 +26,14 @@ namespace TC2.Base
 				{
 					var identifier = definition.identifier;
 
-					var char_index = identifier.LastIndexOf('.');
-					if (char_index != -1)
+					var suffix = identifier.SliceAfterLast('.');
+					if (!suffix.IsEmpty)
 					{
-						var enum_name = identifier.Substring(char_index + 1);
-						if (Enum.TryParse<Essence.Type>(enum_name, ignoreCase: true, out var essence_type))
+						var h_essence = new IEssence.Handle(suffix);
+						if (h_essence.IsValid())
 						{
-							Essence.material_to_essence[definition.GetHandle()] = essence_type;
-							Essence.essence_to_material[essence_type] = definition.GetHandle();
+							Essence.material_to_essence[definition.GetHandle()] = h_essence;
+							Essence.essence_to_material[h_essence] = definition.GetHandle();
 						}
 					}
 				}
