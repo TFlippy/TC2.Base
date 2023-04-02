@@ -114,6 +114,7 @@ vehicle:
 		max_force: 250000.000
 		max_torque: 100000.000
 		flags: control_write, no_stress, no_wrap, force_facing
+		material_type: metal
 		
 		@sound.emitter:
 		{

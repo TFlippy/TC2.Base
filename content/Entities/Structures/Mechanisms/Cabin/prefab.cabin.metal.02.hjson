@@ -161,10 +161,11 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.500, -1.250]
-		max_force: 300000.000
+		max_force: 250000.000
 		max_torque: 200000.000
-		flags: no_stress, control_write, force_facing
+		flags: control_write, force_facing
 		z: 75.000
+		material_type: metal
 
 		@sound.emitter:
 		{

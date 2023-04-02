@@ -8,8 +8,8 @@ body:
 	{
 		size: [1.500, 12.000]
 		offset: [0.000, 0.000]
-		friction: 0.990
-		elasticity: 0.030
+		friction: 0.600
+		elasticity: 0.350
 		material: metal
 		layer: entity, building, ignore_melee
 		mask: world
@@ -78,96 +78,101 @@ rope.renderer:
 	z: 100.000
 }
 
-joint.base:
++mount|instance:
 {
-	offset_a: [0.000, -6.000]
-	offset_b: [0.000, -3.000]
-	max_force: 500000.000
-	max_torque: 500000.000
-	flags: control_read, control_write
-}
-
-joint.gear:
-{
-	min: 0.000
-	max: 0.000
-
-	error_bias: 0.0001
-	max_force: 200000.000
-	max_bias: 20.000
-}
-
-joint.slider:
-{
-	a: [0.000, 0.000]
-	b: [0.000, 12.000]
-
-	min: 0.000
-	max: 12.000
-
-	error_bias: 0.0001
-	max_force: 200000.000
-	max_force_b: 200000.000
-	max_bias: 20.000
-}
-
-joint.distance:
-{
-	max_force: 100000.000
-	max_bias: 10.000
-}
-
-+door|child:
-{
-	$tags: []
-	
-	body:
+	joint.base:
 	{
-		@shape.box:
-		{
-			size: [0.875, 6.000]
-			offset: [0.000, 0.000]
-			mass: 2000.000
-			friction: 0.950
-			radius: 0.125
-			elasticity: 0.030
-			material: metal
-			layer: entity, solid
-			mask: world, solid
-		}
-	}
-	
-	animated.renderer:
-	{
-		sprite:
-		{
-			texture: "gate.metal"
-		}
-		z: 100.000
-	}
-	
-	health:
-	{
-		max: 100000.000
-	}
-	
-	transform:
-	{
-	
+		offset_a: [0.000, -6.000]
+		offset_b: [0.000, -3.000]
+		max_force: 500000.000
+		max_torque: 500000.000
+		flags: control_read, control_write
+		material_type: metal
 	}
 
-	faction:
+	joint.gear:
 	{
+		min: 0.000
+		max: 0.000
+
+		error_bias: 0.0001
+		max_force: 200000.000
+		max_bias: 20.000
+	}
+
+	joint.slider:
+	{
+		a: [0.000, 0.000]
+		b: [0.000, 12.000]
+
+		min: 0.000
+		max: 12.000
+
+		error_bias: 0.0001
+		max_force: 200000.000
+		max_force_b: 200000.000
+		max_bias: 20.000
+	}
+
+	joint.distance:
+	{
+		max_force: 1000000.000
+		max_bias: 10.000
+		stress_mult: 0.000
+	}
+
+	+door|child:
+	{
+		$tags: []
 		
-	}
+		body:
+		{
+			@shape.box:
+			{
+				size: [0.875, 6.000]
+				offset: [0.000, 0.000]
+				mass: 2000.000
+				friction: 0.650
+				elasticity: 0.450
+				radius: 0.125
+				material: metal
+				layer: entity, solid
+				mask: world, solid
+			}
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "gate.metal"
+			}
+			z: 100.000
+		}
+		
+		health:
+		{
+			max: 100000.000
+		}
+		
+		transform:
+		{
+		
+		}
 
-	threat:
-	{
-		priority: 0.500
-	}
-	
-	deletewithparent:
-	{
-	
+		faction:
+		{
+			
+		}
+
+		threat:
+		{
+			priority: 0.500
+		}
+		
+		// deletewithparent:
+		// {
+		
+		// }
 	}
 }

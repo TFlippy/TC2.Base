@@ -102,9 +102,11 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 10000000.000
-		max_torque: 200000.000
-		flags: no_wrap, no_stress, control_write, force_facing
+		max_force: 150000.000
+		max_torque: 500000.000
+		max_stress: 2.000
+		flags: no_wrap, control_write, force_facing
+		material_type: metal
 	}
 
 	joint.pivot:
@@ -127,7 +129,7 @@ vehicle:
 		min: -3.926
 		max: 0.785
 		max_bias: 20.000
-		error_bias: 0.0001
+		error_bias: 0.001
 	}
 
 	joint_motor:

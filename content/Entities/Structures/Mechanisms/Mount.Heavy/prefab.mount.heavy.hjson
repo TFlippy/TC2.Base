@@ -140,7 +140,8 @@ vehicle:
 		offset_a: [0.000, 0.000]
 		max_force: 100000.000
 		max_torque: 200000.000
-		flags: control_write, no_stress, no_wrap, force_facing
+		flags: control_write, no_wrap, force_facing
+		material_type: metal
 		
 		@sound.emitter:
 		{

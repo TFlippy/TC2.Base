@@ -65,6 +65,7 @@ vehicle:
 		max_force: 20000000.000
 		max_torque: 4000000.000
 		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
+		material_type: metal
 	}
 
 	joint.pivot:
