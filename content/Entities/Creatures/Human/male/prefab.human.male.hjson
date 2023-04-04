@@ -82,7 +82,7 @@ threat:
 climber:
 {
 	climb_force: 5000.000
-	cling_force: 8000.000
+	cling_force: 4000.000
 
 	@shape.circle:
 	{
@@ -196,9 +196,9 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.125, -0.375]
-		max_force: 50000.000
-		max_torque: 20000.000
-		flags: organic, control_write
+		max_force: 12000.000
+		max_torque: 4000.000
+		flags: organic, control_write, force_facing
 		
 		@animated.renderer:
 		{
@@ -405,9 +405,9 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
-		max_force: 40000.000
-		max_torque: 10000.000
-		flags: organic, control_write
+		max_force: 20000.000
+		max_torque: 4000.000
+		flags: organic, control_write, force_facing
 		
 		@animated.renderer:
 		{
@@ -543,7 +543,7 @@ lootable:
 		
 		norotate:
 		{
-			bias: 0.150
+			bias: 0.100
 			multiplier: 1.000
 			mass_multiplier: 200.000
 		}
@@ -569,9 +569,11 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.000, -0.100]
-		max_force: 20000.000
+		max_force: 10000.000
 		max_torque: 2500.000
-		flags: control_write, no_wrap
+		max_stress: 2.000
+		stress_threshold: 2.000
+		flags: control_write, no_wrap, force_facing
 	}
 	
 	joint.pivot:
@@ -584,6 +586,8 @@ lootable:
 	{
 		error_bias: 0.0005
 		max_bias: 5.000
+		min: -2.000
+		max: 2.000
 	}
 	
 	interactor:
