@@ -140,7 +140,7 @@ namespace TC2.Base.Components
 
 							foreach (ref var result in results)
 							{
-								ref var hit_body = ref result.entity.GetComponent<Body.Data>();
+								ref var hit_body = ref result.GetBody();
 								if (!hit_body.IsNull())
 								{
 									var dir = door.offset_open.GetNormalized();

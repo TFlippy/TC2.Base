@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 			public float water_capacity = 10.00f;
 
 			public float speed_max;
-			public float speed_target; // TODO: Move this into SteamEngine.State
+			[Asset.Ignore] public float speed_target; // TODO: Move this into SteamEngine.State
 
 			public float force;
 			public float efficiency;
@@ -53,7 +53,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable), Asset.Ignore]
 		public partial struct State: IComponent
 		{
 			public float speed_current;

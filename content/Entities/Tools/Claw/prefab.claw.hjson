@@ -5,30 +5,32 @@ $desc:
 	'''
 $tags: []
 
-control:
-{
-
-}
-
 body:
 {
+	fall_damage_multiplier: 0.250
+
 	@shape.polygon:
 	{
-		points:
+		points: 
 		[
-			[1.000, 1.200]
-			[-1.000, 1.200]
-			[-0.200, -1.300]
-			[0.200, -1.300]
+			[-1.250, 0.125]
+			[-1.250, -0.125]
+			[1.000, -0.750]
+			[1.000, 0.750]
 		]
-		offset: [0.000, 0.000]
-		mass: 25.000
-		friction: 0.990
-		elasticity: 0.050
+		radius: 0.250
+		mass: 45.000
+		friction: 0.750
+		elasticity: 0.350
 		material: metal
 		layer: entity, solid
 		mask: world
 	}
+}
+
+control:
+{
+
 }
 
 health:
@@ -67,14 +69,14 @@ interactable:
 
 holdable:
 {
-	offset: [0.000, -1.000]
+	offset: [-1.000, 0.000]
 	radius: 0.000
 	flags: disable_control
 }
 
 attachment:
 {
-	offset: [0.000, -1.000]
+	offset: [-1.000, 0.000]
 	radius: 0.000
 }
 
@@ -87,10 +89,11 @@ attachment:
 
 	joint.base:
 	{
-		offset_a: [0.000, 1.000]
+		offset_a: [1.000, 0.000]
 		max_force: 100000.000
 		max_torque: 50000.000
 		flags: no_wrap, no_aiming
+		material_type: metal
 	}
 
 	joint.pivot:

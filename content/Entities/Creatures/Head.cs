@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
-			public Vector2 offset;
+			[Asset.Ignore] public Vector2 offset;
 			public Vector2 multiplier;
 			public float speed;
 		}
@@ -18,7 +18,7 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float voice_pitch = 1.00f;
-			public float concussion;
+			[Asset.Ignore, Save.Ignore] public float concussion;
 
 			public Sound.Handle sound_death;
 			public Sound.Handle sound_hit;

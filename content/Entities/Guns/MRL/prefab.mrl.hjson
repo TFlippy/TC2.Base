@@ -6,7 +6,7 @@ body:
 	{
 		size: [2.500, 1.375]
 		offset: [0.125, -0.250]
-		mass: 500.000
+		mass: 300.000
 		friction: 0.900
 		elasticity: 0.250
 		material: metal
@@ -100,8 +100,8 @@ holdable:
 	radius: 4.000
 	flags: disable_parent_facing, disable_control
 
-	force_multiplier: 0.100
-	torque_multiplier: 0.100
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
 }
 
 health:

@@ -13,7 +13,7 @@ body:
 	{
 		a: [-1.000, 0.125]
 		b: [1.250, -0.160]
-		mass: 5.000
+		mass: 3.000
 		radius: 0.250
 		friction: 0.600
 		elasticity: 0.250
@@ -32,7 +32,7 @@ gun:
 	velocity_multiplier: 800.000
 	jitter_multiplier: 0.040
 	damage_multiplier: 5.000
-	recoil_multiplier: 1.400
+	recoil_multiplier: 1.200
 	reload_interval: 0.600
 	cycle_interval: 0.500
 	failure_rate: 0.001
@@ -77,8 +77,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 3.000
-	torque_multiplier: 2.500
+	force_multiplier: 1.300
+	torque_multiplier: 0.700
 }
 
 animated.renderer:

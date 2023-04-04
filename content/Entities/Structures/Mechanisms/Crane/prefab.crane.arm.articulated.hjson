@@ -210,8 +210,8 @@ vehicle:
 	{
 		error_bias: 0.010
 		max_bias: 1.500
-		min: -30.000
-		max: 30.000
+		min: -0.200
+		max: 3.000
 	}
 
 	joint_motor:
