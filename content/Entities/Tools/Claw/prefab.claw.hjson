@@ -98,13 +98,14 @@ attachment:
 
 	joint.pivot:
 	{
-		max_bias: 40.000
+		max_bias: 8.000
 		error_bias: 0.001
 	}
 
 	joint.gear:
 	{
-		max_bias: 50.000
+		max_bias: 3.000
 		error_bias: 0.001
+		rotation: -1.570
 	}
 }

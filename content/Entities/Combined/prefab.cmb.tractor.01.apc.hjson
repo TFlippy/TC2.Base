@@ -1,0 +1,116 @@
+$name: "APC Tractor"
+$prefab: "tractor.01"
+
+burner:
+{
+	@inventory1:
+	{
+		resource:
+		{
+			material: "phlogiston"
+			quantity: 100.000
+		}
+	}
+}
+
++slot_heavy|instance:
+{
+	+attached|child:
+	{
+		$prefab: "container.personnel"
+
+		armory:
+		{
+			@inventory4:
+			{
+				resources:
+				[
+					{
+						material: "ammo_hc.hv"
+						quantity: 1000.000
+					}
+					{
+						material: "ammo_hc.hv"
+						quantity: 1000.000
+					}
+					{
+						material: "ammo_sg.buck.hv"
+						quantity: 200.000
+					}
+				]
+			}
+		}
+
+		shipment:
+		{
+			items:
+			[
+				{
+					type: prefab
+					prefab: "auto_shotgun"
+					quantity: 10.000
+					flags: none
+				}
+				{
+					type: prefab
+					prefab: "battle_rifle"
+					quantity: 20.000
+					flags: none
+				}
+				{
+					type: prefab
+					prefab: "rifle"
+					quantity: 40.000
+					flags: none
+				}
+				{
+					type: prefab
+					prefab: "lmg"
+					quantity: 5.000
+					flags: none
+				}
+			]
+		}
+	}
+}
+
++slot_cab|instance:
+{
+	+attached|child:
+	{
+		$prefab: "cabin.metal.00"
+	}
+}
+
++slot_wheel_0|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_2|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+
++slot_wheel_3|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+

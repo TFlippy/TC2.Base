@@ -29,9 +29,9 @@ gun:
 	sound_cycle: "rifle_cycle"
 	sound_reload: "rifle_reload"
 	velocity_multiplier: 640.000
-	jitter_multiplier: 1.400
+	jitter_multiplier: 1.500
 	damage_multiplier: 3.200
-	recoil_multiplier: 1.500
+	recoil_multiplier: 1.400
 	reload_interval: 0.600
 	cycle_interval: 0.200
 	failure_rate: 0.005
@@ -81,7 +81,7 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 0.700
+	force_multiplier: 1.100
 	torque_multiplier: 1.200
 }
 

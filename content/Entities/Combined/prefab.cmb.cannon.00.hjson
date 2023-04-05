@@ -1,0 +1,28 @@
+﻿{
+	$prefab: "mount.heavy"
+
+	storage:
+	{
+		@inventory1:
+		{
+			resource:
+			{
+				material: "ammo_shell"
+				quantity: 10.000
+			}
+		}
+	}
+
+	+mount|instance:
+	{
+		attachment.slot:
+		{
+			flags: keyboard_write, mouse_write, manual_aim
+		}
+		
+		+attached|child:
+		{
+			$prefab: "cannon"
+		}
+	}
+}

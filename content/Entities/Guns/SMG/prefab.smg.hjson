@@ -76,7 +76,7 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 0.280
+	force_multiplier: 0.550
 	torque_multiplier: 0.800
 }
 

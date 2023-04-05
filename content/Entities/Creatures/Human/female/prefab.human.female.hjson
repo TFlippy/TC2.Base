@@ -315,7 +315,9 @@ lootable:
 
 		damage.effects:
 		{
-			
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
 		}
 		
 		threat:

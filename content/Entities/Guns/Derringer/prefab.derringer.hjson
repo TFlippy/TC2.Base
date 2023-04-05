@@ -49,6 +49,8 @@ gun:
 	smoke_size: 4.000
 	smoke_amount: 6
 
+	heuristic_range: 12.000
+
 	@inventory1:
 	{
 		name: "Ammo"

@@ -14,7 +14,7 @@ body:
 			[1.125, 0.250]
 			[-1.125, 0.250]
 		]
-		mass: 200.000
+		mass: 300.000
 		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
@@ -30,13 +30,13 @@ control:
 
 health:
 {
-	max: 15000.000
+	max: 35000.000
 }
 
 armor:
 {
-	toughness: 400.000
-	protection: 0.500
+	toughness: 800.000
+	protection: 0.900
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000

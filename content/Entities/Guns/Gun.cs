@@ -106,6 +106,7 @@
 			Wants_Reload = 1 << 4,
 			Artillery = 1 << 5,
 			Hold_RMB = 1 << 6,
+			No_Ammo = 1 << 7,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -662,7 +663,7 @@
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
 					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAny(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
-					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
+					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
 					{
 						var count = inventory.Length;
 						for (var i = 0; i < count; i++)
@@ -676,6 +677,7 @@
 
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
+								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
 								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
 
 								break;
@@ -713,6 +715,7 @@
 					else
 					{
 						gun_state.next_reload = info.WorldTime + 0.10f;
+						gun_state.hints.SetFlag(Gun.Hints.No_Ammo, true);
 #if SERVER
 						gun_state.stage = Gun.Stage.Ready;
 						gun_state.Sync(entity);
@@ -1033,14 +1036,22 @@
 			aimable.deadzone = gun.muzzle_offset.Length();
 		}
 
+		[ISystem.AddFirst(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Ranged | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
+		}
+
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnReady(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
@@ -1066,12 +1077,13 @@
 
 				if (gun_state.hints.HasAll(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Gun.Flags.Automatic))))
 				{
-					if (inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0)
+					if (inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0)
 					{
 #if SERVER
 						gun_state.stage = Gun.Stage.Fired;
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 						entity.SyncComponent(ref gun_state);
+
 #endif
 					}
 					else
@@ -1080,7 +1092,6 @@
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
 #if SERVER
-						ref var region = ref info.GetRegion();
 						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
 						WorldNotification.Push(ref region, "* No ammo *", 0xffff0000, transform.position);
 #endif
@@ -1093,8 +1104,6 @@
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
-					ref var region = ref info.GetRegion();
-
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
 #if SERVER

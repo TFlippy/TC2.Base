@@ -102,8 +102,8 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 150000.000
-		max_torque: 500000.000
+		max_force: 350000.000
+		max_torque: 400000.000
 		max_stress: 2.000
 		flags: no_wrap, control_write, force_facing
 		material_type: metal
