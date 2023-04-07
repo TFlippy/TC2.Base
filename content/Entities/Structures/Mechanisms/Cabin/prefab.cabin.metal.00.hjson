@@ -8,15 +8,21 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.250
+	fall_damage_multiplier: 0.750
 
-	@shape.box:	
+	@shape.polygon:	
 	{
-		size: [3.000, 3.000]
-		offset: [0.000, 0.000]
+		points: 
+		[
+			[-1.125, -1.375]
+			[1.125, -1.250]
+			[1.500, 1.500]
+			[-1.500, 1.500]
+		]
 		radius: 0.250
 		mass: 300.000
 		friction: 0.750
-		elasticity: 0.350
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid
 		mask: world
@@ -25,7 +31,7 @@ body:
 
 health:
 {
-	max: 12000.000
+	max: 14000.000
 }
 
 armor:

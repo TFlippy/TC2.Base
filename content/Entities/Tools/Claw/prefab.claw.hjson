@@ -25,6 +25,7 @@ body:
 		material: metal
 		layer: entity, solid
 		mask: world
+		exclude: item, vehicle
 	}
 }
 

@@ -15,6 +15,14 @@ storage:
 				material: "ammo_mg"
 				quantity: 200.000
 			}
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
 		]
 	}
 }
@@ -55,7 +63,7 @@ storage:
 				resource:
 				{
 					material: "pellet.motion"
-					quantity: 20.000
+					quantity: 30.000
 				}
 			}
 		}

@@ -168,7 +168,7 @@ vehicle:
 		max_force: 350000.000
 		max_torque: 400000.000
 		max_stress: 2.000
-		flags: no_wrap, control_write, force_facing
+		flags: no_wrap, control_write, force_facing, facing_reset_pos
 		material_type: metal
 
 		@sound.emitter:

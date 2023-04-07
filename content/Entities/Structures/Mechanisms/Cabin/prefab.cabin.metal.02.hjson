@@ -8,6 +8,7 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.250
+	fall_damage_multiplier: 0.750
 
 	@shape.polygon:	
 	{
@@ -20,7 +21,7 @@ body:
 		]
 		offset: [0.000, 0.000]
 		radius: 0.500
-		mass: 500.000
+		mass: 700.000
 		friction: 0.750
 		elasticity: 0.450
 		material: metal

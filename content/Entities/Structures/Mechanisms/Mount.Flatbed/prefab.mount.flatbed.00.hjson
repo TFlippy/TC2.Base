@@ -97,7 +97,7 @@ vehicle:
 		max_stress: 3.000
 		z: 0.000
 		material_type: metal
-		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, facing_reset_pos
 	}
 
 	joint.pivot:
