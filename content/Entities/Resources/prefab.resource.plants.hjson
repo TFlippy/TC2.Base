@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 50.000
+		radius: 0.750
+		friction: 0.750
+		elasticity: 0.200
+		material: foliage
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.plants"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "plants"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+
+}
