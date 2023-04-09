@@ -195,7 +195,7 @@ namespace TC2.Base.Components
 							Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: hit.entity,
 								position: hit.world_position, velocity: dir * 4.00f, normal: -dir,
 								damage_integrity: damage_final, damage_durability: damage_final, damage_terrain: damage_final,
-								target_material_type: hit.material_type, damage_type: Damage.Type.Saw,
+								target_material_type: hit.material_type, damage_type: Damage.Type.Drill,
 								yield: 0.90f, size: drill.radius * 1.50f, impulse: 0.00f, faction_id: faction.id, flags: flags);
 #endif
 
