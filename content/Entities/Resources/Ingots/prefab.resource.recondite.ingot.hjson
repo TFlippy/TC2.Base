@@ -37,6 +37,8 @@ resource:
 
 holdable:
 {
+	force_multiplier: 5.000
+	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 
