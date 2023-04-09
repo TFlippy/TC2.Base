@@ -10,7 +10,7 @@ body:
 		radius: 0.300
 		friction: 1.000
 		elasticity: 0.000
-		layer: entity
+		layer: entity, ignore_hover
 		mask: world
 	}
 }
