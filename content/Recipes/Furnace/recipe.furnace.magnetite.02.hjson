@@ -29,6 +29,7 @@
 	flags: none
 	type: crafter
 	tags: furnace
+	rank: -200.000
 	
 	requirements:
 	[
@@ -49,7 +50,7 @@
 		{
 			type: work
 			work: melting
-			amount: 70.000
+			amount: 37.500
 			difficulty: 7.000
 		}
 	]

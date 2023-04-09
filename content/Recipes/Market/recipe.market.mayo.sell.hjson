@@ -1,0 +1,44 @@
+{
+	name: "Majonez"
+	desc: 
+		'''
+		Popular Imperial delicacy, either eaten directly or as a side dish.
+		'''
+	
+	icon:
+	{
+		texture: "resource.mayo"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	min: 1
+	max: 50
+	step: 5
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "mayo"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 31.490
+		}
+	]
+}

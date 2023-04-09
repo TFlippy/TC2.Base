@@ -1,8 +1,8 @@
 {
-	name: "Mayonnaise"
+	name: "Majonez"
 	description:
 		'''
-		Popular Imperial delicacy, often eaten directly or as a side dish.
+		Popular Imperial delicacy, either eaten directly or as a side dish.
 		'''
 	
 	icon:
@@ -20,13 +20,13 @@
 	type: liquid
 	flags: manufactured
 	mass_per_unit: 0.500
-	quantity_max: 500.000
+	quantity_max: 100.000
 	prefab: "resource.mayo"
 	molar_mass: 18.015
 	
 	commodity:
 	{
 		categories: food, cooking, luxury, consumer, industrial, military, toys
-		market_price: 40.000
+		market_price: 35.000
 	}
 }

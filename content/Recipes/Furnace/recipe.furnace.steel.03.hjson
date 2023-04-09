@@ -1,35 +1,35 @@
 {
-	name: "High-Grade Carbon Steel"
+	name: "Recycled Steel"
 	desc: 
 		'''
-		Fast and efficient steel production method.
+		
 		'''
 	
 	icon:
 	{
 		texture: "resource.steel.ingot"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.iron.powder"
+		texture: "ui_icons_crafting.mini"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [0, 0]
 	}
 
-	icon_extra_offset: [-4, -6]
+	icon_extra_offset: [0, -6]
 	icon_extra_scale: 1.000
 
-	min: 50
-	max: 2500
-	step: 50
+	min: 5
+	max: 200
+	step: 5
 	
 	flags: none
 	type: crafter
 	tags: furnace
-	rank: -202.000
+	rank: -200.000
 	
 	requirements:
 	[
@@ -39,19 +39,19 @@
 		}
 		{
 			type: resource
-			material: "iron.powder"
+			material: "steel.ingot"
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "coke"
-			amount: 0.100
+			material: "scrap"
+			amount: 7.000
 		}
 		{
 			type: work
 			work: melting
-			amount: 12.000
-			difficulty: 7.000
+			amount: 90.000
+			difficulty: 6.000
 		}
 	]
 	
@@ -60,8 +60,15 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 0.200
-			amount_extra: 0.000
+			amount: 0.853
+			amount_extra: 1.074
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.570
+			amount_extra: 0.500
+			flags: waste
 		}
 	]
 }

@@ -14,6 +14,16 @@
 		frame: [3, 0]
 	}
 
+	icon_extra:
+	{
+		texture: "resource.black_coal"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+
+	icon_extra_offset: [-2, -6]
+	icon_extra_scale: 1.000
+
 	min: 100
 	max: 500
 	step: 100
@@ -36,8 +46,8 @@
 		{
 			type: work
 			work: heating
-			amount: 75.000
-			difficulty: 17.000
+			amount: 45.000
+			difficulty: 14.000
 		}
 	]
 	

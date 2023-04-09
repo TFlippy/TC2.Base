@@ -7,16 +7,16 @@
 	
 	icon:
 	{
-		texture: "resource.pjerdelite"
+		texture: "resource.iron.ingot"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.iron.ingot"
+		texture: "resource.pjerdelite"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [2, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
@@ -29,6 +29,7 @@
 	flags: none
 	type: crafter
 	tags: furnace
+	rank: -150.000
 	
 	requirements:
 	[

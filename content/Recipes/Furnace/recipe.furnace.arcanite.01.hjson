@@ -28,6 +28,7 @@
 	type: crafter
 	flags: none
 	tags: furnace
+	rank: -40.000
 	
 	requirements:
 	[
