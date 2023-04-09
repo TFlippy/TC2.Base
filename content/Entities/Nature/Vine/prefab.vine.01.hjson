@@ -40,3 +40,14 @@ transform:
 {
 
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "plants"
+			quantity: 400.000
+		}
+	]
+}

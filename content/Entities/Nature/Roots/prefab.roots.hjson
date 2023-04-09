@@ -40,3 +40,18 @@ transform:
 {
 
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 40.000
+		}
+		{
+			material: "plants"
+			quantity: 50.000
+		}
+	]
+}

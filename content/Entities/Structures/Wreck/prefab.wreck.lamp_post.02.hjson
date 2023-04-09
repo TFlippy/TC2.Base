@@ -53,5 +53,13 @@ harvestable:
 			material: "scrap"
 			quantity: 60.000
 		}
+		{
+			material: "iron.ingot"
+			quantity: 5.000
+		}
+		{
+			material: "plants"
+			quantity: 30.000
+		}
 	]
 }

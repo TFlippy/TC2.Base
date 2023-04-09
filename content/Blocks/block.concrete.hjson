@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: "gravel"
-			quantity: 0.350
+			material: "cement"
+			quantity: 0.250
 		}
 	]
 	

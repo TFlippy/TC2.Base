@@ -48,5 +48,9 @@ harvestable:
 			material: "mushroom"
 			quantity: 4500.000
 		}
+		{
+			material: "plants"
+			quantity: 1500.000
+		}
 	]
 }

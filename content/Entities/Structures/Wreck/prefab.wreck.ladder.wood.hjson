@@ -62,3 +62,18 @@ resizable:
 	b: [0.000, 2.250]
 	cap_offset: 0.500
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 30.000
+		}
+		{
+			material: "plants"
+			quantity: 50.000
+		}
+	]
+}

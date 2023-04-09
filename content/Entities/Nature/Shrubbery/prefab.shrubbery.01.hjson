@@ -35,3 +35,14 @@ foliage.renderer:
 	frame_count: 1
 	frame_count_total: 1
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "plants"
+			quantity: 140.000
+		}
+	]
+}

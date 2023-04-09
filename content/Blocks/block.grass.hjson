@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Grass"
 	desc:
 		'''
@@ -35,6 +35,10 @@
 		{
 			material: "soil"
 			quantity: 0.500
+		}
+		{
+			material: "plants"
+			quantity: 0.400
 		}
 	]
 	

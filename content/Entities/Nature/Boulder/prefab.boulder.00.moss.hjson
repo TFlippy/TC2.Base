@@ -62,5 +62,9 @@ harvestable:
 			material: "stone"
 			quantity: 1350.000
 		}
+		{
+			material: "plants"
+			quantity: 200.000
+		}
 	]
 }

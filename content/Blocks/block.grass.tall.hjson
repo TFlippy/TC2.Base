@@ -36,6 +36,10 @@
 			material: "soil"
 			quantity: 0.500
 		}
+		{
+			material: "plants"
+			quantity: 0.800
+		}
 	]
 	
 	mappings:

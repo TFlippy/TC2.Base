@@ -53,3 +53,18 @@ lamp:
 		texture: "light.circle.00"
 	}
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 100.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 15.000
+		}
+	]
+}

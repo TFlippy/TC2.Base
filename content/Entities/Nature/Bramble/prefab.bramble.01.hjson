@@ -43,3 +43,18 @@ barbedwire:
 {
 	damage: 100.000
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 45.000
+		}
+		{
+			material: "plants"
+			quantity: 60.000
+		}
+	]
+}

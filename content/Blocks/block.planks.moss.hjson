@@ -25,6 +25,10 @@
 			material: "wood"
 			quantity: 0.010
 		}
+		{
+			material: "plants"
+			quantity: 0.100
+		}
 	]
 	
 	mappings:

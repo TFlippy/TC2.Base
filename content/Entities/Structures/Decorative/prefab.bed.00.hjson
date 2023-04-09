@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 4000.000
+	max: 3500.000
 }
 
 animated.renderer:
@@ -45,7 +45,11 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 150.000
+			quantity: 100.000
+		}
+		{
+			material: "cloth"
+			quantity: 30.000
 		}
 	]
 }

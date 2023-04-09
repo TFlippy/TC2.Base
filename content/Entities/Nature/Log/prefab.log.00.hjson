@@ -53,5 +53,9 @@ harvestable:
 			material: "wood"
 			quantity: 670.000
 		}
+		{
+			material: "plants"
+			quantity: 80.000
+		}
 	]
 }
