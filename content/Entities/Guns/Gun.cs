@@ -387,7 +387,7 @@
 					{
 						if (this.state.stage == Gun.Stage.Reloading)
 						{
-							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetFixedTime(), 0.00f):0.00}", pivot: new(0.50f));
+							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f));
 						}
 					}
 				}

@@ -27,12 +27,12 @@ gun:
 	sound_cycle: "derringer_cycle"
 	sound_reload: "derringer_reload"
 	velocity_multiplier: 190.000
-	jitter_multiplier: 10.000
+	jitter_multiplier: 5.000
 	damage_multiplier: 2.500
 	recoil_multiplier: 1.400
 	reload_interval: 1.900
 	cycle_interval: 0.100
-	failure_rate: 0.050
+	failure_rate: 0.010
 	max_ammo: 1.000
 	projectile_count: 1
 	flags: none
@@ -80,7 +80,7 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.100
+	force_multiplier: 1.600
 	torque_multiplier: 0.800
 }
 

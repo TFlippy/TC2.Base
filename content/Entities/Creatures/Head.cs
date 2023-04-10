@@ -39,6 +39,22 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single)]
+		public static void OnEmote(ISystem.Info info, Entity entity, ref XorRandom random, ref Emote.EmoteEvent data, [Source.Owned] ref Emote.Data emote, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head)
+		{
+			if (data.emote_index < Emote.emotes.Length && info.WorldTime >= emote.last_emote_time + 0.50f)
+			{
+				ref var emote_data = ref Emote.emotes[data.emote_index];
+
+				emote.emote_index = data.emote_index;
+				emote.last_emote_time = info.WorldTime;
+
+#if CLIENT
+				Sound.Play(emote_data.sound, transform.position, volume: 0.80f, pitch: head.voice_pitch * random.NextFloatRange(0.99f, 1.01f));
+#endif
+			}
+		}
+
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
@@ -62,21 +78,21 @@ namespace TC2.Base.Components
 		//	Sound.Play(ref info.GetRegion(), head.sound_death, transform.position);
 		//}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
-		{
-			//if (info.WorldTime > head.next_sound)
-			//{
-			//	//App.WriteLine(organic_state.pain_shared);
-			//	if (organic_state.pain_shared > 500.00f && organic_state.consciousness_shared > 0.30f)
-			//	{
-			//		ref var region = ref info.GetRegion();
-			//		var random = XorRandom.New();
-			//		Sound.Play(ref region, head.sound_pain, transform.position, volume: 0.20f + Maths.Clamp(organic_state.pain_shared / 2000.00f, 0.20f, 0.50f), pitch: random.NextFloatRange(0.70f, 1.10f) * (1.00f + Maths.Clamp((organic_state.pain_shared_new / 2000.00f), 0.00f, 0.10f)) * head.voice_pitch);
-			//		head.next_sound = info.WorldTime + (Maths.Clamp(10.00f - (organic_state.pain_shared / 300.00f), 5.00f, 10.00f) * random.NextFloatRange(0.80f, 1.30f));
-			//	}
-			//}
-		}
+		//[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void OnUpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
+		//{
+		//	//if (info.WorldTime > head.next_sound)
+		//	//{
+		//	//	//App.WriteLine(organic_state.pain_shared);
+		//	//	if (organic_state.pain_shared > 500.00f && organic_state.consciousness_shared > 0.30f)
+		//	//	{
+		//	//		ref var region = ref info.GetRegion();
+		//	//		var random = XorRandom.New();
+		//	//		Sound.Play(ref region, head.sound_pain, transform.position, volume: 0.20f + Maths.Clamp(organic_state.pain_shared / 2000.00f, 0.20f, 0.50f), pitch: random.NextFloatRange(0.70f, 1.10f) * (1.00f + Maths.Clamp((organic_state.pain_shared_new / 2000.00f), 0.00f, 0.10f)) * head.voice_pitch);
+		//	//		head.next_sound = info.WorldTime + (Maths.Clamp(10.00f - (organic_state.pain_shared / 300.00f), 5.00f, 10.00f) * random.NextFloatRange(0.80f, 1.30f));
+		//	//	}
+		//	//}
+		//}
 #endif
 
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]

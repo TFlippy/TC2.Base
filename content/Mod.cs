@@ -4,6 +4,7 @@ namespace TC2.Base
 {
 	public sealed partial class BaseMod: Mod
 	{
+		[Shitcode]
 		protected override void OnRegister(ModContext context)
 		{
 			Augment.OnInitialize += RegisterAugments;
@@ -17,7 +18,7 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterVehicleAugments;
 
 #if CLIENT
-			HitEffects.Init();
+			//HitEffects.Init();
 #endif
 
 			IMaterial.Database.AddAssetPostProcessor((IMaterial.Definition definition, ref IMaterial.Data data) =>

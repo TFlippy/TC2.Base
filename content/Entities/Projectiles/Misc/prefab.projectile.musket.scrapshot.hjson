@@ -11,12 +11,13 @@ projectile:
 	gravity: 1.100
 	damp: 0.980
 	ricochet_count: 0
-	tracer_length: 1.000
+	tracer_length: 1.750
 }
 
 projectile.renderer:
 {
-	
+	thickness_a: 0.075
+	thickness_b: 0.100
 }
 
 transform:
