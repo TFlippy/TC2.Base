@@ -1,5 +1,5 @@
 {
-	name: "Smelt Copper"
+	name: "Copper (Enrichment)"
 	desc: 
 		'''
 
@@ -14,13 +14,14 @@
 	
 	icon_extra:
 	{
-		texture: "resource.copper.ore"
+		texture: "resource.copper.gravel"
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
 
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
+	color_button: "0xff57e5b6"
 
 	min: 10
 	max: 200

@@ -1,5 +1,5 @@
 {
-	name: "Krakatite Enrichment"
+	name: "Krakatite Decomposition"
 	desc: ""
 	
 	icon:
@@ -17,6 +17,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xff9a7861"
 	
 	min: 50
 	max: 500

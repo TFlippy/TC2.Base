@@ -1,8 +1,9 @@
-{
-	name: "Recycled Steel"
+﻿{
+	name: "Diluted Steel (Recycling)"
 	desc: 
 		'''
-		
+		Mix some scrap metal into pure steel.
+		Results may vary.
 		'''
 	
 	icon:
@@ -21,6 +22,7 @@
 
 	icon_extra_offset: [0, -6]
 	icon_extra_scale: 1.000
+	color_button: "0xff769d49"
 
 	min: 5
 	max: 200
@@ -50,7 +52,7 @@
 		{
 			type: work
 			work: melting
-			amount: 90.000
+			amount: 80.000
 			difficulty: 6.000
 		}
 	]
@@ -61,13 +63,13 @@
 			type: resource
 			material: "steel.ingot"
 			amount: 0.853
-			amount_extra: 1.074
+			amount_extra: 0.974
 		}
 		{
 			type: resource
 			material: "slag"
-			amount: 0.570
-			amount_extra: 0.500
+			amount: 0.770
+			amount_extra: 0.543
 			flags: waste
 		}
 	]

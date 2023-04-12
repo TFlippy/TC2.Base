@@ -1,5 +1,5 @@
 {
-	name: "Smelt Iron (Basic)"
+	name: "Smelt Iron (Ore)"
 	desc:
 		'''
 		Smelt unpurified iron ore.
@@ -22,6 +22,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xfff34a29"
 	
 	min: 50
 	max: 200

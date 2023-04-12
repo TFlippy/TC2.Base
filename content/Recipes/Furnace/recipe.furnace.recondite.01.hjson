@@ -1,5 +1,5 @@
 {
-	name: "Smelt Recondite"
+	name: "Smelt Recondite (Pure)"
 	desc: 
 		'''
 		Smelt pure recondite powder.
@@ -21,6 +21,7 @@
 
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
+	color_button: "0xffffba45"
 
 	min: 5
 	max: 100

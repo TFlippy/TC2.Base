@@ -1,5 +1,5 @@
 {
-	name: "Smelt Arcanite"
+	name: "Smelt Arcanite (Pure)"
 	desc:
 		'''
 		Smelt pure arcanite powder.
@@ -20,6 +20,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xffffba45"
 	
 	min: 5
 	max: 100

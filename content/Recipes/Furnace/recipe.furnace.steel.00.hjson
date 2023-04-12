@@ -1,5 +1,5 @@
-{
-	name: "Medium-Grade Carbon Steel"
+﻿{
+	name: "Medium-Grade Carbon Steel (Enrichment)"
 	desc:
 		'''
 		Basic steel production method involving re-melting iron ingots and enriching it with carbon.
@@ -20,6 +20,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xff57e5b6"
 	
 	min: 10
 	max: 200

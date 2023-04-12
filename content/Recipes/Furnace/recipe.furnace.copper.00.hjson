@@ -1,8 +1,8 @@
 {
-	name: "Smelt Copper"
+	name: "High-Grade Copper (Powder)"
 	desc:
 		'''
-		Smelt pure copper powder.
+		Melt pure copper powder.
 		'''
 	
 	icon:
@@ -20,6 +20,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xffffba45"
 	
 	min: 5
 	max: 100
