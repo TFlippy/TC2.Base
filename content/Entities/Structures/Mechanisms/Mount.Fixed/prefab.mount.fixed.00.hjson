@@ -49,12 +49,28 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 240.000]
+	window_size: [224.000, 192.000]
 }
 
 vehicle:
 {
 
+}
+
+mount:
+{
+
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 4.000
+		type: ammo
+		flags: allow_ducts, ignore_mass
+	}
 }
 
 +mount|instance:
@@ -84,11 +100,11 @@ vehicle:
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: keyboard_write, mouse_write, brake, manual_aim
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim
+		flags: brake, manual_aim
+		flags_editable: locked, disabled, hold, invert, brake, manual_aim
 		name: "Mount"
 		identifier: "mount"
 		offset: [0.000, 0.000]
-		gui_size: [128.000, 128.000]
+		gui_size: [224.000, 192.000]
 	}
 }

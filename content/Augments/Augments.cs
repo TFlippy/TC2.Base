@@ -806,6 +806,232 @@ namespace TC2.Base
 			//	}
 			//));
 
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.lamp",
+				category: "Utility",
+				name: "Add: Lamp",
+				description: "Attach a lamp.",
+
+				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					//offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Lamp.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 7, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+
+					//ref var offset = ref handle.GetData<Vector2>();
+
+					//var size = GUI.GetRemainingSpace();
+					//size.X *= 0.50f;
+
+					//var dirty = false;
+					////dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
+					//dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					//return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 7, modifier);
+
+					var sprite = new Sprite("augment.lamp", 16, 16, (byte)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 7, modifier);
+
+					ref var lamp = ref context.GetOrAddComponent<Lamp.Data>();
+					if (!lamp.IsNull())
+					{
+						lamp.flicker = 0.01f;
+
+						ref var light = ref context.GetOrAddTrait<Lamp.Data, Light.Data>();
+						if (light.IsNotNull())
+						{
+							var scale = new Vector2(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f);
+
+							switch (type)
+							{
+								case 0:
+								{
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.45f);
+									light.offset = offset + new Vector2(2.250f * scale.X, 0.000f);
+									light.scale = new(16 * scale.X, 12);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_cone_00;
+								}
+								break;
+
+								case 1:
+								{
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
+									light.offset = offset + new Vector2(-0.375f * scale.X, -0.125f * scale.Y);
+									light.scale = new(20, 20);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_circle_03;
+								}
+								break;
+
+								case 2:
+								{
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.45f);
+									light.offset = offset + new Vector2(-0.50f * scale.X, -0.35f * scale.Y);
+									light.scale = new(24, 20);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_circle_02;
+								}
+								break;
+
+								case 3:
+								{
+									light.color = new Vector4(1.00f, 0.25f, 0.00f, 2.00f);
+									light.offset = offset + new Vector2(-0.375f * scale.X, -0.050f * scale.Y);
+									light.scale = new(16, 16);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_circle_04;
+								}
+								break;
+
+								case 4:
+								{
+									light.color = new Vector4(1.00f, 0.60f, 0.05f, 1.50f);
+									light.offset = offset + new Vector2(-0.425f * scale.X, -0.25f * scale.Y);
+									light.scale = new(24, 20);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_circle_04;
+								}
+								break;
+
+								case 5:
+								{
+									light.color = new Vector4(1.00f, 0.95f, 0.30f, 1.75f);
+									light.offset = offset + new Vector2(7.00f * scale.X, 0.25f * scale.Y);
+									light.scale = new(32 * scale.X, 24);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_cone_00;
+								}
+								break;
+
+								case 6:
+								{
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
+									light.offset = offset + new Vector2(4.00f * scale.X, 0.00f);
+									light.scale = new(20 * scale.X, 16);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_cone_00;
+								}
+								break;
+
+								case 7:
+								{
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
+									light.offset = offset + new Vector2(4.00f * scale.X, 0.00f);
+									light.scale = new(20 * scale.X, 16);
+									light.intensity = 1.00f;
+									light.texture = Light.tex_light_cone_00;
+								}
+								break;
+							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
+				identifier: "holdable.scope",
+				category: "Utility",
+				name: "Add: Scope",
+				description: "Attach a scope.",
+
+				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					offset = Maths.Snap(offset, 0.125f);
+					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Telescope.Data>() && data.flags.HasAll(Holdable.Flags.Storable); // && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					var size = GUI.GetRemainingSpace();
+					size.X *= 0.50f;
+
+					var dirty = false;
+					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+
+					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
+					if (!scope.IsNull())
+					{
+						scope.speed = 6.00f;
+						scope.deadzone = 3.00f;
+						scope.zoom_modifier = 0.50f;
+						scope.zoom_min = 0.90f;
+						scope.zoom_max = 0.90f;
+						scope.min_distance = 12.00f;
+						scope.max_distance = 80.00f;
+					}
+				}
+			));
+
 			definitions.Add(Augment.Definition.New<Telescope.Data>
 			(
 				identifier: "telescope.long_focus_lens",

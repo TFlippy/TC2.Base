@@ -3162,68 +3162,6 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
-				identifier: "gun.scope",
-				category: "Gun (Receiver)",
-				name: "Scope",
-				description: "Attach a scope.",
-
-				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
-
-					return true;
-				},
-
-				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle) && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
-				},
-
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					var size = GUI.GetRemainingSpace();
-					size.X *= 0.50f;
-
-					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
-
-					return dirty;
-				},
-
-				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-				},
-#endif
-
-				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
-					if (!scope.IsNull())
-					{
-						scope.speed = 6.00f;
-						scope.deadzone = 3.00f;
-						scope.zoom_modifier = 0.50f;
-						scope.zoom_min = 0.90f;
-						scope.zoom_max = 0.90f;
-						scope.min_distance = 12.00f;
-						scope.max_distance = 80.00f;
-					}
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Gun.Data>
-			(
 				identifier: "gun.automatic_reloading",
 				category: "Gun (Ammo)",
 				name: "ARC-MT Auto-Loader",

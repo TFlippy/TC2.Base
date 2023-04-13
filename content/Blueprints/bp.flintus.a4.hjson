@@ -17,7 +17,7 @@
 	augments:
 	[
 		{
-			identifier: "gun.scope"
+			identifier: "holdable.scope"
 			flags: none
 			modifier: 0.000
 			data: 13744986063787524096
