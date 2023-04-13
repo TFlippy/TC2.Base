@@ -1,4 +1,5 @@
 ﻿
+using Keg.Engine;
 using System.Diagnostics.CodeAnalysis;
 
 namespace TC2.Base.Components
@@ -88,34 +89,38 @@ namespace TC2.Base.Components
 									{
 										using (GUI.ID.Push(i + 1))
 										{
-											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40)))
+											var button_tags_filter = Crafting.Recipe.Tags.None;
+
+											switch ((Build.Category)i)
 											{
-												switch ((Build.Category)i)
+												case Build.Category.Construction:
 												{
-													case Build.Category.Construction:
-													{
-														edit_tags_filter = Crafting.Recipe.Tags.Construction;
-													}
-													break;
-
-													case Build.Category.Industry:
-													{
-														edit_tags_filter = Crafting.Recipe.Tags.Industry;
-													}
-													break;
-
-													case Build.Category.Buildings:
-													{
-														edit_tags_filter = Crafting.Recipe.Tags.Buildings;
-													}
-													break;
-
-													case Build.Category.Mechanisms:
-													{
-														edit_tags_filter = Crafting.Recipe.Tags.Mechanisms;
-													}
-													break;
+													button_tags_filter = Crafting.Recipe.Tags.Construction;
 												}
+												break;
+
+												case Build.Category.Industry:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Industry;
+												}
+												break;
+
+												case Build.Category.Buildings:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Buildings;
+												}
+												break;
+
+												case Build.Category.Mechanisms:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Mechanisms;
+												}
+												break;
+											}
+
+											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40), color: edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
+											{
+												edit_tags_filter = button_tags_filter;
 											}
 
 											if (GUI.IsItemHovered())

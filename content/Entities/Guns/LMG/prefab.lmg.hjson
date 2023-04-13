@@ -78,7 +78,7 @@ holdable:
 	flags: storable
 
 	force_multiplier: 1.000
-	torque_multiplier: 1.200
+	torque_multiplier: 1.000
 }
 
 attachment:

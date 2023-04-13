@@ -98,7 +98,11 @@ namespace TC2.Base.Components
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]
 		public static void OnPostDamage(ISystem.Info info, ref Health.DamageEvent data, [Source.Owned] in Health.Data health, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		{
-			var amount = MathF.Abs(MathF.Max(data.knockback * 0.0002f, data.damage_durability * 0.002f));
+			var amount_knockback = data.knockback * 0.0002f;
+			var amount_damage = Maths.NormalizeClamp(data.damage_durability, health.GetHealth() * 0.50f);
+
+			var amount = MathF.Abs(MathF.Max(amount_knockback, amount_damage));
+			//App.WriteLine($"{amount}; {data.knockback}; {data.damage_durability}; {amount_knockback}; {amount_damage}");
 
 			switch (data.damage_type)
 			{
@@ -169,6 +173,27 @@ namespace TC2.Base.Components
 		//		organic_state.motorics_shared = 0.00f;
 		//	}
 		//}
+
+#if SERVER
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), Exclude<Player.Data>(Source.Modifier.Parent)]
+		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
+		[Source.Owned] in Head.Data head, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
+		[Source.Parent] ref Control.Data control)
+		{
+			if (head.concussion > 0.01f)
+			{
+				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8;
+
+				//region.DrawDebugCircle(control.mouse.position, 0.125f, Color32BGRA.Yellow, 4);
+
+
+				control.mouse.position = Vector2.Lerp(control.mouse.position, transform.position + offset, Maths.Clamp01(head.concussion * 1.50f));
+				//control.mouse.position += offset * head.concussion;
+
+				//region.DrawDebugCircle(control.mouse.position, 0.25f, Color32BGRA.Red, 4);
+			}
+		}
+#endif
 
 #if CLIENT
 		[IGlobal.Data(persist: false), IComponent.With<Sound.Emitter>()]

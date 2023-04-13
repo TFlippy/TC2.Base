@@ -66,7 +66,11 @@ dormitory:
 	kit_default: "survival"
 	characters_capacity: 3
 	characters_initial_count: 0
+
 	repopulate_interval: 300.000
+	repopulate_num: 1
+	repopulate_num_extra: 2
+
 	character_flags_filter: 
 	{
 		require: nomad

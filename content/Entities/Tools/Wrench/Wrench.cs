@@ -579,13 +579,13 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		public static void DrawModeButton<T>(Entity ent_wrench) where T : unmanaged, Wrench.IMode
+		public static void DrawModeButton<T>(Entity ent_wrench, ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
 			ref var info = ref ECS.GetInfo<T>();
 
 			using (GUI.ID.Push(info.id))
 			{
-				if (GUI.DrawIconButton($"wrench.mode.{info.identifier}", T.Icon, new(64, 64)))
+				if (GUI.DrawIconButton($"wrench.mode.{info.identifier}", T.Icon, new(64, 64), color: info.id == wrench.selected_component_id ? GUI.col_button_highlight : GUI.col_button))
 				{
 					var rpc = new Wrench.SelectModeRPC()
 					{
@@ -630,25 +630,25 @@ namespace TC2.Base.Components
 						{
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Build.Data>())
 							{
-								Wrench.DrawModeButton<Wrench.Mode.Build.Data>(this.ent_wrench);
+								Wrench.DrawModeButton<Wrench.Mode.Build.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Belts.Data>())
 							{
-								Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench);
+								Wrench.DrawModeButton<Wrench.Mode.Belts.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Conveyors.Data>())
 							{
-								Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench);
+								Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Deconstruct.Data>())
 							{
-								Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench);
+								Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 						}
