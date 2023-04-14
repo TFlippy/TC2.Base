@@ -70,6 +70,9 @@ namespace TC2.Base.Components
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
 
+						var search_filter = edit_name_filter.ToString();
+						var is_searching = !string.IsNullOrEmpty(search_filter);
+
 						ref var this_transform = ref ent_wrench.GetComponent<Transform.Data>();
 
 						{
@@ -118,7 +121,7 @@ namespace TC2.Base.Components
 												break;
 											}
 
-											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40), color: edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
+											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
 											{
 												edit_tags_filter = button_tags_filter;
 											}
@@ -138,10 +141,11 @@ namespace TC2.Base.Components
 
 								GUI.SameLine();
 
-								if (GUI.TextInput("##search", "search", ref edit_name_filter, new Vector2(GUI.GetRemainingWidth() - 40, 40), show_label: false))
+								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.GetRemainingWidth() - 40, 40), show_label: false))
 								{
 
 								}
+								GUI.FocusOnCtrlF();
 
 								GUI.SameLine();
 
@@ -156,9 +160,6 @@ namespace TC2.Base.Components
 							{
 								using (var grid = GUI.Grid.New(size: GUI.GetRemainingSpace()))
 								{
-									var search_filter = edit_name_filter.ToString();
-									var is_searching = !string.IsNullOrEmpty(search_filter);
-
 									var scale = 2.00f;
 
 									//var recipes = Shop.GetAllRecipes();
@@ -203,7 +204,7 @@ namespace TC2.Base.Components
 										//GUI.Text($"{pair.rank}");
 
 										ref var recipe = ref IRecipe.Database.GetData(pair.index);
-										if (recipe.IsNotNull() && recipe.tags.HasAny(edit_tags_filter))
+										if (recipe.IsNotNull() && (recipe.tags.HasAny(edit_tags_filter) || is_searching))
 										{
 											if (!is_searching || recipe.name.ToString().Contains(search_filter, StringComparison.OrdinalIgnoreCase))
 											{
