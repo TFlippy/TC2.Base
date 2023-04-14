@@ -9,17 +9,18 @@ body:
 {
 	@shape.polygon:	
 	{
-		points:
+		points: 
 		[
-			[1.125, 0.625]
-			[-1.250, 0.625]
-			[-0.400, -1.250]
-			[0.400, -1.250]
+			[0.625, 0.125]
+			[-0.750, 0.125]
+			[-0.100, -0.750]
+			[0.100, -0.750]
 		]
 		offset: [0.000, 0.000]
 		mass: 50.000
 		friction: 1.000
 		elasticity: 0.300
+		radius: 0.500
 		material: wire
 		layer: entity, solid
 		mask: world
@@ -38,8 +39,10 @@ health:
 
 holdable:
 {
-	offset: [0.000, 0.625]
-	flags: disable_control
+	force_multiplier: 1.500
+	torque_multiplier: 1.500
+	offset: [-0.500, 0.625]
+	flags: disable_control, full_rotate
 }
 
 animated.renderer:
@@ -108,7 +111,7 @@ control:
 norotate:
 {
 	bias: 0.500
-	mass_multiplier: 10.000
+	mass_multiplier: 5.000
 }
 
 vehicle:
@@ -119,11 +122,11 @@ vehicle:
 sticky:
 {
 	min_contact_count: 2
-	min_contact_distance: 0.800
-	max_force: 20000.000
+	min_contact_distance: 0.400
+	max_force: 50000.000
 	flags: attach_on_collide
 	mask: world, solid
-	exclude: dynamic, essence
+	exclude: dynamic, essence, water
 
 	sound: "item.adjust.00"
 }
@@ -143,9 +146,12 @@ sticky:
 	joint.base:
 	{
 		offset_a: [0.000, -0.750]
-		max_force: 40000.000
-		max_torque: 5000.000
-		flags: control_write, no_wrap, force_facing, attachment
+		max_force: 30000.000
+		max_torque: 15000.000
+		max_stress: 2.000
+		stress_threshold: 2.010
+		flags: control_write, no_wrap, force_facing, attachment, allow_dragging, facing_reset_pos
+		material_type: metal
 		
 		@sound.emitter:
 		{
@@ -177,7 +183,24 @@ sticky:
 		min: -1.400
 		max: 0.750
 		error_bias: 0.010
-		max_bias: 8.000
+		max_bias: 4.000
+		stress_mult: 0.100
+	}
+
+	joint.rotarylimit:
+	{
+		max_torque: 90000.000
+		min: -1.600
+		max: 0.950
+		max_bias: 10.000
+		error_bias: 0.001
+	}
+
+	joint_motor:
+	{
+		force: 100.000
+		speed: 0.000
+		error_bias: 0.000
 	}
 
 	attachment.slot:
