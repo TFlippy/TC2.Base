@@ -1,6 +1,6 @@
 {
 	name: "Arcanite Powder"
-	desc: "A powdered mixture of smirgl and gold."
+	desc: "A powdered mixture of smirglum and gold."
 	
 	icon:
 	{
@@ -19,7 +19,7 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			amount: 0.600
 		}
 		{

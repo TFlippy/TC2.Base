@@ -478,13 +478,13 @@ namespace TC2.Base
 					}
 
 					amount = MathF.Ceiling(amount);
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", amount));
 					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 20.00f));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_extra += amount * material.mass_per_unit;
@@ -1915,9 +1915,9 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "body.plating.smirgl.large",
+				identifier: "body.plating.smirglum.large",
 				category: "Misc",
-				name: "Smirgl Plating (Large)",
+				name: "Smirglum Plating (Large)",
 				description: "TODO: Desc",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1946,7 +1946,7 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 15, modifier);
 
-					var sprite = new Sprite("augment.plating.large.smirgl", 48, 24, (uint)type, 0);
+					var sprite = new Sprite("augment.plating.large.smirglum", 48, 24, (uint)type, 0);
 					sprite.count = 4;
 
 					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));

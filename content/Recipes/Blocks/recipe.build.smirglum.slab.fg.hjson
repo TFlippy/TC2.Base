@@ -1,8 +1,8 @@
 {
-	name: "Smirgl Slabs"
+	name: "Smirglum Slabs"
 	desc:
 		'''
-		Extremely durable armor made of smirgl slabs fused together with phlogiston.
+		Extremely durable armor made of smirglum slabs fused together with phlogiston.
 		'''
 	
 	icon:
@@ -38,7 +38,7 @@
 	[
 		{
 			type: resource
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			amount: 0.100
 		}
 		{
@@ -52,7 +52,7 @@
 	[
 		{
 			type: block
-			block: "smirgl.slab"
+			block: "smirglum.slab"
 			tile_flags: solid
 		}
 	]

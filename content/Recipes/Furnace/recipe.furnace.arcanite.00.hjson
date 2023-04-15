@@ -39,7 +39,7 @@
 		}
 		{
 			type: resource
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			amount: 3.000
 		}
 		{

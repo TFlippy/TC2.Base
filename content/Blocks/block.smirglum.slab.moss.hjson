@@ -1,6 +1,6 @@
 {
-	name: "Smirgl Slabs"
-	desc: "Phlogiston-welded slabs of solid smirgl. Extremely durable and overgrown."
+	name: "Smirglum Slabs"
+	desc: "Phlogiston-welded slabs of solid smirglum. Extremely durable and overgrown."
 	
 	material_type: metal
 	tile_flags: non_empty
@@ -15,8 +15,8 @@
 
 	collision_mask: essence
 	
-	texture: "terrain.smirgl.slab.moss"
-	pattern: "pattern.smirgl.slab.moss"
+	texture: "terrain.smirglum.slab.moss"
+	pattern: "pattern.smirglum.slab.moss"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.125
@@ -24,7 +24,7 @@
 	resources:
 	[
 		{
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			quantity: 0.100
 		}
 	]

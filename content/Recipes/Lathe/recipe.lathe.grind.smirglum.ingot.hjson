@@ -1,17 +1,17 @@
 {
-	name: "Smirgl Powder"
-	desc: "Grind a smirgl ingot into powder."
+	name: "Smirglum Powder"
+	desc: "Grind a smirglum ingot into powder."
 	
 	icon:
 	{
-		texture: "resource.smirgl.ingot"
+		texture: "resource.smirglum.ingot"
 		size: [16, 16]
 		frame: [2, 0]
 	}
 
 	icon_extra:
 	{
-		texture: "resource.smirgl.powder"
+		texture: "resource.smirglum.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			amount: 1.000
 		}
 		{
@@ -45,7 +45,7 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			amount: 4.000
 			amount_extra: 1.000
 		}

@@ -1,5 +1,5 @@
 {
-	name: "Smirgl"
+	name: "Smirglum"
 	desc:
 		'''
 		A very heavy mineral.
@@ -23,7 +23,7 @@
 	collision_layer: none
 	collision_mask: essence
 	
-	texture: "terrain.smirgl.ore"
+	texture: "terrain.smirglum.ore"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.650
@@ -33,7 +33,7 @@
 	resources:
 	[
 		{
-			material: "smirgl.ore"
+			material: "smirglum.ore"
 			quantity: 1.800
 		}
 	]

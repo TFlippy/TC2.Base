@@ -5,11 +5,11 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
-		mass: 50.000
+		mass: 200.000
 		radius: 0.750
 		friction: 0.650
-		elasticity: 0.500
-		material: gravel
+		elasticity: 0.300
+		material: stone
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.smirgl.gravel"
+		texture: "resource.smirglum.ore"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,17 +32,22 @@ transform:
 
 resource:
 {
-	material: "smirgl.gravel"
+	material: "smirglum.ore"
 }
 
 holdable:
 {
-	force_multiplier: 1.800
+	force_multiplier: 6.000
 	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 
 norotate:
+{
+
+}
+
+despawn:
 {
 
 }

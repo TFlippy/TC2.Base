@@ -1,6 +1,6 @@
 {
 	name: "Recondite Powder"
-	desc: "A powdered mixture of smirgl and silver."
+	desc: "A powdered mixture of smirglum and silver."
 	
 	icon:
 	{
@@ -19,7 +19,7 @@
 	[
 		{
 			type: "resource"
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			amount: 0.700
 		}
 		{

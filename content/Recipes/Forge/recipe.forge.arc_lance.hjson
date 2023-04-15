@@ -22,7 +22,7 @@
 	[
 		{
 			type: resource
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			amount: 3.000
 		}
 		{

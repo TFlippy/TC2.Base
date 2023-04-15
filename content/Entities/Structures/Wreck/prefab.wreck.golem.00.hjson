@@ -46,7 +46,7 @@ harvestable:
 			quantity: 150.000
 		}
 		{
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			quantity: 35.000
 		}
 		{

@@ -14,7 +14,7 @@
 	
 	icon_extra:
 	{
-		texture: "resource.smirgl.gravel"
+		texture: "resource.smirglum.gravel"
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -59,7 +59,7 @@
 	[
 		{
 			type: resource
-			material: "smirgl.gravel"
+			material: "smirglum.gravel"
 			amount: 1.174
 			amount_extra: 0.570
 		}

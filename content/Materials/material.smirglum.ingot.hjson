@@ -1,5 +1,5 @@
 {
-	name: "Smirgl Ingot"
+	name: "Smirglum Ingot"
 	description:
 		'''
 		TODO: Desc
@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "resource.smirgl.ingot"
+		texture: "resource.smirglum.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	flags: ingot, magnetic, metal
 	mass_per_unit: 3.800
 	quantity_max: 250.000
-	prefab: "resource.smirgl.ingot"
+	prefab: "resource.smirglum.ingot"
 	
 	specific_heat: 45.500
 	thermal_conductivity: 0.800

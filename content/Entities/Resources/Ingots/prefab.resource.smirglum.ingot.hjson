@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.300
-		material: stone
+		material: metal
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.smirgl.ore"
+		texture: "resource.smirglum.ingot"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,22 +32,17 @@ transform:
 
 resource:
 {
-	material: "smirgl.ore"
+	material: "smirglum.ingot"
 }
 
 holdable:
 {
-	force_multiplier: 6.000
+	force_multiplier: 4.000
 	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 
 norotate:
-{
-
-}
-
-despawn:
 {
 
 }

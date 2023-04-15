@@ -1,20 +1,20 @@
 {
-	name: "Smelt Smirgl (Powder)"
+	name: "Smelt Smirglum (Powder)"
 	desc: 
 		'''
-		Smelt pure smirgl powder.
+		Smelt pure smirglum powder.
 		'''
 	
 	icon:
 	{
-		texture: "resource.smirgl.ingot"
+		texture: "resource.smirglum.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.smirgl.powder"
+		texture: "resource.smirglum.powder"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -40,7 +40,7 @@
 		}
 		{
 			type: resource
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			amount: 5.000
 		}
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: resource
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			amount: 1.000
 		}
 	]

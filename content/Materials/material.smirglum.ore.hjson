@@ -1,14 +1,14 @@
 {
-	name: "Smirgl Ore"
+	name: "Smirglum Ore"
 	description:
 		'''
-		Medium-purity smirgl ore.
+		Medium-purity smirglum ore.
 		Yield: 50% to 80%
 		'''
 	
 	icon:
 	{
-		texture: "resource.smirgl.ore"
+		texture: "resource.smirglum.ore"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -22,7 +22,7 @@
 	flags: raw, ore, magnetic, granular, smeltable, metal, despawnable
 	mass_per_unit: 2.760
 	quantity_max: 500.000
-	prefab: "resource.smirgl.ore"
+	prefab: "resource.smirglum.ore"
 	
 	specific_heat: 45.500
 	thermal_conductivity: 0.480
