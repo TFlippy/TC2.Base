@@ -1,0 +1,47 @@
+﻿{
+	$prefab: "balloon.00"
+	
+	storage:
+	{
+		@inventory8_data:
+		{
+			resources:
+			[
+				{
+					material: "ammo_mg"
+					quantity: 200.000
+				}
+				{
+					material: "ammo_mg"
+					quantity: 200.000
+				}
+			]
+		}
+	}
+
+	+seat|instance:
+	{
+	
+	}
+	
+	+slot_mount_0|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "machine_gun"
+		}
+	}
+	
+	+slot_mount_1|instance:
+	{
+	
+	}
+	
+	+slot_balloon|instance:
+	{
+		+balloon|child:
+		{
+
+		}
+	}
+}

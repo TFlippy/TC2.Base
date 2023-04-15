@@ -58,7 +58,7 @@ namespace TC2.Base.Components
 							var climb_speed = climber.climb_speed;
 							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength;
 							climber.cling_entity = ent_arbiter;
-							climber.pos_climbable = arbiter.GetPosition();
+							climber.pos_climbable = arbiter.GetBodyPosition();
 
 							var vel = Vector2.Zero;
 

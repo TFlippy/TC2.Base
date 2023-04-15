@@ -7,7 +7,7 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.250
+	inventory_weight_multiplier: 0.650
 	fall_damage_multiplier: 0.750
 
 	@shape.polygon:	
