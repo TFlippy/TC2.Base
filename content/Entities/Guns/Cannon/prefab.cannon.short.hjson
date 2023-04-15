@@ -8,6 +8,8 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 0.500
+
 	@shape.line:
 	{
 		a: [-2.000, 0.000]

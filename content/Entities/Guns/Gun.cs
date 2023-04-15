@@ -186,6 +186,7 @@
 			public float smoke_amount = 1.00f;
 
 			public float shake_amount = 0.20f;
+			public float shake_radius = 16.00f;
 
 			public float heuristic_range = 30.00f;
 
@@ -750,7 +751,7 @@
 				var force_jammed = false;
 
 #if CLIENT
-				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
+				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, gun.shake_radius);
 #endif
 
 				ref var material = ref inventory_magazine.resource.material.GetData();
