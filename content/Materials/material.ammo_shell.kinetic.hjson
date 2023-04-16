@@ -1,0 +1,38 @@
+{
+	name: "Artillery Shell (Kinetic)"
+	description:
+		'''
+		Ammunition for cannons. Non-explosive, deals enormous amount of damage on impact.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_shell.kinetic"
+		size: [16, 16]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [10, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_shell, magnetic
+	mass_per_unit: 20.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_shell.kinetic"
+	
+	ammo:
+	{
+		count: 1
+		mass: 13.000
+		speed_mult: 1.600
+		spread_mult: 0.050
+		recoil_mult: 1.000
+		heat: 8999.999
+		velocity_min: 80.000
+		prefab: "projectile.shell.kinetic"
+	}
+}

@@ -4,10 +4,12 @@ projectile:
 {
 	damage_base: 130.000
 	damage_bonus: 100.000
+	knockback_multiplier: 5.000
 	lifetime: 2.000
 	damage_type: bullet_hc
-	size: 0.175
-	tracer_length: 5.000
+	size: 0.000
+	tracer_length: 2.700
+	mass: 0.018
 }
 
 projectile.renderer:

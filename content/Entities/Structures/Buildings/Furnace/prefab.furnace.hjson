@@ -40,7 +40,7 @@ shop:
 	name: "Recipes"
 	tags: furnace
 
-	menu_columns: 3
+	menu_columns: 4
 }
 
 furnace:
@@ -79,6 +79,7 @@ burner:
 		filter_flags: fuel
 		type: fuel
 		flags: allow_ducts, ignore_mass
+		offset: [0.500, -1.875]
 	}
 	
 	@sound.emitter:
@@ -104,6 +105,7 @@ crafter:
 		stack_size_multiplier: 4.000
 		type: output
 		flags: allow_ducts, ignore_mass, public
+		offset: [-0.375, 1.625]
 	}
 }
 
@@ -115,10 +117,11 @@ crafter.state:
 		stack_size_multiplier: 4.000
 		type: input
 		flags: allow_ducts, ignore_mass
+		offset: [-0.375, 0.500]
 	}
 }
 
 interactable:
 {
-	window_size: [500.000, 400.000]
+	window_size: [650.000, 480.000]
 }

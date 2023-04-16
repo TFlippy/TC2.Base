@@ -1,0 +1,113 @@
+{
+	name: "ZRD Kanon M.3"
+	description:
+		'''
+		Cutting-edge rapid-fire cannon utilizing arcane technology.
+		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
+	prefab: "cannon.short"
+	recipe: "gunsmith.cannon.short"
+	
+	augments:
+	[
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 13726971667433914368
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.stacked_charge"
+			flags: none
+			modifier: 1.000
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.reinforced_frame"
+			flags: none
+			modifier: 0.160
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
+			data: 13616002968938610688
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "overheat.radiator"
+			flags: none
+			modifier: 1.000
+			data: 13726971665291673600
+		}
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 1.000
+			data: 13763000462310637568
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.444444
+			data: 13763000464465985536
+		}
+		{
+			identifier: "gun.framework.steel"
+			flags: none
+			modifier: 0.666667
+			data: 13690942868265369600
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

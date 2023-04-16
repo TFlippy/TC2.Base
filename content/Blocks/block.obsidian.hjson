@@ -1,0 +1,30 @@
+{
+	name: "Obsidian"
+	desc: "Volcanic glass."
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, mineral
+	
+	max_health: 100000.000
+	smoothing: 0.200
+	mass: 1.000
+	friction: 0.450
+	elasticity: 0.700
+	stability: 0.900
+	
+	texture: "terrain.obsidian"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.710
+	texture_overshoot: 0.000
+
+	mappings:
+	[
+		{
+			color: "0xff696174"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}

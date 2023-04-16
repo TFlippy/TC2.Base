@@ -1,0 +1,181 @@
+$name: "Steam Engine (Humprecht)"
+$desc:
+	'''
+	Standard Humprecht-design stationary steam engine.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-1.500, -1.500]
+			[1.125, -2.000]
+			[1.750, 2.375]
+			[-1.750, 2.375]
+		]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 30000.000
+}
+
+armor:
+{
+	toughness: 400.000
+	protection: 0.650
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "steam_engine.01"
+	}
+	z: -280.000
+}
+
+steamengine:
+{
+	piston_offset: [0.750, -0.500]
+	steam_offset: [2.125, -1.875]
+	exhaust_offset: [0.375, -0.375]
+	burst_offset: [-1.000, -0.625]
+	smoke_direction: [2.000, -1.000]
+	sprite_burst:
+	{
+		texture: "steam_engine.burst.00"
+		size: [32, 24]
+		frame: [1, 0]
+	}
+	steam_size: 0.750
+	steam_interval: 0.200
+	piston_radius: 0.375
+	speed_max: 18.000
+	force: 8000.000
+	efficiency: 0.600
+	burst_threshold: 0.850
+	burst_chance_modifier: 1.000
+	shake_multiplier: 1.000
+	volume_multiplier: 0.200
+	pitch_multiplier: 0.400
+	max_acceleration: 2.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "steam_engine.01.piston"
+		}
+		z: -290.000
+	}
+
+	@sound.emitter:
+	{
+		file: "steam_engine_loop"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+		size_max_modifier: 0.800
+	}
+}
+
+steamengine.state:
+{
+	@sound.emitter:
+	{
+		file: "tractor.steam.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+	}
+}
+
+burner:
+{
+	smoke_offset: [-1.375, -2.625]
+	smoke_direction: [0.000, -1.000]
+	capacity: 3.000
+	energy_loss: 50000.000
+	efficiency: 0.600
+	drain_multiplier: 1.500
+	temperature_multiplier: 1.000
+	volume_modifier: 0.800
+	pitch_modifier: 0.500
+	
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 0.500
+		filter_flags: fuel
+		type: fuel
+		flags: allow_ducts, ignore_mass
+		offset: [-1.000, 1.500]
+	}
+	
+	@sound.emitter:
+	{
+		file: "furnace_loop"
+		volume: 0.000
+		pitch: 0.500
+		size: 0.700
+		size_max_modifier: 0.600
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}
+
+axle:
+{
+	offset: [0.875, 1.125]
+	offset_inner: [0.000, 0.000]
+	mass: 50.000
+	friction: 0.200
+	modifier: 1.000
+	ratio: 1.000
+	radius_a: 0.750
+	radius_b: 0.750
+	radius_inner: 0.500
+	radius_outer: 0.750
+	z: -200.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0750.steel"
+		}
+		z: -280.000
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [320.000, 192.000]
+}

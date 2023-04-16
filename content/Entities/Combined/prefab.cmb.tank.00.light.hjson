@@ -1,0 +1,99 @@
+$name: "Tank"
+$prefab: "tank.00"
+
+burner:
+{
+	@inventory1:
+	{
+		resource:
+		{
+			material: "phlogiston"
+			quantity: 400.000
+		}
+	}
+}
+
++slot_heavy_0|instance:
+{
+
+}
+
++slot_heavy_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "cabin.metal.02"
+
+		storage:
+		{
+			@inventory4:
+			{
+				resources:
+				[
+					{
+						material: "ammo_ac"
+						quantity: 100.000
+					}
+					{
+						material: "ammo_ac"
+						quantity: 100.000
+					}
+					{
+						material: "ammo_ac"
+						quantity: 100.000
+					}
+					{
+						material: "ammo_ac"
+						quantity: 100.000
+					}
+				]
+			}
+		}
+
+		+mount|instance:
+		{
+			attachment_slot:
+			{
+				flags: hold, keyboard_write, mouse_write
+			}
+
+			+attached|child:
+			{
+				$prefab: "autocannon"	
+			}
+		}
+	}
+}
+
++slot_wheel_0|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.01"
+	}
+}
+
++slot_wheel_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.01"
+	}
+}
+
++slot_wheel_2|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.01"
+	}
+}
+
++slot_wheel_3|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.01"
+	}
+}
+

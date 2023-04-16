@@ -1,0 +1,32 @@
+{
+	name: "Onion Juice"
+	description:
+		'''
+	 	Mighty juice full of vitamin and goodness.
+		'''
+	
+	icon:
+	{
+		texture: "resource.onion.juice"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.100
+	quantity_max: 100.000
+	prefab: "resource.onion.juice"
+	molar_mass: 0.04607
+	
+	commodity:
+	{
+		categories: beverages, medicine, consumer, toys, cooking
+		market_price: 10.000
+	}
+}

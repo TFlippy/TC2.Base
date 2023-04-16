@@ -6,10 +6,10 @@
 		{
 			definitions.Add(Augment.Definition.New<Health.Data>
 			(
-				identifier: "health.smirgl_structure",
+				identifier: "health.smirglum_structure",
 				category: "Protection",
-				name: "Smirgl-Reinforced Structure",
-				description: "Replaces entire structure with smirgl, greatly increasing durability and making it solid to essences.",
+				name: "Smirglum-Reinforced Structure",
+				description: "Replaces entire structure with smirglum, greatly increasing durability and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -54,7 +54,7 @@
 					}
 
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", total_amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", total_amount));
 
 					data.max += total_amount * 1000.00f;
 
@@ -68,7 +68,7 @@
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
@@ -110,10 +110,10 @@
 
 			definitions.Add(Augment.Definition.New<Armor.Data>
 			(
-				identifier: "armor.smirgl_plating",
+				identifier: "armor.smirglum_plating",
 				category: "Protection",
-				name: "Smirgl Plating",
-				description: "Reinforce the armor with smirgl plating, increasing its toughness, weight and making it solid to essences.",
+				name: "Smirglum Plating",
+				description: "Reinforce the armor with smirglum plating, increasing its toughness, weight and making it solid to essences.",
 
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -140,7 +140,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", 2.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", 2.00f));
 				}
 			));
 		}

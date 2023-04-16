@@ -1,0 +1,53 @@
+{
+	name: "Smirglum Powder"
+	desc: "Grind a smirglum ingot into powder."
+	
+	icon:
+	{
+		texture: "resource.smirglum.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "resource.smirglum.powder"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra_offset: [-4, -7]
+	icon_extra_scale: 1.000
+	
+	min: 5
+	max: 100
+	step: 5
+
+	type: workshop
+	tags: lathe
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "smirglum.ingot"
+			amount: 1.000
+		}
+		{
+			type: "work"
+			work: "machining"
+			amount: 35.000
+			difficulty: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "smirglum.powder"
+			amount: 4.000
+			amount_extra: 1.000
+		}
+	]
+}

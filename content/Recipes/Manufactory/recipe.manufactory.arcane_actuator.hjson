@@ -29,13 +29,18 @@
 		}
 		{
 			type: "resource"
-			material: "smirgl.ingot"
+			material: "smirglum.ingot"
 			amount: 1.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
 			amount: 0.800
+		}	
+		{
+			type: "resource"
+			material: "lubricant"
+			amount: 1.000
 		}	
 		{
 			type: "work"

@@ -128,7 +128,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Track", this.ent_track))
+				using (var window = GUI.Window.Interaction("Track", this.ent_track, no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 

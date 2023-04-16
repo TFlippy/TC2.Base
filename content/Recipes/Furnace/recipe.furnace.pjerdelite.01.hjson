@@ -1,0 +1,82 @@
+{
+	name: "Pjerdelite Iron"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.iron.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.pjerdelite"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff769d49"
+	
+	min: 50
+	max: 200
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -150.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "pjerdelite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "scrap"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 25.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "iron.ingot"
+			amount: 0.400
+			amount_extra: 0.200
+		}
+		{
+			type: resource
+			material: "smirglum.ore"
+			amount: 0.245
+			amount_extra: 0.200
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "slag.rich"
+			amount: 0.315
+			amount_extra: 0.220
+			flags: waste
+		}
+	]
+}

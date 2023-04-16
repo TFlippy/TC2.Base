@@ -1,0 +1,148 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 100.000
+	damage_bonus: 500.000
+	lifetime: 10.000
+	ignore_time: 0.150
+	damage_type: fire
+	size: 0.050
+	ricochet_count: 0
+	gravity: 1.000
+	damp: 0.989
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 8.500]
+		offset: [0.000, 0.000]
+		scale: [30.000, 10.000]
+		intensity: 1.000
+		texture: "light.fire.00"
+	}
+}
+
+transform:
+{
+
+}
+
+// flare:
+// {
+// 	lifetime: 5.000
+// 	smoke_amount: 0.900
+// 	sparks_amount: 1.000
+// 	flicker: 0.007
+// 	flicker_interval: 0.010
+// 	lerp: 0.150
+// 	size: 32.000
+
+// 	sound_volume: 1.000
+// 	sound_pitch: 1.200
+
+// 	@light:
+// 	{
+// 		color: [1.000, 0.500, 0.000, 2.500]
+// 		offset: [0.000, 0.500]
+// 		scale: [16.000, 16.000]
+// 		intensity: 2.000
+// 		texture: "light.circle.00"
+// 	}
+
+// 	@sound.emitter:
+// 	{
+// 		file: "fire_loop_00"
+// 		volume: 0.500
+// 		pitch: 1.000
+// 	}
+// }
+
+cluster:
+{
+	prefab: "fire.phlogiston"
+	spread: 0.400
+	speed: 10.000
+	count: 1
+
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
+}
+
+flare:
+{
+	lifetime: 8.000
+	smoke_amount: 0.400
+	sparks_amount: 0.800
+	flicker: 0.500
+	flicker_interval: 0.030
+	lerp: 0.050
+	size: 4.000
+
+	sound_volume: 3.000
+	sound_pitch: 1.500
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 1.000]
+		offset: [0.000, 0.000]
+		scale: [4.000, 32.000]
+		intensity: 1.000
+		texture: "light.fire.00"
+	}
+
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		size: 1.500
+		size_max_modifier: 2.000
+	}
+}
+
+// body:
+// {
+// 	@shape.circle:
+// 	{
+// 		mass: 10.000
+// 		radius: 1.500
+// 		friction: 1.500
+// 		elasticity: 0.300
+// 		rigidity_dynamic: 0.100
+// 		rigidity_static: 0.900
+// 		layer: entity, fire
+// 		mask: world, destructible
+// 		exclude: fire, burning
+// 	}
+// }
+
+// fire:
+// {
+// 	flicker: 0.070
+// 	radius: 1.000
+// 	intensity: 1.000
+
+// 	@light:
+// 	{
+// 		color: [1.000, 0.500, 0.000, 2.500]
+// 		offset: [0.000, 0.500]
+// 		scale: [16.000, 32.000]
+// 		intensity: 2.000
+// 		texture: "light.circle.00"
+// 	}
+// }
+
+// sound.emitter:
+// {
+// 	file: "fire_loop_00"
+// 	volume: 0.500
+// 	pitch: 1.000
+// }
+
+// transform:
+// {
+
+// }
+
+// norotate:
+// {
+
+// }

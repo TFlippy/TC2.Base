@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, flammable
 		mask: world
 	}
 }
@@ -58,10 +58,10 @@ spawn:
 
 storage:
 {
-	@inventory8:
+	@inventory16:
 	{
 		name: "Storage"
-		stack_size_multiplier: 5.000
+		stack_size_multiplier: 2.000
 		type: storage
 		flags: ignore_mass, public
 	}
@@ -111,5 +111,40 @@ minimap.marker:
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	flags: faction
+	flags: faction, spawner
+}
+
+armory:
+{
+	@inventory4:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 4.000
+		filter_flags: ammo
+		type: ammo
+		flags: ignore_mass
+	}
+}
+
+shipment:
+{
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring
+	max_kits: 2
+	kit_default: "null"
+	characters_capacity: 3
+	characters_initial_count: 1
+	repopulate_interval: 120.000
+	character_flags_filter: 
+	{
+		require: none
+		include: armed, soldier, farmer, miner, hunter, lower_middle_class, middle_class
+		exclude: upper_middle_class, upper_class, elite_class, sedentary
+		weight: 1.000
+	}
 }

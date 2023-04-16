@@ -1,3 +1,10 @@
+$name: "Belt (Rubber)"
+$desc:
+	'''
+	Used for medium-range high-speed belt drives. 
+
+	Very efficient, but not particularly durable.
+	'''
 $tags: []
 
 body:
@@ -13,7 +20,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: rubber
-		layer: entity, belt, ignore_melee
+		layer: entity, belt, ignore_melee, flammable
 		mask: world
 	}
 }

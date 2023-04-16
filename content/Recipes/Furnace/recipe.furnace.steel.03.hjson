@@ -1,0 +1,76 @@
+﻿{
+	name: "Diluted Steel (Recycling)"
+	desc: 
+		'''
+		Mix some scrap metal into pure steel.
+		Results may vary.
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_crafting.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	icon_extra_offset: [0, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff769d49"
+
+	min: 5
+	max: 200
+	step: 5
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -200.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "scrap"
+			amount: 7.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 80.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 0.853
+			amount_extra: 0.974
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.770
+			amount_extra: 0.543
+			flags: waste
+		}
+	]
+}

@@ -43,7 +43,6 @@ namespace TC2.Base.Components
 			public Vector2 world_position;
 			public Drill.Data drill;
 			public Entity entity;
-			public Specialization.Miner.Data mining;
 			public bool valid;
 
 			public void Draw()
@@ -51,14 +50,14 @@ namespace TC2.Base.Components
 				ref var region = ref this.entity.GetRegion();
 
 				var wpos = this.world_position;
-				var radius = this.mining.ApplySize(this.drill.radius);
+				var radius = this.drill.radius;
 
 				GUI.DrawTerrainOutline(ref region, wpos, radius * 2.00f);
 			}
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
 			{
@@ -72,7 +71,6 @@ namespace TC2.Base.Components
 					transform = transform,
 					drill = drill,
 					world_position = hit_position,
-					mining = mining,
 					valid = true
 				};
 
@@ -87,13 +85,12 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
 			{
-				var random = XorRandom.New();
 				if (info.WorldTime >= drill.next_hit)
 				{
 					ref var region = ref info.GetRegion();
@@ -193,7 +190,13 @@ namespace TC2.Base.Components
 							var damage_final = damage * modifier;
 							if (is_terrain) damage_final *= drill.damage_terrain_multiplier;
 
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 4.00f);
+							//Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage_final, hit.material_type, Damage.Type.Drill, knockback: 0.25f, size: drill.radius * 1.50f, xp_modifier: 0.80f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 4.00f);
+
+							Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: hit.entity,
+								position: hit.world_position, velocity: dir * 4.00f, normal: -dir,
+								damage_integrity: damage_final, damage_durability: damage_final, damage_terrain: damage_final,
+								target_material_type: hit.material_type, damage_type: Damage.Type.Drill,
+								yield: 0.90f, size: drill.radius * 1.50f, impulse: 0.00f, faction_id: faction.id, flags: flags);
 #endif
 
 							//flags |= Damage.Flags.No_Sound;

@@ -1,3 +1,9 @@
+$name: "Bow"
+$desc:
+	'''
+	Cheap primitive ranged weapon used to shoot arrows.
+	While outclassed by more modern fireams, it still remains a fairly formidable weapon.
+	'''
 $tags: []
 
 control:
@@ -16,12 +22,12 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 5.000
+		mass: 3.000
 		radius: 0.250
 		friction: 0.950
 		elasticity: 0.400
 		material: wood
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}
 }
@@ -38,14 +44,18 @@ gun:
 	velocity_multiplier: 60.000
 	jitter_multiplier: 0.100
 	damage_multiplier: 1.500
-	recoil_multiplier: 1.500
+	recoil_multiplier: 1.250
 	reload_interval: 1.000
 	cycle_interval: 0.000
 	max_ammo: 1.000
 	projectile_count: 1
 	flags: no_particles
 	ammo_filter: ammo_arrow
+	sound_dist_multiplier: 1.100
+	sound_pitch: 1.000
 	
+	heuristic_range: 12.000
+
 	@inventory1:
 	{
 		name: "Ammo"
@@ -69,6 +79,9 @@ holdable:
 {
 	offset: [-0.500, 0.000]
 	flags: storable
+
+	force_multiplier: 0.800
+	torque_multiplier: 1.200
 }
 
 animated.renderer:

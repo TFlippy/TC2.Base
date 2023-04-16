@@ -94,6 +94,7 @@ joint.base:
 {
 	max_force: 50000.000
 	max_torque: 5000.000
+	material_type: metal
 }
 
 joint.rope2:
@@ -173,5 +174,7 @@ joint.rope2:
 	{
 		max_force: 50000.000
 		offset: [0.625, 0.000]
+		mask: solid, item, creature, vehicle, attachable, crate, resource, shipment, holdable
+		exclude: bounds, belt, duct, pipe, essence, water, gas
 	}
 }

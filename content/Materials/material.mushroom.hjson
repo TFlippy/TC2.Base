@@ -1,6 +1,10 @@
 {
 	name: "Mushroom Scraps"
-	description: "A heap of mixed mushroom bits, doesn't seem edible."
+	description:
+		'''
+		A heap of mixed mushroom bits, doesn't seem edible.
+		'''
+	
 	icon:
 	{
 		texture: "resource.mushroom"
@@ -8,24 +12,19 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: mushroom
 	flags: raw, organic, despawnable
-	mass_per_unit: 0.040
-	market_price: 0.300
+	mass_per_unit: 0.232
 	quantity_max: 500.000
 	prefab: "resource.mushroom"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	commodity:
+	{
+		market_price: 1.300
+	}
 }

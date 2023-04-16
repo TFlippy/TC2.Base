@@ -1,7 +1,8 @@
 $name: "Crankgun"
 $desc: 
 	'''
-	Large but very reliable crank-operated machine gun.
+	Large but very reliable crank-operated machine gun with high ammo capacity.
+
 	Very difficult to handle, may need to be placed on a mount.
 	'''
 $tags: []
@@ -35,7 +36,7 @@ gun:
 	cycle_interval: 0.001
 	flash_size: 0.800
 	failure_rate: 0.000
-	max_ammo: 60.000
+	max_ammo: 100.000
 	projectile_count: 1
 	flags: automatic, full_reload, no_lmb_cycle
 	ammo_filter: ammo_hc
@@ -59,7 +60,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [30.000, 20.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -84,8 +85,8 @@ holdable:
 	radius: 10.000
 	flags: storable
 
-	force_multiplier: 0.700
-	torque_multiplier: 0.500
+	force_multiplier: 1.100
+	torque_multiplier: 1.000
 }
 
 attachment:
@@ -108,7 +109,7 @@ animated.renderer:
 
 health:
 {
-	max: 15000.000
+	max: 12000.000
 }
 
 armor:
@@ -146,7 +147,7 @@ overheat:
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:
@@ -160,7 +161,7 @@ overheat:
 axle:
 {
 	offset: [-0.875, 0.125]
-	mass: 10.000
+	mass: 2.000
 	friction: 0.200
 	radius_a: 0.500
 	radius_b: 0.500

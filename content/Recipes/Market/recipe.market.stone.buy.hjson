@@ -1,6 +1,9 @@
 {
 	name: "Stone"
-	desc: "A pile of assorted rocks."
+	desc:
+		'''
+		A pile of assorted rocks.
+		'''
 	
 	icon:
 	{
@@ -12,23 +15,26 @@
 	min: 100
 	max: 500
 	step: 100
+	
 	type: buy
+	flags: none
 	tags: market
 	
 	requirements:
 	[
 		{
-			type: "money"
-			amount: 0.331
+			type: money
+			amount: 0.3986
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "stone"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

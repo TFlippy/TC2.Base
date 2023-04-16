@@ -86,12 +86,11 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
-		public static void OnInteract(ISystem.Info info, Entity entity, [Source.Owned] ref Interactable.InteractEvent data, 
+		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Interactable.InteractEvent data, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
 		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape, [Source.Owned, Optional] in Faction.Data faction)
 		{
 			ref var region = ref info.GetRegion();
-			var random = XorRandom.New();
 
 			var is_same_faction = faction.id == 0 || (data.faction_id == faction.id);
 
@@ -132,7 +131,7 @@ namespace TC2.Base.Components
 						var mask = shape.GetCombinedMask(); 
 						mask.SetFlag(Physics.Layer.Solid, true);
 
-						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[4];
+						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[8];
 						if (region.TryOverlapShapeAll(ref shape, ref results, mask: mask, exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Static))
 						{
 							WorldNotification.Push(ref region, "* DOOR STUCK! *", 0xffff0000, transform.position);
@@ -141,11 +140,13 @@ namespace TC2.Base.Components
 
 							foreach (ref var result in results)
 							{
-								ref var hit_body = ref result.entity.GetComponent<Body.Data>();
+								ref var hit_body = ref result.GetBody();
 								if (!hit_body.IsNull())
 								{
 									var dir = door.offset_open.GetNormalized();
-									var force = Physics.LimitForce(ref hit_body, dir * -10000.00f, new Vector2(4, 4));
+									dir.Y = 1.000f;
+									
+									var force = Physics.LimitForce(ref hit_body, dir * -15000.00f, new Vector2(6, 6));
 
 									hit_body.AddForceWorld(force, transform.position);
 								}

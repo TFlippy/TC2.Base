@@ -15,15 +15,17 @@
 	
 	texture: "terrain.planks"
 	pattern: "pattern.planks"
+
+	// block_mithril: "block.planks.mithril"
 	
 	texture_scale: 0.800
-	texture_overshoot: -0.750
+	texture_overshoot: -0.275
 	
 	resources:
 	[
 		{
 			material: "wood"
-			quantity: 0.400
+			quantity: 0.010
 		}
 	]
 	

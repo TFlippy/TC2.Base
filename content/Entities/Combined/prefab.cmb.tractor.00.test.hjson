@@ -1,0 +1,137 @@
+﻿{
+	$prefab: "bp.manufactory.tractor.00.a5e142840a"
+	
+	body:
+	{
+		flags: roused
+	}
+	
+	animated.renderer:
+	{
+		sprite:
+		{
+			texture: "$__GEN_bp.manufactory.tractor.00.a5e142840a"
+			fps: 0.000
+			count: 0
+			size: [72, 40]
+			frame: [0, 0]
+		}
+	}
+	
+	armor:
+	{
+		toughness: 248.500
+		protection: 0.4615
+	}
+	
+	axle:
+	{
+		@animated.renderer:
+		{
+			offset: [1.250, 0.125]
+			rotation: -1.172207
+			z: 95.000
+		}
+	}
+	
+	burner:
+	{
+		@inventory1:
+		{
+			resource:
+			{
+				material: "phlogiston"
+				quantity: 91.62239
+			}
+		}
+	}
+	
+	burner.state:
+	{
+		available_power: 611051.4057342
+		current_temperature: 2573.150
+		fuel_consumed: 0.006191
+		modifier: 0.773917
+		resource:
+		{
+			material: "phlogiston"
+			quantity: 1.987617
+		}
+	}
+	
+	steamengine:
+	{
+		@animated.renderer:
+		{
+			offset: [1.373373, 0.60954]
+			rotation: -0.060478
+		}
+		
+		@sound.emitter:
+		{
+			volume: 0.75015
+			pitch: 1.80024
+		}
+	}
+	
+	+slot_cab|instance:
+	{
+		+ent_22020148|child:
+		{
+			$prefab: "bp.manufactory.cabin.metal.02.00fdcc5b0b"
+			
+			+seat|instance:
+			{
+			
+			}
+			
+			+mount|instance:
+			{
+				+ent_22020212|child:
+				{
+					$prefab: "spotlight"
+				}
+			}
+		}
+	}
+	
+	+slot_mount|instance:
+	{
+		+ent_22020211|child:
+		{
+			$prefab: "bp.gunsmith.lmg.fd0425000d"
+		}
+	}
+	
+	+slot_wheel_0|instance:
+	{
+		+ent_22020137|child:
+		{
+			$prefab: "wheel.metal.01"
+		}
+	}
+	
+	+slot_wheel_1|instance:
+	{
+		+ent_22020138|child:
+		{
+			$prefab: "wheel.metal.01"
+		}
+	}
+	
+	+slot_wheel_2|instance:
+	{
+		+ent_22020140|child:
+		{
+			$prefab: "wheel.metal.00"
+		}
+	}
+	
+	+slot_wheel_3|instance:
+	{
+		+ent_22020139|child:
+		{
+			$prefab: "wheel.metal.00"
+		}
+	}
+}

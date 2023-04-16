@@ -1,0 +1,59 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 3000.000
+	damage_bonus: 3500.000
+	damage_type: bullet_emrg
+	knockback_multiplier: 13.000
+
+	lifetime: 20.000
+	ignore_time: 0.020
+	size: 0.250
+	ricochet_count: 1
+	damp: 0.998
+
+	mass: 17.000
+
+	@sound.emitter:
+	{
+		file: "shell_whistle"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "projectile.shell.kinetic"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
+}
+
+explosive:
+{
+	radius: 5.000
+	power: 3.000
+	damage_entity: 4500.000
+	damage_terrain: 2000.000
+	smoke_amount: 0.100
+	smoke_velocity_multiplier: 1.500
+	smoke_lifetime_multiplier: 1.200
+	fire_amount: 0.000
+	flash_duration_multiplier: 0.000
+	flash_intensity_multiplier: 0.000
+	sparks_amount: 2.500
+	force_multiplier: 2.000
+	volume: 0.000
+	pitch: 1.000
+	damage_type: shockwave
+	flags: primed
+}

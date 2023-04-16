@@ -1,6 +1,9 @@
 {
 	name: "Grenade"
-	desc: "Small throwable anti-infantry explosive."
+	desc:
+		'''
+		Small throwable anti-infantry explosive.
+		'''
 	
 	icon:
 	{
@@ -11,34 +14,34 @@
 	max: 50
 	step: 2
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable
 	tags: munitions
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 5.000
+			amount: 0.500
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "gunpowder"
 			amount: 2.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 1.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 0.500
 		}
 		{
-			type: "work"
+			type: work
 			work: "assembling"
 			amount: 150.000
 			difficulty: 8.000
@@ -48,9 +51,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "grenade"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

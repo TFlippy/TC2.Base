@@ -94,13 +94,12 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateHead(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.All] ref Food.Effect food, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
+		[Source.Owned] in Transform.Data transform, [Source.All] ref Food.Effect food, ref XorRandom random, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
 		{
 			var modifier = food.modifier_current + (food.jitter_current * 0.75f);
 
 			if (info.WorldTime >= food.next_sound && food.hiccup_current > 0.90f)
 			{
-				var random = XorRandom.New();
 				Sound.Play(ref info.GetRegion(), sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
 
 				food.next_sound = info.WorldTime + random.NextFloatRange(2.00f, 5.00f);
@@ -113,7 +112,7 @@ namespace TC2.Base.Components
 		public static float modifier_lerp = 0.02f;
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Food.Effect food, [Source.Owned, Override] in Organic.Data organic)
+		public static void UpdateAmount(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Food.Effect food, [Source.Owned, Override] in Organic.Data organic)
 		{
 			food.release_rate_current = Maths.MoveTowards(food.release_rate_current, food.release_rate_target, food.release_step * info.DeltaTime);
 
@@ -137,8 +136,6 @@ namespace TC2.Base.Components
 			food.amount_bloodstream -= amount_metabolized * elimination_modifier;
 
 #if SERVER
-			var random = XorRandom.New();
-
 			var modifier = food.modifier_current;
 			if (modifier > 0.30f && food.hiccup_current < 0.05f && random.NextBool(modifier * 0.005f))
 			{

@@ -1,6 +1,10 @@
 {
 	name: "Brown Coal"
-	description: "An abudant fuel, but not very efficient."
+	description:
+		'''
+		Abundant, but not very efficient fuel.
+		'''
+	
 	icon:
 	{
 		texture: "resource.brown_coal"
@@ -8,24 +12,28 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: stone
-	flags: raw, fuel, mineral, gravel
-	mass_per_unit: 0.200
-	market_price: 0.270
+	flags: raw, gravel, fuel, granular, mineral
+	mass_per_unit: 0.280
 	quantity_max: 500.000
 	prefab: "resource.brown_coal"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
+	commodity:
+	{
+		categories: coal, fuel
+		market_price: 0.378
+	}
 	
-	fuel_energy: 18000000.000
-	fuel_drain: 120000.000
-	fuel_purity: 0.400
-	fuel_temperature: 1350.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	fuel:
+	{
+		energy: 25200000.000
+		drain: 120000.000
+		purity: 0.400
+		temperature: 1623.150
+	}
 }

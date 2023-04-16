@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.300
 		material: metal
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}
 }
@@ -35,13 +35,10 @@ resource:
 	material: "recondite.ingot"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
+	force_multiplier: 5.000
+	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 

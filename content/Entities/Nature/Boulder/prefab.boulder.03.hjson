@@ -1,5 +1,10 @@
 $name: "Boulder"
-$desc: ""
+$desc: 
+	'''
+	Enormous boulder, undeniably well-fed.
+
+	Can be mined with a pickaxe for a huge amount of stone.
+	'''
 $tags: []
 
 body:
@@ -21,7 +26,7 @@ body:
 
 health:
 {
-	max: 60000.000
+	max: 90000.000
 }
 
 animated.renderer:
@@ -50,7 +55,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 1350.000
+			quantity: 3350.000
 		}
 	]
 }

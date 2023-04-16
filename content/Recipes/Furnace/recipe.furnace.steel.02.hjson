@@ -1,0 +1,75 @@
+{
+	name: "Scrap-Based Steel (Recycling)"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.scrap"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [0, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff769d49"
+
+	min: 5
+	max: 200
+	step: 5
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -200.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "iron.ingot"
+			amount: 0.800
+		}
+		{
+			type: resource
+			material: "scrap"
+			amount: 2.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 70.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 0.600
+			amount_extra: 0.400
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.110
+			amount_extra: 0.400
+			flags: waste
+		}
+	]
+}

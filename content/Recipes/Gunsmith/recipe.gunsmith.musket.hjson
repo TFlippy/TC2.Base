@@ -15,36 +15,36 @@
 	max: 80
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable
 	tags: gunsmith
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 40.000
+			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 2.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "smithing"
 			amount: 150.000
 			difficulty: 6.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 100.000
 			difficulty: 5.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "assembling"
 			amount: 60.000
 			difficulty: 4.000
@@ -54,9 +54,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "musket"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

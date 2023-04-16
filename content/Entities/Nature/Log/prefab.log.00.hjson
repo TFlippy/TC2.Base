@@ -15,7 +15,7 @@ body:
 		friction: 1.000
 		elasticity: 0.100
 		material: wood
-		layer: entity, solid, climbable, tree, ignore_bullet
+		layer: entity, solid, climbable, tree, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -51,7 +51,11 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 3700.000
+			quantity: 670.000
+		}
+		{
+			material: "plants"
+			quantity: 80.000
 		}
 	]
 }

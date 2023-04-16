@@ -1,0 +1,65 @@
+﻿{
+	name: "Charcoal"
+	desc: ""
+	
+	icon:
+	{
+		texture: "resource.charcoal"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "resource.wood"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff57e5b6"
+
+	min: 100
+	max: 500
+	step: 100
+	
+	type: crafter
+	flags: none
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 600.000
+		}
+		{
+			type: resource
+			material: "wood"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: "heating"
+			amount: 35.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "charcoal"
+			amount: 0.400
+			amount_extra: 0.500
+		}
+		{
+			type: resource
+			material: "tar"
+			amount: 0.120
+			amount_extra: 0.950
+		}
+	]
+}

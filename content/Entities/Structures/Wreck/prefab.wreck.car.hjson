@@ -60,15 +60,15 @@ harvestable:
 		}
 		{
 			material: "steel.ingot"
-			quantity: 11.000
+			quantity: 24.000
 		}
 		{
 			material: "steel.plate"
-			quantity: 37.000
+			quantity: 70.000
 		}
 		{
 			material: "machine_parts"
-			quantity: 14.000
+			quantity: 40.000
 		}
 	]
 }
@@ -91,7 +91,7 @@ loot.container:
 
 interactable:
 {
-	window_size: [192.000, 192.000]
+	window_size: [192.000, 96.000]
 }
 
 holdable:

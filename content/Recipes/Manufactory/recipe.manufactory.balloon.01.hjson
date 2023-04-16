@@ -1,6 +1,9 @@
 {
 	name: "Balloon (Heavy) [WIP]"
-	desc: "An armored hot-air balloon."
+	desc:
+		'''
+		An armored hot-air balloon.
+		'''
 	
 	icon:
 	{
@@ -11,41 +14,41 @@
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier
 	type: workshop
+	flags: no_amount_multiplier, blueprintable
 	tags: manufactory
 	rank: -601.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "cloth"
 			amount: 80.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 65.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 200.000
+			amount: 20.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 45.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "smithing"
 			amount: 3000.000
 			difficulty: 18.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "assembling"
 			amount: 2000.000
 			difficulty: 20.000
@@ -55,9 +58,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "balloon.01"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

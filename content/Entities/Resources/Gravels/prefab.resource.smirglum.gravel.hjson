@@ -1,0 +1,48 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 50.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		material: gravel
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.smirglum.gravel"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "smirglum.gravel"
+}
+
+holdable:
+{
+	force_multiplier: 1.800
+	torque_multiplier: 0.700
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}

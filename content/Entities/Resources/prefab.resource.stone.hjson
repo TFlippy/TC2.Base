@@ -10,7 +10,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: stone
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -35,13 +35,10 @@ resource:
 	material: "stone"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
+	force_multiplier: 1.800
+	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 

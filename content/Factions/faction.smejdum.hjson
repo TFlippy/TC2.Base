@@ -1,0 +1,7 @@
+{
+	tag: "smd"
+	name: "Smejdum"
+	color_a: "0xffa53700"
+	color_b: "0xff101000"
+	kind: cartel
+}

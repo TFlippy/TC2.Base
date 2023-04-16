@@ -1,0 +1,91 @@
+{
+	name: "Market (Mini)"
+	desc:
+		'''
+		A place to trade at.
+		'''
+	
+	icon:
+	{
+		texture: "market.mini"
+		size: [48, 40]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: buildings
+	rank: -80.000
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support
+		
+		size: [6.000, 5.000]
+		offset: [0.000, 0.000]
+		
+		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.850
+		min_claim: 1.000
+		
+		rotation_max: 0.200
+		
+		sound: "building_place"
+	}
+	
+	construction:
+	{
+		prefab: "construction.6x5"
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 5.000
+			}
+		]
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "wood"
+			amount: 180.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 500.000
+		}
+		{
+			type: resource
+			material: "cloth"
+			amount: 2.000
+		}
+		{
+			type: resource
+			material: "paper"
+			amount: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "market.mini"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}

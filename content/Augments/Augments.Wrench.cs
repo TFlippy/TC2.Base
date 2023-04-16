@@ -73,6 +73,75 @@ namespace TC2.Base
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
 				}
 			));
+
+			definitions.Add(Augment.Definition.New<Wrench.Data>
+			(
+				identifier: "wrench.build",
+				category: "Wrench",
+				name: "Mode: Build",
+				description: "Adds building functionality.",
+
+				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Wrench.Mode.Build.Data>();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var mode = ref context.GetOrAddComponent<Wrench.Mode.Build.Data>();
+				},
+
+				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Wrench.Data>
+			(
+				identifier: "wrench.deconstruct",
+				category: "Wrench",
+				name: "Mode: Deconstruct",
+				description: "Adds deconstruction functionality.",
+
+				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Wrench.Mode.Deconstruct.Data>();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var mode = ref context.GetOrAddComponent<Wrench.Mode.Deconstruct.Data>();
+				},
+
+				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Wrench.Data>
+			(
+				identifier: "wrench.conveyors",
+				category: "Wrench",
+				name: "Mode: Conveyors",
+				description: "Adds conveyor-manipulation functionality.",
+
+				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Wrench.Mode.Conveyors.Data>();
+				},
+
+				apply_0: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var mode = ref context.GetOrAddComponent<Wrench.Mode.Conveyors.Data>();
+				},
+
+				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+				}
+			));
 		}
 	}
 }

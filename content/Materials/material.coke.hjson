@@ -1,0 +1,38 @@
+{
+	name: "Coal Coke"
+	description:
+		'''
+		High-energy fuel produced from black coal - commonly used in metallurgy.
+		'''
+	
+	icon:
+	{
+		texture: "resource.coke"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: stone
+	flags: gravel, fuel, granular, mineral
+	mass_per_unit: 0.200
+	quantity_max: 500.000
+	prefab: "resource.coke"
+	
+	commodity:
+	{
+		market_price: 1.150
+	}
+	
+	fuel:
+	{
+		energy: 30000000.000
+		drain: 250000.000
+		purity: 0.950
+		temperature: 2179.150
+	}
+}

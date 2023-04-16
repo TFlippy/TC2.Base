@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -34,11 +34,6 @@ resource:
 	material: "mithril"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]
@@ -57,7 +52,7 @@ mithril:
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 1.600
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

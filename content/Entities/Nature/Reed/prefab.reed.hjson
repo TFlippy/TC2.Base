@@ -35,3 +35,14 @@ foliage.renderer:
 	z: 50.000
 	texture: "reed"
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "plants"
+			quantity: 130.000
+		}
+	]
+}

@@ -1,6 +1,10 @@
 {
 	name: "Opium"
-	description: "Dried poppy resin used for production of opiates."
+	description:
+		'''
+		Dried poppy resin used for production of opiates.
+		'''
+	
 	icon:
 	{
 		texture: "resource.opium"
@@ -8,24 +12,20 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: powder
-	flags: raw
+	flags: raw, granular
 	mass_per_unit: 0.100
-	market_price: 50.000
 	quantity_max: 500.000
 	prefab: "resource.opium"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	commodity:
+	{
+		categories: drugs, medicine, herbs, plants, tobacco, consumer, industrial, toys
+		market_price: 50.000
+	}
 }

@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: flesh
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -36,11 +36,6 @@ resource:
 	material: "meat"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 1.000]
@@ -54,4 +49,9 @@ norotate:
 despawn:
 {
 
+}
+
+health:
+{
+	max: 500.000
 }

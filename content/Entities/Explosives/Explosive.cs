@@ -35,6 +35,7 @@ namespace TC2.Base.Components
 
 			public float fire_amount = 1.00f;
 			public float shake_multiplier = 1.00f;
+			public float force_multiplier = 1.00f;
 
 			public float smoke_amount = 1.00f;
 			public float smoke_lifetime_multiplier = 1.00f;
@@ -60,8 +61,24 @@ namespace TC2.Base.Components
 
 			}
 		}
-
 #if SERVER
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)
+		{
+			if (random.NextBool(data.power * 0.20f))
+			{
+				explosive.flags |= Explosive.Flags.Primed | Explosive.Flags.Any_Damage;
+				explosive.health_threshold = 0.99f;
+				
+				if (random.NextBool(0.50f))
+				{
+					explosive.flags |= Explosive.Flags.Explode_When_Primed;
+				}
+
+				explosive.Sync(entity);
+			}
+		}
+
 		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single)]
 		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
@@ -161,6 +178,7 @@ namespace TC2.Base.Components
 						explosion.volume = explosive_tmp.volume;
 						explosion.pitch = explosive_tmp.pitch;
 						explosion.shake_multiplier = explosive_tmp.shake_multiplier;
+						explosion.force_multiplier = explosive_tmp.force_multiplier;
 
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 

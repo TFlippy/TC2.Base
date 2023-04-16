@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.300
 		material: metal
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}
 }
@@ -40,13 +40,8 @@ resource:
 		offset: [0.000, 0.250]
 		scale: [16.000, 16.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
-}
-
-hoverable:
-{
-
 }
 
 holdable:

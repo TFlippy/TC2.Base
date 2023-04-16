@@ -1,0 +1,70 @@
+{
+	name: "Smelt Magnetite (Ore)"
+	desc: 
+		'''
+
+		'''
+	
+	icon:
+	{
+		texture: "resource.iron.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "resource.magnetite"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xfff34a29"
+
+	min: 50
+	max: 500
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -151.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "magnetite"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 70.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "iron.ingot"
+			amount: 0.450
+			amount_extra: 0.300
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.324
+			amount_extra: 0.453
+			flags: waste
+		}
+	]
+}

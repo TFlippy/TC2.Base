@@ -1,0 +1,53 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 50.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		material: stone
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.krakatite"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "krakatite"
+}
+
+holdable:
+{
+	force_multiplier: 2.300
+	torque_multiplier: 0.700
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+
+}

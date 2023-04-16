@@ -1,19 +1,25 @@
-$name: "Mount (Fixed)"
+$name: "Mount (Stationary)"
 $tags: []
 
 body:
 {
 	type: static
 	
-	@shape.circle:
+	@shape.polygon:
 	{
-		radius: 1.000
+		points:
+		[
+			[-0.250, -0.625]
+			[0.250, -0.625]
+			[1.125, 0.250]
+			[-1.125, 0.250]
+		]
 		mass: 500.000
+		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: stone
 		layer: entity, solid, building, ignore_melee
-		mask: world
 	}
 }
 
@@ -24,7 +30,7 @@ control:
 
 health:
 {
-	max: 10000.000
+	max: 20000.000
 }
 
 animated.renderer:
@@ -43,27 +49,7 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 240.000]
-}
-
-axle:
-{
-	offset: [0.000, 0.000]
-	mass: 5.000
-	friction: 0.800
-	radius_a: 1.000
-	radius_b: 1.000
-	radius_inner: 0.750
-	radius_outer: 1.000
-	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "wheel_1000.steel"
-		}
-		z: -50.000
-	}
+	window_size: [224.000, 192.000]
 }
 
 vehicle:
@@ -71,14 +57,31 @@ vehicle:
 
 }
 
+mount:
+{
+
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 4.000
+		type: ammo
+		flags: allow_ducts, ignore_mass
+	}
+}
+
 +mount|instance:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.000]
-		max_force: 100000.000
-		max_torque: 200000.000
-		flags: control_write, no_stress, no_wrap, force_facing
+		offset_a: [0.000, -0.625]
+		max_force: 2000000.000
+		max_torque: 4000000.000
+		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
+		material_type: metal
 	}
 
 	joint.pivot:
@@ -90,15 +93,18 @@ vehicle:
 	{
 		min: 0.000
 		max: 0.000
-		error_bias: 0.001
+		error_bias: 0.0001
 		max_bias: 3.000
 	}
 
 	attachment.slot:
 	{
+		radius: 1.000
+		flags: brake, manual_aim
+		flags_editable: locked, disabled, hold, invert, brake, manual_aim
 		name: "Mount"
-
-		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write
+		identifier: "mount"
+		offset: [0.000, 0.000]
+		gui_size: [224.000, 192.000]
 	}
 }

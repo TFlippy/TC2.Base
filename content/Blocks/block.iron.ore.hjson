@@ -1,29 +1,40 @@
 {
 	name: "Iron"
-	desc: "A common mineral."
+	desc:
+		'''
+		A common mineral.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 20000.000
+	max_health: 50000.000
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.900
 	elasticity: 0.300
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.iron.ore"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
+	color_preview: "0xff8a8e82"
 	
 	resources:
 	[
 		{
 			material: "iron.ore"
-			quantity: 2.500
+			quantity: 1.700
 		}
 	]
 	

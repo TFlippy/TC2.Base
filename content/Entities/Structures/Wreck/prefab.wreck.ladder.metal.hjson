@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 1200.000
+	max: 2200.000
 }
 
 animated.renderer:
@@ -61,4 +61,19 @@ resizable:
 	a: [0.000, -2.500]
 	b: [0.000, 2.500]
 	cap_offset: 0.500
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 50.000
+		}
+		{
+			material: "iron.ingot"
+			quantity: 8.000
+		}
+	]
 }

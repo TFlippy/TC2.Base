@@ -1,3 +1,8 @@
+$name: "Windmill (Wood)"
+$desc:
+	'''
+	Generates mechanical power from the wind.
+	'''
 $tags: []
 
 body:
@@ -17,7 +22,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, flammable
 		mask: world
 	}
 }

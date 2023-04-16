@@ -1,0 +1,82 @@
+﻿{
+	name: "Chalcopyrite Copper Extraction"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.copper.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.chalcopyrite"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xfff34a29"
+	
+	min: 50
+	max: 200
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -170.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1358.000
+		}
+		{
+			type: resource
+			material: "chalcopyrite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "sand"
+			amount: 0.500
+		}
+		{
+			type: work
+			work: melting
+			amount: 45.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "copper.ingot"
+			amount: 0.400
+			amount_extra: 0.100
+		}
+		{
+			type: resource
+			material: "sulfur"
+			amount: 0.045
+			amount_extra: 0.400
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.615
+			amount_extra: 0.120
+			flags: waste
+		}
+	]
+}

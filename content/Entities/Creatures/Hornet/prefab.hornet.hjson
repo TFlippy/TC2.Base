@@ -10,12 +10,12 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 9.500
-		radius: 0.500
-		friction: 0.700
-		elasticity: 0.850
+		mass: 7.500
+		radius: 0.600
+		friction: 0.400
+		elasticity: 0.950
 		material: insect
-		layer: entity, solid, creature
+		layer: entity, solid, creature, flammable
 		mask: world
 	}
 }
@@ -40,6 +40,7 @@ animated.renderer:
 organic:
 {
 	tags: brain
+	h_species: "hornet"
 }
 
 organic.state:
@@ -61,7 +62,7 @@ control:
 {
 	@net.synchronized:
 	{
-		interval: 0.000
+		interval: 0.080
 	}
 }
 
@@ -167,18 +168,39 @@ sound.emitter:
 	priority: 0.100
 }
 
-biter:
+melee:
 {
+	sound_swing: "pickup"
+	sound_volume: 0.300
+	sound_size: 0.500
+	sound_pitch: 1.400
+	hit_direction: [1.000, 0.000]
+	swing_offset: [1.000, 0.000]
+	swing_rotation: 2.000
+	attack_type: swing
 	damage_base: 35.000
 	damage_bonus: 75.000
+	primary_damage_multiplier: 0.500
+	secondary_damage_multiplier: 1.000
+	terrain_damage_multiplier: 0.200
 	cooldown: 1.000
-	max_distance: 2.000
-	aoe: 0.010
-	thickness: 0.250
-	velocity: 0.000
-	penetration: 0
+	max_distance: 0.850
+	aoe: 0.350
+	thickness: 0.150
+	knockback: 100.000
+	yield: 0.000
+	penetration_falloff: 0.900
+	penetration: 1
 	damage_type: sting
-	hit_mask: destructible, organic
+	category: pointed
+	flags: no_handle
+	hit_mask: destructible
+	hit_exclude: decoration, tree, ignore_melee, world
+}
+
+melee.state:
+{
+
 }
 
 lootable:

@@ -1,6 +1,10 @@
 {
 	name: "Wood"
-	description: "A common building material obtained from trees."
+	description:
+		'''
+		A common building material obtained from trees.
+		'''
+	
 	icon:
 	{
 		texture: "resource.wood"
@@ -8,24 +12,28 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: wood
 	flags: raw, fuel, organic, despawnable
-	mass_per_unit: 0.060
-	market_price: 0.200
+	mass_per_unit: 0.600
 	quantity_max: 500.000
 	prefab: "resource.wood"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
+	commodity:
+	{
+		categories: wood, construction_materials, fuel, industrial, toys
+		market_price: 0.779
+	}
 	
-	fuel_energy: 5000000.000
-	fuel_drain: 130000.000
-	fuel_purity: 0.800
-	fuel_temperature: 1000.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	fuel:
+	{
+		energy: 50000000.000
+		drain: 130000.000
+		purity: 0.800
+		temperature: 1473.150
+	}
 }

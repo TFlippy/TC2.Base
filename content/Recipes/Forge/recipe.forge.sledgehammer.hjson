@@ -1,6 +1,9 @@
 {
 	name: "Sledgehammer"
-	desc: "A weapon of destruction."
+	desc:
+		'''
+		A weapon of destruction.
+		'''
 	
 	icon:
 	{
@@ -11,30 +14,30 @@
 	max: 5
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable
 	tags: forge
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 50.000
+			amount: 5.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 15.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 50.000
 			difficulty: 5.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "smithing"
 			amount: 1000.000
 			difficulty: 5.000
@@ -44,9 +47,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "sledgehammer"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

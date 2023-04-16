@@ -9,11 +9,11 @@
 		frame: [3, 0]
 	}
 	
-	min: 1
-	max: 1
-	step: 1
+	min: 50
+	max: 500
+	step: 50
 	
-	flags: no_amount_multiplier
+	flags: none
 	type: crafter
 	tags: refinery
 	
@@ -22,13 +22,23 @@
 		{
 			type: "resource"
 			material: "mushroom"
-			amount: 50.000
+			amount: 1.000
+		}
+		{
+			type: "resource"
+			material: "water"
+			amount: 0.800
+		}
+		{
+			type: "resource"
+			material: "sugar"
+			amount: 0.040
 		}
 		{
 			type: "work"
 			work: "refining"
-			amount: 25.000
-			difficulty: 1.000
+			amount: 35.000
+			difficulty: 6.000
 		}
 	]
 	
@@ -37,20 +47,20 @@
 		{
 			type: "resource"
 			material: "peat"
-			amount: 14.000
-			amount_extra: 15.000
+			amount: 0.280
+			amount_extra: 0.300
 		}
 		{
 			type: "resource"
 			material: "soil.rich"
-			amount: 3.000
-			amount_extra: 13.000
+			amount: 0.006
+			amount_extra: 0.260
 		}
 		{
 			type: "resource"
 			material: "alcohol"
-			amount: 10.000
-			amount_extra: 25.000
+			amount: 0.200
+			amount_extra: 0.500
 		}
 	]
 }

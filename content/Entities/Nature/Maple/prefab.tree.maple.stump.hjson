@@ -13,7 +13,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: wood
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 500.000
+			quantity: 200.000
 		}
 	]
 }

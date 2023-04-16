@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 		{
 			public static partial class Belts
 			{
-				[IComponent.Data(Net.SendType.Reliable)]
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Belts)")]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Belts.TargetInfo, Belt.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
@@ -19,12 +19,17 @@ namespace TC2.Base.Components
 					public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
+					public static string Name { get; } = "Belts";
+
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;
 					public Physics.Layer LayerMask => Physics.Layer.Belt;
+					public Color32BGRA ColorOk => Color32BGRA.Green;
+					public Color32BGRA ColorError => Color32BGRA.Red;
+					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					[UnscopedRef] public ref Entity EntitySrc => ref this.ent_src;
-					[UnscopedRef] public ref Entity EntityDst => ref this.ent_dst;
-					[UnscopedRef] public ref IRecipe.Handle SelectedRecipe => ref this.selected_recipe;
+					public Entity EntitySrc => this.ent_src;
+					public Entity EntityDst => this.ent_dst;
+					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{

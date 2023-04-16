@@ -42,6 +42,11 @@
 			material: "steel.ingot"
 			amount: 0.500
 		}
+		{
+			type: "resource"
+			material: "lubricant"
+			amount: 0.100
+		}
 	]
 	
 	products:

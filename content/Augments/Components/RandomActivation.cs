@@ -30,8 +30,8 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f), Exclude<Toolbelt.Data>(Source.Modifier.Parent)]
-		public static void Update(ISystem.Info info, Entity entity,
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		public static void Update(ISystem.Info info, ref XorRandom random, Entity entity,
 		[Source.Owned] ref Control.Data control, [Source.Owned] ref RandomActivation.Data random_activation)
 		{
 			if (random_activation.flags.HasAll(RandomActivation.Flags.Active))
@@ -50,7 +50,6 @@ namespace TC2.Base.Components
 			else
 			{
 #if SERVER
-				var random = XorRandom.New();
 				if (random.NextBool(random_activation.chance))
 				{
 					random_activation.time_stop = info.WorldTime + random_activation.duration;

@@ -1,3 +1,9 @@
+$name: "Pump Shotgun"
+$desc:
+	'''
+	Reliable pump-action shotgun.
+	Can use a wide range of ammunition.
+	'''
 $tags: []
 
 body:
@@ -24,11 +30,11 @@ gun:
 	sound_reload: "shotgun_reload"
 	velocity_multiplier: 400.000
 	jitter_multiplier: 5.500
-	damage_multiplier: 2.000
-	recoil_multiplier: 2.000
+	damage_multiplier: 2.500
+	recoil_multiplier: 1.200
 	reload_interval: 0.600
 	cycle_interval: 0.500
-	failure_rate: 0.010
+	failure_rate: 0.002
 	max_ammo: 4.000
 	flags: none
 	ammo_filter: ammo_sg
@@ -54,7 +60,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [28.000, 20.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -69,8 +75,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.500
-	torque_multiplier: 1.100
+	force_multiplier: 1.000
+	torque_multiplier: 1.500
 }
 
 animated.renderer:

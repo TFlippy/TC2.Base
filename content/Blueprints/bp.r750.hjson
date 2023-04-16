@@ -1,41 +1,113 @@
 {
 	name: "R750 Automat"
-	description: "Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an ARC-MT auto-loader."
+	description:
+		'''
+		Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an ARC-MT auto-loader.
+		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
 	prefab: "smg"
 	recipe: "gunsmith.smg"
+	
 	augments:
 	[
 		{
 			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
 			data: 1
 		}
 		{
 			identifier: "gun.rapid_fire_mechanism"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.improved_ammo_loading"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
 			data: 1082130432
 		}
 		{
 			identifier: "gun.hardened_frame"
+			flags: none
+			modifier: 0.000
 			data: 13690942868246495232
 		}
 		{
 			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
 			data: 13690942868254883840
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }

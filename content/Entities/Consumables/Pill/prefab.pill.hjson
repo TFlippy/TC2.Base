@@ -10,8 +10,8 @@ body:
 		mass: 0.100
 		friction: 0.800
 		elasticity: 0.700
-		material: gravel
-		layer: entity, solid
+		material: paper
+		layer: entity, solid, flammable
 		mask: world
 	}
 }

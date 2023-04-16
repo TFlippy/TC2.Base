@@ -63,8 +63,9 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	window_size: [224.000, 192.000]
 	window_offset: [0.000, 192.000]
+	flags: none
 }
 
 mount:
@@ -110,9 +111,10 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.000, 0.000]
-		max_force: 100000.000
+		max_force: 250000.000
 		max_torque: 100000.000
 		flags: control_write, no_stress, no_wrap, force_facing
+		material_type: metal
 		
 		@sound.emitter:
 		{
@@ -150,8 +152,11 @@ vehicle:
 	attachment.slot:
 	{
 		name: "Mount"
+		identifier: "mount"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold
+		flags_editable: locked, disabled, hold, manual_aim
+
+		gui_size: [224.000, 96.000]
 	}
 }

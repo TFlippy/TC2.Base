@@ -1,0 +1,43 @@
+{
+	name: "Phlogiston"
+	desc: 
+		'''
+		Extremely potent fuel extracted from ancient underground pipelines.
+		'''
+	
+	icon:
+	{
+		texture: "resource.phlogiston"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		size: [16, 16]
+	}
+	
+	min: 5
+	max: 100
+	step: 5
+	type: sell
+	tags: market
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "phlogiston"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "money"
+			amount: 14.990
+		}
+	]
+}

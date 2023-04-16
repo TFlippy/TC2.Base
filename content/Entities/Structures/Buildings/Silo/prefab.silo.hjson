@@ -1,0 +1,74 @@
+$name: "Silo"
+$desc:
+	'''
+
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.000, 3.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, storage, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 35000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "silo"
+	}
+	z: -250.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+	intensity_b: 0.600
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Inventory"
+		stack_size_multiplier: 20.000
+		type: storage
+		flags: standalone, allow_ducts, ignore_mass, public
+		offset: [-0.250, 0.750]
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 192.000]
+}

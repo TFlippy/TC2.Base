@@ -21,6 +21,18 @@ health:
 	max: 14000.000
 }
 
+armor:
+{
+	toughness: 600.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
 animated.renderer:
 {
 	sprite:
@@ -48,6 +60,8 @@ interactable:
 pump:
 {
 	slider_offset: [-0.875, -2.125]
+	volume_speed_mult: 0.150
+	volume: 0.750
 	
 	@animated.renderer:
 	{
@@ -95,7 +109,8 @@ axle:
 sound.emitter:
 {
 	file: "pump_loop"
-	volume: 0.900
+	volume: 0.000
 	pitch: 1.000
-	size: 1.000
+	size: 0.750
+	size_max_modifier: 0.700
 }

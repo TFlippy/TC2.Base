@@ -1,6 +1,9 @@
 {
 	name: "Wood"
-	desc: "High-quality lumber."
+	desc:
+		'''
+		High-quality lumber.
+		'''
 	
 	icon:
 	{
@@ -9,26 +12,29 @@
 		frame: [3, 0]
 	}
 	
-	min: 100
+	min: 50
 	max: 500
-	step: 100
+	step: 50
+	
 	type: buy
+	flags: none
 	tags: market
 	
 	requirements:
 	[
 		{
-			type: "money"
-			amount: 0.220
+			type: money
+			amount: 0.890
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

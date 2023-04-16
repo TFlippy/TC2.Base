@@ -8,12 +8,14 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 0.500
+
 	@shape.line:
 	{
 		a: [-2.000, 0.000]
 		b: [1.875, -0.150]
 		mass: 260.000
-		radius: 0.450
+		radius: 0.500
 		friction: 0.800
 		elasticity: 0.250
 		material: metal
@@ -66,7 +68,7 @@ gun:
 		offset: [4.000, -0.250]
 		scale: [50.000, 50.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -89,7 +91,7 @@ holdable:
 {
 	offset: [-1.000, 0.000]
 	radius: 2.000
-	flags: none
+	flags: full_rotate
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000
@@ -113,12 +115,12 @@ animated.renderer:
 
 health:
 {
-	max: 25000.000
+	max: 75000.000
 }
 
 armor:
 {
-	toughness: 600.000
+	toughness: 900.000
 	protection: 0.900
 	
 	knockback_modifier: 1.300
@@ -146,7 +148,7 @@ overheat:
 		offset: [1.000, 0.125]
 		scale: [16.000, 4.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:

@@ -1,40 +1,112 @@
 {
 	name: "Boban vz.8"
-	description: "Land mine with safety markings to prevent accidental detonation."
+	description:
+		'''
+		Land mine with safety markings to prevent accidental detonation.
+		'''
+	
+	flags: none
+	company: "zajac"
+	
 	prefab: "landmine"
 	recipe: "munitions.landmine"
+	
 	augments:
 	[
 		{
 			identifier: "landmine.safety"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 	]

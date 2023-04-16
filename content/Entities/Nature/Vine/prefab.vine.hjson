@@ -19,7 +19,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
-		layer: entity, climbable, ignore_bullet, ignore_melee
+		layer: entity, climbable, ignore_bullet, ignore_melee, flammable
 		mask: world
 	}
 }
@@ -39,4 +39,15 @@ foliage.renderer:
 transform:
 {
 
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "plants"
+			quantity: 210.000
+		}
+	]
 }

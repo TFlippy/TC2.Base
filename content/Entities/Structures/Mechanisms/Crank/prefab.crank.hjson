@@ -140,7 +140,7 @@ transform:
 			{
 				texture: "wheel_1000.steel"
 			}
-			z: 110.000
+			z: -110.000
 		}
 
 		health:
@@ -170,7 +170,7 @@ transform:
 		crank:
 		{
 			max_speed: 5.000
-			torque: 150.000
+			torque: 80.000
 			mod: 1.000
 			
 			@animated.renderer:

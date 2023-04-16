@@ -1,0 +1,29 @@
+$export: false
+$prefab: "human.male"
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "human.male.torso.fancy"
+		size: [16, 16]
+	}
+	z: -40.000
+	mask: "human.male.torso.fancy.mask"
+}
+
+// +slot_waist|instance:
+// {
+// 	+waist|child:
+// 	{		
+// 		animated.renderer:
+// 		{
+// 			sprite:
+// 			{
+// 				texture: "human.male.waist.fancy"
+// 				size: [16, 8]
+// 			}
+// 			z: -50.000
+// 		}
+// 	}
+// }

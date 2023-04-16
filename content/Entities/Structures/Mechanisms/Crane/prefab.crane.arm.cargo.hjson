@@ -34,7 +34,19 @@ animated.renderer:
 
 health:
 {
-	max: 17000.000
+	max: 35000.000
+}
+
+armor:
+{
+	toughness: 800.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 control:
@@ -90,9 +102,11 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 10000000.000
-		max_torque: 200000.000
-		flags: no_wrap, no_stress, control_write, force_facing
+		max_force: 350000.000
+		max_torque: 400000.000
+		max_stress: 2.000
+		flags: no_wrap, control_write, force_facing, facing_reset_pos
+		material_type: metal
 	}
 
 	joint.pivot:
@@ -103,8 +117,8 @@ vehicle:
 
 	joint.gear:
 	{
-		min: -2.000
-		max: 2.000
+		min: -2.600
+		max: 2.600
 		error_bias: 0.010
 		max_bias: 0.700
 	}
@@ -112,10 +126,10 @@ vehicle:
 	joint.rotarylimit:
 	{
 		max_torque: 500000.000
-		min: -3.926
-		max: 0.785
-		max_bias: 20.000
-		error_bias: 0.0001
+		min: -2.500
+		max: 2.500
+		max_bias: 10.000
+		error_bias: 0.001
 	}
 
 	joint_motor:

@@ -1,23 +1,34 @@
 {
 	name: "Silver"
-	desc: "A precious metal."
+	desc:
+		'''
+		A precious metal.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
-	max_health: 14400.000
+	max_health: 35000.000
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.700
 	elasticity: 0.300
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.silver.ore"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.200
 	texture_overshoot: -0.750
+	color_preview: "0xffb4ffeb"
 	
 	resources:
 	[

@@ -11,7 +11,7 @@ body:
 		radius: 0.000
 		friction: 0.950
 		elasticity: 0.500
-		material: wood
+		material: metal
 		layer: entity, building, ignore_melee
 		mask: world
 	}
@@ -20,6 +20,18 @@ body:
 health:
 {
 	max: 35000.000
+}
+
+armor:
+{
+	toughness: 500.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:
@@ -38,7 +50,7 @@ transform:
 
 interactable:
 {
-	window_size: [600.000, 432.000]
+	window_size: [700.000, 500.000]
 }
 
 shop:

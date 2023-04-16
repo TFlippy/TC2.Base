@@ -10,15 +10,20 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [3.250, 2.250]
-		offset: [0.000, 0.250]
+		points: 
+		[
+			[-0.750, -1.125]
+			[1.500, -1.000]
+			[1.750, 1.250]
+			[-1.875, 1.250]
+		]
 		mass: 100.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wood
-		layer: entity, solid, building, ignore_melee
+		layer: entity, solid, building, ignore_bullet, ignore_melee, flammable
 		mask: world
 	}
 }

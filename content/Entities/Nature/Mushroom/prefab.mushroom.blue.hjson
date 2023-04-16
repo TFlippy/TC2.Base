@@ -15,7 +15,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -45,7 +45,7 @@ animated.renderer:
 		offset: [0.000, -2.125]
 		scale: [10.000, 10.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

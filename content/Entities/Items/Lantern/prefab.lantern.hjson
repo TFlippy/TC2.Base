@@ -67,7 +67,7 @@ lantern:
 		offset: [0.000, 0.000]
 		scale: [48.000, 48.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

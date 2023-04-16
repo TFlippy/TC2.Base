@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: stone
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.mudbrick_dry"
+		texture: "resource.mudbrick.dry"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,12 +32,7 @@ transform:
 
 resource:
 {
-	material: "mudbrick_dry"
-}
-
-hoverable:
-{
-
+	material: "mudbrick.dry"
 }
 
 holdable:

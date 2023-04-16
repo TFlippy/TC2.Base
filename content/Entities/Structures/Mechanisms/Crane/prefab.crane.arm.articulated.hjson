@@ -11,7 +11,7 @@ body:
 	{
 		a: [-4.000, 0.000]
 		b: [4.000, 0.000]
-		mass: 250.000
+		mass: 140.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.100
@@ -32,7 +32,19 @@ animated.renderer:
 
 health:
 {
-	max: 20000.000
+	max: 30000.000
+}
+
+armor:
+{
+	toughness: 800.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 control:
@@ -75,12 +87,18 @@ attachment:
 	torque_multiplier: 2.000
 }
 
+essencecontainer:
+{
+	h_essence: motion
+	available: 10.000
+}
+
 // joint.base:
 // {
 // 	offset_a: [4.000, 0.000]
 // 	max_force: 10000000.000
 // 	max_torque: 200000.000
-// 	flags: no_wrap, no_stress, control_write, force_facing
+// 	flags: no_wrap, control_write, force_facing
 
 // 	@light:
 // 	{
@@ -147,9 +165,11 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 10000000.000
-		max_torque: 200000.000
-		flags: no_wrap, no_stress, control_write, force_facing
+		max_force: 350000.000
+		max_torque: 400000.000
+		max_stress: 2.000
+		flags: no_wrap, control_write, force_facing, facing_reset_pos
+		material_type: metal
 
 		@sound.emitter:
 		{
@@ -189,16 +209,16 @@ vehicle:
 	joint.gear:
 	{
 		error_bias: 0.010
-		max_bias: 2.000
-		min: -30.000
-		max: 30.000
+		max_bias: 1.500
+		min: -0.200
+		max: 3.000
 	}
 
 	joint_motor:
 	{
 		force: 100.000
 		speed: 0.000
-		error_bias: 0.000
+		error_bias: 0.001
 	}
 
 	attachment.slot:

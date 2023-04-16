@@ -40,13 +40,8 @@ resource:
 		offset: [0.000, 0.250]
 		scale: [24.000, 24.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
-}
-
-hoverable:
-{
-
 }
 
 holdable:

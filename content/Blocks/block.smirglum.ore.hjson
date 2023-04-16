@@ -1,0 +1,49 @@
+{
+	name: "Smirglum"
+	desc:
+		'''
+		A very heavy mineral.
+		'''
+	
+	icon:
+	{
+	
+	}
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, ore, uncommon, mineral
+	
+	max_health: 68000.000
+	smoothing: 0.110
+	mass: 1.000
+	friction: 0.900
+	elasticity: 0.300
+	stability: 0.500
+	collision_layer: none
+	collision_mask: essence
+	
+	texture: "terrain.smirglum.ore"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.650
+	texture_overshoot: -0.950
+	color_preview: "0xff784b39"
+	
+	resources:
+	[
+		{
+			material: "smirglum.ore"
+			quantity: 1.800
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff504343"
+			tile_flags: solid, non_empty, ground
+			meta: 0
+		}
+	]
+}

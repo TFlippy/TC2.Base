@@ -8,15 +8,21 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.250
+	fall_damage_multiplier: 0.750
 
-	@shape.box:	
+	@shape.polygon:	
 	{
-		size: [3.000, 3.000]
-		offset: [0.000, 0.000]
+		points: 
+		[
+			[-1.125, -1.375]
+			[1.125, -1.250]
+			[1.500, 1.500]
+			[-1.500, 1.500]
+		]
 		radius: 0.250
-		mass: 350.000
+		mass: 300.000
 		friction: 0.750
-		elasticity: 0.750
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid
 		mask: world
@@ -25,7 +31,7 @@ body:
 
 health:
 {
-	max: 12000.000
+	max: 14000.000
 }
 
 armor:
@@ -42,8 +48,12 @@ armor:
 
 holdable:
 {
+	force_multiplier: 1.100
+	torque_multiplier: 1.000
+	offset: [0.000, 0.000]
+	offset_attachment: [0.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_pickup_offset, disable_control
+	flags: disable_parent_facing, disable_control
 }
 
 attachment:
@@ -58,7 +68,19 @@ animated.renderer:
 		texture: "cabin.metal.00"
 	}
 	offset: [0.000, 0.000]
-	z: -100.000
+	z: 10.000
+	mask: "cabin.metal.mask.00"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
 }
 
 transform:
@@ -94,9 +116,9 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "cabin.metal.fg.00"
+			texture: "cabin.metal.bg.00"
 		}
-		z: 10.000
+		z: -100.000
 	}
 }
 

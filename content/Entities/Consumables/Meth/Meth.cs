@@ -39,39 +39,13 @@ namespace TC2.Base.Components
 		}
 #endif
 
-#if CLIENT
-		[IGlobal.Data(persist: false), IComponent.With<Sound.Emitter>()]
-		public struct Global: IGlobal
-		{
-			public float tinnitus_volume = 0.00f;
-
-			public Global()
-			{
-
-			}
-		}
-
-		public static Sound.Handle sound_tinnitus = "tinnitus.loop.00";
-
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Meth.Global meth_global, [Source.Owned] ref Sound.Emitter sound_emitter)
-		{
-			sound_emitter.file = sound_tinnitus;
-			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, meth_global.tinnitus_volume, 0.10f);
-			sound_emitter.pitch = 1.50f;
-			sound_emitter.mix_3d = 0.50f;
-
-			meth_global.tinnitus_volume = 0.00f;
-		}
-#endif
-
-		public static Gradient gr_consciousness = new Gradient(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
-		public static Gradient gr_endurance = new Gradient(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
-		public static Gradient gr_dexterity = new Gradient(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f);
-		public static Gradient gr_strength = new Gradient(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
-		public static Gradient gr_motorics = new Gradient(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
-		public static Gradient gr_coordination = new Gradient(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
-		public static Gradient gr_pain_modifier = new Gradient(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
+		public static Gradient<float> gr_consciousness = new Gradient<float>(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
+		public static Gradient<float> gr_endurance = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
+		public static Gradient<float> gr_dexterity = new Gradient<float>(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f);
+		public static Gradient<float> gr_strength = new Gradient<float>(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
+		public static Gradient<float> gr_motorics = new Gradient<float>(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
+		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
+		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
@@ -101,11 +75,10 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateControls(ISystem.Info info, Entity entity, [Source.SharedAny] ref Meth.Effect meth, [Source.SharedAny, Override] in Organic.Data organic, [Source.Owned] in Arm.Data arm, [Source.SharedAny] ref Control.Data control)
+		public static void UpdateControls(ISystem.Info info, Entity entity, ref XorRandom random, [Source.SharedAny] ref Meth.Effect meth, [Source.SharedAny, Override] in Organic.Data organic, [Source.Owned] in Arm.Data arm, [Source.SharedAny] ref Control.Data control)
 		{
 			if (info.WorldTime >= meth.next_spasm)
 			{
-				var random = XorRandom.New();
 				if (meth.modifier_current > 0.25f && random.NextBool(0.001f * meth.modifier_current))
 				{
 					//App.WriteLine("spasm");
@@ -163,7 +136,7 @@ namespace TC2.Base.Components
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Meth.Effect meth)
 		{
 			var modifier = meth.modifier_current;
-			
+
 			runner.air_brake_modifier += Maths.Lerp01(0.00f, 0.50f, modifier * 3.00f);
 			runner.crouch_speed_modifier = Maths.Lerp01(runner.crouch_speed_modifier, 0.80f, modifier * 3.00f);
 			runner.max_speed *= Maths.Lerp01(1.00f, 1.20f, modifier * 3.00f);
@@ -171,7 +144,7 @@ namespace TC2.Base.Components
 
 			var jump_multiplier = Maths.Lerp01(1.00f, 1.30f, modifier * 3.00f);
 			runner.jump_decay /= jump_multiplier * 1.30f;
-			runner.max_jump_speed *= jump_multiplier; 
+			runner.max_jump_speed *= jump_multiplier;
 		}
 
 #if CLIENT
@@ -198,41 +171,37 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Global] ref Meth.Global meth_global)
+		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Global] ref Head.Global head_global)
 		{
-			if (player.IsLocal())
+			var modifier = MathF.Pow(meth.modifier_current, 1.40f);
+
+			var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);
+			if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
+
+			camera.damp_modifier *= 1.00f + (modifier * 14.00f);
+			camera.distance_modifier *= 1.00f + (modifier * 2.00f);
+			camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
+
+			Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
+
+			ref var low_pass = ref Audio.LowPass;
+			low_pass.frequency = 10000.00f;
+			low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 2.50f);
+
+			ref var high_pass = ref Audio.HighPass;
+			high_pass.frequency = 150.00f;
+			high_pass.resonance = MathF.Pow(0.70f + (modifier * 5.50f), 1.50f);
+
+			if (meth.modifier_current < meth.modifier_withdrawal)
 			{
-				var modifier = MathF.Pow(meth.modifier_current, 1.40f);
-				var random = XorRandom.New();
-
-				var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);
-				if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
-
-				camera.damp_modifier *= 1.00f + (modifier * 14.00f);
-				camera.distance_modifier *= 1.00f + (modifier * 2.00f);
-				camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
-
-				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
-
-				ref var low_pass = ref Audio.LowPass;
-				low_pass.frequency = 10000.00f;
-				low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 2.50f);
-
-				ref var high_pass = ref Audio.HighPass;
-				high_pass.frequency = 150.00f;
-				high_pass.resonance = MathF.Pow(0.70f + (modifier * 5.50f), 1.50f);
-
-				if (meth.modifier_current < meth.modifier_withdrawal)
-				{
-					Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
-				}
-
-				meth_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
-
-				Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 1.20f).Clamp01());
-				Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 1.10f).Clamp01());
-				Postprocess.Saturation = Maths.Lerp(Postprocess.Saturation, Postprocess.Saturation + 0.30f, (modifier * 1.20f).Clamp01());
+				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 			}
+
+			head_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
+
+			Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 1.20f).Clamp01());
+			Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 1.10f).Clamp01());
+			Postprocess.Saturation = Maths.Lerp(Postprocess.Saturation, Postprocess.Saturation + 0.30f, (modifier * 1.20f).Clamp01());
 		}
 #endif
 	}

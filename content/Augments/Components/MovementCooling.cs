@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 				if (info.WorldTime >= movement_cooling.next_sync)
 				{
 					movement_cooling.next_sync = info.WorldTime + MovementCooling.sync_interval;
-					overheat.Sync(entity);
+					overheat.Sync(entity, true);
 				}
 #endif
 			}

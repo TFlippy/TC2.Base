@@ -6,10 +6,10 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 24000.000
+	max_health: 30000.000
 	smoothing: 0.130
 	mass: 8.000
-	friction: 0.900
+	friction: 0.800
 	elasticity: 0.200
 	stability: 0.900
 	
@@ -18,16 +18,18 @@
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
+
+	color_preview: "0xff80775f"
 	
 	resources:
 	[
 		{
-			material: "stone"
-			quantity: 0.100
+			material: "magnetite"
+			quantity: 0.650
 		}
 		{
-			material: "magnetite"
-			quantity: 1.500
+			material: "stone"
+			quantity: 0.300
 		}
 	]
 	

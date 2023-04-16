@@ -1,0 +1,33 @@
+{
+	name: "Smirglum Ingot"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.smirglum.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: metal
+	flags: ingot, magnetic, metal
+	mass_per_unit: 3.800
+	quantity_max: 250.000
+	prefab: "resource.smirglum.ingot"
+	
+	specific_heat: 45.500
+	thermal_conductivity: 0.800
+	
+	commodity:
+	{
+		market_price: 25.000
+	}
+}

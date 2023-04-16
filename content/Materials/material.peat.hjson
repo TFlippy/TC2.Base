@@ -1,6 +1,10 @@
 {
 	name: "Peat"
-	description: "Commonly found in bogs. Burns slowly, but efficiently."
+	description:
+		'''
+		Commonly found in bogs. Burns slowly, but efficiently.
+		'''
+	
 	icon:
 	{
 		texture: "resource.peat"
@@ -8,23 +12,28 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: soil
-	flags: raw, fuel, organic
+	flags: raw, fuel, granular, organic
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.peat"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
+	commodity:
+	{
+		categories: soil, fertilizers, consumer, industrial
+		market_price: 0.900
+	}
 	
-	fuel_energy: 20000000.000
-	fuel_drain: 70000.000
-	fuel_purity: 0.300
-	fuel_temperature: 900.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	fuel:
+	{
+		energy: 20000000.000
+		drain: 70000.000
+		purity: 0.300
+		temperature: 900.000
+	}
 }

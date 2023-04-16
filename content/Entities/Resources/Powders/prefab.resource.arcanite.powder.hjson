@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.300
 		material: powder
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}
 }
@@ -35,13 +35,10 @@ resource:
 	material: "arcanite.powder"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
+	force_multiplier: 1.400
+	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 

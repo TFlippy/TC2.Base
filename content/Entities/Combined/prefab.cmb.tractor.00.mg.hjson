@@ -1,0 +1,94 @@
+$name: "Tractor"
+$prefab: "tractor.00"
+
+burner:
+{
+	@inventory1:
+	{
+		resource:
+		{
+			material: "phlogiston"
+			quantity: 100.000
+		}
+	}
+}
+
++slot_cab|instance:
+{
+	+attached|child:
+	{
+		$prefab: "cabin.metal.02"
+
+		storage:
+		{
+			@inventory4:
+			{
+				resources:
+				[
+					{
+						material: "ammo_mg"
+						quantity: 1000.000
+					}
+					{
+						material: "ammo_mg"
+						quantity: 1000.000
+					}
+					{
+						material: "ammo_mg"
+						quantity: 1000.000
+					}
+					{
+						material: "ammo_mg"
+						quantity: 1000.000
+					}
+				]
+			}
+		}
+
+		+mount|instance:
+		{
+			attachment_slot:
+			{
+				flags: hold, keyboard_write, mouse_write
+			}
+			
+			+attached|child:
+			{
+				$prefab: "machine_gun"	
+			}
+		}
+	}
+}
+
++slot_wheel_0|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_2|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+
++slot_wheel_3|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+

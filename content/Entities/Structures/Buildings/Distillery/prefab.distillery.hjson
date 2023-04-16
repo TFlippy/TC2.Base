@@ -1,3 +1,8 @@
+$name: "Phlogiston Distillery"
+$desc:
+	'''
+	Converts flammable items into concentrated phlogiston and tar.
+	'''
 $tags: []
 
 body:
@@ -63,7 +68,7 @@ distillery:
 		offset: [0.500, 1.300]
 		scale: [24.000, 18.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 

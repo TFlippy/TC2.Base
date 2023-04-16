@@ -1,6 +1,10 @@
 {
 	name: "Arcanite Ingot"
-	description: "An alloy of smirgl and gold with a peculiar property of becoming permeable to essences based on the electrical current flowing through it."
+	description:
+		'''
+		An alloy of smirglum and gold with a peculiar property of becoming permeable to essences based on the electrical current flowing through it.
+		'''
+	
 	icon:
 	{
 		texture: "resource.arcanite.ingot"
@@ -8,24 +12,22 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: metal
-	flags: ingot, metal
+	flags: ingot, magnetic, metal
 	mass_per_unit: 3.303
-	market_price: 125.000
 	quantity_max: 250.000
 	prefab: "resource.arcanite.ingot"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
 	specific_heat: 52.758
 	thermal_conductivity: 0.617
+	
+	commodity:
+	{
+		market_price: 125.000
+	}
 }

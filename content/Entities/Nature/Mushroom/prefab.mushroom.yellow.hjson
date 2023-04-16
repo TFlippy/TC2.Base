@@ -1,5 +1,8 @@
 $name: "Yellow Mushroom"
-$desc: "A group of tall, yellow-capped mushrooms."
+$desc: 
+	'''
+	Colony of tall, yellow-capped mushrooms that can be processed into sulfuric acid.
+	'''
 $tags: []
 
 body:
@@ -15,7 +18,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet
+		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -39,11 +42,12 @@ animated.renderer:
 	}
 	offset: [0.500, -3.500]
 	z: -200.000
+	flags: has_damage
+}
 
-	@damagesprite:
-	{
-		frame_count: 3
-	}
+damage.effects:
+{
+	frame_count: 3
 }
 
 harvestable:

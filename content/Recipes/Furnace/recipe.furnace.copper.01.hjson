@@ -1,0 +1,74 @@
+{
+	name: "Copper (Enrichment)"
+	desc: 
+		'''
+
+		'''
+	
+	icon:
+	{
+		texture: "resource.copper.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.copper.gravel"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff57e5b6"
+
+	min: 10
+	max: 200
+	step: 10
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -170.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1358.000
+		}
+		{
+			type: resource
+			material: "copper.powder"
+			amount: 3.500
+		}
+		{
+			type: resource
+			material: "copper.gravel"
+			amount: 1.500
+		}
+		{
+			type: work
+			work: melting
+			amount: 80.000
+			difficulty: 4.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "copper.ingot"
+			amount: 0.820
+			amount_extra: 0.100
+		}
+		{
+			type: resource
+			material: "sulfur_dioxide"
+			amount: 1.150
+			amount_extra: 0.380
+		}
+	]
+}

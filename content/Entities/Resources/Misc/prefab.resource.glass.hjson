@@ -2,15 +2,17 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 15.000
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 50.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.175
+		elasticity: 0.100
 		material: glass
-		layer: entity, resource
+		layer: entity, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -35,11 +37,6 @@ resource:
 	material: "glass"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
 	offset: [0.000, 0.750]
@@ -48,4 +45,9 @@ holdable:
 norotate:
 {
 
+}
+
+health:
+{
+	max: 400.000
 }

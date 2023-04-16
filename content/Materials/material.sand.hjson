@@ -1,6 +1,10 @@
 {
 	name: "Sand"
-	description: "A pile of sand, usable for glass production."
+	description:
+		'''
+		A pile of sand, usable for glass production.
+		'''
+	
 	icon:
 	{
 		texture: "resource.sand"
@@ -8,23 +12,16 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: powder
-	flags: raw, despawnable
-	mass_per_unit: 0.140
+	flags: raw, granular, despawnable
+	mass_per_unit: 0.700
 	quantity_max: 500.000
 	prefab: "resource.sand"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
 	specific_heat: 350.000
-	thermal_conductivity: 0.100
 }

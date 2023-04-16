@@ -11,7 +11,7 @@ body:
 		friction: 0.990
 		elasticity: 0.030
 		material: wood
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, flammable
 		mask: world
 	}
 }
@@ -130,7 +130,7 @@ joint.distance:
 			friction: 0.950
 			elasticity: 0.030
 			material: wood
-			layer: entity, solid
+			layer: entity, solid, flammable
 			mask: world, solid
 		}
 	}

@@ -1,5 +1,10 @@
 $name: "Ruins"
-$desc: "People often use these landmarks for navigation."
+$desc: 
+	'''
+	Some old overgrown ruins.
+
+	Various travelers often turn up here.
+	'''
 $tags: []
 
 body:
@@ -47,6 +52,30 @@ minimap.marker:
 	{
 		texture: "ui_icons_minimap"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [5, 0]
+	}
+
+	flags: spawner
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring, no_kit_selection
+	max_kits: 2
+	kit_default: "survival"
+	characters_capacity: 3
+	characters_initial_count: 0
+
+	repopulate_interval: 300.000
+	repopulate_num: 1
+	repopulate_num_extra: 2
+
+	character_flags_filter: 
+	{
+		require: nomad
+		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
+		exclude: lower_middle_class, upper_class, elite_class, sedentary
+		weight: 2.000
 	}
 }

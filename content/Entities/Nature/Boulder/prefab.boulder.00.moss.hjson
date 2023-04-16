@@ -1,5 +1,10 @@
 $name: "Boulder"
-$desc: ""
+$desc: 
+	'''
+	A really pretty boulder, with moss too!
+
+	Can be mined with a pickaxe for a large amount of stone.
+	'''
 $tags: []
 
 body:
@@ -55,7 +60,11 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 650.000
+			quantity: 1350.000
+		}
+		{
+			material: "plants"
+			quantity: 200.000
 		}
 	]
 }

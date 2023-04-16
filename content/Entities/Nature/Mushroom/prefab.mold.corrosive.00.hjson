@@ -1,0 +1,72 @@
+$name: "Green Mushroom"
+$desc: "A glowing green mushroom. It bears an uncanny resemblance to a man's face."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, 0.000]
+		b: [0.125, -2.875]
+		mass: 1500.000
+		radius: 0.500
+		friction: 1.500
+		elasticity: 0.010
+		material: mushroom
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mushroom.green"
+		size: [24, 40]
+	}
+	offset: [0.200, -1.800]
+	z: -200.000
+	flags: has_damage
+	
+	@light:
+	{
+		color: [0.600, 1.000, 0.400, 1.000]
+		offset: [0.220, -2.500]
+		scale: [16.000, 20.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+damage.effects:
+{
+	frame_count: 3
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "mushroom"
+			quantity: 450.000
+		}
+		{
+			material: "mushroom.green"
+			quantity: 220.000
+		}
+	]
+}

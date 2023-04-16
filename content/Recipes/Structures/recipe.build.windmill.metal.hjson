@@ -11,6 +11,10 @@
 		size: [40, 64]
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: mechanisms
@@ -31,23 +35,22 @@
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
-
+		
 		rotation_max: 0.150
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.5x8
-
+		prefab: "construction.5x8"
+		
 		requirements:
 		[
 			{
 				type: resource
 				material: "wood"
-				amount: 50.000
+				amount: 5.000
 			}
 		]
 	}
@@ -57,7 +60,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 800.000
+			amount: 80.000
 		}
 		{
 			type: resource
@@ -82,6 +85,7 @@
 			type: prefab
 			prefab: "windmill.metal"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

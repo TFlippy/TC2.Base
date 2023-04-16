@@ -8,17 +8,23 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.250
+	fall_damage_multiplier: 0.600
 
-	@shape.box:	
+	@shape.polygon:	
 	{
-		size: [3.000, 3.000]
-		offset: [0.000, 0.000]
+		points: 
+		[
+			[-1.125, -1.375]
+			[1.125, -1.250]
+			[1.500, 1.500]
+			[-1.500, 1.500]
+		]
 		radius: 0.250
-		mass: 110.000
+		mass: 140.000
 		friction: 0.750
-		elasticity: 0.750
+		elasticity: 0.500
 		material: wood
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world
 	}
 }
@@ -30,8 +36,12 @@ health:
 
 holdable:
 {
+	force_multiplier: 0.500
+	torque_multiplier: 0.500
+	offset: [0.000, 0.000]
+	offset_attachment: [0.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_pickup_offset, disable_control
+	flags: disable_parent_facing, disable_control
 }
 
 attachment:

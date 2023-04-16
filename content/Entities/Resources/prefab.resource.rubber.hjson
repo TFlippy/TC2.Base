@@ -10,7 +10,7 @@ body:
 		friction: 0.890
 		elasticity: 0.900
 		material: rubber
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -33,11 +33,6 @@ transform:
 resource:
 {
 	material: "rubber"
-}
-
-hoverable:
-{
-
 }
 
 holdable:

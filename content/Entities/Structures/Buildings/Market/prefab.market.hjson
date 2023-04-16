@@ -15,13 +15,13 @@ body:
 		elasticity: 0.500
 		material: stone
 		layer: entity, building, support, ignore_melee
-		mask: world
+		mask: world, bounds
 	}
 }
 
 health:
 {
-	max: 25000.000
+	max: 75000.000
 }
 
 animated.renderer:
@@ -62,7 +62,7 @@ light:
 	offset: [-1.250, -2.600]
 	scale: [32.000, 32.000]
 	intensity: 0.800
-	texture: "light_invsqr"
+	texture: "light.circle.00"
 }
 
 faction:
@@ -72,7 +72,14 @@ faction:
 
 claimable:
 {
-	flags: no_menu
+	// flags: no_menu
+	requirements:
+	[
+		{
+			type: money
+			amount: 500.000
+		}
+	]
 }
 
 nameable:
@@ -87,4 +94,39 @@ depot:
 	flags: allow_withdraw, allow_deposit, allow_send, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
 
 	shipping_fee_base: 20.000
+}
+
+spawn:
+{
+	flags: none
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [7, 0]
+	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_hiring, no_kit_selection
+	max_kits: 2
+	kit_default: "survival"
+	characters_capacity: 4
+	characters_initial_count: 2
+	repopulate_interval: 120.000
+	character_flags_filter: 
+	{
+		require: none
+		include: bureaucrat, farmer, social, commerce, miner, hunter, artist, lower_middle_class, middle_class
+		exclude: upper_class, elite_class, lowlife, criminal, sedentary
+		weight: 2.000
+	}
 }

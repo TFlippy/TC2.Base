@@ -6,38 +6,35 @@
 		projectiles, very good for general combat.
 		Gunpowder is weaker, but cheap.
 		'''
-
+	
 	icon:
 	{
 		texture: "resource.ammo_sg.buck"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_sg, despawnable
-	mass_per_unit: 0.050
+	flags: manufactured, ammo, ammo_sg, granular, despawnable
+	mass_per_unit: 0.090
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.buck"
 	
-	projectile_count: 4
-	projectile_speed_mult: 0.450
-	projectile_spread_mult: 1.200
-	projectile_heat: 50.000
-	projectile_prefab: "projectile.bullet.sg.buck"
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 4
+		mass: 0.050
+		speed_mult: 0.450
+		spread_mult: 1.200
+		recoil_mult: 1.000
+		heat: 50.000
+		velocity_min: 80.000
+		prefab: "projectile.bullet.sg.buck"
+	}
 }

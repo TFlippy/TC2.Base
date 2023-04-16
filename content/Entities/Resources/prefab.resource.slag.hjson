@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -34,13 +34,10 @@ resource:
 	material: "slag"
 }
 
-hoverable:
-{
-
-}
-
 holdable:
 {
+	force_multiplier: 1.800
+	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 

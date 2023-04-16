@@ -1,3 +1,8 @@
+$name: "Human"
+$desc:
+	'''
+	Common human.
+	'''
 $export: false
 $tags: 
 [
@@ -16,14 +21,14 @@ body:
 		friction: 0.500
 		elasticity: 0.050
 		material: flesh
-		layer: entity, solid, creature, storage
+		layer: entity, solid, creature, storage, flammable
 		mask: world
 	}
 }
 
 organic:
 {
-
+	h_species: "human"
 }
 
 organic.state:
@@ -76,8 +81,8 @@ threat:
 
 climber:
 {
-	climb_force: 5000.000
-	cling_force: 8000.000
+	climb_force: 4000.000
+	cling_force: 3000.000
 
 	@shape.circle:
 	{
@@ -89,7 +94,7 @@ climber:
 		rigidity_static: 0.000
 		layer: entity
 		mask: climbable
-		flags: no_mass
+		// flags: no_mass
 	}
 }
 
@@ -124,11 +129,6 @@ storage:
 	}
 }
 
-tooltip:
-{
-
-}
-
 seat.attachable:
 {
 
@@ -151,7 +151,8 @@ worker.state:
 
 facing:
 {
-
+	threshold: 0.350
+	offset: 0.000
 }
 
 interactable:
@@ -168,7 +169,7 @@ norotate:
 {
 	bias: 0.020
 	multiplier: 1.000
-	mass_multiplier: 160.000
+	mass_multiplier: 140.000
 }
 
 speechbubble:
@@ -195,9 +196,9 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.125, -0.250]
-		max_force: 50000.000
-		max_torque: 16000.000
-		flags: organic, control_write
+		max_force: 11000.000
+		max_torque: 4000.000
+		flags: organic, control_write, force_facing
 		
 		@animated.renderer:
 		{
@@ -214,7 +215,7 @@ lootable:
 	
 	joint.pivot:
 	{
-		max_bias: 10.000
+		max_bias: 8.000
 	}
 	
 	joint.rotarylimit:
@@ -232,6 +233,11 @@ lootable:
 	
 	+head|child:
 	{
+		$name: "Human (Head)"
+		$desc:
+			'''
+			Common human.
+			'''
 		$tags: 
 		[
 			"female"
@@ -247,28 +253,26 @@ lootable:
 				friction: 0.700
 				elasticity: 0.250
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world
 			}
 		}
 		
-		hair:
+		animated.renderer|"hair":
 		{
-			@animated.renderer:
+			sprite:
 			{
-				sprite:
-				{
-					texture: "human.female.head.hair"
-					count: 1
-					size: [24, 24]
-				}
-				z: -34.900
+				texture: "human.female.head.hair.gray"
+				count: 1
+				size: [24, 24]
 			}
+			z: -34.900
 		}
-		
+
 		organic:
 		{
 			tags: brain
+			h_species: "human"
 		}
 		
 		organic.state:
@@ -306,11 +310,14 @@ lootable:
 				size: [16, 16]
 			}
 			z: -35.000
-			
-			@damagesprite:
-			{
-			
-			}
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
 		}
 		
 		threat:
@@ -353,7 +360,7 @@ lootable:
 
 		lookat:
 		{
-			
+			deadzone: 1.000
 		}
 
 		// norotate:
@@ -379,14 +386,22 @@ lootable:
 
 +slot_waist|instance:
 {
+	$name: "Human (Waist)"
+	$desc:
+		'''
+		Common human.
+		'''
 	$tags: []
 	
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
-		max_force: 26000.000
-		max_torque: 8000.000
-		flags: organic, control_write
+		max_force: 25000.000
+		max_torque: 4000.000
+		max_stress: 1.000
+		stress_threshold: 1.800
+		stress_damp: 0.300
+		flags: organic, control_write, force_facing
 		
 		@animated.renderer:
 		{
@@ -411,6 +426,7 @@ lootable:
 		min: -0.500
 		max: 0.500
 		max_bias: 10.000
+		stress_mult: 0.200
 	}
 	
 	+waist|child:
@@ -432,10 +448,10 @@ lootable:
 			{
 				mass: 32.000
 				radius: 0.500
-				friction: 1.200
-				elasticity: 0.100
+				friction: 0.800
+				elasticity: 0.300
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world
 			}
 		}
@@ -464,6 +480,8 @@ lootable:
 		
 		organic:
 		{
+			h_species: "human"
+
 			@animated.renderer:
 			{
 				sprite:
@@ -549,9 +567,11 @@ lootable:
 	joint.base:
 	{
 		offset_a: [0.100, -0.050]
-		max_force: 15000.000
+		max_force: 8000.000
 		max_torque: 2000.000
-		flags: control_write, no_wrap
+		max_stress: 2.000
+		stress_threshold: 2.000
+		flags: control_write, no_wrap, force_facing
 	}
 	
 	joint.pivot:
@@ -559,17 +579,13 @@ lootable:
 		error_bias: 0.0005
 		max_bias: 8.000
 	}
-	
-	// joint.rotarylimit:
-	// {
-	// 	max_bias: 6.000
-	// 	error_bias: 0.000
-	// }
-	
+
 	joint.gear:
 	{
 		error_bias: 0.0005
 		max_bias: 5.000
+		min: -2.000
+		max: 2.000
 	}
 	
 	interactor:
@@ -601,7 +617,7 @@ lootable:
 		hit_mask: destructible, world
 		knockback: 1.500
 		penetration: 0
-		force: 500.000
+		force: 300.000
 
 		frame: [9, 0]
 		offset: [0.250, -0.125]

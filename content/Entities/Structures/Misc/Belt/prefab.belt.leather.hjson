@@ -1,3 +1,10 @@
+$name: "Belt (Leather)"
+$desc:
+	'''
+	Used for general medium-range belt drives.
+
+	Offers a balanced mix of performance and durability.
+	'''
 $tags: []
 
 body:
@@ -23,6 +30,7 @@ belt:
 	force: 8000.000
 	efficiency: 0.750
 	speed_max: 20.000
+	scale: 0.500
 }
 
 belt.renderer:

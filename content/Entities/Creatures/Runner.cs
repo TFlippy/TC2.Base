@@ -1,151 +1,6 @@
 ﻿
 namespace TC2.Base.Components
 {
-	public static partial class Climber_DEV
-	{
-		public static Sound.Handle[] snd_walljump =
-		{
-			"walljump.00",
-			"walljump.01",
-			"walljump.02"
-		};
-
-		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Of<Climber.Data>] ref Shape.Circle shape,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control)
-		{
-			//var ts = Timestamp.Now();
-
-			ref var region = ref info.GetRegion();
-			ref var keyboard = ref control.keyboard;
-
-			climber.MaxForce = 0.00f;
-			climber.OffsetA = body.GetWorldCenterOfGravity() + (body.GetVelocity() * App.fixed_update_interval_s);
-			climber.cling_entity = default;
-
-			var is_climbing = false;
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove);
-			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
-
-			var force = new Vector2(0, float.Epsilon);
-			var normal = new Vector2(0, 0);
-
-			if (can_move && body.HasArbiters())
-			{
-				var climb_force = 0.00f;
-
-				foreach (var arbiter in body.GetArbiters())
-				{
-					var layer = arbiter.GetLayer();
-					if (!layer.HasAny(Physics.Layer.Bounds))
-					{
-						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable) && !layer.HasAny(Physics.Layer.Tree))
-						{
-							var ent_arbiter = arbiter.GetEntity();
-
-							var cling_force = climber.cling_force;
-							var climb_speed = climber.climb_speed;
-							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength;
-							climber.cling_entity = ent_arbiter;
-							climber.pos_climbable = arbiter.GetPosition();
-
-							var vel = Vector2.Zero;
-
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
-
-							vel *= climb_speed;
-
-							climber.MaxForce = cling_force;
-							climber.OffsetA += (vel * App.fixed_update_interval_s);
-
-							if (vel != Vector2.Zero) body.Activate();
-
-							is_climbing = true;
-							//break;
-						}
-						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
-						{
-							normal += arbiter.GetNormal();
-							//if (normal.Y >= -0.40f)
-							{
-								var f = MathF.Abs(normal.X) * arbiter.GetFriction() * climber.climb_force;
-								climb_force = MathF.Max(climb_force, f);
-							}
-						}
-						else if (!is_climbing && layer.HasAny(Physics.Layer.Water))
-						{
-							var ent_arbiter = arbiter.GetEntity();
-
-							var swim_force_modifier = climber.climb_force * 0.40f;
-
-							var vel = Vector2.Zero;
-
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.20f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.20f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 0.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 8.00f;
-
-							vel *= 0.10f;
-
-							if (vel.LengthSquared() > 0.01f) body.Activate();
-
-							var swim_force = vel * swim_force_modifier;
-							swim_force = Physics.LimitForce(ref body, swim_force, new Vector2(5, 5));
-
-							body.AddForce(swim_force);
-						}
-					}
-				}
-
-				if (can_wallclimb && climb_force > 0.00f)
-				{
-					climb_force *= climber.climb_force;
-					climb_force *= organic_state.efficiency * organic.strength;
-
-					var max_speed = new Vector2(10, 10);
-
-					normal = normal.GetNormalized(out var normal_len);
-					if (normal_len > 0.01f && info.WorldTime >= climber.last_walljump + 0.20f)
-					{
-						var do_walljump = keyboard.GetKeyDown(float.IsPositive(normal.X) ? Keyboard.Key.MoveLeft : Keyboard.Key.MoveRight);
-						if (do_walljump)
-						{
-							//App.WriteLine(do_walljump);
-
-							force.X *= normal.X * 50.00f;
-							climb_force *= 50.00f;
-							max_speed.X *= 2.00f;
-							max_speed.Y *= 2.50f;
-
-							climber.last_walljump = info.WorldTime;
-
-#if CLIENT
-							var random = XorRandom.New();
-							Sound.Play(snd_walljump.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.22f, 0.25f), pitch: random.NextFloatRange(0.85f, 0.95f));
-#endif
-						}
-					}
-
-					force.Y += -climb_force;
-					force = Physics.LimitForce(ref body, force, max_speed);
-
-					body.AddForce(force);
-
-					climber.last_wallclimb = info.WorldTime;
-					climber.last_force = force;
-				}
-			}
-
-			//App.WriteLine($"climber in {ts.GetMilliseconds():0.0000} ms");
-		}
-	}
-
 	public static partial class Runner
 	{
 		[Flags]
@@ -166,10 +21,12 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent, IOverridable
 		{
-			public float walk_force = default;
-			public float jump_force = default;
+			public float walk_force;
+			public float jump_force;
 			public float max_speed = 10.00f;
 			public float max_jump_speed = 10.00f;
+			public float max_jump_time = 0.50f;
+			public float max_air_time = 1.00f;
 
 			public float walk_lerp = 0.15f;
 			public float jump_decay = 0.50f;
@@ -185,21 +42,22 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore] public float air_modifier_current = default;
-			[Save.Ignore] public float walk_modifier_current = default;
-			[Save.Ignore] public float uphill_force_current = default;
-			[Save.Ignore] public float jump_force_current = default;
-			[Save.Ignore] public Runner.Flags flags = default;
+			[Save.Ignore] public float air_modifier_current;
+			[Save.Ignore] public float walk_modifier_current;
+			[Save.Ignore] public float uphill_force_current;
+			[Save.Ignore] public float jump_force_current;
+			[Save.Ignore] public Runner.Flags flags;
 
-			[Save.Ignore, Net.Ignore] public float air_time = default;
+			[Save.Ignore, Net.Ignore] public float air_time;
 
-			[Save.Ignore, Net.Ignore] public float last_jump = default;
-			[Save.Ignore, Net.Ignore] public float last_ground = default;
-			[Save.Ignore, Net.Ignore] public float last_climb = default;
-			[Save.Ignore, Net.Ignore] public float last_air = default;
+			[Save.Ignore, Net.Ignore] public float last_jump;
+			[Save.Ignore, Net.Ignore] public float last_ground;
+			[Save.Ignore, Net.Ignore] public float last_climb;
+			[Save.Ignore, Net.Ignore] public float last_air;
 
-			[Save.Ignore, Net.Ignore] public Vector2 last_force = default;
-			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force = default;
+			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
+			[Save.Ignore, Net.Ignore] public Vector2 last_force;
+			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force;
 
 			public State()
 			{
@@ -240,18 +98,58 @@ namespace TC2.Base.Components
 		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
 			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
-			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, (info.WorldTime - climber.last_wallclimb) < 0.10f);
-			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
+
+			if (runner_state.flags.HasAny(Runner.Flags.Climbing))
 			{
 				runner_state.last_climb = info.WorldTime;
+			}
+
+			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			{
 				runner_state.last_wallclimb_force = climber.last_force;
 			}
 		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		{
+			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+
+			no_rotate.multiplier *= modifier;
+			no_rotate.mass_multiplier *= modifier;
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
+		{
+			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+
+			no_rotate.multiplier *= modifier;
+			no_rotate.mass_multiplier *= modifier;
+		}
+
+		//		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		//		public static void UpdateTest(ISystem.Info info, [Source.Owned] ref Body.Data body, [Source.Owned] in Organic.Data organic)
+		//		{
+		//			ref var region = ref info.GetRegion();
+
+		//#if CLIENT
+		//			var color = new Color32BGRA(0xff00ff00);
+		//#else
+		//			var color = new Color32BGRA(0xffff0000);
+		//#endif
+
+		//			region.DrawDebugBody(ref body, color.WithAlphaMult(0.50f));
+		//		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
+			ref var region = ref info.GetRegion();
 
 			var force = new Vector2(0, 0);
 			var max_speed = new Vector2(runner.max_speed, runner.max_jump_speed);
@@ -305,14 +203,17 @@ namespace TC2.Base.Components
 			}
 
 			normal = normal.GetNormalized();
+			runner_state.last_normal = Vector2.Lerp(runner_state.last_normal, normal, 0.20f).GetNormalized();
 
 			var is_grounded = false;
 
 			if (arbiter_count > 0) // && !layers.HasAll(Physics.Layer.Bounds))
 			{
-				is_grounded = MathF.Abs(normal.X) < 0.95f;
+				//is_grounded = MathF.Abs(normal.X) < 0.35f;
 
-				var dot = MathF.Abs(Vector2.Dot(normal, new Vector2(MathF.Sign(normal.X), 0)));
+
+				var dot = MathF.Abs(runner_state.last_normal.X);
+				is_grounded = dot < 0.90f;
 
 				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
 				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
@@ -322,11 +223,22 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				force.X *= (runner_state.flags.HasAny(Runner.Flags.WallClimbing)) ? 0.50f : 0.75f;
+				force.X *= 0.75f;
 				force.Y *= 0.00f;
 
 				force.Y -= runner_state.uphill_force_current * 0.75f;
 				runner_state.uphill_force_current *= 0.50f;
+			}
+
+//#if CLIENT
+//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
+//#endif
+
+			if (runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			{
+				force.X *= 0.70f;
+				force.Y *= 0.20f;
+				//runner_state.uphill_force_current *= 0.00f;
 			}
 
 			if (is_grounded)
@@ -340,7 +252,8 @@ namespace TC2.Base.Components
 				runner_state.last_air = info.WorldTime;
 			}
 
-			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (((info.WorldTime - runner_state.last_ground) < 0.20f) || (((info.WorldTime - runner_state.last_climb) > 0.00f) && (info.WorldTime - runner_state.last_climb) < 0.20f)))
+			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (info.WorldTime - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && MathF.Min(info.WorldTime - runner_state.last_ground, info.WorldTime - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = info.WorldTime;
@@ -371,7 +284,7 @@ namespace TC2.Base.Components
 				force -= required_force_dir;
 			}
 
-			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, runner_state.last_ground);
+			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 
 			//max_speed *= runner_state.speed_modifier;
@@ -382,6 +295,10 @@ namespace TC2.Base.Components
 
 			runner_state.last_force = force;
 			body.AddForce(force);
+
+			//#if CLIENT
+			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
+			//#endif
 		}
 	}
 }

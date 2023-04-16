@@ -1,0 +1,29 @@
+{
+	name: "Smirglum Gravel"
+	description:
+		'''
+		High-purity smirglum gravel.
+		Yield: 90% to 100%
+		'''
+	
+	icon:
+	{
+		texture: "resource.smirglum.gravel"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: gravel
+	flags: raw, gravel, magnetic, granular, smeltable, metal, despawnable
+	mass_per_unit: 0.760
+	quantity_max: 500.000
+	prefab: "resource.smirglum.gravel"
+	
+	specific_heat: 45.500
+	thermal_conductivity: 0.640
+}

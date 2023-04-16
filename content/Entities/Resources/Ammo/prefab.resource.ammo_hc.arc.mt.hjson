@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 		material: metal
 	}
@@ -33,11 +33,6 @@ transform:
 resource:
 {
 	material: "ammo_hc.arc.mt"
-}
-
-hoverable:
-{
-
 }
 
 holdable:

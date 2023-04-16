@@ -1,3 +1,9 @@
+$name: "Machine Gun"
+$desc:
+	'''
+	High-powered machine gun.
+	Very heavy and difficult to handle, usually wielded by giants or placed on mounts.
+	'''
 $tags: []
 
 body:
@@ -19,16 +25,16 @@ body:
 gun:
 {
 	muzzle_offset: [1.750, -0.0625]
-	sound_shoot: "machine_gun_shoot"
+	sound_shoot: "musket_shoot"
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 3.500
-	recoil_multiplier: 0.200
+	recoil_multiplier: 1.100
 	reload_interval: 2.500
-	cycle_interval: 0.090
-	failure_rate: 0.003
-	max_ammo: 40.000
+	cycle_interval: 0.085
+	failure_rate: 0.002
+	max_ammo: 50.000
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
 	ammo_filter: ammo_mg
@@ -54,7 +60,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [30.000, 20.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -70,7 +76,7 @@ holdable:
 	radius: 8.000
 	flags: storable
 
-	force_multiplier: 1.000
+	force_multiplier: 0.900
 	torque_multiplier: 0.700
 }
 
@@ -129,7 +135,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 110.000
+	cool_rate: 45.000
 	
 	@light:
 	{
@@ -137,7 +143,7 @@ overheat:
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:

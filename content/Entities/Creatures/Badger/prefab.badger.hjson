@@ -12,17 +12,17 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.500
-		elasticity: 0.350
+		friction: 0.300
+		elasticity: 0.650
 		material: flesh
-		layer: entity, solid, creature
+		layer: entity, solid, creature, flammable
 		mask: world, vehicle
 	}
 }
 
 organic:
 {
-
+	h_species: "badger"
 }
 
 organic.state:
@@ -43,11 +43,14 @@ animated.renderer:
 		size: [16, 16]
 	}
 	z: -30.000
-	
-	@damagesprite:
-	{
-	
-	}
+	flags: has_damage
+}
+
+damage.effects:
+{
+	offset: 1
+	frame_count: 4
+	threshold_wreck: 0.200
 }
 
 transform:
@@ -65,7 +68,8 @@ control:
 
 facing:
 {
-
+	offset: -0.250
+	threshold: 1.500
 }
 
 holdable:
@@ -155,6 +159,9 @@ runner:
 	walk_force: 8000.000
 	jump_force: 15000.000
 	max_speed: 10.000
+	max_jump_time: 0.000
+	max_air_time: 0.200
+	air_brake_modifier: 0.000
 }
 
 runner.state:
@@ -170,8 +177,9 @@ threat:
 dive:
 {
 	sound: "badger_pounce"
+	offset: [0.000, 0.250]
 	cooldown: 2.000
-	speed: 20.000
+	speed: 15.000
 }
 
 badger:
@@ -183,7 +191,7 @@ norotate:
 {
 	bias: 0.100
 	multiplier: 2.000
-	mass_multiplier: 25.000
+	mass_multiplier: 35.000
 }
 
 interactable:
@@ -194,6 +202,7 @@ interactable:
 legs:
 {
 	sound_interval_multiplier: 1.100
+	frames_jump: [1, 3]
 	frame_count: 5
 }
 
@@ -231,10 +240,10 @@ faction:
 	
 	joint.base:
 	{
-		offset_a: [-0.875, 0.000]
+		offset_a: [-0.375, -0.125]
 		max_force: 20000.000
 		max_torque: 1500.000
-		flags: organic, control_write
+		flags: organic, control_write, facing_reset_pos, force_facing
 
 		@animated.renderer:
 		{
@@ -264,8 +273,9 @@ faction:
 	{
 		max_torque: 8000.000
 		max_bias: 8.000
-		min: -0.500
-		max: 0.500
+		min: -1.200
+		max: 1.200
+		error_bias: 0.010
 	}
 	
 	+butt|child:
@@ -278,23 +288,27 @@ faction:
 			{
 				mass: 25.000
 				radius: 0.500
-				friction: 0.700
-				elasticity: 0.250
+				friction: 0.300
+				elasticity: 0.450
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world, vehicle
 			}
 		}
 		
 		norotate:
 		{
+			rotation: 0.000
 			bias: 0.100
-			multiplier: 1.000
-			mass_multiplier: 35.000
+			speed: 5.000
+			multiplier: 7.000
+			mass_multiplier: 240.000
 		}
 		
 		organic:
 		{
+			h_species: "badger"
+
 			@animated.renderer:
 			{
 				sprite:
@@ -325,7 +339,7 @@ faction:
 		
 		holdable:
 		{
-			offset: [0.000, 0.000]
+			offset: [0.250, -0.125]
 		}
 		
 		animated.renderer:
@@ -336,12 +350,16 @@ faction:
 				count: 1
 				size: [16, 16]
 			}
+			offset: [-0.300, 0.000]
 			z: -40.000
-			
-			@damagesprite:
-			{
-			
-			}
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
 		}
 		
 		runner:
@@ -349,6 +367,9 @@ faction:
 			walk_force: 6000.000
 			jump_force: 1000.000
 			max_speed: 10.000
+			max_jump_time: 0.100
+			max_air_time: 0.700
+			air_brake_modifier: 0.000
 		}
 		
 		runner.state:
@@ -369,6 +390,7 @@ faction:
 		legs:
 		{
 			sound_interval_multiplier: 1.100
+			frames_jump: [0, 2]
 			frame_count: 5
 		}
 
@@ -400,7 +422,7 @@ faction:
 		offset_a: [0.500, -0.300]
 		max_force: 22000.000
 		max_torque: 2000.000
-		flags: organic, control_write
+		flags: organic, control_write, facing_reset_pos, force_facing
 
 		@animated.renderer:
 		{
@@ -444,38 +466,76 @@ faction:
 			{
 				mass: 15.000
 				radius: 0.400
-				friction: 0.700
-				elasticity: 0.250
+				friction: 0.400
+				elasticity: 0.350
 				material: flesh
-				layer: entity, solid, creature
+				layer: entity, solid, creature, flammable
 				mask: world, vehicle
 			}
 		}
 		
 		lookat:
 		{
-			min: -2.000
-			max: 2.000
-			torque: 500.000
-			speed: 1.000
+			head_modifier: 0.900
+			body_modifier: 0.000
+			deadzone: 0.350
 		}
 		
-		biter:
-		{
-			sound: "badger_attack"
-			damage_base: 40.000
-			damage_bonus: 150.000
+		// biter:
+		// {
+		// 	sound: "badger_attack"
+		// 	damage_base: 40.000
+		// 	damage_bonus: 140.000
+		// 	velocity: 45.000
+		// 	force: -270.000
 
+		// 	cooldown: 0.800
+		// 	max_distance: 2.200
+		// 	penetration: 1
+		// 	aoe: 0.450
+		// 	damage_type: bite
+		// 	hit_mask: destructible
+		// }
+
+		melee:
+		{
+			sound_volume: 1.000
+			sound_size: 2.000
+			sound_pitch: 1.000
+			hit_offset: [0.000, 0.000]
+			hit_direction: [1.000, 0.000]
+			swing_offset: [0.000, 0.000]
+			swing_rotation: 0.000
+			attack_type: thrust
+			damage_base: 40.000
+			damage_bonus: 140.000
+			primary_damage_multiplier: 1.000
+			secondary_damage_multiplier: 1.000
+			terrain_damage_multiplier: 1.000
 			cooldown: 0.800
-			max_distance: 1.500
-			aoe: 0.250
+			max_distance: 1.250
+			aoe: 0.750
+			thickness: 0.750
+			knockback: -450.000
+			yield: 0.800
+			penetration_falloff: 0.900
+			penetration: 1
 			damage_type: bite
+			category: pointed
+			flags: no_handle
 			hit_mask: destructible
+			hit_exclude: decoration, tree, ignore_melee, world
+		}
+
+		melee.state:
+		{
+
 		}
 		
 		organic:
 		{
 			tags: brain
+			h_species: "badger"
 
 			@animated.renderer:
 			{
@@ -514,13 +574,16 @@ faction:
 				size: [16, 8]
 			}
 			z: -30.000
-			
-			@damagesprite:
-			{
-			
-			}
+			flags: has_damage
 		}
-		
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
+		}
+				
 		threat:
 		{
 			priority: 4.000

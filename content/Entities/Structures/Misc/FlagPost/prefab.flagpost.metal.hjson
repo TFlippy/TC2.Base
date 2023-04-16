@@ -1,3 +1,8 @@
+$name: "Flagpole"
+$desc:
+	'''
+	Metal flagpole indicating a claimed territory.
+	'''
 $tags: []
 
 body:

@@ -1,3 +1,10 @@
+$name: "Belt (Rope)"
+$desc:
+	'''
+	Used for cheap long-range belt drives.
+
+	Prone to slippage and can't transmit high amounts of torque.
+	'''
 $tags: []
 
 body:
@@ -13,7 +20,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: fabric
-		layer: entity, belt, ignore_melee
+		layer: entity, belt, ignore_melee, flammable
 		mask: world
 	}
 }

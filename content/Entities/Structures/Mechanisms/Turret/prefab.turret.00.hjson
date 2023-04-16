@@ -23,13 +23,13 @@ body:
 
 health:
 {
-	max: 9000.000
+	max: 13000.000
 }
 
 armor:
 {
-	toughness: 1100.000
-	protection: 0.500
+	toughness: 900.000
+	protection: 0.800
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
@@ -133,6 +133,7 @@ vehicle:
 		max_torque: 200000.000
 		z: 90.000
 		flags: control_write, no_wrap, force_facing, attachment
+		material_type: metal
 	}
 
 	joint.pivot:

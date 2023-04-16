@@ -3,17 +3,19 @@ $tags: []
 projectile:
 {
 	damage_base: 50.000
-	damage_bonus: 80.000
+	damage_bonus: 120.000
+	knockback_multiplier: 1.700
 	lifetime: 5.000
 	damage_type: bullet_sg
-	size: 0.080
+	size: 0.010
 	ricochet_count: 0
-	tracer_length: 3.000
+	tracer_length: 1.750
 }
 
 projectile.renderer:
 {
-	
+	thickness_a: 0.075
+	thickness_b: 0.100
 }
 
 transform:

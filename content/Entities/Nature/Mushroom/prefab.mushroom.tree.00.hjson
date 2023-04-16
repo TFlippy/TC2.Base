@@ -1,5 +1,5 @@
 $name: "Mushroom Tree"
-$desc: "How odd."
+$desc: "Does that even count as a tree?"
 $tags: []
 
 body:
@@ -15,7 +15,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet
+		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -47,6 +47,10 @@ harvestable:
 		{
 			material: "mushroom"
 			quantity: 4500.000
+		}
+		{
+			material: "plants"
+			quantity: 1500.000
 		}
 	]
 }

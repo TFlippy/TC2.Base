@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: glass
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -34,11 +34,6 @@ transform:
 resource:
 {
 	material: "mayo"
-}
-
-hoverable:
-{
-
 }
 
 holdable:

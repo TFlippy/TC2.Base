@@ -20,12 +20,18 @@ body:
 
 conveyor:
 {
-	interval: 0.250
+	interval: 0.800
 
-	throughput_min: 2.000
+	throughput_min: 1.000
 	throughput_max: 10.000
 
-	filter_flags: ore, gravel, powder
+	sound: "conveyor.move.04"
+	sound_volume: 0.000
+
+	filter:
+	{
+		require: granular
+	}
 }
 
 conveyor.state:
@@ -54,7 +60,7 @@ resizable:
 		texture: "conveyor.auger.cap"
 	}
 	
-	flags: mirror_cap_b, dynamic
+	flags: mirror_cap_b, dynamic, orthogonal
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]

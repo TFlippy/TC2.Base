@@ -1,14 +1,16 @@
 {
 	name: "Artillery Shell (Shrapnel)"
-	description: "Ammunition for cannons."
-
+	description:
+		'''
+		Ammunition for cannons.
+		'''
+	
 	icon:
 	{
 		texture: "resource.ammo_shell.shrapnel"
 		size: [16, 16]
-		frame: [0, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -17,22 +19,20 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_shell, explosive
-	mass_per_unit: 10.000
+	flags: manufactured, ammo, ammo_shell, magnetic, explosive
+	mass_per_unit: 14.000
 	quantity_max: 1.000
 	prefab: "resource.ammo_shell.shrapnel"
 	
-	projectile_count: 1
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 4000.000
-	projectile_prefab: "projectile.shell.shrapnel"
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 1
+		mass: 11.000
+		speed_mult: 1.000
+		spread_mult: 1.000
+		recoil_mult: 1.000
+		heat: 4000.000
+		velocity_min: 80.000
+		prefab: "projectile.shell.shrapnel"
+	}
 }

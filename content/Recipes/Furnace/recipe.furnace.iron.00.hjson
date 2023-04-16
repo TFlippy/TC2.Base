@@ -1,0 +1,70 @@
+{
+	name: "Smelt Iron (Ore)"
+	desc:
+		'''
+		Smelt unpurified iron ore.
+
+		While the efficiency is not optimal, it's still a viable method if processing big amount of iron.
+		'''
+	
+	icon:
+	{
+		texture: "resource.iron.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.iron.ore"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xfff34a29"
+	
+	min: 50
+	max: 200
+	step: 50
+	
+	type: crafter
+	flags: none
+	tags: furnace
+	rank: -150.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "iron.ore"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: "melting"
+			amount: 24.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "iron.ingot"
+			amount: 0.240
+			amount_extra: 0.180
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.132
+			amount_extra: 0.090
+		}
+	]
+}

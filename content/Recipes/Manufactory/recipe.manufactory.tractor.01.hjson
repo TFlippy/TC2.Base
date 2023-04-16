@@ -1,0 +1,62 @@
+{
+	name: "Tractor (Heavy)"
+	desc:
+		'''
+		Sturdier variant of the standard tractor with a front-mounted cabin, heavy attachment slot and an internal Aubucht steam engine.
+		'''
+
+	icon:
+	{
+		texture: "tractor.01"
+		size: [64, 32]
+	}
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	flags: no_amount_multiplier, blueprintable
+	type: workshop
+	tags: manufactory
+	rank: -160.000
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "steel.ingot"
+			amount: 30.000
+		}
+		{
+			type: "resource"
+			material: "steel.plate"
+			amount: 100.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 50.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 1800.000
+			difficulty: 15.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 2000.000
+			difficulty: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "tractor.01"
+			amount: 1.000
+		}
+	]
+}

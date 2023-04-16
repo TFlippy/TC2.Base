@@ -1,23 +1,34 @@
 {
 	name: "Gold"
-	desc: "A very precious metal."
+	desc:
+		'''
+		A very precious metal.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, rare, mineral
 	
-	max_health: 10400.000
+	max_health: 35000.000
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.900
 	elasticity: 0.300
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.gold.ore"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.650
 	texture_overshoot: -0.650
+	color_preview: "0xffff9c38"
 	
 	resources:
 	[

@@ -61,11 +61,11 @@ armory:
 {
 	@inventory8:
 	{
-		name: "Storage"
-		stack_size_multiplier: 5.000
+		name: "Ammo"
+		stack_size_multiplier: 10.000
 		filter_flags: ammo
-		type: storage
-		flags: allow_ducts, ignore_mass, public
+		type: ammo
+		flags: allow_ducts, ignore_mass
 	}
 }
 
@@ -76,5 +76,5 @@ shipment:
 
 interactable:
 {
-	window_size: [336.000, 216.000]
+	window_size: [384.000, 256.000]
 }

@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 			public Vector2 world_position;
 			public Chainsaw.Data chainsaw;
 			public Entity entity;
-			public Specialization.Miner.Data mining;
+			//public Specialization.Miner.Data mining;
 			public bool valid;
 
 			public void Draw()
@@ -42,7 +42,7 @@ namespace TC2.Base.Components
 				var wpos = this.world_position;
 				var cpos = this.WorldToCanvas(wpos);
 
-				var radius = this.mining.ApplySize(this.chainsaw.radius);
+				var radius = this.chainsaw.radius;
 
 				var color = this.valid ? new Color32BGRA(0xff00ff00) : new Color32BGRA(0xffff0000);
 				var color_bg = color.WithAlphaMult(0.10f);
@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
 			{
@@ -93,7 +93,6 @@ namespace TC2.Base.Components
 					transform = transform,
 					chainsaw = chainsaw,
 					world_position = hit_position,
-					mining = mining,
 					valid = true
 				};
 
@@ -108,13 +107,10 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			var random = XorRandom.New();
-
-
 			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
@@ -139,8 +135,9 @@ namespace TC2.Base.Components
 						var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
 						var damage = damage_base + damage_bonus;
 
+#if SERVER
 						var flags = Damage.Flags.None;
-
+#endif
 						var penetration = 0;
 
 						var hit_terrain = false;
@@ -158,7 +155,12 @@ namespace TC2.Base.Components
 							}
 
 #if SERVER
-							Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 8.00f);
+							//Damage.Hit(entity, parent, hit.entity, hit.world_position, dir, -dir, damage * modifier, hit.material_type, Damage.Type.Saw, knockback: 1.00f, size: 0.125f, flags: flags, yield: 0.90f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 1.00f, faction_id: faction.id, speed: 8.00f);
+							Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: hit.entity,
+								position: hit.world_position, velocity: dir * 8.00f, normal: -dir,
+								damage_integrity: damage * modifier, damage_durability: damage * modifier, damage_terrain: damage * modifier,
+								target_material_type: hit.material_type, damage_type: Damage.Type.Saw,
+								yield: 0.90f, size: 0.125f, impulse: 0.00f, faction_id: faction.id);
 #endif
 
 							//flags |= Damage.Flags.No_Sound;

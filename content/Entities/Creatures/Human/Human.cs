@@ -55,13 +55,12 @@
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[HasTag("dead", false, Source.Modifier.Owned), HasTag("human", true, Source.Modifier.Parent)]
-		public static void HeadUpdate(ISystem.Info info, Entity entity,
+		public static void HeadUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Parent] ref Human.Data human,
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head, [Source.Owned] ref Body.Data body)
 		{
 			ref var region = ref info.GetRegion();
 			var time = info.WorldTime;
-			var random = XorRandom.New();
 
 			//App.WriteLine("hm");
 

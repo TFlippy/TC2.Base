@@ -16,7 +16,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, support, ignore_melee, no_overlapped_placement
+		layer: entity, building, support, ignore_melee, no_overlapped_placement, flammable
 		mask: world
 	}
 }
@@ -50,6 +50,6 @@ lamp:
 		offset: [0.000, -2.500]
 		scale: [96.000, 96.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }

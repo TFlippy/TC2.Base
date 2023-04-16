@@ -25,6 +25,10 @@
 			material: "peat"
 			quantity: 1.200
 		}
+		{
+			material: "plants"
+			quantity: 0.700
+		}
 	]
 	
 	mappings:

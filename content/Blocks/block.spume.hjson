@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "smirgl.powder"
+			material: "smirglum.powder"
 			quantity: 0.020
 		}
 	]

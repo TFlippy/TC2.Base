@@ -1,7 +1,7 @@
 $name: "Dynamite"
 $desc: 
 	'''
-	Often used for mining and demolition.
+	Small yet very powerful explosive used for mining and demolition.
 	'''
 $tags: []
 
@@ -14,14 +14,14 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, 0.500]
-		b: [0.000, -0.500]
+		a: [0.000, 0.300]
+		b: [0.000, -0.300]
 		mass: 0.300
-		radius: 0.200
+		radius: 0.350
 		friction: 0.980
 		elasticity: 0.600
 		material: paper
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world
 	}
 }
@@ -43,7 +43,9 @@ animated.renderer:
 	{
 		texture: "dynamite"
 	}
+	color: "0xffd33900"
 	offset: [0.125, -0.125]
+	mask: "dynamite.mask"
 }
 
 transform:
@@ -64,7 +66,7 @@ fuse:
 		offset: [-0.100, 0.100]
 		scale: [12.000, 12.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 	
 	@sound.emitter:
@@ -75,17 +77,12 @@ fuse:
 	}
 }
 
-health:
-{
-	max: 100.000
-}
-
 explosive:
 {
-	radius: 9.000
-	power: 5.000
-	damage_entity: 25000.000
-	damage_terrain: 250000.000
+	radius: 5.500
+	power: 6.500
+	damage_entity: 13000.000
+	damage_terrain: 200000.000
 	smoke_amount: 0.800
 	smoke_lifetime_multiplier: 0.200
 	smoke_velocity_multiplier: 1.500

@@ -1,0 +1,60 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 10.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_musket.motion"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_musket.motion"
+
+	@light:
+	{
+		color: [0.000, 1.000, 1.000, 1.200]
+		offset: [0.000, 0.500]
+		scale: [12.000, 12.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+
+}

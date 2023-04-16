@@ -12,6 +12,10 @@
 		frame: [1, 0]
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: construction
@@ -24,7 +28,7 @@
 		radius: 0.750
 		
 		cooldown: 0.250
-		min_support: 0.250
+		min_support: 0.200
 		min_claim: 1.000
 		
 		sound: "stone_place_0"

@@ -1,0 +1,75 @@
+﻿{
+	name: "Magnetite Steel (Smelting)"
+	desc: 
+		'''
+
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.magnetite"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xfff34a29"
+
+	min: 50
+	max: 500
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	rank: -200.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "magnetite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "coke"
+			amount: 0.100
+		}
+		{
+			type: work
+			work: melting
+			amount: 37.500
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 0.200
+			amount_extra: 0.350
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.220
+			amount_extra: 0.750
+			flags: waste
+		}
+	]
+}

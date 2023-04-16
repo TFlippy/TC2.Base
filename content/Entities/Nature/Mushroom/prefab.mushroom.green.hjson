@@ -8,11 +8,11 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, 0.000]
-		b: [0.125, -2.875]
+		a: [0.125, -0.375]
+		b: [0.250, -2.375]
 		mass: 1500.000
-		radius: 0.500
-		friction: 1.500
+		radius: 1.000
+		friction: 0.500
 		elasticity: 0.010
 		material: mushroom
 		layer: entity, solid, ignore_bullet
@@ -39,6 +39,7 @@ animated.renderer:
 	}
 	offset: [0.200, -1.800]
 	z: -200.000
+	flags: has_damage
 	
 	@light:
 	{
@@ -46,13 +47,13 @@ animated.renderer:
 		offset: [0.220, -2.500]
 		scale: [16.000, 20.000]
 		intensity: 1.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
+}
 
-	@damagesprite:
-	{
-		frame_count: 3
-	}
+damage.effects:
+{
+	frame_count: 3
 }
 
 harvestable:

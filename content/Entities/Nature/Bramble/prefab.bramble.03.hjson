@@ -23,7 +23,7 @@ body:
 		rigidity_dynamic: 0.500
 		rigidity_static: 0.250
 		material: wood
-		layer: entity, ignore_bullet, no_overlapped_placement, barbed
+		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable
 		mask: solid, creature
 		exclude: tree
 	}
@@ -48,4 +48,15 @@ foliage.renderer:
 barbedwire:
 {
 	damage: 100.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "wood"
+			quantity: 210.000
+		}
+	]
 }

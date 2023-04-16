@@ -30,10 +30,10 @@ gun:
 	velocity_multiplier: 250.000
 	jitter_multiplier: 8.000
 	damage_multiplier: 4.800
-	recoil_multiplier: 1.200
+	recoil_multiplier: 1.500
 	reload_interval: 2.000
 	cycle_interval: 0.500
-	failure_rate: 0.200
+	failure_rate: 0.020
 	max_ammo: 1.000
 	projectile_count: 1
 	flags: none
@@ -65,7 +65,7 @@ gun:
 		offset: [1.250, -0.125]
 		scale: [24.000, 16.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -79,6 +79,9 @@ holdable:
 	offset: [-0.500, 0.000]
 	radius: 4.000
 	flags: storable
+
+	force_multiplier: 1.300
+	torque_multiplier: 1.200
 }
 
 animated.renderer:

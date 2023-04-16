@@ -5,6 +5,7 @@
 		Sticky resin obtained from trees,
 		can be used as fast-burning fuel.
 		'''
+	
 	icon:
 	{
 		texture: "resource.resin"
@@ -12,23 +13,22 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: glass
-	flags: raw, fuel, organic, despawnable
+	flags: raw, fuel, granular, organic, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 100.000
 	prefab: "resource.resin"
 	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 25000000.000
-	fuel_drain: 350000.000
-	fuel_purity: 0.800
-	fuel_temperature: 1300.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	fuel:
+	{
+		energy: 25000000.000
+		drain: 350000.000
+		purity: 0.800
+		temperature: 1573.150
+	}
 }

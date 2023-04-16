@@ -65,7 +65,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Crane", this.ent_crane))
+				using (var window = GUI.Window.Interaction("Crane", this.ent_crane, no_mouse_close: true))
 				{
 					if (window.show)
 					{

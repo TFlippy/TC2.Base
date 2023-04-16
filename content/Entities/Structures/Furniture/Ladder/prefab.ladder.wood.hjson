@@ -20,14 +20,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
+		layer: entity, climbable, building, no_overlapped_placement, ignore_melee, flammable
 		mask: world
 	}
 }
 
 health:
 {
-	max: 1000.000
+	max: 3000.000
 }
 
 animated.renderer:

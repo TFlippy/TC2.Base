@@ -30,7 +30,8 @@
 			No_Particles = 1u << 4,
 
 			Child_Projectiles = 1u << 5,
-			No_LMB_Cycle = 1u << 6,
+			Rope_Projectiles = 1u << 6,
+			No_LMB_Cycle = 1u << 7,
 
 		}
 
@@ -104,6 +105,8 @@
 			Loaded = 1 << 3,
 			Wants_Reload = 1 << 4,
 			Artillery = 1 << 5,
+			Hold_RMB = 1 << 6,
+			No_Ammo = 1 << 7,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -120,7 +123,7 @@
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
-			public static readonly Sound.Handle sound_jam_default = "gun_jam";
+			public static readonly Sound.Handle sound_jam_default = "gun.jam.00";
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 muzzle_offset = default;
@@ -183,6 +186,7 @@
 			public float smoke_amount = 1.00f;
 
 			public float shake_amount = 0.20f;
+			public float shake_radius = 16.00f;
 
 			public float heuristic_range = 30.00f;
 
@@ -228,7 +232,7 @@
 			angle_steep = null;
 
 			//ref var material = ref material_ammo.GetData();
-			//if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			//if (material.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 			{
 				//var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				//var dir = transform.GetDirection();
@@ -245,12 +249,12 @@
 					var p = pos_target - pos_muzzle;
 					p.Y *= -1;
 
-					var v = speed; // velocity_multiplier * material.projectile_speed_mult;
+					var v = speed; // velocity_multiplier * ammo.speed_mult;
 					var g = gravity; /// region.GetGravity().Y * projectile.gravity;
 					//var d = projectile.damp;
 
 					var sqrt = MathF.Sqrt((v * v * v * v) - (g * (g * (p.X * p.X) + (2.00f * p.Y * (v * v)))));
-					
+
 					var a = MathF.Atan(((v * v) - sqrt) / (g * p.X));
 					var b = MathF.Atan(((v * v) + sqrt) / (g * p.X));
 
@@ -287,68 +291,72 @@
 			var ts = Timestamp.Now();
 
 			ref var material = ref material_ammo.GetData();
-			if (material.IsNotNull() && material.projectile_prefab.TryGetPrefab(out var prefab_projectile))
+			if (material.IsNotNull())
 			{
-				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
-
-				if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
+				ref var ammo = ref material.ammo.GetRef();
+				if (ammo.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 				{
-					var vel = transform.GetDirection() * gun.velocity_multiplier * material.projectile_speed_mult; // * random_multiplier;
+					var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 
-					var pos_a = pos_w_offset;
-					var pos_b = pos_w_offset;
-
-					//GUI.Text($"{vel}");
-
-					var iter_count = 500;
-					var iter_count_inv = 1.00f / iter_count;
-
-					var pos_last = pos_a;
-					var dist_delta = 0.00f;
-
-
-					var line_len = 4.00f;
-					var line_gap = 2.00f;
-
-					for (int i = 0; i < iter_count; i++)
+					if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
-						var pos = pos_b;
-						var alpha = i * iter_count_inv;
+						var vel = transform.GetDirection() * gun.velocity_multiplier * ammo.speed_mult; // * random_multiplier;
 
-						vel *= projectile.damp;
-						vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
+						var pos_a = pos_w_offset;
+						var pos_b = pos_w_offset;
 
-						var step = vel * App.fixed_update_interval_s;
-						pos += step;
+						//GUI.Text($"{vel}");
 
-						pos_a = pos_b;
-						pos_b = pos;
+						var iter_count = 500;
+						var iter_count_inv = 1.00f / iter_count;
 
-						dist_delta += Vector2.Distance(pos_a, pos_b);
+						var pos_last = pos_a;
+						var dist_delta = 0.00f;
 
-						if (dist_delta >= line_len)
+
+						var line_len = 4.00f;
+						var line_gap = 2.00f;
+
+						for (var i = 0; i < iter_count; i++)
 						{
-							var dir = (pos - pos_last).GetNormalized(out var len);
-							len -= line_gap;
+							var pos = pos_b;
+							var alpha = i * iter_count_inv;
 
-							var pos_line_a = pos_last;
-							var pos_line_b = pos_last + (dir * len);
+							vel *= projectile.damp;
+							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
 
-							if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+							var step = vel * App.fixed_update_interval_s;
+							pos += step;
+
+							pos_a = pos_b;
+							pos_b = pos;
+
+							dist_delta += Vector2.Distance(pos_a, pos_b);
+
+							if (dist_delta >= line_len)
 							{
-								//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
-								//var dir_perp = dir.GetPerpendicular() * 10;
+								var dir = (pos - pos_last).GetNormalized(out var len);
+								len -= line_gap;
 
-								//GUI.DrawLine((pos_line_mid - (dir_perp)).WorldToCanvas(), (pos_line_mid + (dir_perp)).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(0.50f), 4.00f);
+								var pos_line_a = pos_last;
+								var pos_line_b = pos_last + (dir * len);
+
+								if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+								{
+									//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
+									//var dir_perp = dir.GetPerpendicular() * 10;
+
+									//GUI.DrawLine((pos_line_mid - (dir_perp)).WorldToCanvas(), (pos_line_mid + (dir_perp)).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(0.50f), 4.00f);
 
 
-								break;
+									break;
+								}
+
+								GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
+
+								pos_last = pos;
+								dist_delta = 0;
 							}
-
-							GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
-
-							pos_last = pos;
-							dist_delta = 0;
 						}
 					}
 				}
@@ -380,7 +388,7 @@
 					{
 						if (this.state.stage == Gun.Stage.Reloading)
 						{
-							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetFixedTime(), 0.00f):0.00}", pivot: new(0.50f));
+							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f));
 						}
 					}
 				}
@@ -519,6 +527,39 @@
 		}
 #endif
 
+		[ISystem.Add(ISystem.Mode.Single)]
+		public static void OnAddVehicle(ISystem.Info info, Entity ent_gun,
+		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
+		{
+			vehicle.ent_gun = ent_gun;
+		}
+
+		[ISystem.Remove(ISystem.Mode.Single)]
+		public static void OnRemVehicle(ISystem.Info info, Entity ent_gun,
+		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
+		{
+			vehicle.ent_gun = default;
+		}
+
+#if SERVER
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
+		{
+			ref var region = ref info.GetRegion();
+
+			gun_state.stage = Gun.Stage.Jammed;
+			gun_state.Sync(entity);
+
+			gun.jitter_multiplier += random.NextFloatRange(0.50f, 3.00f);
+			gun.stability -= MathF.Min(gun.stability, random.NextFloatRange(0.10f, 0.30f));
+			gun.failure_rate += random.NextFloatRange(0.02f, 0.08f);
+			gun.failure_rate *= random.NextFloatRange(1.10f, 1.80f);
+			gun.failure_rate = gun.failure_rate.Clamp01();
+			gun.Sync(entity);
+		}
+#endif
+
+#if CLIENT
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)
@@ -577,14 +618,14 @@
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}
+#endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory,
-		[Source.Parent, Optional] in Specialization.Gunslinger.Data gunslinger) where T : unmanaged, IInventory
+		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory) where T : unmanaged, IInventory
 		{
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
@@ -618,12 +659,12 @@
 				}
 				else
 				{
-					gun_state.next_reload = info.WorldTime + gunslinger.ApplyReloadSpeed(gun.reload_interval);
+					gun_state.next_reload = info.WorldTime + gun.reload_interval;
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
-					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAll(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAny(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
-					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= float.Epsilon)
+					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
 					{
 						var count = inventory.Length;
 						for (var i = 0; i < count; i++)
@@ -631,11 +672,14 @@
 							ref var resource = ref inventory[i];
 
 							ref var material = ref resource.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(gun.ammo_filter))
+							if (material.IsNotNull() && material.flags.HasAny(gun.ammo_filter) && material.ammo.HasValue)
 							{
+								ref var ammo = ref material.ammo.GetRef();
+
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
-								gun_state.muzzle_velocity = gun.velocity_multiplier * material.projectile_speed_mult;
+								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
+								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
 
 								break;
 							}
@@ -647,7 +691,7 @@
 #if SERVER
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : gunslinger.ApplyBulkReload(1.00f)), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done = true;
@@ -672,6 +716,7 @@
 					else
 					{
 						gun_state.next_reload = info.WorldTime + 0.10f;
+						gun_state.hints.SetFlag(Gun.Hints.No_Ammo, true);
 #if SERVER
 						gun_state.stage = Gun.Stage.Ready;
 						gun_state.Sync(entity);
@@ -684,7 +729,7 @@
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
@@ -698,7 +743,6 @@
 				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
-				var random = XorRandom.New();
 				var base_vel = body.GetVelocity();
 
 				var failure_rate = gun.failure_rate;
@@ -707,18 +751,20 @@
 				var force_jammed = false;
 
 #if CLIENT
-				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, 16.00f);
+				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, gun.shake_radius);
 #endif
 
 				ref var material = ref inventory_magazine.resource.material.GetData();
-				if (material.IsNotNull() && material.projectile_prefab.id != 0)
+				if (material.IsNotNull() && material.ammo.HasValue)
 				{
+					ref var ammo = ref material.ammo.GetRef();
+
 					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
-					var recoil_mass = material.mass_per_unit * gun.ammo_per_shot;
-					var recoil_speed = gun.velocity_multiplier * material.projectile_speed_mult;
-					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * material.projectile_recoil_mult * App.tickrate * 20.00f);
+					var recoil_mass = ammo.mass * gun.ammo_per_shot;
+					var recoil_speed = gun.velocity_multiplier * ammo.speed_mult;
+					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate * 20.00f);
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
 
@@ -726,6 +772,10 @@
 
 					//body.AddForceWorld(-dir * body.GetMass() * gun.recoil_multiplier * App.tickrate * 150.00f, pos_w_offset);
 					//body.AddForce(recoil_force); //, pos_w_offset);
+
+					failure_rate = Maths.Clamp01((failure_rate + ammo.failure_base) * ammo.failure_mult);
+					stability = Maths.Clamp01((stability + ammo.stability_base) * ammo.stability_mult);
+
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
 
@@ -739,16 +789,16 @@
 					var amount = gun.ammo_per_shot;
 					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
 
-					var count = (material.projectile_count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
+					var count = (ammo.count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
 					if (!overheat.IsNull())
 					{
-						if (overheat.heat_critical > 0.00f && material.projectile_heat > 0.00f)
+						if (overheat.heat_critical > 0.00f && ammo.heat > 0.00f)
 						{
-							var heat = ((gun.ammo_per_shot - amount) * material.projectile_heat) / MathF.Max(body.GetMass() * 0.10f, 1.00f);
+							var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / MathF.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							overheat.heat_current += heat;
 
-							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
+							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_high, 0.00f);
 							if (heat_excess > 0.00f)
 							{
 								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
@@ -763,7 +813,7 @@
 					}
 
 					//var faction_id = default(IFaction.Handle);
-					
+
 					//if (body_parent.IsNotNull())
 					//{
 
@@ -779,21 +829,21 @@
 							var args =
 							(
 								damage_mult: gun.damage_multiplier * random_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * material.projectile_spread_mult)) * gun.velocity_multiplier * material.projectile_speed_mult * random_multiplier,
+								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * gun.velocity_multiplier * ammo.speed_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
 								faction_id: body.GetFaction(),
 								gun_flags: gun.flags
 							);
 
-							if (args.vel.LengthSquared() < (material.projectile_velocity_min * material.projectile_velocity_min))
+							if (args.vel.LengthSquared() < (ammo.velocity_min * ammo.velocity_min))
 							{
 								force_jammed = true;
 								break;
 							}
 							else
 							{
-								region.SpawnPrefab(material.projectile_prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
+								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
 								{
 									ref var projectile = ref ent.GetComponent<Projectile.Data>();
 									if (!projectile.IsNull())
@@ -818,6 +868,17 @@
 									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
 									{
 										ent.AddRelation(args.ent_gun, Relation.Type.Child);
+									}
+
+									if (args.gun_flags.HasAll(Gun.Flags.Rope_Projectiles))
+									{
+										var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
+										if (ent_child.IsAlive())
+										{
+											ent_child.RemoveRelation(entity, Relation.Type.Rope);
+											ent_child.Delete();
+										}
+										ent.AddRelation(args.ent_gun, Relation.Type.Rope);
 									}
 								});
 							}
@@ -860,27 +921,28 @@
 #endif
 				}
 
-				if (force_jammed || gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
-
-#if SERVER
-					if (force_jammed || random.NextBool(failure_rate))
-					{
-						//App.WriteLine("jammed");
-
-						gun_state.stage = Gun.Stage.Jammed;
-						entity.SyncComponent(ref gun_state);
-
-						Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
-						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
-					}
-#endif
 				}
 				else
 				{
 					gun_state.stage = Gun.Stage.Ready;
 				}
+
+
+#if SERVER
+				if (force_jammed || random.NextBool(failure_rate))
+				{
+					//App.WriteLine("jammed");
+
+					gun_state.stage = Gun.Stage.Jammed;
+					gun_state.Sync(entity, true);
+
+					Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+					WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
+				}
+#endif
 
 #if CLIENT
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
@@ -930,7 +992,14 @@
 					}
 				}
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
+				var pitch_modifier = 1.00f;
+				if (overheat.IsNotNull())
+				{
+					pitch_modifier += (Maths.InvLerp(overheat.heat_medium, overheat.heat_high, overheat.heat_current).Clamp01() * 0.08f);
+				}
+				pitch_modifier *= random.NextFloatRange(0.98f, 1.02f);
+
+				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch * pitch_modifier, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 
@@ -961,14 +1030,29 @@
 			}
 		}
 
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.500f)]
+		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
+		{
+			aimable.offset = gun.muzzle_offset; // new Vector2(0.00f, gun.muzzle_offset.Y);
+			aimable.deadzone = gun.muzzle_offset.Length();
+		}
+
+		[ISystem.AddFirst(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Ranged | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
+		}
+
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnReady(ISystem.Info info, Entity entity,
+		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
@@ -994,12 +1078,13 @@
 
 				if (gun_state.hints.HasAll(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Gun.Flags.Automatic))))
 				{
-					if (inventory_magazine.resource.quantity > float.Epsilon && inventory_magazine.resource.material.id != 0)
+					if (inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0)
 					{
 #if SERVER
 						gun_state.stage = Gun.Stage.Fired;
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 						entity.SyncComponent(ref gun_state);
+
 #endif
 					}
 					else
@@ -1008,7 +1093,6 @@
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
 #if SERVER
-						ref var region = ref info.GetRegion();
 						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
 						WorldNotification.Push(ref region, "* No ammo *", 0xffff0000, transform.position);
 #endif
@@ -1021,9 +1105,6 @@
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
-					ref var region = ref info.GetRegion();
-					var random = XorRandom.New();
-
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
 #if SERVER

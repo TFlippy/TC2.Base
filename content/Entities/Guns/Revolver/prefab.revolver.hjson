@@ -1,3 +1,8 @@
+$name: "Revolver"
+$desc:
+	'''
+	Small revolver capable of using high-caliber ammunition.
+	'''
 $tags: []
 
 body:
@@ -22,10 +27,10 @@ gun:
 	sound_shoot: "revolver_shoot"
 	sound_cycle: "revolver_cycle"
 	sound_reload: "revolver_reload"
-	velocity_multiplier: 330.000
-	jitter_multiplier: 0.100
-	damage_multiplier: 2.500
-	recoil_multiplier: 1.400
+	velocity_multiplier: 370.000
+	jitter_multiplier: 0.150
+	damage_multiplier: 2.800
+	recoil_multiplier: 2.200
 	reload_interval: 0.600
 	cycle_interval: 0.100
 	failure_rate: 0.002
@@ -56,7 +61,7 @@ gun:
 		offset: [1.000, -0.250]
 		scale: [16.000, 14.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -72,7 +77,7 @@ holdable:
 	flags: storable
 
 	force_multiplier: 2.000
-	torque_multiplier: 1.300
+	torque_multiplier: 1.000
 }
 
 animated.renderer:

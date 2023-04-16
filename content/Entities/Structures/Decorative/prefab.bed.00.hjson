@@ -1,0 +1,55 @@
+$name: "Bed"
+$desc: "Looks comfortable enough."
+$tags: []
+
+body:
+{
+	type: dynamic
+	
+	@shape.box:
+	{
+		size: [3.000, 1.500]
+		offset: [0.000, 0.000]
+		mass: 250.000
+		friction: 0.900
+		elasticity: 0.400
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "bed.00"
+	}
+	offset: [0.000, -0.250]
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 100.000
+		}
+		{
+			material: "cloth"
+			quantity: 30.000
+		}
+	]
+}

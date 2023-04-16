@@ -32,15 +32,18 @@ namespace TC2.Base
 							requirement.amount *= 1.30f;
 							requirement.difficulty += 3.00f;
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-							{
-								requirement.amount *= 1.20f;
-							}
-						}
+						//else if (requirement.type == Crafting.Requirement.Type.Resource)
+						//{
+						//	ref var material = ref requirement.material.GetData();
+						//	if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+						//	{
+						//		requirement.amount *= 1.20f;
+						//	}
+						//}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 10.00f));
 				}
 			));
 
@@ -87,9 +90,9 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Drill.Data>
 			(
-				identifier: "drill.smirgl_head",
+				identifier: "drill.smirglum_head",
 				category: "Drill",
-				name: "Smirgl Drill Head",
+				name: "Smirglum Drill Head",
 				description: "Greatly increases drill power at cost of reduced speed.",
 
 				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -123,12 +126,12 @@ namespace TC2.Base
 					}
 
 					var amount = 5.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirgl.ingot", amount));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirgl.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
 						if (material.IsNotNull())
 						{
 							body.mass_multiplier *= 1.10f;

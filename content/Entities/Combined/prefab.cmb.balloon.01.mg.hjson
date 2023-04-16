@@ -1,0 +1,86 @@
+$name: "Hot-Air Balloon (Heavy)"
+$prefab: "balloon.01"
+
+storage:
+{
+	@inventory8_data:
+	{
+		resources:
+		[
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
+			{
+				material: "ammo_mg"
+				quantity: 200.000
+			}
+		]
+	}
+}
+
++slot_cab|instance:
+{
+	+attached|child:
+	{
+		$prefab: "cabin.metal.02"
+	}
+}
+
++slot_mount_0|instance:
+{
+	attachment_slot:
+	{
+		flags: hold, keyboard_write, mouse_write
+		cycle_interval: 0.100
+		cycle_offset: 0.100
+	}
+
+	+attached|child:
+	{
+		$prefab: "machine_gun"	
+	}
+}
+
++slot_mount_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "levitator.01"
+
+		essencecontainer_data:
+		{
+			@inventory1_data:
+			{
+				resource:
+				{
+					material: "pellet.motion"
+					quantity: 30.000
+				}
+			}
+		}
+	}
+}
+
++slot_mount_2|instance:
+{
+	attachment_slot:
+	{
+		flags: hold, keyboard_write, mouse_write
+		cycle_interval: 0.100
+		cycle_offset: 0.000
+	}
+
+	+attached|child:
+	{
+		$prefab: "machine_gun"	
+	}
+}

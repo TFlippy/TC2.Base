@@ -1,6 +1,12 @@
 {
 	name: "Copper Powder"
-	description: "High-purity copper powder."
+	description:
+		'''
+		High-purity copper powder.
+		- Faster to melt
+		- Can be mixed into alloy powders
+		'''
+	
 	icon:
 	{
 		texture: "resource.copper.powder"
@@ -8,24 +14,22 @@
 		frame: [3, 0]
 	}
 	
+	icon_extra:
+	{
+	
+	}
+	
 	type: powder
-	flags: raw, powder, smeltable, metal, despawnable
+	flags: raw, powder, granular, smeltable, metal, despawnable
 	mass_per_unit: 0.230
-	market_price: 7.400
-	quantity_max: 250.000
+	quantity_max: 500.000
 	prefab: "resource.copper.powder"
-	
-	projectile_count: 0
-	projectile_speed_mult: 1.000
-	projectile_spread_mult: 1.000
-	projectile_heat: 0.000
-	projectile_prefab: ""
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
 	
 	specific_heat: 192.500
 	thermal_conductivity: 0.400
+	
+	commodity:
+	{
+		market_price: 7.400
+	}
 }

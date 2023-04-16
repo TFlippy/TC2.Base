@@ -13,7 +13,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: soil
-		layer: entity
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }
@@ -47,7 +47,7 @@ spawner:
 	prefab: "badger"
 	interval: 60.000
 	interval_count_modifier: 60.000
-	max_count: 2
+	max_count: 4
 	filter_tag: "badger"
 }
 
@@ -61,6 +61,32 @@ claimer:
 	radius: 12.000
 	strength: 1.300
 	falloff: 0.500
+}
+
+spawn:
+{
+	flags: none
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "badger"
+	flags: no_hiring, no_kit_selection
+	kits_max: 0
+	characters_capacity: 4
+	characters_initial_count: 2
 }
 
 // faction.new:

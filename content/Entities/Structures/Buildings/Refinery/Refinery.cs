@@ -30,76 +30,96 @@
 			public float temperature_target;
 			public double pressure_target;
 
-			[Net.Ignore, Save.Ignore] public int current_sound_index;
-			[Net.Ignore, Save.Ignore] public float next_smoke;
+			[Save.Ignore, Net.Ignore] public int current_sound_index;
+			[Save.Ignore, Net.Ignore] public float t_next_smoke;
+			[Save.Ignore, Net.Ignore] public float t_next_edit;
 		}
 
 		public struct ConfigureRPC: Net.IRPC<Refinery.State>
 		{
-			public float? temperature_target;
-			public double? pressure_target;
+			public float? burner_modifier;
 
 #if SERVER
 			public void Invoke(ref NetConnection connection, Entity entity, ref Refinery.State data)
 			{
-				if (this.temperature_target.HasValue) data.temperature_target = this.temperature_target.Value;
-				if (this.pressure_target.HasValue) data.pressure_target = this.pressure_target.Value;
+				ref var region = ref entity.GetRegion();
+				if (region.GetWorldTime() >= data.t_next_edit)
+				{
+					data.t_next_edit = region.GetWorldTime() + 0.10f;
 
-				data.Sync(entity);
+					var sync = false;
+
+					if (this.burner_modifier.TryGetValue(out var v_burner_modifier))
+					{
+						ref var burner_state = ref entity.GetComponent<Burner.State>();
+						if (burner_state.IsNotNull())
+						{
+							if (burner_state.modifier.TrySet(v_burner_modifier.Clamp01()))
+							{
+								burner_state.Sync(entity);
+							}
+						}
+					}
+
+					if (sync)
+					{
+						data.Sync(entity);
+					}
+				}
 			}
 #endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
-		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
-		[Source.Owned, Pair.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
-		{
-			var amount_total = 0.00f;
-			var mass_total = 0.00f;
-			var specific_heat_total = 0.00;
-			var gas_amount_total = 0.00;
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		//public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		//[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
+		//[Source.Owned, Pair.Of<Crafter.State>] ref T inventory) where T : unmanaged, IInventory
+		//{
+		//	var amount_total = 0.00f;
+		//	var mass_total = 0.00f;
+		//	var specific_heat_total = 0.00;
+		//	var gas_amount_total = 0.00;
 
-			ref var recipe = ref crafter.GetCurrentRecipe();
+		//	ref var recipe = ref crafter.GetCurrentRecipe();
 
-			//foreach (ref var requirement in recipe.requirements.AsSpan())
-			//{
-			//	if (requirement.type == Crafting.Requirement.Type.Resource)
-			//	{
-			//		ref var material = ref requirement.material.GetDefinition();
-			//		if (material.id != 0)
-			//		{
-			//			var quantity = requirement.amount;
-			//			var mass = quantity * material.mass_per_unit;
+		//	//foreach (ref var requirement in recipe.requirements.AsSpan())
+		//	//{
+		//	//	if (requirement.type == Crafting.Requirement.Type.Resource)
+		//	//	{
+		//	//		ref var material = ref requirement.material.GetDefinition();
+		//	//		if (material.id != 0)
+		//	//		{
+		//	//			var quantity = requirement.amount;
+		//	//			var mass = quantity * material.mass_per_unit;
 
-			//			amount_total += quantity;
-			//			mass_total += mass;
-			//			specific_heat_total += quantity * material.specific_heat;
-			//			if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
-			//		}
-			//	}
-			//}
+		//	//			amount_total += quantity;
+		//	//			mass_total += mass;
+		//	//			specific_heat_total += quantity * material.specific_heat;
+		//	//			if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
+		//	//		}
+		//	//	}
+		//	//}
 
-			//foreach (ref var resource in inventory.GetResources())
-			//{
-			//	ref var material = ref resource.GetMaterial();
-			//	if (material.id != 0)
-			//	{
-			//		var mass = resource.quantity * material.mass_per_unit;
+		//	//foreach (ref var resource in inventory.GetResources())
+		//	//{
+		//	//	ref var material = ref resource.GetMaterial();
+		//	//	if (material.id != 0)
+		//	//	{
+		//	//		var mass = resource.quantity * material.mass_per_unit;
 
-			//		amount_total += resource.quantity;
-			//		mass_total += mass;
-			//		specific_heat_total += resource.quantity * material.specific_heat;
-			//		if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
-			//	}
-			//}
+		//	//		amount_total += resource.quantity;
+		//	//		mass_total += mass;
+		//	//		specific_heat_total += resource.quantity * material.specific_heat;
+		//	//		if (material.molar_mass > 0) gas_amount_total += (mass * 1000.00) / material.molar_mass;
+		//	//	}
+		//	//}
 
-			refinery_state.amount = amount_total;
-			refinery_state.mass = mass_total;
-			refinery_state.specific_heat = amount_total > 0.00 ? specific_heat_total / amount_total : 0.00;
-			refinery_state.gas_amount = gas_amount_total;
-		}
+		//	refinery_state.amount = amount_total;
+		//	refinery_state.mass = mass_total;
+		//	refinery_state.specific_heat = amount_total > 0.00 ? specific_heat_total / amount_total : 0.00;
+		//	refinery_state.gas_amount = gas_amount_total;
+		//}
 
 		public const float update_interval = 0.20f;
 		public const float update_interval_failed = 3.00f;
@@ -127,13 +147,58 @@
 			return (moles * gas_constant * (double)temperature) / (double)volume;
 		}
 
+		[ISystem.Update.Modify(ISystem.Mode.Single)]
+		public static void UpdateWheel(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
+		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		{
+			switch (crafter_state.current_work_type)
+			{
+				case Work.Type.Mixing:
+				{
+					axle_state.new_tmp_load += crafter_state.current_work_difficulty * 100.00f;
+					crafter_state.work += axle_state.angular_velocity * info.DeltaTime;
+				}
+				break;
+			}
+		}
+
 #if SERVER
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.20f)]
+		public static void UpdateCrafter(ISystem.Info info, Entity entity,
+		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
+		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
+		[Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state)
+		//[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		{
+			switch (crafter_state.current_work_type)
+			{
+				case Work.Type.Cooking:
+				case Work.Type.Heating:
+				{
+					var power = burner_state.available_power;
+					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+					crafter_state.work += work_amount;
+				}
+				break;
+
+				case Work.Type.Refining:
+				{
+					var power = burner_state.available_power;
+					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+					crafter_state.work += work_amount;
+				}
+				break;
+			}
+		}
+
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
-		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
 			if (info.WorldTime >= crafter_state.next_tick)
 			{
@@ -151,28 +216,28 @@
 					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
-				//refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
+				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
+				////refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, Math.Max(refinery.tank_volume * air_moles_per_cubic_meter, refinery_state.gas_amount), refinery_state.temperature_current);
 				//refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, Math.Max(refinery.tank_volume * air_moles_per_cubic_meter, refinery_state.gas_amount), refinery_state.temperature_current);
-				refinery_state.pressure_current = CalculateGasPressure(refinery.tank_volume, Math.Max(refinery.tank_volume * air_moles_per_cubic_meter, refinery_state.gas_amount), refinery_state.temperature_current);
 
-				entity.SyncComponent(ref refinery_state);
+				//entity.SyncComponent(ref refinery_state);
 
-				if (crafter.recipe.id != 0)
-				{
-					if (MathF.Abs(wheel_state.angular_velocity) > 1.00f)
-					{
-						crafter_state.work += 1.00f * update_interval;
-					}
-					else
-					{
-						crafter_state.work = 0.00f;
-					}
+				//if (crafter.recipe.id != 0)
+				//{
+				//	if (MathF.Abs(axle_state.angular_velocity) > 1.00f)
+				//	{
+				//		crafter_state.work += 1.00f * update_interval;
+				//	}
+				//	else
+				//	{
+				//		crafter_state.work = 0.00f;
+				//	}
 
-					entity.SyncComponent(ref wheel_state);
-					entity.SyncComponent(ref crafter_state);
+				//	entity.SyncComponent(ref axle_state);
+				//	entity.SyncComponent(ref crafter_state);
 
-					//App.WriteLine($"refinery: {ts.GetMilliseconds():0.0000} ms");					
-				}
+				//	//App.WriteLine($"refinery: {ts.GetMilliseconds():0.0000} ms");					
+				//}
 			}
 		}
 #endif
@@ -188,6 +253,9 @@
 			public Crafter.Data crafter;
 			public Crafter.State crafter_state;
 
+			public Burner.Data burner;
+			public Burner.State burner_state;
+
 			public void Draw()
 			{
 				var max_temperature = 2000.00f;
@@ -201,28 +269,37 @@
 					ref var player = ref Client.GetPlayer();
 					ref var region = ref Client.GetRegion();
 
+					Crafting.Context.NewFromPlayer(ref Client.GetRegion(), ref player, ent_this: this.ent_refinery, out var context);
+
 					var w_right = (48 * 4) + 24;
 
 					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
 					{
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 96 - 12)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							//GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
+							using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.GetRemainingSpace(), padding: new(8, 8)))
 							{
-								ref var recipe = ref this.crafter.GetCurrentRecipe();
-								if (!recipe.IsNull())
-								{
-									ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
-									GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
-								}
+								GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
+
+								CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
+								//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+								//CrafterExt.DrawRecipe(context: ref context, recipe: ref this.crafter.GetCurrentRecipe(), current_index: this.crafter_state.current_index, progress: this.crafter_state.progress.AsSpan(), amount_multiplier: this.crafter.amount_multiplier);
+
+
+								//ref var recipe = ref this.crafter.GetCurrentRecipe();
+								//if (!recipe.IsNull())
+								//{
+								//	ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
+								//	GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
+								//}
 							}
 						}
 
 						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
 							{
@@ -239,22 +316,31 @@
 
 								using (GUI.Group.New(size: GUI.GetRemainingSpace()))
 								{
-									var changed = false;
-
-									changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
-									GUI.SameLine();
-									changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
-									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
-
-									if (changed)
+									if (GUI.SliderFloat("Value", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.GetRemainingWidth(), 24)))
 									{
 										var rpc = new Refinery.ConfigureRPC()
 										{
-											pressure_target = this.refinery_state.pressure_target,
-											temperature_target = this.refinery_state.temperature_target
+											burner_modifier = this.burner_state.modifier
 										};
 										rpc.Send(this.ent_refinery);
 									}
+
+									//var changed = false;
+
+									//changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
+									//GUI.SameLine();
+									//changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
+									////GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
+
+									//if (changed)
+									//{
+									//	var rpc = new Refinery.ConfigureRPC()
+									//	{
+									//		pressure_target = this.refinery_state.pressure_target,
+									//		temperature_target = this.refinery_state.temperature_target
+									//	};
+									//	rpc.Send(this.ent_refinery);
+									//}
 								}
 							}
 						}
@@ -266,7 +352,7 @@
 					{
 						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(padding: new(12, 12)))
 							{
@@ -276,7 +362,7 @@
 
 						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
 						{
-							GUI.DrawFillBackground("ui_frame", new(8, 8, 8, 8));
+							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(padding: new(12, 12)))
 							{
@@ -284,8 +370,8 @@
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
 
-									GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
-									GUI.SameLine();
+									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									//GUI.SameLine();
 									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 								}
 							}
@@ -299,7 +385,8 @@
 		[ISystem.EarlyGUI(ISystem.Mode.Single)]
 		public static void OnGUI(Entity entity, 
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, 
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State state, 
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
+		[Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)
@@ -312,7 +399,10 @@
 					refinery_state = refinery_state,
 
 					crafter = crafter,
-					crafter_state = state
+					crafter_state = crafter_state,
+
+					burner = burner,
+					burner_state = burner_state,
 				};
 				gui.Submit();
 			}
@@ -323,21 +413,21 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
+			var axle_speed = MathF.Abs(axle_state.angular_velocity);
 
-			sound_emitter.volume = Maths.Clamp(wheel_speed * 0.50f, 0.00f, 0.50f);
-			sound_emitter.pitch = Maths.Clamp(wheel_speed * 0.80f, 0.50f, 1.00f);
+			sound_emitter.volume = Maths.Clamp(axle_speed * 0.50f, 0.00f, 0.50f);
+			sound_emitter.pitch = Maths.Clamp(axle_speed * 0.80f, 0.50f, 1.00f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
+		public static void UpdateParticles(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
-			var wheel_speed = MathF.Abs(wheel_state.angular_velocity);
-			if (wheel_speed > 1.00f && info.WorldTime >= state.next_smoke)
+			var axle_speed = MathF.Abs(axle_state.angular_velocity);
+			if (axle_speed > 1.00f && info.WorldTime >= state.t_next_smoke)
 			{
-				state.next_smoke = info.WorldTime + 0.50f;
+				state.t_next_smoke = info.WorldTime + 0.50f;
 
 				var random = XorRandom.New();
 				Particle.Spawn(ref info.GetRegion(), new Particle.Data()

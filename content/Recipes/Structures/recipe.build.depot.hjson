@@ -12,11 +12,15 @@
 		size: [72, 48]
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: buildings
 	rank: 500.000
-
+	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
@@ -32,23 +36,22 @@
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
-
+		
 		rotation_max: 0.100
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.9x6
-
+		prefab: "construction.9x6"
+		
 		requirements:
 		[
 			{
 				type: resource
 				material: "wood"
-				amount: 50.000
+				amount: 5.000
 			}
 		]
 	}
@@ -58,7 +61,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 1000.000
+			amount: 100.000
 		}
 		{
 			type: resource
@@ -78,6 +81,7 @@
 			type: prefab
 			prefab: "depot"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

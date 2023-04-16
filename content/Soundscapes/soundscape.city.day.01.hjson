@@ -5,6 +5,8 @@
 			sound: "amb.city.day.loop.01"
 			volume: 0.140
 			pitch: 1.200
+
+			daytime_range: [0.100, 0.700]
 			
 			mix: 
 			{

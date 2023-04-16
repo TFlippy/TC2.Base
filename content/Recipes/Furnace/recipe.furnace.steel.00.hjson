@@ -1,0 +1,73 @@
+﻿{
+	name: "Medium-Grade Carbon Steel (Enrichment)"
+	desc:
+		'''
+		Basic steel production method involving re-melting iron ingots and enriching it with carbon.
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.ingot"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.iron.ingot"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xff57e5b6"
+	
+	min: 10
+	max: 200
+	step: 10
+	
+	type: crafter
+	flags: none
+	tags: furnace
+	rank: -201.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1811.000
+		}
+		{
+			type: resource
+			material: "iron.ingot"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "charcoal"
+			amount: 0.700
+		}
+		{
+			type: work
+			work: "melting"
+			amount: 95.000
+			difficulty: 14.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 0.800
+			amount_extra: 0.100
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.050
+			amount_extra: 0.050
+		}
+	]
+}

@@ -126,6 +126,58 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Explosive.Data>
 			(
+				identifier: "explosive.essence",
+				category: "Explosive",
+				name: "Essence Payload",
+				description: "Adds essence pellets to the explosive.",
+				flags: Augment.Definition.Flags.Hidden,
+
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<EssenceContainer.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+					ref var h_essence = ref handle.GetData<IEssence.Handle>();
+
+					var dirty = false;
+
+					//dirty |= GUI.EnumInput("Essence", ref h_essence, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false, close_on_select: true);
+					//GUI.SameLine();
+					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.GetRemainingSpace());
+
+
+					return dirty;
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+					ref var h_essence = ref handle.GetData<IEssence.Handle>();
+					ref var essence_data = ref h_essence.GetData();
+					if (essence_data.IsNotNull())
+					{
+						var amount = Maths.LerpInt(1, 20, modifier);
+
+						ref var essence_container = ref context.GetOrAddComponent<EssenceContainer.Data>();
+						if (essence_container.IsNotNull())
+						{
+							essence_container.h_essence = h_essence;
+							essence_container.stability = 0.25f;
+							essence_container.available = amount * Essence.essence_per_pellet;
+						}
+
+						context.requirements_new.Add(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount));
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Explosive.Data>
+			(
 				identifier: "explosive.smoke",
 				category: "Explosive",
 				name: "Smoke Explosive",

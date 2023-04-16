@@ -1,3 +1,8 @@
+$name: "Medkit"
+$desc: 
+	'''
+	A bag with various tools for treating injuries.
+	'''
 $tags: []
 
 body:
@@ -9,7 +14,8 @@ body:
 		mass: 2.000
 		friction: 0.980
 		elasticity: 0.010
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		material: fabric
+		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}
 }

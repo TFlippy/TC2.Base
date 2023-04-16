@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 1500.000
 	lifetime: 20.000
 	damage_type: bullet_musket
-	size: 0.350
+	size: 0.150
 	damp: 0.995
 	ricochet_count: 0
 }

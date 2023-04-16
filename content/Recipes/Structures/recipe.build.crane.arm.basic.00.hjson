@@ -10,48 +10,51 @@
 		texture: "crane.arm.basic"
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: mechanisms
 	rank: 40.000
-
+	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
-
+	
 	placement:
-	{ 
+	{
 		type: line
 		flags: allow_placement_over_buildings, place_line_rotated
 		
 		size: [0.500, 0.500]
-
+		
 		cooldown: 0.500
-		min_support: 0.000
 		min_clearance: 1.000
 		min_claim: 1.000
-
+		
 		length_min: 2.000
 		length_max: 10.000
 		length_step: 0.500
-
+		
 		sound: "building_place"
 	}
-
+	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 50.000
+			amount: 5.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 8.000
 			flags: no_scaling
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 5.000
 			flags: no_scaling
@@ -61,8 +64,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "crane.arm.basic.00"
+			amount: 0.000
+			amount_extra: 0.000
 		}
 	]
 }

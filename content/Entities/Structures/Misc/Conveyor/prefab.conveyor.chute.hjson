@@ -23,7 +23,10 @@ conveyor:
 	interval: 1.000
 
 	throughput_min: 10.000
-	throughput_max: 25.000
+	throughput_max: 15.000
+
+	sound: "conveyor.move.05"
+	sound_volume: 0.000
 }
 
 conveyor.state:
@@ -35,7 +38,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "conveyor.auger"
+		texture: "conveyor.chute"
 	}
 	z: -200.000
 }
@@ -44,15 +47,15 @@ resizable:
 {
 	cap_a:
 	{
-		texture: "conveyor.auger.cap"
+		texture: "conveyor.chute.cap"
 	}
 	
 	cap_b:
 	{
-		texture: "conveyor.auger.cap"
+		texture: "conveyor.chute.cap"
 	}
 	
-	flags: mirror_cap_b, dynamic
+	flags: mirror_cap_b, dynamic, orthogonal
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]

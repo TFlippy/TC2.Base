@@ -1,0 +1,60 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 150.000
+	damage_bonus: 450.000
+	lifetime: 3.000
+	damage_type: bullet_musket
+	knockback_multiplier: 30.000
+	size: 0.020
+	gravity: 1.300
+	ricochet_count: 2
+	ricochet_threshold_multiplier: 4.000
+	ricochet_velocity_min: 1.000
+	damp: 0.750
+	tracer_length: 0.500
+	mass: 0.090
+
+	@sound.emitter:
+	{
+		file: "levitator.loop.02"
+		volume: 0.400
+		pitch: 4.000
+		size_max_modifier: 2.500
+		spread: 120.000
+		doppler: 0.300
+		size: 0.300
+	}
+
+	@light:
+	{
+		color: [0.000, 0.800, 1.000, 7.000]
+		offset: [-2.000, 0.000]
+		scale: [6.000, 2.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+projectile.renderer:
+{
+	color_a: "0xff00ffc4"
+
+	intensity: 1.500
+	thickness_a: 0.220
+	thickness_b: 0.180
+}
+
+transform:
+{
+
+}
+
+rocket:
+{
+	mass: 0.150
+	force: 400.000
+	fuel_time: 10.000
+	smoke_amount: 0.000
+}

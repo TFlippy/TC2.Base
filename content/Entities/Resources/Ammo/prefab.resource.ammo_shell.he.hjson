@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 		material: metal
 	}
@@ -23,7 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	offset: [0.000, 0.375]
+	offset: [0.000, 0.300]
 }
 
 transform:
@@ -34,11 +34,6 @@ transform:
 resource:
 {
 	material: "ammo_shell.he"
-}
-
-hoverable:
-{
-
 }
 
 holdable:

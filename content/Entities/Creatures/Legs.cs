@@ -29,7 +29,10 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs, [Source.Owned] bool dead)
 		{
-			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
+			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
+
+			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
+			no_rotate.multiplier = Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics);
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
@@ -56,6 +59,11 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
+			//App.WriteLine($"{Unsafe.AsRef(in headbob).IsNull()}");
+
+			//if (headbob.IsNull()) return;
+			//return;
+
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;
 
@@ -107,7 +115,7 @@ namespace TC2.Base.Components
 
 			jumping:
 			{
-				var t = Maths.Clamp01((info.WorldTime - runner_state.last_jump) * 7.00f);
+				var t = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));

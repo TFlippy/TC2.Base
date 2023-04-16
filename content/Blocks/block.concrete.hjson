@@ -1,29 +1,41 @@
 {
 	name: "Concrete"
-	desc: "Durable concrete slabs."
+	desc:
+		'''
+		Durable cast concrete.
+		'''
+	
+	icon:
+	{
+	
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 60000.000
+	
 	smoothing: 0.180
 	mass: 8.000
 	friction: 0.850
 	elasticity: 0.600
 	stability: 0.500
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.concrete"
 	pattern: "pattern.concrete"
 	
 	texture_scale: 1.070
 	texture_overshoot: -0.400
+	color_preview: "0xff80775f"
 	
 	resources:
 	[
 		{
-			material: "gravel"
-			quantity: 0.350
+			material: "cement"
+			quantity: 0.250
 		}
 	]
 	

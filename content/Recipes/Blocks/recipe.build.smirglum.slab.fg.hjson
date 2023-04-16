@@ -1,0 +1,59 @@
+{
+	name: "Smirglum Slabs"
+	desc:
+		'''
+		Extremely durable armor made of smirglum slabs fused together with phlogiston.
+		'''
+	
+	icon:
+	{
+		texture: "block_icons"
+		size: [16, 16]
+		frame: [7, 0]
+	}
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: 10.000
+	
+	placement:
+	{
+		type: line
+		flags: no_snapping, continuous
+		
+		size: [1.500, 1.500]
+		
+		cooldown: 1.000
+		min_support: 0.050
+		min_claim: 1.000
+		
+		length_max: 4.000
+		length_step: 0.125
+		
+		sound: "metal_place_00"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "smirglum.ingot"
+			amount: 0.100
+		}
+		{
+			type: resource
+			material: "phlogiston"
+			amount: 0.010
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: "smirglum.slab"
+			tile_flags: solid
+		}
+	]
+}

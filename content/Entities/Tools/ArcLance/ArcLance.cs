@@ -5,7 +5,7 @@
 		[IComponent.Data(Net.SendType.Reliable)]
 		public partial struct Data: IComponent
 		{
-			public float test = 8.00f;
+			public Sound.Handle sound_hit = ArcLance.sound_hit_default;
 
 			public Data()
 			{
@@ -13,8 +13,10 @@
 			}
 		}
 
+		public static readonly Sound.Handle sound_hit_default = "arcane_infuser.fizzle.00";
+
 		public static readonly Texture.Handle tex_blank = "blank";
-		public static readonly Texture.Handle tex_light = "light_invsqr";
+		public static readonly Texture.Handle tex_light = "light.circle.00";
 		public static readonly Texture.Handle tex_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
@@ -118,15 +120,26 @@
 #endif
 
 #if SERVER
-			Sound.Play(ref region, "arcane_infuser.fizzle.00", data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
+			Sound.Play(ref region, arc_lance.sound_hit, data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
 			Shake.Emit(ref region, data.world_position, 0.50f, 0.80f, 20.00f);
 
 			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
 
-			Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
-				world_position: data.world_position, direction: data.direction, normal: -data.direction,
-				damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
-				target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
+			//Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
+			//	world_position: data.world_position, direction: data.direction, normal: -data.direction,
+			//	damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
+			//	target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
+
+			Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: data.ent_target,
+				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,
+				damage_integrity: 400.00f * multiplier, damage_durability: 4000.00f * multiplier, damage_terrain: 200.00f * multiplier,
+				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
+				yield: 0.00f, size: 1.50f, impulse: 0.00f);
+
+			//if (random.NextBool(0.10f))
+			//{
+			//	Fire.Ignite(data.ent_target, random.NextFloatRange(1.00f, 4.00f), Fire.Flags.No_Radius_Ignite);
+			//}
 #endif
 
 		}

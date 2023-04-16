@@ -1,0 +1,77 @@
+{
+	name: "Wildcard"
+	desc: "DEV: Used as a target color by map ore generators."
+	
+	material_type: stone
+	tile_flags: non_empty
+	flags: raw, mineral
+	
+	max_health: 18446744073709551616.000
+	smoothing: 0.150
+	mass: 10.000
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.900
+	
+	texture: "terrain.wildcard"
+	pattern: "pattern.stone"
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.750
+	
+	mappings:
+	[
+		{
+			color: "0xffff0000"
+			tile_flags: solid
+		}
+		{
+			color: "0xff00ff00"
+			tile_flags: solid
+		}
+		{
+			color: "0xff0000ff"
+			tile_flags: solid
+		}
+		
+		{
+			color: "0xffffff00"
+			tile_flags: solid
+		}
+		{
+			color: "0xff00ffff"
+			tile_flags: solid
+		}
+		{
+			color: "0xffff00ff"
+			tile_flags: solid
+		}
+
+		{
+			color: "0xffff8000"
+			tile_flags: solid
+		}
+		{
+			color: "0xffff0080"
+			tile_flags: solid
+		}
+
+		{
+			color: "0xff00ff80"
+			tile_flags: solid
+		}
+		{
+			color: "0xff80ff00"
+			tile_flags: solid
+		}
+
+		{
+			color: "0xff8000ff"
+			tile_flags: solid
+		}
+		{
+			color: "0xff0080ff"
+			tile_flags: solid
+		}
+	]
+}

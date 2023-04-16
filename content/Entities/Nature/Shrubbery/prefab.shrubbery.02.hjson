@@ -13,7 +13,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
-		layer: entity
+		layer: entity, flammable
 		mask: world
 	}
 }
@@ -34,4 +34,15 @@ foliage.renderer:
 	texture: "shrubbery.02"
 	frame_count: 1
 	frame_count_total: 1
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "plants"
+			quantity: 110.000
+		}
+	]
 }

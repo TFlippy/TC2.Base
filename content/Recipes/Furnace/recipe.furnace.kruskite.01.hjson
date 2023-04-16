@@ -1,0 +1,75 @@
+{
+	name: "Kruskite Slagging"
+	desc: 
+		'''
+		
+		'''
+	
+	icon:
+	{
+		texture: "resource.kruskite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.slag.rich"
+		size: [16, 16]
+		frame: [2, 0]
+	}
+
+	icon_extra_offset: [-4, -6]
+	icon_extra_scale: 1.000
+	color_button: "0xff9a7861"
+	
+	min: 50
+	max: 200
+	step: 50
+	
+	flags: none
+	type: crafter
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1450.000
+		}
+		{
+			type: resource
+			material: "kruskite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "sand"
+			amount: 0.400
+		}
+		{
+			type: work
+			work: melting
+			amount: 22.000
+			difficulty: 5.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "slag.rich"
+			amount: 0.415
+			amount_extra: 0.220
+			flags: waste
+		}
+		{
+			type: resource
+			material: "cement"
+			amount: 0.815
+			amount_extra: 0.520
+			flags: waste
+		}
+	]
+}

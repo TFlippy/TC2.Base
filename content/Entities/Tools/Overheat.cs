@@ -26,15 +26,28 @@ namespace TC2.Base.Components
 			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##}°C/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float cool_rate = 10.00f;
 
+			[Statistics.Info("Heat Capacity (Extra)", description: "Extra heat capacity.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float capacity_extra = 0.00f;
+
 			public Overheat.Flags flags;
 
+			[Editor.Picker.Position(true)]
+			public Vector2 offset;
+
+			public Vector2 size = new Vector2(0.50f, 0.25f);
+
 			[Net.Ignore, Save.Ignore] public float next_steam;
-			[Net.Ignore, Save.Ignore] public float next_sync;
 
 			public Data()
 			{
 
 			}
+		}
+
+		public static void AddHeat(ref this Overheat.Data overheat, float amount, float mass)
+		{
+			var heat = amount / MathF.Max(overheat.capacity_extra + (mass * 0.10f), 1.00f);
+			overheat.heat_current += heat;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f)]
@@ -69,22 +82,24 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.05f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
 		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
 		{
+			//light.offset = overheat.offset;
 			light.intensity = MathF.Max(overheat.heat_current - 150.00f, 0.00f) / 250.00f;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSound(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound)
+		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var random = XorRandom.New();
 			ref var region = ref info.GetRegion();
 
-			sound.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
-			sound.pitch = 0.50f + Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
+			sound_emitter.offset = overheat.offset;
+			sound_emitter.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
+			sound_emitter.pitch = 0.50f + Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 
 			if (overheat.heat_current >= 100.00f && info.WorldTime >= overheat.next_steam)
 			{
@@ -96,8 +111,8 @@ namespace TC2.Base.Components
 				{
 					texture = texture_smoke,
 					lifetime = random.NextFloatRange(0.50f, 1.00f),
-					pos = transform.LocalToWorldNoRotation(random.NextVector2(0.40f) + (dir * random.NextFloatRange(0.00f, 1.00f))),
-					vel = (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
+					pos = transform.LocalToWorld(overheat.offset + (new Vector2(random.NextFloatRange(-overheat.size.X, overheat.size.X), random.NextFloatRange(-overheat.size.Y, overheat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
+					vel = new Vector2(random.NextFloatRange(-intensity, intensity), random.NextFloatRange(0.00f, -intensity * 10)), // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
 					force = new Vector2(0.10f, -0.40f),
 					fps = random.NextByteRange(15, 20),
 					frame_count = 64,

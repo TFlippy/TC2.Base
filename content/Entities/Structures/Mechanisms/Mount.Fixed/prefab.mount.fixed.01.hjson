@@ -1,0 +1,95 @@
+$name: "Mount (Stationary)"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.250, -0.625]
+			[0.250, -0.625]
+			[1.625, 0.250]
+			[-1.625, 0.250]
+		]
+		mass: 4000.000
+		radius: 0.375
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		layer: entity, solid, building, ignore_melee
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 45000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.fixed.01"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [182.000, 240.000]
+}
+
+vehicle:
+{
+
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.625]
+		max_force: 20000000.000
+		max_torque: 4000000.000
+		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+		error_bias: 0.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.000
+		max_bias: 3.000
+	}
+
+	attachment.slot:
+	{
+		radius: 1.000
+		flags: keyboard_write, mouse_write, brake, manual_aim
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim
+		name: "Mount"
+		identifier: "mount"
+		offset: [0.000, 0.000]
+		gui_size: [128.000, 128.000]
+	}
+}

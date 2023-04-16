@@ -1,4 +1,6 @@
 ﻿
+using Keg.Engine.Infrastructure;
+
 namespace TC2.Base.Components
 {
 	public static partial class Melee
@@ -122,6 +124,442 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_hit;
 		}
 
+		public static bool CanHitMaterial(Damage.Type damage_type, Material.Type material_type)
+		{
+			switch (damage_type)
+			{
+				case Damage.Type.Axe:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Slash:
+				case Damage.Type.Stab:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => false,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Club:
+				case Damage.Type.Crush:
+				case Damage.Type.Blunt:
+				case Damage.Type.Impact:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => true,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => false,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => false,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => true,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Pickaxe:
+				case Damage.Type.Drill:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => true,
+						Material.Type.Gravel => true,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => true,
+						Material.Type.Soil => true,
+						Material.Type.Powder => true,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => true,
+						Material.Type.Scrap => true,
+						Material.Type.Tool => true,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Shovel:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => false,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => true,
+						Material.Type.Flesh => false,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => true,
+						Material.Type.Powder => true,
+						Material.Type.Foliage => false,
+						Material.Type.Fabric => false,
+						Material.Type.Rubber => false,
+						Material.Type.Mushroom => false,
+						Material.Type.Insect => false,
+						Material.Type.Paper => false,
+						Material.Type.Leather => false,
+						Material.Type.Wire => false,
+						Material.Type.Bone => false,
+						Material.Type.Chitin => false,
+						Material.Type.Rubble => true,
+						Material.Type.Scrap => true,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Bite:
+				case Damage.Type.Sting:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => false,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => false,
+						Material.Type.Fabric => false,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => false,
+						Material.Type.Insect => true,
+						Material.Type.Paper => false,
+						Material.Type.Leather => true,
+						Material.Type.Wire => false,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Fire:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => false,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => false,
+						Material.Type.Bone => false,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Ram:
+				case Damage.Type.Punch:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => true,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => false,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => true,
+						Material.Type.Tool => true,
+						_ => false
+					};
+				}
+				break;
+
+				case Damage.Type.Saw:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => true,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						_ => false
+					};
+				}
+				break;
+
+				default:
+				{
+					return false;
+				}
+			}
+		}
+
+		[Flags]
+		public enum HitResults: uint
+		{
+			None = 0u,
+
+			Any = 1u << 0,
+			Solid = 1u << 1,
+			Terrain = 1u << 2,
+		}
+
+		// TODO: come up with a better name
+		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, in Melee.Data melee, ref Melee.State melee_state, out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit)
+		{
+			var penetration = melee.penetration;
+			var index_max = -1;
+			pos_hit = pos_target;
+			modifier = 1.00f;
+			dist_max = -1.00f;
+			hit_results = Melee.HitResults.None;
+
+			Span<LinecastResult> results = stackalloc LinecastResult[16];
+			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
+			{
+				results.SortByDistance();
+
+				// Find first solid/blocking shape
+				for (var i = 0; i < results.Length; i++)
+				{
+					ref var result = ref results[i];
+					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
+					{
+						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
+						if (!result.mask.HasAll(Physics.Layer.Solid))
+						{
+							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+							if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+						}
+
+						dist_max = MathF.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
+						index_max = i;
+
+#if CLIENT
+						if (draw_gui && result.entity.IsValid())
+						{
+							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+							GUI.SetCursor(App.CursorType.Attack, 1000);
+						}
+#endif
+
+						break;
+					}
+				}
+
+				if (dist_max < 0.00f)
+				{
+					dist_max = len;
+				}
+
+				if (len <= dist_max + melee.thickness)
+				{
+					for (var i = 0; i < results.Length && penetration >= 0; i++)
+					{
+						ref var result = ref results[i];
+						//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
+						{
+							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
+							if (!result.mask.HasAll(Physics.Layer.Solid))
+							{
+								if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+								if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+							}
+
+							var closest_result = result.GetClosestPoint(pos_target, true);
+							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+
+							modifier *= melee.penetration_falloff;
+							penetration--;
+
+							if (!result.entity.IsValid()) hit_results.SetFlag(Melee.HitResults.Terrain, true);
+							hit_results.SetFlag(Melee.HitResults.Any, true);
+
+							pos_hit = closest_result.world_position;
+
+#if CLIENT
+							if (draw_gui && result.entity.IsValid())
+							{
+								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+								GUI.SetCursor(App.CursorType.Attack, 1000);
+							}
+#endif
+
+							if (do_hit)
+							{
+								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+							}
+
+							if (i == index_max) break;
+						}
+					}
+				}
+				else if (index_max >= 0)
+				{
+					ref var result = ref results[index_max];
+
+					if (!result.entity.IsValid()) hit_results.SetFlag(Melee.HitResults.Terrain, true);
+					hit_results.SetFlag(Melee.HitResults.Any | HitResults.Solid, true);
+
+					var closest_result = result.GetClosestPoint(result.world_position, true);
+
+					//pos_target = result.world_position;
+					pos_hit = closest_result.world_position;
+
+					if (do_hit)
+					{
+						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+					}
+				}
+			}
+
+			if (!hit_results.HasAny(Melee.HitResults.Any))
+			{
+				var material_type = default(Material.Type);
+				if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
+				{
+					material_type = tile.Block.material_type;
+				}
+
+				if (material_type != Material.Type.None)
+				{
+					hit_results.SetFlag(HitResults.Terrain, true);
+
+					if (do_hit)
+					{
+						Melee.Hit(ref region, ent_melee, ent_parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+					}
+				}
+			}
+		}
+
 #if CLIENT
 		public struct BlockGUI: IGUICommand
 		{
@@ -141,26 +579,26 @@ namespace TC2.Base.Components
 				var c_radius = radius * GUI.GetWorldToCanvasScale();
 				var c_pos = GUI.WorldToCanvas(this.pos_target);
 
-				if (this.melee.category == Melee.Category.Pointed)
+				//if (this.melee.category == Melee.Category.Pointed)
 				{
 					//if (!entity.IsValid())
 					{
 						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
 					}
 
-					GUI.DrawCircleFilled(c_pos, c_radius, color.WithAlphaMult(0.10f), segments: 16);
-					GUI.DrawCircle(c_pos, c_radius, color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
-					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, color, segments: 4);
+					GUI.DrawCircleFilled(c_pos, c_radius, this.color.WithAlphaMult(0.10f), segments: 16);
+					GUI.DrawCircle(c_pos, c_radius, this.color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
+					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, this.color, segments: 4);
 				}
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player,
+		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (player.IsLocal())
+			if (player.IsLocal() && !GUI.IsHovered)
 			{
 				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
@@ -187,122 +625,10 @@ namespace TC2.Base.Components
 				//}
 				dir = (control.mouse.position - transform.position).GetNormalized();
 
-
-				//var len = melee.max_distance; // MathF.Min(melee.max_distance, Vector2.Distance(control.mouse.position, pos));
-				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
+				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
 				var len = Vector2.Distance(pos, pos_target);
-				var pos_hit = pos_target;
-				var modifier = 1.00f;
-				var flags = Damage.Flags.None;
-				var penetration = melee.penetration;
-				var hit_any = false;
-				var hit_terrain = false;
-				var hit_solid = false;
-				var index_max = -1;
-				var dist_max = -1.00f;
 
-				Span<LinecastResult> results = stackalloc LinecastResult[16];
-				if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
-				{
-					results.SortByDistance();
-
-					// Find first solid/blocking shape
-					for (var i = 0; i < results.Length; i++)
-					{
-						ref var result = ref results[i];
-						if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
-						{
-							//if (result.alpha <= 0.00f) continue;
-							if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-							//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-							if (faction.id != 0)
-							{
-								if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
-							}
-
-							//Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-							//modifier *= melee.penetration_falloff;
-							//penetration = 0;
-							//hit_terrain |= !result.entity.IsValid();
-							//hit_any = true;
-							//hit_solid = true;
-
-							dist_max = MathF.Max(dist_max, result.alpha * melee.max_distance);
-							index_max = i;
-
-							break;
-
-							//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-							//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-							//pos_hit = result.world_position;
-						}
-					}
-
-					if (dist_max < 0.00f)
-					{
-						dist_max = len;
-					}
-
-					if (len <= dist_max + melee.thickness)
-					{
-						for (var i = 0; i < results.Length && penetration >= 0; i++)
-						{
-							ref var result = ref results[i];
-							//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
-							{
-								//if (result.alpha <= 0.00f) continue;
-								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-								if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-								var closest_result = result.GetClosestPoint(pos_target, true);
-								if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
-
-								modifier *= melee.penetration_falloff;
-								penetration--;
-
-								hit_terrain |= !result.entity.IsValid();
-								hit_any = true;
-
-								//pos_target = closest_result.world_position; // pos + (dir * len * result.alpha) + (dir * melee.thickness);
-								//pos_target = pos + (dir * dist_max);
-								pos_hit = closest_result.world_position;
-
-								if (i == index_max) break;
-							}
-						}
-					}
-					else if (index_max >= 0)
-					{
-						ref var result = ref results[index_max];
-
-						hit_terrain |= !result.entity.IsValid();
-						hit_any = true;
-						hit_solid = true;
-
-						var closest_result = result.GetClosestPoint(result.world_position, true);
-
-						//pos_target = result.world_position;
-						pos_hit = closest_result.world_position;
-					}
-
-					//pos_target = pos_target;
-				}
-
-				if (!hit_any)
-				{
-					var material_type = default(Material.Type);
-					if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
-					{
-						material_type = tile.Block.material_type;
-					}
-
-					if (material_type != Material.Type.None)
-					{
-						hit_terrain = true;
-					}
-				}
+				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: true, do_hit: false);
 
 				var gui = new BlockGUI()
 				{
@@ -315,15 +641,15 @@ namespace TC2.Base.Components
 					//valid = hit_any
 				};
 
-				if (hit_terrain) gui.color = Color32BGRA.Yellow;
-				else if (hit_any) gui.color = Color32BGRA.Red;
+				if (hit_results.HasAny(Melee.HitResults.Terrain)) gui.color = Color32BGRA.Yellow;
+				else if (hit_results.HasAny(Melee.HitResults.Any)) gui.color = Color32BGRA.Red;
 				else gui.color = Color32BGRA.Grey;
 
 				gui.Submit();
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.last_hit;
@@ -349,19 +675,27 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle faction = default)
+		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
 #if CLIENT
 			var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
+
+			//Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 			Shake.Emit(ref region, hit_pos, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
 #endif
 
 #if SERVER
 			var damage = melee.damage_base + random.NextFloatRange(0.00f, melee.damage_bonus) * damage_multiplier;
-			Damage.Hit(attacker: ent_attacker, owner: ent_owner, target: ent_target,
-				world_position: hit_pos, direction: dir, normal: normal,
-				damage: damage, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
-				target_material_type: material_type, knockback: melee.knockback, size: melee.aoe, faction_id: faction.id);
+			//Damage.Hit(attacker: ent_attacker, owner: ent_owner, target: ent_target,
+			//	world_position: hit_pos, direction: dir, normal: normal,
+			//	damage: damage, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
+			//	target_material_type: material_type, knockback: melee.knockback, size: melee.aoe, faction_id: faction.id);
+
+			Damage.Hit(ent_attacker: ent_attacker, ent_owner: ent_owner, ent_target: ent_target,
+				position: hit_pos, velocity: dir * 8.00f, normal: normal,
+				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
+				target_material_type: material_type, damage_type: melee.damage_type,
+				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id);
 #endif
 
 			var data = new Melee.HitEvent();
@@ -385,8 +719,16 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity,
+		[ISystem.AddFirst(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Usable, true);
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -394,7 +736,6 @@ namespace TC2.Base.Components
 
 			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit)
 			{
-				var random = XorRandom.New();
 				ref var region = ref info.GetRegion();
 
 				var parent = body.GetParent();
@@ -422,199 +763,14 @@ namespace TC2.Base.Components
 				//}
 				dir = (control.mouse.position - transform.position).GetNormalized();
 
-				//var len = MathF.Min(melee.max_distance, Vector2.Distance(control.mouse.position, pos));
-				//var pos_target = pos + (dir * len);
-				//var pos_hit = pos_target;
-				//var modifier = 1.00f;
-				//var flags = Damage.Flags.None;
-				//var penetration = melee.penetration;
-				//var hit_any = false;
-				//var hit_terrain = false;
-				//var hit_solid = false;
-
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
 				var len = Vector2.Distance(pos, pos_target);
-				var pos_hit = pos_target;
-				var modifier = 1.00f;
-				var flags = Damage.Flags.None;
-				var penetration = melee.penetration;
-				var hit_any = false;
-				var hit_terrain = false;
-				var hit_solid = false;
-
-				//App.WriteLine(dir);
 
 #if CLIENT
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 #endif
 
-				{
-					Span<LinecastResult> results = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
-					{
-						results.SortByDistance();
-						var index_max = -1;
-						var dist_max = -1.00f;
-
-						// Find first solid/blocking shape
-						for (var i = 0; i < results.Length; i++)
-						{
-							ref var result = ref results[i];
-							if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
-							{
-								//if (result.alpha <= 0.00f) continue;
-								if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-								//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-								if (faction.id != 0)
-								{
-									if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
-								}
-
-								//Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-								//modifier *= melee.penetration_falloff;
-								//penetration = 0;
-								//hit_terrain |= !result.entity.IsValid();
-								//hit_any = true;
-								//hit_solid = true;
-
-								dist_max = MathF.Max(dist_max, result.alpha * melee.max_distance);
-								index_max = i;
-
-								break;
-
-								//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-								//pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-								//pos_hit = result.world_position;
-							}
-						}
-
-						if (dist_max < 0.00f)
-						{
-							dist_max = len;
-						}
-
-						if (len <= dist_max + melee.thickness)
-						{
-							for (var i = 0; i < results.Length && penetration >= 0; i++)
-							{
-								ref var result = ref results[i];
-								//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
-								{
-									//if (result.alpha <= 0.00f) continue;
-									if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-									//if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-									if (faction.id != 0)
-									{
-										if (result.GetFactionID() == faction.id && !result.mask.HasAll(Physics.Layer.Solid)) continue;
-									}
-
-									var closest_result = result.GetClosestPoint(pos_target, true);
-									if (melee.category == Melee.Category.Pointed && !(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
-
-									modifier *= melee.penetration_falloff;
-									penetration--;
-
-									hit_terrain |= !result.entity.IsValid();
-									hit_any = true;
-
-									//pos_target = closest_result.world_position; // pos + (dir * len * result.alpha) + (dir * melee.thickness);
-									//pos_target = pos + (dir * dist_max);
-									pos_hit = closest_result.world_position;
-
-									Melee.Hit(ref region, entity, parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-									//App.WriteLine(result.entity.IsAlive());
-
-									if (i == index_max) break;
-								}
-							}
-						}
-						else if (index_max >= 0)
-						{
-							ref var result = ref results[index_max];
-
-							hit_terrain |= !result.entity.IsValid();
-							hit_any = true;
-							hit_solid = true;
-
-							var closest_result = result.GetClosestPoint(result.world_position, true);
-
-							//pos_target = result.world_position;
-							pos_hit = closest_result.world_position;
-
-							Melee.Hit(ref region, entity, parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-						}
-
-						//results.SortByDistance();
-						//var index_max = results.Length;
-
-						//for (var i = 0; i < index_max && !hit_solid && penetration >= 0; i++)
-						//{
-						//	ref var result = ref results[i];
-						//	if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
-						//	{
-						//		//if (result.alpha <= 0.00f) continue;
-						//		if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-						//		if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-						//		//modifier *= melee.penetration_falloff;
-						//		//penetration = 0;
-						//		hit_terrain |= !result.entity.IsValid();
-						//		hit_any = true;
-						//		hit_solid = true;
-						//		index_max = i;
-
-						//		pos_target = pos + (dir * len * result.alpha) + (dir * melee.thickness);
-						//		pos_hit = result.world_position;
-
-						//		Melee.Hit(ref region, entity, parent, result.entity, result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-						//	}
-						//}
-
-						//if (!hit_solid)
-						//{
-						//	for (var i = 0; i < results.Length && penetration >= 0; i++)
-						//	{
-						//		ref var result = ref results[i];
-
-						//		//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
-						//		{
-						//			//if (result.alpha <= 0.00f) continue;
-						//			if (result.entity == parent || result.entity_parent == parent || result.entity == entity) continue;
-						//			if (faction.id != 0 && result.GetFactionID() == faction.id) continue;
-
-						//			var closest_result = result.GetClosestPoint(pos_target, true);
-						//			if (Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.aoe * melee.aoe)) continue;
-
-						//			Melee.Hit(ref region, entity, parent, result.entity, closest_result.world_position, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-
-						//			modifier *= melee.penetration_falloff;
-						//			penetration--;
-						//			hit_any = true;
-
-						//			pos_hit = closest_result.world_position;
-						//		}
-						//	}
-						//}
-					}
-				}
-
-				if (!hit_any)
-				{
-					var material_type = default(Material.Type);
-					if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
-					{
-						material_type = tile.Block.material_type;
-					}
-
-					if (material_type != Material.Type.None)
-					{
-						Melee.Hit(ref region, entity, parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, faction: faction.id);
-					}
-				}
+				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: false, do_hit: true);
 			}
 		}
 	}

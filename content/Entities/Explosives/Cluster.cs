@@ -7,12 +7,16 @@
 		{
 			None = 0,
 
-			No_Impact = 1 << 0
+			No_Impact = 1 << 0,
+			Reverse_Direction = 1 << 1,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
+			public Vector2 offset;
+			public float radius = 0.250f;
+
 			public Prefab.Handle prefab = default;
 			public float spread = 0.00f;
 			public float speed = 0.00f;
@@ -39,7 +43,7 @@
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
-		public static void OnRemoveProjectile(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
+		public static void OnRemoveProjectile(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
 			{
@@ -47,7 +51,6 @@
 				if (projectile.elapsed < cluster.min_explode_lifetime) return;
 
 				ref var region = ref info.GetRegion();
-				var random = XorRandom.New();
 
 				for (var i = 0; i < cluster.count; i++)
 				{
@@ -63,6 +66,11 @@
 					if (cluster.speed > 0.00f)
 					{
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
+					}
+
+					if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))
+					{
+						projectile_init.vel *= -1.00f;
 					}
 
 					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
@@ -92,20 +100,22 @@
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
-		public static void OnRemoveBody(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
+		public static void OnRemoveBody(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
 			{
 				ref var region = ref info.GetRegion();
-				var random = XorRandom.New();
+				var dir = body.GetVelocity().GetNormalized(out var vel);
 
 				for (var i = 0; i < cluster.count; i++)
 				{
 					var projectile_init =
 					(
 						damage_mult: cluster.damage_modifier,
-						vel: body.GetVelocity().RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max),
-						owner: body.GetParent()
+						vel: dir.RotateByRad(random.NextFloat(cluster.spread)) * (MathF.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
+						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
+						owner: body.GetParent(),
+						faction_id: body.GetFaction()
 					);
 
 					if (cluster.speed > 0.00f)
@@ -113,7 +123,12 @@
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
 					}
 
-					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
+					if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))
+					{
+						projectile_init.vel *= -1.00f;
+					}
+
+					region.SpawnPrefab(cluster.prefab, transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius)).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (!projectile.IsNull())
@@ -122,6 +137,8 @@
 							projectile.damage_bonus *= projectile_init.damage_mult;
 							projectile.velocity = projectile_init.vel;
 							projectile.ent_owner = projectile_init.owner;
+							projectile.faction_id = projectile_init.faction_id;
+							projectile.lifetime *= projectile_init.lifetime_mult;
 
 							ent.SyncComponent(ref projectile);
 						}

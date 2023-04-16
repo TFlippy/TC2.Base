@@ -1,0 +1,45 @@
+{
+	name: "Smirglum Slabs"
+	desc: "Phlogiston-welded slabs of solid smirglum. Extremely durable and overgrown."
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 250000.000
+	smoothing: 0.150
+	mass: 5.000
+	friction: 0.800
+	elasticity: 0.600
+	stability: 0.900
+
+	collision_mask: essence
+	
+	texture: "terrain.smirglum.slab.moss"
+	pattern: "pattern.smirglum.slab.moss"
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.125
+	
+	resources:
+	[
+		{
+			material: "smirglum.ingot"
+			quantity: 0.100
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff4e4836"
+			tile_flags: solid, non_empty, become_background_on_break, ground
+			meta: 0
+		}
+		{
+			color: "0xff26231b"
+			tile_flags: non_empty, ground
+			meta: 0
+		}
+	]
+}

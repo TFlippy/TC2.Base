@@ -15,7 +15,7 @@ body:
 		friction: 1.000
 		elasticity: 0.010
 		material: wood
-		layer: entity, solid, climbable, tree, ignore_bullet
+		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -50,7 +50,7 @@ animated.renderer:
 		texture: "tree.oak"
 	}
 	offset: [-0, -5.500]
-	z: -50.000
+	z: -80.000
 }
 
 tree:
@@ -67,7 +67,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 4000.000
+			quantity: 700.000
 		}
 		{
 			material: "resin"

@@ -1,0 +1,28 @@
+{
+	name: "Pjerdelite"
+	description:
+		'''
+		Dense smirglum-iron rock with traces of silver.
+		'''
+	
+	icon:
+	{
+		texture: "resource.pjerdelite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: stone
+	flags: raw, ore, magnetic, granular, smeltable, metal, despawnable
+	mass_per_unit: 3.170
+	quantity_max: 500.000
+	prefab: "resource.pjerdelite"
+	
+	specific_heat: 99.625
+	thermal_conductivity: 0.0395
+}

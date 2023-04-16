@@ -637,6 +637,8 @@ namespace TC2.Base
 							}
 						}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 5.00f));
 				}
 			));
 
@@ -1357,6 +1359,8 @@ namespace TC2.Base
 				name: "Tempered Frame",
 				description: "Greatly improves durability and stability of the gun.",
 
+				//flags: Augment.Definition.Flags.Hidden,
+
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
@@ -1403,30 +1407,30 @@ namespace TC2.Base
 					return true;
 				},
 
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
+//#if CLIENT
+//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
-					size.X *= 0.50f;
+//					var size = GUI.GetRemainingSpace();
+//					size.X *= 0.50f;
 
-					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
+//					var dirty = false;
+//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
-					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-					//GUI.SameLine();
-					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+//					//GUI.SameLine();
+//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
-					return dirty;
-				},
+//					return dirty;
+//				},
 
-				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-				},
-#endif
+//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+//				},
+//#endif
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1459,6 +1463,8 @@ namespace TC2.Base
 				category: "Gun (Frame)",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
+
+				//flags: Augment.Definition.Flags.Hidden,
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1499,33 +1505,33 @@ namespace TC2.Base
 					return true;
 				},
 
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
+//#if CLIENT
+//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
-					size.X *= 0.50f;
+//					var size = GUI.GetRemainingSpace();
+//					size.X *= 0.50f;
 
-					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
+//					var dirty = false;
+//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
-					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+//					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+//					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
 
-					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-					//GUI.SameLine();
-					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+//					//GUI.SameLine();
+//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
-					return dirty;
-				},
+//					return dirty;
+//				},
 
-				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-				},
-#endif
+//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+//				},
+//#endif
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1563,6 +1569,158 @@ namespace TC2.Base
 					}
 				}
 			));
+
+//			definitions.Add(Augment.Definition.New<Gun.Data>
+//			(
+//				identifier: "gun.casing.steel",
+//				category: "Gun (Frame)",
+//				name: "Steel Casing",
+//				description: "Improves reliability of the gun.",
+
+//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					return augments.GetCount(handle) < 3;
+//				},
+
+//#if CLIENT
+//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					ref var modifier = ref handle.GetModifier();
+
+//					var dirty = false;
+
+//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+//					GUI.SameLine();
+//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+//					return dirty;
+//				},
+
+//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					ref var modifier = ref handle.GetModifier();
+//					var type = Maths.LerpInt(0, 9, modifier);
+
+//					var sprite = new Sprite("augment.casing.steel", 24, 16, (uint)type, 0);
+
+//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+//				},
+//#endif
+
+//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					for (var i = 0; i < context.requirements_old.Length; i++)
+//					{
+//						var requirement = context.requirements_old[i];
+
+//						if (requirement.type == Crafting.Requirement.Type.Resource)
+//						{
+//							ref var material = ref requirement.material.GetData();
+//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+//							{
+//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+//							}
+//						}
+//						else if (requirement.type == Crafting.Requirement.Type.Work)
+//						{
+//							switch (requirement.work)
+//							{
+//								case Work.Type.Smithing:
+//								{
+//									requirement.amount *= 0.20f;
+//									context.requirements_new.Add(requirement);
+//								}
+//								break;
+
+//								case Work.Type.Machining:
+//								{
+//									requirement.amount *= 0.05f;
+//									context.requirements_new.Add(requirement);
+//								}
+//								break;
+//							}
+//						}
+//					}
+//				}
+//			));
+
+//			definitions.Add(Augment.Definition.New<Gun.Data>
+//			(
+//				identifier: "gun.framework.steel",
+//				category: "Gun (Frame)",
+//				name: "Steel Framework",
+//				description: "Improves reliability of the gun.",
+
+//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					return augments.GetCount(handle) < 3;
+//				},
+
+//#if CLIENT
+//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					ref var modifier = ref handle.GetModifier();
+
+//					var dirty = false;
+
+//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+//					GUI.SameLine();
+//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+//					return dirty;
+//				},
+
+//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+//				{
+//					ref var offset = ref handle.GetData<Vector2>();
+//					ref var modifier = ref handle.GetModifier();
+//					var type = Maths.LerpInt(0, 9, modifier);
+
+//					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
+
+//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+//				},
+//#endif
+
+//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+//				{
+//					for (var i = 0; i < context.requirements_old.Length; i++)
+//					{
+//						var requirement = context.requirements_old[i];
+
+//						if (requirement.type == Crafting.Requirement.Type.Resource)
+//						{
+//							ref var material = ref requirement.material.GetData();
+//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+//							{
+//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+//							}
+//						}
+//						else if (requirement.type == Crafting.Requirement.Type.Work)
+//						{
+//							switch (requirement.work)
+//							{
+//								case Work.Type.Smithing:
+//								{
+//									requirement.amount *= 0.20f;
+//									context.requirements_new.Add(requirement);
+//								}
+//								break;
+
+//								case Work.Type.Machining:
+//								{
+//									requirement.amount *= 0.05f;
+//									context.requirements_new.Add(requirement);
+//								}
+//								break;
+//							}
+//						}
+//					}
+//				}
+//			));
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
@@ -2177,6 +2335,8 @@ namespace TC2.Base
 							}
 						}
 					}
+
+					context.requirements_new.Add(Crafting.Requirement.Resource("lubricant", 5.00f));
 				}
 			));
 
@@ -2909,6 +3069,8 @@ namespace TC2.Base
 					{
 						body.mass_extra += 0.50f;
 					}
+
+					//App.WriteLine("test9");
 				},
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2994,68 +3156,6 @@ namespace TC2.Base
 					if (!melee_state.IsNull())
 					{
 
-					}
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Gun.Data>
-			(
-				identifier: "gun.scope",
-				category: "Gun (Receiver)",
-				name: "Scope",
-				description: "Attach a scope.",
-
-				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
-
-					return true;
-				},
-
-				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return !augments.HasAugment(handle) && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
-				},
-
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					var size = GUI.GetRemainingSpace();
-					size.X *= 0.50f;
-
-					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
-
-					return dirty;
-				},
-
-				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-				},
-#endif
-
-				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-
-					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
-					if (!scope.IsNull())
-					{
-						scope.speed = 6.00f;
-						scope.deadzone = 3.00f;
-						scope.zoom_modifier = 0.50f;
-						scope.zoom_min = 0.90f;
-						scope.zoom_max = 0.90f;
-						scope.min_distance = 12.00f;
-						scope.max_distance = 80.00f;
 					}
 				}
 			));

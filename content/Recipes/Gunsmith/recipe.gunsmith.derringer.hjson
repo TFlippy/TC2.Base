@@ -14,36 +14,36 @@
 	max: 100
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable
 	tags: gunsmith
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 30.000
+			amount: 3.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 1.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "smithing"
 			amount: 70.000
 			difficulty: 6.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "woodworking"
 			amount: 80.000
 			difficulty: 5.000
 		}
 		{
-			type: "work"
+			type: work
 			work: "assembling"
 			amount: 80.000
 			difficulty: 4.000
@@ -53,9 +53,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "derringer"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

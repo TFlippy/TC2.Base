@@ -1,3 +1,9 @@
+$name: "Carbine"
+$desc:
+	'''
+	Lever-action carbine.
+	Easier to handle in cramped environments thanks to its smaller size.
+	'''
 $tags: []
 
 body:
@@ -6,7 +12,7 @@ body:
 	{
 		a: [-0.800, 0.250]
 		b: [0.800, 0.000]
-		mass: 4.000
+		mass: 2.000
 		radius: 0.230
 		friction: 0.600
 		elasticity: 0.250
@@ -23,11 +29,11 @@ gun:
 	sound_cycle: "rifle_cycle"
 	sound_reload: "rifle_reload"
 	velocity_multiplier: 640.000
-	jitter_multiplier: 0.200
+	jitter_multiplier: 1.500
 	damage_multiplier: 3.200
 	recoil_multiplier: 1.400
 	reload_interval: 0.600
-	cycle_interval: 0.350
+	cycle_interval: 0.200
 	failure_rate: 0.005
 	max_ammo: 4.000
 	projectile_count: 1
@@ -55,7 +61,7 @@ gun:
 		offset: [1.250, -0.125]
 		scale: [24.000, 16.000]
 		intensity: 0.000
-		texture: "light_invsqr"
+		texture: "light.circle.00"
 	}
 }
 
@@ -75,8 +81,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.500
-	torque_multiplier: 1.100
+	force_multiplier: 1.100
+	torque_multiplier: 1.200
 }
 
 animated.renderer:

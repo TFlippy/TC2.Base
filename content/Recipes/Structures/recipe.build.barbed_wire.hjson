@@ -10,50 +10,57 @@
 		texture: "barbed_wire.icon"
 	}
 	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: blueprintable
 	tags: construction
-
+	
 	dismantle_work: 50.000
 	dismantle_yield: 0.200
-
+	
 	placement:
-	{ 
+	{
 		type: line
 		flags: allow_placement_over_buildings, terrain_is_support
+		
+		size: [2.500, 2.500]
+		snap: [0.250, 0.250]
+		
+		cooldown: 0.300
+		min_support: 0.100
+		min_claim: 1.000
 		
 		length_min: 1.000
 		length_max: 8.000
 		length_step: 0.250
-
-		size: [2.500, 2.500]
-		snap: [0.250, 0.250]
-		cooldown: 0.300
-		min_support: 0.100
-		min_claim: 1.000
-
+		
 		sound: "building_place"
 	}
-
+	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 1.500
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
-			amount: 25.000
+			amount: 2.500
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "barbed_wire"
+			amount: 0.000
+			amount_extra: 0.000
 		}
 	]
 }

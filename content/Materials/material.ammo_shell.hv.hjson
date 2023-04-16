@@ -1,14 +1,16 @@
 {
 	name: "Artillery Shell (High-Velocity)"
-	description: "Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling."
-
+	description:
+		'''
+		Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling.
+		'''
+	
 	icon:
 	{
 		texture: "resource.ammo_shell.hv"
 		size: [16, 16]
-		frame: [0, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -17,22 +19,20 @@
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_shell, explosive
+	flags: manufactured, ammo, ammo_shell, magnetic, explosive
 	mass_per_unit: 12.500
 	quantity_max: 1.000
 	prefab: "resource.ammo_shell.hv"
 	
-	projectile_count: 1
-	projectile_speed_mult: 1.350
-	projectile_spread_mult: 0.150
-	projectile_heat: 6000.000
-	projectile_prefab: "projectile.shell.hv"
-	
-	fuel_energy: 0.000
-	fuel_drain: 1.000
-	fuel_purity: 0.500
-	fuel_temperature: 1200.000
-	
-	specific_heat: 100.000
-	thermal_conductivity: 0.100
+	ammo:
+	{
+		count: 1
+		mass: 6.000
+		speed_mult: 1.350
+		spread_mult: 0.150
+		recoil_mult: 1.000
+		heat: 6000.000
+		velocity_min: 80.000
+		prefab: "projectile.shell.hv"
+	}
 }

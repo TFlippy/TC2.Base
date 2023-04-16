@@ -1,0 +1,75 @@
+{
+	name: "Krakatite Decomposition"
+	desc: ""
+	
+	icon:
+	{
+		texture: "resource.krakatite"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.gunpowder"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra_offset: [-4.000, -6.000]
+	color_button: "0xff9a7861"
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	type: crafter
+	flags: none
+	tags: furnace
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 625.000
+		}
+		{
+			type: resource
+			material: "krakatite"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "brown_coal"
+			amount: 0.700
+		}
+		{
+			type: work
+			work: "heating"
+			amount: 24.000
+			difficulty: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "stone"
+			amount: 0.591
+			amount_extra: 0.110
+		}
+		{
+			type: resource
+			material: "saltpeter"
+			amount: 0.212
+			amount_extra: 0.371
+		}
+		{
+			type: resource
+			material: "gunpowder"
+			amount: 0.372
+			amount_extra: 1.471
+		}
+	]
+}
