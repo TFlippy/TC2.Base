@@ -76,7 +76,8 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	window_size: [288.000, 96.000]
+	window_offset: [0.000, 192.000]
 }
 
 faction.colorable:
@@ -138,9 +139,10 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.000, 0.000]
-		max_force: 60000.000
-		max_torque: 180000.000
+		max_force: 70000.000
+		max_torque: 100000.000
 		max_stress: 3.000
+		stress_threshold: 3.010
 		flags: control_write, no_wrap, force_facing
 		material_type: metal
 		
@@ -174,8 +176,10 @@ vehicle:
 	{
 		min: -2.500
 		max: 0.750
-		error_bias: 0.050
-		max_bias: 0.700
+		step: 0.500
+		max_bias: 1.000
+		error_bias: 0.200
+		stress_mult: 0.500
 	}
 
 	attachment.slot:

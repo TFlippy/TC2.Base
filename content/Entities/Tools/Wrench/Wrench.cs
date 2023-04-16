@@ -61,6 +61,7 @@ namespace TC2.Base.Components
 
 			public Physics.Layer LayerMask { get; }
 			public Physics.Layer LayerRequire { get; }
+			public Physics.Layer LayerExclude { get; }
 			public TInfo CreateTargetInfo(Entity entity);
 
 #if CLIENT
@@ -95,7 +96,7 @@ namespace TC2.Base.Components
 				//if (!info_src.valid || !info_dst.valid)
 				{
 					Span<OverlapResult> results = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(wpos_mouse, 0.125f, ref results, mask: this.LayerMask, require: this.LayerRequire))
+					if (region.TryOverlapPointAll(wpos_mouse, 0.125f, ref results, mask: this.LayerMask, require: this.LayerRequire, exclude: this.LayerExclude))
 					{
 						foreach (ref var result in results)
 						{
@@ -649,6 +650,12 @@ namespace TC2.Base.Components
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Deconstruct.Data>())
 							{
 								Wrench.DrawModeButton<Wrench.Mode.Deconstruct.Data>(this.ent_wrench, ref this.wrench);
+								GUI.SameLine();
+							}
+
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Repair.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Repair.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 						}

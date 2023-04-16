@@ -56,6 +56,11 @@ wrench:
 
 }
 
+wrench.mode.build:
+{
+
+}
+
 wrench.mode.belts:
 {
 
@@ -71,7 +76,7 @@ wrench.mode.deconstruct:
 
 }
 
-wrench.mode.build:
+wrench.mode.repair:
 {
 
 }

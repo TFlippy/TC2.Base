@@ -1,0 +1,38 @@
+﻿
+namespace TC2.Base.Components
+{
+	public static partial class Repairable
+	{
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+		}
+
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public partial struct Data: IComponent
+		{
+			public Repairable.Flags flags;
+			public float cost_multiplier = 1.00f;
+
+			public Data()
+			{
+
+			}
+		}
+
+		[ISystem.AddFirst(ISystem.Mode.Single)]
+		public static void OnAddBody([Source.Owned] in Repairable.Data repairable, [Source.Owned] ref Body.Data body)
+		{
+			body.override_shape_layer |= Physics.Layer.Repairable;
+			body.flags &= ~Body.Flags.NonDirty;
+		}
+
+		[ISystem.RemoveLast(ISystem.Mode.Single)]
+		public static void OnRemoveBody([Source.Owned] in Repairable.Data repairable, [Source.Owned] ref Body.Data body)
+		{
+			body.override_shape_layer &= ~Physics.Layer.Repairable;
+			body.flags &= ~Body.Flags.NonDirty;
+		}
+	}
+}
