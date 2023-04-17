@@ -13,6 +13,11 @@ namespace TC2.Base
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				apply_0: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					//var radius_log = MathF.Log2(data.radius);
@@ -96,6 +101,11 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Dud Explosive",
 				description: "Replaces all the explosive material with dirt.",
+
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				apply_1: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -182,6 +192,11 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Smoke Explosive",
 				description: "Replaces all the explosive material with sulfur, which produces a lot of smoke.",
+
+				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				apply_1: static (ref Augment.Context context, ref Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

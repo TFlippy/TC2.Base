@@ -139,8 +139,8 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.000, 0.000]
-		max_force: 70000.000
-		max_torque: 100000.000
+		max_force: 150000.000
+		max_torque: 50000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: control_write, no_wrap, force_facing
@@ -168,7 +168,8 @@ vehicle:
 
 	joint.pivot:
 	{
-		max_bias: 4.000
+		max_bias: 3.000
+		error_bias: 0.200
 		stress_mult: 0.500
 	}
 
@@ -179,7 +180,7 @@ vehicle:
 		step: 0.500
 		max_bias: 1.000
 		error_bias: 0.200
-		stress_mult: 0.500
+		stress_mult: 0.200
 	}
 
 	attachment.slot:

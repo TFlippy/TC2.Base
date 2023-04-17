@@ -167,7 +167,7 @@
 							}
 
 							var dirty = false;
-							if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, "%.2f", size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
+							if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
 							{
 								dirty = true;
 							}

@@ -70,21 +70,21 @@
 		}
 #endif
 
-#if SERVER
-		[ISystem.Update(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
-		{
-			//App.WriteLine("test");
+//#if CLIENT
+//		[ISystem.Update(ISystem.Mode.Single)]
+//		public static void OnUpdate(ISystem.Info info, Entity entity,
+//		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
+//		{
+//			//App.WriteLine("test");
 
-			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
-			if (control.keyboard.GetKeyDown(Keyboard.Key.Reload))
-			{
-				telescope.offset = default;
-				telescope.Sync(entity);
-			}
-		}
-#endif
+//			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+//			if (control.keyboard.GetKey(Keyboard.Key.Reload))
+//			{
+//				telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.10f);
+//				//telescope.Sync(entity, true);
+//			}
+//		}
+//#endif
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
@@ -115,10 +115,19 @@
 				{
 					telescope.offset += dir * (telescope.speed * len * App.fixed_update_interval_s);
 				}
+				else if (control.keyboard.GetKey(Keyboard.Key.Reload))
+				{
+					telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.02f);
+					//telescope.Sync(entity, true);
+				}
 
 				telescope.offset += (new Vector2(Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f, Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier) * 0.07f;
 
+				
+
 				telescope.offset = telescope.offset.ClampRadius(Vector2.Zero, max_distance);
+
+
 			}
 		}
 

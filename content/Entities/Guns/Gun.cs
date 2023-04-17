@@ -220,7 +220,8 @@
 			public Gun.Hints hints;
 
 			public float muzzle_velocity;
-
+			public IMaterial.Handle h_last_ammo;
+			
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
@@ -286,6 +287,8 @@
 		}
 
 #if CLIENT
+		internal static Vector2 last_trajectory_gizmo_pos;
+
 		public static void DrawTrajectory(ref Region.Data region, IMaterial.Handle material_ammo, in Gun.Data gun, in Transform.Data transform)
 		{
 			var ts = Timestamp.Now();
@@ -297,6 +300,9 @@
 				if (ammo.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 				{
 					var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+					var canvas_scale = GUI.GetWorldToCanvasScale();
+
+					var color = GUI.font_color_red;
 
 					if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
@@ -307,7 +313,7 @@
 
 						//GUI.Text($"{vel}");
 
-						var iter_count = 500;
+						var iter_count = 800;
 						var iter_count_inv = 1.00f / iter_count;
 
 						var pos_last = pos_a;
@@ -317,10 +323,12 @@
 						var line_len = 4.00f;
 						var line_gap = 2.00f;
 
+						var alpha = 1.00f;
+
 						for (var i = 0; i < iter_count; i++)
 						{
 							var pos = pos_b;
-							var alpha = i * iter_count_inv;
+							alpha = Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f);
 
 							vel *= projectile.damp;
 							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
@@ -336,12 +344,14 @@
 							if (dist_delta >= line_len)
 							{
 								var dir = (pos - pos_last).GetNormalized(out var len);
-								len -= line_gap;
+								//len -= line_gap;
 
 								var pos_line_a = pos_last;
 								var pos_line_b = pos_last + (dir * len);
 
-								if (!region.IsInLineOfSight(pos_line_a, pos_line_b))
+								pos_last = pos;
+
+								if (!region.IsInLineOfSight(pos_line_a, pos_line_b, out pos_last, radius: projectile.size, query_flags: Physics.QueryFlag.Static, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Essence | Physics.Layer.Ignore_Bullet | Physics.Layer.Gas | Physics.Layer.Water | Physics.Layer.Fire))
 								{
 									//var pos_line_mid = (pos_line_a + pos_line_b) * 0.50f;
 									//var dir_perp = dir.GetPerpendicular() * 10;
@@ -352,12 +362,36 @@
 									break;
 								}
 
-								GUI.DrawLine((pos_line_a).WorldToCanvas(), (pos_line_b).WorldToCanvas(), GUI.col_button_yellow.WithAlphaMult(Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f)), 4.00f);
+								//GUI.DrawCircleFilled(pos_line_a.WorldToCanvas(), 4, GUI.col_button_yellow.WithAlphaMult(0.50f), segments: 4, layer: GUI.Layer.Background);
+								//GUI.DrawCircleFilled(pos_line_b.WorldToCanvas(), 4, GUI.col_button_yellow.WithAlphaMult(0.50f), segments: 4, layer: GUI.Layer.Background);
 
-								pos_last = pos;
+								GUI.DrawLine((pos_line_a + (dir * line_gap)).WorldToCanvas(), (pos_line_b).WorldToCanvas(), color.WithAlphaMult(alpha), 4.00f, layer: GUI.Layer.Background);
 								dist_delta = 0;
 							}
 						}
+
+						var canvas_rect = GUI.GetCanvasRect();
+						var c_pos_last = pos_last.WorldToCanvas();
+						var c_pos_last_clipped = c_pos_last;
+						var c_radius = (1.00f + (gun.jitter_multiplier * ammo.spread_mult)) * canvas_scale * 4.00f;
+
+						GUI.DrawLine(c_pos_last - new Vector2(c_radius * 1.50f, 0.00f), c_pos_last + new Vector2(c_radius * 1.50f, 0.00f), color: color.WithAlphaMult(0.250f), thickness: 1.00f, layer: GUI.Layer.Background);
+						GUI.DrawLine(c_pos_last - new Vector2(0.00f, c_radius * 1.50f), c_pos_last + new Vector2(0.00f, c_radius * 1.50f), color: color.WithAlphaMult(0.250f), thickness: 1.00f, layer: GUI.Layer.Background);
+						GUI.DrawCircleFilled(c_pos_last, projectile.size * canvas_scale, color.WithAlphaMult(1.00f), segments: 12, layer: GUI.Layer.Background);
+						GUI.DrawCircle(c_pos_last, c_radius, color.WithAlphaMult(alpha), thickness: 2.00f, segments: 32, layer: GUI.Layer.Background);
+
+						var canvas_rect_inner = canvas_rect.Pad(new Vector4(200));
+						//if (!canvas_rect_inner.ContainsPoint(c_pos_last))
+						{
+							var c_pos_edge = canvas_rect_inner.ClipPoint(c_pos_last);
+							canvas_rect_inner.ClipLine(ref c_pos_edge, ref c_pos_last_clipped);
+
+							GUI.DrawLine(Gun.last_trajectory_gizmo_pos, c_pos_last, color: color.WithAlphaMult(0.50f), thickness: 2.00f, layer: GUI.Layer.Background);
+							GUI.DrawCircleFilled(Gun.last_trajectory_gizmo_pos, (projectile.size * canvas_scale * 0.75f), color.WithAlphaMult(1.00f), segments: 4, layer: GUI.Layer.Background);
+						}
+
+						GUI.DrawTextCentered($"[{pos_last.X:0}, {pos_last.Y:0}]\n{Vector2.Distance(pos_w_offset, pos_last):0.00}m\n{(Maths.NormalizeAngle(transform.GetInterpolatedRotation()) * Maths.rad2deg):0.00}°", Gun.last_trajectory_gizmo_pos + new Vector2(0, 4 + (12 * 2)), color: GUI.font_color_default, layer: GUI.Layer.Background);
+						Gun.last_trajectory_gizmo_pos = Vector2.Lerp(Gun.last_trajectory_gizmo_pos, c_pos_last_clipped, 0.03f);
 					}
 				}
 			}
@@ -680,6 +714,7 @@
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
 								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
 								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
+								gun_state.h_last_ammo = resource.material;
 
 								break;
 							}

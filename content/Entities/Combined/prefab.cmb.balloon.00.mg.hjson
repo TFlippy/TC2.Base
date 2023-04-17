@@ -19,6 +19,18 @@
 		}
 	}
 
+	burner:
+	{
+		@inventory1:
+		{
+			resource:
+			{
+				material: "black_coal"
+				quantity: 120.000
+			}
+		}
+	}
+
 	+seat|instance:
 	{
 	

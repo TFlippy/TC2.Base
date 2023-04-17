@@ -147,7 +147,7 @@
 
 								var dirty = false;
 								
-								if (GUI.SliderFloat("Slider", ref this.track_state.slider_ratio, 0.00f, 1.00f, "%.2f", size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								if (GUI.SliderFloat("Slider", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), 32)))
 								{
 									dirty = true;
 								}

@@ -27,6 +27,18 @@ storage:
 	}
 }
 
+burner:
+{
+	@inventory1:
+	{
+		resource:
+		{
+			material: "black_coal"
+			quantity: 120.000
+		}
+	}
+}
+
 +slot_cab|instance:
 {
 	+attached|child:

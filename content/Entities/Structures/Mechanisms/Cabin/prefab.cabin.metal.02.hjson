@@ -154,7 +154,7 @@ threat:
 
 mount:
 {
-	flags: no_torque_without_controller
+	flags: none
 }
 
 +mount|instance:
@@ -162,8 +162,10 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.500, -1.250]
-		max_force: 250000.000
-		max_torque: 200000.000
+		max_force: 700000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
 		flags: control_write, force_facing
 		z: 75.000
 		material_type: metal
@@ -196,8 +198,9 @@ mount:
 
 	joint.gear:
 	{
-		error_bias: 0.01
-		max_bias: 1.500
+		error_bias: 0.050
+		max_bias: 4.000
+		step: 3.000
 		min: -2.000
 		max: 0.500
 	}
