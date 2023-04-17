@@ -10,6 +10,8 @@ projectile:
 	size: 0.000
 	tracer_length: 3.000
 	mass: 0.015
+
+	// speed_damage: [100.000, 0.000, 1000.000, 1.500]
 }
 
 projectile.renderer:

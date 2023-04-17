@@ -32,6 +32,7 @@
 			Child_Projectiles = 1u << 5,
 			Rope_Projectiles = 1u << 6,
 			No_LMB_Cycle = 1u << 7,
+			Cycled_When_Reloaded = 1u << 8,
 
 		}
 
@@ -406,8 +407,8 @@
 			public Vector2 world_position_target;
 
 			public Gun.Data gun;
+			public Gun.State gun_state;
 			public Inventory1.Data inventory;
-			public Gun.State state;
 
 			public void Draw()
 			{
@@ -416,13 +417,13 @@
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(this.world_position_target), size: new(100, 100)))
+				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
 				{
 					if (window.show)
 					{
-						if (this.state.stage == Gun.Stage.Reloading)
+						if (this.gun_state.stage == Gun.Stage.Reloading)
 						{
-							GUI.TitleCentered($"Reloading\n{MathF.Max(this.state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f));
+							GUI.TitleCentered($"Reloading\n{MathF.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f, 0.50f));
 						}
 					}
 				}
@@ -430,11 +431,17 @@
 				//GUI.DrawLine((transform.position).WorldToCanvas(), (transform.position + (transform.GetDirection() * 10.00f)).WorldToCanvas(), Color32BGRA.Red);
 
 				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
-				Gun.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+
+				var pos_a = this.transform.GetInterpolatedPosition();
+				var pos_b = this.world_position_target;
+
+				var dist = Vector2.Distance(pos_a, pos_b);
+
+				Gun.DrawCrosshair(ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
 
-		public static void DrawCrosshair(Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
+		public static void DrawCrosshair(ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
 		{
 			var dist = Vector2.Distance(position_a, position_b);
 			var cpos_target = GUI.WorldToCanvas(position_a + (dir * dist));
@@ -445,7 +452,7 @@
 
 			var color = new Color32BGRA(0xffff0000);
 
-			if (ammo_count == 0)
+			if (ammo_count == 0 || gun_state.stage == Gun.Stage.Reloading)
 			{
 				color = 0xffffff00;
 			}
@@ -466,7 +473,7 @@
 				{
 					var (sin, cos) = MathF.SinCos(i * -step);
 
-					var col = new Color32BGRA(0xffff0000);
+					var col = color;
 					col = col.WithColorMult(i < ammo_count ? 1.00f : 0.10f);
 					col = col.WithAlphaMult(0.60f);
 
@@ -532,7 +539,7 @@
 				{
 					transform = transform,
 					world_position_target = control.mouse.position,
-					state = state,
+					gun_state = state,
 					inventory = inventory,
 					gun = gun
 				};
@@ -552,7 +559,7 @@
 				{
 					transform = transform,
 					world_position_target = control.mouse.position,
-					state = state,
+					gun_state = state,
 					inventory = inventory,
 					gun = gun
 				};
@@ -577,19 +584,17 @@
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
+		public static void OnFailure(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
 		{
-			ref var region = ref info.GetRegion();
-
 			gun_state.stage = Gun.Stage.Jammed;
-			gun_state.Sync(entity);
+			gun_state.Sync(entity, true);
 
 			gun.jitter_multiplier += random.NextFloatRange(0.50f, 3.00f);
 			gun.stability -= MathF.Min(gun.stability, random.NextFloatRange(0.10f, 0.30f));
 			gun.failure_rate += random.NextFloatRange(0.02f, 0.08f);
 			gun.failure_rate *= random.NextFloatRange(1.10f, 1.80f);
 			gun.failure_rate = gun.failure_rate.Clamp01();
-			gun.Sync(entity);
+			gun.Sync(entity, true);
 		}
 #endif
 
@@ -656,7 +661,7 @@
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void UpdateReload<T>(ISystem.Info info, Entity entity,
+		public static void UpdateReload<T>(ref Region.Data region, ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory) where T : unmanaged, IInventory
@@ -666,7 +671,7 @@
 			{
 				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, false);
 				gun_state.stage = Gun.Stage.Reloading;
-				gun_state.Sync(entity);
+				gun_state.Sync(entity, true);
 
 				return;
 			}
@@ -676,22 +681,32 @@
 			{
 				var time = info.WorldTime;
 				if (time < gun_state.next_reload) return;
-				ref var region = ref info.GetRegion();
 
-				if (inventory_magazine.resource.quantity >= gun.max_ammo)
+				if ((inventory_magazine.resource.quantity >= gun.max_ammo)) // Fully done reloading
 				{
-					gun_state.stage = Gun.Stage.Cycling;
-				}
-				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAll(Gun.Hints.Loaded))
-				{
+					if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
+					{
+						gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
+						gun_state.stage = Gun.Stage.Ready;
+					}
+					else
+					{
+						gun_state.stage = Gun.Stage.Cycling;
+					}
+
 #if SERVER
-					gun_state.stage = Gun.Stage.Cycling;
-					gun_state.Sync(entity);
-
-					return;
+					gun_state.Sync(entity, true);
 #endif
 				}
-				else
+				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAll(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
+				{
+					gun_state.stage = Gun.Stage.Cycling;
+
+#if SERVER
+					gun_state.Sync(entity, true);
+#endif
+				}
+				else // Reloading
 				{
 					gun_state.next_reload = info.WorldTime + gun.reload_interval;
 
@@ -721,7 +736,7 @@
 						}
 					}
 
-					if (inventory_magazine.resource.material != 0)
+					if (inventory_magazine.resource.material != 0) // If magazine knows that ammo it wants to use, withdraw it from parent inventory
 					{
 #if SERVER
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
@@ -729,22 +744,32 @@
 						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
-						var done = true;
+						var done_reloading = true;
 
 						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount))
 						{
-							done = false;
+							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
 							inventory_magazine.flags.SetFlag(Inventory.Flags.Dirty, true);
 
 							Sound.Play(ref region, gun.sound_reload, transform.position);
 						}
 
-						if (done)
+						if (done_reloading)
 						{
-							gun_state.stage = Gun.Stage.Cycling;
-							gun_state.Sync(entity);
+							if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
+							{
+								gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
+								gun_state.stage = Gun.Stage.Ready;
+							}
+							else
+							{
+								gun_state.stage = Gun.Stage.Cycling;
+							}
 
-							return;
+							//gun_state.next_reload = 0.00f; // Skip reload timer, so next reload update executes instantly and switches state
+
+							//gun_state.stage = gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded) ? Gun.Stage.Ready : Gun.Stage.Cycling;
+							gun_state.Sync(entity, true);
 						}
 #endif
 					}
@@ -754,9 +779,8 @@
 						gun_state.hints.SetFlag(Gun.Hints.No_Ammo, true);
 #if SERVER
 						gun_state.stage = Gun.Stage.Ready;
-						gun_state.Sync(entity);
+						gun_state.Sync(entity, true);
 #endif
-						return;
 					}
 				}
 			}
@@ -843,7 +867,7 @@
 								velocity_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.005f);
 							}
 
-							overheat.Sync(entity);
+							overheat.Sync(entity, true);
 						}
 					}
 
@@ -918,6 +942,44 @@
 								});
 							}
 						}
+
+						if (gun.shake_amount > 0.50f)
+						{
+							var shockwave_radius = Maths.Clamp(((gun.shake_amount * gun.shake_radius) * 0.15f), 0.00f, 24.00f);
+							if (shockwave_radius >= 4.00f)
+							{
+								var shake_amount = gun.shake_amount * 0.50f;
+								//App.WriteLine(shockwave_radius);
+								region.SpawnPrefab("explosion", (transform.position + pos_w_offset) * 0.50f).ContinueWith(x =>
+								{
+									ref var explosion = ref x.GetComponent<Explosion.Data>();
+									if (!explosion.IsNull())
+									{
+										explosion.power = 4.00f;
+										explosion.radius = shockwave_radius;
+										explosion.damage_entity = 0.00f;
+										explosion.damage_terrain = 90.00f;
+										explosion.damage_type = Damage.Type.Shockwave;
+										explosion.ent_owner = entity;
+										explosion.fire_amount = 0.00f;
+										explosion.smoke_amount = 0.00f;
+										explosion.smoke_lifetime_multiplier = 1.10f;
+										explosion.smoke_velocity_multiplier = 1.00f;
+										explosion.flash_duration_multiplier = 0.00f;
+										explosion.flash_intensity_multiplier = 0.00f;
+										explosion.sparks_amount = 0.00f;
+										explosion.volume = 0.00f;
+										explosion.pitch = 0.00f;
+										explosion.shake_multiplier = shake_amount;
+										explosion.force_multiplier = shake_amount * 2.00f;
+										explosion.flags |= Explosion.Flags.No_Split;
+										//explosion.ent_ignored = explosion_tmp.ent_ignored;
+
+										explosion.Sync(x, true);
+									}
+								});
+							}
+						}
 					}
 
 					if (stability < 1.00f && random.NextBool(failure_rate) && random.NextBool(1.00f - stability))
@@ -933,9 +995,9 @@
 							ent_owner = body.GetParent()
 						};
 
-						region.SpawnPrefab("explosion", transform.position).ContinueWith(x =>
+						region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
 						{
-							ref var explosion = ref x.GetComponent<Explosion.Data>();
+							ref var explosion = ref ent.GetComponent<Explosion.Data>();
 							if (!explosion.IsNull())
 							{
 								explosion.power = explosion_data.power;
@@ -945,7 +1007,7 @@
 								explosion.ent_owner = explosion_data.ent_owner;
 								explosion.smoke_amount = explosion_data.smoke_amount;
 
-								explosion.Sync(x);
+								explosion.Sync(ent, true);
 							}
 						});
 
@@ -1091,22 +1153,22 @@
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun.flags.HasAny(Gun.Flags.No_LMB_Cycle) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
-				{
-#if SERVER
-					gun_state.stage = Gun.Stage.Cycling;
-					entity.SyncComponent(ref gun_state);
-#endif
-					return;
-				}
-
 				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
 				{
 #if SERVER
 
 					//gun_state.stage = Gun.Stage.Reloading;
 					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
-					entity.SyncComponent(ref gun_state);
+					gun_state.Sync(entity, true);
+#endif
+					return;
+				}
+
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun.flags.HasAny(Gun.Flags.No_LMB_Cycle) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
+				{
+#if SERVER
+					gun_state.stage = Gun.Stage.Cycling;
+					gun_state.Sync(entity, true);
 #endif
 					return;
 				}
@@ -1118,7 +1180,7 @@
 #if SERVER
 						gun_state.stage = Gun.Stage.Fired;
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
-						entity.SyncComponent(ref gun_state);
+						gun_state.Sync(entity, true);
 
 #endif
 					}
@@ -1152,7 +1214,7 @@
 						gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 
-						entity.SyncComponent(ref gun_state);
+						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
@@ -1160,7 +1222,7 @@
 					else
 					{
 						gun_state.stage = Gun.Stage.Jammed;
-						entity.SyncComponent(ref gun_state);
+						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);

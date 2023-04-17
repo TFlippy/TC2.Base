@@ -149,7 +149,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -0.50f), max: new Vector2(0.50f, 0.50f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.50f, -0.50f), max: new Vector2(0.50f, 0.50f));
 
 					return dirty;
 				},

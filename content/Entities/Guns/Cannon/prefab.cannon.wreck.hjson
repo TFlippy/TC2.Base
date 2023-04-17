@@ -39,7 +39,7 @@ gun:
 	smoke_amount: 6
 	flash_size: 2.000
 	projectile_count: 1
-	flags: full_reload, cycle_on_shoot
+	flags: manual_cycle, cycled_when_reloaded
 	ammo_filter: ammo_shell
 	action: manual
 	type: cannon

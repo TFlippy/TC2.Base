@@ -49,7 +49,7 @@ armor:
 
 holdable:
 {
-	force_multiplier: 1.000
+	force_multiplier: 1.500
 	torque_multiplier: 0.800
 	offset: [0.000, 0.000]
 	offset_attachment: [0.000, 0.000]

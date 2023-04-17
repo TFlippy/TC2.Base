@@ -205,7 +205,7 @@
 					body.Activate();
 
 #if SERVER
-					crane.Sync(entity);
+					crane.Sync(entity, true);
 #endif
 				}
 			}

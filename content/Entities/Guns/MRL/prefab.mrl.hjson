@@ -42,7 +42,7 @@ gun:
 	max_ammo: 6.000
 	projectile_count: 1
 	barrel_count: 6
-	flags: automatic, cycle_on_shoot
+	flags: automatic, cycle_on_shoot, cycled_when_reloaded
 	ammo_filter: ammo_rocket
 	action: manual
 	type: launcher

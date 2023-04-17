@@ -19,7 +19,7 @@ namespace TC2.Base.Components
 			{
 				//gun_state.stage = Gun.Stage.Reloading;
 				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
-				gun_state.Sync(entity);
+				gun_state.Sync(entity, true);
 
 				automatic_reload.next_reload = info.WorldTime + 3.00f;
 			}

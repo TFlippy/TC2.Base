@@ -2923,7 +2923,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
 
 					return dirty;
 				},
@@ -2999,7 +2999,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.25f, -0.125f), max: new Vector2(0.25f, 0.125f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.25f, -0.125f), max: new Vector2(0.25f, 0.125f));
 
 					return dirty;
 				},
@@ -3112,7 +3112,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.50f, 0.00f), max: new Vector2(0.50f, 1.00f));
 
 					return dirty;
 				},
@@ -3179,7 +3179,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},

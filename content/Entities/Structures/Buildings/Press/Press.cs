@@ -206,9 +206,9 @@
 
 						press_state.flags.SetFlag(Press.State.Flags.Smashed, true);
 
-						axle_state.Sync(entity);
+						axle_state.Sync(entity, true);
 						//crafter_state.Sync(entity);
-						press_state.Sync(entity);
+						press_state.Sync(entity, true);
 					}
 				}
 				break;

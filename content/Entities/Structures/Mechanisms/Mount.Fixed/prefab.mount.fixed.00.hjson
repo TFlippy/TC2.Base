@@ -67,7 +67,7 @@ storage:
 	@inventory1:
 	{
 		name: "Ammo"
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 6.000
 		type: ammo
 		flags: allow_ducts, ignore_mass
 	}
@@ -78,8 +78,11 @@ storage:
 	joint.base:
 	{
 		offset_a: [0.000, -0.625]
-		max_force: 2000000.000
-		max_torque: 4000000.000
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		z: -150.000
 		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
 		material_type: metal
 	}
@@ -91,20 +94,21 @@ storage:
 
 	joint.gear:
 	{
-		min: 0.000
+		min: -3.140
 		max: 0.000
 		error_bias: 0.0001
-		max_bias: 3.000
+		max_bias: 0.350
 	}
 
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: brake, manual_aim
-		flags_editable: locked, disabled, hold, invert, brake, manual_aim
+		flags: brake, manual_aim, keyboard_write, mouse_write, offset
+		flags_editable: locked, disabled, offset
 		name: "Mount"
 		identifier: "mount"
 		offset: [0.000, 0.000]
+		offset_bounds: [-0.250, 0.000, 1.000, 0.000]
 		gui_size: [224.000, 192.000]
 	}
 }

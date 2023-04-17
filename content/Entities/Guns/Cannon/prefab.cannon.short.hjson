@@ -30,7 +30,7 @@ gun:
 	sound_shoot: "cannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 90.000
-	jitter_multiplier: 0.500
+	jitter_multiplier: 0.900
 	damage_multiplier: 25.000
 	recoil_multiplier: 1.300
 	reload_interval: 3.000
@@ -44,7 +44,7 @@ gun:
 	smoke_amount: 7.000
 	flash_size: 1.500
 	projectile_count: 1
-	flags: manual_cycle
+	flags: manual_cycle, cycled_when_reloaded
 	ammo_filter: ammo_shell
 	action: manual
 	type: cannon

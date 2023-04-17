@@ -75,7 +75,7 @@ namespace TC2.Base.Components
 					explosive.flags |= Explosive.Flags.Explode_When_Primed;
 				}
 
-				explosive.Sync(entity);
+				explosive.Sync(entity, true);
 			}
 		}
 
@@ -132,7 +132,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single)]
-		public static void OnRemove(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
+		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))
 			{
@@ -157,9 +157,9 @@ namespace TC2.Base.Components
 
 				//if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
 
-				info.GetRegion().SpawnPrefab("explosion", transform.position).ContinueWith(x =>
+				region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
 				{
-					ref var explosion = ref x.GetComponent<Explosion.Data>();
+					ref var explosion = ref ent.GetComponent<Explosion.Data>();
 					if (!explosion.IsNull())
 					{
 						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier);
@@ -182,7 +182,7 @@ namespace TC2.Base.Components
 
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 
-						explosion.Sync(x);
+						explosion.Sync(ent, true);
 					}
 				});
 			}
