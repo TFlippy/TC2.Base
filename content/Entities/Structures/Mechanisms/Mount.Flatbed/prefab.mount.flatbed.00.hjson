@@ -79,7 +79,8 @@ transform:
 
 interactable:
 {
-	window_size: [182.000, 240.000]
+	window_size: [224.000, 192.000]
+	window_offset: [64.000, 128.000]
 }
 
 vehicle:
@@ -87,17 +88,52 @@ vehicle:
 
 }
 
+mount:
+{
+
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 1.000
+		type: ammo
+		flags: allow_ducts, ignore_mass
+	}
+}
+
 +mount|instance:
 {
 	joint_base:
 	{
-		offset_a: [0.000, -0.625]
+		offset_a: [0.000, -0.375]
 		max_force: 200000.000
 		max_torque: 400000.000
 		max_stress: 3.000
 		z: 0.000
 		material_type: metal
 		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, facing_reset_pos
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.200
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
 	}
 
 	joint.pivot:
@@ -116,11 +152,11 @@ vehicle:
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: keyboard_write, mouse_write, brake, manual_aim
+		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim
 		name: "Mount"
 		identifier: "mount"
 		offset: [0.000, 0.000]
-		gui_size: [128.000, 128.000]
+		gui_size: [224.000, 192.000]
 	}
 }

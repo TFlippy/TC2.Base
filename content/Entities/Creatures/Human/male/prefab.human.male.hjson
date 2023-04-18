@@ -594,6 +594,7 @@ lootable:
 		max_bias: 5.000
 		min: -2.000
 		max: 2.000
+		stress_mult: 0.100
 	}
 	
 	interactor:

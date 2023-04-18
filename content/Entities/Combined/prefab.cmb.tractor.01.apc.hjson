@@ -13,8 +13,13 @@ burner:
 	}
 }
 
-+slot_heavy|instance:
++slot_rear|instance:
 {
+	attachment.slot:
+	{
+		flags: keyboard_write, mouse_write
+	}
+
 	+attached|child:
 	{
 		$prefab: "container.personnel"
@@ -74,8 +79,13 @@ burner:
 	}
 }
 
-+slot_cab|instance:
++slot_front|instance:
 {
+	attachment.slot:
+	{
+		flags: keyboard_read, mouse_read
+	}
+
 	+attached|child:
 	{
 		$prefab: "cabin.metal.00"

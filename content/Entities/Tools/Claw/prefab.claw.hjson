@@ -70,9 +70,10 @@ interactable:
 
 holdable:
 {
-	offset: [-1.000, 0.000]
+	// offset: [-1.000, 0.000]
 	radius: 0.000
-	flags: disable_control
+	torque_multiplier: 0.200
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:
@@ -80,6 +81,15 @@ attachment:
 	offset: [-1.000, 0.000]
 	radius: 0.000
 }
+
+// norotate:
+// {
+// 	rotation: -1.571
+// 	bias: 0.300
+// 	speed: 3.000
+// 	multiplier: 1.000
+// 	mass_multiplier: 5.000
+// }
 
 +mount|instance:
 {
