@@ -25,8 +25,8 @@
 		{
 			type: "work"
 			work: "scavenging"
-			amount: 8.000
-			difficulty: 10.000
+			amount: 5.000
+			difficulty: 17.000
 		}
 	]
 	
@@ -42,13 +42,13 @@
 			type: "resource"
 			material: "glass"
 			amount: 0.010
-			amount_extra: 0.130
+			amount_extra: 0.070
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
 			amount: 0.020
-			amount_extra: 0.130
+			amount_extra: 0.090
 		}
 		{
 			type: "resource"

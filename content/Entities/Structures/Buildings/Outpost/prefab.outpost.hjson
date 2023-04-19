@@ -122,7 +122,7 @@ armory:
 		stack_size_multiplier: 4.000
 		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass
+		flags: ignore_mass, public
 	}
 }
 

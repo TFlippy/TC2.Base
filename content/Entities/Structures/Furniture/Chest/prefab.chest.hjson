@@ -60,7 +60,7 @@ storage:
 		name: "Inventory"
 		stack_size_multiplier: 2.000
 		type: storage
-		flags: standalone, ignore_mass, public
+		flags: standalone, ignore_mass, public, ignore_mass
 	}
 }
 

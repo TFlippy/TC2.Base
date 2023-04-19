@@ -35,26 +35,26 @@
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 0.070
-			amount_extra: 0.150
+			amount: 0.030
+			amount_extra: 0.095
 		}
 		{
 			type: "resource"
 			material: "steel.plate"
 			amount: 0.020
-			amount_extra: 0.150
+			amount_extra: 0.175
 		}
 		{
 			type: "resource"
 			material: "copper.ingot"
-			amount: 0.010
-			amount_extra: 0.060
+			amount: 0.007
+			amount_extra: 0.040
 		}
 		{
 			type: "resource"
 			material: "scrap"
-			amount: 0.200
-			amount_extra: 0.400
+			amount: 0.100
+			amount_extra: 0.250
 		}
 	]
 }

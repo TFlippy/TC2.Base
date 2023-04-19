@@ -1,0 +1,85 @@
+﻿{
+	$name: "Creative Storage (Materials)"
+	$desc:
+		'''
+		Storage building packed with various crafting materials so you don't have to spawn each of them manually.
+		'''
+	$prefab: "storage"
+	$tags: ["static"]
+	
+	storage:
+	{
+		@inventory16:
+		{
+			flags: standalone, allow_ducts, ignore_mass, public, no_auto_pickup, no_drop
+
+			resources:
+			[
+				{
+					material: "scrap"
+					quantity: 5000.000
+				}
+				{
+					material: "wood"
+					quantity: 5000.000
+				}
+				{
+					material: "stone"
+					quantity: 5000.000
+				}
+				{
+					material: "steel.ingot"
+					quantity: 2000.000
+				}
+				{
+					material: "cloth"
+					quantity: 500.000
+				}
+				{
+					material: "copper.ingot"
+					quantity: 2000.000
+				}
+				{
+					material: "machine_parts"
+					quantity: 2000.000
+				}
+				{
+					material: "paper"
+					quantity: 2000.000
+				}
+				{
+					material: "steel.plate"
+					quantity: 1000.000
+				}
+				{
+					material: "copper.plate"
+					quantity: 1000.000
+				}
+				{
+					material: "gold.ingot"
+					quantity: 500.000
+				}
+				{
+					material: "arcane_actuator"
+					quantity: 1000.000
+				}
+				{
+					material: "cement"
+					quantity: 5000.000
+				}
+				{
+					material: "smirglum.ingot"
+					quantity: 500.000
+				}
+				{
+					material: "glass"
+					quantity: 1000.000
+				}
+				{
+					material: "gravel"
+					quantity: 5000.000
+				}
+			]
+		}
+	}
+}

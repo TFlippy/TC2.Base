@@ -24,12 +24,12 @@
 		{
 			type: resource
 			material: "cloth"
-			amount: 80.000
+			amount: 70.000
 		}
 		{
 			type: resource
 			material: "wood"
-			amount: 30.000
+			amount: 60.000
 		}
 		{
 			type: resource
@@ -39,7 +39,7 @@
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 25.000
+			amount: 17.000
 		}
 		{
 			type: work

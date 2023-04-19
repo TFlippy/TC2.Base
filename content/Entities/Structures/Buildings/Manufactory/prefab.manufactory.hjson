@@ -66,6 +66,6 @@ workshop:
 		name: "Storage"
 		stack_size_multiplier: 2.000
 		type: storage
-		flags: standalone, allow_ducts, public
+		flags: standalone, allow_ducts, public, ignore_mass
 	}
 }

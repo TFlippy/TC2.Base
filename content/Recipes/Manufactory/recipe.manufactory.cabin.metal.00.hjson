@@ -22,18 +22,18 @@
 	[
 		{
 			type: resource
-			material: "wood"
-			amount: 20.000
+			material: "steel.ingot"
+			amount: 15.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 25.000
+			material: "steel.plate"
+			amount: 40.000
 		}
 		{
 			type: work
 			work: "smithing"
-			amount: 1300.000
+			amount: 900.000
 			difficulty: 10.000
 		}
 		{

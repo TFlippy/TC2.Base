@@ -59,5 +59,11 @@ shop:
 
 workshop:
 {
-
+	@inventory4:
+	{
+		name: "Storage"
+		stack_size_multiplier: 1.000
+		type: storage
+		flags: standalone, public, ignore_mass
+	}
 }

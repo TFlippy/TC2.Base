@@ -177,7 +177,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), Exclude<Player.Data>(Source.Modifier.Parent)]
 		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
+		[Source.Owned] in Head.Data head, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
 		[Source.Parent] ref Control.Data control)
 		{
 			if (head.concussion > 0.01f)

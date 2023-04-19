@@ -24,17 +24,17 @@
 		{
 			type: resource
 			material: "cloth"
-			amount: 80.000
+			amount: 120.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 65.000
+			amount: 95.000
 		}
 		{
 			type: resource
 			material: "wood"
-			amount: 20.000
+			amount: 180.000
 		}
 		{
 			type: resource

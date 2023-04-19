@@ -1,20 +1,30 @@
-{
-	name: "Mount (Heavy)"
+﻿{
+	name: "Emplacement (Heavy)"
 	desc:
 		'''
-		A sturdy stationary mount.
-		Various objects can be attached to this.
+		Large emplacement with an aimable heavy rotary mount.
+		- Perfect for artillery and cranes
+		- High-torque, high-force attachment slot
+		- Comfortable seat
 		'''
 	
 	icon:
 	{
 		texture: "mount.heavy"
 		size: [48, 48]
+		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
-	flags: none
+	flags: blueprintable
 	tags: mechanisms
+	rank: 0.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -31,17 +41,16 @@
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
-
+		
 		rotation_max: 0.200
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.6x6
-
+		prefab: "construction.6x6"
+		
 		requirements:
 		[
 			{
@@ -77,6 +86,7 @@
 			type: prefab
 			prefab: "mount.heavy"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

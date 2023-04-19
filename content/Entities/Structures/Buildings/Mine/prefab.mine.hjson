@@ -122,7 +122,7 @@ minimap.marker:
 dormitory:
 {
 	species: "human"
-	flags: no_kit_selection
+	flags: no_hiring, no_kit_selection
 	max_kits: 2
 	kit_default: "survival"
 	characters_capacity: 3
