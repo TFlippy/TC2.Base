@@ -49,14 +49,11 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateSmokeBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
+		public static void UpdateSmokeBody(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
-
-				var random = XorRandom.New();
-				ref var region = ref info.GetRegion();
 
 				rocket.smoke_accumulator += rocket.smoke_amount;
 
@@ -90,14 +87,11 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateSmokeProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
+		public static void UpdateSmokeProjectile(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f && projectile.elapsed >= 0.15f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
-
-				var random = XorRandom.New();
-				ref var region = ref info.GetRegion();
 
 				rocket.smoke_accumulator += rocket.smoke_amount;
 

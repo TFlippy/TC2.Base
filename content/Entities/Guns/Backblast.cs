@@ -15,15 +15,13 @@
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Backblast.Data backblast)
 		{
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
-				ref var region = ref info.GetRegion();
-
 				var pos = transform.LocalToWorld(backblast.exhaust_offset);
 				var dir = -transform.GetDirection();
 

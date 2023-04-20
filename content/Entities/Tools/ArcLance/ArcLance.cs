@@ -21,11 +21,9 @@
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single)]
-		public static void OnHit(ISystem.Info info, Entity entity, ref Melee.HitEvent data, [Source.Owned] ref ArcLance.Data arc_lance)
+		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, 
+		ref Melee.HitEvent data, [Source.Owned] ref ArcLance.Data arc_lance)
 		{
-			ref var region = ref info.GetRegion();
-			ref var random = ref data.random;
-
 #if CLIENT
 			var dir = data.direction;
 

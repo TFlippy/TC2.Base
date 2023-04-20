@@ -105,7 +105,9 @@ mount:
 		offset_a: [0.000, 0.000]
 		max_force: 100000.000
 		max_torque: 200000.000
-		flags: control_read, control_write, no_stress, no_wrap, force_facing, no_resizable_offset
+		max_stress: 1.000
+		stress_threshold: 1.010
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
 		material_type: metal
 		// flags: control_read, control_write
 	}
@@ -114,6 +116,7 @@ mount:
 	{
 		error_bias: 0.0001
 		max_bias: 2.000
+		stress_mult: 0.700
 
 		// @sound.emitter:
 		// {
@@ -146,13 +149,14 @@ mount:
 		error_bias: 0.000
 		max_force_b: 0.000
 		max_force_b: 1000000.000
-		max_bias: 20.000
+		max_bias: 10.000
 	}
 
 	joint.distance:
 	{
 		max_force: 200000.000
 		max_bias: 5.000
+		stress_mult: 0.700
 
 		@sound.emitter:
 		{

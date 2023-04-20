@@ -41,14 +41,12 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void Update(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Biter.Data biter, [Source.Owned] ref Biter.State biter_state, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
 		{
 			if (organic_state.consciousness_shared > 0.30f && info.WorldTime > biter_state.next_attack && control.mouse.GetKey(Mouse.Key.Left))
 			{
-				ref var region = ref info.GetRegion();
-
 				biter_state.next_attack = info.WorldTime + biter.cooldown;
 
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);

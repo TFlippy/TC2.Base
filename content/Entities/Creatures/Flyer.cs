@@ -33,9 +33,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateMovement(ISystem.Info info, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body)
+		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body)
 		{
-			ref var region = ref info.GetRegion();
 			ref readonly var keyboard = ref control.keyboard;
 
 			var force = new Vector2(0, 0);

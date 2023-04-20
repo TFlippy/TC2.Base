@@ -788,14 +788,13 @@
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
 		[Source.Owned, Optional(true)] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
-			ref var region = ref info.GetRegion();
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);

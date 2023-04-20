@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
+		public static void OnGUI(ISystem.Info info, ref Region.Data region, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			if (player.IsLocal())
 			{
@@ -96,7 +96,7 @@ namespace TC2.Base.Components
 					valid = true
 				};
 
-				if (info.GetRegion().TryLinecast(transform.position, hit_position, chainsaw.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
+				if (region.TryLinecast(transform.position, hit_position, chainsaw.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
 				{
 					gui.world_position = hit.world_position;
 				}
@@ -107,7 +107,7 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -115,8 +115,6 @@ namespace TC2.Base.Components
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
 				{
-					ref var region = ref info.GetRegion();
-
 					chainsaw.next_hit = info.WorldTime + MathF.ReciprocalEstimate(chainsaw.speed);
 
 					var max_distance = chainsaw.max_distance;

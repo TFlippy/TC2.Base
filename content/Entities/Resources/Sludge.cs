@@ -12,11 +12,10 @@
 
 #if CLIENT
 		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.20f)]
-		public static void UpdateFX(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Sludge.Data sludge, [Source.Owned] in Resource.Data resource)
+		public static void UpdateFX(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Sludge.Data sludge, [Source.Owned] in Resource.Data resource)
 		{
 			if (info.WorldTime >= sludge.next_smoke)
 			{
-				var random = XorRandom.New();
 				sludge.next_smoke = info.WorldTime + random.NextFloatRange(0.70f, 1.30f);
 
 				ref var material = ref resource.material.GetData();
@@ -25,7 +24,6 @@
 					var modifier = MathF.Log2(1.00f + (resource.quantity / MathF.Max(material.quantity_max, 1.00f)));
 					var modifier2 = 0.50f + (modifier * 0.50f);
 
-					ref var region = ref info.GetRegion();
 					Particle.Spawn(ref region, new Particle.Data()
 					{
 						texture = texture_smoke,

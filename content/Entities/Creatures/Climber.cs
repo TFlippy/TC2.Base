@@ -12,14 +12,13 @@ namespace TC2.Base.Components
 
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ref Region.Data region, ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Of<Climber.Data>] ref Shape.Circle shape,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control)
 		{
 			//var ts = Timestamp.Now();
 
-			ref var region = ref info.GetRegion();
 			ref var keyboard = ref control.keyboard;
 
 			climber.MaxForce = 0.00f;

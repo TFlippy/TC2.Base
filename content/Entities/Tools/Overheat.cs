@@ -51,10 +51,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control, [Source.Owned] in Body.Data body)
 		{
-			ref var region = ref info.GetRegion();
 			var ambient_temperature = Maths.KelvinToCelsius(Region.ambient_temperature);
 
 			overheat.heat_current = Maths.MoveTowards(overheat.heat_current, ambient_temperature, overheat.cool_rate * info.DeltaTime);
@@ -91,12 +90,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateSound(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
+		public static void UpdateSound(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound_emitter)
 		{
-			var random = XorRandom.New();
-			ref var region = ref info.GetRegion();
-
 			sound_emitter.offset = overheat.offset;
 			sound_emitter.volume = Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
 			sound_emitter.pitch = 0.50f + Maths.Clamp(MathF.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);

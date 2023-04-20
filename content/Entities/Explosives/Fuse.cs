@@ -78,15 +78,13 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
 		{
 			fuse.time -= App.fixed_update_interval_s;
 
 #if SERVER
 			if (fuse.failure_chance > 0.00f && fuse.time > 0.50f && fuse.time < fuse.failure_time)
 			{
-				ref var region = ref info.GetRegion();
-
 				entity.RemoveTag("lit");
 				fuse.failure_time = 0.00f;
 
@@ -99,9 +97,6 @@ namespace TC2.Base.Components
 #if CLIENT
 			if (fuse.flags.HasAll(Fuse.Flags.Sparkle))
 			{
-				ref var region = ref info.GetRegion();
-				var random = XorRandom.New();
-
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = tex_spark,

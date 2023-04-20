@@ -136,7 +136,7 @@ seat.attachable:
 
 holdable:
 {
-
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
 worker:

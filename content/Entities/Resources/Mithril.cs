@@ -66,13 +66,10 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
-		public static void UpdateFX(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril)
+		public static void UpdateFX(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril)
 		{
 			if (info.WorldTime >= mithril.next_smoke && mithril.modifier > 0.01f)
 			{
-				var random = XorRandom.New();
-
-				ref var region = ref info.GetRegion();
 				mithril.next_smoke = info.WorldTime + random.NextFloatRange(0.50f, 0.70f);
 
 				Particle.Spawn(ref region, new Particle.Data()

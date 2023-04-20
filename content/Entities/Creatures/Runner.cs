@@ -146,10 +146,9 @@ namespace TC2.Base.Components
 		//		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
+		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
 			ref readonly var keyboard = ref control.keyboard;
-			ref var region = ref info.GetRegion();
 
 			var force = new Vector2(0, 0);
 			var max_speed = new Vector2(runner.max_speed, runner.max_jump_speed);

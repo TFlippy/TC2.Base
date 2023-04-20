@@ -55,15 +55,11 @@
 		private static readonly Texture.Handle metal_spark_01 = "metal_spark.01";
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned, Pair.Of<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
 		{
 			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
 			{
-				ref var region = ref info.GetRegion();
-
-				var random = XorRandom.New();
-
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
 					//Sound.Play(snd_smash[(press.current_sound_index++) % snd_smash.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.70f);

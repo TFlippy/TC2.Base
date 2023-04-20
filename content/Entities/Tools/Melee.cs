@@ -594,15 +594,13 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player,
+		public static void OnGUI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, 
+		[Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			if (player.IsLocal() && !GUI.IsHovered)
 			{
-				var random = XorRandom.New();
-				ref var region = ref info.GetRegion();
-
 				var parent = body.GetParent();
 
 				var pos = transform.LocalToWorld(melee.hit_offset);
@@ -728,7 +726,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
-		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -736,8 +734,6 @@ namespace TC2.Base.Components
 
 			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit)
 			{
-				ref var region = ref info.GetRegion();
-
 				var parent = body.GetParent();
 
 				melee_state.last_hit = info.WorldTime;

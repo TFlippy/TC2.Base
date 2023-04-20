@@ -117,12 +117,10 @@ namespace TC2.Base.Components
 
 		//[ISystem.AddFirst(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
 		[ISystem.Event<SteamEngine.ExplodeEvent>(ISystem.Mode.Single)]
-		public static void OnExplode(ISystem.Info info, Entity entity, ref XorRandom random, ref SteamEngine.ExplodeEvent data,
+		public static void OnExplode(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, ref SteamEngine.ExplodeEvent data,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
-			ref var region = ref info.GetRegion();
-
 			var max_radius = Maths.Clamp(data.power * 10.00f, 10.00f, 100.00f);
 
 			App.WriteLine("steam engine damaged");
@@ -378,14 +376,11 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateRenderer(ISystem.Info info, [Source.Owned] in Transform.Data transform,
+		public static void UpdateRenderer(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
 		[Source.Owned, Pair.Of<SteamEngine.Data>] ref Animated.Renderer.Data renderer_piston)
 		{
-			ref var region = ref info.GetRegion();
-			var random = XorRandom.New();
-
 			var speed = MathF.Abs(wheel_state.angular_velocity);
 			if (speed > 1.00f && info.WorldTime >= steam_engine_state.next_steam)
 			{
@@ -448,13 +443,12 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateSoundExhaust(ISystem.Info info, [Source.Owned] in Transform.Data transform,
+		public static void UpdateSoundExhaust(ISystem.Info info, ref Region.Data region, ref XorRandom random, 
+		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
 		[Source.Owned, Pair.Of<SteamEngine.State>] ref Sound.Emitter sound_emitter)
 		{
-			var random = XorRandom.New();
-			ref var region = ref info.GetRegion();
 			var delta = 0.00f;
 
 			if (wheel_state.angular_velocity != 0.00f)
@@ -489,7 +483,7 @@ namespace TC2.Base.Components
 					texture = texture_smoke,
 					lifetime = random.NextFloatRange(0.50f, 1.00f) * steam_engine.steam_size,
 					pos = transform.LocalToWorld(steam_engine.exhaust_offset) + random.NextVector2(0.20f),
-					vel = transform.LocalToWorld(new Vector2((-3.00f - Maths.Clamp(delta, 0.00f, 3.00f)) -0.50f), position: false),
+					vel = transform.LocalToWorld(new Vector2((-3.00f - Maths.Clamp(delta, 0.00f, 3.00f)) - 0.50f), position: false),
 					//vel = steam_engine.smoke_direction * (-3.00f - Maths.Clamp(delta, 0.00f, 3.00f)) * random.NextFloatRange(0.90f, 1.10f),
 					force = new Vector2(0.30f, -0.40f),
 					fps = random.NextByteRange(10, 15),

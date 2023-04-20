@@ -38,14 +38,11 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateSmoke(ISystem.Info info, Entity entity, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
+		public static void UpdateSmoke(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
 			if (flare.lifetime > 0.00f)
 			{
 				var modifier = Maths.Clamp(flare.lifetime * 0.10f, 0.00f, 1.00f);
-
-				var random = XorRandom.New();
-				ref var region = ref info.GetRegion();
 
 				if (flare.smoke_amount > 0.00f)
 				{
