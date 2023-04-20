@@ -422,14 +422,13 @@
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void UpdateParticles(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
+		public static void UpdateParticles(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
 			var axle_speed = MathF.Abs(axle_state.angular_velocity);
 			if (axle_speed > 1.00f && info.WorldTime >= state.t_next_smoke)
 			{
 				state.t_next_smoke = info.WorldTime + 0.50f;
 
-				var random = XorRandom.New();
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = texture_smoke,

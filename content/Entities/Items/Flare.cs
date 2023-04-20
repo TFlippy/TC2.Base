@@ -127,14 +127,12 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateLight(ISystem.Info info, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light)
+		public static void UpdateLight(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light)
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.25f, 0.00f, 1.00f);
 
 			if (info.WorldTime >= flare.next_flicker_time)
 			{
-				var random = XorRandom.New();
-
 				flare.intensity_target = 1.00f - random.NextFloatRange(0.00f, flare.flicker);
 				flare.next_flicker_time = info.WorldTime + flare.flicker_interval;
 			}

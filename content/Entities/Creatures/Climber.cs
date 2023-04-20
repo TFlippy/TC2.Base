@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ref Region.Data region, ISystem.Info info, Entity entity,
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Of<Climber.Data>] ref Shape.Circle shape,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control)
@@ -144,7 +144,6 @@ namespace TC2.Base.Components
 							climber.last_walljump = info.WorldTime;
 
 #if CLIENT
-							var random = XorRandom.New();
 							Sound.Play(snd_walljump.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.22f, 0.25f), pitch: random.NextFloatRange(0.85f, 0.95f));
 #endif
 						}

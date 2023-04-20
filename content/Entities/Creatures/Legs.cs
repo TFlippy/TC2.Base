@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateAnimation(ISystem.Info info, Entity entity,
+		public static void UpdateAnimation(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
@@ -105,7 +105,6 @@ namespace TC2.Base.Components
 						var interval = ((1.00f / renderer.sprite.fps) * renderer.sprite.count) * legs.sound_interval_multiplier;
 						legs.next_step = info.WorldTime + interval;
 
-						var random = XorRandom.New();
 						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: legs.sound_volume, pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch, priority: 0.10f);
 					}
 				}

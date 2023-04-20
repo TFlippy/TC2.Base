@@ -130,11 +130,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdateLightLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
+		public static void OnUpdateLightLit(ref Region.Data region, ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
 		{
 			if (fuse.flags.HasAll(Fuse.Flags.Sparkle))
 			{
-				var random = XorRandom.New();
 				light.intensity = random.NextFloatRange(0.50f, 1.00f);
 			}
 		}
