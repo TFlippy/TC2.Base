@@ -6,11 +6,18 @@ body:
 {
 	type: dynamic
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [3.000, 1.500]
+		points: 
+		[
+			[-1.250, -0.500]
+			[1.250, 0.000]
+			[1.250, 0.500]
+			[-1.250, 0.500]
+		]
 		offset: [0.000, 0.000]
 		mass: 250.000
+		radius: 0.250
 		friction: 0.900
 		elasticity: 0.400
 		material: metal

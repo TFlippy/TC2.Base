@@ -36,7 +36,7 @@
 	
 	}
 	
-	+slot_mount_0|instance:
+	+slot_side|instance:
 	{
 		+attached|child:
 		{
@@ -44,7 +44,7 @@
 		}
 	}
 	
-	+slot_mount_1|instance:
+	+slot_bottom|instance:
 	{
 	
 	}

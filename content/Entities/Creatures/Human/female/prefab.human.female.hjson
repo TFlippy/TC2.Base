@@ -586,6 +586,8 @@ lootable:
 		max_bias: 5.000
 		min: -2.000
 		max: 2.000
+		step: 50.000
+		max_bias: 10.000
 	}
 	
 	interactor:

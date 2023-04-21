@@ -41,56 +41,64 @@
 				data.gear_ratio = this.gear_ratio;
 				data.slider_ratio = this.slider_ratio;
 
-				data.Sync(entity);
+				ref var body = ref entity.GetComponent<Body.Data>();
+				if (body.IsNotNull())
+				{
+					body.Activate();
+				}
+
+				data.Sync(entity, true);
 			}
 #endif
 		}
 
-		public const float update_interval = 0.10f;
+		//public const float update_interval = 0.12f;
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
-		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
+		[Source.Shared] in SawMill.Data sawmill, [Source.Shared] ref SawMill.State sawmill_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance)
 		{
 			joint_distance.distance = sawmill.slider_distance * sawmill_state.slider_ratio;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.12f)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
 		[Source.Parent] ref Axle.Data wheel, [Source.Parent] ref Axle.State wheel_state, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
 		{
-			if (info.WorldTime >= sawmill_state.next_update)
+			var wheel_speed = MathF.Max(MathF.Abs(wheel_state.angular_velocity) - 2.00f, 0.00f);
+			if (wheel_speed > 2.00f)
 			{
-				var wheel_speed = MathF.Max(MathF.Abs(wheel_state.angular_velocity) - 2.00f, 0.00f);
-				//var modifier = MathF.Min(wheel_speed * 0.08f, 1.00f);
+				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
 
-				if (wheel_speed > 2.00f)
+				var overlap = body_child.GetClosestPoint(wpos_saw);
+				var dir = (-transform_parent.GetDirection()).RotateByDeg(30.00f);
+
+				if (overlap.distance < sawmill.saw_radius)
 				{
-					var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
-
-					var overlap = body_child.GetClosestPoint(wpos_saw);
-					var dir = overlap.gradient;
-
-					if (overlap.distance < sawmill.saw_radius)
-					{
 #if SERVER
-						var damage = wheel_state.old_tmp_torque * 0.15f;
+					var damage = Maths.Clamp(wheel_state.old_tmp_torque * 0.15f, 0.00f, wheel_speed * 35.00f);
+					//App.WriteLine(damage);
+
+					if (damage > 25.00f)
+					{
 						//entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: wheel_speed);
 
+						//App.WriteLine(overlap.distance);
+
+						//damage = 1.00f;
+
 						Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_health,
-							position: overlap.world_position, velocity: dir * wheel_speed, normal: -dir,
+							position: overlap.world_position - overlap.gradient, velocity: dir * wheel_speed, normal: -dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 							target_material_type: overlap.material_type, damage_type: Damage.Type.Saw,
 							yield: 1.00f, size: 0.50f, impulse: 0.00f);
+					}
 #endif
 
-						sawmill_state.last_hit = info.WorldTime;
-					}
+					sawmill_state.last_hit = info.WorldTime;
 				}
-
-				sawmill_state.next_update = info.WorldTime + update_interval;
 			}
 		}
 
@@ -144,50 +152,103 @@
 				using (var window = GUI.Window.Interaction("Sawmill", this.ent_sawmill))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
-
-					ref var player = ref Client.GetPlayer();
-					ref var region = ref Client.GetRegion();
-
-					const float slider_h = 32;
-
-					var frame_size = Inventory.GetFrameSize(4, 2);
-
-					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+					if (window.show)
 					{
-						using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+						ref var player = ref Client.GetPlayer();
+						ref var region = ref Client.GetRegion();
+
+						const float slider_h = 32;
+
+						var frame_size = Inventory.GetFrameSize(4, 2);
+
+						var context = GUI.ItemContext.Begin();
 						{
-							GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
-
-							using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - slider_h)))
+							using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
 							{
-								GUI.Label("Angular Velocity:", this.wheel_state.angular_velocity, "{0:0.00} rad/s");
-								GUI.Label("Torque:", this.wheel_state.old_tmp_torque, "{0:0.00} Nm/s");
-							}
-
-							var dirty = false;
-							if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
-							{
-								dirty = true;
-							}
-
-							if (dirty)
-							{
-								var rpc = new SawMill.ConfigureRPC
+								using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
 								{
-									gear_ratio = this.sawmill_state.gear_ratio,
-									slider_ratio = this.sawmill_state.slider_ratio
-								};
-								rpc.Send(this.ent_sawmill);
+									GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+
+									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - slider_h - 64)))
+									{
+										GUI.Label("Angular Velocity:", this.wheel_state.angular_velocity, "{0:0.00} rad/s");
+										GUI.Label("Torque:", this.wheel_state.old_tmp_torque, "{0:0.00} Nm/s");
+									}
+
+									var ent_child = default(Entity);
+									var ent_joint = default(Entity);
+
+									ent_joint = this.ent_sawmill.GetChild(Relation.Type.Instance);
+									if (ent_joint.IsAlive())
+									{
+										ent_child = ent_joint.GetChild(Relation.Type.Child);
+									}
+
+									using (var slot = GUI.EntitySlot.New(ref context, "slot.sawmill", "Item", ent_child, new Vector2(GUI.GetRemainingWidth(), 64)))
+									{
+										if (slot.pressed)
+										{
+											switch (slot.action)
+											{
+												case GUI.ItemContext.Action.Add:
+												{
+													var rpc = new Holdable.AttachRPC
+													{
+														ent_joint = ent_joint
+													};
+													rpc.Send(context.ent_pickup_target);
+												}
+												break;
+
+												case GUI.ItemContext.Action.Remove:
+												{
+													var rpc = new Holdable.DetachRPC
+													{
+														
+													};
+													rpc.Send(ent_child);
+												}
+												break;
+
+												case GUI.ItemContext.Action.Swap:
+												{
+													var rpc = new Holdable.AttachRPC
+													{
+														ent_joint = ent_joint
+													};
+													rpc.Send(context.ent_pickup_target);
+												}
+												break;
+											}
+										}
+									}
+
+									var dirty = false;
+									if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
+									{
+										dirty = true;
+									}
+
+									if (dirty)
+									{
+										var rpc = new SawMill.ConfigureRPC
+										{
+											gear_ratio = this.sawmill_state.gear_ratio,
+											slider_ratio = this.sawmill_state.slider_ratio
+										};
+										rpc.Send(this.ent_sawmill);
+									}
+								}
+
+								GUI.SameLine();
+
+								using (var group = GUI.Group.Centered(GUI.GetRemainingSpace(), frame_size))
+								{
+									GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+
+									GUI.DrawInventoryDock(Inventory.Type.Output, size: frame_size);
+								}
 							}
-						}
-
-						GUI.SameLine();
-
-						using (var group = GUI.Group.Centered(GUI.GetRemainingSpace(), frame_size))
-						{
-							GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
-
-							GUI.DrawInventoryDock(Inventory.Type.Output, size: frame_size);
 						}
 					}
 				}
@@ -205,7 +266,7 @@
 
 					sawmill = sawmill,
 					sawmill_state = sawmill_state,
-					
+
 					wheel = wheel,
 					wheel_state = wheel_state
 				};

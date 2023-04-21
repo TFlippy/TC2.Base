@@ -47,7 +47,7 @@ burner:
 	}
 }
 
-+slot_mount_0|instance:
++slot_left|instance:
 {
 	attachment_slot:
 	{
@@ -62,11 +62,51 @@ burner:
 	}
 }
 
-+slot_mount_1|instance:
++slot_right|instance:
+{
+	attachment_slot:
+	{
+		flags: hold, keyboard_write, mouse_write
+		cycle_interval: 0.100
+		cycle_offset: 0.000
+	}
+
+	+attached|child:
+	{
+		$prefab: "machine_gun"	
+	}
+}
+
++slot_bottom|instance:
 {
 	+attached|child:
 	{
 		$prefab: "levitator.01"
+
+		levitator:
+		{
+			nodes: 
+			[
+				{
+					dir: [1.000, 0.800]
+					offset: [2.000, 0.000]
+					ratio: 0.300
+					key: moveleft
+				}
+				{
+					dir: [0.000, 1.000]
+					offset: [0.000, 0.750]
+					ratio: 0.400
+					key: moveup, leftshift
+				}
+				{
+					dir: [-1.000, 0.800]
+					offset: [-2.000, 0.000]
+					ratio: 0.300
+					key: moveright
+				}
+			]
+		}
 
 		essencecontainer_data:
 		{
@@ -79,20 +119,5 @@ burner:
 				}
 			}
 		}
-	}
-}
-
-+slot_mount_2|instance:
-{
-	attachment_slot:
-	{
-		flags: hold, keyboard_write, mouse_write
-		cycle_interval: 0.100
-		cycle_offset: 0.000
-	}
-
-	+attached|child:
-	{
-		$prefab: "machine_gun"	
 	}
 }

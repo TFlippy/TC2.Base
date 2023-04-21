@@ -8,6 +8,8 @@ $tags: ["hornet"]
 
 body:
 {
+	fall_damage_multiplier: 0.250
+
 	@shape.circle:
 	{
 		mass: 7.500
@@ -35,6 +37,14 @@ animated.renderer:
 		size: [16, 16]
 	}
 	z: -40.000
+	flags: has_damage
+}
+
+damage.effects:
+{
+	offset: 1
+	frame_count: 4
+	threshold_wreck: 0.200
 }
 
 organic:
@@ -86,7 +96,7 @@ animal:
 	attack_cooldown_ranged: 2.000
 
 	charge_distance: 7.000
-	retreat_distance: 6.000
+	retreat_distance: 9.000
 }
 
 animal.state:
@@ -111,7 +121,7 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 32.000
+	radius: 16.000
 }
 
 pathfinding:
@@ -131,7 +141,7 @@ commandable:
 
 threat:
 {
-	priority: 2.000
+	priority: 4.000
 }
 
 flyer:
@@ -139,8 +149,8 @@ flyer:
 	max_speed: 20.000
 	force: 200.000
 	brake_modifier: 0.700
-	sound_speed_modifier: 0.020
-	sound_volume: 1.000
+	sound_speed_modifier: 0.025
+	sound_volume: 1.500
 }
 
 hornet:
@@ -155,17 +165,23 @@ facing:
 
 norotate:
 {
-
+	rotation: 0.000
+	bias: 0.050
+	speed: 10.000
+	multiplier: 1.000
+	mass_multiplier: 3.000
 }
 
 sound.emitter:
 {
 	file: "hornet.loop.00"
-	volume: 0.300
+	volume: 0.500
 	pitch: 1.000
-	size_max_modifier: 0.800
-	spread: 70.000
+	size: 1.500
+	size_max_modifier: 1.100
+	spread: 90.000
 	priority: 0.100
+	doppler: 1.500
 }
 
 melee:

@@ -1,3 +1,8 @@
+$name: "Sawmill"
+$desc:
+	'''
+	Large circular saw used for quickly and efficiently processing logs.
+	'''
 $tags: []
 
 body:
@@ -48,7 +53,7 @@ animated.renderer:
 
 sawmill:
 {
-	slider_distance: 5.00
+	slider_distance: 5.000
 
 	saw_radius: 1.000
 	saw_offset: [-1.500, 0.875]
@@ -121,43 +126,50 @@ axle:
 	}
 }
 
-attachment.slot:
++mount|instance:
 {
+	joint.base:
+	{
+		offset_a: [3.000, 0.375]
+		max_force: 50000.000
+		max_torque: 50000.000
+		max_stress: 2.000
+		stress_threshold: 2.010
+		material_type: metal
+		flags: use_center_of_gravity
+	}
 
-}
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
 
-joint.base:
-{
-	offset_a: [3.000, 0.375]
-	max_force: 50000.000
-	max_torque: 50000.000
-	flags: control_read, control_write, use_center_of_gravity
-}
+		step: 1000.000
+		error_bias: 0.0001
+		max_bias: 5.000
+		stress_mult: 0.000
+	}
 
-joint.gear:
-{
-	min: 1.570
-	max: 1.570
+	joint.slider:
+	{
+		a: [0.000, 0.000]
+		b: [-5.000, 0.000]
 
-	error_bias: 0.0001
-	max_bias: 20.000
-}
+		max_force: 200000.000
+		max_force_b: 200000.000
 
-joint.slider:
-{
-	a: [0.000, 0.000]
-	b: [-5.000, 0.000]
+		min: 0.000
+		max: 5.000
 
-	min: 0.000
-	max: 5.000
+		error_bias: 0.0001
+		max_bias: 20.000
+		stress_mult: 0.400
+	}
 
-	error_bias: 0.0001
-	max_force: 20000.000
-	max_bias: 20.000
-}
-
-joint.distance:
-{
-	max_force: 20000.000
-	max_bias: 2.000
+	joint.distance:
+	{
+		max_force: 50000.000
+		max_bias: 2.000
+		stress_mult: 0.000
+	}
 }

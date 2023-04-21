@@ -40,7 +40,9 @@ splittable:
 holdable:
 {
 	radius: 0.000
-	flags: disable_parent_facing
+	force_multiplier: 3.000
+	torque_multiplier: 2.000
+	flags: disable_parent_facing, disable_rotation, full_rotate
 }
 
 animated.renderer:

@@ -52,8 +52,8 @@ animated.renderer:
 
 claw:
 {
-	sound_attach: "claw_attach"
-	sound_detach: "claw_detach"
+	sound_attach: "claw.attach.00"
+	sound_detach: "claw.detach.00"
 	frame_attached: 1
 	frame_detached: 0
 }
@@ -93,11 +93,6 @@ attachment:
 
 +mount|instance:
 {
-	grabber:
-	{
-
-	}
-
 	joint.base:
 	{
 		offset_a: [1.000, 0.000]

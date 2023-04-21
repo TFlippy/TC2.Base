@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single)]
-		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, [Source.Owned] in Transform.Data transform)
+		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
 		{
 			//App.WriteLine("drop loot");
 			var yield = Constants.Harvestable.global_yield_modifier * Constants.Materials.global_yield_modifier * health.yield;
@@ -51,9 +51,9 @@ namespace TC2.Base.Components
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
 						if (amount > Resource.epsilon)
 						{
-							Resource.Spawn(ref region, item.material, transform.position + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, lootable.merge_radius > 0.00f);
-							item = default;
+							Resource.Spawn(ref region, item.material, body.GetPosition() + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, lootable.merge_radius > 0.00f);
 						}
+						item = default;
 					}
 				}
 			}

@@ -1,10 +1,10 @@
 $name: "Badger"
-$desc: "A badger with a troubled past, and nothing left to lose."
+$desc: 
+	'''
+	A badger with a troubled past, and nothing left to lose.
+	'''
 $export: false
-$tags: 
-[
-	"badger"
-]
+$tags: ["badger"]
 
 body:
 {
@@ -107,11 +107,11 @@ npc:
 
 npc.emotions:
 {
-	hostility: 0.60
-	courage: 0.50
-	cruelty: 1.50
-	irritability: 1.10
-	apathy: 0.80
+	hostility: 0.600
+	courage: 0.500
+	cruelty: 1.500
+	irritability: 1.100
+	apathy: 0.800
 }
 
 npc.emotions.state:

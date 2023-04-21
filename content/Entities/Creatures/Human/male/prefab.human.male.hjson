@@ -591,10 +591,11 @@ lootable:
 	joint.gear:
 	{
 		error_bias: 0.0005
-		max_bias: 5.000
 		min: -2.000
 		max: 2.000
 		stress_mult: 0.100
+		step: 50.000
+		max_bias: 10.000
 	}
 	
 	interactor:
