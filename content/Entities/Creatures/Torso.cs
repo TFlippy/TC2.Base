@@ -96,7 +96,7 @@
 		[Source.Owned] ref Torso.Data torso, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control)
 		{
-			var walking = !torso.flags.HasAll(Torso.Flags.Crouching) && !control.keyboard.GetKey(Keyboard.Key.NoMove) && control.keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var walking = !torso.flags.HasAll(Torso.Flags.Crouching) && !control.keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && control.keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;

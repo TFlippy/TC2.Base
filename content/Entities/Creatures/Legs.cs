@@ -7,18 +7,16 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float sound_interval_multiplier = 1.00f;
-
 			public float sound_volume = 0.25f;
 			public float sound_pitch = 1.00f;
-
-			[Net.Ignore, Save.Ignore] public float next_step = default;
-
-			public uint2 frame_sitting = default;
 
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			public uint2 frames_jump = default;
+			public uint2 frame_sitting;
+			public uint2 frames_jump;
+
+			[Net.Ignore, Save.Ignore] public float next_step;
 
 			public Data()
 			{
@@ -27,7 +25,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs, [Source.Owned] bool dead)
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
 

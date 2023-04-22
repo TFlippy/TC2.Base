@@ -112,20 +112,32 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		public static void UpdateNoRotate(ISystem.Info info, Entity entity, 
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+			if (control.keyboard.GetKey(Keyboard.Key.X))
+			{
+				modifier *= 0.00f;
+				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
+			}
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate)
+		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, 
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+			if (control.keyboard.GetKey(Keyboard.Key.X))
+			{
+				modifier *= 0.00f;
+				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
+			}
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
@@ -155,7 +167,7 @@ namespace TC2.Base.Components
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
+			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
 			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 
