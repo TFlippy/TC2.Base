@@ -37,8 +37,8 @@
 		{
 			type: "work"
 			work: "refining"
-			amount: 10.000
-			difficulty: 1.000
+			amount: 1000.000
+			difficulty: 4.000
 		}
 	]
 	
@@ -47,14 +47,14 @@
 		{
 			type: "resource"
 			material: "rubber"
-			amount: 3.000
-			amount_extra: 4.000
+			amount: 5.000
+			amount_extra: 6.000
 		}
 		{
 			type: "resource"
-			material: "lubricant"
-			amount: 5.000
-			amount_extra: 20.000
+			material: "alcohol"
+			amount: 2.000
+			amount_extra: 12.000
 		}
 		{
 			type: "resource"

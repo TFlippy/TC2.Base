@@ -47,8 +47,8 @@
 		{
 			type: "work"
 			work: "refining"
-			amount: 35.000
-			difficulty: 1.000
+			amount: 2450.000
+			difficulty: 8.000
 		}
 	]
 	
