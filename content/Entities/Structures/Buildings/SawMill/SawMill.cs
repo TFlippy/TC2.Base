@@ -75,20 +75,19 @@
 				var overlap = body_child.GetClosestPoint(wpos_saw);
 				var dir = (-transform_parent.GetDirection()).RotateByDeg(30.00f);
 
+				//App.WriteLine()
+
 				if (overlap.distance < sawmill.saw_radius)
 				{
 #if SERVER
+
+
 					var damage = Maths.Clamp(wheel_state.old_tmp_torque * 0.15f, 0.00f, wheel_speed * 35.00f);
 					//App.WriteLine(damage);
 
 					if (damage > 25.00f)
 					{
 						//entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: wheel_speed);
-
-						//App.WriteLine(overlap.distance);
-
-						//damage = 1.00f;
-
 						Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_health,
 							position: overlap.world_position - overlap.gradient, velocity: dir * wheel_speed, normal: -dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,

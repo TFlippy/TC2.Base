@@ -1,25 +1,22 @@
 {
-	name: "Groundwater Pump"
+	name: "Steam Engine (Zimrman)"
 	desc:
 		'''
-		Retrieves water from the ground.
+		Standard Zimrman-design stationary steam engine.
 		'''
 	
 	icon:
 	{
-		texture: "pump"
-		size: [32, 40]
+		texture: "steam_engine"
+		size: [64, 40]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
 	
 	type: build
 	flags: none
-	tags: industry
+	tags: mechanisms
+	rank: -90.000
 	
-	dismantle_work: 15.000
+	dismantle_work: 20.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -27,23 +24,24 @@
 		type: simple
 		flags: require_terrain, terrain_is_support
 		
-		size: [3.000, 5.000]
-		offset: [0.000, -1.000]
+		size: [8.000, 5.000]
+		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
 		min_support: 0.200
-		min_clearance: 0.900
+		min_clearance: 0.850
 		min_claim: 1.000
-		
-		rotation_max: 0.200
+
+		rotation_max: 0.100
 		
 		sound: "building_place"
 	}
-	
+
 	construction:
 	{
-		prefab: "construction.4x5"
-		
+		flags: none
+		prefab: construction.8x5
+
 		requirements:
 		[
 			{
@@ -58,23 +56,23 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 10.000
-		}
-		{
-			type: resource
-			material: "copper.ingot"
-			amount: 10.000
+			material: "steel.plate"
+			amount: 120.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 20.000
+			amount: 35.000
 		}
 		{
 			type: resource
-			material: "stone"
-			amount: 55.000
+			material: "steel.ingot"
+			amount: 30.000
+		}
+		{
+			type: resource
+			material: "copper.ingot"
+			amount: 15.000
 		}
 	]
 	
@@ -82,9 +80,8 @@
 	[
 		{
 			type: prefab
-			prefab: "pump"
+			prefab: "steam_engine"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

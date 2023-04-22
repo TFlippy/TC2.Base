@@ -1,14 +1,16 @@
 {
-	name: "Steam Engine"
+	name: "Steam Engine (Huprecht)"
 	desc:
 		'''
-		A powerful steam engine.
+		Standard Huprecht-design stationary steam engine.
+
+		Efficient and compact, but not exactly powerful compared to other steam engines.
 		'''
 	
 	icon:
 	{
-		texture: "steam_engine"
-		size: [64, 40]
+		texture: "steam_engine.01"
+		size: [32, 40]
 	}
 	
 	type: build
@@ -16,7 +18,7 @@
 	tags: mechanisms
 	rank: -100.000
 	
-	dismantle_work: 20.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -24,15 +26,15 @@
 		type: simple
 		flags: require_terrain, terrain_is_support
 		
-		size: [8.000, 5.000]
+		size: [3.000, 5.000]
 		offset: [0.000, -1.500]
 		
 		cooldown: 0.500
-		min_support: 0.200
+		min_support: 0.120
 		min_clearance: 0.850
 		min_claim: 1.000
 
-		rotation_max: 0.100
+		rotation_max: 0.350
 		
 		sound: "building_place"
 	}
@@ -40,7 +42,7 @@
 	construction:
 	{
 		flags: none
-		prefab: construction.8x5
+		prefab: construction.4x5
 
 		requirements:
 		[
@@ -57,22 +59,22 @@
 		{
 			type: resource
 			material: "steel.plate"
-			amount: 80.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
 			amount: 25.000
 		}
 		{
 			type: resource
+			material: "machine_parts"
+			amount: 18.000
+		}
+		{
+			type: resource
 			material: "steel.ingot"
-			amount: 20.000
+			amount: 22.000
 		}
 		{
 			type: resource
 			material: "copper.ingot"
-			amount: 15.000
+			amount: 5.000
 		}
 	]
 	
@@ -80,7 +82,7 @@
 	[
 		{
 			type: prefab
-			prefab: "steam_engine"
+			prefab: "steam_engine.01"
 			amount: 1.000
 		}
 	]

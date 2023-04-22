@@ -1,7 +1,9 @@
-$name: "Steam Engine (Humprecht)"
+$name: "Steam Engine (Huprecht)"
 $desc:
 	'''
-	Standard Humprecht-design stationary steam engine.
+	Standard Huprecht-design stationary steam engine.
+
+	Efficient and compact, but not exactly powerful compared to other steam engines.
 	'''
 $tags: []
 
@@ -29,13 +31,13 @@ body:
 
 health:
 {
-	max: 30000.000
+	max: 21000.000
 }
 
 armor:
 {
 	toughness: 400.000
-	protection: 0.650
+	protection: 0.450
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000

@@ -32,12 +32,12 @@
 		{
 			type: "resource"
 			material: "nitric_acid"
-			amount: 25.000
+			amount: 50.000
 		}
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount: 25.000
+			amount: 50.000
 		}
 		{
 			type: "resource"

@@ -34,6 +34,7 @@ holdable:
 {
 	radius: 0.000
 	force_multiplier: 1.500
+	torque_multiplier: 1.500
 	flags: disable_parent_facing
 }
 
