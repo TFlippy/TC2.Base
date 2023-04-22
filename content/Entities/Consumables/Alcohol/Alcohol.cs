@@ -180,7 +180,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{
 			var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);
@@ -191,9 +191,10 @@ namespace TC2.Base.Components
 			rot += MathF.Sin(380 + info.WorldTime / 0.70f) * 0.10f * modifier;
 
 			camera.zoom_modifier *= 1.00f - (Maths.Perlin(info.WorldTime * 0.15f, 0.00f, 4.00f) * 0.30f * modifier);
-			camera.rotation = rot;
+			camera.rotation = Maths.Lerp(camera.rotation, rot, 0.50f);
 
-			Drunk.Color.W = Drunk.Color.W.Max(Maths.Clamp(modifier, 0.00f, 0.95f));
+			Drunk.Color.W = Drunk.Color.W.Max(Maths.Clamp(modifier * 3.00f, 0.00f, 0.95f));
+			//App.WriteLine(Drunk.Color.W);
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(MathF.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));
