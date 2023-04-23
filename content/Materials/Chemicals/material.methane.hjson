@@ -1,0 +1,32 @@
+{
+	name: "Chlorine"
+	description:
+		'''
+		Toxic gas.
+		'''
+	
+	icon:
+	{
+		texture: "resource.chlorine"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: gas
+	flags: none
+	mass_per_unit: 0.050
+	quantity_max: 500.000
+	prefab: "resource.chlorine"
+	molar_mass: 0.098079
+	
+	commodity:
+	{
+		categories: chemicals, dangerous, industrial, military
+		market_price: 11.000
+	}
+}
