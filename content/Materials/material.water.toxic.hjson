@@ -1,0 +1,36 @@
+{
+	name: "Water (Toxic)"
+	description:
+		'''
+		Water, toxic wastewater.
+
+		You don't want it.
+		'''
+	
+	icon:
+	{
+		texture: "resource.water.toxic"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: raw
+	mass_per_unit: 0.109
+	quantity_max: 500.000
+	prefab: "resource.water.toxic"
+	
+	specific_heat: 4182.000
+	molar_mass: 0.018015
+	
+	commodity:
+	{
+		categories: water, industrial
+		market_price: 0.030
+	}
+}

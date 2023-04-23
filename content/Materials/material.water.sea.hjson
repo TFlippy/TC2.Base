@@ -1,0 +1,36 @@
+{
+	name: "Water (Sea)"
+	description:
+		'''
+		Water, salty seawater.
+
+		Anytime you want it, day or night, free of charge and it tastes just like every other kind of seawater out there.
+		'''
+	
+	icon:
+	{
+		texture: "resource.water.sea"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: raw
+	mass_per_unit: 0.102
+	quantity_max: 500.000
+	prefab: "resource.water.sea"
+	
+	specific_heat: 4182.000
+	molar_mass: 0.018015
+	
+	commodity:
+	{
+		categories: water, industrial
+		market_price: 0.020
+	}
+}

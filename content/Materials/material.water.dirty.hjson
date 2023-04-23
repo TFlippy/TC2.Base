@@ -1,0 +1,36 @@
+{
+	name: "Water (Dirty)"
+	description:
+		'''
+		Water, impure water.
+
+		Anytime you want it, day or night, free of charge and it tastes just like shite.
+		'''
+	
+	icon:
+	{
+		texture: "resource.water.dirty"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: raw
+	mass_per_unit: 0.105
+	quantity_max: 500.000
+	prefab: "resource.water.dirty"
+	
+	specific_heat: 4182.000
+	molar_mass: 0.018015
+	
+	commodity:
+	{
+		categories: water, industrial
+		market_price: 0.010
+	}
+}

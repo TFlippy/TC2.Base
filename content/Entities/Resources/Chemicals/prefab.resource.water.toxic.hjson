@@ -2,14 +2,15 @@ $tags: []
 
 body:
 {
-	@shape.circle:
+	@shape.line:
 	{
-		offset: [0.000, 0.250]
+		a: [0.000, -0.250]
+		b: [0.000, 0.250]
 		mass: 50.000
-		radius: 0.750
+		radius: 0.675
 		friction: 0.650
-		elasticity: 0.500
-		material: stone
+		elasticity: 0.600
+		material: metal
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -19,10 +20,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.saltpeter"
+		texture: "resource.water.toxic"
 		count: 4
 		size: [16, 16]
 	}
+	scale: [0.950, 0.950]
 }
 
 transform:
@@ -32,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "saltpeter"
+	material: "water.toxic"
 }
 
 holdable:
@@ -42,5 +44,13 @@ holdable:
 
 norotate:
 {
+	bias: 0.001
+	speed: 3.000
+	multiplier: 1.000
+	mass_multiplier: 10.000
+}
 
+health:
+{
+	max: 4000.000
 }

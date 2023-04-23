@@ -1,0 +1,31 @@
+{
+	name: "Salt"
+	description:
+		'''
+		Tasty.
+		'''
+	
+	icon:
+	{
+		texture: "resource.salt"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: powder
+	flags: manufactured
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.salt"
+	
+	commodity:
+	{
+		categories: chemicals, medicine, consumer, cooking, food, industrial, toys
+		market_price: 8.000
+	}
+}

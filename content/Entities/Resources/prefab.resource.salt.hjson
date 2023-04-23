@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		material: stone
+		material: powder
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.saltpeter"
+		texture: "resource.salt"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "saltpeter"
+	material: "salt"
 }
 
 holdable:

@@ -1,0 +1,32 @@
+{
+	name: "Hydrochloric Acid"
+	description:
+		'''
+		A strong acid.
+		'''
+	
+	icon:
+	{
+		texture: "resource.hydrochloric_acid"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.hydrochloric_acid"
+	molar_mass: 0.063012
+	
+	commodity:
+	{
+		categories: chemicals, dangerous, industrial, military
+		market_price: 12.000
+	}
+}
