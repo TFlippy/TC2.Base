@@ -56,10 +56,15 @@ packable:
 
 }
 
+interactable:
+{
+	flags: once
+}
+
 consumable:
 {
 	action: inject
-	flags: enable_use_on_self, enable_use_on_others
+	flags: enable_use_on_self, enable_use_on_others, consume_on_interact
 
 	release_rate: 100.000
 	release_step: 0.300

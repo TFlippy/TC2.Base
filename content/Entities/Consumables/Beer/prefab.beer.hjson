@@ -51,10 +51,15 @@ packable:
 
 }
 
+interactable:
+{
+	flags: once
+}
+
 consumable:
 {
 	action: drink
-	flags: enable_use_on_self
+	flags: enable_use_on_self, consume_on_interact
 
 	release_rate: 1.000
 	release_step: 0.030

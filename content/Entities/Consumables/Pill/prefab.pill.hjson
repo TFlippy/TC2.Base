@@ -46,10 +46,15 @@ packable:
 
 }
 
+interactable:
+{
+	flags: once
+}
+
 consumable:
 {
 	action: eat
-	flags: enable_use_on_self, separate_uses
+	flags: enable_use_on_self, separate_uses, consume_on_interact
 
 	release_rate: 10.000
 	release_step: 0.040

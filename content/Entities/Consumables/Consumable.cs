@@ -1,4 +1,6 @@
 
+using System.Numerics;
+
 namespace TC2.Base.Components
 {
 	public static partial class Consumable
@@ -8,10 +10,11 @@ namespace TC2.Base.Components
 		{
 			None = 0,
 
-			Enable_Use_On_Self = 1 << 0,
-			Enable_Use_On_Others = 1 << 1,
+			Enable_Use_On_Self = 1u << 0,
+			Enable_Use_On_Others = 1u << 1,
 
-			Separate_Uses = 1 << 2,
+			Separate_Uses = 1u << 2,
+			Consume_On_Interact = 1u << 3,
 		}
 
 		public enum Action: uint
@@ -65,16 +68,24 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
+		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data, 
+		[Source.Owned] ref Interactable.Data interactable, [Source.Owned] ref Consumable.Data consumable, [Source.Owned] ref Transform.Data transform)
+		{
+			if (consumable.flags.HasAny(Consumable.Flags.Consume_On_Interact))
+			{
+				Consumable.Use(ref region, ent_consumable: entity, ent_holder: data.ent_interactor, ent_target: data.ent_interactor, ref consumable, transform.position);
+			}
+		}
+
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Parent)]
-		public static void Update(ISystem.Info info, Entity entity,
+		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent, Override] in Organic.Data organic, [Source.Parent] in Arm.Data arm)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Use_On_Others) && control.mouse.GetKeyDown(Mouse.Key.Left))
 			{
 				if (Vector2.DistanceSquared(transform.position, control.mouse.position) < (3 * 3))
 				{
-					ref var region = ref info.GetRegion();
-
 					var ent_holder = entity.GetParent(Relation.Type.Child);
 					if (ent_holder.IsAlive())
 					{
@@ -86,44 +97,46 @@ namespace TC2.Base.Components
 							{
 								var ent_target = result_nearest.entity;
 
-								var oc_organic = ent_target.GetComponentWithOwner<Organic.Data>(Relation.Type.Instance);
-								if (oc_organic.IsValid())
-								{
-									Sound.Play(ref region, consumable.sound_use, result_nearest.world_position);
+								Consumable.Use(ref region, ent_consumable: entity, ent_holder: ent_holder, ent_target: ent_target, consumable: ref consumable, world_position: result_nearest.world_position);
 
-									consumable.uses++;
+								//var oc_organic = ent_target.GetComponentWithOwner<Organic.Data>(Relation.Type.Instance);
+								//if (oc_organic.IsValid())
+								//{
+								//	Sound.Play(ref region, consumable.sound_use, result_nearest.world_position);
 
-									var data = new Consumable.ConsumeEvent();
-									data.ent_organic = oc_organic.entity;
-									data.ent_holder = ent_holder;
-									data.ent_consumable = entity;
-									data.world_position = result_nearest.world_position;
+								//	consumable.uses++;
 
-									if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses))
-									{
-										data.amount_modifier /= consumable.uses_max;
-									}
+								//	var data = new Consumable.ConsumeEvent();
+								//	data.ent_organic = oc_organic.entity;
+								//	data.ent_holder = ent_holder;
+								//	data.ent_consumable = entity;
+								//	data.world_position = result_nearest.world_position;
 
-									var message = string.Empty;
-									switch (consumable.action)
-									{
-										case Action.Eat: message = $" * Ate {entity.GetName()} *"; break;
-										case Action.Drink: message = $"* Drank {entity.GetName()} *"; break;
-										case Action.Inject: message = $"* Injected {entity.GetName()} *"; break;
-										case Action.Inhale: message = $"* Inhaled {entity.GetName()} *"; break;
-										case Action.Smoke: message = $"* Smoked {entity.GetName()} *"; break;
-										default: message = $"* Used {entity.GetName()} *"; break;
-									}
+								//	if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses))
+								//	{
+								//		data.amount_modifier /= consumable.uses_max;
+								//	}
 
-									WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
+								//	var message = string.Empty;
+								//	switch (consumable.action)
+								//	{
+								//		case Action.Eat: message = $" * Ate {entity.GetName()} *"; break;
+								//		case Action.Drink: message = $"* Drank {entity.GetName()} *"; break;
+								//		case Action.Inject: message = $"* Injected {entity.GetName()} *"; break;
+								//		case Action.Inhale: message = $"* Inhaled {entity.GetName()} *"; break;
+								//		case Action.Smoke: message = $"* Smoked {entity.GetName()} *"; break;
+								//		default: message = $"* Used {entity.GetName()} *"; break;
+								//	}
 
-									entity.Notify(ref data);
+								//	WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
 
-									if (consumable.uses >= consumable.uses_max)
-									{
-										entity.Delete();
-									}
-								}
+								//	entity.Notify(ref data);
+
+								//	if (consumable.uses >= consumable.uses_max)
+								//	{
+								//		entity.Delete();
+								//	}
+								//}
 							}
 						}
 					}
@@ -131,48 +144,54 @@ namespace TC2.Base.Components
 			}
 			else if (consumable.flags.HasAny(Consumable.Flags.Enable_Use_On_Self) && control.mouse.GetKeyDown(Mouse.Key.Right))
 			{
-				ref var region = ref info.GetRegion();
-
 				var ent_holder = entity.GetParent(Relation.Type.Child);
-				if (ent_holder.IsAlive())
+				if (ent_holder.IsValid())
 				{
-					var oc_organic = ent_holder.GetComponentWithOwner<Organic.Data>(Relation.Type.Instance);
-					if (oc_organic.IsValid())
+					Consumable.Use(ref region, ent_consumable: entity, ent_holder: ent_holder, ent_target: ent_holder, consumable: ref consumable, world_position: transform_parent.position);
+				}
+			}
+		}
+
+		public static void Use(ref Region.Data region, Entity ent_consumable, Entity ent_holder, Entity ent_target, ref Consumable.Data consumable, Vector2 world_position)
+		{
+			if (ent_holder.IsAlive() && ent_target.IsAlive())
+			{
+				var oc_organic = ent_target.GetComponentWithOwner<Organic.Data>(Relation.Type.Instance);
+				if (oc_organic.IsValid())
+				{
+					Sound.Play(ref region, consumable.sound_use, world_position);
+
+					consumable.uses++;
+
+					var data = new Consumable.ConsumeEvent();
+					data.ent_organic = oc_organic.entity;
+					data.ent_holder = ent_holder;
+					data.ent_consumable = ent_consumable;
+					data.world_position = world_position;
+
+					if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses) && consumable.uses_max > 0)
 					{
-						Sound.Play(ref region, consumable.sound_use, transform_parent.position);
+						data.amount_modifier /= consumable.uses_max;
+					}
 
-						consumable.uses++;
+					var message = string.Empty;
+					switch (consumable.action)
+					{
+						case Action.Eat: message = $" * Eats {ent_consumable.GetName()} *"; break;
+						case Action.Drink: message = $"* Drinks {ent_consumable.GetName()} *"; break;
+						case Action.Inject: message = $"* Injects {ent_consumable.GetName()} *"; break;
+						case Action.Inhale: message = $"* Inhales {ent_consumable.GetName()} *"; break;
+						case Action.Smoke: message = $"* Smokes {ent_consumable.GetName()} *"; break;
+						default: message = $"* Uses {ent_consumable.GetName()} *"; break;
+					}
 
-						var data = new Consumable.ConsumeEvent();
-						data.ent_organic = oc_organic.entity;
-						data.ent_holder = ent_holder;
-						data.ent_consumable = entity;
-						data.world_position = transform_parent.position;
-						
-						if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses))
-						{
-							data.amount_modifier /= consumable.uses_max;
-						}
+					WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
 
-						var message = string.Empty;
-						switch (consumable.action)
-						{
-							case Action.Eat: message = $" * Eats {entity.GetName()} *"; break;
-							case Action.Drink: message = $"* Drinks {entity.GetName()} *"; break;
-							case Action.Inject: message = $"* Injects {entity.GetName()} *"; break;
-							case Action.Inhale: message = $"* Inhales {entity.GetName()} *"; break;
-							case Action.Smoke: message = $"* Smokes {entity.GetName()} *"; break;
-							default: message = $"* Uses {entity.GetName()} *"; break;
-						}
+					ent_consumable.Notify(ref data);
 
-						WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
-
-						entity.Notify(ref data);
-
-						if (consumable.uses >= consumable.uses_max)
-						{
-							entity.Delete();
-						}
+					if (consumable.uses >= consumable.uses_max)
+					{
+						ent_consumable.Delete();
 					}
 				}
 			}
