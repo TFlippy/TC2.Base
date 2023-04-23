@@ -51,7 +51,7 @@ harvestable:
 		}
 		{
 			material: "mushroom.red"
-			quantity: 1600.000
+			quantity: 600.000
 		}
 	]
 }

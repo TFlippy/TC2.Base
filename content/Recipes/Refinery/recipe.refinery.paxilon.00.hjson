@@ -1,13 +1,13 @@
 ﻿{
-	name: "Universal Brown Sauce"
+	name: "Paxilon Hydrochlorate"
 	desc:
 		'''
-		Produce universal brown sauce from water, flour and mushrooms.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "resource.sauce"
+		texture: "resource.paxilon"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -20,25 +20,25 @@
 	
 	type: crafter
 	flags: no_amount_multiplier
-	tags: refinery, kitchen
+	tags: refinery
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "water"
-			amount: 250.000
+			material: "hydrochloric_acid"
+			amount: 50.000
 		}
 		{
 			type: resource
-			material: "flour"
+			material: "onion.juice"
 			amount: 15.000
 		}
 		{
 			type: resource
-			material: "mushroom.brown"
-			amount: 3.000
+			material: "mushroom.blue"
+			amount: 5.000
 		}
 		{
 			type: work
@@ -52,9 +52,9 @@
 	[
 		{
 			type: resource
-			material: "sauce"
-			amount: 40.000
-			amount_extra: 10.000
+			material: "paxilon"
+			amount: 7.000
+			amount_extra: 29.000
 		}
 	]
 }

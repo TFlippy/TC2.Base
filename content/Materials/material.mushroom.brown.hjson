@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Brown Mushrooms"
 	description:
 		'''
@@ -14,17 +14,19 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: mushroom
 	flags: raw, organic, despawnable
-	mass_per_unit: 0.040
+	mass_per_unit: 0.136
 	quantity_max: 500.000
 	prefab: "resource.mushroom.brown"
 	
 	commodity:
 	{
-		market_price: 0.500
+		market_price: 1.700
 	}
 }

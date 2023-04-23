@@ -1,6 +1,9 @@
-{
+﻿{
 	name: "Brown Mushrooms"
-	desc: "Common brown mushrooms often used in cooking."
+	desc:
+		'''
+		Common brown mushrooms often used in cooking.
+		'''
 	
 	icon:
 	{
@@ -8,7 +11,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -16,16 +19,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 100
 	max: 500
 	step: 100
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "mushroom.brown"
 			amount: 1.000
 		}
@@ -34,8 +42,9 @@
 	products:
 	[
 		{
-			type: "money"
-			amount: 0.490
+			type: money
+			amount: 1.645
+			amount_extra: 0.000
 		}
 	]
 }

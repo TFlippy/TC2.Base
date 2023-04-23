@@ -91,7 +91,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 10.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("mushroom.green", 3.00f));
 				}
 			));
 

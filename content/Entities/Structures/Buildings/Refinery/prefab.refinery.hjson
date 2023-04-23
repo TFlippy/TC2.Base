@@ -50,7 +50,7 @@ transform:
 
 interactable:
 {
-	window_size: [700.000, 500.000]
+	window_size: [800.000, 600.000]
 }
 
 shop:
