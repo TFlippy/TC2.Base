@@ -5,7 +5,8 @@ $tags: []
 body:
 {
 	type: dynamic
-	
+	buoyancy: 0.100
+
 	@shape.polygon:
 	{
 		points:

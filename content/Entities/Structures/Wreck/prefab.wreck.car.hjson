@@ -9,6 +9,7 @@ $tags: []
 body:
 {
 	type: dynamic
+	buoyancy: 0.400
 	
 	@shape.polygon:
 	{

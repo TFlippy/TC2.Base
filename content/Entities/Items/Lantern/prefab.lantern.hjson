@@ -7,6 +7,8 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.400
+
 	@shape.box:
 	{
 		size: [0.625, 1.125]

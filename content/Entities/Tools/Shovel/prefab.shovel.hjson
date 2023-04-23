@@ -12,6 +12,8 @@ control:
 
 body:
 {
+	buoyancy: 0.120
+
 	@shape.line:
 	{
 		a: [-0.400, 0.000]
