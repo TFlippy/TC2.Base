@@ -1,7 +1,12 @@
 {
 	name: "Simple Nitrocellulose Production"
-	desc: "A simplified and much smaller-scale method of producing nitrocellulose. The refinery automatically produces the intermediate steps, though it's much slower and less efficient."
-	
+	desc: 
+	'''
+	A simplified and much smaller-scale method of producing nitrocellulose.
+
+	The refinery automatically produces the intermediate steps, though it's much slower and less efficient.
+	'''
+
 	icon:
 	{
 		texture: "resource.nitrocellulose"
@@ -42,8 +47,8 @@
 		{
 			type: "work"
 			work: "refining"
-			amount: 2500.000
-			difficulty: 4.000
+			amount: 3100.000
+			difficulty: 5.000
 		}
 	]
 	
@@ -58,8 +63,14 @@
 		{
 			type: "resource"
 			material: "sludge"
+			amount: 30.000
+			amount_extra: 80.500
+		}
+		{
+			type: "resource"
+			material: "water.toxic"
 			amount: 50.000
-			amount_extra: 100.500
+			amount_extra: 80.000
 		}
 	]
 }

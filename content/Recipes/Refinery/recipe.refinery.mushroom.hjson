@@ -62,5 +62,11 @@
 			amount: 0.200
 			amount_extra: 0.500
 		}
+		{
+			type: "resource"
+			material: "water.dirty"
+			amount: 0.400
+			amount_extra: 0.200
+		}
 	]
 }

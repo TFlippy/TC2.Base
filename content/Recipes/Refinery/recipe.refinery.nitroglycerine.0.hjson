@@ -41,6 +41,11 @@
 		}
 		{
 			type: "resource"
+			material: "water"
+			amount: 50.000
+		}
+		{
+			type: "resource"
 			material: "red_sugar"
 			amount: 5.000
 		}
@@ -57,8 +62,8 @@
 		{
 			type: "resource"
 			material: "nitroglycerine"
-			amount: 75.000
-			amount_extra: 25.000
+			amount: 73.000
+			amount_extra: 21.000
 		}
 		{
 			type: "resource"
@@ -68,9 +73,9 @@
 		}
 		{
 			type: "resource"
-			material: "sludge"
-			amount: 2.000
-			amount_extra: 8.000
+			material: "water.toxic"
+			amount: 20.000
+			amount_extra: 20.000
 		}
 	]
 }
