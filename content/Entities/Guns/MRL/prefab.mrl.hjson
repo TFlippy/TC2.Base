@@ -81,11 +81,6 @@ gun.state:
 // 	exhaust_offset: [-1.500, -0.375]
 // }
 
-interactable:
-{
-
-}
-
 attachment:
 {
 	offset: [-0.125, 0.000]

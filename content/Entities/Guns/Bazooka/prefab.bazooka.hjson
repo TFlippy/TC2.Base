@@ -81,11 +81,6 @@ gun.state:
 
 }
 
-interactable:
-{
-
-}
-
 // attachment:
 // {
 // 	offset: [-0.125, 0.000]
