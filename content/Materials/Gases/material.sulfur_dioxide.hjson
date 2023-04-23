@@ -1,0 +1,32 @@
+{
+	name: "Sulfur Dioxide"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.sulfur_dioxide"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: gas
+	flags: none
+	mass_per_unit: 0.050
+	quantity_max: 500.000
+	prefab: "resource.sulfur_dioxide"
+	molar_mass: 0.098079
+	
+	commodity:
+	{
+		categories: chemicals, waste, dangerous, industrial, military
+		market_price: 6.000
+	}
+}

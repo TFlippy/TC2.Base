@@ -1,27 +1,29 @@
-{
-	name: "Chlorine"
+﻿{
+	name: "Ammonia"
 	description:
 		'''
-		Toxic gas.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "resource.chlorine"
+		texture: "missing"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: gas
 	flags: none
 	mass_per_unit: 0.050
 	quantity_max: 500.000
-	prefab: "resource.chlorine"
+	prefab: "resource.ammonia"
 	molar_mass: 0.098079
 	
 	commodity:

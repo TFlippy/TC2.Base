@@ -1,13 +1,13 @@
 {
-	name: "Chlorine"
+	name: "Phosgene"
 	description:
 		'''
-		Toxic gas.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "resource.chlorine"
+		texture: "resource.phosgene"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	flags: none
 	mass_per_unit: 0.050
 	quantity_max: 500.000
-	prefab: "resource.chlorine"
+	prefab: "resource.phosgene"
 	molar_mass: 0.098079
 	
 	commodity:

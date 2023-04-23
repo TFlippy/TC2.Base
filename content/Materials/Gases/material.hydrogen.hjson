@@ -1,13 +1,13 @@
 {
-	name: "Chlorine"
+	name: "Hydrogen"
 	description:
 		'''
-		Toxic gas.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "resource.chlorine"
+		texture: "resource.hydrogen"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	flags: none
 	mass_per_unit: 0.050
 	quantity_max: 500.000
-	prefab: "resource.chlorine"
+	prefab: "resource.hydrogen"
 	molar_mass: 0.098079
 	
 	commodity:
