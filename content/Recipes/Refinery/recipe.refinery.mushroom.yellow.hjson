@@ -42,13 +42,13 @@
 		{
 			type: "resource"
 			material: "sulfur"
-			amount: 7.000
-			amount_extra: 18.000
+			amount: 12.000
+			amount_extra: 25.000
 		}
 		{
 			type: "resource"
 			material: "sulfuric_acid"
-			amount: 100.000
+			amount: 50.000
 			amount_extra: 60.000
 		}
 		{

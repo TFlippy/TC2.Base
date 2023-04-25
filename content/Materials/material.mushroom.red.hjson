@@ -21,7 +21,7 @@
 	
 	type: mushroom
 	flags: raw, organic, despawnable
-	mass_per_unit: 0.108
+	mass_per_unit: 0.208
 	quantity_max: 500.000
 	prefab: "resource.mushroom.red"
 	
