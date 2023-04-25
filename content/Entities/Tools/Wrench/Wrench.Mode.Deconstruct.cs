@@ -364,12 +364,10 @@ namespace TC2.Base.Components
 
 #if SERVER
 				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f), HasTag("dead", false, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
-				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, 
+				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, 
 				[Source.Owned] in Transform.Data transform, [Source.Parent] in Interactor.Data interactor,
 				[Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)
 				{
-					ref var region = ref info.GetRegion();
-
 					if (deconstruct.flags.HasAny(Deconstruct.Flags.Active) && deconstruct.ref_dismantlable.TryGetHandle(out var h_dismantlable))
 					{
 						var target_pos = transform.position;

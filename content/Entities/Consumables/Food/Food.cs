@@ -94,13 +94,13 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateHead(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.All] ref Food.Effect food, ref XorRandom random, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
+		[Source.Owned] in Transform.Data transform, [Source.All] ref Food.Effect food, ref XorRandom random, ref Region.Data region, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
 		{
 			var modifier = food.modifier_current + (food.jitter_current * 0.75f);
 
 			if (info.WorldTime >= food.next_sound && food.hiccup_current > 0.90f)
 			{
-				Sound.Play(ref info.GetRegion(), sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
+				Sound.Play(ref region, sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
 
 				food.next_sound = info.WorldTime + random.NextFloatRange(2.00f, 5.00f);
 			}

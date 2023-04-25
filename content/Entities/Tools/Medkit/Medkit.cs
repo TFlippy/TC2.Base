@@ -114,13 +114,12 @@
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Medkit.Data medkit, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Parent, Optional] in Player.Data player)
 		{
 			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= medkit.next_use)
 			{
-				ref var region = ref info.GetRegion();
 				medkit.next_use = info.WorldTime + medkit.cooldown;
 
 				var max_distance = medkit.max_distance;

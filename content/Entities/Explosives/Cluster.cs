@@ -43,14 +43,12 @@
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Body.Data>(Source.Modifier.Owned)]
-		public static void OnRemoveProjectile(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
+		public static void OnRemoveProjectile(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
 			{
 				if (projectile.flags.HasAny(Projectile.Flags.Impact) && cluster.flags.HasAny(Cluster.Flags.No_Impact)) return;
 				if (projectile.elapsed < cluster.min_explode_lifetime) return;
-
-				ref var region = ref info.GetRegion();
 
 				for (var i = 0; i < cluster.count; i++)
 				{
@@ -100,11 +98,10 @@
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single), Exclude<Projectile.Data>(Source.Modifier.Owned)]
-		public static void OnRemoveBody(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
+		public static void OnRemoveBody(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
 			{
-				ref var region = ref info.GetRegion();
 				var dir = body.GetVelocity().GetNormalized(out var vel);
 
 				for (var i = 0; i < cluster.count; i++)

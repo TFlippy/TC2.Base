@@ -40,14 +40,12 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", false, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Player.Data player)
 		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
 			{
-				ref var region = ref info.GetRegion();
-
 				entity.SetTag("lit", true);
 				explosive.flags |= Explosive.Flags.Primed;
 				explosive.ent_owner = body.GetParent();
@@ -66,10 +64,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
 		{
-			ref var region = ref info.GetRegion();
-
 			fuse.failure_time = fuse.time;
 			fuse.failure_chance += random.NextFloatRange(0.10f, 0.80f);
 			fuse.failure_chance = fuse.failure_chance.Clamp01();

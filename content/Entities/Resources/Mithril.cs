@@ -12,12 +12,10 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Radioactive.Data radioactive)
+		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Radioactive.Data radioactive)
 		{
 			if (info.WorldTime >= radioactive.next_update)
 			{
-				ref var region = ref info.GetRegion();
-
 				//var ts = Timestamp.Now();
 				//Span<OverlapResult> results = stackalloc OverlapResult[8];
 				//if (region.TryOverlapPointAll(transform.position, 4.00f, ref results, mask: Physics.Layer.Destructible))

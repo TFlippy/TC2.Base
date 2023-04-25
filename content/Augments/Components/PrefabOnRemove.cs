@@ -22,12 +22,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single)]
-		public static void OnRemove(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefab_on_remove)
+		public static void OnRemove(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefab_on_remove)
 		{
 			if (prefab_on_remove.count > 0 && prefab_on_remove.prefab.id != 0)
 			{
-				ref var region = ref info.GetRegion();
-
 				for (var i = 0; i < prefab_on_remove.count; i++)
 				{
 					region.SpawnPrefab(prefab_on_remove.prefab, transform.position + random.NextUnitVector2Range(0.00f, 1.00f));

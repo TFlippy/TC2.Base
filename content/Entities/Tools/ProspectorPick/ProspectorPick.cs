@@ -148,9 +148,8 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single)]
-		public static void OnHit(ISystem.Info info, Entity entity, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
+		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
 		{
-			ref var region = ref info.GetRegion();
 			ref var terrain = ref region.GetTerrain();
 
 			var arg = (a: 0, samples: new FixedArray8<OreSample>());

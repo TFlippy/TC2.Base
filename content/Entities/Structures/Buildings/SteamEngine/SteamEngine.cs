@@ -102,11 +102,9 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, 
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, 
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
-			ref var region = ref info.GetRegion();
-
 			steam_engine.shake_multiplier *= random.NextFloatRange(2.00f, 3.50f);
 			steam_engine.speed_target = random.NextFloatRange(0.00f, steam_engine.speed_max);
 			steam_engine.Sync(entity);

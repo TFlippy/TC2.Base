@@ -86,12 +86,10 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
-		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Interactable.InteractEvent data, 
+		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
 		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape, [Source.Owned, Optional] in Faction.Data faction)
 		{
-			ref var region = ref info.GetRegion();
-
 			var is_same_faction = faction.id == 0 || (data.faction_id == faction.id);
 
 			if (door.flags.HasAll(Door.Flags.Lockable) && data.control.keyboard.GetKey(Keyboard.Key.LeftShift))

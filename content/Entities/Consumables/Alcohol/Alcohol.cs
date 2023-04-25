@@ -94,14 +94,14 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateHead(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void UpdateHead(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.All] ref Alcohol.Effect alcohol, [Source.Owned] ref Head.Data head)
 		{
 			var modifier = alcohol.modifier_current + (alcohol.jitter_current * 0.75f);
 
 			if (info.WorldTime >= alcohol.next_sound && alcohol.hiccup_current > 0.90f)
 			{
-				Sound.Play(ref info.GetRegion(), sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
+				Sound.Play(ref region, sounds_drunk.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.30f, 0.50f), pitch: head.voice_pitch * random.NextFloatRange(0.90f, 1.10f));
 
 				alcohol.next_sound = info.WorldTime + random.NextFloatRange(2.00f, 5.00f);
 			}

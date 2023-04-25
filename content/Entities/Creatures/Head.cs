@@ -62,12 +62,12 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.AddFirst(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void OnDeath(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnDeath(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = head.frame_dead;
 
 #if SERVER
-			WorldNotification.Push(ref info.GetRegion(), "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
+			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
 #endif
 		}
 
