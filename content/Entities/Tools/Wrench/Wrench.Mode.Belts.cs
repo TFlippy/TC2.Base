@@ -178,8 +178,8 @@ namespace TC2.Base.Components
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetValue(out this.axle);
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetRefValue(out this.axle);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
 
 							if (this.valid)
 							{

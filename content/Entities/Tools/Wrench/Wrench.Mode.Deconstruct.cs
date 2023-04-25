@@ -447,8 +447,8 @@ namespace TC2.Base.Components
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Dismantlable.Data>().TryGetValue(out this.dismantlable);
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Dismantlable.Data>().TryGetRefValue(out this.dismantlable);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
 
 							if (this.valid)
 							{

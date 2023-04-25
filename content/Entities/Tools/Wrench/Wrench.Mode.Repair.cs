@@ -444,9 +444,9 @@ namespace TC2.Base.Components
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Repairable.Data>().TryGetValue(out this.repairable);
-							this.valid &= this.entity.GetComponent<Health.Data>().TryGetValue(out this.health);
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Repairable.Data>().TryGetRefValue(out this.repairable);
+							this.valid &= this.entity.GetComponent<Health.Data>().TryGetRefValue(out this.health);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
 
 							if (this.valid)
 							{

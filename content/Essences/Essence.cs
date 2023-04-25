@@ -127,7 +127,7 @@ namespace TC2.Base.Components
 		public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
 		public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
 
-		public const float essence_per_pellet = 5.00f;
+		public const float essence_per_pellet = 10.00f;
 		//public const float force_per_motion_essence = 2000.00f;
 
 		//public static float GetEssenceForce(Essence.Type type) => type switch
