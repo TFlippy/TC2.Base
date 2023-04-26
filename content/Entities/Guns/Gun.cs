@@ -911,16 +911,14 @@
 										projectile.velocity = args.vel;
 										projectile.ent_owner = args.ent_owner;
 										projectile.faction_id = args.faction_id;
-
-										ent.SyncComponent(ref projectile);
+										projectile.Sync(ent, true);
 									}
 
 									ref var explosive = ref ent.GetComponent<Explosive.Data>();
 									if (!explosive.IsNull())
 									{
 										explosive.ent_owner = args.ent_owner;
-
-										ent.SyncComponent(ref explosive);
+										explosive.Sync(ent, true);
 									}
 
 									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))

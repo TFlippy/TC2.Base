@@ -58,8 +58,8 @@ namespace TC2.Base.Components
 					fuse.failure_time = fuse.time * random.NextFloatRange(0.30f, 0.70f);
 				}
 
-				entity.SyncComponent(ref explosive);
-				entity.SyncComponent(ref fuse);
+				explosive.Sync(entity, true);
+				fuse.Sync(entity, true);
 			}
 		}
 
@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 
 				Sound.Play(ref region, fuse.sound_extinguish, transform.position, priority: 0.65f);
 
-				entity.SyncComponent(ref fuse);
+				fuse.Sync(entity, true);
 			}
 #endif
 

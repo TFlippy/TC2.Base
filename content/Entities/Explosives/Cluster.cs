@@ -82,15 +82,14 @@
 							projectile.ent_owner = projectile_init.owner;
 							projectile.faction_id = projectile_init.faction_id;
 							projectile.lifetime *= projectile_init.lifetime_mult;
-
-							ent.SyncComponent(ref projectile);
+							projectile.Sync(ent, true);
 						}
 
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
 							explosive.ent_owner = projectile_init.owner;
-							ent.SyncComponent(ref explosive);
+							explosive.Sync(ent, true);
 						}
 					});
 				}
@@ -136,15 +135,14 @@
 							projectile.ent_owner = projectile_init.owner;
 							projectile.faction_id = projectile_init.faction_id;
 							projectile.lifetime *= projectile_init.lifetime_mult;
-
-							ent.SyncComponent(ref projectile);
+							projectile.Sync(ent, true);
 						}
 
 						ref var explosive = ref ent.GetComponent<Explosive.Data>();
 						if (!explosive.IsNull())
 						{
 							explosive.ent_owner = projectile_init.owner;
-							ent.SyncComponent(ref explosive);
+							explosive.Sync(ent, true);
 						}
 					});
 				}

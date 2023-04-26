@@ -196,7 +196,7 @@ namespace TC2.Base.Components
 							Sound.Play(ref region, door.sound_close, transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
 						}
 
-						body.Rebuild();
+						body.MarkDirty();
 
 						door.Sync(entity);
 						renderer.Sync(entity);

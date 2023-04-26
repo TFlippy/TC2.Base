@@ -49,8 +49,7 @@
 				crane.length_a = this.length_a;
 				crane.length_b = this.length_b;
 				crane.flags = (crane.flags & ~crane.flags_editable) | (this.flags & crane.flags_editable);
-
-				entity.SyncComponent(ref crane);
+				crane.Sync(entity, true);
 			}
 #endif
 		}

@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 				//Experience.Add(health.last_damage_owner, Experience.Type.Woodcutting, (int)random.NextFloatRange(100, 150));
 
 				body.type = Body.Type.Dynamic;
-				body.flags &= ~Body.Flags.NonDirty;
+				body.MarkDirty();
 
 				region.SpawnPrefab(tree.prefab_stump, transform.position, transform.rotation, transform.scale);
 
@@ -62,9 +62,9 @@ namespace TC2.Base.Components
 
 				//entity.RemoveTrait<Tree.Data, Foliage.Renderer.Data>();
 
-				entity.SyncComponent<Animated.Renderer.Data>(ref renderer);
-				entity.SyncComponent<Body.Data>(ref body);
-				entity.SyncComponent<Tree.Data>(ref tree);
+				renderer.Sync(entity, true);
+				body.Sync(entity, true);
+				tree.Sync(entity, true);
 			}
 		}
 #endif
