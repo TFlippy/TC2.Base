@@ -66,6 +66,13 @@
 		}
 		{
 			type: resource
+			material: "salt"
+			amount: 0.215
+			amount_extra: 0.320
+			flags: waste
+		}
+		{
+			type: resource
 			material: "cement"
 			amount: 0.815
 			amount_extra: 0.520

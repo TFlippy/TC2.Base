@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Global] ref Head.Global head_global)
 		{
 			var modifier = MathF.Pow(meth.modifier_current, 1.40f);
@@ -179,6 +179,7 @@ namespace TC2.Base.Components
 			if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
 			camera.damp_modifier *= 1.00f + (modifier * 14.00f);
+			camera.distance_modifier += modifier * 0.10f;
 			camera.distance_modifier *= 1.00f + (modifier * 2.00f);
 			camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
 
@@ -199,7 +200,7 @@ namespace TC2.Base.Components
 
 			head_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
 
-			Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 1.20f).Clamp01());
+			Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 2.50f).Clamp01());
 			Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 1.10f).Clamp01());
 			Postprocess.Saturation = Maths.Lerp(Postprocess.Saturation, Postprocess.Saturation + 0.30f, (modifier * 1.20f).Clamp01());
 		}

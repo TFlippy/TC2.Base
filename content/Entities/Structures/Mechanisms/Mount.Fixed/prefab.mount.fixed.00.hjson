@@ -104,7 +104,7 @@ storage:
 	{
 		radius: 1.000
 		flags: brake, manual_aim, keyboard_write, mouse_write, offset
-		flags_editable: locked, disabled, offset
+		flags_editable: locked, disabled, offset, invert
 		name: "Mount"
 		identifier: "mount"
 		offset: [0.000, 0.000]

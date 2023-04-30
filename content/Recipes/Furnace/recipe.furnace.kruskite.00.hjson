@@ -56,9 +56,9 @@
 		}
 		{
 			type: resource
-			material: "saltpeter"
-			amount: 0.114
-			amount_extra: 0.352
+			material: "salt"
+			amount: 0.514
+			amount_extra: 0.452
 		}
 		{
 			type: resource

@@ -135,17 +135,20 @@ packable:
 overheat:
 {
 	heat_medium: 350.000
-	heat_high: 500.000
-	heat_critical: 750.000
-	cool_rate: 45.000
+	heat_high: 600.000
+	heat_critical: 850.000
+	cool_rate: 35.000
+
+	offset: [0.750, 0.000]
+	size: [0.750, 0.250]
 	
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
-		offset: [0.000, 0.000]
-		scale: [16.000, 16.000]
+		offset: [0.875, 0.000]
+		scale: [6.000, 2.000]
 		intensity: 0.000
-		texture: "light.circle.00"
+		texture: "light.box.00"
 	}
 	
 	@sound.emitter:

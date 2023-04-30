@@ -180,7 +180,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{
 			var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);

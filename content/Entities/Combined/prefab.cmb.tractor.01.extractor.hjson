@@ -1,0 +1,137 @@
+$name: "Crane Tractor"
+$prefab: "tractor.01"
+
+burner:
+{
+	@inventory1:
+	{
+		resource:
+		{
+			material: "phlogiston"
+			quantity: 100.000
+		}
+	}
+}
+
++slot_rear|instance:
+{
+	attachment.slot:
+	{
+		flags: keyboard_write, mouse_write
+	}
+
+	+attached|child:
+	{
+		$prefab: "mount.flatbed.00"
+
+		+mount|instance:
+		{
+			+attached|child:
+			{
+				$prefab: "crane.arm.articulated"
+
+				crane:
+				{
+					flags: hold
+				}
+
+				+mount|instance:
+				{
+					+attached|child:
+					{
+						$prefab: "crane.arm.cargo"
+
+						+mount|instance:
+						{
+							attachment_slot:
+							{
+								flags: keyboard_write, mouse_write, loose
+							}
+							
+							+attached|child:
+							{
+								$prefab: "arcane_infuser"
+							
+								arcaneinfuser_state:
+								{											
+									@inventory1:
+									{
+										resource:
+										{
+											material: "pellet"
+											quantity: 100.000
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
++slot_front|instance:
+{
+	attachment.slot:
+	{
+		flags: keyboard_read, mouse_read
+	}
+
+	+attached|child:
+	{
+		$prefab: "cabin.metal.02"
+
+		mount:
+		{
+			angle: -1.570796
+		}
+
+		+mount|instance:
+		{
+			attachment.slot:
+			{
+				flags: invert, mouse_write, manual_aim
+			}
+
+			+attached|child:
+			{
+				$prefab: "arcane_attractor"
+			}
+		}
+	}
+}
+
++slot_wheel_0|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.01"
+	}
+}
+
++slot_wheel_2|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+
++slot_wheel_3|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00"
+	}
+}
+

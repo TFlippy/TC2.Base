@@ -38,27 +38,6 @@ transform:
 
 }
 
-joint.base:
-{
-	offset_a: [-0.375, 0.900]
-	offset_b: [0.375, -2.500]
-	max_force: 500000.000
-	max_torque: 20000.000
-}
-
-joint.rope:
-{
-	distance: 1.500
-}
-
-rope.renderer:
-{
-	texture: "hornet_hive.rope"
-	thickness: 1.000
-	scale: 0.200
-	z: -10.000
-}
-
 faction:
 {
 	id: "hornet"
@@ -71,139 +50,164 @@ claimer:
 	falloff: 0.500
 }
 
-+bottom|child:
++slot|instance:
 {
-	$tags: []
-	
-	body:
+	joint.base:
 	{
-		type: dynamic
+		offset_a: [-0.375, 0.900]
+		offset_b: [0.375, -2.500]
+		max_force: 500000.000
+		max_torque: 20000.000
+		flags: no_stress
+	}
+
+	joint.rope:
+	{
+		distance: 1.500
+	}
+
+	rope.renderer:
+	{
+		texture: "hornet_hive.rope"
+		thickness: 1.000
+		scale: 0.200
+		z: -10.000
+	}
+
+	+attached|child:
+	{
+		$tags: []
 		
-		@shape.line:
+		body:
 		{
-			a: [1.250, -1.125]
-			b: [-0.625, 0.500]
-			offset: [0.000, 0.000]
-			mass: 2000.000
-			radius: 1.500
-			friction: 0.950
-			elasticity: 0.500
-			material: soil
-			layer: entity, solid, flammable
-			mask: world
+			type: dynamic
+			
+			@shape.line:
+			{
+				a: [1.250, -1.125]
+				b: [-0.625, 0.500]
+				offset: [0.000, 0.000]
+				mass: 2000.000
+				radius: 1.500
+				friction: 0.950
+				elasticity: 0.500
+				material: soil
+				layer: entity, solid, flammable
+				mask: world
+			}
 		}
-	}
-	
-	health:
-	{
-		max: 60000.000
-	}
-	
-	animated.renderer:
-	{
-		sprite:
+		
+		health:
 		{
-			texture: "hornet_hive"
+			max: 60000.000
 		}
-		z: -100.000
-	}
-	
-	transform:
-	{
-	
-	}
-	
-	spawner:
-	{
-		group_size: 1
-		group_size_extra: 2
-		interval: 30.000
-		interval_extra: 10.000
-		interval_count_modifier: 20.000
-		max_count: 10
-		filter_tag: "hornet"
-	}
-
-	spawn:
-	{
-		flags: none
-	}
-
-	minimap.marker:
-	{
-		sprite:
+		
+		animated.renderer:
 		{
-			texture: "ui_icons_minimap"
-			size: [16, 16]
-			frame: [0, 0]
+			sprite:
+			{
+				texture: "hornet_hive"
+			}
+			z: -100.000
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		spawner:
+		{
+			group_size: 1
+			group_size_extra: 2
+			interval: 30.000
+			interval_extra: 10.000
+			interval_count_modifier: 20.000
+			max_count: 8
+			filter_tag: "hornet"
 		}
 
-		flags: faction, spawner
-	}
-
-	dormitory:
-	{
-		species: "hornet"
-		flags: no_hiring, no_kit_selection
-		kits_max: 0
-		characters_capacity: 8
-		characters_initial_count: 6
-
-		character_flags_filter: 
+		spawn:
 		{
-			require: none
-			include: pest
-			exclude: none
-			weight: 1.000
+			flags: none
 		}
-	}
 
-	lootable:
-	{
-		merge_radius: 0.000
-		spawn_radius: 3.000
-		items:
-		[
+		minimap.marker:
+		{
+			sprite:
 			{
-				material: "soil.dry"
-				min: 500.000
-				max: 800.000
+				texture: "ui_icons_minimap"
+				size: [16, 16]
+				frame: [0, 0]
 			}
+
+			flags: faction, spawner
+		}
+
+		dormitory:
+		{
+			species: "hornet"
+			flags: no_hiring, no_kit_selection
+			kits_max: 0
+			characters_capacity: 8
+			characters_initial_count: 6
+
+			character_flags_filter: 
 			{
-				material: "insect"
-				min: 200.000
-				max: 500.000
+				require: none
+				include: pest
+				exclude: none
+				weight: 1.000
 			}
-			{
-				material: "chitin"
-				min: 50.000
-				max: 200.000
-			}
-			{
-				material: "red_sugar"
-				min: 100.000
-				max: 250.000
-			}
-		]
+		}
+
+		lootable:
+		{
+			merge_radius: 0.000
+			spawn_radius: 3.000
+			items:
+			[
+				{
+					material: "soil.dry"
+					min: 500.000
+					max: 800.000
+				}
+				{
+					material: "insect"
+					min: 200.000
+					max: 500.000
+				}
+				{
+					material: "chitin"
+					min: 50.000
+					max: 200.000
+				}
+				{
+					material: "red_sugar"
+					min: 100.000
+					max: 250.000
+				}
+			]
+		}
+
+		faction:
+		{
+			id: "hornet"
+		}
+
+		nameable:
+		{
+			name: "Hornet Hive"
+		}
+
+		// faction.new:
+		// {
+		// 	tag: "HOR"
+		// 	name: "Hornets"
+		// 	color_a: "0xff0030ff"
+		// 	color_b: "0xff080a52"
+
+		// 	id: 200
+		// }
 	}
-
-	faction:
-	{
-		id: "hornet"
-	}
-
-	nameable:
-	{
-		name: "Hornet Hive"
-	}
-
-	// faction.new:
-	// {
-	// 	tag: "HOR"
-	// 	name: "Hornets"
-	// 	color_a: "0xff0030ff"
-	// 	color_b: "0xff080a52"
-
-	// 	id: 200
-	// }
 }

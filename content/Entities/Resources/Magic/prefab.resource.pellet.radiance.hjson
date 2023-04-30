@@ -36,11 +36,11 @@ resource:
 	
 	@light:
 	{
-		color: [1.000, 1.000, 1.000, 3.000]
+		color: [1.000, 0.900, 0.800, 4.000]
 		offset: [0.000, 0.250]
-		scale: [24.000, 24.000]
+		scale: [28.000, 24.000]
 		intensity: 1.000
-		texture: "light.circle.00"
+		texture: "light.circle.04"
 	}
 }
 
