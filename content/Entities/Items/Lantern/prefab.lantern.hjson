@@ -14,8 +14,8 @@ body:
 		size: [0.625, 1.125]
 		offset: [0.000, 0.000]
 		mass: 4.000
-		friction: 0.900
-		elasticity: 0.100
+		friction: 0.600
+		elasticity: 0.400
 		material: metal
 		layer: entity, solid, ignore_bullet
 		mask: world
@@ -44,7 +44,9 @@ transform:
 
 norotate:
 {
-
+	bias: 0.020
+	speed: 1.000
+	mass_multiplier: 10.000
 }
 
 health:

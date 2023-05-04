@@ -39,7 +39,7 @@ animated.renderer:
 		texture: "bed.00"
 	}
 	offset: [0.000, -0.250]
-	z: -300.000
+	z: -90.000
 }
 
 transform:

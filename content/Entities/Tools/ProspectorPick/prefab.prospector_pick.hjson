@@ -39,11 +39,12 @@ melee:
 	thickness: 0.125
 	hit_offset: [0.500, 0.000]
 	aoe: 1.000
-	knockback: 1.000
-	yield: 1.100
+	knockback: 125.000
+	yield: 0.900
 	penetration_falloff: 0.500
 	penetration: 1
 	damage_type: pickaxe
+	attack_type: swing
 	category: pointed
 	hit_mask: world
 	hit_exclude: ignore_melee

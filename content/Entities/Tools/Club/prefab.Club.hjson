@@ -41,11 +41,12 @@ melee:
 	thickness: 1.000
 	hit_offset: [0.500, 0.000]
 	aoe: 1.250
-	knockback: 1.400
+	knockback: 400.000
 	yield: 0.600
 	penetration_falloff: 0.900
 	penetration: 3
 	damage_type: club
+	attack_type: swing
 	category: blunt
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration, tree, climbable

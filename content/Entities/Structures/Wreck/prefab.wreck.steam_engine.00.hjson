@@ -35,7 +35,7 @@ animated.renderer:
 	{
 		texture: "wreck.steam_engine.00"
 	}
-	z: -300.000
+	z: -280.000
 }
 
 transform:

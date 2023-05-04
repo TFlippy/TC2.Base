@@ -41,10 +41,10 @@ melee:
 	cooldown: 1.500
 	max_distance: 2.500
 	aoe: 1.000
-	knockback: 1.500
+	knockback: 300.000
 	thickness: 0.250
 	hit_offset: [1.250, 0.000]
-	yield: 0.300
+	yield: 0.700
 	penetration_falloff: 0.900
 	penetration: 0
 	damage_type: stab

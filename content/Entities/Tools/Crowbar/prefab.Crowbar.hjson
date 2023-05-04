@@ -31,10 +31,10 @@ health:
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 120.000
+	damage_base: 180.000
 	damage_bonus: 200.000
 	cooldown: 0.800
-	max_distance: 1.750
+	max_distance: 1.350
 	thickness: 0.900
 	hit_offset: [0.375, 0.000]
 	aoe: 0.500
@@ -43,6 +43,7 @@ melee:
 	penetration_falloff: 0.900
 	penetration: 1
 	damage_type: club
+	attack_type: swing
 	category: blunt
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration, tree

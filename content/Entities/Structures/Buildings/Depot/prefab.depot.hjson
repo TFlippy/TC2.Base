@@ -37,7 +37,7 @@ animated.renderer:
 	{
 		texture: "depot"
 	}
-	z: -140.000
+	z: -300.000
 	// mask: "depot.mask"
 }
 

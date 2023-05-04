@@ -31,18 +31,19 @@ health:
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 150.000
+	damage_base: 210.000
 	damage_bonus: 150.000
 	cooldown: 1.100
 	max_distance: 1.300
 	thickness: 0.750
 	hit_offset: [0.500, 0.000]
 	aoe: 0.700
-	knockback: 1.400
-	yield: 0.700
+	knockback: 125.000
+	yield: 0.900
 	penetration_falloff: 0.500
 	penetration: 1
 	damage_type: slash
+	attack_type: swing
 	category: bladed
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration

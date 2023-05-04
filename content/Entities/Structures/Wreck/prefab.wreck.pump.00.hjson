@@ -34,7 +34,7 @@ animated.renderer:
 	{
 		texture: "wreck.pump.00"
 	}
-	z: -300.000
+	z: -280.000
 }
 
 transform:

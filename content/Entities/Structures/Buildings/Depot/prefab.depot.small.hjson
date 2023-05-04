@@ -32,7 +32,7 @@ animated.renderer:
 	{
 		texture: "depot.small"
 	}
-	z: -140.000
+	z: -300.000
 }
 
 transform:

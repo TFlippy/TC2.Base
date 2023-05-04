@@ -43,7 +43,7 @@ animated.renderer:
 damage.effects:
 {
 	offset: 1
-	frame_count: 4
+	frame_count: 3
 	threshold_wreck: 0.200
 }
 
@@ -186,14 +186,14 @@ sound.emitter:
 
 melee:
 {
-	sound_swing: "pickup"
+	sound_swing: "swish.00"
 	sound_volume: 0.300
 	sound_size: 0.500
 	sound_pitch: 1.400
 	hit_direction: [1.000, 0.000]
 	swing_offset: [1.000, 0.000]
 	swing_rotation: 2.000
-	attack_type: swing
+	attack_type: thrust
 	damage_base: 35.000
 	damage_bonus: 75.000
 	primary_damage_multiplier: 0.500
@@ -204,7 +204,7 @@ melee:
 	aoe: 0.350
 	thickness: 0.150
 	knockback: 100.000
-	yield: 0.000
+	yield: 0.900
 	penetration_falloff: 0.900
 	penetration: 1
 	damage_type: sting

@@ -107,8 +107,8 @@ melee:
 	max_distance: 1.000
 	aoe: 1.000
 	thickness: 1.000
-	knockback: 60.000
-	yield: 0.000
+	knockback: 450.000
+	yield: 0.800
 	penetration_falloff: 0.800
 	penetration: 3
 	damage_type: club

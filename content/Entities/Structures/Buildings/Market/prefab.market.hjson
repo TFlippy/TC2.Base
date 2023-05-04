@@ -31,7 +31,7 @@ animated.renderer:
 		texture: "market"
 	}
 	offset: [0.000, -2.000]
-	z: -100.000
+	z: -300.000
 	mask: "market.mask"
 }
 

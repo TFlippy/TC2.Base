@@ -29,7 +29,7 @@ animated.renderer:
 	{
 		texture: "wreck.hand_crank.00"
 	}
-	z: -300.000
+	z: -250.000
 }
 
 transform:

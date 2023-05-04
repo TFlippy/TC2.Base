@@ -35,7 +35,7 @@ animated.renderer:
 	{
 		texture: "wreck.chain_fence.01"
 	}
-	z: -300.000
+	z: -350.000
 }
 
 transform:

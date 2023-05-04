@@ -56,7 +56,7 @@ animated.renderer:
 		texture: "cabin.wood.00"
 	}
 	offset: [0.000, 0.000]
-	z: -100.000
+	z: 70.000
 }
 
 transform:

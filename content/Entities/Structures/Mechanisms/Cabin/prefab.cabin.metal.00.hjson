@@ -68,7 +68,7 @@ animated.renderer:
 		texture: "cabin.metal.00"
 	}
 	offset: [0.000, 0.000]
-	z: 10.000
+	z: 70.000
 	mask: "cabin.metal.mask.00"
 }
 

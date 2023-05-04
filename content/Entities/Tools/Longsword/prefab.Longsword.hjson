@@ -40,11 +40,12 @@ melee:
 	thickness: 0.850
 	hit_offset: [0.250, 0.000]
 	aoe: 0.800
-	knockback: 2.500
+	knockback: 175.000
 	yield: 0.300
 	penetration_falloff: 0.900
 	penetration: 4
 	damage_type: slash
+	attack_type: swing
 	category: bladed
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, decoration
