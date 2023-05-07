@@ -45,7 +45,7 @@
 		{
 			type: block
 			block: "glass"
-			tile_flags: none
+			tile_flags: no_replace
 		}
 	]
 }

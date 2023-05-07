@@ -33,12 +33,12 @@
 	[
 		{
 			color: "0xff52443c"
-			tile_flags: solid, non_empty, ground
+			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}
 		{
 			color: "0xff332c29"
-			tile_flags: solid, non_empty, ground
+			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}
 	]

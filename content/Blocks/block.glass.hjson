@@ -25,12 +25,12 @@
 	[
 		{
 			color: "0xffe4fff5"
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty, become_background_on_break, no_replace
 			meta: 0
 		}
 		{
 			color: "0xff485c55"
-			tile_flags: non_empty
+			tile_flags: non_empty, no_replace
 			meta: 0
 		}
 	]

@@ -21,13 +21,18 @@
 	
 	placement:
 	{
-		type: circle
-		flags: continuous, replace
+		type: line
+		flags: continuous, no_snapping, replace, ignore_obstructed
+		size: [1.500, 1.500]
+
 		radius: 0.750
 		
 		cooldown: 0.200
 		min_support: 0.000
 		min_claim: 1.000
+
+		length_min: 0.500
+		length_max: 4.000
 		
 		sound: "stone_place_0"
 	}

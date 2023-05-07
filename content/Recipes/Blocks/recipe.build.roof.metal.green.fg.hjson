@@ -48,7 +48,7 @@
 		{
 			type: block
 			block: "roof.metal.green"
-			tile_flags: solid
+			tile_flags: solid, no_replace
 		}
 	]
 }

@@ -52,8 +52,6 @@ namespace TC2.Base.Components
 					public static bool show_zones;
 					public static bool enable_grid;
 
-					private record struct DrawTileArgs(Vector2 offset, Vector2 rect_size, Color32BGRA color_dummy, Color32BGRA color_gray, TileFlags tile_flags, IBlock.Handle block);
-
 					public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe)
 					{
 						//var rpc = new Wrench.Mode.Build.EditRPC
@@ -344,51 +342,25 @@ namespace TC2.Base.Components
 
 													var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
 
-													static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
-													{
-														var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
-														if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
-														{
-															GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
-														}
-														else
-														{
-															GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
-														}
-													}
-
-													static void DrawTileFunc2(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
-													{
-														var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
-														if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != args.block.id)
-														{
-															GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
-														}
-														else
-														{
-															GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
-														}
-													}
-
-													var args = new DrawTileArgs(offset: GUI.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block);
+													var args = new DrawTileArgs(offset: GUI.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
 													switch (placement.type)
 													{
 														case Placement.Type.Rectangle:
 														{
-															terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFunc2 : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 														}
 														break;
 
 														case Placement.Type.Circle:
 														{
-															terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFunc2 : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 														}
 														break;
 
 														case Placement.Type.Line:
 														{
 															//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-															terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFunc2 : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 														}
 														break;
 													}
@@ -457,7 +429,7 @@ namespace TC2.Base.Components
 
 																var angle = dir.GetAngleRadians();
 
-																renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, 0.00f).RotateByRad(angle);
+																renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, resizable.offset_y).RotateByRad(angle);
 																renderer.rotation = -angle;
 																renderer.rect.Z = len / sprite_size.X;
 
@@ -470,7 +442,7 @@ namespace TC2.Base.Components
 																	sprite = resizable.cap_a,
 																	rotation = renderer.rotation,
 																	scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
-																	offset = resizable.a - normalized * resizable.cap_offset
+																	offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
 																};
 
 																var renderer_b = new Animated.Renderer.Data
@@ -478,7 +450,7 @@ namespace TC2.Base.Components
 																	sprite = resizable.cap_b,
 																	rotation = renderer.rotation,
 																	scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
-																	offset = resizable.b + normalized * resizable.cap_offset
+																	offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
 																};
 
 																GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
@@ -613,17 +585,20 @@ namespace TC2.Base.Components
 
 												var time = region.GetWorldTime();
 
-												place &= time >= next_place_local && !errors.HasAny(Build.Errors.ZeroCount);
+												place &= time >= next_place_local;
 												if (place)
 												{
-													var rpc = new Build.PlaceRPC
+													if (!errors.HasAny(Build.Errors.ZeroCount))
 													{
-														pos_raw = pos_raw,
-														pos_a_raw = pos_a_raw,
-														pos_b_raw = pos_b_raw,
-														flags = flags
-													};
-													rpc.Send(ent_wrench);
+														var rpc = new Build.PlaceRPC
+														{
+															pos_raw = pos_raw,
+															pos_a_raw = pos_a_raw,
+															pos_b_raw = pos_b_raw,
+															flags = flags
+														};
+														rpc.Send(ent_wrench);
+													}
 
 													if (!placement.flags.HasAny(Placement.Flags.Continuous))
 													{
@@ -805,7 +780,7 @@ namespace TC2.Base.Components
 					placed_block_count = Build.CalculateBlockCount(ref region, in placement, block, tile_flags, pos, pos_a, pos_b);
 					if (placed_block_count <= 0) errors |= Build.Errors.ZeroCount;
 
-					if (tile_flags.HasAll(TileFlags.Solid))
+					if (tile_flags.HasAll(TileFlags.Solid) && !placement.flags.HasAny(Placement.Flags.Ignore_Obstructed))
 					{
 						if (placement.type == Placement.Type.Line)
 						{
@@ -813,7 +788,10 @@ namespace TC2.Base.Components
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
 
 							Span<LinecastResult> hits = stackalloc LinecastResult[16];
-							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius + 0.25f)), (pos_b ?? pos) + (dir * (radius + 0.25f)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
+							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius + 0.25f)), (pos_b ?? pos) + (dir * (radius + 0.25f)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							{
+								errors |= Errors.Obstructed;
+							}
 						}
 						else
 						{
@@ -821,7 +799,10 @@ namespace TC2.Base.Components
 							//if (region.TryOverlapBBAll(pos, bb.GetSize() - new Vector2(0.25f), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
 
 							Span<ShapeOverlapResult> hits = stackalloc ShapeOverlapResult[16];
-							if (region.TryOverlapRectAll(bb, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
+							if (region.TryOverlapRectAll(bb, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							{
+								errors |= Errors.Obstructed;
+							}
 						}
 					}
 
@@ -871,7 +852,7 @@ namespace TC2.Base.Components
 									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
@@ -885,7 +866,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 								else
@@ -896,7 +877,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 							}
@@ -927,7 +908,7 @@ namespace TC2.Base.Components
 									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
@@ -941,7 +922,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 								else
@@ -952,7 +933,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										errors |= Errors.Obstructed;
+										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 							}
@@ -1025,8 +1006,6 @@ namespace TC2.Base.Components
 					public Vector2? pos_a_raw;
 					public Vector2? pos_b_raw;
 
-					private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count);
-
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Build.Data build)
 					{
@@ -1079,53 +1058,25 @@ namespace TC2.Base.Components
 											{
 												Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 
-												static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs arg)
-												{
-													if ((tile.BlockID == 0 || arg.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
-													{
-														tile.Reset();
-
-														tile.Health = 255;
-														tile.BlockID = (byte)arg.block.id;
-														tile.Flags |= arg.tile_flags;
-
-														arg.count++;
-													}
-												}
-
-												static void SetTileFunc2(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs arg)
-												{
-													if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
-													{
-														tile.Reset();
-
-														tile.Health = 255;
-														tile.BlockID = (byte)arg.block.id;
-														tile.Flags |= arg.tile_flags;
-
-														arg.count++;
-													}
-												}
-
-												var args = new SetTileFuncArgs(product.block, tile_flags, 0);
+												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health);
 												switch (placement.type)
 												{
 													case Placement.Type.Rectangle:
 													{
-														terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFunc2 : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 
 													case Placement.Type.Circle:
 													{
-														terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFunc2 : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 
 													case Placement.Type.Line:
 													{
 														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-														terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFunc2 : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 												}
@@ -1416,39 +1367,155 @@ namespace TC2.Base.Components
 					return pos;
 				}
 
+				#region CalculateBlockCount
+				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health);
+				private static void CountTileFunc(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
+				{
+					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					{
+						args.count++;
+					}
+				}
+
+				private static void CountTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
+				{
+					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
+					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					{
+						args.count++;
+					}
+				}
+
+				public static int CalculateBlockCount(ref Region.Data region, in Placement placement, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				{
+					ref var terrain = ref region.GetTerrain();
+
+					var args = new CalculateBlockCountArgs(block: block, tile_flags: tile_flags, count: 0, max_health: block.GetData().max_health);
+					switch (placement.type)
+					{
+						case Placement.Type.Rectangle:
+						{
+							terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+						}
+						break;
+
+						case Placement.Type.Circle:
+						{
+							terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+						}
+						break;
+
+						case Placement.Type.Line:
+						{
+							terrain.IterateSquareLine(pos_a ?? pos, pos_b ?? pos, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+						}
+						break;
+					}
+
+					return args.count;
+				}
+				#endregion
+
+#if CLIENT
+				#region DrawTile
+				private record struct DrawTileArgs(Vector2 offset, Vector2 rect_size, Color32BGRA color_dummy, Color32BGRA color_gray, TileFlags tile_flags, IBlock.Handle block, float max_health);
+				static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
+				{
+					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
+					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					{
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
+					}
+					else
+					{
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
+					}
+				}
+
+				static void DrawTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
+				{
+					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
+					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != args.block.id)
+					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					{
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
+					}
+					else
+					{
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
+					}
+				}
+				#endregion
+#endif
+
+#if SERVER
+				#region SetTile
+				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health);
+				static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
+				{
+					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					{
+						tile.Reset();
+
+						tile.Health = 255;
+						tile.BlockID = (byte)args.block.id;
+						tile.Flags |= args.tile_flags;
+
+						args.count++;
+					}
+				}
+
+				static void SetTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
+				{
+					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
+					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					{
+						tile.Reset();
+
+						tile.Health = 255;
+						tile.BlockID = (byte)args.block.id;
+						tile.Flags |= args.tile_flags;
+
+						args.count++;
+					}
+				}
+				#endregion
+#endif
+
+				#region CalculateSupport
 				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count);
+				private static void CalculateSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
+				{
+					if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
+					{
+						args.support_count++;
+					}
+
+					if (tile.Flags.HasAny(TileFlags.Solid))
+					{
+						args.blocked_count++;
+					}
+
+					args.total_count++;
+				}
+
+				private static void CalculateSupportFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
+				{
+					if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
+					{
+						args.support_count++;
+					}
+
+					if (tile.Flags.HasAny(TileFlags.Solid))
+					{
+						args.blocked_count++;
+					}
+
+					args.total_count++;
+				}
+
 				public static void CalculateSupport(ref Region.Data region, in Placement placement, out int support_count, out int blocked_count, out int total_count, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
-					static void CalculateSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs arg)
-					{
-						if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
-						{
-							arg.support_count++;
-						}
-
-						if (tile.Flags.HasAny(TileFlags.Solid))
-						{
-							arg.blocked_count++;
-						}
-
-						arg.total_count++;
-					}
-
-					static void CalculateSupportFunc2(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs arg)
-					{
-						if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
-						{
-							arg.support_count++;
-						}
-
-						if (tile.Flags.HasAny(TileFlags.Solid))
-						{
-							arg.blocked_count++;
-						}
-
-						arg.total_count++;
-					}
-
 					ref var terrain = ref region.GetTerrain();
 
 					//var args = new CalculateSupportArgs(valid_count: 0, total_count: 0);
@@ -1460,13 +1527,13 @@ namespace TC2.Base.Components
 						case Placement.Type.Simple:
 						case Placement.Type.Rectangle:
 						{
-							terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2.00f), ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFunc2 : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2.00f), ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
 						case Placement.Type.Circle:
 						{
-							terrain.IterateCircle(pos, (placement.radius * App.pixels_per_unit) + 2.00f, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFunc2 : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateCircle(pos, (placement.radius * App.pixels_per_unit) + 2.00f, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
@@ -1474,7 +1541,7 @@ namespace TC2.Base.Components
 						{
 							var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
 
-							terrain.IterateSquareLine((pos_a ?? pos) - (dir * 0.125f), (pos_b ?? pos) + (dir * 0.125f), placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFunc2 : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateSquareLine((pos_a ?? pos) - (dir * 0.125f), (pos_b ?? pos) + (dir * 0.125f), placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 					}
@@ -1488,52 +1555,7 @@ namespace TC2.Base.Components
 					//support_ratio = Maths.NormalizeClamp(args.support_count, args.total_count);
 					//blocked_ratio = Maths.NormalizeClamp(args.blocked_count, args.total_count);
 				}
-
-				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count);
-				public static int CalculateBlockCount(ref Region.Data region, in Placement placement, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
-				{
-					static void CountTileFunc(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs arg)
-					{
-						if ((tile.BlockID == 0 || arg.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
-						{
-							arg.count++;
-						}
-					}
-
-					static void CountTileFunc2(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs arg)
-					{
-						if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
-						{
-							arg.count++;
-						}
-					}
-
-					ref var terrain = ref region.GetTerrain();
-
-					var args = new CalculateBlockCountArgs(block: block, tile_flags: tile_flags, count: 0);
-					switch (placement.type)
-					{
-						case Placement.Type.Rectangle:
-						{
-							terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFunc2 : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
-
-						case Placement.Type.Circle:
-						{
-							terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFunc2 : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
-
-						case Placement.Type.Line:
-						{
-							terrain.IterateSquareLine(pos_a ?? pos, pos_b ?? pos, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFunc2 : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
-					}
-
-					return args.count;
-				}
+				#endregion
 
 				public static Vector2 ConstrainPosition(in Placement placement, Vector2 pos, Vector2? pos_a = null, Vector2? pos_b = null, Vector2? snap = null)
 				{
@@ -1564,6 +1586,22 @@ namespace TC2.Base.Components
 						{
 							var pivot = Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
 							pos = Maths.ClampRadiusSnapped2(pos, pivot, placement.length_min, placement.length_max, placement.length_step);
+						}
+
+						if (placement.flags.HasAny(Placement.Flags.Lock_X))
+						{
+							if (pos_a.HasValue)
+							{
+								pos.X = pos_a.Value.X;
+							}
+						}
+
+						if (placement.flags.HasAny(Placement.Flags.Lock_Y))
+						{
+							if (pos_a.HasValue)
+							{
+								pos.Y = pos_a.Value.Y;
+							}
 						}
 					}
 

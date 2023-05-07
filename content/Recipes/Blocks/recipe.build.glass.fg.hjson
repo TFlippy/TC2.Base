@@ -48,7 +48,7 @@
 		{
 			type: block
 			block: "glass"
-			tile_flags: solid, become_background_on_break
+			tile_flags: solid, become_background_on_break, no_replace
 		}
 	]
 }

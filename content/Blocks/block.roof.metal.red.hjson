@@ -34,7 +34,7 @@
 	[
 		{
 			color: "0xff8e5d5d"
-			tile_flags: solid, non_empty, become_background_on_break, no_cull
+			tile_flags: solid, non_empty, become_background_on_break, no_cull, no_replace
 			meta: 0
 		}
 	]

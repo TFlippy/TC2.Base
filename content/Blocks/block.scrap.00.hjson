@@ -31,12 +31,12 @@
 	[
 		{
 			color: "0xff8e3b22"
-			tile_flags: solid, non_empty
+			tile_flags: solid, non_empty, no_replace
 			meta: 0
 		}
 		{
 			color: "0xff4a2114"
-			tile_flags: non_empty
+			tile_flags: non_empty, no_replace
 			meta: 0
 		}
 	]

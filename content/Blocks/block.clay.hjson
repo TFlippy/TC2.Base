@@ -25,7 +25,7 @@
 	[
 		{
 			color: "0xff6c776e"
-			tile_flags: solid, non_empty, ground
+			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}
 	]
