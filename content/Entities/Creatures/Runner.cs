@@ -54,6 +54,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_ground;
 			[Save.Ignore, Net.Ignore] public float last_climb;
 			[Save.Ignore, Net.Ignore] public float last_air;
+			[Save.Ignore, Net.Ignore] public float last_move;
 
 			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
 			[Save.Ignore, Net.Ignore] public Vector2 last_force;
@@ -162,6 +163,7 @@ namespace TC2.Base.Components
 		{
 			ref readonly var keyboard = ref control.keyboard;
 
+			var time = info.WorldTime;
 			var force = new Vector2(0, 0);
 			var max_speed = new Vector2(runner.max_speed, runner.max_jump_speed);
 			var velocity = body.GetVelocity();
@@ -171,7 +173,7 @@ namespace TC2.Base.Components
 			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 
-			if (any)
+			if (any || keyboard.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
 				body.Activate();
 			}
@@ -180,6 +182,7 @@ namespace TC2.Base.Components
 
 			if (is_walking)
 			{
+				runner_state.last_move = time;
 				runner_state.walk_modifier_current = Maths.Lerp(runner_state.walk_modifier_current, 1.00f, runner.walk_lerp);
 
 				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner_state.walk_modifier_current;
@@ -255,51 +258,51 @@ namespace TC2.Base.Components
 			if (is_grounded)
 			{
 				runner_state.flags.SetFlag(Runner.Flags.Grounded, true);
-				runner_state.last_ground = info.WorldTime;
+				runner_state.last_ground = time;
 			}
 			else
 			{
 				runner_state.flags.SetFlag(Runner.Flags.Grounded, false);
-				runner_state.last_air = info.WorldTime;
+				runner_state.last_air = time;
 			}
 
-			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && (info.WorldTime - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
-			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (info.WorldTime - runner_state.last_jump) > 0.40f && MathF.Min(info.WorldTime - runner_state.last_ground, info.WorldTime - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
+			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
-				runner_state.last_jump = info.WorldTime;
+				runner_state.last_jump = time;
 			}
 
 			force.Y -= runner_state.jump_force_current;
 			runner_state.jump_force_current *= runner.jump_decay;
 
-			runner_state.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (info.WorldTime - runner_state.last_ground) <= 0.25f);
+			runner_state.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (time - runner_state.last_ground) <= 0.25f);
 			if (runner_state.flags.HasAll(Runner.Flags.Crouching))
 			{
 				runner_state.jump_force_current *= 0.50f;
 				max_speed.X *= runner.crouch_speed_modifier;
 			}
 
-			if (!is_walking)
+			if (!is_walking && can_move && velocity.LengthSquared() > 0.10f && (time - runner_state.last_move) < 0.50f)
 			{
 				var required_force_dir = (velocity * mass * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
+				required_force_dir.Y = 0.00f;
 
 				if (!runner_state.flags.HasAll(Runner.Flags.Grounded))
 				{
 					required_force_dir.X *= runner.air_brake_modifier;
-					required_force_dir.Y *= 0.00f;
 				}
 
-				force -= required_force_dir;
+				force -= required_force_dir * MathF.Max(1.00f - (time - runner_state.last_move), 0.00f);
 			}
-
-			runner_state.air_time = info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
-			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 
 			//max_speed *= runner_state.speed_modifier;
 			//force *= runner_state.force_modifier;
+
+			runner_state.air_time = time - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
+			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 			force *= runner_state.air_modifier_current;
 
 			force = Physics.LimitForce(ref body, force, max_speed);

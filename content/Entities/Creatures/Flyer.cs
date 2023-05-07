@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 			var force = new Vector2(0, 0);
 			var vel = body.GetVelocity();
 
-			if (!keyboard.GetKey(Keyboard.Key.NoMove))
+			if (!keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
 				if (keyboard.GetKey(Keyboard.Key.MoveLeft) && vel.X > -flyer.max_speed) force.X -= flyer.force;
 				if (keyboard.GetKey(Keyboard.Key.MoveRight) && vel.X < +flyer.max_speed) force.X += flyer.force;
