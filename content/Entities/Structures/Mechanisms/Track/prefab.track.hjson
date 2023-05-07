@@ -55,7 +55,7 @@ resizable:
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]
-	cap_offset: 1.000
+	cap_offset: 0.000
 }
 
 track:
@@ -77,7 +77,10 @@ track.state:
 
 interactable:
 {
-	window_size: [400.000, 264.000]
+	window_size: [268.000, 128.000]
+	// window_offset: [-134.000, -80.000]
+	// window_offset: [80.000, 80.000]
+	window_offset: [48.000, 128.000]
 }
 
 control:
@@ -96,17 +99,18 @@ mount:
 	{
 		name: "Mount"
 
-		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, mouse_read, keyboard_write, mouse_write
+		flags: keyboard_write, mouse_write, manual_aim
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake
+		gui_size: [268.000, 128.000]
 	}
 
 	joint.base:
 	{
 		offset_a: [0.000, 0.000]
-		max_force: 100000.000
+		max_force: 1000000.000
 		max_torque: 200000.000
-		max_stress: 1.000
-		stress_threshold: 1.010
+		max_stress: 2.000
+		stress_threshold: 2.010
 		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
 		material_type: metal
 		// flags: control_read, control_write
@@ -114,9 +118,14 @@ mount:
 
 	joint.gear:
 	{
-		error_bias: 0.0001
-		max_bias: 2.000
-		stress_mult: 0.700
+		error_bias: 0.000
+		max_bias: 1.000
+		max_bias_bounce: 4.000
+		stress_mult: 1.000
+		min: -3.140
+		max: 3.140
+		step: 5.000
+		bounce: 0.900
 
 		// @sound.emitter:
 		// {
@@ -154,9 +163,13 @@ mount:
 
 	joint.distance:
 	{
-		max_force: 200000.000
+		max_force: 500000.000
 		max_bias: 5.000
-		stress_mult: 0.700
+		max_bias_bounce: 15.000
+		step: 4.000
+		error_bias: 0.000
+		stress_mult: 1.000
+		bounce: 0.800
 
 		@sound.emitter:
 		{
@@ -185,12 +198,12 @@ vehicle:
 
 }
 
-+seat|instance:
-{
-	$tags: []
+// +seat|instance:
+// {
+// 	$tags: []
 	
-	seat:
-	{
-		offset: [-2.125, 0.750]
-	}
-}
+// 	seat:
+// 	{
+// 		offset: [-2.125, 0.750]
+// 	}
+// }

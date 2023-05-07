@@ -42,7 +42,9 @@
 		[Source.Shared, Pair.Of<Track.Data>] ref Animated.Renderer.Data renderer)
 		{
 			renderer.rotation = -(resizable.b - resizable.a).GetAngleRadians();
-			renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.rotation), 0.40f);
+			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.40f);
+			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.50f);
+			renderer.offset = Vector2.Lerp(joint_distance.GetDelta(), (joint_distance.GetDelta() + (joint_distance.GetVelocity() * App.fixed_update_interval_s)), Vulkan.GetCurrentLerp()).RotateByRad(-transform.GetInterpolatedRotation());
 		}
 #endif
 
@@ -72,6 +74,7 @@
 			vel *= track.speed;
 
 			track_state.slider_ratio = Maths.Clamp01(track_state.slider_ratio + vel);
+
 #if SERVER
 			if (vel != 0.00f)
 			{
@@ -114,6 +117,18 @@
 				}
 
 				data.Sync(entity);
+
+				ref var body = ref entity.GetComponent<Body.Data>();
+				if (body.IsNotNull())
+				{
+					body.Activate();
+
+					//if (body.type == Body.Type.Static)
+					//{
+					//	body.
+					//}
+
+				}
 			}
 #endif
 		}
@@ -137,25 +152,25 @@
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
 
-						var frame_size = Inventory.GetFrameSize(4, 2);
 
 						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
 						{
-							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
 							{
 								GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
 								var dirty = false;
 								
-								if (GUI.SliderFloat("Slider", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								if (GUI.SliderFloat("Ratio", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), 32)))
 								{
 									dirty = true;
 								}
 
-								if (GUI.Checkbox("Invert", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, 32)))
+								if (GUI.Checkbox("Reverse Direction", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.GetRemainingWidth(), 32)))
 								{
 									dirty = true;
 								}
+								GUI.DrawHoverTooltip("Reverse direction of the track.");
 
 								if (dirty)
 								{

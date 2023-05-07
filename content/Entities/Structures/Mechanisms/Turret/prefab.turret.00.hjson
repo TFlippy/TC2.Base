@@ -143,8 +143,8 @@ vehicle:
 
 	joint.gear:
 	{
-		min: 0.000
-		max: 0.000
+		min: -0.150
+		max: 0.150
 		error_bias: 0.0010
 		max_bias: 8.000
 	}
@@ -153,7 +153,9 @@ vehicle:
 	{
 		name: "Mount"
 
-		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, invert
+		flags: use_center_of_gravity, keyboard_write, mouse_write, manual_aim
+		flags_editable: locked, disabled, invert, manual_aim, offset
+
+		offset_bounds: [0.000, 0.000, 1.500, 0.000]
 	}
 }
