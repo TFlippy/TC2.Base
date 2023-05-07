@@ -64,11 +64,11 @@
 
 		[ISystem.Update(ISystem.Mode.Single, interval: 0.12f)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
-		[Source.Parent] ref Axle.Data wheel, [Source.Parent] ref Axle.State wheel_state, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
+		[Source.Parent] ref Axle.Data axle, [Source.Parent] ref Axle.State axle_state, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
 		{
-			var wheel_speed = MathF.Max(MathF.Abs(wheel_state.angular_velocity) - 2.00f, 0.00f);
-			if (wheel_speed > 2.00f)
+			var axle_speed = MathF.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
+			if (axle_speed > 2.00f)
 			{
 				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
 
@@ -82,14 +82,14 @@
 #if SERVER
 
 
-					var damage = Maths.Clamp(wheel_state.old_tmp_torque * 0.15f, 0.00f, wheel_speed * 35.00f);
+					var damage = Maths.Clamp(axle_state.old_tmp_torque * 0.15f, 0.00f, axle_speed * 35.00f);
 					//App.WriteLine(damage);
 
 					if (damage > 25.00f)
 					{
-						//entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: wheel_speed);
+						//entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: axle_speed);
 						Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_health,
-							position: overlap.world_position - overlap.gradient, velocity: dir * wheel_speed, normal: -dir,
+							position: overlap.world_position - overlap.gradient, velocity: dir * axle_speed, normal: -dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 							target_material_type: overlap.material_type, damage_type: Damage.Type.Saw,
 							yield: 1.00f, size: 0.50f, impulse: 0.00f);
@@ -105,30 +105,30 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
-		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
+		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
 		{
-			renderer_saw.rotation = (renderer_saw.rotation - (wheel_state.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
+			renderer_saw.rotation = (renderer_saw.rotation - (axle_state.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
 			renderer_saw.offset = sawmill.saw_offset;
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSoundIdle(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Max(MathF.Abs(wheel_state.angular_velocity) - 2.00f, 0.00f);
+			var axle_speed = MathF.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(wheel_speed * 0.08f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + (Maths.Clamp(wheel_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(axle_speed * 0.08f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
+			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + (Maths.Clamp(axle_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateSoundCutting(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned, Pair.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
 		{
-			var wheel_speed = MathF.Max(MathF.Abs(wheel_state.angular_velocity) - 2.00f, 0.00f);
-			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? MathF.Min(wheel_speed * 0.08f, 1.00f) : 0.00f;
+			var axle_speed = MathF.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
+			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? MathF.Min(axle_speed * 0.08f, 1.00f) : 0.00f;
 
 			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier * 0.60f, 0.05f, 0.30f);
 			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.45f + (MathF.Min(modifier, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
@@ -143,8 +143,8 @@
 			public SawMill.Data sawmill;
 			public SawMill.State sawmill_state;
 
-			public Axle.Data wheel;
-			public Axle.State wheel_state;
+			public Axle.Data axle;
+			public Axle.State axle_state;
 
 			public void Draw()
 			{
@@ -170,8 +170,8 @@
 
 									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - slider_h - 64)))
 									{
-										GUI.Label("Angular Velocity:", this.wheel_state.angular_velocity, "{0:0.00} rad/s");
-										GUI.Label("Torque:", this.wheel_state.old_tmp_torque, "{0:0.00} Nm/s");
+										GUI.Label("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
+										GUI.Label("Torque:", this.axle_state.old_tmp_torque, "{0:0.00} Nm/s");
 									}
 
 									var ent_child = default(Entity);
@@ -255,7 +255,7 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single)]
-		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state, [Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)
 			{
@@ -266,8 +266,8 @@
 					sawmill = sawmill,
 					sawmill_state = sawmill_state,
 
-					wheel = wheel,
-					wheel_state = wheel_state
+					axle = axle,
+					axle_state = axle_state
 				};
 				gui.Submit();
 			}

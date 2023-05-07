@@ -53,13 +53,33 @@
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
 		{
-			var ratio = track_state.slider_ratio.Clamp01();
+			//var ratio = Maths.Clamp(track_state.slider_ratio, 0.001f, 0.999f); // TODO: hack to prevent max impulse when at 0.00f or 1.00f
+
+			var ratio = Maths.Clamp(track_state.slider_ratio, 0.000f, 1.000f);
 			if (track.flags.HasAny(Track.Data.Flags.Invert))
 			{
 				ratio = 1.00f - ratio;
 			}
 
 			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * ratio;
+		}
+
+		[ISystem.Update(ISystem.Mode.Single)]
+		public static void UpdateAxle(ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,
+		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
+		[Source.Shared] ref Axle.Data axle, [Source.Shared] ref Axle.State axle_state,
+		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
+		{
+			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
+			//joint_distance.step = MathF.Abs(axle_state.angular_velocity);
+			//joint_distance.max_bias = MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			//joint_distance.max_force = MathF.Abs(axle_state.old_tmp_torque * 10.00f);
+			//if (axle_state.old_tmp_torque <= axle.mass * 2.00f) joint_distance.max_force = 0.00f;
+			//joint_distance.modifier = 1.00f - Maths.NormalizeClamp(axle_state.old_tmp_load, axle_state.old_tmp_torque, fallback: 1.00f);
+
+			//var eps = Unsafe.BitCast<float, uint>(float.Epsilon);
+			//var eps2 = Unsafe.BitCast<float, uint>(Maths.epsilon);
+			//App.WriteLine($"{eps.ToFormattedBinary()} vs {eps2.ToFormattedBinary()}");
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]

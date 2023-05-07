@@ -44,6 +44,7 @@ axle:
 	radius_b: 1.000
 	radius_inner: 0.750
 	radius_outer: 1.000
+	z: -50.000
 	
 	@animated.renderer:
 	{
@@ -51,7 +52,6 @@ axle:
 		{
 			texture: "wheel_1000.steel"
 		}
-		z: -50.000
 	}
 }
 

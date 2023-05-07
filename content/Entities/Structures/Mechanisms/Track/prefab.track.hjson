@@ -10,8 +10,8 @@ body:
 		a: [-1.000, 0.000]
 		b: [1.000, 0.000]
 		offset: [0.000, 0.000]
-		mass: 25.000
-		radius: 0.400
+		mass: 250.000
+		radius: 1.000
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
@@ -75,6 +75,26 @@ track.state:
 
 }
 
+axle:
+{
+	offset: [0.000, 0.000]
+	mass: 10.000
+	friction: 0.800
+	radius_a: 1.250
+	radius_b: 1.250
+	radius_inner: 1.250
+	radius_outer: 1.500
+	z: -250.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1500.steel"
+		}
+	}
+}
+
 interactable:
 {
 	window_size: [268.000, 128.000]
@@ -100,8 +120,9 @@ mount:
 		name: "Mount"
 
 		flags: keyboard_write, mouse_write, manual_aim
-		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake, offset, hold
 		gui_size: [268.000, 128.000]
+		offset_bounds: [0.000, -0.500, 0.000, 0.500]
 	}
 
 	joint.base:
@@ -157,7 +178,7 @@ mount:
 
 		error_bias: 0.000
 		max_force_b: 0.000
-		max_force_b: 1000000.000
+		max_force_b: 10000000.000
 		max_bias: 10.000
 	}
 
@@ -167,9 +188,9 @@ mount:
 		max_bias: 5.000
 		max_bias_bounce: 15.000
 		step: 4.000
-		error_bias: 0.000
-		stress_mult: 1.000
-		bounce: 0.800
+		error_bias: 0.001
+		stress_mult: 0.000
+		bounce: 0.900
 
 		@sound.emitter:
 		{
