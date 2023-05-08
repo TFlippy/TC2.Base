@@ -53,9 +53,9 @@
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
 		{
-			//var ratio = Maths.Clamp(track_state.slider_ratio, 0.001f, 0.999f); // TODO: hack to prevent max impulse when at 0.00f or 1.00f
+			var ratio = Maths.Clamp(track_state.slider_ratio, 0.0005f, 0.9995f); // TODO: hack to prevent max impulse when at 0.00f or 1.00f
 
-			var ratio = Maths.Clamp(track_state.slider_ratio, 0.000f, 1.000f);
+			//var ratio = Maths.Clamp(track_state.slider_ratio, 0.000f, 1.000f);
 			if (track.flags.HasAny(Track.Data.Flags.Invert))
 			{
 				ratio = 1.00f - ratio;
@@ -71,9 +71,13 @@
 		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
 		{
 			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
-			//joint_distance.step = MathF.Abs(axle_state.angular_velocity);
-			//joint_distance.max_bias = MathF.Abs(axle_state.angular_velocity) * 0.50f;
-			//joint_distance.max_force = MathF.Abs(axle_state.old_tmp_torque * 10.00f);
+			axle_state.SetAngularVelocity(MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass(), -joint_distance.GetBias());
+			joint_distance.step = MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			joint_distance.max_bias = MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			joint_distance.max_force = MathF.Abs(axle_state.angular_momentum * 2000.00f);
+
+			//axle_state.new_tmp_impulse -= joint_distance.GetImpulse() * info.DeltaTime;
+
 			//if (axle_state.old_tmp_torque <= axle.mass * 2.00f) joint_distance.max_force = 0.00f;
 			//joint_distance.modifier = 1.00f - Maths.NormalizeClamp(axle_state.old_tmp_load, axle_state.old_tmp_torque, fallback: 1.00f);
 

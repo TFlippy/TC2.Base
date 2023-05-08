@@ -196,6 +196,7 @@ namespace TC2.Base.Components
 			var normal = default(Vector2);
 			var layers = default(Physics.Layer);
 			var friction = 0.00f;
+			var rv = default(Vector2);
 
 			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
@@ -205,6 +206,8 @@ namespace TC2.Base.Components
 					normal += arbiter.GetNormal();
 					friction += arbiter.GetFriction();
 					layers |= arbiter.GetLayer();
+					rv += arbiter.GetBodyVelocity();
+					//arbiter.GetVelocity
 
 					arbiter_count++;
 				}
@@ -220,6 +223,7 @@ namespace TC2.Base.Components
 			runner_state.last_normal = Vector2.Lerp(runner_state.last_normal, normal, 0.20f).GetNormalized();
 
 			var is_grounded = false;
+			var is_on_vehicle = false;
 
 			if (arbiter_count > 0) // && !layers.HasAll(Physics.Layer.Bounds))
 			{
@@ -228,6 +232,7 @@ namespace TC2.Base.Components
 
 				var dot = MathF.Abs(runner_state.last_normal.X);
 				is_grounded = dot < 0.90f;
+				is_on_vehicle = dot < 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
 
 				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
 				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
@@ -245,8 +250,12 @@ namespace TC2.Base.Components
 			}
 
 //#if CLIENT
-//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
+//			region.DrawDebugText(body.GetPosition(), $"{rv}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
 //#endif
+
+			//#if CLIENT
+			//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
+			//#endif
 
 			if (runner_state.flags.HasAny(Runner.Flags.WallClimbing))
 			{
@@ -283,9 +292,9 @@ namespace TC2.Base.Components
 				max_speed.X *= runner.crouch_speed_modifier;
 			}
 
-			if (!is_walking && can_move && velocity.LengthSquared() > 0.10f && (time - runner_state.last_move) < 0.50f)
+			if (!is_walking && can_move && (velocity - rv).LengthSquared() > 0.10f) // && !is_on_vehicle && (time - runner_state.last_move) <= 0.50f)
 			{
-				var required_force_dir = (velocity * mass * App.tickrate) - force;
+				var required_force_dir = ((velocity - rv) * mass * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 				required_force_dir.Y = 0.00f;

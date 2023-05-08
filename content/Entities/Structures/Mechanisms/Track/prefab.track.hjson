@@ -122,7 +122,7 @@ mount:
 		flags: keyboard_write, mouse_write, manual_aim, use_center_of_gravity
 		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake, offset, hold
 		gui_size: [268.000, 128.000]
-		offset_bounds: [0.000, -0.500, 0.000, 0.500]
+		offset_bounds: [0.000, -0.750, 0.000, 0.750]
 	}
 
 	joint.base:
@@ -186,7 +186,7 @@ mount:
 	{
 		max_force: 500000.000
 		max_bias: 5.000
-		max_bias_bounce: 15.000
+		max_bias_bounce: 8.000
 		step: 4.000
 		error_bias: 0.001
 		stress_mult: 0.000
