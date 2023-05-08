@@ -13,15 +13,15 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
+		points: 
 		[
-			[-0.500, -2.500]
-			[0.250, -2.500]
+			[-0.250, -2.250]
+			[0.000, -2.250]
 			[1.750, 2.000]
 			[-1.750, 2.000]
 		]
-		offset: [0.000, 0.000]
-		mass: 5000.000
+		mass: 1000.000
+		radius: 0.500
 		friction: 0.950
 		elasticity: 0.020
 		material: stone

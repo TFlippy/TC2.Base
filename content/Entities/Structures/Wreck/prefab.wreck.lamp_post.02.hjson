@@ -12,11 +12,10 @@ body:
 	
 	@shape.line:
 	{
-		a: [-1.000, 2.500]
-		b: [0.250, -1.375]
-		offset: [1.000, -2.500]
+		a: [0.500, -3.750]
+		b: [0.250, -0.500]
 		mass: 25.000
-		radius: 0.400
+		radius: 0.750
 		friction: 0.500
 		elasticity: 0.500
 		material: metal

@@ -6,10 +6,11 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.circle:
 	{
-		size: [1.300, 1.500]
-		offset: [0.050, -0.500]
+		radius: 1.125
+		offset: [0.080, -0.375]
+		mass: 100.000
 		friction: 0.950
 		elasticity: 0.500
 		material: wood
