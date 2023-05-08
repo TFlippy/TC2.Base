@@ -13,7 +13,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: metal
-		layer: entity, conveyor, ignore_melee
+		layer: entity, conveyor, ignore_melee, ignore_hover
 		mask: world
 	}
 }

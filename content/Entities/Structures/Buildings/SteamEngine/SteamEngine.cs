@@ -330,7 +330,7 @@ namespace TC2.Base.Components
 								{
 									//GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00}/{this.steam_engine.speed_max:0.00} rad/s");
 									GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00} rad/s");
-									GUI.Text($"{(this.wheel_state.old_tmp_torque * 0.010f):0.00} kNm/s");
+									GUI.Text($"{(this.wheel_state.old_tmp_torque):0.00} Nm/s");
 									GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity) * 0.001f):0.00} kW");
 									//GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity)):0.00} W");
 									//GUI.Text($"{(this.burner_state.available_power):0.00} W");

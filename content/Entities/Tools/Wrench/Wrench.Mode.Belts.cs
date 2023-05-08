@@ -161,7 +161,7 @@ namespace TC2.Base.Components
 					public bool valid;
 
 					public Entity Entity => this.entity;
-					public ulong ComponentID => ECS.GetID<Belt.Data>();
+					public ulong ComponentID => ECS.GetID<Axle.Data>();
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => this.is_src;
@@ -201,7 +201,7 @@ namespace TC2.Base.Components
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
 					{
-						App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
+						//App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
 						ref var region = ref entity.GetRegion();
 

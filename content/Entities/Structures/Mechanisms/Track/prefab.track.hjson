@@ -119,7 +119,7 @@ mount:
 	{
 		name: "Mount"
 
-		flags: keyboard_write, mouse_write, manual_aim
+		flags: keyboard_write, mouse_write, manual_aim, use_center_of_gravity
 		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake, offset, hold
 		gui_size: [268.000, 128.000]
 		offset_bounds: [0.000, -0.500, 0.000, 0.500]

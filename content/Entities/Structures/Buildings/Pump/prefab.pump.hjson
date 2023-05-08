@@ -4,10 +4,17 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [4.000, 5.000]
-		offset: [0.000, 0.000]
+		points: 
+		[
+			[-1.000, -2.125]
+			[1.375, -0.875]
+			[1.500, 2.125]
+			[-1.500, 2.125]
+		]
+		mass: 500.000
+		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
 		material: metal

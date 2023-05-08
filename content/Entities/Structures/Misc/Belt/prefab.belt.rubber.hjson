@@ -20,7 +20,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: rubber
-		layer: entity, belt, ignore_melee, flammable
+		layer: entity, belt, ignore_melee, flammable, ignore_hover
 		mask: world
 	}
 }

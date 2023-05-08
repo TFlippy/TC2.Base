@@ -746,7 +746,7 @@
 
 						var done_reloading = true;
 
-						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount))
+						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount, unlimited: Constants.Requirements.unlimited_ammo))
 						{
 							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
 							inventory_magazine.flags.SetFlag(Inventory.Flags.Dirty, true);

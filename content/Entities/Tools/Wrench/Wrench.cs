@@ -281,6 +281,8 @@ namespace TC2.Base.Components
 								var ent_link_src = link.EntityA;
 								var ent_link_dst = link.EntityB;
 
+								//App.WriteLine($"{ent_link_src} == {info_src.Entity}; {ent_link_dst} == {info_dst.Entity}; {link.ComponentA} == {info_src.ComponentID}; {link.ComponentB} == {info_dst.ComponentID}");
+
 								if ((ent_link_src == info_src.Entity && ent_link_dst == info_dst.Entity && link.ComponentA == info_src.ComponentID && link.ComponentB == info_dst.ComponentID) || (ent_link_src == info_dst.Entity && ent_link_dst == info_src.Entity && link.ComponentA == info_dst.ComponentID && link.ComponentB == info_src.ComponentID))
 								{
 									errors.SetFlag(Wrench.Mode.Build.Errors.Obstructed, true);
