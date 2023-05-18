@@ -44,6 +44,11 @@ burner:
 	+attached|child:
 	{
 		$prefab: "cabin.metal.02"
+
+		attachment_slot:
+		{
+			offset: [0.000, -0.750]
+		}
 	}
 }
 

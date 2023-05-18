@@ -717,7 +717,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.AddFirst(ISystem.Mode.Single)]
+		[ISystem.Add(ISystem.Mode.Single)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable)
 		{

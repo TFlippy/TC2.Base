@@ -33,7 +33,6 @@
 			Rope_Projectiles = 1u << 6,
 			No_LMB_Cycle = 1u << 7,
 			Cycled_When_Reloaded = 1u << 8,
-
 		}
 
 		public enum Type: byte
@@ -108,6 +107,9 @@
 			Artillery = 1 << 5,
 			Hold_RMB = 1 << 6,
 			No_Ammo = 1 << 7,
+			Supressive_Fire = 1 << 8,
+			Long_Range = 1 << 9,
+			Close_Range = 1 << 10,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
@@ -220,6 +222,7 @@
 			public Gun.Stage stage;
 			public Gun.Hints hints;
 
+			public float angle_jitter;
 			public float muzzle_velocity;
 			public IMaterial.Handle h_last_ammo;
 			
@@ -729,6 +732,7 @@
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
 								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
 								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
+								gun_state.angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f) * ammo.spread_mult * 0.50f;
 								gun_state.h_last_ammo = resource.material;
 
 								break;
@@ -1124,14 +1128,14 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.500f)]
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.50f)]
 		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
 		{
 			aimable.offset = gun.muzzle_offset; // new Vector2(0.00f, gun.muzzle_offset.Y);
 			aimable.deadzone = gun.muzzle_offset.Length();
 		}
 
-		[ISystem.AddFirst(ISystem.Mode.Single)]
+		[ISystem.Add(ISystem.Mode.Single)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable)
 		{
@@ -1147,6 +1151,9 @@
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && gun.cycle_interval <= 0.10f);
+			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 20.00f && gun.reload_interval <= 0.50f));
+			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range >= 20.00f && gun.jitter_multiplier <= 0.05f);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{

@@ -212,7 +212,7 @@ namespace TC2.Base.Components
 		[ISystem.AddFirst(ISystem.Mode.Single, defer: false)]
 		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
-			App.WriteLine("add", App.Color.Magenta);
+			//App.WriteLine("add", App.Color.Magenta);
 
 			sound_emitter.file = sound_tinnitus;
 			sound_emitter.channel_type = Sound.ChannelType.Master;

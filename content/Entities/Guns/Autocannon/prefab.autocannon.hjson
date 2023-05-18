@@ -46,7 +46,7 @@ gun:
 	type: autocannon
 	feed: magazine
 
-	heuristic_range: 40.000
+	heuristic_range: 20.000
 
 	smoke_size: 5.000
 	smoke_amount: 2.000

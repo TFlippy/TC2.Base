@@ -43,7 +43,7 @@ gun:
 	sound_dist_multiplier: 15.000
 	smoke_size: 10.000
 	smoke_amount: 5.000
-	flash_size: 3.000
+	flash_size: 2.000
 	projectile_count: 1
 	flags: manual_cycle, cycled_when_reloaded
 	ammo_filter: ammo_shell
@@ -64,9 +64,9 @@ gun:
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 4.000]
+		color: [1.000, 0.400, 0.100, 5.000]
 		offset: [4.000, -0.250]
-		scale: [50.000, 50.000]
+		scale: [75.000, 75.000]
 		intensity: 0.000
 		texture: "light.circle.00"
 	}

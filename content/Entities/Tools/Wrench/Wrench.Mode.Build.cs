@@ -1033,7 +1033,7 @@ namespace TC2.Base.Components
 								{
 									Build.GetPlacementInfo(ref placement, this.flags, this.pos_raw, this.pos_a_raw, this.pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
 
-									var random = XorRandom.New();
+									var random = XorRandom.New(true);
 
 									var ent_parent = entity.GetParent(Relation.Type.Child);
 									var inventory = player.GetInventory();

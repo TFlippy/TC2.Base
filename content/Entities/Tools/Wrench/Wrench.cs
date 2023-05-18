@@ -655,11 +655,11 @@ namespace TC2.Base.Components
 								GUI.SameLine();
 							}
 
-							if (this.ent_wrench.HasComponent<Wrench.Mode.Repair.Data>())
-							{
-								Wrench.DrawModeButton<Wrench.Mode.Repair.Data>(this.ent_wrench, ref this.wrench);
-								GUI.SameLine();
-							}
+							//if (this.ent_wrench.HasComponent<Wrench.Mode.Repair.Data>())
+							//{
+							//	Wrench.DrawModeButton<Wrench.Mode.Repair.Data>(this.ent_wrench, ref this.wrench);
+							//	GUI.SameLine();
+							//}
 						}
 
 						GUI.SeparatorThick();

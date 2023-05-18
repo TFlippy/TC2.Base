@@ -165,10 +165,10 @@ rope.renderer:
 			
 		}
 
-		threat:
-		{
-			priority: 0.500
-		}
+		// threat:
+		// {
+		// 	priority: 0.500
+		// }
 		
 		// deletewithparent:
 		// {
