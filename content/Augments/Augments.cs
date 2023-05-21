@@ -1415,6 +1415,54 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Consumable.Data>
 			(
+				identifier: "consumable.epinephrine",
+				category: "Consumable",
+				name: "Mix: Epinephrine",
+				description: "Mixes a dose of epinephrine into the item.",
+
+				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !context.HasComponent<Adrenaline.Effect>();
+				},
+
+				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.05f, 50.00f);
+
+					return true;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true);
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					ref var component = ref context.GetOrAddComponent<Adrenaline.Effect>();
+					component.amount = amount;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var amount = ref handle.GetData<float>();
+
+					//ref var material = ref IMaterial.Database.GetData("meth", out var material_id);
+					//if (material.IsNotNull())
+					//{
+					//	context.requirements_new.Add(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+					//}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Consumable.Data>
+			(
 				identifier: "consumable.morphine",
 				category: "Consumable",
 				name: "Mix: Morphine",
