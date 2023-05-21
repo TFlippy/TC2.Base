@@ -36,6 +36,13 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[ISystem.Add(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Drill.Data drill, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Armor | NPC.ItemHints.Defensive | NPC.ItemHints.Tools | NPC.ItemHints.Usable | NPC.ItemHints.Destructive, true);
+		}
+
 #if CLIENT
 		public struct DrillGUI: IGUICommand
 		{

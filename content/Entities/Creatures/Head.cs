@@ -158,7 +158,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
-			no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics;
+			no_rotate.multiplier *= MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics;
 			no_rotate.speed *= Maths.Lerp(0.90f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.05f;
 		}

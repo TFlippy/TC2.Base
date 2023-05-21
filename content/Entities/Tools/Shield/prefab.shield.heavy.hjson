@@ -51,6 +51,7 @@ holdable:
 	offset: [-0.625, 0.200]
 	radius: 5.000
 	flags: storable
+	hints: heavy
 }
 
 health:

@@ -708,7 +708,7 @@ namespace TC2.Base.Components
 			if (melee.flags.HasAny(Melee.Flags.Sync_Hit_Event))
 			{
 #if SERVER
-				ent_attacker.NotifyDeferred(data, sync: true);
+				ent_attacker.TriggerEventDeferred(data, sync: true);
 #endif
 			}
 			else
@@ -721,7 +721,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range, true);
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, true);
 		}
 

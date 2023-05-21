@@ -78,6 +78,7 @@ holdable:
 	offset: [-0.400, 0.000]
 	radius: 4.000
 	flags: storable
+	hints: gun, weak, small
 
 	force_multiplier: 0.950
 	torque_multiplier: 0.750

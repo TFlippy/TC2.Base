@@ -83,16 +83,16 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine($"{organic.dexterity}");
 
-			runner.walk_force *= Maths.Clamp(organic.strength, 0.50f, 1.80f) * organic.coordination * organic.motorics;
+			runner.walk_force *= Maths.Clamp(organic.strength * organic.coordination * organic.motorics, 0.50f, 1.80f);
 			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics;
-			runner.max_speed *= (organic_state.efficiency * organic.coordination).Clamp01();
-			runner.max_jump_speed *= (organic_state.efficiency * organic.consciousness).Clamp01();
+			runner.max_speed *= Maths.Clamp(organic_state.efficiency * organic.coordination, 0.50f, 1.20f);
+			runner.max_jump_speed *= (organic_state.efficiency * 1.50f).Clamp01();
 
-			if (organic_state.efficiency < 0.50f)
-			{
-				runner.max_speed *= 0.50f;
-				runner.max_jump_speed *= 0.20f;
-			}
+			//if (organic_state.efficiency < 0.50f)
+			//{
+			//	runner.max_speed *= 0.50f;
+			//	runner.max_jump_speed *= 0.20f;
+			//}
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
@@ -112,7 +112,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity, 
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
@@ -128,9 +128,9 @@ namespace TC2.Base.Components
 			no_rotate.mass_multiplier *= modifier;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, 
-		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
@@ -140,8 +140,8 @@ namespace TC2.Base.Components
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
 			}
 
-			no_rotate.multiplier *= modifier;
-			no_rotate.mass_multiplier *= modifier;
+			no_rotate_parent.multiplier *= modifier;
+			no_rotate_parent.mass_multiplier *= modifier;
 		}
 
 		//		[ISystem.LateUpdate(ISystem.Mode.Single)]

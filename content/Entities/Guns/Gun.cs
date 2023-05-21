@@ -224,7 +224,8 @@
 
 			public float angle_jitter;
 			public float muzzle_velocity;
-			public IMaterial.Handle h_last_ammo;
+			public Resource.Data resource_ammo;
+			//public IMaterial.Handle h_last_ammo;
 			
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
@@ -669,6 +670,8 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory) where T : unmanaged, IInventory
 		{
+			gun_state.resource_ammo.quantity = inventory_magazine.resource.quantity;
+
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
 			{
@@ -733,7 +736,7 @@
 								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
 								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
 								gun_state.angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f) * ammo.spread_mult * 0.50f;
-								gun_state.h_last_ammo = resource.material;
+								gun_state.resource_ammo = resource;
 
 								break;
 							}
@@ -1139,7 +1142,9 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Ranged | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
+			holdable.hints.SetFlag(NPC.ItemHints.Long_Range, gun_state.hints.HasAny(Gun.Hints.Long_Range));
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
 		}
 

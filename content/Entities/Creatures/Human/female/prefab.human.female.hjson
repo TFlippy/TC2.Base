@@ -320,11 +320,6 @@ lootable:
 			threshold_wreck: 0.200
 		}
 		
-		threat:
-		{
-			priority: 4.000
-		}
-		
 		transform:
 		{
 		
@@ -496,11 +491,6 @@ lootable:
 		organic.state:
 		{
 		
-		}
-		
-		threat:
-		{
-			priority: 4.000
 		}
 		
 		control:

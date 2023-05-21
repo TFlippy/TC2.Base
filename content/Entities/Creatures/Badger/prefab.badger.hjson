@@ -332,11 +332,6 @@ faction:
 			max: 2700.000
 		}
 		
-		threat:
-		{
-			priority: 3.000
-		}
-		
 		holdable:
 		{
 			offset: [0.250, -0.125]
@@ -584,11 +579,6 @@ faction:
 			threshold_wreck: 0.200
 		}
 				
-		threat:
-		{
-			priority: 4.000
-		}
-		
 		transform:
 		{
 		

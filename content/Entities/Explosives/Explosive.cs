@@ -61,6 +61,14 @@ namespace TC2.Base.Components
 
 			}
 		}
+
+		[ISystem.Add(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Explosive.Data explosive, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Dangerous | NPC.ItemHints.Explosive | NPC.ItemHints.Destructive, true);
+		}
+
 #if SERVER
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
 		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)

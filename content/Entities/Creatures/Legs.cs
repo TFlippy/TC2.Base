@@ -31,9 +31,17 @@ namespace TC2.Base.Components
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
 
 			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
-			no_rotate.multiplier = Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics);
+			no_rotate.multiplier *= Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics) * organic_state.consciousness_shared * organic_state.efficiency;
+			no_rotate.mass_multiplier *= organic_state.consciousness_shared * organic_state.efficiency;
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
+		{
+			no_rotate_parent.multiplier = MathF.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
+			no_rotate_parent.mass_multiplier = MathF.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
 		}
 
 		//[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]

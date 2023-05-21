@@ -25,6 +25,13 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float next_hit;
 		}
 
+		[ISystem.Add(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		public static void UpdateHoldable([Source.Owned] in Chainsaw.Data chainsaw, [Source.Owned] ref Holdable.Data holdable)
+		{
+			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable, true);
+		}
+
 #if CLIENT
 		public struct ChainsawGUI: IGUICommand
 		{

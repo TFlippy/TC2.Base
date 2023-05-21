@@ -196,7 +196,7 @@ namespace TC2.Base.Components
 					{
 						power = power
 					};
-					entity.NotifyDeferred(ev, sync: true);
+					entity.TriggerEventDeferred(ev, sync: true);
 				}
 			}
 		}

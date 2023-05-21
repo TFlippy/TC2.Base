@@ -134,7 +134,7 @@
 
 		public static readonly Gradient<float> gradient_work = new Gradient<float>(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
 
-		[ISystem.Update.Modify(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
 		public static void UpdateWheel(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{

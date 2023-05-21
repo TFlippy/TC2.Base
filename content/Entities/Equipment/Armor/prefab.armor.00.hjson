@@ -64,11 +64,12 @@ equipment:
 
 armor:
 {
-	toughness: 400.000
-	protection: 0.95
+	toughness: 700.000
+	protection: 0.990
+	coverage: 0.880
 	
-	knockback_modifier: 1.40
-	pain_modifier: 0.90
+	knockback_modifier: 1.400
+	pain_modifier: 0.900
 
 	material_type: metal
 }

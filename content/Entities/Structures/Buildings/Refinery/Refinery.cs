@@ -147,7 +147,7 @@
 			return (moles * gas_constant * (double)temperature) / (double)volume;
 		}
 
-		[ISystem.Update.Modify(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateWheel(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
