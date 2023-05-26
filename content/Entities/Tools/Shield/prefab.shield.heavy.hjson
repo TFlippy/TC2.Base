@@ -46,7 +46,7 @@ faction:
 
 holdable:
 {
-	force_multiplier: 20.000
+	force_multiplier: 2.000
 	torque_multiplier: 0.400
 	offset: [-0.625, 0.200]
 	radius: 5.000
@@ -64,7 +64,7 @@ armor:
 	toughness: 650.000
 	protection: 0.900
 	
-	knockback_modifier: 2.000
+	knockback_modifier: 2.500
 	
 	material_type: metal
 	flags: no_damage_type_conversion
@@ -82,7 +82,9 @@ control:
 
 aimable:
 {
-
+	deadzone: 0.500
+	min: -0.550
+	max: -0.100
 }
 
 packable:
@@ -94,20 +96,20 @@ melee:
 {
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
-	sound_pitch: 0.700
+	sound_pitch: 0.600
 	swing_offset: [0.400, 0.000]
 	swing_rotation: -0.200
-	damage_base: 80.000
-	damage_bonus: 60.000
+	damage_base: 90.000
+	damage_bonus: 150.000
 	cooldown: 1.000
 	max_distance: 1.000
 	aoe: 1.000
 	thickness: 1.000
-	knockback: 400.000
+	knockback: 330.000
 	yield: 0.800
 	penetration_falloff: 0.800
 	penetration: 3
-	damage_type: ram
+	damage_type: blunt
 	category: blunt
 	flags: no_handle
 	attack_type: thrust

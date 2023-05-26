@@ -1,7 +1,7 @@
 $name: "Helmet (Standard)"
 $desc:
 	'''
-	Standard Imperial military helmet.
+	Standard military helmet.
 	'''
 $tags: []
 
@@ -10,9 +10,10 @@ body:
 	@shape.circle:
 	{
 		mass: 5.000
-		radius: 0.400
+		radius: 0.500
+		offset: [0.000, -0.125]
 		friction: 0.500
-		elasticity: 0.050
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid
 		mask: world

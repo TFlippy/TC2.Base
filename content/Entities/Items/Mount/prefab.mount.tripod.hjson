@@ -24,7 +24,7 @@ body:
 		elasticity: 0.300
 		radius: 0.500
 		material: wire
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
 	}
 }

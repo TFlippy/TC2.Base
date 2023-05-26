@@ -121,7 +121,8 @@ control:
 
 aimable:
 {
-
+	min: -0.700
+	max: 0.600
 }
 
 transform:

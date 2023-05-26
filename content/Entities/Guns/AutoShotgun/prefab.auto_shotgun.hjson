@@ -73,7 +73,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.0625]
+	offset: [-0.400, 0.0625]
 	radius: 4.000
 	flags: storable
 	hints: gun, powerful, inaccurate
@@ -112,5 +112,6 @@ control:
 
 aimable:
 {
-
+	min: -0.700
+	max: 0.300
 }

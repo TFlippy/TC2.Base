@@ -11,8 +11,8 @@ body:
 		offset: [0.050, 0.000]
 		mass: 6.000
 		radius: 0.300
-		friction: 0.500
-		elasticity: 0.350
+		friction: 0.400
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, item
 		mask: world
@@ -44,8 +44,8 @@ faction:
 
 holdable:
 {
-	force_multiplier: 20.000
-	torque_multiplier: 0.300
+	force_multiplier: 2.000
+	torque_multiplier: 0.500
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -80,7 +80,8 @@ control:
 
 aimable:
 {
-
+	deadzone: 0.500
+	max: -0.100
 }
 
 packable:
@@ -93,7 +94,7 @@ melee:
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
 	sound_size: 2.000
-	sound_pitch: 0.700
+	sound_pitch: 0.800
 	hit_offset: [0.000, 0.000]
 	hit_direction: [1.000, 0.000]
 	swing_offset: [0.400, 0.000]
@@ -108,7 +109,7 @@ melee:
 	max_distance: 1.000
 	aoe: 1.000
 	thickness: 1.000
-	knockback: 450.000
+	knockback: 300.000
 	yield: 0.800
 	penetration_falloff: 0.800
 	penetration: 3

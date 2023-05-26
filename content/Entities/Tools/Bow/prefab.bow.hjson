@@ -13,7 +13,8 @@ control:
 
 aimable:
 {
-
+	min: -1.000
+	max: 0.800
 }
 
 body:

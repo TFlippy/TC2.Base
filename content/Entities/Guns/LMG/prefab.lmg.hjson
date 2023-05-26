@@ -74,7 +74,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.375, -0.125]
+	offset: [-0.480, 0.000]
 	offset_attachment: [-0.400, 0.300]
 	radius: 8.000
 	flags: storable
@@ -126,7 +126,8 @@ control:
 
 aimable:
 {
-
+	min: -0.560
+	max: 0.150
 }
 
 packable:

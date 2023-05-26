@@ -33,7 +33,7 @@
 		spread_mult: 1.000
 		recoil_mult: 1.000
 		heat: 70.000
-		velocity_min: 80.000
+		velocity_min: 70.000
 		prefab: "projectile.bullet.mg"
 	}
 }
