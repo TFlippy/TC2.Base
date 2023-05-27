@@ -23,6 +23,8 @@ body:
 gun:
 {
 	muzzle_offset: [0.625, -0.1875]
+	receiver_offset: [-0.250, -0.125]
+
 	sound_shoot: "derringer_shoot"
 	sound_cycle: "derringer_cycle"
 	sound_reload: "derringer_reload"

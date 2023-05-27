@@ -25,6 +25,8 @@ body:
 gun:
 {
 	muzzle_offset: [0.750, -0.0625]
+	receiver_offset: [-0.375, 0.000]
+
 	sound_shoot: "scattergun_shoot"
 	sound_cycle: "scattergun_open"
 	sound_reload: "scattergun_reload"

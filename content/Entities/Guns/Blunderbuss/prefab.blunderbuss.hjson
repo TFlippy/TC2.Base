@@ -24,6 +24,8 @@ body:
 gun:
 {
 	muzzle_offset: [1.250, -0.125]
+	receiver_offset: [-0.375, -0.125]
+
 	sound_shoot: "blunderbuss_shoot"
 	sound_cycle: "blunderbuss_cycle"
 	sound_reload: "blunderbuss_reload"

@@ -624,6 +624,7 @@ namespace TC2.Base
 				category: "Crafting",
 				name: "Scrap-Recycled",
 				description: "Lowers the production cost significantly, while also reducing overall item quality.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1647,6 +1648,49 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Holdable.Data>
 			(
+				identifier: "holdable.grip.friction",
+				category: "Utility",
+				name: "High-Friction Grip",
+				description: "Greatly increases grip strength. May lead to injury.",
+
+				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.00f, 1.50f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !data.flags.HasAny(Holdable.Flags.Disable_Parent_Facing | Holdable.Flags.Disable_Pickup_Offset);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f);
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var value = ref handle.GetData<float>();
+					value = Maths.Clamp(value, 0.00f, 1.50f);
+
+					data.force_multiplier *= Maths.Mulpo(value, 0.70f);
+					data.torque_multiplier *= Maths.Mulpo(value, 1.20f);
+				},
+
+				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					context.requirements_new.Add(Crafting.Requirement.Resource("rubber", 1.00f));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Holdable.Data>
+			(
 				identifier: "holdable.attachable",
 				category: "Utility",
 				name: "Attachment Connector",
@@ -1844,9 +1888,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -1857,11 +1905,202 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 9, modifier);
 
-					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
+					var sprite = new Sprite("augment.framework.steel", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
 				},
 #endif
+
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 9, modifier);
+
+					//App.WriteLine("hi");
+
+					//var mult = Maths.Lerp(0.00f, 2.50f, modifier);
+					var mass = 1.50f;
+					var robustness = 1.00f;
+					var size = 1.00f;
+					var slant = 1.00f;
+					var bulkiness = 1.00f;
+					var grip = 1.00f;
+					var health_extra = 100.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							mass = 1.80f;
+							robustness *= 1.20f;
+							size *= 0.70f;
+							slant *= 1.35f;
+							bulkiness *= 0.80f;
+							grip *= 1.10f;
+							health_extra = 135.00f;
+						}
+						break;
+
+						case 1:
+						{
+							mass = 1.20f;
+							robustness *= 0.80f;
+							size *= 1.50f;
+							slant *= 1.95f;
+							bulkiness *= 1.50f;
+							grip *= 0.80f;
+							health_extra = 185.00f;
+						}
+						break;
+
+						case 2:
+						{
+							mass = 2.00f;
+							robustness *= 1.50f;
+							size *= 1.10f;
+							slant *= 0.20f;
+							bulkiness *= 1.10f;
+							grip *= 0.50f;
+							health_extra = 285.00f;
+						}
+						break;
+
+						case 3:
+						{
+							mass = 2.00f;
+							robustness *= 0.90f;
+							size *= 1.40f;
+							slant *= 2.10f;
+							bulkiness *= 1.10f;
+							grip *= 2.20f;
+							health_extra = 275.00f;
+						}
+						break;
+
+						case 4:
+						{
+							mass = 2.50f;
+							robustness *= 1.40f;
+							size *= 1.10f;
+							slant *= 0.70f;
+							bulkiness *= 1.30f;
+							grip *= 0.80f;
+							health_extra = 285.00f;
+						}
+						break;
+
+						case 5:
+						{
+							mass = 1.30f;
+							robustness *= 1.10f;
+							size *= 1.40f;
+							slant *= 0.30f;
+							bulkiness *= 0.90f;
+							grip *= 5.00f;
+							health_extra = 165.00f;
+						}
+						break;
+
+						case 6:
+						{
+							mass = 3.50f;
+							robustness *= 2.50f;
+							size *= 1.60f;
+							slant *= 0.20f;
+							bulkiness *= 1.60f;
+							grip *= 0.70f;
+							health_extra = 585.00f;
+						}
+						break;
+
+						case 7:
+						{
+
+						}
+						break;
+
+						case 8:
+						{
+
+						}
+						break;
+					}
+					
+					
+					
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
+					//App.WriteLine(mass_ratio);
+
+					//foreach (ref var requirement in context.requirements_new)
+					//{
+					//	if (requirement.type == Crafting.Requirement.Type.Resource)
+					//	{
+					//		ref var material = ref requirement.material.GetData();
+					//		if (material.IsNotNull() && material.type == Material.Type.Metal && !material.flags.HasAny(Material.Flags.Manufactured))
+					//		{
+					//			var amount_added = requirement.amount * mult;
+					//			requirement.amount += amount_added;
+					//			extra_mass += amount_added * material.mass_per_unit;
+					//		}
+					//	}
+					//	else if (requirement.type == Crafting.Requirement.Type.Work)
+					//	{
+					//		switch (requirement.work)
+					//		{
+					//			case Work.Type.Smithing:
+					//			{
+					//				requirement.amount *= 1.00f + (mult * 0.25f);
+					//			}
+					//			break;
+					//		}
+					//	}
+					//}
+
+					//extra_mass += context.base_mass * mult * 0.20f;
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (gun.IsNotNull())
+					{
+						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.375f * size, 0.75f * size);
+						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.25f * size, 0.50f)) * (offset.X >= gun.receiver_offset.X ? 1.00f : 0.00f);
+						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+
+						gun.stability = Maths.Clamp01(gun.stability + (mult_barrel * 0.15f * mass_ratio * robustness * size));
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo((mult_barrel + mult_receiver) * -0.20f * robustness * bulkiness * size, mass_ratio)), 0.95f);
+						gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+
+						ref var holdable = ref context.GetComponent<Holdable.Data>();
+						if (holdable.IsNotNull())
+						{
+							if (offset.Y >= gun.muzzle_offset.Y) holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+							if (offset.X <= gun.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - gun.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * mass_ratio * size * 0.40f);
+						}
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (health.IsNotNull())
+					{
+						health.max += health_extra;
+						health.max *= Maths.Mulpo(0.15f, mass_ratio);
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.integrity_modifier += 0.10f * mass_ratio;
+					}
+
+					var h_material = new IMaterial.Handle("steel.ingot");
+
+					ref var material = ref h_material.GetData();
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+					}
+
+					context.mass_new += mass;
+				},
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1912,6 +2151,21 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 
+				},
+
+				finalize: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (!gun.IsNull())
+					{
+						gun.failure_rate -= MathF.Min(gun.failure_rate, 0.20f);
+						gun.failure_rate *= 0.70f;
+						gun.stability += 0.10f;
+						gun.stability = Maths.Clamp(gun.stability * 1.10f, 0.00f, 1.00f);
+					}
+					//data.mass_extra 
+
+					return true;
 				}
 			));
 
@@ -1955,9 +2209,123 @@ namespace TC2.Base
 				},
 #endif
 
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (!armor.IsNull())
+					{
+						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f) + 25.00f;
+						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f);
+						armor.pain_modifier *= 1.15f;
+						armor.integrity_modifier *= 0.95f;
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (!health.IsNull())
+					{
+						health.max *= 0.94f;
+						health.max += 220.00f;
+					}
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (!gun.IsNull())
+					{
+						gun.stability *= 0.95f;
+						gun.failure_rate += 0.02f;
+						gun.reload_interval += 0.12f;
+						gun.velocity_multiplier *= 0.97f;
+						gun.jitter_multiplier += 0.10f;
+					}
+
+					ref var melee = ref context.GetComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.damage_base *= 0.98f;
+						melee.damage_bonus += 25.00f;
+						melee.cooldown += 0.10f;
+					}
+
+					ref var holdable = ref context.GetComponent<Holdable.Data>();
+					if (!holdable.IsNull())
+					{
+						holdable.force_multiplier *= 1.10f;
+						holdable.torque_multiplier += 0.10f;
+						holdable.hints |= NPC.ItemHints.Junk;
+					}
+
+					ref var attachable = ref context.GetComponent<Attachment.Data>();
+					if (!attachable.IsNull())
+					{
+						attachable.force_multiplier *= 0.90f;
+						attachable.torque_multiplier *= 0.75f;
+					}
+				},
+
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					if (material_scrap.IsNotNull())
+					{
+						var total_mass = 5.00f;
+						var mass_added = 0.00f;
 
+						for (var i = 0; i < context.requirements_new.Length; i++)
+						{
+							ref var requirement = ref context.requirements_new[i];
+
+							if (requirement.type == Crafting.Requirement.Type.Resource)
+							{
+								ref var material = ref requirement.material.GetData();
+								if (material.IsNotNull() && (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber))
+								{
+									if (material.flags.HasAll(Material.Flags.Manufactured))
+									{
+										//requirement.AddMass()
+
+										var removed_amount = requirement.amount * (0.80f);
+										requirement.amount -= removed_amount;
+
+										total_mass += material.mass_per_unit * removed_amount * 2.10f;
+									}
+									else
+									{
+										var removed_amount = requirement.amount * (0.70f);
+										requirement.amount -= removed_amount;
+
+										total_mass += material.mass_per_unit * removed_amount * 1.70f;
+									}
+								}
+							}
+							else if (requirement.type == Crafting.Requirement.Type.Work)
+							{
+								switch (requirement.work)
+								{
+									case Work.Type.Machining:
+									{
+										requirement.amount *= 0.85f;
+										requirement.difficulty *= 0.75f;
+									}
+									break;
+
+									case Work.Type.Smithing:
+									{
+										requirement.amount *= 0.77f;
+										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+									}
+									break;
+
+									case Work.Type.Assembling:
+									{
+										requirement.amount *= 0.85f;
+										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+									}
+									break;
+								}
+							}
+						}
+
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+					}
 				}
 			));
 

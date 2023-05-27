@@ -1,0 +1,113 @@
+﻿{
+	name: "Burt-Mini"
+	description:
+		'''
+		Semi-automatic double-barreled machine pistol.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "machine_pistol"
+	recipe: "gunsmith.machine_pistol"
+	
+	augments:
+	[
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 0.000
+			data: 13744986063787524096
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1059984507
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.semi_automatic"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.silencer"
+			flags: none
+			modifier: 0.000
+			data: 4467570833547591680
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1069211975
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 13726971667425525760
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

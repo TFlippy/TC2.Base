@@ -28,6 +28,8 @@ animated.renderer:
 gun:
 {
 	muzzle_offset: [1.250, -0.250]
+	receiver_offset: [-0.625, -0.375]
+
 	particle_offset: [-2.500, 0.000]
 	particle_rotation: -3.140
 

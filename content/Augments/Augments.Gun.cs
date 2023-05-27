@@ -1728,6 +1728,7 @@ namespace TC2.Base
 				category: "Gun (Frame)",
 				name: "Reinforced Frame",
 				description: "Increases weight, durability and stability.",
+				flags: Augment.Definition.Flags.Hidden,
 
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2205,7 +2206,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.faster_cycling_mechanism",
 				category: "Gun (Receiver)",
-				name: "Faster Cycling Mechanism",
+				name: "Faster Cycling",
 				description: "Increases rate of fire, but lowers reliability.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2344,7 +2345,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.slower_cycling_mechanism",
 				category: "Gun (Receiver)",
-				name: "Slower Cycling Mechanism",
+				name: "Slower Cycling",
 				description: "Decreases fire rate, but increases reliability.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3286,7 +3287,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.recoil_compensator",
 				category: "Gun (Frame)",
-				name: "ARC-MT Recoil Compensator",
+				name: "ARC-MT Compensator",
 				description: "Applies force in opposite direction upon being fired. Needs careful calibration.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

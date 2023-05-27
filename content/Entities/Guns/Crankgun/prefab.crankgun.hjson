@@ -26,6 +26,8 @@ body:
 gun:
 {
 	muzzle_offset: [1.750, -0.5625]
+	receiver_offset: [-0.875, -0.250]
+
 	sound_shoot: "crankgun_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 750.000
