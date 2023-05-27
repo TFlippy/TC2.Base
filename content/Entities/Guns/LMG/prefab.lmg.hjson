@@ -47,6 +47,7 @@ gun:
 	feed: drum
 
 	heuristic_range: 30.000
+	stability: 1450.000
 
 	shake_amount: 0.250
 	flash_size: 0.850

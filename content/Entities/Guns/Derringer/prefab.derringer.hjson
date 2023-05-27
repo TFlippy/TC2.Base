@@ -52,6 +52,7 @@ gun:
 	smoke_amount: 6
 
 	heuristic_range: 12.000
+	stability: 210.000
 
 	@inventory1:
 	{

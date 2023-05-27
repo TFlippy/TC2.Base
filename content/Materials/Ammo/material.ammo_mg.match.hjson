@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Machine Gun Ammo (Match Grade)"
 	description:
 		'''
@@ -30,11 +30,19 @@
 	{
 		count: 1
 		mass: 0.050
-		speed_mult: 1.050
-		spread_mult: 0.200
-		recoil_mult: 0.900
 		heat: 70.000
 		velocity_min: 50.000
+		
+		speed_mult: 1.150
+		spread_mult: 0.200
+		recoil_mult: 0.900
+		
+		failure_base: 0.000
+		failure_mult: 0.800
+		
+		stability_base: 1650.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.bullet.mg.match"
 	}
 }

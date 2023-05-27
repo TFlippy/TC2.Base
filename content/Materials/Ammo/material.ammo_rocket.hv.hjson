@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Rocket Ammo (High-Velocity)"
 	description:
 		'''
@@ -9,6 +9,7 @@
 	{
 		texture: "resource.ammo_rocket.hv"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
@@ -28,11 +29,19 @@
 	{
 		count: 1
 		mass: 2.500
+		heat: 1000.000
+		velocity_min: 1.000
+		
 		speed_mult: 1.800
 		spread_mult: 1.000
 		recoil_mult: 0.600
-		heat: 1000.000
-		velocity_min: 1.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 2400.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.rocket.hv"
 	}
 }

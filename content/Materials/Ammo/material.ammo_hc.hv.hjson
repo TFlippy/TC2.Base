@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "High-Caliber Ammo (High-Velocity)"
 	description:
 		'''
@@ -30,11 +30,19 @@
 	{
 		count: 1
 		mass: 0.017
-		speed_mult: 1.000
-		spread_mult: 1.000
-		recoil_mult: 1.000
 		heat: 25.000
 		velocity_min: 80.000
+		
+		speed_mult: 1.100
+		spread_mult: 0.910
+		recoil_mult: 1.400
+		
+		failure_base: 0.000
+		failure_mult: 0.900
+		
+		stability_base: 790.000
+		stability_mult: 0.940
+		
 		prefab: "projectile.bullet.hc.hv"
 	}
 }

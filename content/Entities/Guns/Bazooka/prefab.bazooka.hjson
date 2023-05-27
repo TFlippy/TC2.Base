@@ -59,6 +59,7 @@ gun:
 
 	smoke_amount: 6
 	smoke_size: 3.000
+	stability: 2850.000
 	
 	@inventory1:
 	{

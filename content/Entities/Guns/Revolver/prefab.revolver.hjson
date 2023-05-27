@@ -48,6 +48,7 @@ gun:
 	feed: cylinder
 
 	heuristic_range: 18.000
+	stability: 740.000
 	
 	shake_amount: 0.390
 	

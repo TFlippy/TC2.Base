@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Machine Gun Ammo"
 	description:
 		'''
@@ -17,6 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -29,11 +30,19 @@
 	{
 		count: 1
 		mass: 0.050
+		heat: 70.000
+		velocity_min: 70.000
+		
 		speed_mult: 1.000
 		spread_mult: 1.000
 		recoil_mult: 1.000
-		heat: 70.000
-		velocity_min: 70.000
+		
+		failure_base: 0.002
+		failure_mult: 1.010
+		
+		stability_base: 1750.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.bullet.mg"
 	}
 }

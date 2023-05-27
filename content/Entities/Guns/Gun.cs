@@ -163,8 +163,8 @@
 			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float cycle_interval;
 
-			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float stability = 1.00f;
+			[Statistics.Info("Stability", description: "Reliability, may result in a catastrophic failure if too low.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float stability = 100.00f;
 
 			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_rate = 0.00f;
@@ -229,7 +229,7 @@
 			public float muzzle_velocity;
 			public Resource.Data resource_ammo;
 			//public IMaterial.Handle h_last_ammo;
-			
+
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
@@ -597,7 +597,7 @@
 			gun_state.Sync(entity, true);
 
 			gun.jitter_multiplier += random.NextFloatRange(0.50f, 3.00f);
-			gun.stability -= MathF.Min(gun.stability, random.NextFloatRange(0.10f, 0.30f));
+			gun.stability *= random.NextFloatRange(0.70f, 0.98f);
 			gun.failure_rate += random.NextFloatRange(0.02f, 0.08f);
 			gun.failure_rate *= random.NextFloatRange(1.10f, 1.80f);
 			gun.failure_rate = gun.failure_rate.Clamp01();
@@ -814,6 +814,7 @@
 				var base_vel = body.GetVelocity();
 
 				var failure_rate = gun.failure_rate;
+				var stability_ratio = 1.00f;
 				var stability = gun.stability;
 
 				var force_jammed = false;
@@ -842,7 +843,10 @@
 					//body.AddForce(recoil_force); //, pos_w_offset);
 
 					failure_rate = Maths.Clamp01((failure_rate + ammo.failure_base) * ammo.failure_mult);
-					stability = Maths.Clamp01((stability + ammo.stability_base) * ammo.stability_mult);
+					//stability_ratio = Maths.Clamp01((stability_ratio + ammo.stability_base) * ammo.stability_mult);
+
+					stability *= ammo.stability_mult;
+					stability_ratio = Maths.NormalizeClamp(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), ammo.stability_base);
 
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
@@ -870,7 +874,7 @@
 							if (heat_excess > 0.00f)
 							{
 								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
-								stability = Maths.Clamp(stability - (heat_excess * 0.005f), 0.00f, 1.00f);
+								stability_ratio = Maths.Clamp(stability_ratio - (heat_excess * 0.005f), 0.00f, 1.00f);
 
 								angle_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.01f);
 								velocity_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.005f);
@@ -989,7 +993,7 @@
 						}
 					}
 
-					if (stability < 1.00f && random.NextBool(failure_rate) && random.NextBool(1.00f - stability))
+					if (stability_ratio < 1.00f && random.NextBool(failure_rate) && random.NextBool(1.00f - stability_ratio))
 					{
 						var explosion_data = new Explosion.Data()
 						{

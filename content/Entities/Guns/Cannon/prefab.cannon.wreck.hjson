@@ -32,7 +32,6 @@ gun:
 	reload_interval: 3.500
 	cycle_interval: 0.500
 	failure_rate: 0.01
-	stability: 0.300
 	max_ammo: 1.000
 	sound_volume: 5.000
 	sound_pitch: 0.900
@@ -48,6 +47,7 @@ gun:
 	feed: single
 
 	shake_amount: 0.900
+	stability: 11850.000
 	
 	@inventory1:
 	{

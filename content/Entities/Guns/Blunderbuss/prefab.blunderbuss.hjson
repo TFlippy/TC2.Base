@@ -45,6 +45,7 @@ gun:
 	feed: breech
 
 	heuristic_range: 8.000
+	stability: 500.000
 
 	shake_amount: 0.500
 

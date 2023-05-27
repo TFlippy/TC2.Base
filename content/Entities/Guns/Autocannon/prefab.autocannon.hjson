@@ -49,6 +49,7 @@ gun:
 	feed: magazine
 
 	heuristic_range: 20.000
+	stability: 7850.000
 
 	smoke_size: 5.000
 	smoke_amount: 2.000

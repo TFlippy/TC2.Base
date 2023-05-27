@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Artillery Shell (High-Explosive)"
 	description:
 		'''
@@ -9,6 +9,7 @@
 	{
 		texture: "resource.ammo_shell.he"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
@@ -28,11 +29,19 @@
 	{
 		count: 1
 		mass: 4.000
+		heat: 4000.000
+		velocity_min: 20.000
+		
 		speed_mult: 1.000
 		spread_mult: 0.050
 		recoil_mult: 1.000
-		heat: 4000.000
-		velocity_min: 20.000
+		
+		failure_base: 0.010
+		failure_mult: 1.200
+		
+		stability_base: 10500.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.shell.he"
 	}
 }

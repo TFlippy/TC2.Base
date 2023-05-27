@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Low-Caliber Ammo (Reduced Recoil)"
 	description:
 		'''
@@ -30,11 +30,19 @@
 	{
 		count: 1
 		mass: 0.006
-		speed_mult: 0.900
-		spread_mult: 0.700
-		recoil_mult: 1.000
 		heat: 10.500
 		velocity_min: 80.000
+		
+		speed_mult: 0.850
+		spread_mult: 1.100
+		recoil_mult: 0.900
+		
+		failure_base: 0.002
+		failure_mult: 1.080
+		
+		stability_base: 50.000
+		stability_mult: 1.200
+		
 		prefab: "projectile.bullet.lc.rr"
 	}
 }

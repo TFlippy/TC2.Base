@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Autocannon Ammo (AA)"
 	description:
 		'''
@@ -29,11 +29,19 @@
 	{
 		count: 1
 		mass: 0.700
+		heat: 900.000
+		velocity_min: 80.000
+		
 		speed_mult: 0.700
 		spread_mult: 1.000
 		recoil_mult: 1.000
-		heat: 900.000
-		velocity_min: 80.000
+		
+		failure_base: 0.005
+		failure_mult: 1.140
+		
+		stability_base: 6900.000
+		stability_mult: 0.900
+		
 		prefab: "projectile.bullet.ac.aa"
 	}
 }

@@ -46,6 +46,7 @@ gun:
 	feed: clip
 
 	heuristic_range: 35.000
+	stability: 810.000
 
 	shake_amount: 0.320
 	

@@ -53,6 +53,7 @@ gun:
 	feed: single
 
 	heuristic_range: 60.000
+	stability: 16750.000
 
 	shake_amount: 0.700
 	shake_radius: 40.000

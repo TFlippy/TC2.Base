@@ -53,6 +53,8 @@ gun:
 	type: cannon
 	feed: single
 
+	stability: 24000.000
+
 	shake_amount: 0.900
 	shake_radius: 100.000
 	

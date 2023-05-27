@@ -505,7 +505,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 1.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
-						data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+						//data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.15f;
 						data.sound_volume *= 1.02f;
@@ -524,7 +524,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
-						data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+						//data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.15f;
 						data.sound_volume *= 1.02f;
@@ -543,7 +543,7 @@ namespace TC2.Base
 						data.jitter_multiplier += 0.50f;
 						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
-						data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+						//data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
 						data.sound_pitch *= 1.10f;
 						data.sound_volume *= 1.02f;
@@ -752,7 +752,7 @@ namespace TC2.Base
 
 					data.failure_rate += 0.05f * data.barrel_count * count;
 					data.failure_rate *= 1.20f;
-					data.stability -= MathF.Min(data.failure_rate * data.barrel_count, data.stability);
+					data.stability *= Maths.Mulpo(data.failure_rate, -0.10f * data.barrel_count); // MathF.Min(data.failure_rate * data.barrel_count, data.stability);
 					data.jitter_multiplier *= MathF.Pow(1.50f, count);
 				},
 
@@ -875,8 +875,8 @@ namespace TC2.Base
 								//data.recoil_multiplier *= 1.70f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
-								data.stability -= MathF.Min(data.stability, 0.30f);
-								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.30f);
+								//data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.82f;
 								data.sound_volume *= 1.20f;
@@ -896,8 +896,8 @@ namespace TC2.Base
 								//data.recoil_multiplier *= 1.80f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
 
-								data.stability -= MathF.Min(data.stability, 0.40f);
-								data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.40f);
+								//data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.87f;
 								data.sound_volume *= 1.25f;
@@ -917,8 +917,8 @@ namespace TC2.Base
 								//data.recoil_multiplier *= 3.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
 
-								data.stability -= MathF.Min(data.stability, 0.80f);
-								data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.80f);
+								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.67f;
 								data.sound_volume *= 1.25f;
@@ -945,7 +945,7 @@ namespace TC2.Base
 								data.jitter_multiplier += 1.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
-								data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
+								//data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 1.15f;
 								data.sound_volume *= 1.02f;
@@ -966,7 +966,7 @@ namespace TC2.Base
 								data.jitter_multiplier += 0.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
-								data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+								//data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 1.15f;
 								data.sound_volume *= 1.02f;
@@ -987,7 +987,7 @@ namespace TC2.Base
 								data.jitter_multiplier += 0.50f;
 								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
-								data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
+								//data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 1.10f;
 								data.sound_volume *= 1.02f;
@@ -1053,7 +1053,7 @@ namespace TC2.Base
 							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.91f;
 							data.damage_multiplier *= 0.94f;
-							data.stability = Maths.Clamp(data.stability * 1.09f, 0.00f, 1.00f);
+							//data.stability = Maths.Clamp(data.stability * 1.09f, 0.00f, 1.00f);
 
 							switch (data.action)
 							{
@@ -1080,7 +1080,7 @@ namespace TC2.Base
 							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.87f;
 							data.damage_multiplier *= 0.95f;
-							data.stability = Maths.Clamp(data.stability * 1.07f, 0.00f, 1.00f);
+							//data.stability = Maths.Clamp(data.stability * 1.07f, 0.00f, 1.00f);
 
 							switch (data.action)
 							{
@@ -1227,7 +1227,7 @@ namespace TC2.Base
 							data.velocity_multiplier *= 0.97f;
 							data.failure_rate *= 0.18f;
 							data.cycle_interval *= 0.98f;
-							data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+							data.stability *= 1.05f;
 						}
 						break;
 
@@ -1238,7 +1238,7 @@ namespace TC2.Base
 							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.002f);
 							data.failure_rate *= 0.14f;
 							data.cycle_interval *= 1.06f;
-							data.stability = Maths.Clamp(data.stability * 1.10f, 0.00f, 1.00f);
+							data.stability *= 1.10f;
 						}
 						break;
 
@@ -1249,7 +1249,7 @@ namespace TC2.Base
 							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.001f);
 							data.failure_rate *= 0.12f;
 							data.cycle_interval += 0.03f;
-							data.stability = Maths.Clamp(data.stability * 1.15f, 0.00f, 1.00f);
+							data.stability *= 1.15f;
 						}
 						break;
 
@@ -1260,7 +1260,7 @@ namespace TC2.Base
 							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.003f);
 							data.failure_rate *= 0.17f;
 							data.cycle_interval *= 1.06f;
-							data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
+							data.stability *= 1.20f;
 						}
 						break;
 
@@ -1271,7 +1271,7 @@ namespace TC2.Base
 							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.001f);
 							data.failure_rate *= 0.20f;
 							data.cycle_interval *= 1.06f;
-							data.stability = Maths.Clamp(data.stability * 1.25f, 0.00f, 1.00f);
+							data.stability *= 1.17f;
 						}
 						break;
 					}
@@ -1380,8 +1380,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.80f;
-					data.stability += 0.40f;
-					data.stability = Maths.Clamp(data.stability * 1.50f, 0.00f, 1.00f);
+					data.stability *= 1.30f;
 
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
@@ -1401,36 +1400,35 @@ namespace TC2.Base
 				{
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
 					data.failure_rate *= 0.80f;
-					data.stability += 0.20f;
-					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
+					data.stability *= 1.10f;
 
 					return true;
 				},
 
-//#if CLIENT
-//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
+				//#if CLIENT
+				//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//				{
+				//					ref var offset = ref handle.GetData<Vector2>();
 
-//					var size = GUI.GetRemainingSpace();
-//					size.X *= 0.50f;
+				//					var size = GUI.GetRemainingSpace();
+				//					size.X *= 0.50f;
 
-//					var dirty = false;
-//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
+				//					var dirty = false;
+				//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
-//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-//					//GUI.SameLine();
-//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+				//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+				//					//GUI.SameLine();
+				//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
-//					return dirty;
-//				},
+				//					return dirty;
+				//				},
 
-//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-//				},
-//#endif
+				//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				//				{
+				//					ref var offset = ref handle.GetData<Vector2>();
+				//					draw.DrawSprite("augment.tempered_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				//				},
+				//#endif
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1463,6 +1461,7 @@ namespace TC2.Base
 				category: "Gun (Frame)",
 				name: "Hardened Frame",
 				description: "Improves reliability of the gun.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				//flags: Augment.Definition.Flags.Hidden,
 
@@ -1485,16 +1484,14 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.50f;
-					data.stability += 0.20f;
-					data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
+					data.stability *= 1.25f;
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
 					data.failure_rate *= 0.70f;
-					data.stability += 0.10f;
-					data.stability = Maths.Clamp(data.stability * 1.10f, 0.00f, 1.00f);
+					data.stability *= 1.10f;
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -1505,33 +1502,33 @@ namespace TC2.Base
 					return true;
 				},
 
-//#if CLIENT
-//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
+				//#if CLIENT
+				//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//				{
+				//					ref var offset = ref handle.GetData<Vector2>();
 
-//					var size = GUI.GetRemainingSpace();
-//					size.X *= 0.50f;
+				//					var size = GUI.GetRemainingSpace();
+				//					size.X *= 0.50f;
 
-//					var dirty = false;
-//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
+				//					var dirty = false;
+				//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
-//					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-//					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+				//					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
+				//					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
 
-//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
-//					//GUI.SameLine();
-//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
+				//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
+				//					//GUI.SameLine();
+				//					//dirty |= GUI.SliderFloat("Y", ref offset.Y, -0.20f, 0.10f, size: size);
 
-//					return dirty;
-//				},
+				//					return dirty;
+				//				},
 
-//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
-//				},
-//#endif
+				//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				//				{
+				//					ref var offset = ref handle.GetData<Vector2>();
+				//					draw.DrawSprite("augment.hardened_frame", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				//				},
+				//#endif
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1570,157 +1567,157 @@ namespace TC2.Base
 				}
 			));
 
-//			definitions.Add(Augment.Definition.New<Gun.Data>
-//			(
-//				identifier: "gun.casing.steel",
-//				category: "Gun (Frame)",
-//				name: "Steel Casing",
-//				description: "Improves reliability of the gun.",
+			//			definitions.Add(Augment.Definition.New<Gun.Data>
+			//			(
+			//				identifier: "gun.casing.steel",
+			//				category: "Gun (Frame)",
+			//				name: "Steel Casing",
+			//				description: "Improves reliability of the gun.",
 
-//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					return augments.GetCount(handle) < 3;
-//				},
+			//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					return augments.GetCount(handle) < 3;
+			//				},
 
-//#if CLIENT
-//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					ref var modifier = ref handle.GetModifier();
+			//#if CLIENT
+			//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					ref var offset = ref handle.GetData<Vector2>();
+			//					ref var modifier = ref handle.GetModifier();
 
-//					var dirty = false;
+			//					var dirty = false;
 
-//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
-//					GUI.SameLine();
-//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+			//					GUI.SameLine();
+			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
-//					return dirty;
-//				},
+			//					return dirty;
+			//				},
 
-//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					ref var modifier = ref handle.GetModifier();
-//					var type = Maths.LerpInt(0, 9, modifier);
+			//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+			//				{
+			//					ref var offset = ref handle.GetData<Vector2>();
+			//					ref var modifier = ref handle.GetModifier();
+			//					var type = Maths.LerpInt(0, 9, modifier);
 
-//					var sprite = new Sprite("augment.casing.steel", 24, 16, (uint)type, 0);
+			//					var sprite = new Sprite("augment.casing.steel", 24, 16, (uint)type, 0);
 
-//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
-//				},
-//#endif
+			//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+			//				},
+			//#endif
 
-//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					for (var i = 0; i < context.requirements_old.Length; i++)
-//					{
-//						var requirement = context.requirements_old[i];
+			//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					for (var i = 0; i < context.requirements_old.Length; i++)
+			//					{
+			//						var requirement = context.requirements_old[i];
 
-//						if (requirement.type == Crafting.Requirement.Type.Resource)
-//						{
-//							ref var material = ref requirement.material.GetData();
-//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-//							{
-//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
-//							}
-//						}
-//						else if (requirement.type == Crafting.Requirement.Type.Work)
-//						{
-//							switch (requirement.work)
-//							{
-//								case Work.Type.Smithing:
-//								{
-//									requirement.amount *= 0.20f;
-//									context.requirements_new.Add(requirement);
-//								}
-//								break;
+			//						if (requirement.type == Crafting.Requirement.Type.Resource)
+			//						{
+			//							ref var material = ref requirement.material.GetData();
+			//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+			//							{
+			//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+			//							}
+			//						}
+			//						else if (requirement.type == Crafting.Requirement.Type.Work)
+			//						{
+			//							switch (requirement.work)
+			//							{
+			//								case Work.Type.Smithing:
+			//								{
+			//									requirement.amount *= 0.20f;
+			//									context.requirements_new.Add(requirement);
+			//								}
+			//								break;
 
-//								case Work.Type.Machining:
-//								{
-//									requirement.amount *= 0.05f;
-//									context.requirements_new.Add(requirement);
-//								}
-//								break;
-//							}
-//						}
-//					}
-//				}
-//			));
+			//								case Work.Type.Machining:
+			//								{
+			//									requirement.amount *= 0.05f;
+			//									context.requirements_new.Add(requirement);
+			//								}
+			//								break;
+			//							}
+			//						}
+			//					}
+			//				}
+			//			));
 
-//			definitions.Add(Augment.Definition.New<Gun.Data>
-//			(
-//				identifier: "gun.framework.steel",
-//				category: "Gun (Frame)",
-//				name: "Steel Framework",
-//				description: "Improves reliability of the gun.",
+			//			definitions.Add(Augment.Definition.New<Gun.Data>
+			//			(
+			//				identifier: "gun.framework.steel",
+			//				category: "Gun (Frame)",
+			//				name: "Steel Framework",
+			//				description: "Improves reliability of the gun.",
 
-//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					return augments.GetCount(handle) < 3;
-//				},
+			//				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					return augments.GetCount(handle) < 3;
+			//				},
 
-//#if CLIENT
-//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					ref var modifier = ref handle.GetModifier();
+			//#if CLIENT
+			//				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					ref var offset = ref handle.GetData<Vector2>();
+			//					ref var modifier = ref handle.GetModifier();
 
-//					var dirty = false;
+			//					var dirty = false;
 
-//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
-//					GUI.SameLine();
-//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+			//					GUI.SameLine();
+			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
-//					return dirty;
-//				},
+			//					return dirty;
+			//				},
 
-//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-//				{
-//					ref var offset = ref handle.GetData<Vector2>();
-//					ref var modifier = ref handle.GetModifier();
-//					var type = Maths.LerpInt(0, 9, modifier);
+			//				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+			//				{
+			//					ref var offset = ref handle.GetData<Vector2>();
+			//					ref var modifier = ref handle.GetModifier();
+			//					var type = Maths.LerpInt(0, 9, modifier);
 
-//					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
+			//					var sprite = new Sprite("augment.framework.steel", 24, 16, (uint)type, 0);
 
-//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
-//				},
-//#endif
+			//					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
+			//				},
+			//#endif
 
-//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-//				{
-//					for (var i = 0; i < context.requirements_old.Length; i++)
-//					{
-//						var requirement = context.requirements_old[i];
+			//				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+			//				{
+			//					for (var i = 0; i < context.requirements_old.Length; i++)
+			//					{
+			//						var requirement = context.requirements_old[i];
 
-//						if (requirement.type == Crafting.Requirement.Type.Resource)
-//						{
-//							ref var material = ref requirement.material.GetData();
-//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
-//							{
-//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
-//							}
-//						}
-//						else if (requirement.type == Crafting.Requirement.Type.Work)
-//						{
-//							switch (requirement.work)
-//							{
-//								case Work.Type.Smithing:
-//								{
-//									requirement.amount *= 0.20f;
-//									context.requirements_new.Add(requirement);
-//								}
-//								break;
+			//						if (requirement.type == Crafting.Requirement.Type.Resource)
+			//						{
+			//							ref var material = ref requirement.material.GetData();
+			//							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
+			//							{
+			//								context.requirements_new.Add(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+			//							}
+			//						}
+			//						else if (requirement.type == Crafting.Requirement.Type.Work)
+			//						{
+			//							switch (requirement.work)
+			//							{
+			//								case Work.Type.Smithing:
+			//								{
+			//									requirement.amount *= 0.20f;
+			//									context.requirements_new.Add(requirement);
+			//								}
+			//								break;
 
-//								case Work.Type.Machining:
-//								{
-//									requirement.amount *= 0.05f;
-//									context.requirements_new.Add(requirement);
-//								}
-//								break;
-//							}
-//						}
-//					}
-//				}
-//			));
+			//								case Work.Type.Machining:
+			//								{
+			//									requirement.amount *= 0.05f;
+			//									context.requirements_new.Add(requirement);
+			//								}
+			//								break;
+			//							}
+			//						}
+			//					}
+			//				}
+			//			));
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
@@ -1779,8 +1776,7 @@ namespace TC2.Base
 
 					extra_mass += context.base_mass * mult * 0.20f;
 
-					data.stability += extra_mass * 0.03f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
-					data.stability = Maths.Clamp(data.stability, 0.00f, 1.00f);
+					data.stability += extra_mass * 5.00f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
 
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
@@ -1831,8 +1827,7 @@ namespace TC2.Base
 
 					data.failure_rate *= Maths.Lerp(1.20f, 1.80f, value);
 					data.failure_rate += Maths.Lerp(0.03f, 0.10f, value);
-					data.stability *= Maths.Clamp(data.stability, 0.00f, 0.99f);
-					data.stability = Maths.Clamp(data.stability - 0.03f, 0.00f, 1.00f);
+					data.stability *= Maths.Clamp(0.99f - (data.failure_rate * 0.50f), 0.50f, 0.99f);
 					data.cycle_interval *= 1.05f;
 					data.reload_interval *= 1.10f;
 
@@ -1848,7 +1843,7 @@ namespace TC2.Base
 					ref var value = ref handle.GetData<float>();
 
 					data.failure_rate += 0.03f;
-					data.stability *= Maths.Clamp(data.stability, 0.00f, Maths.Lerp(0.98f, 0.95f, value));
+					//data.stability *= Maths.Clamp(data.stability, 0.00f, Maths.Lerp(0.98f, 0.95f, value));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -1888,7 +1883,7 @@ namespace TC2.Base
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.stability *= 1.15f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.cycle_interval *= 1.35f;
 					data.reload_interval *= 0.93f;
 					data.damage_multiplier *= 0.98f;
@@ -1977,7 +1972,7 @@ namespace TC2.Base
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.stability *= 1.34f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.damage_multiplier *= 1.10f;
 					data.velocity_multiplier *= 1.05f;
 					data.recoil_multiplier *= 1.10f;
@@ -2058,7 +2053,7 @@ namespace TC2.Base
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.stability *= 1.50f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.damage_multiplier *= 1.12f;
 					data.velocity_multiplier *= 1.06f;
 					//data.recoil_multiplier *= 1.12f;
@@ -2139,7 +2134,7 @@ namespace TC2.Base
 				{
 					data.failure_rate *= 0.85f;
 					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-					data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+					data.stability *= 1.15f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.reload_interval *= 2.00f;
 				},
 
@@ -2301,7 +2296,7 @@ namespace TC2.Base
 					//	data.failure_rate *= Maths.Lerp(1.00f, 2.50f, ratio);
 					//}
 
-					data.stability = Maths.Clamp(data.stability - MathF.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio)), 0.00f, 1.00f);
+					//data.stability = Maths.Clamp(data.stability - MathF.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio)), 0.00f, 1.00f);
 					data.failure_rate += Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.35f, ratio);
 				},
 
@@ -2382,7 +2377,7 @@ namespace TC2.Base
 
 							data.failure_rate *= 0.85f;
 							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
 						break;
@@ -2393,7 +2388,7 @@ namespace TC2.Base
 
 							data.failure_rate *= 0.85f;
 							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
 						}
 						break;
@@ -2402,7 +2397,7 @@ namespace TC2.Base
 						{
 							data.failure_rate *= 0.85f;
 							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
 						}
 						break;
@@ -2411,7 +2406,7 @@ namespace TC2.Base
 						{
 							data.failure_rate *= 0.85f;
 							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
 						break;
@@ -2420,7 +2415,7 @@ namespace TC2.Base
 						{
 							data.failure_rate *= 0.85f;
 							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
-							data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
 						break;
@@ -2471,8 +2466,8 @@ namespace TC2.Base
 							data.failure_rate *= 0.30f;
 							data.cycle_interval *= 0.90f;
 
-							data.stability += MathF.Min(data.stability, 0.15f);
-							data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
+							//data.stability += MathF.Min(data.stability, 0.15f);
+							//data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
 
 							data.recoil_multiplier *= 0.90f;
 							data.reload_interval *= 0.80f;
@@ -2597,7 +2592,9 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate = Maths.Clamp(data.failure_rate * 0.10f + (1.00f - Maths.Clamp(data.stability, 0.00f, 1.00f)), 0.00f, 1.00f);
+					//data.failure_rate = Maths.Clamp(data.failure_rate * 0.10f + (1.00f - Maths.Clamp(data.stability, 0.00f, 1.00f)), 0.00f, 1.00f);
+					data.failure_rate = Maths.Clamp(data.failure_rate * 0.10f, 0.00f, 1.00f);
+					data.stability *= 1.70f;
 
 					return true;
 				},
@@ -2699,8 +2696,10 @@ namespace TC2.Base
 								data.failure_rate *= 1.10f;
 								data.failure_rate += 0.25f;
 
-								data.stability -= MathF.Min(data.stability, 0.50f);
-								data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.50f);
+								//data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
+
+								data.stability *= 0.91f;
 
 								//data.reload_interval *= 1.30f;
 
@@ -2713,8 +2712,9 @@ namespace TC2.Base
 							}
 							else
 							{
-								data.stability -= MathF.Min(data.stability, 0.02f);
-								data.stability = MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
+								data.stability *= 0.95f;
+								//data.stability -= MathF.Min(data.stability, 0.02f);
+								//data.stability = MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							}
 						}
 						break;
@@ -2726,8 +2726,10 @@ namespace TC2.Base
 								data.failure_rate *= 1.70f;
 								data.failure_rate += 0.20f;
 
-								data.stability -= MathF.Min(data.stability, 0.30f);
-								data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.30f);
+								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
+
+								data.stability *= 0.70f;
 
 								data.cycle_interval *= 1.30f;
 								data.reload_interval *= 1.30f;
@@ -2744,8 +2746,10 @@ namespace TC2.Base
 								data.failure_rate *= 3.50f;
 								data.failure_rate += 0.05f;
 
-								data.stability -= MathF.Min(data.stability, 0.10f);
-								data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
+								//data.stability -= MathF.Min(data.stability, 0.10f);
+								//data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
+
+								data.stability *= 0.89f;
 
 								data.reload_interval *= 1.30f;
 

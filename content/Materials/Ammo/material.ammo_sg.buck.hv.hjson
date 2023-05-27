@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Shotgun Ammo (Buckshot, High-Velocity)"
 	description:
 		'''
@@ -30,11 +30,19 @@
 	{
 		count: 4
 		mass: 0.050
+		heat: 50.000
+		velocity_min: 80.000
+		
 		speed_mult: 0.900
 		spread_mult: 1.200
 		recoil_mult: 1.000
-		heat: 50.000
-		velocity_min: 80.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 550.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.bullet.sg.buck.hv"
 	}
 }

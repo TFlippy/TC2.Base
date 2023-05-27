@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Shotgun Ammo (Birdshot, High-Velocity)"
 	description:
 		'''
@@ -30,11 +30,19 @@
 	{
 		count: 7
 		mass: 0.050
+		heat: 50.000
+		velocity_min: 80.000
+		
 		speed_mult: 1.200
 		spread_mult: 2.500
 		recoil_mult: 1.000
-		heat: 50.000
-		velocity_min: 80.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 350.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.bullet.sg.bird.hv"
 	}
 }

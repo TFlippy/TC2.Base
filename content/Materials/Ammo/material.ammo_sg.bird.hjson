@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Shotgun Ammo (Birdshot)"
 	description:
 		'''
@@ -18,6 +18,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -30,11 +31,19 @@
 	{
 		count: 7
 		mass: 0.050
+		heat: 50.000
+		velocity_min: 80.000
+		
 		speed_mult: 0.600
 		spread_mult: 2.500
 		recoil_mult: 1.000
-		heat: 50.000
-		velocity_min: 80.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 250.000
+		stability_mult: 1.100
+		
 		prefab: "projectile.bullet.sg.bird"
 	}
 }

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Artillery Shell (Smoke)"
 	description:
 		'''
@@ -9,6 +9,7 @@
 	{
 		texture: "resource.ammo_shell.smoke"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
@@ -28,11 +29,19 @@
 	{
 		count: 1
 		mass: 5.000
+		heat: 4000.000
+		velocity_min: 80.000
+		
 		speed_mult: 1.000
 		spread_mult: 0.500
 		recoil_mult: 1.000
-		heat: 4000.000
-		velocity_min: 80.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 3500.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.shell.smoke"
 	}
 }

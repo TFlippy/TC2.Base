@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Artillery Shell (Kinetic)"
 	description:
 		'''
@@ -9,6 +9,7 @@
 	{
 		texture: "resource.ammo_shell.kinetic"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
@@ -28,11 +29,19 @@
 	{
 		count: 1
 		mass: 13.000
+		heat: 8999.999
+		velocity_min: 80.000
+		
 		speed_mult: 1.600
 		spread_mult: 0.050
 		recoil_mult: 0.600
-		heat: 8999.999
-		velocity_min: 80.000
+		
+		failure_base: 0.000
+		failure_mult: 0.100
+		
+		stability_base: 16550.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.shell.kinetic"
 	}
 }

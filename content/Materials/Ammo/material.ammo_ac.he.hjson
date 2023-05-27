@@ -1,11 +1,11 @@
-{
+﻿{
 	name: "Autocannon Ammo (HE)"
 	description:
 		'''
 		30x210mm explosive ammunition, primarily used by autocannons.
 
 		Effective against infantry, structures and unarmored targets.
-		
+
 		- High splash damage
 		- Medium explosion radius
 		- Low velocity
@@ -36,11 +36,19 @@
 	{
 		count: 1
 		mass: 0.600
+		heat: 500.000
+		velocity_min: 10.000
+		
 		speed_mult: 0.120
 		spread_mult: 1.100
 		recoil_mult: 1.000
-		heat: 500.000
-		velocity_min: 10.000
+		
+		failure_base: 0.002
+		failure_mult: 1.250
+		
+		stability_base: 4000.000
+		stability_mult: 0.950
+		
 		prefab: "projectile.bullet.ac.he"
 	}
 }

@@ -49,6 +49,7 @@ gun:
 	feed: magazine
 
 	heuristic_range: 25.000
+	stability: 350.000
 
 	shake_amount: 0.200
 	

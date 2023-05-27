@@ -56,6 +56,7 @@ gun:
 	sound_pitch: 1.000
 	
 	heuristic_range: 12.000
+	stability: 50.000
 
 	@inventory1:
 	{

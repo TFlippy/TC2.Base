@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Musket Ammo"
 	description:
 		'''
@@ -14,7 +14,9 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -27,11 +29,19 @@
 	{
 		count: 1
 		mass: 0.050
-		speed_mult: 1.000
-		spread_mult: 1.000
-		recoil_mult: 1.200
 		heat: 30.000
 		velocity_min: 5.000
+		
+		speed_mult: 1.000
+		spread_mult: 0.800
+		recoil_mult: 1.200
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 100.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.musket"
 	}
 }

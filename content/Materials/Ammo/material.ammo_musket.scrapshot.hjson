@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Musket Ammo (Scrapshot)"
 	description:
 		'''
@@ -14,7 +14,9 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -27,13 +29,19 @@
 	{
 		count: 8
 		mass: 0.050
+		heat: 30.000
+		velocity_min: 5.000
+		
 		speed_mult: 0.700
 		spread_mult: 4.500
 		recoil_mult: 1.200
-		heat: 30.000
-		velocity_min: 5.000
-		failure_mult: 1.000
-		stability_mult: 1.000
+		
+		failure_base: 0.050
+		failure_mult: 1.100
+		
+		stability_base: 150.000
+		stability_mult: 0.750
+		
 		prefab: "projectile.musket.scrapshot"
 	}
 }

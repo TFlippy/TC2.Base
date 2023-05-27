@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Artillery Shell (Explosive)"
 	description:
 		'''
@@ -9,12 +9,14 @@
 	{
 		texture: "resource.ammo_shell"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -27,11 +29,19 @@
 	{
 		count: 1
 		mass: 6.000
+		heat: 4000.000
+		velocity_min: 20.000
+		
 		speed_mult: 1.000
 		spread_mult: 0.500
 		recoil_mult: 1.000
-		heat: 4000.000
-		velocity_min: 20.000
+		
+		failure_base: 0.010
+		failure_mult: 1.000
+		
+		stability_base: 8550.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.shell"
 	}
 }

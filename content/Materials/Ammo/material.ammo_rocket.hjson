@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Rocket Ammo (Standard)"
 	description:
 		'''
@@ -9,12 +9,14 @@
 	{
 		texture: "resource.ammo_rocket"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: metal
@@ -27,11 +29,19 @@
 	{
 		count: 1
 		mass: 2.000
+		heat: 1000.000
+		velocity_min: 1.000
+		
 		speed_mult: 1.000
 		spread_mult: 5.000
 		recoil_mult: 1.000
-		heat: 1000.000
-		velocity_min: 1.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 1800.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.rocket"
 	}
 }

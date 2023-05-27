@@ -2066,7 +2066,7 @@ namespace TC2.Base
 						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.25f * size, 0.50f)) * (offset.X >= gun.receiver_offset.X ? 1.00f : 0.00f);
 						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
-						gun.stability = Maths.Clamp01(gun.stability + (mult_barrel * 0.15f * mass_ratio * robustness * size));
+						gun.stability += (health_extra * mult_barrel * 0.15f * mass_ratio * robustness * size);
 						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo((mult_barrel + mult_receiver) * -0.20f * robustness * bulkiness * size, mass_ratio)), 0.95f);
 						gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
 
@@ -2155,16 +2155,6 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var gun = ref context.GetComponent<Gun.Data>();
-					if (!gun.IsNull())
-					{
-						gun.failure_rate -= MathF.Min(gun.failure_rate, 0.20f);
-						gun.failure_rate *= 0.70f;
-						gun.stability += 0.10f;
-						gun.stability = Maths.Clamp(gun.stability * 1.10f, 0.00f, 1.00f);
-					}
-					//data.mass_extra 
-
 					return true;
 				}
 			));
