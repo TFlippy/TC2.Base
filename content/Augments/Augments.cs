@@ -133,7 +133,7 @@ namespace TC2.Base
 						ref var material = ref IMaterial.Database.GetData("resin");
 						if (material.IsNotNull())
 						{
-							body.mass_extra += total_amount * material.mass_per_unit * 0.30f;
+							context.mass_new += total_amount * material.mass_per_unit * 0.30f;
 						}
 					}
 				}
@@ -287,7 +287,7 @@ namespace TC2.Base
 						ref var material = ref IMaterial.Database.GetData("water");
 						if (material.IsNotNull())
 						{
-							body.mass_extra += amount * material.mass_per_unit;
+							context.mass_new += amount * material.mass_per_unit;
 						}
 					}
 				}
@@ -313,9 +313,17 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					//dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					//GUI.SameLine();
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -328,7 +336,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.radiator", 24, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -385,7 +393,7 @@ namespace TC2.Base
 					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
 					cooling.modifier = 1.00f + ((type + 1.00f) * 0.30f) * dist_modifier;
 
-					data.cool_rate += (amount / context.base_mass) * dist_modifier;
+					data.cool_rate += (amount / context.mass_new) * dist_modifier;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -438,7 +446,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra += added_mass;
+						context.mass_new += added_mass;
 					}
 				}
 			));
@@ -487,7 +495,7 @@ namespace TC2.Base
 						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
 						if (material.IsNotNull())
 						{
-							body.mass_extra += amount * material.mass_per_unit;
+							context.mass_new += amount * material.mass_per_unit;
 						}
 					}
 				}
@@ -638,7 +646,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
-					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f);
+					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1052,7 +1060,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f);
+					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1093,7 +1101,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f);
+					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1134,7 +1142,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1171,7 +1179,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1342,7 +1350,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1390,7 +1398,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1438,7 +1446,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1486,7 +1494,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1534,7 +1542,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1582,7 +1590,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true);
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1625,7 +1633,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f);
+					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1670,7 +1678,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f);
+					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1970,7 +1978,7 @@ namespace TC2.Base
 						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
-						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.11f * robustness * size, mass_ratio)), 0.95f);
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
 						//gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
 
 						gun.reload_interval += size * 0.10f * mult_receiver;
@@ -2223,8 +2231,9 @@ namespace TC2.Base
 						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += (health_extra * mult_barrel * 0.25f * mass_ratio * robustness * size);
-						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo((mult_barrel + mult_receiver) * -0.25f * robustness * bulkiness * size, mass_ratio)), 0.65f);
-						gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo((mult_barrel + mult_receiver) * -0.25f * robustness * bulkiness * size, mass_ratio)), 0.85f);
+						gun.recoil_multiplier *= Maths.Lerp01(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+						gun.jitter_multiplier *= Maths.Lerp01(1.00f, Maths.Mulpo(mult_muzzle, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
 
 						ref var holdable = ref context.GetComponent<Holdable.Data>();
 						if (holdable.IsNotNull())

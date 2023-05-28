@@ -854,7 +854,7 @@
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
 
-					App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");
+					//App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");
 
 #if SERVER
 					var loaded_ammo = new Resource.Data()
@@ -898,7 +898,7 @@
 
 					var stability_ratio_sub = 1.00f - stability_ratio;
 					var explode_chance = Maths.Lerp(failure_rate, Maths.Pow2(stability_ratio_sub), 0.50f);
-					App.WriteLine(explode_chance);
+					//App.WriteLine(explode_chance);
 
 					if (stability_ratio < 1.00f && random.NextBool(explode_chance))
 					{

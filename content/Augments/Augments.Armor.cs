@@ -71,7 +71,7 @@
 						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
 						if (material.IsNotNull())
 						{
-							body.mass_extra += total_amount * material.mass_per_unit * 0.70f;
+							context.mass_new += total_amount * material.mass_per_unit * 0.70f;
 							body.override_shape_mask |= Physics.Layer.Essence;
 						}
 					}
@@ -133,7 +133,7 @@
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra += 5.00f;
+						context.mass_new += 5.00f;
 						body.override_shape_mask |= Physics.Layer.Essence;
 					}
 				},

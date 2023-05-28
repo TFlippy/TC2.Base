@@ -135,7 +135,7 @@ namespace TC2.Base
 						if (material.IsNotNull())
 						{
 							body.mass_multiplier *= 1.10f;
-							body.mass_extra += amount * material.mass_per_unit;
+							context.mass_new += amount * material.mass_per_unit;
 						}
 					}
 				}

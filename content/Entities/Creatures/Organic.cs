@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class OrganicExt
 	{
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health)
+		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAll(Organic.Tags.Brain))
 			{
@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 				organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
-				if (health_norm < 0.50f)
+				if (dead || health_norm < 0.50f)
 				{
 					organic_original.consciousness = 0.00f;
 					organic_state.unconscious_time = 20.00f;
@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 				{
 					//App.WriteLine(p);
 					organic_state.consciousness_shared_new = organic_override.consciousness; // Maths.Clamp01(consciousness - ((1.00f - health_norm) * 0.20f) - p); // Maths.Clamp((consciousness - ( (MathF.Pow(organic_state.pain_shared * 0.002f, 1.20f) * 0.12f) * ) ), 0.00f, 1.00f);
-					organic_state.motorics_shared_new = organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.50f);
+					organic_state.motorics_shared_new = organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.65f);
 				}
 			}
 		}
@@ -58,7 +58,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void Update2([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health)
+		public static void Update2([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
@@ -71,7 +71,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateConsciousness(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-			if (organic_state.consciousness_shared > 0.50f)
+			if (organic_state.consciousness_shared > 0.20f)
 			{
 				organic_state.unconscious_time = 0.00f;
 			}
@@ -107,7 +107,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateFacing([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Facing.Data facing)
 		{
-			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.20f);
+			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f);
 		}
 
 		[ISystem.Add(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
@@ -157,11 +157,11 @@ namespace TC2.Base.Components
 		{
 			if (dead)
 			{
-				if (organic_state.unconscious_time < 10.00f) entity.SetTag("dead", false);
+				//if (organic_state.unconscious_time < 10.00f) entity.SetTag("dead", false);
 			}
 			else
 			{
-				if (organic_state.unconscious_time > 10.00f) entity.SetTag("dead", true);
+				if (organic_state.unconscious_time > 15.00f) entity.SetTag("dead", true);
 			}
 		}
 #endif

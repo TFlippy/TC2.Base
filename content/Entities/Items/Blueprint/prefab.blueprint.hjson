@@ -10,7 +10,7 @@ body:
 		friction: 0.950
 		elasticity: 0.020
 		material: paper
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, ignore_bullet, ignore_melee
 		mask: world
 	}
 }

@@ -1,0 +1,113 @@
+﻿{
+	name: "Bobel-5"
+	description:
+		'''
+		Reliable ARC-MT automatic rifle.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "smg"
+	recipe: "gunsmith.smg"
+	
+	augments:
+	[
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1082445005
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 0.000
+			data: 13763000462303297536
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
+			data: 13695266324085735424
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.300
+			data: 13690942870393978880
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 13726971667429720064
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

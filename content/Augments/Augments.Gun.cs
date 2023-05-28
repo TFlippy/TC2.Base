@@ -25,7 +25,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f);
+					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -136,7 +136,7 @@ namespace TC2.Base
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						body.mass_extra += mass * 0.50f;
+						context.mass_new += mass * 0.50f;
 					}
 
 					return true;
@@ -200,7 +200,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -325,7 +325,7 @@ namespace TC2.Base
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && !data.flags.HasAny(Gun.Flags.Automatic) && !augments.HasAugment(handle);
 				},
 
-				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (!data.flags.HasAll(Gun.Flags.Automatic))
 					{
@@ -339,8 +339,6 @@ namespace TC2.Base
 
 								data.failure_rate *= 1.50f;
 								data.failure_rate += 0.02f;
-
-								return true;
 							}
 							break;
 
@@ -353,14 +351,10 @@ namespace TC2.Base
 
 								data.failure_rate *= 2.50f;
 								data.failure_rate += 0.05f;
-
-								return true;
 							}
 							break;
 						}
 					}
-
-					return false;
 				}
 			));
 
@@ -572,8 +566,8 @@ namespace TC2.Base
 					data.damage_multiplier *= 0.72f;
 					data.velocity_multiplier *= 0.85f;
 
-					data.stability *= 0.90f - (data.failure_rate * 0.30f);
-					data.stability -= (75.00f + (context.mass_new * 5.00f)) / Maths.Clamp01(data.cycle_interval * 1.50f);
+					data.stability *= 0.90f - MathF.Min(data.failure_rate * 0.30f, 0.30f);
+					data.stability = Maths.Lerp(data.stability, MathF.Max(data.stability - ((75.00f + (context.mass_new * 5.00f)) / Maths.Clamp(data.cycle_interval * 1.50f, 0.10f, 1.50f)), data.stability * 0.25f), 0.50f);
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1027,7 +1021,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -1777,7 +1771,7 @@ namespace TC2.Base
 						}
 					}
 
-					extra_mass += context.base_mass * mult * 0.20f;
+					extra_mass += context.mass_old * mult * 0.20f;
 
 					data.stability += extra_mass * 5.00f; // * Maths.Lerp(1.00f + (mult * 0.20f), data.stability * data.stability * 0.75f, 0.50f);
 
@@ -1793,11 +1787,7 @@ namespace TC2.Base
 						armor.toughness *= 1.00f + (mult * 0.15f);
 					}
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_extra += extra_mass;
-					}
+					context.mass_new += extra_mass;
 				}
 			));
 
@@ -1820,7 +1810,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -2219,7 +2209,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -2363,7 +2353,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f);
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, size: GUI.GetRemainingSpace());
 				},
 #endif
 
@@ -2785,13 +2775,17 @@ namespace TC2.Base
 
 					}
 
-					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+					context.mass_new += context.mass_old * 0.10f;
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier += 0.30f * barrel_count_inv;
-					}
+					//var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+
+
+
+					//ref var body = ref context.GetComponent<Body.Data>();
+					//if (!body.IsNull())
+					//{
+					//	body.mass_multiplier += 0.30f * barrel_count_inv;
+					//}
 
 					return true;
 				},
@@ -2872,7 +2866,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f);
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
 				},
 
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
@@ -3073,11 +3067,7 @@ namespace TC2.Base
 						data.recoil_multiplier *= 0.90f;
 					}
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_extra += 0.50f;
-					}
+					context.mass_new += 0.50f;
 
 					//App.WriteLine("test9");
 				},
@@ -3250,44 +3240,54 @@ namespace TC2.Base
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 95.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 25.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 500.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 5.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 60.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 40.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 17.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 10));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 30.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 22.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 14.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 5.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 4.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 15));
 					}
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_extra += extra_mass;
-					}
+					context.mass_new += extra_mass;				
 				}
 			));
 
