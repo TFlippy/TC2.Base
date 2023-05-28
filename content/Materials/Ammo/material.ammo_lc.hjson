@@ -35,12 +35,12 @@
 		
 		speed_mult: 0.800
 		spread_mult: 1.200
-		recoil_mult: 1.100
+		recoil_mult: 1.000
 		
 		failure_base: 0.004
 		failure_mult: 1.100
 		
-		stability_base: 150.000
+		stability_base: 160.000
 		stability_mult: 0.940
 		
 		prefab: "projectile.bullet.lc"

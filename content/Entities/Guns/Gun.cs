@@ -846,10 +846,15 @@
 					//stability_ratio = Maths.Clamp01((stability_ratio + ammo.stability_base) * ammo.stability_mult);
 
 					stability *= ammo.stability_mult;
-					stability_ratio = Maths.NormalizeClamp(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), ammo.stability_base);
+					var stability_req = ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.50f));
+					stability_ratio = Maths.NormalizeClamp(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), stability_req);
+
+					failure_rate = Maths.Clamp01(failure_rate + ((1.00f - stability_ratio) * 0.10f)); // Maths.Lerp01(failure_rate, 1.00f - stability_ratio, )
 
 					body.AddForceWorld(recoil_force, pos_w_offset);
 					gun_state.last_recoil = recoil_force;
+
+					App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");
 
 #if SERVER
 					var loaded_ammo = new Resource.Data()
@@ -891,6 +896,56 @@
 
 					//}
 
+					var stability_ratio_sub = 1.00f - stability_ratio;
+					var explode_chance = Maths.Lerp(failure_rate, Maths.Pow2(stability_ratio_sub), 0.50f);
+					App.WriteLine(explode_chance);
+
+					if (stability_ratio < 1.00f && random.NextBool(explode_chance))
+					{
+						var explosion_data = new Explosion.Data()
+						{
+							power = 3.50f + (MathF.Pow(ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.35f)), 0.45f) * 0.05f), // + (count * 0.80f),
+							radius = (5.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.40f)), 0.55f) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
+							damage_entity = ammo.stability_base * ((1.00f + ((gun.projectile_count - 1) * 1.10f))) * stability_ratio_sub * 2.50f,
+							damage_terrain = ammo.stability_base * (1.00f + (gun.projectile_count * 0.80f)) * stability_ratio_sub,
+							smoke_amount = 2.10f,
+							sparks_amount = 3.00f,
+							pitch = 1.50f,
+							flash_duration_multiplier = 1.20f,
+							flash_intensity_multiplier = 2.70f,
+							ent_owner = body.GetParent()
+						};
+
+						region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
+						{
+							ref var explosion = ref ent.GetComponent<Explosion.Data>();
+							if (!explosion.IsNull())
+							{
+								explosion.damage_type = Damage.Type.Bullet_SG;
+								explosion.power = explosion_data.power;
+								explosion.radius = explosion_data.radius;
+								explosion.damage_entity = explosion_data.damage_entity;
+								explosion.damage_terrain = explosion_data.damage_terrain;
+								explosion.ent_owner = explosion_data.ent_owner;
+								explosion.smoke_amount = explosion_data.smoke_amount;
+								explosion.sparks_amount = explosion_data.sparks_amount;
+								explosion.pitch = explosion_data.pitch;
+								explosion.flash_duration_multiplier = explosion_data.flash_duration_multiplier;
+								explosion.flash_intensity_multiplier = explosion_data.flash_intensity_multiplier;
+
+								explosion.Sync(ent, true);
+							}
+						});
+
+						Sound.Play(ref region, sound_gun_break, pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f);
+						force_jammed = true;
+
+						if (random.NextBool(stability_ratio_sub))
+						{
+							entity.Delete();
+						}
+					}
+					else
 					{
 						for (var i = 0; i < count; i++)
 						{
@@ -993,39 +1048,49 @@
 						}
 					}
 
-					if (stability_ratio < 1.00f && random.NextBool(failure_rate) && random.NextBool(1.00f - stability_ratio))
-					{
-						var explosion_data = new Explosion.Data()
-						{
-							power = 1.50f, // + (count * 0.80f),
-							radius = 5.50f, // + (count * 2.50f),
-							damage_entity = (gun.damage_multiplier * (1.00f + ((count - 1) * 3.80f))) * 200.00f,
-							damage_terrain = (gun.damage_multiplier * (1.00f + (count * 0.50f))) * 130.00f,
-							smoke_amount = 0.30f,
-							sparks_amount = 2.00f,
-							ent_owner = body.GetParent()
-						};
+					//var stability_ratio_sub = 1.00f - stability_ratio;
+					//var explode_chance = Maths.Lerp(failure_rate, Maths.Pow2(stability_ratio_sub), 0.50f);
+					//App.WriteLine(explode_chance);
 
-						region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
-						{
-							ref var explosion = ref ent.GetComponent<Explosion.Data>();
-							if (!explosion.IsNull())
-							{
-								explosion.power = explosion_data.power;
-								explosion.radius = explosion_data.radius;
-								explosion.damage_entity = explosion_data.damage_entity;
-								explosion.damage_terrain = explosion_data.damage_terrain;
-								explosion.ent_owner = explosion_data.ent_owner;
-								explosion.smoke_amount = explosion_data.smoke_amount;
+					//if (stability_ratio < 1.00f && random.NextBool(explode_chance))
+					//{
+					//	var explosion_data = new Explosion.Data()
+					//	{
+					//		power = 2.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((count - 1) * 0.35f)), 0.45f) * 0.05f), // + (count * 0.80f),
+					//		radius = (2.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((count - 1) * 0.40f)), 0.55f) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
+					//		damage_entity = ammo.stability_base * ((1.00f + ((count - 1) * 1.10f))) * stability_ratio_sub,
+					//		damage_terrain = ammo.stability_base * (1.00f + (count * 0.80f)) * stability_ratio_sub,
+					//		smoke_amount = 1.10f,
+					//		sparks_amount = 3.00f,
+					//		pitch = 1.50f,
+					//		ent_owner = body.GetParent()
+					//	};
 
-								explosion.Sync(ent, true);
-							}
-						});
+					//	region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
+					//	{
+					//		ref var explosion = ref ent.GetComponent<Explosion.Data>();
+					//		if (!explosion.IsNull())
+					//		{
+					//			explosion.power = explosion_data.power;
+					//			explosion.radius = explosion_data.radius;
+					//			explosion.damage_entity = explosion_data.damage_entity;
+					//			explosion.damage_terrain = explosion_data.damage_terrain;
+					//			explosion.ent_owner = explosion_data.ent_owner;
+					//			explosion.smoke_amount = explosion_data.smoke_amount;
+					//			explosion.sparks_amount = explosion_data.sparks_amount;
+					//			explosion.pitch = explosion_data.pitch;
 
-						Sound.Play(ref region, sound_gun_break, pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f);
+					//			explosion.Sync(ent, true);
+					//		}
+					//	});
 
-						entity.Delete();
-					}
+					//	Sound.Play(ref region, sound_gun_break, pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f);
+
+					//	if (random.NextBool(stability_ratio_sub))
+					//	{
+					//		entity.Delete();
+					//	}
+					//}
 #endif
 				}
 

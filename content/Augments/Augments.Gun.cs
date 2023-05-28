@@ -571,6 +571,9 @@ namespace TC2.Base
 					data.cycle_interval *= 0.50f;
 					data.damage_multiplier *= 0.72f;
 					data.velocity_multiplier *= 0.85f;
+
+					data.stability *= 0.90f - (data.failure_rate * 0.30f);
+					data.stability -= (75.00f + (context.mass_new * 5.00f)) / Maths.Clamp01(data.cycle_interval * 1.50f);
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -578,11 +581,11 @@ namespace TC2.Base
 					data.failure_rate *= 0.60f;
 					data.jitter_multiplier += 2.50f;
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						body.mass_multiplier *= 0.90f;
-					}
+					//ref var body = ref context.GetComponent<Body.Data>();
+					//if (!body.IsNull())
+					//{
+					//	body.mass_multiplier *= 0.90f;
+					//}
 
 					foreach (ref var requirement in context.requirements_new)
 					{
@@ -1356,7 +1359,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.tempered_frame",
 				category: "Gun (Frame)",
-				name: "Tempered Frame",
+				name: "Tempered Metal",
 				description: "Greatly improves durability and stability of the gun.",
 
 				//flags: Augment.Definition.Flags.Hidden,
@@ -1380,7 +1383,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.80f;
-					data.stability *= 1.30f;
+					data.stability *= 1.28f;
 
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (!health.IsNull())
@@ -1398,9 +1401,9 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
-					data.failure_rate *= 0.80f;
-					data.stability *= 1.10f;
+					//data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
+					//data.failure_rate *= 0.80f;
+					//data.stability *= 1.10f;
 
 					return true;
 				},
@@ -2681,7 +2684,7 @@ namespace TC2.Base
 					if (simultaneous)
 					{
 						data.ammo_per_shot += 1.00f;
-						data.smoke_amount *= 2.00f;
+						data.smoke_amount += 1.50f;
 						data.projectile_count += 1;
 					}
 
@@ -2699,7 +2702,7 @@ namespace TC2.Base
 								//data.stability -= MathF.Min(data.stability, 0.50f);
 								//data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
-								data.stability *= 0.91f;
+								data.stability *= 1.24f;
 
 								//data.reload_interval *= 1.30f;
 
@@ -2712,7 +2715,7 @@ namespace TC2.Base
 							}
 							else
 							{
-								data.stability *= 0.95f;
+								data.stability *= 1.24f;
 								//data.stability -= MathF.Min(data.stability, 0.02f);
 								//data.stability = MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							}
@@ -2729,7 +2732,8 @@ namespace TC2.Base
 								//data.stability -= MathF.Min(data.stability, 0.30f);
 								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
-								data.stability *= 0.70f;
+								//data.stability *= 0.70f;
+								data.stability *= 1.12f;
 
 								data.cycle_interval *= 1.30f;
 								data.reload_interval *= 1.30f;
@@ -2749,7 +2753,7 @@ namespace TC2.Base
 								//data.stability -= MathF.Min(data.stability, 0.10f);
 								//data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
 
-								data.stability *= 0.89f;
+								data.stability *= 1.12f;
 
 								data.reload_interval *= 1.30f;
 
