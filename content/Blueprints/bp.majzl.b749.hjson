@@ -1,41 +1,113 @@
 {
 	name: "Majzl B-749"
-	description: "Advanced MG-caliber carbine with a scope, ARC-MT recoil stabilizer and auto-loader."
+	description:
+		'''
+		Heavy MG-caliber gun with a scope, ARC-MT recoil compensator and an auto-loader.
+		'''
+	
+	flags: none
+	company: "null"
+	
 	prefab: "carbine"
 	recipe: "gunsmith.carbine"
+	
 	augments:
 	[
 		{
 			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
 			data: 1
 		}
 		{
 			identifier: "gun.automatic_reloading"
-			data: 0
-		}
-		{
-			identifier: "gun.improved_rifling"
-			data: 1065353216
-		}
-		{
-			identifier: "gun.expanded_magazine"
-			data: 1084227584
+			flags: none
+			modifier: 0.000
+			data: 4503599628431654912
 		}
 		{
 			identifier: "gun.recoil_compensator"
-			data: 13692384018778030080
+			flags: none
+			modifier: 0.000
+			data: 13676531346028101632
 		}
 		{
-			identifier: "gun.hardened_frame"
-			data: 1056964608
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.400
+			data: 9223372037913837568
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.000
+			data: 9223372040042446848
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 		{
 			identifier: "gun.tempered_frame"
-			data: 4467570831391719424
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 		{
 			identifier: "holdable.scope"
-			data: 13744986065922424832
+			flags: none
+			modifier: 0.000
+			data: 13726971667421331456
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }

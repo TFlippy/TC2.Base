@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 				{
 					//App.WriteLine(p);
 					organic_state.consciousness_shared_new = organic_override.consciousness; // Maths.Clamp01(consciousness - ((1.00f - health_norm) * 0.20f) - p); // Maths.Clamp((consciousness - ( (MathF.Pow(organic_state.pain_shared * 0.002f, 1.20f) * 0.12f) * ) ), 0.00f, 1.00f);
-					organic_state.motorics_shared_new = organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.65f);
+					organic_state.motorics_shared_new = MathF.Max(organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.35f), 0.00f);
 				}
 			}
 		}
@@ -192,14 +192,14 @@ namespace TC2.Base.Components
 			{
 				//joint.torque_modifier = organic.consciousness;
 
-				joint.max_stress_force_modifier = (health.integrity * health.integrity * health.integrity); // * (health.durability * health.durability);
-				joint.max_stress = (health.integrity * health.integrity * health.integrity * health.integrity);
+				//joint.max_stress_force_modifier = (health.integrity * health.integrity * health.integrity); // * (health.durability * health.durability);
+				//joint.max_stress = (health.integrity * health.integrity * health.integrity * health.integrity);
 
-				if (organic_state.rotten > 0.80f)
-				{
-					joint.max_stress_force_modifier *= 0.00f;
-					joint.max_stress *= 0.00f;
-				}
+				//if (organic_state.rotten > 0.80f)
+				//{
+				//	joint.max_stress_force_modifier *= 0.00f;
+				//	joint.max_stress *= 0.00f;
+				//}
 
 				//var rotten_modifier = 1.00f - organic_state.rotten;
 

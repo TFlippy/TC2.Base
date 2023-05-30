@@ -152,14 +152,14 @@ namespace TC2.Base.Components
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head)
 		{
-			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.10f);
+			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.05f);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
 			no_rotate.multiplier *= MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics;
-			no_rotate.speed *= Maths.Lerp(0.90f, 1.00f, organic.motorics);
+			no_rotate.speed *= Maths.Lerp01(0.90f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.05f;
 		}
 
@@ -216,22 +216,27 @@ namespace TC2.Base.Components
 
 			sound_emitter.file = sound_tinnitus;
 			sound_emitter.channel_type = Sound.ChannelType.Master;
-			sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
+			//sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
 			sound_emitter.pitch = 1.50f;
-			sound_emitter.mix_3d = 0.50f;
+			sound_emitter.mix_3d = 1.00f;
+			sound_emitter.priority = 0.60f;
 			sound_emitter.spread = 150.00f;
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
-			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, head_global.tinnitus_volume, 0.10f);
+			//sound_emitter.pitch = 1.50f;
+			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(head_global.tinnitus_volume, 0.00f, 0.10f), 0.05f, 0.40f);
 
 			//if (!sound_emitter.flags.HasAny(Sound.Emitter.Flags.No_DSP))
 			//{
 			//	sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
 			//	sound_emitter.Refresh();
 			//}
+
+			//App.WriteLine(sound_emitter.volume);
+
 
 			head_global.tinnitus_volume = 0.00f;
 		}
@@ -247,7 +252,7 @@ namespace TC2.Base.Components
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(MathF.Max(modifier * 1.80f, 0.00f), 0.50f));
-			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.500f, MathF.Pow(modifier * 4.50f, 0.70f));
+			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, MathF.Max(MathF.Pow(modifier * 4.50f, 0.70f), 0.707f));
 
 			camera.rotation = random.NextFloatRange(-0.10f, 0.10f) * Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
 		}

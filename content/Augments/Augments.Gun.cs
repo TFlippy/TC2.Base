@@ -3261,22 +3261,22 @@ namespace TC2.Base
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 30.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 22.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 16.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 14.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 10.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 13.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))

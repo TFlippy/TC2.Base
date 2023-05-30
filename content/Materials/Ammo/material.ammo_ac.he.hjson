@@ -39,7 +39,7 @@
 		heat: 500.000
 		velocity_min: 10.000
 		
-		speed_mult: 0.120
+		speed_mult: 0.220
 		spread_mult: 1.100
 		recoil_mult: 1.000
 		

@@ -65,10 +65,10 @@
 			data: 1073741824
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.casing.steel"
 			flags: none
-			modifier: 0.000
-			data: 0
+			modifier: 0.400
+			data: 9223372040050835456
 		}
 		{
 			identifier: "undefined"

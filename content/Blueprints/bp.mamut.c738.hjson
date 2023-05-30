@@ -4,43 +4,111 @@
 		'''
 		High-powered anti-materiel rifle with two barrels and a scope.
 		Capable of firing explosive ammunition.
-
 		'''
+	
+	flags: none
+	company: "null"
+	
 	prefab: "rifle"
 	recipe: "gunsmith.rifle"
+	
 	augments:
 	[
 		{
 			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.single_shot"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
 			data: 2
 		}
 		{
 			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
 			data: 1065353216
 		}
 		{
 			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
 			data: 13692384018778030080
 		}
 		{
-			identifier: "gun.hardened_frame"
-			data: 1040187392
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 9223372040061321216
 		}
 		{
 			identifier: "holdable.scope"
-			data: 13744986065922424832
+			flags: none
+			modifier: 0.000
+			data: 13744986065930813440
+		}
+		{
+			identifier: "telescope.adjustable_optics"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.800
+			data: 4467570831400108032
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.000
+			data: 4467570830351532032
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: mirror_y
+			modifier: 0.100
+			data: 9223372037911740416
 		}
 		{
 			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
 			data: 4467570833547591680
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }

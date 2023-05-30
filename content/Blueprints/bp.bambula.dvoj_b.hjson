@@ -4,40 +4,109 @@
 		'''
 		Break-action shotgun with two barrels, a timeless classic.
 		'''
+	
+	flags: none
+	company: "null"
+	
 	prefab: "scattergun"
 	recipe: "gunsmith.scattergun"
+	
 	augments:
 	[
 		{
-			identifier: "gun.extra_barrel"
-			data: 1
-		}
-		{
-			identifier: "gun.faster_cycling_mechanism"
-			data: 1065353216
-		}
-		{
-			identifier: "gun.faster_cycling_mechanism"
-			data: 1065353216
-		}
-		{
-			identifier: "gun.faster_cycling_mechanism"
-			data: 1065353216
-		}
-		{
-			identifier: "gun.hardened_frame"
-			data: 1048576000
-		}
-		{
-			identifier: "gun.tempered_frame"
-			data: 4467570832499015680
-		}
-		{
-			identifier: "gun.simple_frame"
+			identifier: "body.casing.steel"
+			flags: mirror_y
+			modifier: 0.100
 			data: 0
 		}
 		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.500
+			data: 4467570831410593792
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.000
+			data: 4467570833547591680
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 13690942870414950400
+		}
+		{
 			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.simple_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 	]

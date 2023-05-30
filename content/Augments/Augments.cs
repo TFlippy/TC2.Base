@@ -1870,7 +1870,7 @@ namespace TC2.Base
 					{
 						case 0:
 						{
-							mass = 1.40f;
+							mass = 1.10f;
 							robustness *= 1.50f;
 							size *= 0.80f;
 							health_extra = 335.00f;
@@ -1881,7 +1881,7 @@ namespace TC2.Base
 
 						case 1:
 						{
-							mass = 1.50f;
+							mass = 1.30f;
 							robustness *= 1.60f;
 							size *= 1.10f;
 							health_extra = 225.00f;
@@ -1892,7 +1892,7 @@ namespace TC2.Base
 
 						case 2:
 						{
-							mass = 1.15f;
+							mass = 0.85f;
 							robustness *= 1.30f;
 							size *= 1.00f;
 							health_extra = 125.00f;
@@ -1903,7 +1903,7 @@ namespace TC2.Base
 
 						case 3:
 						{
-							mass = 4.70f;
+							mass = 3.10f;
 							robustness *= 2.50f;
 							size *= 1.20f;
 							health_extra = 635.00f;
@@ -1914,7 +1914,7 @@ namespace TC2.Base
 
 						case 4:
 						{
-							mass = 2.50f;
+							mass = 1.50f;
 							robustness *= 1.40f;
 							size *= 1.70f;
 							health_extra = 325.00f;
@@ -1925,7 +1925,7 @@ namespace TC2.Base
 
 						case 5:
 						{
-							mass = 6.40f;
+							mass = 3.60f;
 							robustness *= 3.30f;
 							size *= 1.30f;
 							health_extra = 835.00f;
@@ -1936,7 +1936,7 @@ namespace TC2.Base
 
 						case 6:
 						{
-							mass = 2.60f;
+							mass = 1.70f;
 							robustness *= 1.40f;
 							size *= 1.20f;
 							health_extra = 135.00f;
@@ -1947,7 +1947,7 @@ namespace TC2.Base
 
 						case 7:
 						{
-							mass = 4.40f;
+							mass = 3.10f;
 							robustness *= 2.50f;
 							size *= 0.90f;
 							health_extra = 135.00f;
@@ -1958,7 +1958,7 @@ namespace TC2.Base
 
 						case 8:
 						{
-							mass = 3.40f;
+							mass = 1.80f;
 							robustness *= 1.50f;
 							size *= 1.80f;
 							health_extra = 535.00f;
@@ -1968,7 +1968,7 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())

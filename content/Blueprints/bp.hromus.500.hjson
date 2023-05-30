@@ -1,47 +1,114 @@
 {
-	name:
-		'''
-		Hromus 500
-		'''
+	name: "Hromus 500"
 	description:
 		'''
-		Extremely powerful MG-caliber revolver.
+		Extremely powerful AC-caliber handgun made possible through arcane technology.
+		Decent people shouldn't think too much about that.
 		'''
+	
+	flags: none
+	company: "null"
+	
 	prefab: "revolver"
 	recipe: "gunsmith.revolver"
+	
 	augments:
 	[
 		{
-			identifier: "gun.recoil_reduction"
-			data: 1065353216
-		}
-		{
 			identifier: "gun.caliber_conversion"
-			data: 1
+			flags: none
+			modifier: 0.000
+			data: 2
 		}
 		{
-			identifier: "gun.revolver_gas_seal"
-			data: 0
-		}
-		{
-			identifier: "gun.revolver_hand_fitted_parts"
-			data: 0
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.700
+			data: 13726971665278042112
 		}
 		{
 			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
 			data: 1065353216
 		}
 		{
-			identifier: "gun.hardened_frame"
-			data: 13690942868263272448
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.500
+			data: 9223372037911740416
+		}
+		{
+			identifier: "gun.revolver_hand_fitted_parts"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.single_shot"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.revolver_gas_seal"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.600
+			data: 13726971665265459200
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 13726971667421331456
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
+			data: 13659237527079354368
 		}
 		{
 			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
 			data: 9223372037903351808
 		}
 		{
-			identifier: "gun.expanded_magazine"
-			data: 1081585172
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }

@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 100.000
-	damage_bonus: 300.000
+	damage_base: 800.000
+	damage_bonus: 1000.000
 	lifetime: 8.000
 	damage_type: bullet_ac
 	size: 0.075
@@ -30,17 +30,17 @@ transform:
 
 explosive:
 {
-	radius: 6.500
-	power: 3.000
-	damage_entity: 6000.000
-	damage_terrain: 10000.000
-	sparks_amount: 0.800
+	radius: 5.000
+	power: 4.500
+	damage_entity: 10000.000
+	damage_terrain: 35000.000
+	sparks_amount: 1.200
 	smoke_amount: 1.500
 	shake_multiplier: 0.100
 	smoke_velocity_multiplier: 1.900
-	smoke_lifetime_multiplier: 0.200
+	smoke_lifetime_multiplier: 0.300
 	flash_duration_multiplier: 0.100
-	flash_intensity_multiplier: 0.300
+	flash_intensity_multiplier: 0.600
 	flags: primed
 	pitch: 1.400
 }

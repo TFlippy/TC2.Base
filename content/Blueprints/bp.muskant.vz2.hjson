@@ -3,11 +3,16 @@
 	description:
 		'''
 		Decommissioned model of a bladed double-barelled musket.
-		
+
 		Now widely popular among civilians living on the frontier.
 		'''
+	
+	flags: none
+	company: "null"
+	
 	prefab: "musket"
 	recipe: "gunsmith.musket"
+	
 	augments:
 	[
 		{
@@ -48,6 +53,54 @@
 		}
 		{
 			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.200
+			data: 9223372039002259456
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: mirror_x, mirror_y
+			modifier: 0.200
+			data: 13690942870402367488
+		}
+		{
+			identifier: "melee.reliable_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.reliable_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.longer_handle"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.longer_handle"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "melee.uneven_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
 			flags: none
 			modifier: 0.000
 			data: 0
