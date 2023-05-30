@@ -17,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [11, 0]
 	}
 	
 	type: metal
@@ -35,7 +35,7 @@
 		
 		speed_mult: 0.050
 		spread_mult: 2.000
-		recoil_mult: 6.000
+		recoil_mult: 3.500
 		
 		failure_base: 0.005
 		failure_mult: 0.500

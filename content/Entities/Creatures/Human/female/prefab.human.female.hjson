@@ -587,7 +587,7 @@ lootable:
 	
 	arm:
 	{
-	
+		aim_torque: 2100.000
 	}
 	
 	drag:

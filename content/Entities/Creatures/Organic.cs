@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 
 		[ISystem.Update(ISystem.Mode.Single)]
 		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
-		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent, 
+		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
 		[Source.Parent] in Joint.Base joint)
 		{
@@ -102,6 +102,25 @@ namespace TC2.Base.Components
 		{
 			joint.MaxSpeed *= Maths.Clamp(organic.motorics, 0.30f, 1.50f);
 			joint.MaxBias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
+		}
+
+		// TODO: this is bad
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void UpdateArmAimable([Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear, 
+		[Source.Owned] in Aimable.Data aimable, 
+		[Source.Parent] in Body.Data body_parent, [Source.Owned] in Body.Data body_child)
+		{
+			var aim_torque = arm.aim_torque;
+			if (arm.aim_torque > 1.00f)
+			{
+				aim_torque += (body_parent.GetMass() / (arm.aim_torque * 0.000018f)) * organic.strength;
+			}
+
+			//App.WriteLine(aim_torque);
+
+			joint_gear.min = MathF.Max(joint_gear.min, aimable.min);
+			joint_gear.max = MathF.Min(joint_gear.max, aimable.max);
+			joint_gear.step = Maths.Clamp(body_child.GetAngularMassInv() * aim_torque * App.fixed_update_interval_s, 0.50f, joint_gear.step);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]

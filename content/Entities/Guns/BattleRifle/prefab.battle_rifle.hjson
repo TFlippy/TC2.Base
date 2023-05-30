@@ -48,7 +48,7 @@ gun:
 	heuristic_range: 35.000
 
 	shake_amount: 0.310
-	stability: 720.000
+	stability: 800.000
 	
 	@inventory1:
 	{

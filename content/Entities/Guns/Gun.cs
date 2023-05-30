@@ -675,6 +675,9 @@
 		{
 			gun_state.resource_ammo.quantity = inventory_magazine.resource.quantity;
 
+			var time = info.WorldTime;
+			if (time < gun_state.next_reload) return;
+
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
 			{
@@ -688,9 +691,6 @@
 
 			if (gun_state.stage == Gun.Stage.Reloading)
 			{
-				var time = info.WorldTime;
-				if (time < gun_state.next_reload) return;
-
 				if ((inventory_magazine.resource.quantity >= gun.max_ammo)) // Fully done reloading
 				{
 					if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
@@ -916,7 +916,7 @@
 							ent_owner = body.GetParent()
 						};
 
-						region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
+						region.SpawnPrefab("explosion", pos_w_offset).ContinueWith(ent =>
 						{
 							ref var explosion = ref ent.GetComponent<Explosion.Data>();
 							if (!explosion.IsNull())
@@ -1016,34 +1016,59 @@
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
 								//App.WriteLine(shockwave_radius);
-								region.SpawnPrefab("explosion", (transform.position + pos_w_offset) * 0.50f).ContinueWith(x =>
+								Explosion.Spawn(ref region, pos_w_offset, (Entity ent_explosion, ref Explosion.Data explosion) =>
 								{
-									ref var explosion = ref x.GetComponent<Explosion.Data>();
-									if (!explosion.IsNull())
-									{
-										explosion.power = 4.00f;
-										explosion.radius = shockwave_radius;
-										explosion.damage_entity = 0.00f;
-										explosion.damage_terrain = 90.00f;
-										explosion.damage_type = Damage.Type.Shockwave;
-										explosion.ent_owner = entity;
-										explosion.fire_amount = 0.00f;
-										explosion.smoke_amount = 0.00f;
-										explosion.smoke_lifetime_multiplier = 1.10f;
-										explosion.smoke_velocity_multiplier = 1.00f;
-										explosion.flash_duration_multiplier = 0.00f;
-										explosion.flash_intensity_multiplier = 0.00f;
-										explosion.sparks_amount = 0.00f;
-										explosion.volume = 0.00f;
-										explosion.pitch = 0.00f;
-										explosion.shake_multiplier = shake_amount;
-										explosion.force_multiplier = shake_amount * 2.00f;
-										explosion.flags |= Explosion.Flags.No_Split;
-										//explosion.ent_ignored = explosion_tmp.ent_ignored;
+									explosion.power = 4.00f;
+									explosion.radius = shockwave_radius;
+									explosion.damage_entity = 0.00f;
+									explosion.damage_terrain = 90.00f;
+									explosion.damage_type = Damage.Type.Shockwave;
+									explosion.ent_owner = entity;
+									explosion.fire_amount = 0.00f;
+									explosion.smoke_amount = 0.00f;
+									explosion.smoke_lifetime_multiplier = 1.10f;
+									explosion.smoke_velocity_multiplier = 1.00f;
+									explosion.flash_duration_multiplier = 0.00f;
+									explosion.flash_intensity_multiplier = 0.00f;
+									explosion.sparks_amount = 0.00f;
+									explosion.volume = 0.00f;
+									explosion.pitch = 0.00f;
+									explosion.shake_multiplier = shake_amount;
+									explosion.force_multiplier = shake_amount * 2.00f;
+									explosion.flags |= Explosion.Flags.No_Split;
+									//explosion.ent_ignored = explosion_tmp.ent_ignored;
 
-										explosion.Sync(x, true);
-									}
+									explosion.Sync(ent_explosion, true);
 								});
+
+								//region.SpawnPrefab("explosion", (transform.position + pos_w_offset) * 0.50f).ContinueWith(x =>
+								//{
+								//	ref var explosion = ref x.GetComponent<Explosion.Data>();
+								//	if (!explosion.IsNull())
+								//	{
+								//		explosion.power = 4.00f;
+								//		explosion.radius = shockwave_radius;
+								//		explosion.damage_entity = 0.00f;
+								//		explosion.damage_terrain = 90.00f;
+								//		explosion.damage_type = Damage.Type.Shockwave;
+								//		explosion.ent_owner = entity;
+								//		explosion.fire_amount = 0.00f;
+								//		explosion.smoke_amount = 0.00f;
+								//		explosion.smoke_lifetime_multiplier = 1.10f;
+								//		explosion.smoke_velocity_multiplier = 1.00f;
+								//		explosion.flash_duration_multiplier = 0.00f;
+								//		explosion.flash_intensity_multiplier = 0.00f;
+								//		explosion.sparks_amount = 0.00f;
+								//		explosion.volume = 0.00f;
+								//		explosion.pitch = 0.00f;
+								//		explosion.shake_multiplier = shake_amount;
+								//		explosion.force_multiplier = shake_amount * 2.00f;
+								//		explosion.flags |= Explosion.Flags.No_Split;
+								//		//explosion.ent_ignored = explosion_tmp.ent_ignored;
+
+								//		explosion.Sync(x, true);
+								//	}
+								//});
 							}
 						}
 					}
@@ -1103,6 +1128,7 @@
 					gun_state.stage = Gun.Stage.Ready;
 				}
 
+				gun_state.next_reload = time + Maths.Lerp(gun.cycle_interval * 3.00f, gun.reload_interval * 0.50f, 0.50f);
 
 #if SERVER
 				if (force_jammed || random.NextBool(failure_rate))

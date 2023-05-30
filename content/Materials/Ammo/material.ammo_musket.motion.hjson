@@ -14,9 +14,9 @@
 	
 	icon_extra:
 	{
-		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [11, 0]
 	}
 	
 	type: metal
