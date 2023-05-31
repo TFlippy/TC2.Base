@@ -2362,126 +2362,302 @@ namespace TC2.Base
 					var mass = 1.50f;
 					var robustness = 1.00f;
 					var size = 1.00f;
-					var health_extra = 100.00f;
-					var stability_base = 0.00f;
-					var stability = 0.00f;
+					var jank = 1.00f;
+					var rust = 1.00f;
 
 					switch (type)
 					{
 						case 0:
 						{
-							mass = 1.10f;
-							robustness *= 1.50f;
-							size *= 0.80f;
-							health_extra = 335.00f;
-							stability_base = 50.00f;
-							stability = 195.00f;
+							mass = 2.10f;
+							robustness *= 1.80f;
+							size *= 1.80f;
+							jank *= 0.90f;
+							rust *= 0.70f;
 						}
 						break;
 
 						case 1:
 						{
-							mass = 1.30f;
-							robustness *= 1.60f;
-							size *= 1.10f;
-							health_extra = 225.00f;
-							stability_base = 10.00f;
-							stability = 180.00f;
+							mass = 0.70f;
+							robustness *= 1.20f;
+							size *= 0.80f;
+							jank *= 1.10f;
+							rust *= 0.50f;
 						}
 						break;
 
 						case 2:
 						{
-							mass = 0.85f;
-							robustness *= 1.30f;
-							size *= 1.00f;
-							health_extra = 125.00f;
-							stability_base = 30.00f;
-							stability = 150.00f;
+							mass = 1.15f;
+							robustness *= 0.850f;
+							size *= 1.20f;
+							jank *= 1.50f;
+							rust *= 1.20f;
 						}
 						break;
 
 						case 3:
 						{
-							mass = 3.10f;
-							robustness *= 2.50f;
-							size *= 1.20f;
-							health_extra = 635.00f;
-							stability_base = 80.00f;
-							stability = 350.00f;
+							mass = 4.10f;
+							robustness *= 1.90f;
+							size *= 1.10f;
+							jank *= 0.20f;
+							rust *= 1.20f;
 						}
 						break;
 
 						case 4:
 						{
 							mass = 1.50f;
-							robustness *= 1.40f;
-							size *= 1.70f;
-							health_extra = 325.00f;
-							stability_base = 50.00f;
-							stability = 160.00f;
+							robustness *= 1.10f;
+							size *= 1.00f;
+							jank *= 1.70f;
+							rust *= 1.50f;
 						}
 						break;
 
 						case 5:
 						{
-							mass = 3.60f;
+							mass = 5.60f;
 							robustness *= 3.30f;
-							size *= 1.30f;
-							health_extra = 835.00f;
-							stability_base = 120.00f;
-							stability = 250.00f;
+							size *= 1.90f;
+							jank *= 0.30f;
+							rust *= 1.20f;
 						}
 						break;
 
 						case 6:
 						{
-							mass = 1.70f;
-							robustness *= 1.40f;
-							size *= 1.20f;
-							health_extra = 135.00f;
-							stability_base = 50.00f;
-							stability = 245.00f;
+							mass = 1.90f;
+							robustness *= 1.10f;
+							size *= 1.10f;
+							jank *= 0.90f;
+							rust *= 1.20f;
 						}
 						break;
 
 						case 7:
 						{
-							mass = 3.10f;
-							robustness *= 2.50f;
-							size *= 0.90f;
-							health_extra = 135.00f;
-							stability_base = 10.00f;
-							stability = 395.00f;
+							mass = 1.40f;
+							robustness *= 1.50f;
+							size *= 1.10f;
+							jank *= 1.20f;
+							rust *= 1.50f;
 						}
 						break;
 
 						case 8:
 						{
-							mass = 1.80f;
+							mass = 1.70f;
 							robustness *= 1.50f;
 							size *= 1.80f;
-							health_extra = 535.00f;
-							stability_base = 200.00f;
-							stability = 135.00f;
+							jank *= 0.90f;
+							rust *= 1.20f;
+						}
+						break;
+
+						case 9:
+						{
+							mass = 1.70f;
+							robustness *= 1.50f;
+							size *= 1.30f;
+							jank *= 1.70f;
+							rust *= 1.20f;
+						}
+						break;
+
+						case 10:
+						{
+							mass = 2.90f;
+							robustness *= 1.50f;
+							size *= 1.50f;
+							jank *= 1.80f;
+							rust *= 1.60f;
+						}
+						break;
+
+						case 11:
+						{
+							mass = 1.90f;
+							robustness *= 1.50f;
+							size *= 1.50f;
+							jank *= 1.00f;
+							rust *= 1.40f;
+						}
+						break;
+
+						case 12:
+						{
+							mass = 1.30f;
+							robustness *= 1.20f;
+							size *= 1.30f;
+							jank *= 0.60f;
+							rust *= 1.10f;
+						}
+						break;
+
+						case 13:
+						{
+							mass = 1.50f;
+							robustness *= 0.80f;
+							size *= 1.90f;
+							jank *= 1.20f;
+							rust *= 1.50f;
+						}
+						break;
+
+						case 14:
+						{
+							mass = 1.30f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							jank *= 0.90f;
+							rust *= 1.20f;
+						}
+						break;
+
+						case 15:
+						{
+							mass = 1.30f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							jank *= 0.90f;
+							rust *= 1.20f;
 						}
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
+					var mass_ratio = Maths.NormalizeClamp(mass * 1.50f, context.mass_new);
+					var mass_added = 0.00f;
+
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					if (material_scrap.IsNotNull())
+					{
+						for (var i = 0; i < context.requirements_new.Length; i++)
+						{
+							ref var requirement = ref context.requirements_new[i];
+
+							if (requirement.type == Crafting.Requirement.Type.Resource)
+							{
+								//ref var material = ref requirement.material.GetData();
+								//if (material.IsNotNull() && (material.type == Material.Type.Metal || material.type == Material.Type.Wood || material.type == Material.Type.Fabric || material.type == Material.Type.Rubber))
+								//{
+								//	if (material.flags.HasAll(Material.Flags.Manufactured))
+								//	{
+								//		//requirement.AddMass()
+
+								//		var removed_amount = requirement.amount * (0.80f);
+								//		requirement.amount -= removed_amount;
+
+								//		total_mass += material.mass_per_unit * removed_amount * 2.10f;
+								//	}
+								//	else
+								//	{
+								//		var removed_amount = requirement.amount * (0.70f);
+								//		requirement.amount -= removed_amount;
+
+								//		total_mass += material.mass_per_unit * removed_amount * 1.70f;
+								//	}
+								//}
+							}
+							else if (requirement.type == Crafting.Requirement.Type.Work)
+							{
+								switch (requirement.work)
+								{
+									case Work.Type.Machining:
+									{
+										requirement.amount *= 0.85f;
+										requirement.difficulty *= 0.75f;
+									}
+									break;
+
+									case Work.Type.Smithing:
+									{
+										requirement.amount *= 0.77f;
+										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+									}
+									break;
+
+									case Work.Type.Assembling:
+									{
+										requirement.amount *= 0.85f;
+										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+									}
+									break;
+								}
+							}
+						}
+
+						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+					}
+
+					var random = XorRandom.New(context.seed);
+
+					var noise_a = Maths.Perlin(offset.X, offset.Y, random.NextFloatRange(0.50f, 1.50f), seed: (uint)context.seed);
+					var noise_b = -Maths.Perlin(offset.X - (mass_ratio * 10.00f * jank), offset.Y + context.mass_old, noise_a * random.NextFloatRange(0.10f, 0.80f), seed: (uint)context.seed);
+					var noise_c = Maths.Perlin(-offset.Y, offset.X, context.mass_new * mass_ratio * noise_a * random.NextFloatRange(0.50f, 1.50f), seed: (uint)context.seed);
+
+					var augment_count = augments.GetCount(handle);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 1.00f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) * size, 1.00f)) * Maths.MidBias(gun.receiver_offset.X - 0.25f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) + 0.25f * size, 1.50f);
 
-						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
-						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
+						//gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
+						//gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
 						//gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
 
-						gun.reload_interval += size * 0.10f * mult_receiver;
+						gun.damage_multiplier = Maths.Lerp01(gun.damage_multiplier, gun.damage_multiplier * MathF.Abs((1.00f + (-noise_a * noise_b * noise_c * jank))), random.NextFloatRange(0.05f, 0.25f) * mass_ratio * mult_barrel * mult_receiver);
+						gun.cycle_interval = MathF.Abs(Maths.Lerp01(gun.cycle_interval, gun.cycle_interval * Maths.Mulpo(noise_a, 1.25f), random.NextFloatRange(0.02f, 0.15f) * mult_receiver * mass_ratio));
+						gun.jitter_multiplier += MathF.Abs(size * noise_a * jank);
+						gun.stability = Maths.Lerp01(gun.stability, Maths.Lerp01(gun.stability, gun.stability - (mass * size * robustness * 250.00f * (1.45f + mult_receiver * robustness) * noise_b * noise_c), 0.15f * mass_ratio), 0.15f * mult_barrel * mass_ratio);
+						gun.failure_rate = Maths.Lerp01(gun.failure_rate, gun.failure_rate + (rust * 0.09f * jank) + MathF.Abs(mass_ratio * 0.01f * mult_receiver * noise_a) * rust, MathF.Abs(noise_b * 0.80f) * jank * rust * (1.00f + (augment_count * augment_count * 1.50f)));
+						gun.reload_interval = Maths.Lerp01(gun.reload_interval, Maths.Lerp01(gun.reload_interval, gun.reload_interval * size * 0.10f * mult_receiver * mass_ratio * noise_c * rust, 0.20f), mass_ratio * size);
+						gun.velocity_multiplier = Maths.Lerp01(gun.velocity_multiplier, gun.velocity_multiplier * Maths.Mulpo(mult_muzzle * jank, -0.20f), 0.35f * mult_barrel * jank * rust);
+
+						//var chance = size * robustness * gun.cycle_interval * mult_barrel * 0.10f;
+						//App.WriteLine($"{chance}");
+
+						//if (random.NextBool(jank * Maths.Clamp01(gun.failure_rate * 10.00f) * 0.05f * gun.jitter_multiplier * (1.00f + (augment_count * 0.80f))))
+						//{
+						//	if (context.mass_new >= 10.00f && random.NextBool(Maths.Lerp(0.50f, size * robustness * gun.cycle_interval * mult_barrel, 0.50f)))
+						//	{
+						//		gun.ammo_filter = Material.Flags.Ammo_Rocket;
+						//		gun.max_ammo = (int)Maths.Clamp(jank * context.mass_new * robustness * 0.05f * MathF.Sqrt(gun.stability * 0.02f) * MathF.Abs(noise_c), 1, 4);
+						//		gun.projectile_count = (int)gun.max_ammo;
+						//		gun.ammo_per_shot = gun.projectile_count;
+						//		gun.velocity_multiplier *= random.NextFloatRange(0.11f, 0.21f) / rust;
+						//		gun.type = Gun.Type.Launcher;
+						//		gun.sound_pitch *= 1.30f;
+						//		gun.sound_shoot = "cannon_shoot";
+						//		gun.sound_reload = "mrl_reload";
+						//	}
+						//	//else if (context.mass_new >= 25.00f && random.NextBool((Maths.Lerp(0.65f, 0.30f * gun.damage_multiplier * size * mult_muzzle * gun.sound_volume * gun.reload_interval * (1.00f + (augment_count * 0.30f)), 0.40f))))
+						//	//{
+						//	//	gun.ammo_filter = Material.Flags.Ammo_Shell;
+						//	//	gun.max_ammo = (int)MathF.Max(gun.max_ammo * 0.15f * robustness, 1);
+						//	//	gun.projectile_count = (int)gun.max_ammo;
+						//	//	gun.ammo_per_shot = gun.projectile_count;
+						//	//	gun.type = Gun.Type.Cannon;
+						//	//	gun.velocity_multiplier *= random.NextFloatRange(0.07f, 0.21f) / rust;
+						//	//	gun.sound_shoot = "cannon_shoot";
+						//	//	gun.sound_reload = "cannon_reload";
+						//	//}
+						//	else if (random.NextBool((Maths.Lerp(0.50f, gun.cycle_interval * jank * rust * mult_muzzle * (1.00f + (augment_count * 0.50f)), 0.50f))))
+						//	{
+						//		gun.ammo_filter = Material.Flags.Ammo_Musket;
+						//		gun.flags |= Gun.Flags.Automatic;
+						//	}
+						//	else if (context.mass_new >= 8.00f && random.NextBool(robustness * jank * gun.recoil_multiplier * mass_ratio * mult_receiver * (1.00f + (augment_count * 0.50f))))
+						//	{
+						//		gun.ammo_filter = Material.Flags.Ammo_AC;
+						//		gun.type = Gun.Type.Launcher;
+						//	}
+						//}
 
 						//ref var holdable = ref context.GetComponent<Holdable.Data>();
 						//if (holdable.IsNotNull())
@@ -2494,27 +2670,26 @@ namespace TC2.Base
 					ref var health = ref context.GetComponent<Health.Data>();
 					if (health.IsNotNull())
 					{
-						health.max += health_extra;
-						health.max *= Maths.Mulpo(0.15f, mass_ratio);
+						health.max *= 1.00f - (mass_ratio * 0.24f * jank);
 					}
 
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f) + 25.00f;
-						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f);
-						armor.pain_modifier *= 1.15f;
+						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f * jank) + (25.00f * robustness);
+						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f * jank);
+						armor.pain_modifier *= 1.15f * rust;
 						armor.integrity_modifier *= 0.95f;
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
 					}
 
-					var h_material = new IMaterial.Handle("scrap");
+					//var h_material = new IMaterial.Handle("scrap");
 
-					ref var material = ref h_material.GetData();
-					if (material.IsNotNull())
-					{
-						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
-					}
+					//ref var material = ref h_material.GetData();
+					//if (material.IsNotNull())
+					//{
+					//	context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+					//}
 
 					context.mass_new += mass;
 				}
@@ -2744,95 +2919,172 @@ namespace TC2.Base
 					{
 						case 0:
 						{
-							mass = 1.10f;
-							robustness *= 1.50f;
+							mass = 4.50f;
+							robustness *= 1.40f;
 							size *= 0.80f;
-							health_extra = 335.00f;
-							stability_base = 50.00f;
-							stability = 195.00f;
+							health_extra = 435.00f;
+							stability_base = 150.00f;
+							stability = 695.00f;
 						}
 						break;
 
 						case 1:
 						{
-							mass = 1.30f;
-							robustness *= 1.60f;
-							size *= 1.10f;
-							health_extra = 225.00f;
-							stability_base = 10.00f;
-							stability = 180.00f;
+							mass = 9.00f;
+							robustness *= 1.30f;
+							size *= 1.20f;
+							health_extra = 1225.00f;
+							stability_base = 600.00f;
+							stability = 750.00f;
 						}
 						break;
 
 						case 2:
 						{
-							mass = 0.85f;
-							robustness *= 1.30f;
+							mass = 5.85f;
+							robustness *= 1.20f;
 							size *= 1.00f;
-							health_extra = 125.00f;
-							stability_base = 30.00f;
-							stability = 150.00f;
+							health_extra = 725.00f;
+							stability_base = 180.00f;
+							stability = 550.00f;
 						}
 						break;
 
 						case 3:
 						{
-							mass = 3.10f;
-							robustness *= 2.50f;
-							size *= 1.20f;
-							health_extra = 635.00f;
-							stability_base = 80.00f;
-							stability = 350.00f;
+							mass = 4.50f;
+							robustness *= 1.50f;
+							size *= 0.70f;
+							health_extra = 335.00f;
+							stability_base = 120.00f;
+							stability = 450.00f;
 						}
 						break;
 
 						case 4:
 						{
-							mass = 1.50f;
-							robustness *= 1.40f;
-							size *= 1.70f;
-							health_extra = 325.00f;
-							stability_base = 50.00f;
-							stability = 160.00f;
+							mass = 4.00f;
+							robustness *= 1.50f;
+							size *= 0.70f;
+							health_extra = 255.00f;
+							stability_base = 170.00f;
+							stability = 400.00f;
 						}
 						break;
 
 						case 5:
 						{
-							mass = 3.60f;
-							robustness *= 3.30f;
-							size *= 1.30f;
-							health_extra = 835.00f;
-							stability_base = 120.00f;
-							stability = 250.00f;
+							mass = 9.50f;
+							robustness *= 2.00f;
+							size *= 1.20f;
+							health_extra = 935.00f;
+							stability_base = 520.00f;
+							stability = 950.00f;
 						}
 						break;
 
 						case 6:
 						{
-							mass = 1.70f;
-							robustness *= 1.40f;
-							size *= 1.20f;
-							health_extra = 135.00f;
+							mass = 7.50f;
+							robustness *= 1.50f;
+							size *= 0.80f;
+							health_extra = 435.00f;
 							stability_base = 50.00f;
-							stability = 245.00f;
+							stability = 945.00f;
 						}
 						break;
 
 						case 7:
 						{
-							mass = 3.10f;
-							robustness *= 2.50f;
-							size *= 0.90f;
-							health_extra = 135.00f;
-							stability_base = 10.00f;
-							stability = 395.00f;
+							mass = 10.50f;
+							robustness *= 1.30f;
+							size *= 1.50f;
+							health_extra = 735.00f;
+							stability_base = 450.00f;
+							stability = 295.00f;
 						}
 						break;
 
 						case 8:
 						{
-							mass = 1.80f;
+							mass = 15.75f;
+							robustness *= 1.80f;
+							size *= 1.80f;
+							health_extra = 1235.00f;
+							stability_base = 500.00f;
+							stability = 935.00f;
+						}
+						break;
+
+						case 9:
+						{
+							mass = 9.20f;
+							robustness *= 1.10f;
+							size *= 2.10f;
+							health_extra = 1835.00f;
+							stability_base = 400.00f;
+							stability = 835.00f;
+						}
+						break;
+
+						case 10:
+						{
+							mass = 7.90f;
+							robustness *= 1.00f;
+							size *= 1.30f;
+							health_extra = 535.00f;
+							stability_base = 500.00f;
+							stability = 735.00f;
+						}
+						break;
+
+						case 11:
+						{
+							mass = 12.00f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							health_extra = 535.00f;
+							stability_base = 200.00f;
+							stability = 135.00f;
+						}
+						break;
+
+						case 12:
+						{
+							mass = 11.50f;
+							robustness *= 1.80f;
+							size *= 1.15f;
+							health_extra = 1235.00f;
+							stability_base = 500.00f;
+							stability = 835.00f;
+						}
+						break;
+
+						case 13:
+						{
+							mass = 15.75f;
+							robustness *= 1.90f;
+							size *= 1.20f;
+							health_extra = 1435.00f;
+							stability_base = 200.00f;
+							stability = 1435.00f;
+						}
+						break;
+
+						case 14:
+						{
+							mass = 21.75f;
+							robustness *= 1.70f;
+							size *= 2.00f;
+							health_extra = 1735.00f;
+							stability_base = 500.00f;
+							stability = 2235.00f;
+						}
+						break;
+
+						case 15:
+						{
+							mass = 13.75f;
 							robustness *= 1.50f;
 							size *= 1.80f;
 							health_extra = 535.00f;
@@ -2842,7 +3094,7 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())

@@ -39,7 +39,7 @@
 		failure_base: 0.000
 		failure_mult: 1.200
 		
-		stability_base: 7550.000
+		stability_base: 6550.000
 		stability_mult: 1.000
 		
 		prefab: "projectile.shell.incendiary"

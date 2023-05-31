@@ -39,7 +39,7 @@
 		failure_base: 0.010
 		failure_mult: 1.000
 		
-		stability_base: 8550.000
+		stability_base: 7250.000
 		stability_mult: 1.000
 		
 		prefab: "projectile.shell"
