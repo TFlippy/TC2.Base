@@ -1,0 +1,34 @@
+{
+	name: "Smirglum Plate"
+	description:
+		'''
+		Smirglum formed into a plate.
+		'''
+	
+	icon:
+	{
+		texture: "resource.smirglum.plate"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, metal
+	mass_per_unit: 0.950
+	quantity_max: 100.000
+	prefab: "resource.smirglum.plate"
+	
+	specific_heat: 45.500
+	thermal_conductivity: 0.800
+	
+	commodity:
+	{
+		categories: metals, components, construction_materials, industrial
+		market_price: 18.000
+	}
+}

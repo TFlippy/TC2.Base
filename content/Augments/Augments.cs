@@ -1795,7 +1795,7 @@ namespace TC2.Base
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.casing.steel",
-				category: "Misc",
+				category: "Structure",
 				name: "Steel Casing",
 				description: "TODO: Desc",
 
@@ -1805,31 +1805,6 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				//draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				//{
-				//	ref var offset = ref handle.GetData<Vector2>();
-				//	ref var modifier = ref handle.GetModifier();
-
-				//	var dirty = false;
-
-				//	dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
-				//	GUI.SameLine();
-				//	dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
-
-				//	return dirty;
-				//},
-
-				//generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				//{
-				//	ref var offset = ref handle.GetData<Vector2>();
-				//	ref var modifier = ref handle.GetModifier();
-				//	var type = Maths.LerpInt(0, 9, modifier);
-
-				//	var sprite = new Sprite("augment.casing.steel", 24, 16, (uint)type, 0);
-
-				//	draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
-				//},
-
 				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
@@ -1837,7 +1812,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
@@ -1852,7 +1827,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.casing.steel", 16, 16, (uint)type, 0);
 
@@ -1864,7 +1839,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var mass = 1.50f;
 					var robustness = 1.00f;
@@ -2011,10 +1986,11 @@ namespace TC2.Base
 						armor.integrity_modifier += 0.10f * mass_ratio * size;
 						armor.durability_modifier += 0.10f * mass_ratio * robustness;
 						armor.toughness += 200.00f * mass_ratio;
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("steel.ingot");
+					var h_material = new IMaterial.Handle("steel.plate");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -2029,59 +2005,13 @@ namespace TC2.Base
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.casing.steel.large",
-				category: "Misc",
+				category: "Structure",
 				name: "Steel Casing (Large)",
 				description: "TODO: Desc",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return augments.GetCount(handle) < 8;
-				},
-
-#if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					ref var modifier = ref handle.GetModifier();
-
-					var dirty = false;
-
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
-					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
-
-					return dirty;
-				},
-
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
-				{
-					ref var offset = ref handle.GetData<Vector2>();
-					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 15, modifier);
-
-					var sprite = new Sprite("augment.casing.large.steel", 48, 24, (uint)type, 0);
-					sprite.count = 4;
-
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f));
-				},
-#endif
-
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-
-				}
-			));
-
-			definitions.Add(Augment.Definition.New<Body.Data>
-			(
-				identifier: "body.framework.steel",
-				category: "Misc",
-				name: "Steel Framework",
-				description: "TODO: Desc",
-
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
-				{
-					return augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
@@ -2109,6 +2039,55 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 9, modifier);
 
+					var sprite = new Sprite("augment.casing.steel.large", 24, 24, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.framework.steel",
+				category: "Structure",
+				name: "Steel Framework",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
 					var sprite = new Sprite("augment.framework.steel", 16, 16, (uint)type, 0);
 
 					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
@@ -2119,7 +2098,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var mass = 1.50f;
 					var robustness = 1.00f;
@@ -2262,6 +2241,7 @@ namespace TC2.Base
 					{
 						armor.integrity_modifier += 0.10f * mass_ratio;
 						armor.toughness += 120.00f * mass_ratio * size;
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 					}
 
 					var h_material = new IMaterial.Handle("steel.ingot");
@@ -2279,7 +2259,7 @@ namespace TC2.Base
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
 				identifier: "body.framework.steel.large",
-				category: "Misc",
+				category: "Structure",
 				name: "Steel Framework (Large)",
 				description: "TODO: Desc",
 
@@ -2296,9 +2276,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2307,12 +2291,11 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 15, modifier);
+					var type = Maths.LerpInt(0, 9, modifier);
 
-					var sprite = new Sprite("augment.framework.large.steel", 48, 24, (uint)type, 0);
-					sprite.count = 4;
+					var sprite = new Sprite("augment.framework.steel.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -2329,9 +2312,9 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "body.plating.scrap.large",
-				category: "Misc",
-				name: "Scrap Plating (Large)",
+				identifier: "body.casing.scrap",
+				category: "Structure",
+				name: "Scrap Casing",
 				description: "TODO: Desc",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2347,9 +2330,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2360,10 +2347,219 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 15, modifier);
 
-					var sprite = new Sprite("augment.plating.large.scrap", 48, 24, (uint)type, 0);
-					sprite.count = 4;
+					var sprite = new Sprite("augment.casing.scrap", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var mass = 1.50f;
+					var robustness = 1.00f;
+					var size = 1.00f;
+					var health_extra = 100.00f;
+					var stability_base = 0.00f;
+					var stability = 0.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							mass = 1.10f;
+							robustness *= 1.50f;
+							size *= 0.80f;
+							health_extra = 335.00f;
+							stability_base = 50.00f;
+							stability = 195.00f;
+						}
+						break;
+
+						case 1:
+						{
+							mass = 1.30f;
+							robustness *= 1.60f;
+							size *= 1.10f;
+							health_extra = 225.00f;
+							stability_base = 10.00f;
+							stability = 180.00f;
+						}
+						break;
+
+						case 2:
+						{
+							mass = 0.85f;
+							robustness *= 1.30f;
+							size *= 1.00f;
+							health_extra = 125.00f;
+							stability_base = 30.00f;
+							stability = 150.00f;
+						}
+						break;
+
+						case 3:
+						{
+							mass = 3.10f;
+							robustness *= 2.50f;
+							size *= 1.20f;
+							health_extra = 635.00f;
+							stability_base = 80.00f;
+							stability = 350.00f;
+						}
+						break;
+
+						case 4:
+						{
+							mass = 1.50f;
+							robustness *= 1.40f;
+							size *= 1.70f;
+							health_extra = 325.00f;
+							stability_base = 50.00f;
+							stability = 160.00f;
+						}
+						break;
+
+						case 5:
+						{
+							mass = 3.60f;
+							robustness *= 3.30f;
+							size *= 1.30f;
+							health_extra = 835.00f;
+							stability_base = 120.00f;
+							stability = 250.00f;
+						}
+						break;
+
+						case 6:
+						{
+							mass = 1.70f;
+							robustness *= 1.40f;
+							size *= 1.20f;
+							health_extra = 135.00f;
+							stability_base = 50.00f;
+							stability = 245.00f;
+						}
+						break;
+
+						case 7:
+						{
+							mass = 3.10f;
+							robustness *= 2.50f;
+							size *= 0.90f;
+							health_extra = 135.00f;
+							stability_base = 10.00f;
+							stability = 395.00f;
+						}
+						break;
+
+						case 8:
+						{
+							mass = 1.80f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							health_extra = 535.00f;
+							stability_base = 200.00f;
+							stability = 135.00f;
+						}
+						break;
+					}
+
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (gun.IsNotNull())
+					{
+						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+
+						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
+						//gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+
+						gun.reload_interval += size * 0.10f * mult_receiver;
+
+						//ref var holdable = ref context.GetComponent<Holdable.Data>();
+						//if (holdable.IsNotNull())
+						//{
+						//	if (offset.Y >= gun.muzzle_offset.Y) holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+						//	if (offset.X <= gun.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - gun.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * mass_ratio * size * 0.40f);
+						//}
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (health.IsNotNull())
+					{
+						health.max += health_extra;
+						health.max *= Maths.Mulpo(0.15f, mass_ratio);
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f) + 25.00f;
+						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f);
+						armor.pain_modifier *= 1.15f;
+						armor.integrity_modifier *= 0.95f;
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
+					}
+
+					var h_material = new IMaterial.Handle("scrap");
+
+					ref var material = ref h_material.GetData();
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+					}
+
+					context.mass_new += mass;
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.casing.scrap.large",
+				category: "Structure",
+				name: "Scrap Casing (Large)",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 8;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 9, modifier);
+
+					var sprite = new Sprite("augment.casing.scrap.large", 24, 24, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -2376,6 +2572,7 @@ namespace TC2.Base
 						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f);
 						armor.pain_modifier *= 1.15f;
 						armor.integrity_modifier *= 0.95f;
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
 					}
 
 					ref var health = ref context.GetComponent<Health.Data>();
@@ -2489,9 +2686,219 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
-				identifier: "body.plating.smirglum.large",
-				category: "Misc",
-				name: "Smirglum Plating (Large)",
+				identifier: "body.casing.smirglum",
+				category: "Structure",
+				name: "Smirglum Casing",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var sprite = new Sprite("augment.casing.smirglum", 16, 16, (uint)type, 0);
+
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var mass = 1.50f;
+					var robustness = 1.00f;
+					var size = 1.00f;
+					var health_extra = 100.00f;
+					var stability_base = 0.00f;
+					var stability = 0.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							mass = 1.10f;
+							robustness *= 1.50f;
+							size *= 0.80f;
+							health_extra = 335.00f;
+							stability_base = 50.00f;
+							stability = 195.00f;
+						}
+						break;
+
+						case 1:
+						{
+							mass = 1.30f;
+							robustness *= 1.60f;
+							size *= 1.10f;
+							health_extra = 225.00f;
+							stability_base = 10.00f;
+							stability = 180.00f;
+						}
+						break;
+
+						case 2:
+						{
+							mass = 0.85f;
+							robustness *= 1.30f;
+							size *= 1.00f;
+							health_extra = 125.00f;
+							stability_base = 30.00f;
+							stability = 150.00f;
+						}
+						break;
+
+						case 3:
+						{
+							mass = 3.10f;
+							robustness *= 2.50f;
+							size *= 1.20f;
+							health_extra = 635.00f;
+							stability_base = 80.00f;
+							stability = 350.00f;
+						}
+						break;
+
+						case 4:
+						{
+							mass = 1.50f;
+							robustness *= 1.40f;
+							size *= 1.70f;
+							health_extra = 325.00f;
+							stability_base = 50.00f;
+							stability = 160.00f;
+						}
+						break;
+
+						case 5:
+						{
+							mass = 3.60f;
+							robustness *= 3.30f;
+							size *= 1.30f;
+							health_extra = 835.00f;
+							stability_base = 120.00f;
+							stability = 250.00f;
+						}
+						break;
+
+						case 6:
+						{
+							mass = 1.70f;
+							robustness *= 1.40f;
+							size *= 1.20f;
+							health_extra = 135.00f;
+							stability_base = 50.00f;
+							stability = 245.00f;
+						}
+						break;
+
+						case 7:
+						{
+							mass = 3.10f;
+							robustness *= 2.50f;
+							size *= 0.90f;
+							health_extra = 135.00f;
+							stability_base = 10.00f;
+							stability = 395.00f;
+						}
+						break;
+
+						case 8:
+						{
+							mass = 1.80f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							health_extra = 535.00f;
+							stability_base = 200.00f;
+							stability = 135.00f;
+						}
+						break;
+					}
+
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (gun.IsNotNull())
+					{
+						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+
+						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
+						//gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+
+						gun.reload_interval += size * 0.10f * mult_receiver;
+
+						//ref var holdable = ref context.GetComponent<Holdable.Data>();
+						//if (holdable.IsNotNull())
+						//{
+						//	if (offset.Y >= gun.muzzle_offset.Y) holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+						//	if (offset.X <= gun.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - gun.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * mass_ratio * size * 0.40f);
+						//}
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (health.IsNotNull())
+					{
+						health.max += health_extra;
+						health.max *= Maths.Mulpo(0.15f, mass_ratio);
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.integrity_modifier += 0.10f * mass_ratio * size;
+						armor.durability_modifier += 0.10f * mass_ratio * robustness;
+						armor.toughness += 200.00f * mass_ratio;
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
+						//armor.protection 
+					}
+
+					var h_material = new IMaterial.Handle("smirglum.ingot");
+
+					ref var material = ref h_material.GetData();
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+					}
+
+					context.mass_new += mass;
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
+				identifier: "body.casing.smirglum.large",
+				category: "Structure",
+				name: "Smirglum Casing (Large)",
 				description: "TODO: Desc",
 
 				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2507,9 +2914,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2518,12 +2929,11 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 15, modifier);
+					var type = Maths.LerpInt(0, 9, modifier);
 
-					var sprite = new Sprite("augment.plating.large.smirglum", 48, 24, (uint)type, 0);
-					sprite.count = 4;
+					var sprite = new Sprite("augment.casing.smirglum.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -2532,6 +2942,9 @@ namespace TC2.Base
 
 				}
 			));
+
+
+
 
 			definitions.Add(Augment.Definition.New<SteamEngine.Data>
 			(

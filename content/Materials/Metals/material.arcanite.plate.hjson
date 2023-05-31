@@ -1,0 +1,34 @@
+{
+	name: "Arcanite Plate"
+	description:
+		'''
+		Arcanite formed into a plate.
+		'''
+	
+	icon:
+	{
+		texture: "resource.arcanite.plate"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, metal
+	mass_per_unit: 0.826
+	quantity_max: 100.000
+	prefab: "resource.arcanite.plate"
+	
+	specific_heat: 52.758
+	thermal_conductivity: 0.617
+	
+	commodity:
+	{
+		categories: metals, components, construction_materials, industrial
+		market_price: 48.000
+	}
+}

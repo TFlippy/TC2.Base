@@ -1,0 +1,34 @@
+{
+	name: "Recondite Plate"
+	description:
+		'''
+		Recondite formed into a plate.
+		'''
+	
+	icon:
+	{
+		texture: "resource.recondite.plate"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, metal
+	mass_per_unit: 0.769
+	quantity_max: 100.000
+	prefab: "resource.recondite.plate"
+	
+	specific_heat: 66.596
+	thermal_conductivity: 0.692
+	
+	commodity:
+	{
+		categories: metals, components, construction_materials, industrial
+		market_price: 22.000
+	}
+}

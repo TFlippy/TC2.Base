@@ -2,7 +2,7 @@
 	name: "Hyperbobus"
 	description:
 		'''
-		Heavy AC-caliber shotgun.
+		Heavy AC-caliber shotgun. Not intended for human use.
 		'''
 	
 	flags: none
@@ -32,12 +32,6 @@
 			data: 0
 		}
 		{
-			identifier: "gun.extra_barrel"
-			flags: none
-			modifier: 0.000
-			data: 1
-		}
-		{
 			identifier: "gun.automatic_reloading"
 			flags: none
 			modifier: 0.000
@@ -45,6 +39,60 @@
 		}
 		{
 			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 0.325
+			data: 4503599630558167040
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.500
+			data: 4467570833547591680
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "body.lamp"
+			flags: mirror_y
+			modifier: 0.375
+			data: 4503599628429557760
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.600
+			data: 4467570833555980288
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.400
+			data: 4467570833539203072
+		}
+		{
+			identifier: "gun.improved_ammo_loading"
 			flags: none
 			modifier: 0.000
 			data: 0
@@ -56,58 +104,10 @@
 			data: 0
 		}
 		{
-			identifier: "gun.gas_operation"
+			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
+			data: 1082130432
 		}
 	]
 }
