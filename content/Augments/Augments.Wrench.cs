@@ -43,6 +43,12 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var wrench = ref context.GetOrAddComponent<Wrench.Data>();
+					
+					ref var interactable = ref context.GetOrAddComponent<Interactable.Data>();
+					if (interactable.IsNotNull())
+					{
+						interactable.window_size = Vector2.Max(interactable.window_size, new Vector2(422, 500));
+					}
 				},
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

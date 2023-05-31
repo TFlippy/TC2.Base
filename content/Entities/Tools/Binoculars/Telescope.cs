@@ -56,35 +56,32 @@
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
 		{
-			if (player.IsLocal())
+			var gui = new TelescopeGUI()
 			{
-				var gui = new TelescopeGUI()
-				{
-					entity = entity,
-					transform = transform,
-					telescope = telescope,
-					control = control
-				};
-				gui.Submit();
-			}
+				entity = entity,
+				transform = transform,
+				telescope = telescope,
+				control = control
+			};
+			gui.Submit();
 		}
 #endif
 
-//#if CLIENT
-//		[ISystem.Update(ISystem.Mode.Single)]
-//		public static void OnUpdate(ISystem.Info info, Entity entity,
-//		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
-//		{
-//			//App.WriteLine("test");
+		//#if CLIENT
+		//		[ISystem.Update(ISystem.Mode.Single)]
+		//		public static void OnUpdate(ISystem.Info info, Entity entity,
+		//		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
+		//		{
+		//			//App.WriteLine("test");
 
-//			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
-//			if (control.keyboard.GetKey(Keyboard.Key.Reload))
-//			{
-//				telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.10f);
-//				//telescope.Sync(entity, true);
-//			}
-//		}
-//#endif
+		//			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift) && control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+		//			if (control.keyboard.GetKey(Keyboard.Key.Reload))
+		//			{
+		//				telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.10f);
+		//				//telescope.Sync(entity, true);
+		//			}
+		//		}
+		//#endif
 
 #if CLIENT
 		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
@@ -92,43 +89,35 @@
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player, [Source.Global] ref Camera.Global camera)
 		{
-			if (player.IsLocal())
+			var pos = transform.position + telescope.offset;
+			var dir = (control.mouse.position - pos).GetNormalized(out var len);
+			var dist = (pos - transform.position).Length();
+			var dist_clipped = MathF.Max(dist - telescope.deadzone, 0.00f);
+
+			camera.override_target_position = pos + (new Vector2(Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f, -Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier * 0.40f);
+
+			Maths.MinMax(telescope.min_distance, telescope.max_distance, out var min_distance, out var max_distance);
+			var t0 = Maths.NormalizeClamp(dist_clipped, min_distance);
+			var t1 = Maths.Clamp01(dist_clipped / (max_distance - min_distance));
+
+			camera.distance_modifier = Maths.Lerp(camera.distance_modifier, 0.00f, t0);
+			camera.zoom_min = Maths.Lerp(camera.zoom_min, telescope.zoom_min, t1);
+			camera.zoom_max = Maths.Lerp(camera.zoom_max, telescope.zoom_max, t1);
+
+			len = MathF.Max(len - telescope.deadzone, 0.00f);
+
+			if (len > telescope.deadzone && control.mouse.GetKey(Mouse.Key.Right))
 			{
-				var pos = transform.position + telescope.offset;
-				var dir = (control.mouse.position - pos).GetNormalized(out var len);
-				var dist = (pos - transform.position).Length();
-				var dist_clipped = MathF.Max(dist - telescope.deadzone, 0.00f);
-
-				camera.override_target_position = pos + (new Vector2(Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f, -Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier * 0.40f);
-
-				Maths.MinMax(telescope.min_distance, telescope.max_distance, out var min_distance, out var max_distance);
-				var t0 = Maths.NormalizeClamp(dist_clipped, min_distance);
-				var t1 = Maths.Clamp01(dist_clipped / (max_distance - min_distance));
-
-				camera.distance_modifier = Maths.Lerp(camera.distance_modifier, 0.00f, t0);
-				camera.zoom_min = Maths.Lerp(camera.zoom_min, telescope.zoom_min, t1);
-				camera.zoom_max = Maths.Lerp(camera.zoom_max, telescope.zoom_max, t1);
-
-				len = MathF.Max(len - telescope.deadzone, 0.00f);
-
-				if (len > telescope.deadzone && control.mouse.GetKey(Mouse.Key.Right))
-				{
-					telescope.offset += dir * (telescope.speed * len * App.fixed_update_interval_s);
-				}
-				else if (control.keyboard.GetKey(Keyboard.Key.Reload))
-				{
-					telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.02f);
-					//telescope.Sync(entity, true);
-				}
-
-				telescope.offset += (new Vector2(Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f, Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier) * 0.07f;
-
-				
-
-				telescope.offset = telescope.offset.ClampRadius(Vector2.Zero, max_distance);
-
-
+				telescope.offset += dir * (telescope.speed * len * App.fixed_update_interval_s);
 			}
+			else if (control.keyboard.GetKey(Keyboard.Key.Reload))
+			{
+				telescope.offset = Vector2.Lerp(telescope.offset, Vector2.Zero, 0.02f);
+				//telescope.Sync(entity, true);
+			}
+
+			telescope.offset += (new Vector2(Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f, Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier) * 0.07f;
+			telescope.offset = telescope.offset.ClampRadius(Vector2.Zero, max_distance);
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single)]

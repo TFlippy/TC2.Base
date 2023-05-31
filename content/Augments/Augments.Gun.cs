@@ -132,13 +132,8 @@ namespace TC2.Base
 					}
 
 					data.max_ammo += amount;
-
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						context.mass_new += mass * 0.50f;
-					}
-
+					context.mass_new += mass * 0.50f;
+					
 					return true;
 				},
 
@@ -1003,6 +998,7 @@ namespace TC2.Base
 				category: "Gun (Frame)",
 				name: "Recoil Reduction",
 				description: "Reduces recoil.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2951,10 +2947,10 @@ namespace TC2.Base
 						melee.category = Melee.Category.Pointed;
 						melee.cooldown = 1.00f;
 						melee.damage_base = 125.00f;
-						melee.damage_bonus = 250.00f;
+						melee.damage_bonus = 350.00f;
 						melee.damage_type = Damage.Type.Stab;
-						melee.knockback = 2.00f;
-						melee.max_distance = 1.30f;
+						melee.knockback = 75.00f;
+						melee.max_distance = 1.90f;
 						melee.sound_swing = "tool_swing_00";
 						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
 						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
@@ -3138,8 +3134,8 @@ namespace TC2.Base
 						melee.damage_base = 275.00f;
 						melee.damage_bonus = 125.00f;
 						melee.damage_type = Damage.Type.Axe;
-						melee.knockback = 2.50f;
-						melee.max_distance = 2.00f;
+						melee.knockback = 100.00f;
+						melee.max_distance = 1.30f;
 						melee.sound_swing = "tool_swing_00";
 						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
 						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;

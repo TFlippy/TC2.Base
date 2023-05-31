@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 
 							var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
 							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
-							
+
 							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
 							static void Func(ref Tile tile, int x, int y, byte mask, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args)
 							{
@@ -131,18 +131,15 @@ namespace TC2.Base.Components
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] in ProspectorPick.Data prospector_pick, [Source.Owned] in ProspectorPick.State prospector_pick_state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
 		{
-			if (player.IsLocal())
+			var gui = new ProspectorPickGUI()
 			{
-				var gui = new ProspectorPickGUI()
-				{
-					ent_pick = entity,
-					transform = transform,
-					control = control,
-					prospector_pick = prospector_pick,
-					prospector_pick_state = prospector_pick_state
-				};
-				gui.Submit();
-			}
+				ent_pick = entity,
+				transform = transform,
+				control = control,
+				prospector_pick = prospector_pick,
+				prospector_pick_state = prospector_pick_state
+			};
+			gui.Submit();
 		}
 #endif
 

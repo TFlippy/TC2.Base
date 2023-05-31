@@ -95,14 +95,11 @@ namespace TC2.Base.Components
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Morphine.Effect morphine)
 		{
-			if (player.IsLocal())
-			{
-				var modifier = MathF.Pow(morphine.modifier_current, 1.10f);
+			var modifier = MathF.Pow(morphine.modifier_current, 1.10f);
 
-				camera.damp_modifier /= 1.00f + (modifier * 1.40f);
+			camera.damp_modifier /= 1.00f + (modifier * 1.40f);
 
-				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 1.25f, 0.00f, 0.95f));
-			}
+			Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 1.25f, 0.00f, 0.95f));
 		}
 #endif
 	}

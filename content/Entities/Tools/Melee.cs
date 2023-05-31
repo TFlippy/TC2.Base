@@ -599,7 +599,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (player.IsLocal() && !GUI.IsHovered)
+			if (!GUI.IsHovered)
 			{
 				var parent = body.GetParent();
 

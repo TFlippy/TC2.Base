@@ -848,7 +848,13 @@ namespace TC2.Base
 
 					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 7, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					//GUI.SameLine();
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 
@@ -872,7 +878,8 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.lamp", 16, 16, (byte)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					//draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -890,7 +897,7 @@ namespace TC2.Base
 						ref var light = ref context.GetOrAddTrait<Lamp.Data, Light.Data>();
 						if (light.IsNotNull())
 						{
-							var scale = new Vector2(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f);
+							var scale = new Vector2(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f);
 
 							switch (type)
 							{
@@ -956,10 +963,10 @@ namespace TC2.Base
 
 								case 6:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
-									light.offset = offset + new Vector2(4.00f * scale.X, 0.00f);
-									light.scale = new(20 * scale.X, 16);
-									light.intensity = 1.00f;
+									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.50f);
+									light.offset = offset + new Vector2(3.250f * scale.X, 0.000f);
+									light.scale = new(13 * scale.X, 8);
+									light.intensity = 1.000f;
 									light.texture = Light.tex_light_cone_00;
 								}
 								break;

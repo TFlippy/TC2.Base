@@ -620,12 +620,13 @@ namespace TC2.Base.Components
 			{
 				var window_size = new Vector2(422, 500);
 
-				using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
+				//using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
+				using (var window = GUI.Window.Interaction("Wrench", this.ent_wrench, padding: new(8, 8), no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						GUI.DrawWindowBackground(GUI.tex_window_menu, new Vector4(8, 8, 8, 8));
+						//GUI.DrawWindowBackground(GUI.tex_window_menu, new Vector4(8, 8, 8, 8));
 
 						ref var region = ref Client.GetRegion();
 
@@ -697,10 +698,10 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
-		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
+		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
-			if (player.IsLocal())
+			if (interactable.show)
 			{
 				var gui = new WrenchGUI()
 				{
@@ -717,7 +718,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
 		{
-			if (player.IsLocal() && wrench.selected_component_id == ECS.GetID<T>())
+			if (wrench.selected_component_id == ECS.GetID<T>())
 			{
 				var gui = new WrenchModeGUI<T>()
 				{

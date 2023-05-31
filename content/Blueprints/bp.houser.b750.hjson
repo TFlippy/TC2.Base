@@ -1,8 +1,8 @@
 {
-	name: "Houser A-750"
+	name: "Houser B-750"
 	description:
 		'''
-		Small high-caliber semi-automatic handgun with a bayonet.
+		Special model of Houser-A750 intended for construction workers.
 		'''
 	
 	flags: none
@@ -44,6 +44,12 @@
 			data: 1065353216
 		}
 		{
+			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
 			identifier: "body.casing.steel"
 			flags: none
 			modifier: 0.500
@@ -56,16 +62,28 @@
 			data: 13690942869353791488
 		}
 		{
-			identifier: "gun.bayonet"
+			identifier: "holdable.wrench"
 			flags: none
 			modifier: 0.000
-			data: 4521614028027461632
+			data: 13690942868269563904
 		}
 		{
-			identifier: "gun.tempered_frame"
+			identifier: "wrench.build"
 			flags: none
 			modifier: 0.000
-			data: 13690942869353791488
+			data: 0
+		}
+		{
+			identifier: "wrench.deconstruct"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "wrench.belts"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 		{
 			identifier: "body.framework.steel"
@@ -77,37 +95,19 @@
 			identifier: "holdable.grip.friction"
 			flags: none
 			modifier: 0.000
-			data: 1064849899
+			data: 1064682127
 		}
 		{
-			identifier: "undefined"
+			identifier: "gun.tempered_frame"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 13690942869353791488
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.lamp"
 			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
+			modifier: 0.750
+			data: 13744986065939202048
 		}
 	]
 }

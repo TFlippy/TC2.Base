@@ -540,18 +540,15 @@
 		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
 		{
-			if (player.IsLocal())
+			var gui = new HoldGUI()
 			{
-				var gui = new HoldGUI()
-				{
-					transform = transform,
-					world_position_target = control.mouse.position,
-					gun_state = state,
-					inventory = inventory,
-					gun = gun
-				};
-				gui.Submit();
-			}
+				transform = transform,
+				world_position_target = control.mouse.position,
+				gun_state = state,
+				inventory = inventory,
+				gun = gun
+			};
+			gui.Submit();
 		}
 
 		// TODO: Shithack

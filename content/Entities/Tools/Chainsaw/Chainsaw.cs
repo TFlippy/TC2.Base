@@ -88,28 +88,25 @@ namespace TC2.Base.Components
 		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, ref Region.Data region, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
-			if (player.IsLocal())
+			var dir = transform.GetDirection();
+			var len = (control.mouse.position - transform.position).Length();
+			var hit_position = transform.position + (dir * Maths.Clamp(len, 0.25f, chainsaw.max_distance));
+
+			var gui = new ChainsawGUI()
 			{
-				var dir = transform.GetDirection();
-				var len = (control.mouse.position - transform.position).Length();
-				var hit_position = transform.position + (dir * Maths.Clamp(len, 0.25f, chainsaw.max_distance));
+				entity = entity,
+				transform = transform,
+				chainsaw = chainsaw,
+				world_position = hit_position,
+				valid = true
+			};
 
-				var gui = new ChainsawGUI()
-				{
-					entity = entity,
-					transform = transform,
-					chainsaw = chainsaw,
-					world_position = hit_position,
-					valid = true
-				};
-
-				if (region.TryLinecast(transform.position, hit_position, chainsaw.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
-				{
-					gui.world_position = hit.world_position;
-				}
-
-				gui.Submit();
+			if (region.TryLinecast(transform.position, hit_position, chainsaw.radius, out var hit, mask: Physics.Layer.World, query_flags: Physics.QueryFlag.Static))
+			{
+				gui.world_position = hit.world_position;
 			}
+
+			gui.Submit();
 		}
 #endif
 

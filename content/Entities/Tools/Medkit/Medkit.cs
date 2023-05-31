@@ -90,17 +90,14 @@
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Medkit.Data medkit, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
 		{
-			if (player.IsLocal())
+			var gui = new MedkitGUI()
 			{
-				var gui = new MedkitGUI()
-				{
-					entity = entity,
-					transform = transform,
-					medkit = medkit,
-					control = control
-				};
-				gui.Submit();
-			}
+				entity = entity,
+				transform = transform,
+				medkit = medkit,
+				control = control
+			};
+			gui.Submit();
 		}
 #endif
 
