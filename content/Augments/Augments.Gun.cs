@@ -133,7 +133,7 @@ namespace TC2.Base
 
 					data.max_ammo += amount;
 					context.mass_new += mass * 0.50f;
-					
+
 					return true;
 				},
 
@@ -3283,7 +3283,7 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 15));
 					}
 
-					context.mass_new += extra_mass;				
+					context.mass_new += extra_mass;
 				}
 			));
 
@@ -3296,9 +3296,9 @@ namespace TC2.Base
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var amount = ref handle.GetData<Vector2>();
-					amount.X = Maths.Clamp(amount.X, 1.00f, 4.00f);
-					amount.Y = Maths.Clamp(amount.Y, -2.00f, 2.00f);
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X = Maths.Clamp(offset.X, -0.375f, data.muzzle_offset.X - 0.250f);
+					offset.Y = Maths.Clamp(offset.Y, -0.125f, 0.250f);
 
 					return true;
 				},
@@ -3309,43 +3309,308 @@ namespace TC2.Base
 				},
 
 #if CLIENT
+				//draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//{
+				//	ref var value = ref handle.GetData<Vector2>();
+				//	var dirty = false;
+
+				//	var size = GUI.GetRemainingSpace();
+
+				//	dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
+				//	GUI.SameLine();
+				//	dirty |= GUI.SliderFloat("Adjustment", ref value.Y, -2.00f, 2.00f, snap: 0.01f, size: new(size.X * 0.50f, size.Y));
+
+				//	return dirty;
+				//},
+
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var value = ref handle.GetData<Vector2>();
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
 					var dirty = false;
-
-					var size = GUI.GetRemainingSpace();
-
-					dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.SliderFloat("Adjustment", ref value.Y, -2.00f, 2.00f, snap: 0.01f, size: new(size.X * 0.50f, size.Y));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(-0.375f, -0.125f), max: new Vector2(context.rect.b.X, 0.250f));
 
 					return dirty;
 				},
-#endif
 
-				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
-					ref var value = ref handle.GetData<Vector2>();
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
 
-					//var mass = context.base_mass;
+					var frame_y = 0u;
 
-					//ref var body = ref context.GetComponent<Body.Data>();
-					//if (!body.IsNull())
-					//{
-					//	mass += body.mass_extra;
-					//}
-
-					ref var recoil_compensator = ref context.GetOrAddComponent<RecoilCompensator.Data>();
-					if (!recoil_compensator.IsNull())
+					if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
 					{
-
+						frame_y = 0u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
+					{
+						frame_y = 1u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+					{
+						frame_y = 2u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+					{
+						frame_y = 3u;
 					}
 
-					data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+					var sprite = new Sprite("augment.compensator", 16, 16, (uint)type, frame_y);
 
-					context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", value.X));
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 15));
+					draw.DrawSprite(sprite, new Vector2(data.receiver_offset.X + 0.125f, data.muzzle_offset.Y + 0.125f) + offset, scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					var h_essence = new IEssence.Handle("motion");
+					ref var essence_data = ref h_essence.GetData();
+					if (essence_data.IsNotNull())
+					{
+						ref var offset = ref handle.GetData<Vector2>();
+						ref var modifier = ref handle.GetModifier();
+						var type = Maths.LerpInt(0, 3, modifier);
+
+						var mass_added = 0.00f;
+
+						//var mass = context.base_mass;
+
+						//ref var body = ref context.GetComponent<Body.Data>();
+						//if (!body.IsNull())
+						//{
+						//	mass += body.mass_extra;
+						//}
+
+						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+
+						var pellet_count = 0.00f;
+						var smirglum_count = 0.00f;
+
+						if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+						{
+							pellet_count = (1.00f + type) * 0.250f;
+							smirglum_count = (1.00f + type) * 0.50f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
+						{
+							pellet_count = (1.00f + type) * 1.00f;
+							smirglum_count = (1.00f + type) * 1.50f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+						{
+							pellet_count = (1.00f + type) * 3.00f;
+							smirglum_count = (1.00f + type) * 3.00f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+						{
+							pellet_count = (1.00f + type) * 5.00f;
+							smirglum_count = (1.00f + type) * 7.00f;
+						}
+
+						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
+						context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
+						context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
+
+						context.mass_new += mass_added;
+
+						var force = essence_data.force_emit * pellet_count;
+						var dist_mult = 1.00f / (1.00f + (Vector2.DistanceSquared(offset, new Vector2(0.125f, 0.125f)) * 10.00f));
+
+						ref var recoil_compensator = ref context.GetOrAddComponent<RecoilCompensator.Data>();
+						if (recoil_compensator.IsNotNull())
+						{
+							recoil_compensator.offset = data.receiver_offset + offset;
+							recoil_compensator.modifier = MathF.ReciprocalEstimate(1.00f + (type * 0.50f));
+							recoil_compensator.force = force * dist_mult;
+							//recoil_compensator.ratio = Maths.Normalize(Maths.Normalize(force * dist_mult, context.mass_new * 20.00f), data.recoil_multiplier);
+						}
+
+						ref var light = ref context.GetOrAddTrait<RecoilCompensator.Data, Light.Data>();
+						if (light.IsNotNull())
+						{
+							light.color = essence_data.color_emit;
+							light.offset = data.receiver_offset + offset - new Vector2(0.750f, 0.00f);
+							light.scale = new(2, 1);
+							light.intensity = 1.500f;
+							light.texture = Light.tex_light_box_00;
+						}
+
+						ref var holdable = ref context.GetComponent<Holdable.Data>();
+						if (holdable.IsNotNull())
+						{
+							//holdable.offset.X = Maths.Lerp(holdable.offset.X, data.receiver_offset.X + recoil_compensator.offset.X - 0.500f, 0.500f);
+						}
+
+						//data.recoil_multiplier -= Maths.Normalize(force * dist_mult, context.mass_new * 20.00f);
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.accelerator",
+				category: "Gun (Barrel)",
+				name: "ARC-MT Accelerator",
+				description: "Greatly increases projectile velocity, as well as recoil.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X, data.muzzle_offset.X);
+					offset.Y = Maths.Clamp(offset.Y, 0.000f, 0.000f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				//draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				//{
+				//	ref var value = ref handle.GetData<Vector2>();
+				//	var dirty = false;
+
+				//	var size = GUI.GetRemainingSpace();
+
+				//	dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
+				//	GUI.SameLine();
+				//	dirty |= GUI.SliderFloat("Adjustment", ref value.Y, -2.00f, 2.00f, snap: 0.01f, size: new(size.X * 0.50f, size.Y));
+
+				//	return dirty;
+				//},
+
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X, 0.000f), max: new Vector2(data.muzzle_offset.X, 0.000f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
+					var frame_y = 0u;
+
+					if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+					{
+						frame_y = 0u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
+					{
+						frame_y = 1u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+					{
+						frame_y = 2u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+					{
+						frame_y = 3u;
+					}
+
+					var sprite = new Sprite("augment.accelerator", 16, 16, (uint)type, frame_y);
+
+					draw.DrawSprite(sprite, offset, scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					var h_essence = new IEssence.Handle("motion");
+					ref var essence_data = ref h_essence.GetData();
+					if (essence_data.IsNotNull())
+					{
+						ref var offset = ref handle.GetData<Vector2>();
+						ref var modifier = ref handle.GetModifier();
+						var type = Maths.LerpInt(0, 3, modifier);
+
+						var mass_added = 0.00f;
+
+						//var mass = context.base_mass;
+
+						//ref var body = ref context.GetComponent<Body.Data>();
+						//if (!body.IsNull())
+						//{
+						//	mass += body.mass_extra;
+						//}
+
+						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+
+						var pellet_count = 0.00f;
+						var smirglum_count = 0.00f;
+
+						if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+						{
+							pellet_count = (1.00f + type) * 0.500f;
+							smirglum_count = (1.00f + type) * 0.75f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
+						{
+							pellet_count = (1.00f + type) * 2.00f;
+							smirglum_count = (1.00f + type) * 1.50f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+						{
+							pellet_count = (1.00f + type) * 8.00f;
+							smirglum_count = (1.00f + type) * 4.00f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+						{
+							pellet_count = (1.00f + type) * 15.00f;
+							smirglum_count = (1.00f + type) * 14.00f;
+						}
+
+						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
+						context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
+						context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
+						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
+
+						context.mass_new += mass_added;
+
+						var force = essence_data.force_emit * pellet_count;
+						var dist_mult = 1.00f / (1.00f + (Vector2.DistanceSquared(offset, new Vector2(data.receiver_offset.X + 0.125f, data.receiver_offset.Y + 0.125f)) * 10.00f));
+
+						ref var arcane_accelerator = ref context.GetOrAddComponent<ArcaneAccelerator.Data>();
+						if (arcane_accelerator.IsNotNull())
+						{
+							arcane_accelerator.offset = new Vector2(data.muzzle_offset.X - 0.125f, data.muzzle_offset.Y + 0.125f) + offset;
+						}
+
+						ref var light = ref context.GetOrAddTrait<ArcaneAccelerator.Data, Light.Data>();
+						if (light.IsNotNull())
+						{
+							light.color = essence_data.color_emit;
+							light.offset = new Vector2(data.muzzle_offset.X - 0.125f, data.muzzle_offset.Y + 0.125f) + offset - new Vector2(0.750f, 0.00f);
+							light.scale = new(2, 1);
+							light.intensity = 1.500f;
+							light.texture = Light.tex_light_box_00;
+						}
+
+						data.velocity_multiplier += MathF.Pow(100 * (1 + type), 1.15f);
+						data.recoil_multiplier += MathF.Pow((1 + type) * 0.75f, 0.75f);
+						data.damage_multiplier += MathF.Pow((1 + type) * 0.75f, 1.50f);
+
+						//data.recoil_multiplier -= Maths.Normalize(force * dist_mult, context.mass_new * 20.00f);
+					}
 				}
 			));
 		}

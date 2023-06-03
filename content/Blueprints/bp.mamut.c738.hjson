@@ -11,6 +11,7 @@
 	
 	prefab: "rifle"
 	recipe: "gunsmith.rifle"
+	seed: 0
 	
 	augments:
 	[
@@ -42,49 +43,25 @@
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 13692384018778030080
-		}
-		{
-			identifier: "body.casing.steel"
-			flags: none
-			modifier: 0.000
-			data: 9223372040061321216
-		}
-		{
-			identifier: "holdable.scope"
-			flags: none
-			modifier: 0.000
-			data: 13744986065930813440
-		}
-		{
-			identifier: "telescope.adjustable_optics"
-			flags: none
-			modifier: 0.000
-			data: 1065353216
-		}
-		{
-			identifier: "body.casing.steel"
-			flags: none
-			modifier: 0.800
 			data: 4467570831400108032
 		}
 		{
-			identifier: "body.framework.steel"
+			identifier: "undefined"
 			flags: none
 			modifier: 0.000
-			data: 4467570830351532032
+			data: 0
 		}
 		{
-			identifier: "body.casing.steel"
-			flags: mirror_y
-			modifier: 0.100
-			data: 9223372037911740416
-		}
-		{
-			identifier: "gun.tempered_frame"
+			identifier: "undefined"
 			flags: none
 			modifier: 0.000
-			data: 4467570833547591680
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 		{
 			identifier: "holdable.grip.friction"
@@ -93,22 +70,46 @@
 			data: 1069547520
 		}
 		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
+			identifier: "body.casing.steel"
+			flags: mirror_y
+			modifier: 0.100
+			data: 9223372037907546112
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.framework.steel"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 4467570832499015680
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.750
+			data: 9223372037903351808
+		}
+		{
+			identifier: "body.casing.steel"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 9223372036854775808
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 4467570833547591680
+		}
+		{
+			identifier: "holdable.scope"
+			flags: none
+			modifier: 0.000
+			data: 13744986065939202048
+		}
+		{
+			identifier: "telescope.adjustable_optics"
+			flags: none
+			modifier: 0.000
+			data: 1065017671
 		}
 	]
 }

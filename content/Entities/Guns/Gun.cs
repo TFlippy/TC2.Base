@@ -21,10 +21,16 @@
 		{
 			None = 0,
 
+			[Name("Automatic")]
 			Automatic = 1u << 0,
+
+			[Name("Full Reload")]
 			Full_Reload = 1u << 1,
 
+			[Name("Cycle on Shoot")]
 			Cycle_On_Shoot = 1u << 2,
+
+			[Name("Manual Cycle")]
 			Manual_Cycle = 1u << 3,
 
 			No_Particles = 1u << 4,
@@ -39,13 +45,21 @@
 		{
 			Undefined = 0,
 
+			[Name("Handgun")]
 			Handgun,
+			[Name("Shotgun")]
 			Shotgun,
+			[Name("SMG")]
 			SMG,
+			[Name("Rifle")]
 			Rifle,
+			[Name("Machine Gun")]
 			MachineGun,
+			[Name("Cannon")]
 			Cannon,
+			[Name("Autocannon")]
 			AutoCannon,
+			[Name("Launcher")]
 			Launcher
 		}
 

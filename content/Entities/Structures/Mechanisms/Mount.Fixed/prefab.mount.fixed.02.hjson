@@ -112,11 +112,6 @@ axle:
 		max_bias: 50.000
 	}
 
-	rotor:
-	{
-
-	}
-
 	attachment.slot:
 	{
 		radius: 1.000

@@ -10,6 +10,7 @@
 				category: "Protection",
 				name: "Smirglum-Reinforced Structure",
 				description: "Replaces entire structure with smirglum, greatly increasing durability and making it solid to essences.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -114,6 +115,7 @@
 				category: "Protection",
 				name: "Smirglum Plating",
 				description: "Reinforce the armor with smirglum plating, increasing its toughness, weight and making it solid to essences.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

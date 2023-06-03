@@ -1,0 +1,114 @@
+﻿{
+	name: "Mizitko"
+	description:
+		'''
+		Heavy ARC-MT personal cannon capable of firing AC ammunition.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "scattergun"
+	recipe: "gunsmith.scattergun"
+	seed: 1006107412198
+	
+	augments:
+	[
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.3125
+			data: 1048576000
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.4375
+			data: 13690942870406561792
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.875
+			data: 9223372037903351808
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.750
+			data: 9223372037903351808
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.750
+			data: 9223372040042446848
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

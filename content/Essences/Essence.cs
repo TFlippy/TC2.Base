@@ -1,7 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
-	[Asset.Hjson(prefix: "essence.", capacity_world: 0, capacity_region: 0, capacity_local: 0)]
+	[Asset.Hjson(prefix: "essence.", capacity_world: 0, capacity_region: 0, capacity_local: 0, order: -30)]
 	public interface IEssence: IAsset2<IEssence, IEssence.Data>
 	{
 		[Flags]

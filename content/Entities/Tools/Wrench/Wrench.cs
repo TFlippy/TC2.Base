@@ -621,7 +621,7 @@ namespace TC2.Base.Components
 				var window_size = new Vector2(422, 500);
 
 				//using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
-				using (var window = GUI.Window.Interaction("Wrench", this.ent_wrench, padding: new(8, 8), no_mouse_close: true))
+				using (var window = GUI.Window.Interaction("Wrench", this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID();
 					if (window.show)
@@ -715,10 +715,10 @@ namespace TC2.Base.Components
 
 		[ISystem.LateGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUIMode<T>(ISystem.Info info, Entity entity,
-		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench,
+		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
 		{
-			if (wrench.selected_component_id == ECS.GetID<T>())
+			if (interactable.show && wrench.selected_component_id == ECS.GetID<T>())
 			{
 				var gui = new WrenchModeGUI<T>()
 				{

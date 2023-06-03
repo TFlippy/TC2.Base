@@ -4,7 +4,7 @@ projectile:
 {
 	damage_base: 250.000
 	damage_bonus: 500.000
-	lifetime: 0.080
+	lifetime: 0.250
 	ignore_time: 0.100
 	damage_type: bullet_ac
 	size: 0.075
@@ -46,15 +46,15 @@ explosive:
 cluster:
 {
 	prefab: "projectile.shrapnel.aa"
-	spread: 0.550
+	spread: 0.850
 	speed: 0.000
-	count: 5
+	count: 6
 
-	speed_modifier_min: 0.080
-	speed_modifier_max: 0.350
+	speed_modifier_min: 0.100
+	speed_modifier_max: 0.750
 
-	lifetime_modifier_min: 0.200
-	lifetime_modifier_max: 2.500
+	lifetime_modifier_min: 0.400
+	lifetime_modifier_max: 2.000
 
 	min_explode_lifetime: 0.030
 }

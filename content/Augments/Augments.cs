@@ -2022,7 +2022,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
@@ -2037,7 +2037,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.casing.steel.large", 24, 24, (uint)type, 0);
 
@@ -2276,7 +2276,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
@@ -2291,7 +2291,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.framework.steel.large", 24, 24, (uint)type, 0);
 
@@ -2715,7 +2715,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
@@ -2730,7 +2730,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.casing.scrap.large", 24, 24, (uint)type, 0);
 
@@ -3127,9 +3127,9 @@ namespace TC2.Base
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.integrity_modifier += 0.10f * mass_ratio * size;
-						armor.durability_modifier += 0.10f * mass_ratio * robustness;
-						armor.toughness += 200.00f * mass_ratio;
+						armor.integrity_modifier += 0.17f * mass_ratio * size;
+						armor.durability_modifier += 0.12f * mass_ratio * robustness;
+						armor.toughness = Maths.MoveTowards(armor.toughness, 1200.00f * robustness, stability_base * mass_ratio * size);
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 						//armor.protection 
 					}
@@ -3141,6 +3141,7 @@ namespace TC2.Base
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
 					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", 1));
 
 					context.mass_new += mass;
 				}
@@ -3166,7 +3167,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
@@ -3181,7 +3182,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
-					var type = Maths.LerpInt(0, 9, modifier);
+					var type = Maths.LerpInt(0, 15, modifier);
 
 					var sprite = new Sprite("augment.casing.smirglum.large", 24, 24, (uint)type, 0);
 
@@ -3189,9 +3190,249 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
 
+					var mass = 1.50f;
+					var robustness = 1.00f;
+					var size = 1.00f;
+					var health_extra = 100.00f;
+					var stability_base = 0.00f;
+					var stability = 0.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							mass = 4.50f;
+							robustness *= 1.40f;
+							size *= 0.80f;
+							health_extra = 435.00f;
+							stability_base = 150.00f;
+							stability = 695.00f;
+						}
+						break;
+
+						case 1:
+						{
+							mass = 9.00f;
+							robustness *= 1.30f;
+							size *= 1.20f;
+							health_extra = 1225.00f;
+							stability_base = 600.00f;
+							stability = 750.00f;
+						}
+						break;
+
+						case 2:
+						{
+							mass = 45.00f;
+							robustness *= 1.30f;
+							size *= 1.40f;
+							health_extra = 2725.00f;
+							stability_base = 2250.00f;
+							stability = 2550.00f;
+						}
+						break;
+
+						case 3:
+						{
+							mass = 4.50f;
+							robustness *= 1.50f;
+							size *= 0.70f;
+							health_extra = 335.00f;
+							stability_base = 120.00f;
+							stability = 450.00f;
+						}
+						break;
+
+						case 4:
+						{
+							mass = 4.00f;
+							robustness *= 1.50f;
+							size *= 0.70f;
+							health_extra = 255.00f;
+							stability_base = 170.00f;
+							stability = 400.00f;
+						}
+						break;
+
+						case 5:
+						{
+							mass = 195.50f;
+							robustness *= 2.50f;
+							size *= 2.50f;
+							health_extra = 7450.00f;
+							stability_base = 2500.00f;
+							stability = 4500.00f;
+						}
+						break;
+
+						case 6:
+						{
+							mass = 7.50f;
+							robustness *= 1.50f;
+							size *= 0.80f;
+							health_extra = 435.00f;
+							stability_base = 50.00f;
+							stability = 945.00f;
+						}
+						break;
+
+						case 7:
+						{
+							mass = 10.50f;
+							robustness *= 1.30f;
+							size *= 1.50f;
+							health_extra = 735.00f;
+							stability_base = 450.00f;
+							stability = 295.00f;
+						}
+						break;
+
+						case 8:
+						{
+							mass = 15.75f;
+							robustness *= 1.80f;
+							size *= 1.80f;
+							health_extra = 1235.00f;
+							stability_base = 500.00f;
+							stability = 935.00f;
+						}
+						break;
+
+						case 9:
+						{
+							mass = 9.20f;
+							robustness *= 1.10f;
+							size *= 2.10f;
+							health_extra = 1835.00f;
+							stability_base = 400.00f;
+							stability = 835.00f;
+						}
+						break;
+
+						case 10:
+						{
+							mass = 7.90f;
+							robustness *= 1.00f;
+							size *= 1.30f;
+							health_extra = 535.00f;
+							stability_base = 500.00f;
+							stability = 735.00f;
+						}
+						break;
+
+						case 11:
+						{
+							mass = 12.00f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							health_extra = 535.00f;
+							stability_base = 200.00f;
+							stability = 135.00f;
+						}
+						break;
+
+						case 12:
+						{
+							mass = 11.50f;
+							robustness *= 1.80f;
+							size *= 1.15f;
+							health_extra = 1235.00f;
+							stability_base = 500.00f;
+							stability = 835.00f;
+						}
+						break;
+
+						case 13:
+						{
+							mass = 15.75f;
+							robustness *= 1.90f;
+							size *= 1.20f;
+							health_extra = 1435.00f;
+							stability_base = 200.00f;
+							stability = 1435.00f;
+						}
+						break;
+
+						case 14:
+						{
+							mass = 21.75f;
+							robustness *= 1.70f;
+							size *= 2.00f;
+							health_extra = 1735.00f;
+							stability_base = 500.00f;
+							stability = 2235.00f;
+						}
+						break;
+
+						case 15:
+						{
+							mass = 13.75f;
+							robustness *= 1.50f;
+							size *= 1.80f;
+							health_extra = 535.00f;
+							stability_base = 200.00f;
+							stability = 135.00f;
+						}
+						break;
+					}
+
+					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
+
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (gun.IsNotNull())
+					{
+						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+
+						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
+						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
+						//gun.recoil_multiplier *= Maths.Lerp(1.00f, Maths.Mulpo(mult_barrel, -0.12f), Maths.MidBias(0.00f, 0.25f, 0.625f, offset.Y - gun.muzzle_offset.Y) * mass_ratio);
+
+						gun.reload_interval += size * 0.10f * mult_receiver;
+
+						//ref var holdable = ref context.GetComponent<Holdable.Data>();
+						//if (holdable.IsNotNull())
+						//{
+						//	if (offset.Y >= gun.muzzle_offset.Y) holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+						//	if (offset.X <= gun.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - gun.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * mass_ratio * size * 0.40f);
+						//}
+					}
+
+					ref var health = ref context.GetComponent<Health.Data>();
+					if (health.IsNotNull())
+					{
+						health.max += health_extra;
+						health.max *= Maths.Mulpo(0.15f, mass_ratio);
+					}
+
+					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+					if (armor.IsNotNull())
+					{
+						armor.integrity_modifier += 0.17f * mass_ratio * size;
+						armor.durability_modifier += 0.12f * mass_ratio * robustness;
+						armor.toughness = Maths.MoveTowards(armor.toughness, 2500.00f * robustness, stability_base * mass_ratio * size);
+						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
+						//armor.protection 
+					}
+
+					var h_material = new IMaterial.Handle("smirglum.ingot");
+
+					ref var material = ref h_material.GetData();
+					if (material.IsNotNull())
+					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+					}
+					context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", 4));
+
+					//App.WriteLine(mass);
+					context.mass_new += mass;
 				}
 			));
 

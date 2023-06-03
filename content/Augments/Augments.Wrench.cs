@@ -47,7 +47,7 @@ namespace TC2.Base
 					ref var interactable = ref context.GetOrAddComponent<Interactable.Data>();
 					if (interactable.IsNotNull())
 					{
-						interactable.window_size = Vector2.Max(interactable.window_size, new Vector2(422, 500));
+						interactable.window_size = Vector2.Max(interactable.window_size, new Vector2(406, 442));
 					}
 				},
 

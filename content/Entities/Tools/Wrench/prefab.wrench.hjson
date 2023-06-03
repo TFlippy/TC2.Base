@@ -48,6 +48,11 @@ animated.renderer:
 	}
 }
 
+interactable:
+{
+	window_size: [406.000, 442.000]
+}
+
 transform:
 {
 
