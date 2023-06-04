@@ -1,0 +1,114 @@
+﻿{
+	name: "Vejcar"
+	description:
+		'''
+		Superheavy triple-barreled slugthrower used for riot control.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "slugthrower"
+	recipe: "gunsmith.slugthrower"
+	seed: 151816801204
+	
+	augments:
+	[
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.accelerator"
+			flags: none
+			modifier: 0.000
+			data: 13690942868273758208
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: mirror_x, mirror_y
+			modifier: 0.000
+			data: 4467570833539203072
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.500
+			data: 4467570831391719424
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.3125
+			data: 13726971665288527872
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: mirror_x
+			modifier: 0.250
+			data: 13726971667439157248
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.875
+			data: 13726971667433914368
+		}
+		{
+			identifier: "gun.shield"
+			flags: none
+			modifier: 0.750
+			data: 13690942868269563904
+		}
+		{
+			identifier: "body.lamp"
+			flags: mirror_y
+			modifier: 0.125
+			data: 4503599628427460608
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.4375
+			data: 13726971664225271808
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "holdable.attachable"
+			flags: none
+			modifier: 0.000
+			data: 13726971667412942848
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

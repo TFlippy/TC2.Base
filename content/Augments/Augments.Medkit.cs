@@ -15,7 +15,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle);
+					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.anesthetics"));
 				},
 
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -23,6 +23,25 @@ namespace TC2.Base
 					data.pain += 250.00f;
 					data.power *= 2.50f;
 					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 5));
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Medkit.Data>
+			(
+				identifier: "medkit.anesthetics",
+				category: "Medkit",
+				name: "Anesthetics",
+				description: "Adds a low dose of morphine to ease the pain.",
+
+				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.alcohol"));
+				},
+
+				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					data.pain -= 200.00f;
+					context.requirements_new.Add(Crafting.Requirement.Resource("morphine", 5));
 				}
 			));
 

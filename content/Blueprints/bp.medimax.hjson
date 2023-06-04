@@ -1,0 +1,114 @@
+﻿{
+	name: "Medimax Emergency Kit"
+	description:
+		'''
+		Cutting-edge doctor's bag with clean tools and a built-in red lamp for medical emergencies.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "medkit"
+	recipe: "manufactory.medkit"
+	seed: 42762012890
+	
+	augments:
+	[
+		{
+			identifier: "medkit.anesthetics"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "medkit.extra_bandages"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "medkit.red_sugar"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "medkit.sterile"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.lamp"
+			flags: none
+			modifier: 0.375
+			data: 13744986062734753792
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: mirror_x
+			modifier: 0.125
+			data: 13744986063783329792
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.000
+			data: 9223372037903351808
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

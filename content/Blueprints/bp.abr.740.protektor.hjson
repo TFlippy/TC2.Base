@@ -1,0 +1,114 @@
+{
+	name: "ABR 740-Protektor"
+	description:
+		'''
+		Heavier variant of ABR-740 equipped with a barrel-mounted ballistic shield and expanded magazine.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "battle_rifle"
+	recipe: "gunsmith.battle_rifle"
+	seed: 0
+	
+	augments:
+	[
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.600
+			data: 4467570833539203072
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: mirror_x, mirror_y
+			modifier: 0.400
+			data: 4467570832499015680
+		}
+		{
+			identifier: "gun.rapid_fire_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1055286886
+		}
+		{
+			identifier: "gun.improved_ammo_loading"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.automatic"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 9223372037913837568
+		}
+		{
+			identifier: "overheat.coolant"
+			flags: none
+			modifier: 0.000
+			data: 13726971665265459200
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 9223372036854775808
+		}
+		{
+			identifier: "overheat.radiator"
+			flags: none
+			modifier: 0.000
+			data: 13690942870402367488
+		}
+		{
+			identifier: "gun.shield"
+			flags: none
+			modifier: 0.250
+			data: 1061158912
+		}
+		{
+			identifier: "melee.battering"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1061830000
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

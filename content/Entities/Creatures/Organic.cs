@@ -63,9 +63,9 @@ namespace TC2.Base.Components
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
 			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
-			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (1.00f - MathF.Pow(MathF.Min(health.integrity, health.durability), 6.00f)) * organic.pain_modifier, 0.008f);
+			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (MathF.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
 
-			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * MathF.Min(health.integrity, health.durability);
+			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]

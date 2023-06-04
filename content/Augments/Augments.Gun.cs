@@ -2894,7 +2894,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.bayonet",
 				category: "Gun (Barrel)",
-				name: "Bayonet",
+				name: "Add: Bayonet",
 				description: "Attach a bayonet to the gun, giving it a secondary melee attack.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3079,7 +3079,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.axe",
 				category: "Gun (Barrel)",
-				name: "Axe Blade",
+				name: "Add: Axe",
 				description: "Attach an axe blade to the gun, giving it a secondary melee attack.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3464,7 +3464,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X, data.muzzle_offset.X);
-					offset.Y = Maths.Clamp(offset.Y, 0.000f, 0.000f);
+					offset.Y = Maths.Clamp(offset.Y, data.receiver_offset.Y, data.receiver_offset.Y);
 
 					return true;
 				},
@@ -3497,7 +3497,7 @@ namespace TC2.Base
 					var dirty = false;
 					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X, 0.000f), max: new Vector2(data.muzzle_offset.X, 0.000f));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X, data.receiver_offset.Y), max: new Vector2(data.muzzle_offset.X, data.receiver_offset.Y));
 
 					return dirty;
 				},
@@ -3529,7 +3529,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.accelerator", 16, 16, (uint)type, frame_y);
 
-					draw.DrawSprite(sprite, offset, scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
 				},
 #endif
 
@@ -3610,6 +3610,207 @@ namespace TC2.Base
 						data.damage_multiplier += MathF.Pow((1 + type) * 0.75f, 1.50f);
 
 						//data.recoil_multiplier -= Maths.Normalize(force * dist_mult, context.mass_new * 20.00f);
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.shield",
+				category: "Gun (Barrel)",
+				name: "Add: Shield",
+				description: "Adds a ballistic shield to the gun, allowing it to block incoming projectiles. However, this makes the weapon much more cumbersome.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X + 0.500f, data.muzzle_offset.X - 0.375f);
+					offset.Y = Maths.Clamp(offset.Y, data.muzzle_offset.Y, data.muzzle_offset.Y);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<Shield.Data>() && !context.HasComponent<Melee.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y), max: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
+					var frame_y = 0u;
+
+					var sprite = new Sprite("augment.shield", 16, 24, (uint)type, frame_y);
+
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Thrust;
+						melee.aoe = 0.375f;
+						melee.thickness = 0.375f;
+						melee.category = Melee.Category.Blunt;
+						melee.cooldown = 1.00f;
+						melee.damage_base = 125.00f;
+						melee.damage_bonus = 200.00f;
+						melee.damage_type = Damage.Type.Blunt;
+						melee.knockback = 275.00f;
+						melee.max_distance = 1.40f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.Destructible | Physics.Layer.Item;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree | Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Resource;
+						melee.flags |= Melee.Flags.Use_RMB;
+
+						ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+						if (!melee_state.IsNull())
+						{
+
+						}
+
+						ref var shield = ref context.GetOrAddComponent<Shield.Data>();
+						if (shield.IsNotNull())
+						{
+							ref var cover = ref context.GetOrAddComponent<Cover.Data>();
+							if (cover.IsNotNull())
+							{
+								ref var shape = ref context.GetOrAddTrait<Cover.Data, Shape.Line>();
+								if (shape.IsNotNull())
+								{
+									shape.material = Material.Type.Metal;
+									shape.layer |= Physics.Layer.Solid;
+
+									switch (type)
+									{
+										default:
+										case 0:
+										{
+											cover.threshold = 0.55f;
+
+											shape.mass = 2.50f;
+											shape.elasticity = 0.75f;
+											shape.friction = 0.40f;
+											shape.radius = 0.25f;
+											shape.a = new Vector2(offset.X, offset.Y - 0.300f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.300f);
+
+											melee.hit_offset = new Vector2(0.000f, 0.000f);
+											melee.max_distance = 1.000f;
+											melee.aoe = 0.500f;
+											melee.thickness = 0.625f;
+											melee.knockback = 150.00f;
+											melee.cooldown = 0.750f;
+											melee.penetration = 0;
+											melee.penetration_falloff = 0.50f;
+
+											data.jitter_multiplier += 0.09f;
+											data.reload_interval += 0.02f;
+										}
+										break;
+
+										case 1:
+										{
+											cover.threshold = 0.30f;
+
+											shape.mass = 4.50f;
+											shape.elasticity = 0.75f;
+											shape.friction = 0.60f;
+											shape.radius = 0.25f;
+											shape.a = new Vector2(offset.X, offset.Y - 0.500f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.375f);
+
+											melee.hit_offset = new Vector2(0.000f, 0.000f);
+											melee.max_distance = 0.750f;
+											melee.aoe = 0.750f;
+											melee.thickness = 0.875f;
+											melee.knockback = 250.00f;
+											melee.cooldown = 1.00f;
+											melee.penetration = 2;
+											melee.penetration_falloff = 0.500f;
+
+											data.jitter_multiplier += 2.15f;
+											data.reload_interval += 0.11f;
+										}
+										break;
+
+										case 2:
+										{
+											cover.threshold = 0.05f;
+
+											shape.mass = 13.00f;
+											shape.elasticity = 0.45f;
+											shape.friction = 0.50f;
+											shape.radius = 0.375f;
+											shape.a = new Vector2(offset.X, offset.Y - 0.625f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.500f);
+
+											melee.hit_offset = new Vector2(0.000f, 0.000f);
+											melee.max_distance = 1.250f;
+											melee.aoe = 0.750f;
+											melee.thickness = 0.875f;
+											melee.knockback = 320.00f;
+											melee.cooldown = 1.50f;
+											melee.penetration = 2;
+											melee.penetration_falloff = 0.650f;
+
+											data.jitter_multiplier += 3.75f;
+											data.reload_interval += 0.18f;
+										}
+										break;
+
+										case 3:
+										{
+											cover.threshold = 0.25f;
+
+											shape.mass = 6.50f;
+											shape.elasticity = 0.85f;
+											shape.friction = 0.40f;
+											shape.radius = 0.40f;
+											shape.a = new Vector2(offset.X - 0.375f, offset.Y - 0.625f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.250f);
+
+											melee.hit_offset = new Vector2(0.000f, 0.000f);
+											melee.max_distance = 1.250f;
+											melee.aoe = 0.750f;
+											melee.thickness = 0.750f;
+											melee.knockback = 270.00f;
+											melee.cooldown = 1.30f;
+											melee.penetration = 1;
+											melee.penetration_falloff = 0.650f;
+
+											data.jitter_multiplier += 1.90f;
+											data.reload_interval += 0.09f;
+										}
+										break;
+									}
+								}
+							}
+						}
 					}
 				}
 			));

@@ -62,7 +62,7 @@ armor:
 	toughness: 400.000
 	protection: 0.850
 	
-	knockback_modifier: 2.500
+	knockback_modifier: 4.500
 	
 	material_type: metal
 	flags: no_damage_type_conversion
