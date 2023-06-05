@@ -175,12 +175,12 @@ namespace TC2.Base.Components
 		//}
 
 #if SERVER
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), Exclude<Player.Data>(Source.Modifier.Parent)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), Exclude<Player.Data>(Source.Modifier.Parent), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
 		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
-		[Source.Parent] ref Control.Data control)
+		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Of<Control.Data>, Optional(true)] ref Net.Synchronized sync)
 		{
-			if (head.concussion > 0.01f)
+			if (head.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
 			{
 				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8;
 

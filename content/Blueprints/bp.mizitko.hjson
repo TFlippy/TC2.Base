@@ -6,7 +6,7 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "elektron_imperial"
 	
 	prefab: "scattergun"
 	recipe: "gunsmith.scattergun"

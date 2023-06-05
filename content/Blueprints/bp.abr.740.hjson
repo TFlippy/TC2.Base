@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "ABR 740"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "zajac"
 	
 	prefab: "battle_rifle"
 	recipe: "gunsmith.battle_rifle"
+	seed: 0
 	
 	augments:
 	[

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Boban vz.8"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "zajac"
+	company: "houfmistr"
 	
 	prefab: "landmine"
 	recipe: "munitions.landmine"
+	seed: 0
 	
 	augments:
 	[

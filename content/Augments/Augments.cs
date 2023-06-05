@@ -336,7 +336,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.radiator", 24, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -878,7 +878,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.lamp", 16, 16, (byte)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
 					//draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
 				},
 #endif
@@ -1831,7 +1831,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.steel", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2041,7 +2041,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.steel.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2090,7 +2090,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.framework.steel", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2224,7 +2224,11 @@ namespace TC2.Base
 						ref var holdable = ref context.GetComponent<Holdable.Data>();
 						if (holdable.IsNotNull())
 						{
-							if (offset.Y >= gun.muzzle_offset.Y) holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+							if (offset.Y >= gun.muzzle_offset.Y)
+							{
+								holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * mass_ratio * (grip - (bulkiness * size * 0.40f)));
+								holdable.offset.X = Maths.Lerp(holdable.offset.X, offset.X, (grip * 0.20f * mass_ratio).Clamp01() * 0.25f);
+							}
 							if (offset.X <= gun.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - gun.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * mass_ratio * size * 0.40f);
 						}
 					}
@@ -2295,7 +2299,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.framework.steel.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2349,7 +2353,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.scrap", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2734,7 +2738,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.scrap.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2898,7 +2902,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.smirglum", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -3186,7 +3190,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.smirglum.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: new(handle.flags.HasAny(Augment.Handle.Flags.Mirror_X) ? -1.00f : 1.00f, handle.flags.HasAny(Augment.Handle.Flags.Mirror_Y) ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 

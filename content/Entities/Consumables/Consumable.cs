@@ -187,7 +187,7 @@ namespace TC2.Base.Components
 
 					WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
 
-					ent_consumable.Notify(ref data);
+					ent_consumable.TriggerEvent(ref data);
 
 					if (consumable.uses >= consumable.uses_max)
 					{

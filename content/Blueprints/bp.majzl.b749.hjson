@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Majzl B-749"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "elektron_imperial"
 	
 	prefab: "carbine"
 	recipe: "gunsmith.carbine"
+	seed: 0
 	
 	augments:
 	[
@@ -23,13 +24,13 @@
 			identifier: "gun.automatic_reloading"
 			flags: none
 			modifier: 0.000
-			data: 4503599628431654912
+			data: 3200253952
 		}
 		{
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 13676531346028101632
+			data: 4467570831404302336
 		}
 		{
 			identifier: "gun.improved_rifling"
@@ -38,22 +39,28 @@
 			data: 1065353216
 		}
 		{
-			identifier: "body.casing.steel"
-			flags: none
-			modifier: 0.400
-			data: 9223372037913837568
+			identifier: "body.framework.steel"
+			flags: mirror_y
+			modifier: 0.000
+			data: 4467570831414788096
 		}
 		{
-			identifier: "body.framework.steel"
+			identifier: "body.casing.steel"
 			flags: none
-			modifier: 0.000
-			data: 9223372040042446848
+			modifier: 0.3125
+			data: 9223372037911740416
 		}
 		{
 			identifier: "gun.expanded_magazine"
 			flags: none
 			modifier: 0.000
-			data: 1084227584
+			data: 1082507919
+		}
+		{
+			identifier: "gun.accelerator"
+			flags: none
+			modifier: 0.000
+			data: 13690942868246495232
 		}
 		{
 			identifier: "gun.balanced_receiver"
@@ -62,19 +69,13 @@
 			data: 0
 		}
 		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
 			identifier: "gun.tempered_frame"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "undefined"
 			flags: none
 			modifier: 0.000
 			data: 0
@@ -86,10 +87,10 @@
 			data: 13726971667421331456
 		}
 		{
-			identifier: "undefined"
+			identifier: "telescope.adjustable_optics"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 1065353216
 		}
 		{
 			identifier: "undefined"

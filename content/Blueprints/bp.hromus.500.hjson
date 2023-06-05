@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Hromus 500"
 	description:
 		'''
@@ -7,10 +7,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "traktor_petor"
 	
 	prefab: "revolver"
 	recipe: "gunsmith.revolver"
+	seed: 0
 	
 	augments:
 	[
@@ -72,7 +73,7 @@
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 13659237527079354368
+			data: 13659237527054188544
 		}
 		{
 			identifier: "gun.tempered_frame"

@@ -2,14 +2,15 @@
 	name: "Burt-Mini"
 	description:
 		'''
-		Semi-automatic double-barreled machine pistol.
+		Semi-automatic double-barreled machine pistol with an arcer.
 		'''
 	
 	flags: none
-	company: "null"
+	company: "zajac"
 	
 	prefab: "machine_pistol"
 	recipe: "gunsmith.machine_pistol"
+	seed: 0
 	
 	augments:
 	[
@@ -50,10 +51,10 @@
 			data: 0
 		}
 		{
-			identifier: "gun.silencer"
+			identifier: "gun.rapid_fire_mechanism"
 			flags: none
 			modifier: 0.000
-			data: 4467570833547591680
+			data: 0
 		}
 		{
 			identifier: "gun.expanded_magazine"
@@ -68,28 +69,28 @@
 			data: 13726971667425525760
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.framework.steel"
 			flags: none
-			modifier: 0.000
-			data: 0
+			modifier: 0.375
+			data: 13690942868259078144
 		}
 		{
-			identifier: "undefined"
+			identifier: "body.framework.steel"
 			flags: none
-			modifier: 0.000
-			data: 0
+			modifier: 0.3125
+			data: 1065353216
 		}
 		{
-			identifier: "undefined"
+			identifier: "gun.arcer"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 13690942868265369600
 		}
 		{
-			identifier: "undefined"
+			identifier: "gun.silencer"
 			flags: none
 			modifier: 0.000
-			data: 0
+			data: 4467570833547591680
 		}
 		{
 			identifier: "undefined"

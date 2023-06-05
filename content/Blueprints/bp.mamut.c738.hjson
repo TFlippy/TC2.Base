@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Mamut C-738"
 	description:
 		'''
@@ -7,7 +7,7 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "elektron_imperial"
 	
 	prefab: "rifle"
 	recipe: "gunsmith.rifle"

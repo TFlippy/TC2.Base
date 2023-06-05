@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Muskant vz.2"
 	description:
 		'''
@@ -8,10 +8,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "postus_imperialny"
 	
 	prefab: "musket"
 	recipe: "gunsmith.musket"
+	seed: 0
 	
 	augments:
 	[

@@ -30,7 +30,8 @@ namespace TC2.Base.Components
 
 			No_Handle = 1 << 0,
 			Use_RMB = 1 << 1,
-			Sync_Hit_Event = 1 << 2
+			Sync_Hit_Event = 1 << 2,
+			No_Material_Filter = 1 << 3
 		}
 
 		[IEvent.Data]
@@ -48,42 +49,48 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Melee.State>]
 		public partial struct Data: IComponent
 		{
-			public Sound.Handle sound_swing = default;
+			public static Sound.Handle sound_swing_default = "tool_swing_00";
+
+			public Sound.Handle sound_swing = sound_swing_default;
 			public float sound_volume = 1.00f;
 			public float sound_size = 2.00f;
 			public float sound_pitch = 1.00f;
 
+			[Editor.Picker.Position(true, true)]
 			public Vector2 hit_offset = new(0.00f, 0.00f);
+
+			[Editor.Picker.Position(true, true)]
 			public Vector2 hit_direction = new(1.00f, 0.00f);
 
+			[Editor.Picker.Position(true, true)]
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
 
 			public Melee.AttackType attack_type = AttackType.Swing;
 
 			[Statistics.Info("Base Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_base = default;
+			public float damage_base;
 
 			[Statistics.Info("Bonus Damage", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_bonus = default;
+			public float damage_bonus;
 
-			[Statistics.Info("Primary Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Primary Damage", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float primary_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Secondary Damage", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Secondary Damage", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float secondary_damage_multiplier = 1.00f;
 
-			[Statistics.Info("Terrain Damage", description: "Damage to terrain", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Terrain Damage", description: "Damage to terrain", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float terrain_damage_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float cooldown = default;
+			public float cooldown;
 
 			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance = default;
+			public float max_distance;
 
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float aoe = default;
+			public float aoe;
 
 			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float thickness = 0.30f;
@@ -98,18 +105,18 @@ namespace TC2.Base.Components
 			public float penetration_falloff = 0.75f;
 
 			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public int penetration = default;
+			public int penetration;
 
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public Damage.Type damage_type = default;
+			public Damage.Type damage_type;
 
 			[Statistics.Info("Category", description: "TODO: Desc", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public Melee.Category category = default;
+			public Melee.Category category;
 
-			public Melee.Flags flags = default;
+			public Melee.Flags flags;
 
-			public Physics.Layer hit_mask = default;
-			public Physics.Layer hit_exclude = default;
+			public Physics.Layer hit_mask;
+			public Physics.Layer hit_exclude;
 
 			public Data()
 			{
@@ -450,13 +457,13 @@ namespace TC2.Base.Components
 				for (var i = 0; i < results.Length; i++)
 				{
 					ref var result = ref results[i];
-					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
+					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.Shield) && (result.layer.HasAny(Physics.Layer.Shield) || result.mask.HasAny(Physics.Layer.Solid)) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
 					{
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 						if (!result.mask.HasAll(Physics.Layer.Solid))
 						{
 							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
-							if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+							if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
 						dist_max = MathF.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
@@ -474,7 +481,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (dist_max < 0.00f)
+				if (dist_max <= 0.00f)
 				{
 					dist_max = len;
 				}
@@ -490,7 +497,7 @@ namespace TC2.Base.Components
 							if (!result.mask.HasAll(Physics.Layer.Solid))
 							{
 								if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
-								if (!result.layer.HasAny(Physics.Layer.World) && !Melee.CanHitMaterial(melee.damage_type, result.material_type)) continue;
+								if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 							}
 
 							var closest_result = result.GetClosestPoint(pos_target, true);
@@ -713,7 +720,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				ent_attacker.Notify(ref data);
+				ent_attacker.TriggerEvent(ref data);
 			}
 		}
 

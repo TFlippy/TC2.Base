@@ -1,44 +1,114 @@
-{
+﻿{
 	name: "Paralyx"
 	description:
 		'''
 		Lethal paralysis-inducing formula.
 		200mg alcohol, 20mg morphine, 25mg paxilon hydrochlorate
 		'''
+	
+	flags: none
+	company: "samofetovar"
+	
 	prefab: "syringe"
 	recipe: "refinery.syringe"
+	seed: 0
+	
 	augments:
 	[
 		{
 			identifier: "consumable.alcohol"
+			flags: none
+			modifier: 0.000
 			data: 1128792064
 		}
 		{
 			identifier: "consumable.morphine"
+			flags: none
+			modifier: 0.000
 			data: 1101004800
 		}
 		{
 			identifier: "consumable.paxilon"
+			flags: none
+			modifier: 0.000
 			data: 1103626240
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 	]

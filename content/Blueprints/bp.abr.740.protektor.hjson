@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "ABR 740-Protektor"
 	description:
 		'''
@@ -6,7 +6,7 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "zajac"
 	
 	prefab: "battle_rifle"
 	recipe: "gunsmith.battle_rifle"
@@ -90,7 +90,7 @@
 			identifier: "gun.shield"
 			flags: none
 			modifier: 0.250
-			data: 1061158912
+			data: 13654914071248502784
 		}
 		{
 			identifier: "melee.battering"

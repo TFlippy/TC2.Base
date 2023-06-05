@@ -6,7 +6,7 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "zdravotnyk"
 	
 	prefab: "medkit"
 	recipe: "manufactory.medkit"

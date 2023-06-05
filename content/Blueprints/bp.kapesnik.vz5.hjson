@@ -1,13 +1,19 @@
-{
+﻿{
 	name: "Kapesnik vz.5"
 	description:
 		'''
 		5th iteration of an extremely popular multi-purpose pocket knife.
-		
+
 		Quickly decommissioned and made available for civilian use.
 		'''
+	
+	flags: none
+	company: "postus_imperialny"
+	
 	prefab: "derringer"
 	recipe: "gunsmith.derringer"
+	seed: 0
+	
 	augments:
 	[
 		{
@@ -54,6 +60,54 @@
 		}
 		{
 			identifier: "melee.uneven_strike"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
 			flags: none
 			modifier: 0.000
 			data: 0

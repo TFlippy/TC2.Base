@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Bambula Dvoj-B"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "zajac"
 	
 	prefab: "scattergun"
 	recipe: "gunsmith.scattergun"
+	seed: 0
 	
 	augments:
 	[

@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "elektron_imperial"
 	
 	prefab: "smg"
 	recipe: "gunsmith.smg"
+	seed: 0
 	
 	augments:
 	[
@@ -47,7 +48,7 @@
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 13695266324085735424
+			data: 13690942868267466752
 		}
 		{
 			identifier: "holdable.grip.friction"

@@ -1,40 +1,113 @@
-{
+﻿{
 	name: "Pervitin 50mg ER"
-	description: "Extended-release 50mg methamphetamine tablet."
+	description:
+		'''
+		Extended-release 50mg methamphetamine tablet.
+		'''
+	
+	flags: none
+	company: "zdravotnyk"
+	
 	prefab: "pill"
-	recipe: "refinery.pill"
+	recipe: "null"
+	seed: 0
+	
 	augments:
 	[
 		{
 			identifier: "consumable.meth"
+			flags: none
+			modifier: 0.000
 			data: 1112014848
 		}
 		{
 			identifier: "pill.extended_release"
+			flags: none
+			modifier: 0.000
 			data: 1017370378
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 	]

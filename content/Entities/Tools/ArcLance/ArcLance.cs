@@ -7,6 +7,10 @@
 		{
 			public Sound.Handle sound_hit = ArcLance.sound_hit_default;
 
+			public float damage_integrity = 400.00f;
+			public float damage_durability = 4000.00f;
+			public float damage_terrain = 200.00f;
+
 			public Data()
 			{
 
@@ -21,7 +25,7 @@
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single)]
-		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, 
+		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		ref Melee.HitEvent data, [Source.Owned] ref ArcLance.Data arc_lance)
 		{
 #if CLIENT
@@ -123,16 +127,47 @@
 
 			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
 
-			//Damage.Hit(attacker: entity, owner: data.ent_owner, target: data.ent_target,
-			//	world_position: data.world_position, direction: data.direction, normal: -data.direction,
-			//	damage: 4000.00f * multiplier, damage_type: Damage.Type.Electricity, yield: 0.00f, primary_damage_multiplier: 1.00f, secondary_damage_multiplier: 1.00f, terrain_damage_multiplier: 0.00f,
-			//	target_material_type: data.target_material_type, knockback: 4.00f, size: 1.50f, speed: 8.00f, flags: Damage.Flags.None);
-
 			Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: data.ent_target,
 				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,
-				damage_integrity: 400.00f * multiplier, damage_durability: 4000.00f * multiplier, damage_terrain: 200.00f * multiplier,
+				damage_integrity: arc_lance.damage_integrity * multiplier, damage_durability: arc_lance.damage_durability * multiplier, damage_terrain: arc_lance.damage_terrain * multiplier,
 				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
-				yield: 0.00f, size: 1.50f, impulse: 0.00f);
+				yield: 0.95f, size: 1.50f, impulse: 0.00f);
+
+
+			// Zap the holder too when hitting a metallic object
+			if (data.target_material_type == Material.Type.Metal && data.ent_target.IsAlive())
+			{
+				var ent_holder_arm = data.ent_target.GetParent(Relation.Type.Child);
+				if (ent_holder_arm.IsAlive())
+				{
+					App.WriteLine($"{ent_holder_arm.GetFullName()}");
+
+					var oc_body = ent_holder_arm.GetComponentWithOwner<Body.Data>(Relation.Type.Instance, false);
+					if (oc_body.IsValid())
+					{
+						ref var body_holder = ref oc_body.data;
+						var result = body_holder.GetClosestPoint(data.world_position, true);
+
+						var impulse_mult = 1.00f;
+						if (result.material_type == Material.Type.Flesh || result.material_type == Material.Type.Insect)
+						{
+							impulse_mult *= 6.00f;
+
+							if (random.NextBool(0.50f))
+							{
+								Arm.Drop(ent_holder_arm, target: data.ent_target, direction: -data.direction);
+							}
+						}
+
+						Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: result.entity,
+							position: result.world_position, velocity: data.direction * 4.00f, normal: -data.direction,
+							damage_integrity: arc_lance.damage_integrity * multiplier * 0.25f, damage_durability: arc_lance.damage_durability * multiplier * 0.35f, damage_terrain: arc_lance.damage_terrain * multiplier * 0.25f,
+							target_material_type: result.material_type, damage_type: Damage.Type.Electricity, pain: 1.10f,
+							yield: 0.95f, size: 1.00f, impulse: 100.00f * impulse_mult);
+					}
+				}
+			}
+
 
 			//if (random.NextBool(0.10f))
 			//{

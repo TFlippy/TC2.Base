@@ -1,0 +1,114 @@
+﻿{
+	name: "Fajront"
+	description:
+		'''
+		Quad-barreled lever-action rifle with an arcer designed to counter armored infantry.
+		'''
+	
+	flags: none
+	company: "elektron_imperial"
+	
+	prefab: "carbine"
+	recipe: "gunsmith.carbine"
+	seed: 293035011897
+	
+	augments:
+	[
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.3125
+			data: 4503599628433752064
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065017671
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: mirror_x
+			modifier: 0.000
+			data: 9223372040050835456
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.375
+			data: 4467570831408496640
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.250
+			data: 4467570833547591680
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: mirror_y
+			modifier: 0.125
+			data: 4503599628423266304
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1082298204
+		}
+		{
+			identifier: "gun.silencer"
+			flags: none
+			modifier: 0.000
+			data: 4467570833547591680
+		}
+		{
+			identifier: "gun.automatic_reloading"
+			flags: mirror_y
+			modifier: 0.000
+			data: 13690942870410756096
+		}
+		{
+			identifier: "gun.arcer"
+			flags: none
+			modifier: 0.000
+			data: 13708957266782191616
+		}
+		{
+			identifier: "melee.longer_handle"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

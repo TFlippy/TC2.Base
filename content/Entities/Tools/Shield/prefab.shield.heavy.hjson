@@ -16,7 +16,7 @@ body:
 		friction: 0.500
 		elasticity: 0.350
 		material: metal
-		layer: entity, solid, item
+		layer: entity, solid, item, shield
 		mask: world
 	}
 }
@@ -46,8 +46,8 @@ faction:
 
 holdable:
 {
-	force_multiplier: 2.000
-	torque_multiplier: 0.400
+	force_multiplier: 0.900
+	torque_multiplier: 1.500
 	offset: [-0.625, 0.200]
 	radius: 5.000
 	flags: storable
@@ -64,7 +64,7 @@ armor:
 	toughness: 650.000
 	protection: 0.900
 	
-	knockback_modifier: 3.500
+	knockback_modifier: 1.900
 	
 	material_type: metal
 	flags: no_damage_type_conversion
@@ -97,10 +97,13 @@ melee:
 	sound_swing: "tool_swing_00"
 	sound_volume: 0.800
 	sound_pitch: 0.600
-	swing_offset: [0.400, 0.000]
-	swing_rotation: -0.200
+	swing_offset: [0.000, 0.000]
+	swing_rotation: 0.000
 	damage_base: 90.000
 	damage_bonus: 150.000
+	primary_damage_multiplier: 0.500
+	secondary_damage_multiplier: 1.300
+	terrain_damage_multiplier: 1.000
 	cooldown: 1.000
 	max_distance: 1.000
 	aoe: 1.000

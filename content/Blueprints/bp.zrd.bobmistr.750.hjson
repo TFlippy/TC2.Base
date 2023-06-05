@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "ZRD Bobmistr 750"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "null"
+	company: "houfmistr"
 	
 	prefab: "machine_gun"
 	recipe: "gunsmith.machine_gun"
+	seed: 0
 	
 	augments:
 	[
@@ -59,7 +60,7 @@
 			identifier: "gun.automatic_reloading"
 			flags: none
 			modifier: 0.000
-			data: 4539628427602296832
+			data: 4503599630583332864
 		}
 		{
 			identifier: "gun.expanded_magazine"

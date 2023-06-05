@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "ZRD Kanon M.3"
 	description:
 		'''
@@ -6,10 +6,11 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	company: "houfmistr"
 	
 	prefab: "cannon.short"
 	recipe: "gunsmith.cannon.short"
+	seed: 0
 	
 	augments:
 	[
@@ -17,7 +18,7 @@
 			identifier: "gun.automatic_reloading"
 			flags: none
 			modifier: 0.000
-			data: 13726971667433914368
+			data: 13690942870414950400
 		}
 		{
 			identifier: "gun.faster_cycling_mechanism"
@@ -53,7 +54,7 @@
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 13616002968938610688
+			data: 13616002968934940672
 		}
 		{
 			identifier: "gun.faster_cycling_mechanism"
@@ -92,7 +93,7 @@
 			data: 13763000464465985536
 		}
 		{
-			identifier: "gun.framework.steel"
+			identifier: "undefined"
 			flags: none
 			modifier: 0.666667
 			data: 13690942868265369600

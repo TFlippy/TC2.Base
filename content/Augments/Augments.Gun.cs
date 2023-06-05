@@ -3167,14 +3167,37 @@ namespace TC2.Base
 					return !augments.HasAugment(handle) && data.type != Gun.Type.Handgun;
 				},
 
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X - 0.250f, MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
+					offset.Y = Maths.Clamp(offset.Y, data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
+
+					return true;
+				},
+
 #if CLIENT
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					//ref var offset = ref handle.GetData<Vector2>();
+
+					//var dirty = false;
+
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
+
 					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 2), GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					//dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					//GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, 
+						min: new Vector2(data.receiver_offset.X - 0.250f, data.receiver_offset.Y - 0.125f), 
+						max: new Vector2(MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f), data.receiver_offset.Y + 0.250f));
 
 					return dirty;
 				},
@@ -3182,41 +3205,44 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
 
-					var frame_index = 0u;
+					var frame_y = 0u;
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
-						frame_index = 6;
+						frame_y = 6;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
-						frame_index = 5;
+						frame_y = 5;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
 					{
-						frame_index = 4;
+						frame_y = 4;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
-						frame_index = 3;
+						frame_y = 3;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
-						frame_index = 2;
+						frame_y = 2;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
-						frame_index = 1;
+						frame_y = 1;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
-						frame_index = 0;
+						frame_y = 0;
 					}
 
-					var sprite = new Sprite("augment.auto_loader", 24, 16, frame_index, 0);
+					var sprite = new Sprite("augment.auto_loader", 24, 16, (uint)type, frame_y);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y + data.muzzle_offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? 1.00f : -1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					//draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y + data.muzzle_offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? 1.00f : -1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -3231,6 +3257,10 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
 					var extra_mass = 0.00f;
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
@@ -3270,10 +3300,26 @@ namespace TC2.Base
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 13.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+						switch (type)
+						{
+							case 0:
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 350.00f, 20));
+							}
+							break;
+
+							default:
+							{
+								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 13.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+							}
+							break;
+						}
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
@@ -3619,7 +3665,7 @@ namespace TC2.Base
 				identifier: "gun.shield",
 				category: "Gun (Barrel)",
 				name: "Add: Shield",
-				description: "Adds a ballistic shield to the gun, allowing it to block incoming projectiles. However, this makes the weapon much more cumbersome.",
+				description: "Adds a ballistic shield to the gun, allowing it to block incoming projectiles. However, this also makes the weapon much more cumbersome.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -3703,7 +3749,7 @@ namespace TC2.Base
 								if (shape.IsNotNull())
 								{
 									shape.material = Material.Type.Metal;
-									shape.layer |= Physics.Layer.Solid;
+									shape.layer |= Physics.Layer.Solid | Physics.Layer.Shield | Physics.Layer.Item;
 
 									switch (type)
 									{
@@ -3810,6 +3856,99 @@ namespace TC2.Base
 									}
 								}
 							}
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.arcer",
+				category: "Gun (Barrel)",
+				name: "Add: Arcer",
+				description: "Adds an Arcer to the gun - very similar to the ones seen on Arc Lances.",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X = Maths.Clamp(offset.X, data.muzzle_offset.X - 0.375f, data.muzzle_offset.X + 0.125f);
+					offset.Y = Maths.Clamp(offset.Y, data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.250f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle) && !context.HasComponent<ArcLance.Data>() && !context.HasComponent<Melee.Data>();
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, 
+						min: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y - 0.125f), 
+						max: new Vector2(data.muzzle_offset.X + 0.125f, data.muzzle_offset.Y + 0.250f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
+					var frame_y = 0u;
+
+					var sprite = new Sprite("augment.arcer", 16, 16, (uint)type, frame_y);
+
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 3, modifier);
+
+					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
+					if (!melee.IsNull())
+					{
+						melee.attack_type = Melee.AttackType.Thrust;
+						melee.aoe = 0.500f;
+						melee.thickness = 0.375f;
+						melee.category = Melee.Category.Pointed;
+						melee.cooldown = 1.30f;
+						melee.damage_base = 75.00f;
+						melee.damage_bonus = 200.00f;
+						melee.damage_type = Damage.Type.Stab;
+						melee.knockback = 175.00f;
+						melee.max_distance = 1.75f;
+						melee.sound_swing = "tool_swing_00";
+						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
+						melee.flags |= Melee.Flags.Use_RMB | Melee.Flags.Sync_Hit_Event;
+						melee.hit_offset = offset;
+
+						ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+						if (!melee_state.IsNull())
+						{
+
+						}
+
+						ref var arc_lance = ref context.GetOrAddComponent<ArcLance.Data>();
+						if (!arc_lance.IsNull())
+						{
+							arc_lance.damage_integrity = 500.00f;
+							arc_lance.damage_durability = 1500.00f;
+							arc_lance.damage_terrain = 150.00f;
 						}
 					}
 				}

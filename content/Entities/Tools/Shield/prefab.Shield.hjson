@@ -14,7 +14,7 @@ body:
 		friction: 0.400
 		elasticity: 0.450
 		material: metal
-		layer: entity, solid, item
+		layer: entity, solid, item, shield
 		mask: world
 	}
 }
@@ -44,8 +44,8 @@ faction:
 
 holdable:
 {
-	force_multiplier: 2.000
-	torque_multiplier: 0.500
+	force_multiplier: 0.400
+	torque_multiplier: 0.900
 	offset: [-0.750, 0.000]
 	radius: 5.000
 	flags: storable
@@ -97,8 +97,8 @@ melee:
 	sound_pitch: 0.800
 	hit_offset: [0.000, 0.000]
 	hit_direction: [1.000, 0.000]
-	swing_offset: [0.400, 0.000]
-	swing_rotation: -0.200
+	swing_offset: [0.000, 0.000]
+	swing_rotation: 0.000
 	attack_type: thrust
 	damage_base: 80.000
 	damage_bonus: 30.000
@@ -113,7 +113,7 @@ melee:
 	yield: 0.800
 	penetration_falloff: 0.800
 	penetration: 3
-	damage_type: club
+	damage_type: blunt
 	category: blunt
 	flags: no_handle
 	hit_mask: item, creature

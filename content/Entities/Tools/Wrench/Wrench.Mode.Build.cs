@@ -1092,7 +1092,7 @@ namespace TC2.Base.Components
 														block = product.block,
 														amount = args.count
 													};
-													ent_character.Notify(ref ev);
+													ent_character.TriggerEvent(ref ev);
 												}
 
 												success = true;
@@ -1276,7 +1276,7 @@ namespace TC2.Base.Components
 															prefab = prefab_handle,
 															amount = 1
 														};
-														ent_character.Notify(ref ev);
+														ent_character.TriggerEvent(ref ev);
 													}
 
 													success = true;

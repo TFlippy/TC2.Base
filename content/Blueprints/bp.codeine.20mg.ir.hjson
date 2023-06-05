@@ -1,40 +1,113 @@
-{
+﻿{
 	name: "Codeine 20mg IR"
-	description: "Immediate-release 20mg codeine tablet."
+	description:
+		'''
+		Immediate-release 20mg codeine tablet.
+		'''
+	
+	flags: none
+	company: "plak_tope"
+	
 	prefab: "pill"
-	recipe: "refinery.pill"
+	recipe: "null"
+	seed: 0
+	
 	augments:
 	[
 		{
 			identifier: "consumable.codeine"
+			flags: none
+			modifier: 0.000
 			data: 1101004800
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 	]
