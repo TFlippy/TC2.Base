@@ -116,6 +116,7 @@ namespace TC2.Base.Components
 			public Melee.Flags flags;
 
 			public Physics.Layer hit_mask;
+			public Physics.Layer hit_require;
 			public Physics.Layer hit_exclude;
 
 			public Data()
@@ -449,7 +450,7 @@ namespace TC2.Base.Components
 			hit_results = Melee.HitResults.None;
 
 			Span<LinecastResult> results = stackalloc LinecastResult[16];
-			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
+			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
 			{
 				results.SortByDistance();
 

@@ -1358,9 +1358,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X = Maths.Clamp(offset.X, context.rect.a.X, context.rect.b.X);
-					offset.Y = Maths.Clamp(offset.Y, context.rect.a.Y, context.rect.b.Y);
-					offset = Maths.Snap(offset, 0.125f);
+					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
+					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
+					offset.Snap(0.125f);
 
 					return true;
 				},
@@ -1462,9 +1462,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X = Maths.Clamp(offset.X, context.rect.a.X, context.rect.b.X);
-					offset.Y = Maths.Clamp(offset.Y, context.rect.a.Y, context.rect.b.Y);
-					offset = Maths.Snap(offset, 0.125f);
+					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
+					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
+					offset.Snap(0.125f);
 
 					return true;
 				},
@@ -1506,8 +1506,8 @@ namespace TC2.Base
 				//					var dirty = false;
 				//					dirty |= GUI.Picker("offset", size: size, ref offset, min: context.rect.a, max: context.rect.b);
 
-				//					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-				//					//offset.Y = Maths.Clamp(offset.Y, -0.20f, 0.10f);
+				//					//offset.X.Clamp(-0.50f, 0.50f);
+				//					//offset.Y.Clamp(-0.20f, 0.10f);
 
 				//					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
 				//					//GUI.SameLine();
@@ -2658,7 +2658,7 @@ namespace TC2.Base
 					var sprite = new Sprite("augment.extra_barrel", 15, 15, (uint)(count - 1), 0);
 
 					//draw.DrawSprite("gun.extra_barrel", data.muzzle_offset, pivot: new(0.50f, 0.50f));
-					draw.DrawSprite(sprite, data.muzzle_offset, pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(data.muzzle_offset, 0.125f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2868,7 +2868,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					draw.DrawSprite("augment.flared_barrel", data.muzzle_offset, scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.flared_barrel", Maths.Snap(data.muzzle_offset, 0.125f), scale: new(1.00f, 0.50f + (value * 0.50f)), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2901,9 +2901,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, 0.00f, 1.00f);
+					offset.Snap(0.125f);
+					offset.X.Clamp(-0.50f, 0.50f);
+					offset.Y.Clamp(0.00f, 1.00f);
 
 					return true;
 				},
@@ -2930,7 +2930,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.bayonet", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.bayonet", Maths.Snap(data.muzzle_offset + offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -2953,6 +2953,7 @@ namespace TC2.Base
 						melee.max_distance = 1.90f;
 						melee.sound_swing = "tool_swing_00";
 						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
+						melee.hit_require = Physics.Layer.Solid;
 						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
 						melee.flags |= Melee.Flags.Use_RMB;
 						melee.hit_offset = data.muzzle_offset + offset;
@@ -2977,9 +2978,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.25f, 0.25f);
-					offset.Y = Maths.Clamp(offset.Y, -0.125f, 0.125f);
+					offset.Snap(0.125f);
+					offset.X.Clamp(-0.25f, 0.25f);
+					offset.Y.Clamp(-0.125f, 0.125f);
 
 					return true;
 				},
@@ -3028,7 +3029,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.silencer", 16, 8, 0, frame_y);
 
-					draw.DrawSprite(sprite, data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.25f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(data.muzzle_offset + offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.25f, 0.50f));
 				},
 #endif
 
@@ -3086,9 +3087,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, 0.00f, 1.00f);
+					offset.Snap(0.125f);
+					offset.X.Clamp(-0.50f, 0.50f);
+					offset.Y.Clamp(0.00f, 1.00f);
 
 					return true;
 				},
@@ -3115,7 +3116,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.axe", data.muzzle_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.axe", Maths.Snap(data.muzzle_offset + offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -3170,8 +3171,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X - 0.250f, MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
-					offset.Y = Maths.Clamp(offset.Y, data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
+					offset.X.Clamp(data.receiver_offset.X - 0.250f, MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
+					offset.Y.Clamp(data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
 
 					return true;
 				},
@@ -3195,8 +3196,8 @@ namespace TC2.Base
 					//GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, 
-						min: new Vector2(data.receiver_offset.X - 0.250f, data.receiver_offset.Y - 0.125f), 
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+						min: new Vector2(data.receiver_offset.X - 0.250f, data.receiver_offset.Y - 0.125f),
 						max: new Vector2(MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f), data.receiver_offset.Y + 0.250f));
 
 					return dirty;
@@ -3343,8 +3344,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X = Maths.Clamp(offset.X, -0.375f, data.muzzle_offset.X - 0.250f);
-					offset.Y = Maths.Clamp(offset.Y, -0.125f, 0.250f);
+					offset.X.Clamp(-0.375f, data.muzzle_offset.X - 0.250f);
+					offset.Y.Clamp(-0.125f, 0.250f);
 
 					return true;
 				},
@@ -3409,7 +3410,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.compensator", 16, 16, (uint)type, frame_y);
 
-					draw.DrawSprite(sprite, new Vector2(data.receiver_offset.X + 0.125f, data.muzzle_offset.Y + 0.125f) + offset, scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(new Vector2(data.receiver_offset.X + 0.125f, data.muzzle_offset.Y + 0.125f) + offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(1.00f, 0.50f));
 				},
 #endif
 
@@ -3509,8 +3510,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X, data.muzzle_offset.X);
-					offset.Y = Maths.Clamp(offset.Y, data.receiver_offset.Y, data.receiver_offset.Y);
+					offset.X.Clamp(data.receiver_offset.X, data.muzzle_offset.X);
+					offset.Y.Clamp(data.receiver_offset.Y, data.receiver_offset.Y);
 
 					return true;
 				},
@@ -3670,15 +3671,15 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X = Maths.Clamp(offset.X, data.receiver_offset.X + 0.500f, data.muzzle_offset.X - 0.375f);
-					offset.Y = Maths.Clamp(offset.Y, data.muzzle_offset.Y, data.muzzle_offset.Y);
+					offset.X.Clamp(data.receiver_offset.X + 0.500f, data.muzzle_offset.X - 0.375f);
+					offset.Y.Clamp(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.125f);
 
 					return true;
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<Shield.Data>() && !context.HasComponent<Melee.Data>();
+					return !augments.HasAugment(handle) && !context.HasComponent<Shield.Data>();
 				},
 
 #if CLIENT
@@ -3690,7 +3691,7 @@ namespace TC2.Base
 					var dirty = false;
 					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y), max: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y - 0.125f), max: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y + 0.125f));
 
 					return dirty;
 				},
@@ -3715,33 +3716,49 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var type = Maths.LerpInt(0, 3, modifier);
 
-					ref var melee = ref context.GetOrAddComponent<Melee.Data>();
-					if (!melee.IsNull())
+					//ref var melee = ref context.GetOrAddComponent<Melee.Data>(out var init_melee);
+					//if (!melee.IsNull())
 					{
-						melee.attack_type = Melee.AttackType.Thrust;
-						melee.aoe = 0.375f;
-						melee.thickness = 0.375f;
-						melee.category = Melee.Category.Blunt;
-						melee.cooldown = 1.00f;
-						melee.damage_base = 125.00f;
-						melee.damage_bonus = 200.00f;
-						melee.damage_type = Damage.Type.Blunt;
-						melee.knockback = 275.00f;
-						melee.max_distance = 1.40f;
-						melee.sound_swing = "tool_swing_00";
-						melee.hit_mask = Physics.Layer.Destructible | Physics.Layer.Item;
-						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree | Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Resource;
-						melee.flags |= Melee.Flags.Use_RMB;
+						//if (init_melee)
+						//{
+						//	melee.attack_type = Melee.AttackType.Thrust;
+						//	melee.aoe = 0.375f;
+						//	melee.thickness = 0.375f;
+						//	melee.category = Melee.Category.Blunt;
+						//	melee.cooldown = 1.00f;
+						//	melee.damage_base = 125.00f;
+						//	melee.damage_bonus = 200.00f;
+						//	melee.damage_type = Damage.Type.Blunt;
+						//	melee.knockback = 275.00f;
+						//	melee.max_distance = 1.40f;
+						//	melee.sound_swing = "tool_swing_00";
+						//	melee.hit_mask = Physics.Layer.Destructible | Physics.Layer.Item;
+						//	melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree | Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Resource;
+						//	melee.flags |= Melee.Flags.Use_RMB;
 
-						ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
-						if (!melee_state.IsNull())
-						{
+						//	ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
+						//	if (!melee_state.IsNull())
+						//	{
 
-						}
+						//	}
+						//}
 
 						ref var shield = ref context.GetOrAddComponent<Shield.Data>();
 						if (shield.IsNotNull())
 						{
+							ref var armor = ref context.GetOrAddComponent<Armor.Data>();
+							if (!armor.IsNull())
+							{
+								if (armor.material_type == Material.Type.None)
+								{
+									armor.material_type = Material.Type.Metal;
+									armor.toughness = 400.00f;
+									armor.protection = 0.90f;
+								}
+
+								armor.knockback_modifier += 1.50f;
+							}
+
 							ref var cover = ref context.GetOrAddComponent<Cover.Data>();
 							if (cover.IsNotNull())
 							{
@@ -3765,14 +3782,17 @@ namespace TC2.Base
 											shape.a = new Vector2(offset.X, offset.Y - 0.300f);
 											shape.b = new Vector2(offset.X, offset.Y + 0.300f);
 
-											melee.hit_offset = new Vector2(0.000f, 0.000f);
-											melee.max_distance = 1.000f;
-											melee.aoe = 0.500f;
-											melee.thickness = 0.625f;
-											melee.knockback = 150.00f;
-											melee.cooldown = 0.750f;
-											melee.penetration = 0;
-											melee.penetration_falloff = 0.50f;
+											//if (init_melee)
+											//{
+											//	melee.hit_offset = new Vector2(0.000f, 0.000f);
+											//	melee.max_distance = 1.000f;
+											//	melee.aoe = 0.500f;
+											//	melee.thickness = 0.625f;
+											//	melee.knockback = 150.00f;
+											//	melee.cooldown = 0.750f;
+											//	melee.penetration = 0;
+											//	melee.penetration_falloff = 0.50f;
+											//}
 
 											data.jitter_multiplier += 0.09f;
 											data.reload_interval += 0.02f;
@@ -3790,14 +3810,17 @@ namespace TC2.Base
 											shape.a = new Vector2(offset.X, offset.Y - 0.500f);
 											shape.b = new Vector2(offset.X, offset.Y + 0.375f);
 
-											melee.hit_offset = new Vector2(0.000f, 0.000f);
-											melee.max_distance = 0.750f;
-											melee.aoe = 0.750f;
-											melee.thickness = 0.875f;
-											melee.knockback = 250.00f;
-											melee.cooldown = 1.00f;
-											melee.penetration = 2;
-											melee.penetration_falloff = 0.500f;
+											//if (init_melee)
+											//{
+											//	melee.hit_offset = new Vector2(0.000f, 0.000f);
+											//	melee.max_distance = 0.750f;
+											//	melee.aoe = 0.750f;
+											//	melee.thickness = 0.875f;
+											//	melee.knockback = 250.00f;
+											//	melee.cooldown = 1.00f;
+											//	melee.penetration = 2;
+											//	melee.penetration_falloff = 0.500f;
+											//}
 
 											data.jitter_multiplier += 2.15f;
 											data.reload_interval += 0.11f;
@@ -3815,14 +3838,17 @@ namespace TC2.Base
 											shape.a = new Vector2(offset.X, offset.Y - 0.625f);
 											shape.b = new Vector2(offset.X, offset.Y + 0.500f);
 
-											melee.hit_offset = new Vector2(0.000f, 0.000f);
-											melee.max_distance = 1.250f;
-											melee.aoe = 0.750f;
-											melee.thickness = 0.875f;
-											melee.knockback = 320.00f;
-											melee.cooldown = 1.50f;
-											melee.penetration = 2;
-											melee.penetration_falloff = 0.650f;
+											//if (init_melee)
+											//{
+											//	melee.hit_offset = new Vector2(0.000f, 0.000f);
+											//	melee.max_distance = 1.250f;
+											//	melee.aoe = 0.750f;
+											//	melee.thickness = 0.875f;
+											//	melee.knockback = 320.00f;
+											//	melee.cooldown = 1.50f;
+											//	melee.penetration = 2;
+											//	melee.penetration_falloff = 0.650f;
+											//}
 
 											data.jitter_multiplier += 3.75f;
 											data.reload_interval += 0.18f;
@@ -3840,14 +3866,17 @@ namespace TC2.Base
 											shape.a = new Vector2(offset.X - 0.375f, offset.Y - 0.625f);
 											shape.b = new Vector2(offset.X, offset.Y + 0.250f);
 
-											melee.hit_offset = new Vector2(0.000f, 0.000f);
-											melee.max_distance = 1.250f;
-											melee.aoe = 0.750f;
-											melee.thickness = 0.750f;
-											melee.knockback = 270.00f;
-											melee.cooldown = 1.30f;
-											melee.penetration = 1;
-											melee.penetration_falloff = 0.650f;
+											//if (init_melee)
+											//{
+											//	melee.hit_offset = new Vector2(0.000f, 0.000f);
+											//	melee.max_distance = 1.250f;
+											//	melee.aoe = 0.750f;
+											//	melee.thickness = 0.750f;
+											//	melee.knockback = 270.00f;
+											//	melee.cooldown = 1.30f;
+											//	melee.penetration = 1;
+											//	melee.penetration_falloff = 0.650f;
+											//}
 
 											data.jitter_multiplier += 1.90f;
 											data.reload_interval += 0.09f;
@@ -3871,8 +3900,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X = Maths.Clamp(offset.X, data.muzzle_offset.X - 0.375f, data.muzzle_offset.X + 0.125f);
-					offset.Y = Maths.Clamp(offset.Y, data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.250f);
+					offset.X.Clamp(data.muzzle_offset.X - 0.375f, data.muzzle_offset.X + 0.125f);
+					offset.Y.Clamp(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.250f);
 
 					return true;
 				},
@@ -3891,8 +3920,8 @@ namespace TC2.Base
 					var dirty = false;
 					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, 
-						min: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y - 0.125f), 
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+						min: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y - 0.125f),
 						max: new Vector2(data.muzzle_offset.X + 0.125f, data.muzzle_offset.Y + 0.250f));
 
 					return dirty;
@@ -3933,8 +3962,9 @@ namespace TC2.Base
 						melee.max_distance = 1.75f;
 						melee.sound_swing = "tool_swing_00";
 						melee.hit_mask = Physics.Layer.World | Physics.Layer.Destructible;
-						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree;
-						melee.flags |= Melee.Flags.Use_RMB | Melee.Flags.Sync_Hit_Event;
+						melee.hit_require = Physics.Layer.Solid;
+						melee.hit_exclude = Physics.Layer.Ignore_Melee | Physics.Layer.Decoration | Physics.Layer.Tree | Physics.Layer.Resource;
+						melee.flags |= Melee.Flags.Use_RMB | Melee.Flags.Sync_Hit_Event | Melee.Flags.No_Material_Filter;
 						melee.hit_offset = offset;
 
 						ref var melee_state = ref context.GetOrAddComponent<Melee.State>();
@@ -3950,6 +3980,168 @@ namespace TC2.Base
 							arc_lance.damage_durability = 1500.00f;
 							arc_lance.damage_terrain = 150.00f;
 						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
+				identifier: "gun.grip",
+				category: "Gun (Barrel)",
+				name: "Add: Grip",
+				description: "TODO: Desc",
+
+				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					offset.X.Clamp(data.receiver_offset.X + 0.500f, data.muzzle_offset.X + 0.125f);
+					offset.Y.Clamp(data.muzzle_offset.Y - 0.000f, data.muzzle_offset.Y + 0.500f);
+
+					return true;
+				},
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+						min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y - 0.000f),
+						max: new Vector2(data.muzzle_offset.X + 0.125f, data.muzzle_offset.Y + 0.500f));
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var frame_y = 0u;
+
+					var sprite = new Sprite("augment.grip", 8, 16, (uint)type, frame_y);
+
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+				},
+#endif
+
+				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var robustness = 1.00f;
+					var size = 1.00f;
+					var slant = 1.00f;
+					var bulkiness = 1.00f;
+					var grip = 1.00f;
+
+					switch (type)
+					{
+						case 0:
+						{
+							robustness *= 1.20f;
+							size *= 0.70f;
+							slant *= 1.35f;
+							bulkiness *= 0.80f;
+							grip *= 1.10f;
+						}
+						break;
+
+						case 1:
+						{
+							robustness *= 0.80f;
+							size *= 1.50f;
+							slant *= 1.95f;
+							bulkiness *= 1.50f;
+							grip *= 0.80f;
+						}
+						break;
+
+						case 2:
+						{
+							robustness *= 1.50f;
+							size *= 1.10f;
+							slant *= 0.20f;
+							bulkiness *= 1.10f;
+							grip *= 0.50f;
+						}
+						break;
+
+						case 3:
+						{
+							robustness *= 0.90f;
+							size *= 1.40f;
+							slant *= 2.10f;
+							bulkiness *= 1.10f;
+							grip *= 2.20f;
+						}
+						break;
+
+						case 4:
+						{
+							robustness *= 1.40f;
+							size *= 1.10f;
+							slant *= 0.70f;
+							bulkiness *= 1.30f;
+							grip *= 0.80f;
+						}
+						break;
+
+						case 5:
+						{
+							robustness *= 1.10f;
+							size *= 1.40f;
+							slant *= 0.30f;
+							bulkiness *= 0.90f;
+							grip *= 5.00f;
+						}
+						break;
+
+						case 6:
+						{
+							robustness *= 1.80f;
+							size *= 1.40f;
+							slant *= 0.20f;
+							bulkiness *= 1.50f;
+							grip *= 0.70f;
+						}
+						break;
+
+						case 7:
+						{
+
+						}
+						break;
+
+						case 8:
+						{
+
+						}
+						break;
+					}
+
+					ref var holdable = ref context.GetComponent<Holdable.Data>();
+					if (holdable.IsNotNull())
+					{
+						var mult_muzzle = Maths.InvLerp01(data.receiver_offset.X + 0.500f, data.muzzle_offset.X + 0.125f, offset.X);
+						data.jitter_multiplier *= MathF.Max(Maths.Mulpo(mult_muzzle * grip, -0.20f), 0.25f);
+
+						holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * (grip - (bulkiness * size * 0.40f)));
+						holdable.offset.X = Maths.Lerp(Maths.Lerp(context.rect.a.X, holdable.offset.X, 0.50f), offset.X, 0.50f);
+						holdable.offset.Y = Maths.Lerp(holdable.offset.Y, offset.Y, 0.80f);
+						//if (offset.X <= data.receiver_offset.X + 0.25f) holdable.force_multiplier *= 1.00f + (Maths.MidBias(-0.25f, 0.125f, 0.625f, offset.Y - data.receiver_offset.Y) * Maths.Mulpo(bulkiness, -0.50f) * size * 0.40f);
 					}
 				}
 			));

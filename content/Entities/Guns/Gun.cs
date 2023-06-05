@@ -1266,8 +1266,8 @@
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
 			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && gun.cycle_interval <= 0.10f);
-			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 20.00f && gun.reload_interval <= 0.50f));
-			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range >= 20.00f && gun.jitter_multiplier <= 0.05f);
+			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 15.00f && gun.reload_interval <= 0.50f));
+			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{

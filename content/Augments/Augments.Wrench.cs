@@ -36,7 +36,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.wrench", new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.wrench", Maths.Snap(offset, 0.125f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 

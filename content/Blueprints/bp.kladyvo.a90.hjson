@@ -1,0 +1,114 @@
+﻿{
+	name: "Kladyvo A90"
+	description:
+		'''
+		Portable shoulder-mounted autocannon.
+		'''
+	
+	flags: none
+	company: "null"
+	
+	prefab: "lmg"
+	recipe: "gunsmith.lmg"
+	seed: 427717013522
+	
+	augments:
+	[
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1069547520
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "overheat.radiator"
+			flags: none
+			modifier: 0.166667
+			data: 13744986063798009856
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.000
+			data: 4503599628423266304
+		}
+		{
+			identifier: "gun.caliber_conversion"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.875
+			data: 13726971665282236416
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.000
+			data: 13744986065941299200
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.grip"
+			flags: none
+			modifier: 0.625
+			data: 4503599628429557760
+		}
+		{
+			identifier: "gun.arcer"
+			flags: none
+			modifier: 0.000
+			data: 13744986063801155584
+		}
+		{
+			identifier: "gun.shield"
+			flags: none
+			modifier: 0.500
+			data: 13690942868271661056
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.250
+			data: 13763000462309588992
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

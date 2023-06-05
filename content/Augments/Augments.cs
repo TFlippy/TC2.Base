@@ -259,7 +259,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite(context.HasComponent<Gun.Data>() ? "augment.coolant.gun" : "augment.coolant", 24, 16, frame_index, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -336,7 +336,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.radiator", 24, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -826,9 +826,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
-					//offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					//offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+					//offset.X.Clamp(-0.50f, 0.50f);
+					//offset.Y.Clamp(-1.00f, 0.00f);
+					offset.Snap(0.125f);
 
 					return true;
 				},
@@ -878,8 +878,8 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.lamp", 16, 16, (byte)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
-					//draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: handle.GetScale(), pivot: new(0.50f, 0.50f));
+					//draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(1.00f, 0.50f), scale: new(offset.X > 0.00f ? 1.00f : -1.00f, offset.Y > 0.00f ? -1.00f : 1.00f));
 				},
 #endif
 
@@ -997,9 +997,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
-					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
-					offset.Y = Maths.Clamp(offset.Y, -1.00f, 0.00f);
+					offset.X.Clamp(-0.50f, 0.50f);
+					offset.Y.Clamp(-1.00f, 0.00f);
+					offset.Snap(0.125f);
 
 					return true;
 				},
@@ -1026,7 +1026,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.scope", new Vector2(offset.X, offset.Y), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.scope", Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -1058,7 +1058,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 2.00f);
+					value.Clamp(1.00f, 2.00f);
 
 					return true;
 				},
@@ -1099,7 +1099,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 3.00f);
+					value.Clamp(1.00f, 3.00f);
 
 					return true;
 				},
@@ -1140,7 +1140,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.00f, 1.00f);
+					value.Clamp(0.00f, 1.00f);
 
 					return true;
 				},
@@ -1177,7 +1177,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.00f, 1.00f);
+					value.Clamp(0.00f, 1.00f);
 
 					return true;
 				},
@@ -1323,7 +1323,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.ornament", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), scale: new(offset.X > 0.00f ? -1.00f : 1.00f, offset.Y > 0.00f ? -1.00f : 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -1348,7 +1348,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 500.00f);
+					value.Clamp(1.00f, 500.00f);
 
 					return true;
 				},
@@ -1396,7 +1396,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 200.00f);
+					value.Clamp(1.00f, 200.00f);
 
 					return true;
 				},
@@ -1444,7 +1444,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.05f, 50.00f);
+					value.Clamp(0.05f, 50.00f);
 
 					return true;
 				},
@@ -1492,7 +1492,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 100.00f);
+					value.Clamp(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1540,7 +1540,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 100.00f);
+					value.Clamp(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1588,7 +1588,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 1.00f, 100.00f);
+					value.Clamp(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1631,7 +1631,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.01f, 0.20f);
+					value.Clamp(0.01f, 0.20f);
 
 					return true;
 				},
@@ -1671,7 +1671,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.00f, 1.50f);
+					value.Clamp(0.00f, 1.50f);
 
 					return true;
 				},
@@ -1692,10 +1692,10 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value = Maths.Clamp(value, 0.00f, 1.50f);
+					value.Clamp(0.00f, 1.50f);
 
-					data.force_multiplier *= Maths.Mulpo(value, 0.70f);
-					data.torque_multiplier *= Maths.Mulpo(value, 1.20f);
+					data.force_multiplier.MultCapped(Maths.Mulpo(value, 0.70f), 3.00f);
+					data.torque_multiplier.MultCapped(Maths.Mulpo(value, 1.20f), 3.00f);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1715,9 +1715,9 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X = Maths.Clamp(offset.X, -1.00f, 1.00f);
-					offset.Y = Maths.Clamp(offset.Y, -1.00f, 1.00f);
-					offset = Maths.Snap(offset, 0.125f);
+					offset.X.Clamp(-1.00f, 1.00f);
+					offset.Y.Clamp(-1.00f, 1.00f);
+					offset.Snap(0.125f);
 
 					return true;
 				},
@@ -1748,7 +1748,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.attachable", offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.attachable", Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
@@ -1831,7 +1831,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.steel", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2041,7 +2041,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.steel.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2090,7 +2090,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.framework.steel", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2299,7 +2299,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.framework.steel.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2353,7 +2353,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.scrap", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2738,7 +2738,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.scrap.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -2902,7 +2902,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.smirglum", 16, 16, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 
@@ -3190,7 +3190,7 @@ namespace TC2.Base
 
 					var sprite = new Sprite("augment.casing.smirglum.large", 24, 24, (uint)type, 0);
 
-					draw.DrawSprite(sprite, new Vector2(offset.X, offset.Y), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
 				},
 #endif
 

@@ -52,8 +52,13 @@ transform:
 medkit:
 {
 	power: 100.000
+	integrity_multiplier: 1.000
+	durability_multiplier: 1.000
 	cooldown: 0.500
 	max_distance: 3.000
+	aoe: 0.750
+	heal_min_integrity: 1.000
+	heal_min_durability: 0.400
 	pain: 50.000
 }
 

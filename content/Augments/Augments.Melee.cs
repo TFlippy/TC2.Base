@@ -157,7 +157,7 @@ namespace TC2.Base
 				generate_sprite: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					draw.DrawSprite("augment.spike", data.hit_offset + offset, scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
+					draw.DrawSprite("augment.spike", Maths.Snap(data.hit_offset + offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 

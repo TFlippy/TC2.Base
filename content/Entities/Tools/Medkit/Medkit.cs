@@ -6,7 +6,7 @@
 		public struct Data: IComponent
 		{
 			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float power = default;
+			public float power = 100.00f;
 
 			[Statistics.Info("Healing (Integrity)", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float integrity_multiplier = 1.00f;
@@ -15,13 +15,13 @@
 			public float durability_multiplier = 1.00f;
 
 			[Statistics.Info("Cooldown", description: "Time between heals", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float cooldown = default;
+			public float cooldown = 0.50f;
 
 			[Statistics.Info("Reach", description: "How far away this can heal", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance = default;
+			public float max_distance = 1.00f;
 
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float aoe = 0.25f;
+			public float aoe = 0.50f;
 
 			[Statistics.Info("Healing Min (Integrity)", description: "Can heal as long as above this percentage", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float heal_min_integrity = 1.00f; // Can heal only as long as above this % plus the reconstruction medic skill
@@ -35,7 +35,7 @@
 			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float pain = 0.00f;
 
-			[Save.Ignore, Net.Ignore] public float next_use = default;
+			[Save.Ignore, Net.Ignore] public float next_use;
 
 			public Data()
 			{
@@ -66,19 +66,33 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(pos_w, 0.20f, ref hits, mask: Physics.Layer.Organic))
+					if (region.TryOverlapPointAll(this.control.mouse.position, this.medkit.aoe, ref hits, mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible, exclude: Physics.Layer.Dead))
 					{
-						ref var nearest = ref hits.GetNearest();
+						hits.SortByDistance();
 
-						ref var health = ref nearest.entity.GetComponent<Health.Data>();
-						if (!health.IsNull())
+						//ref var nearest = ref hits.GetNearest();
+
+						foreach (ref var hit in hits)
 						{
-							var integrity = health.integrity;
-							var durability = health.durability;
+							ref var health = ref hit.entity.GetComponent<Health.Data>();
+							if (!health.IsNull())
+							{
+								var health_norm = health.GetHealthNormalized();
+								if (health_norm < 1.00f)
+								{
+									var integrity = health.integrity;
+									var durability = health.durability;
 
-							var color = Color32BGRA.FromHSV(MathF.Min(integrity, durability) * 2.00f, 1.00f, 1.00f);
-							GUI.DrawEntity(nearest.entity, color: color);
-							GUI.DrawText($"Integrity: {integrity * 100.00f:0}%\nDurability: {durability * 100.00f:0}%", pos_c + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
+									var color = Color32BGRA.FromHSV(health_norm * 2.00f, 1.00f, 1.00f).WithAlphaMult(0.75f);
+									GUI.DrawEntity(hit.entity, color: color);
+									GUI.DrawText($"Integrity: {integrity * 100.00f:0}%\nDurability: {durability * 100.00f:0}%", hit.world_position.WorldToCanvas() + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
+								}
+								else
+								{
+									var color = Color32BGRA.Green.WithAlphaMult(0.50f);
+									GUI.DrawEntity(hit.entity, color: color);
+								}
+							}
 						}
 					}
 				}
@@ -125,10 +139,11 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic))
+					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible, exclude: Physics.Layer.Dead))
 					{
-						var total_healed_amount = 0.00f;
+						hits.SortByDistance();
 
+						var total_healed_amount = 0.00f;
 						var power = medkit.power;
 
 						foreach (ref var hit in hits)
