@@ -106,8 +106,8 @@ namespace TC2.Base.Components
 
 		// TODO: this is bad
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
-		public static void UpdateArmAimable([Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear, 
-		[Source.Owned] in Aimable.Data aimable, 
+		public static void UpdateArmAimable([Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear,
+		[Source.Owned] in Aimable.Data aimable,
 		[Source.Parent] in Body.Data body_parent, [Source.Owned] in Body.Data body_child)
 		{
 			var aim_torque = arm.aim_torque;
@@ -254,6 +254,9 @@ namespace TC2.Base.Components
 					}
 #endif
 				}
+
+				var health_norm = health.integrity * health.durability;
+				joint.max_stress_modifier = (health_norm + 0.20f).Clamp01().Pow2().Pow2();
 			}
 		}
 	}

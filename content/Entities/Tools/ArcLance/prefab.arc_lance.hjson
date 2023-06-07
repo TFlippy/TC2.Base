@@ -54,7 +54,7 @@ melee:
 	category: pointed
 	flags: sync_hit_event
 	hit_mask: world, destructible
-	hit_exclude: ignore_melee, decoration
+	hit_exclude: ignore_melee, decoration, tree
 }
 
 melee.state:
