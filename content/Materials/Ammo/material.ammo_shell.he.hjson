@@ -1,5 +1,5 @@
 ﻿{
-	name: "Artillery Shell (High-Explosive)"
+	name: "Artillery Shell (HE)"
 	description:
 		'''
 		Ammunition for cannons. Greatly increased damage and explosion radius.

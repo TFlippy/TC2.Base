@@ -1,5 +1,5 @@
 ﻿{
-	name: "Artillery Shell (High-Velocity)"
+	name: "Artillery Shell (HV)"
 	description:
 		'''
 		Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling.

@@ -1,5 +1,5 @@
 ﻿{
-	name: "Shotgun Ammo (High-Explosive)"
+	name: "SG Ammo (HE)"
 	description:
 		'''
 		Ammunition for shotguns. Fires a small low-powered grenade.

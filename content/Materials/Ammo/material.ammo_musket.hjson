@@ -1,5 +1,5 @@
 ﻿{
-	name: "Musket Ammo"
+	name: "Musket Ammo (Ball)"
 	description:
 		'''
 		Ammunition for muskets, blunderbusses, and pistols. Fires a single projectile.

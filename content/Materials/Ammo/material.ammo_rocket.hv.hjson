@@ -1,5 +1,5 @@
 ﻿{
-	name: "Rocket Ammo (High-Velocity)"
+	name: "Rocket Ammo (HV)"
 	description:
 		'''
 		Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius.
