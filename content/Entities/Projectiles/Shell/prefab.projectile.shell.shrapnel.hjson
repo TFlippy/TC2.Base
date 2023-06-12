@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 10000.000
 	lifetime: 0.200
 	ignore_time: 0.100
-	damage_type: bullet_mg
+	damage_type: bullet_ac
 	size: 0.150
 	ricochet_count: 0
 	damp: 0.988
@@ -29,6 +29,9 @@ animated.renderer:
 
 explosive:
 {
+	damage_type: shrapnel
+	damage_type_secondary: shrapnel
+
 	radius: 4.000
 	power: 2.000
 	damage_entity: 5000.000

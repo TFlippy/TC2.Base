@@ -75,7 +75,9 @@ explosive:
 	flash_intensity_multiplier: 0.200
 	volume: 1.000
 	pitch: 2.000
-	damage_type: bullet_sg
+	
+	damage_type: shrapnel
+	damage_type_secondary: shrapnel
 }
 
 packable:

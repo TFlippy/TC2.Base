@@ -32,6 +32,7 @@ namespace TC2.Base.Components
 			public float damage_terrain = default;
 
 			public Damage.Type damage_type = Damage.Type.Explosion;
+			public Damage.Type damage_type_secondary = Damage.Type.Shockwave;
 
 			public float fire_amount = 1.00f;
 			public float shake_multiplier = 1.00f;
@@ -175,6 +176,7 @@ namespace TC2.Base.Components
 						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier;
 						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier;
 						explosion.damage_type = explosive_tmp.damage_type;
+						explosion.damage_type_secondary = explosive_tmp.damage_type_secondary;
 						explosion.ent_owner = explosive_tmp.ent_owner;
 						explosion.fire_amount = explosive_tmp.fire_amount;
 						explosion.smoke_amount = explosive_tmp.smoke_amount;

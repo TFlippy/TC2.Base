@@ -49,6 +49,9 @@ health:
 
 explosive:
 {
+	damage_type: explosion
+	damage_type_secondary: shockwave
+
 	radius: 20.000
 	power: 3.000
 	damage_entity: 4000.000
@@ -61,7 +64,6 @@ explosive:
 	force_multiplier: 1.200
 	shake_multiplier: 0.050
 	fire_amount: 5.000
-	damage_type: fire
 	volume: 1.500
 	pitch: 5.500
 	health_threshold: 0.999

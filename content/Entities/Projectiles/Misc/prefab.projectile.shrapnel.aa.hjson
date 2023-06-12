@@ -25,11 +25,13 @@ transform:
 
 explosive:
 {
+	damage_type: shrapnel
+	damage_type_secondary: shrapnel
+
 	radius: 8.000
 	power: 1.200
 	damage_entity: 3000.000
 	damage_terrain: 1000.000
-	damage_type: bullet_lc
 	smoke_amount: 0.700
 	smoke_lifetime_multiplier: 1.600
 	smoke_velocity_multiplier: 2.500

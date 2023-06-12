@@ -28,18 +28,21 @@ animated.renderer:
 
 explosive:
 {
+	damage_type: explosion
+	damage_type_secondary: shrapnel
+
 	radius: 4.000
 	power: 3.000
 	damage_entity: 2500.000
 	damage_terrain: 6000.000
 	sparks_amount: 1.000
-	smoke_amount: 0.700
+	smoke_amount: 0.600
 	smoke_lifetime_multiplier: 0.600
 	smoke_velocity_multiplier: 5.000
 	flash_duration_multiplier: 0.150
 	flash_intensity_multiplier: 0.500
-	shake_multiplier: 0.600
+	shake_multiplier: 0.500
 	volume: 1.000
-	pitch: 2.300
+	pitch: 2.000
 	flags: primed
 }

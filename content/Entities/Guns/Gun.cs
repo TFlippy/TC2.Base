@@ -932,7 +932,8 @@
 							ref var explosion = ref ent.GetComponent<Explosion.Data>();
 							if (!explosion.IsNull())
 							{
-								explosion.damage_type = Damage.Type.Bullet_SG;
+								explosion.damage_type = Damage.Type.Shrapnel;
+								explosion.damage_type_secondary = Damage.Type.Shrapnel;
 								explosion.power = explosion_data.power;
 								explosion.radius = explosion_data.radius;
 								explosion.damage_entity = explosion_data.damage_entity;
@@ -1034,6 +1035,7 @@
 									explosion.damage_entity = 0.00f;
 									explosion.damage_terrain = 90.00f;
 									explosion.damage_type = Damage.Type.Shockwave;
+									explosion.damage_type_secondary = Damage.Type.Shockwave;
 									explosion.ent_owner = entity;
 									explosion.fire_amount = 0.00f;
 									explosion.smoke_amount = 0.00f;

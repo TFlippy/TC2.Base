@@ -1,0 +1,48 @@
+﻿{
+	name: "MG Ammo (AP)"
+	description:
+		'''
+		Ammunition for machine guns
+		and other heavy weapons.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_mg.ap"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_mg, magnetic, granular, despawnable
+	mass_per_unit: 0.190
+	quantity_max: 50.000
+	prefab: "resource.ammo_mg.ap"
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.050
+		heat: 70.000
+		velocity_min: 50.000
+		
+		speed_mult: 1.000
+		spread_mult: 1.500
+		recoil_mult: 1.000
+		
+		failure_base: 0.002
+		failure_mult: 1.010
+		
+		stability_base: 2650.000
+		stability_mult: 1.000
+		
+		prefab: "projectile.bullet.mg.ap"
+	}
+}

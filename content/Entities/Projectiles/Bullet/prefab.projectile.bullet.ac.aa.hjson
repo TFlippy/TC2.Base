@@ -28,6 +28,9 @@ transform:
 
 explosive:
 {
+	damage_type: explosion
+	damage_type_secondary: shrapnel
+
 	radius: 6.000
 	power: 1.500
 	damage_entity: 5000.000

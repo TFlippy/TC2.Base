@@ -30,6 +30,9 @@ transform:
 
 explosive:
 {
+	damage_type: explosion
+	damage_type_secondary: shockwave
+
 	radius: 5.000
 	power: 4.500
 	damage_entity: 10000.000

@@ -40,6 +40,9 @@ animated.renderer:
 
 explosive:
 {
+	damage_type: ammo_ac
+	damage_type_secondary: shrapnel
+
 	radius: 5.000
 	power: 3.000
 	damage_entity: 4500.000

@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_mg.arc.mt"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_mg.arc.mt"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+
+}

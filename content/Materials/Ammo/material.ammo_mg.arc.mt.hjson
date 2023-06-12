@@ -1,0 +1,48 @@
+﻿{
+	name: "MG Ammo (ARC-MT)"
+	description:
+		'''
+		Ammunition for machine guns
+		and other heavy weapons.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_mg.arc.mt"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_mg, magnetic, granular, despawnable
+	mass_per_unit: 0.250
+	quantity_max: 50.000
+	prefab: "resource.ammo_mg.arc.mt"
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.230
+		heat: 70.000
+		velocity_min: 2.000
+		
+		speed_mult: 0.050
+		spread_mult: 4.500
+		recoil_mult: 6.500
+		
+		failure_base: 0.005
+		failure_mult: 0.500
+		
+		stability_base: 1950.000
+		stability_mult: 1.000
+		
+		prefab: "projectile.bullet.mg.arc.mt"
+	}
+}
