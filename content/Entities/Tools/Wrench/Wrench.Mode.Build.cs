@@ -52,15 +52,6 @@ namespace TC2.Base.Components
 					public static bool show_zones;
 					public static bool enable_grid;
 
-					public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe)
-					{
-						//var rpc = new Wrench.Mode.Build.EditRPC
-						//{
-						//	recipe = recipe
-						//};
-						//rpc.Send(ent_wrench);
-					}
-
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var region = ref Client.GetRegion();

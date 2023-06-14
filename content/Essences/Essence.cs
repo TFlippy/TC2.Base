@@ -75,11 +75,11 @@ namespace TC2.Base.Components
 			ref var region = ref context.GetRegion();
 			if (!region.IsNull())
 			{
-				Essence.Explode(ref region, identifier, amount, context.GetPlayer().control.mouse.position);
+				Essence.SpawnCollapsingNode(ref region, identifier, amount, context.GetPlayer().control.mouse.position);
 			}
 		}
 
-		public static void Explode(ref Region.Data region, IEssence.Handle h_essence, float amount, Vector2 position)
+		public static void SpawnCollapsingNode(ref Region.Data region, IEssence.Handle h_essence, float amount, Vector2 position, bool full_collapse = true)
 		{
 			ref var essence_data = ref h_essence.GetData();
 			if (essence_data.IsNotNull())
@@ -98,6 +98,7 @@ namespace TC2.Base.Components
 								essence_node.amount = amount;
 								essence_node.stability = 0.00f;
 								essence_node.volatility = 1.00f;
+								essence_node.flags.AddFlag(EssenceNode.Flags.Full_Collapse, full_collapse);
 
 								essence_node.Sync(x, true);
 							}

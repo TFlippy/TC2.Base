@@ -140,7 +140,7 @@
 				var ent_holder_arm = data.ent_target.GetParent(Relation.Type.Child);
 				if (ent_holder_arm.IsAlive())
 				{
-					App.WriteLine($"{ent_holder_arm.GetFullName()}");
+					//App.WriteLine($"{ent_holder_arm.GetFullName()}");
 
 					var oc_body = ent_holder_arm.GetComponentWithOwner<Body.Data>(Relation.Type.Instance, false);
 					if (oc_body.IsValid())
@@ -153,7 +153,7 @@
 						{
 							impulse_mult *= 6.00f;
 
-							if (random.NextBool(0.50f))
+							if (random.NextBool(0.70f))
 							{
 								Arm.Drop(ent_holder_arm, target: data.ent_target, direction: -data.direction);
 							}

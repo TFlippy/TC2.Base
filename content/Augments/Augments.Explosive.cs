@@ -140,7 +140,7 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Essence Payload",
 				description: "Adds essence pellets to the explosive.",
-				flags: Augment.Definition.Flags.Hidden,
+				//flags: Augment.Definition.Flags.Hidden,
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -155,8 +155,8 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					//dirty |= GUI.EnumInput("Essence", ref h_essence, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false, close_on_select: true);
-					//GUI.SameLine();
+					dirty |= GUI.AssetInput("Essence", ref h_essence, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false);
+					GUI.SameLine();
 					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.GetRemainingSpace());
 
 

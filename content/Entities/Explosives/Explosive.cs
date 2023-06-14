@@ -11,7 +11,7 @@ namespace TC2.Base.Components
 			Primed = 1 << 0,
 			Any_Damage = 1 << 1,
 			Explode_When_Primed = 1 << 2,
-			No_Self_Damage = 1 << 3,
+			No_Self_Damage = 1 << 3
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]

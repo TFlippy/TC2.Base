@@ -23,7 +23,6 @@ namespace TC2.Base.Components
 			public int penetration = 1;
 
 			public Damage.Type damage_type;
-			private uint unused;
 
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_exclude;

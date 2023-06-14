@@ -80,6 +80,20 @@ namespace TC2.Base.Components
 //#endif
 		}
 
+#if SERVER
+		[ISystem.Update(ISystem.Mode.Single, interval: 0.38f)]
+		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, [Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Body.Data body)
+		{
+			var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
+			if (heat_excess > 0.00f && random.NextBool(heat_excess * 0.01f))
+			{
+				var damage = Maths.Lerp(heat_excess, health.max, 0.35f) * random.NextFloatRange(0.80f, 1.20f);
+				entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), damage, damage, damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Fire, yield: 0.00f, xp_modifier: 0.00f, impulse: 0.00f);
+			}
+		}
+#endif
+
 #if CLIENT
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
