@@ -2,28 +2,31 @@ $tags: []
 
 projectile:
 {
-	damage_base: 70.000
-	damage_bonus: 400.000
+	damage_base: 250.000
+	damage_bonus: 600.000
 	lifetime: 10.000
 	damage_type: bullet_musket
-	knockback_multiplier: 8.000
-	size: 0.020
-	gravity: 0.100
-	ricochet_count: 5
-	ricochet_threshold_multiplier: 4.000
-	ricochet_velocity_min: 1.000
-	damp: 0.750
-	tracer_length: 2.000
-	mass: 0.090
+	knockback_multiplier: 50.000
+	size: 0.030
+	gravity: 1.000
+	ricochet_count: 4
+	ricochet_threshold_multiplier: 10.000
+	ricochet_velocity_min: 0.100
+	damp: 0.930
+	tracer_length: 1.000
+	mass: 0.100
+	stabilization: 0.010
+	hit_mask: world, solid, essence
+	// angular_velocity: 5.000
 
 	@sound.emitter:
 	{
-		file: "levitator.loop.02"
+		file: "essence.emit.generic.loop.13"
 		volume: 0.400
-		pitch: 4.000
-		size_max_modifier: 2.500
+		pitch: 3.000
+		size_max_modifier: 1.500
 		spread: 120.000
-		doppler: 0.300
+		doppler: 0.700
 		size: 0.300
 	}
 
@@ -33,7 +36,7 @@ projectile:
 		offset: [-1.000, 0.000]
 		scale: [8.000, 2.000]
 		intensity: 1.000
-		texture: "light.circle.00"
+		texture: "light.circle.04"
 	}
 }
 
@@ -53,8 +56,16 @@ transform:
 
 rocket:
 {
-	mass: 0.070
-	force: 300.000
+	mass: 0.100
+	force: 40.000
 	fuel_time: 10.000
 	smoke_amount: 0.000
+}
+
+essencecontainer:
+{
+	h_essence: motion
+	available: 15.000
+	stability: 0.000
+	health_threshold: 0.000
 }

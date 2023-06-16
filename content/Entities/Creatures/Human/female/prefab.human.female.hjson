@@ -53,7 +53,7 @@ human:
 
 regen:
 {
-	amount: 60.000
+	amount: 120.000
 	interval: 5.000
 }
 
@@ -105,7 +105,10 @@ transform:
 
 control:
 {
-
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
 }
 
 torso:
@@ -187,6 +190,84 @@ lootable:
 			max: 48.000
 		}
 	]
+}
+
+ai:
+{
+	courage: 600.000
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	movement_flags: none
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend
+}
+
+ai.search:
+{
+	radius: 60.000
+}
+
+ai.gunner:
+{
+	aim_min_dot: 0.990
+	aim_speed_mult: 1.900
+	aim_time_mult: 1.000
+
+	attack_distance: 40.000
+	attack_cooldown: 0.500
+	attack_burst_time: 1.000
+}
+
+ai.gunner.state:
+{
+
+}
+
+npc:
+{
+	pain_modifier: 1.000
+	min_consciousness: 0.300
+	avoid_distance: [1.000, 0.000]
+	idle_distance: [1.500, 1.500]
+
+	wander_interval: 18.000
+	wander_interval_extra: 25.000
+	wander_radius: 10.000
+}
+
+npc.emotions:
+{
+	hostility: 0.280
+	courage: 0.500
+	cruelty: 0.600
+	irritability: 0.400
+	apathy: 0.600
+}
+
+npc.emotions.state:
+{
+
+}
+
+pathfinding:
+{
+	flags: land
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
 }
 
 +slot_head|instance:
@@ -287,7 +368,7 @@ lootable:
 
 		regen:
 		{
-			amount: 60.000
+			amount: 120.000
 			interval: 5.000
 		}
 		
@@ -505,7 +586,7 @@ lootable:
 
 		regen:
 		{
-			amount: 60.000
+			amount: 110.000
 			interval: 5.000
 		}
 		

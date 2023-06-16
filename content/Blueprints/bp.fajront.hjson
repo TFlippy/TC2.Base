@@ -2,7 +2,7 @@
 	name: "Fajront"
 	description:
 		'''
-		Quad-barreled lever-action rifle with an arcer designed to counter armored infantry.
+		Heavy quad-barreled shoulder-mounted gun designed to counter armored infantry.
 		'''
 	
 	flags: none
@@ -33,16 +33,10 @@
 			data: 1
 		}
 		{
-			identifier: "body.framework.steel"
+			identifier: "gun.grip"
 			flags: none
-			modifier: 0.3125
-			data: 4503599628433752064
-		}
-		{
-			identifier: "gun.improved_rifling"
-			flags: none
-			modifier: 0.000
-			data: 1065017671
+			modifier: 0.625
+			data: 4503599628436897792
 		}
 		{
 			identifier: "body.casing.steel"
@@ -53,26 +47,8 @@
 		{
 			identifier: "body.framework.steel"
 			flags: none
-			modifier: 0.375
-			data: 4467570831408496640
-		}
-		{
-			identifier: "body.framework.steel"
-			flags: none
-			modifier: 0.250
-			data: 4467570833547591680
-		}
-		{
-			identifier: "gun.balanced_receiver"
-			flags: none
-			modifier: 0.000
-			data: 0
-		}
-		{
-			identifier: "body.framework.steel"
-			flags: mirror_y
-			modifier: 0.125
-			data: 4503599628423266304
+			modifier: 0.4375
+			data: 4467570831404302336
 		}
 		{
 			identifier: "gun.tempered_frame"
@@ -81,16 +57,28 @@
 			data: 0
 		}
 		{
-			identifier: "gun.expanded_magazine"
-			flags: none
-			modifier: 0.000
-			data: 1082298204
-		}
-		{
 			identifier: "gun.silencer"
 			flags: none
 			modifier: 0.000
-			data: 4467570833547591680
+			data: 9223372040042446848
+		}
+		{
+			identifier: "gun.shield"
+			flags: none
+			modifier: 0.750
+			data: 1059061760
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065017671
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1074287083
 		}
 		{
 			identifier: "gun.automatic_reloading"
@@ -99,13 +87,25 @@
 			data: 13690942870410756096
 		}
 		{
-			identifier: "gun.arcer"
+			identifier: "holdable.grip.friction"
 			flags: none
 			modifier: 0.000
-			data: 13708957266782191616
+			data: 1069547520
 		}
 		{
-			identifier: "melee.longer_handle"
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.250
+			data: 13744986063798009856
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.250
+			data: 4503599628410683392
+		}
+		{
+			identifier: "gun.balanced_receiver"
 			flags: none
 			modifier: 0.000
 			data: 0

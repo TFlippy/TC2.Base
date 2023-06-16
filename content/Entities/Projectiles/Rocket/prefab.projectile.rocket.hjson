@@ -50,7 +50,7 @@ rocket:
 {
 	mass: 3.000
 	force: 60.000
-	fuel_time: 2.000
+	fuel_time: 3.000
 	
 	@light:
 	{

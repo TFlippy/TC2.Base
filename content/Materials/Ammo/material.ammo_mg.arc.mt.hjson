@@ -22,22 +22,25 @@
 	
 	type: metal
 	flags: manufactured, ammo, ammo_mg, magnetic, granular, despawnable
-	mass_per_unit: 0.250
+	mass_per_unit: 0.320
 	quantity_max: 50.000
 	prefab: "resource.ammo_mg.arc.mt"
 	
 	ammo:
 	{
 		count: 1
-		mass: 0.230
-		heat: 70.000
-		velocity_min: 2.000
+		mass: 0.250
+		heat: 110.000
+		velocity_min: 1.000
 		
-		speed_mult: 0.050
+		speed_base: 0.000
+		speed_mult: 0.200
+		spin_base: 2.000
+		spin_mult: 2.000
 		spread_mult: 4.500
-		recoil_mult: 6.500
+		recoil_mult: 4.500
 		
-		failure_base: 0.005
+		failure_base: 0.010
 		failure_mult: 0.500
 		
 		stability_base: 1950.000

@@ -3779,8 +3779,8 @@ namespace TC2.Base
 											shape.elasticity = 0.75f;
 											shape.friction = 0.40f;
 											shape.radius = 0.25f;
-											shape.a = new Vector2(offset.X, offset.Y - 0.300f);
-											shape.b = new Vector2(offset.X, offset.Y + 0.300f);
+											shape.a = new Vector2(offset.X, offset.Y - 0.350f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.350f);
 
 											//if (init_melee)
 											//{
@@ -3807,8 +3807,8 @@ namespace TC2.Base
 											shape.elasticity = 0.75f;
 											shape.friction = 0.60f;
 											shape.radius = 0.25f;
-											shape.a = new Vector2(offset.X, offset.Y - 0.500f);
-											shape.b = new Vector2(offset.X, offset.Y + 0.375f);
+											shape.a = new Vector2(offset.X, offset.Y - 0.550f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.425f);
 
 											//if (init_melee)
 											//{
@@ -3835,8 +3835,8 @@ namespace TC2.Base
 											shape.elasticity = 0.45f;
 											shape.friction = 0.50f;
 											shape.radius = 0.375f;
-											shape.a = new Vector2(offset.X, offset.Y - 0.625f);
-											shape.b = new Vector2(offset.X, offset.Y + 0.500f);
+											shape.a = new Vector2(offset.X, offset.Y - 0.675f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.550f);
 
 											//if (init_melee)
 											//{
@@ -3863,8 +3863,8 @@ namespace TC2.Base
 											shape.elasticity = 0.85f;
 											shape.friction = 0.40f;
 											shape.radius = 0.40f;
-											shape.a = new Vector2(offset.X - 0.375f, offset.Y - 0.625f);
-											shape.b = new Vector2(offset.X, offset.Y + 0.250f);
+											shape.a = new Vector2(offset.X - 0.375f, offset.Y - 0.675f);
+											shape.b = new Vector2(offset.X, offset.Y + 0.300f);
 
 											//if (init_melee)
 											//{

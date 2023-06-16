@@ -152,7 +152,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
 		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head)
 		{
-			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.05f);
+			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
@@ -175,7 +175,7 @@ namespace TC2.Base.Components
 		//}
 
 #if SERVER
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), Exclude<Player.Data>(Source.Modifier.Parent), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
 		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
 		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Of<Control.Data>, Optional(true)] ref Net.Synchronized sync)

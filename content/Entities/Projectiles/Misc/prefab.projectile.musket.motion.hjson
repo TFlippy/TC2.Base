@@ -15,6 +15,7 @@ projectile:
 	damp: 0.750
 	tracer_length: 0.500
 	mass: 0.090
+	hit_mask: world, solid, essence
 
 	@sound.emitter:
 	{

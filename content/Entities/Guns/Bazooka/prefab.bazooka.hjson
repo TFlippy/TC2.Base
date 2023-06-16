@@ -141,8 +141,8 @@ packable:
 overheat:
 {
 	heat_medium: 350.000
-	heat_high: 500.000
-	heat_critical: 750.000
+	heat_high: 700.000
+	heat_critical: 950.000
 	cool_rate: 100.000
 	
 	@light:

@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 		}
 
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
 		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
@@ -35,13 +35,21 @@ namespace TC2.Base.Components
 			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
-		public static void UpdateProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile)
+		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		public static void UpdateProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile, [Source.Owned] ref Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
 			{
-				var dir = projectile.velocity.GetNormalized();
-				projectile.velocity += dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
+				//var dir = projectile.velocity.GetNormalized(out var vel);
+				//if (projectile.rotation != 0.00f)
+				//{
+				//	dir = dir.RotateByRad(-projectile.rotation);
+				//}
+
+				var dir = transform.GetDirection();
+				var step = dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
+
+				projectile.velocity += step;
 			}
 
 			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
@@ -95,12 +103,17 @@ namespace TC2.Base.Components
 
 				rocket.smoke_accumulator += rocket.smoke_amount;
 
+				var dir = transform.GetDirection();
+				var speed = projectile.velocity.Length();
+				// .GetNormalized(out var vel);
+				//if (projectile.rotation != 0.00f) dir = dir.RotateByRad(-projectile.rotation);
+
 				while (rocket.smoke_accumulator >= 1.00f)
 				{
 					Particle.Spawn(ref region, new Particle.Data()
 					{
 						texture = texture_smoke,
-						pos = transform.position - (projectile.velocity * App.fixed_update_interval_s * 4.00f),
+						pos = transform.position - (dir * speed * App.fixed_update_interval_s * 4.00f),
 						lifetime = random.NextFloatRange(10.00f, 15.00f),
 						fps = random.NextByteRange(1, 3),
 						frame_count = 64,
@@ -115,7 +128,7 @@ namespace TC2.Base.Components
 						color_b = new Color32BGRA(000, 150, 150, 150),
 						drag = random.NextFloatRange(0.06f, 0.08f),
 						stretch = new Vector2(1, 2),
-						vel = (-projectile.velocity * 0.40f) + random.NextUnitVector2Range(0.50f, 1.50f),
+						vel = (-dir * speed * 0.40f) + random.NextUnitVector2Range(0.50f, 1.50f),
 					});
 
 					rocket.smoke_accumulator -= 1.00f;

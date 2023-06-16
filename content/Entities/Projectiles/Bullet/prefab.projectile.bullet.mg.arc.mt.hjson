@@ -5,16 +5,18 @@ projectile:
 	damage_base: 350.000
 	damage_bonus: 2500.000
 	lifetime: 6.000
-	damage_type: bullet_emrg
-	knockback_multiplier: 35.000
+	damage_type: bullet_ac
+	knockback_multiplier: 15.000
 	size: 0.090
 	gravity: 1.000
-	ricochet_count: 1
-	ricochet_threshold_multiplier: 1.000
+	ricochet_count: 2
+	ricochet_threshold_multiplier: 1.500
 	ricochet_velocity_min: 1.000
-	damp: 0.700
-	tracer_length: 4.000
-	mass: 0.230
+	damp: 0.840
+	tracer_length: 1.000
+	mass: 0.250
+	stabilization: 0.010
+	hit_mask: world, solid, essence
 
 	@sound.emitter:
 	{
@@ -32,8 +34,8 @@ projectile:
 		color: [0.000, 0.800, 1.000, 5.000]
 		offset: [-1.000, 0.000]
 		scale: [8.000, 2.000]
-		intensity: 1.000
-		texture: "light.circle.00"
+		intensity: 2.000
+		texture: "light.circle.04"
 	}
 }
 
@@ -53,8 +55,16 @@ transform:
 
 rocket:
 {
-	mass: 0.230
-	force: 1200.000
+	mass: 0.250
+	force: 300.000
 	fuel_time: 10.000
 	smoke_amount: 0.000
+}
+
+essencecontainer:
+{
+	h_essence: motion
+	available: 55.000
+	stability: 0.000
+	health_threshold: 0.000
 }

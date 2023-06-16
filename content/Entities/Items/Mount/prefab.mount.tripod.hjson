@@ -149,7 +149,7 @@ sticky:
 	{
 		offset_a: [0.000, -0.750]
 		max_force: 30000.000
-		max_torque: 15000.000
+		max_torque: 30000.000
 		max_stress: 2.000
 		stress_threshold: 2.010
 		flags: control_write, no_wrap, force_facing, attachment, allow_dragging, facing_reset_pos

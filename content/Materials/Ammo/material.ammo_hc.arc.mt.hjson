@@ -30,12 +30,15 @@
 	{
 		count: 1
 		mass: 0.100
-		heat: 25.000
-		velocity_min: 2.000
+		heat: 35.000
+		velocity_min: 1.000
 		
-		speed_mult: 0.050
+		speed_base: 0.000
+		speed_mult: 0.150
+		spin_base: 2.000
+		spin_mult: 2.000
 		spread_mult: 2.000
-		recoil_mult: 3.500
+		recoil_mult: 1.000
 		
 		failure_base: 0.005
 		failure_mult: 0.500

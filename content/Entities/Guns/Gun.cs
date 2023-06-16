@@ -962,27 +962,33 @@
 						for (var i = 0; i < count; i++)
 						{
 							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
-							var random_multiplier = 1.00f + random.NextFloat(velocity_jitter);
+							var random_multiplier = 1.00f + Maths.Clamp(random.NextFloat(velocity_jitter), -0.50f, 0.50f);
 							//App.WriteLine(random_multiplier);
 
 							var args =
 							(
 								damage_mult: gun.damage_multiplier * random_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * gun.velocity_multiplier * ammo.speed_mult * random_multiplier,
+								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult * random_multiplier,
+								ang_vel: random.NextFloatRange(-0.05f, 0.05f) * (angle_jitter + ammo.spin_base) * ammo.spin_mult * random_multiplier,
 								ent_owner: body.GetParent(),
 								ent_gun: entity,
 								faction_id: body.GetFaction(),
 								gun_flags: gun.flags
 							);
 
+							if (gun.type == Gun.Type.Launcher)
+							{
+								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
+							}
+
 							if (args.vel.LengthSquared() < (ammo.velocity_min * ammo.velocity_min))
 							{
 								force_jammed = true;
-								break;
+								continue;
 							}
 							else
 							{
-								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: dir.GetParity()).ContinueWith(ent =>
+								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel).ContinueWith(ent =>
 								{
 									ref var projectile = ref ent.GetComponent<Projectile.Data>();
 									if (!projectile.IsNull())
@@ -990,6 +996,7 @@
 										projectile.damage_base *= args.damage_mult;
 										projectile.damage_bonus *= args.damage_mult;
 										projectile.velocity = args.vel;
+										projectile.angular_velocity = args.ang_vel;
 										projectile.ent_owner = args.ent_owner;
 										projectile.faction_id = args.faction_id;
 										projectile.Sync(ent, true);
@@ -1251,12 +1258,15 @@
 
 		[ISystem.Add(ISystem.Mode.Single)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
-		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable)
+		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable, [Source.Owned] ref Body.Data body)
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun, true);
 			holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
 			holdable.hints.SetFlag(NPC.ItemHints.Long_Range, gun_state.hints.HasAny(Gun.Hints.Long_Range));
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
+			holdable.hints.SetFlag(NPC.ItemHints.Heavy, body.GetMass() >= 30.00f);
+			holdable.hints.SetFlag(NPC.ItemHints.Inaccurate, gun.jitter_multiplier >= 1.50f);
+			holdable.hints.SetFlag(NPC.ItemHints.Junk, gun.failure_rate >= 0.10f || gun.jitter_multiplier >= 5.00f);
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -1267,7 +1277,7 @@
 		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
-			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && gun.cycle_interval <= 0.10f);
+			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && (gun.cycle_interval <= 0.10f || (gun.cycle_interval <= 0.20f && gun.flags.HasAny(Gun.Flags.Automatic))));
 			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 15.00f && gun.reload_interval <= 0.50f));
 			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
 
