@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, order: 10), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -40,22 +40,31 @@ namespace TC2.Base.Components
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
-				if (organic_child.tags.HasAll(Organic.Tags.Brain))
-				{
-					organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
-					organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
-					organic_state_parent.unconscious_time = organic_state_child.unconscious_time;
-				}
-				else
-				{
-					organic_state_child.consciousness_shared_new = MathF.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
-					organic_state_child.motorics_shared_new = MathF.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
-					organic_state_child.unconscious_time = organic_state_parent.unconscious_time;
-				}
+				organic_state_child.consciousness_shared_new = MathF.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
+				organic_state_child.motorics_shared_new = MathF.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
+				organic_state_child.unconscious_time = organic_state_parent.unconscious_time;
 
 				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = MathF.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
 			}
 		}
+
+		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
+		[ISystem.Update(ISystem.Mode.Single, order: 15), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
+		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
+		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
+		[Source.Parent] in Joint.Base joint)
+		{
+			if (joint.flags.HasAll(Joint.Flags.Organic))
+			{
+				organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
+				organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
+				organic_state_parent.unconscious_time = organic_state_child.unconscious_time;
+
+				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = MathF.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+			}
+		}
+
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void Update2([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)

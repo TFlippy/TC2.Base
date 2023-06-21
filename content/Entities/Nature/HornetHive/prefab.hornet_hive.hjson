@@ -125,6 +125,8 @@ claimer:
 			interval_count_modifier: 20.000
 			max_count: 8
 			filter_tag: "hornet"
+			ai_stance: aggressive
+			ai_type: attack
 		}
 
 		spawn:

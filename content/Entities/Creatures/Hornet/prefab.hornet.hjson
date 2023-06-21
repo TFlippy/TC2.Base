@@ -116,7 +116,8 @@ ai.movement:
 
 ai.behavior:
 {
-	
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, chase, charge
 }
 
 ai.search:
@@ -196,7 +197,7 @@ melee:
 	attack_type: thrust
 	damage_base: 35.000
 	damage_bonus: 75.000
-	primary_damage_multiplier: 0.500
+	primary_damage_multiplier: 0.700
 	secondary_damage_multiplier: 1.000
 	terrain_damage_multiplier: 0.200
 	cooldown: 1.000
@@ -204,7 +205,7 @@ melee:
 	aoe: 0.350
 	thickness: 0.150
 	knockback: 100.000
-	yield: 0.900
+	yield: 0.950
 	penetration_falloff: 0.900
 	penetration: 1
 	damage_type: sting
