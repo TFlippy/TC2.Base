@@ -59,10 +59,32 @@ minimap.marker:
 	flags: spawner
 }
 
+interactable:
+{
+	window_size: [600.000, 422.000]
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	// flags: no_menu
+	requirements:
+	[
+		{
+			type: money
+			amount: 500.000
+		}
+	]
+}
+
 dormitory:
 {
 	species: "human"
-	flags: no_hiring, no_kit_selection
+	flags: no_hiring, no_kit_selection, no_kit_requirements
 	max_kits: 2
 	kit_default: "survival"
 	characters_capacity: 3
@@ -76,7 +98,7 @@ dormitory:
 	{
 		require: nomad
 		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
-		exclude: lower_middle_class, upper_class, elite_class, sedentary
+		exclude: none
 		weight: 2.000
 	}
 }

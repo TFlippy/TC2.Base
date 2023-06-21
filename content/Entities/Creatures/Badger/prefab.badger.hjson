@@ -69,7 +69,7 @@ control:
 facing:
 {
 	offset: -0.250
-	threshold: 1.500
+	threshold: 0.500
 }
 
 holdable:
@@ -79,16 +79,17 @@ holdable:
 
 animal:
 {
-	attack_cooldown: 1.500
+	attack_cooldown: 1.600
 
 	attack_distance_melee: 2.000
 	attack_cooldown_melee: 0.800
 
-	attack_distance_ranged: 5.000
+	attack_distance_ranged: 10.000
 	attack_cooldown_ranged: 2.000
 
 	charge_distance: 6.000
 	retreat_distance: 9.000
+	growl_cooldown: 0.100
 }
 
 animal.state:
@@ -131,7 +132,9 @@ ai.movement:
 
 ai.behavior:
 {
-	
+	type: attack
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
 }
 
 ai.search:
@@ -177,9 +180,9 @@ threat:
 dive:
 {
 	sound: "badger_pounce"
-	offset: [0.000, 0.250]
-	cooldown: 2.000
-	speed: 15.000
+	offset: [0.000, 1.000]
+	cooldown: 1.000
+	speed: 35.000
 }
 
 badger:
@@ -234,7 +237,7 @@ faction:
 	id: "badger"
 }
 
-+0|instance:
++slot_butt|instance:
 {
 	$tags: []
 	
@@ -408,7 +411,7 @@ faction:
 	}
 }
 
-+1|instance:
++slot_head|instance:
 {
 	$tags: []
 	
@@ -511,15 +514,16 @@ faction:
 			max_distance: 1.250
 			aoe: 0.750
 			thickness: 0.750
-			knockback: -450.000
+			knockback: -100.000
 			yield: 0.800
 			penetration_falloff: 0.900
 			penetration: 1
 			damage_type: bite
 			category: pointed
 			flags: no_handle
-			hit_mask: destructible
-			hit_exclude: decoration, tree, ignore_melee, world
+			hit_mask: organic, creature
+			hit_require: destructible
+			hit_exclude: decoration, tree, ignore_melee, world, water, gas, essence
 		}
 
 		melee.state:

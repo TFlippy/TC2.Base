@@ -3,7 +3,7 @@
 	[
 		{
 			sound: "amb.forest.day.loop.00"
-			volume: 0.120
+			volume: 0.200
 			pitch: 0.850
 
 			daytime_range: [0.170, 0.950]

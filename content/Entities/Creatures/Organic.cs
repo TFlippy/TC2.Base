@@ -255,8 +255,8 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				var health_norm = health.integrity * health.durability;
-				joint.max_stress_modifier = (health_norm + 0.20f).Clamp01().Pow2().Pow2();
+				//var health_norm = health.integrity * health.durability;
+				//joint.max_stress_modifier = (health_norm + 0.20f).Clamp01().Pow2().Pow2();
 			}
 		}
 	}
