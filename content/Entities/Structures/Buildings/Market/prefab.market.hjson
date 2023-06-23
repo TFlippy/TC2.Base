@@ -125,8 +125,8 @@ dormitory:
 	character_flags_filter: 
 	{
 		require: none
-		include: bureaucrat, farmer, social, commerce, miner, hunter, artist, lower_middle_class, middle_class
-		exclude: upper_class, elite_class, lowlife, criminal, sedentary
+		include: bureaucrat, construction, artisan, farmer, civillian, social, commerce, miner, hunter, nomad, artist, outdoor, lower_middle_class, middle_class
+		exclude: criminal, military, lowlife, sedentary, upper_class, elite_class
 		weight: 2.000
 	}
 }

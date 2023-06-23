@@ -70,6 +70,7 @@ facing:
 {
 	offset: -0.250
 	threshold: 0.500
+	flip_interval: 1.000
 }
 
 holdable:

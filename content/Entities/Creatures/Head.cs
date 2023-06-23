@@ -182,7 +182,7 @@ namespace TC2.Base.Components
 		{
 			if (head.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
 			{
-				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8;
+				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8 * head.concussion.ClampX1();
 
 				//region.DrawDebugCircle(control.mouse.position, 0.125f, Color32BGRA.Yellow, 4);
 

@@ -186,12 +186,12 @@ namespace TC2.Base.Components
 			Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = 10000.00f;
-			low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 2.50f);
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 10000.00f, modifier * 2.50f);
+			low_pass.resonance = MathF.Pow(0.70f + (Maths.Clamp01((modifier - 0.20f) * 2.00f) * 8.50f), 2.50f);
 
 			ref var high_pass = ref Audio.HighPass;
-			high_pass.frequency = 150.00f;
-			high_pass.resonance = MathF.Pow(0.70f + (modifier * 5.50f), 1.50f);
+			high_pass.frequency = Maths.Lerp01(high_pass.frequency, 150.00f, modifier * 2.50f);
+			high_pass.resonance = MathF.Pow(0.70f + (Maths.Clamp01((modifier - 0.30f) * 2.00f) * 5.50f), 1.50f);
 
 			if (meth.modifier_current < meth.modifier_withdrawal)
 			{
