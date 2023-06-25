@@ -76,7 +76,7 @@ transform:
 
 interactable:
 {
-	window_size: [288.000, 96.000]
+	window_size: [288.000, 192.000]
 	window_offset: [0.000, 192.000]
 }
 

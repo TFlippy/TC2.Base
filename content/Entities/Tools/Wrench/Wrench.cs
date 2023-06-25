@@ -570,7 +570,7 @@ namespace TC2.Base.Components
 			public ulong selected_component_id;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Data data)
+			public readonly void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Data data)
 			{
 				if (entity.HasComponent(this.selected_component_id))
 				{

@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics.CodeAnalysis;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Wrench
 	{
@@ -21,17 +18,17 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
 					public static string Name { get; } = "Belts";
 
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;
-					public Physics.Layer LayerMask => Physics.Layer.Belt;
-					public Color32BGRA ColorOk => Color32BGRA.Green;
-					public Color32BGRA ColorError => Color32BGRA.Red;
-					public Color32BGRA ColorNew => Color32BGRA.Yellow;
+					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;
+					public readonly Physics.Layer LayerMask => Physics.Layer.Belt;
+					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
+					public readonly Color32BGRA ColorError => Color32BGRA.Red;
+					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					public Entity EntitySrc => this.ent_src;
-					public Entity EntityDst => this.ent_dst;
-					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
+					public readonly Entity EntitySrc => this.ent_src;
+					public readonly Entity EntityDst => this.ent_dst;
+					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
+					public readonly TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{
 						return new TargetInfo(entity, is_src);
 					}
@@ -56,7 +53,7 @@ namespace TC2.Base.Components
 						rpc.Send(ent_wrench);
 					}
 
-					public void DrawInfo(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
+					public readonly void DrawInfo(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
 						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
@@ -89,7 +86,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					public void DrawNode(Entity ent_wrench, ref TargetInfo info, Color32BGRA color)
+					public readonly void DrawNode(Entity ent_wrench, ref TargetInfo info, Color32BGRA color)
 					{
 						ref var axle_state = ref info.entity.GetComponent<Axle.State>();
 						if (axle_state.IsNotNull())
@@ -144,6 +141,18 @@ namespace TC2.Base.Components
 						}
 					}
 #endif
+
+//#if SERVER
+//					[ISystem.Add(ISystem.Mode.Single)]
+//					public static void OnAdd(ISystem.Info info, Entity entity, [Source.Owned] ref Wrench.Mode.Belts.Data mode, [Source.Owned] ref Wrench.Data wrench) 
+//					{
+//						if (mode.selected_recipe.id == 0)
+//						{
+//							mode.selected_recipe = 
+//							mode.Sync(entity, true);
+//						}
+//					}
+//#endif
 				}
 
 				public struct TargetInfo: ITargetInfo
@@ -160,13 +169,13 @@ namespace TC2.Base.Components
 					public bool alive;
 					public bool valid;
 
-					public Entity Entity => this.entity;
-					public ulong ComponentID => ECS.GetID<Axle.Data>();
-					public Vector2 Position => this.pos;
-					public float Radius => this.radius;
-					public bool IsSource => this.is_src;
-					public bool IsAlive => this.alive;
-					public bool IsValid => this.valid;
+					public readonly Entity Entity => this.entity;
+					public readonly ulong ComponentID => ECS.GetID<Axle.Data>();
+					public readonly Vector2 Position => this.pos;
+					public readonly float Radius => this.radius;
+					public readonly bool IsSource => this.is_src;
+					public readonly bool IsAlive => this.alive;
+					public readonly bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity, bool is_src)
 					{
@@ -254,7 +263,7 @@ namespace TC2.Base.Components
 							if (info_src.valid && info_dst.valid)
 							{
 								var pos_mid = (info_src.pos + info_dst.pos) * 0.50f;
-				
+
 								errors |= data.EvaluateNodePair<Wrench.Mode.Belts.Data, Wrench.Mode.Belts.TargetInfo, Belt.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 								if (errors == Build.Errors.None)
 								{

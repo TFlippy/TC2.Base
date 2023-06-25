@@ -400,7 +400,7 @@ namespace TC2.Base.Components
 
 
 				//App.WriteLine(delta);
-				if (delta <= 0.10f)
+				if (delta <= 0.10f && Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
 				{
 					Particle.Spawn(ref region, new Particle.Data()
 					{
@@ -472,7 +472,7 @@ namespace TC2.Base.Components
 			sound_emitter.volume = Maths.Lerp(sound_emitter.volume, Maths.Clamp(delta * 2.00f, 0.00f, 1.00f), 0.10f);
 			sound_emitter.pitch = 1.00f; // 0.60f + Maths.Clamp(delta * 0.10f, 0.00f, 0.50f);
 
-			if (delta > 0.10f && info.WorldTime >= steam_engine_state.next_exhaust)
+			if (delta > 0.10f && info.WorldTime >= steam_engine_state.next_exhaust && Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
 			{
 				steam_engine_state.next_exhaust = info.WorldTime + 0.10f;
 

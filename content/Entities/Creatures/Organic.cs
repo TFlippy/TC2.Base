@@ -229,7 +229,7 @@ namespace TC2.Base.Components
 #if CLIENT
 					//if (organic_state.consciousness_shared_new > 0.30f)
 
-					if (true)
+					if (Camera.IsVisible(Camera.CullType.Rect1x, transform.position))
 					{
 						ref var region = ref info.GetRegion();
 						var random = XorRandom.New();
