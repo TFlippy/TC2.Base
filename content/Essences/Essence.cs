@@ -75,7 +75,9 @@ namespace TC2.Base.Components
 			ref var region = ref context.GetRegion();
 			if (!region.IsNull())
 			{
-				Essence.SpawnCollapsingNode(ref region, identifier, amount, context.GetPlayer().control.mouse.position);
+				var random = XorRandom.New(true);
+				//EssenceNode.Collapse(ref region, ref random, identifier, default, context.GetPlayer().control.mouse.position, amount);
+				Essence.SpawnCollapsingNode(ref region, identifier, amount, context.GetPlayer().control.mouse.position, full_collapse: true);
 			}
 		}
 
