@@ -86,7 +86,11 @@ rope.renderer:
 		offset_b: [0.000, -3.000]
 		max_force: 500000.000
 		max_torque: 500000.000
-		flags: control_read, control_write
+
+		max_stress: 2.000
+		stress_threshold: 2.010
+
+		flags: none
 		material_type: metal
 	}
 
@@ -95,7 +99,7 @@ rope.renderer:
 		min: 0.000
 		max: 0.000
 
-		error_bias: 0.0001
+		error_bias: 0.001
 		max_force: 200000.000
 		max_bias: 20.000
 	}
@@ -108,7 +112,7 @@ rope.renderer:
 		min: 0.000
 		max: 12.000
 
-		error_bias: 0.0001
+		error_bias: 0.001
 		max_force: 200000.000
 		max_force_b: 200000.000
 		max_bias: 20.000
@@ -116,8 +120,11 @@ rope.renderer:
 
 	joint.distance:
 	{
-		max_force: 1000000.000
+		step: 10.000
+		max_force: 500000.000
+		error_bias: 0.001
 		max_bias: 10.000
+		max_bias_bounce: 30.000
 		stress_mult: 0.000
 	}
 
@@ -132,9 +139,9 @@ rope.renderer:
 				size: [0.875, 6.000]
 				offset: [0.000, 0.000]
 				mass: 2000.000
-				friction: 0.650
-				elasticity: 0.450
-				radius: 0.125
+				friction: 0.450
+				elasticity: 0.500
+				radius: 0.000
 				material: metal
 				layer: entity, solid
 				mask: world, solid
