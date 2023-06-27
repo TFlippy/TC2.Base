@@ -1,0 +1,91 @@
+$name: "Baton"
+$desc: 
+	'''
+	Handy tool used for pacifying misbehaving people.
+	'''
+$tags: []
+
+control:
+{
+
+}
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, 0.500]
+		b: [0.000, -0.500]
+		mass: 6.000
+		radius: 0.250
+		friction: 0.950
+		elasticity: 0.650
+		material: wood
+		layer: entity, solid, ignore_bullet, item, flammable
+		mask: world
+	}
+}
+
+health:
+{
+	max: 800.000
+}
+
+melee:
+{
+	sound_swing: "tool_swing_00"
+	damage_base: 20.000
+	damage_bonus: 55.000
+	primary_damage_multiplier: 0.200
+	cooldown: 0.300
+	max_distance: 1.125
+	thickness: 0.500
+	hit_offset: [0.500, 0.000]
+	aoe: 1.000
+	knockback: 100.000
+	yield: 0.900
+	penetration_falloff: 0.900
+	pain_multiplier: 6.500
+	disarm_chance: 0.220
+	penetration: 2
+	damage_type: club
+	attack_type: swing
+	category: blunt
+	hit_require: destructible, organic
+	hit_mask: destructible, organic
+	hit_exclude: world, static, ignore_melee, decoration, tree, climbable
+}
+
+melee.state:
+{
+
+}
+
+aimable:
+{
+
+}
+
+holdable:
+{
+	offset: [0.250, 0.375]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "baton"
+	}
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
