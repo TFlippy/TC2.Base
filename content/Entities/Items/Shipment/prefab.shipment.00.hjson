@@ -14,7 +14,7 @@ body:
 		size: [1.500, 0.625]
 		radius: 0.250
 		mass: 15.000
-		friction: 0.950
+		friction: 0.650
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid, flammable
 		mask: world, crate

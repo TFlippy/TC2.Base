@@ -1,7 +1,8 @@
-$name: "Shipment"
+$name: "Box (ISB/042-A)"
 $desc:
 	'''
-	A medium shipping crate used for storage and transport of various goods.
+	Imperial Standard Box, Type 042-A.
+	Used as a small shipping container, can be attached to vehicles. 
 	'''
 $tags: []
 
@@ -11,13 +12,14 @@ body:
 
 	@shape.box:
 	{
-		size: [2.250, 1.500]
+		size: [2.250, 2.250]
 		radius: 0.250
 		mass: 80.000
-		friction: 0.750
+		friction: 0.650
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid, flammable
 		mask: world, crate
+		exclude: attached
 		material: wood
 	}
 }
@@ -54,7 +56,15 @@ attachment:
 {
 	force_multiplier: 1.000
 	torque_multiplier: 4.000
-	offset: [-0.375, 0.875]
+	offset: [-0.500, 1.125]
 	flags: disable_parent_facing
 	tags: none
+}
+
+norotate:
+{
+	bias: 0.050
+	speed: 1.000
+	multiplier: 4.000
+	mass_multiplier: 4.000
 }
