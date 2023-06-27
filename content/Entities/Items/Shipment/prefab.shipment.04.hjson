@@ -11,21 +11,15 @@ body:
 
 	@shape.box:
 	{
-		size: [4.375, 2.375]
+		size: [4.250, 2.500]
 		radius: 0.250
-		mass: 200.000
-		friction: 0.950
+		mass: 250.000
+		friction: 0.750
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid, flammable
 		mask: world, crate
 		material: wood
 	}
-}
-
-holdable:
-{
-	radius: 0.000
-	flags: disable_parent_facing
 }
 
 animated.renderer:
@@ -34,7 +28,7 @@ animated.renderer:
 	{
 		texture: "shipment.04"
 	}
-	z: 10.000
+	z: -90.000
 }
 
 transform:
@@ -45,4 +39,22 @@ transform:
 interactable:
 {
 	window_size: [192.000, 192.000]
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 0.500
+
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 4.000
+	offset: [-0.875, 1.375]
+	flags: disable_parent_facing
+	tags: none
 }
