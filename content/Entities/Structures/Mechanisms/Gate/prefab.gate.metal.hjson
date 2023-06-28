@@ -1,3 +1,8 @@
+$name: "Heavy Metal Gate"
+$desc:
+	'''
+	Sturdy metal gate.
+	'''
 $tags: []
 
 body:

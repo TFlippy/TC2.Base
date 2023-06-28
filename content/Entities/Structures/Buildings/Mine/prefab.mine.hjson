@@ -104,7 +104,7 @@ depot:
 
 spawn:
 {
-	flags: none
+	flags: faction
 }
 
 minimap.marker:

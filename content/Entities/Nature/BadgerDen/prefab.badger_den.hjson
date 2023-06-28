@@ -65,7 +65,7 @@ claimer:
 
 spawn:
 {
-	flags: none
+	flags: neutral_only, faction
 }
 
 minimap.marker:

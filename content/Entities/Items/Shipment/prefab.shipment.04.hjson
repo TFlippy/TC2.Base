@@ -47,7 +47,7 @@ interactable:
 
 holdable:
 {
-	force_multiplier: 1.500
+	force_multiplier: 2.000
 	torque_multiplier: 0.500
 
 	radius: 0.000

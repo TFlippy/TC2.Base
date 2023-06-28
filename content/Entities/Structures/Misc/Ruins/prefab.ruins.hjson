@@ -44,7 +44,7 @@ nameable:
 
 spawn:
 {
-	flags: none
+	flags: faction, neutral_only
 }
 
 minimap.marker:
