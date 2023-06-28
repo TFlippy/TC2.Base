@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+
+}
+
+soundscape:
+{
+	handle: swamp.day.00
+
+	radius_min: 800.000
+	radius_max: 1000.000
+
+	weight: 10.000
+}

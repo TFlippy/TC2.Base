@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+
+}
+
+soundscape:
+{
+	handle: city.day.00
+
+	radius_min: 75.000
+	radius_max: 125.000
+
+	weight: 500.000
+}

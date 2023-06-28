@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+
+}
+
+sky:
+{
+	handle: desert.00
+
+	radius_min: 200.000
+	radius_max: 500.000
+
+	weight: 10.000
+}

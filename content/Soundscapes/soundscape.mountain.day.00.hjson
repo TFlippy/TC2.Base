@@ -1,16 +1,14 @@
-﻿{
-	color: "0xff8ab62d"
-	
+{
 	sounds_looped:
 	[
 		{
 			sound: "amb.forest.day.loop.00"
-			volume: 0.100
+			volume: 0.200
 			pitch: 0.850
-			
+
 			daytime_range: [0.170, 0.950]
 			
-			mix:
+			mix: 
 			{
 				front_left: 0.000
 				front_right: 0.000
@@ -26,10 +24,10 @@
 			sound: "amb.forest.night.loop.00"
 			volume: 0.050
 			pitch: 1.000
-			
+
 			daytime_range: [0.920, 0.180]
 			
-			mix:
+			mix: 
 			{
 				front_left: 0.000
 				front_right: 0.000
@@ -43,5 +41,8 @@
 		}
 	]
 	
-	sounds_random: []
+	sounds_random:
+	[
+
+	]
 }
