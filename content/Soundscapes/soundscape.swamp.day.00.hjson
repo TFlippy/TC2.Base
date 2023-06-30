@@ -1,12 +1,16 @@
-{
+﻿{
+	color: "0xff9fcd02"
+	
 	sounds_looped:
 	[
 		{
 			sound: "amb.swamp.day.loop.00"
-			volume: 0.120
-			pitch: 0.850
+			volume: 0.090
+			pitch: 0.800
 			
-			mix: 
+			daytime_range: [0.000, 1.000]
+			
+			mix:
 			{
 				front_left: 0.800
 				front_right: 0.800
@@ -20,8 +24,5 @@
 		}
 	]
 	
-	sounds_random:
-	[
-
-	]
+	sounds_random: []
 }

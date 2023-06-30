@@ -80,16 +80,16 @@ claimable:
 	flags: allow_enemy_unclaim
 }
 
-mine:
-{
-	amount_multiplier: 2.000
-}
+// mine:
+// {
+// 	amount_multiplier: 2.000
+// }
 
-mine.state:
-{
-	work_current: 500.000
-	work_required: 500.000
-}
+// mine.state:
+// {
+// 	work_current: 500.000
+// 	work_required: 500.000
+// }
 
 depot:
 {

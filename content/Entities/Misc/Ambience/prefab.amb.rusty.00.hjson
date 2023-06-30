@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+
+}
+
+soundscape:
+{
+	handle: wasteland.day.00
+
+	radius_min: 100.000
+	radius_max: 600.000
+
+	weight: 10.000
+}

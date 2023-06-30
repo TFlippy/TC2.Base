@@ -7,7 +7,7 @@ body:
 		a: [-0.200, 0.000]
 		b: [0.200, 0.000]
 		offset: [0.000, 0.000]
-		mass: 0.100
+		mass: 0.200
 		friction: 0.800
 		elasticity: 0.700
 		material: paper

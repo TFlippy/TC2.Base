@@ -33,7 +33,7 @@ burner:
 	{
 		resource:
 		{
-			material: "black_coal"
+			material: "phlogiston"
 			quantity: 120.000
 		}
 	}

@@ -1,5 +1,5 @@
 {
-	name: "Pill"
+	name: "Pill Box"
 	desc:
 		'''
 		Pills can be used for administering drugs through mouth.
@@ -10,9 +10,9 @@
 		texture: "pill"
 	}
 	
-	min: 10
-	max: 100
-	step: 10
+	min: 4
+	max: 20
+	step: 4
 	
 	flags: hidden, blueprintable
 	type: crafter
@@ -23,12 +23,17 @@
 		{
 			type: "resource"
 			material: "flour"
-			amount: 0.500
+			amount: 0.800
+		}
+		{
+			type: "resource"
+			material: "paper"
+			amount: 2.000
 		}
 		{
 			type: "work"
 			work: "pressing"
-			amount: 2.000
+			amount: 4.000
 			difficulty: 1.000
 		}
 	]

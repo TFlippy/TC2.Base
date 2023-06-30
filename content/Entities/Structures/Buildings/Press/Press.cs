@@ -279,6 +279,18 @@
 
 						using (GUI.Group.New(size: new Vector2(w_right, GUI.GetRemainingHeight())))
 						{
+							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
+							{
+								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+
+								ref var shipment = ref this.ent_press.GetComponent<Shipment.Data>();
+								if (shipment.IsNotNull())
+								{
+									var item_context = GUI.ItemContext.Begin(false);
+									GUI.DrawShipment(ref item_context, this.ent_press, ref shipment, new Vector2(96, 48));
+								}
+							}
+
 							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24)))
 							{
 								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));

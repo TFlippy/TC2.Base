@@ -130,3 +130,8 @@ interactable:
 {
 	window_size: [650.000, 450.000]
 }
+
+shipment:
+{
+	flags: keep_items, no_gui, allow_withdraw, allow_deposit
+}
