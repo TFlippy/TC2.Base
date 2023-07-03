@@ -134,22 +134,24 @@ shipment:
 dormitory:
 {
 	species: "human"
-	flags: no_hiring
+	flags: no_kit_selection, no_kit_requirements
 	max_kits: 2
 	kit_default: "null"
-	characters_capacity: 6
-	characters_initial_count: 2
+	characters_capacity: 8
+	characters_initial_count: 0
 	repopulate_interval: 120.000
+	repopulate_num: 1
+	repopulate_num_extra: 1
 	kit_filter: 
 	{
-		require: custom
+		require: none
 		include: none
 		exclude: none
 	}
 	character_flags_filter: 
 	{
 		require: none
-		include: bureaucrat, construction, scientist, educated, military, medical, artisan, professional, armed, law, social, commerce, chemist, culinary, soldier, artist, lower_middle_class, middle_class, upper_middle_class
+		include: bureaucrat, construction, scientist, educated, military, medical, artisan, professional, armed, law, social, commerce, technician, engineer, chemist, soldier, sedentary, politician, lower_middle_class, middle_class, upper_middle_class
 		exclude: slave, criminal, unskilled, lowlife, elite_class
 		weight: 1.000
 	}

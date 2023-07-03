@@ -104,7 +104,7 @@ depot:
 
 spawn:
 {
-	flags: faction
+	flags: faction, public
 }
 
 minimap.marker:
@@ -122,7 +122,7 @@ minimap.marker:
 dormitory:
 {
 	species: "human"
-	flags: no_hiring, no_kit_selection, no_kit_requirements
+	flags: no_kit_selection, no_kit_requirements
 	max_kits: 2
 	kit_default: "survival"
 	characters_capacity: 4
