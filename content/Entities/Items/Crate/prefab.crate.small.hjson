@@ -28,19 +28,13 @@ health:
 	max: 1500.000
 }
 
-holdable:
-{
-	offset: [0.000, 0.500]
-	radius: 4.000
-	flags: storable
-}
-
 animated.renderer:
 {
 	sprite:
 	{
 		texture: "crate.small"
 	}
+	z: -90.000
 }
 
 transform:
@@ -53,7 +47,7 @@ storage:
 	@inventory4:
 	{
 		name: "Inventory"
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 2.000
 		type: storage
 		flags: public
 	}
@@ -62,4 +56,22 @@ storage:
 interactable:
 {
 	window_size: [128.000, 160.000]
+}
+
+holdable:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 0.500
+
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 4.000
+	offset: [0.000, 0.650]
+	flags: disable_parent_facing
+	tags: none
 }

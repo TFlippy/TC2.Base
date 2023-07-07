@@ -28,19 +28,13 @@ health:
 	max: 4000.000
 }
 
-holdable:
-{
-	radius: 0.000
-	flags: disable_parent_facing
-}
-
 animated.renderer:
 {
 	sprite:
 	{
 		texture: "crate"
 	}
-	z: 10.000
+	z: -90.000
 }
 
 transform:
@@ -61,10 +55,28 @@ storage:
 
 interactable:
 {
-	window_size: [224.000, 160.000]
+	window_size: [224.000, 128.000]
 }
 
 cover:
 {
 	threshold: 0.700
+}
+
+holdable:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 0.500
+
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 4.000
+	offset: [-0.750, 0.900]
+	flags: disable_parent_facing
+	tags: none
 }
