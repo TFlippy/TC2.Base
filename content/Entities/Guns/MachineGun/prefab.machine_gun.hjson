@@ -141,7 +141,7 @@ overheat:
 	heat_medium: 350.000
 	heat_high: 600.000
 	heat_critical: 850.000
-	cool_rate: 35.000
+	cool_rate: 45.000
 
 	offset: [0.750, 0.000]
 	size: [0.750, 0.250]

@@ -65,7 +65,7 @@ storage:
 		stack_size_multiplier: 10.000
 		type: storage
 		flags: standalone, allow_ducts, ignore_mass, public
-		offset: [-0.750, 0.625]
+		offset: [0.000, -1.750]
 	}
 }
 

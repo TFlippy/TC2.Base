@@ -59,7 +59,7 @@ resizable:
 	
 	a: [0.000, 0.000]
 	b: [10.000, 0.000]
-	cap_offset: 0.000
+	cap_offset: -0.125
 }
 
 transform:
