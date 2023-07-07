@@ -1,20 +1,27 @@
-{
-	name: "Wall Lamp"
+﻿{
+	name: "Wall Lamp (Red)"
 	desc:
 		'''
-		A lamp attachable to a wall.
+		Small blinking wall-attachable lamp.
 		'''
 	
 	icon:
 	{
-		texture: "lamp"
-		size: [8, 16]
+		texture: "lamp.02"
+		size: [8, 8]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
 	tags: construction
-	rank: 0.100
+	rank: -80.000
 	
 	dismantle_work: 3.000
 	dismantle_yield: 0.800
@@ -22,18 +29,18 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
 		
-		size: [0.500, 1.000]
+		size: [1.000, 1.000]
 		offset: [0.000, -0.500]
 		
 		cooldown: 0.500
 		min_support: 0.500
 		min_clearance: 0.250
 		min_claim: 1.000
-
+		
 		rotation_max: 6.283
-
+		
 		sound: "building_place"
 	}
 	
@@ -50,8 +57,9 @@
 	[
 		{
 			type: prefab
-			prefab: "lamp"
+			prefab: "lamp.02"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

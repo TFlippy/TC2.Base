@@ -1,0 +1,75 @@
+﻿{
+	name: "Hopper"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "hopper"
+		size: [32, 24]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	rank: -250.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: require_terrain, terrain_is_support
+		
+		size: [4.000, 3.000]
+		offset: [0.000, -1.000]
+		
+		cooldown: 0.500
+		min_support: 0.100
+		min_clearance: 0.750
+		min_claim: 1.000
+		
+		rotation_max: 7.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 10.000
+		}
+		{
+			type: resource
+			material: "steel.plate"
+			amount: 40.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 12.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "hopper"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}

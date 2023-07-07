@@ -1,0 +1,64 @@
+﻿{
+	name: "Lamp Post (Metal, Straight)"
+	desc:
+		'''
+		Straight metal lamp to be placed on walls.
+		'''
+	
+	icon:
+	{
+		texture: "lamp_post.metal.01"
+		size: [13, 48]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: -5.000
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
+		
+		size: [1.500, 8.000]
+		offset: [0.000, -2.500]
+		
+		cooldown: 0.500
+		min_clearance: 0.150
+		min_claim: 1.000
+		
+		rotation_max: 7.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 7.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "lamp_post.metal.01"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}

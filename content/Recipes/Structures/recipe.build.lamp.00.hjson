@@ -1,0 +1,65 @@
+﻿{
+	name: "Wall Lamp (Bulb)"
+	desc:
+		'''
+		Small wall-attachable lamp.
+		'''
+	
+	icon:
+	{
+		texture: "lamp.00"
+		size: [8, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: 0.100
+	
+	dismantle_work: 3.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
+		
+		size: [0.500, 1.000]
+		offset: [0.000, -0.500]
+		
+		cooldown: 0.500
+		min_support: 0.500
+		min_clearance: 0.250
+		min_claim: 1.000
+		
+		rotation_max: 6.283
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 2.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "lamp.00"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}

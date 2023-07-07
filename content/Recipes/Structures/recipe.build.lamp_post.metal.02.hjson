@@ -1,0 +1,64 @@
+﻿{
+	name: "Lamp Post (Metal, Angled)"
+	desc:
+		'''
+		Fancy metal lamp post to illuminate the streets.
+		'''
+	
+	icon:
+	{
+		texture: "lamp_post.metal.02"
+		size: [32, 48]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: -5.000
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
+		
+		size: [1.000, 7.000]
+		offset: [-1.000, -2.000]
+		
+		cooldown: 0.500
+		min_clearance: 0.850
+		min_claim: 1.000
+		
+		rotation_max: 0.500
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "lamp_post.metal.02"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}
