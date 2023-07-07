@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Door (Metal)"
 	desc:
 		'''
@@ -8,11 +8,20 @@
 	icon:
 	{
 		texture: "door.metal.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
 	tags: construction
+	rank: -7.000
 	
 	dismantle_work: 20.000
 	dismantle_yield: 0.800
@@ -20,7 +29,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings, allow_mirror_x, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
 		
 		size: [0.750, 3.000]
 		offset: [0.000, -0.500]
@@ -29,7 +38,7 @@
 		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
-
+		
 		rotation_max: 0.400
 		
 		sound: "building_place"
@@ -50,6 +59,7 @@
 			type: prefab
 			prefab: "door.metal"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

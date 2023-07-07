@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Barbed Wire [WIP]"
 	desc:
 		'''
@@ -8,7 +8,11 @@
 	icon:
 	{
 		texture: "barbed_wire.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -17,6 +21,7 @@
 	type: build
 	flags: blueprintable
 	tags: construction
+	rank: -115.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.200

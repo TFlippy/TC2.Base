@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Door (Wood)"
 	desc:
 		'''
@@ -8,7 +8,11 @@
 	icon:
 	{
 		texture: "door.wood.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -17,6 +21,7 @@
 	type: build
 	flags: none
 	tags: construction
+	rank: -7.000
 	
 	dismantle_work: 7.000
 	dismantle_yield: 0.800

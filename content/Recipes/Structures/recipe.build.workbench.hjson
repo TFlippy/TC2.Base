@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Workbench"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "workbench"
 		size: [32, 24]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -17,8 +20,8 @@
 	
 	type: build
 	flags: none
-	tags: industry
-	rank: 500.000
+	tags: buildings
+	rank: -132.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

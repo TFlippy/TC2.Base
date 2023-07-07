@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: construction
-	rank: 0.100
+	rank: -82.000
 	
 	dismantle_work: 3.000
 	dismantle_yield: 0.800

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Pulverizer"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "pulverizer.icon"
 		size: [48, 48]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -18,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: 240.000
+	rank: -25.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800

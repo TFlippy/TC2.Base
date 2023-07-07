@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Chest"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "chest"
 		size: [16, 14]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -18,7 +21,7 @@
 	type: build
 	flags: none
 	tags: construction
-	rank: -50.000
+	rank: -109.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

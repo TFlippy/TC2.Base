@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Hatch (Metal)"
 	desc:
 		'''
@@ -8,12 +8,20 @@
 	icon:
 	{
 		texture: "hatch.metal.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
 	tags: construction
-	rank: -450.000
+	rank: -639.000
 	
 	dismantle_work: 20.000
 	dismantle_yield: 0.800
@@ -29,7 +37,7 @@
 		min_support: 0.300
 		min_clearance: 0.850
 		min_claim: 1.000
-
+		
 		rotation_max: 6.283
 		
 		sound: "building_place"
@@ -50,6 +58,7 @@
 			type: prefab
 			prefab: "hatch.metal"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

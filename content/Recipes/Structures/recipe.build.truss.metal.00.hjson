@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Truss (Metal)"
 	desc:
 		'''
@@ -8,36 +8,45 @@
 	icon:
 	{
 		texture: "truss.metal.icon.00"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
 	tags: construction
-	rank: -500.000
-
+	rank: -122.000
+	
 	dismantle_work: 30.000
 	dismantle_yield: 0.900
-
+	
 	placement:
-	{ 
+	{
 		type: line
 		flags: allow_placement_over_buildings, require_terrain
+		
+		size: [0.500, 0.500]
+		
+		cooldown: 0.300
+		min_claim: 1.000
 		
 		length_min: 1.000
 		length_max: 16.000
 		length_step: 0.250
-
-		size: [0.500, 0.500]
-		cooldown: 0.300
-		min_claim: 1.000
-
+		
 		sound: "building_place"
 	}
-
+	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 2.000
 		}
@@ -46,8 +55,10 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "truss.metal.00"
+			amount: 0.000
+			amount_extra: 0.000
 		}
 	]
 }

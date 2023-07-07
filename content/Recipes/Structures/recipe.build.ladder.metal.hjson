@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Ladder (Metal)"
 	desc:
 		'''
@@ -9,11 +9,20 @@
 	icon:
 	{
 		texture: "ladder.metal.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
 	tags: construction
+	rank: 74.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800
@@ -29,7 +38,7 @@
 		min_support: 0.150
 		min_clearance: 0.750
 		min_claim: 1.000
-
+		
 		length_min: 1.000
 		length_max: 10.000
 		length_step: 0.625
@@ -52,6 +61,7 @@
 			type: prefab
 			prefab: "ladder.metal"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }
