@@ -1,7 +1,9 @@
 $name: "Baton"
 $desc: 
 	'''
-	Handy tool used for pacifying misbehaving people.
+	Handy teaching tool used for behavior correction.
+
+	Mostly non-lethal, has an increased disarm chance.
 	'''
 $tags: []
 
