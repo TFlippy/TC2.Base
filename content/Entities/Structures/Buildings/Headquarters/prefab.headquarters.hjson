@@ -11,7 +11,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
-		layer: entity, building, support, ignore_melee
+		layer: entity, building, support, ignore_melee, dormitory
 		mask: world
 	}
 }
@@ -69,7 +69,7 @@ storage:
 
 headquarters:
 {
-
+	flags: enable_join, enable_leave, manage_members, manage_leader, manage_style, show_members
 }
 
 faction:
@@ -137,11 +137,12 @@ dormitory:
 	flags: no_kit_selection, no_kit_requirements
 	max_kits: 2
 	kit_default: "null"
-	characters_capacity: 8
+	characters_capacity: 6
 	characters_initial_count: 0
 	repopulate_interval: 120.000
 	repopulate_num: 1
-	repopulate_num_extra: 1
+	repopulate_num_extra: 0
+	repopulate_max: 2
 	kit_filter: 
 	{
 		require: none
@@ -155,4 +156,9 @@ dormitory:
 		exclude: slave, criminal, unskilled, lowlife, elite_class
 		weight: 1.000
 	}
+}
+
+stockpile:
+{
+	
 }

@@ -147,7 +147,7 @@ namespace TC2.Base.Components
 
 							using (GUI.Scrollbox.New("Build.Recipes", GUI.GetRemainingSpace()))
 							{
-								using (var grid = GUI.Grid.New(size: GUI.GetRemainingSpace()))
+								using (var grid = GUI.Grid.New(size: GUI.GetRemainingSpace(), new Vector2(48, 48)))
 								{
 									var scale = 2.00f;
 

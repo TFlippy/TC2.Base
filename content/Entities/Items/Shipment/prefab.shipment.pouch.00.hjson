@@ -12,7 +12,7 @@ body:
 
 	@shape.box:
 	{
-		size: [1.500, 0.625]
+		size: [0.500, 0.625]
 		radius: 0.250
 		mass: 0.500
 		friction: 0.650
