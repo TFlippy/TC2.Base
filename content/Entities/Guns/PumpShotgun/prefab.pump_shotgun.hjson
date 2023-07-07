@@ -115,6 +115,6 @@ control:
 
 aimable:
 {
-	min: -0.750
-	max: 0.350
+	min: -0.800
+	max: 0.650
 }

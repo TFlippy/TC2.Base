@@ -112,7 +112,7 @@ control:
 aimable:
 {
 	min: -0.950
-	max: 0.370
+	max: 0.550
 }
 
 packable:
