@@ -158,7 +158,20 @@ dormitory:
 	}
 }
 
-stockpile:
-{
+// stockpile:
+// {
 	
+// }
+
+shop:
+{
+	name: "Operations"
+	tags: headquarters
+
+	menu_columns: 4
+}
+
+workshop:
+{
+
 }

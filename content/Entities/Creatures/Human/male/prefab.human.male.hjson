@@ -210,7 +210,7 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 64.000
+	radius: 32.000
 }
 
 ai.gunner:

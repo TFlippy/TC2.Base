@@ -98,7 +98,7 @@ depot:
 {
 	offset: [0.000, 0.000]
 	size: [4.000, 3.000]
-	flags: allow_withdraw, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
+	flags: allow_deposit, allow_withdraw, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
 	shipping_fee_base: 20.000
 }
@@ -135,14 +135,14 @@ dormitory:
 {
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements
-	max_kits: 2
-	kit_default: "null"
+	kit_default: "survival"
 	characters_capacity: 3
 	characters_initial_count: 0
-	repopulate_interval: 120.000
+	repopulate_interval: 180.000
 	repopulate_num: 1
 	repopulate_num_extra: 0
 	repopulate_max: 2
+	move_radius: 12.000
 	kit_filter: 
 	{
 		require: none
@@ -152,8 +152,8 @@ dormitory:
 	character_flags_filter: 
 	{
 		require: none
-		include: construction, farmer, laborer, armed, miner, hunter, soldier, nomad, brawler, outdoor, strong, lower_middle_class, middle_class
-		exclude: upper_middle_class, upper_class, elite_class, sedentary
+		include: unskilled, military, farmer, laborer, civillian, armed, hunter, soldier, nomad, brawler, outdoor, strong, lower_middle_class, middle_class
+		exclude: sedentary, upper_middle_class, upper_class, elite_class
 		weight: 1.000
 	}
 }
