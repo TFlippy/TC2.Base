@@ -117,11 +117,17 @@ dormitory:
 {
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements
+	asset_flags: recycle
 	max_kits: 2
 	kit_default: "survival"
-	characters_capacity: 4
+
+	characters_capacity: 5
 	characters_initial_count: 2
-	repopulate_interval: 120.000
+
+	repopulate_interval: 600.000
+	repopulate_num: 1
+	repopulate_num_extra: 1
+
 	character_flags_filter: 
 	{
 		require: none

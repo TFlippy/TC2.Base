@@ -251,12 +251,15 @@ namespace TC2.Base.Components
 								ref var recipe = ref this.recipe.GetData();
 								if (!recipe.IsNull() && !player.IsNull())
 								{
+									Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+
 									if (recipe.type == Crafting.Recipe.Type.Build)
 									{
 										ref var product = ref recipe.products[0];
 										if (recipe.placement.TryGetValue(out var placement))
 										{
 											var pos_raw = mouse.position;
+											var h_faction = player.faction_id;
 
 											if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
 											{
@@ -321,7 +324,8 @@ namespace TC2.Base.Components
 														Claim.DrawClaimerOverlay(ref region, show_zones, true);
 													}
 
-													if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+													//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+													if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 													if (errors != Build.Errors.None)
 													{
@@ -389,11 +393,13 @@ namespace TC2.Base.Components
 													{
 														var construction = recipe.construction.Value;
 
-														if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+														if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 													}
 													else
 													{
-														if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+														if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 													}
 
 													if (errors != Build.Errors.None)
@@ -1017,6 +1023,8 @@ namespace TC2.Base.Components
 						ref var recipe = ref build.recipe.GetData();
 						if (!recipe.IsNull() && !transform.IsNull() && !player.IsNull())
 						{
+							Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
+
 							if (recipe.type == Crafting.Recipe.Type.Build)
 							{
 								ref var product = ref recipe.products[0];
@@ -1028,7 +1036,7 @@ namespace TC2.Base.Components
 
 									var ent_parent = entity.GetParent(Relation.Type.Child);
 									var inventory = player.GetInventory();
-									var faction_id = player.faction_id;
+									var h_faction = player.faction_id;
 
 									if (product.type == Crafting.Product.Type.Block)
 									{
@@ -1043,11 +1051,13 @@ namespace TC2.Base.Components
 											amount_multiplier = placed_block_count;
 											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: player.faction_id);
 
-											if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+											if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 											if (errors == Build.Errors.None)
 											{
-												Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+												context.Consume(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health);
 												switch (placement.type)
@@ -1116,11 +1126,13 @@ namespace TC2.Base.Components
 											{
 												var construction = recipe.construction.Value;
 
-												if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Build.Errors.None)
 												{
-													Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+													context.Consume(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = 0.90f;
@@ -1172,7 +1184,7 @@ namespace TC2.Base.Components
 														}
 													}
 
-													region.SpawnPrefab(construction.prefab, pos_final, rotation: rot_final, scale: scale, faction_id: faction_id).ContinueWith((ent) =>
+													region.SpawnPrefab(construction.prefab, pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (!dismantlable.IsNull())
@@ -1200,11 +1212,13 @@ namespace TC2.Base.Components
 											}
 											else
 											{
-												if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Build.Errors.None)
 												{
-													Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+													context.Consume(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = recipe.dismantle_yield;
@@ -1232,7 +1246,7 @@ namespace TC2.Base.Components
 														rot_final = dir.GetAngleRadians();
 													}
 
-													region.SpawnPrefab(prefab_handle, pos_final, rotation: rot_final, scale: scale, faction_id: faction_id).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab_handle, pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (!dismantlable.IsNull())

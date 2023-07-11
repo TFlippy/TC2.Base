@@ -516,12 +516,16 @@ namespace TC2.Base.Components
 								var pos_mid = info_src.pos; // (info_src.pos + info_dst.pos) * 0.50f;
 								var dir = (info_dst.pos - info_src.pos).GetNormalized(out var distance);
 
+								Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
+
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
-								if (!Crafting.Evaluate(entity, ref player, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
+								//if (!Crafting.Evaluate(entity, ref player, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
+								if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
 
 								if (errors == Build.Errors.None)
 								{
-									Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance), sync: true);
+									//Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance), sync: true);
+									context.Consume(recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 
 									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
 

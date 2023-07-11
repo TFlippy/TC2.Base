@@ -121,7 +121,7 @@ claimer:
 			group_size: 1
 			group_size_extra: 2
 			interval: 30.000
-			interval_extra: 10.000
+			interval_extra: 60.000
 			interval_count_modifier: 20.000
 			max_count: 8
 			filter_tag: "hornet"
@@ -149,8 +149,8 @@ claimer:
 		dormitory:
 		{
 			species: "hornet"
-			flags: no_hiring, no_kit_selection
-			kits_max: 0
+			flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
+			asset_flags: recycle
 			characters_capacity: 8
 			characters_initial_count: 6
 

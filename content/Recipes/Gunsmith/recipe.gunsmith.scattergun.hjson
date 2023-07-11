@@ -40,7 +40,7 @@
 			type: work
 			work: "smithing"
 			amount: 300.000
-			difficulty: 9.000
+			difficulty: 8.000
 		}
 		{
 			type: work
@@ -51,7 +51,7 @@
 		{
 			type: work
 			work: "assembling"
-			amount: 180.000
+			amount: 200.000
 			difficulty: 6.000
 		}
 	]

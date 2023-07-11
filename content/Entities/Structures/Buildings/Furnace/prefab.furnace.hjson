@@ -104,7 +104,7 @@ crafter:
 		name: "Output"
 		stack_size_multiplier: 4.000
 		type: output
-		flags: allow_ducts, ignore_mass, public
+		flags: allow_ducts, ignore_mass, public, faction
 		offset: [-0.375, 1.625]
 	}
 }

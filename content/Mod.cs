@@ -27,7 +27,7 @@ namespace TC2.Base
 				{
 					var identifier = definition.identifier;
 
-					var suffix = identifier.SliceAfterLast('.');
+					var suffix = identifier.SliceAfterLast('.', out _);
 					if (!suffix.IsEmpty)
 					{
 						var h_essence = new IEssence.Handle(suffix);

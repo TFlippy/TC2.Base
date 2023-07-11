@@ -63,7 +63,7 @@ storage:
 		name: "Storage"
 		stack_size_multiplier: 2.000
 		type: storage
-		flags: ignore_mass, public
+		flags: ignore_mass, public, faction
 	}
 }
 
@@ -122,7 +122,7 @@ armory:
 		stack_size_multiplier: 4.000
 		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass, public
+		flags: ignore_mass, public, faction
 	}
 }
 
@@ -135,6 +135,7 @@ dormitory:
 {
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements
+	asset_flags: recycle
 	kit_default: "survival"
 	characters_capacity: 3
 	characters_initial_count: 0

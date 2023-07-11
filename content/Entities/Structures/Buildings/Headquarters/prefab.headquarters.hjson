@@ -63,7 +63,7 @@ storage:
 		name: "Storage"
 		stack_size_multiplier: 10.000
 		type: storage
-		flags: ignore_mass, public, ignore_mass
+		flags: ignore_mass, public, faction
 	}
 }
 
@@ -122,7 +122,7 @@ armory:
 		stack_size_multiplier: 4.000
 		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass, public
+		flags: ignore_mass, public, faction
 	}
 }
 
@@ -135,13 +135,14 @@ dormitory:
 {
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements
+	asset_flags: recycle
 	max_kits: 2
 	kit_default: "null"
 	characters_capacity: 6
 	characters_initial_count: 0
-	repopulate_interval: 120.000
+	repopulate_interval: 300.000
 	repopulate_num: 1
-	repopulate_num_extra: 0
+	repopulate_num_extra: 1
 	repopulate_max: 2
 	kit_filter: 
 	{
