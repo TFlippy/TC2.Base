@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 			No_Handle = 1 << 0,
 			Use_RMB = 1 << 1,
 			Sync_Hit_Event = 1 << 2,
-			No_Material_Filter = 1 << 3
+			No_Material_Filter = 1 << 3,
 		}
 
 		[IEvent.Data]
@@ -278,17 +278,17 @@ namespace TC2.Base.Components
 						Material.Type.Wood => false,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => true,
-						Material.Type.Flesh => false,
+						Material.Type.Flesh => true,
 						Material.Type.Glass => true,
 						Material.Type.Liquid => false,
 						Material.Type.Metal => false,
 						Material.Type.Soil => true,
 						Material.Type.Powder => true,
-						Material.Type.Foliage => false,
+						Material.Type.Foliage => true,
 						Material.Type.Fabric => false,
 						Material.Type.Rubber => false,
-						Material.Type.Mushroom => false,
-						Material.Type.Insect => false,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
 						Material.Type.Paper => false,
 						Material.Type.Leather => false,
 						Material.Type.Wire => false,
@@ -307,7 +307,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
-						Material.Type.Wood => false,
+						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,
 						Material.Type.Flesh => true,
@@ -317,11 +317,11 @@ namespace TC2.Base.Components
 						Material.Type.Soil => false,
 						Material.Type.Powder => false,
 						Material.Type.Foliage => false,
-						Material.Type.Fabric => false,
+						Material.Type.Fabric => true,
 						Material.Type.Rubber => true,
-						Material.Type.Mushroom => false,
+						Material.Type.Mushroom => true,
 						Material.Type.Insect => true,
-						Material.Type.Paper => false,
+						Material.Type.Paper => true,
 						Material.Type.Leather => true,
 						Material.Type.Wire => false,
 						Material.Type.Bone => true,
@@ -421,7 +421,7 @@ namespace TC2.Base.Components
 						Material.Type.Bone => true,
 						Material.Type.Chitin => true,
 						Material.Type.Rubble => false,
-						Material.Type.Scrap => false,
+						Material.Type.Scrap => true,
 						Material.Type.Tool => false,
 						_ => false
 					};

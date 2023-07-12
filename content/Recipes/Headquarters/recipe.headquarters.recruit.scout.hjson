@@ -9,9 +9,9 @@
 	
 	icon:
 	{
-		texture: "ui_emotes"
-		size: [16, 16]
-		frame: [5, 0]
+		texture: "ui.icons.headquarters"
+		size: [24, 24]
+		frame: [1, 0]
 	}
 	
 	color_button: "0xffaeb59a"

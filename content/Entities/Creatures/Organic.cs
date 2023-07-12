@@ -67,14 +67,15 @@ namespace TC2.Base.Components
 
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void Update2([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
+		public static void Update2(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
 			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
 			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (MathF.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
+			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 10.00f);
 
-			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
+			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized() * (1.00f - Maths.NormalizeClamp(organic_state.stun, 1000.00f)).Pow2();
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]

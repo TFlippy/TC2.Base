@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 1000.000
+	max: 3000.000
 }
 
 aimable:
