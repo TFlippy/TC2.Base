@@ -31,8 +31,8 @@ namespace TC2.Base.Components
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
 
 			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
-			no_rotate.multiplier *= Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics) * organic_state.consciousness_shared * organic_state.efficiency;
-			no_rotate.mass_multiplier *= organic_state.consciousness_shared * organic_state.efficiency;
+			no_rotate.multiplier *= Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics) * organic_state.consciousness_shared * organic_state.efficiency * (1.00f - organic_state.stun_norm);
+			no_rotate.mass_multiplier *= organic_state.consciousness_shared * organic_state.efficiency * (1.00f - organic_state.stun_norm);
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}

@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Flyer.Data flyer, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			flyer.force_modifier = organic.strength;
-			flyer.lift_modifier = organic_state.efficiency > 0.20f ? 1.00f : 0.00f;
+			flyer.lift_modifier = (organic_state.efficiency * (1.00f - organic_state.stun_norm)) > 0.20f ? 1.00f : 0.00f;
 			flyer.speed_modifier = Maths.Snap(organic_state.efficiency, 0.10f);
 		}
 

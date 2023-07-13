@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 
 							var cling_force = climber.cling_force;
 							var climb_speed = climber.climb_speed;
-							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength;
+							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength * (1.00f - organic_state.stun_norm);
 							climber.cling_entity = ent_arbiter;
 							climber.pos_climbable = arbiter.GetBodyPosition();
 
@@ -124,7 +124,7 @@ namespace TC2.Base.Components
 				if (climber.wallclimb_timer <= 0.50f)
 				{
 					climb_force *= climber.climb_force;
-					climb_force *= organic_state.efficiency * organic.strength;
+					climb_force *= organic_state.efficiency * organic.strength * (1.00f - organic_state.stun_norm);
 
 					var max_speed = new Vector2(10, 10);
 

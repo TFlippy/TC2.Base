@@ -86,6 +86,9 @@ namespace TC2.Base.Components
 			[Statistics.Info("Pain", description: "Pain multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float pain_multiplier = 1.00f;
 
+			[Statistics.Info("Stun", description: "Stun multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float stun_multiplier = 1.00f;
+
 			[Statistics.Info("Disarm Chance", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float disarm_chance = 0.02f;
 
@@ -707,7 +710,7 @@ namespace TC2.Base.Components
 				position: hit_pos, velocity: dir * 8.00f, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
 				target_material_type: material_type, damage_type: melee.damage_type,
-				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id, pain: melee.pain_multiplier);
+				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
 			if (melee.disarm_chance > 0.00f && random.NextBool(melee.disarm_chance) && ent_target.IsValid())
 			{

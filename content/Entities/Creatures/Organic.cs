@@ -3,13 +3,14 @@ namespace TC2.Base.Components
 {
 	public static partial class OrganicExt
 	{
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, order: 5)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAll(Organic.Tags.Brain))
 			{
 				var p = (MathF.Pow(MathF.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
-				organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				organic_original.consciousness = Maths.Lerp(organic_original.consciousness, MathF.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
 				if (dead || health_norm < 0.50f)
@@ -27,7 +28,7 @@ namespace TC2.Base.Components
 				{
 					//App.WriteLine(p);
 					organic_state.consciousness_shared_new = organic_override.consciousness; // Maths.Clamp01(consciousness - ((1.00f - health_norm) * 0.20f) - p); // Maths.Clamp((consciousness - ( (MathF.Pow(organic_state.pain_shared * 0.002f, 1.20f) * 0.12f) * ) ), 0.00f, 1.00f);
-					organic_state.motorics_shared_new = MathF.Max(organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.35f), 0.00f);
+					organic_state.motorics_shared_new = MathF.Max(organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.35f), 0.00f) * (1.00f - organic_state.stun_norm);
 				}
 			}
 		}
@@ -73,9 +74,10 @@ namespace TC2.Base.Components
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
 			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
 			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (MathF.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
-			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 10.00f);
+			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 40.00f);
 
-			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized() * (1.00f - Maths.NormalizeClamp(organic_state.stun, 1000.00f)).Pow2();
+			organic_state.stun_norm = Maths.NormalizeClamp(organic_state.stun, 500.00f).Pow2();
+			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single)]
@@ -92,17 +94,17 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single)]
-		public static void UpdateJoint([Source.Shared] in Organic.State organic, [Source.Owned] ref Joint.Base joint)
+		public static void UpdateJoint([Source.Shared] in Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
-				var modifier = Maths.Lerp01(organic.efficiency * organic.efficiency, organic.consciousness_shared * 1.50f, 0.50f);
+				var modifier = Maths.Lerp01(organic_state.efficiency * organic_state.efficiency, organic_state.consciousness_shared * 1.50f, 0.50f) * (1.00f - organic_state.stun_norm);
 				joint.torque_modifier = modifier;
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.multiplier = 0.00f;
 		}
@@ -136,7 +138,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
 		public static void UpdateFacing([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Facing.Data facing)
 		{
-			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f);
+			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f || organic_state.stun_norm >= 0.50f);
 		}
 
 		[ISystem.Add(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]

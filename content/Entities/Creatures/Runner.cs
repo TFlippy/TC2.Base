@@ -16,6 +16,7 @@ namespace TC2.Base.Components
 			Climbing = 1 << 5,
 			Sitting = 1 << 6,
 			WallClimbing = 1 << 7,
+			//Ragdolled = 1 << 8,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
@@ -27,6 +28,7 @@ namespace TC2.Base.Components
 			public float max_jump_speed = 10.00f;
 			public float max_jump_time = 0.50f;
 			public float max_air_time = 1.00f;
+			//public float no_rotate_mult = 1.00f;
 
 			public float walk_lerp = 0.15f;
 			public float jump_decay = 0.50f;
@@ -46,6 +48,7 @@ namespace TC2.Base.Components
 			[Save.Ignore] public float walk_modifier_current;
 			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
+			[Save.Ignore] public float modifier;
 			[Save.Ignore] public Runner.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float air_time;
@@ -83,10 +86,13 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine($"{organic.dexterity}");
 
-			runner.walk_force *= Maths.Clamp(organic.strength * organic.coordination * organic.motorics, 0.50f, 1.80f);
-			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics;
-			runner.max_speed *= Maths.Clamp(organic_state.efficiency * organic.coordination, 0.50f, 1.20f);
-			runner.max_jump_speed *= (organic_state.efficiency * 1.50f).Clamp01();
+			var stun_mult = (1.00f - organic_state.stun_norm);
+
+			runner.walk_force *= Maths.Clamp(organic.strength * organic.coordination * organic.motorics, 0.50f, 1.80f) * stun_mult;
+			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics * stun_mult;
+			runner.max_speed *= Maths.Clamp(organic_state.efficiency * organic.coordination, 0.50f, 1.20f) * stun_mult;
+			runner.max_jump_speed *= (organic_state.efficiency * 1.50f).Clamp01() * stun_mult;
+			//runner.no_rotate_mult *= 
 
 			//if (organic_state.efficiency < 0.50f)
 			//{
@@ -314,11 +320,17 @@ namespace TC2.Base.Components
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 			force *= runner_state.air_modifier_current;
 
+//#if SERVER
+//			WorldNotification.Push(ref region, $"{runner.max_speed:0.00}", Color32BGRA.Green, body.GetPosition(), lifetime: 0.30f);
+//#endif
+
 			force = Physics.LimitForce(ref body, force, max_speed);
 
 			runner_state.last_force = force;
-			body.AddForce(force);
-
+			if (force.LengthSquared() > 0.10f)
+			{
+				body.AddForce(force);
+			}
 			//#if CLIENT
 			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
 			//#endif

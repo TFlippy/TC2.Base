@@ -20,8 +20,8 @@ body:
 		b: [0.000, -0.500]
 		mass: 6.000
 		radius: 0.250
-		friction: 0.950
-		elasticity: 0.650
+		friction: 0.850
+		elasticity: 0.550
 		material: wood
 		layer: entity, solid, ignore_bullet, item, flammable
 		mask: world
@@ -46,10 +46,11 @@ melee:
 	aoe: 1.000
 	knockback: 100.000
 	yield: 0.900
-	penetration_falloff: 0.900
-	pain_multiplier: 6.500
+	penetration_falloff: 0.700
+	pain_multiplier: 2.000
+	stun_multiplier: 3.000
 	disarm_chance: 0.220
-	penetration: 2
+	penetration: 3
 	damage_type: club
 	attack_type: swing
 	category: blunt
