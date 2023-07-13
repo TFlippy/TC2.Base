@@ -291,14 +291,14 @@ namespace TC2.Base
 							{
 								case Work.Type.Machining:
 								{
-									requirement.difficulty *= Maths.Lerp(1.00f, 1.75f, ratio);
+									requirement.difficulty = (byte)(requirement.difficulty * Maths.Lerp(1.00f, 1.75f, ratio));
 									requirement.amount += Maths.Lerp(0.00f, 300.00f, ratio);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.difficulty *= Maths.Lerp(1.00f, 1.50f, ratio);
+									requirement.difficulty = (byte)(Maths.Lerp(1.00f, 1.50f, ratio));
 									requirement.amount += Maths.Lerp(0.00f, 200.00f, ratio);
 								}
 								break;
@@ -585,28 +585,28 @@ namespace TC2.Base
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Woodworking:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 1.50f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 							}
@@ -670,28 +670,28 @@ namespace TC2.Base
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Woodworking:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 1.50f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 							}
@@ -770,28 +770,28 @@ namespace TC2.Base
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Woodworking:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 1.20f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 1.10f;
-									requirement.difficulty *= 1.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 							}
@@ -1329,13 +1329,13 @@ namespace TC2.Base
 							{
 								case Work.Type.Machining:
 								{
-									requirement.difficulty += 2.00f;
+									requirement.difficulty += 2;
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
-									requirement.difficulty += 2.00f;
+									requirement.difficulty += 2;
 								}
 								break;
 							}
@@ -1898,28 +1898,28 @@ namespace TC2.Base
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 0.90f;
-									requirement.difficulty *= 0.90f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.90f);
 								}
 								break;
 
 								case Work.Type.Woodworking:
 								{
 									requirement.amount *= 0.85f;
-									requirement.difficulty *= 0.90f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.90f);
 								}
 								break;
 
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 0.65f;
-									requirement.difficulty *= 0.80f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.80f);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 0.60f;
-									requirement.difficulty *= 0.75f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
 								}
 								break;
 							}
@@ -2500,21 +2500,21 @@ namespace TC2.Base
 								{
 									requirement.amount *= 1.10f;
 									requirement.amount += 50.00f;
-									requirement.difficulty += 2.00f;
+									requirement.difficulty += 2;
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 1.40f;
-									requirement.difficulty += 3.00f;
+									requirement.difficulty += 3;
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 0.70f;
-									requirement.difficulty += 2.00f;
+									requirement.difficulty += 2;
 								}
 								break;
 							}
@@ -2609,21 +2609,21 @@ namespace TC2.Base
 								case Work.Type.Machining:
 								{
 									requirement.amount *= 0.50f;
-									requirement.difficulty *= 0.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
 								}
 								break;
 
 								case Work.Type.Smithing:
 								{
 									requirement.amount *= 0.65f;
-									requirement.difficulty *= 0.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
 								}
 								break;
 
 								case Work.Type.Assembling:
 								{
 									requirement.amount *= 0.30f;
-									requirement.difficulty *= 0.20f;
+									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
 								}
 								break;
 							}

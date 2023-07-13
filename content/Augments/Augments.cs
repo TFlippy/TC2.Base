@@ -2572,21 +2572,21 @@ namespace TC2.Base
 									case Work.Type.Machining:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty *= 0.75f;
+										requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
 									}
 									break;
 
 									case Work.Type.Smithing:
 									{
 										requirement.amount *= 0.77f;
-										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
 									case Work.Type.Assembling:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
 									}
 									break;
 								}
@@ -2837,21 +2837,21 @@ namespace TC2.Base
 									case Work.Type.Machining:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty *= 0.75f;
+										requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
 									}
 									break;
 
 									case Work.Type.Smithing:
 									{
 										requirement.amount *= 0.77f;
-										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
 									case Work.Type.Assembling:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty = MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
 									}
 									break;
 								}

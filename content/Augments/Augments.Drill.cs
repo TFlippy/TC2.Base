@@ -30,7 +30,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							requirement.amount *= 1.30f;
-							requirement.difficulty += 3.00f;
+							requirement.difficulty += 3;
 						}
 						//else if (requirement.type == Crafting.Requirement.Type.Resource)
 						//{
@@ -78,7 +78,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							requirement.amount *= 1.50f;
-							requirement.difficulty += 1.00f;
+							requirement.difficulty += 1;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
@@ -113,7 +113,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							requirement.amount *= 1.20f;
-							requirement.difficulty += 2.00f;
+							requirement.difficulty += 2;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{

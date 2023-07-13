@@ -42,7 +42,7 @@
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
 							requirement.amount *= 1.50f;
-							requirement.difficulty += 5.00f;
+							requirement.difficulty += 5;
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Resource)
 						{

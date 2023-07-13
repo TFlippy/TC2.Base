@@ -66,9 +66,9 @@ namespace TC2.Base.Components
 		{
 			renderer.sprite.frame.X = head.frame_dead;
 
-#if SERVER
-			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
-#endif
+//#if SERVER
+//			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
+//#endif
 		}
 
 #if SERVER
