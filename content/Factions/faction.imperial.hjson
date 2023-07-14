@@ -1,7 +1,14 @@
-{
+﻿{
 	tag: "IGK"
 	name: "Imperial"
+	
 	color_a: "0xff639417"
 	color_b: "0xff639417"
+	
 	kind: empire
+	flags: npc, no_player_squads
+	
+	leader_player_id: 0
+	
+	scout_count: 0
 }

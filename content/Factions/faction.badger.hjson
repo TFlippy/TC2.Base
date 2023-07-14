@@ -1,7 +1,14 @@
-{
+﻿{
 	tag: "badger"
 	name: "Badgers"
+	
 	color_a: "0xff494440"
 	color_b: "0xff2e2a27"
+	
 	kind: commune
+	flags: npc, no_player_squads
+	
+	leader_player_id: 0
+	
+	scout_count: 0
 }

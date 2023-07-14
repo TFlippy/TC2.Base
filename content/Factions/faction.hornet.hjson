@@ -1,7 +1,14 @@
-{
+﻿{
 	tag: "hornet"
 	name: "Hornets"
+	
 	color_a: "0xffffce00"
 	color_b: "0xff201d1d"
+	
 	kind: commune
+	flags: npc, no_player_squads
+	
+	leader_player_id: 0
+	
+	scout_count: 0
 }
