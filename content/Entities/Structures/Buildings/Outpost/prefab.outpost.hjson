@@ -134,7 +134,7 @@ shipment:
 dormitory:
 {
 	species: "human"
-	flags: no_kit_selection, no_kit_requirements
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction
 	asset_flags: recycle
 	kit_default: "survival"
 	characters_capacity: 3

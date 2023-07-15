@@ -90,3 +90,8 @@ shipment:
 {
 	flags: keep_items, no_gui, allow_deposit, allow_withdraw
 }
+
+stockpile:
+{
+	
+}

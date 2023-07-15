@@ -154,7 +154,7 @@ namespace TC2.Base.Components
 		public static void OnUpdateLocal(ISystem.Info info, Entity entity, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
-			if (info.WorldTime >= ping.next_ping)
+			if (!Editor.is_window_open && info.WorldTime >= ping.next_ping)
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Middle))
 				{
