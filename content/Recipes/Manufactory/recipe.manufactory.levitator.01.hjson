@@ -26,17 +26,12 @@
 		{
 			type: "resource"
 			material: "smirglum.ingot"
-			amount: 15.000
+			amount: 25.000
 		}
 		{
 			type: "resource"
 			material: "arcane_actuator"
 			amount: 5.000
-		}
-		{
-			type: "resource"
-			material: "pellet.motion"
-			amount: 25.000
 		}
 		{
 			type: "work"
@@ -48,7 +43,7 @@
 			type: "work"
 			work: "assembling"
 			amount: 900.000
-			difficulty: 10.000
+			difficulty: 11.000
 		}
 	]
 	

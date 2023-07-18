@@ -36,7 +36,7 @@
 		}
 		{
 			type: "work"
-			work: "soaking"
+			work: "refining"
 			amount: 800.000
 			difficulty: 4.000
 		}
@@ -47,7 +47,7 @@
 		}
 		{
 			type: "work"
-			work: "washing"
+			work: "refining"
 			amount: 500.000
 			difficulty: 5.000
 		}

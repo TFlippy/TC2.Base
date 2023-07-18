@@ -23,7 +23,7 @@
 	tags: construction
 	rank: -7.000
 	
-	dismantle_work: 7.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
 	placement:
