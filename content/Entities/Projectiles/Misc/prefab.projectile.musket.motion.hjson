@@ -8,11 +8,11 @@ projectile:
 	damage_type: bullet_musket
 	knockback_multiplier: 30.000
 	size: 0.020
-	gravity: 1.300
+	gravity: 2.500
 	ricochet_count: 2
-	ricochet_threshold_multiplier: 4.000
+	ricochet_threshold_multiplier: 0.800
 	ricochet_velocity_min: 1.000
-	damp: 0.750
+	damp: 0.780
 	tracer_length: 0.500
 	mass: 0.090
 	hit_mask: world, solid, essence
@@ -55,7 +55,15 @@ transform:
 rocket:
 {
 	mass: 0.150
-	force: 400.000
+	force: 200.000
 	fuel_time: 10.000
 	smoke_amount: 0.000
+}
+
+essencecontainer:
+{
+	h_essence: motion
+	available: 15.000
+	stability: 0.000
+	health_threshold: 0.000
 }

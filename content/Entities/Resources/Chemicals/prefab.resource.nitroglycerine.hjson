@@ -65,7 +65,7 @@ explosive:
 	flash_intensity_multiplier: 1.500
 	force_multiplier: 1.500
 	volume: 3.000
-	pitch: 6.500
+	pitch: 3.300
 	health_threshold: 0.990
 	flags: any_damage, explode_when_primed
 }

@@ -98,51 +98,52 @@ namespace TC2.Base.Components
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]
 		public static void OnPostDamage(ISystem.Info info, ref Health.DamageEvent data, [Source.Owned] in Health.Data health, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		{
-			var amount_knockback = data.knockback * 0.0002f;
-			var amount_damage = Maths.NormalizeClamp(data.damage_durability, health.GetHealth() * 0.50f);
+			//var amount_knockback = data.knockback * 0.0002f;
+			//var amount_damage = Maths.NormalizeClamp(data.damage_durability, health.GetHealth() * 0.50f);
 
-			var amount = MathF.Abs(MathF.Max(amount_knockback, amount_damage));
+			//var amount = MathF.Abs(MathF.Max(amount_knockback, amount_damage));
+			var amount = data.stun * 0.10f;
 			//App.WriteLine($"{amount}; {data.knockback}; {data.damage_durability}; {amount_knockback}; {amount_damage}");
 
-			switch (data.damage_type)
-			{
-				case Damage.Type.Life:
-				case Damage.Type.Fire:
-				case Damage.Type.Radiation:
-				case Damage.Type.Scratch:
-				case Damage.Type.Slash:
-				case Damage.Type.Stab:
-				case Damage.Type.Bite:
-				case Damage.Type.Electricity:
-				case Damage.Type.Sting:
-				{
-					amount *= 0.10f;
-				}
-				break;
+			//switch (data.damage_type)
+			//{
+			//	case Damage.Type.Life:
+			//	case Damage.Type.Fire:
+			//	case Damage.Type.Radiation:
+			//	case Damage.Type.Scratch:
+			//	case Damage.Type.Slash:
+			//	case Damage.Type.Stab:
+			//	case Damage.Type.Bite:
+			//	case Damage.Type.Electricity:
+			//	case Damage.Type.Sting:
+			//	{
+			//		amount *= 0.10f;
+			//	}
+			//	break;
 
-				case Damage.Type.Impact:
-				case Damage.Type.Blunt:
-				case Damage.Type.Club:
-				case Damage.Type.Ram:
-				case Damage.Type.Crush:
-				{
-					amount *= 1.20f;
-				}
-				break;
+			//	case Damage.Type.Impact:
+			//	case Damage.Type.Blunt:
+			//	case Damage.Type.Club:
+			//	case Damage.Type.Ram:
+			//	case Damage.Type.Crush:
+			//	{
+			//		amount *= 1.20f;
+			//	}
+			//	break;
 
-				case Damage.Type.Shockwave:
-				case Damage.Type.Explosion:
-				{
-					amount *= 5.00f;
-				}
-				break;
+			//	case Damage.Type.Shockwave:
+			//	case Damage.Type.Explosion:
+			//	{
+			//		amount *= 5.00f;
+			//	}
+			//	break;
 
-				default:
-				{
-					amount *= 1.00f;
-				}
-				break;
-			}
+			//	default:
+			//	{
+			//		amount *= 1.00f;
+			//	}
+			//	break;
+			//}
 
 			//App.WriteLine(amount, App.Color.Cyan);
 
@@ -150,9 +151,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
-		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head)
+		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] in Organic.State organic_state)
 		{
-			head.concussion = Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f);
+			head.concussion = Maths.MoveTowards(head.concussion, organic_state.stun_norm, info.DeltaTime * 0.15f);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
@@ -246,7 +247,7 @@ namespace TC2.Base.Components
 		{
 			var modifier = Maths.Clamp01(head.concussion);
 
-			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
+			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.07f, modifier * modifier);
 
 			Drunk.Color.W = Drunk.Color.W.Max(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
 
