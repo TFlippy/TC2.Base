@@ -122,11 +122,12 @@ dormitory:
 	kit_default: "survival"
 
 	characters_capacity: 5
-	characters_initial_count: 2
+	characters_initial_count: 0
 
-	repopulate_interval: 600.000
+	repopulate_interval: 400.000
+	repopulate_interval_extra: 400.000
 	repopulate_num: 1
-	repopulate_num_extra: 1
+	repopulate_num_extra: 3
 
 	character_flags_filter: 
 	{

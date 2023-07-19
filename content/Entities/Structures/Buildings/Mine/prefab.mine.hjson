@@ -128,9 +128,10 @@ dormitory:
 	kit_default: "survival"
 
 	characters_capacity: 3
-	characters_initial_count: 2
+	characters_initial_count: 0
 
-	repopulate_interval: 600.000
+	repopulate_interval: 300.000
+	repopulate_interval_extra: 400.000
 	repopulate_num: 0
 	repopulate_num_extra: 2
 	
