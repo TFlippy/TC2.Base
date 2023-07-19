@@ -1,5 +1,8 @@
-$name: "Heavy Mount"
-$desc: "A heavy stationary mounting platform used for turrets, cranes and such."
+$name: "Emplacement (Large, Rotary)"
+$desc: 
+	'''
+	Large emplacement with a heavy rotary mount and a seat.
+	'''
 $tags: []
 
 body:

@@ -1,14 +1,21 @@
-$name: "Mount (Stationary)"
+$name: "Mount (Static)"
 $tags: []
 
 body:
 {
 	type: static
 	
-	@shape.circle:
+	@shape.polygon:
 	{
+		points: 
+		[
+			[-1.500, 0.250]
+			[1.500, 0.250]
+			[2.375, 1.125]
+			[-2.375, 1.125]
+		]
 		mass: 4000.000
-		radius: 0.750
+		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
@@ -30,9 +37,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "mount.fixed.02"
+		texture: "mount.static.01"
 	}
-	z: -200.000
+	z: -100.000
 }
 
 transform:
@@ -50,41 +57,16 @@ vehicle:
 
 }
 
-track.state:
-{
-
-}
-
-axle:
-{
-	offset: [0.000, 0.000]
-	mass: 80.000
-	friction: 0.800
-	radius_a: 1.250
-	radius_b: 1.250
-	radius_inner: 1.250
-	radius_outer: 1.500
-	z: -150.000
-	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "wheel_1500.steel"
-		}
-	}
-}
-
 +mount|instance:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.000]
+		offset_a: [0.000, -0.625]
 		max_force: 1000000.000
 		max_torque: 1000000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		z: -50.000
+		z: -200.000
 		flags: no_wrap, no_stress, attachment, allow_dragging, force_facing
 		material_type: metal
 	}
@@ -98,18 +80,8 @@ axle:
 	{
 		min: 0.000
 		max: 0.000
-		error_bias: 0.000
-		step: 50.000
-		max_bias: 50.000
-	}
-
-	joint.motor:
-	{
-		min: 0.000
-		max: 0.000
-		error_bias: 0.000
-		step: 50.000
-		max_bias: 50.000
+		error_bias: 0.0001
+		max_bias: 1.000
 	}
 
 	attachment.slot:

@@ -1,4 +1,4 @@
-$name: "Mount (Stationary)"
+$name: "Mount (Static)"
 $tags: []
 
 body:
@@ -7,12 +7,12 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
+		points: 
 		[
-			[-0.250, -0.625]
-			[0.250, -0.625]
-			[1.125, 0.250]
 			[-1.125, 0.250]
+			[1.125, 0.250]
+			[1.625, 1.125]
+			[-1.625, 1.125]
 		]
 		mass: 500.000
 		radius: 0.375
@@ -37,7 +37,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "mount.fixed.00"
+		texture: "mount.static.00"
 	}
 	z: -100.000
 }

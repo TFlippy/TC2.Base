@@ -1,0 +1,138 @@
+$name: "Mount (Wall)"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		mass: 4000.000
+		radius: 0.750
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, solid, building, ignore_melee
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 45000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.wall.01"
+	}
+	z: -200.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [224.000, 192.000]
+}
+
+vehicle:
+{
+
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 1000000.000
+		max_torque: 1000000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		z: -50.000
+		flags: no_wrap, no_stress, attachment, allow_dragging, force_facing
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.000
+		step: 50.000
+		max_bias: 50.000
+	}
+
+	joint.motor:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.000
+		step: 50.000
+		max_bias: 50.000
+	}
+
+	attachment.slot:
+	{
+		radius: 1.000
+		flags: brake, offset
+		flags_editable: locked, disabled, offset
+		name: "Mount"
+		identifier: "mount"
+		offset: [0.000, 0.000]
+		offset_bounds: [0.000, -0.250, 0.000, 1.000]
+		gui_size: [224.000, 192.000]
+	}
+}
+
+// +mount|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [0.000, -0.625]
+// 		max_force: 20000000.000
+// 		max_torque: 4000000.000
+// 		flags: no_wrap, no_stress, attachment, allow_dragging, control_read, control_write, force_facing
+// 		material_type: metal
+// 	}
+
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 		error_bias: 0.000
+// 	}
+
+// 	joint.gear:
+// 	{
+// 		min: 0.000
+// 		max: 0.000
+// 		error_bias: 0.000
+// 		max_bias: 3.000
+// 	}
+
+// 	attachment.slot:
+// 	{
+// 		radius: 1.000
+// 		flags: keyboard_write, mouse_write, brake, manual_aim
+// 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim
+// 		name: "Mount"
+// 		identifier: "mount"
+// 		offset: [0.000, 0.000]
+// 		gui_size: [128.000, 128.000]
+// 	}
+// }
