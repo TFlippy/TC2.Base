@@ -81,7 +81,7 @@ threat:
 
 climber:
 {
-	climb_force: 5000.000
+	climb_force: 120.000
 	cling_force: 4000.000
 
 	@shape.circle:
@@ -280,6 +280,7 @@ commandable:
 		max_force: 12000.000
 		max_torque: 4000.000
 		flags: organic, control_write, force_facing
+		material_type: flesh
 		
 		@animated.renderer:
 		{
@@ -485,10 +486,11 @@ commandable:
 		offset_a: [0.000, 0.375]
 		max_force: 25000.000
 		max_torque: 4000.000
-		max_stress: 1.000
-		stress_threshold: 1.800
+		max_stress: 1.500
+		stress_threshold: 1.400
 		stress_damp: 0.300
 		flags: organic, control_write, force_facing
+		material_type: flesh
 		
 		@animated.renderer:
 		{
@@ -649,7 +651,8 @@ commandable:
 		max_force: 10000.000
 		max_torque: 2500.000
 		max_stress: 2.000
-		stress_threshold: 2.000
+		stress_threshold: 1.000
+		stress_damp: 0.500
 		flags: control_write, no_wrap, force_facing
 	}
 	
@@ -664,9 +667,9 @@ commandable:
 		error_bias: 0.0005
 		min: -2.000
 		max: 2.000
-		stress_mult: 0.100
 		step: 50.000
 		max_bias: 10.000
+		stress_mult: 0.400
 	}
 	
 	interactor:

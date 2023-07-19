@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var force = new Vector2(0, float.Epsilon);
-			var normal = new Vector2(0, 0);
+			var normal = new Vector2(0, -0.01f);
 			var climb_force = 0.00f;
 
 			if (can_move && body.HasArbiters())
@@ -76,9 +76,10 @@ namespace TC2.Base.Components
 							is_climbing = true;
 							//break;
 						}
-						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
+						else if (!is_wallclimbing && can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						{
 							normal += arbiter.GetNormal();
+							normal = normal.GetNormalized();
 
 							var dot = MathF.Abs(normal.X);
 							if (dot >= 0.90f)
@@ -123,7 +124,7 @@ namespace TC2.Base.Components
 			{
 				if (climber.wallclimb_timer <= 0.50f)
 				{
-					climb_force *= climber.climb_force;
+					climb_force += climber.climb_force;
 					climb_force *= organic_state.efficiency * organic.strength * (1.00f - organic_state.stun_norm);
 
 					var max_speed = new Vector2(10, 10);
