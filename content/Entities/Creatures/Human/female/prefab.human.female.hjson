@@ -81,7 +81,7 @@ threat:
 
 climber:
 {
-	climb_force: 100.000
+	climb_force: 1000.000
 	cling_force: 3000.000
 
 	@shape.circle:

@@ -76,7 +76,8 @@ namespace TC2.Base.Components
 							is_climbing = true;
 							//break;
 						}
-						else if (!is_wallclimbing && can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
+						//else if (!is_wallclimbing && can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
+						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						{
 							normal += arbiter.GetNormal();
 							normal = normal.GetNormalized();
