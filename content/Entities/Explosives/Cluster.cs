@@ -9,15 +9,18 @@
 
 			No_Impact = 1 << 0,
 			Reverse_Direction = 1 << 1,
+			No_Velocity_Rotate = 1 << 2,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
 		public partial struct Data: IComponent
 		{
 			public Vector2 offset;
+			public Vector2 velocity;
+
 			public float radius = 0.250f;
 
-			public Prefab.Handle prefab = default;
+			public Prefab.Handle prefab;
 			public float spread = 0.00f;
 			public float speed = 0.00f;
 
@@ -31,7 +34,7 @@
 
 			public float min_explode_lifetime = 0.00f;
 
-			public int count = default;
+			public int count;
 
 			public Cluster.Flags flags;
 
@@ -64,6 +67,15 @@
 					if (cluster.speed > 0.00f)
 					{
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
+					}
+
+					if (cluster.flags.HasAny(Cluster.Flags.No_Velocity_Rotate))
+					{
+						projectile_init.vel += cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
+					}
+					else
+					{
+						projectile_init.vel += transform.LocalToWorldDirection(cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max));
 					}
 
 					if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))
@@ -117,6 +129,15 @@
 					if (cluster.speed > 0.00f)
 					{
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
+					}
+
+					if (cluster.flags.HasAny(Cluster.Flags.No_Velocity_Rotate))
+					{
+						projectile_init.vel += cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
+					}
+					else
+					{
+						projectile_init.vel += transform.LocalToWorldDirection(cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max));
 					}
 
 					if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))

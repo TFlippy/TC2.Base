@@ -2,13 +2,15 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 5.000
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
 		mass: 2.000
 		radius: 0.750
 		friction: 0.650
-		elasticity: 0.500
+		elasticity: 0.300
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 		material: metal
@@ -65,15 +67,19 @@ explosive:
 	sparks_amount: 2.500
 	volume: 1.500
 	pitch: 1.500
-	health_threshold: 0.700
+	health_threshold: 0.900
 	flags: any_damage, explode_when_primed
 }
 
 cluster:
 {
 	prefab: "projectile.shrapnel"
-	spread: 6.000
-	speed: 40.000
+	velocity: [0.000, -15.000]
+	spread: 2.000
+	speed: 30.000
 	count: 30
 	damage_modifier: 0.250
+	speed_modifier_min: 0.200
+	speed_modifier_max: 0.800
+	flags: no_velocity_rotate
 }

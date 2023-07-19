@@ -55,18 +55,22 @@ health:
 
 explosive:
 {
-	radius: 11.000
-	power: 6.000
-	damage_entity: 60000.000
-	damage_terrain: 45000.000
+	damage_type: explosion
+	damage_type_secondary: shrapnel
+
+	radius: 9.000
+	power: 5.000
+	damage_entity: 11000.000
+	damage_terrain: 25000.000
 	smoke_amount: 1.300
 	smoke_velocity_multiplier: 1.500
-	smoke_lifetime_multiplier: 1.200
+	smoke_lifetime_multiplier: 0.900
 	flash_duration_multiplier: 0.300
 	flash_intensity_multiplier: 1.000
 	sparks_amount: 2.500
 	volume: 2.000
 	pitch: 1.000
+
 	health_threshold: 0.800
 	flags: any_damage, explode_when_primed
 }
