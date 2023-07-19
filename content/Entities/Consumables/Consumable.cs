@@ -15,6 +15,8 @@ namespace TC2.Base.Components
 
 			Separate_Uses = 1u << 2,
 			Consume_On_Interact = 1u << 3,
+
+			Enable_Sprite_Frames = 1u << 4
 		}
 
 		public enum Action: uint
@@ -25,7 +27,8 @@ namespace TC2.Base.Components
 			Drink,
 			Inject,
 			Inhale,
-			Smoke
+			Smoke,
+			Open
 		}
 
 		[IComponent.Data(Net.SendType.Reliable)]
@@ -67,9 +70,24 @@ namespace TC2.Base.Components
 			}
 		}
 
+		public static uint GetFrame(int uses, int uses_max, uint frame_count)
+		{
+			return (uint)Maths.Clamp(MathF.Ceiling(MathF.Log2((1.00f - ((float)uses / MathF.Max((float)uses_max, 1.00f))) * frame_count) + 1), 0.00f, (int)frame_count - 1);
+		}
+
+		[ISystem.Modified<Consumable.Data>(ISystem.Mode.Single)]
+		public static void UpdateSprite([Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Animated.Renderer.Data renderer)
+		{
+			if (consumable.flags.HasAny(Consumable.Flags.Enable_Sprite_Frames))
+			{
+				var x = GetFrame(consumable.uses, consumable.uses_max, renderer.sprite.count);
+				renderer.sprite.frame.X = x;
+			}
+		}
+
 #if SERVER
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
-		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data, 
+		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data,
 		[Source.Owned] ref Interactable.Data interactable, [Source.Owned] ref Consumable.Data consumable, [Source.Owned] ref Transform.Data transform)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Consume_On_Interact))
@@ -182,6 +200,7 @@ namespace TC2.Base.Components
 						case Action.Inject: message = $"* Injects {ent_consumable.GetName()} *"; break;
 						case Action.Inhale: message = $"* Inhales {ent_consumable.GetName()} *"; break;
 						case Action.Smoke: message = $"* Smokes {ent_consumable.GetName()} *"; break;
+						case Action.Open: message = $"* Opens {ent_consumable.GetName()} *"; break;
 						default: message = $"* Uses {ent_consumable.GetName()} *"; break;
 					}
 
