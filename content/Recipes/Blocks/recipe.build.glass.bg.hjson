@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Glass (Background)"
 	desc:
 		'''
@@ -11,6 +11,12 @@
 		size: [16, 16]
 		frame: [5, 1]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
