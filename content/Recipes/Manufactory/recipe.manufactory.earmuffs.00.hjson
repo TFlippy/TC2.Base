@@ -1,0 +1,66 @@
+﻿{
+	name: "Earmuffs"
+	desc:
+		'''
+		Protects your hearing from loud factories and cannons.
+		'''
+	
+	icon:
+	{
+		texture: "earmuffs.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	type: workshop
+	flags: blueprintable
+	tags: manufactory
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "leather"
+			amount: 6.000
+		}
+		{
+			type: resource
+			material: "mushroom"
+			amount: 2.000
+		}
+		{
+			type: work
+			work: smithing
+			amount: 100.000
+			difficulty: 6
+		}
+		{
+			type: work
+			work: assembling
+			amount: 200.000
+			difficulty: 5
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "earmuffs.00"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}

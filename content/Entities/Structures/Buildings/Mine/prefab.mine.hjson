@@ -77,7 +77,14 @@ faction:
 
 claimable:
 {
-	flags: allow_enemy_unclaim
+	// flags: no_menu
+	requirements:
+	[
+		{
+			type: money
+			amount: 749.990
+		}
+	]
 }
 
 // mine:

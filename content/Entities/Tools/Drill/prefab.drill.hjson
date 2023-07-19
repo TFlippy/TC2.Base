@@ -41,7 +41,7 @@ armor:
 drill:
 {
 	damage: 400.000
-	damage_terrain_multiplier: 1.750
+	damage_terrain_multiplier: 1.150
 
 	max_distance: 2.000
 	speed: 9.000

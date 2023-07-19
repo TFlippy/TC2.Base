@@ -31,6 +31,11 @@
 			amount: 40.000
 		}
 		{
+			type: resource
+			material: "machine_parts"
+			amount: 8.000
+		}
+		{
 			type: work
 			work: "smithing"
 			amount: 900.000

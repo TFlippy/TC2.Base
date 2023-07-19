@@ -69,17 +69,17 @@ faction:
 
 }
 
-claimable:
-{
-	// flags: no_menu
-	requirements:
-	[
-		{
-			type: money
-			amount: 500.000
-		}
-	]
-}
+// claimable:
+// {
+// 	// flags: no_menu
+// 	requirements:
+// 	[
+// 		{
+// 			type: money
+// 			amount: 500.000
+// 		}
+// 	]
+// }
 
 dormitory:
 {
