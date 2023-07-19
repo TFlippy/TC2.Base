@@ -153,3 +153,22 @@ overheat:
 		pitch: 1.000
 	}
 }
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 230.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 40.000
+		}
+		{
+			material: "machine_parts"
+			quantity: 10.000
+		}
+	]
+}

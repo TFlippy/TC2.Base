@@ -1,5 +1,8 @@
-$name: "Creaky Heavy Mount"
-$desc: "As if it wasn't slow enough already."
+$name: "Emplacement (Large, Creaky)"
+$desc: 
+	'''
+	As if it wasn't slow enough already.
+	'''
 $tags: []
 
 body:
@@ -94,6 +97,25 @@ storage:
 vehicle:
 {
 
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 500.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 75.000
+		}
+		{
+			material: "machine_parts"
+			quantity: 20.000
+		}
+	]
 }
 
 +seat|instance:
