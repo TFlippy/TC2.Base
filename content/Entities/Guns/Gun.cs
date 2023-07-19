@@ -341,7 +341,6 @@
 						var pos_last = pos_a;
 						var dist_delta = 0.00f;
 
-
 						var line_len = 4.00f;
 						var line_gap = 2.00f;
 
@@ -352,7 +351,8 @@
 							var pos = pos_b;
 							alpha = Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f);
 
-							vel *= projectile.damp;
+							//vel *= projectile.damp;
+							if (vel.LengthSquared() > 40.00f.Pow2()) vel = vel.GetNormalized(out var vel_len) * MathF.Max(40.00f, vel_len * projectile.damp);
 							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
 
 							var step = vel * App.fixed_update_interval_s;
@@ -1030,17 +1030,17 @@
 
 						if (gun.shake_amount > 0.50f)
 						{
-							var shockwave_radius = Maths.Clamp(((gun.shake_amount * gun.shake_radius) * 0.15f), 0.00f, 24.00f);
+							var shockwave_radius = Maths.Clamp(((gun.shake_amount * gun.shake_radius) * 0.12f), 0.00f, 24.00f);
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
 								//App.WriteLine(shockwave_radius);
 								Explosion.Spawn(ref region, pos_w_offset, (Entity ent_explosion, ref Explosion.Data explosion) =>
 								{
-									explosion.power = 4.00f;
+									explosion.power = 3.00f;
 									explosion.radius = shockwave_radius;
-									explosion.damage_entity = 0.00f;
-									explosion.damage_terrain = 90.00f;
+									explosion.damage_entity = 100.00f * shockwave_radius;
+									explosion.damage_terrain = 50.00f * shockwave_radius;
 									explosion.damage_type = Damage.Type.Shockwave;
 									explosion.damage_type_secondary = Damage.Type.Shockwave;
 									explosion.ent_owner = entity;
@@ -1053,10 +1053,11 @@
 									explosion.sparks_amount = 0.00f;
 									explosion.volume = 0.00f;
 									explosion.pitch = 0.00f;
+									explosion.stun_multiplier = 0.50f;
 									explosion.shake_multiplier = shake_amount;
-									explosion.force_multiplier = shake_amount * 2.00f;
+									explosion.force_multiplier = 0.10f;
 									explosion.flags |= Explosion.Flags.No_Split;
-									//explosion.ent_ignored = explosion_tmp.ent_ignored;
+									explosion.ent_ignored = entity;
 
 									explosion.Sync(ent_explosion, true);
 								});

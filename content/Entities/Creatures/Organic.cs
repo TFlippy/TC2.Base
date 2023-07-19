@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 			{
 				var p = (MathF.Pow(MathF.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
-				organic_original.consciousness = Maths.Lerp(organic_original.consciousness, MathF.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, MathF.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
 				if (dead || health_norm < 0.50f)
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
 			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
 			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (MathF.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
-			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 40.00f);
+			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 50.00f);
 
 			organic_state.stun_norm = Maths.NormalizeClamp(organic_state.stun, 500.00f).Pow2();
 			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
