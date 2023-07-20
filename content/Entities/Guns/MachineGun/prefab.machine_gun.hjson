@@ -87,7 +87,7 @@ holdable:
 
 attachment:
 {
-	offset: [-0.400, 0.300]
+	offset: [-0.400, 0.000]
 }
 
 animated.renderer:

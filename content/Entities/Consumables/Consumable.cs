@@ -16,7 +16,8 @@ namespace TC2.Base.Components
 			Separate_Uses = 1u << 2,
 			Consume_On_Interact = 1u << 3,
 
-			Enable_Sprite_Frames = 1u << 4
+			Enable_Sprite_Frames = 1u << 4,
+			Hide_Message = 1u << 5
 		}
 
 		public enum Action: uint
@@ -60,6 +61,7 @@ namespace TC2.Base.Components
 			public Entity ent_organic;
 			public Entity ent_holder;
 			public Entity ent_consumable;
+			public Entity ent_target;
 			public Vector2 world_position;
 
 			public float amount_modifier = 1.00f;
@@ -185,6 +187,7 @@ namespace TC2.Base.Components
 					data.ent_organic = oc_organic.entity;
 					data.ent_holder = ent_holder;
 					data.ent_consumable = ent_consumable;
+					data.ent_target = ent_target;
 					data.world_position = world_position;
 
 					if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses) && consumable.uses_max > 0)
@@ -192,19 +195,22 @@ namespace TC2.Base.Components
 						data.amount_modifier /= consumable.uses_max;
 					}
 
-					var message = string.Empty;
-					switch (consumable.action)
+					if (!consumable.flags.HasAny(Consumable.Flags.Hide_Message))
 					{
-						case Action.Eat: message = $" * Eats {ent_consumable.GetName()} *"; break;
-						case Action.Drink: message = $"* Drinks {ent_consumable.GetName()} *"; break;
-						case Action.Inject: message = $"* Injects {ent_consumable.GetName()} *"; break;
-						case Action.Inhale: message = $"* Inhales {ent_consumable.GetName()} *"; break;
-						case Action.Smoke: message = $"* Smokes {ent_consumable.GetName()} *"; break;
-						case Action.Open: message = $"* Opens {ent_consumable.GetName()} *"; break;
-						default: message = $"* Uses {ent_consumable.GetName()} *"; break;
-					}
+						var message = string.Empty;
+						switch (consumable.action)
+						{
+							case Action.Eat: message = $" * Eats {ent_consumable.GetName()} *"; break;
+							case Action.Drink: message = $"* Drinks {ent_consumable.GetName()} *"; break;
+							case Action.Inject: message = $"* Injects {ent_consumable.GetName()} *"; break;
+							case Action.Inhale: message = $"* Inhales {ent_consumable.GetName()} *"; break;
+							case Action.Smoke: message = $"* Smokes {ent_consumable.GetName()} *"; break;
+							case Action.Open: message = $"* Opens {ent_consumable.GetName()} *"; break;
+							default: message = $"* Uses {ent_consumable.GetName()} *"; break;
+						}
 
-					WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
+						WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
+					}
 
 					ent_consumable.TriggerEvent(ref data);
 

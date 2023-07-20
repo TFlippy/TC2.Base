@@ -68,7 +68,7 @@ norotate:
 consumable:
 {
 	action: open
-	flags: enable_use_on_self, consume_on_interact
+	flags: enable_use_on_self, enable_use_on_others, consume_on_interact, hide_message
 	
 	uses_max: 1
 
