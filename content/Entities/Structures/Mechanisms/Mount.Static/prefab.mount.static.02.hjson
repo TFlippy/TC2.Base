@@ -41,7 +41,7 @@ control:
 
 health:
 {
-	max: 45000.000
+	max: 100000.000
 }
 
 animated.renderer:
@@ -60,7 +60,7 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	window_size: [282.000, 192.000]
 }
 
 vehicle:
@@ -73,6 +73,17 @@ controllable:
 	
 }
 
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 6.000
+		type: ammo
+		flags: allow_ducts, ignore_mass
+	}
+}
+
 +mount|instance:
 {
 	joint.base:
@@ -83,7 +94,7 @@ controllable:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		z: 50.000
-		flags: no_wrap, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
 		material_type: metal
 
 		@sound.emitter:
@@ -134,7 +145,7 @@ controllable:
 	{
 		radius: 1.000
 		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, invert, offset, rotation
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
 		name: "Mount"
 		identifier: "mount"
 		gui_size: [224.000, 192.000]

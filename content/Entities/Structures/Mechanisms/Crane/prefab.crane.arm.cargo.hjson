@@ -29,7 +29,7 @@ animated.renderer:
 	{
 		texture: "crane.arm.cargo"
 	}
-	z: 145.000
+	z: 8.000
 }
 
 health:
@@ -69,6 +69,7 @@ transform:
 attachment:
 {
 	offset: [-4.000, 0.000]
+	flags: full_rotate
 
 	force_multiplier: 2.000
 	torque_multiplier: 4.000
@@ -105,7 +106,7 @@ vehicle:
 		max_force: 350000.000
 		max_torque: 400000.000
 		max_stress: 2.000
-		flags: no_wrap, control_write, force_facing, facing_reset_pos
+		flags: no_wrap, attachment, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		material_type: metal
 	}
 
@@ -137,7 +138,7 @@ vehicle:
 		force: 100.000
 		speed: 0.000
 		error_bias: 0.000
-		brake_force: 2000.000
+		brake_force: 500.000
 	}
 
 	attachment.slot:

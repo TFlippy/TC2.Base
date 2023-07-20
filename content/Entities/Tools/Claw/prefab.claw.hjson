@@ -72,7 +72,7 @@ holdable:
 {
 	// offset: [-1.000, 0.000]
 	radius: 0.000
-	torque_multiplier: 0.200
+	torque_multiplier: 0.400
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 

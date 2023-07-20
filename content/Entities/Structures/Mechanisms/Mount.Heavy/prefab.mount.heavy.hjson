@@ -47,7 +47,7 @@ control:
 
 health:
 {
-	max: 50000.000
+	max: 70000.000
 }
 
 armor:
