@@ -27,7 +27,7 @@ animated.renderer:
 	{
 		texture: "crane.arm.articulated"
 	}
-	z: 100.000
+	z: 150.000
 }
 
 health:
@@ -84,7 +84,7 @@ attachment:
 	offset: [-4.000, 0.000]
 
 	force_multiplier: 2.000
-	torque_multiplier: 2.000
+	torque_multiplier: 4.000
 }
 
 essencecontainer:
@@ -219,6 +219,7 @@ vehicle:
 		force: 100.000
 		speed: 0.000
 		error_bias: 0.001
+		brake_force: 2000.000
 	}
 
 	attachment.slot:

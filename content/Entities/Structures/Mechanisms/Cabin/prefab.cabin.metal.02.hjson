@@ -60,6 +60,8 @@ holdable:
 attachment:
 {
 	offset: [0.000, 1.250]
+	force_multiplier: 2.000
+	torque_multiplier: 4.000
 }
 
 animated.renderer:
@@ -167,7 +169,7 @@ mount:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: control_write, force_facing
-		z: 75.000
+		z: 25.000
 		material_type: metal
 
 		@sound.emitter:

@@ -68,7 +68,7 @@ vehicle:
 
 }
 
-mount:
+controllable:
 {
 	
 }
@@ -83,8 +83,27 @@ mount:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		z: 50.000
-		flags: no_wrap, no_stress, attachment, allow_dragging, force_facing
+		flags: no_wrap, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.200
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
 	}
 
 	joint.pivot:
@@ -97,14 +116,25 @@ mount:
 		min: 0.000
 		max: 0.000
 		error_bias: 0.0001
+
+		step: 2.000
 		max_bias: 1.000
+		max_bias_bounce: 1.000
+	}
+
+	facing:
+	{
+		flags: none
+		offset: 0.000
+		threshold: 1.000
+		flip_interval: 0.500
 	}
 
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: keyboard_write, mouse_write, manual_aim
-		flags_editable: use_center_of_gravity, locked, disabled, keyboard_write, mouse_write, manual_aim, loose, offset, rotation
+		flags: keyboard_write, mouse_write
+		flags_editable: use_center_of_gravity, locked, disabled, invert, offset, rotation
 		name: "Mount"
 		identifier: "mount"
 		gui_size: [224.000, 192.000]

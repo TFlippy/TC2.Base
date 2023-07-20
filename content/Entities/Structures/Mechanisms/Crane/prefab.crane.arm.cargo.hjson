@@ -29,7 +29,7 @@ animated.renderer:
 	{
 		texture: "crane.arm.cargo"
 	}
-	z: 100.000
+	z: 145.000
 }
 
 health:
@@ -70,8 +70,8 @@ attachment:
 {
 	offset: [-4.000, 0.000]
 
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
+	force_multiplier: 2.000
+	torque_multiplier: 4.000
 }
 
 storage:
@@ -137,6 +137,7 @@ vehicle:
 		force: 100.000
 		speed: 0.000
 		error_bias: 0.000
+		brake_force: 2000.000
 	}
 
 	attachment.slot:
