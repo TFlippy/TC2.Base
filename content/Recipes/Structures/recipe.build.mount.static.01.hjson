@@ -1,17 +1,14 @@
 ﻿{
-	name: "Emplacement (Heavy)"
+	name: "Mount (Static, Wide)"
 	desc:
 		'''
-		Large emplacement with an aimable heavy rotary mount.
-		- Perfect for artillery and cranes
-		- High-torque, high-force attachment slot
-		- Comfortable seat
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "mount.heavy"
-		size: [48, 48]
+		texture: "mount.static.01"
+		size: [48, 16]
 		frame: [0, 0]
 	}
 	
@@ -34,8 +31,8 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [6.000, 6.000]
-		offset: [0.000, -1.500]
+		size: [6.000, 3.000]
+		offset: [0.000, -1.000]
 		
 		cooldown: 0.500
 		min_support: 0.200
@@ -49,7 +46,7 @@
 	
 	construction:
 	{
-		prefab: "construction.6x6"
+		prefab: "construction.6x4"
 		
 		requirements:
 		[
@@ -66,17 +63,17 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 25.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
 			amount: 15.000
 		}
 		{
 			type: resource
+			material: "machine_parts"
+			amount: 3.000
+		}
+		{
+			type: resource
 			material: "cement"
-			amount: 270.000
+			amount: 300.000
 		}
 	]
 	
