@@ -158,7 +158,7 @@ threat:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.125]
+		offset_a: [0.000, 0.750]
 		max_force: 700000.000
 		max_torque: 100000.000
 		max_stress: 3.000

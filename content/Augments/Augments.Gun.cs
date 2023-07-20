@@ -298,7 +298,7 @@ namespace TC2.Base
 
 								case Work.Type.Smithing:
 								{
-									requirement.difficulty = (byte)(Maths.Lerp(1.00f, 1.50f, ratio));
+									requirement.difficulty = (byte)(requirement.difficulty * Maths.Lerp(1.00f, 1.50f, ratio));
 									requirement.amount += Maths.Lerp(0.00f, 200.00f, ratio);
 								}
 								break;
