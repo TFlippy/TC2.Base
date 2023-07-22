@@ -1,0 +1,35 @@
+﻿{
+	name: "Lime"
+	description:
+		'''
+		Alkaline chemical commonly used in chemical industry and in production of cement and paper.
+		'''
+	
+	icon:
+	{
+		texture: "resource.lime"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: stone
+	flags: raw, powder, chemical, granular, toxic, despawnable
+	hints: none
+	mass_per_unit: 0.200
+	quantity_max: 500.000
+	prefab: "resource.lime"
+	molar_mass: 0.056077
+	
+	commodity:
+	{
+		categories: chemicals, industrial
+		market_price: 3.500
+	}
+}
