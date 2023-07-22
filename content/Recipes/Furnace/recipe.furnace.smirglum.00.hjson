@@ -36,7 +36,7 @@
 	[
 		{
 			type: temperature
-			amount: 2055.000
+			amount: 3055.000
 		}
 		{
 			type: resource

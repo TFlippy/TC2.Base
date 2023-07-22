@@ -24,7 +24,7 @@
 	type: metal
 	flags: manufactured, magnetic, granular
 	hints: none
-	mass_per_unit: 0.170
+	mass_per_unit: 0.450
 	quantity_max: 50.000
 	prefab: "resource.limelight"
 	

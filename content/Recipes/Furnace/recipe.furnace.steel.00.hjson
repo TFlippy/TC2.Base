@@ -22,9 +22,9 @@
 	icon_extra_offset: [-4.000, -6.000]
 	color_button: "0xff57e5b6"
 	
-	min: 10
-	max: 200
-	step: 10
+	min: 50
+	max: 500
+	step: 50
 	
 	type: crafter
 	flags: none
@@ -50,8 +50,8 @@
 		{
 			type: work
 			work: "melting"
-			amount: 95.000
-			difficulty: 14.000
+			amount: 52.000
+			difficulty: 10.000
 		}
 	]
 	

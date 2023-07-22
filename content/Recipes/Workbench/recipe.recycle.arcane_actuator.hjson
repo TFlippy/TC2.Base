@@ -1,0 +1,76 @@
+﻿{
+	name: "Dismantle Arcane Actuators"
+	desc:
+		'''
+		Scrap arcane actuators for parts.
+		'''
+	
+	icon:
+	{
+		texture: "resource.arcane_actuator"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_crafting.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xff769d49"
+	icon_extra_offset: [0.000, -6.000]
+	
+	min: 5
+	max: 100
+	step: 5
+	
+	type: workshop
+	flags: none
+	tags: forge, manufactory, workbench
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "arcane_actuator"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: scavenging
+			amount: 45.000
+			difficulty: 12
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "pellet.motion"
+			amount: 0.400
+			amount_extra: 0.000
+		}
+		{
+			type: "resource"
+			material: "smirglum.ingot"
+			amount: 0.200
+			amount_extra: 0.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 0.200
+			amount_extra: 0.400
+		}
+		{
+			type: "resource"
+			material: "scrap"
+			amount: 1.100
+			amount_extra: 0.500
+		}
+	]
+}

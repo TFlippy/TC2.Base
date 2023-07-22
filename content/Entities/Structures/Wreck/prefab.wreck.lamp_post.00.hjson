@@ -54,11 +54,11 @@ harvestable:
 		}
 		{
 			material: "iron.ingot"
-			quantity: 7.000
+			quantity: 12.000
 		}
 		{
-			material: "plants"
-			quantity: 30.000
+			material: "limelight"
+			quantity: 4.000
 		}
 	]
 }

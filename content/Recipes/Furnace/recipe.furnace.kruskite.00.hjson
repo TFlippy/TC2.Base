@@ -1,6 +1,9 @@
 {
-	name: "Kruskite Decomposition"
-	desc: ""
+	name: "Kruskite Calcination"
+	desc: 
+		'''
+		Thermally decompose Kruskite into sand, lime and variable amounts of low-purity silver and gold.
+		'''
 	
 	icon:
 	{
@@ -19,9 +22,9 @@
 	icon_extra_offset: [-2.000, -6.000]
 	color_button: "0xff9a7861"
 	
-	min: 50
-	max: 500
-	step: 50
+	min: 500
+	max: 2000
+	step: 500
 	
 	type: crafter
 	flags: none
@@ -41,8 +44,8 @@
 		{
 			type: work
 			work: "heating"
-			amount: 55.000
-			difficulty: 5.000
+			amount: 9.750
+			difficulty: 8.000
 		}
 	]
 	
@@ -51,26 +54,26 @@
 		{
 			type: resource
 			material: "sand"
-			amount: 0.775
-			amount_extra: 0.072
+			amount: 0.184
+			amount_extra: 0.192
 		}
 		{
 			type: resource
-			material: "salt"
-			amount: 0.514
-			amount_extra: 0.452
+			material: "cement"
+			amount: 0.664
+			amount_extra: 0.151
 		}
 		{
 			type: resource
-			material: "silver.powder"
-			amount: 0.025
-			amount_extra: 0.292
+			material: "silver.gravel"
+			amount: 0.105
+			amount_extra: 0.392
 		}
 		{
 			type: resource
-			material: "gold.powder"
-			amount: 0.007
-			amount_extra: 0.123
+			material: "gold.gravel"
+			amount: 0.015
+			amount_extra: 0.263
 		}
 	]
 }

@@ -23,9 +23,9 @@
 	icon_extra_scale: 1.000
 	color_button: "0xff57e5b6"
 
-	min: 50
-	max: 2500
-	step: 50
+	min: 10
+	max: 500
+	step: 10
 	
 	flags: none
 	type: crafter
@@ -41,17 +41,17 @@
 		{
 			type: resource
 			material: "iron.powder"
-			amount: 1.000
+			amount: 5.000
 		}
 		{
 			type: resource
 			material: "coke"
-			amount: 0.100
+			amount: 0.200
 		}
 		{
 			type: work
 			work: melting
-			amount: 12.000
+			amount: 38.000
 			difficulty: 7.000
 		}
 	]
@@ -61,7 +61,7 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 0.200
+			amount: 1.000
 			amount_extra: 0.000
 		}
 	]

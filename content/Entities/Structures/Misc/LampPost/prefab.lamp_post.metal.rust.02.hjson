@@ -47,7 +47,7 @@ lamp:
 	@light:
 	{
 		color: [1.000, 0.750, 0.100, 1.500]
-		offset: [0.000, -2.500]
+		offset: [0.875, -1.875]
 		scale: [96.000, 96.000]
 		intensity: 1.000
 		texture: "light.circle.00"
@@ -65,6 +65,10 @@ harvestable:
 		{
 			material: "steel.ingot"
 			quantity: 15.000
+		}
+		{
+			material: "limelight"
+			quantity: 3.000
 		}
 	]
 }

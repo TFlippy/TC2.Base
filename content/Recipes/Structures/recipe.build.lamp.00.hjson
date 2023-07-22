@@ -51,6 +51,11 @@
 			material: "steel.ingot"
 			amount: 2.000
 		}
+		{
+			type: resource
+			material: "limelight"
+			amount: 1.000
+		}
 	]
 	
 	products:

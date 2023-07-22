@@ -1,0 +1,70 @@
+﻿{
+	name: "Dismantle Computer"
+	desc:
+		'''
+		Scrap a computer for parts.
+		'''
+	
+	icon:
+	{
+		texture: "resource.computer"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_crafting.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xff769d49"
+	icon_extra_offset: [0.000, -6.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	type: workshop
+	flags: none
+	tags: forge, manufactory, workbench
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "computer"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: scavenging
+			amount: 345.000
+			difficulty: 14
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "steel.plate"
+			amount: 5.000
+			amount_extra: 2.000
+		}
+		{
+			type: "resource"
+			material: "machine_parts"
+			amount: 15.000
+			amount_extra: 4.000
+		}
+		{
+			type: "resource"
+			material: "scrap"
+			amount: 8.000
+			amount_extra: 3.000
+		}
+	]
+}
