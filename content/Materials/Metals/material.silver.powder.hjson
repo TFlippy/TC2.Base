@@ -20,7 +20,7 @@
 	}
 	
 	type: powder
-	flags: raw, powder, granular, smeltable, metal, despawnable
+	flags: raw, powder, granular, metal, despawnable
 	mass_per_unit: 0.266
 	quantity_max: 500.000
 	prefab: "resource.silver.powder"

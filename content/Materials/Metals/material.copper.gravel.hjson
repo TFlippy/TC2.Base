@@ -19,7 +19,7 @@
 	}
 	
 	type: gravel
-	flags: raw, gravel, smeltable, metal, despawnable
+	flags: raw, gravel, metal, despawnable
 	mass_per_unit: 0.230
 	quantity_max: 500.000
 	prefab: "resource.copper.gravel"

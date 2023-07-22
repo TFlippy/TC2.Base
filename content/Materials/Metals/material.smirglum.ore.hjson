@@ -19,7 +19,7 @@
 	}
 	
 	type: stone
-	flags: raw, ore, magnetic, granular, smeltable, metal, despawnable
+	flags: raw, ore, magnetic, granular, metal, despawnable
 	mass_per_unit: 2.760
 	quantity_max: 500.000
 	prefab: "resource.smirglum.ore"

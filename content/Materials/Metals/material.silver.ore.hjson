@@ -19,7 +19,7 @@
 	}
 	
 	type: stone
-	flags: raw, ore, granular, smeltable, metal, despawnable
+	flags: raw, ore, granular, metal, despawnable
 	mass_per_unit: 0.266
 	quantity_max: 500.000
 	prefab: "resource.silver.ore"

@@ -27,24 +27,26 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single)]
-		public static void OnRemoveCharacter(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_character, Entity ent_money, Entity ent_npc, 
+		public static void OnRemoveCharacter(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_character, Entity ent_money, Entity ent_npc,
 		[Source.Shared] ref Character.Data character, [Source.Shared] ref Money.Data money,
 		[Source.Owned, Original] ref NPC.Data npc, [Source.Owned] in Transform.Data transform)
 		{
 			var amount = money.amount;
-
-			money.amount = 0.00f;
-			money.Sync(ent_money, true);
-
-			region.SpawnPrefab("money.00", transform.position + random.NextUnitVector2Range(0.125f, 0.500f)).ContinueWith((ent) =>
+			if (amount >= 10.00f)
 			{
-				ref var money_new = ref ent.GetComponent<Money.Data>();
-				if (money_new.IsNotNull())
+				money.amount = 0.00f;
+				money.Sync(ent_money, true);
+
+				region.SpawnPrefab("money.00", transform.position + random.NextUnitVector2Range(0.125f, 0.500f)).ContinueWith((ent) =>
 				{
-					money_new.amount = amount;
-					money_new.Sync(ent, true);
-				}
-			});
+					ref var money_new = ref ent.GetComponent<Money.Data>();
+					if (money_new.IsNotNull())
+					{
+						money_new.amount = amount;
+						money_new.Sync(ent, true);
+					}
+				});
+			}
 		}
 #endif
 	}

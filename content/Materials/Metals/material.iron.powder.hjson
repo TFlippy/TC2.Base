@@ -20,7 +20,7 @@
 	}
 	
 	type: powder
-	flags: raw, powder, magnetic, granular, smeltable, metal, despawnable
+	flags: raw, powder, magnetic, granular, metal, despawnable
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.iron.powder"

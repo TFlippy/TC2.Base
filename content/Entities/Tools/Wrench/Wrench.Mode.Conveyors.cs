@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics.CodeAnalysis;
-
-namespace TC2.Base.Components
+﻿namespace TC2.Base.Components
 {
 	public static partial class Wrench
 	{
@@ -311,10 +308,10 @@ namespace TC2.Base.Components
 									{
 										GUI.DrawBackground(GUI.tex_panel, group_row.GetOuterRect(), new Vector4(4));
 
-										GUI.TitleCentered(h_inventory.Name, pivot: new(0.50f, 0.50f));
+										GUI.TitleCentered(h_inventory.Type.GetEnumName(), pivot: new(0.50f, 0.50f));
 
 										var is_selected = selected_inventory_id == h_inventory.ID;
-										if (GUI.Selectable3(h_inventory.Name, group_row.GetOuterRect(), is_selected))
+										if (GUI.Selectable3(h_inventory.Type.GetEnumName(), group_row.GetOuterRect(), is_selected))
 										{
 											selected_inventory_id = is_selected ? 0 : h_inventory.ID;
 											sync = true;
