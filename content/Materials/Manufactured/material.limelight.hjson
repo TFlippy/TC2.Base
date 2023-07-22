@@ -1,0 +1,38 @@
+﻿{
+	name: "Limelight"
+	description:
+		'''
+		Small stackable cylinders of compacted quicklime with a heat essence pellet inside.
+
+		Commonly used for illumination.
+		'''
+	
+	icon:
+	{
+		texture: "resource.limelight"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, granular
+	hints: none
+	mass_per_unit: 0.170
+	quantity_max: 50.000
+	prefab: "resource.limelight"
+	
+	specific_heat: 206.000
+	
+	commodity:
+	{
+		categories: machinery, components, arcane, technology, industrial, military, toys
+		market_price: 24.990
+	}
+}

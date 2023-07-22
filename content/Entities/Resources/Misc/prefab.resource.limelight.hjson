@@ -1,0 +1,47 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.200]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.300
+		material: metal
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.limelight"
+		count: 4
+		size: [16, 16]
+	}
+	scale: [0.900, 0.900]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "limelight"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
