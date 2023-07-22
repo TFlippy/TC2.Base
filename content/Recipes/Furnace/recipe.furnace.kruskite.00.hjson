@@ -44,7 +44,7 @@
 		{
 			type: work
 			work: "heating"
-			amount: 9.750
+			amount: 9.000
 			difficulty: 8.000
 		}
 	]
@@ -54,13 +54,13 @@
 		{
 			type: resource
 			material: "sand"
-			amount: 0.184
+			amount: 0.484
 			amount_extra: 0.192
 		}
 		{
 			type: resource
-			material: "cement"
-			amount: 0.664
+			material: "lime"
+			amount: 0.264
 			amount_extra: 0.151
 		}
 		{

@@ -28,8 +28,8 @@
 	
 	type: workshop
 	flags: none
-	tags: forge, manufactory, workbench
-	rank: 0.000
+	tags: forge, workbench, manufactory
+	rank: -348.000
 	
 	requirements:
 	[
@@ -52,13 +52,13 @@
 			type: resource
 			material: "lime"
 			amount: 0.350
-			amount_extra: 0.050
+			amount_extra: 0.550
 		}
 		{
 			type: resource
-			material: "smirglum.ingot"
-			amount: 0.050
-			amount_extra: 0.010
+			material: "recondite.ingot"
+			amount: 0.060
+			amount_extra: 0.025
 		}
 		{
 			type: resource

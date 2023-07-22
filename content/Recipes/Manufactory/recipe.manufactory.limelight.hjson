@@ -1,0 +1,58 @@
+{
+	name: "Limelight"
+	desc:
+		'''
+		Small stackable cylinders of compacted quicklime with a heat essence pellet inside.
+		
+		Commonly used for illumination.
+		'''
+	
+	icon:
+	{
+		texture: "resource.limelight"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	
+	type: workshop
+	tags: manufactory
+	rank: -540.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "lime"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "recondite.ingot"
+			amount: 0.100
+		}
+		{
+			type: resource
+			material: "pellet.heat"
+			amount: 0.200
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 75.000
+			difficulty: 8.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "resource"
+			material: "limelight"
+			amount: 1.000
+		}
+	]
+}

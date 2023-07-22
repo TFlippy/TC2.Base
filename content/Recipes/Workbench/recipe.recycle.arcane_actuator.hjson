@@ -28,8 +28,8 @@
 	
 	type: workshop
 	flags: none
-	tags: forge, manufactory, workbench
-	rank: 0.000
+	tags: forge, workbench, manufactory
+	rank: -349.000
 	
 	requirements:
 	[
@@ -49,25 +49,25 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "pellet.motion"
 			amount: 0.400
 			amount_extra: 0.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "smirglum.ingot"
 			amount: 0.200
 			amount_extra: 0.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 0.200
 			amount_extra: 0.400
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "scrap"
 			amount: 1.100
 			amount_extra: 0.500

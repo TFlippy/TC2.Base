@@ -28,8 +28,8 @@
 	
 	type: workshop
 	flags: none
-	tags: forge, manufactory, workbench
-	rank: 0.000
+	tags: forge, workbench, manufactory
+	rank: -347.000
 	
 	requirements:
 	[
@@ -49,19 +49,19 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.plate"
 			amount: 5.000
 			amount_extra: 2.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 15.000
 			amount_extra: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "scrap"
 			amount: 8.000
 			amount_extra: 3.000

@@ -60,8 +60,8 @@
 		{
 			type: resource
 			material: "slag.rich"
-			amount: 0.615
-			amount_extra: 0.220
+			amount: 0.415
+			amount_extra: 0.280
 			flags: waste
 		}
 		{
@@ -73,7 +73,7 @@
 		}
 		{
 			type: resource
-			material: "salt"
+			material: "lime"
 			amount: 0.215
 			amount_extra: 0.320
 			flags: waste

@@ -1,6 +1,6 @@
 {
 	name: "Mushroom Scraps"
-	desc: "Various hard bits of mushrooms."
+	desc: "Various bits of mushrooms."
 	
 	icon:
 	{
@@ -35,7 +35,7 @@
 	[
 		{
 			type: "money"
-			amount: 0.290
+			amount: 0.790
 		}
 	]
 }
