@@ -590,14 +590,14 @@
 		public static void OnAddVehicle(ISystem.Info info, Entity ent_gun,
 		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
 		{
-			vehicle.ent_gun = ent_gun;
+			if (!vehicle.ent_gun.IsAlive()) vehicle.ent_gun = ent_gun;
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single)]
 		public static void OnRemVehicle(ISystem.Info info, Entity ent_gun,
 		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
 		{
-			vehicle.ent_gun = default;
+			if (vehicle.ent_gun == ent_gun) vehicle.ent_gun = default;
 		}
 
 #if SERVER

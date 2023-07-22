@@ -87,7 +87,6 @@ holdable:
 {
 	offset: [-0.875, 0.000]
 	radius: 10.000
-	flags: storable
 
 	force_multiplier: 1.100
 	torque_multiplier: 1.000

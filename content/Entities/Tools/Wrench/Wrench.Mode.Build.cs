@@ -55,6 +55,7 @@ namespace TC2.Base.Components
 					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var region = ref Client.GetRegion();
+						ref var player = ref Client.GetPlayer();
 
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
@@ -72,6 +73,8 @@ namespace TC2.Base.Components
 							//	//this.builder.category = (Builder.Category)Maths.Repeat((int)this.builder.category + 1, category_values.Length);
 							//	//Sound.PlayGUI(GUI.sound_select, volume: 0.07f);
 							//}
+
+							Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
 
 							using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
 							{
@@ -226,6 +229,9 @@ namespace TC2.Base.Components
 														{
 															GUI.Title(recipe.name);
 															GUI.Text(recipe.desc, color: GUI.font_color_default);
+
+															GUI.NewLine();
+															GUI.DrawRequirements(ref context, recipe.requirements.AsSpan());
 														}
 													}
 												}
@@ -247,7 +253,6 @@ namespace TC2.Base.Components
 								var support = 0.00f;
 								var amount_multiplier = 1.00f;
 
-								ref var player = ref Client.GetPlayer();
 								ref var recipe = ref this.recipe.GetData();
 								if (!recipe.IsNull() && !player.IsNull())
 								{
