@@ -24,9 +24,9 @@
 	icon_extra_offset: [-4.000, -6.000]
 	color_button: "0xfff34a29"
 	
-	min: 50
-	max: 200
-	step: 50
+	min: 250
+	max: 2000
+	step: 250
 	
 	type: crafter
 	flags: none

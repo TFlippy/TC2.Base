@@ -17,7 +17,7 @@
 	}
 	
 	icon_extra_offset: [-4.000, -6.000]
-	color_button: "0xff9a7861"
+	color_button: "0xffffba45"
 	
 	min: 100
 	max: 1000

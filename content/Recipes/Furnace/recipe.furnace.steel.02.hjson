@@ -1,9 +1,6 @@
-{
+﻿{
 	name: "Scrap-Based Steel (Recycling)"
-	desc: 
-		'''
-		
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -18,17 +15,16 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [0, -6]
-	icon_extra_scale: 1.000
+	
 	color_button: "0xff769d49"
-
+	icon_extra_offset: [0.000, -6.000]
+	
 	min: 5
 	max: 200
 	step: 5
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	rank: -200.000
 	
@@ -52,7 +48,7 @@
 			type: work
 			work: melting
 			amount: 70.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 	]
 	
@@ -69,7 +65,6 @@
 			material: "slag"
 			amount: 0.110
 			amount_extra: 0.400
-			flags: waste
 		}
 	]
 }

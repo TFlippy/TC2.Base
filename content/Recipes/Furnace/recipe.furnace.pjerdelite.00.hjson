@@ -21,7 +21,7 @@
 
 	icon_extra_offset: [-2, -6]
 	icon_extra_scale: 1.000
-	color_button: "0xff9a7861"
+	color_button: "0xffffba45"
 	
 	min: 100
 	max: 1000

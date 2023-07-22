@@ -19,8 +19,8 @@
 		frame: [2, 0]
 	}
 	
+	color_button: "0xffd4e5c3"
 	icon_extra_offset: [-4.000, -6.000]
-	color_button: "0xff7a62ff"
 	
 	min: 5
 	max: 100
@@ -35,7 +35,7 @@
 	[
 		{
 			type: temperature
-			amount: 3055.000
+			amount: 2245.000
 		}
 		{
 			type: resource
@@ -51,7 +51,7 @@
 			type: work
 			work: melting
 			amount: 50.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	

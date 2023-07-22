@@ -1,6 +1,6 @@
 ﻿{
 	name: "Smelt Recondite (Alloy)"
-	desc: 
+	desc:
 		'''
 		Smelt pure recondite powder.
 		'''
@@ -18,17 +18,16 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xff7a62ff"
-
+	
+	color_button: "0xffd4e5c3"
+	icon_extra_offset: [-4.000, -6.000]
+	
 	min: 5
 	max: 100
 	step: 5
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	rank: -30.000
 	
@@ -36,15 +35,15 @@
 	[
 		{
 			type: temperature
-			amount: 3055.000
+			amount: 2245.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "smirglum.powder"
 			amount: 3.500
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "silver.powder"
 			amount: 1.500
 		}
@@ -52,7 +51,7 @@
 			type: work
 			work: melting
 			amount: 50.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	
@@ -62,6 +61,7 @@
 			type: resource
 			material: "recondite.ingot"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

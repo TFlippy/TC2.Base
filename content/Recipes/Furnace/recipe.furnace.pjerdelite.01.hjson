@@ -21,11 +21,11 @@
 
 	icon_extra_offset: [-4, -6]
 	icon_extra_scale: 1.000
-	color_button: "0xff769d49"
+	color_button: "0xfff34a29"
 	
-	min: 50
-	max: 200
-	step: 50
+	min: 250
+	max: 2000
+	step: 250
 	
 	flags: none
 	type: crafter
