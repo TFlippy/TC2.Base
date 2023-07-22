@@ -1,14 +1,14 @@
 ﻿{
-	name: "Furnace (Large)"
+	name: "Furnace (Small)"
 	desc:
 		'''
-		Useful for smelting large batches of ores.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "furnace.01"
-		size: [32, 64]
+		texture: "furnace.00"
+		size: [32, 40]
 		frame: [0, 0]
 	}
 	
@@ -31,8 +31,8 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [5.000, 8.000]
-		offset: [0.000, -3.500]
+		size: [4.000, 5.000]
+		offset: [0.000, -1.750]
 		
 		cooldown: 0.500
 		min_support: 0.200
@@ -46,7 +46,7 @@
 	
 	construction:
 	{
-		prefab: "construction.5x8"
+		prefab: "construction.4x5"
 		
 		requirements:
 		[
@@ -63,17 +63,12 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 2750.000
-		}
-		{
-			type: resource
-			material: "cement"
-			amount: 1200.000
+			amount: 850.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 150.000
+			amount: 35.000
 		}
 	]
 	
