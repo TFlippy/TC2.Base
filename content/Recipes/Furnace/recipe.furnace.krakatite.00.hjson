@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Krakatite Decomposition"
 	desc: ""
 	
@@ -16,8 +16,8 @@
 		frame: [3, 0]
 	}
 	
-	icon_extra_offset: [-4.000, -6.000]
 	color_button: "0xffffba45"
+	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 100
 	max: 1000
@@ -25,7 +25,8 @@
 	
 	type: crafter
 	flags: none
-	tags: furnace
+	tags: furnace, kiln
+	rank: 0.000
 	
 	requirements:
 	[
@@ -45,9 +46,9 @@
 		}
 		{
 			type: work
-			work: "heating"
+			work: heating
 			amount: 24.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	

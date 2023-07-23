@@ -1,11 +1,11 @@
 ﻿{
-	tag: "IP-KI"
-	name: "Krumpel Island"
+	tag: "IP-KS"
+	name: "Krumpelsutr"
 	
 	color_a: "0xffba974a"
 	color_b: "0xff639417"
 	
-	kind: province
+	kind: government
 	flags: npc, no_player_squads
 	
 	leader_player_id: 0

@@ -1,9 +1,9 @@
-{
+﻿{
 	name: "Coal Coke"
-	desc: 
+	desc:
 		'''
 		High-energy fuel often used in metallurgy and steelmaking.
-		
+
 		Very slow to produce.
 		'''
 	
@@ -13,25 +13,25 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "resource.black_coal"
 		size: [16, 16]
 		frame: [1, 0]
 	}
-
-	icon_extra_offset: [-2, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xff57e5b6"
-
+	
+	color_button: "0xffffba45"
+	icon_extra_offset: [-2.000, -6.000]
+	
 	min: 100
 	max: 500
 	step: 100
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
+	rank: 0.000
 	
 	requirements:
 	[
@@ -48,7 +48,7 @@
 			type: work
 			work: heating
 			amount: 45.000
-			difficulty: 14.000
+			difficulty: 14
 		}
 	]
 	
@@ -65,14 +65,12 @@
 			material: "tar"
 			amount: 0.025
 			amount_extra: 0.050
-			flags: waste
 		}
 		{
 			type: resource
 			material: "sulfur"
 			amount: 0.040
 			amount_extra: 0.150
-			flags: waste
 		}
 	]
 }

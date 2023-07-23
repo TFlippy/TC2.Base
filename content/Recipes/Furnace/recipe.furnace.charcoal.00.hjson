@@ -8,25 +8,25 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "resource.wood"
 		size: [16, 16]
 		frame: [1, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xff57e5b6"
-
+	
+	color_button: "0xffffba45"
+	icon_extra_offset: [-4.000, -6.000]
+	
 	min: 100
 	max: 500
 	step: 100
 	
 	type: crafter
 	flags: none
-	tags: furnace
+	tags: furnace, kiln
+	rank: 0.000
 	
 	requirements:
 	[
@@ -41,9 +41,9 @@
 		}
 		{
 			type: work
-			work: "heating"
+			work: heating
 			amount: 35.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	

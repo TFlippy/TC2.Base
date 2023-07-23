@@ -49,7 +49,7 @@ transform:
 shop:
 {
 	name: "Recipes"
-	tags: furnace
+	tags: kiln
 
 	menu_columns: 4
 }

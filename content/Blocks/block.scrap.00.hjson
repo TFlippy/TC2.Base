@@ -6,7 +6,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 5000.000
+	max_health: 12500.000
 	smoothing: 0.160
 	mass: 8.000
 	friction: 0.950
@@ -23,7 +23,7 @@
 	[
 		{
 			material: "scrap"
-			quantity: 0.500
+			quantity: 2.310
 		}
 	]
 	
