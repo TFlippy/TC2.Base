@@ -1,0 +1,32 @@
+﻿{
+	name: "Kordel Denar"
+	description:
+		'''
+		We're rich!
+		'''
+	
+	icon:
+	{
+		texture: "resource.money"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icon_sell"
+		count: 1
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	type: coin
+	flags: manufactured, ingot, granular, metal, currency
+	hints: none
+	mass_per_unit: 0.0078125
+	quantity_max: 5000.000
+	prefab: "resource.money"
+	
+	specific_heat: 64.500
+	thermal_conductivity: 0.320
+}

@@ -52,6 +52,8 @@ market:
 		offset: [-1.500, -0.625]
 		z: -295.000
 	}
+
+	company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
 }
 
 light:

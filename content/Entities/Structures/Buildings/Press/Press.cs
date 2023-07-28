@@ -241,7 +241,7 @@
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
 
-						Crafting.Context.NewFromPlayer(ref Client.GetRegion(), ref player, ent_producer: this.ent_press, out var context);
+						Crafting.Context.NewFromPlayer(ref region, ref player, ent_producer: this.ent_press, out var context);
 
 						var w_right = (48 * 4) + 24;
 
