@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 								}
 							}
 
-							var offset = Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * prospector_pick.max_depth).WorldToCanvas();
+							var offset = Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth).WorldToCanvas();
 
 							var random = XorRandom.New((uint)(App.GetFixedTime() * 15.00));
 
@@ -102,7 +102,7 @@ namespace TC2.Base.Components
 							var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
 							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
 
-							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
+							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
 							static void Func(ref Tile tile, int x, int y, byte mask, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args)
 							{
 								if (tile.BlockID != 0)

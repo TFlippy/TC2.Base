@@ -156,8 +156,8 @@
 								}
 
 								//GUI.DrawLine()
-								GUI.DrawRectFilled(AABB.Centered(controllable.target_pos.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
-								GUI.DrawRectFilled(AABB.Centered(control.mouse.position.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
+								GUI.DrawRectFilled(AABB.Centered(this.controllable.target_pos.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
+								GUI.DrawRectFilled(AABB.Centered(this.control.mouse.position.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
 							}
 						}
 					}

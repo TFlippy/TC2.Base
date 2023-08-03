@@ -81,7 +81,7 @@
 	[
 		{
 			type: prefab
-			prefab: "mount.heavy"
+			prefab: "mount.static.02"
 			amount: 1.000
 			amount_extra: 0.000
 		}
