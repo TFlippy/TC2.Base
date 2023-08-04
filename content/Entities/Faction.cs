@@ -101,14 +101,14 @@ namespace TC2.Base.Components
 																		}
 
 																		var player_tmp = player; // TODO: hack
-																		ref var money = ref player_tmp.GetMoney().data;
-																		if (!money.IsNull())
-																		{
-																			using (row.Column(1))
-																			{
-																				GUI.TextShaded($"{money.amount.FormatAmount():0.##}");
-																			}
-																		}
+																		//ref var money = ref player_tmp.GetMoney().data;
+																		//if (!money.IsNull())
+																		//{
+																		//	using (row.Column(1))
+																		//	{
+																		//		GUI.TextShaded($"{money.amount.FormatAmount():0.##}");
+																		//	}
+																		//}
 
 																		using (row.Column(2))
 																		{
