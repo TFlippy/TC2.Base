@@ -3,7 +3,7 @@ $tags: []
 
 body:
 {
-	type: static
+	type: dynamic
 	
 	@shape.line:
 	{
@@ -15,8 +15,8 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, ignore_melee
-		mask: none
+		layer: entity, ignore_melee, solid, vehicle
+		mask: world
 	}
 }
 
@@ -113,6 +113,26 @@ mount:
 
 }
 
+aimable:
+{
+
+}
+
+holdable:
+{
+	offset: [-4.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 0.000]
+
+	force_multiplier: 2.000
+	torque_multiplier: 4.000
+}
+
 +mount|instance:
 {
 	attachment.slot:	
@@ -129,7 +149,7 @@ mount:
 	{
 		offset_a: [0.000, 0.000]
 		max_force: 1000000.000
-		max_torque: 500000.000
+		max_torque: 200000.000
 		max_stress: 2.000
 		stress_threshold: 2.010
 		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
@@ -139,15 +159,14 @@ mount:
 
 	joint.gear:
 	{
-		error_bias: 0.001
-		max_bias: 5.000
-		max_bias_bounce: 5.000
+		error_bias: 0.000
+		max_bias: 1.000
+		max_bias_bounce: 4.000
 		stress_mult: 1.000
 		min: -3.140
 		max: 3.140
-		step: 50.000
+		step: 5.000
 		bounce: 0.900
-		max_torque: 10000.000
 
 		// @sound.emitter:
 		// {

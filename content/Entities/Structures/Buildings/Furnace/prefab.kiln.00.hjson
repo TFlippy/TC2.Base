@@ -29,7 +29,7 @@ body:
 
 health:
 {
-	max: 70000.000
+	max: 8000.000
 }
 
 animated.renderer:
@@ -56,10 +56,7 @@ shop:
 
 furnace:
 {
-	batch_amount_min: 50
-	batch_amount_max: 500
-	batch_amount_step: 50
-	batch_amount_current: 100
+	efficiency: 0.550
 }
 
 furnace.state:
@@ -69,28 +66,29 @@ furnace.state:
 
 burner:
 {
-	smoke_offset: [-0.250, -4.250]
-	capacity: 10.000
-	energy_loss: 50000.000
-	efficiency: 0.400
+	smoke_offset: [0.000, -2.000]
+	capacity: 3.000
+	energy_loss: 10000.000
+	efficiency: 0.600
+	volume_modifier: 0.600
 	
 	@inventory1:
 	{
 		name: "Fuel"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 1.000
 		filter_flags: fuel
 		type: fuel
 		flags: allow_ducts, ignore_mass
-		offset: [1.000, 1.500]
+		offset: [0.000, 0.875]
 	}
 
 	@light:
 	{
-		color: [1.000, 0.500, 0.000, 2.000]
-		offset: [1.000, 2.750]
-		scale: [16.000, 16.000]
+		color: [1.000, 0.500, 0.000, 3.500]
+		offset: [0.000, -0.0625]
+		scale: [13.000, 8.000]
 		intensity: 0.000
-		texture: "light.circle.00"
+		texture: "light.circle.04"
 	}
 	
 	@sound.emitter:
@@ -110,29 +108,29 @@ crafter:
 {
 	sound_produce: "furnace.produce.00"
 	
-	@inventory16:
+	@inventory4:
 	{
 		name: "Output"
 		stack_size_multiplier: 4.000
 		type: output
 		flags: allow_ducts, ignore_mass, public, faction
-		offset: [-0.875, 2.500]
+		offset: [0.000, -0.125]
 	}
 }
 
 crafter.state:
 {
-	@inventory4:
+	@inventory2:
 	{
 		name: "Input"
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 1.000
 		type: input
 		flags: allow_ducts, ignore_mass
-		offset: [-0.875, -1.375]
+		offset: [0.000, -0.125]
 	}
 }
 
 interactable:
 {
-	window_size: [650.000, 480.000]
+	window_size: [576.000, 480.000]
 }
