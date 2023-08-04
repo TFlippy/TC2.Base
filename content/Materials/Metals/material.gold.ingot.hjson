@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Gold Ingot"
 	description:
 		'''
@@ -14,11 +14,14 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: ingot, metal
+	hints: none
 	mass_per_unit: 2.500
 	quantity_max: 250.000
 	prefab: "resource.gold.ingot"
@@ -29,6 +32,6 @@
 	commodity:
 	{
 		categories: metals, jewelry, luxury, consumer, industrial, military
-		market_price: 275.000
+		market_price: 400.000
 	}
 }

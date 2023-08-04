@@ -244,9 +244,15 @@
 			public Resource.Data resource_ammo;
 			//public IMaterial.Handle h_last_ammo;
 
+			[Save.Ignore] public XorRandom random_det = XorRandom.New(true);
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
+
+			public State()
+			{
+
+			}
 		}
 
 		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)

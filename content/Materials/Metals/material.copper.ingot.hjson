@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Copper Ingot"
 	description:
 		'''
@@ -14,11 +14,14 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: ingot, metal
+	hints: none
 	mass_per_unit: 1.150
 	quantity_max: 250.000
 	prefab: "resource.copper.ingot"

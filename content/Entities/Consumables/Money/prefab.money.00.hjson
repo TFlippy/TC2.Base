@@ -75,11 +75,6 @@ consumable:
 	sound_use: "coins.open.01"
 }
 
-money:
-{
-	
-}
-
 // alcohol.effect:
 // {
 // 	amount: 50.000

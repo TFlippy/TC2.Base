@@ -2,7 +2,7 @@
 	name: "Kordel Denar"
 	description:
 		'''
-		We're rich!
+		Standard Imperial currency.
 		'''
 	
 	icon:
@@ -29,4 +29,10 @@
 	
 	specific_heat: 64.500
 	thermal_conductivity: 0.320
+	
+	commodity:
+	{
+		categories: consumer
+		market_price: 1.000
+	}
 }
