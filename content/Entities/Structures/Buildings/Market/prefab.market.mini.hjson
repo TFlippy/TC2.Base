@@ -47,28 +47,43 @@ transform:
 
 market:
 {
+	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+}
+
+// light:
+// {
+// 	color: [1.000, 0.750, 0.100, 4.000]
+// 	offset: [1.250, -1.125]
+// 	scale: [14.000, 12.000]
+// 	intensity: 1.000
+// 	texture: "light.circle.04"
+// 	rotation: 0.000
+// }
+
+faction:
+{
+
+}
+
+company:
+{
+	logo_type: sign_2x2
+
+	@light:
+	{
+		// color: [1.000, 0.750, 0.100, 2.000]
+		color: [1.000, 0.750, 0.100, 2.500]
+		offset: [-1.375, 0.625]
+		scale: [32.000, 10.000]
+		intensity: 1.000
+		texture: "light.circle.04"
+	}
+
 	@animated.renderer:
 	{
 		offset: [-1.500, -0.625]
 		z: -295.000
 	}
-
-	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
-}
-
-light:
-{
-	// color: [1.000, 0.750, 0.100, 2.000]
-	color: [1.000, 0.750, 0.100, 1.500]
-	offset: [0.000, 0.000]
-	scale: [24.000, 20.000]
-	intensity: 0.800
-	texture: "light.box.00"
-}
-
-faction:
-{
-
 }
 
 claimable:
