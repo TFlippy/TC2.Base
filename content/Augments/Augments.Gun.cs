@@ -25,7 +25,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref amount, 1.00f, 5.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -195,7 +195,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1017,7 +1017,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1403,7 +1403,7 @@ namespace TC2.Base
 				//				{
 				//					ref var offset = ref handle.GetData<Vector2>();
 
-				//					var size = GUI.GetRemainingSpace();
+				//					var size = GUI.Rm;
 				//					size.X *= 0.50f;
 
 				//					var dirty = false;
@@ -1500,7 +1500,7 @@ namespace TC2.Base
 				//				{
 				//					ref var offset = ref handle.GetData<Vector2>();
 
-				//					var size = GUI.GetRemainingSpace();
+				//					var size = GUI.Rm;
 				//					size.X *= 0.50f;
 
 				//					var dirty = false;
@@ -1580,9 +1580,9 @@ namespace TC2.Base
 
 			//					var dirty = false;
 
-			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 			//					GUI.SameLine();
-			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 			//					return dirty;
 			//				},
@@ -1656,9 +1656,9 @@ namespace TC2.Base
 
 			//					var dirty = false;
 
-			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+			//					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 9, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 			//					GUI.SameLine();
-			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+			//					dirty |= GUI.Picker("offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 			//					return dirty;
 			//				},
@@ -1725,7 +1725,7 @@ namespace TC2.Base
 				{
 					ref var modifier = ref handle.GetModifier();
 
-					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.00f, 2.50f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.00f, 2.50f, size: GUI.Rm);
 				},
 #endif
 
@@ -1806,7 +1806,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -2205,7 +2205,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -2349,7 +2349,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 1.00f, 2.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -2648,7 +2648,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var simultaneous = ref handle.GetData<bool>();
-					return GUI.Checkbox("Simultaneous Fire", ref simultaneous, GUI.GetRemainingSpace());
+					return GUI.Checkbox("Simultaneous Fire", ref simultaneous, GUI.Rm);
 				},
 
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
@@ -2862,7 +2862,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 
 				generate_sprite: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
@@ -2918,7 +2918,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
@@ -2995,7 +2995,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
@@ -3104,7 +3104,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
@@ -3184,19 +3184,19 @@ namespace TC2.Base
 
 					//var dirty = false;
 
-					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 2), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: new Vector2(GUI.RmX - (GUI.RmY * 2), GUI.RmY));
 					GUI.SameLine();
-					//dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					//dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					//GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset,
 						min: new Vector2(data.receiver_offset.X - 0.250f, data.receiver_offset.Y - 0.125f),
 						max: new Vector2(MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f), data.receiver_offset.Y + 0.250f));
 
@@ -3361,7 +3361,7 @@ namespace TC2.Base
 				//	ref var value = ref handle.GetData<Vector2>();
 				//	var dirty = false;
 
-				//	var size = GUI.GetRemainingSpace();
+				//	var size = GUI.Rm;
 
 				//	dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
 				//	GUI.SameLine();
@@ -3376,9 +3376,9 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(-0.375f, -0.125f), max: new Vector2(context.rect.b.X, 0.250f));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: new Vector2(-0.375f, -0.125f), max: new Vector2(context.rect.b.X, 0.250f));
 
 					return dirty;
 				},
@@ -3527,7 +3527,7 @@ namespace TC2.Base
 				//	ref var value = ref handle.GetData<Vector2>();
 				//	var dirty = false;
 
-				//	var size = GUI.GetRemainingSpace();
+				//	var size = GUI.Rm;
 
 				//	dirty |= GUI.SliderFloat("Count", ref value.X, 1.00f, 4.00f, snap: 1.00f, size: new(size.X * 0.50f, size.Y));
 				//	GUI.SameLine();
@@ -3542,9 +3542,9 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X, data.receiver_offset.Y), max: new Vector2(data.muzzle_offset.X, data.receiver_offset.Y));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: new Vector2(data.receiver_offset.X, data.receiver_offset.Y), max: new Vector2(data.muzzle_offset.X, data.receiver_offset.Y));
 
 					return dirty;
 				},
@@ -3689,9 +3689,9 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y - 0.125f), max: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y + 0.125f));
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y - 0.125f), max: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y + 0.125f));
 
 					return dirty;
 				},
@@ -3918,9 +3918,9 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 3, size: GUI.GetRemainingSpace(x: -GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset,
 						min: new Vector2(data.muzzle_offset.X - 0.375f, data.muzzle_offset.Y - 0.125f),
 						max: new Vector2(data.muzzle_offset.X + 0.125f, data.muzzle_offset.Y + 0.250f));
 
@@ -4012,9 +4012,9 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 
 					var dirty = false;
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: GUI.GetRemainingSpace(x: -GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: GUI.GetRemainingSpace(x: -GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset,
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset,
 						min: new Vector2(data.receiver_offset.X + 0.500f, data.muzzle_offset.Y - 0.000f),
 						max: new Vector2(data.muzzle_offset.X + 0.125f, data.muzzle_offset.Y + 0.500f));
 

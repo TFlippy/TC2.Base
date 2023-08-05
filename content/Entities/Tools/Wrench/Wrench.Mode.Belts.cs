@@ -58,16 +58,16 @@
 						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
 						{
-							using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
+							using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 							{
 								GUI.TitleCentered(recipe.name, size: 24, pivot: new Vector2(0.00f, 0.50f));
 							}
 
 							GUI.SeparatorThick();
 
-							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 6)))
+							using (GUI.Group.New(size: GUI.Rm, padding: new(4, 6)))
 							{
-								using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+								using (GUI.Wrap.Push(GUI.RmX))
 								{
 									GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
 
@@ -110,11 +110,11 @@
 								{
 									GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
 
-									using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+									using (GUI.Group.New(size: GUI.Rm - new Vector2(0, 48), padding: new(4)))
 									{
 										GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 
-										if (GUI.Checkbox("Reversed", ref this.flags, Belt.Flags.Crossed, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+										if (GUI.Checkbox("Reversed", ref this.flags, Belt.Flags.Crossed, size: new Vector2(GUI.RmX, 32)))
 										{
 											var rpc = new Wrench.Mode.Belts.EditRPC
 											{
@@ -124,7 +124,7 @@
 										}
 									}
 
-									using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+									using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new(100, 40)))
 									{
 										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
 										{

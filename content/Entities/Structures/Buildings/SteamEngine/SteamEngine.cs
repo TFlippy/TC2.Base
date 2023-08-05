@@ -305,23 +305,23 @@ namespace TC2.Base.Components
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
+						using (GUI.Group.New(new(GUI.RmX, 96)))
 						{
 							//Boiler.DrawGauge(this.steam_engine_state.speed_current, 0.00f, this.steam_engine.speed_max);
 							GUI.DrawGauge(MathF.Abs(this.wheel_state.angular_velocity), 0.00f, this.steam_engine.speed_max);
 
 							//GUI.SameLine();
-							//GUI.DrawTemperatureRange(this.steam_engine_state.temperature_current, Maths.CelsiusToKelvin(100), Maths.CelsiusToKelvin(375), size: new Vector2(24, GUI.GetRemainingHeight()), color_a: GUI.col_white, color_b: GUI.col_white);
+							//GUI.DrawTemperatureRange(this.steam_engine_state.temperature_current, Maths.CelsiusToKelvin(100), Maths.CelsiusToKelvin(375), size: new Vector2(24, GUI.RmY), color_a: GUI.col_white, color_b: GUI.col_white);
 
 							GUI.SameLine();
-							GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 2000, size: new Vector2(24, GUI.GetRemainingHeight()));
+							GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 2000, size: new Vector2(24, GUI.RmY));
 							//GUI.SameLine();
-							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.GetRemainingHeight()));
+							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.RmY));
 
 							GUI.SameLine();
 
 
-							using (GUI.Group.New(new(GUI.GetRemainingWidth(), 96)))
+							using (GUI.Group.New(new(GUI.RmX, 96)))
 							{
 								GUI.DrawInventoryDock(Inventory.Type.Fuel, new(48, 48));
 

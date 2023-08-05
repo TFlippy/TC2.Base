@@ -113,7 +113,7 @@ namespace TC2.Base.Components
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						if (GUI.SliderInt("State", ref this.clutch.state, 0, 1, size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), snap: 1, vertical: true))
+						if (GUI.SliderInt("State", ref this.clutch.state, 0, 1, size: new Vector2(GUI.RmX, GUI.RmY), snap: 1, vertical: true))
 						{
 							var rpc = new Clutch.ConfigureRPC()
 							{

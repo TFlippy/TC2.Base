@@ -28,7 +28,7 @@ namespace TC2.Base
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 
 					var changed = false;
 					changed |= GUI.SliderInt("Amount", ref pair.amount, 10, 50, size: new(size.X * 0.50f, size.Y));
@@ -236,9 +236,9 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, snap: 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, snap: 5, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -313,17 +313,17 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
-					//dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					//dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 					//GUI.SameLine();
-					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -646,7 +646,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
-					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f, size: GUI.Rm);
 				},
 #endif
 
@@ -846,26 +846,26 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 7, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 7, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 					//GUI.SameLine();
-					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 
 					//ref var offset = ref handle.GetData<Vector2>();
 
-					//var size = GUI.GetRemainingSpace();
+					//var size = GUI.Rm;
 					//size.X *= 0.50f;
 
 					//var dirty = false;
 					////dirty |= GUI.Picker("offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
-					//dirty |= GUI.Picker("offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					//dirty |= GUI.Picker("offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					//return dirty;
 				},
@@ -1014,7 +1014,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
@@ -1067,7 +1067,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1108,7 +1108,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1149,7 +1149,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1186,7 +1186,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
@@ -1308,9 +1308,9 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX * 0.60f, GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -1357,7 +1357,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1405,7 +1405,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1453,7 +1453,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1501,7 +1501,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1549,7 +1549,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1597,7 +1597,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
@@ -1640,7 +1640,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, size: GUI.Rm);
 				},
 #endif
 
@@ -1685,7 +1685,7 @@ namespace TC2.Base
 				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f, size: GUI.Rm);
 				},
 #endif
 
@@ -1732,7 +1732,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
@@ -1812,13 +1812,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2022,13 +2022,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2071,13 +2071,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2280,13 +2280,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2334,13 +2334,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2719,13 +2719,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -2883,13 +2883,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -3171,13 +3171,13 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.GetRemainingWidth() - (GUI.GetRemainingHeight() * 3), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.GetRemainingHeight()), show_text: false, show_tooltip: true);
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.GetRemainingHeight()), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
 					return dirty;
 				},
@@ -3462,7 +3462,7 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.SliderFloatLerp("Modifier", ref modifier, 0.10f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()));
+					dirty |= GUI.SliderFloatLerp("Modifier", ref modifier, 0.10f, 1.00f, size: new Vector2(GUI.RmX, GUI.RmY));
 
 					return dirty;
 				},

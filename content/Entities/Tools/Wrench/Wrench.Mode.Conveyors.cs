@@ -61,16 +61,16 @@
 						ref var recipe = ref this.selected_recipe.GetData();
 						if (!recipe.IsNull() && recipe.placement.HasValue)
 						{
-							using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
+							using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 							{
 								GUI.TitleCentered(recipe.name, size: 24, pivot: new Vector2(0.00f, 0.50f));
 							}
 
 							GUI.SeparatorThick();
 
-							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 6)))
+							using (GUI.Group.New(size: GUI.Rm, padding: new(4, 6)))
 							{
-								using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+								using (GUI.Wrap.Push(GUI.RmX))
 								{
 									GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
 
@@ -152,19 +152,19 @@
 										}
 									}
 
-									using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 24 * 6), padding: new(4)))
+									using (GUI.Group.New(size: new(GUI.RmX, 24 * 6), padding: new(4)))
 									{
 										//GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 
-										var w = GUI.GetRemainingWidth();
+										var w = GUI.RmX;
 
 										using (GUI.ID.Push(this.ent_src))
 										{
-											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.RmY), padding: new(4)))
 											{
 												GUI.DrawBackground(GUI.tex_panel, group_col.GetOuterRect(), new Vector4(4));
 
-												using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 24), padding: new(4)))
+												using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 24), padding: new(4)))
 												{
 													GUI.TitleCentered($"From: {this.ent_src.GetName()}", size: 16, pivot: new(0.50f, 0.50f));
 												}
@@ -179,11 +179,11 @@
 
 										using (GUI.ID.Push(this.ent_dst))
 										{
-											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.GetRemainingHeight()), padding: new(4)))
+											using (var group_col = GUI.Group.New(size: new Vector2(w * 0.50f, GUI.RmY), padding: new(4)))
 											{
 												GUI.DrawBackground(GUI.tex_panel, group_col.GetOuterRect(), new Vector4(4));
 
-												using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 24), padding: new(4)))
+												using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 24), padding: new(4)))
 												{
 													GUI.TitleCentered($"To: {this.ent_dst.GetName()}", size: 16, pivot: new(0.50f, 0.50f));
 												}
@@ -210,9 +210,9 @@
 
 									var errors = errors_src | errors_dst;
 
-									using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 4)))
+									using (GUI.Group.New(size: GUI.Rm, padding: new(4, 4)))
 									{
-										using (GUI.Group.New2(size: new(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(6, 0, 6, 4)))
+										using (GUI.Group.New2(size: new(GUI.RmX, GUI.RmY - 40), padding: new(6, 0, 6, 4)))
 										{
 											GUI.Title("Requires");
 											GUI.SeparatorThick();
@@ -222,7 +222,7 @@
 											if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 										}
 
-										using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+										using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new(100, 40)))
 										{
 											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
 											{
@@ -242,7 +242,7 @@
 													//var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + distance);
 													//if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 
-													using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+													using (GUI.Wrap.Push(GUI.RmX))
 													{
 														if (errors != Build.Errors.None)
 														{
@@ -254,7 +254,7 @@
 										}
 									}
 
-									//using (GUI.Group.Centered(outer_size: new(GUI.GetRemainingWidth(), 40), inner_size: new(100, 40)))
+									//using (GUI.Group.Centered(outer_size: new(GUI.RmX, 40), inner_size: new(100, 40)))
 									//{
 									//	if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
 									//	{
@@ -274,7 +274,7 @@
 									//			var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 									//			if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 
-									//			using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+									//			using (GUI.Wrap.Push(GUI.RmX))
 									//			{
 									//				if (errors != Build.Errors.None)
 									//				{
@@ -304,7 +304,7 @@
 							{
 								using (GUI.ID.Push(h_inventory.ID))
 								{
-									using (var group_row = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 32), padding: new(4)))
+									using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 32), padding: new(4)))
 									{
 										GUI.DrawBackground(GUI.tex_panel, group_row.GetOuterRect(), new Vector4(4));
 

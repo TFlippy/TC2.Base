@@ -245,13 +245,13 @@
 
 						var w_right = (48 * 4) + 24;
 
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX - w_right, GUI.RmY)))
 						{
-							using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+							using (GUI.Group.New(size: GUI.Rm))
 							{
 								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
+								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 								{
 									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
 									CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
@@ -264,12 +264,12 @@
 									//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 									//}
 
-									using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
+									using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 									{
 										GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
 
 										load_graph[load_graph_index] = this.axle_state.new_tmp_load;
-										GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.GetRemainingSpace(), scale_min: 0.00f, scale_max: 10000.00f);
+										GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
 									}
 								}
 							}
@@ -277,7 +277,7 @@
 
 						GUI.SameLine();
 
-						using (GUI.Group.New(size: new Vector2(w_right, GUI.GetRemainingHeight())))
+						using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
 						{
 							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
 							{
@@ -301,14 +301,14 @@
 								}
 							}
 
-							using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
+							using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
 							{
 								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 								using (GUI.Group.New(padding: new(12, 12)))
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
 								}
 							}
 						}

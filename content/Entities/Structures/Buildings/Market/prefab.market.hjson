@@ -53,7 +53,7 @@ shop:
 
 interactable:
 {
-	window_size: [600.000, 422.000]
+	window_size: [800.000, 500.000]
 }
 
 light:
@@ -136,4 +136,10 @@ dormitory:
 		exclude: criminal, military, lowlife, sedentary, upper_class, elite_class
 		weight: 2.000
 	}
+}
+
+office:
+{
+	// h_company: "postus_imperialny"
+	flags: enable_register_company
 }

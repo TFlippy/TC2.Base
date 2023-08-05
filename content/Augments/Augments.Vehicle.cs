@@ -24,7 +24,7 @@ namespace TC2.Base
 				{
 					ref var modifier = ref handle.GetModifier();
 
-					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.50f, 1.50f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.50f, 1.50f, size: GUI.Rm);
 				},
 #endif
 
@@ -58,7 +58,7 @@ namespace TC2.Base
 				{
 					ref var modifier = ref handle.GetModifier();
 
-					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.50f, 1.50f, size: GUI.GetRemainingSpace());
+					return GUI.SliderFloatLerp("Multiplier", ref modifier, 0.50f, 1.50f, size: GUI.Rm);
 				},
 #endif
 

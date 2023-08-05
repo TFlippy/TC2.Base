@@ -162,13 +162,13 @@
 
 						var context = GUI.ItemContext.Begin();
 						{
-							using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+							using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 							{
-								using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - frame_size.X - 32, GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+								using (var group = GUI.Group.New(size: new Vector2(GUI.RmX - frame_size.X - 32, GUI.RmY), padding: new Vector2(8, 8)))
 								{
 									GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
-									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - slider_h - 64)))
+									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - slider_h - 64)))
 									{
 										GUI.Label("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
 										GUI.Label("Torque:", this.axle_state.old_tmp_torque, "{0:0.00} Nm/s");
@@ -183,7 +183,7 @@
 										ent_child = ent_joint.GetChild(Relation.Type.Child);
 									}
 
-									using (var slot = GUI.EntitySlot.New(ref context, "slot.sawmill", "Item", ent_child, new Vector2(GUI.GetRemainingWidth(), 64)))
+									using (var slot = GUI.EntitySlot.New(ref context, "slot.sawmill", "Item", ent_child, new Vector2(GUI.RmX, 64)))
 									{
 										if (slot.pressed)
 										{
@@ -223,7 +223,7 @@
 									}
 
 									var dirty = false;
-									if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.GetRemainingWidth(), slider_h)))
+									if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.RmX, slider_h)))
 									{
 										dirty = true;
 									}
@@ -241,7 +241,7 @@
 
 								GUI.SameLine();
 
-								using (var group = GUI.Group.Centered(GUI.GetRemainingSpace(), frame_size))
+								using (var group = GUI.Group.Centered(GUI.Rm, frame_size))
 								{
 									GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 

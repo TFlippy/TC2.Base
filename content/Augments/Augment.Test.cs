@@ -30,9 +30,9 @@ namespace TC2.Base.Augments
 		{
 			var dirty = false;
 
-			dirty |= GUI.EnumInput("type", ref args.data.type, size: new Vector2(GUI.GetRemainingWidth() * 0.50f, GUI.GetRemainingHeight()), show_label: false, close_on_select: false);
+			dirty |= GUI.EnumInput("type", ref args.data.type, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY), show_label: false, close_on_select: false);
 			GUI.SameLine();
-			dirty |= GUI.Picker("offset", "Offset", size: GUI.GetRemainingSpace(), ref args.data.offset, min: args.context.rect.a, max: args.context.rect.b);
+			dirty |= GUI.Picker("offset", "Offset", size: GUI.Rm, ref args.data.offset, min: args.context.rect.a, max: args.context.rect.b);
 
 			return dirty;
 		};

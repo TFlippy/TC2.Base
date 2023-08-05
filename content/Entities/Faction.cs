@@ -29,9 +29,9 @@ namespace TC2.Base.Components
 
 									//GUI.SeparatorThick();
 
-									using (GUI.Group.New(new(GUI.GetRemainingWidth(), 40), new(0, 0)))
+									using (GUI.Group.New(new(GUI.RmX, 40), new(0, 0)))
 									{
-										using (GUI.Group.New(new(GUI.GetRemainingWidth() - 80, 40), new(8, 0)))
+										using (GUI.Group.New(new(GUI.RmX - 80, 40), new(8, 0)))
 										{
 											GUI.TitleCentered($"{ref_faction.value.name}", size: 24, pivot: new(0.00f, 0.50f));
 										}
@@ -54,12 +54,12 @@ namespace TC2.Base.Components
 
 									GUI.SeparatorThick();
 
-									using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new(8)))
+									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new(8)))
 									{
 										GUI.Title("Members", size: 20);
 										GUI.SeparatorThick();
 
-										using (var scrollable = GUI.Scrollbox.New("Members.Scrollable", size: GUI.GetRemainingSpace(), padding: new(4)))
+										using (var scrollable = GUI.Scrollbox.New("Members.Scrollable", size: GUI.Rm, padding: new(4)))
 										{
 											GUI.DrawBackground(GUI.tex_panel, scrollable.group_frame.GetInnerRect(), padding: new(8));
 

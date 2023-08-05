@@ -128,9 +128,9 @@ namespace TC2.Base.Components
 						};
 
 						var filter_tmp = this.filter;
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 40), padding: new(0, 0)))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, 40), padding: new(0, 0)))
 						{
-							if (GUI.EnumInput("filter", ref filter_tmp, new Vector2(GUI.GetRemainingWidth() - 80, 40), show_label: false))
+							if (GUI.EnumInput("filter", ref filter_tmp, new Vector2(GUI.RmX - 80, 40), show_label: false))
 							{
 								rpc.filter = filter_tmp;
 								dirty = true;
@@ -143,14 +143,14 @@ namespace TC2.Base.Components
 
 						GUI.SeparatorThick();
 
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 32), padding: new(8, 4)))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, 32), padding: new(8, 4)))
 						{
 							GUI.TitleCentered(info.alive ? info.entity.GetPrefabName() : "<no target selected>", size: 32, pivot: new(0.00f, 0.50f));
 						}
 
 						GUI.SeparatorThick();
 
-						using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(8, 8)))
+						using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - 40), padding: new(8, 8)))
 						{
 							GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
 
@@ -167,16 +167,16 @@ namespace TC2.Base.Components
 							//		case Shipment.Item.Type.Resource:
 							//		{
 							//			var resource = new Resource.Data(item.material, item.quantity);
-							//			GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32), GUI.font_color_green);
+							//			GUI.DrawResource(ref resource, new Vector2(GUI.RmX, 32), GUI.font_color_green);
 							//		}
 							//		break;
 							//	}
 							//}
 						}
 
-						using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(0, 0)))
+						using (GUI.Group.New(size: GUI.Rm, padding: new(0, 0)))
 						{
-							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - 120, GUI.GetRemainingHeight()), padding: new(8, 8)))
+							using (var group = GUI.Group.New(size: new Vector2(GUI.RmX - 120, GUI.RmY), padding: new(8, 8)))
 							{
 								GUI.TitleCentered($"{info.health.GetIntegrity():0.00}/{info.health.max:0.00}", size: 16, pivot: new(0.50f, 1.00f));
 							}
@@ -184,7 +184,7 @@ namespace TC2.Base.Components
 							GUI.SameLine();
 
 							var active = !this.flags.HasAny(Repair.Flags.Active);
-							if (GUI.DrawButton("Repair", size: GUI.GetRemainingSpace(), enabled: info.IsAlive, color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
+							if (GUI.DrawButton("Repair", size: GUI.Rm, enabled: info.IsAlive, color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
 							{
 								rpc.active = active;
 								dirty = true;
@@ -196,16 +196,16 @@ namespace TC2.Base.Components
 
 
 
-						//using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 28), padding: new(4, 2)))
+						//using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 						//{
 						//	GUI.TitleCentered("Repair", size: 24, pivot: new Vector2(0.00f, 0.50f));
 						//}
 
 						//GUI.SeparatorThick();
 
-						//using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(4, 6)))
+						//using (GUI.Group.New(size: GUI.Rm, padding: new(4, 6)))
 						//{
-						//	using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+						//	using (GUI.Wrap.Push(GUI.RmX))
 						//	{
 						//		//GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
 
@@ -268,12 +268,12 @@ namespace TC2.Base.Components
 						//	{
 						//		GUI.DrawBackground(GUI.tex_panel, hud.group.GetOuterRect(), padding: new(4));
 
-						//		//using (GUI.Group.New(size: GUI.GetRemainingSpace() - new Vector2(0, 48), padding: new(4)))
+						//		//using (GUI.Group.New(size: GUI.Rm - new Vector2(0, 48), padding: new(4)))
 						//		//{
 
 						//		//}
 
-						//		using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 40), padding: new(8, 8)))
+						//		using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - 40), padding: new(8, 8)))
 						//		{
 						//			GUI.Title("Produces:");
 						//			GUI.SeparatorThick();
@@ -288,7 +288,7 @@ namespace TC2.Base.Components
 						//					case Shipment.Item.Type.Resource:
 						//					{
 						//						var resource = new Resource.Data(item.material, item.quantity);
-						//						GUI.DrawResource(ref resource, new Vector2(GUI.GetRemainingWidth(), 32), GUI.font_color_green);
+						//						GUI.DrawResource(ref resource, new Vector2(GUI.RmX, 32), GUI.font_color_green);
 						//					}
 						//					break;
 						//				}
@@ -297,10 +297,10 @@ namespace TC2.Base.Components
 						//			GUI.TitleCentered($"{info_target.health.current_work:0.00}/{info_target.health.required_work:0.00}", pivot: new(0.50f, 1.00f));
 						//		}
 
-						//		using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new(100, 40)))
+						//		using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new(100, 40)))
 						//		{
 						//			var active = !this.flags.HasAny(Repair.Flags.Active);
-						//			if (GUI.DrawButton("Dismantle", size: GUI.GetRemainingSpace(), color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
+						//			if (GUI.DrawButton("Dismantle", size: GUI.Rm, color: active ? GUI.col_button_error : GUI.col_button_error.WithColorMult(0.50f)))
 						//			{
 						//				var rpc = new ConfigureRPC
 						//				{

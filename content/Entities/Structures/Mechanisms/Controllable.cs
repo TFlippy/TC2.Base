@@ -98,9 +98,9 @@
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
 
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{
-							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+							using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new Vector2(8, 8)))
 							{
 								GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
@@ -111,12 +111,12 @@
 
 								};
 
-								//if (GUI.SliderFloat("Ratio", ref this.controllable_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								//if (GUI.SliderFloat("Ratio", ref this.controllable_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.RmX, 32)))
 								//{
 								//	dirty = true;
 								//}
 
-								//if (GUI.Checkbox("Reverse Direction", ref this.controllable.flags, Controllable.Data.Flags.Invert, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								//if (GUI.Checkbox("Reverse Direction", ref this.controllable.flags, Controllable.Data.Flags.Invert, size: new Vector2(GUI.RmX, 32)))
 								//{
 								//	dirty = true;
 								//}
@@ -124,7 +124,7 @@
 
 								var picker_size = new Vector2(64, 64);
 
-								if (GUI.DrawButton("LMB", size: new Vector2((GUI.GetRemainingWidth() * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow))
+								if (GUI.DrawButton("LMB", size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow))
 								{
 									rpc.mouse.GetRefOrDefault().SetFlag(Mouse.Key.Left, true);
 									dirty = true;
@@ -141,7 +141,7 @@
 
 								GUI.SameLine();
 
-								if (GUI.DrawButton("RMB", size: new Vector2(GUI.GetRemainingWidth(), 40), color: GUI.col_button_yellow))
+								if (GUI.DrawButton("RMB", size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow))
 								{
 									rpc.mouse.GetRefOrDefault().SetFlag(Mouse.Key.Right, true);
 									dirty = true;

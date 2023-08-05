@@ -442,10 +442,10 @@ namespace TC2.Base.Components
 					}
 				}
 
-				//using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.GetRemainingHeight())))
-				using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.GetRemainingHeight())))
+				//using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.RmY)))
+				using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.RmY)))
 				{
-					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.GetRemainingSpace(), padding: new Vector2(4, 4)))
+					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.Rm, padding: new Vector2(4, 4)))
 					{
 						GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
 
@@ -459,7 +459,7 @@ namespace TC2.Base.Components
 								{
 									using (GUI.ID.Push(d_recipe.id))
 									{
-										using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), 48)))
+										using (GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
 										{
 											var frame_size = new Vector2(48, 48);
 											var selected = this.SelectedRecipe.id == d_recipe.id;
@@ -494,7 +494,7 @@ namespace TC2.Base.Components
 
 				GUI.SameLine();
 
-				using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new(4)))
+				using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new(4)))
 				{
 					GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), padding: new(8));
 					this.DrawInfo(ent_wrench, ref info_src, ref info_dst, errors_src, errors_dst, distance);
@@ -630,7 +630,7 @@ namespace TC2.Base.Components
 
 						ref var region = ref Client.GetRegion();
 
-						using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
+						using (GUI.Group.New(size: new(GUI.RmX, 32)))
 						{
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Build.Data>())
 							{
@@ -665,9 +665,9 @@ namespace TC2.Base.Components
 
 						GUI.SeparatorThick();
 
-						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+						using (GUI.Group.New(size: GUI.Rm))
 						{
-							GUI.Dock.New(Wrench.dock_identifier, size: GUI.GetRemainingSpace());
+							GUI.Dock.New(Wrench.dock_identifier, size: GUI.Rm);
 						}
 					}
 				}

@@ -273,13 +273,13 @@
 
 					var w_right = (48 * 4) + 24;
 
-					using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth() - w_right, GUI.GetRemainingHeight())))
+					using (GUI.Group.New(size: new Vector2(GUI.RmX - w_right, GUI.RmY)))
 					{
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight() - 96 - 12)))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - 96 - 12)))
 						{
 							//GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-							using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.GetRemainingSpace(), padding: new(8, 8)))
+							using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.Rm, padding: new(8, 8)))
 							{
 								GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
 
@@ -297,26 +297,26 @@
 							}
 						}
 
-						using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+						using (GUI.Group.New(size: GUI.Rm))
 						{
 							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-							using (GUI.Group.New(size: GUI.GetRemainingSpace(), padding: new(12, 12)))
+							using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 							{
-								using (GUI.Group.New(size: new(48, GUI.GetRemainingHeight())))
+								using (GUI.Group.New(size: new(48, GUI.RmY)))
 								{
-									GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.GetRemainingHeight()));
+									GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.RmY));
 
 									GUI.SameLine();
 
-									GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.GetRemainingHeight()));
+									GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.RmY));
 								}
 
 								GUI.SameLine();
 
-								using (GUI.Group.New(size: GUI.GetRemainingSpace()))
+								using (GUI.Group.New(size: GUI.Rm))
 								{
-									if (GUI.SliderFloat("Value", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.GetRemainingWidth(), 24)))
+									if (GUI.SliderFloat("Value", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24)))
 									{
 										var rpc = new Refinery.ConfigureRPC()
 										{
@@ -348,7 +348,7 @@
 
 					GUI.SameLine();
 
-					using (GUI.Group.New(size: new Vector2(w_right, GUI.GetRemainingHeight())))
+					using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
 					{
 						using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 4) + new Vector2(24, 24)))
 						{
@@ -360,17 +360,17 @@
 							}
 						}
 
-						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight()) + new Vector2(24, 0)))
+						using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
 						{
 							GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 							using (GUI.Group.New(padding: new(12, 12)))
 							{
-								using (GUI.Group.New(size: new Vector2(48 * 4, GUI.GetRemainingHeight())))
+								using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY)))
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
 
-									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.GetRemainingSpace() with { Y = 32 } - new Vector2(48, 0));
+									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
 									//GUI.SameLine();
 									GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 								}

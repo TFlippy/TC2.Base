@@ -155,9 +155,9 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.AssetInput("Essence", ref h_essence, size: new Vector2(GUI.GetRemainingWidth() * 0.60f, GUI.GetRemainingHeight()), show_label: false);
+					dirty |= GUI.AssetInput("Essence", ref h_essence, size: new Vector2(GUI.RmX * 0.60f, GUI.RmY), show_label: false);
 					GUI.SameLine();
-					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.GetRemainingSpace());
+					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.Rm);
 
 
 					return dirty;

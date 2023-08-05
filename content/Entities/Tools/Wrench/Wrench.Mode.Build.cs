@@ -76,7 +76,7 @@ namespace TC2.Base.Components
 
 							Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
 
-							using (GUI.Group.New(size: new(GUI.GetRemainingWidth(), 32)))
+							using (GUI.Group.New(size: new(GUI.RmX, 32)))
 							{
 								using (GUI.Group.New(size: new(category_values.Length * 32, 32)))
 								{
@@ -133,7 +133,7 @@ namespace TC2.Base.Components
 
 								GUI.SameLine();
 
-								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.GetRemainingWidth() - 40, 40), show_label: false))
+								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.RmX - 40, 40), show_label: false))
 								{
 
 								}
@@ -141,16 +141,16 @@ namespace TC2.Base.Components
 
 								GUI.SameLine();
 
-								using (GUI.Group.Centered(outer_size: GUI.GetRemainingSpace(), inner_size: new Vector2(24, 24)))
+								using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new Vector2(24, 24)))
 								{
-									GUI.Checkbox("Zones", ref show_zones, new Vector2(GUI.GetRemainingHeight()), show_text: false);
+									GUI.Checkbox("Zones", ref show_zones, new Vector2(GUI.RmY), show_text: false);
 									GUI.DrawHoverTooltip("Show Zones");
 								}
 							}
 
-							using (GUI.Scrollbox.New("Build.Recipes", GUI.GetRemainingSpace()))
+							using (GUI.Scrollbox.New("Build.Recipes", GUI.Rm))
 							{
-								using (var grid = GUI.Grid.New(size: GUI.GetRemainingSpace(), new Vector2(48, 48)))
+								using (var grid = GUI.Grid.New(size: GUI.Rm, new Vector2(48, 48)))
 								{
 									var scale = 2.00f;
 

@@ -177,20 +177,20 @@
 						ref var region = ref Client.GetRegion();
 
 
-						using (GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight())))
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{
-							using (var group = GUI.Group.New(size: new Vector2(GUI.GetRemainingWidth(), GUI.GetRemainingHeight()), padding: new Vector2(8, 8)))
+							using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new Vector2(8, 8)))
 							{
 								GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
 								var dirty = false;
 								
-								if (GUI.SliderFloat("Ratio", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								if (GUI.SliderFloat("Ratio", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.RmX, 32)))
 								{
 									dirty = true;
 								}
 
-								if (GUI.Checkbox("Reverse Direction", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.GetRemainingWidth(), 32)))
+								if (GUI.Checkbox("Reverse Direction", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.RmX, 32)))
 								{
 									dirty = true;
 								}

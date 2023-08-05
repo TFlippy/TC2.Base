@@ -24,7 +24,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					var size = GUI.GetRemainingSpace();
+					var size = GUI.Rm;
 					size.X *= 0.50f;
 
 					var dirty = false;
