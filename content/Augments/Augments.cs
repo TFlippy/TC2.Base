@@ -2053,6 +2053,55 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Body.Data>
 			(
+				identifier: "body.casing.steel.vehicle",
+				category: "Structure",
+				name: "Steel Casing (Vehicle)",
+				description: "TODO: Desc",
+
+				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return augments.GetCount(handle) < 8;
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+
+					var dirty = false;
+
+					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX - (GUI.RmY * 3), GUI.RmY));
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_x", ref handle.flags, Augment.Handle.Flags.Mirror_X, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
+					GUI.SameLine();
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+
+					return dirty;
+				},
+
+				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				{
+					ref var offset = ref handle.GetData<Vector2>();
+					ref var modifier = ref handle.GetModifier();
+					var type = Maths.LerpInt(0, 15, modifier);
+
+					var sprite = new Sprite("augment.casing.steel.vehicle", 24, 24, (uint)type, 0);
+
+					draw.DrawSprite(sprite, Maths.Snap(offset, 0.125f), pivot: new(0.50f, 0.50f), scale: handle.GetScale());
+				},
+#endif
+
+				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Body.Data>
+			(
 				identifier: "body.framework.steel",
 				category: "Structure",
 				name: "Steel Framework",

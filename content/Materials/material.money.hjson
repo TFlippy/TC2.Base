@@ -2,7 +2,9 @@
 	name: "Kordel Denar"
 	description:
 		'''
-		Standard Imperial currency.
+		Standard Imperial coins.
+		
+		40% Gold, 60% Smirglum.
 		'''
 	
 	icon:
@@ -23,8 +25,9 @@
 	type: coin
 	flags: manufactured, ingot, granular, metal, currency
 	hints: none
-	mass_per_unit: 0.0078125
-	quantity_max: 5000.000
+	// mass_per_unit: 0.0078125
+	mass_per_unit: 0.015625
+	quantity_max: 4000.000
 	prefab: "resource.money"
 	
 	specific_heat: 64.500
