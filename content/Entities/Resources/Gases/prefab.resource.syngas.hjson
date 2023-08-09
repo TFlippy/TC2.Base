@@ -13,7 +13,7 @@ body:
 		rigidity_static: 1.000
 		rigidity_dynamic: 0.500
 		material: gas
-		layer: entity, gas, resource, ignore_melee, ignore_bullet
+		layer: entity, gas, resource, ignore_melee, ignore_bullet, flammable
 		mask: world, gas
 	}
 
@@ -28,14 +28,44 @@ transform:
 
 gas:
 {
-	offset: [0.000, 0.000]
-	radius: 6.000
-	size: 1.200
-	color_a: "0x51b5d97b"
-	color_b: "0x00728400"
+	radius: 3.000
+	size: 1.500
+	lifetime: 5.000
+	speed: 0.100
+	interval: 0.400
+	color_a: "0x425bff8d"
+	color_b: "0x0052a929"
 }
 
 resource:
 {
 	material: "syngas"
+}
+
+health:
+{
+	max: 100.000
+}
+
+explosive:
+{
+	damage_type: explosion
+	damage_type_secondary: fire
+
+	radius: 7.000
+	power: 3.000
+	damage_entity: 4000.000
+	damage_terrain: 15000.000
+	smoke_amount: 1.500
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 3.000
+	flash_duration_multiplier: 0.900
+	flash_intensity_multiplier: 0.700
+	force_multiplier: 0.300
+	shake_multiplier: 0.100
+	fire_amount: 10.000
+	volume: 1.000
+	pitch: 1.500
+	health_threshold: 0.999
+	flags: explode_when_primed
 }

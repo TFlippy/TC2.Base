@@ -77,7 +77,7 @@ refinery.state:
 
 crafter:
 {
-	sound_produce: "refinery_produce_00"
+	sound_produce: "refinery.produce.00"
 	
 	@inventory16:
 	{
@@ -160,7 +160,7 @@ axle:
 
 sound.emitter:
 {
-	file: "refinery_loop_02"
+	file: "refinery.loop.03"
 	volume: 0.000
 	pitch: 0.000
 }

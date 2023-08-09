@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class OrganicExt
 	{
-		[ISystem.Update(ISystem.Mode.Single, order: 5)]
+		[ISystem.Update(ISystem.Mode.Single, order: 5, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAll(Organic.Tags.Brain))
@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, order: 10), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
+		[ISystem.Update(ISystem.Mode.Single, order: 10, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -50,7 +50,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
-		[ISystem.Update(ISystem.Mode.Single, order: 15), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update(ISystem.Mode.Single, order: 15, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -67,7 +67,7 @@ namespace TC2.Base.Components
 		}
 
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void Update2(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
@@ -80,7 +80,7 @@ namespace TC2.Base.Components
 			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateConsciousness(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			if (organic_state.consciousness_shared > 0.20f)
@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint([Source.Shared] in Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
@@ -103,13 +103,13 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.multiplier = 0.00f;
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateArm<T>([Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, [Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref T joint) where T : unmanaged, IComponent, IRotaryJoint
 		{
 			joint.MaxSpeed *= Maths.Clamp(organic.motorics, 0.30f, 1.50f);
@@ -135,7 +135,7 @@ namespace TC2.Base.Components
 			joint_gear.step = Maths.Clamp(body_child.GetAngularMassInv() * aim_torque * App.fixed_update_interval_s, 0.50f, joint_gear.step);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateFacing([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Facing.Data facing)
 		{
 			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f || organic_state.stun_norm >= 0.50f);
@@ -167,7 +167,7 @@ namespace TC2.Base.Components
 			body.flags.SetFlag(Body.Flags.NonDirty, true);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.50f), HasTag("dead", true, Source.Modifier.Owned)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.50f, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void UpdateRotting(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			organic_state.rotten = MathF.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed), 0.00f);
@@ -183,7 +183,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateDead(Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] bool dead)
 		{
 			if (dead)
@@ -197,7 +197,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint1A(ISystem.Info info, [Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))

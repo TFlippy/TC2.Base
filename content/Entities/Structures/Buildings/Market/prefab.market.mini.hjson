@@ -48,6 +48,13 @@ transform:
 market:
 {
 	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+
+	@inventory1:
+	{
+		type: money
+		stack_size_multiplier: 10.000
+		flags: ignore_mass, no_auto_pickup, faction
+	}
 }
 
 // light:
