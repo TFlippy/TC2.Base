@@ -30,7 +30,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "distillery"
+		texture: "distillery.00"
 	}
 	z: -300.000
 }
