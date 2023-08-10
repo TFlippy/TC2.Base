@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Resin"
 	description:
 		'''
@@ -15,20 +15,15 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: glass
 	flags: raw, fuel, granular, organic, despawnable
+	hints: none
 	mass_per_unit: 0.200
 	quantity_max: 100.000
 	prefab: "resource.resin"
-	
-	fuel:
-	{
-		energy: 25000000.000
-		drain: 350000.000
-		purity: 0.800
-		temperature: 1573.150
-	}
 }

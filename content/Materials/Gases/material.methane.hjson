@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Methane"
 	description:
 		'''
@@ -7,26 +7,50 @@
 	
 	icon:
 	{
-		texture: "resource.methane"
+		texture: "missing"
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: gas
 	flags: none
+	hints: none
 	mass_per_unit: 0.050
 	quantity_max: 500.000
 	prefab: "resource.methane"
-	molar_mass: 0.098079
 	
 	commodity:
 	{
 		categories: chemicals, dangerous, industrial, military
+		
 		market_price: 11.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	fuel:
+	{
+		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
+		energy: 55600000.000
+		// Ratio of available thermal energy.
+		purity: 0.930
+		// Flame temperature (Kelvin) in 100% oxygen environment.
+		temperature: 3083.150
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		ignition_temperature: 1000.000
+		// Kg of air for complete combustion of 1kg of this fuel.
+		air_fuel_ratio: 17.190
+		drain: 1.000
 	}
 }

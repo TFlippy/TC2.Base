@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Charcoal"
 	description:
 		'''
@@ -14,11 +14,14 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: stone
 	flags: raw, gravel, fuel, granular
+	hints: none
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.charcoal"
@@ -26,14 +29,28 @@
 	commodity:
 	{
 		categories: coal, fuel, consumer, industrial, military, toys
+		
 		market_price: 9.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 	
 	fuel:
 	{
+		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
 		energy: 30000000.000
-		drain: 190000.000
+		// Ratio of available thermal energy.
 		purity: 0.800
+		// Flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 1873.150
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		ignition_temperature: 1000.000
+		// Kg of air for complete combustion of 1kg of this fuel.
+		air_fuel_ratio: 10.000
+		drain: 190000.000
 	}
 }

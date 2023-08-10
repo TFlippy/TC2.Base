@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Phlogiston"
 	description:
 		'''
@@ -14,11 +14,14 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: liquid
 	flags: raw, fuel, ammo
+	hints: none
 	mass_per_unit: 0.100
 	quantity_max: 100.000
 	prefab: "resource.phlogiston"
@@ -26,25 +29,51 @@
 	commodity:
 	{
 		categories: chemicals, explosives, arcane, fuel, energy, munitions, dangerous, consumer, industrial, military
+		
 		market_price: 15.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 	
 	fuel:
 	{
+		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
 		energy: 50000000.000
-		drain: 500000.000
+		// Ratio of available thermal energy.
 		purity: 0.990
+		// Flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 2573.150
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		ignition_temperature: 1000.000
+		// Kg of air for complete combustion of 1kg of this fuel.
+		air_fuel_ratio: 64.500
+		drain: 500000.000
 	}
 	
 	ammo:
 	{
 		count: 1
-		speed_mult: 0.150
-		spread_mult: 1.000
-		recoil_mult: 1.000
+		mass: 0.001
 		heat: 120.000
 		velocity_min: 1.000
+		
+		speed_base: 0.000
+		speed_mult: 0.150
+		spin_base: 0.000
+		spin_mult: 1.000
+		spread_mult: 1.000
+		recoil_mult: 1.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 50.000
+		stability_mult: 1.000
+		
 		prefab: "projectile.phlogiston"
 	}
 }
