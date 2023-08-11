@@ -149,6 +149,7 @@ threat:
 	
 	seat:
 	{
+		flags: crouch
 		offset: [0.000, 0.125]
 		max_tilt: 5.000
 	}
