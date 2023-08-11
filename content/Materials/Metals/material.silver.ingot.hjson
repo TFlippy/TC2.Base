@@ -22,15 +22,38 @@
 	type: metal
 	flags: ingot, metal
 	hints: none
+	// kg
 	mass_per_unit: 1.330
 	quantity_max: 250.000
 	prefab: "resource.silver.ingot"
 	
-	specific_heat: 117.500
-	thermal_conductivity: 0.430
-	
 	commodity:
 	{
+		categories: none
+		
 		market_price: 100.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 107.8682
+		// kg/m3
+		density: 10490.000
+		// J/(kg*K)
+		specific_heat: 235.000
+		// W/(m*K)
+		thermal_conductivity: 430.000
+		// K
+		melting_point: 1234.930
+		// K
+		boiling_point: 2435.000
 	}
 }

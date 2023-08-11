@@ -22,15 +22,38 @@
 	type: metal
 	flags: ingot, metal
 	hints: none
+	// kg
 	mass_per_unit: 1.150
 	quantity_max: 250.000
 	prefab: "resource.copper.ingot"
 	
-	specific_heat: 192.500
-	thermal_conductivity: 0.400
-	
 	commodity:
 	{
+		categories: none
+		
 		market_price: 35.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 63.546
+		// kg/m3
+		density: 8960.000
+		// J/(kg*K)
+		specific_heat: 384.400
+		// W/(m*K)
+		thermal_conductivity: 400.000
+		// K
+		melting_point: 1357.770
+		// K
+		boiling_point: 2835.000
 	}
 }

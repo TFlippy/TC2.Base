@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Iron Ingot"
 	description:
 		'''
@@ -16,20 +16,46 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: ingot, magnetic, metal
+	hints: none
+	// kg
 	mass_per_unit: 1.000
 	quantity_max: 250.000
 	prefab: "resource.iron.ingot"
 	
-	specific_heat: 206.000
-	thermal_conductivity: 0.079
-	
 	commodity:
 	{
+		categories: none
+		
 		market_price: 4.600
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 55.845
+		// kg/m3
+		density: 7874.000
+		// J/(kg*K)
+		specific_heat: 449.000
+		// W/(m*K)
+		thermal_conductivity: 79.000
+		// K
+		melting_point: 1811.000
+		// K
+		boiling_point: 3134.000
 	}
 }

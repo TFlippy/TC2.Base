@@ -22,16 +22,38 @@
 	type: metal
 	flags: ingot, metal
 	hints: none
+	// kg
 	mass_per_unit: 2.500
 	quantity_max: 250.000
 	prefab: "resource.gold.ingot"
 	
-	specific_heat: 64.500
-	thermal_conductivity: 0.320
-	
 	commodity:
 	{
 		categories: metals, jewelry, luxury, consumer, industrial, military
+		
 		market_price: 400.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 196.9666
+		// kg/m3
+		density: 19300.000
+		// J/(kg*K)
+		specific_heat: 129.100
+		// W/(m*K)
+		thermal_conductivity: 320.000
+		// K
+		melting_point: 1337.330
+		// K
+		boiling_point: 3129.000
 	}
 }
