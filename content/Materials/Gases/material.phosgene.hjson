@@ -20,9 +20,8 @@
 	type: gas
 	flags: none
 	mass_per_unit: 0.050
-	quantity_max: 500.000
+	quantity_max: 1000.000
 	prefab: "resource.phosgene"
-	molar_mass: 0.098079
 	
 	commodity:
 	{
