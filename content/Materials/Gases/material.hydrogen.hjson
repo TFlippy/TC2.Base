@@ -22,6 +22,7 @@
 	type: gas
 	flags: none
 	hints: none
+	// kg
 	mass_per_unit: 0.050
 	quantity_max: 500.000
 	prefab: "resource.hydrogen"
@@ -52,5 +53,22 @@
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 34.300
 		drain: 1.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 0.002016
+		// kg/m3
+		density: 0.090
+		// J/(kg*K)
+		specific_heat: 14300.000
+		// W/(m*K)
+		thermal_conductivity: 0.1805
+		// K
+		melting_point: 14.010
+		// K
+		boiling_point: 20.280
 	}
 }

@@ -44,7 +44,7 @@
 	substance:
 	{
 		// Molar mass in kg/mol (atomic mass for elements)
-		molar_mass: 209.140
+		molar_mass: 0.20914
 		// kg/m3
 		density: 29921.200
 		// J/(kg*K)
