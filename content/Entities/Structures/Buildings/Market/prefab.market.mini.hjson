@@ -111,7 +111,7 @@ nameable:
 
 interactable:
 {
-	window_size: [960.000, 576.000]
+	window_size: [624.000, 504.000]
 }
 
 // depot:

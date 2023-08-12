@@ -108,6 +108,7 @@ burner:
 	capacity: 8.000
 	energy_loss: 100000.000
 	efficiency: 0.400
+	air_intake_area: 0.007
 	drain_multiplier: 1.500
 	volume_modifier: 0.800
 	pitch_modifier: 0.500

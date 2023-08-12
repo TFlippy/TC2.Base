@@ -56,12 +56,12 @@ transform:
 
 interactable:
 {
-	window_size: [800.000, 600.000]
+	window_size: [624.000, 504.000]
 }
 
 shop:
 {
-	name: "Recipes"
+	menu_columns: 4
 	tags: refinery
 }
 
