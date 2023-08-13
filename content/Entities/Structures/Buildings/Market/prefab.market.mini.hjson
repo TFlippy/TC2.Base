@@ -49,6 +49,12 @@ market:
 {
 	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
 
+	perms_owner: buy, sell, add, remove, restock
+	perms_faction: buy, sell
+	perms_ally: buy, sell
+	perms_neutral: buy, sell
+	perms_enemy: none
+
 	@inventory1:
 	{
 		type: money
@@ -105,7 +111,7 @@ nameable:
 
 interactable:
 {
-	window_size: [960.000, 576.000]
+	window_size: [624.000, 504.000]
 }
 
 // depot:

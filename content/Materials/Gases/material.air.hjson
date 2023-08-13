@@ -1,13 +1,13 @@
 ﻿{
-	name: "Silver Ingot"
+	name: "Air"
 	description:
 		'''
-		TODO: Desc
+		Fresh air.
 		'''
 	
 	icon:
 	{
-		texture: "resource.silver.ingot"
+		texture: "missing"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,19 +19,19 @@
 		frame: [0, 0]
 	}
 	
-	type: metal
-	flags: ingot, metal
+	type: gas
+	flags: none
 	hints: none
 	// kg
-	mass_per_unit: 1.330
-	quantity_max: 250.000
-	prefab: "resource.silver.ingot"
+	mass_per_unit: 0.01225
+	quantity_max: 1000.000
+	prefab: ""
 	
 	commodity:
 	{
-		categories: none
+		categories: chemicals
 		
-		market_price: 100.000
+		market_price: 0.001
 		market_price_min: 0.000
 		market_price_max: 0.000
 		
@@ -44,16 +44,16 @@
 	substance:
 	{
 		// Molar mass in kg/mol (atomic mass for elements)
-		molar_mass: 0.107868
+		molar_mass: 0.02897
 		// kg/m3
-		density: 10490.000
+		density: 1.225
 		// J/(kg*K)
-		specific_heat: 235.000
+		specific_heat: 1005.000
 		// W/(m*K)
-		thermal_conductivity: 430.000
+		thermal_conductivity: 0.030
 		// K
-		melting_point: 1234.930
+		melting_point: 54.800
 		// K
-		boiling_point: 2435.000
+		boiling_point: 90.200
 	}
 }

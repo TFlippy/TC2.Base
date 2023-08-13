@@ -44,12 +44,18 @@
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, order: 90)]
+		public static void UpdateSitting([Source.Seat] in Seat.Data seat, [Source.Owned] ref Torso.Data torso)
+		{
+			torso.flags.SetFlag(Flags.Crouching, seat.flags.HasAny(Seat.Flags.Crouch));
+		}
+
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, order: 100)]
 		public static void UpdateJoints([Source.Shared] in Torso.Data torso, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
-				if (torso.flags.HasAll(Torso.Flags.Crouching))
+				if (torso.flags.HasAny(Torso.Flags.Crouching))
 				{
 					joint.offset_a_modifier = torso.crouch_offset_modifier;
 					joint.offset_b_modifier = torso.crouch_offset_modifier;

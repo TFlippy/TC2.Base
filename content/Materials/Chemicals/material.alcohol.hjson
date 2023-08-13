@@ -22,6 +22,7 @@
 	type: liquid
 	flags: manufactured
 	hints: none
+	// kg
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.alcohol"
@@ -52,5 +53,22 @@
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 8.000
 		drain: 1.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 0.04408
+		// kg/m3
+		density: 785.300
+		// J/(kg*K)
+		specific_heat: 2570.000
+		// W/(m*K)
+		thermal_conductivity: 0.167
+		// K
+		melting_point: 159.010
+		// K
+		boiling_point: 351.390
 	}
 }

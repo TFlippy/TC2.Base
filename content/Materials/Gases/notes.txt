@@ -1,0 +1,2 @@
+material.sulfur_dioxide.hjson
+- can't find thermal conductivity for gaseous sulfur dioxide, using value of liquid sulfur dioxide for now

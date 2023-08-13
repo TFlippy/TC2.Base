@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Water"
 	description:
 		'''
@@ -16,21 +16,46 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: liquid
 	flags: raw
+	hints: none
+	// kg
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.water"
 	
-	specific_heat: 4182.000
-	molar_mass: 0.018015
-	
 	commodity:
 	{
 		categories: beverages, water, consumer, industrial
+		
 		market_price: 0.100
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (atomic mass for elements)
+		molar_mass: 0.018015
+		// kg/m3
+		density: 997.000
+		// J/(kg*K)
+		specific_heat: 4184.000
+		// W/(m*K)
+		thermal_conductivity: 0.598
+		// K
+		melting_point: 273.200
+		// K
+		boiling_point: 373.200
 	}
 }

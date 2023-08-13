@@ -207,6 +207,7 @@ namespace TC2.Base.Components
 			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
 			{
+				//App.WriteLine(arbiter.GetRigidityDynamic());
 				if (arbiter.GetRigidityDynamic() > 0.90f)
 				{
 					normal += arbiter.GetNormal();
@@ -256,7 +257,7 @@ namespace TC2.Base.Components
 			}
 
 //#if CLIENT
-//			region.DrawDebugText(body.GetPosition(), $"{rv}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
+//			region.DrawDebugText(body.GetPosition(), $"{arbiter_count}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
 //#endif
 
 			//#if CLIENT
