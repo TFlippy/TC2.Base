@@ -178,6 +178,7 @@ namespace TC2.Base.Components
 			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
 			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+			var is_swimming = false;
 
 			if (any || keyboard.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
@@ -208,7 +209,7 @@ namespace TC2.Base.Components
 			foreach (var arbiter in body.GetArbiters())
 			{
 				//App.WriteLine(arbiter.GetRigidityDynamic());
-				if (arbiter.GetRigidityDynamic() > 0.90f)
+				if (arbiter.GetRigidityDynamic() > 0.90f) // || arbiter.GetLayer().HasAny(Physics.Layer.Water))
 				{
 					normal += arbiter.GetNormal();
 					friction += arbiter.GetFriction();
@@ -217,6 +218,10 @@ namespace TC2.Base.Components
 					//arbiter.GetVelocity
 
 					arbiter_count++;
+				}
+				else if (arbiter.GetLayer().HasAny(Physics.Layer.Water))
+				{
+					is_swimming = true;
 				}
 			}
 
@@ -319,11 +324,11 @@ namespace TC2.Base.Components
 
 			runner_state.air_time = time - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
-			force *= runner_state.air_modifier_current;
+			if (!is_swimming) force *= runner_state.air_modifier_current;
 
-//#if SERVER
-//			WorldNotification.Push(ref region, $"{runner.max_speed:0.00}", Color32BGRA.Green, body.GetPosition(), lifetime: 0.30f);
-//#endif
+			//#if SERVER
+			//			WorldNotification.Push(ref region, $"{runner.max_speed:0.00}", Color32BGRA.Green, body.GetPosition(), lifetime: 0.30f);
+			//#endif
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 

@@ -2886,7 +2886,7 @@ namespace TC2.Base
 					data.sound_volume *= Maths.Lerp(1.15f, 1.35f, value);
 					data.sound_size *= Maths.Lerp(1.10f, 1.30f, value);
 					data.sound_pitch *= Maths.Lerp(0.98f, 0.96f, value);
-					data.recoil_multiplier = Maths.Max(0.15f, data.recoil_multiplier * Maths.Lerp(0.80f, 0.50f, value));
+					data.recoil_multiplier = MathF.Max(0.15f, data.recoil_multiplier * Maths.Lerp(0.80f, 0.50f, value));
 				}
 			));
 
