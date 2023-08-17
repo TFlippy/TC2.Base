@@ -34,6 +34,7 @@ animated.renderer:
 		texture: "forge"
 	}
 	z: -300.000
+	mask: "forge.mask"
 }
 
 transform:
