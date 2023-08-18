@@ -5,6 +5,9 @@
 		These toxic red mushrooms are sometimes used in production of drugs and various poisons.
 		'''
 	
+	h_company: "samofetovar"
+	companies_shared: ["postus", "null", "null", "null"]
+	
 	icon:
 	{
 		texture: "resource.mushroom.red"
@@ -42,9 +45,9 @@
 	products:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 1.993
-			amount_extra: 0.000
 		}
 	]
 }

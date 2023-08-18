@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Machine Parts"
 	desc:
 		'''
@@ -6,13 +6,16 @@
 		more advanced tools and machinery.
 		'''
 	
+	h_company: "refaktor"
+	companies_shared: ["postus", "null", "null", "null"]
+	
 	icon:
 	{
 		texture: "resource.machine_parts"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -20,16 +23,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 5
 	max: 50
 	step: 5
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 1.000
 		}
@@ -38,7 +46,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 10.000
 		}
 	]

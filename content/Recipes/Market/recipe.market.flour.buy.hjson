@@ -1,6 +1,12 @@
-{
+﻿{
 	name: "Flour"
-	desc: "Commonly used in cooking."
+	desc:
+		'''
+		Commonly used in cooking.
+		'''
+	
+	h_company: "farmus"
+	companies_shared: ["postus", "null", "null", "null"]
 	
 	icon:
 	{
@@ -9,16 +15,22 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 50
 	max: 500
 	step: 50
+	
 	type: buy
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 0.699
 		}
 	]
@@ -26,7 +38,7 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "flour"
 			amount: 1.000
 		}

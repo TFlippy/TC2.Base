@@ -1,6 +1,12 @@
-{
+﻿{
 	name: "Red Sugar"
-	desc: "A sweet substance produced by hornet larvae."
+	desc:
+		'''
+		A sweet substance produced by hornet larvae.
+		'''
+	
+	h_company: "plak_tope"
+	companies_shared: ["postus", "null", "null", "null"]
 	
 	icon:
 	{
@@ -8,7 +14,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -16,16 +22,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 5
 	max: 100
 	step: 5
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "red_sugar"
 			amount: 1.000
 		}
@@ -34,7 +45,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 21.790
 		}
 	]

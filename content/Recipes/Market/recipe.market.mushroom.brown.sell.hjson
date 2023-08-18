@@ -5,6 +5,9 @@
 		Common brown mushrooms often used in cooking.
 		'''
 	
+	h_company: "babis"
+	companies_shared: ["postus", "null", "null", "null"]
+	
 	icon:
 	{
 		texture: "resource.mushroom.brown"
@@ -42,9 +45,9 @@
 	products:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 1.645
-			amount_extra: 0.000
 		}
 	]
 }

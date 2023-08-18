@@ -1,22 +1,35 @@
-{
+﻿{
 	name: "Shovel"
-	desc: "Perfect for digging graves."
+	desc:
+		'''
+		Perfect for digging graves.
+		'''
+	
+	h_company: "postus"
 	
 	icon:
 	{
 		texture: "shovel"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 5
 	step: 1
+	
 	type: buy
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 8.490
 		}
 	]
@@ -24,7 +37,7 @@
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "shovel"
 			amount: 1.000
 		}

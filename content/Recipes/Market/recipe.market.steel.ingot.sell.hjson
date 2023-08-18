@@ -1,11 +1,14 @@
-{
+﻿{
 	name: "Steel Ingot"
 	desc:
 		'''
 		Solid steel ingot.
-	
+
 		Used in construction, machinery, tools and more.
 		'''
+	
+	h_company: "refaktor"
+	companies_shared: ["postus", "null", "null", "null"]
 	
 	icon:
 	{
@@ -13,7 +16,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -21,16 +24,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 5
 	max: 50
 	step: 5
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 1.000
 		}
@@ -39,7 +47,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 8.490
 		}
 	]

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Copper Ingot"
 	desc:
 		'''
@@ -6,13 +6,16 @@
 		Used for machinery and alloys.
 		'''
 	
+	h_company: "refaktor"
+	companies_shared: ["postus", "null", "null", "null"]
+	
 	icon:
 	{
 		texture: "resource.copper.ingot"
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -20,16 +23,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 10
 	max: 50
 	step: 10
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 1.000
 		}
@@ -38,7 +46,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 19.790
 		}
 	]

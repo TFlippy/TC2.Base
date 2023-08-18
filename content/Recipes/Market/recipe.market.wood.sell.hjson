@@ -1,9 +1,12 @@
-{
+﻿{
 	name: "Wood"
 	desc:
 		'''
 		Good-quality lumber used in construction and as a fuel.
 		'''
+	
+	h_company: "farmus"
+	companies_shared: ["postus", "null", "null", "null"]
 	
 	icon:
 	{
@@ -16,7 +19,10 @@
 	{
 		texture: "ui_icon_sell"
 		size: [16, 16]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 50
 	max: 500
@@ -25,6 +31,7 @@
 	type: sell
 	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
@@ -38,9 +45,9 @@
 	products:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 0.790
-			amount_extra: 0.000
 		}
 	]
 }

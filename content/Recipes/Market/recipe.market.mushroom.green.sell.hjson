@@ -5,6 +5,9 @@
 		Green-glowing mushrooms that are sometimes found in caves and abandoned places.
 		'''
 	
+	h_company: "refaktor"
+	companies_shared: ["postus", "null", "null", "null"]
+	
 	icon:
 	{
 		texture: "resource.mushroom.green"
@@ -42,9 +45,9 @@
 	products:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 5.799
-			amount_extra: 0.000
 		}
 	]
 }

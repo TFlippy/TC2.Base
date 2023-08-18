@@ -1,9 +1,12 @@
-{
+﻿{
 	name: "Majonez"
-	desc: 
+	desc:
 		'''
 		Popular Imperial delicacy, either eaten directly or as a side dish.
 		'''
+	
+	h_company: "postus"
+	companies_shared: ["null", "null", "null", "null"]
 	
 	icon:
 	{
@@ -11,7 +14,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
@@ -19,16 +22,21 @@
 		frame: [0, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 50
 	step: 5
+	
 	type: sell
+	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "mayo"
 			amount: 1.000
 		}
@@ -37,7 +45,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 31.490
 		}
 	]

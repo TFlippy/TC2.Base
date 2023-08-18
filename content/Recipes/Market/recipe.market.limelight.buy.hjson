@@ -1,11 +1,14 @@
-{
+﻿{
 	name: "Limelight"
 	desc:
 		'''
 		Small stackable cylinders of compacted quicklime with a heat essence pellet inside.
-		
+
 		Commonly used for illumination.
 		'''
+	
+	h_company: "elektron"
+	companies_shared: ["postus", "null", "null", "null"]
 	
 	icon:
 	{
@@ -14,6 +17,8 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 50
 	step: 1
@@ -21,11 +26,13 @@
 	type: buy
 	flags: none
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 23.790
 		}
 	]
@@ -36,7 +43,6 @@
 			type: resource
 			material: "limelight"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
