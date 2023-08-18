@@ -1,4 +1,4 @@
-$name: "Market (Mini)"
+$name: "Company Store"
 $desc: "A place to trade at."
 $tags: []
 
@@ -28,11 +28,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "market.mini"
+		texture: "store.00"
 	}
 	offset: [0.000, 0.000]
 	z: -300.000
-	// mask: "market.small.mask"
+	mask: "store.00.mask"
 }
 
 faction.colorable:

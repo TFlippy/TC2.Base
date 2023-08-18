@@ -484,6 +484,7 @@ namespace TC2.Base.Components
 													}
 												}
 											}
+											GUI.FocusableAsset(d_recipe.GetHandle());
 										}
 									}
 								}

@@ -195,7 +195,9 @@ namespace TC2.Base.Components
 									{
 										//GUI.Text($"{pair.rank}");
 
-										ref var recipe = ref IRecipe.Database.GetData(pair.index);
+										var h_recipe = (IRecipe.Handle)pair.index;
+
+										ref var recipe = ref h_recipe.GetData(out var recipe_asset);
 										if (recipe.IsNotNull() && (recipe.tags.HasAny(edit_tags_filter) || is_searching))
 										{
 											if (!is_searching || recipe.name.ToString().Contains(search_filter, StringComparison.OrdinalIgnoreCase))
@@ -235,6 +237,7 @@ namespace TC2.Base.Components
 														}
 													}
 												}
+												GUI.FocusableAsset(h_recipe);
 											}
 										}
 									}
