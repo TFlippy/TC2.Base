@@ -33,6 +33,7 @@ animated.renderer:
 		texture: "laboratory"
 	}
 	z: -300.000
+	mask: laboratory.mask
 }
 
 transform:
