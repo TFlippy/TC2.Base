@@ -1,5 +1,5 @@
-$name: "Company Store"
-$desc: "A place to trade at."
+$name: "Store"
+$desc: "Companies can trade their goods here."
 $tags: []
 
 body:
@@ -60,6 +60,7 @@ market:
 		type: money
 		stack_size_multiplier: 10.000
 		flags: ignore_mass, no_auto_pickup, faction
+		filter_flags: currency
 	}
 }
 

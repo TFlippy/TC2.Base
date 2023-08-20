@@ -170,8 +170,8 @@
 
 									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - slider_h - 64)))
 									{
-										GUI.Label("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
-										GUI.Label("Torque:", this.axle_state.old_tmp_torque, "{0:0.00} Nm/s");
+										GUI.LabelShaded("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
+										GUI.LabelShaded("Torque:", this.axle_state.old_tmp_torque, "{0:0.00} Nm/s");
 									}
 
 									var ent_child = default(Entity);
