@@ -499,7 +499,7 @@ namespace TC2.Base.Components
 																	}
 																}
 
-																ref var rect_foundation = ref placement.rect_foundation.GetRef();
+																ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
 																if (rect_foundation.IsNotNull())
 																{
 																	var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));

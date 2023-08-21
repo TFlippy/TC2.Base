@@ -324,7 +324,7 @@
 			ref var material = ref material_ammo.GetData();
 			if (material.IsNotNull())
 			{
-				ref var ammo = ref material.ammo.GetRef();
+				ref var ammo = ref material.ammo.GetRefOrNull();
 				if (ammo.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 				{
 					var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
@@ -749,7 +749,7 @@
 							ref var material = ref resource.material.GetData();
 							if (material.IsNotNull() && material.flags.HasAny(gun.ammo_filter) && material.ammo.HasValue)
 							{
-								ref var ammo = ref material.ammo.GetRef();
+								ref var ammo = ref material.ammo.GetRefOrNull();
 
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
@@ -843,7 +843,7 @@
 				ref var material = ref inventory_magazine.resource.material.GetData();
 				if (material.IsNotNull() && material.ammo.HasValue)
 				{
-					ref var ammo = ref material.ammo.GetRef();
+					ref var ammo = ref material.ammo.GetRefOrNull();
 
 					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
