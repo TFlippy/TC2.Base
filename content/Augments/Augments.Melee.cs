@@ -119,7 +119,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset = Maths.Snap(offset, 0.125f);
+					offset.Snap(0.125f, out offset);
 					offset.X = Maths.Clamp(offset.X, -0.50f, 0.50f);
 					offset.Y = Maths.Clamp(offset.Y, -0.50f, 0.50f);
 

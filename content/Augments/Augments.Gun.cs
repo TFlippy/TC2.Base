@@ -1360,7 +1360,7 @@ namespace TC2.Base
 
 					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
 					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 
 					return true;
 				},
@@ -1464,7 +1464,7 @@ namespace TC2.Base
 
 					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
 					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 
 					return true;
 				},
@@ -2901,7 +2901,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 					offset.X.Clamp(-0.50f, 0.50f);
 					offset.Y.Clamp(0.00f, 1.00f);
 
@@ -2978,7 +2978,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 					offset.X.Clamp(-0.25f, 0.25f);
 					offset.Y.Clamp(-0.125f, 0.125f);
 
@@ -3087,7 +3087,7 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 					offset.X.Clamp(-0.50f, 0.50f);
 					offset.Y.Clamp(0.00f, 1.00f);
 

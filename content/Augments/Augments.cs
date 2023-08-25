@@ -828,7 +828,7 @@ namespace TC2.Base
 
 					//offset.X.Clamp(-0.50f, 0.50f);
 					//offset.Y.Clamp(-1.00f, 0.00f);
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 
 					return true;
 				},
@@ -999,7 +999,7 @@ namespace TC2.Base
 
 					offset.X.Clamp(-0.50f, 0.50f);
 					offset.Y.Clamp(-1.00f, 0.00f);
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 
 					return true;
 				},
@@ -1717,7 +1717,7 @@ namespace TC2.Base
 
 					offset.X.Clamp(-1.00f, 1.00f);
 					offset.Y.Clamp(-1.00f, 1.00f);
-					offset.Snap(0.125f);
+					offset.Snap(0.125f, out offset);
 
 					return true;
 				},
