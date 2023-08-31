@@ -19,7 +19,7 @@ namespace TC2.Base.Components
 			//Ragdolled = 1 << 8,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent, IOverridable
 		{
 			public float walk_force;
@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			[Save.Ignore] public float air_modifier_current;

@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 			Overheated = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, name: "Overheating")]
+		[IComponent.Data(Net.SendType.Unreliable, name: "Overheating", region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public float heat_current = 0.00f;

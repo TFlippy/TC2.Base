@@ -6,7 +6,7 @@
 		{
 			public static partial class Belts
 			{
-				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Belts)")]
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Belts)", region_only: true)]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Belts.TargetInfo, Belt.Data>
 				{
 					[Save.Ignore] public Entity ent_src;

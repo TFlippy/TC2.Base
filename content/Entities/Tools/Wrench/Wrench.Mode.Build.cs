@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 		{
 			public static partial class Build
 			{
-				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Build)")]
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Build)", region_only: true)]
 				public partial struct Data: IComponent, Wrench.IMode
 				{
 					public IRecipe.Handle recipe;

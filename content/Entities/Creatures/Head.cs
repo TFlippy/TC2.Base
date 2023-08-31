@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class HeadBob
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Asset.Ignore] public Vector2 offset;
@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 
 	public static partial class Head
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public float voice_pitch = 1.00f;
@@ -198,12 +198,12 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
-		[IGlobal.Data(persist: false), IComponent.With<Sound.Emitter>()]
-		public struct Global: IGlobal
+		[ISingleton.Data(persist: false), IComponent.With<Sound.Emitter>()]
+		public struct Singleton: ISingleton
 		{
 			public float tinnitus_volume = 0.00f;
 
-			public Global()
+			public Singleton()
 			{
 
 			}
@@ -212,7 +212,7 @@ namespace TC2.Base.Components
 		public static Sound.Handle sound_tinnitus = "tinnitus.loop.00";
 
 		[ISystem.AddFirst(ISystem.Mode.Single, defer: false)]
-		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//App.WriteLine("add", App.Color.Magenta);
 
@@ -226,7 +226,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
-		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Global head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//sound_emitter.pitch = 1.50f;
 			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(head_global.tinnitus_volume, 0.00f, 0.10f), 0.05f, 0.40f);
@@ -244,7 +244,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Global] ref Head.Global head_global, [Source.Global] ref Camera.Global camera)
+		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
 			var modifier = Maths.Clamp01(head.concussion);
 

@@ -10,7 +10,7 @@
 			[Save.Ignore] Crouching = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			public float crouch_offset_modifier = 0.50f;

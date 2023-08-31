@@ -2,7 +2,7 @@
 {
 	public static partial class Refinery
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Refinery.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Refinery.State>]
 		public struct Data: IComponent
 		{
 			public Vector2 smoke_offset = default;
@@ -14,7 +14,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct State: IComponent
 		{
 			public float amount;

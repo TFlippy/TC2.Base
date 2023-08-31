@@ -18,7 +18,7 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, sync_table_capacity: 512)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 512)]
 		public partial struct Data: IComponent
 		{
 			public float merge_radius = 2.00f;

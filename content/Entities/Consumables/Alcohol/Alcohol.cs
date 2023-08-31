@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Alcohol
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Effect: IComponent
 		{
 			[Statistics.Info("Alcohol", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -181,7 +181,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
+		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{
 			var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);
 

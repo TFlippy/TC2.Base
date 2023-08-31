@@ -2,7 +2,7 @@
 {
 	public static partial class Badger
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public float test;

@@ -2,7 +2,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Supplier
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Supplier.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Supplier.State>]
 		public struct Data: IComponent
 		{
 			public float interval = 10.00f;
@@ -17,7 +17,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct State: IComponent
 		{
 			public float work_current = default;

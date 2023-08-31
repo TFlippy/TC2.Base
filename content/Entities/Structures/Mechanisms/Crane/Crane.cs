@@ -11,7 +11,7 @@
 			Hold = 1 << 1,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Crane.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Crane.State>]
 		public partial struct Data: IComponent
 		{
 			public float length_a = 8.00f;
@@ -26,7 +26,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			public float angle_a;

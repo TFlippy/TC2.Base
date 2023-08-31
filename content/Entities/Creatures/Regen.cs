@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Regen
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Regen.State>()]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Regen.State>()]
 		public partial struct Data: IComponent, IOverridable
 		{
 			public float amount = default;
@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_regen = default;

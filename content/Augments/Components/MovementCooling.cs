@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class MovementCooling
 	{
-		[IComponent.Data(Net.SendType.Reliable, name: "Movement Cooling")]
+		[IComponent.Data(Net.SendType.Reliable, name: "Movement Cooling", region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Multiplier", description: "TODO: Desc", format: "{0:0.00}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]

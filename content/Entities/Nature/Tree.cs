@@ -11,7 +11,7 @@ namespace TC2.Base.Components
 			Cut = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public Prefab.Handle prefab_stump = default;

@@ -2,7 +2,7 @@
 {
 	public static class Telescope
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
@@ -87,7 +87,7 @@
 		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
-		[Source.Parent] in Player.Data player, [Source.Global] ref Camera.Global camera)
+		[Source.Parent] in Player.Data player, [Source.Singleton] ref Camera.Singleton camera)
 		{
 			var pos = transform.position + telescope.offset;
 			var dir = (control.mouse.position - pos).GetNormalized(out var len);

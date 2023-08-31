@@ -2,7 +2,7 @@
 {
 	public static partial class Track
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Flags]
@@ -22,7 +22,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			public float slider_ratio = default;

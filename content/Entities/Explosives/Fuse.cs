@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 			Sparkle = 1u << 0
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Duration", description: "Burn time.", format: "{0:0.00} s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]

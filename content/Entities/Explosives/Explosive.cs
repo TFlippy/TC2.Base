@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 			No_Self_Damage = 1 << 3
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Radius", description: "Size of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]

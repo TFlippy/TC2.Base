@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle tex_light = "light.fire.00";
 		public static readonly Texture.Handle texture_metal_spark = "Metal_Spark";
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public float lifetime = 8.00f;

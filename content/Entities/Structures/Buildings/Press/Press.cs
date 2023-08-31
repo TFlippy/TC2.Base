@@ -23,7 +23,7 @@
 			"press.fail.02"
 		};
 
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Press.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Press.State>]
 		public partial struct Data: IComponent
 		{
 			public Vector2 slider_offset;
@@ -35,7 +35,7 @@
 			public int current_sound_index;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			[Flags]

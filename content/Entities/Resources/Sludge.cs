@@ -2,7 +2,7 @@
 {
 	public static class Sludge
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_smoke;

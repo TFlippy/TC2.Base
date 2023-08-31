@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Clutch
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public Vector2 offset_enabled;

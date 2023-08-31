@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Dive
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Dive.State>()]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Dive.State>()]
 		public partial struct Data: IComponent
 		{
 			public Sound.Handle sound;
@@ -19,7 +19,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_dive;

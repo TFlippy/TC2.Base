@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Food
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Effect: IComponent
 		{
 			[Statistics.Info("Food", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -174,7 +174,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Global] ref Camera.Global camera, [Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
+		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
 		{
 			var modifier = MathF.Pow(food.modifier_current, 1.30f);
 

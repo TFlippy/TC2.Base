@@ -126,7 +126,7 @@
 			Close_Range = 1 << 10,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.Data>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.Data>]
 		public partial struct Animation: IComponent
 		{
 			public uint frame_ready;
@@ -137,7 +137,7 @@
 			public uint frame_jammed;
 		}
 
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Gun.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
 		public partial struct Data: IComponent
 		{
 			public static readonly Sound.Handle sound_jam_default = "gun.jam.00";
@@ -233,7 +233,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			public Gun.Stage stage;

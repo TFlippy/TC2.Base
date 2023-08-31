@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 {
 	public static class Radioactive
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_update;
@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 
 	public static class Mithril
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			[Editor.Picker.Position(true, true)]

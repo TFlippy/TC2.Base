@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 			Open
 		}
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public Consumable.Action action;

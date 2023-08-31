@@ -8,7 +8,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Sprite sprite_burst_default = new Sprite("steam_engine.burst.00", 32, 24, 1, 0);
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Flags]
@@ -53,7 +53,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable), Asset.Ignore]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true), Asset.Ignore]
 		public partial struct State: IComponent
 		{
 			public float speed_current;

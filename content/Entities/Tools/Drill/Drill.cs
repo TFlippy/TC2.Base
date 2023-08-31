@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_stone = "StoneGib";
 		public static readonly Texture.Handle texture_smoke = "LargeSmoke";
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]

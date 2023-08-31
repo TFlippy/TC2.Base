@@ -5,7 +5,7 @@ namespace TC2.Base.Components
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public float mass = 1.00f;

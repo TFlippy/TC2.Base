@@ -5,7 +5,7 @@ namespace TC2.Base.Components
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public Sprite sprite;
@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 
 	public static partial class Cigar
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			public Sprite sprite_cigar;

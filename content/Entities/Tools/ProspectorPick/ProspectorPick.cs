@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class ProspectorPick
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<ProspectorPick.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<ProspectorPick.State>]
 		public partial struct Data: IComponent
 		{
 			public float max_depth = 8.00f;
@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			public Vector2 position;

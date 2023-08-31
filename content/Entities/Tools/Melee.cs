@@ -46,7 +46,7 @@ namespace TC2.Base.Components
 			public Vector2 direction;
 		}
 
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Melee.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Melee.State>]
 		public partial struct Data: IComponent
 		{
 			public static Sound.Handle sound_swing_default = "tool_swing_00";
@@ -134,7 +134,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_hit;

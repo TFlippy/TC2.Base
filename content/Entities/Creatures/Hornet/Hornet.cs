@@ -2,7 +2,7 @@
 {
 	public static class Hornet
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public struct Data: IComponent
 		{
 			public int fps = 30;

@@ -2,7 +2,7 @@
 {
 	public static partial class Human
 	{
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_pain = default;

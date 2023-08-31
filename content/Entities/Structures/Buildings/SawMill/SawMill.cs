@@ -2,7 +2,7 @@
 {
 	public static partial class SawMill
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<SawMill.State>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<SawMill.State>]
 		public struct Data: IComponent
 		{
 			public float slider_distance = 5.00f;
@@ -15,7 +15,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct State: IComponent
 		{
 			public float gear_ratio = 1.00f;
