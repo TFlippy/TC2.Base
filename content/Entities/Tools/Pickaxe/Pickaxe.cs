@@ -123,7 +123,7 @@
 //		};
 
 //#if CLIENT
-//		[ISystem.GUI(ISystem.Mode.Single)]
+//		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static unsafe void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Pickaxe.Data pickaxe, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data mining)
 //		{
 //			if (player.IsLocal())
@@ -153,7 +153,7 @@
 //#endif
 
 //#if CLIENT
-//		[ISystem.Update(ISystem.Mode.Single)]
+//		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static unsafe void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Pickaxe.Data pickaxe, [Source.Owned] ref Animated.Renderer.Data renderer)
 //		{
 //			var elapsed = info.WorldTime - pickaxe.last_hit;
@@ -165,7 +165,7 @@
 //		}
 //#endif
 
-//		[ISystem.Update(ISystem.Mode.Single)]
+//		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static unsafe void Update(ISystem.Info info, Entity entity, [Source.Owned] ref Pickaxe.Data pickaxe, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Owned] in Control.Data control, [Source.Parent, Optional] in Specialization.Miner.Data miner)
 //		{
 //			if (control.mouse.GetKey(Mouse.Key.Left) && info.WorldTime >= pickaxe.next_hit)

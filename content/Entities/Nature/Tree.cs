@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 		public static readonly Sound.Handle sound_tree_cut_default = "tree_fall";
 
 #if SERVER
-		[ISystem.Modified<Split.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Split.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnSplit(ISystem.Info info, Entity entity, [Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Pair.Of<Tree.Data>] in Foliage.Renderer.Data renderer)
 		{
 			if (split.rect_normalized.a.Y != 0.00f || split.rect_normalized.GetHeight() < 0.40f)
@@ -40,7 +40,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Health.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModified(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] in Health.Data health, [Source.Owned] ref Tree.Data tree, [Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (!tree.flags.HasAll(Tree.Flags.Cut) && health.integrity < tree.health_cut)

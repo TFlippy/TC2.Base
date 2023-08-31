@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 			Bidirectional = 1 << 3
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door)
 		{
@@ -85,7 +85,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
 		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Box shape, [Source.Owned, Optional] in Faction.Data faction)

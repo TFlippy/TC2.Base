@@ -51,7 +51,7 @@
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
@@ -68,7 +68,7 @@
 #endif
 
 		//#if CLIENT
-		//		[ISystem.Update(ISystem.Mode.Single)]
+		//		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//		public static void OnUpdate(ISystem.Info info, Entity entity,
 		//		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Control.Data control)
 		//		{
@@ -84,7 +84,7 @@
 		//#endif
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player, [Source.Singleton] ref Camera.Singleton camera)
@@ -120,7 +120,7 @@
 			telescope.offset = telescope.offset.ClampRadius(Vector2.Zero, max_distance);
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single)]
+		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemove(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player)

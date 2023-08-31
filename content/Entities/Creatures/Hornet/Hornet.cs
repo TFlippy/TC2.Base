@@ -13,7 +13,7 @@
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateAlive(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
@@ -24,14 +24,14 @@
 			no_rotate.rotation = rot;
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateDead(ISystem.Info info, [Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.rotation = MathF.PI;
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void OnUpdateAnimation(ISystem.Info info, ref XorRandom random, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.fps = (byte)Math.Round(hornet.fps * flyer.lift_modifier);

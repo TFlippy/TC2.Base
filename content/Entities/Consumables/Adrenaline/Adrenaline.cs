@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Adrenaline.Effect adrenaline)
 		{
 			ref var adrenaline_new = ref data.ent_organic.GetOrAddComponent<Adrenaline.Effect>(sync: true);
@@ -45,7 +45,7 @@ namespace TC2.Base.Components
 		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 0.95f, 0.80f, 0.60f, 0.35f);
 		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 0.75f, 0.60f, 0.40f, 0.20f);
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
 		[Source.All] ref Adrenaline.Effect adrenaline, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 		public static float elimination_modifier = 2.00f;
 		public static float weight_scale = 4.00f;
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Adrenaline.Effect adrenaline, [Source.Owned, Override] in Organic.Data organic)
 		{
 			//elimination_modifier = 2;
@@ -107,7 +107,7 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
 		public static void UpdatePuncher(ISystem.Info info, Entity entity, Entity ent_body,
 		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref Puncher.Data puncher, [Source.Owned] ref Puncher.State puncher_state, [Source.Shared] in Adrenaline.Effect adrenaline)
 		{
@@ -115,7 +115,7 @@ namespace TC2.Base.Components
 			puncher.cooldown *= Maths.Lerp01(1.00f, 0.50f, modifier * 2.50f);
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Adrenaline.Effect adrenaline)
 		{
 			var modifier = adrenaline.modifier_current;
@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Adrenaline.Effect adrenaline)
 		{
 			var color = GUI.font_color_default;
@@ -148,7 +148,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Adrenaline.Effect adrenaline, [Source.Singleton] ref Head.Singleton head_global)
 		{
 			var modifier = MathF.Pow(adrenaline.modifier_current, 1.40f);

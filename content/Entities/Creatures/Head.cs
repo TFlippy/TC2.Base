@@ -39,7 +39,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEmote(ISystem.Info info, Entity entity, ref XorRandom random, ref Emote.EmoteEvent data, [Source.Owned] ref Emote.Data emote, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head)
 		{
 			if (data.emote_index < Emote.emotes.Length && info.WorldTime >= emote.last_emote_time + 0.50f)
@@ -55,13 +55,13 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
 		}
 
-		[ISystem.AddFirst(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnDeath(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = head.frame_dead;
@@ -72,13 +72,13 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		//[ISystem.Add(ISystem.Mode.Single), HasTag("dead", true, Source.Modifier.Owned)]
+		//[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		//public static void OnDeath(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head)
 		//{
 		//	Sound.Play(ref info.GetRegion(), head.sound_death, transform.position);
 		//}
 
-		//[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		//[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		//public static void OnUpdateGroan(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		//{
 		//	//if (info.WorldTime > head.next_sound)
@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 		//}
 #endif
 
-		//[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single)]
+		//[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnPostDamage(ISystem.Info info, ref Health.DamageEvent data, [Source.Owned] in Health.Data health, [Source.Owned] ref Head.Data head, [Source.Owned] in Transform.Data transform)
 		//{
 		//	//var amount_knockback = data.knockback * 0.0002f;
@@ -150,14 +150,14 @@ namespace TC2.Base.Components
 		//	head.concussion = Maths.Clamp(head.concussion + amount, 0.00f, 1.50f);
 		//}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine(organic_state.stun_norm);
 			head.concussion = MathF.Max(Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
 			no_rotate.multiplier *= MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics * (1.00f - organic_state.stun_norm);
@@ -166,7 +166,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: this causes a weird crash in Flecs
-		//[ISystem.RemoveLast(ISystem.Mode.Single)]
+		//[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnRemoveHead([Source.Parent, Override] ref Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Parent] in Joint.Base joint)
 		//{
 		//	if (joint.flags.HasAll(Joint.Flags.Organic))
@@ -177,7 +177,7 @@ namespace TC2.Base.Components
 		//}
 
 #if SERVER
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
 		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
 		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Of<Control.Data>, Optional(true)] ref Net.Synchronized sync)
@@ -211,7 +211,7 @@ namespace TC2.Base.Components
 
 		public static Sound.Handle sound_tinnitus = "tinnitus.loop.00";
 
-		[ISystem.AddFirst(ISystem.Mode.Single, defer: false)]
+		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region, defer: false)]
 		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//App.WriteLine("add", App.Color.Magenta);
@@ -225,7 +225,7 @@ namespace TC2.Base.Components
 			sound_emitter.spread = 150.00f;
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//sound_emitter.pitch = 1.50f;
@@ -243,7 +243,7 @@ namespace TC2.Base.Components
 			head_global.tinnitus_volume = 0.00f;
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
 			var modifier = Maths.Clamp01(head.concussion);
@@ -261,7 +261,7 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
-		//[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		//[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		//public static void OnGUIParent(ISystem.Info info, Entity entity, [Source.Parent] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
 		//{
 		//	IStatusEffect.ScheduleDraw(new()
@@ -274,31 +274,31 @@ namespace TC2.Base.Components
 		//	});
 		//}
 
-		//[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		//[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		//public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
 		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}
 
-		//[ISystem.Update(ISystem.Mode.Single)]
+		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateOffsetTrait(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.All] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		//{
 		//	//App.WriteLine($"{info.WorldTime}");
 		//	renderer.offset = headbob.offset;
 		//}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");

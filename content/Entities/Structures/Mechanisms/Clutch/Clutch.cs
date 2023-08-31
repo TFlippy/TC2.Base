@@ -70,7 +70,7 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch)
@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.20f)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void UpdateEffects(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Of<Clutch.Data>] ref Animated.Renderer.Data renderer)
 		{
@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Clutch.Data clutch,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] in Axle.State axle_state, [Source.Owned] in Interactable.Data interactable)
 		{

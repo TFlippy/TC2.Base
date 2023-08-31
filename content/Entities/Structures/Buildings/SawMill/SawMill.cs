@@ -54,7 +54,7 @@
 
 		//public const float update_interval = 0.12f;
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Shared] in SawMill.Data sawmill, [Source.Shared] ref SawMill.State sawmill_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance)
@@ -62,7 +62,7 @@
 			joint_distance.distance = sawmill.slider_distance * sawmill_state.slider_ratio;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.12f)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.12f)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
 		[Source.Parent] ref Axle.Data axle, [Source.Parent] ref Axle.State axle_state, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
@@ -102,7 +102,7 @@
 		}
 
 #if CLIENT
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
@@ -111,7 +111,7 @@
 			renderer_saw.offset = sawmill.saw_offset;
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSoundIdle(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
@@ -122,7 +122,7 @@
 			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.60f + (Maths.Clamp(axle_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSoundCutting(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
@@ -254,7 +254,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)

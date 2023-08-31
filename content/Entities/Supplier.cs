@@ -68,7 +68,7 @@ namespace TC2.Base.Components
 		};
 
 #if SERVER
-		//[ISystem.LateUpdate(ISystem.Mode.Single)]
+		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnLateUpdate(ISystem.Info info, Entity entity,
 		//[Source.Owned] ref Supplier.Data supplier, [Source.Owned] ref Supplier.State supplier_state, [Source.Owned] ref Stockpile.Data stockpile)
 		//{

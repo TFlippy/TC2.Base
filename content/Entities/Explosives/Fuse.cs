@@ -39,7 +39,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Player.Data player)
@@ -63,7 +63,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
 		{
 			fuse.failure_time = fuse.time;
@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
 		{
 			fuse.time -= App.fixed_update_interval_s;
@@ -118,14 +118,14 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdateSoundLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.pitch = 1.00f + ((2.00f - Math.Min(2.00f, fuse.time)) * 0.50f);
 			sound_emitter.volume = 1.00f;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdateLightLit(ref Region.Data region, ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
 		{
 			if (fuse.flags.HasAll(Fuse.Flags.Sparkle))
@@ -134,13 +134,13 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdateSoundUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.volume = 0.00f;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("lit", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdateLightUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
 		{
 			light.intensity = 0.00f;

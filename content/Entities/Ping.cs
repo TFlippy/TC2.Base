@@ -125,7 +125,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Owned] in Ping.Data ping)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
@@ -140,7 +140,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
@@ -150,7 +150,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Owned)]
 		public static void OnUpdateLocal(ISystem.Info info, Entity entity, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())

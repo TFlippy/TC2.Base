@@ -17,7 +17,7 @@ namespace TC2.Base.Components
 
 
 #if CLIENT
-		[ISystem.PostRender(ISystem.Mode.Single)]
+		[ISystem.PostRender(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnDraw(ref Region.Data region, ref XorRandom random, ISystem.Info info, Entity entity, [Source.Parent] ref Smoker.Data smoker, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Head.Data head)
 		{
 			var sprite = smoker.sprite;
@@ -70,7 +70,7 @@ namespace TC2.Base.Components
 
 
 #if SERVER
-		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Cigar.Data cigar)
 		{
 			ref var smoker_new = ref data.ent_organic.GetOrAddComponent<Smoker.Data>(sync: true);

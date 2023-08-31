@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] in ProspectorPick.Data prospector_pick, [Source.Owned] in ProspectorPick.State prospector_pick_state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
@@ -144,7 +144,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
 		{
 			ref var terrain = ref region.GetTerrain();

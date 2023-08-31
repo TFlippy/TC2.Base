@@ -8,7 +8,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Sprite sprite_burst_default = new Sprite("steam_engine.burst.00", 32, 24, 1, 0);
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
 			[Flags]
@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, 
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
@@ -113,8 +113,8 @@ namespace TC2.Base.Components
 
 		public const float update_interval = 0.20f;
 
-		//[ISystem.AddFirst(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
-		[ISystem.Event<SteamEngine.ExplodeEvent>(ISystem.Mode.Single)]
+		//[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		[ISystem.Event<SteamEngine.ExplodeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnExplode(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, ref SteamEngine.ExplodeEvent data,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
@@ -159,7 +159,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.Render(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
 		public static void RenderBurst(ISystem.Info info, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] in Animated.Renderer.Data renderer,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
 		public static void OnPostDamage(ISystem.Info info, Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
@@ -202,7 +202,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
 		public static void UpdateShake(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] ref Body.Data body,
@@ -214,7 +214,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
@@ -239,7 +239,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		//		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		//		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
 		//		public static void UpdateOverloaded(ISystem.Info info, Entity entity, ref XorRandom random,
 		//		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		//		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state, [Source.Owned] in Transform.Data transform,
@@ -266,7 +266,7 @@ namespace TC2.Base.Components
 		//#endif
 		//		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
 		public static void UpdateDamaged(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
@@ -352,7 +352,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] in SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] in Axle.State wheel_state, [Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state,
 		[Source.Owned] in Interactable.Data interactable)
@@ -373,7 +373,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateRenderer(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
@@ -429,7 +429,7 @@ namespace TC2.Base.Components
 			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadians();
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned, Pair.Of<SteamEngine.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
@@ -440,7 +440,7 @@ namespace TC2.Base.Components
 			sound_emitter.pitch = 0.60f + Maths.Clamp(speed * 0.10f * steam_engine.pitch_multiplier, 0.00f, 2.00f);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSoundExhaust(ISystem.Info info, ref Region.Data region, ref XorRandom random, 
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,

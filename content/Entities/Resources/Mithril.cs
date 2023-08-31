@@ -11,7 +11,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Radioactive.Data radioactive)
 		{
 			if (info.WorldTime >= radioactive.next_update)
@@ -52,7 +52,7 @@ namespace TC2.Base.Components
 
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		[ISystem.Modified(ISystem.Mode.Single)]
+		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModifiedResource(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned] in Resource.Data resource)
 		{
 			ref var material = ref resource.material.GetData();
@@ -63,7 +63,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		public static void UpdateFX(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril)
 		{
 			if (info.WorldTime >= mithril.next_smoke && mithril.modifier > 0.01f)
@@ -91,7 +91,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		public static void UpdateLight(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned, Pair.Of<Mithril.Data>] ref Light.Data light)
 		{
 			light.intensity = mithril.modifier;

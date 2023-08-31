@@ -77,7 +77,7 @@ namespace TC2.Base.Components
 			return (uint)Maths.Clamp(MathF.Ceiling(MathF.Log2((1.00f - ((float)uses / MathF.Max((float)uses_max, 1.00f))) * frame_count) + 1), 0.00f, (int)frame_count - 1);
 		}
 
-		[ISystem.Modified<Consumable.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Consumable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSprite([Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Sprite_Frames))
@@ -88,7 +88,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data,
 		[Source.Owned] ref Interactable.Data interactable, [Source.Owned] ref Consumable.Data consumable, [Source.Owned] ref Transform.Data transform)
 		{
@@ -98,7 +98,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Parent)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Parent)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent, Override] in Organic.Data organic, [Source.Parent] in Arm.Data arm)
 		{

@@ -33,7 +33,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Torso.Data torso)
 		{
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
@@ -44,13 +44,13 @@
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, order: 90)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 90)]
 		public static void UpdateSitting([Source.Seat] in Seat.Data seat, [Source.Owned] ref Torso.Data torso)
 		{
 			torso.flags.SetFlag(Flags.Crouching, seat.flags.HasAny(Seat.Flags.Crouch));
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, order: 100)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
 		public static void UpdateJoints([Source.Shared] in Torso.Data torso, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
@@ -68,7 +68,7 @@
 			}
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateJoints([Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, [Source.Parent] ref Torso.Data torso, [Source.Parent] in Joint.Base joint)
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
@@ -81,7 +81,7 @@
 		}
 
 #if SERVER
-		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Torso.Data torso)
 		{
 			if (random.NextBool(data.power * 0.20f))
@@ -95,7 +95,7 @@
 #endif
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Torso.Data torso, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,

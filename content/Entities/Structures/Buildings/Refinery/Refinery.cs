@@ -70,7 +70,7 @@
 #endif
 		}
 
-		//[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
 		//[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		//[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
@@ -147,7 +147,7 @@
 			return (moles * gas_constant * (double)temperature) / (double)volume;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateWheel(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
@@ -165,7 +165,7 @@
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.20f)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void UpdateCrafter(ISystem.Info info, Entity entity,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
@@ -193,7 +193,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] ref Refinery.State refinery_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
@@ -428,7 +428,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, 
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, 
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
@@ -456,7 +456,7 @@
 #endif
 
 #if CLIENT
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Sound.Emitter sound_emitter)
@@ -467,7 +467,7 @@
 			sound_emitter.pitch = Maths.Clamp(axle_speed * 0.80f, 0.50f, 1.00f);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateParticles(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] ref Refinery.Data refinery, [Source.Owned] ref Refinery.State state)
 		{
 			var axle_speed = MathF.Abs(axle_state.angular_velocity);

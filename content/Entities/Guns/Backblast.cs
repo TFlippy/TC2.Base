@@ -14,7 +14,7 @@
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,

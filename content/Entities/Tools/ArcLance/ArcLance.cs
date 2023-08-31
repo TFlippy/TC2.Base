@@ -24,7 +24,7 @@
 		public static readonly Texture.Handle tex_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
-		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		ref Melee.HitEvent data, [Source.Owned] ref ArcLance.Data arc_lance)
 		{

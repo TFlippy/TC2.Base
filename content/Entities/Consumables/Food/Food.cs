@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 		};
 
 #if SERVER
-		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Food.Effect food_src)
 		{
 			ref var food_dst = ref data.ent_organic.GetOrAddComponent<Food.Effect>(sync: true);
@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
 		[Source.All] ref Food.Effect food, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateHead(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.All] ref Food.Effect food, ref XorRandom random, ref Region.Data region, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Head.Data head)
 		{
@@ -111,7 +111,7 @@ namespace TC2.Base.Components
 		public static float elimination_modifier = 0.10f;
 		public static float modifier_lerp = 0.02f;
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Food.Effect food, [Source.Owned, Override] in Organic.Data organic)
 		{
 			food.release_rate_current = Maths.MoveTowards(food.release_rate_current, food.release_rate_target, food.release_step * info.DeltaTime);
@@ -151,7 +151,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
 		{
 			var color = GUI.font_color_default;
@@ -173,7 +173,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
 		{
 			var modifier = MathF.Pow(food.modifier_current, 1.30f);

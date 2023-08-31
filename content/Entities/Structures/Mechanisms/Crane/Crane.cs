@@ -123,7 +123,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Crane.Data crane, [Source.Owned] in Crane.State crane_state,
 		[Source.Owned] in Interactable.Data interactable)
@@ -142,7 +142,7 @@
 		}
 #endif
 
-		//[ISystem.PreUpdate.Reset(ISystem.Mode.Single), Exclude<Joint.Base>(Source.Modifier.Parent)]
+		//[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), Exclude<Joint.Base>(Source.Modifier.Parent)]
 		//public static void UpdateControl(ISystem.Info info, Entity entity,
 		//[Source.Owned] in Transform.Data transform,
 		//[Source.Owned] ref Crane.Data crane, [Source.Owned] ref Control.Data control, [Source.Owned] ref Interactable.Data interactable)
@@ -153,7 +153,7 @@
 		//	}
 		//}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateA(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body,
@@ -210,14 +210,14 @@
 			}
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateB(ISystem.Info info, Entity entity, [Source.Owned] ref Joint.Base joint_base,
 		[Source.Owned, Override] ref Joint.Gear gear, [Source.Shared] ref Crane.State crane_state)
 		{
 			gear.rotation = crane_state.rotation_b;
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, Entity entity,
 		[Source.Owned] in Crane.Data crane, [Source.Owned] ref Sound.Mixer sound_mix,
 		[Source.Owned, Override] in Joint.Gear gear)

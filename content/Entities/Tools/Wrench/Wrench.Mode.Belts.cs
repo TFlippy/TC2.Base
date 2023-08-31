@@ -143,7 +143,7 @@
 #endif
 
 //#if SERVER
-//					[ISystem.Add(ISystem.Mode.Single)]
+//					[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 //					public static void OnAdd(ISystem.Info info, Entity entity, [Source.Owned] ref Wrench.Mode.Belts.Data mode, [Source.Owned] ref Wrench.Data wrench) 
 //					{
 //						if (mode.selected_recipe.id == 0)

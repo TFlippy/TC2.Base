@@ -726,7 +726,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void OnGUI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, 
 		[Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
@@ -777,7 +777,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.last_hit;
@@ -847,15 +847,15 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Add(ISystem.Mode.Single)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable)
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range, true);
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, true);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)

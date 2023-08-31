@@ -25,8 +25,8 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float next_hit;
 		}
 
-		[ISystem.Add(ISystem.Mode.Single)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Chainsaw.Data chainsaw, [Source.Owned] ref Holdable.Data holdable)
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable, true);
@@ -85,7 +85,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, ref Region.Data region, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			var dir = transform.GetDirection();
@@ -110,7 +110,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)

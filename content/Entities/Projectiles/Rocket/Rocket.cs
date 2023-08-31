@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 		}
 
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile, [Source.Owned] ref Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
@@ -56,7 +56,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmokeBody(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f)
@@ -94,7 +94,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmokeProjectile(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
 			if (rocket.fuel_time > 0.00f && projectile.elapsed >= 0.15f)
@@ -138,7 +138,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateLight(ISystem.Info info, Entity entity, [Source.Owned] in Rocket.Data rocket, [Source.Owned, Pair.Of<Rocket.Data>] ref Light.Data light)
 		{
 			var modifier = Maths.Clamp(rocket.fuel_time * 1.50f, 0.00f, 1.00f);

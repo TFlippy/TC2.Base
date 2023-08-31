@@ -50,7 +50,7 @@ namespace TC2.Base.Components
 			overheat.heat_current += heat;
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, interval: 0.10f)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Control.Data control, [Source.Owned] in Body.Data body)
 		{
@@ -81,7 +81,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.38f)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, [Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Body.Data body)
 		{
@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateLight(ISystem.Info info, Entity entity,
 		[Source.Owned] in Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Light.Data light)
 		{
@@ -103,7 +103,7 @@ namespace TC2.Base.Components
 			light.intensity = MathF.Max(overheat.heat_current - 150.00f, 0.00f) / 250.00f;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound_emitter)
 		{

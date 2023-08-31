@@ -39,7 +39,7 @@ namespace TC2.Base.Components
 			[Net.Ignore, Save.Ignore] public float next_attack;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void Update(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Biter.Data biter, [Source.Owned] ref Biter.State biter_state, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)

@@ -45,7 +45,7 @@
 		}
 
 #if SERVER
-		[ISystem.RemoveLast(ISystem.Mode.Single), HasComponent<Body.Data>(Source.Modifier.Owned, false)]
+		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Body.Data>(Source.Modifier.Owned, false)]
 		public static void OnRemoveProjectile(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Projectile.Data projectile)
 		{
 			if (cluster.count > 0 && cluster.prefab.id != 0)
@@ -108,7 +108,7 @@
 			}
 		}
 
-		[ISystem.RemoveLast(ISystem.Mode.Single), HasComponent<Projectile.Data>(Source.Modifier.Owned, false)]
+		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Projectile.Data>(Source.Modifier.Owned, false)]
 		public static void OnRemoveBody(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)

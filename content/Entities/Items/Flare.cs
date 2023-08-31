@@ -37,7 +37,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmoke(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
 			if (flare.lifetime > 0.00f)
@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateLight(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light)
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.25f, 0.00f, 1.00f);
@@ -141,7 +141,7 @@ namespace TC2.Base.Components
 			light.scale = new Vector2(flare.size * modifier);
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.10f, 0.00f, 1.00f);

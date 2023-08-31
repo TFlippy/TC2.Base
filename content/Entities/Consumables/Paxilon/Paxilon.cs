@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Paxilon.Effect paxilon)
 		{
 			ref var paxilon_new = ref data.ent_organic.GetOrAddComponent<Paxilon.Effect>(sync: true);
@@ -43,7 +43,7 @@ namespace TC2.Base.Components
 		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 0.50f, 0.10f, 0.00f);
 		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 0.95f, 0.70f, 0.30f, 0.00f);
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
 		[Source.All] ref Paxilon.Effect paxilon, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
@@ -60,7 +60,7 @@ namespace TC2.Base.Components
 		public static float metabolization_modifier = 0.05f;
 		public static float elimination_modifier = 0.75f;
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Paxilon.Effect paxilon, [Source.Owned, Override] in Organic.Data organic)
 		{
 			paxilon.release_rate_current = Maths.MoveTowards(paxilon.release_rate_current, paxilon.release_rate_target, paxilon.release_step * App.fixed_update_interval_s);
@@ -89,7 +89,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Paxilon.Effect paxilon)
 		{
 			var modifier = MathF.Pow(paxilon.modifier_current, 1.10f);

@@ -697,7 +697,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
@@ -714,7 +714,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUIMode<T>(ISystem.Info info, Entity entity,
 		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
@@ -734,7 +734,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-		[ISystem.Add(ISystem.Mode.Single)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnAdd<T>(ISystem.Info info, Entity entity, [Source.Owned] ref T mode, [Source.Owned] ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
 			if (wrench.selected_component_id == 0)
@@ -745,7 +745,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		//[ISystem.Update(ISystem.Mode.Single)]
+		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void Update(ISystem.Info info, Entity entity,
 		//[Source.Owned] ref Wrench.Data wrench, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body)
 		//{

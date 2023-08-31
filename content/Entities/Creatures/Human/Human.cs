@@ -46,14 +46,14 @@
 			"human.pain.slow.03",
 		};
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("human", true, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("human", true, Source.Modifier.Owned)]
 		public static void UpdateHuman(ISystem.Info info, [Source.Owned] ref Human.Data human)
 		{
 
 		}
 
 #if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[HasTag("dead", false, Source.Modifier.Owned), HasTag("human", true, Source.Modifier.Parent)]
 		public static void HeadUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Parent] ref Human.Data human,

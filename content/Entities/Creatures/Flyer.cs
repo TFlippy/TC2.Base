@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateOrganic(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Flyer.Data flyer, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 			flyer.speed_modifier = Maths.Snap(organic_state.efficiency, 0.10f);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body)
 		{
 			ref readonly var keyboard = ref control.keyboard;
@@ -72,7 +72,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Flyer.Data flyer, [Source.Owned] in Body.Data body, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			var vel_len = body.GetVelocity().Length();

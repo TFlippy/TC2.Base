@@ -34,7 +34,7 @@
 		}
 
 #if CLIENT
-		[ISystem.Render(ISystem.Mode.Single)]
+		[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSprite(ISystem.Info info, Entity entity,
 		[Source.Shared] in Transform.Data transform,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
@@ -48,7 +48,7 @@
 		}
 #endif
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
@@ -64,7 +64,7 @@
 			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * ratio;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAxle(ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Shared] ref Axle.Data axle, [Source.Shared] ref Axle.State axle_state,
@@ -86,7 +86,7 @@
 			//App.WriteLine($"{eps.ToFormattedBinary()} vs {eps2.ToFormattedBinary()}");
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateControls(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Track.Data track, [Source.Owned] ref Track.State track_state)
 		{
@@ -107,7 +107,7 @@
 #endif
 		}
 
-		[ISystem.Modified<Resizable.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Resizable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModified(ISystem.Info info, Entity entity, [Source.Shared] in Transform.Data transform, [Source.Shared] ref Resizable.Data resizable,
 		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Original] ref Joint.Slider joint_slider)
 		{
@@ -212,7 +212,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Track.Data track, [Source.Owned] in Track.State track_state, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)

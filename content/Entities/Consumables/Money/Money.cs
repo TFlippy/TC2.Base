@@ -4,7 +4,7 @@
 //	public static partial class MoneyBag
 //	{
 //#if SERVER
-//		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+//		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static void OnConsume(ISystem.Info info, ref Region.Data region, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable)
 //		{
 //			if (data.ent_holder.IsAlive())
@@ -26,7 +26,7 @@
 //			}
 //		}
 
-//		[ISystem.RemoveLast(ISystem.Mode.Single)]
+//		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static void OnRemoveCharacter(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_character, Entity ent_money, Entity ent_npc,
 //		[Source.Shared] ref Character.Data character, [Source.Shared] ref Money.Data money,
 //		[Source.Owned, Original] ref NPC.Data npc, [Source.Owned] in Transform.Data transform)

@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.RemoveLast(ISystem.Mode.Single)]
+		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
 		{
 			//App.WriteLine("drop loot");

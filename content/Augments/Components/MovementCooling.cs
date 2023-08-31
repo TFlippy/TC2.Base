@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 
 		public const float sync_interval = 1.00f;
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.10f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned] in Body.Data body, [Source.Owned] ref MovementCooling.Data movement_cooling)
 		{

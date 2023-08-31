@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 			[Net.Ignore, Save.Ignore] public float next_dive;
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Dive.Data dive, [Source.Owned] ref Dive.State dive_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)

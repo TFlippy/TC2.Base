@@ -363,7 +363,7 @@ namespace TC2.Base.Components
 				}
 
 #if SERVER
-				[ISystem.Update(ISystem.Mode.Single, interval: 0.60f), HasTag("dead", false, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+				[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.60f), HasTag("dead", false, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 				public static void Update(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, 
 				[Source.Owned] in Transform.Data transform, [Source.Parent] in Interactor.Data interactor,
 				[Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Wrench.Mode.Deconstruct.Data deconstruct)

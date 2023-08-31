@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Meth.Effect meth)
 		{
 			ref var meth_new = ref data.ent_organic.GetOrAddComponent<Meth.Effect>(sync: true);
@@ -47,7 +47,7 @@ namespace TC2.Base.Components
 		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
 		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
 		[Source.All] ref Meth.Effect meth, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateControls(ISystem.Info info, Entity entity, ref XorRandom random, [Source.SharedAny] ref Meth.Effect meth, [Source.SharedAny, Override] in Organic.Data organic, [Source.Owned] in Arm.Data arm, [Source.SharedAny] ref Control.Data control)
 		{
 			if (info.WorldTime >= meth.next_spasm)
@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 		public static float metabolization_modifier = 0.02f;
 		public static float elimination_modifier = 0.40f;
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Meth.Effect meth, [Source.Owned, Override] in Organic.Data organic)
 		{
 			meth.release_rate_current = Maths.MoveTowards(meth.release_rate_current, meth.release_rate_target, meth.release_step * App.fixed_update_interval_s);
@@ -124,7 +124,7 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
 		public static void UpdatePuncher(ISystem.Info info, Entity entity, Entity ent_body,
 		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref Puncher.Data puncher, [Source.Owned] ref Puncher.State puncher_state, [Source.Shared] in Meth.Effect meth)
 		{
@@ -132,7 +132,7 @@ namespace TC2.Base.Components
 			puncher.cooldown *= Maths.Lerp01(1.00f, 0.50f, modifier * 2.50f);
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Meth.Effect meth)
 		{
 			var modifier = meth.modifier_current;
@@ -148,7 +148,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth)
 		{
 			var color = GUI.font_color_default;
@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.Update(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Singleton] ref Head.Singleton head_global)
 		{
 			var modifier = MathF.Pow(meth.modifier_current, 1.40f);

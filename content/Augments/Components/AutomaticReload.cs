@@ -11,7 +11,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.20f)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void Update(ISystem.Info info, Entity entity, 
 		[Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref AutomaticReload.Data automatic_reload, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{

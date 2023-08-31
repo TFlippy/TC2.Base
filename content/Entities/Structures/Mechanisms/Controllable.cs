@@ -26,7 +26,7 @@
 		}
 
 //#if SERVER
-//		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+//		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static void UpdateJoint(ISystem.Info info, Entity entity, Entity ent_joint_base, 
 //		[Source.Shared] in Control.Data control, [Source.Shared] in Controllable.Data controllable, [Source.Shared] in Transform.Data transform,
 //		[Source.Owned] ref Joint.Base joint_base)
@@ -35,7 +35,7 @@
 //		}
 //#endif
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateControls(ISystem.Info info, Entity entity, Entity ent_joint_base,
 		[Source.Shared] ref Control.Data control, [Source.Shared] in Controllable.Data controllable, [Source.Shared] in Transform.Data transform,
 		[Source.Owned] ref Joint.Base joint_base)
@@ -165,7 +165,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Control.Data control, [Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.show)

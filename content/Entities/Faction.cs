@@ -142,7 +142,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Owned)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Owned)]
 		public static void OnHUD(ISystem.Info info, Entity entity, [Source.Owned] in Player.Data player)
 		{
 			if (player.faction_id.id != 0)

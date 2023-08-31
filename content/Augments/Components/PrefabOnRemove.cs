@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Modified<Health.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Health.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHealthModified(ISystem.Info info, Entity entity, [Source.Owned] in Health.Data health, [Source.Owned] in Data prefab_on_remove)
 		{
 			if (health.integrity <= 0.00f)
@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single)]
+		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemove(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefab_on_remove)
 		{
 			if (prefab_on_remove.count > 0 && prefab_on_remove.prefab.id != 0)

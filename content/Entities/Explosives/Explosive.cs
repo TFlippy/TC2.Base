@@ -66,15 +66,15 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Add(ISystem.Mode.Single)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Explosive.Data explosive, [Source.Owned] ref Holdable.Data holdable)
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Dangerous | NPC.ItemHints.Explosive | NPC.ItemHints.Destructive, true);
 		}
 
 #if SERVER
-		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Explosive.Data explosive)
 		{
 			if (random.NextBool(data.power * 0.20f))
@@ -91,7 +91,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
 			if (health.integrity <= explosive.health_threshold)
@@ -130,7 +130,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Modified<Resource.Data>(ISystem.Mode.Single)]
+		[ISystem.Modified<Resource.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
 			ref var material = ref resource.material.GetData();
@@ -143,7 +143,7 @@ namespace TC2.Base.Components
 			//App.WriteLine(explosive.modifier);
 		}
 
-		[ISystem.RemoveLast(ISystem.Mode.Single)]
+		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))

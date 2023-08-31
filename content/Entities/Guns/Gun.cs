@@ -510,7 +510,7 @@
 			}
 		}
 
-		//[ISystem.Render(ISystem.Mode.Single)]
+		//[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void RenderLaserExample(ISystem.Info info, Entity entity,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Gun.Data gun, [Source.Owned] in Animated.Renderer.Data renderer)
 		//{
@@ -555,7 +555,7 @@
 		//	}
 		//}
 
-		[ISystem.GUI(ISystem.Mode.Single), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info,
 		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
@@ -572,7 +572,7 @@
 		}
 
 		// TODO: Shithack
-		[ISystem.GUI(ISystem.Mode.Single)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUIVehicle(ISystem.Info info,
 		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Vehicle.Data vehicle)
@@ -592,14 +592,14 @@
 		}
 #endif
 
-		[ISystem.Add(ISystem.Mode.Single)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnAddVehicle(ISystem.Info info, Entity ent_gun,
 		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
 		{
 			if (!vehicle.ent_gun.IsAlive()) vehicle.ent_gun = ent_gun;
 		}
 
-		[ISystem.Remove(ISystem.Mode.Single)]
+		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemVehicle(ISystem.Info info, Entity ent_gun,
 		[Source.Owned] in Gun.Data gun, [Source.Parent] in Joint.Base joint, [Source.Parent] ref Vehicle.Data vehicle)
 		{
@@ -607,7 +607,7 @@
 		}
 
 #if SERVER
-		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single)]
+		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnFailure(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, ref EssenceNode.FailureEvent data, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state)
 		{
 			gun_state.stage = Gun.Stage.Jammed;
@@ -623,7 +623,7 @@
 #endif
 
 #if CLIENT
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
@@ -665,7 +665,7 @@
 			renderer.sprite.frame.Y = frame;
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
@@ -675,7 +675,7 @@
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateLight2([Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
 		{
@@ -683,7 +683,7 @@
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void UpdateReload<T>(ref Region.Data region, ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
@@ -813,7 +813,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
@@ -1256,15 +1256,15 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, interval: 0.50f)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
 		{
 			aimable.offset = gun.muzzle_offset; // new Vector2(0.00f, gun.muzzle_offset.Y);
 			aimable.deadzone = gun.muzzle_offset.Length();
 		}
 
-		[ISystem.Add(ISystem.Mode.Single)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, interval: 0.50f)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable, [Source.Owned] ref Body.Data body)
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun, true);
@@ -1276,7 +1276,7 @@
 			holdable.hints.SetFlag(NPC.ItemHints.Junk, gun.failure_rate >= 0.10f || gun.jitter_multiplier >= 5.00f);
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,

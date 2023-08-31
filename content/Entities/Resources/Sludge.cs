@@ -11,7 +11,7 @@
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
 #if CLIENT
-		[ISystem.LateUpdate(ISystem.Mode.Single, interval: 0.20f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void UpdateFX(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Sludge.Data sludge, [Source.Owned] in Resource.Data resource)
 		{
 			if (info.WorldTime >= sludge.next_smoke)
