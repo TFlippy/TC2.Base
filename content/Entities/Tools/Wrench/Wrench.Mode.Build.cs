@@ -534,16 +534,16 @@ namespace TC2.Base.Components
 											{
 												var construction = recipe.construction.Value;
 
-												GUI.DrawRequirements(ref region, ent_wrench, ref player, this_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 
 												GUI.NewLine(6);
 												GUI.Separator();
 
-												GUI.DrawRequirements(ref region, ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
+												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
 											}
 											else
 											{
-												GUI.DrawRequirements(ref region, ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 											}
 
 											GUI.NewLine();
@@ -1026,7 +1026,7 @@ namespace TC2.Base.Components
 						var placement_range = 4.00f;
 						var placement_range_sq = placement_range * placement_range;
 
-						ref var player = ref connection.GetPlayer();
+						ref var player = ref connection.GetPlayerData();
 						ref var transform = ref entity.GetComponent<Transform.Data>();
 						ref var recipe = ref build.recipe.GetData();
 						if (!recipe.IsNull() && !transform.IsNull() && !player.IsNull())

@@ -668,7 +668,10 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: GUI.Rm))
 						{
-							GUI.Dock.New(Wrench.dock_identifier, size: GUI.Rm);
+							using (var dock = GUI.Dock.New(Wrench.dock_identifier))
+							{
+								dock.SetSpace(size: GUI.Rm);
+							}
 						}
 					}
 				}

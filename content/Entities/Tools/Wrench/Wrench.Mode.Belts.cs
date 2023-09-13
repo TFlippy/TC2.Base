@@ -250,7 +250,7 @@
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
 					{
 						ref var region = ref entity.GetRegion();
-						ref var player = ref connection.GetPlayer();
+						ref var player = ref connection.GetPlayerData();
 						ref var recipe = ref data.selected_recipe.GetData();
 
 						if (!region.IsNull() && !player.IsNull() && !recipe.IsNull())

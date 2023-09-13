@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 				ref var region = ref connection.GetRegion();
 				ref var player = ref connection.GetPlayer();
 
-				if (region.IsNotNull() && player.IsNotNull() && entity == player.ent_player)
+				if (region.IsNotNull() && player.IsNotNull() && entity == connection.GetEntity())
 				{
 					if (region.GetWorldTime() >= data.next_ping)
 					{
@@ -49,7 +49,7 @@ namespace TC2.Base.Components
 						data.next_ping = region.GetWorldTime() + 0.20f;
 
 						//Sound.Play(ref region, "ui.alert.bwoing.02", data.pos, volume: 1.00f, pitch: 1.00f, size: 0.10f);
-						Sound.PlayGUI(ref region, "ui.misc.02", volume: 1.20f, pitch: random.NextFloatRange(0.98f, 1.01f), h_faction: player.faction_id);
+						Sound.PlayGUI(ref region, "ui.misc.02", volume: 1.20f, pitch: random.NextFloatRange(0.98f, 1.01f), h_faction: player.h_faction);
 
 						data.Sync(entity, true);
 					}
@@ -160,7 +160,7 @@ namespace TC2.Base.Components
 				{
 					var color = GUI.font_color_default;
 
-					ref var faction_data = ref Client.GetFaction().GetData();
+					ref var faction_data = ref Client.GetFaction();
 					if (faction_data.IsNotNull())
 					{
 						//color = color.LumaBlend(faction_data.color_a, 0.50f);
