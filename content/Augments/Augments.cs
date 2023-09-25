@@ -2582,11 +2582,14 @@ namespace TC2.Base
 					}
 
 					var mass_ratio = Maths.NormalizeClamp(mass * 1.50f, context.mass_new);
-					var mass_added = 0.00f;
+					//var total_mass = 5.00f;
+					//var mass_added = 0.00f;
 
 					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
 					{
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, mass / material_scrap.mass_per_unit));
+
 						for (var i = 0; i < context.requirements_new.Length; i++)
 						{
 							ref var requirement = ref context.requirements_new[i];
@@ -2642,6 +2645,7 @@ namespace TC2.Base
 							}
 						}
 
+						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
 						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
 					}
 

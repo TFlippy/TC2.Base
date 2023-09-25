@@ -1,0 +1,22 @@
+﻿{
+	$prefab: ""
+	
+	name: "Box (ISB/030-A)"
+	desc:
+		'''
+		Imperial Standard Box, Type 030-A.
+		Small shipping crate used for storage and transport of various goods.
+		'''
+	
+	material_flags: none
+	
+	h_prefab: "shipment.00"
+	
+	base_price: 50.000
+	
+	base_volume: 5.000
+	base_weight: 5.000
+	
+	max_volume: 5.000
+	max_weight: 5.000
+}

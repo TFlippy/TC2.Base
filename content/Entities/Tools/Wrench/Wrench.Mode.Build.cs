@@ -206,38 +206,39 @@ namespace TC2.Base.Components
 												frame_size += new Vector2(8, 8);
 												frame_size = frame_size.ScaleToNearestMultiple(new Vector2(48, 48));
 
-												grid.Push(frame_size);
-
-												var selected = this.recipe.id == pair.index;
-												using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+												using (grid.Push(frame_size))
 												{
-													GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-													GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
-
-													if (button.pressed)
+													var selected = this.recipe.id == pair.index;
+													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 													{
-														var rpc = new Build.ConfigureRPC
-														{
-															recipe = new IRecipe.Handle(pair.index)
-														};
-														rpc.Send(ent_wrench);
-													}
-												}
-												if (GUI.IsItemHovered())
-												{
-													using (GUI.Tooltip.New())
-													{
-														using (GUI.Wrap.Push(256))
-														{
-															GUI.Title(recipe.name);
-															GUI.Text(recipe.desc, color: GUI.font_color_default);
+														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
-															GUI.NewLine();
-															GUI.DrawRequirements(ref context, recipe.requirements.AsSpan());
+														if (button.pressed)
+														{
+															var rpc = new Build.ConfigureRPC
+															{
+																recipe = new IRecipe.Handle(pair.index)
+															};
+															rpc.Send(ent_wrench);
 														}
 													}
+													if (GUI.IsItemHovered())
+													{
+														using (GUI.Tooltip.New())
+														{
+															using (GUI.Wrap.Push(256))
+															{
+																GUI.Title(recipe.name);
+																GUI.Text(recipe.desc, color: GUI.font_color_default);
+
+																GUI.NewLine();
+																GUI.DrawRequirements(ref context, recipe.requirements.AsSpan());
+															}
+														}
+													}
+													GUI.FocusableAsset(h_recipe);
 												}
-												GUI.FocusableAsset(h_recipe);
 											}
 										}
 									}

@@ -1,0 +1,22 @@
+﻿{
+	$prefab: ""
+	
+	name: "Pouch"
+	desc:
+		'''
+		Low-quality pouch used for holding items. 
+		Feels like it's going to fall apart once you empty it.
+		'''
+	
+	material_flags: none
+	
+	h_prefab: "shipment.pouch.00"
+	
+	base_price: 50.000
+	
+	base_volume: 5.000
+	base_weight: 5.000
+	
+	max_volume: 5.000
+	max_weight: 5.000
+}

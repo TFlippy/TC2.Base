@@ -1,0 +1,22 @@
+﻿{
+	$prefab: ""
+	
+	name: "Box (ISB/042-A)"
+	desc:
+		'''
+		Imperial Standard Box, Type 042-A.
+		Used as a small shipping container, can be attached to vehicles. 
+		'''
+	
+	material_flags: none
+	
+	h_prefab: "shipment.02"
+	
+	base_price: 50.000
+	
+	base_volume: 5.000
+	base_weight: 5.000
+	
+	max_volume: 5.000
+	max_weight: 5.000
+}
