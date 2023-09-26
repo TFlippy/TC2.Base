@@ -248,7 +248,7 @@ namespace TC2.Base.Components
 						}
 
 
-						using (var window = GUI.Window.HUD("Build.HUD", position: GUI.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+						using (var window = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 						{
 							if (window.show)
 							{
@@ -344,9 +344,9 @@ namespace TC2.Base.Components
 														//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 													}
 
-													var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
+													var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 
-													var args = new DrawTileArgs(offset: GUI.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
+													var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
 													switch (placement.type)
 													{
 														case Placement.Type.Rectangle:
@@ -506,7 +506,7 @@ namespace TC2.Base.Components
 																	var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
 																	GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
 
-																	GUI.DrawRect(GUI.WorldToCanvas(rect_offset), color_dummy_fg);
+																	GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
 																}
 															}
 															else
@@ -514,7 +514,7 @@ namespace TC2.Base.Components
 																GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
 															}
 
-															GUI.DrawCircleFilled(GUI.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+															GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
 
 															//GUI.DrawRect
 

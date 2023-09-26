@@ -51,20 +51,26 @@
 		{
 			type: resource
 			material: "steel.plate"
-			amount: 5.000
-			amount_extra: 2.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 15.000
+			amount: 16.000
 			amount_extra: 4.000
 		}
 		{
 			type: resource
-			material: "scrap"
+			material: "machine_parts"
+			amount: 31.000
+			amount_extra: 19.000
+		}
+		{
+			type: resource
+			material: "arcane_actuator"
 			amount: 8.000
-			amount_extra: 3.000
+			amount_extra: 2.000
+		}
+		{
+			type: resource
+			material: "scrap"
+			amount: 75.000
+			amount_extra: 25.000
 		}
 	]
 }
