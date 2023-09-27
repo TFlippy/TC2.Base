@@ -76,9 +76,9 @@ namespace TC2.Base.Components
 
 							Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
 
-							using (GUI.Group.New(size: new(GUI.RmX, 32)))
+							using (GUI.Group.New(size: new(GUI.RmX, 40)))
 							{
-								using (GUI.Group.New(size: new(category_values.Length * 32, 32)))
+								using (GUI.Group.New(size: new(category_values.Length * 40, GUI.RmY)))
 								{
 									for (var i = 0; i < category_values.Length; i++)
 									{
@@ -133,7 +133,7 @@ namespace TC2.Base.Components
 
 								GUI.SameLine();
 
-								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.RmX - 40, 40), show_label: false))
+								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.RmX - 40, GUI.RmY), show_label: false))
 								{
 
 								}
@@ -147,6 +147,8 @@ namespace TC2.Base.Components
 									GUI.DrawHoverTooltip("Show Zones");
 								}
 							}
+
+							GUI.SeparatorThick();
 
 							using (GUI.Scrollbox.New("Build.Recipes", GUI.Rm))
 							{
@@ -225,9 +227,9 @@ namespace TC2.Base.Components
 													}
 													if (GUI.IsItemHovered())
 													{
-														using (GUI.Tooltip.New())
+														using (GUI.Tooltip.New(size: new(256, 0)))
 														{
-															using (GUI.Wrap.Push(256))
+															using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
 															{
 																GUI.Title(recipe.name);
 																GUI.Text(recipe.desc, color: GUI.font_color_default);
@@ -248,384 +250,391 @@ namespace TC2.Base.Components
 						}
 
 
-						using (var window = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+						//if (!GUI.IsHovered)
 						{
-							if (window.show)
+							using (var window = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
-								var errors = Build.Errors.None;
-								var skip_support = false;
-								var support = 0.00f;
-								var amount_multiplier = 1.00f;
-
-								ref var recipe = ref this.recipe.GetData();
-								if (!recipe.IsNull() && !player.IsNull())
+								if (window.show)
 								{
-									Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+									var errors = Build.Errors.None;
+									var skip_support = false;
+									var support = 0.00f;
+									var amount_multiplier = 1.00f;
 
-									if (recipe.type == Crafting.Recipe.Type.Build)
+									ref var recipe = ref this.recipe.GetData();
+									if (!recipe.IsNull() && !player.IsNull())
 									{
-										ref var product = ref recipe.products[0];
-										if (recipe.placement.TryGetValue(out var placement))
+										Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+
+										if (recipe.type == Crafting.Recipe.Type.Build)
 										{
-											var pos_raw = mouse.position;
-											var h_faction = player.faction_id;
-
-											if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
+											ref var product = ref recipe.products[0];
+											if (recipe.placement.TryGetValue(out var placement))
 											{
-												pos_a_raw = pos_raw;
-											}
-											else if (pos_a_raw.HasValue && mouse.GetKeyDown(Mouse.Key.Left) && placement.type == Placement.Type.Line)
-											{
-												pos_b_raw = pos_raw;
-											}
+												var pos_raw = mouse.position;
+												var h_faction = player.faction_id;
 
-											//if (pos_a_raw.HasValue) // && control.mouse.GetKeyUp(Mouse.Key.Left))
-
-
-											var flags = this.flags;
-											flags.SetFlag(Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
-
-											Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
-
-											var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
-											var inventory = player.GetInventory();
-
-											Color32BGRA color_ok = 0xff00ff00;
-											Color32BGRA color_error = 0xffff0000;
-											Color32BGRA color_gray = 0xff404040;
-											Color32BGRA color_yellow = 0xffffff00;
-
-											Color32BGRA color_dummy;
-
-											if (true) color_dummy = color_ok;
-											else color_dummy = color_error;
-
-											var color_dummy_bg = color_dummy.WithAlphaMult(0.10f);
-											var color_dummy_fg = color_dummy.WithAlphaMult(0.30f);
-
-											var color_gray_bg = color_gray.WithAlphaMult(0.10f);
-											var color_gray_fg = color_gray.WithAlphaMult(0.60f);
-
-											var color_error_bg = color_error.WithAlphaMult(0.10f);
-											var color_error_fg = color_error.WithAlphaMult(0.30f);
-
-											var color_yellow_bg = color_yellow.WithAlphaMult(0.10f);
-											var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
-
-											GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
-
-											if (product.type == Crafting.Product.Type.Block)
-											{
-												ref var block = ref product.block.GetData();
-												if (!block.IsNull())
+												if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
 												{
-													var tile_flags = block.tile_flags | product.tile_flags;
+													pos_a_raw = pos_raw;
+												}
+												else if (pos_a_raw.HasValue && mouse.GetKeyDown(Mouse.Key.Left) && placement.type == Placement.Type.Line)
+												{
+													pos_b_raw = pos_raw;
+												}
 
-													ref var terrain = ref region.GetTerrain();
+												//if (pos_a_raw.HasValue) // && control.mouse.GetKeyUp(Mouse.Key.Left))
 
-													errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
-													amount_multiplier = placed_block_count;
-													errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: player.faction_id);
 
-													if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+												var flags = this.flags;
+												flags.SetFlag(Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
+
+												Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
+
+												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
+												var inventory = player.GetInventory();
+
+												Color32BGRA color_ok = 0xff00ff00;
+												Color32BGRA color_error = 0xffff0000;
+												Color32BGRA color_gray = 0xff404040;
+												Color32BGRA color_yellow = 0xffffff00;
+
+												Color32BGRA color_dummy;
+
+												if (true) color_dummy = color_ok;
+												else color_dummy = color_error;
+
+												var color_dummy_bg = color_dummy.WithAlphaMult(0.10f);
+												var color_dummy_fg = color_dummy.WithAlphaMult(0.30f);
+
+												var color_gray_bg = color_gray.WithAlphaMult(0.10f);
+												var color_gray_fg = color_gray.WithAlphaMult(0.60f);
+
+												var color_error_bg = color_error.WithAlphaMult(0.10f);
+												var color_error_fg = color_error.WithAlphaMult(0.30f);
+
+												var color_yellow_bg = color_yellow.WithAlphaMult(0.10f);
+												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
+
+												GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
+
+												if (product.type == Crafting.Product.Type.Block)
+												{
+													ref var block = ref product.block.GetData();
+													if (!block.IsNull())
 													{
-														Claim.DrawFullOverlay(ref region, show_zones, true);
-														Claim.DrawClaimerOverlay(ref region, show_zones, true);
-													}
+														var tile_flags = block.tile_flags | product.tile_flags;
 
-													//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-													if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														ref var terrain = ref region.GetTerrain();
 
-													if (errors != Build.Errors.None)
-													{
-														color_dummy_fg = color_error_fg;
-														color_dummy_bg = color_error_bg;
+														errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
+														amount_multiplier = placed_block_count;
+														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: player.faction_id);
 
-														//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
-													}
-
-													var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
-
-													var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
-													switch (placement.type)
-													{
-														case Placement.Type.Rectangle:
+														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 														{
-															terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															Claim.DrawFullOverlay(ref region, show_zones, true);
+															Claim.DrawClaimerOverlay(ref region, show_zones, true);
 														}
-														break;
 
-														case Placement.Type.Circle:
-														{
-															terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-														}
-														break;
+														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+														if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
-														case Placement.Type.Line:
+														if (errors != Build.Errors.None)
 														{
-															//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-															terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															color_dummy_fg = color_error_fg;
+															color_dummy_bg = color_error_bg;
+
+															//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 														}
-														break;
+
+														var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
+
+														var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
+														switch (placement.type)
+														{
+															case Placement.Type.Rectangle:
+															{
+																terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															}
+															break;
+
+															case Placement.Type.Circle:
+															{
+																terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															}
+															break;
+
+															case Placement.Type.Line:
+															{
+																//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
+																terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+															}
+															break;
+														}
 													}
 												}
-											}
-											else if (product.type == Crafting.Product.Type.Prefab)
-											{
-												if (product.prefab.TryGetPrefab(out var prefab))
+												else if (product.type == Crafting.Product.Type.Prefab)
 												{
-													var prefab_handle = product.prefab;
-
-													var scale = new Vector2(1, 1);
-
-													if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < this_transform.position.X)
+													if (product.prefab.TryGetPrefab(out var prefab))
 													{
-														scale.X *= -1.00f;
-													}
+														var prefab_handle = product.prefab;
 
-													errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
-													amount_multiplier = 1.00f;
-													errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: player.faction_id);
+														var scale = new Vector2(1, 1);
 
-													if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
-													{
-														Claim.DrawFullOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
-														Claim.DrawClaimerOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
-													}
+														if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < this_transform.position.X)
+														{
+															scale.X *= -1.00f;
+														}
 
-													if (placement.type == Placement.Type.Line)
-													{
-														amount_multiplier += Vector2.Distance(pos_a, pos_b);
+														errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
+														amount_multiplier = 1.00f;
+														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: player.faction_id);
+
+														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+														{
+															Claim.DrawFullOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
+															Claim.DrawClaimerOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
+														}
+
+														if (placement.type == Placement.Type.Line)
+														{
+															amount_multiplier += Vector2.Distance(pos_a, pos_b);
+														}
+
+														if (recipe.construction.HasValue)
+														{
+															var construction = recipe.construction.Value;
+
+															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+															if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														}
+														else
+														{
+															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+															if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														}
+
+														if (errors != Build.Errors.None)
+														{
+															color_dummy_fg = color_error_fg;
+															color_dummy_bg = color_error_bg;
+
+															//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
+														}
+
+														switch (placement.type)
+														{
+															case Placement.Type.Line:
+															{
+																if (prefab.Root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																{
+																	resizable.a = Vector2.Zero;
+																	resizable.b = pos_b - pos_a;
+
+																	var sprite_size = renderer.sprite.texture.Value.Size / 8.00f;
+
+																	var dir = (resizable.b - resizable.a).GetNormalized(out var len);
+																	var mid = (resizable.a + resizable.b) * 0.50f;
+
+																	var angle = dir.GetAngleRadians();
+
+																	renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, resizable.offset_y).RotateByRad(angle);
+																	renderer.rotation = -angle;
+																	renderer.rect.Z = len / sprite_size.X;
+
+																	var normalized = (resizable.b - resizable.a).GetNormalized(out var length);
+
+																	var transform = new Transform.Data(pos_final, rot_final, scale);
+
+																	var renderer_a = new Animated.Renderer.Data
+																	{
+																		sprite = resizable.cap_a,
+																		rotation = renderer.rotation,
+																		scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
+																		offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
+																	};
+
+																	var renderer_b = new Animated.Renderer.Data
+																	{
+																		sprite = resizable.cap_b,
+																		rotation = renderer.rotation,
+																		scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
+																		offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
+																	};
+
+																	GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																	GUI.DrawRenderer(in transform, in renderer_a, color_dummy_fg);
+																	GUI.DrawRenderer(in transform, in renderer_b, color_dummy_fg);
+																}
+															}
+															break;
+
+															default:
+															case Placement.Type.Simple:
+															{
+																var transform = new Transform.Data(pos_final, rot_final, scale);
+
+																if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																{
+
+																}
+
+																var sprite = recipe.icon;
+																if (sprite.texture.id != 0)
+																{
+																	renderer.sprite = sprite;
+																}
+
+																//renderer.offset -= placement.offset;
+
+
+																if (recipe.construction.HasValue)
+																{
+																	var construction = recipe.construction.Value;
+																	var construction_prefab = construction.prefab.GetPrefab();
+
+																	GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
+
+																	if (construction_prefab != null)
+																	{
+																		if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
+																		{
+																			GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
+																		}
+																	}
+
+																	ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
+																	if (rect_foundation.IsNotNull())
+																	{
+																		var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																		GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
+
+																		GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																	}
+																}
+																else
+																{
+																	GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																}
+
+																GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+
+																//GUI.DrawRect
+
+																//var bb_canvas = AABB.Centered(pos_final, placement.size);
+																//GUI.DrawRect(GUI.WorldToCanvas(bb_canvas), color_dummy_fg);
+																//GUI.DrawRect(sprite, GUI.WorldToCanvas(bb), color_dummy_fg, clip: false);
+															}
+															break;
+														}
 													}
+												}
+
+												if (!GUI.IsHovered)
+												{
+
+													GUI.Title(recipe.name);
+
+													GUI.Separator();
 
 													if (recipe.construction.HasValue)
 													{
 														var construction = recipe.construction.Value;
 
-														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-														if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+
+														GUI.NewLine(6);
+														GUI.Separator();
+
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
 													}
 													else
 													{
-														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-														if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 													}
 
-													if (errors != Build.Errors.None)
-													{
-														color_dummy_fg = color_error_fg;
-														color_dummy_bg = color_error_bg;
+													GUI.NewLine();
 
-														//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
-													}
-
-													switch (placement.type)
+													using (GUI.Wrap.Push())
 													{
-														case Placement.Type.Line:
+														if (placement.min_support > 0.00f)
 														{
-															if (prefab.Root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
-															{
-																resizable.a = Vector2.Zero;
-																resizable.b = pos_b - pos_a;
-
-																var sprite_size = renderer.sprite.texture.Value.Size / 8.00f;
-
-																var dir = (resizable.b - resizable.a).GetNormalized(out var len);
-																var mid = (resizable.a + resizable.b) * 0.50f;
-
-																var angle = dir.GetAngleRadians();
-
-																renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, resizable.offset_y).RotateByRad(angle);
-																renderer.rotation = -angle;
-																renderer.rect.Z = len / sprite_size.X;
-
-																var normalized = (resizable.b - resizable.a).GetNormalized(out var length);
-
-																var transform = new Transform.Data(pos_final, rot_final, scale);
-
-																var renderer_a = new Animated.Renderer.Data
-																{
-																	sprite = resizable.cap_a,
-																	rotation = renderer.rotation,
-																	scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
-																	offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
-																};
-
-																var renderer_b = new Animated.Renderer.Data
-																{
-																	sprite = resizable.cap_b,
-																	rotation = renderer.rotation,
-																	scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
-																	offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
-																};
-
-																GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
-																GUI.DrawRenderer(in transform, in renderer_a, color_dummy_fg);
-																GUI.DrawRenderer(in transform, in renderer_b, color_dummy_fg);
-															}
+															GUI.TextShaded($"Support: {(support * 100.00f):0}%/{(placement.min_support * 100.00f):0}%", color: support >= placement.min_support ? color_ok : color_error);
 														}
-														break;
 
-														default:
-														case Placement.Type.Simple:
+														if (errors != Build.Errors.None)
 														{
-															var transform = new Transform.Data(pos_final, rot_final, scale);
+															GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: color_error);
+														}
+													}
 
-															if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+													{
+														var reset = false;
+
+														//reset |= (pos_a_raw.HasValue && !mouse.GetKey(Mouse.Key.Left | Mouse.Key.Right));
+
+														var place = false;
+														if (placement.type == Placement.Type.Line)
+														{
+															place = pos_a_raw.HasValue && pos_b_raw.HasValue; // && mouse.GetKeyUp(Mouse.Key.Left);
+															reset |= mouse.GetKeyDown(Mouse.Key.Right);
+														}
+														else
+														{
+															if (placement.flags.HasAny(Placement.Flags.Continuous))
 															{
+																place = mouse.GetKeyDown(Mouse.Key.Left);
+																place |= mouse.GetKey(Mouse.Key.Left);
 
-															}
-
-															var sprite = recipe.icon;
-															if (sprite.texture.id != 0)
-															{
-																renderer.sprite = sprite;
-															}
-
-															//renderer.offset -= placement.offset;
-
-
-															if (recipe.construction.HasValue)
-															{
-																var construction = recipe.construction.Value;
-																var construction_prefab = construction.prefab.GetPrefab();
-
-																GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
-
-																if (construction_prefab != null)
-																{
-																	if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
-																	{
-																		GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
-																	}
-																}
-
-																ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
-																if (rect_foundation.IsNotNull())
-																{
-																	var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																	GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
-
-																	GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
-																}
+																reset |= mouse.GetKeyDown(Mouse.Key.Right) || !mouse.GetKey(Mouse.Key.Left);
 															}
 															else
 															{
-																GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																place = mouse.GetKeyDown(Mouse.Key.Left);
+																reset |= !mouse.GetKey(Mouse.Key.Right);
+															}
+														}
+
+														var time = region.GetWorldTime();
+
+														place &= time >= next_place_local;
+														if (place)
+														{
+															if (!errors.HasAny(Build.Errors.ZeroCount))
+															{
+																var rpc = new Build.PlaceRPC
+																{
+																	pos_raw = pos_raw,
+																	pos_a_raw = pos_a_raw,
+																	pos_b_raw = pos_b_raw,
+																	flags = flags
+																};
+																rpc.Send(ent_wrench);
 															}
 
-															GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+															if (!placement.flags.HasAny(Placement.Flags.Continuous))
+															{
+																reset = true;
+															}
+															else
+															{
+																if (placement.type == Placement.Type.Line)
+																{
+																	pos_a_raw = pos_b - ((pos_b - pos_a).GetNormalized() * placement.length_step);
+																	pos_b_raw = null;
+																}
+															}
 
-															//GUI.DrawRect
-
-															//var bb_canvas = AABB.Centered(pos_final, placement.size);
-															//GUI.DrawRect(GUI.WorldToCanvas(bb_canvas), color_dummy_fg);
-															//GUI.DrawRect(sprite, GUI.WorldToCanvas(bb), color_dummy_fg, clip: false);
+															next_place_local = time + placement.cooldown;
 														}
-														break;
-													}
-												}
-											}
 
-											GUI.Title(recipe.name);
-
-											GUI.Separator();
-
-											if (recipe.construction.HasValue)
-											{
-												var construction = recipe.construction.Value;
-
-												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
-
-												GUI.NewLine(6);
-												GUI.Separator();
-
-												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
-											}
-											else
-											{
-												GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
-											}
-
-											GUI.NewLine();
-
-											using (GUI.Wrap.Push())
-											{
-												if (placement.min_support > 0.00f)
-												{
-													GUI.TextShaded($"Support: {(support * 100.00f):0}%/{(placement.min_support * 100.00f):0}%", color: support >= placement.min_support ? color_ok : color_error);
-												}
-
-												if (errors != Build.Errors.None)
-												{
-													GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: color_error);
-												}
-											}
-
-											{
-												var reset = false;
-
-												//reset |= (pos_a_raw.HasValue && !mouse.GetKey(Mouse.Key.Left | Mouse.Key.Right));
-
-												var place = false;
-												if (placement.type == Placement.Type.Line)
-												{
-													place = pos_a_raw.HasValue && pos_b_raw.HasValue; // && mouse.GetKeyUp(Mouse.Key.Left);
-													reset |= mouse.GetKeyDown(Mouse.Key.Right);
-												}
-												else
-												{
-													if (placement.flags.HasAny(Placement.Flags.Continuous))
-													{
-														place = mouse.GetKeyDown(Mouse.Key.Left);
-														place |= mouse.GetKey(Mouse.Key.Left);
-
-														reset |= mouse.GetKeyDown(Mouse.Key.Right) || !mouse.GetKey(Mouse.Key.Left);
-													}
-													else
-													{
-														place = mouse.GetKeyDown(Mouse.Key.Left);
-														reset |= !mouse.GetKey(Mouse.Key.Right);
-													}
-												}
-
-												var time = region.GetWorldTime();
-
-												place &= time >= next_place_local;
-												if (place)
-												{
-													if (!errors.HasAny(Build.Errors.ZeroCount))
-													{
-														var rpc = new Build.PlaceRPC
+														if (reset)
 														{
-															pos_raw = pos_raw,
-															pos_a_raw = pos_a_raw,
-															pos_b_raw = pos_b_raw,
-															flags = flags
-														};
-														rpc.Send(ent_wrench);
-													}
-
-													if (!placement.flags.HasAny(Placement.Flags.Continuous))
-													{
-														reset = true;
-													}
-													else
-													{
-														if (placement.type == Placement.Type.Line)
-														{
-															pos_a_raw = pos_b - ((pos_b - pos_a).GetNormalized() * placement.length_step);
+															pos_a_raw = null;
 															pos_b_raw = null;
 														}
 													}
-
-													next_place_local = time + placement.cooldown;
-												}
-
-												if (reset)
-												{
-													pos_a_raw = null;
-													pos_b_raw = null;
 												}
 											}
 										}

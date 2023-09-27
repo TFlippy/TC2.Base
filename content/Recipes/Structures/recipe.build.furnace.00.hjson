@@ -8,7 +8,7 @@
 	icon:
 	{
 		texture: "furnace.00"
-		size: [32, 40]
+		size: [32, 48]
 		frame: [0, 0]
 	}
 	
@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: 0.000
+	rank: -33.000
 	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
@@ -31,7 +31,7 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [4.000, 5.000]
+		size: [4.000, 6.000]
 		offset: [0.000, -1.750]
 		
 		cooldown: 0.500
@@ -46,7 +46,7 @@
 	
 	construction:
 	{
-		prefab: "construction.4x5"
+		prefab: "construction.4x6"
 		
 		requirements:
 		[
@@ -63,7 +63,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 850.000
+			amount: 950.000
 		}
 		{
 			type: resource
@@ -78,7 +78,6 @@
 			type: prefab
 			prefab: "furnace.01"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

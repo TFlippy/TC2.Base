@@ -445,7 +445,7 @@ namespace TC2.Base.Components
 				}
 
 				//using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.RmY)))
-				using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.RmY)))
+				using (GUI.Group.New(size: new Vector2(48 + 30, GUI.RmY)))
 				{
 					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.Rm, padding: new Vector2(4, 4)))
 					{
@@ -468,7 +468,11 @@ namespace TC2.Base.Components
 											using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 											{
 												GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-												GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
+
+												using (GUI.Clip.Push(button.group.GetInnerRect().Shrink(6)))
+												{
+													GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
+												}
 
 												if (button.pressed)
 												{

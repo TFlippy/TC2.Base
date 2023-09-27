@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: 0.000
+	rank: 154.000
 	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
@@ -83,7 +83,6 @@
 			type: prefab
 			prefab: "furnace.01"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

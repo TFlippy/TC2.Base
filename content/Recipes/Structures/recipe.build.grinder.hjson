@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: -225.000
+	rank: -229.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800
@@ -53,8 +53,13 @@
 		}
 		{
 			type: resource
+			material: "machine_parts"
+			amount: 12.000
+		}
+		{
+			type: resource
 			material: "stone"
-			amount: 135.000
+			amount: 215.000
 		}
 	]
 	
@@ -64,7 +69,6 @@
 			type: prefab
 			prefab: "grinder"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

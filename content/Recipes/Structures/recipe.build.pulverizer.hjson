@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: -25.000
+	rank: 93.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -83,7 +83,6 @@
 			type: prefab
 			prefab: "pulverizer"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

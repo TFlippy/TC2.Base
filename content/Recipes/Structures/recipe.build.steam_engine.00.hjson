@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Steam Engine (Zimrman)"
 	desc:
 		'''
@@ -9,12 +9,19 @@
 	{
 		texture: "steam_engine"
 		size: [64, 40]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
-	tags: mechanisms
-	rank: -90.000
+	tags: industry
+	rank: -116.000
 	
 	dismantle_work: 20.000
 	dismantle_yield: 0.800
@@ -31,17 +38,16 @@
 		min_support: 0.200
 		min_clearance: 0.850
 		min_claim: 1.000
-
+		
 		rotation_max: 0.100
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.8x5
-
+		prefab: "construction.8x5"
+		
 		requirements:
 		[
 			{
@@ -57,22 +63,22 @@
 		{
 			type: resource
 			material: "steel.plate"
-			amount: 120.000
+			amount: 450.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 35.000
+			amount: 55.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 30.000
+			amount: 50.000
 		}
 		{
 			type: resource
-			material: "copper.ingot"
-			amount: 15.000
+			material: "copper.plate"
+			amount: 185.000
 		}
 	]
 	

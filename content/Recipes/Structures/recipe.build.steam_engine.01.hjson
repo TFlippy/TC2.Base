@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Steam Engine (Huprecht)"
 	desc:
 		'''
@@ -11,12 +11,19 @@
 	{
 		texture: "steam_engine.01"
 		size: [32, 40]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
-	tags: mechanisms
-	rank: -100.000
+	tags: industry
+	rank: -85.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -33,17 +40,16 @@
 		min_support: 0.120
 		min_clearance: 0.850
 		min_claim: 1.000
-
+		
 		rotation_max: 0.350
 		
 		sound: "building_place"
 	}
-
+	
 	construction:
 	{
-		flags: none
-		prefab: construction.4x5
-
+		prefab: "construction.4x5"
+		
 		requirements:
 		[
 			{

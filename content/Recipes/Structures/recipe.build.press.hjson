@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Stamping Press"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "press"
 		size: [24, 48]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -60,7 +63,7 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 35.000
+			amount: 100.000
 		}
 		{
 			type: resource
@@ -69,13 +72,8 @@
 		}
 		{
 			type: resource
-			material: "copper.ingot"
-			amount: 5.000
-		}
-		{
-			type: resource
 			material: "stone"
-			amount: 55.000
+			amount: 110.000
 		}
 	]
 	
@@ -85,7 +83,6 @@
 			type: prefab
 			prefab: "press"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

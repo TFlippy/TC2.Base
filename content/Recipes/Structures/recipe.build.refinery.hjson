@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Refinery"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "refinery"
 		size: [40, 64]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -18,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: -4.000
+	rank: 150.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -60,7 +63,7 @@
 		{
 			type: resource
 			material: "steel.plate"
-			amount: 60.000
+			amount: 850.000
 		}
 		{
 			type: resource
@@ -70,12 +73,12 @@
 		{
 			type: resource
 			material: "copper.plate"
-			amount: 20.000
+			amount: 150.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 80.000
+			amount: 240.000
 		}
 	]
 	
@@ -85,7 +88,6 @@
 			type: prefab
 			prefab: "refinery"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
