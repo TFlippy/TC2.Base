@@ -303,6 +303,8 @@ namespace TC2.Base.Components
 #if CLIENT
 			void IMode.Draw(Entity ent_wrench, ref Wrench.Data wrench)
 			{
+				//App.WriteLine("test");
+
 				ref var player = ref Client.GetPlayer();
 				ref var region = ref Client.GetRegion();
 
@@ -622,7 +624,7 @@ namespace TC2.Base.Components
 				var window_size = new Vector2(422, 500);
 
 				//using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
-				using (var window = GUI.Window.Interaction("Wrench", this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
+				using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID();
 					if (window.show)
@@ -631,7 +633,7 @@ namespace TC2.Base.Components
 
 						ref var region = ref Client.GetRegion();
 
-						using (GUI.Group.New(size: new(GUI.RmX, 32)))
+						using (GUI.Group.New(size: new(GUI.RmX, 64)))
 						{
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Build.Data>())
 							{
