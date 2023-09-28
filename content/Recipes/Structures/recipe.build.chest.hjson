@@ -59,7 +59,6 @@
 			type: prefab
 			prefab: "chest"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

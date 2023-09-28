@@ -60,7 +60,6 @@
 			type: prefab
 			prefab: "ladder.wood"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

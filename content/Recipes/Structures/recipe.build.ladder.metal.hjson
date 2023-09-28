@@ -61,7 +61,6 @@
 			type: prefab
 			prefab: "ladder.metal"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

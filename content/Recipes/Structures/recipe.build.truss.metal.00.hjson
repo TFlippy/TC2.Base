@@ -58,7 +58,6 @@
 			type: prefab
 			prefab: "truss.metal.00"
 			amount: 0.000
-			amount_extra: 0.000
 		}
 	]
 }

@@ -65,7 +65,6 @@
 			type: prefab
 			prefab: "barbed_wire"
 			amount: 0.000
-			amount_extra: 0.000
 		}
 	]
 }
