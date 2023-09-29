@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.950, 0.000]
+		b: [0.950, 0.000]
+		mass: 1.000
+		radius: 0.700
+		friction: 0.650
+		elasticity: 0.550
+		material: metal
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.steel.billet"
+		count: 4
+		size: [32, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "steel.billet"
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 1.500
+	radius: 4.000
+	offset: [0.000, 0.450]
+	flags: full_rotate
+}
+
+norotate:
+{
+	mass_multiplier: 25.000
+}
