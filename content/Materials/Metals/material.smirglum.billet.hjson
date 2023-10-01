@@ -1,15 +1,15 @@
 ﻿{
-	name: "Steel Billet"
+	name: "Smirglum Billet"
 	description:
 		'''
-		Standard 256x8x8 cm steel billet.
+		Standard 256x8x8 cm smirglum billet.
 
 		Used for large-scale construction and further metal processing.
 		'''
 	
 	icon:
 	{
-		texture: "resource.steel.billet"
+		texture: "resource.smirglum.billet"
 		size: [32, 16]
 		frame: [3, 0]
 	}
@@ -25,15 +25,15 @@
 	flags: magnetic, metal, intermediate, bulk, billet
 	hints: none
 	// kg
-	mass_per_unit: 128.000
+	mass_per_unit: 486.400
 	quantity_max: 16.000
-	prefab: "resource.steel.billet"
+	prefab: "resource.smirglum.billet"
 	
 	commodity:
 	{
 		categories: metals, construction_materials, industrial
 		
-		market_price: 980.000
+		market_price: 3980.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		
@@ -46,16 +46,16 @@
 	substance:
 	{
 		// Molar mass in kg/mol (atomic mass for elements)
-		molar_mass: 0.05497
+		molar_mass: 0.20914
 		// kg/m3
-		density: 7812.000
+		density: 29921.200
 		// J/(kg*K)
-		specific_heat: 490.000
+		specific_heat: 117.200
 		// W/(m*K)
-		thermal_conductivity: 43.000
+		thermal_conductivity: 97.127
 		// K
-		melting_point: 1811.000
+		melting_point: 2245.000
 		// K
-		boiling_point: 3143.000
+		boiling_point: 4341.000
 	}
 }

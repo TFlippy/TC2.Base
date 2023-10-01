@@ -11,8 +11,8 @@ body:
 		friction: 0.650
 		elasticity: 0.550
 		material: metal
-		layer: entity, solid, resource, ignore_melee, billet
-		mask: world
+		layer: entity, solid, resource, ignore_melee, billet, essence
+		mask: world, essence
 	}
 }
 
@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.steel.billet"
+		texture: "resource.smirglum.billet"
 		count: 4
 		size: [32, 16]
 	}
@@ -33,7 +33,7 @@ transform:
 
 resource:
 {
-	material: "steel.billet"
+	material: "smirglum.billet"
 }
 
 holdable:

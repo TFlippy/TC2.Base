@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.steel.billet"
+		texture: "resource.iron.billet"
 		count: 4
 		size: [32, 16]
 	}
@@ -33,7 +33,7 @@ transform:
 
 resource:
 {
-	material: "steel.billet"
+	material: "iron.billet"
 }
 
 holdable:

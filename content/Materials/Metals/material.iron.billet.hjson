@@ -1,15 +1,15 @@
 ﻿{
-	name: "Steel Billet"
+	name: "Iron Billet"
 	description:
 		'''
-		Standard 256x8x8 cm steel billet.
+		Standard 256x8x8 cm iron billet.
 
 		Used for large-scale construction and further metal processing.
 		'''
 	
 	icon:
 	{
-		texture: "resource.steel.billet"
+		texture: "resource.iron.billet"
 		size: [32, 16]
 		frame: [3, 0]
 	}
@@ -27,13 +27,13 @@
 	// kg
 	mass_per_unit: 128.000
 	quantity_max: 16.000
-	prefab: "resource.steel.billet"
+	prefab: "resource.iron.billet"
 	
 	commodity:
 	{
-		categories: metals, construction_materials, industrial
+		categories: metals, industrial
 		
-		market_price: 980.000
+		market_price: 548.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		
@@ -46,16 +46,16 @@
 	substance:
 	{
 		// Molar mass in kg/mol (atomic mass for elements)
-		molar_mass: 0.05497
+		molar_mass: 0.055845
 		// kg/m3
-		density: 7812.000
+		density: 7874.000
 		// J/(kg*K)
-		specific_heat: 490.000
+		specific_heat: 449.000
 		// W/(m*K)
-		thermal_conductivity: 43.000
+		thermal_conductivity: 79.000
 		// K
 		melting_point: 1811.000
 		// K
-		boiling_point: 3143.000
+		boiling_point: 3134.000
 	}
 }
