@@ -96,9 +96,9 @@ attachment:
 	joint.base:
 	{
 		offset_a: [1.000, 0.000]
-		max_force: 100000.000
-		max_torque: 50000.000
-		flags: no_wrap, no_aiming
+		max_force: 500000.000
+		max_torque: 100000.000
+		flags: no_aiming, no_wrap, use_proxy_body
 		material_type: metal
 	}
 

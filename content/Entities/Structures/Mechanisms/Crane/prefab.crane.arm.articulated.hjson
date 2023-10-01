@@ -11,7 +11,7 @@ body:
 	{
 		a: [-4.000, 0.000]
 		b: [4.000, 0.000]
-		mass: 140.000
+		mass: 300.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.100
@@ -169,7 +169,7 @@ vehicle:
 		max_force: 350000.000
 		max_torque: 400000.000
 		max_stress: 2.000
-		flags: no_wrap, attachment, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: no_wrap, attachment, control_read, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		material_type: metal
 
 		@sound.emitter:
@@ -228,7 +228,7 @@ vehicle:
 		name: "Mount"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, keyboard_write, mouse_write
+		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read
 
 		gui_size: [192.000, 136.000]
 	}

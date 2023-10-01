@@ -92,8 +92,9 @@ attachment:
 
 joint.base:
 {
-	max_force: 50000.000
-	max_torque: 5000.000
+	max_force: 100000.000
+	max_torque: 50000.000
+	flags: use_proxy_body
 	material_type: metal
 }
 
