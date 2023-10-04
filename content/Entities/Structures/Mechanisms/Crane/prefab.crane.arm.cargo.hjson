@@ -29,7 +29,19 @@ animated.renderer:
 	{
 		texture: "crane.arm.cargo"
 	}
-	z: 8.000
+	mask: "crane.arm.cargo.mask"
+	z: -80.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
 }
 
 health:
@@ -59,6 +71,7 @@ holdable:
 	offset: [-4.000, 0.000]
 	radius: 0.000
 	flags: disable_parent_facing, disable_control
+	force_multiplier: 2.000
 }
 
 transform:
@@ -86,7 +99,7 @@ storage:
 	}
 }
 
-interactable_data:
+interactable:
 {
 	window_size: [200.000, 160.000]
 	window_offset: [0.000, 0.000]
@@ -103,11 +116,30 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 350000.000
-		max_torque: 400000.000
+		max_force: 400000.000
+		max_torque: 450000.000
 		max_stress: 2.000
 		flags: no_wrap, attachment, control_write, control_read, facing_reset_rot, facing_reset_pos, force_facing
 		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "essence_motor.loop.00"
+			volume: 0.000
+			pitch: 1.000
+		}
+
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.400
+			volume_min: 0.000
+			pitch_min: 0.500
+			volume_lerp_a: 0.100
+			volume_lerp_b: 0.200
+			pitch_lerp_a: 0.100
+			pitch_lerp_b: 0.050
+		}
 	}
 
 	joint.pivot:
@@ -121,12 +153,13 @@ vehicle:
 		min: -2.600
 		max: 2.600
 		error_bias: 0.010
-		max_bias: 0.700
+		max_bias: 2.000
+		step: 4.000
 	}
 
 	joint.rotarylimit:
 	{
-		max_torque: 500000.000
+		max_torque: 600000.000
 		min: -2.500
 		max: 2.500
 		max_bias: 10.000

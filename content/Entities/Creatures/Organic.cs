@@ -225,7 +225,7 @@ namespace TC2.Base.Components
 				//joint.max_stress_force_modifier *= rotten_modifier * rotten_modifier * rotten_modifier;
 				//joint.max_stress *= rotten_modifier * rotten_modifier * rotten_modifier;
 
-				if (!joint.state.HasAll(Joint.State.Attached))
+				if (!joint.state.HasAny(Joint.State.Attached | Joint.State.Attaching))
 				{
 					organic_state.pain += 30.00f;
 

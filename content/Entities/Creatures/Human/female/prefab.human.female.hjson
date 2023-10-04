@@ -279,7 +279,7 @@ commandable:
 		offset_a: [0.125, -0.250]
 		max_force: 11000.000
 		max_torque: 4000.000
-		flags: organic, control_write, force_facing
+		flags: organic, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 		
 		@animated.renderer:
@@ -478,7 +478,7 @@ commandable:
 		max_stress: 1.500
 		stress_threshold: 1.400
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing
+		flags: organic, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 		
 		@animated.renderer:
@@ -645,7 +645,7 @@ commandable:
 		max_stress: 2.000
 		stress_threshold: 1.000
 		stress_damp: 0.500
-		flags: control_write, no_wrap, force_facing
+		flags: control_write, facing_reset_pos, force_facing
 	}
 	
 	joint.pivot:

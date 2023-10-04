@@ -27,12 +27,24 @@ animated.renderer:
 	{
 		texture: "crane.arm.articulated"
 	}
-	z: 10.000
+	mask: "crane.arm.articulated.mask"
+	z: -72.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
 }
 
 health:
 {
-	max: 30000.000
+	max: 50000.000
 }
 
 armor:
@@ -57,6 +69,7 @@ holdable:
 	offset: [-4.000, 0.000]
 	radius: 0.000
 	flags: disable_parent_facing, disable_control
+	force_multiplier: 2.000
 }
 
 transform:
@@ -94,64 +107,9 @@ essencecontainer:
 	available: 10.000
 }
 
-// joint.base:
-// {
-// 	offset_a: [4.000, 0.000]
-// 	max_force: 10000000.000
-// 	max_torque: 200000.000
-// 	flags: no_wrap, control_write, force_facing
-
-// 	@light:
-// 	{
-// 		color: [0.000, 1.000, 1.000, 3.000]
-// 		offset: [4.000, 0.000]
-// 		scale: [6.000, 4.000]
-// 		intensity: 1.000
-// 		texture: "essence.glow"
-// 	}
-// }
-
-// joint.pivot:
-// {
-// 	error_bias: 0.01
-// 	max_bias: 100.000
-// }
-
-// joint.gear:
-// {
-// 	error_bias: 0.01
-// 	max_bias: 2.000
-// 	min: -30.000
-// 	max: 30.000
-// }
-
-// attachment.slot:
-// {
-// 	flags: keyboard_write, mouse_write
-// }
-
-// sound.emitter:
-// {
-// 	file: "essence_motor.loop.00"
-// 	volume: 0.000
-// 	pitch: 1.000
-// }
-
-// sound.mixer:
-// {
-// 	volume_modifier: 1.000
-// 	pitch_modifier: 0.400
-// 	volume_min: 0.000
-// 	pitch_min: 0.500
-// 	volume_lerp_a: 0.100
-// 	volume_lerp_b: 0.200
-// 	pitch_lerp_a: 0.100
-// 	pitch_lerp_b: 0.050
-// }
-
 interactable:
 {
-	window_size: [192.000, 136.000]
+	window_size: [216.000, 136.000]
 	window_offset: [0.000, 0.000]
 	flags: none
 }
@@ -166,11 +124,12 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
-		max_force: 350000.000
-		max_torque: 400000.000
+		max_force: 400000.000
+		max_torque: 450000.000
 		max_stress: 2.000
 		flags: no_wrap, attachment, control_read, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		material_type: metal
+		z: 10.000
 
 		@sound.emitter:
 		{
@@ -230,6 +189,6 @@ vehicle:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read
 
-		gui_size: [192.000, 136.000]
+		gui_size: [216.000, 136.000]
 	}
 }
