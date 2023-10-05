@@ -16,8 +16,9 @@ body:
 		friction: 0.950
 		elasticity: 0.100
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
+		exclude: item, vehicle
 	}
 }
 

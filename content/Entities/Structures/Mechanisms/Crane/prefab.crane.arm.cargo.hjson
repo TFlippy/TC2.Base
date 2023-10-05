@@ -18,8 +18,9 @@ body:
 		friction: 0.950
 		elasticity: 0.100
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, ignore_bullet
 		mask: world
+		exclude: item, vehicle
 	}
 }
 
@@ -82,8 +83,8 @@ transform:
 attachment:
 {
 	offset: [-4.000, 0.000]
-	flags: full_rotate
-
+	flags: mirror_rotate, full_rotate
+	
 	force_multiplier: 2.000
 	torque_multiplier: 4.000
 }
