@@ -38,9 +38,10 @@ gun:
 	reload_interval: 4.500
 	cycle_interval: 0.270
 	failure_rate: 0.002
-	max_ammo: 8.000
-	sound_volume: 3.000
+	max_ammo: 12.000
+	sound_volume: 2.500
 	sound_size: 2.500
+	sound_dist_multiplier: 2.000
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
 	ammo_filter: ammo_ac
@@ -94,6 +95,8 @@ attachment:
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000
+
+	flags: mirror_rotate, full_rotate
 }
 
 animated.renderer:
