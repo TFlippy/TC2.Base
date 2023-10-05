@@ -114,7 +114,7 @@ storage:
 		max_stress: 3.000
 		z: 0.000
 		material_type: metal
-		flags: attachment, allow_dragging, control_read, control_write, force_facing, facing_reset_pos
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
 
 		@sound.emitter:
 		{
@@ -136,6 +136,14 @@ storage:
 		}
 	}
 
+	facing:
+	{
+		flags: use_rotation
+		offset: 0.000
+		threshold: 0.000
+		flip_interval: 1.000
+	}
+
 	joint.pivot:
 	{
 		max_bias: 8.000
@@ -143,8 +151,8 @@ storage:
 
 	joint.gear:
 	{
-		min: -3.000
-		max: 0.000
+		min: -2.000
+		max: 2.000
 		error_bias: 0.001
 		max_bias: 1.500
 	}
@@ -153,10 +161,10 @@ storage:
 	{
 		radius: 1.000
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
 		name: "Mount"
 		identifier: "mount"
-		offset: [0.000, 0.000]
-		gui_size: [224.000, 192.000]
+		gui_size: [146.000, 120.000]
+		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
 	}
 }

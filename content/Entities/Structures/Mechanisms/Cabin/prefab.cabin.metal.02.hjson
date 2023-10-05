@@ -170,7 +170,7 @@ mount:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: no_wrap, attachment, control_write, facing_reset_pos, force_facing
-		z: 60.000
+		z: 80.000
 		material_type: metal
 
 		@sound.emitter:

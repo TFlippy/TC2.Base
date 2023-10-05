@@ -60,12 +60,13 @@ transform:
 
 interactable:
 {
-	window_size: [282.000, 192.000]
+	window_size: [210.000, 120.000]
 }
 
 vehicle:
 {
-
+	inventory_type: ammo
+	flags: include_misc_window
 }
 
 controllable:
@@ -78,9 +79,9 @@ storage:
 	@inventory1:
 	{
 		name: "Ammo"
-		stack_size_multiplier: 6.000
+		stack_size_multiplier: 8.000
 		type: ammo
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, faction
 	}
 }
 
@@ -137,8 +138,8 @@ storage:
 	{
 		flags: use_rotation
 		offset: 0.000
-		threshold: 0.150
-		flip_interval: 2.000
+		threshold: 0.000
+		flip_interval: 1.000
 	}
 
 	attachment.slot:
@@ -148,7 +149,7 @@ storage:
 		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
 		name: "Mount"
 		identifier: "mount"
-		gui_size: [224.000, 192.000]
+		gui_size: [146.000, 120.000]
 		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
 	}
 }
