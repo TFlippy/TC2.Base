@@ -30,7 +30,7 @@ control:
 
 health:
 {
-	max: 85000.000
+	max: 110000.000
 }
 
 animated.renderer:
@@ -50,12 +50,13 @@ transform:
 interactable:
 {
 	window_size: [210.000, 120.000]
+	window_offset: [0.000, 178.000]
 }
 
 vehicle:
 {
-	inventory_type: ammo
-	flags: include_misc_window
+	// inventory_type: ammo
+	// flags: include_misc_window
 }
 
 controllable:
@@ -63,16 +64,16 @@ controllable:
 	
 }
 
-storage:
-{
-	@inventory1:
-	{
-		name: "Ammo"
-		stack_size_multiplier: 8.000
-		type: ammo
-		flags: allow_ducts, ignore_mass, faction
-	}
-}
+// storage:
+// {
+// 	@inventory1:
+// 	{
+// 		name: "Ammo"
+// 		stack_size_multiplier: 8.000
+// 		type: ammo
+// 		flags: allow_ducts, ignore_mass, faction
+// 	}
+// }
 
 +mount|instance:
 {
@@ -133,10 +134,10 @@ storage:
 	{
 		radius: 1.000
 		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_write, mouse_write, offset, rotation
 		name: "Mount"
 		identifier: "mount"
-		gui_size: [146.000, 120.000]
+		gui_size: [210.000, 120.000]
 		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
 	}
 }
