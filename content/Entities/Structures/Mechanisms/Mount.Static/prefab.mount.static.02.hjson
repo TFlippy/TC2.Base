@@ -135,10 +135,10 @@ storage:
 
 	facing:
 	{
-		flags: none
+		flags: use_rotation
 		offset: 0.000
-		threshold: 1.000
-		flip_interval: 0.500
+		threshold: 0.150
+		flip_interval: 2.000
 	}
 
 	attachment.slot:

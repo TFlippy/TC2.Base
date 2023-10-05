@@ -34,6 +34,7 @@
 
 			public float rotation_b;
 
+			[Save.Ignore, Net.Ignore] public float last_rotation;
 			[Save.Ignore, Net.Ignore] public float next_sync;
 		}
 
@@ -172,13 +173,21 @@
 					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base_parent.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
-
-					if (info.WorldTime >= crane_state.next_sync)
-					{
-						crane_state.next_sync = info.WorldTime + 0.20f;
-						dirty |= true;
-					}
+					dirty = true;
+					//if (info.WorldTime >= crane_state.next_sync)
+					//{
+					//	crane_state.next_sync = info.WorldTime + 0.20f;
+					//	dirty = true;
+					//}
 				}
+
+				//#if SERVER
+				//				if (info.WorldTime >= crane_state.next_sync && dirty)
+				//				{
+				//					crane_state.last_rotation = crane_state.rotation_b;
+				//					dirty = true;
+				//				}
+				//#endif
 
 				var parity = transform_tmp.scale.GetParity();
 
@@ -199,12 +208,17 @@
 				gear_parent.rotation = Maths.NormalizeAngle(gear_parent.rotation);
 				crane_state.rotation_b = Maths.NormalizeAngle(crane_state.rotation_b);
 
-				if (dirty)
+				if (info.WorldTime >= crane_state.next_sync && crane_state.last_rotation != crane_state.rotation_b)
 				{
 					body.Activate();
+					crane_state.next_sync = info.WorldTime + 0.43f;
+					crane_state.last_rotation = crane_state.rotation_b;
+
+					//App.WriteLine("sync");
+
 
 #if SERVER
-					crane.Sync(entity, true);
+					crane_state.Sync(entity, true);
 #endif
 				}
 			}

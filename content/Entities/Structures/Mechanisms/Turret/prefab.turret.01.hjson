@@ -144,16 +144,16 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.500, 0.000]
-		max_force: 250000.000
+		max_force: 850000.000
 		max_torque: 200000.000
 
-		max_stress_modifier: 0.500
+		max_stress_modifier: 1.000
 		max_stress: 3.000
 		stress_threshold: 3.010
 		stress_damp: 0.300
 
 		z: 75.000
-		flags: no_aiming, attachment, control_write, force_facing
+		flags: no_aiming, attachment, allow_dragging, align_side, control_write, facing_reset_pos, force_facing, no_sync
 		material_type: metal
 	}
 
@@ -161,14 +161,15 @@ vehicle:
 	{
 		error_bias: 0.000
 		max_bias: 10.000
-		axis_force: 800000.000
-		idle_force: 15000.000
-		compress_max_bias: 10.000
+		axis_force: 400000.000
+		idle_force: 25000.000
+		compress_max_bias: 9.000
 		max_distance: 3.000
-		tolerance: 0.125
-		easing: quad
+		tolerance: 0.250
+		easing: cubic
 		easing_type: out
-		stress_mult: 0.500
+		stress_mult_axis: 1.000
+		stress_mult_damp: 0.050
 	}
 
 	joint.gear:
@@ -177,6 +178,7 @@ vehicle:
 		max: 0.000
 		error_bias: 0.010
 		max_bias: 3.000
+		stress_mult: 0.100
 	}
 
 	attachment.slot:
