@@ -36,7 +36,7 @@ gun:
 	damage_multiplier: 7.000
 	recoil_multiplier: 1.300
 	reload_interval: 4.500
-	cycle_interval: 0.270
+	cycle_interval: 0.330
 	failure_rate: 0.002
 	max_ammo: 12.000
 	sound_volume: 2.500

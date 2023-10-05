@@ -144,16 +144,16 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.500, 0.000]
-		max_force: 850000.000
+		max_force: 650000.000
 		max_torque: 200000.000
 
 		max_stress_modifier: 1.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		stress_damp: 0.300
+		stress_damp: 0.200
 
 		z: 75.000
-		flags: no_aiming, attachment, allow_dragging, align_side, control_write, facing_reset_pos, force_facing, no_sync
+		flags: no_aiming, no_wrap, attachment, allow_dragging, align_side, control_write, facing_reset_pos, force_facing, no_sync
 		material_type: metal
 	}
 

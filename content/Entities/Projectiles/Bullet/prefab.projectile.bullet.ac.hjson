@@ -2,16 +2,17 @@ $tags: []
 
 projectile:
 {
-	damage_base: 1100.000
-	damage_bonus: 600.000
+	damage_base: 1500.000
+	damage_bonus: 700.000
 	damage_type: bullet_ac
 	lifetime: 10.000
 	size: 0.075
 	ricochet_count: 2
+	ricochet_threshold_multiplier: 0.500
 	damp: 0.980
 	tracer_length: 8.000
 	mass: 0.370
-	knockback_multiplier: 8.000
+	knockback_multiplier: 20.000
 }
 
 projectile.renderer:
