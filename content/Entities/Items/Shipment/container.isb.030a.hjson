@@ -1,6 +1,4 @@
 ﻿{
-	$prefab: ""
-	
 	name: "Box (ISB/030-A)"
 	desc:
 		'''
@@ -19,4 +17,6 @@
 	
 	max_volume: 5.000
 	max_weight: 5.000
+	
+	size: [2.000, 1.000]
 }
