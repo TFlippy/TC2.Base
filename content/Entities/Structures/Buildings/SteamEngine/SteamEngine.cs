@@ -426,7 +426,7 @@ namespace TC2.Base.Components
 
 			var (sin, cos) = MathF.SinCos(-wheel_state.rotation * transform.scale.GetParity());
 			renderer_piston.offset = wheel.offset + (new Vector2(cos, sin) * steam_engine.piston_radius);
-			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadians();
+			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadiansFast();
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]

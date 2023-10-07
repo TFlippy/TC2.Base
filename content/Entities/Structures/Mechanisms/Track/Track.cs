@@ -41,7 +41,7 @@
 		[Source.Shared] in Resizable.Data resizable, [Source.Owned, Original] ref Joint.Distance joint_distance,
 		[Source.Shared, Pair.Of<Track.Data>] ref Animated.Renderer.Data renderer)
 		{
-			renderer.rotation = -(resizable.b - resizable.a).GetAngleRadians();
+			renderer.rotation = -(resizable.b - resizable.a).GetAngleRadiansFast();
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.40f);
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.50f);
 			renderer.offset = Vector2.Lerp(joint_distance.GetDelta(), (joint_distance.GetDelta() + (joint_distance.GetVelocity() * App.fixed_update_interval_s)), Vulkan.GetCurrentLerp()).RotateByRad(-transform.GetInterpolatedRotation());

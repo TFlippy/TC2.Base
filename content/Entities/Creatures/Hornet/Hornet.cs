@@ -17,7 +17,7 @@
 		public static void UpdateAlive(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-			var rot = -dir.GetAngleRadians();
+			var rot = -dir.GetAngleRadiansFast();
 			rot += (transform.scale.X > 0.00f ? 0.00f : MathF.PI);
 			rot = Maths.NormalizeAngle(rot % (MathF.PI * 2.00f));
 
