@@ -157,7 +157,7 @@
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateA(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
-		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body,
+		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body, [Source.Parent] in Attachment.Slot attachment_slot,
 		[Source.Parent] ref Joint.Base joint_base_parent, [Source.Parent, Override] ref Joint.Gear gear_parent, [Source.Owned] ref Crane.Data crane, [Source.Owned] ref Crane.State crane_state)
 		{
 			if (!joint_base_parent.flags.HasAll(Joint.Flags.No_Aiming))

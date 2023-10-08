@@ -152,7 +152,7 @@ attachment:
 		max_torque: 200000.000
 		max_stress: 2.000
 		stress_threshold: 2.010
-		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
+		flags: attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
 		material_type: metal
 		// flags: control_read, control_write
 	}
