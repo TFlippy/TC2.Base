@@ -7,7 +7,7 @@ projectile:
 	lifetime: 3.000
 	damage_type: bullet_musket
 	knockback_multiplier: 30.000
-	size: 0.020
+	size: 0.150
 	gravity: 2.500
 	ricochet_count: 2
 	ricochet_threshold_multiplier: 0.800

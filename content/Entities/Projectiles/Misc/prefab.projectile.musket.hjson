@@ -7,7 +7,7 @@ projectile:
 	knockback_multiplier: 75.000
 	lifetime: 3.000
 	damage_type: bullet_musket
-	size: 0.010
+	size: 0.150
 	gravity: 1.100
 	damp: 0.970
 	tracer_length: 1.800

@@ -4,10 +4,10 @@ projectile:
 {
 	damage_base: 500.000
 	damage_bonus: 650.000
-	knockback_multiplier: 40.000
+	knockback_multiplier: 80.000
 	lifetime: 2.000
 	damage_type: bullet_musket
-	size: 0.050
+	size: 0.150
 	tracer_length: 6.000
 }
 

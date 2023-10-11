@@ -7,7 +7,7 @@ projectile:
 	knockback_multiplier: 1.700
 	lifetime: 5.000
 	damage_type: bullet_sg
-	size: 0.010
+	size: 0.250
 	ricochet_count: 0
 	tracer_length: 1.750
 }

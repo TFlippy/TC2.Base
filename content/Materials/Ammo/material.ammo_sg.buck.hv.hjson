@@ -33,8 +33,8 @@
 		heat: 50.000
 		velocity_min: 80.000
 		
-		speed_mult: 0.900
-		spread_mult: 1.200
+		speed_mult: 1.000
+		spread_mult: 1.350
 		recoil_mult: 1.000
 		
 		failure_base: 0.000
