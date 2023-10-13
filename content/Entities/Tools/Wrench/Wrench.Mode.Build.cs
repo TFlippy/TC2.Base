@@ -1315,7 +1315,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										Notification.Push(in player, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error");
+										Notification.Push(in player, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
 									}
 
 									build.next_place = region.GetWorldTime() + placement.cooldown;

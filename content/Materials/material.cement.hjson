@@ -32,11 +32,11 @@
 		flags: marketable
 		categories: refined, construction_materials, industrial, military
 		industries_produce: mining, manufacturing, chemical, engineering
-		industries_consume: military, construction, logistics, real_estate, colonization, security, railway, architecture
-		buildings_produce: factory, foundry, refinery, metalworks, quarry
-		buildings_consume: none
-		categories_produce: industrial, wasteland
-		categories_consume: military, border, industrial, wasteland, commercial, residential, penal, criminal, urban, frontier
+		industries_consume: mining, low_tech, high_tech, metallurgy, power, military, construction, tourism, logistics, labor, real_estate, kobolds, wholesale, colonization, security, railway, engineering, weapons, architecture, penal
+		buildings_produce: factory, foundry, refinery, borehole, slum, metalworks, quarry, brickworks
+		buildings_consume: factory, bunker, walls, mine, borehole, apartments, train_station, zoo, essenceworks, brickworks
+		categories_produce: industrial, wasteland, decrepit, frontier, developing, fortified, excavated
+		categories_consume: military, border, industrial, wasteland, commercial, residential, penal, criminal, urban, frontier, wealthy, advanced, developing, secure, fortified, innovative, powerful, modern, expansive, mechanized
 		
 		market_price: 0.070
 		market_price_min: 0.040

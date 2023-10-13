@@ -30,13 +30,13 @@
 	commodity:
 	{
 		flags: marketable
-		categories: coal, fuel
-		industries_produce: mining
-		industries_consume: manufacturing, metallurgy, power, hospitality, kobolds
+		categories: raw, coal, fuel, minerals, energy
+		industries_produce: mining, low_tech, slaves, kobolds, penal
+		industries_consume: mining, manufacturing, low_tech, metallurgy, chemical, power, entertainment, construction, tourism, logistics, hospitality, labor, kobolds, colonization, exploration, munitions, railway, tobacco, engineering, aviation, naval
 		buildings_produce: labor_camp, mine, borehole
-		buildings_consume: factory, trainyard, power_plant, docks, foundry, manufactory, refinery, laboratory, metalworks, fuel_depot
-		categories_produce: industrial, wasteland, ruined, frontier, developing, excavated, polluted
-		categories_consume: military, industrial, wilderness, wasteland, commercial, residential, urban, decrepit, frontier, advanced, developing, powerful, expansive, polluted, mechanized
+		buildings_consume: factory, hotel, airport, trainyard, power_plant, docks, prison, labor_camp, foundry, manufactory, refinery, laboratory, apartments, farm, brewery, metalworks, zoo, quarry, fuel_depot, steel_mill, bakery
+		categories_produce: industrial, wasteland, penal, ruined, decrepit, frontier, developing, warzone, expansive, excavated, polluted, mechanized
+		categories_consume: military, industrial, wilderness, wasteland, commercial, residential, urban, decrepit, frontier, wealthy, advanced, developing, innovative, powerful, modern, expansive, polluted, mechanized
 		
 		market_price: 0.450
 		market_price_min: 0.400
