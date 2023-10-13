@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Steel Plate"
 	description:
 		'''
@@ -16,18 +16,29 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: intermediate, magnetic, metal, plate
+	flags: magnetic, metal, intermediate, plate
+	hints: none
+	// kg
 	mass_per_unit: 1.000
 	quantity_max: 256.000
 	prefab: "resource.steel.plate"
 	
 	commodity:
 	{
-		categories: metals, components, construction_materials, industrial
+		flags: marketable
+		categories: metals, components, refined, construction_materials, industrial
+		industries_produce: manufacturing, high_tech, metallurgy, scrap, engineering
+		industries_consume: manufacturing, low_tech, high_tech, metallurgy, automotive, power, military, arcane, construction, logistics, kobolds, munitions, railway, engineering, weapons, beverage, aviation, naval, furniture, architecture, jewelry
+		buildings_produce: factory, manufactory, slum, scrapyard, metalworks
+		buildings_consume: warehouse, factory, airport, trainyard, docks, prison, manufactory, lumber_mill, subway, train_station, arsenal, metalworks
+		categories_produce: industrial, wasteland, commercial, urban, magitech
+		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech
 		
 		market_price: 11.000
 		market_price_min: 0.000

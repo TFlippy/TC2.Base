@@ -22,7 +22,7 @@
 	}
 	
 	type: metal
-	flags: ingot, magnetic, metal
+	flags: magnetic, metal, ingot
 	hints: none
 	// kg
 	mass_per_unit: 1.000
@@ -31,7 +31,14 @@
 	
 	commodity:
 	{
-		categories: none
+		flags: marketable
+		categories: metals, raw, industrial
+		industries_produce: mining, low_tech, metallurgy, scrap, slaves, labor, kobolds, penal
+		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, kobolds, railway, furniture
+		buildings_produce: foundry, scrapyard, metalworks
+		buildings_consume: docks, prison, foundry, metalworks
+		categories_produce: industrial, wasteland, advanced, developing, excavated, polluted
+		categories_consume: industrial, wasteland, frontier, advanced, developing, modern, mechanized
 		
 		market_price: 4.600
 		market_price_min: 0.000

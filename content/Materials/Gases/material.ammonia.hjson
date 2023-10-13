@@ -29,7 +29,7 @@
 	
 	commodity:
 	{
-		categories: chemicals, dangerous, industrial, military
+		categories: chemicals, dangerous, consumer, industrial, military
 		
 		market_price: 11.000
 		market_price_min: 0.000

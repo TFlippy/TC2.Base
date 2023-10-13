@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Copper Plate"
 	description:
 		'''
@@ -14,19 +14,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: manufactured, metal
+	hints: none
+	// kg
 	mass_per_unit: 0.2875
 	quantity_max: 100.000
 	prefab: "resource.copper.plate"
 	
-	specific_heat: 192.500
-	
 	commodity:
 	{
+		flags: marketable
+		categories: metals, components, refined, construction_materials, consumer, industrial
+		industries_produce: manufacturing, high_tech, metallurgy, scrap, engineering
+		industries_consume: telecommunications, manufacturing, low_tech, high_tech, metallurgy, chemical, automotive, power, military, entertainment, arcane, construction, logistics, kobolds, research, munitions, medical, railway, engineering, weapons, experimental, beverage, aviation, naval, furniture, architecture, luxury, jewelry
+		buildings_produce: factory, manufactory, slum, scrapyard, metalworks
+		buildings_consume: warehouse, factory, airport, trainyard, docks, prison, manufactory, lumber_mill, subway, train_station, arsenal, metalworks
+		categories_produce: industrial, wasteland, commercial, urban, magitech, advanced, developing, mechanized
+		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech, wealthy, advanced, innovative, modern, mechanized
+		
 		market_price: 14.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 }

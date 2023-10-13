@@ -22,7 +22,7 @@
 	}
 	
 	type: metal
-	flags: intermediate, ingot, magnetic, metal
+	flags: magnetic, metal, intermediate, ingot
 	hints: none
 	// kg
 	mass_per_unit: 4.000
@@ -31,7 +31,14 @@
 	
 	commodity:
 	{
-		categories: metals, construction_materials, industrial
+		flags: marketable
+		categories: metals, refined, construction_materials, consumer, industrial
+		industries_produce: manufacturing, metallurgy, scrap
+		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, automotive, arcane, construction, railway, engineering, weapons, furniture, architecture, jewelry
+		buildings_produce: factory, foundry, scrapyard, metalworks
+		buildings_consume: warehouse, factory, airport, trainyard, docks, prison, manufactory, lumber_mill, subway, train_station, arsenal, metalworks
+		categories_produce: industrial, wasteland, urban, magitech
+		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech
 		
 		market_price: 36.500
 		market_price_min: 0.000

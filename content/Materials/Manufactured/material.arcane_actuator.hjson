@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "ARC-MT Actuators"
 	description:
 		'''
@@ -18,20 +18,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: manufactured, magnetic
+	hints: none
+	// kg
 	mass_per_unit: 1.650
 	quantity_max: 100.000
 	prefab: "resource.arcane_actuator"
 	
-	specific_heat: 206.000
-	
 	commodity:
 	{
-		categories: machinery, components, arcane, technology, industrial, military, toys
+		flags: marketable
+		categories: machinery, components, artificial, arcane, technology, tools, luxury, consumer, industrial, military, toys
+		industries_produce: manufacturing, high_tech, arcane, research, engineering, experimental, luxury, jewelry
+		industries_consume: financial, telecommunications, mining, manufacturing, high_tech, metallurgy, chemical, automotive, power, military, entertainment, arcane, construction, logistics, research, education, munitions, engineering, weapons, experimental, aviation, naval, furniture, architecture, luxury, jewelry
+		buildings_produce: factory, manufactory, laboratory, university, essenceworks
+		buildings_consume: warehouse, factory, office, airport, trainyard, power_plant, docks, lighthouse, theatre, constabulary, manufactory, refinery, mine, laboratory, university, school, subway, train_station, black_market, metalworks, phlogiston, circus, essenceworks, steel_mill, transmitter
+		categories_produce: military, imperial, industrial, commercial, urban, governmental, magitech, wealthy, advanced, secure, fortified, innovative, powerful, modern, mechanized
+		categories_consume: military, imperial, industrial, commercial, residential, urban, administrative, governmental, magitech, frontier, wealthy, advanced, developing, secure, fortified, innovative, powerful, modern, mechanized
+		
 		market_price: 120.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 }

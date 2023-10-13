@@ -29,15 +29,22 @@
 	
 	commodity:
 	{
+		flags: marketable
 		categories: wood, construction_materials, fuel, industrial, toys
+		industries_produce: agricultural, low_tech, logging, hunting, colonization
+		industries_consume: mining, manufacturing, chemical, automotive, military, entertainment, construction, logistics, food, fishing, hospitality, slaves, labor, real_estate, railway, engineering, weapons, furniture, architecture, alcohol
+		buildings_produce: labor_camp, lumber_mill, farm
+		buildings_consume: warehouse, factory, trainyard, docks, walls, theatre, mine, borehole, university, school, barracks, train_station, zoo, circus, quarry
+		categories_produce: border, wilderness, overgrown, abandoned, frontier, agricultural, developing, infested, rural, expansive, forested
+		categories_consume: industrial, wasteland, commercial, residential, urban, frontier
 		
 		market_price: 0.779
-		market_price_min: 0.000
-		market_price_max: 0.000
+		market_price_min: 0.400
+		market_price_max: 0.950
 		
-		quantity_consumer: 0.000
-		quantity_commerce: 0.000
-		quantity_industry: 0.000
+		quantity_consumer: 10.000
+		quantity_commerce: 50.000
+		quantity_industry: 1000.000
 	}
 	
 	fuel:

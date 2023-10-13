@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Iron Powder"
 	description:
 		'''
@@ -16,20 +16,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: powder
 	flags: raw, powder, magnetic, granular, metal, despawnable
+	hints: none
+	// kg
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.iron.powder"
 	
-	specific_heat: 206.000
-	thermal_conductivity: 0.079
-	
 	commodity:
 	{
+		flags: marketable
+		categories: metals, raw, minerals, waste, consumer, industrial, toys
+		industries_produce: manufacturing, low_tech, high_tech, metallurgy, chemical, automotive, arcane, construction, logistics, research, munitions, engineering, weapons, experimental, furniture, architecture, jewelry
+		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, kobolds, railway, furniture
+		buildings_produce: factory, trainyard, prison, labor_camp, manufactory, refinery, borehole, laboratory, train_station, farm, arsenal, scrapyard, metalworks
+		buildings_consume: factory, foundry, manufactory, refinery, laboratory, university, school, metalworks, phlogiston
+		categories_produce: industrial, wasteland, commercial, residential, urban, magitech
+		categories_consume: industrial, wasteland
+		
 		market_price: 2.200
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 }

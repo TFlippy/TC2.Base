@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Arcanite Ingot"
 	description:
 		'''
@@ -14,20 +14,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: ingot, magnetic, metal
+	flags: magnetic, metal, ingot
+	hints: none
+	// kg
 	mass_per_unit: 3.303
 	quantity_max: 250.000
 	prefab: "resource.arcanite.ingot"
 	
-	specific_heat: 52.758
-	thermal_conductivity: 0.617
-	
 	commodity:
 	{
+		flags: marketable
+		categories: metals, refined, artificial, arcane, jewelry, luxury, industrial
+		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical, engineering, experimental, luxury, jewelry
+		industries_consume: telecommunications, manufacturing, high_tech, metallurgy, chemical, automotive, power, arcane, construction, research, education, engineering, weapons, experimental, luxury, jewelry
+		buildings_produce: factory, power_plant, foundry, refinery, laboratory, university, metalworks, phlogiston
+		buildings_consume: factory, airport, power_plant, foundry, manufactory, refinery, laboratory, university, school, arsenal, metalworks, phlogiston, bank
+		categories_produce: imperial, industrial, wasteland, commercial, urban, governmental, financial, magitech, wealthy, advanced, developing, innovative
+		categories_consume: military, imperial, industrial, wasteland, commercial, residential, urban, administrative, governmental, financial, magitech, wealthy, advanced, innovative, modern, mechanized
+		
 		market_price: 125.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 }

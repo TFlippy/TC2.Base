@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Scrub's Chow"
 	description:
 		'''
@@ -14,19 +14,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: liquid
 	flags: manufactured, magnetic
+	hints: none
+	// kg
 	mass_per_unit: 0.500
 	quantity_max: 500.000
 	prefab: "resource.chow"
-	molar_mass: 18.015
 	
 	commodity:
 	{
-		categories: food
+		flags: marketable
+		categories: food, consumer
+		industries_produce: agricultural, hunting, food, fishing
+		industries_consume: tourism, hospitality, slaves, labor, kobolds, colonization, exploration, mercenary, medical, penal
+		buildings_produce: factory, minefield, artillery, slum, farm, zoo, circus
+		buildings_consume: office, bunker, hotel, hospital, prison, labor_camp, school, bar, apartments, barracks
+		categories_produce: industrial, wilderness, overgrown, frontier, agricultural
+		categories_consume: military, industrial, wasteland, commercial, residential, penal, urban, frontier
+		
 		market_price: 9.000
+		market_price_min: 4.000
+		market_price_max: 15.000
+		
+		quantity_consumer: 8.000
+		quantity_commerce: 50.000
+		quantity_industry: 400.000
 	}
 }

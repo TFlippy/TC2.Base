@@ -22,21 +22,29 @@
 	type: stone
 	flags: raw, gravel, fuel, granular, mineral
 	hints: none
+	// kg
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.black_coal"
 	
 	commodity:
 	{
+		flags: marketable
 		categories: coal, fuel
+		industries_produce: mining
+		industries_consume: manufacturing, metallurgy, power, hospitality, kobolds
+		buildings_produce: labor_camp, mine, borehole
+		buildings_consume: factory, trainyard, power_plant, docks, foundry, manufactory, refinery, laboratory, metalworks, fuel_depot
+		categories_produce: industrial, wasteland, ruined, frontier, developing, excavated, polluted
+		categories_consume: military, industrial, wilderness, wasteland, commercial, residential, urban, decrepit, frontier, advanced, developing, powerful, expansive, polluted, mechanized
 		
 		market_price: 0.450
-		market_price_min: 0.000
-		market_price_max: 0.000
+		market_price_min: 0.400
+		market_price_max: 0.650
 		
-		quantity_consumer: 0.000
-		quantity_commerce: 0.000
-		quantity_industry: 0.000
+		quantity_consumer: 40.000
+		quantity_commerce: 200.000
+		quantity_industry: 5000.000
 	}
 	
 	fuel:

@@ -31,7 +31,14 @@
 	
 	commodity:
 	{
-		categories: metals, industrial
+		flags: marketable
+		categories: metals, raw, industrial
+		industries_produce: low_tech, metallurgy, scrap
+		industries_consume: telecommunications, mining, manufacturing, low_tech, metallurgy, military, construction, slaves, labor, kobolds, railway, penal
+		buildings_produce: foundry, scrapyard, metalworks
+		buildings_consume: factory, trainyard, walls, prison, labor_camp, foundry, train_station, metalworks, quarry
+		categories_produce: industrial, wasteland, penal, frontier
+		categories_consume: industrial, wasteland, commercial, penal, urban, magitech
 		
 		market_price: 548.000
 		market_price_min: 0.000

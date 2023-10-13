@@ -29,7 +29,7 @@
 	
 	commodity:
 	{
-		categories: chemicals
+		categories: chemicals, medicine, fuel, dangerous, industrial
 		
 		market_price: 0.001
 		market_price_min: 0.000

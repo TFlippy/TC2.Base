@@ -31,15 +31,22 @@
 	
 	commodity:
 	{
-		categories: metals, construction_materials, industrial
+		flags: marketable
+		categories: metals, refined, construction_materials, industrial
+		industries_produce: metallurgy
+		industries_consume: telecommunications, manufacturing, metallurgy, automotive, military, construction, railway, engineering, architecture
+		buildings_produce: foundry, metalworks
+		buildings_consume: warehouse, factory, trainyard, manufactory, subway, train_station, metalworks
+		categories_produce: industrial, urban
+		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech
 		
 		market_price: 980.000
-		market_price_min: 0.000
-		market_price_max: 0.000
+		market_price_min: 780.000
+		market_price_max: 1200.000
 		
 		quantity_consumer: 0.000
-		quantity_commerce: 0.000
-		quantity_industry: 0.000
+		quantity_commerce: 50.000
+		quantity_industry: 400.000
 	}
 	
 	// Properties of the material, see https://periodictable.com/index.html.

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Cement"
 	description:
 		'''
@@ -14,18 +14,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: powder
 	flags: manufactured, granular, despawnable
+	hints: none
+	// kg
 	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.cement"
 	
 	commodity:
 	{
-		categories: construction_materials
+		flags: marketable
+		categories: refined, construction_materials, industrial, military
+		industries_produce: mining, manufacturing, chemical, engineering
+		industries_consume: military, construction, logistics, real_estate, colonization, security, railway, architecture
+		buildings_produce: factory, foundry, refinery, metalworks, quarry
+		buildings_consume: none
+		categories_produce: industrial, wasteland
+		categories_consume: military, border, industrial, wasteland, commercial, residential, penal, criminal, urban, frontier
+		
 		market_price: 0.070
+		market_price_min: 0.040
+		market_price_max: 0.110
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 1500.000
+		quantity_industry: 25000.000
 	}
 }

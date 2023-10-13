@@ -31,7 +31,14 @@
 	
 	commodity:
 	{
-		categories: metals, industrial
+		flags: marketable
+		categories: metals, refined, industrial
+		industries_produce: manufacturing, high_tech, metallurgy
+		industries_consume: manufacturing, high_tech, metallurgy, arcane, construction, engineering, weapons, experimental
+		buildings_produce: foundry, refinery, metalworks
+		buildings_consume: factory, power_plant, foundry, manufactory, refinery, university, metalworks, phlogiston, essenceworks
+		categories_produce: industrial, wasteland, urban, magitech, advanced, innovative, mechanized
+		categories_consume: industrial, wasteland, urban, magitech, wealthy, advanced, innovative, modern, mechanized
 		
 		market_price: 4120.000
 		market_price_min: 0.000

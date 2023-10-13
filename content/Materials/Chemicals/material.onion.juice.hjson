@@ -1,8 +1,8 @@
-{
+﻿{
 	name: "Onion Juice"
 	description:
 		'''
-	 	Mighty juice full of vitamin and goodness.
+			Mighty juice full of vitamins and goodness.
 		'''
 	
 	icon:
@@ -14,19 +14,36 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: liquid
 	flags: manufactured
+	hints: none
+	// kg
 	mass_per_unit: 0.100
 	quantity_max: 100.000
 	prefab: "resource.onion.juice"
-	molar_mass: 0.04607
 	
 	commodity:
 	{
-		categories: beverages, medicine, consumer, toys, cooking
+		flags: marketable
+		categories: beverages, medicine, cooking, consumer, toys
+		industries_produce: agricultural, chemical, food, beverage
+		industries_consume: agricultural, entertainment, tourism, food, hospitality, kobolds, training, research, pharmaceutical, medical, administrative, naval, luxury
+		buildings_produce: factory, slum, farm, brewery
+		buildings_consume: office, hotel, hospital, docks, theatre, constabulary, laboratory, university, apartments, barracks, circus
+		categories_produce: industrial, wilderness, overgrown, agricultural
+		categories_consume: imperial, commercial, residential, criminal, administrative, governmental, financial
+		
 		market_price: 10.000
+		market_price_min: 7.000
+		market_price_max: 18.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
 }

@@ -20,7 +20,7 @@
 	}
 	
 	type: metal
-	flags: ingot, metal
+	flags: metal, ingot
 	hints: none
 	// kg
 	mass_per_unit: 1.150
@@ -29,7 +29,14 @@
 	
 	commodity:
 	{
-		categories: none
+		flags: marketable
+		categories: metals, refined, construction_materials, consumer, industrial
+		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical
+		industries_consume: manufacturing, high_tech, metallurgy, arcane, construction, engineering, weapons, experimental
+		buildings_produce: factory, foundry, refinery, scrapyard, metalworks
+		buildings_consume: factory, power_plant, foundry, manufactory, refinery, university, metalworks, phlogiston, essenceworks
+		categories_produce: industrial, wasteland, urban, magitech, advanced, innovative, mechanized
+		categories_consume: industrial, wasteland, urban, magitech, wealthy, advanced, innovative, modern, mechanized
 		
 		market_price: 35.000
 		market_price_min: 0.000

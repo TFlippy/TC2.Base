@@ -3,7 +3,7 @@
 	description:
 		'''
 		Standard Imperial coins.
-		
+
 		40% Gold, 60% Smirglum.
 		'''
 	
@@ -23,19 +23,30 @@
 	}
 	
 	type: coin
-	flags: manufactured, ingot, granular, metal, currency
+	flags: manufactured, granular, metal, currency, ingot
 	hints: none
-	// mass_per_unit: 0.0078125
+	// kg
 	mass_per_unit: 0.015625
 	quantity_max: 4000.000
 	prefab: "resource.money"
 	
-	specific_heat: 64.500
-	thermal_conductivity: 0.320
-	
 	commodity:
 	{
-		categories: consumer
+		flags: marketable
+		categories: consumer, toys, stocks
+		industries_produce: financial, entertainment, tourism, logistics, hospitality, recruitment, real_estate, retail, wholesale, training, media, administrative, criminal, trading, commerce, luxury, jewelry
+		industries_consume: financial, telecommunications, entertainment, arcane, recruitment, real_estate, research, education, administrative, criminal, trading, literature, propaganda, experimental, commerce, architecture
+		buildings_produce: warehouse, office, hotel, airport, theatre, constabulary, customs, bar, apartments, train_station, exchange, black_market, zoo, circus, market, bank
+		buildings_consume: office, theatre, checkpoint, customs, laboratory, university, school, exchange, black_market, market, bank
+		categories_produce: military, imperial, rebel, commercial, residential, criminal, urban, administrative, governmental, financial, lawless, magitech, wealthy, advanced, developing, secure, innovative, mercantile, powerful, warzone, modern
+		categories_consume: military, imperial, border, industrial, rebel, commercial, residential, criminal, urban, administrative, governmental, lawless, magitech, frontier, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, expansive, mechanized
+		
 		market_price: 1.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 50.000
+		quantity_commerce: 8000.000
+		quantity_industry: 15000.000
 	}
 }
