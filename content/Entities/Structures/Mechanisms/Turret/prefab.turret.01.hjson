@@ -30,7 +30,7 @@ transform:
 
 health:
 {
-	max: 16000.000
+	max: 27000.000
 }
 
 armor:
@@ -147,7 +147,7 @@ vehicle:
 	{
 		offset_a: [0.500, 0.000]
 		max_force: 650000.000
-		max_torque: 200000.000
+		max_torque: 900000.000
 
 		max_stress_modifier: 1.000
 		max_stress: 3.000
@@ -164,8 +164,8 @@ vehicle:
 		error_bias: 0.000
 		max_bias: 10.000
 		axis_force: 400000.000
-		idle_force: 25000.000
-		compress_max_bias: 9.000
+		stiffness: 55000.000
+		damping: 4000.000
 		max_distance: 3.000
 		tolerance: 0.250
 		easing: cubic

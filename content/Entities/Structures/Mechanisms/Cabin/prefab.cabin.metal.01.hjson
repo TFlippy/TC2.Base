@@ -16,12 +16,12 @@ body:
 		[
 			[-0.750, -1.000]
 			[0.750, -1.000]
-			[1.125, 1.500]
-			[-1.125, 1.500]
+			[1.125, 1.625]
+			[-1.125, 1.625]
 		]
 		offset: [0.000, 0.000]
 		radius: 0.500
-		mass: 700.000
+		mass: 900.000
 		friction: 0.750
 		elasticity: 0.450
 		material: metal
@@ -69,7 +69,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "cabin.metal.01.fg"
-		size: [32, 32]
+		size: [40, 40]
 	}
 	z: 100.000
 	// mask: "cabin.metal.mask.02"
@@ -83,7 +83,7 @@ vehicle:
 		sprite:
 		{
 			texture: "cabin.metal.01.bg"
-			size: [32, 32]
+			size: [40, 40]
 		}
 		z: -90.000
 		// mask: "cabin.metal.fg.mask.02"
@@ -155,17 +155,17 @@ threat:
 	}
 }
 
-+slot_mid|instance:
++slot_left|instance:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.750]
+		offset_a: [-0.700, -0.550]
 		max_force: 700000.000
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, control_write, facing_reset_rot, facing_reset_pos, force_facing
-		z: 100.000
+		flags: attachment, allow_dragging, control_read, control_write, force_facing, invert_facing
+		z: -20.000
 		material_type: metal
 
 		@sound.emitter:
@@ -188,33 +188,36 @@ threat:
 		}
 	}
 
-	joint.pivot:
+	joint_piston:
 	{
-		error_bias: 0.010
-		max_bias: 10.000
+		error_bias: 0.000
+		max_bias: 8.000
+		stiffness: 40000.000
+		damping: 1500.000
+		axis_force: 400000.000
+		spring_max_bias: 20.000
+		max_distance: 2.000
+		easing: cubic
+		easing_type: out
+		rotation: 0.000
+		stress_mult_axis: 1.000
 	}
 
-	joint.gear:
+	joint_gear:
 	{
-		error_bias: 0.050
-		max_bias: 4.000
-		step: 3.000
-		min: -3.000
-		max: 3.000
-	}
-
-	facing:
-	{
-		flags: none
-		offset: 0.000
-		threshold: 1.000
-		flip_interval: 0.500
+		min: -0.500
+		max: 2.600
+		step: 10.000
+		error_bias: 0.020
+		max_bias: 5.000
+		max_bias_bounce: 20.000
+		bounce: 20.000
 	}
 	
 	attachment.slot:
 	{
-		name: "Mid"
-		identifier: "mid"
+		name: "Left"
+		identifier: "left"
 
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
@@ -223,46 +226,73 @@ threat:
 	}
 }
 
-+slot_top|instance:
++slot_right|instance:
 {
 	joint.base:
 	{
-		offset_a: [0.000, -1.000]
+		offset_a: [0.700, -0.550]
 		max_force: 700000.000
 		max_torque: 800000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing
-		z: -10.000
+		flags: attachment, allow_dragging, control_read, control_write, force_facing
+		z: -20.000
 		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
 	}
 
-	joint.pivot:
+	joint_piston:
 	{
-		error_bias: 0.010
-		max_bias: 10.000
+		error_bias: 0.000
+		max_bias: 8.000
+		stiffness: 40000.000
+		damping: 1500.000
+		axis_force: 400000.000
+		spring_max_bias: 20.000
+		max_distance: 2.000
+		easing: cubic
+		easing_type: out
+		rotation: 0.000
+		stress_mult_axis: 1.000
 	}
 
-	joint.gear:
+	joint_gear:
 	{
-		error_bias: 0.010
-		max_bias: 4.000
+		min: 0.500
+		max: -2.600
 		step: 10.000
-		min: 0.000
-		max: 0.000
+		error_bias: 0.020
+		max_bias: 5.000
+		max_bias_bounce: 20.000
+		bounce: 20.000
 	}
-
+	
 	attachment.slot:
 	{
-		name: "Top"
-		identifier: "top"
+		name: "Right"
+		identifier: "right"
 
-		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation
+		flags: keyboard_write, mouse_write, invert
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
 
 		gui_size: [0.000, 96.000]
-
-		rotation: 3.141583
-		rank: -10.000
 	}
 }
