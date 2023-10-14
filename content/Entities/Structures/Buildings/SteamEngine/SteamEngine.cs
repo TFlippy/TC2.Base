@@ -185,7 +185,7 @@ namespace TC2.Base.Components
 			if (modifier > 0.30f)
 			{
 				var health_min = MathF.Min(health.integrity, health.durability);
-				var chance = (1.00f - (health_min * 1.50f)) * modifier * 0.15f * steam_engine.burst_chance_modifier;
+				var chance = ((1.00f - (health_min * 1.50f).Clamp01()) * modifier * steam_engine.burst_chance_modifier);
 
 				//App.WriteLine($"boom {chance}");
 				if (health_min <= steam_engine.burst_threshold && random.NextBool(chance))

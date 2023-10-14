@@ -32,7 +32,7 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: consumer, toys, stocks
 		industries_produce: financial, entertainment, tourism, logistics, hospitality, recruitment, real_estate, retail, wholesale, training, media, administrative, criminal, trading, commerce, luxury, jewelry
 		industries_consume: financial, telecommunications, entertainment, arcane, recruitment, real_estate, research, education, administrative, criminal, trading, literature, propaganda, experimental, commerce, architecture
