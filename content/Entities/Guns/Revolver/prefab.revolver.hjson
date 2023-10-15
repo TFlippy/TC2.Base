@@ -82,8 +82,8 @@ holdable:
 	flags: storable
 	hints: gun, small
 
-	force_multiplier: 2.000
-	torque_multiplier: 1.000
+	force_multiplier: 1.200
+	torque_multiplier: 1.050
 }
 
 animated.renderer:

@@ -665,13 +665,13 @@ commandable:
 
 	joint_piston:
 	{
-		error_bias: 0.001
-		max_bias: 1.000
+		error_bias: 0.000
+		max_bias: 3.000
 		stiffness: 2500.000
 		damping: 150.000
-		axis_force: 4000.000
-		spring_max_bias: 1.000
-		max_distance: 0.750
+		axis_force: 8000.000
+		spring_max_bias: 3.000
+		max_distance: 0.400
 		stress_mult_axis: 1.000
 	}
 

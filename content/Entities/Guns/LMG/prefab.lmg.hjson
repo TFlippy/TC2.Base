@@ -34,7 +34,7 @@ gun:
 	velocity_multiplier: 600.000
 	jitter_multiplier: 2.400
 	damage_multiplier: 3.500
-	recoil_multiplier: 1.500
+	recoil_multiplier: 1.200
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	failure_rate: 0.003
@@ -77,14 +77,14 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.480, 0.000]
+	offset: [-0.600, 0.000]
 	offset_attachment: [-0.400, 0.300]
 	radius: 8.000
-	flags: storable
+	flags: storable, full_rotate
 	hints: gun, powerful, heavy
 
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
+	force_multiplier: 1.250
+	torque_multiplier: 1.500
 }
 
 attachment:

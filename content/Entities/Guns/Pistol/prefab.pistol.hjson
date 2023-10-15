@@ -78,13 +78,13 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.400, 0.000]
+	offset: [-0.400, -0.100]
 	radius: 4.000
 	flags: storable
 	hints: gun, weak, small
 
-	force_multiplier: 0.950
-	torque_multiplier: 0.750
+	force_multiplier: 0.900
+	torque_multiplier: 0.500
 }
 
 animated.renderer:

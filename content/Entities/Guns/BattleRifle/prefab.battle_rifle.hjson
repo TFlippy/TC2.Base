@@ -33,7 +33,7 @@ gun:
 	velocity_multiplier: 750.000
 	jitter_multiplier: 1.200
 	damage_multiplier: 4.200
-	recoil_multiplier: 1.300
+	recoil_multiplier: 1.100
 	reload_interval: 2.000
 	cycle_interval: 0.220
 	failure_rate: 0.006
@@ -79,8 +79,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 0.800
-	torque_multiplier: 1.100
+	force_multiplier: 1.450
+	torque_multiplier: 0.900
 }
 
 animated.renderer:
