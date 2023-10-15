@@ -640,7 +640,7 @@ commandable:
 	joint.base:
 	{
 		offset_a: [0.100, -0.050]
-		max_force: 8000.000
+		max_force: 3500.000
 		max_torque: 2000.000
 		max_stress: 2.000
 		stress_threshold: 1.000
@@ -648,10 +648,22 @@ commandable:
 		flags: control_write, facing_reset_pos, force_facing
 	}
 	
-	joint.pivot:
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.0005
+	// 	max_bias: 8.000
+	// }
+
+	joint_piston:
 	{
-		error_bias: 0.0005
-		max_bias: 8.000
+		error_bias: 0.001
+		max_bias: 1.000
+		stiffness: 2500.000
+		damping: 150.000
+		axis_force: 4000.000
+		spring_max_bias: 1.000
+		max_distance: 0.750
+		stress_mult_axis: 1.000
 	}
 
 	joint.gear:
