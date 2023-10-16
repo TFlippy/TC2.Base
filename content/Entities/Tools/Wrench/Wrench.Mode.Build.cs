@@ -35,10 +35,6 @@ namespace TC2.Base.Components
 					////public Control.Data control;
 					//public Transform.Data transform;
 
-					public static float next_place_local;
-
-					public static Vector2? pos_a_raw;
-					public static Vector2? pos_b_raw;
 
 					public static readonly string[] category_names = Enum.GetNames<Build.Category>();
 					public static readonly Build.Category[] category_values = Enum.GetValues<Build.Category>();
@@ -47,12 +43,16 @@ namespace TC2.Base.Components
 					public static Crafting.Recipe.Tags edit_tags_filter = Crafting.Recipe.Tags.Construction;
 					public static List<(uint index, float rank)> recipe_indices = new(64);
 
-					public static Vector2 pos_a_placeholder;
+					[Region.Local] public static Vector2 pos_a_placeholder;
+					[Region.Local] public static float next_place_local;
+
+					[Region.Local] public static Vector2? pos_a_raw;
+					[Region.Local] public static Vector2? pos_b_raw;
 
 					public static bool show_zones;
 					public static bool enable_grid;
 
-					public void Draw(Entity ent_wrench, ref Wrench.Data wrench)
+					public void Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var region = ref Client.GetRegion();
 						ref var player = ref Client.GetPlayer();
@@ -63,7 +63,7 @@ namespace TC2.Base.Components
 						var search_filter = edit_name_filter.ToString();
 						var is_searching = !string.IsNullOrEmpty(search_filter);
 
-						ref var this_transform = ref ent_wrench.GetComponent<Transform.Data>();
+						ref var wrench_transform = ref ent_wrench.GetComponent<Transform.Data>();
 
 						{
 							GUI.DrawWindowBackground(GUI.tex_window_menu, new Vector4(8, 8, 8, 8));
@@ -252,9 +252,9 @@ namespace TC2.Base.Components
 
 						//if (!GUI.IsHovered)
 						{
-							using (var window = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+							using (var window_hud = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
-								if (window.show)
+								if (window_hud.show)
 								{
 									var errors = Build.Errors.None;
 									var skip_support = false;
@@ -382,7 +382,7 @@ namespace TC2.Base.Components
 
 														var scale = new Vector2(1, 1);
 
-														if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < this_transform.position.X)
+														if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < wrench_transform.position.X)
 														{
 															scale.X *= -1.00f;
 														}
@@ -542,16 +542,16 @@ namespace TC2.Base.Components
 													{
 														var construction = recipe.construction.Value;
 
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 
 														GUI.NewLine(6);
 														GUI.Separator();
 
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
 													}
 													else
 													{
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, this_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 													}
 
 													GUI.NewLine();

@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 			}
 
 #if CLIENT
-			public void Draw(Entity ent_wrench, ref Wrench.Data wrench);
+			public void Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench);
 #endif
 		}
 
@@ -72,7 +72,7 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
-			void IMode.Draw(Entity ent_wrench, ref Wrench.Data wrench)
+			void IMode.Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench)
 			{
 				ref var player = ref Client.GetPlayer();
 				ref var region = ref Client.GetRegion();
@@ -301,7 +301,7 @@ namespace TC2.Base.Components
 			}
 
 #if CLIENT
-			void IMode.Draw(Entity ent_wrench, ref Wrench.Data wrench)
+			void IMode.Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench)
 			{
 				//App.WriteLine("test");
 
@@ -700,7 +700,7 @@ namespace TC2.Base.Components
 				{
 					if (window.show)
 					{
-						this.mode.Draw(this.ent_wrench, ref this.wrench);
+						this.mode.Draw(window, this.ent_wrench, ref this.wrench);
 					}
 				}
 			}
