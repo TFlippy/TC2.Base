@@ -43,6 +43,7 @@ holdable:
 {
 	force_multiplier: 1.500
 	torque_multiplier: 1.500
+	stress_multiplier: 0.500
 	offset: [-0.500, 0.625]
 	flags: disable_control, full_rotate
 }

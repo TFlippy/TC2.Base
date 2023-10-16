@@ -73,6 +73,7 @@ holdable:
 	radius: 0.000
 	flags: disable_parent_facing, disable_control
 	force_multiplier: 2.000
+	stress_multiplier: 0.500
 }
 
 transform:

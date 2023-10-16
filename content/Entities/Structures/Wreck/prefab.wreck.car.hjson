@@ -99,4 +99,5 @@ holdable:
 {
 	radius: 0.000
 	flags: disable_parent_facing
+	stress_multiplier: 0.500
 }

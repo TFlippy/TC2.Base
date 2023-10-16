@@ -65,11 +65,6 @@
 					joint.offset_a_modifier = torso.crouch_offset_modifier;
 					joint.offset_b_modifier = torso.crouch_offset_modifier;
 				}
-				else
-				{
-					joint.offset_a_modifier = 1.00f;
-					joint.offset_b_modifier = 1.00f;
-				}
 			}
 		}
 

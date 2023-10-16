@@ -49,6 +49,7 @@ holdable:
 {
 	radius: 0.000
 	force_multiplier: 1.500
+	stress_multiplier: 0.500
 	flags: disable_parent_facing, disable_control
 }
 
@@ -111,6 +112,7 @@ storage:
 		stack_size_multiplier: 8.000
 		type: ammo
 		flags: allow_ducts, ignore_mass, faction
+		filter_flags: ammo
 	}
 }
 

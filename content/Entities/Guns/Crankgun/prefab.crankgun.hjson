@@ -90,6 +90,7 @@ holdable:
 
 	force_multiplier: 1.100
 	torque_multiplier: 1.000
+	stress_multiplier: 0.800
 }
 
 attachment:

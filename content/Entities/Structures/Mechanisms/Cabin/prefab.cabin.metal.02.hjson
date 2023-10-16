@@ -51,6 +51,7 @@ holdable:
 {
 	force_multiplier: 1.500
 	torque_multiplier: 0.800
+	stress_multiplier: 0.500
 	offset: [0.000, 0.000]
 	offset_attachment: [0.000, 0.000]
 	radius: 0.000
