@@ -15,22 +15,27 @@
 		{
 			public float crouch_offset_modifier = 0.50f;
 
-			[Save.Ignore, Net.Ignore] public Vector2 offset = default;
-			[Save.Ignore, Net.Ignore] public float lerp = default;
-
-			public Torso.Flags flags = default;
+			public Torso.Flags flags;
 
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			public uint2 frames_air = default;
+			public uint2 frames_air;
 
-			[Save.Ignore, Net.Ignore] public float air_time = default;
+			[Save.Ignore, Net.Ignore] public Vector2 offset;
+			[Save.Ignore, Net.Ignore] public float lerp;
+			[Save.Ignore, Net.Ignore] public float air_time;
 
 			public Data()
 			{
 
 			}
+		}
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Arm.Data>(Source.Modifier.Owned, true)]
+		public static void UpdateArmDrag(ISystem.Info info, [Source.Shared] in Torso.Data torso, [Source.Owned, Override] ref Drag.Data drag_override)
+		{
+			drag_override.max_force *= Maths.Lerp01(1.00f, 0.00f, (torso.air_time * 0.50f) - 1.00f);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
