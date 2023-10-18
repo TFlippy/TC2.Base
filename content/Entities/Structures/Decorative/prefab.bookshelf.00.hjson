@@ -1,0 +1,70 @@
+$name: "Bookshelf"
+$desc: "TODO: Desc"
+$tags: []
+
+body:
+{
+	type: dynamic
+	buoyancy: 0.100
+	
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-1.250, -0.500]
+			[1.250, 0.000]
+			[1.250, 0.500]
+			[-1.250, 0.500]
+		]
+		offset: [0.000, 0.000]
+		mass: 250.000
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.400
+		material: metal
+		layer: entity, building
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "bookshelf.00"
+	}
+	offset: [0.000, -0.250]
+	z: -90.000
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+	stress_multiplier: 0.500
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 100.000
+		}
+		{
+			material: "cloth"
+			quantity: 30.000
+		}
+	]
+}

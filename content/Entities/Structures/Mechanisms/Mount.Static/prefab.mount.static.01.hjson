@@ -133,8 +133,8 @@ controllable:
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_write, mouse_write, offset, rotation
+		flags: keyboard_read, mouse_read
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_write, mouse_write, keyboard_read, mouse_read, offset, rotation
 		name: "Mount"
 		identifier: "mount"
 		gui_size: [210.000, 120.000]

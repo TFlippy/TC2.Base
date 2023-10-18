@@ -1,13 +1,13 @@
 ﻿{
-	name: "Scrap Metal"
+	name: "Machine Scrap"
 	description:
 		'''
-		A pile of assorted garbage.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "resource.scrap"
+		texture: "resource.scrap.machine"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -25,7 +25,7 @@
 	// kg
 	mass_per_unit: 0.300
 	quantity_max: 500.000
-	prefab: "resource.scrap"
+	prefab: "resource.scrap.machine"
 	
 	commodity:
 	{

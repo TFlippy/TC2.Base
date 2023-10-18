@@ -62,13 +62,13 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 40.000
+			material: "steel.plate"
+			amount: 60.000
 		}
 		{
 			type: resource
-			material: "copper.plate"
-			amount: 85.000
+			material: "copper.ingot"
+			amount: 15.000
 		}
 		{
 			type: resource
@@ -78,7 +78,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 75.000
+			amount: 110.000
 		}
 	]
 	

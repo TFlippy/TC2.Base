@@ -76,7 +76,7 @@
 	[
 		{
 			type: prefab
-			prefab: "furnace.01"
+			prefab: "furnace.00"
 			amount: 1.000
 		}
 	]

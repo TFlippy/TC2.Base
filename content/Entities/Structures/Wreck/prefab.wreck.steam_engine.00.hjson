@@ -48,16 +48,24 @@ harvestable:
 	resources:
 	[
 		{
+			type: resource
 			material: "scrap"
 			quantity: 700.000
 		}
 		{
-			material: "steel.plate"
-			quantity: 40.000
-		}
-		{
+			type: resource
 			material: "machine_parts"
 			quantity: 20.000
 		}
+		{
+			type: resource
+			material: "steel.ingot"
+			quantity: 57.000
+		}
+		{
+			type: resource
+			material: "copper.plate"
+			amount: 110.000
+		}	
 	]
 }

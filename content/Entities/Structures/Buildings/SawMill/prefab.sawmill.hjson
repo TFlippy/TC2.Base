@@ -22,7 +22,7 @@ body:
 		mass: 5000.000
 		friction: 0.500
 		elasticity: 0.500
-		material: wood
+		material: concrete
 		layer: entity, building, support, ignore_melee, storage, flammable
 		mask: world
 	}
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 15000.000
+	max: 21000.000
 }
 
 interactable:

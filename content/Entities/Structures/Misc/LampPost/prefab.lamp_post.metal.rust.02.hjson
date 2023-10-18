@@ -23,7 +23,7 @@ body:
 
 health:
 {
-	max: 4000.000
+	max: 4500.000
 }
 
 animated.renderer:
@@ -48,7 +48,7 @@ lamp:
 	{
 		color: [1.000, 0.750, 0.100, 1.500]
 		offset: [0.875, -1.875]
-		scale: [96.000, 96.000]
+		scale: [128.000, 128.000]
 		intensity: 1.000
 		texture: "light.circle.00"
 	}
@@ -63,8 +63,8 @@ harvestable:
 			quantity: 100.000
 		}
 		{
-			material: "steel.ingot"
-			quantity: 15.000
+			material: "steel.billet"
+			quantity: 1.000
 		}
 		{
 			material: "limelight"

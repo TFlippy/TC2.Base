@@ -64,23 +64,23 @@
 	[
 		{
 			type: resource
-			material: "steel.plate"
-			amount: 25.000
-		}
-		{
-			type: resource
 			material: "machine_parts"
 			amount: 18.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 22.000
+			amount: 24.000
 		}
 		{
 			type: resource
-			material: "copper.ingot"
-			amount: 5.000
+			material: "copper.plate"
+			amount: 20.000
+		}
+		{
+			type: resource
+			material: "stone"
+			amount: 100.000
 		}
 	]
 	

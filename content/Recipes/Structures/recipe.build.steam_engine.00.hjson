@@ -73,7 +73,7 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 50.000
+			amount: 80.000
 		}
 		{
 			type: resource

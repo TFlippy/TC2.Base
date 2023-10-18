@@ -38,11 +38,11 @@ resource:
 
 holdable:
 {
-	force_multiplier: 1.500
-	torque_multiplier: 3.000
-	radius: 8.000
+	force_multiplier: 4.000
+	torque_multiplier: 2.000
+	radius: 0.000
 	offset: [0.000, 0.450]
-	flags: none
+	flags: disable_parent_facing
 }
 
 norotate:

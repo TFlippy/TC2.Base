@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 600.000
+	max: 800.000
 }
 
 animated.renderer:

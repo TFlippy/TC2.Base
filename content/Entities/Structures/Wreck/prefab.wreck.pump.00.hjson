@@ -51,6 +51,10 @@ harvestable:
 			quantity: 250.000
 		}
 		{
+			material: "steel.ingot"
+			quantity: 10.000
+		}
+		{
 			material: "machine_parts"
 			quantity: 10.000
 		}

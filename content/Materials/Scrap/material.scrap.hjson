@@ -1,0 +1,49 @@
+﻿{
+	name: "Mixed Scrap"
+	description:
+		'''
+		Unsorted pile of assorted garbage.
+		'''
+	
+	icon:
+	{
+		texture: "resource.scrap"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: raw, manufactured, magnetic, granular, despawnable
+	hints: none
+	// kg
+	mass_per_unit: 0.560
+	quantity_max: 500.000
+	prefab: "resource.scrap"
+	
+	commodity:
+	{
+		flags: marketable
+		categories: metals, scrap, construction_materials, waste, industrial, toys
+		industries_produce: mining, manufacturing, low_tech, high_tech, scrap, chemical, automotive, military, entertainment, arcane, construction, tourism, logistics, hospitality, slaves, labor, kobolds, exploration, munitions, railway, administrative, criminal, engineering, weapons, experimental, aviation, naval, furniture, architecture
+		industries_consume: low_tech, metallurgy, slaves, kobolds, colonization, criminal
+		buildings_produce: warehouse, factory, office, airport, trainyard, minefield, artillery, docks, walls, prison, labor_camp, theatre, manufactory, refinery, customs, laboratory, university, school, barracks, train_station, arsenal, scrapyard, landfill, black_market, zoo, circus
+		buildings_consume: labor_camp, foundry, refinery, slum, metalworks
+		categories_produce: military, industrial, wasteland, penal, criminal, urban, abandoned, ruined, decrepit, lawless, frontier
+		categories_consume: industrial, wasteland, urban, decrepit, lawless
+		
+		market_price: 0.100
+		market_price_min: 0.020
+		market_price_max: 0.180
+		
+		quantity_consumer: 50.000
+		quantity_commerce: 500.000
+		quantity_industry: 8000.000
+	}
+}

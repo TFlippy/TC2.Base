@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 60.000
+			quantity: 100.000
 		}
 	]
 }

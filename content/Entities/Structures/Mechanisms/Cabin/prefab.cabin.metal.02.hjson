@@ -49,7 +49,7 @@ armor:
 
 holdable:
 {
-	force_multiplier: 1.500
+	force_multiplier: 7.500
 	torque_multiplier: 0.800
 	stress_multiplier: 0.500
 	offset: [0.000, 0.000]
@@ -170,7 +170,7 @@ mount:
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: no_wrap, attachment, control_write, facing_reset_pos, force_facing
+		flags: attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		z: 80.000
 		material_type: metal
 
@@ -194,17 +194,31 @@ mount:
 		}
 	}
 
-	joint.pivot:
+	joint.piston:
 	{
-		error_bias: 0.01
-		max_bias: 10.000
+		error_bias: 0.000
+		max_bias: 8.000
+		stiffness: 15000.000
+		damping: 4500.000
+		axis_force: 800000.000
+		spring_max_bias: 4.000
+		max_distance: 3.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
 	}
+
+
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.01
+	// 	max_bias: 10.000
+	// }
 
 	joint.gear:
 	{
 		error_bias: 0.050
-		max_bias: 4.000
-		step: 3.000
+		max_bias: 2.000
+		step: 8.000
 		min: -2.000
 		max: 0.500
 	}

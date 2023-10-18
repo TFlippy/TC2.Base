@@ -47,8 +47,8 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 7.000
+			material: "steel.billet"
+			amount: 1.000
 		}
 		{
 			type: resource
