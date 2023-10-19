@@ -1,0 +1,69 @@
+﻿{
+	name: "Dismantle Limelight"
+	desc:
+		'''
+		Scrap a limelight for parts.
+		'''
+	
+	icon:
+	{
+		texture: "resource.limelight"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_crafting.mini"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xff769d49"
+	icon_extra_offset: [0.000, -6.000]
+	
+	min: 5
+	max: 50
+	step: 5
+	
+	type: workshop
+	flags: none
+	tags: workbench, scrapyard, manufactory
+	rank: -348.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "limelight"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: scavenging
+			amount: 47.000
+			difficulty: 4
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "lime"
+			amount: 0.350
+			amount_extra: 0.550
+		}
+		{
+			type: resource
+			material: "recondite.ingot"
+			amount: 0.060
+			amount_extra: 0.025
+		}
+		{
+			type: resource
+			material: "pellet.heat"
+			amount: 0.200
+		}
+	]
+}

@@ -1,0 +1,72 @@
+﻿{
+	name: "Hornet-Based Glass"
+	desc:
+		'''
+		Low-temperature glass substitute discovered in 701 S.D by
+		young D.Szarvas while playing with a magnifying glass and an expired hornet.
+		'''
+	
+	icon:
+	{
+		texture: "resource.glass"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffffba45"
+	icon_extra_offset: [-2.000, -6.000]
+	
+	min: 5
+	max: 25
+	step: 5
+	
+	type: crafter
+	flags: none
+	tags: kiln
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 440.000
+		}
+		{
+			type: resource
+			material: "resin"
+			amount: 4.250
+		}
+		{
+			type: resource
+			material: "chitin"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "mushroom.blue"
+			amount: 0.100
+		}
+		{
+			type: work
+			work: heating
+			amount: 35.000
+			difficulty: 7
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "glass"
+			amount: 1.150
+			amount_extra: 0.250
+		}
+		{
+			type: resource
+			material: "red_sugar"
+			amount: 0.013
+			amount_extra: 0.210
+		}
+	]
+}

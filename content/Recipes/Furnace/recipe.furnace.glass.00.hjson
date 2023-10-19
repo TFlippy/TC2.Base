@@ -1,0 +1,61 @@
+﻿{
+	name: "Glass"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.glass"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffffba45"
+	icon_extra_offset: [-2.000, -6.000]
+	
+	min: 200
+	max: 1000
+	step: 200
+	
+	type: crafter
+	flags: none
+	tags: furnace
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1986.000
+		}
+		{
+			type: resource
+			material: "sand"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: melting
+			amount: 30.000
+			difficulty: 9
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "glass"
+			amount: 0.650
+			amount_extra: 0.100
+		}
+		{
+			type: resource
+			material: "slag"
+			amount: 0.020
+			amount_extra: 0.070
+		}
+	]
+}

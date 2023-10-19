@@ -1,13 +1,13 @@
 ﻿{
-	name: "Dismantle Limelight"
+	name: "Dismantle Arcane Actuators"
 	desc:
 		'''
-		Scrap a limelight for parts.
+		Scrap arcane actuators for parts.
 		'''
 	
 	icon:
 	{
-		texture: "resource.limelight"
+		texture: "resource.arcane_actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,26 +23,26 @@
 	icon_extra_offset: [0.000, -6.000]
 	
 	min: 5
-	max: 50
+	max: 100
 	step: 5
 	
 	type: workshop
 	flags: none
-	tags: forge, workbench, manufactory
-	rank: -348.000
+	tags: manufactory, scrapyard
+	rank: -349.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "limelight"
+			material: "arcane_actuator"
 			amount: 1.000
 		}
 		{
 			type: work
 			work: scavenging
-			amount: 47.000
-			difficulty: 4
+			amount: 45.000
+			difficulty: 12
 		}
 	]
 	
@@ -50,21 +50,25 @@
 	[
 		{
 			type: resource
-			material: "lime"
-			amount: 0.350
-			amount_extra: 0.550
+			material: "pellet.motion"
+			amount: 0.400
 		}
 		{
 			type: resource
-			material: "recondite.ingot"
-			amount: 0.060
-			amount_extra: 0.025
-		}
-		{
-			type: resource
-			material: "pellet.heat"
+			material: "smirglum.ingot"
 			amount: 0.200
-			amount_extra: 0.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 0.200
+			amount_extra: 0.400
+		}
+		{
+			type: resource
+			material: "scrap"
+			amount: 1.100
+			amount_extra: 0.500
 		}
 	]
 }

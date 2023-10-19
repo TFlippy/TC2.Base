@@ -1,6 +1,9 @@
-{
+﻿{
 	name: "Salvage Scrap (Crude)"
-	desc: "Recover ingots and plates from scrap."
+	desc:
+		'''
+		Recover ingots and plates from scrap.
+		'''
 	
 	icon:
 	{
@@ -8,7 +11,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_crafting.mini"
@@ -22,46 +25,49 @@
 	min: 50
 	max: 500
 	step: 50
+	
 	type: workshop
-	tags: workbench, forge
+	flags: none
+	tags: forge, workbench, scrapyard
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "scrap"
 			amount: 1.000
 		}
 		{
-			type: "work"
-			work: "scavenging"
+			type: work
+			work: scavenging
 			amount: 3.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.030
 			amount_extra: 0.095
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.plate"
 			amount: 0.020
 			amount_extra: 0.175
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.007
 			amount_extra: 0.040
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "scrap"
 			amount: 0.100
 			amount_extra: 0.250

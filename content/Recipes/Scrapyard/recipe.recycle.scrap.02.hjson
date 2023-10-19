@@ -1,13 +1,13 @@
 ﻿{
-	name: "Dismantle Computer"
+	name: "Salvage Scrap (Crude)"
 	desc:
 		'''
-		Scrap a computer for parts.
+		Recover ingots and plates from scrap.
 		'''
 	
 	icon:
 	{
-		texture: "resource.computer"
+		texture: "resource.scrap"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -22,27 +22,27 @@
 	color_button: "0xff769d49"
 	icon_extra_offset: [0.000, -6.000]
 	
-	min: 1
-	max: 50
-	step: 1
+	min: 50
+	max: 500
+	step: 50
 	
 	type: workshop
 	flags: none
-	tags: forge, workbench, manufactory
-	rank: -347.000
+	tags: forge, workbench, scrapyard
+	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "computer"
+			material: "scrap"
 			amount: 1.000
 		}
 		{
 			type: work
 			work: scavenging
-			amount: 345.000
-			difficulty: 14
+			amount: 3.000
+			difficulty: 6
 		}
 	]
 	
@@ -50,27 +50,27 @@
 	[
 		{
 			type: resource
+			material: "steel.ingot"
+			amount: 0.030
+			amount_extra: 0.095
+		}
+		{
+			type: resource
 			material: "steel.plate"
-			amount: 16.000
-			amount_extra: 4.000
+			amount: 0.020
+			amount_extra: 0.175
 		}
 		{
 			type: resource
-			material: "machine_parts"
-			amount: 31.000
-			amount_extra: 19.000
-		}
-		{
-			type: resource
-			material: "arcane_actuator"
-			amount: 8.000
-			amount_extra: 2.000
+			material: "copper.ingot"
+			amount: 0.007
+			amount_extra: 0.040
 		}
 		{
 			type: resource
 			material: "scrap"
-			amount: 75.000
-			amount_extra: 25.000
+			amount: 0.100
+			amount_extra: 0.250
 		}
 	]
 }
