@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Storage"
 	desc:
 		'''
@@ -8,8 +8,11 @@
 	icon:
 	{
 		texture: "storage"
-		size: [48, 32]
+		size: [48, 40]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -69,15 +72,15 @@
 		}
 		{
 			type: work
-			work: "carpentry"
+			work: carpentry
 			amount: 400.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 		{
 			type: work
-			work: "masonry"
+			work: masonry
 			amount: 600.000
-			difficulty: 3.000
+			difficulty: 3
 		}
 	]
 	
@@ -87,7 +90,6 @@
 			type: prefab
 			prefab: "storage"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

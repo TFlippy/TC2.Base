@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Headquarters"
 	desc:
 		'''
@@ -9,8 +9,11 @@
 	icon:
 	{
 		texture: "headquarters"
-		size: [56, 40]
+		size: [56, 48]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -19,6 +22,7 @@
 	type: build
 	flags: none
 	tags: buildings
+	rank: 0.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.800
@@ -73,7 +77,8 @@
 			amount: 8.000
 		}
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 100.000
 		}
 	]
@@ -84,7 +89,6 @@
 			type: prefab
 			prefab: "headquarters"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

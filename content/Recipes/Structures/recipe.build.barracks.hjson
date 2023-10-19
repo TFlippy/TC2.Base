@@ -8,7 +8,7 @@
 	icon:
 	{
 		texture: "barracks.00"
-		size: [48, 32]
+		size: [48, 40]
 		frame: [0, 0]
 	}
 	
@@ -84,7 +84,6 @@
 			type: prefab
 			prefab: "barracks.00"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
