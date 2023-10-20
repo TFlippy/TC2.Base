@@ -126,9 +126,8 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Backpack"
 		stack_size_multiplier: 1.000
-		type: storage
+		type: personal
 	}
 }
 
@@ -728,5 +727,45 @@ commandable:
 	toolbelt:
 	{
 	
+	}
+}
+
++back|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.500, -0.500]
+		max_force: 18000.000
+		max_torque: 11000.000
+		flags: no_aiming, attachment, use_center_of_gravity, control_read, facing_reset_pos, force_facing
+		material_type: leather
+		max_stress: 2.000
+		stress_threshold: 2.010
+		z: -300.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.020
+		max_bias: 12.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 4.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Back"
+		identifier: "back"
+
+		flags: none
+		flags_editable: locked, disabled
+
+		gui_size: [192.000, 160.000]
 	}
 }

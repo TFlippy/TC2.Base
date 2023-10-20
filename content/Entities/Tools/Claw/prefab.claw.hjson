@@ -44,7 +44,6 @@ animated.renderer:
 	sprite:
 	{
 		texture: "claw"
-		count: 2
 		size: [24, 24]
 	}
 	z: -100.000
