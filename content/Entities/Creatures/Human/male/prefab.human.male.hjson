@@ -70,8 +70,8 @@ animated.renderer:
 
 faction.colorable:
 {
-	intensity_a: 0.500
-	intensity_b: 0.500
+	intensity_a: 0.700
+	intensity_b: 0.700
 }
 
 threat:
