@@ -66,17 +66,17 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 25.000
+			amount: 75.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 15.000
+			amount: 25.000
 		}
 		{
 			type: resource
 			material: "cement"
-			amount: 270.000
+			amount: 950.000
 		}
 	]
 	
@@ -86,7 +86,6 @@
 			type: prefab
 			prefab: "mount.heavy"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

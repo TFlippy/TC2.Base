@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Bobnium Ingot"
 	description:
 		'''
@@ -14,15 +14,18 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: ingot, metal
-	mass_per_unit: 2.100
-	quantity_max: 50.000
+	flags: metal, ingot
+	hints: none
+	// kg
+	mass_per_unit: 8.400
+	quantity_max: 64.000
 	prefab: "resource.bobnium.ingot"
 	
-	specific_heat: 125.000
-	thermal_conductivity: 0.200
+	scrap: []
 }

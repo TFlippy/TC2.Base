@@ -32,7 +32,7 @@
 		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
 		
 		size: [1.000, 7.000]
-		offset: [-1.000, -2.000]
+		offset: [1.000, -2.500]
 		
 		cooldown: 0.500
 		min_clearance: 0.850
@@ -68,7 +68,6 @@
 			type: prefab
 			prefab: "lamp_post.metal.02"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

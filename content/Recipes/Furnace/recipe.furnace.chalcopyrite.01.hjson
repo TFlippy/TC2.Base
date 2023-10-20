@@ -1,9 +1,6 @@
 ﻿{
 	name: "Chalcopyrite Copper Extraction"
-	desc: 
-		'''
-		
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -18,17 +15,16 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xfff34a29"
+	
+	color_button: "0xffffba45"
+	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 50
 	max: 200
 	step: 50
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	rank: -170.000
 	
@@ -52,7 +48,7 @@
 			type: work
 			work: melting
 			amount: 45.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
@@ -69,14 +65,12 @@
 			material: "sulfur"
 			amount: 0.045
 			amount_extra: 0.400
-			flags: byproduct
 		}
 		{
 			type: resource
 			material: "slag"
 			amount: 0.615
 			amount_extra: 0.120
-			flags: waste
 		}
 	]
 }

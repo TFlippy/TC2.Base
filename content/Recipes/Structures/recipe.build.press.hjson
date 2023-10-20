@@ -63,17 +63,17 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 100.000
+			amount: 140.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 20.000
+			amount: 25.000
 		}
 		{
 			type: resource
-			material: "stone"
-			amount: 110.000
+			material: "cement"
+			amount: 270.000
 		}
 	]
 	

@@ -19,10 +19,10 @@ body:
 			[-0.000, -1.250]
 		]
 		offset: [0.000, 0.000]
-		mass: 4000.000
-		friction: 500.000
-		elasticity: 0.000
-		material: metal
+		mass: 1300.000
+		friction: 0.500
+		elasticity: 0.500
+		material: concrete
 		layer: entity, solid, building, ignore_melee
 		mask: world
 	}
@@ -32,8 +32,8 @@ body:
 		radius: 1.250
 		offset: [0.000, 0.000]
 		mass: 100.000
-		friction: 500.000
-		elasticity: 0.000
+		friction: 0.500
+		elasticity: 0.500
 		material: metal
 		layer: entity, building, ignore_melee
 		mask: world
@@ -47,12 +47,12 @@ control:
 
 health:
 {
-	max: 70000.000
+	max: 110000.000
 }
 
 armor:
 {
-	toughness: 500.000
+	toughness: 800.000
 	protection: 0.700
 	
 	knockback_modifier: 1.300

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Magnetite Decomposition"
 	desc: ""
 	
@@ -16,8 +16,8 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xfff34a29"
 	icon_extra_offset: [-4.000, -6.000]
-	color_button: "0xffffba45"
 	
 	min: 100
 	max: 1000
@@ -26,6 +26,7 @@
 	type: crafter
 	flags: none
 	tags: furnace, kiln
+	rank: 0.000
 	
 	requirements:
 	[
@@ -45,9 +46,9 @@
 		}
 		{
 			type: work
-			work: "heating"
+			work: heating
 			amount: 15.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	

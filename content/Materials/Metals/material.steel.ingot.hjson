@@ -49,6 +49,16 @@
 		quantity_industry: 0.000
 	}
 	
+	scrap:
+	[
+		{
+			type: resource
+			material: "scrap.ferrous"
+			amount: 1.000
+			amount_extra: 2.120
+		}
+	]
+	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{

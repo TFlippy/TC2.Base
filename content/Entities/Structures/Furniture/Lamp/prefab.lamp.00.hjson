@@ -9,7 +9,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 4.000
+		mass: 8.700
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 800.000
+	max: 950.000
 }
 
 animated.renderer:

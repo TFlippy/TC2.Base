@@ -8,6 +8,7 @@ body:
 	{
 		size: [5.000, 5.000]
 		offset: [0.000, 0.000]
+		mass: 52.000
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
@@ -18,7 +19,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 6500.000
 }
 
 animated.renderer:

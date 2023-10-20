@@ -23,7 +23,7 @@
 	flags: manufactured, granular, despawnable
 	hints: none
 	// kg
-	mass_per_unit: 0.200
+	mass_per_unit: 1.200
 	quantity_max: 500.000
 	prefab: "resource.cement"
 	
@@ -46,4 +46,6 @@
 		quantity_commerce: 1500.000
 		quantity_industry: 25000.000
 	}
+	
+	scrap: []
 }

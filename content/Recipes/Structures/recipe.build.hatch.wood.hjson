@@ -48,7 +48,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 12.000
+			amount: 48.000
 		}
 	]
 	
@@ -58,7 +58,6 @@
 			type: prefab
 			prefab: "hatch.wood"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

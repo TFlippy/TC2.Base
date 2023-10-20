@@ -20,16 +20,23 @@
 	}
 	
 	type: metal
-	flags: ingot, metal
+	flags: metal, ingot
 	hints: none
 	// kg
-	mass_per_unit: 1.330
-	quantity_max: 250.000
+	mass_per_unit: 5.320
+	quantity_max: 64.000
 	prefab: "resource.silver.ingot"
 	
 	commodity:
 	{
+		flags: none
 		categories: none
+		industries_produce: none
+		industries_consume: none
+		buildings_produce: none
+		buildings_consume: none
+		categories_produce: none
+		categories_consume: none
 		
 		market_price: 100.000
 		market_price_min: 0.000
@@ -39,6 +46,8 @@
 		quantity_commerce: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

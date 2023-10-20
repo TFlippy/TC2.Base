@@ -19,7 +19,7 @@
 		frame: [3, 0]
 	}
 	
-	color_button: "0xffd4e5c3"
+	color_button: "0xff57e5b6"
 	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 5
@@ -61,7 +61,6 @@
 			type: resource
 			material: "steel.ingot"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

@@ -68,7 +68,7 @@
 		{
 			type: resource
 			material: "copper.ingot"
-			amount: 15.000
+			amount: 25.000
 		}
 		{
 			type: resource
@@ -78,7 +78,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 110.000
+			amount: 200.000
 		}
 	]
 	

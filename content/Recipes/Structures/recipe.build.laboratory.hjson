@@ -63,12 +63,17 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 110.000
+			amount: 750.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 80.000
+			amount: 350.000
+		}
+		{
+			type: resource
+			material: "paper"
+			amount: 50.000
 		}
 	]
 	

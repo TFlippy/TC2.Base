@@ -64,17 +64,17 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 150.000
+			amount: 775.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 215.000
+			amount: 400.000
 		}
 		{
 			type: resource
 			material: "cloth"
-			amount: 8.000
+			amount: 15.000
 		}
 		{
 			type: resource

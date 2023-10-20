@@ -25,28 +25,28 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.500
+			amount: 0.080
 		}
 		{
 			type: resource
 			material: "wood"
-			amount: 0.600
+			amount: 0.125
 		}
 		{
 			type: resource
 			material: "cloth"
-			amount: 0.250
+			amount: 0.040
 		}
 		{
 			type: work
 			work: "woodworking"
-			amount: 10.000
+			amount: 6.000
 			difficulty: 4.000
 		}
 		{
 			type: work
 			work: "assembling"
-			amount: 15.000
+			amount: 12.000
 			difficulty: 2.000
 		}
 	]

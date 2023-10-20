@@ -20,16 +20,23 @@
 	}
 	
 	type: metal
-	flags: ingot, magnetic, metal
+	flags: magnetic, metal, ingot
 	hints: none
 	// kg
-	mass_per_unit: 3.800
-	quantity_max: 250.000
+	mass_per_unit: 15.200
+	quantity_max: 64.000
 	prefab: "resource.smirglum.ingot"
 	
 	commodity:
 	{
+		flags: none
 		categories: none
+		industries_produce: none
+		industries_consume: none
+		buildings_produce: none
+		buildings_consume: none
+		categories_produce: none
+		categories_consume: none
 		
 		market_price: 40.000
 		market_price_min: 0.000
@@ -39,6 +46,8 @@
 		quantity_commerce: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

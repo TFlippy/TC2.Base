@@ -23,8 +23,8 @@
 	flags: manufactured, metal
 	hints: none
 	// kg
-	mass_per_unit: 0.2875
-	quantity_max: 100.000
+	mass_per_unit: 1.148
+	quantity_max: 256.000
 	prefab: "resource.copper.plate"
 	
 	commodity:
@@ -46,4 +46,6 @@
 		quantity_commerce: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

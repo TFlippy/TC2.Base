@@ -19,6 +19,7 @@ body:
 			[-1.250, 2.875]
 		]
 		offset: [0.000, 0.000]
+		mass: 600.000
 		friction: 0.500
 		elasticity: 0.500
 		material: stone
@@ -29,7 +30,7 @@ body:
 
 health:
 {
-	max: 23000.000
+	max: 50000.000
 }
 
 animated.renderer:

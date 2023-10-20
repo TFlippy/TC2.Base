@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Smelt Iron (Ore)"
 	desc:
 		'''
@@ -21,8 +21,8 @@
 		frame: [2, 0]
 	}
 	
+	color_button: "0xffffba45"
 	icon_extra_offset: [-4.000, -6.000]
-	color_button: "0xfff34a29"
 	
 	min: 250
 	max: 2000
@@ -46,9 +46,9 @@
 		}
 		{
 			type: work
-			work: "melting"
+			work: melting
 			amount: 24.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	

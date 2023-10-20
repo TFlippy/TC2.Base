@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Arcanite Plate"
 	description:
 		'''
@@ -14,21 +14,38 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: metal
 	flags: manufactured, magnetic, metal
-	mass_per_unit: 0.826
-	quantity_max: 100.000
+	hints: none
+	// kg
+	mass_per_unit: 3.304
+	quantity_max: 256.000
 	prefab: "resource.arcanite.plate"
-	
-	specific_heat: 52.758
-	thermal_conductivity: 0.617
 	
 	commodity:
 	{
+		flags: none
 		categories: metals, components, construction_materials, industrial
+		industries_produce: none
+		industries_consume: none
+		buildings_produce: none
+		buildings_consume: none
+		categories_produce: none
+		categories_consume: none
+		
 		market_price: 48.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_consumer: 0.000
+		quantity_commerce: 0.000
+		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

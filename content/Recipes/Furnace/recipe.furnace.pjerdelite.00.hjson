@@ -1,9 +1,6 @@
-{
+﻿{
 	name: "Pjerdelite Decomposition"
-	desc: 
-		'''
-		
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -18,18 +15,18 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-2, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xffffba45"
+	
+	color_button: "0xfff34a29"
+	icon_extra_offset: [-2.000, -6.000]
 	
 	min: 100
 	max: 1000
 	step: 100
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
+	rank: 0.000
 	
 	requirements:
 	[
@@ -51,7 +48,7 @@
 			type: work
 			work: heating
 			amount: 20.000
-			difficulty: 11.000
+			difficulty: 11
 		}
 	]
 	
@@ -68,14 +65,12 @@
 			material: "cement"
 			amount: 2.058
 			amount_extra: 1.470
-			flags: byproduct
 		}
 		{
 			type: resource
 			material: "slag"
 			amount: 0.542
 			amount_extra: 0.770
-			flags: byproduct
 		}
 	]
 }

@@ -1,9 +1,6 @@
-{
+﻿{
 	name: "Pjerdelite Iron"
-	desc: 
-		'''
-		
-		'''
+	desc: ""
 	
 	icon:
 	{
@@ -18,17 +15,16 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-4, -6]
-	icon_extra_scale: 1.000
-	color_button: "0xfff34a29"
+	
+	color_button: "0xff769d49"
+	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 250
 	max: 2000
 	step: 250
 	
-	flags: none
 	type: crafter
+	flags: none
 	tags: furnace
 	rank: -150.000
 	
@@ -52,7 +48,7 @@
 			type: work
 			work: melting
 			amount: 25.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
@@ -69,14 +65,12 @@
 			material: "smirglum.ore"
 			amount: 0.245
 			amount_extra: 0.200
-			flags: byproduct
 		}
 		{
 			type: resource
 			material: "slag.rich"
 			amount: 0.315
 			amount_extra: 0.220
-			flags: waste
 		}
 	]
 }

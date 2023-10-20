@@ -63,12 +63,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 50.000
+			amount: 150.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 215.000
+			amount: 500.000
 		}
 		{
 			type: work

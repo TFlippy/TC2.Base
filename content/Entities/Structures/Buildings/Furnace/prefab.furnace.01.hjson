@@ -19,9 +19,10 @@ body:
 			[-2.000, 4.000]
 		]
 		offset: [0.000, 0.000]
+		mass: 4500.000
 		friction: 0.500
 		elasticity: 0.500
-		material: stone
+		material: concrete
 		layer: entity, building, storage, support, ignore_melee
 		mask: world
 	}
@@ -29,7 +30,7 @@ body:
 
 health:
 {
-	max: 70000.000
+	max: 350000.000
 }
 
 animated.renderer:

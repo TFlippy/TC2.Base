@@ -13,7 +13,7 @@ body:
 	{
 		size: [7.000, 5.000]
 		offset: [0.000, 0.000]
-		mass: 5000.000
+		mass: 900.000
 		friction: 0.500
 		elasticity: 0.500
 		material: stone

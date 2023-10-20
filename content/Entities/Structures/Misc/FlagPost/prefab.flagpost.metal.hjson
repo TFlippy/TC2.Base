@@ -14,7 +14,7 @@ body:
 		a: [0.000, -5.000]
 		b: [0.000, 5.000]
 		offset: [0.000, 0.000]
-		mass: 20.000
+		mass: 130.000
 		radius: 0.250
 		friction: 0.500
 		elasticity: 0.500

@@ -14,11 +14,11 @@ body:
 			[2.375, 0.625]
 			[-2.375, 0.625]
 		]
-		mass: 4000.000
+		mass: 950.000
 		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
-		material: stone
+		material: concrete
 		layer: entity, solid, building, ignore_melee
 	}
 }
@@ -30,7 +30,7 @@ control:
 
 health:
 {
-	max: 110000.000
+	max: 130000.000
 }
 
 animated.renderer:

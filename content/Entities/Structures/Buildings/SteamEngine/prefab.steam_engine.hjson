@@ -23,6 +23,7 @@ body:
 			[-3.625, 2.500]
 		]
 		offset: [0.000, 0.000]
+		mass: 990.000
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
@@ -33,7 +34,7 @@ body:
 
 health:
 {
-	max: 40000.000
+	max: 78000.000
 }
 
 armor:

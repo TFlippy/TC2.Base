@@ -23,8 +23,8 @@
 	flags: magnetic, metal, ingot
 	hints: none
 	// kg
-	mass_per_unit: 3.303
-	quantity_max: 250.000
+	mass_per_unit: 13.212
+	quantity_max: 64.000
 	prefab: "resource.arcanite.ingot"
 	
 	commodity:
@@ -46,4 +46,6 @@
 		quantity_commerce: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

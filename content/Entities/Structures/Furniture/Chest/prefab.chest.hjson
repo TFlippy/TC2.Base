@@ -10,6 +10,7 @@ body:
 	{
 		size: [2.000, 1.750]
 		offset: [0.000, 0.000]
+		mass: 50.000
 		friction: 0.500
 		elasticity: 0.500
 		material: wood

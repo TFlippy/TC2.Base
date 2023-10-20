@@ -64,7 +64,6 @@
 			type: prefab
 			prefab: "lamp.00"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

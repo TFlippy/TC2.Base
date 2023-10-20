@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Lamp Post (Wood)"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	{
 		texture: "lamp_post.wood"
 		size: [8, 48]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -45,12 +48,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 50.000
+			amount: 85.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 2.000
+			amount: 3.000
 		}
 		{
 			type: resource
@@ -65,7 +68,6 @@
 			type: prefab
 			prefab: "lamp_post.wood"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

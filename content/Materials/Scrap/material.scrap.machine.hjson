@@ -23,7 +23,7 @@
 	flags: raw, manufactured, magnetic, granular, despawnable
 	hints: none
 	// kg
-	mass_per_unit: 0.300
+	mass_per_unit: 1.470
 	quantity_max: 500.000
 	prefab: "resource.scrap.machine"
 	
@@ -46,4 +46,6 @@
 		quantity_commerce: 500.000
 		quantity_industry: 8000.000
 	}
+	
+	scrap: []
 }
