@@ -6,7 +6,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [5.000, 5.000]
+		size: [5.000, 6.000]
 		offset: [0.000, 0.000]
 		mass: 52.000
 		friction: 0.500

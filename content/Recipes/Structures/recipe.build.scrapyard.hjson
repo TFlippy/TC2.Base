@@ -1,18 +1,14 @@
 ﻿{
-	name: "Outpost"
+	name: "Scrapyard"
 	desc:
 		'''
-		A small faction outpost.
-
-		- Can be respawned at
-		- Provides a small storage
-		- Access to faction management
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "outpost"
-		size: [40, 48]
+		texture: "scrapyard"
+		size: [56, 40]
 		frame: [0, 0]
 	}
 	
@@ -25,9 +21,9 @@
 	type: build
 	flags: none
 	tags: buildings
-	rank: 0.000
+	rank: 500.000
 	
-	dismantle_work: 25.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -35,22 +31,22 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [5.000, 6.000]
-		offset: [0.000, -1.500]
+		size: [7.000, 5.000]
+		offset: [0.000, -2.000]
 		
 		cooldown: 0.500
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
 		
-		rotation_max: 0.200
+		rotation_max: 0.100
 		
 		sound: "building_place"
 	}
 	
 	construction:
 	{
-		prefab: "construction.5x5"
+		prefab: "construction.7x5"
 		
 		requirements:
 		[
@@ -67,23 +63,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 25.000
+			amount: 800.000
 		}
 		{
 			type: resource
-			material: "cloth"
-			amount: 10.000
-		}
-		{
-			type: resource
-			material: "money"
-			amount: 25.000
-		}
-		{
-			type: work
-			work: paperwork
-			amount: 500.000
-			difficulty: 3
+			material: "stone"
+			amount: 600.000
 		}
 	]
 	
@@ -91,7 +76,7 @@
 	[
 		{
 			type: prefab
-			prefab: "outpost"
+			prefab: "scrapyard"
 			amount: 1.000
 		}
 	]

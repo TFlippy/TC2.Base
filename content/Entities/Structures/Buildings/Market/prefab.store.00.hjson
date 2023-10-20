@@ -8,7 +8,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 5.000]
+		size: [6.000, 6.000]
 		mass: 2000.000
 		radius: 0.000
 		friction: 0.950
@@ -87,7 +87,7 @@ company:
 	{
 		// color: [1.000, 0.750, 0.100, 2.000]
 		color: [1.000, 0.750, 0.100, 2.500]
-		offset: [-1.375, 0.625]
+		offset: [-1.375, 1.125]
 		scale: [32.000, 10.000]
 		intensity: 1.000
 		texture: "light.circle.04"
@@ -95,7 +95,7 @@ company:
 
 	@animated.renderer:
 	{
-		offset: [-1.500, -0.625]
+		offset: [-1.500, -1.125]
 		z: -295.000
 	}
 }
