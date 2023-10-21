@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 1.200
-	quantity_max: 500.000
+	quantity_max: 250.000
 	prefab: "resource.cement"
 	
 	commodity:

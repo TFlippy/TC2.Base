@@ -30,7 +30,7 @@ animated.renderer:
 	{
 		texture: "winch"
 	}
-	z: 200.000
+	z: 100.000
 }
 
 transform:
