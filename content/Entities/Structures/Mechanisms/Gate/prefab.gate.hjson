@@ -132,6 +132,8 @@ rope.renderer:
 		offset_b: [0.000, -3.000]
 		max_force: 50000.000
 		max_torque: 50000.000
+		max_stress: 3.000
+		stress_threshold: 3.100
 		flags: control_read, control_write
 		material_type: metal
 	}
@@ -141,9 +143,11 @@ rope.renderer:
 		min: 0.000
 		max: 0.000
 
-		error_bias: 0.0001
+		error_bias: 0.001
 		max_force: 200000.000
 		max_bias: 20.000
+
+		stress_mult: 0.500
 	}
 
 	joint.slider:
@@ -154,16 +158,16 @@ rope.renderer:
 		min: 0.000
 		max: 12.000
 
-		error_bias: 0.0001
-		max_force: 20000.000
-		max_force_b: 20000.000
-		max_bias: 20.000
+		error_bias: 0.001
+		max_force: 40000.000
+		max_force_b: 40000.000
+		max_bias: 10.000
 	}
 
 	joint.distance:
 	{
 		max_force: 100000.000
-		max_bias: 10.000
+		max_bias: 8.000
 		stress_mult: 0.000
 	}
 

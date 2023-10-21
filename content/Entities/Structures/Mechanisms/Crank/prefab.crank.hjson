@@ -75,9 +75,11 @@ transform:
 	joint.base:
 	{
 		offset_a: [0.000, 0.000]
-		max_force: 100000.000
+		max_force: 500000.000
 		max_torque: 200.000
-		flags: control_write, no_stress, no_wrap, force_facing
+		flags: no_stress, attachment
+		material_type: metal
+		z: 55.000
 		
 		@sound.emitter:
 		{
