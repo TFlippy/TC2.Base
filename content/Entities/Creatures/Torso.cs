@@ -35,7 +35,7 @@
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Arm.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateArmDrag(ISystem.Info info, [Source.Shared] in Torso.Data torso, [Source.Owned, Override] ref Drag.Data drag_override)
 		{
-			drag_override.max_force *= Maths.Lerp01(1.00f, 0.00f, (torso.air_time * 0.50f) - 1.00f);
+			drag_override.max_force *= Maths.Lerp01(1.00f, 0.00f, (torso.air_time * 1.50f) - 1.00f).Pow2();
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]

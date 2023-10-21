@@ -153,8 +153,9 @@ worker.state:
 
 facing:
 {
-	threshold: 0.350
-	offset: 0.000
+	threshold: 0.500
+	offset: -0.500
+	flip_interval: 0.250
 }
 
 interactable:
@@ -652,7 +653,6 @@ commandable:
 		max_stress: 2.000
 		stress_threshold: 1.000
 		stress_damp: 0.500
-		// flags: control_write, no_wrap, force_facing
 		flags: control_write, facing_reset_pos, force_facing
 	}
 	
@@ -734,26 +734,27 @@ commandable:
 {
 	joint.base:
 	{
-		offset_a: [-0.500, -0.500]
+		offset_a: [-0.500, -0.250]
 		max_force: 18000.000
 		max_torque: 11000.000
-		flags: no_aiming, attachment, use_center_of_gravity, control_read, facing_reset_pos, force_facing
+		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, invert_facing
 		material_type: leather
 		max_stress: 2.000
 		stress_threshold: 2.010
-		z: -300.000
+		z: -150.000
 	}
 
 	joint.pivot:
 	{
-		error_bias: 0.020
+		error_bias: 0.003
 		max_bias: 12.000
 	}
 
 	joint.gear:
 	{
-		error_bias: 0.00001
-		max_bias: 4.000
+		error_bias: 0.001
+		max_bias: 6.000
+		step: 20.000
 		min: 0.000
 		max: 0.000
 	}
@@ -763,7 +764,7 @@ commandable:
 		name: "Back"
 		identifier: "back"
 
-		flags: none
+		flags: use_center_of_gravity, keyboard_write, mouse_write
 		flags_editable: locked, disabled
 
 		gui_size: [192.000, 160.000]
