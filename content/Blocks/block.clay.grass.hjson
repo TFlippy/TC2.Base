@@ -1,6 +1,6 @@
 {
-	name: "Clay"
-	desc: "Grey, earthly clay, perfect for bricks."
+	name: "Clay (Grassy)"
+	desc: "Grey, grassy clay, perfect for bricks."
 	
 	material_type: soil
 	tile_flags: non_empty
@@ -13,10 +13,10 @@
 	elasticity: 0.400
 	stability: 0.800
 	
-	texture: "terrain.clay"
+	texture: "terrain.clay.grass"
 	pattern: "pattern.soil"
 	
-	texture_scale: 1.500
+	texture_scale: 1.800
 	texture_overshoot: -0.750
 	
 	resources: []
@@ -24,8 +24,8 @@
 	mappings:
 	[
 		{
-			color: "0xff67634a"
-			tile_flags: solid, non_empty, ground
+			color: "0xff1b1c10"
+			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}
 	]
