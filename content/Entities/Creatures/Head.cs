@@ -42,15 +42,15 @@ namespace TC2.Base.Components
 		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEmote(ISystem.Info info, Entity entity, ref XorRandom random, ref Emote.EmoteEvent data, [Source.Owned] ref Emote.Data emote, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head)
 		{
-			if (data.emote_index < Emote.emotes.Length && info.WorldTime >= emote.last_emote_time + 0.50f)
+			ref var emote_data = ref data.h_emote.GetData();
+			if (emote_data.IsNotNull() && info.WorldTime >= emote.t_last_emote + 0.50f)
 			{
-				ref var emote_data = ref Emote.emotes[data.emote_index];
-
-				emote.emote_index = data.emote_index;
-				emote.last_emote_time = info.WorldTime;
+				emote.h_emote = data.h_emote;
+				emote.t_last_emote = info.WorldTime;
+				emote.t_emote_rem = emote_data.duration;
 
 #if CLIENT
-				Sound.Play(emote_data.sound, transform.position, volume: 0.80f, pitch: head.voice_pitch * random.NextFloatRange(0.99f, 1.01f));
+				Sound.Play(emote_data.sound, transform.position, volume: emote_data.volume, pitch: head.voice_pitch * random.NextFloatRange(0.99f, 1.01f) * emote_data.pitch);
 #endif
 			}
 		}
