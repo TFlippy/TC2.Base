@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Mud Brick"
 	desc:
 		'''
@@ -11,6 +11,12 @@
 		size: [16, 16]
 		frame: [10, 0]
 	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
 	
 	type: build
 	flags: none
@@ -36,7 +42,7 @@
 		{
 			type: resource
 			material: "mudbrick.dry"
-			amount: 0.500
+			amount: 0.300
 		}
 	]
 	

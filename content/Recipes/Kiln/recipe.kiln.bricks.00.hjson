@@ -1,0 +1,55 @@
+﻿{
+	name: "Dried Mudbricks"
+	desc:
+		'''
+		Fresh mudbricks straight out of the oven.
+		'''
+	
+	icon:
+	{
+		texture: "resource.mudbrick.dry"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffd4e5c3"
+	icon_extra_offset: [-2.000, -6.000]
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	type: crafter
+	flags: none
+	tags: kiln
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 420.000
+		}
+		{
+			type: resource
+			material: "clay"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: heating
+			amount: 13.700
+			difficulty: 4
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "mudbrick.dry"
+			amount: 0.800
+			amount_extra: 0.100
+		}
+	]
+}

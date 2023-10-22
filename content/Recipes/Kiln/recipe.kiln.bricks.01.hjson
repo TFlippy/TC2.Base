@@ -1,0 +1,54 @@
+﻿{
+	name: "Fired Bricks"
+	desc:
+		'''
+		Fresh bricks straight out of the oven.
+		'''
+	
+	icon:
+	{
+		texture: "resource.brick"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffd4e5c3"
+	icon_extra_offset: [-2.000, -6.000]
+	
+	min: 50
+	max: 500
+	step: 50
+	
+	type: crafter
+	flags: none
+	tags: kiln
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: temperature
+			amount: 1180.000
+		}
+		{
+			type: resource
+			material: "clay"
+			amount: 1.000
+		}
+		{
+			type: work
+			work: heating
+			amount: 22.700
+			difficulty: 7
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "brick"
+			amount: 0.800
+		}
+	]
+}

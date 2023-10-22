@@ -1,0 +1,25 @@
+{
+	name: "Bricks"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.brick"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: brick
+	flags: manufactured
+	mass_per_unit: 0.400
+	quantity_max: 500.000
+	prefab: "resource.brick"
+}

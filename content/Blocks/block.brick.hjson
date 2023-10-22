@@ -2,7 +2,7 @@
 	name: "Clay Bricks"
 	desc: "Clay bricks of varying sizes."
 	
-	material_type: stone
+	material_type: brick
 	tile_flags: non_empty
 	flags: artificial
 	

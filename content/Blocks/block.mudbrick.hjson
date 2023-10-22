@@ -2,7 +2,7 @@
 	name: "Mud Bricks"
 	desc: "Mud bricks made by the best of mudders."
 	
-	material_type: stone
+	material_type: brick
 	tile_flags: non_empty
 	flags: artificial
 	

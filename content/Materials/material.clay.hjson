@@ -1,0 +1,43 @@
+﻿{
+	name: "Clay"
+	description:
+		'''
+		Funny clay that can be fired into bricks.
+		'''
+	
+	icon:
+	{
+		texture: "resource.clay"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: stone
+	flags: raw
+	hints: none
+	// kg
+	mass_per_unit: 0.380
+	quantity_max: 500.000
+	prefab: "resource.clay"
+	
+	commodity:
+	{
+		flags: marketable
+		categories: raw
+
+		market_price: 0.070
+		market_price_min: 0.050
+		market_price_max: 0.090
+		
+		quantity_consumer: 15.000
+		quantity_commerce: 500.000
+		quantity_industry: 5000.000
+	}
+}
