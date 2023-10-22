@@ -11,6 +11,6 @@
 	{
 		texture: "ui.emotes.00"
 		size: [16, 16]
-		frame: [4, 1]
+		frame: [2, 0]
 	}
 }

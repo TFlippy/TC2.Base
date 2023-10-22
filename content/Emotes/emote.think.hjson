@@ -1,6 +1,6 @@
 ﻿{
-	name: "Okay"
-	sound: "vo_okay"
+	name: "Hmm"
+	sound: "vo_yes"
 	volume: 0.800
 	pitch: 1.000
 	duration: 3.000
@@ -11,6 +11,6 @@
 	{
 		texture: "ui.emotes.00"
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [5, 1]
 	}
 }
