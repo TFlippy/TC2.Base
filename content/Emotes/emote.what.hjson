@@ -1,10 +1,10 @@
 ﻿{
-	name: "What"
-	sound: "vo_what"
+	name: "Wtf"
+	sound: "vo_huh"
 	volume: 0.800
 	pitch: 1.000
 	duration: 3.000
-	weight: 0.000
+	weight: -1.000
 	flags: none
 	
 	sprite:

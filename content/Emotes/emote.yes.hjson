@@ -4,7 +4,7 @@
 	volume: 0.800
 	pitch: 1.000
 	duration: 3.000
-	weight: 0.000
+	weight: -30.500
 	flags: none
 	
 	sprite:
