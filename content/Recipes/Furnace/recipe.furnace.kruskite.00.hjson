@@ -19,7 +19,7 @@
 		frame: [2, 0]
 	}
 	
-	color_button: "0xffeedaab"
+	color_button: "0xff769d49"
 	icon_extra_offset: [-2.000, -6.000]
 	
 	min: 100

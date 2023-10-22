@@ -42,8 +42,8 @@
 		market_price_min: 0.400
 		market_price_max: 0.950
 		
-		quantity_consumer: 10.000
-		quantity_commerce: 50.000
+		quantity_retail: 10.000
+		quantity_wholesale: 50.000
 		quantity_industry: 1000.000
 	}
 	

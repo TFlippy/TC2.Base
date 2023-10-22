@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Clay Brick"
 	desc:
 		'''
@@ -12,6 +12,8 @@
 		frame: [9, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 0
 	max: 0
 	step: 0
@@ -19,6 +21,7 @@
 	type: build
 	flags: none
 	tags: construction
+	rank: 0.000
 	
 	placement:
 	{
@@ -38,8 +41,8 @@
 	[
 		{
 			type: resource
-			material: "stone"
-			amount: 0.150
+			material: "brick"
+			amount: 0.300
 		}
 	]
 	

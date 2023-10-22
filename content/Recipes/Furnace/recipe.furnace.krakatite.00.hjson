@@ -16,7 +16,7 @@
 		frame: [3, 0]
 	}
 	
-	color_button: "0xfff34a29"
+	color_button: "0xffd4e5c3"
 	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 100

@@ -44,8 +44,8 @@
 		market_price_min: 0.000
 		market_price_max: 0.000
 		
-		quantity_consumer: 0.000
-		quantity_commerce: 0.000
+		quantity_retail: 0.000
+		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
 }

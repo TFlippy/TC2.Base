@@ -19,9 +19,9 @@
 		frame: [0, 0]
 	}
 	
-	type: metal
-	flags: raw, manufactured, magnetic, granular, despawnable
-	hints: none
+	type: scrap
+	flags: manufactured, magnetic, metal, despawnable, intermediate
+	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.560
 	quantity_max: 500.000
@@ -31,19 +31,30 @@
 	{
 		flags: marketable
 		categories: metals, scrap, construction_materials, waste, industrial, toys
+		
 		industries_produce: mining, manufacturing, low_tech, high_tech, scrap, chemical, automotive, military, entertainment, arcane, construction, tourism, logistics, hospitality, slaves, labor, kobolds, exploration, munitions, railway, administrative, criminal, engineering, weapons, experimental, aviation, naval, furniture, architecture
 		industries_consume: low_tech, metallurgy, slaves, kobolds, colonization, criminal
+		industries_buy: agricultural, manufacturing, low_tech, metallurgy, scrap, construction, slaves, labor, kobolds, wholesale, training, colonization, exploration, criminal
+		industries_sell: financial, telecommunications, manufacturing, low_tech, high_tech, chemical, automotive, power, military, logging, entertainment, arcane, construction, tourism, logistics, slaves, labor, real_estate, kobolds, retail, wholesale, training, research, education, colonization, security, mercenary, munitions, railway, criminal, engineering, weapons, experimental, beverage, aviation, naval, furniture, architecture, penal
+		
 		buildings_produce: warehouse, factory, office, airport, trainyard, minefield, artillery, docks, walls, prison, labor_camp, theatre, manufactory, refinery, customs, laboratory, university, school, barracks, train_station, arsenal, scrapyard, landfill, black_market, zoo, circus
 		buildings_consume: labor_camp, foundry, refinery, slum, metalworks
+		buildings_buy: prison, labor_camp, foundry, mine, borehole, slum, scrapyard, landfill, black_market, metalworks, steel_mill
+		buildings_sell: warehouse, factory, trainyard, power_plant, docks, prison, labor_camp, manufactory, borehole, customs, slum, laboratory, university, barracks, train_station, scrapyard, landfill, black_market, zoo, circus, essenceworks
+		
 		categories_produce: military, industrial, wasteland, penal, criminal, urban, abandoned, ruined, decrepit, lawless, frontier
 		categories_consume: industrial, wasteland, urban, decrepit, lawless
+		categories_buy: industrial, wasteland, decrepit, frontier, developing, coastal, excavated, polluted, mechanized, dangerous
+		categories_sell: military, imperial, border, industrial, rebel, wasteland, commercial, residential, penal, criminal, urban, abandoned, ruined, decrepit, lawless, magitech, frontier, wealthy, advanced, developing, secure, fortified, innovative, powerful, warzone, modern, expansive, excavated, polluted, mechanized
 		
 		market_price: 0.100
 		market_price_min: 0.020
 		market_price_max: 0.180
 		
-		quantity_consumer: 50.000
-		quantity_commerce: 500.000
+		quantity_retail: 0.000
+		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
+	
+	scrap: []
 }

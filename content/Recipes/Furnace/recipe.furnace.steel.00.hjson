@@ -19,8 +19,8 @@
 		frame: [1, 0]
 	}
 	
+	color_button: "0xffffba45"
 	icon_extra_offset: [-4.000, -6.000]
-	color_button: "0xff57e5b6"
 	
 	min: 50
 	max: 500
@@ -49,9 +49,9 @@
 		}
 		{
 			type: work
-			work: "melting"
+			work: melting
 			amount: 52.000
-			difficulty: 10.000
+			difficulty: 10
 		}
 	]
 	

@@ -19,7 +19,7 @@
 		frame: [2, 0]
 	}
 	
-	color_button: "0xff57e5b6"
+	color_button: "0xfff34a29"
 	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 5
@@ -35,7 +35,7 @@
 	[
 		{
 			type: temperature
-			amount: 2245.000
+			amount: 1880.000
 		}
 		{
 			type: resource

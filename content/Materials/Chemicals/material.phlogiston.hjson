@@ -20,23 +20,40 @@
 	}
 	
 	type: liquid
-	flags: raw, fuel, ammo
-	hints: none
+	flags: raw, fuel, ammo, chemical, liquid
+	hints: materials, dangerous, advanced, powerful, chemical
+	// kg
 	mass_per_unit: 0.100
 	quantity_max: 100.000
 	prefab: "resource.phlogiston"
 	
 	commodity:
 	{
-		categories: chemicals, explosives, arcane, fuel, energy, munitions, dangerous, consumer, industrial, military
+		flags: marketable
+		categories: chemicals, refined, artificial, arcane, fuel, energy, munitions, dangerous, consumer, industrial, military
+		
+		industries_produce: mining, high_tech, chemical, arcane, research, exploration, trading, engineering, experimental
+		industries_consume: mining, manufacturing, high_tech, metallurgy, scrap, chemical, automotive, power, military, entertainment, arcane, biology, construction, tourism, logistics, hospitality, research, education, security, munitions, pharmaceutical, medical, railway, tobacco, trading, engineering, weapons, experimental, aviation, naval, luxury, jewelry
+		industries_buy: financial, mining, manufacturing, high_tech, metallurgy, chemical, automotive, power, military, arcane, construction, logistics, wholesale, research, education, colonization, exploration, security, munitions, pharmaceutical, railway, criminal, tobacco, trading, engineering, weapons, experimental, commerce, aviation, naval, luxury
+		industries_sell: chemical, automotive, power, logistics, retail, wholesale, research, mercenary, railway, criminal, tobacco, trading, engineering, experimental, commerce, aviation, naval
+		
+		buildings_produce: phlogiston
+		buildings_consume: factory, airport, trainyard, power_plant, lighthouse, foundry, manufactory, refinery, laboratory, university, school, train_station, arsenal, metalworks, market, fuel_depot, bank, essenceworks, brickworks, steel_mill, glassworks
+		buildings_buy: warehouse, factory, airport, trainyard, power_plant, laboratory, university, school, train_station, exchange, black_market, market, fuel_depot, bank, essenceworks
+		buildings_sell: warehouse, airport, trainyard, power_plant, docks, train_station, exchange, black_market, phlogiston, fuel_depot, bank, essenceworks
+		
+		categories_produce: industrial, wasteland, magitech, frontier, wealthy, advanced, innovative, powerful, modern, excavated, mechanized, ancient, unchartered
+		categories_consume: military, imperial, industrial, commercial, residential, urban, magitech, frontier, wealthy, advanced, developing, secure, fortified, innovative, coastal, powerful, warzone, modern, polluted, mechanized, regulated
+		categories_buy: military, border, industrial, commercial, residential, criminal, urban, financial, magitech, frontier, wealthy, advanced, developing, infested, secure, fortified, innovative, mercantile, coastal, powerful, warzone, modern, expansive, excavated, polluted, mechanized, unchartered, authoritarian, regulated, dangerous
+		categories_sell: military, imperial, border, industrial, wasteland, commercial, urban, financial, magitech, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, expansive, polluted, mechanized, ancient, authoritarian, regulated
 		
 		market_price: 15.000
-		market_price_min: 0.000
-		market_price_max: 0.000
+		market_price_min: 12.000
+		market_price_max: 20.000
 		
-		quantity_consumer: 0.000
-		quantity_commerce: 0.000
-		quantity_industry: 0.000
+		quantity_retail: 20.000
+		quantity_wholesale: 250.000
+		quantity_industry: 5000.000
 	}
 	
 	fuel:
@@ -53,6 +70,8 @@
 		air_fuel_ratio: 64.500
 		drain: 500000.000
 	}
+	
+	scrap: []
 	
 	ammo:
 	{
