@@ -1,0 +1,183 @@
+$name: "ARC-MT Levitator"
+$desc:
+	'''
+	A more powerful ARC-MT levitator used for propulsion.
+	'''
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 0.750
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[0.750, 0.500]
+			[-0.750, 0.500]
+			[-2.000, -0.500]
+			[2.000, -0.500]
+		]
+		mass: 900.000
+		radius: 0.375
+		friction: 0.700
+		elasticity: 0.650
+		material: metal
+		layer: entity, solid
+		mask: world, essence
+	}
+}
+
+health:
+{
+	max: 25000.000
+}
+
+armor:
+{
+	toughness: 1500.000
+	protection: 0.800
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "levitator.01"
+	}
+	z: 90.000
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	radius: 0.000
+	force_multiplier: 2.000
+	torque_multiplier: 0.750
+	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_control
+}
+
+interactable:
+{
+	window_size: [200.000, 192.000]
+}
+
+attachment:
+{
+	offset: [0.000, -0.500]
+	radius: 0.000
+	flags: disable_parent_facing
+	force_multiplier: 2.500
+}
+
+essencecontainer:
+{
+	stability: 0.900
+	health_threshold: 0.500
+
+	@inventory1:
+	{
+		name: "Essence"
+		stack_size_multiplier: 1.000
+		filter_flags: essence
+		type: essence
+		flags: none
+	}
+
+	@sound.emitter:
+	{
+		file: "levitator.loop.00"
+		volume: 0.000
+		pitch: 0.300
+		size: 4.000
+		size_max_modifier: 5.000
+		priority: 0.900
+		spread: 90.000
+	}
+}
+
+levitator:
+{
+	nodes:
+	[
+		{
+			dir: [1.000, 0.800]
+			offset: [2.000, 0.000]
+			ratio: 0.300
+			key: moveleft
+		}
+		{
+			dir: [0.000, 1.000]
+			offset: [0.000, 0.750]
+			ratio: 0.400
+			key: moveup
+		}
+		{
+			dir: [-1.000, 0.800]
+			offset: [-2.000, 0.000]
+			ratio: 0.300
+			key: moveright
+		}
+	]
+
+	flags: none
+	flags_editable: none
+
+	efficiency: 0.570
+	offset: [0.000, 0.500]
+	
+	// @light:
+	// {
+	// 	offset: [0.000, 0.000]
+	// 	texture: "essence.glow"
+	// }
+}
+
+levitator.state:
+{
+
+}
+
+overheat:
+{
+	heat_medium: 450.000
+	heat_high: 700.000
+	heat_critical: 900.000
+	cool_rate: 50.000
+	capacity_extra: 500.000
+	size: [3.000, 1.500]
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [32.000, 16.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 0.000
+		pitch: 1.000
+		size: 1.400
+		size_max_modifier: 1.500
+	}
+}

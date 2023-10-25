@@ -1,0 +1,90 @@
+$name: "Gyromat"
+$desc:
+	'''
+	
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.100
+
+	@shape.circle:
+	{
+		mass: 85.000
+		radius: 1.125
+		friction: 0.700
+		elasticity: 0.650
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9500.000
+}
+
+armor:
+{
+	toughness: 1500.000
+	protection: 0.700
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "gyromat.00"
+	}
+	z: 90.000
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	radius: 4.000
+	flags: disable_parent_facing
+}
+
+interactable:
+{
+	window_size: [288.000, 300.000]
+}
+
+attachment:
+{
+	offset: [0.000, 1.000]
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+stabilizer:
+{
+
+}
+
+norotate:
+{
+	multiplier: 15.000
+	speed: 8.000
+	bias: 0.400
+	mass_multiplier: 15.000
+}

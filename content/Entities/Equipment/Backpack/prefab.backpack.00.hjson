@@ -1,0 +1,110 @@
+$name: "Backpack"
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.350
+
+	@shape.circle:
+	{
+		mass: 1.000
+		radius: 0.750
+		friction: 0.600
+		elasticity: 0.200
+		material: leather
+		layer: entity, solid
+		mask: world
+		rigidity_dynamic: 0.750
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "backpack.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	mask: "backpack.00.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.700
+	intensity_b: 0.700
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	offset: [0.375, 0.375]
+	// flags: mirror_rotate
+	flags: none
+	tags: none
+}
+
+// equipment:
+// {
+// 	type: chest
+// 	flags: copy_frames
+
+// 	offset: [-0.250, -0.500]
+// 	z: -2.000
+
+// 	frame_default: 0
+// 	frame_equipped_male: 1
+// 	frame_equipped_female: 2
+// }
+
+// armor:
+// {
+// 	toughness: 30.000
+// 	protection: 1.000
+	
+// 	knockback_modifier: 0.500
+// 	pain_modifier: 0.500
+
+// 	material_type: leather
+// }
+
+// norotate:
+// {
+
+// }
+
+// packable:
+// {
+
+// }
+
+storage:
+{
+	@inventory8:
+	{
+		stack_size_multiplier: 1.000
+		type: backpack
+	}
+}
+
+interactable:
+{
+	window_size: [224.000, 128.000]
+}

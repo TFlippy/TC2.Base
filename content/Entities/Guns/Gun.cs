@@ -275,13 +275,13 @@
 					var a = MathF.Atan(((v * v) - sqrt) / (g * p.X));
 					var b = MathF.Atan(((v * v) + sqrt) / (g * p.X));
 
-					if (!float.IsNaN(a))
+					if (!a.IsNaN())
 					{
 						angle_shallow = a;
 
-						if (!float.IsNaN(b))
+						if (!b.IsNaN())
 						{
-							if (MathF.Abs(a) < MathF.Abs(b))
+							if (a.Abs() < b.Abs())
 							{
 								angle_steep = b;
 							}
@@ -292,7 +292,7 @@
 							}
 						}
 					}
-					else if (!float.IsNaN(b))
+					else if (!b.IsNaN())
 					{
 						angle_shallow = b;
 					}

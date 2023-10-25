@@ -1,0 +1,503 @@
+$name: "Tank"
+$desc:
+	'''
+
+	'''
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points:
+		[
+			[3.000, 1.250]
+			[-3.250, 1.250]
+			[-3.625, -0.500]
+			[3.250, -0.375]
+		]
+		offset: [0.000, 0.000]
+		mass: 20000.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid, vehicle
+		mask: world
+	}
+}
+
+health:
+{
+	max: 115000.000
+}
+
+armor:
+{
+	toughness: 2500.000
+	protection: 1.000
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tank.00.bg"
+		size: [80, 40]
+	}
+	offset: [0.000, 0.000]
+	z: 90.000
+	mask: "tank.00.bg.mask"
+	flags: has_damage
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "tank.00.fg"
+			size: [80, 40]
+		}
+		offset: [0.000, 0.000]
+		z: 300.000
+		mask: "tank.00.fg.mask"
+		flags: has_damage
+	}
+}
+
+damage.effects:
+{
+
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	// @net.synchronized:
+	// {
+	// 	interval: 0.000
+	// }
+}
+
+tractor:
+{
+	shake_force: [0.010, 0.060]
+	shake_intensity: 0.035
+	speed: 13.000
+	brake_step: 6.000
+	speed_step: 4.000
+	force: 90000.000
+	brake: 100000.000
+	gear: 0
+	gear_mod: 0.500
+	smoke_offset: [0.750, -2.125]
+
+	// @sound.emitter:
+	// {
+	// 	file: "tractor.engine.loop.00"
+	// 	volume: 1.000
+	// 	pitch: 0.800
+	// }
+}
+
+tractor.state:
+{
+
+}
+
+norotate:
+{
+	multiplier: 0.400
+	bias: 0.200
+	mass_multiplier: 50.000
+}
+
+interactable:
+{
+	window_size: [384.000, 352.000]
+	window_offset: [0.000, 0.000]
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: public, faction
+	}
+}
+
+steamengine:
+{
+	piston_offset: [1.750, 1.000]
+	steam_offset: [-3.250, -2.000]
+	exhaust_offset: [-3.125, -0.625]
+	burst_offset: [-2.625, -1.000]
+	steam_size: 1.250
+	steam_interval: 0.600
+	piston_radius: 0.875
+	speed_max: 14.000
+	force: 20000.000
+	efficiency: 0.130
+	shake_multiplier: 10.000
+	volume_multiplier: 0.800
+	pitch_multiplier: 0.100
+	max_acceleration: 5.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "steam_engine_piston"
+		}
+		z: 99.000
+	}
+
+	@sound.emitter:
+	{
+		file: "tank.engine.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.500
+		size_max_modifier: 1.500
+	}
+}
+
+steamengine.state:
+{
+	@sound.emitter:
+	{
+		file: "tractor.steam.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+	}	
+}
+
+burner:
+{
+	smoke_offset: [-1.250, 1.375]
+	smoke_direction: [-3.000, -0.500]
+	capacity: 4.000
+	energy_loss: 20000.000
+	efficiency: 0.300
+	drain_multiplier: 5.000
+	
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 10.000
+		filter_flags: fuel
+		filter_type: liquid
+		type: fuel
+		flags: ignore_mass
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}
+
+axle:
+{
+	offset: [-2.500, 0.375]
+	mass: 100.000
+	friction: 0.200
+	radius_a: 1.500
+	radius_b: 1.500
+	radius_inner: 1.000
+	radius_outer: 1.500
+	z: 95.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1500.steel"
+		}
+		z: 100.000
+	}
+}
+
++slot_heavy_0|instance:
+{
+	joint.base:
+	{
+		offset_a: [-2.000, -0.125]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, control_write, no_wrap, force_facing, attachment, use_proxy_body
+		z: 0.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Heavy (Rear)"
+		identifier: "heavy.0"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, offset
+
+		offset_bounds: [0.000, -0.500, 0.500, 0.750]
+		gui_size: [192.000, 160.000]
+	}
+}
+
++slot_heavy_1|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.500, -0.125]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, control_write, no_wrap, force_facing, attachment, use_proxy_body
+		z: 0.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Heavy (Front)"
+		identifier: "heavy.1"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, offset
+
+		offset_bounds: [-0.500, -0.250, 0.250, 0.625]
+		gui_size: [192.000, 160.000]
+	}
+}
+
++slot_light_2|instance:
+{
+	joint.base:
+	{
+		offset_a: [-1.125, -0.375]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: control_write, no_wrap, force_facing, attachment
+		z: 350.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.010
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.010
+		max_bias: 6.000
+		min: -30.000
+		max: 30.000
+	}
+
+	attachment.slot:
+	{
+		name: "Light (Front)"
+		identifier: "light.2"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_write, mouse_write, offset
+
+		gui_size: [192.000, 96.000]
+	}
+}
+
++slot_wheel_0|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 10.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Rear, A)"
+		identifier: "wheel.0"
+	}
+
+	joint.base:
+	{
+		offset_a: [-2.250, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: 110.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 80000000.000
+		spring_force: 800000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 1000000.000
+		damping: 15000.000
+	}
+}
+
++slot_wheel_1|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 10.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Rear, B)"
+		identifier: "wheel.1"
+	}
+
+	joint.base:
+	{
+		offset_a: [-1.250, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: -109.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 80000000.000
+		spring_force: 800000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 1000000.000
+		damping: 15000.000
+	}
+}
+
++slot_wheel_2|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 10.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Front, A)"
+		identifier: "wheel.2"
+	}
+
+	joint.base:
+	{
+		offset_a: [1.000, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: 109.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 80000000.000
+		spring_force: 800000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 1000000.000
+		damping: 15000.000
+	}
+}
+
++slot_wheel_3|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 10.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Front, B)"
+		identifier: "wheel.3"
+	}
+
+	joint.base:
+	{
+		offset_a: [2.000, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: -110.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 80000000.000
+		spring_force: 800000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 1000000.000
+		damping: 15000.000
+	}
+}

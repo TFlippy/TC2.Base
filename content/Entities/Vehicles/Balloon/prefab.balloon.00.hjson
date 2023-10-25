@@ -1,0 +1,319 @@
+$name: "Balloon"
+$desc:
+	'''
+	Basic hot-air balloon.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.750
+	fall_damage_multiplier: 0.350
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[1.000, 1.000]
+			[-1.000, 1.000]
+			[-1.750, -1.000]
+			[1.750, -1.000]
+		]
+		mass: 180.000
+		friction: 0.950
+		elasticity: 0.750
+		material: wood
+		layer: entity, solid, vehicle, flammable
+		mask: world, crate, platform
+		exclude: tree, wheel, attached
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "balloon.bottom.00"
+	}
+	z: 91.000
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+vehicle:
+{
+
+}
+
+holdable:
+{
+	flags: disable_parent_facing, disable_control
+	stress_multiplier: 0.500
+}
+
+norotate:
+{
+	rotation: 0.000
+	bias: 0.200
+	speed: 3.000
+	multiplier: 3.000
+	mass_multiplier: 8.000
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Balloon"
+		stack_size_multiplier: 4.000
+		type: storage
+	}
+}
+
+interactable:
+{
+	window_size: [224.000, 256.000]
+	window_offset: [-256.000, -128.000]
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [0.000, -0.875]
+		max_tilt: 2.500
+	}
+}
+
+sound.emitter:
+{
+	file: "balloon.burner.loop.00"
+	volume: 0.500
+	pitch: 1.000
+	size: 0.800
+}
+
+burner:
+{
+	smoke_offset: [0.000, -2.875]
+	smoke_direction: [-3.000, 1.000]
+	capacity: 2.000
+	energy_loss: 25000.000
+	efficiency: 0.400
+	drain_multiplier: 4.000
+	temperature_multiplier: 1.000
+	volume_modifier: 1.000
+	pitch_modifier: 0.500
+
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 0.250
+		filter_flags: fuel
+		type: fuel
+		flags: ignore_mass
+	}
+	
+	@sound.emitter:
+	{
+		file: "balloon.burner.loop.00"
+		volume: 0.000
+		pitch: 0.500
+	}
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "balloon.burner.00"
+		}
+		offset: [0.000, -1.875]
+		z: -50.000
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}
+
++slot_side|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.750]
+		max_force: 15000.000
+		max_torque: 5000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
+		z: 400.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.010
+		max_bias: 4.000
+		stress_mult: 0.500
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.005
+		max_bias: 4.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.200
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (Side)"
+		identifier: "side"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write, loose
+
+		rank: 5.000
+		gui_size: [144.000, 64.000]
+
+		offset_bounds: [-1.000, -0.125, 1.000, 0.125]
+	}
+}
+
++slot_bottom|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.750]
+		max_force: 70000.000
+		max_torque: 13000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		flags: control_write, control_read, force_facing
+		z: 250.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.010
+		max_bias: 10.000
+		stress_mult: 0.500
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.200
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (Bottom)"
+		identifier: "bottom"
+
+		flags: use_center_of_gravity, keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation
+
+		rank: -5.000
+		gui_size: [224.000, 128.000]
+
+		offset_bounds: [0.000, -0.750, 0.000, 0.250]
+	}
+}
+
++slot_balloon|instance:
+{
+	$tags: []
+
+	joint.base:
+	{
+		offset_a: [0.000, -0.500]
+		offset_b: [0.000, 4.250]
+		max_force: 250000.000
+		max_torque: 5000.000
+		material_type: fabric
+		flags: no_stress
+	}
+	
+	joint.dualrope:
+	{
+		error_bias: 0.010
+		max_bias: 1.000
+		distance_min: 0.000
+		distance_max: 2.500
+		gap_a: 2.750
+		gap_b: 1.500
+	}
+	
+	// joint.gear:
+	// {
+	// 	error_bias: 0.100
+	// 	max_bias: 0.500
+	// 	stress_mult: 0.000
+	// }
+	
+	ropetest:
+	{
+		texture: "rope"
+		thickness: 0.175
+		scale: 4.000
+	}
+
+	// joint.base:
+	// {
+	// 	offset_a: [0.000, -0.500]
+	// 	offset_b: [0.000, 6.500]
+	// 	max_force: 800000.000
+	// 	max_torque: 400.000
+	// 	material_type: metal
+	// 	flags: no_stress
+	// }
+	
+	// joint.rope:
+	// {
+	// 	error_bias: 0.001
+	// 	max_bias: 7.000
+	// }
+	
+	// joint.gear:
+	// {
+	// 	error_bias: 0.050
+	// }
+	
+	// ropetest:
+	// {
+	// 	offset_a: [0.000, -0.750]
+	// 	offset_b: [0.000, 4.000]
+	// 	width_a: 2.500
+	// 	width_b: 1.000
+	// 	texture: "rope"
+	// 	thickness: 0.175
+	// 	scale: 4.000
+	// }
+		
+	+balloon|child:
+	{
+		$prefab: "balloon.envelope.00"
+	}
+}

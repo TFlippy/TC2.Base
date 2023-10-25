@@ -1,0 +1,57 @@
+$name: "Feathered Hat"
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		mass: 1.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.050
+		material: fabric
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "hat.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	mask: "hat.00.mask"
+}
+
+faction.colorable:
+{
+	intensity_a: 0.700
+	intensity_b: 0.700
+}
+
+transform:
+{
+
+}
+
+equipment:
+{
+	type: head
+
+	frame_default: 0
+	frame_equipped_male: 1
+	frame_equipped_female: 1
+}
+
+norotate:
+{
+
+}

@@ -1,0 +1,71 @@
+$name: "Earmuffs"
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		mass: 1.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.050
+		material: fabric
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "earmuffs.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	// mask: "earmuffs.00.mask"
+}
+
+// faction.colorable:
+// {
+// 	intensity_a: 0.700
+// 	intensity_b: 0.700
+// }
+
+transform:
+{
+
+}
+
+equipment:
+{
+	type: head
+
+	frame_default: 0
+	frame_equipped_male: 1
+	frame_equipped_female: 1
+}
+
+norotate:
+{
+
+}
+
+packable:
+{
+
+}
+
+earmuffs:
+{
+	frequency_high_pass: 1.000
+	frequency_low_pass: 200.000
+	modifier: 0.900
+	volume_modifier: 0.600
+}

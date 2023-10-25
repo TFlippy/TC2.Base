@@ -1,0 +1,87 @@
+$name: "Balloon Envelope"
+$desc:
+	'''
+	It's full of fresh air.
+	'''
+$tags: []
+
+body:
+{
+	gravity: 1.000
+	damping: 0.965
+	fall_damage_multiplier: 0.100
+	
+	@shape.circle:
+	{
+		offset: [0.000, -0.500]
+		mass: 1200.000
+		radius: 4.625
+		friction: 0.200
+		elasticity: 0.800
+		rigidity_dynamic: 0.500
+		rigidity_static: 1.000
+		material: fabric
+		layer: entity, solid
+		mask: world, solid
+	}
+}
+
+balloon:
+{
+	lift_speed_up: 400.000
+	lift_speed_down: 200.000
+	lift_max: 6000.000
+	speed_max: 15.000
+	speed: 10.000
+	force_modifier: 600.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "balloon.top.00"
+		size: [80, 72]
+	}
+
+	z: 150.000
+	mask: "balloon.top.00.mask"
+	flags: has_damage
+}
+
+damage.effects:
+{
+	frame_count: 7
+}
+
+faction:
+{
+	
+}
+
+faction.colorable:
+{
+
+}
+
+health:
+{
+	max: 25000.000
+}
+
+norotate:
+{
+	bias: 0.600
+	speed: 3.000
+	mass_multiplier: 40.000
+}
+
+transform:
+{
+
+}
+
+claimable:
+{
+	flags: none
+}

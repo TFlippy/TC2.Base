@@ -1,0 +1,530 @@
+$name: "Tractor (Light)"
+$desc:
+	'''
+	Standard tractor with 1 device attachment slot, back-mounted cabin and an internal Aubucht steam engine.
+
+	These tractors are highly versatile, and can be used both for industry, transport and even combat.
+	'''
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points:
+		[
+			[2.500, 0.875]
+			[-2.500, 1.000]
+			[-2.750, -0.625]
+			[2.625, -0.750]
+		]
+		offset: [0.000, 0.000]
+		mass: 2000.000
+		friction: 0.500
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid, vehicle
+		mask: world
+	}
+}
+
+// explosive:
+// {
+// 	radius: 8.000
+// 	power: 2.000
+// 	damage_entity: 3500.000
+// 	damage_terrain: 8000.000
+// 	health_threshold: 0.20
+// 	flags: explode_when_primed, any_damage
+// }
+
+health:
+{
+	max: 45000.000
+}
+
+armor:
+{
+	toughness: 250.000
+	protection: 0.650
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tractor.00.fg"
+		size: [64, 32]
+	}
+	offset: [0.000, 0.000]
+	z: 90.000
+	mask: "tractor.00.fg.mask"
+	flags: has_damage
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "tractor.00.bg"
+			size: [64, 32]
+		}
+		offset: [0.000, 0.000]
+		z: -100.000
+		mask: "tractor.00.bg.mask"
+		flags: has_damage
+	}
+}
+
+damage.effects:
+{
+
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+// sound.emitter:
+// {
+// 	file: "tractor.engine.loop.00"
+// 	volume: 1.000
+// 	pitch: 0.800
+// }
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+tractor:
+{
+	shake_force: [0.010, 0.060]
+	shake_intensity: 0.035
+	speed: 14.000
+	brake_step: 15.000
+	speed_step: 11.000
+	force: 90000.000
+	brake: 100000.000
+	gear: 0
+	gear_mod: 0.500
+	smoke_offset: [0.750, -2.125]
+
+	// @sound.emitter:
+	// {
+	// 	file: "tractor.engine.loop.00"
+	// 	volume: 1.000
+	// 	pitch: 0.800
+	// }
+}
+
+tractor.state:
+{
+
+}
+
+norotate:
+{
+	multiplier: 0.400
+	bias: 0.200
+	mass_multiplier: 90.000
+}
+
+interactable:
+{
+	window_size: [384.000, 352.000]
+	window_offset: [0.000, 0.000]
+}
+
+storage:
+{
+	@inventory4:
+	{
+		name: "Cargo"
+		stack_size_multiplier: 4.000
+		type: storage
+		flags: public, faction
+	}
+}
+
+steamengine:
+{
+	piston_offset: [-2.500, 0.375]
+	steam_offset: [0.750, -2.375]
+	exhaust_offset: [0.875, 0.375]
+	burst_offset: [0.500, -1.375]
+	steam_interval: 0.200
+	piston_radius: 0.500
+	volume_multiplier: 0.050
+	pitch_multiplier: 0.400
+	force: 8000.000
+	max_acceleration: 5.000
+	speed_max: 30.000
+	efficiency: 0.200
+	shake_multiplier: 10.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "tractor.piston"
+		}
+		z: 99.000
+	}
+
+	@sound.emitter:
+	{
+		file: "tractor.engine.loop.01"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.500
+	}
+}
+
+steamengine.state:
+{
+	@sound.emitter:
+	{
+		file: "tractor.steam.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 2.000
+	}	
+}
+
+burner:
+{
+	smoke_offset: [0.750, -2.250]
+	capacity: 2.000
+	energy_loss: 10000.000
+	efficiency: 0.400
+	drain_multiplier: 2.000
+	
+	@inventory1:
+	{
+		name: "Fuel"
+		stack_size_multiplier: 4.000
+		filter_flags: fuel
+		filter_type: liquid
+		type: fuel
+		flags: ignore_mass
+	}
+	
+	// @sound.emitter:
+	// {
+	// 	file: "burner.loop.01"
+	// 	size: 0.500
+	// 	volume: 0.000
+	// 	pitch: 0.800
+	// }
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+}
+
+// boiler:
+// {
+// 	capacity: 1.000
+
+// 	@inventory1:
+// 	{
+// 		name: "Boiler"
+// 		stack_size_multiplier: 4.000
+// 		filter_flags: none
+// 		filter_type: liquid
+// 		type: input
+// 		flags: allow_ducts, ignore_mass
+// 	}
+// }
+
+// boiler.state:
+// {
+	
+// }
+
+axle:
+{
+	offset: [1.250, 0.125]
+	mass: 40.000
+	friction: 0.200
+	radius_a: 0.750
+	radius_b: 0.750
+	radius_inner: 0.500
+	radius_outer: 0.750
+	z: 95.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0750.steel"
+		}
+		z: 100.000
+	}
+}
+
+// +seat|instance:
+// {
+// 	$tags: []
+	
+// 	seat:
+// 	{
+// 		offset: [-1.375, -1.000]
+// 	}
+
+// 	animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "tractor.seat"
+// 		}
+// 		offset: [-1.375, -0.750]
+// 		z: -100.000
+// 	}
+// }
+
++slot_cab|instance:
+{
+	joint.base:
+	{
+		offset_a: [-1.125, 0.250]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: 0.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Cabin Mount"
+		identifier: "cabin"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled
+
+		gui_size: [192.000, 160.000]
+	}
+}
+
++slot_mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [1.000, 0.000]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment
+		z: 100.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 2.000
+		min: -3.000
+		max: 3.000
+	}
+
+	attachment.slot:
+	{
+		name: "Tool Mount"
+		identifier: "mount"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [0.000, 160.000]
+	}
+}
+
++slot_wheel_0|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Rear, A)"
+		identifier: "wheel.0"
+		flags_editable: locked, offset
+	}
+
+	joint.base:
+	{
+		offset_a: [-2.250, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: 110.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 1.200
+		rest_length: 1.100
+		stiffness: 100000.000
+		damping: 5000.000
+	}
+}
+
++slot_wheel_1|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Rear, B)"
+		identifier: "wheel.1"
+		flags_editable: locked, offset
+	}
+
+	joint.base:
+	{
+		offset_a: [-0.500, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: -109.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 1.200
+		rest_length: 1.100
+		stiffness: 100000.000
+		damping: 5000.000
+	}
+}
+
++slot_wheel_2|instance:
+{
+	wheel.slot:
+	{
+		
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Front, A)"
+		identifier: "wheel.2"
+		flags_editable: locked, offset
+	}
+
+	joint.base:
+	{
+		offset_a: [0.750, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: 109.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 100000.000
+		damping: 5000.000
+	}
+}
+
++slot_wheel_3|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (Front, B)"
+		identifier: "wheel.3"
+		flags_editable: locked, offset
+	}
+
+	joint.base:
+	{
+		offset_a: [2.125, 0.000]
+		flags: no_wrap, force_facing, no_sync
+		z: -110.000
+		material_type: metal
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 1.600
+		rest_length: 1.500
+		stiffness: 100000.000
+		damping: 5000.000
+	}
+}

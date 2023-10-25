@@ -1,0 +1,26 @@
+$name: "Top Hat"
+$tags: []
+$prefab: "hat.00"
+
+body:
+{
+	@shape.circle:
+	{
+		mass: 1.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.050
+		material: fabric
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "hat.04"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	// mask: "hat.04.mask"
+}
