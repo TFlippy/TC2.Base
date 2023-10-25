@@ -20,7 +20,7 @@
 	}
 	
 	type: scrap
-	flags: manufactured, magnetic, essence, metal, intermediate
+	flags: manufactured, magnetic, granular, essence, metal, intermediate
 	hints: materials, junk, advanced, construction, expensive
 	// kg
 	mass_per_unit: 0.560
@@ -30,7 +30,7 @@
 	commodity:
 	{
 		flags: marketable
-		categories: metals, scrap, machinery, components, refined, artificial, arcane, technology, waste, luxury, industrial
+		categories: metals, scrap, machinery, components, refined, artificial, arcane, technology, waste, luxury, industrial, military
 		
 		industries_produce: financial, telecommunications, manufacturing, high_tech, chemical, automotive, power, military, entertainment, arcane, tourism, logistics, real_estate, wholesale, training, research, education, security, media, pharmaceutical, medical, railway, administrative, criminal, literature, propaganda, engineering, weapons, experimental, aviation, naval, architecture
 		industries_consume: low_tech, metallurgy, scrap, arcane, slaves, labor, kobolds, criminal, penal
