@@ -42,7 +42,7 @@ animated.renderer:
 		texture: "badger.body.a"
 		size: [16, 16]
 	}
-	z: -30.000
+	z: -35.000
 	flags: has_damage
 }
 
@@ -263,7 +263,7 @@ faction:
 				frame: [0, 0]
 			}
 			offset: [0.000, 0.000]
-			z: -29.000
+			z: -30.000
 		}
 	}
 	
@@ -437,7 +437,7 @@ faction:
 				frame: [3, 0]
 			}
 			offset: [0.000, 0.000]
-			z: -29.000
+			z: -25.000
 		}
 	}
 	
