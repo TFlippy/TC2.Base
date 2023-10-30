@@ -45,6 +45,42 @@ namespace TC2.Base
 		{
 
 		}
+
+#if SERVER
+		[ChatCommand.Region("origin", "", creative: true)]
+		public static void OriginCommand(ref ChatCommand.Context context, string origin = null)
+		{
+			ref var region = ref context.GetRegion();
+			Assert.NotNull(ref region);
+
+			ref var player = ref context.GetPlayer();
+			Assert.NotNull(ref player);
+
+			var random = XorRandom.New(true);
+
+			var h_origin = (IOrigin.Handle)origin;
+
+			ref var character = ref player.GetControlledCharacter().data;
+			if (character.IsNotNull())
+			{
+				ref var character_data = ref character.character_id.GetData(out var character_asset);
+				Assert.NotNull(ref character_data);
+
+				if (Spawner.TryApplyOrigin(ref region, ref random, h_origin, ref character_data))
+				{
+					App.WriteLine("ok");
+				}
+			}
+			else
+			{
+				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin);
+				if (h_character.IsValid())
+				{
+					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, control: true);
+				}
+			}
+		}
+#endif
 	}
 }
 
