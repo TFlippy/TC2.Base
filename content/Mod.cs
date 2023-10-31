@@ -48,7 +48,7 @@ namespace TC2.Base
 
 #if SERVER
 		[ChatCommand.Region("origin", "", creative: true)]
-		public static void OriginCommand(ref ChatCommand.Context context, string origin = null)
+		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = false)
 		{
 			ref var region = ref context.GetRegion();
 			Assert.NotNull(ref region);
@@ -58,10 +58,10 @@ namespace TC2.Base
 
 			var random = XorRandom.New(true);
 
-			var h_origin = (IOrigin.Handle)origin;
+			//var h_origin = (IOrigin.Handle)origin;
 
 			ref var character = ref player.GetControlledCharacter().data;
-			if (character.IsNotNull())
+			if (!force_new && character.IsNotNull() && character.ent_controlled.IsAlive())
 			{
 				ref var character_data = ref character.character_id.GetData(out var character_asset);
 				Assert.NotNull(ref character_data);
@@ -74,7 +74,7 @@ namespace TC2.Base
 			else
 			{
 				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin);
-				if (h_character.IsValid())
+				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
 					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, control: true);
 				}
