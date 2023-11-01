@@ -28,6 +28,9 @@ namespace TC2.Base.Components
 			public float max_jump_speed = 10.00f;
 			public float max_jump_time = 0.50f;
 			public float max_air_time = 1.00f;
+			public float max_grounded_dot = 0.90f;
+			public float propagate_ratio = 1.00f;
+
 			//public float no_rotate_mult = 1.00f;
 
 			public float walk_lerp = 0.15f;
@@ -48,6 +51,7 @@ namespace TC2.Base.Components
 			[Save.Ignore] public float walk_modifier_current;
 			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
+			[Save.Ignore] public float surface_dot_current;
 			[Save.Ignore] public float modifier;
 			[Save.Ignore] public Runner.Flags flags;
 
@@ -123,7 +127,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+			var modifier = Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time).Inv01();
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
 				modifier *= 0.00f;
@@ -138,8 +142,10 @@ namespace TC2.Base.Components
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, 
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
+			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
+
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+			var modifier = (Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time) * runner.propagate_ratio).Inv01();
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
 				modifier *= 0.00f;
@@ -243,11 +249,12 @@ namespace TC2.Base.Components
 
 
 				var dot = MathF.Abs(runner_state.last_normal.X);
-				is_grounded = dot < 0.90f;
+				is_grounded = dot < runner.max_grounded_dot;
 				is_on_vehicle = dot < 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
 
 				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
 				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
+				runner_state.surface_dot_current = dot;
 
 				force.Y = runner_state.uphill_force_current;
 				force.X *= (1.00f - dot);
@@ -259,6 +266,7 @@ namespace TC2.Base.Components
 
 				force.Y -= runner_state.uphill_force_current * 0.75f;
 				runner_state.uphill_force_current *= 0.50f;
+				runner_state.surface_dot_current = 0.00f;
 			}
 
 //#if CLIENT

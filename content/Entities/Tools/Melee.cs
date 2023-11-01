@@ -611,7 +611,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
-		public static void OnGUI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, 
+		public static void OnGUI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
@@ -754,6 +754,27 @@ namespace TC2.Base.Components
 		{
 			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range, true);
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, true);
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateHead(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		[Source.Owned] in Head.Data head, [Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
+		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
+		{
+			var max = melee.cooldown * 0.50f;
+
+			var delta = info.WorldTime - melee_state.last_hit;
+			if (delta < max)
+			{
+				var t = Maths.EaseInOut(Maths.NormalizeClamp(info.WorldTime - melee_state.last_hit, max).Inv01(), Maths.Easing.Bounce) - 0.50f;
+
+				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
+				len = MathF.Min(len, melee.max_distance);
+
+				body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.hit_offset));
+
+				//App.WriteLine(t);
+			}
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]

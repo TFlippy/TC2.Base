@@ -40,6 +40,8 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
 		{
+			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
+
 			no_rotate_parent.multiplier = MathF.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
 			no_rotate_parent.mass_multiplier = MathF.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
 		}

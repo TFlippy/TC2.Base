@@ -8,6 +8,7 @@ namespace TC2.Base.Components
 		{
 			public Sound.Handle sound;
 
+			[Editor.Picker.Position(true, false)]
 			public Vector2 offset;
 
 			public float cooldown = 1.00f;
