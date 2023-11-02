@@ -727,7 +727,7 @@ commandable:
 {
 	joint.base:
 	{
-		offset_a: [-0.500, 0.250]
+		offset_a: [-0.500, -0.250]
 		max_force: 15000.000
 		max_torque: 8000.000
 		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, invert_facing
