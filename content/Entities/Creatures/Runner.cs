@@ -30,6 +30,7 @@ namespace TC2.Base.Components
 			public float max_air_time = 1.00f;
 			public float max_grounded_dot = 0.90f;
 			public float propagate_ratio = 1.00f;
+			public float no_rotate_air_mult = 0.00f;
 
 			//public float no_rotate_mult = 1.00f;
 
@@ -127,7 +128,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time).Inv01();
+			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
 				modifier *= 0.00f;
@@ -145,15 +146,15 @@ namespace TC2.Base.Components
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = (Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time) * runner.propagate_ratio).Inv01();
+			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
 				modifier *= 0.00f;
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
 			}
 
-			no_rotate_parent.multiplier *= modifier;
-			no_rotate_parent.mass_multiplier *= modifier;
+			no_rotate_parent.multiplier = Maths.Lerp(no_rotate_parent.multiplier, no_rotate_parent.multiplier * modifier, runner.propagate_ratio);
+			no_rotate_parent.mass_multiplier = Maths.Lerp(no_rotate_parent.mass_multiplier, no_rotate_parent.mass_multiplier * modifier, runner.propagate_ratio);
 		}
 
 		//		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -173,7 +174,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
 		{
-			ref readonly var keyboard = ref control.keyboard;
+			var kb = control.keyboard;
 
 			var time = info.WorldTime;
 			var force = new Vector2(0, 0);
@@ -181,12 +182,12 @@ namespace TC2.Base.Components
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
-			var is_walking = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
-			var any = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+			var can_move = !kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
+			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 			var is_swimming = false;
 
-			if (any || keyboard.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
+			if (any || kb.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
 				body.Activate();
 			}
@@ -198,8 +199,8 @@ namespace TC2.Base.Components
 				runner_state.last_move = time;
 				runner_state.walk_modifier_current = Maths.Lerp(runner_state.walk_modifier_current, 1.00f, runner.walk_lerp);
 
-				if (velocity.X > -runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner_state.walk_modifier_current;
-				if (velocity.X < +runner.max_speed && keyboard.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
+				if (velocity.X > -runner.max_speed && kb.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner_state.walk_modifier_current;
+				if (velocity.X < +runner.max_speed && kb.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
 			}
 			else
 			{
@@ -296,7 +297,7 @@ namespace TC2.Base.Components
 			}
 
 			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
-			if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
+			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = time;
