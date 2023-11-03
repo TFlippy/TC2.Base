@@ -80,6 +80,72 @@ namespace TC2.Base
 				}
 			}
 		}
+
+		[ChatCommand.Region("tp", "", creative: true)]
+		public static void TeleportCommand(ref ChatCommand.Context context)
+		{
+			ref var region = ref context.GetRegion();
+			Assert.NotNull(ref region);
+
+			ref var player = ref context.GetPlayer();
+			Assert.NotNull(ref player);
+
+			ref var character = ref player.GetControlledCharacter().data;
+			Assert.NotNull(ref character);
+
+			var ent_root = character.ent_controlled;
+			Assert.Check(ent_root.IsAlive());
+
+			var ts = Timestamp.Now();
+
+			//ent_root = ent_root.GetRoot(Relation.Type.Seat).GetRoot(Relation.Type.Instance).GetRoot(Relation.Type.Child);
+			//App.WriteLine(ent_root.GetRoot(Relation.Type.Seat).GetRoot(Relation.Type.Child));
+
+			ref var transform_root = ref ent_root.GetComponent<Transform.Data>();
+			Assert.NotNull(ref transform_root);
+
+			Span<Entity> entities = stackalloc Entity[32];
+			ent_root.GetAllChildren(ref entities);
+			Assert.Check(entities.Length > 0);
+
+			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Seat);
+			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Child);
+			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Stored);
+			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Rope);
+
+			var mouse_pos = player.control.mouse.position;
+
+			foreach (var ent in entities)
+			{
+				//var ref_transform = ent.GetComponentWithOwner<Transform.Data>(Relation.Type.Instance);
+				//if (ref_transform.entity != ent) continue;
+
+				if (ent.GetComponentOwner<Transform.Data>(Relation.Type.Instance) != ent) continue;
+
+				ref var transform = ref ent.GetComponent<Transform.Data>();
+				//ref var transform = ref ref_transform.data;
+				if (transform.IsNotNull())
+				{
+					var offset = transform.position - transform_root.position;
+
+					transform.SetPosition(mouse_pos + offset);
+					transform.Sync(ent, true);
+
+					//ref var physics = ref ent.GetComponent<Physics.Data>();
+					//if (physics.IsNotNull())
+					//{
+					//	physics.position = mouse_pos + offset;
+					//	physics.elapsed = 0.00f;
+					//	physics.Sync(ent, true);
+					//}
+
+					//App.WriteLine(ent);
+				}
+			}
+
+			var ts_elapsed = ts.GetMilliseconds();
+			App.WriteLine($"Teleported in {ts_elapsed:0.0000} ms");
+		}
 #endif
 	}
 }
