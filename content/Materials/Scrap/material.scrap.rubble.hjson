@@ -1,0 +1,60 @@
+﻿{
+	name: "Construction Scrap"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.scrap.rubble"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: rubble
+	flags: manufactured, gravel, granular, despawnable
+	hints: materials, junk, construction, cheap
+	// kg
+	mass_per_unit: 0.780
+	quantity_max: 500.000
+	prefab: "resource.scrap.rubble"
+	
+	commodity:
+	{
+		flags: marketable
+		categories: scrap, rocks, construction_materials, waste, industrial
+		
+		industries_produce: mining, low_tech, military, construction, slaves, labor, real_estate, kobolds, colonization, railway
+		industries_consume: mining, scrap, kobolds, colonization
+		industries_buy: scrap, kobolds
+		industries_sell: construction
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 0.012
+		market_price_min: 0.001
+		market_price_max: 0.017
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 0.000
+		quantity_industry: 10000.000
+	}
+	
+	scrap: []
+}

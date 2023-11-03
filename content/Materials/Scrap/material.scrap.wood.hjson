@@ -1,5 +1,5 @@
 ﻿{
-	name: "Metal Scrap"
+	name: "Wooden Scrap"
 	description:
 		'''
 		TODO: Desc
@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "resource.scrap.metal"
+		texture: "resource.scrap.wood"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,13 +23,13 @@
 	flags: manufactured, magnetic, metal, despawnable, intermediate
 	hints: materials, junk, construction, cheap
 	// kg
-	mass_per_unit: 0.560
+	mass_per_unit: 0.468
 	quantity_max: 500.000
-	prefab: "resource.scrap.metal"
+	prefab: "resource.scrap.wood"
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: metals, scrap, construction_materials, waste, industrial, toys
 		
 		industries_produce: mining, manufacturing, low_tech, high_tech, scrap, chemical, automotive, military, entertainment, arcane, construction, tourism, logistics, hospitality, slaves, labor, kobolds, exploration, munitions, railway, administrative, criminal, engineering, weapons, experimental, aviation, naval, furniture, architecture
