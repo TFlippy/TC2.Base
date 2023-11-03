@@ -16,6 +16,8 @@ namespace TC2.Base.Components
 			public uint2 frame_sitting;
 			public uint2 frames_jump;
 
+			public byte frame_air = 5;
+
 			[Net.Ignore, Save.Ignore] public float next_step;
 
 			public Data()
@@ -87,8 +89,9 @@ namespace TC2.Base.Components
 			{
 				if (runner_state.flags.HasAll(Runner.State.Flags.Sitting)) goto sitting;
 				else if (!runner_state.flags.HasAny(Runner.State.Flags.Grounded) && (info.WorldTime - runner_state.last_jump) < 1.00f) goto jumping;
-				else if (runner_state.flags.HasAll(Runner.State.Flags.Walking)) goto walking;	
-				else goto idle;
+				else if (runner_state.flags.HasAll(Runner.State.Flags.Walking)) goto walking;
+				else if (runner_state.flags.HasAny(Runner.State.Flags.Grounded)) goto idle;
+				else goto air;
 			}
 			else
 			{
@@ -183,7 +186,7 @@ namespace TC2.Base.Components
 			air:
 			{
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)(5 + Maths.Clamp(runner_state.air_time * legs.fps, 0, 2));
+				renderer.sprite.frame.X = (uint)(legs.frame_air + Maths.Clamp(runner_state.air_time * legs.fps, 0, 2));
 				renderer.sprite.count = 0;
 
 				return;
