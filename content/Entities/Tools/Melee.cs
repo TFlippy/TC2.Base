@@ -771,7 +771,7 @@ namespace TC2.Base.Components
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
 				len = MathF.Min(len, melee.max_distance);
 
-				body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.hit_offset));
+				body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 
 				//App.WriteLine(t);
 			}

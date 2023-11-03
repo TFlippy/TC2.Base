@@ -202,6 +202,12 @@ namespace TC2.Base.Components
 			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 			var is_swimming = false;
+			var stick_to_surface = runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface);
+			var move_relative = runner.flags.HasAny(Runner.Data.Flags.Move_Relative);
+
+			var dir_v = velocity.GetNormalized();
+			var dir_l = stick_to_surface ? runner_state.last_normal.RotateByRad(-MathF.PI * 0.50f) : move_relative ? transform.Left : new(-1.00f, 0.00f);
+			var dir_r = stick_to_surface ? runner_state.last_normal.RotateByRad(MathF.PI * 0.50f) : move_relative ? transform.Right : new(1.00f, 0.00f);
 
 			if (any || kb.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
@@ -215,8 +221,9 @@ namespace TC2.Base.Components
 				runner_state.last_move = time;
 				runner_state.walk_modifier_current = Maths.Lerp(runner_state.walk_modifier_current, 1.00f, runner.walk_lerp);
 
-				if (velocity.X > -runner.max_speed && kb.GetKey(Keyboard.Key.MoveLeft)) force.X -= runner.walk_force * runner_state.walk_modifier_current;
-				if (velocity.X < +runner.max_speed && kb.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
+				if (kb.GetKey(Keyboard.Key.MoveLeft) && Vector2.Dot(dir_v, dir_l) < runner.max_speed) force += dir_l * runner.walk_force * runner_state.walk_modifier_current;
+				if (kb.GetKey(Keyboard.Key.MoveRight) && Vector2.Dot(dir_v, dir_r) < runner.max_speed) force += dir_r * runner.walk_force * runner_state.walk_modifier_current;
+				//if (velocity.X < +runner.max_speed && kb.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
 			}
 			else
 			{
@@ -268,22 +275,36 @@ namespace TC2.Base.Components
 				var dot = MathF.Abs(runner_state.last_normal.X);
 				is_grounded = dot <= runner.max_grounded_dot;
 				is_on_vehicle = dot <= 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
-
-				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
-				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
 				runner_state.surface_dot_current = dot;
 
-				force.Y = runner_state.uphill_force_current;
-				force.X *= (1.00f - dot);
+				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
+
+				if (stick_to_surface)
+				{
+
+				}
+				else
+				{
+					runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
+					force.Y = runner_state.uphill_force_current;
+					force.X *= (1.00f - dot);
+				}
 			}
 			else
 			{
-				force.X *= 0.75f;
-				force.Y *= 0.00f;
+				if (stick_to_surface)
+				{
+					force *= 0.00f;
+				}
+				else
+				{
+					force.X *= 0.75f;
+					force.Y *= 0.00f;
 
-				force.Y -= runner_state.uphill_force_current * 0.75f;
-				runner_state.uphill_force_current *= 0.50f;
-				runner_state.surface_dot_current = 0.00f;
+					force.Y -= runner_state.uphill_force_current * 0.75f;
+					runner_state.uphill_force_current *= 0.50f;
+					runner_state.surface_dot_current = 0.00f;
+				}
 			}
 
 //#if CLIENT
@@ -294,7 +315,7 @@ namespace TC2.Base.Components
 			//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
 			//#endif
 
-			if (runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
+			if (!stick_to_surface && runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
 			{
 				force.X *= 0.70f;
 				force.Y *= 0.20f;
@@ -338,7 +359,7 @@ namespace TC2.Base.Components
 				max_speed.X *= runner.crouch_speed_modifier;
 			}
 
-			if (!is_walking && can_move && (velocity - rv).LengthSquared() > 0.10f) // && !is_on_vehicle && (time - runner_state.last_move) <= 0.50f)
+			if (!stick_to_surface && !is_walking && can_move && (velocity - rv).LengthSquared() > 0.10f) // && !is_on_vehicle && (time - runner_state.last_move) <= 0.50f)
 			{
 				var required_force_dir = ((velocity - rv) * mass * App.tickrate) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
@@ -366,13 +387,24 @@ namespace TC2.Base.Components
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 
+//#if CLIENT
+//			region.DrawDebugDir(transform.position, transform.Right, Color32BGRA.FromHSV(0, 1, 1).WithAlphaMult(0.50f));
+//			region.DrawDebugDir(transform.position, transform.Up, Color32BGRA.FromHSV(1, 1, 1).WithAlphaMult(0.50f));
+//			region.DrawDebugDir(transform.position, transform.Left, Color32BGRA.FromHSV(2, 1, 1).WithAlphaMult(0.50f));
+//			region.DrawDebugDir(transform.position, transform.Down, Color32BGRA.FromHSV(3, 1, 1).WithAlphaMult(0.50f));
+
+//			region.DrawDebugDir(transform.position, dir_v, Color32BGRA.FromHSV(4, 1, 1), thickness: 3.00f);
+//			region.DrawDebugDir(transform.position, force.GetNormalized() * 1.50f, Color32BGRA.FromHSV(5, 1, 1), thickness: 2.00f);
+//#endif
+
+
 			runner_state.last_force = force;
 			if (force.LengthSquared() > 0.10f)
 			{
 				body.AddForce(force);
 			}
 
-			if (is_grounded && runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface)) body.AddForce(-runner_state.last_normal * body.GetMass() * region.GetGravity().Length() * 1.50f);
+			if (stick_to_surface && is_grounded && !kb.GetKeyDown(Keyboard.Key.MoveUp)) body.AddForce(-runner_state.last_normal * body.GetMass() * region.GetGravity().Length() * 1.50f);
 
 			//#if CLIENT
 			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
