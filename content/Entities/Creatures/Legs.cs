@@ -83,11 +83,11 @@ namespace TC2.Base.Components
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			else if (true) //runner.flags.HasAll(Runner.Flags.Grounded))
+			else if (true) //Runner.State.Flags.HasAll(Runner.State.Flags.Grounded))
 			{
-				if (runner_state.flags.HasAll(Runner.Flags.Sitting)) goto sitting;
-				else if (!runner_state.flags.HasAny(Runner.Flags.Grounded) && (info.WorldTime - runner_state.last_jump) < 1.00f) goto jumping;
-				else if (runner_state.flags.HasAll(Runner.Flags.Walking)) goto walking;	
+				if (runner_state.flags.HasAll(Runner.State.Flags.Sitting)) goto sitting;
+				else if (!runner_state.flags.HasAny(Runner.State.Flags.Grounded) && (info.WorldTime - runner_state.last_jump) < 1.00f) goto jumping;
+				else if (runner_state.flags.HasAll(Runner.State.Flags.Walking)) goto walking;	
 				else goto idle;
 			}
 			else
@@ -97,17 +97,17 @@ namespace TC2.Base.Components
 
 			walking:
 			{
-				renderer.sprite.fps = (byte)Math.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
+				renderer.sprite.fps = (byte)Math.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = legs.frame_count;
 
-				var offset = runner_state.flags.HasAll(Runner.Flags.Grounded) ? new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f)) : Vector2.Zero;
+				var offset = runner_state.flags.HasAll(Runner.State.Flags.Grounded) ? new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f)) : Vector2.Zero;
 				if (!headbob.IsNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
 
-				if (renderer.sprite.fps > 0 && runner_state.flags.HasAll(Runner.Flags.Grounded))
+				if (renderer.sprite.fps > 0 && runner_state.flags.HasAll(Runner.State.Flags.Grounded))
 				{
 					if (info.WorldTime >= legs.next_step)
 					{

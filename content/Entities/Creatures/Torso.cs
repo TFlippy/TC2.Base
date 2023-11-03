@@ -75,7 +75,7 @@
 			{
 				torso.air_time = runner_state.air_time;
 
-				if (runner_state.flags.HasAll(Runner.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
+				if (runner_state.flags.HasAll(Runner.State.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
 				else torso.flags &= ~Torso.Flags.Crouching;
 			}
 		}

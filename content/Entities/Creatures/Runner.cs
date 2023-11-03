@@ -3,25 +3,21 @@ namespace TC2.Base.Components
 {
 	public static partial class Runner
 	{
-		[Flags]
-		public enum Flags: uint
-		{
-			None = 0,
-
-			Grounded = 1 << 0,
-			Walking = 1 << 1,
-			Jumping = 1 << 2,
-			Falling = 1 << 3,
-			Crouching = 1 << 4,
-			Climbing = 1 << 5,
-			Sitting = 1 << 6,
-			WallClimbing = 1 << 7,
-			//Ragdolled = 1 << 8,
-		}
-
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data: IComponent, IOverridable
 		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Jump_Align_Surface = 1 << 0,
+				Jump_Relative = 1 << 1,
+				Move_Relative = 1 << 2,
+				Stick_To_Surface = 1 << 3,
+				No_Rotate_Align_Surface = 1 << 4,
+			}
+
 			public float walk_force;
 			public float jump_force;
 			public float max_speed = 10.00f;
@@ -31,6 +27,7 @@ namespace TC2.Base.Components
 			public float max_grounded_dot = 0.90f;
 			public float propagate_ratio = 1.00f;
 			public float no_rotate_air_mult = 0.00f;
+			public Runner.Data.Flags flags;
 
 			//public float no_rotate_mult = 1.00f;
 
@@ -48,13 +45,29 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Grounded = 1 << 0,
+				Walking = 1 << 1,
+				Jumping = 1 << 2,
+				Falling = 1 << 3,
+				Crouching = 1 << 4,
+				Climbing = 1 << 5,
+				Sitting = 1 << 6,
+				WallClimbing = 1 << 7,
+				//Ragdolled = 1 << 8,
+			}
+
 			[Save.Ignore] public float air_modifier_current;
 			[Save.Ignore] public float walk_modifier_current;
 			[Save.Ignore] public float uphill_force_current;
 			[Save.Ignore] public float jump_force_current;
 			[Save.Ignore] public float surface_dot_current;
 			[Save.Ignore] public float modifier;
-			[Save.Ignore] public Runner.Flags flags;
+			[Save.Ignore] public Runner.State.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float air_time;
 
@@ -77,13 +90,13 @@ namespace TC2.Base.Components
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
 		public static void OnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
 		{
-			runner_state.flags.SetFlag(Runner.Flags.Sitting, true);
+			runner_state.flags.SetFlag(Runner.State.Flags.Sitting, true);
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
 		public static void OnUnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
 		{
-			runner_state.flags.SetFlag(Runner.Flags.Sitting, false);
+			runner_state.flags.SetFlag(Runner.State.Flags.Sitting, false);
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -109,15 +122,15 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
-			runner_state.flags.SetFlag(Runner.Flags.Climbing, climber.cling_entity.IsValid());
-			runner_state.flags.SetFlag(Runner.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
+			runner_state.flags.SetFlag(Runner.State.Flags.Climbing, climber.cling_entity.IsValid());
+			runner_state.flags.SetFlag(Runner.State.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
 
-			if (runner_state.flags.HasAny(Runner.Flags.Climbing))
+			if (runner_state.flags.HasAny(Runner.State.Flags.Climbing))
 			{
 				runner_state.last_climb = info.WorldTime;
 			}
 
-			if (runner_state.flags.HasAll(Runner.Flags.Climbing))
+			if (runner_state.flags.HasAll(Runner.State.Flags.Climbing))
 			{
 				runner_state.last_wallclimb_force = climber.last_force;
 			}
@@ -137,6 +150,8 @@ namespace TC2.Base.Components
 
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
+
+			if (runner.flags.HasAny(Runner.Data.Flags.No_Rotate_Align_Surface)) no_rotate.rotation = -(runner_state.last_normal.GetAngleRadiansFast()) - (MathF.PI * 0.50f);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
@@ -172,7 +187,8 @@ namespace TC2.Base.Components
 		//		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control)
+		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control,
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state)
 		{
 			var kb = control.keyboard;
 
@@ -182,7 +198,7 @@ namespace TC2.Base.Components
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
-			var can_move = !kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.Flags.Sitting);
+			var can_move = !kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.State.Flags.Sitting);
 			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 			var is_swimming = false;
@@ -192,7 +208,7 @@ namespace TC2.Base.Components
 				body.Activate();
 			}
 
-			runner_state.flags.SetFlag(Runner.Flags.Walking, is_walking);
+			runner_state.flags.SetFlag(Runner.State.Flags.Walking, is_walking);
 
 			if (is_walking)
 			{
@@ -250,8 +266,8 @@ namespace TC2.Base.Components
 
 
 				var dot = MathF.Abs(runner_state.last_normal.X);
-				is_grounded = dot < runner.max_grounded_dot;
-				is_on_vehicle = dot < 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
+				is_grounded = dot <= runner.max_grounded_dot;
+				is_on_vehicle = dot <= 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
 
 				//runner_state.uphill_force_current = -MathF.Abs(dot * force.Length()) * friction * 0.50f;
 				runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
@@ -278,36 +294,45 @@ namespace TC2.Base.Components
 			//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
 			//#endif
 
-			if (runner_state.flags.HasAny(Runner.Flags.WallClimbing))
+			if (runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
 			{
 				force.X *= 0.70f;
 				force.Y *= 0.20f;
 				//runner_state.uphill_force_current *= 0.00f;
 			}
 
+			var jump_dir = new Vector2(0, -1);
+
 			if (is_grounded)
 			{
-				runner_state.flags.SetFlag(Runner.Flags.Grounded, true);
+				runner_state.flags.SetFlag(Runner.State.Flags.Grounded, true);
 				runner_state.last_ground = time;
+
+				if (runner.flags.HasAny(Runner.Data.Flags.Jump_Align_Surface)) jump_dir = normal;
 			}
 			else
 			{
-				runner_state.flags.SetFlag(Runner.Flags.Grounded, false);
+				runner_state.flags.SetFlag(Runner.State.Flags.Grounded, false);
 				runner_state.last_air = time;
+
+				if (runner.flags.HasAny(Runner.Data.Flags.Jump_Relative)) jump_dir = transform.Up;
 			}
 
-			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing))
-			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.Flags.WallClimbing | Runner.Flags.Climbing))
+			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
+			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = time;
 			}
 
-			force.Y -= runner_state.jump_force_current;
+			//force.Y -= runner_state.jump_force_current;
+
+			force += jump_dir * runner_state.jump_force_current;
+			//force -= runner_state.jump_force_current;
 			runner_state.jump_force_current *= runner.jump_decay;
 
-			runner_state.flags.SetFlag(Runner.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (time - runner_state.last_ground) <= 0.25f);
-			if (runner_state.flags.HasAll(Runner.Flags.Crouching))
+			runner_state.flags.SetFlag(Runner.State.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (time - runner_state.last_ground) <= 0.25f);
+			if (runner_state.flags.HasAll(Runner.State.Flags.Crouching))
 			{
 				runner_state.jump_force_current *= 0.50f;
 				max_speed.X *= runner.crouch_speed_modifier;
@@ -320,7 +345,7 @@ namespace TC2.Base.Components
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 				required_force_dir.Y = 0.00f;
 
-				if (!runner_state.flags.HasAll(Runner.Flags.Grounded))
+				if (!runner_state.flags.HasAll(Runner.State.Flags.Grounded))
 				{
 					required_force_dir.X *= runner.air_brake_modifier;
 				}
@@ -346,6 +371,9 @@ namespace TC2.Base.Components
 			{
 				body.AddForce(force);
 			}
+
+			if (is_grounded && runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface)) body.AddForce(-runner_state.last_normal * body.GetMass() * region.GetGravity().Length() * 1.50f);
+
 			//#if CLIENT
 			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
 			//#endif
