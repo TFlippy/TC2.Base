@@ -101,7 +101,7 @@ crafter.state:
 
 burner:
 {
-	smoke_offset: [-1.800, -2.100]
+	smoke_offset: [-0.875, -2.625]
 	capacity: 8.000
 	energy_loss: 100000.000
 	efficiency: 0.400
