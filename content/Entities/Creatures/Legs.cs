@@ -16,7 +16,7 @@ namespace TC2.Base.Components
 			public uint2 frame_sitting;
 			public uint2 frames_jump;
 
-			public byte frame_air = 5;
+			public byte frame_air = 0;
 
 			[Net.Ignore, Save.Ignore] public float next_step;
 
@@ -186,7 +186,8 @@ namespace TC2.Base.Components
 			air:
 			{
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)(legs.frame_air + Maths.Clamp(runner_state.air_time * legs.fps, 0, 2));
+				//renderer.sprite.frame.X = (uint)(legs.frame_air + Maths.Clamp(runner_state.air_time * legs.fps, 0, 2));
+				renderer.sprite.frame.X = (uint)(legs.frame_air);
 				renderer.sprite.count = 0;
 
 				return;

@@ -611,6 +611,7 @@ commandable:
 
 			frame_sitting: [6, 0]
 			frames_jump: [5, 8]
+			frame_air: 8
 		}
 		
 		norotate:
