@@ -137,7 +137,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, Entity entity, 
+		public static void UpdateNoRotate(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, 
+		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
@@ -307,9 +307,9 @@ namespace TC2.Base.Components
 				}
 			}
 
-//#if CLIENT
-//			region.DrawDebugText(body.GetPosition(), $"{arbiter_count}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
-//#endif
+			//#if CLIENT
+			//			region.DrawDebugText(body.GetPosition(), $"{arbiter_count}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
+			//#endif
 
 			//#if CLIENT
 			//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
@@ -387,15 +387,15 @@ namespace TC2.Base.Components
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 
-//#if CLIENT
-//			region.DrawDebugDir(transform.position, transform.Right, Color32BGRA.FromHSV(0, 1, 1).WithAlphaMult(0.50f));
-//			region.DrawDebugDir(transform.position, transform.Up, Color32BGRA.FromHSV(1, 1, 1).WithAlphaMult(0.50f));
-//			region.DrawDebugDir(transform.position, transform.Left, Color32BGRA.FromHSV(2, 1, 1).WithAlphaMult(0.50f));
-//			region.DrawDebugDir(transform.position, transform.Down, Color32BGRA.FromHSV(3, 1, 1).WithAlphaMult(0.50f));
+			//#if CLIENT
+			//			region.DrawDebugDir(transform.position, transform.Right, Color32BGRA.FromHSV(0, 1, 1).WithAlphaMult(0.50f));
+			//			region.DrawDebugDir(transform.position, transform.Up, Color32BGRA.FromHSV(1, 1, 1).WithAlphaMult(0.50f));
+			//			region.DrawDebugDir(transform.position, transform.Left, Color32BGRA.FromHSV(2, 1, 1).WithAlphaMult(0.50f));
+			//			region.DrawDebugDir(transform.position, transform.Down, Color32BGRA.FromHSV(3, 1, 1).WithAlphaMult(0.50f));
 
-//			region.DrawDebugDir(transform.position, dir_v, Color32BGRA.FromHSV(4, 1, 1), thickness: 3.00f);
-//			region.DrawDebugDir(transform.position, force.GetNormalized() * 1.50f, Color32BGRA.FromHSV(5, 1, 1), thickness: 2.00f);
-//#endif
+			//			region.DrawDebugDir(transform.position, dir_v, Color32BGRA.FromHSV(4, 1, 1), thickness: 3.00f);
+			//			region.DrawDebugDir(transform.position, force.GetNormalized() * 1.50f, Color32BGRA.FromHSV(5, 1, 1), thickness: 2.00f);
+			//#endif
 
 
 			runner_state.last_force = force;
@@ -404,7 +404,7 @@ namespace TC2.Base.Components
 				body.AddForce(force);
 			}
 
-			if (stick_to_surface && is_grounded && !kb.GetKeyDown(Keyboard.Key.MoveUp)) body.AddForce(-runner_state.last_normal * body.GetMass() * region.GetGravity().Length() * 1.50f);
+			if (stick_to_surface && (time - runner_state.last_ground <= 0.40f) && !kb.GetKeyDown(Keyboard.Key.MoveUp)) body.AddForce(-runner_state.last_normal * body.GetMass() * region.GetGravity().Length() * 1.50f * Maths.Normalize01(time - runner_state.last_ground, 0.40f).Inv().Pow2());
 
 			//#if CLIENT
 			//			region.DrawText(body.GetPosition(), $"{runner_state.flags}\n{runner_state.last_jump:0.00}\n{(info.WorldTime - runner_state.last_ground):0.00}", Color32BGRA.White);
