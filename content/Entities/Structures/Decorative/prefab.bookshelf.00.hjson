@@ -4,25 +4,23 @@ $tags: []
 
 body:
 {
-	type: dynamic
-	buoyancy: 0.100
+	type: static
 	
 	@shape.polygon:
 	{
 		points: 
 		[
-			[-1.250, -0.500]
-			[1.250, 0.000]
-			[1.250, 0.500]
-			[-1.250, 0.500]
+			[-1.125, -1.250]
+			[0.375, -1.250]
+			[1.125, 1.250]
+			[-1.125, 1.250]
 		]
-		offset: [0.000, 0.000]
-		mass: 250.000
+		mass: 100.000
 		radius: 0.250
-		friction: 0.900
+		friction: 0.700
 		elasticity: 0.400
-		material: metal
-		layer: entity, building
+		material: wood
+		layer: entity, decoration, building
 		mask: world
 	}
 }
@@ -38,7 +36,7 @@ animated.renderer:
 	{
 		texture: "bookshelf.00"
 	}
-	offset: [0.000, -0.250]
+	offset: [0.000, 0.000]
 	z: -90.000
 }
 
@@ -47,11 +45,25 @@ transform:
 
 }
 
-holdable:
+interactable:
 {
-	radius: 0.000
-	flags: disable_parent_facing
-	stress_multiplier: 0.500
+	window_size: [192.000, 192.000]
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 2
+
+	tables:
+	[
+		"bookshelf"
+	]
 }
 
 harvestable:
@@ -59,11 +71,11 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
-			quantity: 100.000
+			material: "wood"
+			quantity: 80.000
 		}
 		{
-			material: "cloth"
+			material: "paper"
 			quantity: 30.000
 		}
 	]

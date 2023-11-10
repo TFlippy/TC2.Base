@@ -1,0 +1,145 @@
+$name: "Market"
+$desc: "A place to trade at."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: stone
+		layer: entity, building, support, ignore_melee, dormitory
+		mask: world, bounds
+	}
+}
+
+health:
+{
+	max: 75000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "market"
+	}
+	offset: [0.000, -2.000]
+	z: -300.000
+	mask: "market.mask"
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	name: "Market"
+	tags: market
+}
+
+interactable:
+{
+	window_size: [800.000, 500.000]
+}
+
+light:
+{
+	color: [1.000, 0.750, 0.100, 2.000]
+	offset: [-1.250, -2.600]
+	scale: [32.000, 32.000]
+	intensity: 0.800
+	texture: "light.circle.00"
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	// flags: no_menu
+	requirements:
+	[
+		{
+			type: money
+			amount: 1149.990
+		}
+	]
+}
+
+nameable:
+{
+	flags: randomize, no_rename
+}
+
+depot:
+{
+	offset: [0.000, 0.000]
+	size: [4.000, 3.000]
+	flags: allow_withdraw, allow_deposit, allow_send, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
+
+	shipping_fee_base: 20.000
+}
+
+spawn:
+{
+	flags: faction, public
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [7, 0]
+	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "human"
+	flags: no_kit_selection, no_kit_requirements
+	asset_flags: recycle
+	max_kits: 2
+	kit_default: "survival"
+
+	characters_capacity: 5
+	characters_initial_count: 0
+
+	repopulate_interval: 400.000
+	repopulate_interval_extra: 400.000
+	repopulate_num: 1
+	repopulate_num_extra: 3
+
+	character_flags_filter: 
+	{
+		require: none
+		include: bureaucrat, construction, artisan, farmer, civillian, social, commerce, miner, hunter, nomad, artist, outdoor, lower_middle_class, middle_class
+		exclude: criminal, military, lowlife, sedentary, upper_class, elite_class
+		weight: 2.000
+	}
+}
+
+office:
+{
+	// h_company: "postus_imperialny"
+	flags: enable_register_company
+}

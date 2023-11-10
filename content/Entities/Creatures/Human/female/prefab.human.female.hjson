@@ -735,7 +735,7 @@ commandable:
 		material_type: leather
 		max_stress: 2.000
 		stress_threshold: 2.010
-		z: -150.000
+		z: -60.000
 	}
 
 	joint.pivot:
