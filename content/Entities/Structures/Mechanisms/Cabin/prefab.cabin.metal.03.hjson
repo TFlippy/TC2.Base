@@ -16,8 +16,8 @@ body:
 		[
 			[-0.625, -0.875]
 			[0.875, -0.875]
-			[0.625, 0.750]
-			[-0.625, 0.750]
+			[0.625, 0.875]
+			[-0.625, 0.875]
 		]
 		offset: [0.000, 0.000]
 		radius: 0.500
@@ -60,7 +60,7 @@ holdable:
 
 attachment:
 {
-	offset: [0.000, 1.250]
+	offset: [-0.500, 0.625]
 	force_multiplier: 2.000
 	torque_multiplier: 8.000
 }
@@ -69,11 +69,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "cabin.metal.03.fg"
+		texture: "cabin.metal.03.bg"
 		size: [32, 32]
 	}
-	z: 140.000
-	// mask: "cabin.metal.03.fg.mask"
+	z: 70.000
+	// mask: "cabin.metal.03.bg.mask"
 	flags: has_damage
 }
 
@@ -83,11 +83,11 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "cabin.metal.03.bg"
+			texture: "cabin.metal.03.fg"
 			size: [32, 32]
 		}
-		z: 70.000
-		// mask: "cabin.metal.03.bg.mask"
+		z: 195.000
+		// mask: "cabin.metal.03.fg.mask"
 		flags: has_damage
 	}
 }
@@ -165,12 +165,12 @@ mount:
 {
 	joint.base:
 	{
-		offset_a: [0.375, 0.250]
-		max_force: 30000.000
-		max_torque: 4000.000
+		offset_a: [0.875, 1.250]
+		max_force: 80000.000
+		max_torque: 12000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		z: 100.000
 		material_type: metal
 
@@ -199,8 +199,8 @@ mount:
 		error_bias: 0.000
 		max_bias: 8.000
 		stiffness: 7500.000
-		damping: 200.000
-		axis_force: 80000.000
+		damping: 250.000
+		axis_force: 150000.000
 		spring_max_bias: 5.000
 		max_distance: 0.500
 		rotation: 0.000
