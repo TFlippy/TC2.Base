@@ -1,14 +1,14 @@
-$name: "Cabin (Metal)"
+$name: "Cabin (Wood)"
 $desc:
 	'''
-	Metal vehicle cabin with extra storage space.
+	Wooden vehicle cabin with extra storage space.
 	'''
 $tags: []
 
 body:
 {
 	inventory_weight_multiplier: 0.250
-	fall_damage_multiplier: 0.750
+	fall_damage_multiplier: 0.600
 
 	@shape.polygon:	
 	{
@@ -20,30 +20,18 @@ body:
 			[-1.500, 1.500]
 		]
 		radius: 0.250
-		mass: 300.000
+		mass: 140.000
 		friction: 0.750
-		elasticity: 0.450
-		material: metal
-		layer: entity, solid
+		elasticity: 0.500
+		material: wood
+		layer: entity, solid, flammable
 		mask: world
 	}
 }
 
 health:
 {
-	max: 14000.000
-}
-
-armor:
-{
-	toughness: 400.000
-	protection: 0.500
-	
-	knockback_modifier: 1.300
-	pain_modifier: 0.000
-
-	material_type: metal
-	flags: no_damage_type_conversion
+	max: 9000.000
 }
 
 holdable:
@@ -66,11 +54,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "cabin.metal.00.fg"
+		texture: "cabin.wood.00.fg"
 	}
 	offset: [0.000, 0.000]
 	z: 70.000
-	mask: "cabin.metal.00.fg.mask"
 }
 
 vehicle:
@@ -79,21 +66,10 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "cabin.metal.00.bg"
+			texture: "cabin.wood.00.bg"
 		}
 		z: -100.000
 	}
-}
-
-faction.colorable:
-{
-	intensity_a: 0.500
-	intensity_b: 0.500
-}
-
-faction:
-{
-
 }
 
 transform:
@@ -103,7 +79,7 @@ transform:
 
 interactable:
 {
-	window_size: [200.000, 128.000]
+	window_size: [182.000, 240.000]
 	// window_offset: [0.000, 192.000]
 }
 
@@ -129,7 +105,7 @@ control:
 	
 	seat:
 	{
-		offset: [0.350, 0.125]
+		offset: [0.625, 0.125]
 		max_tilt: 5.000
 	}
 }

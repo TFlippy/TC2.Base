@@ -1,4 +1,4 @@
-$name: "Cabin (Tank)"
+$name: "Cabin (Windowed)"
 $desc:
 	'''
 	Heavily armored metal cabin with an attachment slot on top and a gunner seat.
@@ -8,22 +8,22 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.650
-	fall_damage_multiplier: 0.750
+	fall_damage_multiplier: 1.150
 
 	@shape.polygon:	
 	{
-		points:
+		points: 
 		[
-			[1.250, 0.750]
-			[-1.250, 0.750]
-			[-1.000, -0.750]
-			[0.125, -0.750]
+			[-0.875, -1.250]
+			[1.000, -1.250]
+			[0.750, 1.050]
+			[-0.625, 1.050]
 		]
 		offset: [0.000, 0.000]
 		radius: 0.500
-		mass: 700.000
+		mass: 210.000
 		friction: 0.750
-		elasticity: 0.450
+		elasticity: 0.350
 		material: metal
 		layer: entity, solid
 		mask: world
@@ -32,13 +32,13 @@ body:
 
 health:
 {
-	max: 95000.000
+	max: 9700.000
 }
 
 armor:
 {
-	toughness: 1500.000
-	protection: 0.800
+	toughness: 150.000
+	protection: 0.500
 	
 	knockback_modifier: 1.500
 	pain_modifier: 0.000
@@ -69,11 +69,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "cabin.metal.02.bg"
+		texture: "cabin.metal.03.fg"
 		size: [32, 32]
 	}
 	z: 70.000
-	mask: "cabin.metal.02.bg.mask"
+	// mask: "cabin.metal.03.fg.mask"
 	flags: has_damage
 }
 
@@ -83,11 +83,11 @@ vehicle:
 	{
 		sprite:
 		{
-			texture: "cabin.metal.02.fg"
+			texture: "cabin.metal.03.bg"
 			size: [32, 32]
 		}
-		z: 90.000
-		mask: "cabin.metal.02.fg.mask"
+		z: -90.000
+		// mask: "cabin.metal.03.bg.mask"
 		flags: has_damage
 	}
 }
@@ -121,7 +121,7 @@ interactable:
 
 storage:
 {
-	@inventory4:
+	@inventory1:
 	{
 		name: "Ammo"
 		stack_size_multiplier: 4.000
@@ -151,8 +151,8 @@ threat:
 	seat:
 	{
 		flags: crouch
-		offset: [-0.375, -0.125]
-		max_tilt: 6.000
+		offset: [0.375, -0.250]
+		max_tilt: 10.000
 	}
 }
 
@@ -165,9 +165,9 @@ mount:
 {
 	joint.base:
 	{
-		offset_a: [-0.500, -1.250]
-		max_force: 700000.000
-		max_torque: 100000.000
+		offset_a: [0.375, 0.250]
+		max_force: 70000.000
+		max_torque: 10000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing
@@ -229,8 +229,9 @@ mount:
 		identifier: "turret"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_write, mouse_write, offset
 
-		gui_size: [0.000, 96.000]
+		offset_bounds: [-0.750, -0.250, 0.750, 0.250]
+		gui_size: [96.000, 96.000]
 	}
 }
