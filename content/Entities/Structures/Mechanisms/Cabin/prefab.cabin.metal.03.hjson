@@ -14,10 +14,10 @@ body:
 	{
 		points: 
 		[
-			[-0.875, -1.250]
-			[1.000, -1.250]
-			[0.750, 1.050]
-			[-0.625, 1.050]
+			[-0.625, -0.875]
+			[0.875, -0.875]
+			[0.625, 0.750]
+			[-0.625, 0.750]
 		]
 		offset: [0.000, 0.000]
 		radius: 0.500
@@ -72,7 +72,7 @@ animated.renderer:
 		texture: "cabin.metal.03.fg"
 		size: [32, 32]
 	}
-	z: 70.000
+	z: 140.000
 	// mask: "cabin.metal.03.fg.mask"
 	flags: has_damage
 }
@@ -86,7 +86,7 @@ vehicle:
 			texture: "cabin.metal.03.bg"
 			size: [32, 32]
 		}
-		z: -90.000
+		z: 70.000
 		// mask: "cabin.metal.03.bg.mask"
 		flags: has_damage
 	}
@@ -166,12 +166,12 @@ mount:
 	joint.base:
 	{
 		offset_a: [0.375, 0.250]
-		max_force: 70000.000
-		max_torque: 10000.000
+		max_force: 30000.000
+		max_torque: 4000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing
-		z: 80.000
+		z: 100.000
 		material_type: metal
 
 		@sound.emitter:
@@ -184,13 +184,13 @@ mount:
 		@sound.mixer:
 		{
 			volume_modifier: 1.000
-			pitch_modifier: 0.250
+			pitch_modifier: 0.500
 			volume_min: 0.000
-			pitch_min: 0.700
-			volume_lerp_a: 0.020
-			volume_lerp_b: 0.100
-			pitch_lerp_a: 0.040
-			pitch_lerp_b: 0.010
+			pitch_min: 0.800
+			volume_lerp_a: 0.120
+			volume_lerp_b: 0.160
+			pitch_lerp_a: 0.150
+			pitch_lerp_b: 0.150
 		}
 	}
 
@@ -198,11 +198,11 @@ mount:
 	{
 		error_bias: 0.000
 		max_bias: 8.000
-		stiffness: 15000.000
-		damping: 4500.000
-		axis_force: 800000.000
-		spring_max_bias: 4.000
-		max_distance: 3.000
+		stiffness: 7500.000
+		damping: 200.000
+		axis_force: 80000.000
+		spring_max_bias: 5.000
+		max_distance: 0.500
 		rotation: 0.000
 		stress_mult_axis: 1.000
 	}
@@ -216,11 +216,13 @@ mount:
 
 	joint.gear:
 	{
-		error_bias: 0.050
-		max_bias: 2.000
-		step: 8.000
-		min: -2.000
-		max: 0.500
+		error_bias: 0.020
+		max_bias: 8.000
+		max_bias_bounce: 7.000
+		step: 30.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.600
 	}
 
 	attachment.slot:
@@ -228,7 +230,7 @@ mount:
 		name: "Turret"
 		identifier: "turret"
 
-		flags: keyboard_write, mouse_write
+		flags: use_center_of_gravity, keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, cycle, keyboard_write, mouse_write, offset
 
 		offset_bounds: [-0.750, -0.250, 0.750, 0.250]
