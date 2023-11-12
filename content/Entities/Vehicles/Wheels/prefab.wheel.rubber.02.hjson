@@ -1,0 +1,74 @@
+$name: "Wheel (Rubber, Smallest)"
+$desc:
+	'''
+	
+	'''
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 0.050
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 40.000
+		radius: 0.425
+		friction: 1.600
+		elasticity: 0.800
+		material: rubber
+		layer: entity, solid, wheel
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wheel.rubber.02"
+	}
+	z: 110.000
+}
+
+health:
+{
+	max: 6000.000
+}
+
+armor:
+{
+	toughness: 500.000
+	protection: 0.500
+	
+	knockback_modifier: 1.000
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+	stress_multiplier: 0.500
+}
+
+attachment:
+{
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+transform:
+{
+
+}
+
+wheel:
+{
+	
+}
