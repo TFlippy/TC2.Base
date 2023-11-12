@@ -20,7 +20,7 @@
 	flags: manufactured, ammo, ammo_grapple, magnetic
 	mass_per_unit: 5.000
 	quantity_max: 1.000
-	prefab: "resource.ammo_grapple"
+	prefab: "resource.ammo_grapple.spike"
 	
 	ammo:
 	{
