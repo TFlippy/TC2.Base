@@ -12,9 +12,9 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 40.000
-		radius: 0.425
-		friction: 1.600
+		mass: 14.000
+		radius: 0.500
+		friction: 1.200
 		elasticity: 0.800
 		material: rubber
 		layer: entity, solid, wheel
@@ -33,12 +33,12 @@ animated.renderer:
 
 health:
 {
-	max: 6000.000
+	max: 4000.000
 }
 
 armor:
 {
-	toughness: 500.000
+	toughness: 350.000
 	protection: 0.500
 	
 	knockback_modifier: 1.000

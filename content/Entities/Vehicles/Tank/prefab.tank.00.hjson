@@ -381,7 +381,7 @@ axle:
 
 	joint.base:
 	{
-		offset_a: [-2.250, 0.000]
+		offset_a: [-2.250, 1.500]
 		flags: no_wrap, force_facing, no_sync
 		z: 110.000
 		material_type: metal
@@ -415,7 +415,7 @@ axle:
 
 	joint.base:
 	{
-		offset_a: [-1.250, 0.000]
+		offset_a: [-1.250, 1.500]
 		flags: no_wrap, force_facing, no_sync
 		z: -109.000
 		material_type: metal
@@ -449,7 +449,7 @@ axle:
 
 	joint.base:
 	{
-		offset_a: [1.000, 0.000]
+		offset_a: [1.000, 1.500]
 		flags: no_wrap, force_facing, no_sync
 		z: 109.000
 		material_type: metal
@@ -483,7 +483,7 @@ axle:
 
 	joint.base:
 	{
-		offset_a: [2.000, 0.000]
+		offset_a: [2.000, 1.500]
 		flags: no_wrap, force_facing, no_sync
 		z: -110.000
 		material_type: metal

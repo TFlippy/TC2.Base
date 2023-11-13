@@ -69,7 +69,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "cabin.metal.03"
+		texture: "cabin.metal.03.bg"
 		size: [32, 32]
 	}
 	z: 70.000
@@ -91,22 +91,6 @@ vehicle:
 		flags: has_damage
 	}
 }
-
-vehicle:
-{
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "cabin.metal.03.bg"
-			size: [32, 32]
-		}
-		z: -100.000
-		// mask: "cabin.metal.03.fg.mask"
-		flags: has_damage
-	}
-}
-
 
 damage.effects:
 {
