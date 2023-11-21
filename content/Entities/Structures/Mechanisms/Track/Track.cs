@@ -71,7 +71,7 @@
 		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
 		{
 			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
-			axle_state.SetAngularVelocity(MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass(), -joint_distance.GetBias());
+			axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass(), -joint_distance.GetBias());
 			joint_distance.step = MathF.Abs(axle_state.angular_velocity) * 0.50f;
 			joint_distance.max_bias = MathF.Abs(axle_state.angular_velocity) * 0.50f;
 			joint_distance.max_force = MathF.Abs(axle_state.angular_momentum * 2000.00f);

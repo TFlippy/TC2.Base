@@ -91,7 +91,7 @@
 						ref var axle_state = ref info.entity.GetComponent<Axle.State>();
 						if (axle_state.IsNotNull())
 						{
-							GUI.DrawTextCentered($"{axle_state.angular_velocity:0.00} rad/s\n{axle_state.new_tmp_torque:0.00} Nm/s", info.Position.WorldToCanvas());
+							GUI.DrawTextCentered($"{axle_state.angular_velocity:0.00} rad/s\n{axle_state.net_torque:0.00} Nm/s", info.Position.WorldToCanvas());
 						}
 					}
 

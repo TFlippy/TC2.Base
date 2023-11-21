@@ -160,7 +160,6 @@ rope.renderer:
 
 		error_bias: 0.001
 		max_force: 40000.000
-		max_force_b: 40000.000
 		max_bias: 10.000
 	}
 

@@ -142,7 +142,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			tractor_state.current_motor_force = axle_state.old_tmp_torque;
+			tractor_state.current_motor_force = axle_state.net_torque;
 			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
 		}
 

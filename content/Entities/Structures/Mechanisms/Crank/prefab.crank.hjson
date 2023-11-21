@@ -39,7 +39,7 @@ axle:
 {
 	offset: [0.000, 0.000]
 	mass: 5.000
-	friction: 0.200
+	friction: 0.400
 	radius_a: 1.000
 	radius_b: 1.000
 	radius_inner: 0.750
@@ -142,7 +142,7 @@ transform:
 			{
 				texture: "wheel_1000.steel"
 			}
-			z: -110.000
+			z: 5.000
 		}
 
 		health:
@@ -181,7 +181,8 @@ transform:
 				{
 					texture: "crank.knob"
 				}
-				z: -150.000
+				offset: [0.875, 0.000]
+				z: 10.000
 			}
 		}
 	}

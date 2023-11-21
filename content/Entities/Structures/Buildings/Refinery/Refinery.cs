@@ -157,7 +157,7 @@
 			{
 				case Work.Type.Mixing:
 				{
-					axle_state.new_tmp_load += crafter_state.current_work_difficulty * 100.00f;
+					axle_state.force_load_new += crafter_state.current_work_difficulty * 100.00f;
 					crafter_state.work += axle_state.angular_velocity * info.DeltaTime;
 				}
 				break;

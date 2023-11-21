@@ -48,13 +48,17 @@ namespace TC2.Base.Components
 							Sound.Play(ref region, this.state == 0 ? data.sound_disable : data.sound_enable, transform.position);
 							Shake.Emit(ref region, transform.position, 0.30f, 0.30f, 8.00f);
 
-							if (this.state == 0)
+							if (this.state == -1)
 							{
-								WorldNotification.Push(ref region, $"* Off *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, $"* Reverse *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+							}
+							else if (this.state == 0)
+							{
+								WorldNotification.Push(ref region, $"* Neutral *", Color32BGRA.Yellow, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else
 							{
-								WorldNotification.Push(ref region, $"* On *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, $"* Forward *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
 							}
 						}
 
@@ -75,20 +79,20 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch)
 		{
-			if (clutch.state == 0)
-			{
-				clutch.modifier_target = 0.00f;
-			}
-			else
-			{
-				clutch.modifier_target = 1.00f;
-			}
+			//if (clutch.state == 0)
+			//{
+			//	clutch.modifier_target = 0.00f;
+			//}
+			//else
+			//{
+			//	clutch.modifier_target = 1.00f;
+			//}
 
+			clutch.modifier_target = Maths.ClampMagnitude(clutch.state);
 			clutch.modifier = Maths.MoveTowards(clutch.modifier, clutch.modifier_target, clutch.speed);
 
-			axle.modifier = clutch.modifier;
-			//axle.offset_inner = clutch.offset_disabled * (1.00f - clutch.modifier);
-			axle.offset_inner = Vector2.Lerp(clutch.offset_disabled, clutch.offset_enabled, clutch.modifier);
+			axle.offset_inner = Vector2.Lerp(clutch.offset_disabled, clutch.offset_enabled, clutch.modifier.Abs());
+			axle.modifier = Maths.MoveTowards(axle.modifier, clutch.modifier, clutch.speed * 0.10f);
 		}
 
 #if CLIENT
@@ -96,7 +100,7 @@ namespace TC2.Base.Components
 		public static void UpdateEffects(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Of<Clutch.Data>] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.frame.X = (uint)clutch.state;
+			renderer.sprite.frame.X = (uint)(clutch.state + 1);
 		}
 
 		public partial struct ClutchGUI: IGUICommand
@@ -108,12 +112,12 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Clutch", this.ent_clutch, new Vector2(48, 96)))
+				using (var window = GUI.Window.InteractionMisc("Clutch", this.ent_clutch, new Vector2(64, 128)))
 				{
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						if (GUI.SliderInt("State", ref this.clutch.state, 0, 1, size: new Vector2(GUI.RmX, GUI.RmY), snap: 1, vertical: true))
+						if (GUI.SliderInt("State", ref this.clutch.state, -1, 1, size: new Vector2(GUI.RmX, GUI.RmY), snap: 1, vertical: true))
 						{
 							var rpc = new Clutch.ConfigureRPC()
 							{

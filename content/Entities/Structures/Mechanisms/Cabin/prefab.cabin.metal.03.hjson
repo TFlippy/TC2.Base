@@ -172,11 +172,60 @@ mount:
 	flags: none
 }
 
-+mount|instance:
+analog.relay:
+{
+
+}
+
+analog.transducer:
+{
+	binds:
+	[
+		{
+			keys_positive: moveup
+			keys_negative: movedown
+			gain: 1.000
+			ramp: 1.000
+			decay: 1.000
+			blend: 1.000
+			offset: 0.000
+		}
+		{
+			keys_positive: none
+			keys_negative: none
+			gain: 0.000
+			ramp: 0.000
+			decay: 0.000
+			blend: 0.000
+			offset: 0.000
+		}
+		{
+			keys_positive: none
+			keys_negative: none
+			gain: 0.000
+			ramp: 0.000
+			decay: 0.000
+			blend: 0.000
+			offset: 0.000
+		}
+		{
+			keys_positive: none
+			keys_negative: none
+			gain: 0.000
+			ramp: 0.000
+			decay: 0.000
+			blend: 0.000
+			offset: 0.000
+		}
+	]
+	flags: none
+}
+
++slot_tool|instance:
 {
 	joint.base:
 	{
-		offset_a: [0.875, 1.250]
+		offset_a: [-0.500, 0.250]
 		max_force: 80000.000
 		max_torque: 12000.000
 		max_stress: 3.000
@@ -246,5 +295,49 @@ mount:
 
 		offset_bounds: [-0.750, -0.250, 0.750, 0.250]
 		gui_size: [96.000, 96.000]
+	}
+}
+
++slot_device|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -1.000]
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		z: -10.000
+		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0001
+		max_bias: 0.350
+	}
+
+	attachment.slot:
+	{
+		radius: 1.000
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, invert, keyboard_write, mouse_write, keyboard_read, mouse_read, offset, rotation
+		name: "Device"
+		identifier: "device"
+		gui_size: [210.000, 120.000]
+		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
+	}
+
+	analog.writer:
+	{
+
 	}
 }

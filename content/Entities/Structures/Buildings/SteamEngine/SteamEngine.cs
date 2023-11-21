@@ -228,7 +228,7 @@ namespace TC2.Base.Components
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.05f);
 
-			wheel_state.SetAngularVelocity(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
+			wheel_state.ApplyTorque(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
 			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - wheel_state.angular_velocity));
 			burner_state.modifier = (burner_state.modifier + (m * 0.01f)).Clamp01();
@@ -277,7 +277,7 @@ namespace TC2.Base.Components
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.25f);
 
-			wheel_state.SetAngularVelocity(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
+			wheel_state.ApplyTorque(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
 			burner_state.modifier = 0.00f;
 
@@ -330,8 +330,8 @@ namespace TC2.Base.Components
 								{
 									//GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00}/{this.steam_engine.speed_max:0.00} rad/s");
 									GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00} rad/s");
-									GUI.Text($"{(this.wheel_state.old_tmp_torque):0.00} Nm/s");
-									GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity) * 0.001f):0.00} kW");
+									//GUI.Text($"{(this.wheel_state.old_tmp_torque):0.00} Nm/s");
+									//GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity) * 0.001f):0.00} kW");
 									//GUI.Text($"{(this.wheel_state.old_tmp_torque * MathF.Abs(this.wheel_state.angular_velocity)):0.00} W");
 									//GUI.Text($"{(this.burner_state.available_power):0.00} W");
 								}

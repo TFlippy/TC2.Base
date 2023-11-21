@@ -82,7 +82,7 @@
 #if SERVER
 
 
-					var damage = Maths.Clamp(axle_state.old_tmp_torque * 0.15f, 0.00f, axle_speed * 35.00f);
+					var damage = Maths.Clamp(axle_state.net_torque * 0.15f, 0.00f, axle_speed * 35.00f);
 					//App.WriteLine(damage);
 
 					if (damage > 25.00f)
@@ -171,7 +171,7 @@
 									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - slider_h - 64)))
 									{
 										GUI.LabelShaded("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
-										GUI.LabelShaded("Torque:", this.axle_state.old_tmp_torque, "{0:0.00} Nm/s");
+										GUI.LabelShaded("Torque:", this.axle_state.net_torque, "{0:0.00} Nm/s");
 									}
 
 									var ent_child = default(Entity);

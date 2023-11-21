@@ -30,6 +30,7 @@ belt:
 	force: 25000.000
 	efficiency: 1.000
 	speed_max: 80.000
+	friction: 1.000
 }
 
 belt.renderer:

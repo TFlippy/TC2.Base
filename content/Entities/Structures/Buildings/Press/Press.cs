@@ -147,7 +147,7 @@
 			var t = Maths.NormalizeClamp(MathF.Abs(axle_state.rotation), MathF.Tau);
 			var val = gradient_work.GetValue(t);
 
-			axle_state.new_tmp_load += val * press.load_multiplier * 200.00f;
+			axle_state.force_load_new += val * press.load_multiplier * 200.00f;
 		}
 
 #if SERVER
@@ -268,7 +268,7 @@
 									{
 										GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
 
-										load_graph[load_graph_index] = this.axle_state.new_tmp_load;
+										load_graph[load_graph_index] = this.axle_state.force_load_old;
 										GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
 									}
 								}
