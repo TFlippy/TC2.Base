@@ -295,7 +295,7 @@
 							{
 								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(padding: new(12, 12)))
+								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 2));
 								}
@@ -305,7 +305,7 @@
 							{
 								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(padding: new(12, 12)))
+								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 								{
 									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
 									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));

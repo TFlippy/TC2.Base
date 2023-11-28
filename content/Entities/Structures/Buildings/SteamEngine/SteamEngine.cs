@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 steam_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 exhaust_offset;
 			[Editor.Picker.Position(relative: true, mark_modified: true)] public Vector2 burst_offset;
-			public Vector2 smoke_direction = new(0, -1);
+			[Editor.Picker.Direction(true, true)] public Vector2 smoke_direction = new(0, -1);
 
 			public Sprite sprite_burst = SteamEngine.sprite_burst_default;
 
@@ -326,7 +326,7 @@ namespace TC2.Base.Components
 								GUI.DrawInventoryDock(Inventory.Type.Fuel, new(48, 48));
 
 
-								using (GUI.Group.New(padding: new(4, 4)))
+								using (GUI.Group.New(size: GUI.Rm, padding: new(4, 4)))
 								{
 									//GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00}/{this.steam_engine.speed_max:0.00} rad/s");
 									GUI.Text($"{MathF.Abs(this.wheel_state.angular_velocity):0.00} rad/s");

@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 				public Keyboard.Key? key;
 			}
 
-			public Vector2 dir;
+			[Editor.Picker.Direction(true, true)] public Vector2 dir;
 			[Editor.Picker.Position(true)] public Vector2 offset;
 
 			public float ratio;
@@ -26,6 +26,8 @@ namespace TC2.Base.Components
 			public enum Flags: uint
 			{
 				None = 0,
+
+				Use_Analog = 1u << 0
 
 				//Hold_Shift = 1 << 0
 			}

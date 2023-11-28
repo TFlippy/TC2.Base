@@ -59,7 +59,7 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(true, true)]
 			public Vector2 hit_offset = new(0.00f, 0.00f);
 
-			[Editor.Picker.Position(true, true)]
+			[Editor.Picker.Direction(true, true)]
 			public Vector2 hit_direction = new(1.00f, 0.00f);
 
 			[Editor.Picker.Position(true, true)]
