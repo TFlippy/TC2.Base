@@ -29,7 +29,23 @@
 	
 	commodity:
 	{
+		flags: none
 		categories: beverages, alcohol, chemicals, medicine, consumer, industrial, toys
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 4.000
 		market_price_min: 0.000
@@ -46,14 +62,19 @@
 		energy: 26000000.000
 		// Ratio of available thermal energy.
 		purity: 0.910
-		// Flame temperature (Kelvin) in 100% oxygen environment.
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 7.180
+		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 2173.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		ignition_temperature: 673.150
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 289.750
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 8.000
-		drain: 1.000
 	}
+	
+	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

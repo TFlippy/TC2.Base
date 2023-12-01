@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 			clutch.modifier = Maths.MoveTowards(clutch.modifier, clutch.modifier_target, clutch.speed);
 
 			axle.offset_inner = Vector2.Lerp(clutch.offset_disabled, clutch.offset_enabled, clutch.modifier.Abs());
-			axle.modifier = Maths.MoveTowards(axle.modifier, clutch.modifier, clutch.speed * 0.10f);
+			axle.modifier = clutch.modifier.WithUnsignedZero(); //a Maths.MoveTowards(axle.modifier, clutch.modifier, clutch.speed * 0.10f);
 		}
 
 #if CLIENT

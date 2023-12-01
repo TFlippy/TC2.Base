@@ -124,6 +124,61 @@ axle:
 	// }
 }
 
+// rotato:
+// {
+// 	binds:
+// 	[
+// 		{
+// 			key: moveup
+// 			torque: 200.000
+// 			angular_velocity: 20.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: moveright
+// 			torque: 50.000
+// 			angular_velocity: 10.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: moveleft
+// 			torque: 100.000
+// 			angular_velocity: -5.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: none
+// 			torque: 200.000
+// 			angular_velocity: 0.000
+// 			flags: toggle
+// 		}
+// 		{
+// 			key: none
+// 			torque: 0.000
+// 			angular_velocity: 0.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: none
+// 			torque: 0.000
+// 			angular_velocity: 0.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: none
+// 			torque: 0.000
+// 			angular_velocity: 0.000
+// 			flags: none
+// 		}
+// 		{
+// 			key: none
+// 			torque: 0.000
+// 			angular_velocity: 0.000
+// 			flags: none
+// 		}
+// 	]
+// }
+
 rotato:
 {
 	binds:
@@ -136,14 +191,14 @@ rotato:
 		}
 		{
 			key: moveright
-			torque: 50.000
+			torque: 200.000
 			angular_velocity: 10.000
 			flags: none
 		}
 		{
 			key: moveleft
-			torque: 100.000
-			angular_velocity: -5.000
+			torque: 200.000
+			angular_velocity: -10.000
 			flags: none
 		}
 		{

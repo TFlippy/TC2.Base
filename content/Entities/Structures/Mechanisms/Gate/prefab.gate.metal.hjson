@@ -37,19 +37,19 @@ animated.renderer:
 
 gate:
 {
-	length: 4.750
+	length: 5.550
 }
 
 axle:
 {
 	offset: [0.000, -5.750]
-	mass: 5.000
+	mass: 50.000
 	friction: 0.800
 	radius_a: 1.000
 	radius_b: 1.000
 	radius_inner: 0.750
 	radius_outer: 1.000
-	z: -50.000
+	z: 150.000
 	
 	@animated.renderer:
 	{
@@ -79,7 +79,7 @@ interactable:
 {
 	joint.base:
 	{
-		offset_a: [0.000, -5.000]
+		offset_a: [0.000, -6.125]
 		offset_b: [0.000, -3.000]
 		max_force: 500000.000
 		max_torque: 500000.000
@@ -116,24 +116,24 @@ interactable:
 
 	joint.distance:
 	{
-		step: 5.000
+		step: 10.000
 		max_force: 500000.000
 		error_bias: 0.001
 		max_bias: 7.000
 		max_bias_bounce: 30.000
 		stress_mult: 0.001
-		bounce: 1.300
+		bounce: 1.000
 	}
 
 	rope.renderer:
 	{
-		texture: "rope"
+		texture: "belt.chain"
 		thickness: 0.200
 		scale: 8.000
-		z: 100.000
+		z: -50.000
 	}
 
-	+door|child:
+	+gate|child:
 	{
 		$tags: []
 		
@@ -160,8 +160,19 @@ interactable:
 				texture: "gate.metal"
 			}
 			z: 100.000
+			mask: "gate.metal.mask"
 		}
-		
+
+		faction.colorable:
+		{
+
+		}
+
+		faction:
+		{
+			
+		}
+					
 		health:
 		{
 			max: 100000.000
@@ -170,11 +181,6 @@ interactable:
 		transform:
 		{
 		
-		}
-
-		faction:
-		{
-			
 		}
 
 		// threat:

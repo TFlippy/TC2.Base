@@ -61,15 +61,16 @@ animated.renderer:
 steamengine:
 {
 	piston_offset: [-1.000, 0.125]
-	steam_offset: [-2.500, -3.000]
-	burst_offset: [0.500, 0.125]
+	steam_offset: [-2.875, -2.875]
+	burst_offset: [0.750, 0.250]
+	smoke_direction: [0.95505, -0.296445]
 	steam_interval: 0.200
 	piston_radius: 0.700
 	speed_modifier: 0.750
 	force: 15000.000
 	volume_multiplier: 0.200
 	pitch_multiplier: 0.400
-	max_acceleration: 3.000
+	max_acceleration: 0.100
 	speed_max: 20.000
 	efficiency: 0.300
 	
@@ -105,14 +106,18 @@ steamengine.state:
 
 burner:
 {
-	smoke_offset: [-1.900, -2.300]
+	smoke_offset: [-2.250, -1.375]
+	smoke_direction: [0.580275, -0.814421]
 	capacity: 8.000
 	energy_loss: 100000.000
 	efficiency: 0.400
 	air_intake_area: 0.007
-	drain_multiplier: 1.500
-	volume_modifier: 0.800
-	pitch_modifier: 0.500
+	drain_multiplier: 8.000
+	volume_modifier: 1.000
+	pitch_modifier: 0.600
+
+	air_capacity: 1.000
+	air_intake: 0.200
 	
 	@inventory1:
 	{
@@ -142,12 +147,12 @@ burner.state:
 axle:
 {
 	offset: [2.750, 0.000]
-	mass: 100.000
-	friction: 0.200
+	mass: 1000.000
+	friction: 0.000
 	radius_a: 1.000
-	radius_b: 1.250
+	radius_b: 1.000
 	radius_inner: 0.750
-	radius_outer: 1.250
+	radius_outer: 1.000
 	z: -280.000
 	
 	@animated.renderer:
@@ -169,3 +174,41 @@ interactable:
 {
 	window_size: [320.000, 192.000]
 }
+
+boiler:
+{
+	pressure_max: 2000000.000
+
+	tank_volume: 1.000
+	mass_tank: 40.000
+	area_surface: 3.900
+	area_heater: 0.800
+	h_material_surface: "copper.ingot"
+	h_material_heater: "steel.ingot"
+}
+
+boiler.state:
+{
+	fill_type: water
+	fill_quantity: 10.000
+}
+
+// steamboiler:
+// {
+// 	capacity: 1.000
+
+// 	@inventory1:
+// 	{
+// 		name: "Boiler"
+// 		stack_size_multiplier: 4.000
+// 		filter_flags: none
+// 		//filter_type: liquid
+// 		type: input
+// 		flags: ignore_mass
+// 	}
+// }
+
+// steamboiler.state:
+// {
+	
+// }

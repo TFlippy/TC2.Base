@@ -54,7 +54,7 @@
 						ref var burner_state = ref entity.GetComponent<Burner.State>();
 						if (burner_state.IsNotNull())
 						{
-							if (burner_state.modifier.TrySet(v_burner_modifier.Clamp01()))
+							if (burner_state.air_modifier.TrySet(v_burner_modifier.Clamp01()))
 							{
 								burner_state.Sync(entity, true);
 							}
@@ -177,7 +177,7 @@
 				case Work.Type.Cooking:
 				case Work.Type.Heating:
 				{
-					var power = burner_state.available_power;
+					var power = burner_state._available_power;
 					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
@@ -185,7 +185,7 @@
 
 				case Work.Type.Refining:
 				{
-					var power = burner_state.available_power;
+					var power = burner_state._available_power;
 					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
@@ -213,7 +213,7 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state._available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -398,23 +398,23 @@
 
 											using (var group_burner_slider = GUI.Group.New(size: GUI.Rm))
 											{
-												if (GUI.SliderFloat("Burner Intake", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
+												if (GUI.SliderFloat("Burner Intake", ref this.burner_state.air_modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
 												{
 													var rpc = new Refinery.ConfigureRPC()
 													{
-														burner_modifier = this.burner_state.modifier
+														burner_modifier = this.burner_state.air_modifier
 													};
 													rpc.Send(this.ent_refinery);
 												}
 
-												GUI.TitleCentered($"{(this.burner_state.available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
-												GUI.TitleCentered($"{this.burner_state.resource.quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
+												GUI.TitleCentered($"{(this.burner_state._available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
+												GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
 											}
 										}
 
 										using (var group_notes = GUI.Group.New(size: GUI.Rm))
 										{
-											if (!this.burner_state.resource.IsValid())
+											if (!this.burner_state.cached_fuel_material.IsValid())
 											{
 												GUI.Title("Burner has no fuel!", color: GUI.font_color_red);
 											}

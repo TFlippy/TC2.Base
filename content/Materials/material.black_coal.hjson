@@ -31,12 +31,21 @@
 	{
 		flags: marketable
 		categories: raw, coal, fuel, minerals, energy
+		
 		industries_produce: mining, low_tech, slaves, kobolds, penal
 		industries_consume: mining, manufacturing, low_tech, metallurgy, chemical, power, entertainment, construction, tourism, logistics, hospitality, labor, kobolds, colonization, exploration, munitions, railway, tobacco, engineering, aviation, naval
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: labor_camp, mine, borehole
 		buildings_consume: factory, hotel, airport, trainyard, power_plant, docks, prison, labor_camp, foundry, manufactory, refinery, laboratory, apartments, farm, brewery, metalworks, zoo, quarry, fuel_depot, steel_mill, bakery
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, penal, ruined, decrepit, frontier, developing, warzone, expansive, excavated, polluted, mechanized
 		categories_consume: military, industrial, wilderness, wasteland, commercial, residential, urban, decrepit, frontier, wealthy, advanced, developing, innovative, powerful, modern, expansive, polluted, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 0.450
 		market_price_min: 0.400
@@ -53,12 +62,17 @@
 		energy: 30000000.000
 		// Ratio of available thermal energy.
 		purity: 0.700
-		// Flame temperature (Kelvin) in 100% oxygen environment.
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 0.260
+		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 1823.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		ignition_temperature: 1000.000
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 553.150
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 9.070
-		drain: 170000.000
 	}
+	
+	scrap: []
 }

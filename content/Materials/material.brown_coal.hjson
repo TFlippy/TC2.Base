@@ -31,12 +31,21 @@
 	{
 		flags: marketable
 		categories: coal, fuel
+		
 		industries_produce: mining
 		industries_consume: manufacturing, power, hospitality, kobolds
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: labor_camp, mine, borehole
 		buildings_consume: factory, trainyard, power_plant, docks, manufactory
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, ruined, decrepit, lawless, frontier, developing, excavated, polluted
 		categories_consume: industrial, wilderness, wasteland, commercial, residential, urban, decrepit, lawless, frontier, agricultural, developing, rural, polluted
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 0.378
 		market_price_min: 0.320
@@ -53,12 +62,17 @@
 		energy: 25200000.000
 		// Ratio of available thermal energy.
 		purity: 0.400
-		// Flame temperature (Kelvin) in 100% oxygen environment.
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 0.140
+		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 1623.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		ignition_temperature: 1000.000
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 573.150
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 6.050
-		drain: 120000.000
 	}
+	
+	scrap: []
 }

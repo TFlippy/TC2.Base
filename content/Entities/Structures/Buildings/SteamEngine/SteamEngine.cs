@@ -34,6 +34,8 @@ namespace TC2.Base.Components
 			public float piston_radius;
 			public float water_capacity = 10.00f;
 
+			public float bore_diameter = Units.cm(14);
+
 			public float speed_max;
 			[Asset.Ignore] public float speed_target; // TODO: Move this into SteamEngine.State
 
@@ -60,6 +62,8 @@ namespace TC2.Base.Components
 			public float force_current;
 			public float temperature_current;
 			public float pressure_current;
+
+			public float piston_force;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
@@ -214,7 +218,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned), HasComponent<SteamBoiler.Data>(Source.Modifier.Owned, false), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
@@ -223,7 +227,7 @@ namespace TC2.Base.Components
 			steam_engine_state.temperature_current = Maths.MoveTowards(steam_engine_state.temperature_current, Region.ambient_temperature, 1.00f);
 
 			var torque = steam_engine.force * steam_engine.piston_radius;
-			var power = (float)(burner_state.available_power * steam_engine.efficiency);
+			var power = (float)(burner_state._available_power * steam_engine.efficiency);
 			var speed = torque > 0.00f ? power / torque : 0.00f;
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.05f);
@@ -231,7 +235,7 @@ namespace TC2.Base.Components
 			wheel_state.ApplyTorque(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
 			var m = ((1.00f / steam_engine.speed_max) * (steam_engine.speed_target - wheel_state.angular_velocity));
-			burner_state.modifier = (burner_state.modifier + (m * 0.01f)).Clamp01();
+			burner_state.air_modifier = (burner_state.air_modifier + (m * 0.01f)).Clamp01();
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
@@ -266,7 +270,7 @@ namespace TC2.Base.Components
 		//#endif
 		//		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned), HasComponent<SteamBoiler.Data>(Source.Modifier.Owned, false), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateDamaged(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
@@ -279,7 +283,7 @@ namespace TC2.Base.Components
 
 			wheel_state.ApplyTorque(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
-			burner_state.modifier = 0.00f;
+			burner_state.air_modifier = 0.00f;
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
@@ -447,6 +451,8 @@ namespace TC2.Base.Components
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
 		[Source.Owned, Pair.Of<SteamEngine.State>] ref Sound.Emitter sound_emitter)
 		{
+			return;
+
 			var delta = 0.00f;
 
 			if (wheel_state.angular_velocity != 0.00f)
