@@ -73,6 +73,7 @@ steamengine:
 	max_acceleration: 0.100
 	speed_max: 20.000
 	efficiency: 0.300
+	bore_diameter: 0.200
 	
 	@animated.renderer:
 	{
@@ -189,6 +190,8 @@ boiler:
 
 boiler.state:
 {
+	water_moles: 1000.000
+
 	fill_type: water
 	fill_quantity: 10.000
 }

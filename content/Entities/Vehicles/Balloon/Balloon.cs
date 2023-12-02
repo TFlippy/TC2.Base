@@ -214,7 +214,7 @@
 
 			var m = ((1.00f / balloon.lift_max * 1.00f) * (balloon.target_lift - balloon.current_lift));
 			burner_state.air_modifier = (burner_state.air_modifier + (m * 0.70f)).Clamp01();
-			burner._loss_multiplier = MathF.Max(1.00f, MathF.Pow(balloon.altitude * 0.02f, 1.50f));
+			//burner._loss_multiplier = MathF.Max(1.00f, MathF.Pow(balloon.altitude * 0.02f, 1.50f));
 
 			var modifier = MathF.Pow(MathF.Sin(MathF.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
 			var gravity_modifier = Maths.Step(modifier, 0.20f);

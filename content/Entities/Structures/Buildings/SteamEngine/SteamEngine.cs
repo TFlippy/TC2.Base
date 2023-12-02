@@ -32,8 +32,11 @@ namespace TC2.Base.Components
 			public float steam_size = 1.00f;
 			public float steam_interval;
 			public float piston_radius;
-			public float water_capacity = 10.00f;
 
+			public float condenser;
+			//public float water_capacity = 10.00f;
+
+			public float bore_depth = Units.cm(40);
 			public float bore_diameter = Units.cm(14);
 
 			public float speed_max;
@@ -48,7 +51,7 @@ namespace TC2.Base.Components
 			public float volume_multiplier = 1.00f;
 			public float pitch_multiplier = 1.00f;
 
-			public float max_acceleration = 1.00f;
+			//public float max_acceleration = 1.00f;
 
 			public Data()
 			{
@@ -60,10 +63,10 @@ namespace TC2.Base.Components
 		{
 			public float speed_current;
 			public float force_current;
-			public float temperature_current;
-			public float pressure_current;
+			//public float temperature_current;
+			//public float pressure_current;
 
-			public float piston_force;
+			//public float piston_force;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;
 			[Save.Ignore, Net.Ignore] public float next_exhaust;
@@ -218,16 +221,16 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned), HasComponent<SteamBoiler.Data>(Source.Modifier.Owned, false), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", false, Source.Modifier.Owned), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
-			steam_engine_state.temperature_current = Maths.MoveTowards(steam_engine_state.temperature_current, Region.ambient_temperature, 1.00f);
+			//steam_engine_state.temperature_current = Maths.MoveTowards(steam_engine_state.temperature_current, Region.ambient_temperature, 1.00f);
 
 			var torque = steam_engine.force * steam_engine.piston_radius;
-			var power = (float)(burner_state._available_power * steam_engine.efficiency);
+			var power = (float)(burner_state.available_power * steam_engine.efficiency);
 			var speed = torque > 0.00f ? power / torque : 0.00f;
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.05f);
@@ -270,7 +273,7 @@ namespace TC2.Base.Components
 		//#endif
 		//		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned), HasComponent<SteamBoiler.Data>(Source.Modifier.Owned, false), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
+		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateDamaged(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,

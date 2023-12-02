@@ -177,7 +177,7 @@
 				case Work.Type.Cooking:
 				case Work.Type.Heating:
 				{
-					var power = burner_state._available_power;
+					var power = burner_state.available_power;
 					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
@@ -185,7 +185,7 @@
 
 				case Work.Type.Refining:
 				{
-					var power = burner_state._available_power;
+					var power = burner_state.available_power;
 					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
@@ -213,7 +213,7 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state._available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -407,7 +407,7 @@
 													rpc.Send(this.ent_refinery);
 												}
 
-												GUI.TitleCentered($"{(this.burner_state._available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
+												GUI.TitleCentered($"{(this.burner_state.available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
 												GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
 											}
 										}
