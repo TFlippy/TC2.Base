@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "clutch.fg"
+		texture: "clutch.00.fg"
 		size: [16, 16]
 	}
 	
@@ -53,7 +53,7 @@
 	[
 		{
 			type: prefab
-			prefab: "clutch"
+			prefab: "clutch.00"
 			amount: 1.000
 		}
 	]

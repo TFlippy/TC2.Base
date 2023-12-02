@@ -1,0 +1,70 @@
+{
+	name: "Clutch"
+	desc:
+		'''
+		Used for toggling mechanical power transmission on and off.
+		'''
+	
+	icon:
+	{
+		texture: "clutch.01.fg"
+		size: [16, 16]
+	}
+	
+	type: build
+	flags: none
+	tags: mechanisms
+	rank: -5.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings
+		
+		size: [1.375, 2.750]
+		
+		cooldown: 0.500
+
+		min_support: 0.200
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 5.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 7.000
+		}
+		{
+			type: resource
+			material: "pellet.electricity"
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: "limelight"
+			amount: 1.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "clutch.01"
+			amount: 1.000
+		}
+	]
+}

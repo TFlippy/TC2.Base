@@ -31,15 +31,21 @@ namespace TC2.Base.Components
 
 			public float steam_size = 1.00f;
 			public float steam_interval;
-			public float piston_radius;
+			public float crank_radius = 0.50f;
 
-			public float condenser;
+			public float rod_length = 0.20f;
+			//public float crank_radius;
+
+
+			public float condensation_ratio = 0.70f;
 			//public float water_capacity = 10.00f;
 
 			public float bore_depth = Units.cm(40);
 			public float bore_diameter = Units.cm(14);
 
-			public float speed_max;
+			public float linkage_mass = 10.00f;
+
+			public float speed_max = 20.00f;
 			[Asset.Ignore] public float speed_target; // TODO: Move this into SteamEngine.State
 
 			public float force;
@@ -69,6 +75,8 @@ namespace TC2.Base.Components
 			public float cylinder_moles;
 			public float cylinder_pressure;
 			public float piston_displacement;
+
+			public float throttle;
 
 			//public float piston_force;
 
@@ -233,7 +241,7 @@ namespace TC2.Base.Components
 		{
 			//steam_engine_state.temperature_current = Maths.MoveTowards(steam_engine_state.temperature_current, Region.ambient_temperature, 1.00f);
 
-			var torque = steam_engine.force * steam_engine.piston_radius;
+			var torque = steam_engine.force * steam_engine.crank_radius;
 			var power = (float)(burner_state.available_power * steam_engine.efficiency);
 			var speed = torque > 0.00f ? power / torque : 0.00f;
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
@@ -283,7 +291,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
 		[Source.Owned] ref Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
-			var torque = steam_engine.force * steam_engine.piston_radius;
+			var torque = steam_engine.force * steam_engine.crank_radius;
 			var speed = 0.00f;
 			//steam_engine_state.speed_current = Maths.MoveTowards(steam_engine_state.speed_current, speed, steam_engine.max_acceleration * App.fixed_update_interval_s);
 			steam_engine_state.speed_current = Maths.Lerp(steam_engine_state.speed_current, speed, 0.25f);
@@ -436,7 +444,7 @@ namespace TC2.Base.Components
 			}
 
 			var (sin, cos) = MathF.SinCos(-wheel_state.rotation * transform.scale.GetParity());
-			renderer_piston.offset = wheel.offset + (new Vector2(cos, sin) * steam_engine.piston_radius);
+			renderer_piston.offset = wheel.offset + (new Vector2(cos, sin) * steam_engine.crank_radius);
 			renderer_piston.rotation = -(renderer_piston.offset - steam_engine.piston_offset).GetNormalized().GetAngleRadiansFast();
 		}
 

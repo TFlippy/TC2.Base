@@ -1,0 +1,105 @@
+$name: "Clutch"
+$desc:
+	'''
+	Toggles mechanical power transmission on/off.
+
+	Many hands were lost to this device.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [1.375, 2.750]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, no_overlapped_placement
+		mask: world
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "clutch.01.bg"
+	}
+	z: -150.000
+}
+
+axle:
+{
+	offset: [0.000, -0.750]
+	mass: 10.000
+	friction: 0.400
+	radius_a: 0.500
+	radius_b: 0.500
+	radius_inner: 0.500
+	radius_outer: 0.500
+	z: -140.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0500.steel"
+		}
+		z: -140.000
+	}
+}
+
+clutch:
+{
+	offset_enabled: [0.000, 0.000]
+	offset_disabled: [0.000, 0.500]
+
+	speed: 0.250
+
+	sound_enable: "lever.bell.00"
+	sound_disable: "lever.bell.01"
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "clutch.01.fg"
+			size: [16, 32]
+		}
+		z: -100.000
+	}
+}
+
+lamp:
+{
+	flicker: 0.100
+	
+	@light:
+	{
+		color: [1.000, 0.450, 0.000, 2.500]
+		offset: [0.000, -1.250]
+		scale: [10.000, 10.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [96.000, 160.000]
+	window_offset: [-112.000, -24.000]
+}

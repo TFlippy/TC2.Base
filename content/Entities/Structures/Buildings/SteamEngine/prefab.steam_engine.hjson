@@ -65,7 +65,7 @@ steamengine:
 	burst_offset: [0.750, 0.250]
 	smoke_direction: [0.95505, -0.296445]
 	steam_interval: 0.200
-	piston_radius: 0.700
+	crank_radius: 0.700
 	speed_modifier: 0.750
 	force: 25000.000
 	volume_multiplier: 0.200
