@@ -66,6 +66,10 @@ namespace TC2.Base.Components
 			//public float temperature_current;
 			//public float pressure_current;
 
+			public float cylinder_moles;
+			public float cylinder_pressure;
+			public float piston_displacement;
+
 			//public float piston_force;
 
 			[Save.Ignore, Net.Ignore] public float next_steam;

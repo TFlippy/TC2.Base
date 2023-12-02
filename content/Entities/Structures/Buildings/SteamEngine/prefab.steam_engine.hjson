@@ -67,13 +67,15 @@ steamengine:
 	steam_interval: 0.200
 	piston_radius: 0.700
 	speed_modifier: 0.750
-	force: 15000.000
+	force: 25000.000
 	volume_multiplier: 0.200
 	pitch_multiplier: 0.400
 	max_acceleration: 0.100
 	speed_max: 20.000
 	efficiency: 0.300
-	bore_diameter: 0.200
+	bore_diameter: 0.150
+	bore_depth: 0.350
+	condenser: 0.900
 	
 	@animated.renderer:
 	{
@@ -149,7 +151,7 @@ axle:
 {
 	offset: [2.750, 0.000]
 	mass: 1000.000
-	friction: 0.000
+	friction: 0.200
 	radius_a: 1.000
 	radius_b: 1.000
 	radius_inner: 0.750
