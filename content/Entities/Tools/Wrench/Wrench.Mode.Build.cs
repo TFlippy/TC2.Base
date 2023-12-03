@@ -88,6 +88,12 @@ namespace TC2.Base.Components
 
 											switch ((Build.Category)i)
 											{
+												case Build.Category.Architecture:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Architecture;
+												}
+												break;
+
 												case Build.Category.Construction:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Construction;
@@ -109,6 +115,12 @@ namespace TC2.Base.Components
 												case Build.Category.Mechanisms:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Mechanisms;
+												}
+												break;
+
+												case Build.Category.Misc:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Misc;
 												}
 												break;
 											}
@@ -252,7 +264,7 @@ namespace TC2.Base.Components
 
 						//if (!GUI.IsHovered)
 						{
-							using (var window_hud = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 300), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+							using (var window_hud = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
 								if (window_hud.show)
 								{
@@ -374,11 +386,22 @@ namespace TC2.Base.Components
 														}
 													}
 												}
-												else if (product.type == Crafting.Product.Type.Prefab)
+												else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
 												{
-													if (product.prefab.TryGetPrefab(out var prefab))
+													var prefab_handle = default(Prefab.Handle);
+													if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
+													else if (product.type == Crafting.Product.Type.Resource)
 													{
-														var prefab_handle = product.prefab;
+														ref var material = ref product.material.GetData();
+														if (material.IsNotNull())
+														{
+															prefab_handle = material.prefab;
+														}
+													}
+
+													if (prefab_handle.TryGetPrefab(out var prefab))
+													{
+														//var prefab_handle = product.prefab;
 
 														var scale = new Vector2(1, 1);
 
@@ -648,10 +671,12 @@ namespace TC2.Base.Components
 
 				public enum Category: uint
 				{
-					Construction = 0,
+					Architecture = 0,
+					Construction,
 					Industry,
 					Buildings,
 					Mechanisms,
+					Misc,
 					//Factions,
 					//Logistics
 				}
@@ -1118,11 +1143,22 @@ namespace TC2.Base.Components
 											}
 										}
 									}
-									else if (product.type == Crafting.Product.Type.Prefab)
+									else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
 									{
-										if (product.prefab.TryGetPrefab(out var prefab))
+										var prefab_handle = default(Prefab.Handle);
+										if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
+										else if (product.type == Crafting.Product.Type.Resource)
 										{
-											var prefab_handle = product.prefab;
+											ref var material = ref product.material.GetData();
+											if (material.IsNotNull())
+											{
+												prefab_handle = material.prefab;
+											}
+										}
+
+										if (prefab_handle.TryGetPrefab(out var prefab))
+										{
+											//var prefab_handle = product.prefab;
 
 											var scale = new Vector2(1, 1);
 
@@ -1182,6 +1218,8 @@ namespace TC2.Base.Components
 													var work_count = 0;
 													var item_count = 0;
 
+													var quantity = product.amount;
+
 													var requirements = recipe.requirements;
 													for (var i = 0; i < requirements.Length; i++)
 													{
@@ -1216,6 +1254,7 @@ namespace TC2.Base.Components
 															construction.prefab = prefab_handle;
 															construction.order = order;
 															construction.stage = Construction.Stage.Materials;
+															construction.quantity = quantity;
 														}
 
 														ref var shipment_new = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
