@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: construction
+	tags: architecture
 	rank: 0.000
 	
 	placement:

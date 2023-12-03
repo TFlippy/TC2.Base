@@ -1,0 +1,80 @@
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-2.750, -0.625]
+			[2.625, -0.750]
+			[2.750, 1.500]
+			[-2.375, 1.250]
+		]
+		offset: [0.000, 0.000]
+		mass: 400.000
+		radius: 0.250
+		friction: 0.800
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid, vehicle
+		mask: world
+	}
+}
+
+health:
+{
+	max: 15000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "construction.tank.00"
+	}
+	z: -70.000
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 3.000
+	radius: 0.000
+	flags: none
+}
+
+norotate:
+{
+	mass_multiplier: 25.000
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [500.000, 350.000]
+}
+
+construction:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items
+}

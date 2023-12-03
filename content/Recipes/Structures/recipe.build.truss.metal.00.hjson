@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: construction
+	tags: architecture
 	rank: -122.000
 	
 	dismantle_work: 30.000

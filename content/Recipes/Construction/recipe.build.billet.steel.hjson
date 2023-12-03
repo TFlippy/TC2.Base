@@ -1,14 +1,15 @@
 {
-	name: "Tractor Construction"
+	name: "Steel Billet (Weld)"
 	desc:
 		'''
-		WIP
+		Weld 32 steel ingots together into single steel billet.
 		'''
 	
 	icon:
 	{
-		texture: "tractor.01.construction"
-		size: [64, 32]
+		texture: "resource.steel.billet"
+		frame: [0, 0]
+		size: [32, 16]
 	}
 	
 	min: 0
@@ -17,7 +18,7 @@
 	
 	type: build
 	flags: none
-	tags: mechanisms
+	tags: construction
 	rank: 10.000
 	
 	dismantle_work: 8.000
@@ -28,10 +29,10 @@
 		type: simple
 		flags: none
 		
-		size: [5.000, 3.000]
-		offset: [0.000, -1.000]
+		size: [4.000, 2.000]
+		offset: [0.000, -0.500]
 		
-		cooldown: 0.500
+		cooldown: 1.000
 		min_support: 0.000
 		min_clearance: 1.000
 		min_claim: 1.000
@@ -40,21 +41,35 @@
 		
 		sound: "building_place"
 	}
+
+	construction:
+	{
+		prefab: "construction.billet.00"
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 35.000
+			}
+		]
+	}
 	
 	requirements:
 	[
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 5.000
+			amount: 32.000
 		}
 	]
 	
 	products:
 	[
 		{
-			type: prefab
-			prefab: "tractor.01.construction"
+			type: resource
+			material: "steel.billet"
 			amount: 1.000
 			amount_extra: 0.000
 		}

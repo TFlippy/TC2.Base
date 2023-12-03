@@ -1,0 +1,80 @@
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-3.250, -0.625]
+			[2.875, -0.375]
+			[3.000, 1.250]
+			[-2.500, 1.125]
+		]
+		offset: [0.000, 0.000]
+		mass: 500.000
+		radius: 0.250
+		friction: 0.800
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid, vehicle
+		mask: world
+	}
+}
+
+health:
+{
+	max: 30000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "construction.tractor.01"
+	}
+	z: -70.000
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 3.000
+	radius: 0.000
+	flags: none
+}
+
+norotate:
+{
+	mass_multiplier: 25.000
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [500.000, 350.000]
+}
+
+construction:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items
+}

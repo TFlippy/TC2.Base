@@ -14,7 +14,7 @@
 	
 	type: build
 	flags: none
-	tags: construction
+	tags: architecture
 	rank: 10.000
 	
 	placement:

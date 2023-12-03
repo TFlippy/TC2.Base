@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: construction
+	tags: architecture
 	rank: -115.000
 	
 	dismantle_work: 50.000

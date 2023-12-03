@@ -1,0 +1,77 @@
+{
+	name: "Copper Billet (Weld)"
+	desc:
+		'''
+		Weld 32 copper ingots together into single copper billet.
+		'''
+	
+	icon:
+	{
+		texture: "resource.copper.billet"
+		frame: [0, 0]
+		size: [32, 16]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: construction
+	rank: 10.000
+	
+	dismantle_work: 8.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: none
+		
+		size: [4.000, 2.000]
+		offset: [0.000, -0.500]
+		
+		cooldown: 1.000
+		min_support: 0.000
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		rotation_max: 0.500
+		
+		sound: "building_place"
+	}
+
+	construction:
+	{
+		prefab: "construction.billet.00"
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 35.000
+			}
+		]
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "copper.ingot"
+			amount: 32.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "copper.billet"
+			amount: 1.000
+			amount_extra: 0.000
+		}
+	]
+}
