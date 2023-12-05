@@ -98,13 +98,7 @@ steamengine:
 
 steamengine.state:
 {
-	@sound.emitter:
-	{
-		file: "tractor.steam.loop.00"
-		volume: 0.000
-		pitch: 1.000
-		size: 2.000
-	}
+	
 }
 
 burner:
@@ -182,6 +176,8 @@ boiler:
 {
 	pressure_max: 2000000.000
 
+	exhaust_offset: [-1.500, -0.125]
+
 	tank_volume: 1.000
 	mass_tank: 40.000
 	area_surface: 3.900
@@ -194,8 +190,14 @@ boiler.state:
 {
 	water_moles: 1000.000
 
-	fill_type: water
-	fill_quantity: 10.000
+	@sound.emitter:
+	{
+		file: "tractor.steam.loop.00"
+		volume: 0.000
+		pitch: 1.000
+		size: 1.000
+		size_max_modifier: 0.870
+	}
 }
 
 // steamboiler:

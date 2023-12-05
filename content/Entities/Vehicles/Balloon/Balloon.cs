@@ -173,7 +173,7 @@
 		public static void OnUpdateScale(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned] ref Transform.Data transform)
 		{
-			var size = MathF.Pow(Maths.NormalizeClamp(balloon.current_lift, balloon.lift_max) * balloon.altitude_modifier, 0.50f) * 0.30f;
+			var size = MathF.Pow(Maths.Normalize01(balloon.current_lift, balloon.lift_max) * balloon.altitude_modifier, 0.50f) * 0.30f;
 			var sign = transform.GetScaleOld().GetParity();
 
 			transform.scale = Vector2.Lerp(transform.scale, new Vector2((0.90f + (size * 0.60f)) * sign, 0.90f + (size * 0.70f)), 0.05f);
@@ -184,17 +184,17 @@
 		[Source.Owned] in Balloon.Data balloon, [Source.Parent] ref Burner.State burner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			var temperature = Maths.KelvinToCelsius(burner_state.current_temperature);
-			var modifier = Maths.NormalizeClamp(balloon.current_lift, balloon.lift_max);
+			var modifier = Maths.Normalize01(balloon.current_lift, balloon.lift_max);
 
-			no_rotate.multiplier *= Maths.NormalizeClamp(temperature - 100, 200.00f);
-			no_rotate.mass_multiplier *= MathF.Min(modifier * 2.00f, Maths.NormalizeClamp(temperature - 100, 200.00f));
+			no_rotate.multiplier *= Maths.Normalize01(temperature - 100, 200.00f);
+			no_rotate.mass_multiplier *= MathF.Min(modifier * 2.00f, Maths.Normalize01(temperature - 100, 200.00f));
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateShape(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Circle circle)
 		{
-			var modifier = Maths.NormalizeClamp(balloon.current_lift * 10.00f, balloon.lift_max);
+			var modifier = Maths.Normalize01(balloon.current_lift * 10.00f, balloon.lift_max);
 			circle.rigidity_dynamic = Maths.Lerp(0.20f, 1.00f, modifier);
 		}
 

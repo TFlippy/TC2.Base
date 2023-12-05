@@ -852,7 +852,7 @@
 
 					stability *= ammo.stability_mult;
 					var stability_req = ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.50f));
-					stability_ratio = Maths.NormalizeClamp(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), stability_req);
+					stability_ratio = Maths.Normalize01(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), stability_req);
 
 					failure_rate = Maths.Clamp01(failure_rate + ((1.00f - stability_ratio) * 0.10f)); // Maths.Lerp01(failure_rate, 1.00f - stability_ratio, )
 

@@ -17,7 +17,7 @@ body:
 			[3.250, -0.375]
 		]
 		offset: [0.000, 0.000]
-		mass: 20000.000
+		mass: 12000.000
 		radius: 0.500
 		friction: 0.500
 		elasticity: 0.450
@@ -29,7 +29,7 @@ body:
 
 health:
 {
-	max: 115000.000
+	max: 195000.000
 }
 
 armor:

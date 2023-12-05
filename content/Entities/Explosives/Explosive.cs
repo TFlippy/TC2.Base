@@ -136,7 +136,7 @@ namespace TC2.Base.Components
 			ref var material = ref resource.material.GetData();
 			if (material.IsNotNull())
 			{
-				explosive.modifier = MathF.Sqrt(Maths.NormalizeClamp(resource.quantity, material.quantity_max));
+				explosive.modifier = MathF.Sqrt(Maths.Normalize01(resource.quantity, material.quantity_max));
 			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
 			//explosive.modifier = MathF.Log2(resource.quantity / MathF.Max(resource.material.GetDefinition().quantity_max, 1.00f));

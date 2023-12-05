@@ -1950,14 +1950,14 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.90f, context.mass_new);
+					var mass_ratio = Maths.Normalize01(mass * 3.90f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
 						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
@@ -2256,14 +2256,14 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 4.50f, context.mass_new);
+					var mass_ratio = Maths.Normalize01(mass * 4.50f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.375f * size, 0.75f * size);
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.25f * size, 0.50f)) * (offset.X >= gun.receiver_offset.X ? 1.00f : 0.00f);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.375f * size, 0.75f * size);
+						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.25f * size, 0.50f)) * (offset.X >= gun.receiver_offset.X ? 1.00f : 0.00f);
+						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += (health_extra * mult_barrel * 0.25f * mass_ratio * robustness * size);
 						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo((mult_barrel + mult_receiver) * -0.25f * robustness * bulkiness * size, mass_ratio)), 0.85f);
@@ -2581,7 +2581,7 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 1.50f, context.mass_new);
+					var mass_ratio = Maths.Normalize01(mass * 1.50f, context.mass_new);
 					//var total_mass = 5.00f;
 					//var mass_added = 0.00f;
 
@@ -2660,9 +2660,9 @@ namespace TC2.Base
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 1.00f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) * size, 1.00f)) * Maths.MidBias(gun.receiver_offset.X - 0.25f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) + 0.25f * size, 1.50f);
+						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 1.00f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) * size, 1.00f)) * Maths.MidBias(gun.receiver_offset.X - 0.25f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) + 0.25f * size, 1.50f);
 
 						//gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
 						//gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
@@ -3151,14 +3151,14 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
+					var mass_ratio = Maths.Normalize01(mass * 3.50f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
 						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
@@ -3439,14 +3439,14 @@ namespace TC2.Base
 						break;
 					}
 
-					var mass_ratio = Maths.NormalizeClamp(mass * 3.50f, context.mass_new);
+					var mass_ratio = Maths.Normalize01(mass * 3.50f, context.mass_new);
 
 					ref var gun = ref context.GetComponent<Gun.Data>();
 					if (gun.IsNotNull())
 					{
-						var mult_receiver = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.NormalizeClamp(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
-						var mult_muzzle = 1.00f - Maths.NormalizeClamp(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
+						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
+						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
 						gun.failure_rate = Maths.Lerp(gun.failure_rate, Maths.Clamp01(gun.failure_rate * Maths.Mulpo(mult_receiver * -0.50f * robustness * size, mass_ratio * robustness)), 0.95f);
