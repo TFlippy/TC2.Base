@@ -30,7 +30,13 @@
 	texture_overshoot: -0.250
 	color_preview: "0x00000000"
 	
-	resources: []
+	resources:
+	[
+		{
+			material: "tar"
+			quantity: 0.100
+		}
+	]
 	
 	mappings:
 	[

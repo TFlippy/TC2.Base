@@ -24,7 +24,7 @@
 	resources:
 	[
 		{
-			material: "wood"
+			material: "scrap.wood"
 			quantity: 0.010
 		}
 	]

@@ -22,7 +22,7 @@
 	resources:
 	[
 		{
-			material: "steel.ingot"
+			material: "scrap.ferrous"
 			quantity: 0.030
 		}
 	]

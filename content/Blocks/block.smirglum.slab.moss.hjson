@@ -24,7 +24,7 @@
 	resources:
 	[
 		{
-			material: "smirglum.ingot"
+			material: "scrap.heavy"
 			quantity: 0.100
 		}
 	]
