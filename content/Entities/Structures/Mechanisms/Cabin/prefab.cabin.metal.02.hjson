@@ -199,7 +199,7 @@ mount:
 		error_bias: 0.000
 		max_bias: 8.000
 		stiffness: 15000.000
-		damping: 4500.000
+		damping: 1000.000
 		axis_force: 800000.000
 		spring_max_bias: 4.000
 		max_distance: 3.000
