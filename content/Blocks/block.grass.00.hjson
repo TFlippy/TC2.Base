@@ -1,44 +1,51 @@
 ﻿{
-	name: "Clay (Grassy)"
+	name: "Grass"
 	desc:
 		'''
-		Grey, grassy clay, perfect for bricks.
+		Nice green grass.
 		'''
 	
 	icon:
 	{
-		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
+	
 	}
 	
 	material_type: soil
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 3200.000
-	
+	max_health: 1600.000
 	smoothing: 0.200
 	mass: 5.000
-	friction: 0.800
-	elasticity: 0.400
-	stability: 0.800
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.500
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.clay.grass"
+	texture: "terrain.grass.00"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.800
 	texture_overshoot: -0.750
-	color_preview: "0xff90a435"
+	color_preview: "0x00000000"
 	
-	resources: []
+	resources:
+	[
+		{
+			material: "soil"
+			quantity: 0.500
+		}
+		{
+			material: "plants"
+			quantity: 0.400
+		}
+	]
 	
 	mappings:
 	[
 		{
-			color: "0xff90a435"
+			color: "0xff596917"
 			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}

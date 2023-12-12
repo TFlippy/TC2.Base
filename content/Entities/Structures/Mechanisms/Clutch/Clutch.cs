@@ -79,20 +79,11 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch)
 		{
-			//if (clutch.state == 0)
-			//{
-			//	clutch.modifier_target = 0.00f;
-			//}
-			//else
-			//{
-			//	clutch.modifier_target = 1.00f;
-			//}
-
 			clutch.modifier_target = Maths.ClampMagnitude(clutch.state);
 			clutch.modifier = Maths.MoveTowards(clutch.modifier, clutch.modifier_target, clutch.speed);
 
 			axle.offset_inner = Vector2.Lerp(clutch.offset_disabled, clutch.offset_enabled, clutch.modifier.Abs());
-			axle.modifier = clutch.modifier.WithUnsignedZero(); //a Maths.MoveTowards(axle.modifier, clutch.modifier, clutch.speed * 0.10f);
+			axle.modifier = clutch.modifier.WithUnsignedZero();
 		}
 
 #if CLIENT

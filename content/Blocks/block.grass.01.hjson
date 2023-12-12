@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Grass"
 	desc:
 		'''
@@ -14,7 +14,7 @@
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 2400.000
+	max_health: 1600.000
 	smoothing: 0.200
 	mass: 5.000
 	friction: 0.900
@@ -23,10 +23,10 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.grass.tall"
+	texture: "terrain.grass.01"
 	pattern: "pattern.soil"
 	
-	texture_scale: 2.000
+	texture_scale: 1.800
 	texture_overshoot: -0.750
 	color_preview: "0x00000000"
 	
@@ -38,14 +38,14 @@
 		}
 		{
 			material: "plants"
-			quantity: 0.800
+			quantity: 0.400
 		}
 	]
 	
 	mappings:
 	[
 		{
-			color: "0xff738b0f"
+			color: "0xff695f17"
 			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}

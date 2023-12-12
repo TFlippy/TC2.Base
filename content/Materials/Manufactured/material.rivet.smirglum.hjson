@@ -1,0 +1,60 @@
+﻿{
+	name: "Smirglum Rivets"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.rivet.smirglum"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, granular
+	hints: none
+	// kg
+	mass_per_unit: 0.380
+	quantity_max: 100.000
+	prefab: "resource.rivet.smirglum"
+	
+	commodity:
+	{
+		flags: marketable
+		categories: components, construction_materials, industrial
+		
+		industries_produce: manufacturing, metallurgy
+		industries_consume: telecommunications, manufacturing, high_tech, automotive, military, arcane, construction, engineering, weapons, experimental, naval, architecture
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: factory, foundry, manufactory, metalworks
+		buildings_consume: warehouse, factory, trainyard, docks, walls, manufactory, train_station
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: industrial, urban, advanced, modern, mechanized
+		categories_consume: military, industrial, residential, urban, magitech, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 7.000
+		market_price_min: 5.500
+		market_price_max: 11.500
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 200.000
+		quantity_industry: 5000.000
+	}
+	
+	scrap: []
+}

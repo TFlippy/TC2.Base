@@ -20,7 +20,7 @@
 	}
 	
 	type: liquid
-	flags: raw, fuel, ammo, chemical, liquid
+	flags: raw, fuel, ammo, liquid, chemical
 	hints: materials, dangerous, advanced, powerful, chemical
 	// kg
 	mass_per_unit: 0.100
@@ -29,6 +29,16 @@
 	
 	commodity:
 	{
+		availability: 0.600
+		rarity: 1.310
+		scalability: 2.700
+		reusability: 0.020
+		longevity: 0.520
+		complexity: 3.410
+		tech: 3.150
+		liquidity: 2.180
+		demand: 2.320
+		
 		flags: marketable
 		categories: chemicals, refined, artificial, arcane, fuel, energy, munitions, dangerous, consumer, industrial, military
 		

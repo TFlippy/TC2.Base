@@ -531,7 +531,7 @@ namespace TC2.Base.Components
 
 							if (do_hit)
 							{
-								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, (closest_result.normal_raw - dir).GetNormalizedFast(), result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
 							}
 
 							if (i == index_max) break;
@@ -552,7 +552,7 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
-						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, -dir, result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, (closest_result.normal_raw - dir).GetNormalizedFast(), result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
 					}
 				}
 			}

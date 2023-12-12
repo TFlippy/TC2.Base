@@ -29,6 +29,16 @@
 	
 	commodity:
 	{
+		availability: 2.450
+		rarity: 0.280
+		scalability: 1.310
+		reusability: 4.690
+		longevity: 8.450
+		complexity: 0.720
+		tech: 0.450
+		liquidity: 1.000
+		demand: 0.210
+		
 		flags: marketable
 		categories: metals, scrap, construction_materials, waste, industrial, toys
 		

@@ -1,0 +1,53 @@
+{
+	name: "Grass"
+	desc:
+		'''
+		Nice green grass.
+		'''
+	
+	icon:
+	{
+	
+	}
+	
+	material_type: soil
+	tile_flags: non_empty
+	flags: raw
+	
+	max_health: 2400.000
+	smoothing: 0.200
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.500
+	collision_layer: none
+	collision_mask: none
+	
+	texture: "terrain.grass.01.tall"
+	pattern: "pattern.soil"
+	
+	texture_scale: 2.000
+	texture_overshoot: -0.750
+	color_preview: "0x00000000"
+	
+	resources:
+	[
+		{
+			material: "soil"
+			quantity: 0.500
+		}
+		{
+			material: "plants"
+			quantity: 0.800
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff9c9522"
+			tile_flags: solid, non_empty, ground, no_replace
+			meta: 0
+		}
+	]
+}

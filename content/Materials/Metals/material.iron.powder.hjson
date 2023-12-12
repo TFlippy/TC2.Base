@@ -31,14 +31,33 @@
 	
 	commodity:
 	{
+		availability: 2.980
+		rarity: 0.530
+		scalability: 1.170
+		reusability: 1.940
+		longevity: 8.000
+		complexity: 1.300
+		tech: 1.380
+		liquidity: 0.590
+		demand: 0.610
+		
 		flags: marketable
 		categories: metals, raw, minerals, waste, consumer, industrial, toys
+		
 		industries_produce: manufacturing, low_tech, high_tech, metallurgy, chemical, automotive, arcane, construction, logistics, research, munitions, engineering, weapons, experimental, furniture, architecture, jewelry
 		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, kobolds, railway, furniture
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: factory, trainyard, prison, labor_camp, manufactory, refinery, borehole, laboratory, train_station, farm, arsenal, scrapyard, metalworks
 		buildings_consume: factory, foundry, manufactory, refinery, laboratory, university, school, metalworks, phlogiston
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, commercial, residential, urban, magitech
 		categories_consume: industrial, wasteland
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 2.200
 		market_price_min: 0.000
@@ -48,4 +67,6 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

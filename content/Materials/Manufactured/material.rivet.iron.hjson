@@ -1,0 +1,60 @@
+﻿{
+	name: "Iron Rivets"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.rivet.iron"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: metal
+	flags: manufactured, magnetic, granular
+	hints: none
+	// kg
+	mass_per_unit: 0.100
+	quantity_max: 100.000
+	prefab: "resource.rivet.iron"
+	
+	commodity:
+	{
+		flags: marketable
+		categories: components, construction_materials, industrial
+		
+		industries_produce: manufacturing, metallurgy
+		industries_consume: telecommunications, agricultural, mining, manufacturing, low_tech, high_tech, automotive, military, arcane, construction, logistics, colonization, railway, engineering, weapons, experimental, aviation, naval, furniture, architecture
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: factory, labor_camp, foundry, manufactory, metalworks
+		buildings_consume: warehouse, factory, airport, trainyard, docks, walls, manufactory, mine, borehole, train_station
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: industrial, wasteland, urban, advanced, modern, mechanized
+		categories_consume: military, industrial, wasteland, residential, urban, magitech, frontier, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 0.650
+		market_price_min: 0.200
+		market_price_max: 1.600
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 200.000
+		quantity_industry: 5000.000
+	}
+	
+	scrap: []
+}
