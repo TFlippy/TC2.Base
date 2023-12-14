@@ -37,9 +37,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "depot"
+		// mask: "depot.mask"
 	}
 	z: -300.000
-	// mask: "depot.mask"
 }
 
 // faction.colorable:

@@ -26,10 +26,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "earmuffs.00"
+		// mask: "earmuffs.00.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
-	// mask: "earmuffs.00.mask"
 }
 
 // faction.colorable:

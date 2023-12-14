@@ -19,8 +19,8 @@ animated.renderer:
 	sprite:
 	{
 		texture: "hat.01"
+		mask: "hat.01.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
-	mask: "hat.01.mask"
 }

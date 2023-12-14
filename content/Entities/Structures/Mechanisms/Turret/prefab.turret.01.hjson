@@ -69,8 +69,8 @@ animated.renderer:
 	sprite:
 	{
 		texture: "turret.01.fg"
+		mask: "turret.01.fg.mask"
 	}
-	mask: "turret.01.fg.mask"
 	offset: [0.000, 0.000]
 	z: 100.000
 }

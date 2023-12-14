@@ -62,10 +62,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "human.female.torso.peasant"
+		mask: "human.female.torso.peasant.mask"
 		size: [16, 16]
 	}
 	z: -40.000
-	mask: "human.female.torso.peasant.mask"
 }
 
 faction.colorable:

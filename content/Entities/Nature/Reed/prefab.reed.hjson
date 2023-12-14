@@ -33,7 +33,11 @@ health:
 foliage.renderer:
 {
 	z: 50.000
-	texture: "reed"
+	
+	sprite:
+	{
+		texture: "reed"
+	}
 }
 
 harvestable:

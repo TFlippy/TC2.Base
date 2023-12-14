@@ -67,9 +67,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "mount.heavy"
+		mask: "mount.heavy.mask"
 	}
 	z: -100.000
-	mask: "mount.heavy.mask"
 }
 
 transform:
@@ -107,9 +107,9 @@ mount:
 		sprite:
 		{
 			texture: "mount.heavy.fg"
+			mask: "mount.heavy.fg.mask"
 		}
 		z: 10.000
-		mask: "mount.heavy.fg.mask"
 	}
 }
 

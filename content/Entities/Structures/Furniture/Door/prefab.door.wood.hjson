@@ -33,11 +33,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "door.wood"
+		mask: "door.wood.mask"
 		count: 5
 		size: [24, 24]
 	}
 	z: 100.000
-	mask: "door.wood.mask"
 }
 
 faction.colorable:

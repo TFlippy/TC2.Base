@@ -59,7 +59,7 @@ namespace TC2.Base.Components
 						return new TargetInfo(entity);
 					}
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 5, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 5, 0);
 					public static string Name { get; } = "Repair";
 
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.None;

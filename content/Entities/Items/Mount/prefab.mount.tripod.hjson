@@ -53,10 +53,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "mount.tripod"
+		mask: "mount.tripod.mask"
 	}
 	offset: [0.000, -0.350]
 	z: -100.000
-	mask: "mount.tripod.mask"
 }
 
 faction.colorable:

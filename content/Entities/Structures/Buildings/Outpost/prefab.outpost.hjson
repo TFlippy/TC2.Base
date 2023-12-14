@@ -27,9 +27,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "outpost"
+		mask: "outpost.mask"
 	}
 	z: -300.000
-	mask: "outpost.mask"
 }
 
 faction.colorable:

@@ -67,10 +67,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "cabin.metal.00.fg"
+		mask: "cabin.metal.00.fg.mask"
 	}
 	offset: [0.000, 0.000]
 	z: 70.000
-	mask: "cabin.metal.00.fg.mask"
 }
 
 vehicle:

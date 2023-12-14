@@ -32,7 +32,11 @@ foliage.renderer:
 {
 	offset: [-0.500, 0.000]
 	z: 50.000
-	texture: "fern.01"
+	
+	sprite:
+	{
+		texture: "fern.01"
+	}
 }
 
 harvestable:

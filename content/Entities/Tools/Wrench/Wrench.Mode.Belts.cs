@@ -15,7 +15,7 @@
 					public IRecipe.Handle selected_recipe;
 					public Belt.Flags flags;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 1, 24, 24, 0, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 0, 0);
 					public static string Name { get; } = "Belts";
 
 					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Belt;

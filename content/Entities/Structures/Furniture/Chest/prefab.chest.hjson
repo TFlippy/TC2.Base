@@ -29,9 +29,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "chest"
+		mask: "chest.mask"
 	}
 	z: -280.000
-	mask: "chest.mask"
 }
 
 faction.colorable:

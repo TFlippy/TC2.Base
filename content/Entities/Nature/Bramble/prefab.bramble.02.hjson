@@ -37,7 +37,11 @@ health:
 foliage.renderer:
 {
 	z: 50.000
-	texture: "bramble.02"
+
+	sprite:
+	{
+		texture: "bramble.02"
+	}
 }
 
 barbedwire:

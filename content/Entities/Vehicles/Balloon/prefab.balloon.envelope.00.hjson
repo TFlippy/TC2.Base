@@ -41,11 +41,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "balloon.top.00"
+		mask: "balloon.top.00.mask"
 		size: [80, 72]
 	}
 
 	z: 150.000
-	mask: "balloon.top.00.mask"
 	flags: has_damage
 }
 

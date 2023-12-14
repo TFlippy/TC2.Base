@@ -36,7 +36,11 @@ foliage.renderer:
 {
 	z: 50.000
 	offset: [-0.125, -0.250]
-	texture: "bramble.00"
+
+	sprite:
+	{
+		texture: "bramble.00"
+	}
 }
 
 barbedwire:

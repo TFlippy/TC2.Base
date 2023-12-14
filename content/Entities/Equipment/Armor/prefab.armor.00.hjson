@@ -30,10 +30,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "armor.00"
+		mask: "armor.00.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
-	mask: "armor.00.mask"
 }
 
 faction.colorable:

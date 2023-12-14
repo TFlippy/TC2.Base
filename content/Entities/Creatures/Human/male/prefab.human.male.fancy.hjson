@@ -6,10 +6,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "human.male.torso.fancy"
+		mask: "human.male.torso.fancy.mask"
 		size: [16, 16]
 	}
 	z: -40.000
-	mask: "human.male.torso.fancy.mask"
 }
 
 // +slot_waist|instance:

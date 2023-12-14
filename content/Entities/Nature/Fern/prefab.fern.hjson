@@ -31,9 +31,11 @@ health:
 foliage.renderer:
 {
 	z: 50.000
-	texture: "fern.00"
-	frame_count: 1
-	frame_count_total: 1
+	
+	sprite:
+	{
+		texture: "fern.00"
+	}
 }
 
 harvestable:

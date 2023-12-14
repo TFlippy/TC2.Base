@@ -158,9 +158,9 @@ interactable:
 			sprite:
 			{
 				texture: "gate.metal"
+				mask: "gate.metal.mask"
 			}
 			z: 100.000
-			mask: "gate.metal.mask"
 		}
 
 		faction.colorable:

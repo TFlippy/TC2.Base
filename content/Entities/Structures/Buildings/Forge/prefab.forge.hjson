@@ -32,9 +32,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "forge"
+		mask: "forge.mask"
 	}
 	z: -300.000
-	mask: "forge.mask"
 }
 
 transform:

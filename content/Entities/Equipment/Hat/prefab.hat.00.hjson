@@ -25,10 +25,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "hat.00"
+		mask: "hat.00.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
-	mask: "hat.00.mask"
 }
 
 faction.colorable:

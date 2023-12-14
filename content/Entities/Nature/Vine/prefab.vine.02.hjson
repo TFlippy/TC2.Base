@@ -33,7 +33,11 @@ foliage.renderer:
 {
 	offset: [0.000, 0.750]
 	z: -250.000
-	texture: "vine.02"
+	
+	sprite:
+	{
+		texture: "vine.02"
+	}
 }
 
 transform:

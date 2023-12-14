@@ -27,9 +27,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "headquarters"
+		mask: "headquarters.mask"
 	}
 	z: -300.000
-	mask: "headquarters.mask"
 }
 
 faction.colorable:

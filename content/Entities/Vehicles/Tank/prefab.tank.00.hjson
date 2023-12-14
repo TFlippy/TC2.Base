@@ -49,11 +49,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "tank.00.bg"
+		mask: "tank.00.bg.mask"
 		size: [80, 40]
 	}
 	offset: [0.000, 0.000]
 	z: 90.000
-	mask: "tank.00.bg.mask"
 	flags: has_damage
 }
 
@@ -64,11 +64,11 @@ vehicle:
 		sprite:
 		{
 			texture: "tank.00.fg"
+			mask: "tank.00.fg.mask"
 			size: [80, 40]
 		}
 		offset: [0.000, 0.000]
 		z: 300.000
-		mask: "tank.00.fg.mask"
 		flags: has_damage
 	}
 }

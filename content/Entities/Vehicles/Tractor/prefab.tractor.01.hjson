@@ -50,10 +50,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "tractor.01"
+		mask: "tractor.mask.01"
 	}
 	offset: [0.000, 0.000]
 	z: 90.000
-	mask: "tractor.mask.01"
 }
 
 faction.colorable:

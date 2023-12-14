@@ -24,11 +24,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "shield"
+		mask: "shield.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
-
-	mask: "shield.mask"
 }
 
 faction.colorable:

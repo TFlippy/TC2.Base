@@ -66,7 +66,11 @@ tree:
 	{
 		offset: [0.125, -6.000]
 		z: -45.000
-		texture: "tree.maple.foliage"
+	
+		sprite:
+		{
+			texture: "tree.maple.foliage"
+		}
 	}
 }
 

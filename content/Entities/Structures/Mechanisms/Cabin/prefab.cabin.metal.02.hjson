@@ -70,10 +70,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "cabin.metal.02.bg"
+		mask: "cabin.metal.02.bg.mask"
 		size: [32, 32]
 	}
 	z: 70.000
-	mask: "cabin.metal.02.bg.mask"
 	flags: has_damage
 }
 
@@ -84,10 +84,10 @@ vehicle:
 		sprite:
 		{
 			texture: "cabin.metal.02.fg"
+			mask: "cabin.metal.02.fg.mask"
 			size: [32, 32]
 		}
 		z: 90.000
-		mask: "cabin.metal.02.fg.mask"
 		flags: has_damage
 	}
 }

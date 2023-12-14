@@ -42,7 +42,11 @@ foliage.renderer:
 {
 	z: 50.000
 	offset: [0.250, 0.000]
-	texture: "thorns.00"
+
+	sprite:
+	{
+		texture: "thorns.00"
+	}
 }
 
 barbedwire:

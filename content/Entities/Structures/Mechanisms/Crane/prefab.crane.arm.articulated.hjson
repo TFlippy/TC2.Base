@@ -27,8 +27,8 @@ animated.renderer:
 	sprite:
 	{
 		texture: "crane.arm.articulated"
+		mask: "crane.arm.articulated.mask"
 	}
-	mask: "crane.arm.articulated.mask"
 	z: -72.000
 }
 

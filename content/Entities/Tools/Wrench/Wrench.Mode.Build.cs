@@ -18,7 +18,7 @@ namespace TC2.Base.Components
 
 					[Save.Ignore, Net.Ignore] public float next_place;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 0, 0, 24, 24, 3, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Construction;
@@ -125,7 +125,7 @@ namespace TC2.Base.Components
 												break;
 											}
 
-											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 0, 1, 16, 16, (uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
+											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 16, 16, (uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
 											{
 												edit_tags_filter = button_tags_filter;
 											}

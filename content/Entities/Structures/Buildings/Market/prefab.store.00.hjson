@@ -29,10 +29,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "store.00"
+		mask: "store.00.mask"
 	}
 	offset: [0.000, 0.000]
 	z: -300.000
-	mask: "store.00.mask"
 }
 
 faction.colorable:

@@ -33,7 +33,11 @@ foliage.renderer:
 {
 	offset: [0.000, 3.000]
 	z: -250.000
-	texture: "roots"
+	
+	sprite:
+	{
+		texture: "roots"
+	}
 }
 
 transform:

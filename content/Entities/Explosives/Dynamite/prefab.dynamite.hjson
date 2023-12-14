@@ -42,11 +42,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "dynamite"
+		mask: "dynamite.mask"
 	}
 	color_mask_r: "0xffd33900"
 	scale: [0.800, 0.800]
 	offset: [0.125, -0.125]
-	mask: "dynamite.mask"
 }
 
 transform:

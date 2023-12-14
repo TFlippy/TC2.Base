@@ -40,9 +40,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: "mine"
+		mask: "mine.mask"
 	}
 	z: -100.000
-	mask: "mine.mask"
 }
 
 transform:

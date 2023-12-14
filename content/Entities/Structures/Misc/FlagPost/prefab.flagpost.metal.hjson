@@ -34,10 +34,10 @@ animated.renderer:
 	sprite:
 	{
 		texture: "flagpost.metal"
+		mask: "flagpost.metal.mask"
 	}
 	offset: [0.250, 0.000]
 	z: -150.000
-	mask: "flagpost.metal.mask"
 }
 
 faction.colorable:

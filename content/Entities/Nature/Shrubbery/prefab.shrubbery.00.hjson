@@ -31,9 +31,13 @@ health:
 foliage.renderer:
 {
 	z: 50.000
-	texture: "shrubbery.00"
-	frame_count: 1
-	frame_count_total: 1
+	
+	sprite:
+	{
+		texture: "shrubbery.00"
+		frame_count: 1
+		frame_count_total: 1
+	}
 }
 
 harvestable:

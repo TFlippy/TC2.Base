@@ -45,11 +45,11 @@ animated.renderer:
 	sprite:
 	{
 		texture: "hatch.metal"
+		mask: "hatch.metal.mask"
 		count: 5
 		size: [20, 24]
 	}
 	z: 100.000
-	mask: "hatch.metal.mask"
 }
 
 faction.colorable:

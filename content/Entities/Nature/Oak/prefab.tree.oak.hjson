@@ -59,8 +59,12 @@ foliage.renderer:
 {
 	offset: [-0, -7.625]
 	z: -45.000
-	texture: "tree.oak.foliage"
-	mask: "tree.oak.foliage.mask"
+	
+	sprite:
+	{
+		texture: "tree.oak.foliage"
+		mask: "tree.oak.foliage.mask"
+	}
 }
 
 tree:
