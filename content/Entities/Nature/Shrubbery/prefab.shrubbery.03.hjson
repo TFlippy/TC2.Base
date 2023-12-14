@@ -1,5 +1,5 @@
-$name: "Fern"
-$desc: "It looks happy."
+$name: "Shrubbery"
+$desc: "It is good shrubbery."
 $tags: []
 
 body:
@@ -9,7 +9,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		radius: 1.000
+		radius: 1.350
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
@@ -25,13 +25,13 @@ transform:
 
 health:
 {
-	max: 500.000
+	max: 800.000
 }
 
 foliage.renderer:
 {
 	z: 50.000
-	texture: "fern.00"
+	texture: "shrubbery.03"
 	frame_count: 1
 	frame_count_total: 1
 }
@@ -42,7 +42,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 180.000
+			quantity: 110.000
 		}
 	]
 }

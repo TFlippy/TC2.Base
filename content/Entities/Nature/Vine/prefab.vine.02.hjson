@@ -12,10 +12,10 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, 0.750]
-		b: [0.000, 4.750]
+		a: [0.000, -0.500]
+		b: [0.000, 2.000]
 		mass: 30.000
-		radius: 1.000
+		radius: 0.600
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
@@ -31,9 +31,9 @@ health:
 
 foliage.renderer:
 {
-	offset: [0.000, 3.000]
+	offset: [0.000, 0.750]
 	z: -250.000
-	texture: "vine.00"
+	texture: "vine.02"
 }
 
 transform:
@@ -47,7 +47,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 210.000
+			quantity: 400.000
 		}
 	]
 }
