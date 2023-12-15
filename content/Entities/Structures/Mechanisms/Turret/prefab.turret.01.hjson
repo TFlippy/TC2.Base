@@ -156,8 +156,8 @@ vehicle:
 		stress_threshold: 3.010
 		stress_damp: 0.200
 
-		z: 75.000
-		flags: no_aiming, attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing, no_sync
+		z: 25.000
+		flags: no_aiming, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, no_sync
 		material_type: metal
 	}
 

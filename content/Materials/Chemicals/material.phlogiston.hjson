@@ -52,9 +52,9 @@
 		buildings_buy: warehouse, factory, airport, trainyard, power_plant, laboratory, university, school, train_station, exchange, black_market, market, fuel_depot, bank, essenceworks
 		buildings_sell: warehouse, airport, trainyard, power_plant, docks, train_station, exchange, black_market, phlogiston, fuel_depot, bank, essenceworks
 		
-		categories_produce: industrial, wasteland, magitech, frontier, wealthy, advanced, innovative, powerful, modern, excavated, mechanized, ancient, unchartered
+		categories_produce: industrial, wasteland, magitech, frontier, wealthy, advanced, innovative, powerful, modern, excavated, mechanized, ancient, uncharted
 		categories_consume: military, imperial, industrial, commercial, residential, urban, magitech, frontier, wealthy, advanced, developing, secure, fortified, innovative, coastal, powerful, warzone, modern, polluted, mechanized, regulated
-		categories_buy: military, border, industrial, commercial, residential, criminal, urban, financial, magitech, frontier, wealthy, advanced, developing, infested, secure, fortified, innovative, mercantile, coastal, powerful, warzone, modern, expansive, excavated, polluted, mechanized, unchartered, authoritarian, regulated, dangerous
+		categories_buy: military, border, industrial, commercial, residential, criminal, urban, financial, magitech, frontier, wealthy, advanced, developing, infested, secure, fortified, innovative, mercantile, coastal, powerful, warzone, modern, expansive, excavated, polluted, mechanized, uncharted, authoritarian, regulated, dangerous
 		categories_sell: military, imperial, border, industrial, wasteland, commercial, urban, financial, magitech, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, expansive, polluted, mechanized, ancient, authoritarian, regulated
 		
 		market_price: 15.000
@@ -71,7 +71,7 @@
 		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
 		energy: 50000000.000
 		// Ratio of available thermal energy.
-		purity: 0.990
+		purity: 0.910
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 50.000
 		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.

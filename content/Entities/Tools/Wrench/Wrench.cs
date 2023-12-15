@@ -743,7 +743,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnAdd<T>(ISystem.Info info, Entity entity, [Source.Owned] ref T mode, [Source.Owned] ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
 			if (wrench.selected_component_id == 0)

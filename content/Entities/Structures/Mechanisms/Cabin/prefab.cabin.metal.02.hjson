@@ -73,7 +73,7 @@ animated.renderer:
 		mask: "cabin.metal.02.bg.mask"
 		size: [32, 32]
 	}
-	z: 70.000
+	z: 60.000
 	flags: has_damage
 }
 
@@ -170,8 +170,8 @@ mount:
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, align_side, control_write, facing_reset_rot, facing_reset_pos, force_facing
-		z: 80.000
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		z: 75.000
 		material_type: metal
 
 		@sound.emitter:
@@ -198,7 +198,7 @@ mount:
 	{
 		error_bias: 0.000
 		max_bias: 8.000
-		stiffness: 15000.000
+		stiffness: 22000.000
 		damping: 1000.000
 		axis_force: 800000.000
 		spring_max_bias: 4.000

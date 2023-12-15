@@ -87,7 +87,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
+		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
 		{
 			runner_state.flags.SetFlag(Runner.State.Flags.Sitting, true);

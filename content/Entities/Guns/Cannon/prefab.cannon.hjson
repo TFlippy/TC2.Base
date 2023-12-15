@@ -63,6 +63,7 @@ gun:
 		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
+		filter_flags: ammo_shell
 		flags: hidden, ignore_mass
 	}
 	

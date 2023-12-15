@@ -761,7 +761,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Head.Data head, [Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
 		{
-			var max = melee.cooldown * 0.50f;
+			var max = MathF.Min(0.20f, melee.cooldown * 0.50f);
 
 			var delta = info.WorldTime - melee_state.last_hit;
 			if (delta < max)

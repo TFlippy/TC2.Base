@@ -34,7 +34,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "mushroom.green"
+		texture: "mold.corrosive.01"
 		size: [24, 40]
 	}
 	offset: [0.200, -1.800]

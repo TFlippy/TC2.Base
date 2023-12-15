@@ -3639,14 +3639,14 @@ namespace TC2.Base
 						ref var arcane_accelerator = ref context.GetOrAddComponent<ArcaneAccelerator.Data>();
 						if (arcane_accelerator.IsNotNull())
 						{
-							arcane_accelerator.offset = new Vector2(data.muzzle_offset.X - 0.125f, data.muzzle_offset.Y + 0.125f) + offset;
+							arcane_accelerator.offset = offset;
 						}
 
 						ref var light = ref context.GetOrAddTrait<ArcaneAccelerator.Data, Light.Data>();
 						if (light.IsNotNull())
 						{
 							light.color = essence_data.color_emit;
-							light.offset = new Vector2(data.muzzle_offset.X - 0.125f, data.muzzle_offset.Y + 0.125f) + offset - new Vector2(0.750f, 0.00f);
+							light.offset = offset - new Vector2(0.750f, 0.00f);
 							light.scale = new(2, 1);
 							light.intensity = 1.500f;
 							light.texture = Light.tex_light_box_00;

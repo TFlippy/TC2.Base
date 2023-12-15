@@ -370,8 +370,8 @@ axle:
 		offset_a: [-1.125, 0.250]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
-		z: 0.000
+		flags: control_read, force_facing, attachment, use_proxy_body
+		z: -7.000
 		material_type: metal
 	}
 
@@ -395,9 +395,10 @@ axle:
 		identifier: "cabin"
 
 		flags: keyboard_read, mouse_read
-		flags_editable: locked, disabled
+		flags_editable: locked, disabled, offset
 
 		gui_size: [192.000, 160.000]
+		offset_bounds: [-0.625, -0.625, 0.500, 0.000]
 	}
 }
 
@@ -466,11 +467,11 @@ axle:
 		error_bias: 0.000
 		max_bias: 20.000
 		groove_force: 8000000.000
-		spring_force: 80000.000
+		spring_force: 140000.000
 		length: 1.200
 		rest_length: 1.100
-		stiffness: 100000.000
-		damping: 5000.000
+		stiffness: 300000.000
+		damping: 6000.000
 	}
 }
 
@@ -501,11 +502,11 @@ axle:
 		error_bias: 0.000
 		max_bias: 20.000
 		groove_force: 8000000.000
-		spring_force: 80000.000
+		spring_force: 140000.000
 		length: 1.200
 		rest_length: 1.100
-		stiffness: 100000.000
-		damping: 5000.000
+		stiffness: 300000.000
+		damping: 6000.000
 	}
 }
 

@@ -107,7 +107,9 @@ claimable:
 
 nameable:
 {
+	tags: market
 	flags: randomize, no_rename
+	type: building
 }
 
 interactable:

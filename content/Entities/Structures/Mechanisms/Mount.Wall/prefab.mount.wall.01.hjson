@@ -69,13 +69,22 @@ vehicle:
 		max_bias: 8.000
 	}
 
-	joint.gear:
+	joint_gear:
 	{
+		rotation: 0.000
+		ratio: 1.000
 		min: 0.000
 		max: 0.000
-		error_bias: 0.000
-		step: 50.000
-		max_bias: 50.000
+		step: 10.000
+		error_bias: 0.010
+		max_bias: 3.000
+		max_bias_bounce: 2.000
+		max_torque: 0.000
+		bounce: 1.000
+		j_mult_a: 1.000
+		j_mult_b: 1.000
+		modifier: 1.000
+		stress_mult: 1.000
 	}
 
 	joint.motor:

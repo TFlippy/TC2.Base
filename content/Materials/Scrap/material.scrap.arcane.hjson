@@ -54,8 +54,8 @@
 		
 		categories_produce: military, imperial, industrial, wasteland, commercial, residential, urban, administrative, governmental, financial, abandoned, ruined, decrepit, magitech, wealthy, advanced, fortified, innovative, warzone, modern, polluted, mechanized, ancient, authoritarian, regulated, dangerous
 		categories_consume: industrial, wasteland, urban, lawless, magitech, wealthy, advanced, secure, fortified, innovative, powerful, modern, mechanized, authoritarian, dangerous
-		categories_buy: industrial, rebel, wasteland, penal, criminal, abandoned, decrepit, lawless, magitech, frontier, wealthy, advanced, developing, modern, expansive, excavated, polluted, mechanized, ancient, unchartered, authoritarian, regulated, dangerous
-		categories_sell: military, imperial, border, industrial, rebel, wasteland, commercial, residential, penal, criminal, urban, administrative, governmental, financial, abandoned, decrepit, lawless, magitech, wealthy, advanced, fortified, innovative, powerful, warzone, modern, mechanized, ancient, unchartered, authoritarian, regulated, dangerous
+		categories_buy: industrial, rebel, wasteland, penal, criminal, abandoned, decrepit, lawless, magitech, frontier, wealthy, advanced, developing, modern, expansive, excavated, polluted, mechanized, ancient, uncharted, authoritarian, regulated, dangerous
+		categories_sell: military, imperial, border, industrial, rebel, wasteland, commercial, residential, penal, criminal, urban, administrative, governmental, financial, abandoned, decrepit, lawless, magitech, wealthy, advanced, fortified, innovative, powerful, warzone, modern, mechanized, ancient, uncharted, authoritarian, regulated, dangerous
 		
 		market_price: 0.100
 		market_price_min: 0.020
