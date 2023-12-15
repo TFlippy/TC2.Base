@@ -115,7 +115,7 @@ transform:
 
 interactable:
 {
-	window_size: [192.000, 144.000]
+	window_size: [264.000, 192.000]
 	window_offset: [0.000, 0.000]
 }
 
@@ -165,7 +165,7 @@ threat:
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, control_read, control_write, force_facing, invert_facing
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing, invert_facing
 		z: -20.000
 		material_type: metal
 
@@ -219,7 +219,7 @@ threat:
 		identifier: "left"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
 		gui_size: [0.000, 72.000]
 	}
@@ -234,7 +234,7 @@ threat:
 		max_torque: 800000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, control_read, control_write, force_facing
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
 		z: -20.000
 		material_type: metal
 
@@ -288,7 +288,7 @@ threat:
 		identifier: "right"
 
 		flags: keyboard_write, mouse_write, invert
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
 		gui_size: [0.000, 72.000]
 	}

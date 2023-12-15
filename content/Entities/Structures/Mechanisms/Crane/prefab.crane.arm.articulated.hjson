@@ -86,7 +86,7 @@ crane:
 	speed: 0.800
 
 	flags: none
-	flags_editable: inverted, hold
+	flags_editable: inverted, hold, relative, maintain_position
 }
 
 crane.state:
@@ -111,7 +111,7 @@ essencecontainer:
 
 interactable:
 {
-	window_size: [216.000, 136.000]
+	window_size: [216.000, 160.000]
 	window_offset: [0.000, 0.000]
 	flags: none
 }

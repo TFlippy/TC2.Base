@@ -9,6 +9,8 @@
 
 			Inverted = 1 << 0,
 			Hold = 1 << 1,
+			Relative = 1 << 2,
+			Maintain_Position = 1 << 3
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Crane.State>]
@@ -33,6 +35,7 @@
 			public float angle_b;
 
 			public float rotation_b;
+			public Vector2 pos_target;
 
 			[Save.Ignore, Net.Ignore] public float last_rotation;
 			[Save.Ignore, Net.Ignore] public float next_sync;
@@ -67,6 +70,7 @@
 			{
 				using (var window = GUI.Window.Interaction("Crane", this.ent_crane, no_mouse_close: true))
 				{
+					this.StoreCurrentWindowTypeID(-200);
 					if (window.show)
 					{
 						var dirty = false;
@@ -110,6 +114,18 @@
 						}
 
 						if (this.crane.flags_editable.HasAny(Crane.Flags.Inverted) && GUI.Checkbox("Invert", ref flags, Crane.Flags.Inverted, new Vector2(96, 24)))
+						{
+							dirty = true;
+							edit_rpc.flags = flags;
+						}
+
+						if (this.crane.flags_editable.HasAny(Crane.Flags.Relative) && GUI.Checkbox("Relative", ref flags, Crane.Flags.Relative, new Vector2(96, 24)))
+						{
+							dirty = true;
+							edit_rpc.flags = flags;
+						}
+
+						if (this.crane.flags_editable.HasAny(Crane.Flags.Maintain_Position) && GUI.Checkbox("Maintain Position", ref flags, Crane.Flags.Maintain_Position, new Vector2(96, 24)))
 						{
 							dirty = true;
 							edit_rpc.flags = flags;
@@ -162,18 +178,63 @@
 		{
 			if (!joint_base_parent.flags.HasAll(Joint.Flags.No_Aiming))
 			{
-				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
 				var invert = float.IsNegative(transform.scale.GetParity()); // != crane.flags.HasAny(Crane.Flags.Inverted);
+				var is_relative = crane.flags.HasAny(Crane.Flags.Relative);
+				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
 
 				var transform_tmp = transform;
 				var transform_parent_tmp = transform_parent;
 
+				var pos_new = control.mouse.position;
+
+//				if (true)
+//				{
+//					ref var region = ref info.GetRegion();
+
+//					var a = transform_tmp.LocalToWorld(new Vector2(-crane.length_a * 0.50f, 0.00f));
+//					var b = a + new Vector2(crane.length_a, 0).RotateByRad(crane_state.angle_a);
+//					var c = b + new Vector2(crane.length_b, 0).RotateByRad(crane_state.angle_a + crane_state.angle_b);
+//					var d = c; // region.GetNearestPathPos(c, Terrain.PathFlags.Ground);
+//					var e = d;
+
+//					//if (region.TryOverlapPoint(d, d + new Vector2(0.00f, 2), 1.00f, out var result, mask: Physics.Layer.Solid | Physics.Layer.World, exclude: Physics.Layer.Dynamic))
+//					if (region.TryOverlapPoint(d, 4.00f, out var result, mask: Physics.Layer.Solid | Physics.Layer.World, exclude: Physics.Layer.Dynamic))
+//					{
+//						e = result.world_position;
+						
+//						if (!dirty)
+//						{
+//							crane_state.pos_target = is_relative ? transform_parent_tmp.WorldToLocal(e, scale: false, rotation: false) : e;
+//							dirty = true;
+//						}
+//					}
+
+//#if CLIENT
+//					region.DrawDebugCircle(a, 0.25f, Color32BGRA.Yellow, 1, true);
+//					region.DrawDebugCircle(b, 0.25f, Color32BGRA.Orange, 1, true);
+//					region.DrawDebugCircle(c, 0.25f, Color32BGRA.Green, 1, true);
+//					region.DrawDebugCircle(d, 0.25f, Color32BGRA.Magenta, 1, false);
+//					region.DrawDebugCircle(e, 0.25f, Color32BGRA.Magenta, 1, true);
+//#endif
+
+//					//region.GetNearestPathPos()
+//				}
+
 				if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right))
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base_parent.offset_b), control.mouse.position, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
+					crane_state.pos_target = is_relative ? transform_parent_tmp.WorldToLocal(pos_new, scale: false, rotation: false) : pos_new;
+					dirty = true;
+				}
+
+				dirty |= crane.flags.HasAny(Crane.Flags.Maintain_Position);
+				var pos = is_relative ? transform_parent_tmp.LocalToWorld(crane_state.pos_target, rotation: false, scale: false) : crane_state.pos_target;
+
+				if (dirty)
+				{
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base_parent.offset_b), pos, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
-					dirty = true;
+					//dirty = true;
 					//if (info.WorldTime >= crane_state.next_sync)
 					//{
 					//	crane_state.next_sync = info.WorldTime + 0.20f;

@@ -452,7 +452,7 @@
 
 				var dist = Vector2.Distance(pos_a, pos_b);
 
-				Gun.DrawCrosshair(ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0.25f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				Gun.DrawCrosshair(ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
 
