@@ -3071,7 +3071,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.25f));
 					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 10));
 				}
 			));
@@ -3267,35 +3267,35 @@ namespace TC2.Base
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 95.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 25.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 500.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 5.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 60.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 7.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 40.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 3.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 17.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 10));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 2.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 16.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.50f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 					}
@@ -3306,7 +3306,7 @@ namespace TC2.Base
 							case 0:
 							{
 								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
-								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.25f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 350.00f, 20));
 							}
@@ -3315,7 +3315,7 @@ namespace TC2.Base
 							default:
 							{
 								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
-								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 13.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
 							}
@@ -3325,7 +3325,7 @@ namespace TC2.Base
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 5.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.10f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 4.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 15));
 					}
@@ -3442,22 +3442,22 @@ namespace TC2.Base
 						if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
 						{
 							pellet_count = (1.00f + type) * 0.250f;
-							smirglum_count = (1.00f + type) * 0.50f;
+							smirglum_count = (1.00f + type) * 0.50f * 0.25f;
 						}
 						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
 						{
 							pellet_count = (1.00f + type) * 1.00f;
-							smirglum_count = (1.00f + type) * 1.50f;
+							smirglum_count = (1.00f + type) * 1.50f * 0.25f;
 						}
 						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
 						{
 							pellet_count = (1.00f + type) * 3.00f;
-							smirglum_count = (1.00f + type) * 3.00f;
+							smirglum_count = (1.00f + type) * 3.00f * 0.25f;
 						}
 						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
 						{
 							pellet_count = (1.00f + type) * 5.00f;
-							smirglum_count = (1.00f + type) * 7.00f;
+							smirglum_count = (1.00f + type) * 7.00f * 0.25f;
 						}
 
 						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
@@ -3608,22 +3608,27 @@ namespace TC2.Base
 						if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
 						{
 							pellet_count = (1.00f + type) * 0.500f;
-							smirglum_count = (1.00f + type) * 0.75f;
+							smirglum_count = (1.00f + type) * 0.55f * 0.25f;
 						}
 						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
 						{
 							pellet_count = (1.00f + type) * 2.00f;
-							smirglum_count = (1.00f + type) * 1.50f;
+							smirglum_count = (1.00f + type) * 0.80f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG))
+						{
+							pellet_count = (1.00f + type) * 4.00f;
+							smirglum_count = (1.00f + type) * 1.20f * 0.25f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Rocket | Material.Flags.Ammo_AC))
 						{
 							pellet_count = (1.00f + type) * 8.00f;
-							smirglum_count = (1.00f + type) * 4.00f;
+							smirglum_count = (1.00f + type) * 3.00f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell))
 						{
 							pellet_count = (1.00f + type) * 15.00f;
-							smirglum_count = (1.00f + type) * 14.00f;
+							smirglum_count = (1.00f + type) * 14.00f * 0.25f;
 						}
 
 						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);

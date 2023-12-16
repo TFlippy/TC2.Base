@@ -125,7 +125,7 @@ namespace TC2.Base
 						}
 					}
 
-					var amount = 5.00f;
+					var amount = 2.00f;
 					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", amount));
 
 					ref var body = ref context.GetComponent<Body.Data>();

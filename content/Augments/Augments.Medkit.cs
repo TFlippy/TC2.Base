@@ -96,7 +96,7 @@ namespace TC2.Base
 						}
 					}
 
-					var total_amount = 1.00f + ingot_amount;
+					var total_amount = 0.25f + ingot_amount;
 					context.requirements_new.Add(Crafting.Requirement.Resource("silver.ingot", total_amount));
 				}
 			));

@@ -408,37 +408,37 @@ namespace TC2.Base
 					{
 						case 0:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 1.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 0.25f), ref added_mass);
 						}
 						break;
 
 						case 1:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 2.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 0.50f), ref added_mass);
 						}
 						break;
 
 						case 2:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 5.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 1.00f), ref added_mass);
 						}
 						break;
 
 						case 3:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 12.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 3.00f), ref added_mass);
 						}
 						break;
 
 						case 4:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 25.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 6.00f), ref added_mass);
 						}
 						break;
 
 						case 5:
 						{
-							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 40.00f), ref added_mass);
+							context.requirements_new.Add(Crafting.Requirement.Resource("steel.plate", 10.00f), ref added_mass);
 						}
 						break;
 					}

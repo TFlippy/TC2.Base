@@ -142,7 +142,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", 2.00f));
+					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", 0.50f));
 				}
 			));
 		}
