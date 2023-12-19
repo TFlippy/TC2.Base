@@ -70,18 +70,24 @@
 	{
 		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
 		energy: 50000000.000
-		// Ratio of available thermal energy.
-		purity: 0.910
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.998
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 50.000
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 1.800
 		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 2573.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		ignition_temperature: 1000.000
+		ignition_temperature: 280.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 0.000
+		// Ratio of produced exhaust gas that becomes water vapor.
+		water_ratio: 0.180
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 78.000
+		// J/(kg*K)
+		specific_heat: 1000.000
 	}
 	
 	scrap: []

@@ -24,8 +24,8 @@ body:
 		elasticity: 0.750
 		material: wood
 		layer: entity, solid, vehicle, flammable
-		mask: world, crate, platform
-		exclude: tree, wheel, attached
+		mask: world, solid, platform
+		exclude: tree, wheel, attached, creature, held
 	}
 }
 
@@ -113,9 +113,15 @@ burner:
 	smoke_offset: [0.000, -2.875]
 	smoke_direction: [-3.000, 1.000]
 	capacity: 2.000
+	fuel_capacity: 2.000
+	modifier_rate: 1.000
 	energy_loss: 25000.000
 	efficiency: 0.400
 	drain_multiplier: 4.000
+	combustion_efficiency: 0.780
+	air_intake: 0.490
+	air_capacity: 1.000
+	heating_efficiency: 0.900
 	temperature_multiplier: 1.000
 	volume_modifier: 1.000
 	pitch_modifier: 0.500
@@ -161,7 +167,7 @@ burner.state:
 		max_torque: 5000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: no_wrap, attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		z: 400.000
 		material_type: metal
 	}
@@ -194,6 +200,14 @@ burner.state:
 		gui_size: [144.000, 64.000]
 
 		offset_bounds: [-1.000, -0.125, 1.000, 0.125]
+	}
+
+	facing:
+	{
+		flags: use_rotation
+		offset: 0.000
+		threshold: 0.050
+		flip_interval: 0.500
 	}
 }
 

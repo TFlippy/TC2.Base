@@ -19,20 +19,20 @@ body:
 			[-4.500, -0.500]
 			[4.500, -0.500]
 		]
-		mass: 4000.000
+		mass: 750.000
 		radius: 0.250
 		friction: 0.850
 		elasticity: 0.650
 		material: metal
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
-		exclude: tree, attached
+		exclude: tree, wheel, attached
 	}
 }
 
 health:
 {
-	max: 25000.000
+	max: 35000.000
 }
 
 armor:

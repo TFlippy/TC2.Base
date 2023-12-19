@@ -29,6 +29,16 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: raw, coal, fuel, minerals, energy
 		
@@ -60,18 +70,24 @@
 	{
 		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
 		energy: 30000000.000
-		// Ratio of available thermal energy.
-		purity: 0.700
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.780
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 0.260
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.157
 		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 1823.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		ignition_temperature: 1000.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 553.150
+		// Ratio of produced exhaust gas that becomes water vapor.
+		water_ratio: 0.009
 		// Kg of air for complete combustion of 1kg of this fuel.
-		air_fuel_ratio: 9.070
+		air_fuel_ratio: 10.000
+		// J/(kg*K)
+		specific_heat: 1380.000
 	}
 	
 	scrap: []

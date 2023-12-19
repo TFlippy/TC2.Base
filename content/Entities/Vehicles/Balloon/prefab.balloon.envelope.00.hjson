@@ -18,7 +18,7 @@ body:
 		radius: 4.625
 		friction: 0.200
 		elasticity: 0.800
-		rigidity_dynamic: 0.500
+		rigidity_dynamic: 0.700
 		rigidity_static: 1.000
 		material: fabric
 		layer: entity, solid
