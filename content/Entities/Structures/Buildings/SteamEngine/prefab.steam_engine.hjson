@@ -177,7 +177,7 @@ interactable:
 
 boiler:
 {
-	pressure_max: 2000000.000
+	pressure_max: 20.000
 
 	exhaust_offset: [-1.500, -0.125]
 

@@ -31,19 +31,19 @@ namespace TC2.Base.Components
 
 			public float steam_size = 1.00f;
 			public float steam_interval;
-			public float crank_radius = 0.50f;
+			public Radius crank_radius = 0.50f.m();
 
-			public float rod_length = 0.20f;
+			public Distance rod_length = 0.20f.m();
 			//public float crank_radius;
 
 
 			public float condensation_ratio = 0.70f;
 			//public float water_capacity = 10.00f;
 
-			public float bore_depth = Units.cm(40);
-			public float bore_diameter = Units.cm(14);
+			public Depth bore_depth = 40.00f.cm();
+			public Distance bore_diameter = 14.00f.cm();
 
-			public float linkage_mass = 10.00f;
+			public Mass linkage_mass = 10.00f.kg();
 
 			public float speed_max = 20.00f;
 			[Asset.Ignore] public float speed_target; // TODO: Move this into SteamEngine.State
@@ -72,8 +72,8 @@ namespace TC2.Base.Components
 			//public float temperature_current;
 			//public float pressure_current;
 
-			public float cylinder_moles;
-			public float cylinder_pressure;
+			public Amount cylinder_moles;
+			public Pressure cylinder_pressure;
 			public float piston_displacement;
 
 			public float throttle;
