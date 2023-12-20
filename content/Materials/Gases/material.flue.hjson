@@ -1,8 +1,8 @@
 ﻿{
-	name: "Air"
+	name: "Flue Gas"
 	description:
 		'''
-		Fresh air.
+		Waste gas produced by combustion.
 		'''
 	
 	icon:
@@ -25,11 +25,11 @@
 	// kg
 	mass_per_unit: 0.01225
 	quantity_max: 1000.000
-	prefab: "air"
+	prefab: "flue"
 	
 	commodity:
 	{
-		categories: chemicals, medicine, fuel, dangerous, industrial
+		categories: dangerous, waste
 		
 		market_price: 0.001
 		market_price_min: 0.000
@@ -46,7 +46,7 @@
 		// Molar mass in kg/mol (atomic mass for elements)
 		molar_mass: 0.02897
 		// kg/m3
-		density: 1.225
+		density: 1.22689481825
 		// J/(kg*K)
 		specific_heat: 1005.000
 		// W/(m*K)

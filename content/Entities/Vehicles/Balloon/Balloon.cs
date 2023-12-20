@@ -131,7 +131,7 @@
 						{
 							//GUI.Text($"{this.balloon.altitude:0.00} m {this.balloon.lift_modifier:P2}");
 
-							GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 1000, size: new Vector2(24, GUI.RmY));
+							GUI.DrawTemperatureRange(this.burner_state.output_temperature, this.burner_state.output_temperature, 1000, size: new Vector2(24, GUI.RmY));
 							//GUI.SameLine();
 							//GUI.DrawVerticalGauge(this.balloon_state.current_lift, this.balloon_state.target_lift, this.balloon.lift_max, size: new Vector2(24, GUI.RmY), color_a: GUI.col_button_yellow, color_b: GUI.col_button_yellow);
 							//GUI.DrawHoverTooltip($"Lift:\n{this.balloon_state.current_lift:0}/{this.balloon.lift_max:0}");
@@ -245,7 +245,7 @@
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed);
 			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness);
 
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.current_temperature, balloon.envelope_volume * Phys.reference_air_density, burner_state.exhaust_output);
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.output_temperature, balloon.envelope_volume * Phys.reference_air_density, burner_state.exhaust_output);
 
 			//var temperature_envelope = 
 

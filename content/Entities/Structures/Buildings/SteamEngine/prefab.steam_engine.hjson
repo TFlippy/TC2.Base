@@ -105,11 +105,14 @@ burner:
 {
 	smoke_offset: [-2.250, -1.375]
 	smoke_direction: [0.580275, -0.814421]
-	capacity: 8.000
+	fuel_capacity: 0.800
 	energy_loss: 100000.000
 	efficiency: 0.400
+	modifier_rate: 0.700
 	air_intake_area: 0.007
 	drain_multiplier: 8.000
+	combustion_efficiency: 0.840
+	heating_efficiency: 0.530
 	volume_modifier: 1.000
 	pitch_modifier: 0.600
 

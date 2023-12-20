@@ -1,0 +1,43 @@
+$tags: []
+
+body:
+{
+	type: dynamic
+
+	@shape.circle:
+	{
+		mass: 1.000
+		radius: 1.250
+		friction: 0.100
+		elasticity: 0.900
+		rigidity_static: 1.000
+		rigidity_dynamic: 0.500
+		material: gas
+		layer: entity, gas, resource, ignore_melee, ignore_bullet
+		mask: world, gas
+	}
+
+	gravity: 0.000
+	damping: 0.900
+}
+
+transform:
+{
+
+}
+
+gas:
+{
+	radius: 3.000
+	size: 1.500
+	lifetime: 5.000
+	speed: 0.100
+	interval: 0.400
+	color_a: "0x425bff8d"
+	color_b: "0x0052a929"
+}
+
+resource:
+{
+	material: "air"
+}

@@ -213,7 +213,7 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.current_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.output_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -379,7 +379,7 @@
 									{
 										using (GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2)))
 										{
-											GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, max_temperature, new Vector2(24, GUI.RmY));
+											GUI.DrawTemperatureRange(this.burner_state.output_temperature, this.burner_state.output_temperature, max_temperature, new Vector2(24, GUI.RmY));
 											GUI.SameLine();
 											GUI.DrawInventoryDock(Inventory.Type.Input, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2));
 
@@ -408,16 +408,16 @@
 												}
 
 												GUI.TitleCentered($"{(this.burner_state.available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
-												GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
+												//GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
 											}
 										}
 
 										using (var group_notes = GUI.Group.New(size: GUI.Rm))
 										{
-											if (!this.burner_state.cached_fuel_material.IsValid())
-											{
-												GUI.Title("Burner has no fuel!", color: GUI.font_color_red);
-											}
+											//if (!this.burner_state.cached_fuel_material.IsValid())
+											//{
+											//	GUI.Title("Burner has no fuel!", color: GUI.font_color_red);
+											//}
 										}
 									}
 								}
