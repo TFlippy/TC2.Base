@@ -245,11 +245,11 @@
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed);
 			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness);
 
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.output_temperature, balloon.envelope_volume * Phys.reference_air_density, burner_state.exhaust_output);
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.output_temperature, balloon.envelope_volume * Phys.air_density_kordel, burner_state.exhaust_output);
 
 			//var temperature_envelope = 
 
-			var air_density_ambient = Phys.GetAirDensity(Phys.reference_atmospheric_pressure_bar, temperature_ambient);
+			var air_density_ambient = Phys.GetAirDensity(Phys.atmospheric_pressure_kordel, temperature_ambient);
 			//var air_density_balloon = Phys.GetAirDensity(Phys.reference_atmospheric_pressure_bar, balloon_state.current_temperature_air);
 			Phys.CharlesLaw(balloon.envelope_volume, temperature_ambient, out var envelope_volume_hot, balloon_state.current_temperature_air);
 			Phys.Buoyancy(air_density_ambient, envelope_volume_hot, out var buoyant_force);
