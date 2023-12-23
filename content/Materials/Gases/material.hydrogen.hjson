@@ -58,8 +58,8 @@
 	
 	fuel:
 	{
-		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
-		energy: 120000000.000
+		// Energy density (LHV) in kJ/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
+		energy: 120000.000
 		// Ratio of available thermal energy.
 		purity: 1.000
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability

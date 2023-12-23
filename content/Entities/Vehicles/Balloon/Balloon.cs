@@ -232,7 +232,7 @@
 		[Source.Owned] in Health.Data health)
 		{
 			var speed = 0.00f;
-			var fuel_modifier_target = burner_state.fuel_modifier_target;
+			var fuel_modifier_target = burner_state.modifier_fuel_target;
 			var mass = body.GetMass();
 			var fuel_rate_step = 0.80f;
 
@@ -271,7 +271,7 @@
 				fuel_modifier_target = Maths.Lerp(fuel_modifier_target, 0.50f, 0.10f);
 			}
 
-			burner_state.fuel_modifier_target = fuel_modifier_target.Clamp01();
+			burner_state.modifier_fuel_target = fuel_modifier_target.Clamp01();
 
 			////var heat_transfer_surface = Phys.calc (heat_coeff * boiler.area_surface * (balloon_state.current_temperature_air - temperature_ambient); // * (1.00f - boiler.insulation);
 			//var dt = info.DeltaTime;

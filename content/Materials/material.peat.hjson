@@ -41,8 +41,8 @@
 	
 	fuel:
 	{
-		// Energy density (LHV) in J/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
-		energy: 20000000.000
+		// Energy density (LHV) in kJ/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
+		energy: 20000.000
 		// Ratio of available thermal energy.
 		purity: 0.300
 		// Flame temperature (Kelvin) in 100% oxygen environment.

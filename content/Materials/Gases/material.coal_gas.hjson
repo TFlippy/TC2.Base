@@ -1,0 +1,28 @@
+﻿{
+	name: "Coal Gas"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: gas
+	flags: none
+	hints: none
+	mass_per_unit: 0.050
+	quantity_max: 1000.000
+	prefab: "resource.coal_gas"
+}
