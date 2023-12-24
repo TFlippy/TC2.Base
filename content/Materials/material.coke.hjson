@@ -20,7 +20,7 @@
 	}
 	
 	type: stone
-	flags: gravel, fuel, granular, mineral
+	flags: granular, mineral, gravel, fuel
 	hints: none
 	// kg
 	mass_per_unit: 0.200
@@ -78,16 +78,36 @@
 		decay_rate: 0.108
 		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 2179.150
-		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		ignition_temperature: 1000.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 553.150
-		// Ratio of produced exhaust gas that becomes water vapor.
-		water_ratio: 0.001
+		
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 11.000
 		// J/(kg*K)
 		specific_heat: 860.000
+		
+		// W/(m*K)
+		thermal_conductivity: 0.642
+		// TODO: Desc
+		porosity: 0.2439
+		// TODO: Desc
+		volatility: 0.3866
+		// TODO: Desc
+		surface_area_mult: 1.920
+		
+		// Percentage of fixed carbon.
+		fixed_carbon_ratio: 0.9470
+		// Percentage of sulfur.
+		sulfur_ratio: 0.0045
+		// Percentage of moisture.
+		water_ratio: 0.0012
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.1241
+		// Percentage of hydrogen in volatiles.
+		volatiles_hydrogen_ratio: 0.0097
+		// Percentage of oxygen in volatiles.
+		volatiles_oxygen_ratio: 0.1413
 	}
 	
 	scrap: []

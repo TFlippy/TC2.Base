@@ -300,7 +300,7 @@ namespace TC2.Base.Components
 
 			wheel_state.ApplyTorque(torque, steam_engine_state.speed_current); // Maths.Lerp(wheel_state.angular_velocity, steam_engine_state.speed_current, 0.10f));
 
-			burner_state.air_modifier = 0.00f;
+			burner_state.modifier_intake_target = 0.00f;
 
 			if (info.WorldTime >= steam_engine_state.next_tick)
 			{
@@ -335,7 +335,7 @@ namespace TC2.Base.Components
 							//GUI.DrawTemperatureRange(this.steam_engine_state.temperature_current, Maths.CelsiusToKelvin(100), Maths.CelsiusToKelvin(375), size: new Vector2(24, GUI.RmY), color_a: GUI.col_white, color_b: GUI.col_white);
 
 							GUI.SameLine();
-							GUI.DrawTemperatureRange(this.burner_state.output_temperature, this.burner_state.output_temperature, 2000, size: new Vector2(24, GUI.RmY));
+							GUI.DrawTemperatureRange(this.burner_state.temperature_exhaust, this.burner_state.temperature_exhaust, 2000, size: new Vector2(24, GUI.RmY));
 							//GUI.SameLine();
 							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.RmY));
 

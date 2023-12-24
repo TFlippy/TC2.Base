@@ -54,7 +54,7 @@
 						ref var burner_state = ref entity.GetComponent<Burner.State>();
 						if (burner_state.IsNotNull())
 						{
-							if (burner_state.air_modifier.TrySet(v_burner_modifier.Clamp01()))
+							if (burner_state.modifier_intake_target.TrySet(v_burner_modifier.Clamp01()))
 							{
 								burner_state.Sync(entity, true);
 							}
@@ -213,7 +213,7 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.output_temperature, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.temperature_exhaust, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -379,7 +379,7 @@
 									{
 										using (GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2)))
 										{
-											GUI.DrawTemperatureRange(this.burner_state.output_temperature, this.burner_state.output_temperature, max_temperature, new Vector2(24, GUI.RmY));
+											GUI.DrawTemperatureRange(this.burner_state.temperature_exhaust, this.burner_state.temperature_exhaust, max_temperature, new Vector2(24, GUI.RmY));
 											GUI.SameLine();
 											GUI.DrawInventoryDock(Inventory.Type.Input, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2));
 
@@ -398,11 +398,11 @@
 
 											using (var group_burner_slider = GUI.Group.New(size: GUI.Rm))
 											{
-												if (GUI.SliderFloat("Burner Intake", ref this.burner_state.air_modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
+												if (GUI.SliderFloat("Burner Intake", ref this.burner_state.modifier_intake_target, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
 												{
 													var rpc = new Refinery.ConfigureRPC()
 													{
-														burner_modifier = this.burner_state.air_modifier
+														burner_modifier = this.burner_state.modifier_intake_target
 													};
 													rpc.Send(this.ent_refinery);
 												}
