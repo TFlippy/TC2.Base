@@ -11,22 +11,22 @@ namespace TC2.Base.Components
 			public static readonly Sound.Handle default_sound_locked = "door_locked";
 			public static readonly Sound.Handle default_sound_stuck = "door.stuck.00";
 
-			public Sound.Handle sound_open = default;
-			public Sound.Handle sound_close = default;
+			public Sound.Handle sound_open;
+			public Sound.Handle sound_close;
 
 			public Sound.Handle sound_lock = default_sound_lock;
 			public Sound.Handle sound_unlock = default_sound_unlock;
 			public Sound.Handle sound_locked = default_sound_locked;
 			public Sound.Handle sound_stuck = default_sound_stuck;
 
-			public Vector2 size_open = default;
-			public Vector2 size_closed = default;
+			public Vector2 size_open;
+			public Vector2 size_closed;
 
-			public Vector2 offset_open = default;
-			public Vector2 offset_closed = default;
+			public Vector2 offset_open;
+			public Vector2 offset_closed;
 
-			public Door.Direction direction = default;
-			public Door.Flags flags = default;
+			public Door.Direction direction;
+			public Door.Flags flags;
 
 			public uint frame_closed = 0;
 			public uint frame_open = 4;

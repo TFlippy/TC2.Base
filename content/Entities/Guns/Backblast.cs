@@ -6,7 +6,7 @@
 		public partial struct Data: IComponent
 		{
 			[Editor.Picker.Position(true, true)]
-			public Vector2 exhaust_offset = default;
+			public Vector2 exhaust_offset;
 
 			public Data()
 			{

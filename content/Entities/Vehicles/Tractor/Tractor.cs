@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 			//public float gear_mod = default;
 
 			[Editor.Picker.Position(relative: true)]
-			public Vector2 smoke_offset = default;
+			public Vector2 smoke_offset;
 
 			public Data()
 			{
@@ -33,13 +33,13 @@ namespace TC2.Base.Components
 		public partial struct State: IComponent
 		{
 			[Save.Ignore, Net.Ignore]
-			public float current_motor_speed = default;
+			public float current_motor_speed;
 
 			[Save.Ignore, Net.Ignore]
-			public float current_motor_force = default;
+			public float current_motor_force;
 
 			[Save.Ignore, Net.Ignore]
-			public float target_wheel_speed = default;
+			public float target_wheel_speed;
 
 			public State()
 			{

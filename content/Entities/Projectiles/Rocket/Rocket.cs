@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			public float mass = 1.00f;
-			public float force = default;
+			public float force;
 			public float fuel_time = 1.00f;
 			public float smoke_amount = 1.00f;
 			public Vector2 velocity;

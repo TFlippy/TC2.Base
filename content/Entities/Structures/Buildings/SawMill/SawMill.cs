@@ -6,7 +6,7 @@
 		public struct Data: IComponent
 		{
 			public float slider_distance = 5.00f;
-			public Vector2 saw_offset = default;
+			public Vector2 saw_offset;
 			public float saw_radius = 1.00f;
 
 			public Data()
@@ -19,10 +19,10 @@
 		public struct State: IComponent
 		{
 			public float gear_ratio = 1.00f;
-			public float slider_ratio = default;
+			public float slider_ratio;
 
-			[Net.Ignore, Save.Ignore] public float next_update = default;
-			[Net.Ignore, Save.Ignore] public float last_hit = default;
+			[Net.Ignore, Save.Ignore] public float next_update;
+			[Net.Ignore, Save.Ignore] public float last_hit;
 
 			public State()
 			{

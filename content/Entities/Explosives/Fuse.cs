@@ -18,19 +18,19 @@ namespace TC2.Base.Components
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Duration", description: "Burn time.", format: "{0:0.00} s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public float time = default;
+			public float time;
 
-			[Net.Ignore] public float failure_time = default;
+			[Net.Ignore] public float failure_time;
 
 			[Statistics.Info("Failure Chance", description: "Chance to stop burning when lit.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_chance = 0.00f;
 
 			public Vector2 sparkle_offset = new Vector2(0.40f, -0.25f);
 
-			public Sound.Handle sound = default;
+			public Sound.Handle sound;
 			public Sound.Handle sound_extinguish = Fuse.sound_extinguish_default;
 
-			public Fuse.Flags flags = default;
+			public Fuse.Flags flags;
 
 			public Data()
 			{

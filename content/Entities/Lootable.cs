@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 			public float spawn_radius = 0.00f;
 
 			[Save.TrimEmpty]
-			public FixedArray8<Lootable.Item> items = default;
+			public FixedArray8<Lootable.Item> items;
 
 			public Data()
 			{

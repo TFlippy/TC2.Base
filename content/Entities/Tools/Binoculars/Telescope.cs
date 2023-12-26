@@ -28,8 +28,8 @@
 			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_distance = 80.00f;
 
-			[Save.Ignore, Net.Ignore] public float current_modifier = default;
-			public Vector2 offset = default;
+			[Save.Ignore, Net.Ignore] public float current_modifier;
+			public Vector2 offset;
 
 			public Data()
 			{

@@ -25,7 +25,7 @@
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
-			public float slider_ratio = default;
+			public float slider_ratio;
 
 			public State()
 			{

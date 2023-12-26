@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Regen.State>()]
 		public partial struct Data: IComponent, IOverridable
 		{
-			public float amount = default;
+			public float amount;
 			public float interval = 3.00f;
 
 			public float min_a = 0.70f;
@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
-			[Save.Ignore, Net.Ignore] public float next_regen = default;
+			[Save.Ignore, Net.Ignore] public float next_regen;
 
 			public State()
 			{

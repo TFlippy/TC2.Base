@@ -5,7 +5,7 @@
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Refinery.State>]
 		public struct Data: IComponent
 		{
-			public Vector2 smoke_offset = default;
+			public Vector2 smoke_offset;
 			public float tank_volume = 1.00f;
 
 			public Data()
