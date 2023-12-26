@@ -25,7 +25,7 @@
 	// kg
 	mass_per_unit: 0.01429
 	quantity_max: 1000.000
-	prefab: ""
+	prefab: "resource.oxygen"
 	
 	commodity:
 	{

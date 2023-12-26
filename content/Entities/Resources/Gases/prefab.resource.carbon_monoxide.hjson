@@ -37,5 +37,5 @@ gas:
 
 resource:
 {
-	material: "methane"
+	material: "carbon_monoxide"
 }

@@ -20,7 +20,7 @@
 	}
 	
 	type: liquid
-	flags: raw, fuel, ammo, liquid, chemical
+	flags: ammo, liquid, chemical, raw, fuel
 	hints: materials, dangerous, advanced, powerful, chemical
 	// kg
 	mass_per_unit: 0.100
@@ -78,16 +78,36 @@
 		decay_rate: 1.800
 		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
 		temperature: 2573.150
-		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		ignition_temperature: 280.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 0.000
-		// Ratio of produced exhaust gas that becomes water vapor.
-		water_ratio: 0.180
+		
 		// Kg of air for complete combustion of 1kg of this fuel.
 		air_fuel_ratio: 78.000
 		// J/(kg*K)
 		specific_heat: 1000.000
+		
+		// W/(m*K)
+		thermal_conductivity: 0.000
+		// TODO: Desc
+		porosity: 0.010
+		// TODO: Desc
+		volatility: 0.100
+		// TODO: Desc
+		surface_area_mult: 0.400
+		
+		// Percentage of fixed carbon.
+		fixed_carbon_ratio: 0.500
+		// Percentage of sulfur.
+		sulfur_ratio: 0.000
+		// Percentage of moisture.
+		water_ratio: 0.180
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.000
+		// Percentage of hydrogen in volatiles.
+		volatiles_hydrogen_ratio: 0.000
+		// Percentage of oxygen in volatiles.
+		volatiles_oxygen_ratio: 0.000
 	}
 	
 	scrap: []

@@ -1,0 +1,34 @@
+﻿{
+	name: "Naphtha"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.naphtha"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: liquid
+	flags: manufactured
+	hints: none
+	// kg
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.naphtha"
+		
+	fuel:
+	{
+
+	}
+}
