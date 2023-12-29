@@ -89,25 +89,25 @@
 		// W/(m*K)
 		thermal_conductivity: 0.642
 		// TODO: Desc
-		porosity: 0.2439
+		porosity: 0.2939
 		// TODO: Desc
-		volatility: 0.3866
+		volatility: 0.2866
 		// TODO: Desc
-		surface_area_mult: 1.920
+		surface_area_mult: 2.320
 		
 		// Percentage of fixed carbon.
-		fixed_carbon_ratio: 0.9470
+		fixed_carbon_ratio: 0.947
 		// Percentage of sulfur.
 		sulfur_ratio: 0.0045
 		// Percentage of moisture.
 		water_ratio: 0.0012
 		
 		// Percentage of volatiles.
-		volatiles_ratio: 0.1241
+		volatiles_ratio: 0.0841
 		// Percentage of hydrogen in volatiles.
-		volatiles_hydrogen_ratio: 0.0097
+		volatiles_hydrogen_ratio: 0.4297
 		// Percentage of oxygen in volatiles.
-		volatiles_oxygen_ratio: 0.1413
+		volatiles_oxygen_ratio: 0.0113
 	}
 	
 	scrap: []

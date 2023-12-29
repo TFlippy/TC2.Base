@@ -73,7 +73,7 @@ namespace TC2.Base
 			}
 			else
 			{
-				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle);
+				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player);
 				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
 					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, control: true);

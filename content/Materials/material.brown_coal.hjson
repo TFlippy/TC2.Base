@@ -98,14 +98,14 @@
 		// Percentage of fixed carbon.
 		fixed_carbon_ratio: 0.3213
 		// Percentage of sulfur.
-		sulfur_ratio: 0.0714
+		sulfur_ratio: 0.0814
 		// Percentage of moisture.
-		water_ratio: 0.0791
+		water_ratio: 0.0991
 		
 		// Percentage of volatiles.
-		volatiles_ratio: 0.2713
+		volatiles_ratio: 0.2813
 		// Percentage of hydrogen in volatiles.
-		volatiles_hydrogen_ratio: 0.0915
+		volatiles_hydrogen_ratio: 0.4915
 		// Percentage of oxygen in volatiles.
 		volatiles_oxygen_ratio: 0.1403
 	}
