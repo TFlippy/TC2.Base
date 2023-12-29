@@ -49,7 +49,7 @@ namespace TC2.Base.Components
 				biter_state.next_attack = info.WorldTime + biter.cooldown;
 
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-				len = MathF.Min(len, biter.max_distance);
+				len = Maths.Min(len, biter.max_distance);
 
 				body.AddForce(dir * body.GetMass() * App.tickrate * biter.velocity);
 

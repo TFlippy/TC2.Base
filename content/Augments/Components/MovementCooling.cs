@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 			var amount = ((body.GetAngularVelocity() * 5.00f) + body.GetVelocity().Length()) * movement_cooling.modifier;
 			if (amount > 5.00f)
 			{
-				overheat.heat_current = Maths.MoveTowards(overheat.heat_current, 30.00f, (amount * info.DeltaTime) / MathF.Max(body.GetMass() * 0.05f, 1.00f));
+				overheat.heat_current = Maths.MoveTowards(overheat.heat_current, 30.00f, (amount * info.DeltaTime) / Maths.Max(body.GetMass() * 0.05f, 1.00f));
 
 #if SERVER
 				if (info.WorldTime >= movement_cooling.next_sync)

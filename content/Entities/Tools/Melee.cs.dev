@@ -488,7 +488,7 @@ namespace TC2.Base.Components
 #endif
 
 						var dist = result.alpha.Clamp01() * len;
-						dist_max = MathF.Max(dist_max, dist);
+						dist_max = Maths.Max(dist_max, dist);
 						index_max = i;
 
 
@@ -515,7 +515,7 @@ namespace TC2.Base.Components
 							//}
 
 							var closest_result = result.GetClosestPoint(pos_target, false);
-							pos_hit = closest_result.world_position_raw + (closest_result.gradient * MathF.Max(0.00f, Maths.ProjectedDistance(closest_result.world_position_raw, closest_result.normal_raw, pos_target)));
+							pos_hit = closest_result.world_position_raw + (closest_result.gradient * Maths.Max(0.00f, Maths.ProjectedDistance(closest_result.world_position_raw, closest_result.normal_raw, pos_target)));
 
 
 							//if (Maths.ProjectedDistance(result.world_position, result.normal_raw, pos_target) < 0.00f)
@@ -572,15 +572,15 @@ namespace TC2.Base.Components
 
 						//if (result.layer.HasAny(melee.hit_mask))
 						//{
-						//	dist_max = MathF.Max(dist_max, dist);
+						//	dist_max = Maths.Max(dist_max, dist);
 						//	index_max = i;
 
 						//	break;
 						//}
 						//else
 						//{
-						//	dist_max = MathF.Max(dist_max, dist);
-						//	dist_end = MathF.Min(len, dist + melee.thickness);
+						//	dist_max = Maths.Max(dist_max, dist);
+						//	dist_end = Maths.Min(len, dist + melee.thickness);
 						//	index_max = i;
 
 						//	//break;

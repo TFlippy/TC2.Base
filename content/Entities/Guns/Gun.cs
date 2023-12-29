@@ -346,7 +346,7 @@
 							alpha = Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f);
 
 							//vel *= projectile.damp;
-							if (vel.LengthSquared() > 40.00f.Pow2()) vel = vel.GetNormalized(out var vel_len) * MathF.Max(40.00f, vel_len * projectile.damp);
+							if (vel.LengthSquared() > 40.00f.Pow2()) vel = vel.GetNormalized(out var vel_len) * Maths.Max(40.00f, vel_len * projectile.damp);
 							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
 
 							var step = vel * App.fixed_update_interval_s;
@@ -438,7 +438,7 @@
 					{
 						if (this.gun_state.stage == Gun.Stage.Reloading)
 						{
-							GUI.TitleCentered($"Reloading\n{MathF.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f, 0.50f));
+							GUI.TitleCentered($"Reloading\n{Maths.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f, 0.50f));
 						}
 					}
 				}
@@ -461,9 +461,9 @@
 			var dist = Vector2.Distance(position_a, position_b);
 			var cpos_target = GUI.WorldToCanvas(position_a + (dir * dist));
 
-			radius = MathF.Min(radius, 20.00f);
+			radius = Maths.Min(radius, 20.00f);
 			radius *= MathF.Sqrt(dist);
-			var line_length = MathF.Max(15.00f, radius * 2.00f);
+			var line_length = Maths.Max(15.00f, radius * 2.00f);
 
 			var color = new Color32BGRA(0xffff0000);
 
@@ -756,7 +756,7 @@
 #if SERVER
 						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
 
-						var amount = Maths.Clamp(MathF.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(Maths.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done_reloading = true;
@@ -877,10 +877,10 @@
 					{
 						if (overheat.heat_critical > 0.00f && ammo.heat > 0.00f)
 						{
-							var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / MathF.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							overheat.heat_current += heat;
 
-							var heat_excess = MathF.Max(overheat.heat_current - overheat.heat_high, 0.00f);
+							var heat_excess = Maths.Max(overheat.heat_current - overheat.heat_high, 0.00f);
 							if (heat_excess > 0.00f)
 							{
 								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
@@ -1327,10 +1327,10 @@
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
 				{
-					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * MathF.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
+					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * Maths.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
 #if SERVER
-					if (random.NextBool(MathF.Max(0.10f, 1.00f - (0.40f + (gun.failure_rate * 5.00f)))))
+					if (random.NextBool(Maths.Max(0.10f, 1.00f - (0.40f + (gun.failure_rate * 5.00f)))))
 					{
 						//App.WriteLine("unjammed");
 

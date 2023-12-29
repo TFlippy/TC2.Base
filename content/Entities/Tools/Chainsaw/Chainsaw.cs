@@ -124,7 +124,7 @@ namespace TC2.Base.Components
 					var max_distance = chainsaw.max_distance;
 
 					var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-					len = MathF.Min(len, max_distance);
+					len = Maths.Min(len, max_distance);
 
 					var modifier = 1.00f;
 

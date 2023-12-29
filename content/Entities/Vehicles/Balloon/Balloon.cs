@@ -211,7 +211,7 @@
 			//var modifier = Maths.Normalize01(balloon_state.current_lift, balloon.lift_max);
 
 			//no_rotate.multiplier *= Maths.Normalize01(temperature - 100, 200.00f);
-			//no_rotate.mass_multiplier *= MathF.Min(modifier * 2.00f, Maths.Normalize01(temperature - 100, 200.00f));
+			//no_rotate.mass_multiplier *= Maths.Min(modifier * 2.00f, Maths.Normalize01(temperature - 100, 200.00f));
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -254,8 +254,8 @@
 			Phys.CharlesLaw(balloon.envelope_volume, temperature_ambient, out var envelope_volume_hot, balloon_state.current_temperature_air);
 			Phys.Buoyancy(air_density_ambient, envelope_volume_hot, out var buoyant_force);
 
-			balloon_state.current_volume = Maths.Lerp(MathF.Max(balloon_state.current_volume, balloon.envelope_volume), envelope_volume_hot, 0.10f);
-			//balloon_state.current_temperature_air = Maths.Lerp(MathF.Max(balloon_state.current_temperature_air, temperature_ambient), envelope_volume_hot, 0.10f);
+			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon.envelope_volume), envelope_volume_hot, 0.10f);
+			//balloon_state.current_temperature_air = Maths.Lerp(Maths.Max(balloon_state.current_temperature_air, temperature_ambient), envelope_volume_hot, 0.10f);
 			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon.envelope_volume);
 
 			balloon_state.speed_current = htc_air;
@@ -280,9 +280,9 @@
 
 			//var m = ((1.00f / balloon.lift_max * 1.00f) * (balloon_state.target_lift - balloon_state.current_lift));
 			////burner_state.air_modifier_target = (burner_state.air_modifier_target + (m * 0.70f)).Clamp01();
-			////burner._loss_multiplier = MathF.Max(1.00f, MathF.Pow(balloon.altitude * 0.02f, 1.50f));
+			////burner._loss_multiplier = Maths.Max(1.00f, MathF.Pow(balloon.altitude * 0.02f, 1.50f));
 
-			var modifier = MathF.Pow(MathF.Sin(MathF.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
+			var modifier = MathF.Pow(MathF.Sin(Maths.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
 			var gravity_modifier = Maths.Step(modifier, 0.20f);
 
 			////App.WriteLine(gravity_modifier);
@@ -304,7 +304,7 @@
 			////sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, lift <= 0.00f ? 0.50f : 1.00f, 0.02f);
 
 			//var lift = 0.00f;
-			//balloon_state.target_lift = Maths.Clamp(balloon_state.target_lift + lift - (MathF.Pow(MathF.Max(balloon_state.altitude - 100, 10), 2.00f) * 0.000f), 0.00f, balloon.lift_max * modifier);
+			//balloon_state.target_lift = Maths.Clamp(balloon_state.target_lift + lift - (MathF.Pow(Maths.Max(balloon_state.altitude - 100, 10), 2.00f) * 0.000f), 0.00f, balloon.lift_max * modifier);
 			//balloon_state.speed_target = Maths.Clamp(speed != 0.00f ? (balloon_state.speed_target + speed) : 0.00f, -balloon.speed_max, balloon.speed_max);
 
 			////balloon.current_lift = balloon.target_lift; // Maths.Lerp(balloon.current_lift, balloon.target_lift, 0.20f);
@@ -314,7 +314,7 @@
 			////if (balloon.altitude_modifier < 1.00f) balloon.altitude_modifier *= balloon.altitude_modifier;
 
 			var lift_mult = 1.50f;
-			var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, MathF.Min(-(buoyant_force * balloon_state.lift_modifier * lift_mult * info.DeltaTime) * region.GetGravity().Y * gravity_modifier, 0));
+			var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, Maths.Min(-(buoyant_force * balloon_state.lift_modifier * lift_mult * info.DeltaTime) * region.GetGravity().Y * gravity_modifier, 0));
 			body.AddForce(force);
 			//body.AddVelocity(-body.GetVelocity() * 0.035f);
 

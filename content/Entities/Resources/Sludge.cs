@@ -21,7 +21,7 @@
 				ref var material = ref resource.material.GetData();
 				if (material.IsNotNull())
 				{
-					var modifier = MathF.Log2(1.00f + (resource.quantity / MathF.Max(material.quantity_max, 1.00f)));
+					var modifier = MathF.Log2(1.00f + (resource.quantity / Maths.Max(material.quantity_max, 1.00f)));
 					var modifier2 = 0.50f + (modifier * 0.50f);
 
 					Particle.Spawn(ref region, new Particle.Data()

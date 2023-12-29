@@ -120,7 +120,7 @@
 					var projectile_init =
 					(
 						damage_mult: cluster.damage_modifier,
-						vel: dir.RotateByRad(random.NextFloat(cluster.spread)) * (MathF.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
+						vel: dir.RotateByRad(random.NextFloat(cluster.spread)) * (Maths.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
 						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
 						owner: body.GetParent(),
 						faction_id: body.GetFaction()

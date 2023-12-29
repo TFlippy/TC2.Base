@@ -8,9 +8,9 @@ namespace TC2.Base.Components
 		{
 			if (organic_original.tags.HasAll(Organic.Tags.Brain))
 			{
-				var p = (MathF.Pow(MathF.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
+				var p = (MathF.Pow(Maths.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
-				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, MathF.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
 				if (dead || health_norm < 0.50f)
@@ -28,7 +28,7 @@ namespace TC2.Base.Components
 				{
 					//App.WriteLine(p);
 					organic_state.consciousness_shared_new = organic_override.consciousness; // Maths.Clamp01(consciousness - ((1.00f - health_norm) * 0.20f) - p); // Maths.Clamp((consciousness - ( (MathF.Pow(organic_state.pain_shared * 0.002f, 1.20f) * 0.12f) * ) ), 0.00f, 1.00f);
-					organic_state.motorics_shared_new = MathF.Max(organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.35f), 0.00f) * (1.00f - organic_state.stun_norm);
+					organic_state.motorics_shared_new = Maths.Max(organic_state.consciousness_shared_new - Maths.Clamp(p, 0.00f, 0.35f), 0.00f) * (1.00f - organic_state.stun_norm);
 				}
 			}
 		}
@@ -41,11 +41,11 @@ namespace TC2.Base.Components
 		{
 			if (joint.flags.HasAll(Joint.Flags.Organic))
 			{
-				organic_state_child.consciousness_shared_new = MathF.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
-				organic_state_child.motorics_shared_new = MathF.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
+				organic_state_child.consciousness_shared_new = Maths.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
+				organic_state_child.motorics_shared_new = Maths.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
 				organic_state_child.unconscious_time = organic_state_parent.unconscious_time;
 
-				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = MathF.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
 			}
 		}
 
@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 				organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
 				organic_state_parent.unconscious_time = organic_state_child.unconscious_time;
 
-				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = MathF.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
 			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
-			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (MathF.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
+			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
 			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 50.00f);
 
 			organic_state.stun_norm = Maths.NormalizeClamp(organic_state.stun, 500.00f).Pow2();
@@ -130,8 +130,8 @@ namespace TC2.Base.Components
 
 			//App.WriteLine(aim_torque);
 
-			joint_gear.min = MathF.Max(joint_gear.min, aimable.min);
-			joint_gear.max = MathF.Min(joint_gear.max, aimable.max);
+			joint_gear.min = Maths.Max(joint_gear.min, aimable.min);
+			joint_gear.max = Maths.Min(joint_gear.max, aimable.max);
 			joint_gear.step = Maths.Clamp(body_child.GetAngularMassInv() * aim_torque * App.fixed_update_interval_s, 0.50f, joint_gear.step);
 		}
 
@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void UpdateRotting(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-			organic_state.rotten = MathF.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed), 0.00f);
+			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed), 0.00f);
 
 #if SERVER
 			//App.WriteLine($"{organic_state.rotten} {entity}");

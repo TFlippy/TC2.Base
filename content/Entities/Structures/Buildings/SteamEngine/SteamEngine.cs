@@ -205,7 +205,7 @@ namespace TC2.Base.Components
 			var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
 			if (modifier > 0.30f)
 			{
-				var health_min = MathF.Min(health.integrity, health.durability);
+				var health_min = Maths.Min(health.integrity, health.durability);
 				var chance = ((1.00f - (health_min * 1.50f).Clamp01()) * modifier * steam_engine.burst_chance_modifier);
 
 				//App.WriteLine($"boom {chance}");
@@ -269,7 +269,7 @@ namespace TC2.Base.Components
 		//#if SERVER
 		//			if (wheel_state.flags.HasAny(Axle.State.Flags.Revolved))
 		//			{
-		//				var health_min = MathF.Min(health.integrity, health.durability);
+		//				var health_min = Maths.Min(health.integrity, health.durability);
 		//				var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
 
 		//				if (health_min < steam_engine.burst_threshold * modifier)
@@ -484,7 +484,7 @@ namespace TC2.Base.Components
 		//		}
 		//	}
 
-		//	delta = MathF.Max(0.00f, delta);
+		//	delta = Maths.Max(0.00f, delta);
 
 		//	//delta = 0;
 		//	//if (MathF.Abs(delta) < 0.10f) delta = 0.00f;

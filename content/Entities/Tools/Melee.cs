@@ -476,7 +476,7 @@ namespace TC2.Base.Components
 							if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
-						dist_max = MathF.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
+						dist_max = Maths.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
 						index_max = i;
 
 #if CLIENT
@@ -761,7 +761,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Head.Data head, [Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
 		{
-			var max = MathF.Min(0.20f, melee.cooldown * 0.50f);
+			var max = Maths.Min(0.20f, melee.cooldown * 0.50f);
 
 			var delta = info.WorldTime - melee_state.last_hit;
 			if (delta < max)
@@ -769,7 +769,7 @@ namespace TC2.Base.Components
 				var t = Maths.EaseInOut(Maths.NormalizeClamp(info.WorldTime - melee_state.last_hit, max).Inv01(), Maths.Easing.Bounce) - 0.50f;
 
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-				len = MathF.Min(len, melee.max_distance);
+				len = Maths.Min(len, melee.max_distance);
 
 				body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 

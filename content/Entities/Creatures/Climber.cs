@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 							if (dot >= 0.90f)
 							{
 								var f = MathF.Abs(normal.X) * arbiter.GetFriction() * climber.climb_force;
-								climb_force = MathF.Max(climb_force, f);
+								climb_force = Maths.Max(climb_force, f);
 								is_wallclimbing = true;
 							}
 

@@ -2,7 +2,9 @@
 	name: "Naphtha"
 	description:
 		'''
-		TODO: Desc
+		Low-quality liquid fuel produced from coal tar and peat.
+
+
 		'''
 	
 	icon:
@@ -20,8 +22,8 @@
 	}
 	
 	type: liquid
-	flags: manufactured
-	hints: none
+	flags: liquid, toxic, chemical, manufactured, fuel
+	hints: materials, chemical
 	// kg
 	mass_per_unit: 0.100
 	quantity_max: 500.000
@@ -40,7 +42,7 @@
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.100
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 628.15
+		autoignition_temperature: 628.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 313.000
 		// J/(kg*K)
@@ -56,9 +58,9 @@
 		surface_area_mult: 0.000
 		
 		// Percentage of carbon.
-		carbon_ratio: 0.220
+		carbon_ratio: 0.520
 		// Percentage of hydrogen.
-		hydrogen_ratio: 0.640
+		hydrogen_ratio: 0.340
 		// Percentage of nitrogen.
 		nitrogen_ratio: 0.072
 		// Percentage of oxygen.

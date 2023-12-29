@@ -32,7 +32,7 @@ namespace TC2.Base.Components
 				body.AddForce(dir * (rocket.force));
 			}
 
-			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+			rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -52,7 +52,7 @@ namespace TC2.Base.Components
 				projectile.velocity += step;
 			}
 
-			rocket.fuel_time = MathF.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+			rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
 		}
 
 #if CLIENT

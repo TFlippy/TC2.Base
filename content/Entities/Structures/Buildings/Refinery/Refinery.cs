@@ -178,7 +178,7 @@
 				case Work.Type.Heating:
 				{
 					var power = burner_state.available_power;
-					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+					var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
 				break;
@@ -186,7 +186,7 @@
 				case Work.Type.Refining:
 				{
 					var power = burner_state.available_power;
-					var work_amount = (float)((power / MathF.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+					var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
 					crafter_state.work += work_amount;
 				}
 				break;

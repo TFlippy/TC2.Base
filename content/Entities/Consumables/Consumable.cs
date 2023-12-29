@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 
 		public static uint GetFrame(int uses, int uses_max, uint frame_count)
 		{
-			return (uint)Maths.Clamp(MathF.Ceiling(MathF.Log2((1.00f - ((float)uses / MathF.Max((float)uses_max, 1.00f))) * frame_count) + 1), 0.00f, (int)frame_count - 1);
+			return (uint)Maths.Clamp(MathF.Ceiling(MathF.Log2((1.00f - ((float)uses / Maths.Max((float)uses_max, 1.00f))) * frame_count) + 1), 0.00f, (int)frame_count - 1);
 		}
 
 		[ISystem.Modified<Consumable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]

@@ -97,37 +97,37 @@ namespace TC2.Base
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.20f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.20f));
 						mass *= 4.00f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.30f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.30f));
 						mass *= 2.50f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.40f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.40f));
 						mass *= 1.20f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.60f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.60f));
 						mass *= 1.20f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 0.85f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.85f));
 						mass *= 1.10f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 1.00f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 1.00f));
 						mass *= 1.00f;
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
-						amount = MathF.Max(1.00f, MathF.Floor(amount * 1.50f));
+						amount = Maths.Max(1.00f, MathF.Floor(amount * 1.50f));
 						mass *= 0.90f;
 					}
 
@@ -377,7 +377,7 @@ namespace TC2.Base
 							{
 								data.flags &= ~Gun.Flags.Automatic;
 								data.failure_rate *= 0.10f;
-								data.failure_rate -= MathF.Min(data.failure_rate, 0.02f);
+								data.failure_rate -= Maths.Min(data.failure_rate, 0.02f);
 
 								return true;
 							}
@@ -413,7 +413,7 @@ namespace TC2.Base
 			//			data.failure_rate += 0.10f;
 			//			data.recoil_multiplier *= 0.50f;
 			//			data.jitter_multiplier += 1.50f;
-			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+			//			data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
 			//			data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
@@ -434,7 +434,7 @@ namespace TC2.Base
 			//			data.failure_rate += 0.50f;
 			//			data.recoil_multiplier *= 0.70f;
 			//			data.jitter_multiplier += 0.50f;
-			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+			//			data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
 			//			data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
@@ -455,7 +455,7 @@ namespace TC2.Base
 			//			data.failure_rate += 0.50f;
 			//			data.recoil_multiplier *= 0.60f;
 			//			data.jitter_multiplier += 0.50f;
-			//			data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+			//			data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
 			//			data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
@@ -492,7 +492,7 @@ namespace TC2.Base
 						data.velocity_multiplier *= 0.80f;
 						data.cycle_interval *= 0.45f;
 						data.jitter_multiplier += 1.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+						data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
 						//data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
@@ -511,7 +511,7 @@ namespace TC2.Base
 						data.velocity_multiplier *= 0.90f;
 						data.cycle_interval *= 0.45f;
 						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+						data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
 						//data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
@@ -530,7 +530,7 @@ namespace TC2.Base
 						data.velocity_multiplier *= 0.45f;
 						data.cycle_interval *= 0.90f;
 						data.jitter_multiplier += 0.50f;
-						data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+						data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
 						//data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
@@ -561,8 +561,8 @@ namespace TC2.Base
 					data.damage_multiplier *= 0.72f;
 					data.velocity_multiplier *= 0.85f;
 
-					data.stability *= 0.90f - MathF.Min(data.failure_rate * 0.30f, 0.30f);
-					data.stability = Maths.Lerp(data.stability, MathF.Max(data.stability - ((75.00f + (context.mass_new * 5.00f)) / Maths.Clamp(data.cycle_interval * 1.50f, 0.10f, 1.50f)), data.stability * 0.25f), 0.50f);
+					data.stability *= 0.90f - Maths.Min(data.failure_rate * 0.30f, 0.30f);
+					data.stability = Maths.Lerp(data.stability, Maths.Max(data.stability - ((75.00f + (context.mass_new * 5.00f)) / Maths.Clamp(data.cycle_interval * 1.50f, 0.10f, 1.50f)), data.stability * 0.25f), 0.50f);
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -744,7 +744,7 @@ namespace TC2.Base
 
 					data.failure_rate += 0.05f * data.barrel_count * count;
 					data.failure_rate *= 1.20f;
-					data.stability *= Maths.Mulpo(data.failure_rate, -0.10f * data.barrel_count); // MathF.Min(data.failure_rate * data.barrel_count, data.stability);
+					data.stability *= Maths.Mulpo(data.failure_rate, -0.10f * data.barrel_count); // Maths.Min(data.failure_rate * data.barrel_count, data.stability);
 					data.jitter_multiplier *= MathF.Pow(1.50f, count);
 				},
 
@@ -865,9 +865,9 @@ namespace TC2.Base
 								data.failure_rate *= 1.60f;
 								data.failure_rate += 0.40f;
 								//data.recoil_multiplier *= 1.70f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 0.60f));
 
-								//data.stability -= MathF.Min(data.stability, 0.30f);
+								//data.stability -= Maths.Min(data.stability, 0.30f);
 								//data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.82f;
@@ -886,9 +886,9 @@ namespace TC2.Base
 								data.failure_rate *= 1.40f;
 								data.failure_rate += 0.40f;
 								//data.recoil_multiplier *= 1.80f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 0.50f));
 
-								//data.stability -= MathF.Min(data.stability, 0.40f);
+								//data.stability -= Maths.Min(data.stability, 0.40f);
 								//data.stability = Maths.Clamp(data.stability * 0.80f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.87f;
@@ -907,9 +907,9 @@ namespace TC2.Base
 								data.failure_rate *= 2.20f;
 								data.failure_rate += 0.40f;
 								//data.recoil_multiplier *= 3.50f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 0.10f));
 
-								//data.stability -= MathF.Min(data.stability, 0.80f);
+								//data.stability -= Maths.Min(data.stability, 0.80f);
 								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 								data.sound_pitch *= 0.67f;
@@ -935,7 +935,7 @@ namespace TC2.Base
 								data.failure_rate += 0.10f;
 								//data.recoil_multiplier *= 0.50f;
 								data.jitter_multiplier += 1.50f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.80f));
 
 								//data.stability = Maths.Clamp(data.stability * 3.50f, 0.00f, 1.00f);
 
@@ -956,7 +956,7 @@ namespace TC2.Base
 								data.failure_rate += 0.50f;
 								//data.recoil_multiplier *= 0.70f;
 								data.jitter_multiplier += 0.50f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.30f));
 
 								//data.stability = Maths.Clamp(data.stability * 1.20f, 0.00f, 1.00f);
 
@@ -977,7 +977,7 @@ namespace TC2.Base
 								data.failure_rate += 0.50f;
 								//data.recoil_multiplier *= 0.60f;
 								data.jitter_multiplier += 0.50f;
-								data.max_ammo = MathF.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
+								data.max_ammo = Maths.Max(1.00f, MathF.Floor(data.max_ammo * 1.20f));
 
 								//data.stability = Maths.Clamp(data.stability * 1.40f, 0.00f, 1.00f);
 
@@ -1032,7 +1032,7 @@ namespace TC2.Base
 						case Gun.Type.Handgun:
 						{
 							data.damage_multiplier *= Maths.Lerp(1.00f, 0.97f, ratio);
-							data.recoil_multiplier = Maths.Lerp(data.recoil_multiplier, MathF.Max(0.20f, data.recoil_multiplier - 0.12f), ratio);
+							data.recoil_multiplier = Maths.Lerp(data.recoil_multiplier, Maths.Max(0.20f, data.recoil_multiplier - 0.12f), ratio);
 						}
 						break;
 
@@ -1042,7 +1042,7 @@ namespace TC2.Base
 						case Gun.Type.MachineGun:
 						case Gun.Type.AutoCannon:
 						{
-							data.recoil_multiplier = MathF.Max(0.10f, data.recoil_multiplier - 0.07f);
+							data.recoil_multiplier = Maths.Max(0.10f, data.recoil_multiplier - 0.07f);
 							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.91f;
 							data.damage_multiplier *= 0.94f;
@@ -1069,7 +1069,7 @@ namespace TC2.Base
 
 						default:
 						{
-							data.recoil_multiplier = MathF.Max(0.10f, data.recoil_multiplier - 0.07f);
+							data.recoil_multiplier = Maths.Max(0.10f, data.recoil_multiplier - 0.07f);
 							data.recoil_multiplier *= 0.85f;
 							data.velocity_multiplier *= 0.87f;
 							data.damage_multiplier *= 0.95f;
@@ -1228,7 +1228,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= 0.96f;
 							data.velocity_multiplier *= 0.97f;
-							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.002f);
+							data.failure_rate = Maths.Max(0.00f, data.failure_rate - 0.002f);
 							data.failure_rate *= 0.14f;
 							data.cycle_interval *= 1.06f;
 							data.stability *= 1.10f;
@@ -1239,7 +1239,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= 0.95f;
 							data.velocity_multiplier *= 0.95f;
-							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.001f);
+							data.failure_rate = Maths.Max(0.00f, data.failure_rate - 0.001f);
 							data.failure_rate *= 0.12f;
 							data.cycle_interval += 0.03f;
 							data.stability *= 1.15f;
@@ -1250,7 +1250,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= 0.97f;
 							data.velocity_multiplier *= 0.97f;
-							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.003f);
+							data.failure_rate = Maths.Max(0.00f, data.failure_rate - 0.003f);
 							data.failure_rate *= 0.17f;
 							data.cycle_interval *= 1.06f;
 							data.stability *= 1.20f;
@@ -1261,7 +1261,7 @@ namespace TC2.Base
 						{
 							data.damage_multiplier *= 0.96f;
 							data.velocity_multiplier *= 0.97f;
-							data.failure_rate = MathF.Max(0.00f, data.failure_rate - 0.001f);
+							data.failure_rate = Maths.Max(0.00f, data.failure_rate - 0.001f);
 							data.failure_rate *= 0.20f;
 							data.cycle_interval *= 1.06f;
 							data.stability *= 1.17f;
@@ -1391,7 +1391,7 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					//data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
+					//data.failure_rate -= Maths.Min(data.failure_rate, 0.20f);
 					//data.failure_rate *= 0.80f;
 					//data.stability *= 1.10f;
 
@@ -1482,7 +1482,7 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.20f);
+					data.failure_rate -= Maths.Min(data.failure_rate, 0.20f);
 					data.failure_rate *= 0.70f;
 					data.stability *= 1.10f;
 
@@ -1871,7 +1871,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 					data.stability *= 1.15f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.cycle_interval *= 1.35f;
 					data.reload_interval *= 0.93f;
@@ -1960,7 +1960,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 					data.stability *= 1.34f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.damage_multiplier *= 1.10f;
 					data.velocity_multiplier *= 1.05f;
@@ -2041,7 +2041,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 					data.stability *= 1.50f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.damage_multiplier *= 1.12f;
 					data.velocity_multiplier *= 1.06f;
@@ -2122,7 +2122,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
-					data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+					data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 					data.stability *= 1.15f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.reload_interval *= 2.00f;
 				},
@@ -2285,7 +2285,7 @@ namespace TC2.Base
 					//	data.failure_rate *= Maths.Lerp(1.00f, 2.50f, ratio);
 					//}
 
-					//data.stability = Maths.Clamp(data.stability - MathF.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio)), 0.00f, 1.00f);
+					//data.stability = Maths.Clamp(data.stability - Maths.Min(data.stability, Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.15f, ratio)), 0.00f, 1.00f);
 					data.failure_rate += Maths.Lerp(0.00f, (1.00f / data.cycle_interval) * 0.35f, ratio);
 				},
 
@@ -2365,7 +2365,7 @@ namespace TC2.Base
 							var mult = 1.00f - ratio;
 
 							data.failure_rate *= 0.85f;
-							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
@@ -2376,7 +2376,7 @@ namespace TC2.Base
 							var mult = 1.00f - ratio;
 
 							data.failure_rate *= 0.85f;
-							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
 						}
@@ -2385,7 +2385,7 @@ namespace TC2.Base
 						case Gun.Type.Shotgun:
 						{
 							data.failure_rate *= 0.85f;
-							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 5.00f, ratio);
 						}
@@ -2394,7 +2394,7 @@ namespace TC2.Base
 						case Gun.Type.SMG:
 						{
 							data.failure_rate *= 0.85f;
-							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
@@ -2403,7 +2403,7 @@ namespace TC2.Base
 						default:
 						{
 							data.failure_rate *= 0.85f;
-							data.failure_rate -= MathF.Min(data.failure_rate, 0.05f);
+							data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
 							//data.stability *= MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							data.cycle_interval *= Maths.Lerp(1.20f, 10.00f, ratio);
 						}
@@ -2455,7 +2455,7 @@ namespace TC2.Base
 							data.failure_rate *= 0.30f;
 							data.cycle_interval *= 0.90f;
 
-							//data.stability += MathF.Min(data.stability, 0.15f);
+							//data.stability += Maths.Min(data.stability, 0.15f);
 							//data.stability = Maths.Clamp(data.stability * 1.30f, 0.00f, 1.00f);
 
 							data.recoil_multiplier *= 0.90f;
@@ -2685,7 +2685,7 @@ namespace TC2.Base
 								data.failure_rate *= 1.10f;
 								data.failure_rate += 0.25f;
 
-								//data.stability -= MathF.Min(data.stability, 0.50f);
+								//data.stability -= Maths.Min(data.stability, 0.50f);
 								//data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
 								data.stability *= 1.24f;
@@ -2702,7 +2702,7 @@ namespace TC2.Base
 							else
 							{
 								data.stability *= 1.24f;
-								//data.stability -= MathF.Min(data.stability, 0.02f);
+								//data.stability -= Maths.Min(data.stability, 0.02f);
 								//data.stability = MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							}
 						}
@@ -2715,7 +2715,7 @@ namespace TC2.Base
 								data.failure_rate *= 1.70f;
 								data.failure_rate += 0.20f;
 
-								//data.stability -= MathF.Min(data.stability, 0.30f);
+								//data.stability -= Maths.Min(data.stability, 0.30f);
 								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 								//data.stability *= 0.70f;
@@ -2736,7 +2736,7 @@ namespace TC2.Base
 								data.failure_rate *= 3.50f;
 								data.failure_rate += 0.05f;
 
-								//data.stability -= MathF.Min(data.stability, 0.10f);
+								//data.stability -= Maths.Min(data.stability, 0.10f);
 								//data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
 
 								data.stability *= 1.12f;
@@ -2773,7 +2773,7 @@ namespace TC2.Base
 
 					context.mass_new += context.mass_old * 0.10f;
 
-					//var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+					//var barrel_count_inv = MathF.ReciprocalEstimate(Maths.Max(data.barrel_count - augments.GetCount(handle), 1));
 
 
 
@@ -2794,7 +2794,7 @@ namespace TC2.Base
 						overheat.cool_rate *= 1.30f;
 					}
 
-					var barrel_count_inv = MathF.ReciprocalEstimate(MathF.Max(data.barrel_count - augments.GetCount(handle), 1));
+					var barrel_count_inv = MathF.ReciprocalEstimate(Maths.Max(data.barrel_count - augments.GetCount(handle), 1));
 
 					for (var i = 0; i < context.requirements_old.Length; i++)
 					{
@@ -2886,7 +2886,7 @@ namespace TC2.Base
 					data.sound_volume *= Maths.Lerp(1.15f, 1.35f, value);
 					data.sound_size *= Maths.Lerp(1.10f, 1.30f, value);
 					data.sound_pitch *= Maths.Lerp(0.98f, 0.96f, value);
-					data.recoil_multiplier = MathF.Max(0.15f, data.recoil_multiplier * Maths.Lerp(0.80f, 0.50f, value));
+					data.recoil_multiplier = Maths.Max(0.15f, data.recoil_multiplier * Maths.Lerp(0.80f, 0.50f, value));
 				}
 			));
 
@@ -3171,7 +3171,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.receiver_offset.X - 0.250f, MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
+					offset.X.Clamp(data.receiver_offset.X - 0.250f, Maths.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
 					offset.Y.Clamp(data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
 
 					return true;
@@ -3198,7 +3198,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset,
 						min: new Vector2(data.receiver_offset.X - 0.250f, data.receiver_offset.Y - 0.125f),
-						max: new Vector2(MathF.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f), data.receiver_offset.Y + 0.250f));
+						max: new Vector2(Maths.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f), data.receiver_offset.Y + 0.250f));
 
 					return dirty;
 				},
@@ -3434,7 +3434,7 @@ namespace TC2.Base
 						//	mass += body.mass_extra;
 						//}
 
-						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / Maths.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // Maths.Max(data.recoil_multiplier * 0.20f, 0.10f);
 
 						var pellet_count = 0.00f;
 						var smirglum_count = 0.00f;
@@ -3600,7 +3600,7 @@ namespace TC2.Base
 						//	mass += body.mass_extra;
 						//}
 
-						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / MathF.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // MathF.Max(data.recoil_multiplier * 0.20f, 0.10f);
+						//data.recoil_multiplier -= Maths.Clamp(MathF.Abs((1.00f / Maths.Max(data.recoil_multiplier * value.Y, 0.10f)) * value.Y), data.recoil_multiplier * 0.20f, data.recoil_multiplier * 2.50f) * value.X * 0.80f; // Maths.Max(data.recoil_multiplier * 0.20f, 0.10f);
 
 						var pellet_count = 0.00f;
 						var smirglum_count = 0.00f;
@@ -4141,7 +4141,7 @@ namespace TC2.Base
 					if (holdable.IsNotNull())
 					{
 						var mult_muzzle = Maths.InvLerp01(data.receiver_offset.X + 0.500f, data.muzzle_offset.X + 0.125f, offset.X);
-						data.jitter_multiplier *= MathF.Max(Maths.Mulpo(mult_muzzle * grip, -0.20f), 0.25f);
+						data.jitter_multiplier *= Maths.Max(Maths.Mulpo(mult_muzzle * grip, -0.20f), 0.25f);
 
 						holdable.torque_multiplier *= Maths.Mulpo(mult_muzzle, 0.20f * (grip - (bulkiness * size * 0.40f)));
 						holdable.offset.X = Maths.Lerp(Maths.Lerp(context.rect.a.X, holdable.offset.X, 0.50f), offset.X, 0.50f);

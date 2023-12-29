@@ -139,7 +139,7 @@ namespace TC2.Base.Components
 				explosive.modifier = MathF.Sqrt(Maths.Normalize01(resource.quantity, material.quantity_max));
 			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
-			//explosive.modifier = MathF.Log2(resource.quantity / MathF.Max(resource.material.GetDefinition().quantity_max, 1.00f));
+			//explosive.modifier = MathF.Log2(resource.quantity / Maths.Max(resource.material.GetDefinition().quantity_max, 1.00f));
 			//App.WriteLine(explosive.modifier);
 		}
 

@@ -44,8 +44,8 @@ namespace TC2.Base.Components
 		{
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
-			no_rotate_parent.multiplier = MathF.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
-			no_rotate_parent.mass_multiplier = MathF.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
+			no_rotate_parent.multiplier = Maths.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
+			no_rotate_parent.mass_multiplier = Maths.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
 		}
 
 		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
@@ -100,7 +100,7 @@ namespace TC2.Base.Components
 
 			walking:
 			{
-				renderer.sprite.fps = (byte)Math.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
+				renderer.sprite.fps = (byte)MathF.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = legs.frame_count;
 
@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 
 			jumping:
 			{
-				var t = 1.00f - Maths.NormalizeClamp(info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
+				var t = 1.00f - Maths.NormalizeClamp(info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));

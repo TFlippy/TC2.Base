@@ -92,7 +92,7 @@
 			var pos = transform.position + telescope.offset;
 			var dir = (control.mouse.position - pos).GetNormalized(out var len);
 			var dist = (pos - transform.position).Length();
-			var dist_clipped = MathF.Max(dist - telescope.deadzone, 0.00f);
+			var dist_clipped = Maths.Max(dist - telescope.deadzone, 0.00f);
 
 			camera.override_target_position = pos + (new Vector2(Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f, -Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier * 0.40f);
 
@@ -104,7 +104,7 @@
 			camera.zoom_min = Maths.Lerp(camera.zoom_min, telescope.zoom_min, t1);
 			camera.zoom_max = Maths.Lerp(camera.zoom_max, telescope.zoom_max, t1);
 
-			len = MathF.Max(len - telescope.deadzone, 0.00f);
+			len = Maths.Max(len - telescope.deadzone, 0.00f);
 
 			if (len > telescope.deadzone && control.mouse.GetKey(Mouse.Key.Right))
 			{

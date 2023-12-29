@@ -137,7 +137,7 @@ namespace TC2.Base.Components
 
 			//alcohol.amount_metabolized = amount_metabolized;
 			alcohol.modifier_current = Maths.Lerp(alcohol.modifier_current, (amount_metabolized * organic.water_ratio) / (total_mass * 0.001f), modifier_lerp);
-			alcohol.hiccup_current = MathF.Max(alcohol.hiccup_current - (info.DeltaTime * 0.20f), 0.00f);
+			alcohol.hiccup_current = Maths.Max(alcohol.hiccup_current - (info.DeltaTime * 0.20f), 0.00f);
 
 			alcohol.jitter_current = Maths.Perlin(info.WorldTime, 0.00f, 0.30f);
 			alcohol.amount_bloodstream -= amount_metabolized * elimination_modifier;
@@ -197,7 +197,7 @@ namespace TC2.Base.Components
 			//App.WriteLine(Drunk.Color.W);
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(MathF.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(Maths.Max(alcohol.modifier_current - 0.20f, 0.00f), 0.50f));
 			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 0.200f, MathF.Pow(alcohol.modifier_current, 0.30f));
 		}
 #endif

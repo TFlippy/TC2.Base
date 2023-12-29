@@ -386,9 +386,9 @@ namespace TC2.Base
 						break;
 					}
 
-					var size = MathF.Max(0.50f, data.offset.Length());
+					var size = Maths.Max(0.50f, data.offset.Length());
 					var dist = Vector2.Distance(offset, data.offset);
-					var dist_modifier = size / MathF.Max(size, dist);
+					var dist_modifier = size / Maths.Max(size, dist);
 
 					ref var cooling = ref context.GetOrAddComponent<MovementCooling.Data>();
 					cooling.modifier = 1.00f + ((type + 1.00f) * 0.30f) * dist_modifier;
@@ -704,7 +704,7 @@ namespace TC2.Base
 
 						if (ratio > 0.10f)
 						{
-							gun.failure_rate = MathF.Max(0.00f, gun.failure_rate + (ratio * 0.50f));
+							gun.failure_rate = Maths.Max(0.00f, gun.failure_rate + (ratio * 0.50f));
 						}
 
 						gun.reload_interval *= 1.00f + (ratio * 0.20f);
@@ -1277,8 +1277,8 @@ namespace TC2.Base
 					ref var armor = ref context.GetComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.knockback_modifier = MathF.Max(armor.knockback_modifier - 0.30f, armor.knockback_modifier * 0.25f);
-						armor.pain_modifier = MathF.Max((armor.pain_modifier * 0.90f) - 0.30f, armor.pain_modifier * 0.10f);
+						armor.knockback_modifier = Maths.Max(armor.knockback_modifier - 0.30f, armor.knockback_modifier * 0.25f);
+						armor.pain_modifier = Maths.Max((armor.pain_modifier * 0.90f) - 0.30f, armor.pain_modifier * 0.10f);
 					}
 				},
 
@@ -2631,22 +2631,22 @@ namespace TC2.Base
 									case Work.Type.Smithing:
 									{
 										requirement.amount *= 0.77f;
-										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
 									case Work.Type.Assembling:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
 									}
 									break;
 								}
 							}
 						}
 
-						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
-						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, Maths.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+						//context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, Maths.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
 					}
 
 					var random = XorRandom.New(context.seed);
@@ -2696,7 +2696,7 @@ namespace TC2.Base
 						//	//else if (context.mass_new >= 25.00f && random.NextBool((Maths.Lerp(0.65f, 0.30f * gun.damage_multiplier * size * mult_muzzle * gun.sound_volume * gun.reload_interval * (1.00f + (augment_count * 0.30f)), 0.40f))))
 						//	//{
 						//	//	gun.ammo_filter = Material.Flags.Ammo_Shell;
-						//	//	gun.max_ammo = (int)MathF.Max(gun.max_ammo * 0.15f * robustness, 1);
+						//	//	gun.max_ammo = (int)Maths.Max(gun.max_ammo * 0.15f * robustness, 1);
 						//	//	gun.projectile_count = (int)gun.max_ammo;
 						//	//	gun.ammo_per_shot = gun.projectile_count;
 						//	//	gun.type = Gun.Type.Cannon;
@@ -2897,21 +2897,21 @@ namespace TC2.Base
 									case Work.Type.Smithing:
 									{
 										requirement.amount *= 0.77f;
-										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
+										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
 									case Work.Type.Assembling:
 									{
 										requirement.amount *= 0.85f;
-										requirement.difficulty = (byte)MathF.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
+										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
 									}
 									break;
 								}
 							}
 						}
 
-						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, MathF.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, Maths.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
 					}
 				}
 			));

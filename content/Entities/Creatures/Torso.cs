@@ -127,7 +127,7 @@
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.75f);
 				}
 
-				renderer.sprite.fps = (byte)Math.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
+				renderer.sprite.fps = (byte)MathF.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = torso.frame_count;
 				renderer.offset = offset;

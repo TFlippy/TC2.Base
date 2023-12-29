@@ -65,10 +65,10 @@
 
 			if (organic_state.unconscious_time > 0.50f)
 			{
-				head.next_sound = MathF.Min(head.next_sound, time + 2.50f);
+				head.next_sound = Maths.Min(head.next_sound, time + 2.50f);
 			}
 
-			var pain_delta = MathF.Max(organic_state.pain, 0.00f);
+			var pain_delta = Maths.Max(organic_state.pain, 0.00f);
 			if (time >= human.next_pain && organic_state.consciousness_shared > 0.40f)
 			{
 				//if (pain_delta >= 800.00f)

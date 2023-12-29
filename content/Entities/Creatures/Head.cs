@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 		//	//var amount_knockback = data.knockback * 0.0002f;
 		//	//var amount_damage = Maths.NormalizeClamp(data.damage_durability, health.GetHealth() * 0.50f);
 
-		//	//var amount = MathF.Abs(MathF.Max(amount_knockback, amount_damage));
+		//	//var amount = MathF.Abs(Maths.Max(amount_knockback, amount_damage));
 		//	var amount = data.stun * 0.10f;
 		//	//App.WriteLine($"{amount}; {data.knockback}; {data.damage_durability}; {amount_knockback}; {amount_damage}");
 
@@ -154,7 +154,7 @@ namespace TC2.Base.Components
 		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine(organic_state.stun_norm);
-			head.concussion = MathF.Max(Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
+			head.concussion = Maths.Max(Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
@@ -253,8 +253,8 @@ namespace TC2.Base.Components
 			Drunk.Color.W.Min(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(MathF.Max(modifier * 1.80f, 0.00f), 0.50f));
-			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, MathF.Max(MathF.Pow(modifier * 4.50f, 0.70f), 0.707f));
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(Maths.Max(modifier * 1.80f, 0.00f), 0.50f));
+			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, Maths.Max(MathF.Pow(modifier * 4.50f, 0.70f), 0.707f));
 
 			camera.rotation = random.NextFloatRange(-0.10f, 0.10f) * Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
 		}

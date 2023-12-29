@@ -79,8 +79,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.heal_min_integrity -= MathF.Min(0.15f, data.heal_min_integrity);
-					data.heal_min_durability -= MathF.Min(0.10f, data.heal_min_durability);
+					data.heal_min_integrity -= Maths.Min(0.15f, data.heal_min_integrity);
+					data.heal_min_durability -= Maths.Min(0.10f, data.heal_min_durability);
 
 					var ingot_amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -117,7 +117,7 @@ namespace TC2.Base
 			//	{
 			//		data.cooldown *= 1.20f;
 			//		data.power *= 1.70f;
-			//		data.heal_min = MathF.Min(1.00f, data.heal_min + 0.05f);
+			//		data.heal_min = Maths.Min(1.00f, data.heal_min + 0.05f);
 			//		data.pain += 300.00f;
 			//		context.requirements_new.Add(Crafting.Requirement.Resource("meat", 150));
 			//	}

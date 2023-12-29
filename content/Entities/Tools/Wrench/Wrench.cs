@@ -265,7 +265,7 @@ namespace TC2.Base.Components
 					var dir = (info_src.Position - info_dst.Position).GetNormalized(out distance);
 					errors.SetFlag(Wrench.Mode.Build.Errors.OutOfRange | Wrench.Mode.Build.Errors.MaxLength, distance > placement.length_max);
 
-					var claim_ratio = MathF.Min(Claim.GetOverlapRatio(ref region, AABB.Circle(info_src.Position, 1.00f), faction_id: faction_id), Claim.GetOverlapRatio(ref region, AABB.Circle(info_dst.Position, 1.00f), faction_id: faction_id));
+					var claim_ratio = Maths.Min(Claim.GetOverlapRatio(ref region, AABB.Circle(info_src.Position, 1.00f), faction_id: faction_id), Claim.GetOverlapRatio(ref region, AABB.Circle(info_dst.Position, 1.00f), faction_id: faction_id));
 					errors.SetFlag(Wrench.Mode.Build.Errors.Claimed, claim_ratio < placement.min_claim);
 
 					var pos_mid = (info_src.Position + info_dst.Position) * 0.50f;

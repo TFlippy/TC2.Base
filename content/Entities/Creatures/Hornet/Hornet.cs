@@ -34,7 +34,7 @@
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void OnUpdateAnimation(ISystem.Info info, ref XorRandom random, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.fps = (byte)Math.Round(hornet.fps * flyer.lift_modifier);
+			renderer.sprite.fps = (byte)MathF.Round(hornet.fps * flyer.lift_modifier);
 			renderer.offset = Vector2.Lerp(renderer.offset, random.NextUnitVector2Range(0.00f, 0.25f), 0.10f);
 			renderer.rotation = Maths.Lerp(renderer.rotation, random.NextFloatRange(-0.20f, 0.20f), 0.10f);
 		}

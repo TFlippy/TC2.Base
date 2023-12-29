@@ -58,7 +58,7 @@ namespace TC2.Base.Components
 			ref var material = ref resource.material.GetData();
 			if (material.IsNotNull())
 			{
-				mithril.modifier = 0.50f + (MathF.Log2(1.00f + (resource.quantity / MathF.Max(material.quantity_max, 1.00f))) * 0.50f);
+				mithril.modifier = 0.50f + (MathF.Log2(1.00f + (resource.quantity / Maths.Max(material.quantity_max, 1.00f))) * 0.50f);
 			}
 		}
 

@@ -13,7 +13,7 @@
 //				ref var money_holder = ref oc_money_holder.data;
 //				if (money_holder.IsNotNull())
 //				{
-//					var amount = MathF.Max(0.00f, money.amount);
+//					var amount = Maths.Max(0.00f, money.amount);
 //					money_holder.amount += amount;
 
 //					WorldNotification.Push(ref region, $"* Takes {amount:0.00} {Money.symbol} *", Color32BGRA.Green, data.world_position, lifetime: 1.50f);

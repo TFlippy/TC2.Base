@@ -328,8 +328,8 @@ namespace TC2.Base.Components
 											texture = texture_smoke,
 											lifetime = random.NextFloatRange(0.50f, 1.00f) * levitator.particle_size,
 											pos = result.world_position - (dir * 1),
-											vel = dir2.RotateByRad(random.NextFloatRange(-0.10f, 0.10f)) * random.NextFloatRange(0.10f, 1.00f) * MathF.Max(len, 10.00f) * 3.00f,
-											force = new Vector2(0.00f, -0.10f) + dir.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * MathF.Max(len, 1.00f),
+											vel = dir2.RotateByRad(random.NextFloatRange(-0.10f, 0.10f)) * random.NextFloatRange(0.10f, 1.00f) * Maths.Max(len, 10.00f) * 3.00f,
+											force = new Vector2(0.00f, -0.10f) + dir.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * Maths.Max(len, 1.00f),
 											fps = random.NextByteRange(3, 5),
 											frame_count = 64,
 											frame_count_total = 64,
@@ -362,7 +362,7 @@ namespace TC2.Base.Components
 		//		{
 		//			if (info.WorldTime >= levitator_state.next_boom)
 		//			{
-		//				var modifier = MathF.Pow(Maths.Clamp01(MathF.Min(1.00f - MathF.Min(health.integrity, health.durability), levitator.EssenceRate)), 2.00f);
+		//				var modifier = MathF.Pow(Maths.Clamp01(Maths.Min(1.00f - Maths.Min(health.integrity, health.durability), levitator.EssenceRate)), 2.00f);
 		//				//App.WriteLine($"modifier: {modifier}");
 
 		//				if (modifier >= 0.25f)
@@ -376,7 +376,7 @@ namespace TC2.Base.Components
 		//						var prefab = Essence.GetEssencePrefab(Essence.Type.Motion);
 		//						if (prefab.id != 0)
 		//						{
-		//							var amount = levitator.EssenceAvailable * MathF.Max(levitator.EssenceRate, modifier * modifier) * modifier;
+		//							var amount = levitator.EssenceAvailable * Maths.Max(levitator.EssenceRate, modifier * modifier) * modifier;
 		//							if (amount >= 5.00f)
 		//							{
 		//								region.SpawnPrefab(prefab, transform.position).ContinueWith(x =>
@@ -515,8 +515,8 @@ namespace TC2.Base.Components
 							texture = texture_smoke,
 							lifetime = random.NextFloatRange(0.50f, 1.00f) * levitator.particle_size * modifier2,
 							pos = transform.LocalToWorld(levitator_state.current_offset + (dir * Maths.Clamp(force_len, 2.00f, 3))) + random.NextVector2(0.40f),
-							vel = dir_w.RotateByRad(random.NextFloatRange(-0.60f, 0.60f)) * random.NextFloatRange(0.90f, 1.00f) * MathF.Max(force_len, 10.00f) * 3.00f,
-							force = new Vector2(0.00f, -0.10f) + dir_w.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * MathF.Max(force_len, 1.00f),
+							vel = dir_w.RotateByRad(random.NextFloatRange(-0.60f, 0.60f)) * random.NextFloatRange(0.90f, 1.00f) * Maths.Max(force_len, 10.00f) * 3.00f,
+							force = new Vector2(0.00f, -0.10f) + dir_w.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * Maths.Max(force_len, 1.00f),
 							fps = random.NextByteRange(3, 5),
 							frame_count = 64,
 							frame_count_total = 64,
@@ -537,8 +537,8 @@ namespace TC2.Base.Components
 							texture = texture_spark,
 							lifetime = random.NextFloatRange(0.10f, 0.20f) * levitator.particle_size * modifier2,
 							pos = transform.LocalToWorld(levitator_state.current_offset) + random.NextVector2(0.70f),
-							vel = dir_w.RotateByRad(random.NextFloatRange(-0.60f, 0.60f)) * random.NextFloatRange(0.90f, 1.00f) * MathF.Max(force_len, 10.00f) * 9.00f,
-							force = new Vector2(0.00f, -0.10f) + dir_w.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * MathF.Max(force_len, 1.00f),
+							vel = dir_w.RotateByRad(random.NextFloatRange(-0.60f, 0.60f)) * random.NextFloatRange(0.90f, 1.00f) * Maths.Max(force_len, 10.00f) * 9.00f,
+							force = new Vector2(0.00f, -0.10f) + dir_w.RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) * random.NextFloatRange(0.90f, 1.00f) * Maths.Max(force_len, 1.00f),
 							//fps = random.NextByteRange(3, 5),
 							//stretch = new Vector2(0.1f,0.4f),
 							frame_count = 1,

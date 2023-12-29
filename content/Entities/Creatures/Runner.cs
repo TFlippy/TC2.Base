@@ -107,7 +107,7 @@ namespace TC2.Base.Components
 			var stun_mult = (1.00f - organic_state.stun_norm);
 
 			runner.walk_force *= Maths.Clamp(organic.strength * organic.coordination * organic.motorics, 0.50f, 1.80f) * stun_mult;
-			runner.jump_force *= Maths.Clamp(MathF.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics * stun_mult;
+			runner.jump_force *= Maths.Clamp(Maths.Min(organic.strength, organic.dexterity), 0.75f, 1.40f) * organic.coordination * organic.motorics * stun_mult;
 			runner.max_speed *= Maths.Clamp(organic_state.efficiency * organic.coordination, 0.50f, 1.20f) * stun_mult;
 			runner.max_jump_speed *= (organic_state.efficiency * 1.50f).Clamp01() * stun_mult;
 			//runner.no_rotate_mult *= 
@@ -140,7 +140,7 @@ namespace TC2.Base.Components
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
-			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			//var modifier = 1.00f - (info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
@@ -160,7 +160,7 @@ namespace TC2.Base.Components
 		{
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
-			//var modifier = 1.00f - (info.WorldTime - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
+			//var modifier = 1.00f - (info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
@@ -340,7 +340,7 @@ namespace TC2.Base.Components
 			}
 
 			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
-			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && MathF.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
+			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && Maths.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = time;
@@ -371,13 +371,13 @@ namespace TC2.Base.Components
 					required_force_dir.X *= runner.air_brake_modifier;
 				}
 
-				force -= required_force_dir * MathF.Max(1.00f - (time - runner_state.last_move), 0.00f);
+				force -= required_force_dir * Maths.Max(1.00f - (time - runner_state.last_move), 0.00f);
 			}
 
 			//max_speed *= runner_state.speed_modifier;
 			//force *= runner_state.force_modifier;
 
-			runner_state.air_time = time - MathF.Max(runner_state.last_climb, MathF.Max(runner_state.last_ground, runner_state.last_jump));
+			runner_state.air_time = time - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump));
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 			if (!is_swimming) force *= runner_state.air_modifier_current;
 

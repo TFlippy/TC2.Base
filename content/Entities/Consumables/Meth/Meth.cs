@@ -183,7 +183,7 @@ namespace TC2.Base.Components
 			camera.distance_modifier *= 1.00f + (modifier * 2.00f);
 			camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.30f, (modifier - 0.20f).Clamp0X());
 
-			Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
+			Drunk.Color.W = Maths.Max(Drunk.Color.W, Maths.Clamp(modifier * 0.70f, 0.00f, 0.95f));
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 10000.00f, modifier * 2.50f);
@@ -195,7 +195,7 @@ namespace TC2.Base.Components
 
 			if (meth.modifier_current < meth.modifier_withdrawal)
 			{
-				Drunk.Color.W = MathF.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
+				Drunk.Color.W = Maths.Max(Drunk.Color.W, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 			}
 
 			head_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);

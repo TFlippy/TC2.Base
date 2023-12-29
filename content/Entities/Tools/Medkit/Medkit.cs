@@ -159,11 +159,11 @@
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
 									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
 
-									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.integrity, 0.00f, heal_integrity_max), heal_normalized);
+									var heal_amount = Maths.Min(Maths.Clamp(1.00f - health.integrity, 0.00f, heal_integrity_max), heal_normalized);
 									health.integrity += heal_amount;
 									total_healed_amount += heal_amount * health.max;
 
-									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
+									healed_amount_max = Maths.Max(healed_amount_max, heal_amount);
 								}
 
 								var heal_durability_max = Maths.Clamp(1.00f - medkit.heal_min_durability, 0.00f, 1.00f);
@@ -172,11 +172,11 @@
 									var heal_normalized = Maths.Normalize(power, health.max);
 									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
 
-									var heal_amount = MathF.Min(Maths.Clamp(1.00f - health.durability, 0.00f, heal_durability_max), heal_normalized);
+									var heal_amount = Maths.Min(Maths.Clamp(1.00f - health.durability, 0.00f, heal_durability_max), heal_normalized);
 									health.durability += heal_amount;
 									total_healed_amount += heal_amount * health.max;
 
-									healed_amount_max = MathF.Max(healed_amount_max, heal_amount);
+									healed_amount_max = Maths.Max(healed_amount_max, heal_amount);
 								}
 
 								if (healed_amount_max > 0.00f)
@@ -191,7 +191,7 @@
 								if (!organic_state.IsNull())
 								{
 									// Adds or reduces pain
-									var pain_amount = MathF.Max(medkit.pain, -organic_state.pain);
+									var pain_amount = Maths.Max(medkit.pain, -organic_state.pain);
 									organic_state.pain += pain_amount;
 
 									if (pain_amount != 0.00f)
