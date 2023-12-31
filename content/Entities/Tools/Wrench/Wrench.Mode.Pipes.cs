@@ -4,25 +4,25 @@
 	{
 		public static partial class Mode
 		{
-			public static partial class Conveyors
+			public static partial class Pipes
 			{
-				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Conveyors)", region_only: true)]
-				public partial struct Data: IComponent, Wrench.IMode,  Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
+				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Pipes)", region_only: true)]
+				public partial struct Data: IComponent, Wrench.IMode,  Wrench.ILinkerMode<Pipes.TargetInfo, Pipe.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					[Save.Ignore] public ulong inventory_id_src;
-					[Save.Ignore] public ulong inventory_id_dst;
+					[Save.Ignore] public IComponent.Handle vent_id_src;
+					[Save.Ignore] public IComponent.Handle vent_id_dst;
 
 					public IRecipe.Handle selected_recipe;
 					//public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 1, 0);
-					public static string Name { get; } = "Conveyors";
+					public static string Name { get; } = "Pipes";
 
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Conveyor;
-					public Physics.Layer LayerMask => Physics.Layer.Conveyor;
+					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Pipe;
+					public Physics.Layer LayerMask => Physics.Layer.Pipe;
 					public Color32BGRA ColorOk => Color32BGRA.Green;
 					public Color32BGRA ColorError => Color32BGRA.Red;
 					public Color32BGRA ColorNew => Color32BGRA.Yellow;
@@ -33,7 +33,7 @@
 
 					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
 					{
-						return new TargetInfo(entity, is_src ? this.inventory_id_src : this.inventory_id_dst, is_src);
+						return new TargetInfo(entity, is_src ? this.vent_id_src : this.vent_id_dst, is_src);
 					}
 
 #if CLIENT
@@ -109,48 +109,34 @@
 
 									var hud_rect = hud.group.GetOuterRect();
 
-									var inventories_src = info_src.entity.GetInventories();
-									var inventories_dst = info_dst.entity.GetInventories();
+									var vents_src = info_src.entity.GetComponents<Vent.Data>();
+									var vents_dst = info_dst.entity.GetComponents<Vent.Data>();
 
 									var sync = false;
 
-									var inventory_filter = new Inventory.Filter();
+									//if (this.ent_src.TryGetVent(this.vent_id_src, out var h_inv_src))
+									//{
+									//	//var h_vent = new Vent.Handle()
+									//	using (var window = GUI.Window.Standalone($"inv_src", position: new(hud_rect.a.X, hud_rect.a.Y), pivot: new(1.00f, 0.00f), size: h_inv_src.GetPreferedFrameSize() + new Vector2(0, 0)))
+									//	{
+									//		if (window.show)
+									//		{
+									//			GUI.DrawVent(h_inv_src, is_readonly: true, filter: vent_filter);
+									//		}
+									//	}
+									//}
 
-									if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
-									{
-										var root = prefab.Root;
-										if (root != null)
-										{
-											if (root.TryGetComponentData<Conveyor.Data>(out var duct_data, true))
-											{
-												inventory_filter = duct_data.filter;
-											}
-										}
-									}
-
-									if (this.ent_src.TryGetInventory(this.inventory_id_src, out var h_inv_src))
-									{
-										//var h_inventory = new Inventory.Handle()
-										using (var window = GUI.Window.Standalone($"inv_src", position: new(hud_rect.a.X, hud_rect.a.Y), pivot: new(1.00f, 0.00f), size: h_inv_src.GetPreferedFrameSize() + new Vector2(0, 0)))
-										{
-											if (window.show)
-											{
-												GUI.DrawInventory(h_inv_src, is_readonly: true, filter: inventory_filter);
-											}
-										}
-									}
-
-									if (this.ent_dst.TryGetInventory(this.inventory_id_dst, out var h_inv_dst))
-									{
-										//var h_inventory = new Inventory.Handle()
-										using (var window = GUI.Window.Standalone($"inv_dst", position: new(hud_rect.b.X, hud_rect.a.Y), pivot: new(0.00f, 0.00f), size: h_inv_dst.GetPreferedFrameSize() + new Vector2(0, 0)))
-										{
-											if (window.show)
-											{
-												GUI.DrawInventory(h_inv_dst, is_readonly: true);
-											}
-										}
-									}
+									//if (this.ent_dst.TryGetVent(this.vent_id_dst, out var h_inv_dst))
+									//{
+									//	//var h_vent = new Vent.Handle()
+									//	using (var window = GUI.Window.Standalone($"inv_dst", position: new(hud_rect.b.X, hud_rect.a.Y), pivot: new(0.00f, 0.00f), size: h_inv_dst.GetPreferedFrameSize() + new Vector2(0, 0)))
+									//	{
+									//		if (window.show)
+									//		{
+									//			GUI.DrawVent(h_inv_dst, is_readonly: true);
+									//		}
+									//	}
+									//}
 
 									using (GUI.Group.New(size: new(GUI.RmX, 24 * 6), padding: new(4)))
 									{
@@ -171,7 +157,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawInventories(ref inventories_src, ref this.inventory_id_src, ref sync);
+												DrawVents(ref vents_src, ref this.vent_id_src, ref sync);
 											}
 										}
 
@@ -190,7 +176,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawInventories(ref inventories_dst, ref this.inventory_id_dst, ref sync);
+												DrawVents(ref vents_dst, ref this.vent_id_dst, ref sync);
 											}
 										}
 									}
@@ -202,8 +188,8 @@
 											ent_src = this.ent_src,
 											ent_dst = this.ent_dst,
 
-											component_id_src = this.inventory_id_src,
-											component_id_dst = this.inventory_id_dst,
+											component_id_src = this.vent_id_src,
+											component_id_dst = this.vent_id_dst,
 										};
 										rpc.Send(ent_wrench);
 									}
@@ -226,7 +212,7 @@
 										{
 											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
 											{
-												var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
+												var rpc = new Wrench.Mode.Pipes.ConfirmRPC()
 												{
 
 												};
@@ -253,76 +239,39 @@
 											}
 										}
 									}
-
-									//using (GUI.Group.Centered(outer_size: new(GUI.RmX, 40), inner_size: new(100, 40)))
-									//{
-									//	if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
-									//	{
-									//		var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
-									//		{
-
-									//		};
-									//		rpc.Send(ent_wrench);
-									//	}
-									//	if (GUI.IsItemHovered())
-									//	{
-									//		using (GUI.Tooltip.New(size: new(244, 0)))
-									//		{
-									//			GUI.Title("Requires");
-									//			GUI.SeparatorThick();
-									//			GUI.NewLine(4);
-									//			var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
-									//			if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
-
-									//			using (GUI.Wrap.Push(GUI.RmX))
-									//			{
-									//				if (errors != Build.Errors.None)
-									//				{
-									//					GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: GUI.font_color_error);
-									//				}
-									//			}
-									//		}
-									//	}
-
-									//	//GUI.DrawHoverTooltip("Create a conveyor connection.");
-									//}
-
-									//if (errors != Build.Errors.None)
-									//	{
-									//		GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: color_error);
-									//	}
 								}
 							}
 						}
 					}
 
-					private static void DrawInventories(scoped ref Inventory.Handle.List inventories, scoped ref ulong selected_inventory_id, scoped ref bool sync)
+					private static void DrawVents(scoped ref IComponent.List<Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
 					{
-						foreach (var h_inventory in inventories)
+						for (var i = 0; i < vents.count; i++)
 						{
-							if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts))
+							var pair = vents[i];
+							//if (h_vent.Flags.HasAny(Vent.Flags.Allow_Ducts))
 							{
-								using (GUI.ID.Push(h_inventory.ID))
+								using (GUI.ID.Push(pair.handle))
 								{
 									using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 32), padding: new(4)))
 									{
 										GUI.DrawBackground(GUI.tex_panel, group_row.GetOuterRect(), new Vector4(4));
 
-										GUI.TitleCentered(h_inventory.Type.GetEnumName(), pivot: new(0.50f, 0.50f));
+										GUI.TitleCentered(pair.data.type.GetEnumName(), pivot: new(0.50f, 0.50f));
 
-										var is_selected = selected_inventory_id == h_inventory.ID;
-										if (GUI.Selectable3(h_inventory.Type.GetEnumName(), group_row.GetOuterRect(), is_selected))
+										var is_selected = selected_vent_id == pair.handle;
+										if (GUI.Selectable3(pair.data.type.GetEnumName(), group_row.GetOuterRect(), is_selected))
 										{
-											selected_inventory_id = is_selected ? 0 : h_inventory.ID;
+											selected_vent_id = is_selected ? 0 : pair.handle;
 											sync = true;
 										}
 									}
 
 									//if (GUI.IsItemHovered())
 									//{
-									//	using (GUI.Tooltip.New(size: h_inventory.GetPreferedFrameSize() + new Vector2(16, 16)))
+									//	using (GUI.Tooltip.New(size: h_vent.GetPreferedFrameSize() + new Vector2(16, 16)))
 									//	{
-									//		GUI.DrawInventory(h_inventory);
+									//		GUI.DrawVent(h_vent);
 									//	}
 									//}
 								}
@@ -330,7 +279,7 @@
 						}
 					}
 
-					void Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
+					void Wrench.ILinkerMode<Pipes.TargetInfo, Pipe.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 					{
 						if (info_src.IsValid)
 						{
@@ -380,7 +329,7 @@
 				public struct TargetInfo: ITargetInfo
 				{
 					public Entity entity;
-					public IComponent.Handle inventory_id;
+					public IComponent.Handle vent_id;
 
 					public Transform.Data transform;
 
@@ -392,14 +341,14 @@
 					public bool valid;
 
 					public Entity Entity => this.entity;
-					public IComponent.Handle ComponentID => this.inventory_id;
+					public IComponent.Handle ComponentID => this.vent_id;
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => this.is_src;
 					public bool IsAlive => this.alive;
 					public bool IsValid => this.valid;
 
-					public TargetInfo(Entity entity, ulong inventory_id, bool is_src)
+					public TargetInfo(Entity entity, IComponent.Handle vent_id, bool is_src)
 					{
 						this.entity = entity;
 						this.is_src = is_src;
@@ -411,22 +360,23 @@
 
 							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
 
-							var has_inventory = false;
+							var has_vent = false;
 
-							var inventories = this.entity.GetInventories();
-							foreach (var h_inventory in inventories)
+							var vents = this.entity.GetComponents<Vent.Data>();
+							for (var i = 0; i < vents.count; i++)
 							{
-								if (h_inventory.Flags.HasAny(Inventory.Flags.Allow_Ducts) && (inventory_id == 0 || h_inventory.ID == inventory_id))
+								var pair = vents[i];
+								if ((vent_id == 0 || pair.handle == vent_id))
 								{
-									has_inventory = true;
-									this.inventory_id = h_inventory.ID;
-									this.pos = this.transform.LocalToWorld(h_inventory.Offset);
+									has_vent = true;
+									this.vent_id = pair.handle;
+									this.pos = this.transform.LocalToWorld(pair.data.offset);
 
 									break;
 								}
 							}
 
-							this.valid &= has_inventory;
+							this.valid &= has_vent;
 
 							if (this.valid)
 							{
@@ -437,16 +387,16 @@
 					}
 				}
 
-				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
+				public struct SetTargetRPC: Net.IRPC<Wrench.Mode.Pipes.Data>
 				{
 					public Entity ent_src;
 					public Entity ent_dst;
 
-					public ulong component_id_src;
-					public ulong component_id_dst;
+					public IComponent.Handle component_id_src;
+					public IComponent.Handle component_id_dst;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Pipes.Data data)
 					{
 						//App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
@@ -458,15 +408,15 @@
 						data.ent_src = info_src.entity;
 						data.ent_dst = info_dst.entity;
 
-						data.inventory_id_src = info_src.inventory_id;
-						data.inventory_id_dst = info_dst.inventory_id;
+						data.vent_id_src = info_src.vent_id;
+						data.vent_id_dst = info_dst.vent_id;
 
 						data.Sync(entity);
 					}
 #endif
 				}
 
-				public struct EditRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
+				public struct EditRPC: Net.IRPC<Wrench.Mode.Pipes.Data>
 				{
 					public IRecipe.Handle? recipe;
 
@@ -480,7 +430,7 @@
 
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Pipes.Data data)
 					{
 						if (this.recipe.HasValue)
 						{
@@ -492,10 +442,10 @@
 #endif
 				}
 
-				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
+				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Pipes.Data>
 				{
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Pipes.Data data)
 					{
 						ref var region = ref entity.GetRegion();
 						ref var character = ref connection.GetCharacter();
@@ -505,8 +455,8 @@
 						{
 							var errors = Build.Errors.None;
 
-							var info_src = new TargetInfo(data.ent_src, data.inventory_id_src, true);
-							var info_dst = new TargetInfo(data.ent_dst, data.inventory_id_dst, false);
+							var info_src = new TargetInfo(data.ent_src, data.vent_id_src, true);
+							var info_dst = new TargetInfo(data.ent_dst, data.vent_id_dst, false);
 
 							if (info_src.valid && info_dst.valid)
 							{
@@ -515,7 +465,7 @@
 
 								Crafting.Context.NewFromCharacter(ref region.AsCommon(), connection.GetCharacterHandle(), entity, out var context);
 
-								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, character.faction);
+								errors |= data.EvaluateNodePair<Wrench.Mode.Pipes.Data, Wrench.Mode.Pipes.TargetInfo, Pipe.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, character.faction);
 								//if (!Crafting.Evaluate(entity, ref player, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
 								if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
 
@@ -524,38 +474,41 @@
 									//Crafting.Consume(entity, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance), sync: true);
 									context.Consume(recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 
-									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, inventory_id_src: info_src.inventory_id, inventory_id_dst: info_dst.inventory_id);
+									var arg = (ent_src: info_src.entity, ent_dst: info_dst.entity, vent_id_src: info_src.vent_id, vent_id_dst: info_dst.vent_id);
 
 									region.SpawnPrefab(recipe.products[0].prefab, pos_mid).ContinueWith(ent =>
 									{
-										ref var conveyor = ref ent.GetComponent<Conveyor.Data>();
-										if (!conveyor.IsNull())
+										ref var pipe = ref ent.GetComponent<Pipe.Data>();
+										if (!pipe.IsNull())
 										{
-											conveyor.a.Set(arg.ent_src, arg.inventory_id_src);
-											conveyor.b.Set(arg.ent_dst, arg.inventory_id_dst);
+											//pipe.a.Set(arg.ent_src, arg.vent_id_src);
+											//pipe.b.Set(arg.ent_dst, arg.vent_id_dst);
 
-											ent.MarkModified<Conveyor.Data>(sync: true);
+											pipe.a.Set(arg.ent_src, arg.vent_id_src);
+											pipe.b.Set(arg.ent_dst, arg.vent_id_dst);
 
-											//conveyor.a.Set(arg.ent_src);
-											//conveyor.b.Set(arg.ent_dst);
+											ent.MarkModified<Pipe.Data>(sync: true);
 
-											//conveyor.a_state.Set(arg.ent_src);
-											//conveyor.b_state.Set(arg.ent_dst);
+											//pipe.a.Set(arg.ent_src);
+											//pipe.b.Set(arg.ent_dst);
 
-											//conveyor.flags = arg.flags;
+											//pipe.a_state.Set(arg.ent_src);
+											//pipe.b_state.Set(arg.ent_dst);
 
-											//ent.MarkModified<Conveyor.Data>(sync: true);
+											//pipe.flags = arg.flags;
+
+											//ent.MarkModified<Pipe.Data>(sync: true);
 										}
 
-										//ent.AddRel2<Conveyor.Link>(arg.ent_src, default, false, false, false);
-										//ent.AddRel2<Conveyor.Link>(arg.ent_dst, default, false, false, false);
+										//ent.AddRel2<Pipe.Link>(arg.ent_src, default, false, false, false);
+										//ent.AddRel2<Pipe.Link>(arg.ent_dst, default, false, false, false);
 									});
 
 									data.ent_src = default;
 									data.ent_dst = default;
 
-									data.inventory_id_src = default;
-									data.inventory_id_dst = default;
+									data.vent_id_src = default;
+									data.vent_id_dst = default;
 								}
 							}
 

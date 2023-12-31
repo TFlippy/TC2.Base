@@ -70,12 +70,16 @@
 	{
 		// TODO: Desc
 		type: solid
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 11000.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.8211
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 0.221
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.157
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		autoignition_temperature: 0.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 553.150
 		// J/(kg*K)
@@ -84,7 +88,7 @@
 		// W/(m*K)
 		thermal_conductivity: 0.242
 		// TODO: Desc
-		porosity: 0.1638
+		porosity: 0.3638
 		// TODO: Desc
 		volatility: 0.2129
 		// TODO: Desc

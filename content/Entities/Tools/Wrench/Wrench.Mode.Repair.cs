@@ -428,7 +428,7 @@ namespace TC2.Base.Components
 					public bool valid;
 
 					public Entity Entity => this.entity;
-					public ulong ComponentID => ECS.GetID<Repairable.Data>();
+					public IComponent.Handle ComponentID => ECS.GetID<Repairable.Data>();
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => true;

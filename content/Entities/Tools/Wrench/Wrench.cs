@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 		public interface ITargetInfo
 		{
 			public Entity Entity { get; }
-			public ulong ComponentID { get; }
+			public IComponent.Handle ComponentID { get; }
 
 			public Vector2 Position { get; }
 			public float Radius { get; }
@@ -654,6 +654,12 @@ namespace TC2.Base.Components
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Conveyors.Data>())
 							{
 								Wrench.DrawModeButton<Wrench.Mode.Conveyors.Data>(this.ent_wrench, ref this.wrench);
+								GUI.SameLine();
+							}
+
+							if (this.ent_wrench.HasComponent<Wrench.Mode.Pipes.Data>())
+							{
+								Wrench.DrawModeButton<Wrench.Mode.Pipes.Data>(this.ent_wrench, ref this.wrench);
 								GUI.SameLine();
 							}
 

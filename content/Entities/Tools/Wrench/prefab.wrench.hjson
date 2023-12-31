@@ -74,6 +74,11 @@ wrench.mode.belts:
 
 }
 
+wrench.mode.pipes:
+{
+
+}
+
 wrench.mode.conveyors:
 {
 

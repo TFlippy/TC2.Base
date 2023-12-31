@@ -170,7 +170,7 @@
 					public bool valid;
 
 					public readonly Entity Entity => this.entity;
-					public readonly ulong ComponentID => ECS.GetID<Axle.Data>();
+					public readonly IComponent.Handle ComponentID => ECS.GetID<Axle.Data>();
 					public readonly Vector2 Position => this.pos;
 					public readonly float Radius => this.radius;
 					public readonly bool IsSource => this.is_src;
