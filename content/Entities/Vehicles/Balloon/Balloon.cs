@@ -73,9 +73,10 @@
 			public float force_modifier = 100.00f;
 			public float temperature_max = Maths.CelsiusToKelvin(140.00f);
 
-			public float envelope_volume = 4200.00f; // cubic meters
-			public float envelope_mass = 210.00f;
-			public float envelope_thickness = Units.cm(0.20f);
+			public Radius envelope_radius_mid;
+			public Radius envelope_radius_bottom;
+			public Height envelope_height_bottom;
+			public Width envelope_thickness = Units.mm(0.40f);
 			public float envelope_thermal_conductivity = 0.188f; // W/m*K
 
 			public Data()
@@ -95,11 +96,22 @@
 			public float lift_modifier;
 			public float altitude_modifier;
 
-			public float current_radius;
-			public float current_surface_area;
-			public float current_temperature_air = Region.ambient_temperature;
+			public Volume envelope_volume;
+			public Area envelope_surface_area;
+			public Mass envelope_mass;
+
+			public float buoyant_force;
+
+			public Mass air_mass;
+			public Density air_density;
+
+
+			//public Radius current_radius;
+			//public Area current_surface_area;
+
+			public Temperature current_temperature_air = Region.ambient_temperature;
 			//public float current_temperature_envelope;
-			public float current_volume;
+			public Volume current_volume;
 
 			public State()
 			{
@@ -131,7 +143,7 @@
 						{
 							//GUI.Text($"{this.balloon.altitude:0.00} m {this.balloon.lift_modifier:P2}");
 
-							GUI.DrawTemperatureRange(this.burner_state.temperature_exhaust, this.burner_state.temperature_exhaust, 1000, size: new Vector2(24, GUI.RmY));
+							GUI.DrawTemperatureRange(this.balloon_state.current_temperature_air, this.balloon_state.current_temperature_air, balloon.temperature_max, size: new Vector2(24, GUI.RmY));
 							//GUI.SameLine();
 							//GUI.DrawVerticalGauge(this.balloon_state.current_lift, this.balloon_state.target_lift, this.balloon.lift_max, size: new Vector2(24, GUI.RmY), color_a: GUI.col_button_yellow, color_b: GUI.col_button_yellow);
 							//GUI.DrawHoverTooltip($"Lift:\n{this.balloon_state.current_lift:0}/{this.balloon.lift_max:0}");
@@ -210,15 +222,35 @@
 			//var temperature = Maths.KelvinToCelsius(burner_state.exhaust_temperature);
 			//var modifier = Maths.Normalize01(balloon_state.current_lift, balloon.lift_max);
 
-			//no_rotate.multiplier *= Maths.Normalize01(temperature - 100, 200.00f);
-			//no_rotate.mass_multiplier *= Maths.Min(modifier * 2.00f, Maths.Normalize01(temperature - 100, 200.00f));
+
+
+			no_rotate.multiplier *= Maths.Max(0.00f, (balloon_state.lift_modifier - 1.00f) * 10.00f);
+			no_rotate.mass_multiplier *= 1.00f + Maths.Max(0.00f, (balloon_state.lift_modifier - 1.00f) * 1.50f);
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateShape(ISystem.Info info, ref Region.Data region,
-		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
-		[Source.Owned, Pair.Of<Body.Data>] ref Shape.Circle circle)
+		public static void UpdateShape(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] in Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
+		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Circle circle)
 		{
+			var density_linen = Density.kgm3(300.00f);
+			var circle_mass_old = circle.mass;
+
+			balloon_state.envelope_volume = Volume.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
+			balloon_state.envelope_surface_area = Area.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
+			balloon_state.envelope_mass = (Mass)(balloon_state.envelope_surface_area.m_value * density_linen * balloon.envelope_thickness);
+			balloon_state.air_mass = (Mass)(balloon_state.envelope_volume.m_value * Phys.air_density_kordel);
+
+			//circle.mass = Maths.Max(1.00f, balloon_state.envelope_mass + balloon_state.air_mass);
+			circle.mass = Maths.Max(1.00f, balloon_state.air_mass);
+
+#if SERVER
+			if (circle.mass != circle_mass_old)
+			{
+				body.Modified(entity, true); ;
+			}
+#endif
+
 			//var modifier = Maths.Normalize01(balloon_state.current_lift * 10.00f, balloon.lift_max);
 			//circle.rigidity_dynamic = Maths.Lerp(0.20f, 1.00f, modifier);
 		}
@@ -231,32 +263,62 @@
 		[Source.Owned] ref Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
 		[Source.Owned] in Health.Data health)
 		{
+			var show_debug = true;
 			var speed = 0.00f;
-			var fuel_modifier_target = burner_state.modifier_fuel_target;
+			var dt = info.DeltaTime;
+			var fuel_modifier_target = burner_state.modifier_fluid_target;
 			var mass = body.GetMass();
 			var fuel_rate_step = 0.80f;
+			var density_linen = Density.kgm3(300.00f);
+
+			balloon_state.altitude = GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
 
 			//var temperature = Maths.KelvinToCelsius(burner_state.exhaust_temperature);
 			//balloon_state.current_lift = Maths.Lerp(balloon_state.current_lift, temperature * 8.00f, 0.50f);
 
 			var temperature_ambient = Region.ambient_temperature;
+			var atmospheric_pressure_ambient = Phys.CalculateAtmosphericPressure(temperature_ambient, balloon_state.altitude);
+
+			var air_density_ambient = Phys.GetAirDensity(atmospheric_pressure_ambient, temperature_ambient);
+
 			var wind_speed = 4.00f;
+
+			//balloon_state.envelope_volume = Volume.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
+			//balloon_state.envelope_surface_area = Area.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
+			//balloon_state.envelope_mass = (Mass)(balloon_state.envelope_surface_area.m_value * density_linen * balloon.envelope_thickness);
 
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed);
 			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness);
 
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon.envelope_volume * Phys.air_density_kordel, burner_state.exhaust_output);
+			//balloon.envelope_thickness = 0.40f.mm();
+
+
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon_state.envelope_volume * Phys.air_density_kordel, burner_state.exhaust_output);
 
 			//var temperature_envelope = 
 
-			var air_density_ambient = Phys.GetAirDensity(Phys.atmospheric_pressure_kordel, temperature_ambient);
+			
 			//var air_density_balloon = Phys.GetAirDensity(Phys.reference_atmospheric_pressure_bar, balloon_state.current_temperature_air);
-			Phys.CharlesLaw(balloon.envelope_volume, temperature_ambient, out var envelope_volume_hot, balloon_state.current_temperature_air);
-			Phys.Buoyancy(air_density_ambient, envelope_volume_hot, out var buoyant_force);
+			Phys.CharlesLaw(balloon_state.envelope_volume, Phys.ambient_temperature, out var envelope_volume_hot, balloon_state.current_temperature_air);
+			Phys.Buoyancy(air_density_ambient, balloon_state.current_volume, out var buoyant_force);
+			buoyant_force *= 3.00f;
 
-			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon.envelope_volume), envelope_volume_hot, 0.10f);
-			//balloon_state.current_temperature_air = Maths.Lerp(Maths.Max(balloon_state.current_temperature_air, temperature_ambient), envelope_volume_hot, 0.10f);
-			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon.envelope_volume);
+			balloon_state.air_density = balloon_state.air_mass / envelope_volume_hot;
+
+			Phys.TransferHeatAmbient(ref balloon_state.current_temperature_air, temperature_ambient, balloon_state.air_mass, Phys.air_specific_heat, balloon_state.envelope_surface_area, htc_envelope, dt);
+
+			//var delta = temperature_ambient - balloon_state.current_temperature_air;
+			//var energy = MathF.Abs(heat_flux * dt).WithSign(temperature_a < temperature_b);
+			//temperature_a -= (float)Maths.Clamp(Maths.Normalize(energy, mass_a * specific_heat_a), -delta, delta);
+
+			//Phys.EqualizeTemperature(ref balloon_state.current_temperature_air, ref temperature_ambient, balloon.envelope_mass, 100, 1000, 1000, htc_envelope, info.DeltaTime);
+
+			//balloon_state.current_radius = balloon.envelope_radius_mid;
+
+			balloon_state.buoyant_force = buoyant_force;
+			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon_state.envelope_volume), envelope_volume_hot, 0.10f);
+
+			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon_state.envelope_volume);
 
 			balloon_state.speed_current = htc_air;
 			balloon_state.speed_target = htc_envelope;
@@ -271,7 +333,7 @@
 				fuel_modifier_target = Maths.Lerp(fuel_modifier_target, 0.50f, 0.10f);
 			}
 
-			burner_state.modifier_fuel_target = fuel_modifier_target.Clamp01();
+			burner_state.modifier_fluid_target = fuel_modifier_target.Clamp01();
 
 			////var heat_transfer_surface = Phys.calc (heat_coeff * boiler.area_surface * (balloon_state.current_temperature_air - temperature_ambient); // * (1.00f - boiler.insulation);
 			//var dt = info.DeltaTime;
@@ -294,7 +356,7 @@
 			//if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target += fuel_rate_step * info.DeltaTime;
 			//if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target -= fuel_rate_step * info.DeltaTime;
 
-			//balloon_state.altitude = GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
+		
 			//balloon_state.lift_modifier = MathF.Pow(0.90f, balloon_state.altitude / 10.00f);
 
 			//burner_state.air_modifier_target = Maths.Lerp01(burner_state.air_modifier_target, balloon_state.lift_modifier, 0.10f);
@@ -314,8 +376,37 @@
 			////if (balloon.altitude_modifier < 1.00f) balloon.altitude_modifier *= balloon.altitude_modifier;
 
 			var lift_mult = 1.50f;
-			var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, Maths.Min(-(buoyant_force * balloon_state.lift_modifier * lift_mult * info.DeltaTime) * region.GetGravity().Y * gravity_modifier, 0));
+			//var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, Maths.Min(-(buoyant_force * balloon_state.lift_modifier * lift_mult * info.DeltaTime) * region.GetGravity().Y * gravity_modifier, 0));
+			var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, 0.00f);
+			//force.Y += Maths.Min(0.00f, Maths.Max(mass - balloon_state.envelope_mass, 0.00f) * -region.GetGravity().Y);
+			force.Y -= buoyant_force;
+
 			body.AddForce(force);
+			var mass_force = mass * region.GetGravity().Y;
+
+
+
+#if CLIENT
+			if (show_debug)
+			{
+				region.DrawDebugText(transform.position + new Vector2(0.00f, 0.00f),
+				$"altitude: {balloon_state.altitude:0.0000}\n" +
+				$"temperature_ambient: {temperature_ambient:0.0000}\n" +
+				$"temperature_balloon: {balloon_state.current_temperature_air:0.0000}\n" +
+				$"atmospheric_pressure_kordel: {Phys.atmospheric_pressure_kordel:0.0000}\n" +
+				$"atmospheric_pressure_ambient: {atmospheric_pressure_ambient:0.0000}\n" +
+				$"air_density_kordel: {Phys.air_density_kordel:0.0000}\n" +
+				$"air_density_ambient: {air_density_ambient:0.0000}\n" +
+				$"air_density_hot: {balloon_state.air_density:0.0000}\n" +
+				$"envelope_mass: {balloon_state.envelope_mass:0.0000}\n" +
+				$"air_mass: {balloon_state.air_mass:0.0000}\n" +
+				$"mass: {mass:0.0000}\n" +
+				$"buoyant_force: {buoyant_force:0.0000}\n" +
+				$"mass_force: {mass_force:0.0000}\n" +
+				"", Color32BGRA.Yellow);
+			}
+#endif
+
 			//body.AddVelocity(-body.GetVelocity() * 0.035f);
 
 			//#if SERVER
