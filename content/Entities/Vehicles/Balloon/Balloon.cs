@@ -241,8 +241,8 @@
 			balloon_state.envelope_mass = (Mass)(balloon_state.envelope_surface_area.m_value * density_linen * balloon.envelope_thickness);
 			balloon_state.air_mass = (Mass)(balloon_state.envelope_volume.m_value * Phys.air_density_kordel);
 
-			//circle.mass = Maths.Max(1.00f, balloon_state.envelope_mass + balloon_state.air_mass);
-			circle.mass = Maths.Max(1.00f, balloon_state.air_mass);
+			circle.mass = Maths.Max(1.00f, balloon_state.envelope_mass + balloon_state.air_mass);
+			//circle.mass = Maths.Max(1.00f, balloon_state.air_mass);
 
 #if SERVER
 			if (circle.mass != circle_mass_old)
@@ -268,13 +268,10 @@
 			var dt = info.DeltaTime;
 			var fuel_modifier_target = burner_state.modifier_fluid_target;
 			var mass = body.GetMass();
-			var fuel_rate_step = 0.80f;
+			var fuel_rate_step = 0.40f;
 			var density_linen = Density.kgm3(300.00f);
 
 			balloon_state.altitude = GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
-
-			//var temperature = Maths.KelvinToCelsius(burner_state.exhaust_temperature);
-			//balloon_state.current_lift = Maths.Lerp(balloon_state.current_lift, temperature * 8.00f, 0.50f);
 
 			var temperature_ambient = Region.ambient_temperature;
 			var atmospheric_pressure_ambient = Phys.CalculateAtmosphericPressure(temperature_ambient, balloon_state.altitude);
@@ -283,41 +280,21 @@
 
 			var wind_speed = 4.00f;
 
-			//balloon_state.envelope_volume = Volume.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
-			//balloon_state.envelope_surface_area = Area.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
-			//balloon_state.envelope_mass = (Mass)(balloon_state.envelope_surface_area.m_value * density_linen * balloon.envelope_thickness);
-
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed);
 			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness);
 
-			//balloon.envelope_thickness = 0.40f.mm();
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon_state.envelope_volume, burner_state.exhaust_output);
 
-
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon_state.envelope_volume * Phys.air_density_kordel, burner_state.exhaust_output);
-
-			//var temperature_envelope = 
-
-			
-			//var air_density_balloon = Phys.GetAirDensity(Phys.reference_atmospheric_pressure_bar, balloon_state.current_temperature_air);
 			Phys.CharlesLaw(balloon_state.envelope_volume, Phys.ambient_temperature, out var envelope_volume_hot, balloon_state.current_temperature_air);
-			Phys.Buoyancy(air_density_ambient, balloon_state.current_volume, out var buoyant_force);
-			buoyant_force *= 3.00f;
+			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon_state.envelope_volume), envelope_volume_hot, 0.10f);
+
+			Phys.Buoyancy(air_density_ambient, balloon_state.current_volume, region.GetGravity().Y, out var buoyant_force);
 
 			balloon_state.air_density = balloon_state.air_mass / envelope_volume_hot;
 
 			Phys.TransferHeatAmbient(ref balloon_state.current_temperature_air, temperature_ambient, balloon_state.air_mass, Phys.air_specific_heat, balloon_state.envelope_surface_area, htc_envelope, dt);
 
-			//var delta = temperature_ambient - balloon_state.current_temperature_air;
-			//var energy = MathF.Abs(heat_flux * dt).WithSign(temperature_a < temperature_b);
-			//temperature_a -= (float)Maths.Clamp(Maths.Normalize(energy, mass_a * specific_heat_a), -delta, delta);
-
-			//Phys.EqualizeTemperature(ref balloon_state.current_temperature_air, ref temperature_ambient, balloon.envelope_mass, 100, 1000, 1000, htc_envelope, info.DeltaTime);
-
-			//balloon_state.current_radius = balloon.envelope_radius_mid;
-
 			balloon_state.buoyant_force = buoyant_force;
-			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon_state.envelope_volume), envelope_volume_hot, 0.10f);
-
 			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon_state.envelope_volume);
 
 			balloon_state.speed_current = htc_air;
@@ -330,55 +307,17 @@
 			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target -= fuel_rate_step * info.DeltaTime;
 			else
 			{
-				fuel_modifier_target = Maths.Lerp(fuel_modifier_target, 0.50f, 0.10f);
+				fuel_modifier_target = Maths.Lerp(fuel_modifier_target, 0.10f, 0.04f);
 			}
 
 			burner_state.modifier_fluid_target = fuel_modifier_target.Clamp01();
 
-			////var heat_transfer_surface = Phys.calc (heat_coeff * boiler.area_surface * (balloon_state.current_temperature_air - temperature_ambient); // * (1.00f - boiler.insulation);
-			//var dt = info.DeltaTime;
-
-			//balloon_state.current_temperature_air -= Maths.Normalize((heat_transfer_surface - heat_transfer_self) * dt * heat_transfer_speed_mult, boiler.mass_tank * substance_surface.specific_heat);
-
-			//var m = ((1.00f / balloon.lift_max * 1.00f) * (balloon_state.target_lift - balloon_state.current_lift));
-			////burner_state.air_modifier_target = (burner_state.air_modifier_target + (m * 0.70f)).Clamp01();
-			////burner._loss_multiplier = Maths.Max(1.00f, MathF.Pow(balloon.altitude * 0.02f, 1.50f));
-
 			var modifier = MathF.Pow(MathF.Sin(Maths.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
 			var gravity_modifier = Maths.Step(modifier, 0.20f);
 
-			////App.WriteLine(gravity_modifier);
-
-			//var fuel_rate_step = 0.10f;
-
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed += balloon_state.speed * info.DeltaTime;
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed -= balloon_state.speed * info.DeltaTime;
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target += fuel_rate_step * info.DeltaTime;
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target -= fuel_rate_step * info.DeltaTime;
-
-		
-			//balloon_state.lift_modifier = MathF.Pow(0.90f, balloon_state.altitude / 10.00f);
-
-			//burner_state.air_modifier_target = Maths.Lerp01(burner_state.air_modifier_target, balloon_state.lift_modifier, 0.10f);
-			//burner_state.fuel_modifier_target = fuel_modifier_target.Clamp01();
-
-			////sound_emitter.volume = Maths.Lerp(sound_emitter.volume, lift <= 0.00f ? 0.00f : 1.00f, 0.05f);
-			////sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, lift <= 0.00f ? 0.50f : 1.00f, 0.02f);
-
-			//var lift = 0.00f;
-			//balloon_state.target_lift = Maths.Clamp(balloon_state.target_lift + lift - (MathF.Pow(Maths.Max(balloon_state.altitude - 100, 10), 2.00f) * 0.000f), 0.00f, balloon.lift_max * modifier);
-			//balloon_state.speed_target = Maths.Clamp(speed != 0.00f ? (balloon_state.speed_target + speed) : 0.00f, -balloon.speed_max, balloon.speed_max);
-
-			////balloon.current_lift = balloon.target_lift; // Maths.Lerp(balloon.current_lift, balloon.target_lift, 0.20f);
 			balloon_state.speed_current = 0; // balloon_state.speed_target; // Maths.Lerp(balloon.current_speed, balloon.target_speed, 0.50f);
 
-			//balloon_state.altitude_modifier = ((1 * balloon_state.lift_modifier) / 200.00f);
-			////if (balloon.altitude_modifier < 1.00f) balloon.altitude_modifier *= balloon.altitude_modifier;
-
-			var lift_mult = 1.50f;
-			//var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, Maths.Min(-(buoyant_force * balloon_state.lift_modifier * lift_mult * info.DeltaTime) * region.GetGravity().Y * gravity_modifier, 0));
 			var force = new Vector2(balloon_state.speed_current * balloon.force_modifier, 0.00f);
-			//force.Y += Maths.Min(0.00f, Maths.Max(mass - balloon_state.envelope_mass, 0.00f) * -region.GetGravity().Y);
 			force.Y -= buoyant_force;
 
 			body.AddForce(force);
@@ -391,6 +330,8 @@
 			{
 				region.DrawDebugText(transform.position + new Vector2(0.00f, 0.00f),
 				$"altitude: {balloon_state.altitude:0.0000}\n" +
+				$"htc_air: {htc_air:0.0000}\n" +
+				$"htc_envelope: {htc_envelope:0.0000}\n" +
 				$"temperature_ambient: {temperature_ambient:0.0000}\n" +
 				$"temperature_balloon: {balloon_state.current_temperature_air:0.0000}\n" +
 				$"atmospheric_pressure_kordel: {Phys.atmospheric_pressure_kordel:0.0000}\n" +
@@ -407,7 +348,13 @@
 			}
 #endif
 
-			//body.AddVelocity(-body.GetVelocity() * 0.035f);
+#if SERVER
+			// TODO: sync it properly
+			if (region.GetCurrentTick() % 150 == 0)
+			{
+				balloon_state.Sync(entity);
+			}
+#endif
 
 			//#if SERVER
 			//			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))

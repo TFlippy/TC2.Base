@@ -35,10 +35,10 @@ balloon:
 	speed_max: 15.000
 	force_modifier: 600.000
 	temperature_max: 413.150
-	envelope_radius_mid: 12.000
-	envelope_radius_bottom: 1.000
-	envelope_height_bottom: 18.000
-	envelope_thickness: 0.0004
+	envelope_radius_mid: 8.000
+	envelope_radius_bottom: 2.000
+	envelope_height_bottom: 8.000
+	envelope_thickness: 0.001
 	envelope_thermal_conductivity: 0.188
 }
 
