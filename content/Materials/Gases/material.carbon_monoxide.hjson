@@ -54,10 +54,10 @@
 		molar_mass: 0.028010
 		// kg/m3
 		density: 1.145
-		// J/(kg*K)
-		specific_heat: 1046.000
-		// W/(m*K)
-		thermal_conductivity: 0.0240
+		// kJ/(kg*K)
+		specific_heat: 1.046
+		// kW/(m*K)
+		thermal_conductivity: 0.0000240
 		// K
 		melting_point: 68.130
 		// K

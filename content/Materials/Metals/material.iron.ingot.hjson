@@ -31,14 +31,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: metals, raw, industrial
+		
 		industries_produce: mining, low_tech, metallurgy, scrap, slaves, labor, kobolds, penal
 		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, kobolds, railway, furniture
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: foundry, scrapyard, metalworks
 		buildings_consume: docks, prison, foundry, metalworks
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, advanced, developing, excavated, polluted
 		categories_consume: industrial, wasteland, frontier, advanced, developing, modern, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 4.600
 		market_price_min: 0.000
@@ -54,14 +73,14 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.055845
-		// kg/m3
+		// kg/m³
 		density: 7874.000
-		// J/(kg*K)
-		specific_heat: 449.000
-		// W/(m*K)
-		thermal_conductivity: 79.000
+		// kJ/(kg*K)
+		specific_heat: 0.449
+		// kW/(m*K)
+		thermal_conductivity: 0.079
 		// K
 		melting_point: 1811.000
 		// K

@@ -31,7 +31,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: none
 		categories: beverages, water, consumer, industrial
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 0.100
 		market_price_min: 0.000
@@ -42,17 +68,19 @@
 		quantity_industry: 0.000
 	}
 	
+	scrap: []
+	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.018015
-		// kg/m3
+		// kg/m³
 		density: 997.000
-		// J/(kg*K)
-		specific_heat: 4184.000
-		// W/(m*K)
-		thermal_conductivity: 0.598
+		// kJ/(kg*K)
+		specific_heat: 4.184
+		// kW/(m*K)
+		thermal_conductivity: 0.000598
 		// K
 		melting_point: 273.200
 		// K

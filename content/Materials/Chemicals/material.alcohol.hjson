@@ -82,11 +82,11 @@
 		autoignition_temperature: 639.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 287.150
-		// J/(kg*K)
-		specific_heat: 2570.000
+		// kJ/(kg*K)
+		specific_heat: 2.570
 		
-		// W/(m*K)
-		thermal_conductivity: 0.167
+		// kW/(m*K)
+		thermal_conductivity: 0.000167
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc
@@ -117,14 +117,14 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.04408
-		// kg/m3
+		// kg/m³
 		density: 785.300
-		// J/(kg*K)
-		specific_heat: 2570.000
-		// W/(m*K)
-		thermal_conductivity: 0.167
+		// kJ/(kg*K)
+		specific_heat: 2.570
+		// kW/(m*K)
+		thermal_conductivity: 0.000167
 		// K
 		melting_point: 159.010
 		// K

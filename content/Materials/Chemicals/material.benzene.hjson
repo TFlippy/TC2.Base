@@ -43,11 +43,11 @@
 		autoignition_temperature: 770.930
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 261.520
-		// J/(kg*K)
-		specific_heat: 1700.000
+		// kJ/(kg*K)
+		specific_heat: 1.700
 		
-		// W/(m*K)
-		thermal_conductivity: 0.143
+		// kW/(m*K)
+		thermal_conductivity: 0.000143
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc

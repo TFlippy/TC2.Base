@@ -29,14 +29,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: metals, refined, construction_materials, consumer, industrial
+		
 		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical
 		industries_consume: manufacturing, high_tech, metallurgy, arcane, construction, engineering, weapons, experimental
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: factory, foundry, refinery, scrapyard, metalworks
 		buildings_consume: factory, power_plant, foundry, manufactory, refinery, university, metalworks, phlogiston, essenceworks
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, urban, magitech, advanced, innovative, mechanized
 		categories_consume: industrial, wasteland, urban, magitech, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 35.000
 		market_price_min: 0.000
@@ -47,17 +66,19 @@
 		quantity_industry: 0.000
 	}
 	
+	scrap: []
+	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.063546
-		// kg/m3
+		// kg/m³
 		density: 8960.000
-		// J/(kg*K)
-		specific_heat: 384.400
-		// W/(m*K)
-		thermal_conductivity: 400.000
+		// kJ/(kg*K)
+		specific_heat: 0.384
+		// kW/(m*K)
+		thermal_conductivity: 0.400
 		// K
 		melting_point: 1357.770
 		// K
