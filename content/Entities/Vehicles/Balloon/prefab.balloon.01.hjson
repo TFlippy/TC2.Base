@@ -20,7 +20,7 @@ body:
 			[4.500, -0.500]
 		]
 		mass: 750.000
-		radius: 0.250
+		radius: 0.100
 		friction: 0.850
 		elasticity: 0.650
 		material: metal
@@ -117,52 +117,144 @@ interactable:
 	window_size: [224.000, 320.000]
 }
 
-sound.emitter:
+sound.emitter|"exhaust":
 {
 	file: "balloon.burner.loop.00"
 	volume: 0.500
-	pitch: 1.000
+	pitch: 0.550
 	size: 0.800
+}
+
+sound.emitter|"aux":
+{
+	file: "burner.gas.loop.02"
+	volume: 0.300
+	pitch: 0.500
+	size: 1.000
+	size_max_modifier: 0.500
+}
+
+vent|"intake":
+{
+	type: input
+	offset: [-0.125, 0.625]
+}
+
+vent|"exhaust":
+{
+	type: output
+	offset: [0.250, -1.750]
 }
 
 burner:
 {
-	smoke_offset: [0.000, -2.875]
-	smoke_direction: [-3.000, 1.000]
-	capacity: 6.000
-	energy_loss: 60000.000
-	efficiency: 0.300
-	drain_multiplier: 8.000
-	temperature_multiplier: 1.000
-	volume_modifier: 2.000
-	pitch_modifier: 0.500
+	smoke_offset: [-0.125, -2.625]
+	smoke_direction: [0.972563, 0.232642]
+	exhaust_offset: [-0.125, -2.375]
+	intake_offset: [-0.125, -1.875]
+	flags: open_air, no_smoke
+	type: gas
+	height: 2.000
+	area_intake: 1.000
+	area_exhaust: 1.000
+	area_fuel: 0.500
+	area_aux: 0.020
+	area_surface: 1.000
+	volume_chamber: 0.500
+	pressure_max: 8.000
+	temperature_max: 2200.000
+	insulation: 0.400
+	combustion_efficiency: 0.840
+	heating_efficiency: 0.530
+	airtightness: 0.000
+	valve_strength: 3.000
+	filter_o2: 1.000
+	filter_n2: 1.000
+	filter_co2: 1.000
+	supply_o2: 0.000
+	supply_n2: 0.000
+	supply_co2: 0.000
 
 	@inventory1:
 	{
-		name: "Fuel"
-		stack_size_multiplier: 0.250
+		stack_size_multiplier: 4.000
 		filter_flags: fuel
 		type: fuel
-		flags: ignore_mass
-	}
-	
-	@sound.emitter:
-	{
-		file: "balloon.burner.loop.00"
-		volume: 0.000
-		pitch: 0.500
+		flags: allow_ducts, ignore_mass
+		offset: [-0.250, 1.125]
 	}
 
-	@animated.renderer:
+	// @light:
+	// {
+	// 	color: [1.000, 0.500, 0.000, 2.000]
+	// 	offset: [-0.250, 0.750]
+	// 	scale: [14.000, 13.000]
+	// 	intensity: 0.000
+	// 	texture: "light.circle.04"
+	// }
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+
+	@inventory1:
 	{
-		sprite:
-		{
-			texture: "balloon.burner.00"
-		}
-		offset: [0.000, -1.875]
-		z: -50.000
+		stack_size_multiplier: 4.000
+		filter_flags: fuel
+		filter_type: liquid
+		type: input
+		flags: allow_ducts, ignore_mass
+		offset: [-0.250, 1.125]
 	}
 }
+
+// sound.emitter:
+// {
+// 	file: "balloon.burner.loop.00"
+// 	volume: 0.500
+// 	pitch: 1.000
+// 	size: 0.800
+// }
+
+// burner:
+// {
+// 	smoke_offset: [0.000, -2.875]
+// 	smoke_direction: [-3.000, 1.000]
+// 	capacity: 6.000
+// 	energy_loss: 60000.000
+// 	efficiency: 0.300
+// 	drain_multiplier: 8.000
+// 	temperature_multiplier: 1.000
+// 	volume_modifier: 2.000
+// 	pitch_modifier: 0.500
+
+// 	@inventory1:
+// 	{
+// 		name: "Fuel"
+// 		stack_size_multiplier: 0.250
+// 		filter_flags: fuel
+// 		type: fuel
+// 		flags: ignore_mass
+// 	}
+	
+// 	@sound.emitter:
+// 	{
+// 		file: "balloon.burner.loop.00"
+// 		volume: 0.000
+// 		pitch: 0.500
+// 	}
+
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "balloon.burner.00"
+// 		}
+// 		offset: [0.000, -1.875]
+// 		z: -50.000
+// 	}
+// }
 
 +slot_cab|instance:
 {
@@ -346,7 +438,7 @@ burner:
 		error_bias: 0.010
 		max_bias: 1.000
 		distance_min: 0.000
-		distance_max: 3.000
+		distance_max: 3.800
 		gap_a: 4.000
 		gap_b: 1.500
 	}
@@ -360,7 +452,7 @@ burner:
 	{
 		texture: "rope"
 		thickness: 0.175
-		scale: 4.000
+		scale: 6.000
 	}
 		
 	+balloon|child:

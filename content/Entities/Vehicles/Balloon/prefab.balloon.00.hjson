@@ -122,9 +122,9 @@ sound.emitter|"exhaust":
 
 sound.emitter|"aux":
 {
-	file: "burner.gas.loop.01"
+	file: "burner.gas.loop.02"
 	volume: 0.300
-	pitch: 0.650
+	pitch: 0.500
 	size: 1.000
 	size_max_modifier: 0.500
 }
@@ -147,7 +147,7 @@ burner:
 	smoke_direction: [0.972563, 0.232642]
 	exhaust_offset: [-0.125, -2.375]
 	intake_offset: [-0.125, -1.875]
-	flags: open_air
+	flags: open_air, no_smoke
 	type: gas
 	height: 2.000
 	area_intake: 1.000

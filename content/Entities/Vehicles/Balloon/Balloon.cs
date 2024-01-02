@@ -208,10 +208,10 @@
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
 		[Source.Owned] ref Transform.Data transform)
 		{
-			//var size = MathF.Pow(Maths.Normalize01(balloon_state.current_lift, balloon.lift_max) * balloon_state.altitude_modifier, 0.50f) * 0.30f;
-			//var sign = transform.GetScaleOld().GetParity();
+			var size = MathF.Pow(Maths.Max(balloon_state.lift_modifier - 0.80f, 0.10f) * 2.00f, 0.50f) * 0.30f;
+			var sign = transform.GetScaleOld().GetParity();
 
-			//transform.scale = Vector2.Lerp(transform.scale, new Vector2((0.90f + (size * 0.60f)) * sign, 0.90f + (size * 0.70f)), 0.05f);
+			transform.scale = Vector2.Lerp(transform.scale, new Vector2((0.90f + (size * 0.60f)) * sign, 0.80f + (size * 0.70f)), 0.05f);
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -225,7 +225,7 @@
 
 
 			no_rotate.multiplier *= Maths.Max(0.00f, (balloon_state.lift_modifier - 1.00f) * 10.00f);
-			no_rotate.mass_multiplier *= 1.00f + Maths.Max(0.00f, (balloon_state.lift_modifier - 1.00f) * 1.50f);
+			no_rotate.mass_multiplier *= 1.00f + Maths.Max(0.00f, (balloon_state.lift_modifier - 1.00f) * 0.50f);
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -239,7 +239,7 @@
 			balloon_state.envelope_volume = Volume.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
 			balloon_state.envelope_surface_area = Area.Balloon(balloon.envelope_radius_mid, balloon.envelope_radius_bottom, balloon.envelope_height_bottom);
 			balloon_state.envelope_mass = (Mass)(balloon_state.envelope_surface_area.m_value * density_linen * balloon.envelope_thickness);
-			balloon_state.air_mass = (Mass)(balloon_state.envelope_volume.m_value * Phys.air_density_kordel);
+			balloon_state.air_mass = (Mass)(balloon_state.envelope_volume.m_value * Phys.air_density_kordel.m_value);
 
 			circle.mass = Maths.Max(1.00f, balloon_state.envelope_mass + balloon_state.air_mass);
 			//circle.mass = Maths.Max(1.00f, balloon_state.air_mass);
@@ -263,12 +263,12 @@
 		[Source.Owned] ref Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
 		[Source.Owned] in Health.Data health)
 		{
-			var show_debug = true;
+			var show_debug = false;
 			var speed = 0.00f;
 			var dt = info.DeltaTime;
 			var fuel_modifier_target = burner_state.modifier_fluid_target;
 			var mass = body.GetMass();
-			var fuel_rate_step = 0.40f;
+			var fuel_rate_step = 0.30f;
 			var density_linen = Density.kgm3(300.00f);
 
 			balloon_state.altitude = GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
@@ -301,13 +301,13 @@
 			balloon_state.speed_target = htc_envelope;
 
 
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed += balloon_state.speed * info.DeltaTime;
-			//if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed -= balloon_state.speed * info.DeltaTime;
-			if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target += fuel_rate_step * info.DeltaTime;
-			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target -= fuel_rate_step * info.DeltaTime;
+			//if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed += balloon_state.speed * dt;
+			//if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed -= balloon_state.speed * dt;
+			if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target.MoveTowards(1.00f, fuel_rate_step, dt);
+			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target.MoveTowards(0.00f, fuel_rate_step, dt);
 			else
 			{
-				fuel_modifier_target = Maths.Lerp(fuel_modifier_target, 0.10f, 0.04f);
+				//fuel_modifier_target.MoveTowards(0.10f, fuel_rate_step, dt);
 			}
 
 			burner_state.modifier_fluid_target = fuel_modifier_target.Clamp01();
@@ -350,7 +350,7 @@
 
 #if SERVER
 			// TODO: sync it properly
-			if (region.GetCurrentTick() % 150 == 0)
+			if (region.GetCurrentTick() % 50 == 0)
 			{
 				balloon_state.Sync(entity);
 			}
