@@ -20,7 +20,7 @@ body:
 		]
 		radius: 0.250
 		mass: 45.000
-		friction: 0.750
+		friction: 0.650
 		elasticity: 0.350
 		material: metal
 		layer: entity, solid, ignore_bullet
@@ -62,10 +62,10 @@ transform:
 
 }
 
-interactable:
-{
+// interactable:
+// {
 
-}
+// }
 
 holdable:
 {

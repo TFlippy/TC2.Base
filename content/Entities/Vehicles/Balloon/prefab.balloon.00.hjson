@@ -20,12 +20,12 @@ body:
 			[1.750, -1.000]
 		]
 		mass: 180.000
-		friction: 0.950
+		friction: 0.450
 		elasticity: 0.750
 		material: wood
 		layer: entity, solid, vehicle, flammable
 		mask: world, solid, platform
-		exclude: tree, wheel, attached, creature, held
+		exclude: tree, wheel, creature, held
 	}
 }
 
@@ -67,10 +67,11 @@ holdable:
 norotate:
 {
 	rotation: 0.000
-	bias: 0.200
-	speed: 3.000
+	bias: 0.500
+	speed: 1.000
 	multiplier: 3.000
-	mass_multiplier: 8.000
+	mass_multiplier: 4.000
+	flags: none
 }
 
 storage:
@@ -143,23 +144,23 @@ vent|"exhaust":
 
 burner:
 {
-	smoke_offset: [-0.125, -2.625]
-	smoke_direction: [0.972563, 0.232642]
-	exhaust_offset: [-0.125, -2.375]
+	smoke_offset: [0.125, -3.250]
+	smoke_direction: [0.986055, 0.166419]
+	exhaust_offset: [0.125, -3.125]
 	intake_offset: [-0.125, -1.875]
-	flags: open_air, no_smoke
+	flags: open_air
 	type: gas
 	height: 2.000
-	area_intake: 1.000
-	area_exhaust: 1.000
+	area_intake: 4.000
+	area_exhaust: 4.000
 	area_fuel: 0.500
 	area_aux: 0.020
 	area_surface: 1.000
 	volume_chamber: 0.500
 	pressure_max: 8.000
 	temperature_max: 2200.000
-	insulation: 0.400
-	combustion_efficiency: 0.840
+	insulation: 0.100
+	combustion_efficiency: 0.900
 	heating_efficiency: 0.530
 	airtightness: 0.000
 	valve_strength: 3.000
@@ -170,23 +171,33 @@ burner:
 	supply_n2: 0.000
 	supply_co2: 0.000
 
-	@inventory1:
+	// @inventory1:
+	// {
+	// 	stack_size_multiplier: 4.000
+	// 	filter_flags: fuel
+	// 	type: fuel
+	// 	flags: allow_ducts, ignore_mass
+	// 	offset: [-0.250, 1.125]
+	// }
+
+	@light:
 	{
-		stack_size_multiplier: 4.000
-		filter_flags: fuel
-		type: fuel
-		flags: allow_ducts, ignore_mass
-		offset: [-0.250, 1.125]
+		color: [1.000, 0.500, 0.000, 2.000]
+		offset: [0.000, -3.000]
+		scale: [14.000, 13.000]
+		intensity: 0.000
+		texture: "light.circle.04"
 	}
 
-	// @light:
-	// {
-	// 	color: [1.000, 0.500, 0.000, 2.000]
-	// 	offset: [-0.250, 0.750]
-	// 	scale: [14.000, 13.000]
-	// 	intensity: 0.000
-	// 	texture: "light.circle.04"
-	// }
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "balloon.burner.00"
+		}
+		offset: [0.000, -1.875]
+		z: -50.000
+	}
 }
 
 burner.state:
@@ -199,7 +210,7 @@ burner.state:
 		filter_flags: fuel
 		filter_type: liquid
 		type: input
-		flags: allow_ducts, ignore_mass
+		flags: ignore_mass
 		offset: [-0.250, 1.125]
 	}
 }
@@ -320,11 +331,11 @@ burner.state:
 	joint.base:
 	{
 		offset_a: [0.000, 0.750]
-		max_force: 70000.000
+		max_force: 150000.000
 		max_torque: 13000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: control_write, control_read, force_facing
+		flags: attachment, allow_dragging, control_read, control_write, force_facing
 		z: 250.000
 		material_type: metal
 	}
@@ -351,7 +362,7 @@ burner.state:
 		identifier: "bottom"
 
 		flags: use_center_of_gravity, keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation
+		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation
 
 		rank: -5.000
 		gui_size: [224.000, 128.000]
@@ -366,24 +377,25 @@ burner.state:
 
 	joint.base:
 	{
-		offset_a: [0.000, -0.500]
+		offset_a: [0.000, -0.875]
 		offset_b: [0.000, 4.250]
-		max_force: 250000.000
+		max_force: 500000.000
 		max_torque: 5000.000
 		material_type: fabric
-		flags: no_stress
+		flags: no_stress, allow_dragging
 	}
 	
 	joint.dualrope:
 	{
-		error_bias: 0.010
-		max_bias: 1.000
-		distance_min: 0.000
+		distance_min: 1.000
 		distance_max: 2.500
-		gap_a: 2.750
+		error_bias: 0.050
+		max_bias: 4.000
+		stress_mult: 0.700
+		gap_a: 3.000
 		gap_b: 1.500
 	}
-	
+
 	// joint.gear:
 	// {
 	// 	error_bias: 0.100

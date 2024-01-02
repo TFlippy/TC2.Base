@@ -9,7 +9,7 @@ body:
 {
 	gravity: 1.000
 	damping: 0.965
-	fall_damage_multiplier: 0.100
+	fall_damage_multiplier: 0.020
 	
 	@shape.circle:
 	{
@@ -32,7 +32,7 @@ balloon:
 	release_max: 1.000
 	release_rate: 1.000
 	acc: 1.000
-	speed_max: 15.000
+	speed_max: 8.000
 	force_modifier: 600.000
 	temperature_max: 413.150
 	envelope_radius_mid: 10.000
