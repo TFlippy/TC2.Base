@@ -7,7 +7,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		public partial struct FactionHUD: IGUICommand
 		{
-			public IFaction.Handle faction_id;
+			public IFaction.Handle h_faction;
 
 			public void Draw()
 			{
@@ -15,12 +15,13 @@ namespace TC2.Base.Components
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{
-						ref var region = ref Client.GetRegion();
-						if (this.faction_id.TryGetData(out var ref_faction))
+						//ref var region = ref Client.GetRegion();
+						ref var faction_data = ref this.h_faction.GetData(out var faction_asset);
+						if (faction_data.IsNotNull())
 						{
 							using (GUI.Group.New(size: GUI.GetAvailableSize()))
 							{
-								if (this.faction_id != 0)
+								//if (this.h_faction != 0)
 								{
 									//using (var group = GUI.Group.New(new(0, 0), new(4, 4)))
 									//{
@@ -33,7 +34,7 @@ namespace TC2.Base.Components
 									{
 										using (GUI.Group.New(new(GUI.RmX - 80, 40), new(8, 0)))
 										{
-											GUI.TitleCentered($"{ref_faction.value.name}", size: 24, pivot: new(0.00f, 0.50f));
+											GUI.TitleCentered(faction_data.name, size: 24, pivot: new(0.00f, 0.50f));
 										}
 
 										GUI.SameLine();
@@ -46,7 +47,7 @@ namespace TC2.Base.Components
 												{
 
 												};
-												rpc.Send(Client.GetEntity());
+												rpc.Send();
 											}
 											GUI.DrawHoverTooltip("Leave this faction.");
 										}
@@ -82,37 +83,28 @@ namespace TC2.Base.Components
 														//using (row.Column(2)) GUI.Title("Test");
 													}
 
-													var faction_id_tmp = this.faction_id;
+													var faction_id_tmp = this.h_faction;
 
 													//region.Query<Region.GetPlayersQuery>(Func).Execute(ref this);
-													foreach (ref var row in region.IterateQuery<Region.GetPlayersQuery>())
+													foreach (var s_player in IPlayer.Database.GetAssets())
 													{
-														row.Run((ISystem.Info info, Entity entity, in Player.Data player) =>
+														ref var member_player_data = ref s_player.GetData();
+														if (member_player_data.h_faction == this.h_faction)
 														{
-															if (player.faction_id == faction_id_tmp && player.faction_id.TryGetData(out var ref_faction))
+															using (var row = GUI.Table.Row.New(new Vector2(GUI.RmX, 20)))
 															{
-																using (var row = GUI.Table.Row.New(new Vector2(GUI.GetAvailableWidth(), 24)))
+																var h_player_member = s_player.GetHandle();
 																{
-																	using (GUI.ID.Push(entity))
+																	using (GUI.ID.Push(h_player_member))
 																	{
 																		using (row.Column(0))
 																		{
-																			GUI.TextShaded(player.GetName());
+																			GUI.TextShaded(member_player_data.name);
 																		}
-
-																		var player_tmp = player; // TODO: hack
-																		//ref var money = ref player_tmp.GetMoney().data;
-																		//if (!money.IsNull())
-																		//{
-																		//	using (row.Column(1))
-																		//	{
-																		//		GUI.TextShaded($"{money.amount.FormatAmount():0.##}");
-																		//	}
-																		//}
 
 																		using (row.Column(2))
 																		{
-																			if (ref_faction.value.leader_player_id == player.id)
+																			if (faction_data.leader_player_id == member_player_data.steam_id)
 																			{
 																				GUI.TextShaded("Leader");
 																			}
@@ -120,7 +112,7 @@ namespace TC2.Base.Components
 
 																		using (row.Column(3))
 																		{
-																			GUI.TextShaded(player.flags.HasAll(Player.Flags.Online) ? "Online" : "Offline");
+																			//GUI.TextShaded(player.flags.HasAll(Player.Flags.Online) ? "Online" : "Offline");
 																		}
 
 																		GUI.SameLine();
@@ -128,7 +120,7 @@ namespace TC2.Base.Components
 																	}
 																}
 															}
-														});
+														}
 													}
 												}
 											}
@@ -142,14 +134,15 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Owned)]
-		public static void OnHUD(ISystem.Info info, Entity entity, [Source.Owned] in Player.Data player)
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Global)]
+		public static void OnHUD(ISystem.Info.Global info, ref Region.Data.Global region, [Source.Owned] ref World.Global world)
 		{
-			if (player.faction_id.id != 0)
+			var h_faction = Client.GetFactionHandle();
+			if (h_faction.IsValid())
 			{
 				var gui = new FactionHUD()
 				{
-					faction_id = player.faction_id
+					h_faction = h_faction
 				};
 				gui.Submit();
 			}

@@ -8,8 +8,8 @@ $tags: []
 body:
 {
 	gravity: 1.000
-	damping: 0.965
-	fall_damage_multiplier: 0.020
+	damping: 0.975
+	fall_damage_multiplier: 0.000
 	
 	@shape.circle:
 	{
@@ -17,9 +17,10 @@ body:
 		mass: 1200.000
 		radius: 4.625
 		friction: 0.200
-		elasticity: 0.800
+		elasticity: 0.900
+		buoyancy: 0.850
 		rigidity_dynamic: 0.700
-		rigidity_static: 1.000
+		rigidity_static: 0.850
 		material: fabric
 		layer: entity, solid
 		mask: world, solid

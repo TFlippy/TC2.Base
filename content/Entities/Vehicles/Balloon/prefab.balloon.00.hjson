@@ -340,11 +340,24 @@ burner.state:
 		material_type: metal
 	}
 
-	joint.pivot:
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.010
+	// 	max_bias: 10.000
+	// 	stress_mult: 0.500
+	// }
+
+	joint.piston:
 	{
 		error_bias: 0.010
-		max_bias: 10.000
-		stress_mult: 0.500
+		max_bias: 8.000
+		stiffness: 4000.000
+		damping: 100.000
+		axis_force: 800000.000
+		spring_max_bias: 4.000
+		max_distance: 2.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
 	}
 
 	joint.gear:
@@ -380,7 +393,7 @@ burner.state:
 		offset_a: [0.000, -0.875]
 		offset_b: [0.000, 4.250]
 		max_force: 500000.000
-		max_torque: 5000.000
+		max_torque: 15000.000
 		material_type: fabric
 		flags: no_stress, allow_dragging
 	}
@@ -389,8 +402,8 @@ burner.state:
 	{
 		distance_min: 1.000
 		distance_max: 2.500
-		error_bias: 0.050
-		max_bias: 4.000
+		error_bias: 0.005
+		max_bias: 8.000
 		stress_mult: 0.700
 		gap_a: 3.000
 		gap_b: 1.500
