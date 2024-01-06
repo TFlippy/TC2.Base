@@ -321,7 +321,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Steam Engine", this.ent_steam_engine, new Vector2(280, 132)))
+				using (var window = GUI.Window.InteractionMisc("Steam Engine"u8, this.ent_steam_engine, new Vector2(280, 132)))
 				{
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)

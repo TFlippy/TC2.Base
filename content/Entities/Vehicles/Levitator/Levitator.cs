@@ -590,7 +590,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Levitator", this.ent_levitator))
+				using (var window = GUI.Window.Interaction("Levitator"u8, this.ent_levitator))
 				{
 					this.StoreCurrentWindowTypeID();
 					if (window.show)

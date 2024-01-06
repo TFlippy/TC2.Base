@@ -262,7 +262,7 @@
 				// var default_pressure = 100.00;
 				var max_pressure = 5_000_000.00;
 
-				using (var window = GUI.Window.Interaction("Refinery", this.ent_refinery))
+				using (var window = GUI.Window.Interaction("Refinery"u8, this.ent_refinery))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 
@@ -355,7 +355,7 @@
 
 					//GUI.SameLine();
 
-					using (var window_child = window.BeginChildWindow("refinery.settings.sub", GUI.AlignX.Right, GUI.AlignY.Center, size: new(248, window.group.size.Y - 32), padding: new(8), open: true, flags: GUI.Window.Flags.No_Click_Focus | GUI.Window.Flags.No_Appear_Focus))
+					using (var window_child = window.BeginChildWindow("refinery.settings.sub"u8, GUI.AlignX.Right, GUI.AlignY.Center, size: new(248, window.group.size.Y - 32), padding: new(8), open: true, flags: GUI.Window.Flags.No_Click_Focus | GUI.Window.Flags.No_Appear_Focus))
 					{
 						if (window_child.show)
 						{

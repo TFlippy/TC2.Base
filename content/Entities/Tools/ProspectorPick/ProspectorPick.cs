@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 				var b = GUI.WorldToCanvas(this.prospector_pick_state.position);
 				var c = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
-				using (var window = GUI.Window.HUD("Prospector Pick", position: a + new Vector2(0.00f, -2.00f), size: new(160, 0), pivot: new(0.50f, 1.00f)))
+				using (var window = GUI.Window.HUD("Prospector Pick"u8, position: a + new Vector2(0.00f, -2.00f), size: new(160, 0), pivot: new(0.50f, 1.00f)))
 				{
 					if (window.show)
 					{

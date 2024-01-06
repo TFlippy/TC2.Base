@@ -148,7 +148,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Sawmill", this.ent_sawmill))
+				using (var window = GUI.Window.Interaction("Sawmill"u8, this.ent_sawmill))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)

@@ -264,7 +264,7 @@ namespace TC2.Base.Components
 
 						//if (!GUI.IsHovered)
 						{
-							using (var window_hud = GUI.Window.HUD("Build.HUD", position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
 								if (window_hud.show)
 								{

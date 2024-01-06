@@ -89,7 +89,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Control", this.ent_controllable, no_mouse_close: true))
+				using (var window = GUI.Window.Interaction("Control"u8, this.ent_controllable, no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 

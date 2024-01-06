@@ -232,7 +232,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Press", this.ent_press))
+				using (var window = GUI.Window.Interaction("Press"u8, this.ent_press))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 

@@ -124,7 +124,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Balloon", this.ent_interactable, new Vector2(192, 96), no_mouse_close: true))
+				using (var window = GUI.Window.InteractionMisc("Balloon"u8, this.ent_interactable, new Vector2(192, 96), no_mouse_close: true))
 				{
 					//this.StoreCurrentWindowTypeID(order: -1000);
 					if (window.show)

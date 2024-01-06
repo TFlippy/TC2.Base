@@ -432,7 +432,7 @@
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair", GUI.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
+				using (var window = GUI.Window.HUD("Crosshair"u8, GUI.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
 				{
 					if (window.show)
 					{

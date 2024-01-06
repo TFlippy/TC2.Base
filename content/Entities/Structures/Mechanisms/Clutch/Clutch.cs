@@ -103,7 +103,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Clutch", this.ent_clutch, new Vector2(64, 128)))
+				using (var window = GUI.Window.InteractionMisc("Clutch"u8, this.ent_clutch, new Vector2(64, 128)))
 				{
 					//this.StoreCurrentWindowTypeID();
 					if (window.show)
