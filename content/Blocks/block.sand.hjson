@@ -1,24 +1,36 @@
-{
+﻿{
 	name: "Sand"
-	desc: "A sandy soil."
+	desc:
+		'''
+		A sandy soil.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: gravel
 	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 4000.000
+	
 	smoothing: 0.150
-	mass: 6.000
-	friction: 0.990
-	elasticity: 0.010
-	stability: 0.500
+	mass: 0.400
+	friction: 0.971
+	elasticity: 0.030
+	stability: 0.010
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.sand"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.500
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -26,6 +38,9 @@
 		{
 			material: "sand"
 			quantity: 1.600
+		}
+		{
+		
 		}
 	]
 	

@@ -1,29 +1,46 @@
 ﻿{
 	name: "Soil"
-	desc: "Regular soil, fairly fertile."
+	desc:
+		'''
+		Regular soil, fairly fertile.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: soil
 	tile_flags: non_empty
 	flags: none
 	
 	max_health: 3200.000
+	
 	smoothing: 0.200
-	mass: 5.000
+	mass: 0.300
 	friction: 0.800
 	elasticity: 0.400
-	stability: 0.800
+	stability: 0.700
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.soil"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
+	color_preview: "0x00000000"
 	
 	resources:
 	[
 		{
 			material: "soil"
 			quantity: 0.700
+		}
+		{
+		
 		}
 	]
 	

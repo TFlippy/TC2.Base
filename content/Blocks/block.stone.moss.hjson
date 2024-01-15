@@ -1,24 +1,36 @@
-{
+﻿{
 	name: "Stone (Moss)"
-	desc: "Stone covered in moss."
+	desc:
+		'''
+		Stone covered in moss.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 12000.000
+	
 	smoothing: 0.150
-	mass: 2.000
+	mass: 0.760
 	friction: 0.900
 	elasticity: 0.600
-	stability: 0.500
+	stability: 0.940
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.stone.moss"
 	pattern: "pattern.stone.moss"
 	
 	texture_scale: 2.000
 	texture_overshoot: -0.750
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -26,6 +38,9 @@
 		{
 			material: "stone"
 			quantity: 0.500
+		}
+		{
+		
 		}
 	]
 	

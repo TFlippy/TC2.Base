@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Concrete"
 	desc:
 		'''
@@ -7,7 +7,9 @@
 	
 	icon:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	material_type: stone
@@ -17,10 +19,10 @@
 	max_health: 60000.000
 	
 	smoothing: 0.180
-	mass: 8.000
+	mass: 3.500
 	friction: 0.850
 	elasticity: 0.600
-	stability: 0.500
+	stability: 1.200
 	collision_layer: none
 	collision_mask: none
 	
@@ -36,6 +38,9 @@
 		{
 			material: "cement"
 			quantity: 0.250
+		}
+		{
+		
 		}
 	]
 	

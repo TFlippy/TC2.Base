@@ -1,29 +1,46 @@
-{
+﻿{
 	name: "Scaffolding"
-	desc: "TODO: Desc"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: metal
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 3600.000
+	
 	smoothing: 0.150
-	mass: 1.000
+	mass: 0.230
 	friction: 0.950
 	elasticity: 0.200
-	stability: 0.500
+	stability: 2.300
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.scaffolding"
 	pattern: "pattern.scaffolding"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.500
+	color_preview: "0x00000000"
 	
 	resources:
 	[
 		{
 			material: "scrap.ferrous"
 			quantity: 0.030
+		}
+		{
+		
 		}
 	]
 	

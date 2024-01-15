@@ -1,24 +1,36 @@
-{
+﻿{
 	name: "Gravel"
-	desc: "A very rocky soil."
+	desc:
+		'''
+		A very rocky soil.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: gravel
 	tile_flags: non_empty
 	flags: raw
 	
 	max_health: 4800.000
+	
 	smoothing: 0.200
-	mass: 6.000
+	mass: 0.350
 	friction: 0.990
 	elasticity: 0.250
-	stability: 0.500
+	stability: 0.080
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.gravel"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -26,6 +38,9 @@
 		{
 			material: "gravel"
 			quantity: 1.000
+		}
+		{
+		
 		}
 	]
 	

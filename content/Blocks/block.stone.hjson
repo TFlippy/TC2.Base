@@ -1,31 +1,46 @@
-{
+﻿{
 	name: "Stone"
-	desc: "Natural stone."
+	desc:
+		'''
+		Natural stone.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 12000.000
+	
 	smoothing: 0.150
-	mass: 10.000
+	mass: 3.800
 	friction: 0.900
 	elasticity: 0.600
-	stability: 0.900
+	stability: 1.140
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.stone"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
-	
 	color_preview: "0xff80775f"
-
+	
 	resources:
 	[
 		{
 			material: "stone"
 			quantity: 0.500
+		}
+		{
+		
 		}
 	]
 	

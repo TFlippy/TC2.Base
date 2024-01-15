@@ -1,24 +1,48 @@
-{
+﻿{
 	name: "Bedrock"
-	desc: "An absurdly durable rock, unbreakable with any known tool."
+	desc:
+		'''
+		An absurdly durable rock, unbreakable with any known tool.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 18446744073709551616.000
+	
 	smoothing: 0.200
-	mass: 1.000
+	mass: 7.200
 	friction: 0.850
 	elasticity: 0.700
-	stability: 0.900
+	stability: 7.400
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.bedrock"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.710
 	texture_overshoot: 0.000
-
+	color_preview: "0x00000000"
+	
+	resources:
+	[
+		{
+		
+		}
+		{
+		
+		}
+	]
+	
 	mappings:
 	[
 		{
