@@ -1,24 +1,38 @@
-{
+﻿{
 	name: "Black Coal"
-	desc: "High-quality coal that burns better than brown coal."
+	desc:
+		'''
+		High-quality coal that burns better than brown coal.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 10800.000
+	
 	smoothing: 0.150
-	mass: 1.000
+	mass: 2.000
 	friction: 0.990
 	elasticity: 0.050
-	stability: 0.500
+	stability: 4.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.black_coal"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.700
-
 	color_preview: "0xff474771"
 	
 	resources:
@@ -26,6 +40,9 @@
 		{
 			material: "black_coal"
 			quantity: 0.800
+		}
+		{
+		
 		}
 	]
 	

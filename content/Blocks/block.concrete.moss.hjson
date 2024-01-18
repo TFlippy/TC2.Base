@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Concrete (Mossy)"
 	desc:
 		'''
@@ -7,7 +7,9 @@
 	
 	icon:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	material_type: stone
@@ -21,6 +23,8 @@
 	friction: 0.850
 	elasticity: 0.600
 	stability: 0.500
+	strength_tensile: 1.120
+	strength_compressive: 7.760
 	collision_layer: none
 	collision_mask: none
 	
@@ -38,8 +42,7 @@
 			quantity: 0.250
 		}
 		{
-			material: "plants"
-			quantity: 0.200
+		
 		}
 	]
 	

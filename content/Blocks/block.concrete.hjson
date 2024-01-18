@@ -12,17 +12,19 @@
 		frame: [0, 0]
 	}
 	
-	material_type: stone
+	material_type: concrete
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 60000.000
 	
 	smoothing: 0.180
-	mass: 3.500
+	mass: 2.100
 	friction: 0.850
 	elasticity: 0.600
-	stability: 1.200
+	stability: 1.400
+	strength_tensile: 2.300
+	strength_compressive: 18.000
 	collision_layer: none
 	collision_mask: none
 	

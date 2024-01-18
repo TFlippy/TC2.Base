@@ -1,7 +1,10 @@
-{
+﻿{
 	name: "Stone Bricks"
-	desc: "Stone bricks of varying sizes."
-
+	desc:
+		'''
+		Stone bricks of varying sizes.
+		'''
+	
 	icon:
 	{
 		texture: "block_icons"
@@ -14,18 +17,22 @@
 	flags: artificial
 	
 	max_health: 24000.000
+	
 	smoothing: 0.160
-	mass: 5.000
+	mass: 1.400
 	friction: 0.900
 	elasticity: 0.600
 	stability: 0.500
+	strength_tensile: 1.100
+	strength_compressive: 8.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.stonebrick"
 	pattern: "pattern.stonebrick"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -33,6 +40,9 @@
 		{
 			material: "scrap.rubble"
 			quantity: 0.210
+		}
+		{
+		
 		}
 	]
 	

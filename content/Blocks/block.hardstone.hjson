@@ -1,24 +1,38 @@
-{
+﻿{
 	name: "Hardstone"
-	desc: "Very dense natural stone."
+	desc:
+		'''
+		Very dense natural stone.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 100000.000
+	
 	smoothing: 0.120
-	mass: 1.000
+	mass: 4.000
 	friction: 0.750
 	elasticity: 0.700
-	stability: 0.500
+	stability: 7.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.hardstone"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.500
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -26,6 +40,9 @@
 		{
 			material: "stone"
 			quantity: 2.000
+		}
+		{
+		
 		}
 	]
 	

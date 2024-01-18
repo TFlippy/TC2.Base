@@ -1,29 +1,48 @@
-{
+﻿{
 	name: "Rich Soil"
-	desc: "Very fertile soil."
+	desc:
+		'''
+		Very fertile soil.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: soil
 	tile_flags: non_empty
 	flags: none
 	
 	max_health: 3200.000
+	
 	smoothing: 0.200
-	mass: 5.000
+	mass: 2.100
 	friction: 0.700
 	elasticity: 0.350
 	stability: 0.800
+	strength_tensile: 0.180
+	strength_compressive: 13.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.soil.rich"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.750
+	color_preview: "0x00000000"
 	
 	resources:
 	[
 		{
 			material: "soil.rich"
 			quantity: 0.700
+		}
+		{
+		
 		}
 	]
 	

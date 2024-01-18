@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Silver"
 	desc:
 		'''
@@ -7,7 +7,9 @@
 	
 	icon:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	material_type: stone
@@ -15,11 +17,14 @@
 	flags: raw, ore, uncommon, mineral
 	
 	max_health: 35000.000
+	
 	smoothing: 0.150
-	mass: 1.000
+	mass: 2.000
 	friction: 0.700
 	elasticity: 0.300
-	stability: 0.500
+	stability: 6.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
 	collision_layer: none
 	collision_mask: none
 	
@@ -35,6 +40,9 @@
 		{
 			material: "silver.ore"
 			quantity: 0.700
+		}
+		{
+		
 		}
 	]
 	

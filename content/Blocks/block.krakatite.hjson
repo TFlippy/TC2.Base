@@ -1,29 +1,40 @@
-{
+﻿{
 	name: "Krakatite"
-	desc: 
+	desc:
 		'''
 		Waxy, green-tinted nitrogen-rich rock with traces of sulfur.
 
 		Commonly found in swamps, bogs and mushroom forests.
 		'''
 	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 18000.000
+	
 	smoothing: 0.130
-	mass: 8.000
+	mass: 3.000
 	friction: 0.500
 	elasticity: 0.400
-	stability: 0.900
+	stability: 6.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.krakatite"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.650
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -33,8 +44,7 @@
 			quantity: 0.500
 		}
 		{
-			material: "stone"
-			quantity: 0.400
+		
 		}
 	]
 	

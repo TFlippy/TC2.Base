@@ -19,10 +19,12 @@
 	max_health: 3200.000
 	
 	smoothing: 0.200
-	mass: 0.300
+	mass: 1.900
 	friction: 0.800
 	elasticity: 0.400
 	stability: 0.700
+	strength_tensile: 0.200
+	strength_compressive: 11.000
 	collision_layer: none
 	collision_mask: none
 	

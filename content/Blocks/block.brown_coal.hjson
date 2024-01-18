@@ -1,24 +1,38 @@
-{
+﻿{
 	name: "Brown Coal"
-	desc: "Low-quality coal."
+	desc:
+		'''
+		Low-quality coal.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 9600.000
+	
 	smoothing: 0.150
-	mass: 1.000
+	mass: 2.000
 	friction: 0.990
 	elasticity: 0.050
-	stability: 0.500
+	stability: 3.440
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.brown_coal"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.900
-
 	color_preview: "0xff554020"
 	
 	resources:
@@ -26,6 +40,9 @@
 		{
 			material: "brown_coal"
 			quantity: 1.000
+		}
+		{
+		
 		}
 	]
 	

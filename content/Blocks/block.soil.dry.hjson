@@ -1,29 +1,48 @@
-{
+﻿{
 	name: "Dry Soil"
-	desc: "Coarse infertile soil."
+	desc:
+		'''
+		Coarse infertile soil.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: soil
 	tile_flags: non_empty
 	flags: none
 	
 	max_health: 4400.000
+	
 	smoothing: 0.200
-	mass: 5.000
+	mass: 1.700
 	friction: 0.900
 	elasticity: 0.500
 	stability: 0.800
+	strength_tensile: 0.120
+	strength_compressive: 6.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.soil.dry"
 	pattern: "pattern.soil"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.750
+	color_preview: "0x00000000"
 	
 	resources:
 	[
 		{
 			material: "soil"
 			quantity: 0.700
+		}
+		{
+		
 		}
 	]
 	

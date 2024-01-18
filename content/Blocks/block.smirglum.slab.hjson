@@ -22,7 +22,9 @@
 	mass: 7.400
 	friction: 0.400
 	elasticity: 0.600
-	stability: 1.200
+	stability: 4.200
+	strength_tensile: 13.000
+	strength_compressive: 45.410
 	collision_layer: none
 	collision_mask: essence
 	
@@ -48,12 +50,12 @@
 	[
 		{
 			color: "0xff4e3636"
-			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
+			tile_flags: solid, non_empty, become_background_on_break, no_replace
 			meta: 0
 		}
 		{
 			color: "0xff261b1b"
-			tile_flags: non_empty, ground, no_replace
+			tile_flags: non_empty, no_replace
 			meta: 0
 		}
 	]

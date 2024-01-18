@@ -22,7 +22,9 @@
 	mass: 3.800
 	friction: 0.900
 	elasticity: 0.600
-	stability: 1.140
+	stability: 6.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
 	collision_layer: none
 	collision_mask: none
 	

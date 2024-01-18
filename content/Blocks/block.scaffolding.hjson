@@ -16,13 +16,15 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 3600.000
+	max_health: 6800.000
 	
 	smoothing: 0.150
-	mass: 0.230
+	mass: 0.443
 	friction: 0.950
 	elasticity: 0.200
-	stability: 2.300
+	stability: 5.000
+	strength_tensile: 14.000
+	strength_compressive: 25.200
 	collision_layer: none
 	collision_mask: none
 	

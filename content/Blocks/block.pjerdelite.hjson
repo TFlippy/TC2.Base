@@ -1,24 +1,38 @@
-{
+﻿{
 	name: "Pjerdelite"
-	desc: "TODO: Desc"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
 	max_health: 43000.000
+	
 	smoothing: 0.160
-	mass: 8.000
+	mass: 11.000
 	friction: 0.700
 	elasticity: 0.200
-	stability: 0.900
+	stability: 8.940
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.pjerdelite"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.650
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -28,8 +42,7 @@
 			quantity: 0.750
 		}
 		{
-			material: "pjerdelite"
-			quantity: 0.600
+		
 		}
 	]
 	

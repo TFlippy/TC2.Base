@@ -1,24 +1,38 @@
-{
+﻿{
 	name: "Stone Bricks (Moss)"
-	desc: "Stone bricks of varying sizes covered in moss."
+	desc:
+		'''
+		Stone bricks of varying sizes covered in moss.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 24000.000
+	
 	smoothing: 0.170
-	mass: 5.000
+	mass: 1.120
 	friction: 0.900
 	elasticity: 0.600
 	stability: 0.500
+	strength_tensile: 1.100
+	strength_compressive: 7.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.stonebrick.moss"
 	pattern: "pattern.stonebrick.moss"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
-
 	color_preview: "0xff80775f"
 	
 	resources:
@@ -26,6 +40,9 @@
 		{
 			material: "stone"
 			quantity: 0.100
+		}
+		{
+		
 		}
 	]
 	
