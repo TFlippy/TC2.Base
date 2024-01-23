@@ -19,7 +19,7 @@
 	max_health: 18446744073709551616.000
 	
 	smoothing: 0.200
-	mass: 6.200
+	mass: 5.700
 	friction: 0.850
 	elasticity: 0.700
 	stability: 7.400

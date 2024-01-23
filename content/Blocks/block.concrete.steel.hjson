@@ -1,8 +1,8 @@
 ﻿{
-	name: "Concrete"
+	name: "Concrete (Steel-Reinforced)"
 	desc:
 		'''
-		Durable cast concrete.
+		Durable cast concrete, reinforced with steel.
 		'''
 	
 	icon:
@@ -16,24 +16,24 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 60000.000
+	max_health: 88000.000
 	
 	smoothing: 0.180
-	mass: 2.700
+	mass: 2.900
 	friction: 0.850
 	elasticity: 0.600
-	stability: 1.800
-	strength_tensile: 1.800
-	strength_compressive: 11.000
+	stability: 4.000
+	strength_tensile: 11.650
+	strength_compressive: 22.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.concrete"
-	pattern: "pattern.concrete"
+	texture: "terrain.concrete.steel"
+	pattern: "pattern.concrete.steel"
 	
 	texture_scale: 1.070
 	texture_overshoot: -0.400
-	color_preview: "0xff80775f"
+	color_preview: "0xff66645c"
 	
 	resources:
 	[
@@ -49,12 +49,12 @@
 	mappings:
 	[
 		{
-			color: "0xff524f4b"
+			color: "0xff66645c"
 			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
 		{
-			color: "0xff3d3b38"
+			color: "0xff56554e"
 			tile_flags: non_empty
 			meta: 0
 		}
