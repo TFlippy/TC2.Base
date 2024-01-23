@@ -148,23 +148,23 @@ vent|"exhaust":
 
 burner:
 {
-	smoke_offset: [-0.125, -2.625]
-	smoke_direction: [0.972563, 0.232642]
-	exhaust_offset: [-0.125, -2.375]
-	intake_offset: [-0.125, -1.875]
-	flags: open_air, no_smoke
+	smoke_offset: [0.125, -5.125]
+	smoke_direction: [0.804161, 0.594412]
+	exhaust_offset: [0.000, -4.750]
+	intake_offset: [0.000, -1.500]
+	flags: open_air
 	type: gas
 	height: 2.000
-	area_intake: 1.000
-	area_exhaust: 1.000
+	area_intake: 4.000
+	area_exhaust: 4.000
 	area_fuel: 0.500
 	area_aux: 0.020
 	area_surface: 1.000
 	volume_chamber: 0.500
 	pressure_max: 8.000
 	temperature_max: 2200.000
-	insulation: 0.400
-	combustion_efficiency: 0.840
+	insulation: 0.100
+	combustion_efficiency: 0.900
 	heating_efficiency: 0.530
 	airtightness: 0.000
 	valve_strength: 3.000
@@ -175,23 +175,33 @@ burner:
 	supply_n2: 0.000
 	supply_co2: 0.000
 
-	@inventory1:
-	{
-		stack_size_multiplier: 4.000
-		filter_flags: fuel
-		type: fuel
-		flags: allow_ducts, ignore_mass
-		offset: [-0.250, 1.125]
-	}
+	// @inventory1:
+	// {
+	// 	stack_size_multiplier: 4.000
+	// 	filter_flags: fuel
+	// 	type: fuel
+	// 	flags: allow_ducts, ignore_mass
+	// 	offset: [-0.250, 1.125]
+	// }
 
 	// @light:
 	// {
 	// 	color: [1.000, 0.500, 0.000, 2.000]
-	// 	offset: [-0.250, 0.750]
+	// 	offset: [0.000, -1.500]
 	// 	scale: [14.000, 13.000]
 	// 	intensity: 0.000
 	// 	texture: "light.circle.04"
 	// }
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "balloon.burner.00"
+		}
+		offset: [0.000, -2.875]
+		z: -50.000
+	}
 }
 
 burner.state:
@@ -204,10 +214,73 @@ burner.state:
 		filter_flags: fuel
 		filter_type: liquid
 		type: input
-		flags: allow_ducts, ignore_mass
+		flags: ignore_mass
 		offset: [-0.250, 1.125]
 	}
 }
+
+// burner:
+// {
+// 	smoke_offset: [-0.125, -2.625]
+// 	smoke_direction: [0.972563, 0.232642]
+// 	exhaust_offset: [-0.125, -2.375]
+// 	intake_offset: [-0.125, -1.875]
+// 	flags: open_air, no_smoke
+// 	type: gas
+// 	height: 2.000
+// 	area_intake: 1.000
+// 	area_exhaust: 1.000
+// 	area_fuel: 0.500
+// 	area_aux: 0.020
+// 	area_surface: 1.000
+// 	volume_chamber: 0.500
+// 	pressure_max: 8.000
+// 	temperature_max: 2200.000
+// 	insulation: 0.400
+// 	combustion_efficiency: 0.840
+// 	heating_efficiency: 0.530
+// 	airtightness: 0.000
+// 	valve_strength: 3.000
+// 	filter_o2: 1.000
+// 	filter_n2: 1.000
+// 	filter_co2: 1.000
+// 	supply_o2: 0.000
+// 	supply_n2: 0.000
+// 	supply_co2: 0.000
+
+// 	@inventory1:
+// 	{
+// 		stack_size_multiplier: 4.000
+// 		filter_flags: fuel
+// 		type: fuel
+// 		flags: allow_ducts, ignore_mass
+// 		offset: [-0.250, 1.125]
+// 	}
+
+// 	// @light:
+// 	// {
+// 	// 	color: [1.000, 0.500, 0.000, 2.000]
+// 	// 	offset: [-0.250, 0.750]
+// 	// 	scale: [14.000, 13.000]
+// 	// 	intensity: 0.000
+// 	// 	texture: "light.circle.04"
+// 	// }
+// }
+
+// burner.state:
+// {
+// 	current_temperature: 300.000
+
+// 	@inventory1:
+// 	{
+// 		stack_size_multiplier: 4.000
+// 		filter_flags: fuel
+// 		filter_type: liquid
+// 		type: input
+// 		flags: allow_ducts, ignore_mass
+// 		offset: [-0.250, 1.125]
+// 	}
+// }
 
 // sound.emitter:
 // {
@@ -264,14 +337,14 @@ burner.state:
 		max_force: 10000000.000
 		max_torque: 2000000.000
 		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
-		z: 0.000
+		z: -40.000
 		material_type: metal
 	}
 
 	joint.pivot:
 	{
 		error_bias: 0.0001
-		max_bias: 100.000
+		max_bias: 20.000
 	}
 
 	joint.gear:
@@ -378,31 +451,74 @@ burner.state:
 
 +slot_bottom|instance:
 {
+	// joint.base:
+	// {
+	// 	offset_a: [0.000, 0.375]
+	// 	max_force: 850000.000
+	// 	max_torque: 150000.000
+	// 	max_stress: 3.000
+	// 	stress_threshold: 3.010
+	// 	flags: control_write, control_read, force_facing
+	// 	z: -100.000
+	// 	material_type: metal
+	// }
+
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.01
+	// 	max_bias: 10.000
+	// }
+
+	// joint.gear:
+	// {
+	// 	error_bias: 0.001
+	// 	max_bias: 5.000
+	// 	min: -3.141
+	// 	max: 3.141
+	// 	stress_mult: 0.500
+	// }
+
 	joint.base:
 	{
-		offset_a: [0.000, 0.375]
+		offset_a: [0.000, 0.750]
 		max_force: 850000.000
 		max_torque: 150000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: control_write, control_read, force_facing
+		stress_damp: 0.500
 		z: -100.000
 		material_type: metal
+		stress: 0.000
+		flags: attachment, allow_dragging, control_read, control_write, force_facing
 	}
 
-	joint.pivot:
-	{
-		error_bias: 0.01
-		max_bias: 10.000
-	}
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.010
+	// 	max_bias: 10.000
+	// 	stress_mult: 0.500
+	// }
 
 	joint.gear:
 	{
 		error_bias: 0.001
 		max_bias: 5.000
-		min: -3.141
-		max: 3.141
+		min: 0.000
+		max: 0.000
 		stress_mult: 0.500
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 4.000
+		stiffness: 65000.000
+		damping: 1250.000
+		axis_force: 800000.000
+		spring_max_bias: 4.000
+		max_distance: 1.500
+		rotation: 1.5707
+		stress_mult_axis: 1.000
 	}
 
 	attachment.slot:
@@ -425,7 +541,7 @@ burner.state:
 	
 	joint.base:
 	{
-		offset_a: [0.000, -0.500]
+		offset_a: [0.000, -1.375]
 		offset_b: [0.000, 4.250]
 		max_force: 300000.000
 		max_torque: 20000.000
@@ -438,8 +554,8 @@ burner.state:
 		error_bias: 0.010
 		max_bias: 1.000
 		distance_min: 0.000
-		distance_max: 3.800
-		gap_a: 4.000
+		distance_max: 4.000
+		gap_a: 3.625
 		gap_b: 1.500
 	}
 	

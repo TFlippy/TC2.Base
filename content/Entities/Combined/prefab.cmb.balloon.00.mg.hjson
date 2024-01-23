@@ -19,14 +19,14 @@
 		}
 	}
 
-	burner:
+	burner.state:
 	{
 		@inventory1:
 		{
 			resource:
 			{
-				material: "black_coal"
-				quantity: 120.000
+				material: "benzene"
+				quantity: 100.000
 			}
 		}
 	}

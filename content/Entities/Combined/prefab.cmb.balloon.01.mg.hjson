@@ -27,7 +27,7 @@ storage:
 	}
 }
 
-burner:
+burner.state:
 {
 	@inventory1:
 	{
@@ -41,14 +41,14 @@ burner:
 
 +slot_cab|instance:
 {
+	attachment_slot:
+	{
+		offset: [0.000, -0.500]
+	}
+
 	+attached|child:
 	{
-		$prefab: "cabin.metal.02"
-
-		attachment_slot:
-		{
-			offset: [0.000, -0.750]
-		}
+		$prefab: "cabin.metal.01"
 	}
 }
 
