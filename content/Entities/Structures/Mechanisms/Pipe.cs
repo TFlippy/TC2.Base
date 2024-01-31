@@ -3,19 +3,33 @@ namespace TC2.Base.Components
 {
 	public static partial class Vent
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct Data: IComponent, ITrait
 		{
 			public Inventory.Type type;
 
-			[Editor.Picker.Position(true, true)]
+			[Editor.Picker.Position(true, true)] 
 			public Vector2 offset;
+			[Editor.Picker.Direction(true, true)]
+			public Vector2 direction = new(0, -1);
+
 			public Area cross_section = Area.Circle(10.00f.cm());
+
+			//public float velocity;
+			public float flow_rate;
+
+			[Save.Ignore, Net.Ignore] public float t_next_smoke;
 
 			public Data()
 			{
 
 			}
+		}
+
+		public static float GetFlowVelocity(ref readonly this Vent.Data vent)
+		{
+			Phys.VolumetricFlowRate(vent.cross_section, out var velocity, vent.flow_rate);
+			return velocity;
 		}
 	}
 
