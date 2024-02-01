@@ -1,7 +1,7 @@
 $name: "Tractor (Heavy)"
 $desc:
 	'''
-	Sturdier variant of the standard tractor with a front-mounted cabin, heavy attachment slot and an internal Aubucht steam engine.
+	Sturdier variant of the standard tractor with a front-mounted cabin and a heavy attachment slot.
 
 	These tractors are mostly used for heavy-duty industrial equipment and transport.
 	'''
@@ -123,7 +123,7 @@ vehicle:
 
 interactable:
 {
-	window_size: [384.000, 256.000]
+	window_size: [384.000, 240.000]
 	window_offset: [0.000, 144.000]
 }
 
@@ -138,96 +138,119 @@ storage:
 	}
 }
 
-steamengine:
-{
-	piston_offset: [-1.250, 0.250]
-	steam_offset: [-3.750, 0.500]
-	exhaust_offset: [-3.250, 0.125]
-	burst_offset: [0.500, -1.375]
-	smoke_direction: [-2.000, -1.000]
-	steam_interval: 0.200
-	steam_size: 1.000
-	piston_radius: 0.500
-	volume_multiplier: 0.050
-	pitch_multiplier: 0.300
-	force: 9000.000
-	max_acceleration: 5.000
-	speed_max: 20.000
-	efficiency: 0.200
-	shake_multiplier: 8.000
+// steamengine:
+// {
+// 	piston_offset: [-1.250, 0.250]
+// 	steam_offset: [-3.750, 0.500]
+// 	exhaust_offset: [-3.250, 0.125]
+// 	burst_offset: [0.500, -1.375]
+// 	smoke_direction: [-2.000, -1.000]
+// 	steam_interval: 0.200
+// 	steam_size: 1.000
+// 	piston_radius: 0.500
+// 	volume_multiplier: 0.050
+// 	pitch_multiplier: 0.300
+// 	force: 9000.000
+// 	max_acceleration: 5.000
+// 	speed_max: 20.000
+// 	efficiency: 0.200
+// 	shake_multiplier: 8.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "tractor.piston"
-		}
-		z: 99.000
-	}
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "tractor.piston"
+// 		}
+// 		z: 99.000
+// 	}
 
-	@sound.emitter:
-	{
-		file: "tractor.engine.loop.01"
-		volume: 0.000
-		pitch: 1.000
-		size: 2.500
-	}
-}
+// 	@sound.emitter:
+// 	{
+// 		file: "tractor.engine.loop.01"
+// 		volume: 0.000
+// 		pitch: 1.000
+// 		size: 2.500
+// 	}
+// }
 
-steamengine.state:
-{
-	@sound.emitter:
-	{
-		file: "tractor.steam.loop.00"
-		volume: 0.000
-		pitch: 1.000
-		size: 2.000
-	}	
-}
+// steamengine.state:
+// {
+// 	@sound.emitter:
+// 	{
+// 		file: "tractor.steam.loop.00"
+// 		volume: 0.000
+// 		pitch: 1.000
+// 		size: 2.000
+// 	}	
+// }
 
-burner:
-{
-	smoke_offset: [-0.750, 0.500]
-	smoke_direction: [-2.000, -1.000]
-	capacity: 2.000
-	energy_loss: 10000.000
-	efficiency: 0.400
-	drain_multiplier: 2.000
+// burner:
+// {
+// 	smoke_offset: [-0.750, 0.500]
+// 	smoke_direction: [-2.000, -1.000]
+// 	capacity: 2.000
+// 	energy_loss: 10000.000
+// 	efficiency: 0.400
+// 	drain_multiplier: 2.000
 	
-	@inventory1:
-	{
-		name: "Fuel"
-		stack_size_multiplier: 4.000
-		filter_flags: fuel
-		filter_type: liquid
-		type: fuel
-		flags: ignore_mass
-	}
-}
+// 	@inventory1:
+// 	{
+// 		name: "Fuel"
+// 		stack_size_multiplier: 4.000
+// 		filter_flags: fuel
+// 		filter_type: liquid
+// 		type: fuel
+// 		flags: ignore_mass
+// 	}
+// }
 
-burner.state:
-{
-	current_temperature: 300.000
-}
+// burner.state:
+// {
+// 	current_temperature: 300.000
+// }
+
+// axle:
+// {
+// 	offset: [1.000, 0.250]
+// 	mass: 200.000
+// 	friction: 1.000
+// 	radius_a: 0.750
+// 	radius_b: 0.750
+// 	radius_inner: 0.500
+// 	radius_outer: 0.750
+// 	z: 95.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_0750.steel"
+// 		}
+// 		z: 100.000
+// 	}
+// }
 
 axle:
 {
-	offset: [1.000, 0.250]
-	mass: 40.000
-	friction: 0.200
-	radius_a: 0.750
-	radius_b: 0.750
-	radius_inner: 0.500
-	radius_outer: 0.750
-	z: 95.000
+	offset: [-0.500, -0.625]
+	offset_inner: [0.000, 0.000]
+	mass: 200.000
+	friction: 0.300
+	radius_a: 1.250
+	radius_b: 1.250
+	radius_inner: 1.000
+	radius_outer: 1.250
+	ratio: 1.000
+	modifier: 1.000
+	z: 80.000
 	
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "wheel_0750.steel"
+			texture: "wheel_1500.steel"
 		}
-		z: 100.000
 	}
 }
 
@@ -267,7 +290,46 @@ axle:
 
 		offset_bounds: [-0.500, -0.125, 0.500, 0.500]
 
-		gui_size: [192.000, 160.000]
+		gui_size: [144.000, 144.000]
+		rank: -8.000
+	}
+}
+
++slot_motor|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.500, -0.625]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: 100.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.000
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Motor"
+		identifier: "motor"
+
+		flags: none
+		flags_editable: locked, disabled
+
+		gui_size: [96.000, 96.000]
 	}
 }
 
@@ -350,7 +412,8 @@ axle:
 
 		offset_bounds: [-0.500, -0.125, 0.500, 0.500]
 
-		gui_size: [192.000, 160.000]
+		gui_size: [144.000, 144.000]
+		rank: -4.000
 	}
 }
 
@@ -366,6 +429,9 @@ axle:
 		name: "Wheel (Rear, A)"
 		identifier: "wheel.0"
 		flags_editable: locked, offset
+		rank: 5.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
 	}
 
 	joint.base:
@@ -382,8 +448,8 @@ axle:
 		max_bias: 20.000
 		groove_force: 8000000.000
 		spring_force: 250000.000
-		length: 1.200
-		rest_length: 1.100
+		length: 1.600
+		rest_length: 1.200
 		stiffness: 250000.000
 		damping: 9000.000
 	}
@@ -401,6 +467,9 @@ axle:
 		name: "Wheel (Rear, B)"
 		identifier: "wheel.1"
 		flags_editable: locked, offset
+		rank: 6.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
 	}
 
 	joint.base:
@@ -417,8 +486,8 @@ axle:
 		max_bias: 20.000
 		groove_force: 8000000.000
 		spring_force: 250000.000
-		length: 1.200
-		rest_length: 1.100
+		length: 1.600
+		rest_length: 1.200
 		stiffness: 250000.000
 		damping: 9000.000
 	}
@@ -436,11 +505,14 @@ axle:
 		name: "Wheel (Front, A)"
 		identifier: "wheel.2"
 		flags_editable: locked, offset
+		rank: 7.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
 	}
 
 	joint.base:
 	{
-		offset_a: [1.125, 1.500]
+		offset_a: [1.125, 1.000]
 		flags: no_wrap, force_facing, no_sync
 		z: 109.000
 		material_type: metal
@@ -452,7 +524,7 @@ axle:
 		max_bias: 20.000
 		groove_force: 8000000.000
 		spring_force: 150000.000
-		length: 1.600
+		length: 2.000
 		rest_length: 1.500
 		stiffness: 180000.000
 		damping: 8000.000
@@ -471,11 +543,14 @@ axle:
 		name: "Wheel (Front, B)"
 		identifier: "wheel.3"
 		flags_editable: locked, offset
+		rank: 8.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
 	}
 
 	joint.base:
 	{
-		offset_a: [2.375, 1.500]
+		offset_a: [2.375, 1.000]
 		flags: no_wrap, force_facing, no_sync
 		z: -110.000
 		material_type: metal
@@ -487,7 +562,7 @@ axle:
 		max_bias: 20.000
 		groove_force: 8000000.000
 		spring_force: 150000.000
-		length: 1.600
+		length: 2.000
 		rest_length: 1.500
 		stiffness: 180000.000
 		damping: 8000.000

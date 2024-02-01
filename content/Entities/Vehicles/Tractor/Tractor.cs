@@ -62,14 +62,16 @@ namespace TC2.Base.Components
 		//}
 
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] in Tractor.State tractor_state, [Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] in Tractor.State tractor_state, 
+		[Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
 		{
 			if (wheel_slot.flags.HasAll(Wheel.Flags.Has_Wheel))
 			{
 				joint.speed = tractor_state.current_motor_speed;
 				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
 				joint.brake = 0.00f;
+				if (joint.speed.Abs() > 0.01f) joint_base.state |= Joint.State.Roused;
 			}
 			else
 			{
@@ -82,7 +84,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
-		public static void UpdateControls(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
+		public static void UpdateControls(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform, 
+		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		{
 			var speed = 0.00f;
 
@@ -142,32 +145,32 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			tractor_state.current_motor_force = axle_state.net_torque;
+			tractor_state.current_motor_force = axle_state.sum_torque;
 			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
-		public static void UpdateEngine2(ISystem.Info info,
-		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
-		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state, [Source.Owned] in Control.Data control)
-		{
-			if (control.keyboard.GetKey(Keyboard.Key.MoveUp))
-			{
-				steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, steam_engine.speed_max, 10.00f * info.DeltaTime);
-			}
-			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown))
-			{
-				steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, 0.00f, 10.00f * info.DeltaTime); 
-			}
+		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
+		//public static void UpdateEngine2(ISystem.Info info,
+		//[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
+		//[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state, [Source.Owned] in Control.Data control)
+		//{
+		//	if (control.keyboard.GetKey(Keyboard.Key.MoveUp))
+		//	{
+		//		steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, steam_engine.speed_max, 10.00f * info.DeltaTime);
+		//	}
+		//	else if (control.keyboard.GetKey(Keyboard.Key.MoveDown))
+		//	{
+		//		steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, 0.00f, 10.00f * info.DeltaTime); 
+		//	}
 
-			//steam_engine.speed_target = Maths.Lerp(steam_engine.speed_target, MathF.Abs(tractor_state.target_motor_speed), 0.20f);
-			//steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, steam_engine.speed_max, tractor.speed); // steam_engine.speed_target + speed, steam_engine.speed_max)
-		}
+		//	//steam_engine.speed_target = Maths.Lerp(steam_engine.speed_target, MathF.Abs(tractor_state.target_motor_speed), 0.20f);
+		//	//steam_engine.speed_target = Maths.MoveTowards(steam_engine.speed_target, steam_engine.speed_max, tractor.speed); // steam_engine.speed_target + speed, steam_engine.speed_max)
+		//}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Parent)]
-		public static void UpdateEngine2Parent(ISystem.Info info,
-		[Source.Parent] ref Tractor.Data tractor, [Source.Parent] ref Tractor.State tractor_state,
-		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state, [Source.Parent] in Control.Data control) => UpdateEngine2(info, ref tractor, ref tractor_state, ref steam_engine, ref steam_engine_state, in control);
+		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Parent)]
+		//public static void UpdateEngine2Parent(ISystem.Info info,
+		//[Source.Parent] ref Tractor.Data tractor, [Source.Parent] ref Tractor.State tractor_state,
+		//[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state, [Source.Parent] in Control.Data control) => UpdateEngine2(info, ref tractor, ref tractor_state, ref steam_engine, ref steam_engine_state, in control);
 
 
 #if CLIENT
