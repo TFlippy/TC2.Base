@@ -77,7 +77,7 @@
 			public Radius envelope_radius_bottom;
 			public Height envelope_height_bottom;
 			public Width envelope_thickness = Units.mm(0.40f);
-			public Power envelope_thermal_conductivity = 0.021f; // kW/m*K
+			public Power envelope_thermal_conductivity = Power.W(0.021f); // kW/m*K
 
 			public Data()
 			{
@@ -253,9 +253,10 @@
 		[Source.Parent] ref Burner.Data burner, [Source.Parent] ref Burner.State burner_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
+		[Source.Owned, Pair.Tag("exhaust")] ref Vent.Data vent_exhaust,
 		[Source.Owned] in Health.Data health)
 		{
-			var show_debug = false;
+			var show_debug = true;
 			var dt = info.DeltaTime;
 			var wind_speed = 4.00f;
 			var mass = body.GetMass();
@@ -272,7 +273,7 @@
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed);
 			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness);
 
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon_state.envelope_volume, burner_state.exhaust_output);
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, burner_state.temperature_exhaust, balloon_state.envelope_volume, vent_exhaust.flow_rate * App.fixed_update_interval_s);
 
 			Phys.CharlesLaw(balloon_state.envelope_volume, Phys.ambient_temperature, out var envelope_volume_hot, balloon_state.current_temperature_air);
 			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon_state.envelope_volume), envelope_volume_hot, 0.10f);
@@ -281,7 +282,12 @@
 
 			balloon_state.air_density = balloon_state.air_mass / envelope_volume_hot;
 
+			var test = balloon_state.current_temperature_air;
+
+			//App.WriteLine(temperature_ambient);
 			Phys.TransferHeatAmbient(ref balloon_state.current_temperature_air, temperature_ambient, balloon_state.air_mass, Phys.air_specific_heat, balloon_state.envelope_surface_area, htc_envelope, dt);
+
+			//Phys.TransferHeatAmbient2(ref test, temperature_ambient, balloon_state.air_mass, Phys.air_specific_heat, balloon_state.envelope_surface_area, htc_envelope, dt);
 
 			balloon_state.buoyant_force = buoyant_force;
 			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon_state.envelope_volume);
@@ -295,8 +301,8 @@
 			if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed += balloon.speed_max;
 			if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed -= balloon.speed_max;
 
-			if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target.MoveTowards(1.00f, fuel_rate_step, dt);
-			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target.MoveTowards(0.00f, fuel_rate_step, dt);
+			if (control.keyboard.GetKey(Keyboard.Key.MoveUp)) fuel_modifier_target.MoveTowards(1.00f, fuel_rate_step * dt);
+			else if (control.keyboard.GetKey(Keyboard.Key.MoveDown)) fuel_modifier_target.MoveTowards(0.00f, fuel_rate_step * dt);
 			else
 			{
 				//fuel_modifier_target.MoveTowards(0.10f, fuel_rate_step, dt);
@@ -307,10 +313,10 @@
 			var modifier = MathF.Pow(MathF.Sin(Maths.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
 			var gravity_modifier = Maths.Step(modifier, 0.20f);
 
-			balloon_state.speed_current.MoveTowards(speed, speed_step, dt); // balloon_state.speed_target; // Maths.Lerp(balloon.current_speed, balloon.target_speed, 0.50f);
+			balloon_state.speed_current.MoveTowards(speed, speed_step * dt); // balloon_state.speed_target; // Maths.Lerp(balloon.current_speed, balloon.target_speed, 0.50f);
 
 			var force = new Vector2(balloon_state.speed_current * mass, 0.00f);
-			force.Y -= buoyant_force;
+			force.Y -= buoyant_force * 1.00f;
 
 			body.AddForce(force);
 			var mass_force = mass * region.GetGravity().Y;
@@ -322,6 +328,7 @@
 			{
 				region.DrawDebugText(transform.position + new Vector2(0.00f, 0.00f),
 				$"altitude: {balloon_state.altitude:0.0000}\n" +
+				$"test: {test:0.0000}\n" +
 				$"htc_air: {htc_air:0.0000}\n" +
 				$"htc_envelope: {htc_envelope:0.0000}\n" +
 				$"temperature_ambient: {temperature_ambient:0.0000}\n" +

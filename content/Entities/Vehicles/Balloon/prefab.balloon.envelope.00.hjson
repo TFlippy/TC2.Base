@@ -40,7 +40,7 @@ balloon:
 	envelope_radius_bottom: 3.000
 	envelope_height_bottom: 8.000
 	envelope_thickness: 0.001
-	envelope_thermal_conductivity: 0.021
+	envelope_thermal_conductivity: 0.00021
 }
 
 animated.renderer:

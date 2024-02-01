@@ -150,7 +150,7 @@ burner:
 	intake_offset: [-0.125, -1.875]
 	flags: open_air
 	type: gas
-	height: 2.000
+	height: 20.000
 	area_intake: 4.000
 	area_exhaust: 4.000
 	area_fuel: 0.500

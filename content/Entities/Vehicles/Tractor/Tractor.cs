@@ -32,6 +32,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
+			public float target_wheel_speed;
+
 			[Save.Ignore, Net.Ignore]
 			public float current_motor_speed;
 
@@ -39,7 +41,10 @@ namespace TC2.Base.Components
 			public float current_motor_force;
 
 			[Save.Ignore, Net.Ignore]
-			public float target_wheel_speed;
+			public float current_wheel_torque_load;
+
+			[Save.Ignore, Net.Ignore]
+			public float t_next_sync;
 
 			public State()
 			{
@@ -63,7 +68,7 @@ namespace TC2.Base.Components
 
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] in Tractor.State tractor_state, 
+		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] ref Tractor.State tractor_state, 
 		[Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
 		{
 			if (wheel_slot.flags.HasAll(Wheel.Flags.Has_Wheel))
@@ -71,7 +76,10 @@ namespace TC2.Base.Components
 				joint.speed = tractor_state.current_motor_speed;
 				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
 				joint.brake = 0.00f;
+
 				if (joint.speed.Abs() > 0.01f) joint_base.state |= Joint.State.Roused;
+				tractor_state.current_wheel_torque_load += (joint.GetMotorReactionTorqueRaw().Abs() + joint.GetMotorBrakeReactionTorqueRaw().Abs());
+
 			}
 			else
 			{
@@ -83,55 +91,45 @@ namespace TC2.Base.Components
 			//App.WriteLine("w");
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
-		public static void UpdateControls(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform, 
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
+		public static void UpdateControlsA(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		{
-			var speed = 0.00f;
+			var speed_add = 0.00f;
 
-			if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed -= tractor.speed;
-			if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed += tractor.speed;
+			if (control.keyboard.GetKey(Keyboard.Key.MoveRight)) speed_add -= tractor.speed;
+			if (control.keyboard.GetKey(Keyboard.Key.MoveLeft)) speed_add += tractor.speed;
 
 			//if (control.keyboard.GetKeyDown(Keyboard.Key.Q)) tractor.gear = Maths.Clamp(tractor.gear - 1, 0, 4);
 			//if (control.keyboard.GetKeyDown(Keyboard.Key.E)) tractor.gear = Maths.Clamp(tractor.gear + 1, 0, 4);
 
 			var ratio = 1.00f; // * MathF.CopySign(1.00f, transform.scale.X); // + (tractor.gear * tractor.gear_mod);
-			//if (control.keyboard.GetKey(Keyboard.Key.LeftShift)) speed *= 2.00f;
+							   //if (control.keyboard.GetKey(Keyboard.Key.LeftShift)) speed *= 2.00f;
 
-			tractor_state.target_wheel_speed = (speed != 0.00f ? speed : 0.00f) * ratio;
+			tractor_state.target_wheel_speed = (speed_add != 0.00f ? speed_add : 0.00f) * ratio;
 			//tractor_state.target_motor_force = (speed != 0.00f ? tractor.force : tractor.brake) / ratio;
 
 #if SERVER
+			if (speed_add != 0.00f && info.WorldTime >= tractor_state.t_next_sync)
+			{
+				//tractor_state.Sync(entity, true);
+				tractor_state.t_next_sync = info.WorldTime + 0.20f;
+			}
+#endif
+		}
+
+#if SERVER
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
+		public static void UpdateControlsB(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform, 
+		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
+		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
 			{
 				transform.scale.X *= -1.00f;
 				transform.Modified(entity, true);
-				//transform.Sync(entity, true);
-
-				//Span<Entity> children = stackalloc Entity[64];
-				//entity.GetAllChildren(ref children);
-				//children.Reverse();
-
-				//foreach (var ent_child in children)
-				//{
-				//	//ref var transform_child = ref ent_child.GetComponent<Transform.Data>();
-
-				//	if (!ent_child.HasComponent<Joint.Base>())
-				//	{
-				//		ref var transform_child = ref ent_child.GetComponent<Transform.Data>();
-				//		if (transform_child.IsNotNull())
-				//		{
-				//			App.WriteLine($"{ent_child}; {ent_child.GetName()}");
-
-				//			transform_child.scale.X *= -1.00f;
-				//			transform_child.Sync(ent_child, true);
-				//		}
-				//	}
-				//}
-
 			}
-#endif
 		}
+#endif
 
 		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateMotors(ISystem.Info info, [Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
@@ -147,6 +145,12 @@ namespace TC2.Base.Components
 		{
 			tractor_state.current_motor_force = axle_state.sum_torque;
 			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
+
+			if (tractor_state.current_wheel_torque_load > 0.00f)
+			{
+				axle_state.ApplyTorque(tractor_state.current_wheel_torque_load, 0.00f);
+				tractor_state.current_wheel_torque_load = 0.00f;
+			}
 		}
 
 		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
