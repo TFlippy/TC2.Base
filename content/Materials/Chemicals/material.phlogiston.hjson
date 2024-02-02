@@ -78,6 +78,10 @@
 		flammability: 4.900
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 1.800
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 4400.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 2700.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 210.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
@@ -92,18 +96,20 @@
 		// TODO: Desc
 		volatility: 4.880
 		// TODO: Desc
+		viscosity: 2.110
+		// TODO: Desc
 		surface_area_mult: 0.000
 		
 		// Percentage of carbon.
-		carbon_ratio: 0.235
+		carbon_ratio: 0.0215
 		// Percentage of hydrogen.
-		hydrogen_ratio: 0.450
+		hydrogen_ratio: 0.150
 		// Percentage of nitrogen.
-		nitrogen_ratio: 0.018
+		nitrogen_ratio: 0.0048
 		// Percentage of oxygen.
-		oxygen_ratio: 0.278
+		oxygen_ratio: 0.778
 		// Percentage of sulfur.
-		sulfur_ratio: 0.027
+		sulfur_ratio: 0.007
 		// Percentage of water.
 		water_ratio: 0.000
 		

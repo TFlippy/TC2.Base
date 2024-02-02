@@ -84,9 +84,9 @@ control:
 
 tractor:
 {
-	speed: 14.000
+	speed: 16.000
 	brake_step: 20.000
-	speed_step: 15.000
+	speed_step: 10.000
 }
 
 tractor.state:
@@ -247,7 +247,7 @@ axle:
 		name: "Motor"
 		identifier: "motor"
 
-		flags: none
+		flags: no_tab
 		flags_editable: locked, disabled
 
 		gui_size: [96.000, 96.000]
@@ -342,13 +342,14 @@ axle:
 {
 	wheel.slot:
 	{
-
+		force_multiplier: 4.000
 	}
 
 	attachment.slot:
 	{
 		name: "Wheel (Rear, A)"
 		identifier: "wheel.0"
+		flags: no_tab
 		flags_editable: locked, offset
 		rank: 5.000
 
@@ -380,13 +381,14 @@ axle:
 {
 	wheel.slot:
 	{
-
+		force_multiplier: 4.000
 	}
 
 	attachment.slot:
 	{
 		name: "Wheel (Rear, B)"
 		identifier: "wheel.1"
+		flags: no_tab
 		flags_editable: locked, offset
 		rank: 6.000
 
@@ -425,6 +427,7 @@ axle:
 	{
 		name: "Wheel (Front, A)"
 		identifier: "wheel.2"
+		flags: no_tab
 		flags_editable: locked, offset
 		rank: 7.000
 
@@ -463,6 +466,7 @@ axle:
 	{
 		name: "Wheel (Front, B)"
 		identifier: "wheel.3"
+		flags: no_tab
 		flags_editable: locked, offset
 		rank: 8.000
 

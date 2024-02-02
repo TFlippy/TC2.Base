@@ -20,9 +20,58 @@
 	}
 	
 	type: gas
-	flags: none
+	flags: gas, explosive, toxic, chemical, fuel
 	hints: none
+	// kg
 	mass_per_unit: 0.050
 	quantity_max: 1000.000
 	prefab: "resource.wood_gas"
+	
+	fuel:
+	{
+		// TODO: Desc
+		type: gas
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 5200.000
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.521
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 0.291
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.180
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		autoignition_temperature: 500.000
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 280.000
+		// kJ/(kg*K)
+		specific_heat: 1.480
+		
+		// kW/(m*K)
+		thermal_conductivity: 0.00009
+		// TODO: Desc
+		porosity: 0.000
+		// TODO: Desc
+		volatility: 0.000
+		// TODO: Desc
+		surface_area_mult: 0.000
+		
+		// Percentage of carbon.
+		carbon_ratio: 0.288
+		// Percentage of hydrogen.
+		hydrogen_ratio: 0.243
+		// Percentage of nitrogen.
+		nitrogen_ratio: 0.011
+		// Percentage of oxygen.
+		oxygen_ratio: 0.001
+		// Percentage of sulfur.
+		sulfur_ratio: 0.028
+		// Percentage of water.
+		water_ratio: 0.318
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.000
+		volatiles: []
+	}
+	
+	scrap: []
 }

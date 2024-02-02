@@ -12,7 +12,7 @@ body:
 		elasticity: 0.550
 		material: metal
 		layer: entity, solid, resource, ignore_melee, billet
-		mask: world
+		mask: world, billet
 	}
 }
 

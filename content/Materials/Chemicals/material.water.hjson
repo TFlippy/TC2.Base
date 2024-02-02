@@ -22,7 +22,7 @@
 	}
 	
 	type: liquid
-	flags: raw
+	flags: liquid, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.100

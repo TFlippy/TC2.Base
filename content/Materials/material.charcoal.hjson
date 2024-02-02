@@ -19,11 +19,11 @@
 		frame: [0, 0]
 	}
 	
-	type: stone
+	type: coal
 	flags: granular, raw, gravel, fuel
 	hints: none
 	// kg
-	mass_per_unit: 0.200
+	mass_per_unit: 0.400
 	quantity_max: 500.000
 	prefab: "resource.charcoal"
 	
@@ -71,26 +71,30 @@
 		// TODO: Desc
 		type: solid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 30000.000
+		energy_combustion: 31000.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.840
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 0.324
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.136
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 3173.150
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 2253.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 0.000
+		autoignition_temperature: 622.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 553.150
 		// kJ/(kg*K)
 		specific_heat: 1.130
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000342
+		thermal_conductivity: 0.00342
 		// TODO: Desc
-		porosity: 0.9810
+		porosity: 0.981
 		// TODO: Desc
-		volatility: 0.0740
+		volatility: 0.00244
 		// TODO: Desc
 		surface_area_mult: 1.011
 		
