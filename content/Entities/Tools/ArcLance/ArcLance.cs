@@ -131,7 +131,7 @@
 				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,
 				damage_integrity: arc_lance.damage_integrity * multiplier, damage_durability: arc_lance.damage_durability * multiplier, damage_terrain: arc_lance.damage_terrain * multiplier,
 				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
-				yield: 0.95f, size: 1.50f, impulse: 0.00f);
+				yield: 0.95f, size: 1.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
 
 
 			// Zap the holder too when hitting a metallic object
@@ -163,7 +163,7 @@
 							position: result.world_position, velocity: data.direction * 4.00f, normal: -data.direction,
 							damage_integrity: arc_lance.damage_integrity * multiplier * 0.25f, damage_durability: arc_lance.damage_durability * multiplier * 0.35f, damage_terrain: arc_lance.damage_terrain * multiplier * 0.25f,
 							target_material_type: result.material_type, damage_type: Damage.Type.Electricity, pain: 1.10f,
-							yield: 0.95f, size: 1.00f, impulse: 100.00f * impulse_mult);
+							yield: 0.95f, size: 1.00f, impulse: 100.00f * impulse_mult, flags: Damage.Flags.No_Loot_Pickup);
 					}
 				}
 			}
