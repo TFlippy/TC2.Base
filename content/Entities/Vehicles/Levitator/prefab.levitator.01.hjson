@@ -140,7 +140,7 @@ levitator:
 	flags: none
 	flags_editable: none
 
-	efficiency: 0.570
+	efficiency: 0.357
 	offset: [0.000, 0.500]
 	
 	// @light:

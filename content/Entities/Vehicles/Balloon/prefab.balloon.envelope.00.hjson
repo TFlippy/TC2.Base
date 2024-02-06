@@ -30,13 +30,9 @@ body:
 
 balloon:
 {
-	release_max: 1.000
-	release_rate: 1.000
-	acc: 1.000
 	speed_max: 8.000
-	force_modifier: 600.000
 	temperature_max: 413.150
-	envelope_radius_mid: 10.000
+	envelope_radius_mid: 12.000
 	envelope_radius_bottom: 3.000
 	envelope_height_bottom: 8.000
 	envelope_thickness: 0.001

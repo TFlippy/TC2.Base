@@ -21,7 +21,7 @@ body:
 		]
 		mass: 750.000
 		radius: 0.100
-		friction: 0.850
+		friction: 0.750
 		elasticity: 0.650
 		material: metal
 		layer: entity, solid, vehicle, platform
@@ -114,7 +114,7 @@ storage:
 
 interactable:
 {
-	window_size: [224.000, 320.000]
+	window_size: [240.000, 320.000]
 }
 
 sound.emitter|"exhaust":
@@ -134,64 +134,34 @@ sound.emitter|"aux":
 	size_max_modifier: 0.500
 }
 
+vent|"exhaust":
+{
+	type: output
+	offset: [0.000, -4.500]
+	cross_section: 2.000
+}
+
 vent|"intake":
 {
 	type: input
 	offset: [-0.125, 0.625]
-}
-
-vent|"exhaust":
-{
-	type: output
-	offset: [0.250, -1.750]
+	cross_section: 8.000
 }
 
 burner:
 {
-	smoke_offset: [0.125, -5.125]
-	smoke_direction: [0.804161, 0.594412]
-	exhaust_offset: [0.000, -4.750]
-	intake_offset: [0.000, -1.500]
 	flags: open_air
 	type: gas
-	height: 20.000
-	area_intake: 4.000
-	area_exhaust: 4.000
+	height: 8.000
 	area_fuel: 0.500
 	area_aux: 0.020
 	area_surface: 1.000
 	volume_chamber: 0.500
 	pressure_max: 8.000
 	temperature_max: 2200.000
-	insulation: 0.100
-	combustion_efficiency: 0.900
-	heating_efficiency: 0.530
+	insulation: 0.000
 	airtightness: 0.000
 	valve_strength: 3.000
-	filter_o2: 1.000
-	filter_n2: 1.000
-	filter_co2: 1.000
-	supply_o2: 0.000
-	supply_n2: 0.000
-	supply_co2: 0.000
-
-	// @inventory1:
-	// {
-	// 	stack_size_multiplier: 4.000
-	// 	filter_flags: fuel
-	// 	type: fuel
-	// 	flags: allow_ducts, ignore_mass
-	// 	offset: [-0.250, 1.125]
-	// }
-
-	// @light:
-	// {
-	// 	color: [1.000, 0.500, 0.000, 2.000]
-	// 	offset: [0.000, -1.500]
-	// 	scale: [14.000, 13.000]
-	// 	intensity: 0.000
-	// 	texture: "light.circle.04"
-	// }
 
 	@animated.renderer:
 	{
@@ -364,7 +334,7 @@ burner.state:
 		flags_editable: locked, disabled, offset
 
 		rank: -10.000
-		gui_size: [224.000, 128.000]
+		gui_size: [224.000, 120.000]
 		offset_bounds: [-0.500, -0.500, 0.500, 0.500]
 	}
 }
@@ -512,7 +482,7 @@ burner.state:
 	{
 		error_bias: 0.000
 		max_bias: 4.000
-		stiffness: 65000.000
+		stiffness: 40000.000
 		damping: 1250.000
 		axis_force: 800000.000
 		spring_max_bias: 4.000
