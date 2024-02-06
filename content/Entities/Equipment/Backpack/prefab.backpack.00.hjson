@@ -3,14 +3,14 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.350
+	inventory_weight_multiplier: 0.250
 
 	@shape.circle:
 	{
-		mass: 1.000
+		mass: 2.000
 		radius: 0.750
 		friction: 0.600
-		elasticity: 0.200
+		elasticity: 0.100
 		material: leather
 		layer: entity, solid
 		mask: world
@@ -21,7 +21,7 @@ body:
 holdable:
 {
 	offset: [0.000, 0.000]
-	flags: storable
+	flags: none
 }
 
 animated.renderer:

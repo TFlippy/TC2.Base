@@ -1,16 +1,18 @@
-{
-	name: "Tractor (Heavy)"
+﻿{
+	name: "Tank"
 	desc:
 		'''
-		Sturdier variant of the standard tractor with a front-mounted cabin, heavy attachment slot and an internal Aubucht steam engine.
-
-		These tractors are mostly used for heavy-duty industrial equipment and transport.
+		Heavily armored vehicle.
 		'''
 	
 	icon:
 	{
-		texture: "construction.tractor.01"
+		texture: "construction.tank.00"
+		size: [0, 0]
+		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -18,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: construction
+	tags: misc
 	rank: 10.000
 	
 	dismantle_work: 8.000
@@ -27,13 +29,11 @@
 	placement:
 	{
 		type: simple
-		flags: none
 		
 		size: [5.000, 3.000]
 		offset: [0.000, -1.000]
 		
 		cooldown: 3.000
-		min_support: 0.000
 		min_clearance: 1.000
 		min_claim: 1.000
 		
@@ -44,7 +44,7 @@
 	
 	construction:
 	{
-		prefab: "construction.tractor.01"
+		prefab: "construction.tank.00"
 		
 		requirements:
 		[
@@ -58,9 +58,23 @@
 				material: "steel.ingot"
 				amount: 10.000
 			}
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
 		]
 	}
-
+	
 	requirements:
 	[
 		{
@@ -71,29 +85,24 @@
 		{
 			type: "resource"
 			material: "steel.plate"
-			amount: 400.000
-		}
-		{
-			type: "resource"
-			material: "copper.plate"
 			amount: 120.000
 		}
 		{
 			type: "resource"
 			material: "machine_parts"
-			amount: 220.000
+			amount: 140.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 1800.000
-			difficulty: 10.000
+			amount: 9500.000
+			difficulty: 15.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 2000.000
-			difficulty: 13.000
+			amount: 3500.000
+			difficulty: 15.000
 		}
 	]
 	
@@ -101,9 +110,8 @@
 	[
 		{
 			type: prefab
-			prefab: "tractor.01"
+			prefab: "tank.00"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

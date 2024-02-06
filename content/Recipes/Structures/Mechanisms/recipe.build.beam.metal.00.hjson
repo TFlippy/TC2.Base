@@ -9,6 +9,7 @@
 	{
 		texture: "beams.metal.00"
 		size: [128, 8]
+		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: mechanisms
+	tags: misc
 	rank: -62.000
 	
 	dismantle_work: 10.000
@@ -58,7 +59,6 @@
 			type: prefab
 			prefab: "beam.metal.00"
 			amount: 0.000
-			amount_extra: 0.000
 		}
 	]
 }

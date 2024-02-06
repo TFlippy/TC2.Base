@@ -50,7 +50,7 @@ animated.renderer:
 
 interactable:
 {
-	window_size: [406.000, 442.000]
+	window_size: [454.000, 442.000]
 	flags: require_held, interact_on_pickup, keep_window_pos
 }
 
