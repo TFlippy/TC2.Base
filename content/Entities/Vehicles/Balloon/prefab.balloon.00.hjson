@@ -130,64 +130,34 @@ sound.emitter|"aux":
 	size_max_modifier: 0.500
 }
 
-vent|"intake":
-{
-	type: input
-	offset: [-0.125, 0.625]
-}
-
 vent|"exhaust":
 {
 	type: output
 	offset: [0.250, -1.750]
+	cross_section: 1.500
+}
+
+vent|"intake":
+{
+	type: input
+	offset: [-0.125, 0.625]
+	cross_section: 3.000
 }
 
 burner:
 {
-	smoke_offset: [0.125, -3.250]
-	smoke_direction: [0.986055, 0.166419]
-	exhaust_offset: [0.125, -3.125]
-	intake_offset: [-0.125, -1.875]
 	flags: open_air
 	type: gas
-	height: 20.000
-	area_intake: 4.000
-	area_exhaust: 4.000
+	height: 4.000
 	area_fuel: 0.500
-	area_aux: 0.020
+	area_aux: 0.010
 	area_surface: 1.000
 	volume_chamber: 0.500
 	pressure_max: 8.000
 	temperature_max: 2200.000
-	insulation: 0.100
-	combustion_efficiency: 0.900
-	heating_efficiency: 0.530
+	insulation: 0.000
 	airtightness: 0.000
 	valve_strength: 3.000
-	filter_o2: 1.000
-	filter_n2: 1.000
-	filter_co2: 1.000
-	supply_o2: 0.000
-	supply_n2: 0.000
-	supply_co2: 0.000
-
-	// @inventory1:
-	// {
-	// 	stack_size_multiplier: 4.000
-	// 	filter_flags: fuel
-	// 	type: fuel
-	// 	flags: allow_ducts, ignore_mass
-	// 	offset: [-0.250, 1.125]
-	// }
-
-	// @light:
-	// {
-	// 	color: [1.000, 0.500, 0.000, 2.000]
-	// 	offset: [0.000, -3.000]
-	// 	scale: [14.000, 13.000]
-	// 	intensity: 0.000
-	// 	texture: "light.circle.04"
-	// }
 
 	@animated.renderer:
 	{
@@ -311,8 +281,8 @@ burner.state:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write, loose
 
-		rank: 5.000
-		gui_size: [144.000, 64.000]
+		rank: -5.000
+		gui_size: [128.000, 128.000]
 
 		offset_bounds: [-1.000, -0.125, 1.000, 0.125]
 	}
@@ -377,10 +347,10 @@ burner.state:
 		identifier: "bottom"
 
 		flags: use_center_of_gravity, keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation
+		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, rotation, brake
 
-		rank: -5.000
-		gui_size: [224.000, 128.000]
+		rank: 5.000
+		gui_size: [0.000, 128.000]
 
 		offset_bounds: [0.000, -0.750, 0.000, 0.250]
 	}

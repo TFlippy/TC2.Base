@@ -371,7 +371,7 @@ burner.state:
 		identifier: "left"
 
 		flags: keyboard_write, mouse_write, hold
-		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
 
 		rank: 4.000
 		gui_size: [112.000, 72.000]
@@ -411,7 +411,7 @@ burner.state:
 		identifier: "right"
 
 		flags: keyboard_write, mouse_write, hold
-		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
 
 		rank: 5.000
 		gui_size: [112.000, 72.000]
@@ -497,7 +497,7 @@ burner.state:
 		identifier: "bottom"
 
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
 
 		rank: 10.000
 		gui_size: [224.000, 64.000]

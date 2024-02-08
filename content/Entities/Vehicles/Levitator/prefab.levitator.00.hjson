@@ -131,7 +131,7 @@ levitator:
 	flags: none
 	flags_editable: none
 
-	efficiency: 0.700
+	efficiency: 0.450
 	offset: [-1.000, 0.000]
 }
 
