@@ -27,19 +27,19 @@ burner:
 				[
 					{
 						material: "ammo_mg"
-						quantity: 1000.000
+						quantity: 200.000
 					}
 					{
 						material: "ammo_mg"
-						quantity: 1000.000
+						quantity: 200.000
 					}
 					{
 						material: "ammo_mg"
-						quantity: 1000.000
+						quantity: 200.000
 					}
 					{
 						material: "ammo_mg"
-						quantity: 1000.000
+						quantity: 200.000
 					}
 				]
 			}
@@ -56,6 +56,31 @@ burner:
 			{
 				$prefab: "machine_gun"	
 			}
+		}
+	}
+}
+
++slot_motor|instance:
+{
+	+attached|child:
+	{
+		$prefab: "motor.prokopnik.00"
+
+		essencecontainer:
+		{
+			@inventory1:
+			{
+				resource:
+				{
+					material: "pellet.motion"
+					quantity: 5.000
+				}
+			}
+		}
+
+		motor:
+		{
+			speed_target_ratio: 1.000
 		}
 	}
 }

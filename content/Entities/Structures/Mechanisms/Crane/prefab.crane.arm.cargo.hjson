@@ -97,7 +97,7 @@ storage:
 		name: "Cargo"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: allow_ducts
+		flags: allow_ducts, no_auto_pickup
 	}
 }
 

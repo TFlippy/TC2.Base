@@ -60,52 +60,30 @@ burner:
 	}
 }
 
-// +slot_cab|instance:
-// {
-// 	+attached|child:
-// 	{
-// 		$prefab: "cabin.metal.02"
++slot_motor|instance:
+{
+	+attached|child:
+	{
+		$prefab: "motor.prokopnik.00"
 
-// 		storage:
-// 		{
-// 			@inventory4:
-// 			{
-// 				resources:
-// 				[
-// 					{
-// 						material: "ammo_mg"
-// 						quantity: 1000.000
-// 					}
-// 					{
-// 						material: "ammo_mg"
-// 						quantity: 1000.000
-// 					}
-// 					{
-// 						material: "ammo_mg"
-// 						quantity: 1000.000
-// 					}
-// 					{
-// 						material: "ammo_mg"
-// 						quantity: 1000.000
-// 					}
-// 				]
-// 			}
-// 		}
+		essencecontainer:
+		{
+			@inventory1:
+			{
+				resource:
+				{
+					material: "pellet.motion"
+					quantity: 5.000
+				}
+			}
+		}
 
-// 		+mount|instance:
-// 		{
-// 			attachment_slot:
-// 			{
-// 				flags: hold, keyboard_write, mouse_write
-// 			}
-			
-// 			+attached|child:
-// 			{
-// 				$prefab: "machine_gun"	
-// 			}
-// 		}
-// 	}
-// }
+		motor:
+		{
+			speed_target_ratio: 1.000
+		}
+	}
+}
 
 +slot_wheel_0|instance:
 {

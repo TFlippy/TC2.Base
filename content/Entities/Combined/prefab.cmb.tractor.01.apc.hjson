@@ -92,6 +92,31 @@ burner:
 	}
 }
 
++slot_motor|instance:
+{
+	+attached|child:
+	{
+		$prefab: "motor.prokopnik.00"
+
+		essencecontainer:
+		{
+			@inventory1:
+			{
+				resource:
+				{
+					material: "pellet.motion"
+					quantity: 7.000
+				}
+			}
+		}
+
+		motor:
+		{
+			speed_target_ratio: 1.000
+		}
+	}
+}
+
 +slot_wheel_0|instance:
 {
 	+attached|child:
@@ -110,6 +135,11 @@ burner:
 
 +slot_wheel_2|instance:
 {
+	attachment.slot:
+	{
+		offset: [0.000, 0.750]
+	}
+
 	+attached|child:
 	{
 		$prefab: "wheel.rubber.00"
@@ -118,6 +148,11 @@ burner:
 
 +slot_wheel_3|instance:
 {
+	attachment.slot:
+	{
+		offset: [0.000, 0.750]
+	}
+
 	+attached|child:
 	{
 		$prefab: "wheel.rubber.00"

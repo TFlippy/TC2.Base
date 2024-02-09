@@ -197,11 +197,11 @@ mount:
 	joint.piston:
 	{
 		error_bias: 0.000
-		max_bias: 8.000
-		stiffness: 22000.000
-		damping: 1000.000
-		axis_force: 800000.000
-		spring_max_bias: 4.000
+		max_bias: 10.000
+		stiffness: 32000.000
+		damping: 4000.000
+		axis_force: 2000000.000
+		spring_max_bias: 0.450
 		max_distance: 3.000
 		rotation: 0.000
 		stress_mult_axis: 1.000

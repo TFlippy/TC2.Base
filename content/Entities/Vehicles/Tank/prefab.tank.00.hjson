@@ -142,7 +142,7 @@ norotate:
 
 interactable:
 {
-	window_size: [384.000, 352.000]
+	window_size: [384.000, 328.000]
 	window_offset: [0.000, 0.000]
 }
 
@@ -157,223 +157,11 @@ storage:
 	}
 }
 
-steamengine:
-{
-	piston_offset: [1.750, 1.000]
-	steam_offset: [-1.000, 1.125]
-	exhaust_offset: [-4.000, 1.375]
-	burst_offset: [-2.625, -1.000]
-	smoke_direction: [-0.950605, 0.310402]
-	sprite_burst:
-	{
-		texture: "steam_engine.burst.00"
-		mask: "missing"
-		fps: 0.000
-		count: 0
-		size: [32, 24]
-		frame: [1, 0]
-	}
-	flags: none
-	steam_size: 1.000
-	steam_interval: 0.600
-	crank_radius: 0.875
-	rod_length: 0.300
-	condensation_ratio: 0.820
-	bore_depth: 0.250
-	bore_diameter: 0.080
-	linkage_mass: 150.000
-	speed_max: 15.000
-	speed_target: 14.000
-	force: 80000.000
-	efficiency: 0.160
-	burst_threshold: 0.850
-	burst_chance_modifier: 1.000
-	shake_multiplier: 5.000
-	volume_multiplier: 0.800
-	pitch_multiplier: 0.100
-	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "tractor.piston"
-		}
-		z: 99.000
-	}
-
-	@sound.emitter:
-	{
-		file: "tank.engine.loop.00"
-		volume: 0.000
-		pitch: 1.000
-		size: 2.500
-		size_max_modifier: 1.500
-	}
-}
-
-steamengine.state:
-{
-	@sound.emitter:
-	{
-		file: "tractor.steam.loop.00"
-		volume: 0.000
-		pitch: 1.000
-		size: 2.000
-	}	
-}
-
-burner:
-{
-	smoke_offset: [-3.125, -1.875]
-	smoke_direction: [-0.692052, -0.721847]
-	burst_offset: [0.000, 0.000]
-	sprite_burst:
-	{
-		texture: "steam_engine.burst.00"
-		mask: "null"
-		fps: 0.000
-		count: 0
-		size: [32, 24]
-		frame: [1, 0]
-	}
-	flags: none
-	capacity: 2.000
-	efficiency: 0.250
-	air_capacity: 0.650
-	air_intake: 0.300
-	modifier_rate: 0.100
-	volume_modifier: 0.700
-	pitch_modifier: 1.000
-}
-
-burner.state:
-{
-	current_temperature: 300.000
-}
-
-boiler:
-{
-	exhaust_offset: [-4.000, 1.375]
-	burst_offset: [0.000, 0.000]
-	sprite_burst:
-	{
-		texture: "steam_engine.burst.00"
-		mask: "null"
-		fps: 0.000
-		count: 0
-		size: [32, 24]
-		frame: [1, 0]
-	}
-	pressure_max: 2500000.000
-	tank_volume: 0.850
-	tank_thickness: 0.016
-	mass_tank: 60.000
-	mass_heater: 30.000
-	area_surface: 1.000
-	area_heater: 4.000
-	insulation: 0.150
-	efficiency: 0.350
-	blowdown_rate: 0.020
-	flow_rate: 0.020
-	burst_threshold: 0.850
-	burst_chance_modifier: 1.000
-	type: undefined
-	flags: none
-	h_material_surface: "copper.ingot"
-	h_material_heater: "steel.ingot"
-}
-
-boiler.state:
-{
-	water_moles: 2000.000
-
-	@sound.emitter:
-	{
-		file: "tractor.steam.loop.00"
-		volume: 0.000
-		pitch: 1.000
-		size: 1.000
-		size_max_modifier: 0.870
-	}
-}
-
-// steamengine:
-// {
-// 	piston_offset: [1.750, 1.000]
-// 	steam_offset: [-3.250, -2.000]
-// 	exhaust_offset: [-3.125, -0.625]
-// 	burst_offset: [-2.625, -1.000]
-// 	steam_size: 1.250
-// 	steam_interval: 0.600
-// 	piston_radius: 0.875
-// 	speed_max: 14.000
-// 	force: 20000.000
-// 	efficiency: 0.130
-// 	shake_multiplier: 10.000
-// 	volume_multiplier: 0.800
-// 	pitch_multiplier: 0.100
-// 	max_acceleration: 5.000
-	
-// 	@animated.renderer:
-// 	{
-// 		sprite:
-// 		{
-// 			texture: "steam_engine_piston"
-// 		}
-// 		z: 99.000
-// 	}
-
-// 	@sound.emitter:
-// 	{
-// 		file: "tank.engine.loop.00"
-// 		volume: 0.000
-// 		pitch: 1.000
-// 		size: 2.500
-// 		size_max_modifier: 1.500
-// 	}
-// }
-
-// steamengine.state:
-// {
-// 	@sound.emitter:
-// 	{
-// 		file: "tractor.steam.loop.00"
-// 		volume: 0.000
-// 		pitch: 1.000
-// 		size: 2.000
-// 	}	
-// }
-
-// burner:
-// {
-// 	smoke_offset: [-1.250, 1.375]
-// 	smoke_direction: [-3.000, -0.500]
-// 	capacity: 4.000
-// 	energy_loss: 20000.000
-// 	efficiency: 0.300
-// 	drain_multiplier: 5.000
-	
-// 	@inventory1:
-// 	{
-// 		name: "Fuel"
-// 		stack_size_multiplier: 10.000
-// 		filter_flags: fuel
-// 		filter_type: liquid
-// 		type: fuel
-// 		flags: ignore_mass
-// 	}
-// }
-
-// burner.state:
-// {
-// 	current_temperature: 300.000
-// }
-
 axle:
 {
-	offset: [-2.500, 0.375]
-	mass: 100.000
-	friction: 0.200
+	offset: [-2.000, 0.250]
+	mass: 180.000
+	friction: 0.300
 	radius_a: 1.500
 	radius_b: 1.500
 	radius_inner: 1.000
@@ -387,6 +175,27 @@ axle:
 			texture: "wheel_1500.steel"
 		}
 		z: 100.000
+	}
+
+	@sound.emitter:
+	{
+		file: "flywheel.loop.01"
+		volume: 0.000
+		pitch: 1.000
+		size: 1.000
+		size_max_modifier: 0.800
+	}
+	
+	@sound.mixer:
+	{
+		volume_modifier: 1.000
+		pitch_modifier: 0.250
+		volume_min: 0.000
+		pitch_min: 0.500
+		volume_lerp_a: 0.050
+		volume_lerp_b: 0.050
+		pitch_lerp_a: 0.050
+		pitch_lerp_b: 0.050
 	}
 }
 
@@ -425,7 +234,8 @@ axle:
 		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, offset
 
 		offset_bounds: [0.000, -0.500, 0.500, 0.750]
-		gui_size: [192.000, 160.000]
+		gui_size: [192.000, 142.000]
+		rank: -5.000
 	}
 }
 
@@ -464,7 +274,47 @@ axle:
 		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, offset
 
 		offset_bounds: [-0.500, -0.250, 0.250, 0.625]
-		gui_size: [192.000, 160.000]
+		gui_size: [192.000, 142.000]
+		rank: -4.000
+	}
+}
+
++slot_motor|instance:
+{
+	joint.base:
+	{
+		offset_a: [-2.000, 0.250]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: 100.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.0001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Motor"
+		identifier: "motor"
+
+		flags: no_tab
+		flags_editable: locked, disabled
+
+		gui_size: [192.000, 88.000]
+		rank: -2.000
 	}
 }
 
@@ -502,7 +352,8 @@ axle:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, cycle, keyboard_write, mouse_write, offset
 
-		gui_size: [192.000, 96.000]
+		gui_size: [144.000, 88.000]
+		rank: -1.000
 	}
 }
 
@@ -517,12 +368,15 @@ axle:
 	{
 		name: "Wheel (Rear, A)"
 		identifier: "wheel.0"
+
+		gui_size: [96.000, 96.000]
+		rank: 0.000
 	}
 
 	joint.base:
 	{
 		offset_a: [-2.250, 1.500]
-		flags: no_wrap, force_facing, no_sync
+		flags: no_wrap, force_facing
 		z: 110.000
 		material_type: metal
 	}
@@ -551,12 +405,15 @@ axle:
 	{
 		name: "Wheel (Rear, B)"
 		identifier: "wheel.1"
+
+		gui_size: [96.000, 96.000]
+		rank: 1.000
 	}
 
 	joint.base:
 	{
 		offset_a: [-1.250, 1.500]
-		flags: no_wrap, force_facing, no_sync
+		flags: no_wrap, force_facing
 		z: -109.000
 		material_type: metal
 	}
@@ -585,6 +442,9 @@ axle:
 	{
 		name: "Wheel (Front, A)"
 		identifier: "wheel.2"
+
+		gui_size: [96.000, 96.000]
+		rank: 2.000
 	}
 
 	joint.base:
@@ -619,6 +479,9 @@ axle:
 	{
 		name: "Wheel (Front, B)"
 		identifier: "wheel.3"
+
+		gui_size: [96.000, 96.000]
+		rank: 3.000
 	}
 
 	joint.base:
