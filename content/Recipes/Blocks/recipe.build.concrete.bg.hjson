@@ -4,7 +4,7 @@
 		'''
 		Solid block of concrete. Very durable.
 
-		* Needs to be placed over existing blocks!
+		* Must be placed over existing blocks!
 		'''
 	
 	icon:

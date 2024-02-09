@@ -165,7 +165,7 @@
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float sound_volume = 1.25f;
 			public float sound_size = 1.00f;
-			public float sound_dist_multiplier = 4.00f;
+			public float sound_dist_multiplier = 2.00f;
 			public float sound_pitch = 1.00f;
 
 			[Save.NewLine] 

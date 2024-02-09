@@ -29,7 +29,7 @@
 	placement:
 	{
 		type: line
-		flags: place_line_rotated, lock_y
+		flags: allow_placement_over_buildings, place_line_rotated, lock_y
 		
 		size: [0.250, 0.250]
 		
@@ -69,7 +69,6 @@
 			type: prefab
 			prefab: "platform.00"
 			amount: 0.000
-			amount_extra: 0.000
 		}
 	]
 }

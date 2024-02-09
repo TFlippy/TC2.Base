@@ -469,9 +469,12 @@ namespace TC2.Base.Components
 											{
 												GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
 
-												using (GUI.Clip.Push(button.group.GetInnerRect().Shrink(6)))
+												using (var clip = GUI.Clip.Push(button.group.GetInnerRect().Shrink(6), cull: true))
 												{
-													GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
+													if (clip.visible)
+													{
+														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
+													}
 												}
 
 												if (button.pressed)
