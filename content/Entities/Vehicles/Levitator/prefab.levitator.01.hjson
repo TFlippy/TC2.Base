@@ -31,7 +31,7 @@ body:
 
 health:
 {
-	max: 25000.000
+	max: 32000.000
 }
 
 armor:
@@ -140,7 +140,7 @@ levitator:
 	flags: none
 	flags_editable: none
 
-	efficiency: 0.357
+	efficiency: 0.557
 	offset: [0.000, 0.500]
 	
 	// @light:

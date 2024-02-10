@@ -199,7 +199,7 @@ namespace TC2.Base.Components
 							{
 								texture = texture_glow,
 								lifetime = random.NextFloatRange(0.10f, 0.50f) * (levitator.particle_size * 0.50f),
-								pos = transform.LocalToWorld(levitator.offset + node.offset) + random.NextVector2(0.10f) - (dir_world * 2.00f),
+								pos = transform.LocalToWorld(levitator.offset + node.offset) + random.NextVector2(0.10f) - (dir_world * 0.50f),
 								vel = dir_world * random.NextFloatRange(0.90f, 1.00f) * node_amount * 2.00f,
 								force = random.NextUnitVector2Range(0, 8),
 								//fps = random.NextByteRange(3, 5),

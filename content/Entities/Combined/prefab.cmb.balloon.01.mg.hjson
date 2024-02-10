@@ -3,7 +3,7 @@ $prefab: "balloon.01"
 
 storage:
 {
-	@inventory8_data:
+	@inventory8:
 	{
 		resources:
 		[
@@ -39,9 +39,9 @@ burner.state:
 	}
 }
 
-+slot_cab|instance:
++slot.cab|instance:
 {
-	attachment_slot:
+	attachment.slot:
 	{
 		offset: [0.000, -0.500]
 	}
@@ -52,13 +52,13 @@ burner.state:
 	}
 }
 
-+slot_left|instance:
++slot.left|instance:
 {
-	attachment_slot:
+	attachment.slot:
 	{
 		flags: hold, keyboard_write, mouse_write
-		cycle_interval: 0.100
-		cycle_offset: 0.100
+		cycle_interval: 0.085
+		cycle_offset: 0.085
 	}
 
 	+attached|child:
@@ -67,12 +67,12 @@ burner.state:
 	}
 }
 
-+slot_right|instance:
++slot.right|instance:
 {
-	attachment_slot:
+	attachment.slot:
 	{
 		flags: hold, keyboard_write, mouse_write
-		cycle_interval: 0.100
+		cycle_interval: 0.085
 		cycle_offset: 0.000
 	}
 
@@ -82,7 +82,7 @@ burner.state:
 	}
 }
 
-+slot_bottom|instance:
++slot.bottom|instance:
 {
 	+attached|child:
 	{
@@ -113,9 +113,9 @@ burner.state:
 			]
 		}
 
-		essencecontainer_data:
+		essencecontainer:
 		{
-			@inventory1_data:
+			@inventory1:
 			{
 				resource:
 				{

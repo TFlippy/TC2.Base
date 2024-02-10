@@ -185,65 +185,7 @@ burner.state:
 	}
 }
 
-// sound.emitter:
-// {
-// 	file: "balloon.burner.loop.00"
-// 	volume: 0.500
-// 	pitch: 1.000
-// 	size: 0.800
-// }
-
-// burner:
-// {
-// 	smoke_offset: [0.000, -2.875]
-// 	smoke_direction: [-3.000, 1.000]
-// 	capacity: 2.000
-// 	fuel_capacity: 2.000
-// 	modifier_rate: 1.000
-// 	energy_loss: 25000.000
-// 	efficiency: 0.400
-// 	drain_multiplier: 4.000
-// 	combustion_efficiency: 0.780
-// 	air_intake: 0.490
-// 	air_capacity: 1.000
-// 	heating_efficiency: 0.900
-// 	temperature_multiplier: 1.000
-// 	volume_modifier: 1.000
-// 	pitch_modifier: 0.500
-
-// 	@inventory1:
-// 	{
-// 		name: "Fuel"
-// 		stack_size_multiplier: 0.250
-// 		filter_flags: fuel
-// 		type: fuel
-// 		flags: ignore_mass
-// 	}
-	
-// 	@sound.emitter:
-// 	{
-// 		file: "balloon.burner.loop.00"
-// 		volume: 0.000
-// 		pitch: 0.500
-// 	}
-
-// 	@animated.renderer:
-// 	{
-// 		sprite:
-// 		{
-// 			texture: "balloon.burner.00"
-// 		}
-// 		offset: [0.000, -1.875]
-// 		z: -50.000
-// 	}
-// }
-
-// burner.state:
-// {
-// 	current_temperature: 300.000
-// }
-
-+slot_side|instance:
++slot.side|instance:
 {
 	joint.base:
 	{
@@ -296,7 +238,7 @@ burner.state:
 	}
 }
 
-+slot_bottom|instance:
++slot.bottom|instance:
 {
 	joint.base:
 	{
@@ -356,7 +298,7 @@ burner.state:
 	}
 }
 
-+slot_balloon|instance:
++slot.balloon|instance:
 {
 	$tags: []
 
@@ -380,13 +322,6 @@ burner.state:
 		gap_a: 3.000
 		gap_b: 1.500
 	}
-
-	// joint.gear:
-	// {
-	// 	error_bias: 0.100
-	// 	max_bias: 0.500
-	// 	stress_mult: 0.000
-	// }
 	
 	ropetest:
 	{
@@ -395,38 +330,6 @@ burner.state:
 		scale: 4.000
 	}
 
-	// joint.base:
-	// {
-	// 	offset_a: [0.000, -0.500]
-	// 	offset_b: [0.000, 6.500]
-	// 	max_force: 800000.000
-	// 	max_torque: 400.000
-	// 	material_type: metal
-	// 	flags: no_stress
-	// }
-	
-	// joint.rope:
-	// {
-	// 	error_bias: 0.001
-	// 	max_bias: 7.000
-	// }
-	
-	// joint.gear:
-	// {
-	// 	error_bias: 0.050
-	// }
-	
-	// ropetest:
-	// {
-	// 	offset_a: [0.000, -0.750]
-	// 	offset_b: [0.000, 4.000]
-	// 	width_a: 2.500
-	// 	width_b: 1.000
-	// 	texture: "rope"
-	// 	thickness: 0.175
-	// 	scale: 4.000
-	// }
-		
 	+balloon|child:
 	{
 		$prefab: "balloon.envelope.00"

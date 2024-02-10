@@ -3,7 +3,7 @@
 	
 	storage:
 	{
-		@inventory8_data:
+		@inventory8:
 		{
 			resources:
 			[
@@ -36,7 +36,7 @@
 	
 	}
 	
-	+slot_side|instance:
+	+slot.side|instance:
 	{
 		+attached|child:
 		{
@@ -44,12 +44,12 @@
 		}
 	}
 	
-	+slot_bottom|instance:
+	+slot.bottom|instance:
 	{
 	
 	}
 	
-	+slot_balloon|instance:
+	+slot.balloon|instance:
 	{
 		+balloon|child:
 		{

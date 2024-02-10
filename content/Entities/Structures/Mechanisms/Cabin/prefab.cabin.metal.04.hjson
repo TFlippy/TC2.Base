@@ -1,0 +1,332 @@
+$name: "Cabin (Dual)"
+$desc:
+	'''
+	Lightly armored metal cabin with a dual hardpoint on top and a gunner seat.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.650
+	fall_damage_multiplier: 0.750
+
+	@shape.polygon:	
+	{
+		points:
+		[
+			[-0.750, -0.750]
+			[0.125, -0.750]
+			[0.625, 0.875]
+			[-1.250, 0.875]
+		]
+		offset: [0.000, 0.000]
+		radius: 0.375
+		mass: 380.000
+		friction: 0.650
+		elasticity: 0.450
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 65000.000
+}
+
+armor:
+{
+	toughness: 620.000
+	protection: 0.900
+	
+	knockback_modifier: 1.500
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	force_multiplier: 7.500
+	torque_multiplier: 0.800
+	stress_multiplier: 0.500
+	offset: [0.000, 0.000]
+	offset_attachment: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 1.250]
+	force_multiplier: 2.000
+	torque_multiplier: 8.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "cabin.metal.04.bg"
+		// mask: "cabin.metal.04.bg.mask"
+		size: [32, 32]
+	}
+	z: 60.000
+	flags: has_damage
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "cabin.metal.04.fg"
+			// mask: "cabin.metal.04.fg.mask"
+			size: [32, 32]
+		}
+		z: 90.000
+		flags: has_damage
+	}
+}
+
+damage.effects:
+{
+
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+	intensity_b: 0.500
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [240.000, 96.000]
+	window_offset: [0.000, 0.000]
+}
+
+storage:
+{
+	@inventory1:
+	{
+		name: "Ammo"
+		stack_size_multiplier: 10.000
+		type: ammo
+		flags: none
+		offset: [-1.000, 0.375]
+	}
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+threat:
+{
+
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		flags: crouch
+		offset: [-0.375, 0.125]
+		max_tilt: 6.000
+	}
+}
+
+mount:
+{
+	flags: none
+}
+
++mount.00|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.375, -0.625]
+		max_force: 100000.000
+		max_torque: 8000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		z: 75.000
+		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 10.000
+		stiffness: 25000.000
+		damping: 550.000
+		axis_force: 2000000.000
+		spring_max_bias: 0.800
+		max_distance: 2.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
+	}
+
+	joint.gear:
+	{
+		rotation: 0.000
+		ratio: 1.000
+		min: 0.000
+		max: 0.000
+		step: 16.000
+		error_bias: 0.010
+		max_bias: 6.000
+		max_bias_bounce: 4.000
+		max_torque: 0.000
+		bounce: 1.000
+		j_mult_a: 1.000
+		j_mult_b: 1.000
+		modifier: 1.000
+		stress_mult: 1.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (L)"
+		identifier: "mount.00"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write
+
+		gui_size: [120.000, 96.000]
+		rank: 1.000
+	}
+
+	facing:
+	{
+		flags: use_rotation
+		offset: 0.000
+		threshold: 0.050
+		flip_interval: 0.500
+	}
+}
+
++mount.01|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.375, -0.375]
+		max_force: 100000.000
+		max_torque: 8000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		z: 50.000
+		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.700
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 10.000
+		stiffness: 25000.000
+		damping: 550.000
+		axis_force: 2000000.000
+		spring_max_bias: 0.800
+		max_distance: 2.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
+	}
+
+	joint.gear:
+	{
+		rotation: 0.000
+		ratio: 1.000
+		min: 0.000
+		max: 0.000
+		step: 16.000
+		error_bias: 0.010
+		max_bias: 6.000
+		max_bias_bounce: 4.000
+		max_torque: 0.000
+		bounce: 1.000
+		j_mult_a: 1.000
+		j_mult_b: 1.000
+		modifier: 1.000
+		stress_mult: 1.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (R)"
+		identifier: "mount.01"
+
+		flags: keyboard_write, mouse_write, invert
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write
+
+		gui_size: [120.000, 96.000]
+		rank: 2.000
+	}
+
+	facing:
+	{
+		flags: use_rotation
+		offset: 0.000
+		threshold: 0.050
+		flip_interval: 0.500
+	}
+}

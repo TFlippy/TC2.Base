@@ -20,9 +20,9 @@ body:
 			[0.125, -0.750]
 		]
 		offset: [0.000, 0.000]
-		radius: 0.500
+		radius: 0.375
 		mass: 700.000
-		friction: 0.750
+		friction: 0.650
 		elasticity: 0.450
 		material: metal
 		layer: entity, solid
