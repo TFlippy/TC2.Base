@@ -31,14 +31,14 @@
 		count: 1
 		mass: 0.050
 		heat: 70.000
-		velocity_min: 70.000
+		velocity_min: 50.000
 		
 		speed_mult: 1.000
-		spread_mult: 1.000
+		spread_mult: 1.100
 		recoil_mult: 1.000
 		
-		failure_base: 0.002
-		failure_mult: 1.010
+		failure_base: 0.0007
+		failure_mult: 1.020
 		
 		stability_base: 1750.000
 		stability_mult: 1.000

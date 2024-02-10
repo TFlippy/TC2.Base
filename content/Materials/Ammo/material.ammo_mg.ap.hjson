@@ -29,16 +29,16 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.050
-		heat: 70.000
+		mass: 0.110
+		heat: 110.000
 		velocity_min: 50.000
 		
-		speed_mult: 1.000
-		spread_mult: 1.500
-		recoil_mult: 1.000
+		speed_mult: 0.900
+		spread_mult: 1.800
+		recoil_mult: 1.300
 		
-		failure_base: 0.002
-		failure_mult: 1.010
+		failure_base: 0.0011
+		failure_mult: 1.064
 		
 		stability_base: 2650.000
 		stability_mult: 1.000

@@ -40,8 +40,8 @@
 		spread_mult: 4.500
 		recoil_mult: 3.000
 		
-		failure_base: 0.010
-		failure_mult: 0.500
+		failure_base: 0.008
+		failure_mult: 1.370
 		
 		stability_base: 1950.000
 		stability_mult: 1.000
