@@ -137,9 +137,9 @@ controllable:
 
 	facing:
 	{
-		flags: use_rotation
+		flags: none
 		offset: 0.000
-		threshold: 0.000
+		threshold: 0.500
 		flip_interval: 1.000
 	}
 
