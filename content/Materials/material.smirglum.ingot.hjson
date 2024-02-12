@@ -72,7 +72,7 @@
 	substance:
 	{
 		// Molar mass in kg/mol (for elements, use atomic mass)
-		molar_mass: 0.20914
+		molar_mass: 0.452
 		// kg/m³
 		density: 29921.200
 		// kJ/(kg*K)

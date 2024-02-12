@@ -1,0 +1,33 @@
+{
+	name: "Smirgrafit (Compacted)"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.smirgrafit.compacted"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: powder
+	flags: raw, powder, magnetic, granular, metal, despawnable
+	mass_per_unit: 0.760
+	quantity_max: 500.000
+	prefab: "resource.smirgrafit.compacted"
+	
+	specific_heat: 45.500
+	thermal_conductivity: 0.800
+	
+	commodity:
+	{
+		market_price: 5.000
+	}
+}
