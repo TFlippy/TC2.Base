@@ -1,0 +1,32 @@
+{
+	name: "Hydrogen Peroxide"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.hydrogen_peroxide"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.hydrogen_peroxide"
+	molar_mass: 0.034014
+	
+	commodity:
+	{
+		categories: chemicals, dangerous, industrial, military
+		market_price: 12.000
+	}
+}
