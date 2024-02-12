@@ -1,0 +1,29 @@
+﻿{
+	name: "Graphite (Powder)"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.graphite.powder"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	type: powder
+	flags: powder, despawnable
+	hints: none
+	// kg
+	mass_per_unit: 0.900
+	quantity_max: 500.000
+	prefab: "resource.graphite.powder"
+}
