@@ -22,7 +22,7 @@
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.hydrochloric_acid"
-	molar_mass: 0.063012
+	molar_mass: 0.03646
 	
 	commodity:
 	{

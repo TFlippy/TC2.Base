@@ -80,7 +80,7 @@
 		// kW/(m*K)
 		thermal_conductivity: 0.097127
 		// K
-		melting_point: 2245.000
+		melting_point: 3245.000
 		// K
 		boiling_point: 4341.000
 	}
