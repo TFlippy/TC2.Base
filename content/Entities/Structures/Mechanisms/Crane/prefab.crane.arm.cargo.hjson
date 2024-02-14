@@ -173,7 +173,7 @@ vehicle:
 		force: 100.000
 		speed: 0.000
 		error_bias: 0.000
-		brake_force: 500.000
+		brake_force: 100.000
 	}
 
 	attachment.slot:

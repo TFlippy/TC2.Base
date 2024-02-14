@@ -112,6 +112,7 @@ storage:
 	joint_base:
 	{
 		offset_a: [0.000, -0.375]
+		rotation_origin: -1.571
 		max_force: 200000.000
 		max_torque: 400000.000
 		max_stress: 3.000
@@ -164,7 +165,7 @@ storage:
 	{
 		radius: 1.000
 		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
+		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation, hold
 		name: "Mount"
 		identifier: "mount"
 		gui_size: [146.000, 120.000]

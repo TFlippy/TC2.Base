@@ -40,7 +40,7 @@ namespace TC2.Base.Components
 					public static readonly Build.Category[] category_values = Enum.GetValues<Build.Category>();
 					public static FixedString64 edit_name_filter;
 
-					public static Crafting.Recipe.Tags edit_tags_filter = Crafting.Recipe.Tags.Construction;
+					public static Crafting.Recipe.Tags edit_tags_filter = Crafting.Recipe.Tags.Architecture;
 					public static List<(uint index, float rank)> recipe_indices = new(64);
 
 					[Region.Local] public static Vector2 pos_a_placeholder;
@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 					public void Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var region = ref Client.GetRegion();
-						ref var player = ref Client.GetPlayer();
+						ref var character = ref Client.GetCharacter(out var character_asset);
 
 						ref readonly var kb = ref Control.GetKeyboard();
 						ref readonly var mouse = ref Control.GetMouse();
@@ -74,7 +74,7 @@ namespace TC2.Base.Components
 							//	//Sound.PlayGUI(GUI.sound_select, volume: 0.07f);
 							//}
 
-							Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+							Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
 
 							using (GUI.Group.New(size: new(GUI.RmX, 40)))
 							{
@@ -274,9 +274,10 @@ namespace TC2.Base.Components
 									var amount_multiplier = 1.00f;
 
 									ref var recipe = ref this.recipe.GetData();
-									if (!recipe.IsNull() && !player.IsNull())
+									if (recipe.IsNotNull() && character.IsNotNull())
 									{
-										Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+										//Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
+										Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
 
 										if (recipe.type == Crafting.Recipe.Type.Build)
 										{
@@ -284,7 +285,7 @@ namespace TC2.Base.Components
 											if (recipe.placement.TryGetValue(out var placement))
 											{
 												var pos_raw = mouse.position;
-												var h_faction = player.faction_id;
+												var h_faction = character.faction;
 
 												if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
 												{
@@ -304,7 +305,6 @@ namespace TC2.Base.Components
 												Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
 
 												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
-												var inventory = player.GetInventory();
 
 												Color32BGRA color_ok = 0xff00ff00;
 												Color32BGRA color_error = 0xffff0000;
@@ -341,7 +341,7 @@ namespace TC2.Base.Components
 
 														errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
 														amount_multiplier = placed_block_count;
-														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: player.faction_id);
+														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: character.faction);
 
 														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 														{
@@ -412,7 +412,7 @@ namespace TC2.Base.Components
 
 														errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
 														amount_multiplier = 1.00f;
-														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: player.faction_id);
+														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: character.faction);
 
 														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 														{
@@ -565,16 +565,16 @@ namespace TC2.Base.Components
 													{
 														var construction = recipe.construction.Value;
 
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, construction.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref context, construction.requirements, Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 
 														GUI.NewLine(6);
 														GUI.Separator();
 
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier);
 													}
 													else
 													{
-														GUI.DrawRequirements(ref region.AsCommon(), ent_wrench, ref player, wrench_transform.position, recipe.requirements.AsSpan(), Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 													}
 
 													GUI.NewLine();

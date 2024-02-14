@@ -86,7 +86,7 @@ crane:
 	speed: 0.800
 
 	flags: none
-	flags_editable: inverted, hold, relative, maintain_position
+	flags_editable: inverted, relative, maintain_position
 }
 
 crane.state:
@@ -126,6 +126,7 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [4.000, 0.000]
+		rotation_origin: 1.521
 		max_force: 400000.000
 		max_torque: 450000.000
 		max_stress: 2.000
@@ -172,8 +173,8 @@ vehicle:
 	{
 		error_bias: 0.010
 		max_bias: 1.500
-		min: -0.200
-		max: 3.000
+		min: -2.062
+		max: 1.374
 	}
 
 	joint_motor:

@@ -8,7 +8,7 @@
 			None = 0,
 
 			Inverted = 1 << 0,
-			Hold = 1 << 1,
+			//Hold = 1 << 1,
 			Relative = 1 << 2,
 			Maintain_Position = 1 << 3
 		}
@@ -34,7 +34,9 @@
 			public float angle_a;
 			public float angle_b;
 
+			public float rotation_a;
 			public float rotation_b;
+
 			public Vector2 pos_target;
 
 			[Save.Ignore, Net.Ignore] public float last_rotation;
@@ -107,11 +109,11 @@
 							flags = flags
 						};
 
-						if (this.crane.flags_editable.HasAny(Crane.Flags.Hold) && GUI.Checkbox("Hold", ref flags, Crane.Flags.Hold, new Vector2(96, 24)))
-						{
-							dirty = true;
-							edit_rpc.flags = flags;
-						}
+						//if (this.crane.flags_editable.HasAny(Crane.Flags.Hold) && GUI.Checkbox("Hold", ref flags, Crane.Flags.Hold, new Vector2(96, 24)))
+						//{
+						//	dirty = true;
+						//	edit_rpc.flags = flags;
+						//}
 
 						if (this.crane.flags_editable.HasAny(Crane.Flags.Inverted) && GUI.Checkbox("Invert", ref flags, Crane.Flags.Inverted, new Vector2(96, 24)))
 						{
@@ -182,8 +184,8 @@
 				var is_relative = crane.flags.HasAny(Crane.Flags.Relative);
 				var dirty = control.mouse.GetKeyDown(Mouse.Key.Right) || control.mouse.GetKeyUp(Mouse.Key.Right);
 
-				var transform_tmp = transform;
-				var transform_parent_tmp = transform_parent;
+				//var transform_tmp = transform;
+				//var transform_parent_tmp = transform_parent;
 
 				var pos_new = control.mouse.position;
 
@@ -220,18 +222,18 @@
 //					//region.GetNearestPathPos()
 //				}
 
-				if (!crane.flags.HasAny(Crane.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right))
+				if (!attachment_slot.flags.HasAny(Attachment.Slot.Flags.Hold) || control.mouse.GetKey(Mouse.Key.Right))
 				{
-					crane_state.pos_target = is_relative ? transform_parent_tmp.WorldToLocal(pos_new, scale: false, rotation: false) : pos_new;
+					crane_state.pos_target = is_relative ? transform_parent.WorldToLocal(pos_new, scale: false, rotation: false) : pos_new;
 					dirty = true;
 				}
 
 				dirty |= crane.flags.HasAny(Crane.Flags.Maintain_Position);
-				var pos = is_relative ? transform_parent_tmp.LocalToWorld(crane_state.pos_target, rotation: false, scale: false) : crane_state.pos_target;
+				var pos = is_relative ? transform_parent.LocalToWorld(crane_state.pos_target, rotation: false, scale: false) : crane_state.pos_target;
 
 				if (dirty)
 				{
-					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform_tmp.LocalToWorld(joint_base_parent.offset_b), pos, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
+					IK.Resolve2x(new Vector2(crane.length_a, crane.length_b), transform.LocalToWorld(joint_base_parent.offset_b), pos, new(crane_state.angle_a, crane_state.angle_b), out var angles, invert: invert != crane.flags.HasAny(Crane.Flags.Inverted));
 					crane_state.angle_a = angles.X;
 					crane_state.angle_b = angles.Y;
 					//dirty = true;
@@ -250,24 +252,25 @@
 				//				}
 				//#endif
 
-				var parity = transform_tmp.scale.GetParity();
+				var parity = transform.scale.GetParity();
 
-				gear_parent.rotation = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_a) * parity;
-				crane_state.rotation_b = transform_parent_tmp.WorldToLocalRotation(crane_state.angle_b, rotation: false) * parity;
+				crane_state.rotation_a = transform_parent.TransformAngle(crane_state.angle_a, flip: false); // transform_parent.WorldToLocalRotation(crane_state.angle_a, rotation: false, scale: true, normalize: false);
+				//crane_state.rotation_b = transform.WorldToLocalRotation(crane_state.angle_b, rotation: false, scale: true, normalize: false);
+				crane_state.rotation_b = transform.TransformAngle(crane_state.angle_b, flip: invert);
 
-				if (joint_base_parent.flags.HasAny(Joint.Flags.Invert_Facing))
-				{
-					crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
-				}
+				//if (joint_base_parent.flags.HasAny(Joint.Flags.Invert_Facing))
+				//{
+				//	crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
+				//}
 
 				if (invert)
 				{
-					gear_parent.rotation = -gear_parent.rotation;
-					crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
+					//gear_parent.rotation = -gear_parent.rotation;
+					//crane_state.rotation_b = Maths.OppositeAngle(crane_state.rotation_b);
 				}
 
-				gear_parent.rotation = Maths.NormalizeAngle(gear_parent.rotation);
-				crane_state.rotation_b = Maths.NormalizeAngle(crane_state.rotation_b);
+				gear_parent.rotation = Maths.NormalizeAngle(crane_state.rotation_a - joint_base_parent.rotation_origin);
+				//crane_state.rotation_b = crane_state.rotation_b;
 
 				if (info.WorldTime >= crane_state.next_sync && crane_state.last_rotation != crane_state.rotation_b)
 				{
@@ -289,7 +292,7 @@
 		public static void UpdateB(ISystem.Info info, Entity entity, [Source.Owned] ref Joint.Base joint_base,
 		[Source.Owned, Override] ref Joint.Gear gear, [Source.Shared] ref Crane.State crane_state)
 		{
-			gear.rotation = crane_state.rotation_b;
+			gear.rotation = Maths.NormalizeAngle(crane_state.rotation_b - joint_base.rotation_origin);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
