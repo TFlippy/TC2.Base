@@ -10,8 +10,6 @@ body:
 	inventory_weight_multiplier: 0.650
 	fall_damage_multiplier: 0.750
 
-	type: static
-
 	@shape.polygon:	
 	{
 		points:
@@ -168,6 +166,7 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.375, -0.625]
+		rotation_origin: -1.571
 		max_force: 100000.000
 		max_torque: 8000.000
 		max_stress: 3.000
@@ -196,31 +195,31 @@ mount:
 		}
 	}
 
-	// joint.piston:
-	// {
-	// 	error_bias: 0.000
-	// 	max_bias: 10.000
-	// 	stiffness: 25000.000
-	// 	damping: 550.000
-	// 	axis_force: 2000000.000
-	// 	spring_max_bias: 0.800
-	// 	max_distance: 2.000
-	// 	rotation: 0.000
-	// 	stress_mult_axis: 1.000
-	// }
-
-	joint.pivot:
+	joint.piston:
 	{
-		error_bias: 0.01
+		error_bias: 0.000
 		max_bias: 10.000
+		stiffness: 25000.000
+		damping: 550.000
+		axis_force: 2000000.000
+		spring_max_bias: 0.800
+		max_distance: 2.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
 	}
+
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.01
+	// 	max_bias: 10.000
+	// }
 
 	joint.gear:
 	{
 		rotation: 0.000
 		ratio: 1.000
-		min: 0.000
-		max: 0.000
+		min: -2.357
+		max: 2.209
 		step: 16.000
 		error_bias: 0.010
 		max_bias: 6.000
@@ -259,6 +258,7 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.375, -0.375]
+		rotation_origin: -1.571
 		max_force: 100000.000
 		max_torque: 8000.000
 		max_stress: 3.000
@@ -304,8 +304,8 @@ mount:
 	{
 		rotation: 0.000
 		ratio: 1.000
-		min: 0.000
-		max: 0.000
+		min: -2.357
+		max: 2.209
 		step: 16.000
 		error_bias: 0.010
 		max_bias: 6.000

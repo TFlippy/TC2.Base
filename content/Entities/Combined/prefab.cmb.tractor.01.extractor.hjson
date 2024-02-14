@@ -17,7 +17,7 @@ burner:
 {
 	attachment.slot:
 	{
-		flags: keyboard_write, mouse_write
+		flags: keyboard_write, mouse_write, hold
 	}
 
 	+attached|child:
@@ -26,14 +26,14 @@ burner:
 
 		+mount|instance:
 		{
+			attachment.slot:
+			{
+				flags: keyboard_write, mouse_write, hold
+			}
+
 			+attached|child:
 			{
 				$prefab: "crane.arm.articulated"
-
-				crane:
-				{
-					flags: hold
-				}
 
 				+mount|instance:
 				{

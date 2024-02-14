@@ -170,7 +170,7 @@ mount:
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, force_facing
 		z: 75.000
 		material_type: metal
 

@@ -85,8 +85,8 @@ crane:
 	length_b: 8.000
 	speed: 0.800
 
-	flags: none
-	flags_editable: inverted, relative, maintain_position
+	flags: relative
+	flags_editable: relative, maintain_position
 }
 
 crane.state:
@@ -97,7 +97,7 @@ crane.state:
 attachment:
 {
 	offset: [-4.000, 0.000]
-	flags: full_rotate
+	flags: disable_facing_use_rotation, full_rotate
 
 	force_multiplier: 2.000
 	torque_multiplier: 4.000

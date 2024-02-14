@@ -96,9 +96,10 @@ attachment:
 	joint.base:
 	{
 		offset_a: [1.000, 0.000]
+		rotation_origin: -1.570
 		max_force: 500000.000
 		max_torque: 100000.000
-		flags: no_aiming, no_wrap, use_proxy_body
+		flags: no_aiming, no_wrap, allow_dragging, facing_reset_rot, facing_reset_pos
 		material_type: metal
 	}
 
@@ -112,7 +113,6 @@ attachment:
 	{
 		max_bias: 3.000
 		error_bias: 0.001
-		rotation: -1.570
 	}
 
 	grabber:
