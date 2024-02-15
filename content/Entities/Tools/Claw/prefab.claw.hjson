@@ -11,14 +11,14 @@ body:
 
 	@shape.polygon:
 	{
-		points: 
+		points:
 		[
-			[-1.250, 0.125]
-			[-1.250, -0.125]
-			[1.000, -0.750]
-			[1.000, 0.750]
+			[-1.000, 0.125]
+			[-1.000, -0.125]
+			[0.750, -0.500]
+			[0.750, 0.500]
 		]
-		radius: 0.250
+		radius: 0.350
 		mass: 80.000
 		friction: 0.650
 		elasticity: 0.350
@@ -78,7 +78,7 @@ holdable:
 
 attachment:
 {
-	offset: [-1.000, 0.000]
+	offset: [-0.625, 0.000]
 	radius: 0.000
 }
 
@@ -95,7 +95,7 @@ attachment:
 {
 	joint.base:
 	{
-		offset_a: [1.000, 0.000]
+		offset_a: [0.500, 0.000]
 		rotation_origin: -1.570
 		max_force: 500000.000
 		max_torque: 100000.000
