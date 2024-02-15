@@ -35,7 +35,7 @@
 		
 		speed_mult: 1.110
 		spread_mult: 1.140
-		recoil_mult: 1.220
+		recoil_mult: 1.020
 		
 		failure_base: 0.000
 		failure_mult: 1.040
