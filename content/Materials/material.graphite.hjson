@@ -19,11 +19,30 @@
 		frame: [0, 0]
 	}
 	
-	type: powder
-	flags: powder, despawnable
+	type: coal
+	flags: mineral, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.900
 	quantity_max: 500.000
 	prefab: "resource.graphite"
+	
+	scrap: []
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (for elements, use atomic mass)
+		molar_mass: 0.012011
+		// kg/m³
+		density: 2230.000
+		// kJ/(kg*K)
+		specific_heat: 0.706
+		// kW/(m*K)
+		thermal_conductivity: 0.142
+		// K
+		melting_point: 3970.150
+		// K
+		boiling_point: 4473.150
+	}
 }

@@ -20,10 +20,12 @@
 	}
 	
 	type: powder
-	flags: powder, despawnable
+	flags: granular, mineral, raw, powder
 	hints: none
 	// kg
 	mass_per_unit: 0.900
 	quantity_max: 500.000
 	prefab: "resource.graphite.powder"
+	
+	scrap: []
 }

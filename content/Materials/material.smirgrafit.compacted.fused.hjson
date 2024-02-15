@@ -1,0 +1,33 @@
+{
+	name: "Fused Smirgrafit (Compacted)"
+	description:
+		'''
+		Nice job breaking it, hero.
+		'''
+	
+	icon:
+	{
+		texture: "resource.smirgrafit.compacted.fused"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: metal
+	flags: magnetic, metal, ingot
+	mass_per_unit: 0.760
+	quantity_max: 500.000
+	prefab: "resource.smirgrafit.compacted.fused"
+	
+	specific_heat: 45.500
+	thermal_conductivity: 0.800
+	
+	commodity:
+	{
+		market_price: 1.000
+	}
+}
