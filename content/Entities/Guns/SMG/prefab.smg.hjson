@@ -37,7 +37,7 @@ gun:
 	recoil_multiplier: 3.000
 	reload_interval: 2.000
 	cycle_interval: 0.070
-	failure_rate: 0.009
+	failure_rate: 0.006
 	max_ammo: 30.000
 	flash_size: 0.700
 	projectile_count: 1
@@ -50,7 +50,7 @@ gun:
 	heuristic_range: 25.000
 
 	shake_amount: 0.200
-	stability: 750.000
+	stability: 850.000
 	
 	@inventory1:
 	{
@@ -81,8 +81,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 0.550
-	torque_multiplier: 0.800
+	force_multiplier: 1.170
+	torque_multiplier: 1.200
 }
 
 animated.renderer:
