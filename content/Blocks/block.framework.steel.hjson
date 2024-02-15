@@ -1,0 +1,61 @@
+﻿{
+	name: "Framework (Steel)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
+	}
+	
+	material_type: metal
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 2100.000
+	
+	smoothing: 0.150
+	mass: 0.080
+	friction: 0.750
+	elasticity: 0.300
+	stability: 8.000
+	strength_tensile: 21.000
+	strength_compressive: 9.000
+	collision_layer: none
+	collision_mask: none
+	
+	texture: "terrain.framework.steel"
+	pattern: "pattern.framework.steel"
+	
+	texture_scale: 1.000
+	texture_overshoot: 0.000
+	color_preview: "0x00000000"
+	
+	resources:
+	[
+		{
+		
+		}
+		{
+		
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff808379"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff50514e"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
+}
