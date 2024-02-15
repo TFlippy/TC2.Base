@@ -1,0 +1,28 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 90.000
+	damage_bonus: 220.000
+	terrain_damage_mult: 4.000
+	armor_pierce: 310.000
+	knockback_multiplier: 6.000
+	lifetime: 2.000
+	damage_type: bullet_lc
+	size: 0.000
+	ricochet_threshold_multiplier: 1.200
+	tracer_length: 2.500
+	mass: 0.009
+}
+
+projectile.renderer:
+{	
+	intensity: 1.600
+	thickness_a: 0.050
+	thickness_b: 0.100
+}
+
+transform:
+{
+
+}

@@ -1,0 +1,48 @@
+﻿{
+	name: "LC Ammo (AP)"
+	description:
+		'''
+		Ammunition for pistols, revolvers
+		and submachine guns.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_lc.ap"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [12, 0]
+	}
+	
+	type: metal
+	flags: manufactured, ammo, ammo_lc, magnetic, granular, despawnable
+	mass_per_unit: 0.021
+	quantity_max: 60.000
+	prefab: "resource.ammo_lc.ap"
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.009
+		heat: 21.000
+		velocity_min: 80.000
+		
+		speed_mult: 1.110
+		spread_mult: 1.140
+		recoil_mult: 1.220
+		
+		failure_base: 0.000
+		failure_mult: 1.040
+		
+		stability_base: 340.000
+		stability_mult: 0.945
+		
+		prefab: "projectile.bullet.lc.ap"
+	}
+}
