@@ -17,7 +17,7 @@
 	
 	}
 	
-	type: powder
+	type: sand
 	flags: raw, granular, despawnable
 	mass_per_unit: 0.700
 	quantity_max: 500.000

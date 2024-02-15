@@ -12,7 +12,7 @@
 		frame: [0, 0]
 	}
 	
-	material_type: gravel
+	material_type: sand
 	tile_flags: non_empty
 	flags: raw
 	

@@ -48,7 +48,7 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: "machine_parts"
 			amount: 2.000
 		}
 		{
@@ -64,7 +64,6 @@
 			type: prefab
 			prefab: "lamp.02"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

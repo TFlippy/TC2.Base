@@ -48,7 +48,7 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: "machine_parts"
 			amount: 2.000
 		}
 		{
