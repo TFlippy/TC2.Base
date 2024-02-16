@@ -18,7 +18,7 @@
 	
 	max_health: 2100.000
 	
-	smoothing: 0.150
+	smoothing: 0.275
 	mass: 0.080
 	friction: 0.750
 	elasticity: 0.300

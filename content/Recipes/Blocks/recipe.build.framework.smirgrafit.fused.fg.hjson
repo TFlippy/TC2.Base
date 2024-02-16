@@ -45,7 +45,7 @@
 			{
 				block: "framework.smirgrafit.fused"
 				meta: 0
-				flags: solid, become_background_on_break
+				flags: solid, become_background_on_break, non_empty
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 		{
 			type: block
 			block: "framework.smirgrafit.fused"
-			tile_flags: solid, become_background_on_break
+			tile_flags: solid, become_background_on_break, non_empty
 		}
 	]
 }
