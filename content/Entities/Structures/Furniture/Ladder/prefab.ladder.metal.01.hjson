@@ -1,0 +1,66 @@
+$name: "Ladder (Metal)"
+$desc:
+	'''
+	A durable metal ladder.
+	Can be climbed.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 200.000
+		radius: 1.250
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 18500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ladder.metal.01"
+	}
+	z: -290.000
+}
+
+transform:
+{
+
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "ladder.metal.01"
+		size: [8, 24]
+	}
+	
+	cap_b:
+	{
+		texture: "ladder.metal.01"
+		size: [8, 24]
+	}
+	
+	flags: none
+	
+	a: [0.000, -2.500]
+	b: [0.000, 2.500]
+	cap_offset: 0.500
+}

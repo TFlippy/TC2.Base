@@ -9,14 +9,15 @@ $tags: []
 body:
 {
 	type: static
+	fall_damage_multiplier: 0.500
 	
 	@shape.box:
 	{
 		size: [0.750, 5.000]
 		offset: [0.000, 0.000]
-		mass: 42.000
+		mass: 90.000
 		friction: 0.750
-		elasticity: 0.300
+		elasticity: 0.600
 		material: wood
 		layer: entity, solid, building, door, no_overlapped_placement, flammable
 		mask: world, solid
