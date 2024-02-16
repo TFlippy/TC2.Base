@@ -1,10 +1,8 @@
 ﻿{
-	name: "Concrete"
+	name: "Smirgrafit"
 	desc:
 		'''
-		Solid block of concrete. Very durable.
-
-		* Must be placed over existing blocks!
+		TODO: Desc
 		'''
 	
 	icon:
@@ -43,9 +41,9 @@
 		
 		mappings_replace:
 		{
-			framework:
+			framework.smirgrafit:
 			{
-				block: "concrete"
+				block: "framework.smirgrafit.fused"
 				meta: 0
 				flags: solid, become_background_on_break
 			}
@@ -56,13 +54,8 @@
 	[
 		{
 			type: resource
-			material: "gravel"
+			material: "smirgrafit.compacted"
 			amount: 0.200
-		}
-		{
-			type: resource
-			material: "cement"
-			amount: 0.100
 		}
 	]
 	
@@ -70,7 +63,7 @@
 	[
 		{
 			type: block
-			block: "concrete"
+			block: "framework.smirgrafit.fused"
 			tile_flags: solid, become_background_on_break
 		}
 	]

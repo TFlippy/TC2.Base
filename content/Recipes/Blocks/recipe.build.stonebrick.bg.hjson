@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Stone Brick (Background)"
 	desc:
 		'''
@@ -11,6 +11,8 @@
 		size: [16, 16]
 		frame: [0, 1]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -28,7 +30,7 @@
 		
 		size: [1.000, 1.000]
 		
-		cooldown: 0.300
+		cooldown: 0.220
 		min_support: 0.050
 		min_claim: 1.000
 		

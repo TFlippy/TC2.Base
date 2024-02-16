@@ -1,5 +1,5 @@
 ﻿{
-	name: "Framework (Background)"
+	name: "Framework"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [6, 1]
+		frame: [6, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -94.000
+	rank: -94.500
 	
 	placement:
 	{
@@ -44,7 +44,7 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 0.015
+			amount: 0.030
 		}
 	]
 	
@@ -52,8 +52,8 @@
 	[
 		{
 			type: block
-			block: "framework.steel"
-			tile_flags: none
+			block: "framework"
+			tile_flags: solid
 		}
 	]
 }

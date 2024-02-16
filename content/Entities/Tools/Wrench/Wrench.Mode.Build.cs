@@ -1102,7 +1102,7 @@ namespace TC2.Base.Components
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 												context.Consume(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
-												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health);
+												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 												switch (placement.type)
 												{
 													case Placement.Type.Rectangle:
@@ -1430,7 +1430,7 @@ namespace TC2.Base.Components
 				}
 
 				#region CalculateBlockCount
-				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health);
+				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CountTileFunc(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
 				{
 					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
@@ -1442,7 +1442,12 @@ namespace TC2.Base.Components
 				private static void CountTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
 				{
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
-					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					//{
+					//	args.count++;
+					//}
+
+					if (args.mappings_replace.ContainsKey(tile.BlockID))
 					{
 						args.count++;
 					}
@@ -1452,7 +1457,7 @@ namespace TC2.Base.Components
 				{
 					ref var terrain = ref region.GetTerrain();
 
-					var args = new CalculateBlockCountArgs(block: block, tile_flags: tile_flags, count: 0, max_health: block.GetData().max_health);
+					var args = new CalculateBlockCountArgs(block: block, tile_flags: tile_flags, count: 0, max_health: block.GetData().max_health, mappings_replace: placement.mappings_replace);
 					switch (placement.type)
 					{
 						case Placement.Type.Rectangle:
@@ -1512,7 +1517,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 				#region SetTile
-				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health);
+				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
 				{
 					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
@@ -1530,14 +1535,20 @@ namespace TC2.Base.Components
 				static void SetTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
 				{
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
-					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					//{
+					//	tile.Reset();
+
+					//	tile.Health = 255;
+					//	tile.BlockID = (byte)args.block.id;
+					//	tile.Flags |= args.tile_flags;
+
+					//	args.count++;
+					//}
+
+					if (args.mappings_replace.TryGetValue(tile.BlockID, out var mapping))
 					{
-						tile.Reset();
-
-						tile.Health = 255;
-						tile.BlockID = (byte)args.block.id;
-						tile.Flags |= args.tile_flags;
-
+						tile.Set(mapping);
 						args.count++;
 					}
 				}
