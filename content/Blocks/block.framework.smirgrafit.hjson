@@ -16,11 +16,11 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 2100.000
+	max_health: 7500.000
 	
 	smoothing: 0.150
 	mass: 0.080
-	friction: 0.750
+	friction: 0.850
 	elasticity: 0.300
 	stability: 8.000
 	strength_tensile: 21.000
@@ -33,7 +33,9 @@
 	
 	texture_scale: 1.000
 	texture_overshoot: 0.000
+	texture_offset: -1.000
 	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
