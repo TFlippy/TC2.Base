@@ -18,7 +18,7 @@
 	
 	max_health: 7500.000
 	
-	smoothing: 0.150
+	smoothing: 0.200
 	mass: 0.080
 	friction: 0.850
 	elasticity: 0.300
@@ -51,7 +51,7 @@
 	[
 		{
 			color: "0xff988c8a"
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty
 			meta: 0
 		}
 		{

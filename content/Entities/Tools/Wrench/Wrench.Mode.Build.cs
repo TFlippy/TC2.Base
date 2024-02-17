@@ -644,7 +644,8 @@ namespace TC2.Base.Components
 															{
 																if (placement.type == Placement.Type.Line)
 																{
-																	pos_a_raw = pos_b - ((pos_b - pos_a).GetNormalized() * placement.length_step);
+																	//pos_a_raw = pos_b - ((pos_b - pos_a).GetNormalized() * placement.length_step);
+																	pos_a_raw = (pos_b - ((pos_b - pos_a).GetNormalized() * placement.size * 0.50f)).SnapFloor(0.125f);
 																	pos_b_raw = null;
 																}
 															}

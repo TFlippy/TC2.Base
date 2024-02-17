@@ -13,12 +13,12 @@
 	}
 	
 	material_type: metal
-	tile_flags: non_empty
+	tile_flags: non_empty, transparent
 	flags: artificial
 	
 	max_health: 2100.000
 	
-	smoothing: 0.150
+	smoothing: 0.200
 	mass: 0.080
 	friction: 0.650
 	elasticity: 0.250
@@ -51,7 +51,7 @@
 	[
 		{
 			color: "0xff808379"
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty
 			meta: 0
 		}
 		{
