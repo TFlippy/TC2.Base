@@ -13,7 +13,7 @@
 	}
 	
 	material_type: metal
-	tile_flags: non_empty, transparent
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 2100.000
@@ -51,12 +51,12 @@
 	[
 		{
 			color: "0xff808379"
-			tile_flags: solid, non_empty, become_background_on_break, transparent
+			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
 		{
 			color: "0xff50514e"
-			tile_flags: non_empty, transparent
+			tile_flags: non_empty
 			meta: 0
 		}
 	]
