@@ -28,16 +28,13 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous, no_snapping, replace, ignore_obstructed
+		flags: continuous, replace, ignore_obstructed
 		
-		size: [1.500, 1.500]
-		radius: 0.750
+		size: [2.000, 2.000]
+		radius: 1.000
 		
 		cooldown: 0.200
 		min_claim: 1.000
-		
-		length_min: 0.500
-		length_max: 4.000
 		
 		sound: "stone_place_0"
 		

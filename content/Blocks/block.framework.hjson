@@ -13,12 +13,12 @@
 	}
 	
 	material_type: metal
-	tile_flags: non_empty
+	tile_flags: non_empty, transparent
 	flags: artificial
 	
 	max_health: 2100.000
 	
-	smoothing: 0.150
+	smoothing: 0.200
 	mass: 0.080
 	friction: 0.650
 	elasticity: 0.450
@@ -33,7 +33,9 @@
 	
 	texture_scale: 1.000
 	texture_overshoot: 0.000
+	texture_offset: -1.000
 	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
@@ -49,12 +51,12 @@
 	[
 		{
 			color: "0xff808379"
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty, become_background_on_break, transparent
 			meta: 0
 		}
 		{
 			color: "0xff50514e"
-			tile_flags: non_empty
+			tile_flags: non_empty, transparent
 			meta: 0
 		}
 	]
