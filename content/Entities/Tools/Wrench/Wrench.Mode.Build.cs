@@ -263,6 +263,8 @@ namespace TC2.Base.Components
 
 
 						//if (!GUI.IsHovered)
+
+						if (!Editor.IsActive)
 						{
 							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
@@ -362,7 +364,7 @@ namespace TC2.Base.Components
 
 														var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 
-														var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color_dummy: color_dummy_fg, color_gray: color_gray_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health);
+														var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 														switch (placement.type)
 														{
 															case Placement.Type.Rectangle:
@@ -1448,7 +1450,9 @@ namespace TC2.Base.Components
 					//	args.count++;
 					//}
 
-					if (args.mappings_replace.ContainsKey(tile.BlockID))
+					//if (args.mappings_replace.ContainsKey(tile.BlockID))
+					//{
+					if (args.mappings_replace.TryGetValue(tile.GetBlockHandle(), out var mapping) && tile.Flags.HasAny(TileFlags.Solid) == mapping.flags.HasAny(TileFlags.Solid))
 					{
 						args.count++;
 					}
@@ -1486,17 +1490,17 @@ namespace TC2.Base.Components
 
 #if CLIENT
 				#region DrawTile
-				private record struct DrawTileArgs(Vector2 offset, Vector2 rect_size, Color32BGRA color_dummy, Color32BGRA color_gray, TileFlags tile_flags, IBlock.Handle block, float max_health);
+				private record struct DrawTileArgs(Vector2 offset, Vector2 rect_size, TileFlags tile_flags, IBlock.Handle block, float max_health, Color32BGRA color, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
 				{
 					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
 					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color);
 					}
 					else
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
+						GUI.DrawRectFilled(pos, pos + args.rect_size, color_gray.WithAlpha(100));
 					}
 				}
 
@@ -1504,17 +1508,24 @@ namespace TC2.Base.Components
 				{
 					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != args.block.id)
-					if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
+					if (args.mappings_replace.TryGetValue(tile.GetBlockHandle(), out var mapping) && tile.Flags.HasAny(TileFlags.Solid) == mapping.flags.HasAny(TileFlags.Solid))
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_dummy);
+						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color);
 					}
 					else
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
+						//GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
+						GUI.DrawRectFilled(pos, pos + args.rect_size, color_gray.WithAlpha(100));
 					}
 				}
 				#endregion
 #endif
+
+				public static readonly Color32BGRA color_ok = 0xff00ff00;
+				public static readonly Color32BGRA color_error = 0xffff0000;
+				public static readonly Color32BGRA color_gray = 0xff404040;
+				public static readonly Color32BGRA color_yellow = 0xffffff00;
 
 #if SERVER
 				#region SetTile
@@ -1547,7 +1558,7 @@ namespace TC2.Base.Components
 					//	args.count++;
 					//}
 
-					if (args.mappings_replace.TryGetValue(tile.BlockID, out var mapping))
+					if (args.mappings_replace.TryGetValue(tile.GetBlockHandle(), out var mapping) && tile.Flags.HasAny(TileFlags.Solid) == mapping.flags.HasAny(TileFlags.Solid))
 					{
 						tile.Set(mapping);
 						args.count++;
@@ -1557,7 +1568,7 @@ namespace TC2.Base.Components
 #endif
 
 				#region CalculateSupport
-				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count);
+				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CalculateSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
 				{
 					if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
@@ -1595,7 +1606,7 @@ namespace TC2.Base.Components
 					//var args = new CalculateSupportArgs(valid_count: 0, total_count: 0);
 					//terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2, 2), ref args, CalculateSupportFunc);
 
-					var args = new CalculateSupportArgs(support_count: 0, blocked_count: 0, total_count: 0);
+					var args = new CalculateSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, mappings_replace: placement.mappings_replace);
 					switch (placement.type)
 					{
 						case Placement.Type.Simple:
