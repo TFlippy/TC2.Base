@@ -29,7 +29,7 @@
 		type: line
 		flags: continuous
 		
-		size: [0.625, 0.625]
+		size: [0.750, 0.750]
 		
 		cooldown: 0.500
 		min_support: 0.020

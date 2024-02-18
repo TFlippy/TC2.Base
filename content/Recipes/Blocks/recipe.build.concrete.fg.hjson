@@ -30,7 +30,7 @@
 		type: rectangle
 		flags: continuous, replace, ignore_obstructed
 		
-		size: [2.000, 2.000]
+		size: [2.500, 2.500]
 		radius: 1.000
 		
 		cooldown: 0.200
