@@ -20,8 +20,8 @@
 	
 	smoothing: 0.200
 	mass: 9.400
-	friction: 0.550
-	elasticity: 0.450
+	friction: 0.450
+	elasticity: 0.550
 	stability: 8.000
 	strength_tensile: 21.000
 	strength_compressive: 9.000
