@@ -1,10 +1,10 @@
 {
-	name: "Wheel (Rubber, Small)"
-	desc: "Small high-friction wheel that can be attached to vehicles."
+	name: "Wheel (Rubber, Large)"
+	desc: "Large high-friction wheel that can be attached to vehicles."
 	
 	icon:
 	{
-		texture: "wheel.rubber.00"
+		texture: "wheel.rubber.00.lg"
 	}
 	
 	min: 1
@@ -21,23 +21,23 @@
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 4.000
+			amount: 9.000
 		}
 		{
 			type: "resource"
 			material: "rubber"
-			amount: 12.000
+			amount: 20.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 250.000
+			amount: 400.000
 			difficulty: 9.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 300.000
+			amount: 400.000
 			difficulty: 6.000
 		}
 	]
@@ -46,7 +46,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "wheel.rubber.00"
+			prefab: "wheel.rubber.00.lg"
 			amount: 1.000
 		}
 	]

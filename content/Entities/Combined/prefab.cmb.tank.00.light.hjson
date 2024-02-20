@@ -94,7 +94,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.metal.01"
+		$prefab: "wheel.metal.00.lg"
 	}
 }
 
@@ -102,7 +102,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.metal.01"
+		$prefab: "wheel.metal.00.lg"
 	}
 }
 
@@ -110,7 +110,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.metal.01"
+		$prefab: "wheel.metal.00.lg"
 	}
 }
 
@@ -118,7 +118,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.metal.01"
+		$prefab: "wheel.metal.00.lg"
 	}
 }
 

@@ -1,4 +1,4 @@
-$name: "Wheel (Rubber, Smallest)"
+$name: "Wheel (Rubber, Small)"
 $desc:
 	'''
 	
@@ -14,8 +14,8 @@ body:
 		offset: [0.000, 0.000]
 		mass: 14.000
 		radius: 0.500
-		friction: 1.200
-		elasticity: 0.800
+		friction: 1.350
+		elasticity: 0.750
 		material: rubber
 		layer: entity, solid, wheel
 		mask: world
@@ -26,7 +26,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "wheel.rubber.02"
+		texture: "wheel.rubber.00.sm"
 	}
 	z: 110.000
 }

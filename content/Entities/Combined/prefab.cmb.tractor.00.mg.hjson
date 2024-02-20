@@ -89,7 +89,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.01"
+		$prefab: "wheel.rubber.00.lg"
 	}
 }
 
@@ -97,7 +97,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.01"
+		$prefab: "wheel.rubber.00.lg"
 	}
 }
 
@@ -105,7 +105,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.00"
+		$prefab: "wheel.rubber.00.md"
 	}
 }
 
@@ -113,7 +113,7 @@ burner:
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.00"
+		$prefab: "wheel.rubber.00.md"
 	}
 }
 

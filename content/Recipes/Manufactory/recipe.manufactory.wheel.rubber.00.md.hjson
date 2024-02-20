@@ -1,10 +1,10 @@
 {
-	name: "Wheel (Metal, Medium)"
-	desc: "Medium metal wheel that can be attached to vehicles."
+	name: "Wheel (Rubber, Medium)"
+	desc: "Medium high-friction wheel that can be attached to vehicles."
 	
 	icon:
 	{
-		texture: "wheel.metal.01"
+		texture: "wheel.rubber.00.md"
 	}
 	
 	min: 1
@@ -21,18 +21,23 @@
 		{
 			type: "resource"
 			material: "steel.ingot"
-			amount: 18.000
+			amount: 4.000
+		}
+		{
+			type: "resource"
+			material: "rubber"
+			amount: 12.000
 		}
 		{
 			type: "work"
 			work: "smithing"
-			amount: 700.000
-			difficulty: 6.000
+			amount: 250.000
+			difficulty: 9.000
 		}
 		{
 			type: "work"
 			work: "assembling"
-			amount: 100.000
+			amount: 300.000
 			difficulty: 6.000
 		}
 	]
@@ -41,7 +46,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "wheel.metal.01"
+			prefab: "wheel.rubber.00.md"
 			amount: 1.000
 		}
 	]

@@ -1,4 +1,4 @@
-$name: "Wheel (Metal, Medium)"
+$name: "Wheel (Metal, Large)"
 $desc:
 	'''
 	
@@ -26,7 +26,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "wheel.metal.01"
+		texture: "wheel.metal.00.lg"
 	}
 	z: 110.000
 }

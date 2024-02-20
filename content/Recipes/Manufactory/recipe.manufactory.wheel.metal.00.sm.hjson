@@ -1,0 +1,48 @@
+{
+	name: "Wheel (Metal, Small)"
+	desc: "Small metal wheel that can be attached to vehicles."
+	
+	icon:
+	{
+		texture: "wheel.metal.00.sm"
+	}
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	flags: blueprintable
+	type: workshop
+	tags: manufactory
+	rank: -150.000
+	
+	requirements:
+	[
+		{
+			type: "resource"
+			material: "steel.ingot"
+			amount: 18.000
+		}
+		{
+			type: "work"
+			work: "smithing"
+			amount: 700.000
+			difficulty: 6.000
+		}
+		{
+			type: "work"
+			work: "assembling"
+			amount: 100.000
+			difficulty: 6.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: "prefab"
+			prefab: "wheel.metal.00.sm"
+			amount: 1.000
+		}
+	]
+}

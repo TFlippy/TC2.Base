@@ -1,0 +1,74 @@
+$name: "Wheel (Metal, Small)"
+$desc:
+	'''
+	
+	'''
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 0.300
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 45.000
+		radius: 0.500
+		friction: 0.800
+		elasticity: 0.650
+		material: metal
+		layer: entity, solid, wheel
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wheel.metal.00.sm"
+	}
+	z: 110.000
+}
+
+health:
+{
+	max: 21000.000
+}
+
+armor:
+{
+	toughness: 750.000
+	protection: 0.900
+	
+	knockback_modifier: 1.000
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+	stress_multiplier: 0.500
+}
+
+attachment:
+{
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+transform:
+{
+
+}
+
+wheel:
+{
+	
+}

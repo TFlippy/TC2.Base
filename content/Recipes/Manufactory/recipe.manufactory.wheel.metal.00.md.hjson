@@ -1,10 +1,10 @@
 {
-	name: "Wheel (Metal, Small)"
-	desc: "Small metal wheel that can be attached to vehicles."
+	name: "Wheel (Metal, Medium)"
+	desc: "Medium metal wheel that can be attached to vehicles."
 	
 	icon:
 	{
-		texture: "wheel.metal.00"
+		texture: "wheel.metal.00.md"
 	}
 	
 	min: 1
@@ -41,7 +41,7 @@
 	[
 		{
 			type: "prefab"
-			prefab: "wheel.metal.00"
+			prefab: "wheel.metal.00.md"
 			amount: 1.000
 		}
 	]

@@ -1,4 +1,4 @@
-$name: "Wheel (Rubber, Small)"
+$name: "Wheel (Metal, Medium)"
 $desc:
 	'''
 	
@@ -7,16 +7,16 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 0.050
+	fall_damage_multiplier: 0.400
 
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 40.000
+		mass: 120.000
 		radius: 0.700
-		friction: 1.600
-		elasticity: 0.800
-		material: rubber
+		friction: 0.950
+		elasticity: 0.600
+		material: metal
 		layer: entity, solid, wheel
 		mask: world
 	}
@@ -26,20 +26,20 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "wheel.rubber.00"
+		texture: "wheel.metal.00.md"
 	}
 	z: 110.000
 }
 
 health:
 {
-	max: 6000.000
+	max: 40000.000
 }
 
 armor:
 {
-	toughness: 500.000
-	protection: 0.500
+	toughness: 1000.000
+	protection: 0.900
 	
 	knockback_modifier: 1.000
 	pain_modifier: 0.000

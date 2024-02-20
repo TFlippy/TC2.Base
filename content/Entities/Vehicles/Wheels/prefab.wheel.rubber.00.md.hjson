@@ -7,14 +7,14 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 0.080
+	fall_damage_multiplier: 0.060
 
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 100.000
-		radius: 1.125
-		friction: 1.600
+		mass: 40.000
+		radius: 0.700
+		friction: 1.500
 		elasticity: 0.800
 		material: rubber
 		layer: entity, solid, wheel
@@ -26,14 +26,14 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "wheel.rubber.01"
+		texture: "wheel.rubber.00.md"
 	}
 	z: 110.000
 }
 
 health:
 {
-	max: 10000.000
+	max: 8000.000
 }
 
 armor:
