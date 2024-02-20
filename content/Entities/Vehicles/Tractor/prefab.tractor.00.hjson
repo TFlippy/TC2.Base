@@ -253,7 +253,8 @@ axle:
 		flags: keyboard_read, mouse_read
 		flags_editable: locked, disabled, offset
 
-		offset_bounds: [-0.625, -0.625, 0.500, 0.250]
+		// offset_bounds: [-0.625, -0.625, 0.500, 0.250]
+		offset_bounds: [-0.625, -0.625, 1.500, 0.250]
 
 		gui_size: [192.000, 160.000]
 		rank: -10.000
