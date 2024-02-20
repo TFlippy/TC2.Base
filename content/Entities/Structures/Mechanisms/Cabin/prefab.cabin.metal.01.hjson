@@ -62,6 +62,7 @@ attachment:
 {
 	offset: [0.000, 1.750]
 	flags: disable_parent_facing
+	tags: large, turret, cabin, fixed
 	force_multiplier: 2.000
 	torque_multiplier: 8.000
 }
@@ -116,7 +117,7 @@ transform:
 
 interactable:
 {
-	window_size: [264.000, 192.000]
+	window_size: [256.000, 192.000]
 	window_offset: [0.000, 0.000]
 }
 
@@ -220,11 +221,19 @@ threat:
 	{
 		name: "Left"
 		identifier: "left"
+		rank: 1.000
 
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
-		gui_size: [0.000, 72.000]
+		gui_size: [128.000, 72.000]
+
+		tags_filter:
+		{
+			require: none
+			include: small, medium, weapon, tool, turret, rotary
+			exclude: large, huge, cabin, wheel
+		}
 	}
 }
 
@@ -285,16 +294,24 @@ threat:
 		max_bias: 5.000
 		max_bias_bounce: 20.000
 		bounce: 20.000
+
+		tags_filter:
+		{
+			require: none
+			include: small, medium, weapon, tool, turret, rotary
+			exclude: large, huge, cabin, wheel
+		}
 	}
 	
 	attachment.slot:
 	{
 		name: "Right"
 		identifier: "right"
+		rank: 2.000
 
 		flags: keyboard_write, mouse_write, invert
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
-		gui_size: [0.000, 72.000]
+		gui_size: [128.000, 72.000]
 	}
 }

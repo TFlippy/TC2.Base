@@ -45,11 +45,11 @@ namespace TC2.Base.Components
 				ref var region = ref Client.GetRegion();
 				ref var terrain = ref region.GetTerrain();
 
-				var pos = GUI.WorldToCanvas(this.prospector_pick_state.position);
+				var pos = region.WorldToCanvas(this.prospector_pick_state.position);
 
-				var a = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -3.00f));
-				var b = GUI.WorldToCanvas(this.prospector_pick_state.position);
-				var c = GUI.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
+				var a = region.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -3.00f));
+				var b = region.WorldToCanvas(this.prospector_pick_state.position);
+				var c = region.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
 				using (var window = GUI.Window.HUD("Prospector Pick"u8, position: a + new Vector2(0.00f, -2.00f), size: new(160, 0), pivot: new(0.50f, 1.00f)))
 				{
@@ -67,11 +67,11 @@ namespace TC2.Base.Components
 						if (total_count > 0.00f)
 						{
 							//GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
-							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * GUI.GetWorldToCanvasScale()), GUI.font_color_default.WithAlphaMult(1.00f), GUI.font_color_default.WithAlphaMult(0.50f), 4.00f, 1.00f);
+							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default.WithAlphaMult(1.00f), GUI.font_color_default.WithAlphaMult(0.50f), 4.00f, 1.00f);
 
 							GUI.DrawLine(a - new Vector2(80, 0), a + new Vector2(80, 0), GUI.font_color_default, 1.00f);
 							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
-							GUI.DrawCircleFilled(b, 0.075f * GUI.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
+							GUI.DrawCircleFilled(b, 0.075f * region.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
 
 							GUI.Title("Minerals");
 
@@ -93,13 +93,13 @@ namespace TC2.Base.Components
 								}
 							}
 
-							var offset = Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth).WorldToCanvas();
+							var offset = region.WorldToCanvas(Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
 							var random = XorRandom.New((uint)(App.GetFixedTime() * 15.00));
 
 							var alpha = 1.00f; // (this.prospector_pick_state.next_hit - region.GetWorldTime()); //.Clamp0X();
 
-							var rect_size = new Vector2(App.pixels_per_unit_inv) * GUI.GetWorldToCanvasScale();
+							var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
 
 							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);

@@ -472,7 +472,7 @@ namespace TC2.Base.Components
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 						if (!result.mask.HasAll(Physics.Layer.Solid))
 						{
-							if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+							if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
 							if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
@@ -506,7 +506,7 @@ namespace TC2.Base.Components
 							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 							if (!result.mask.HasAll(Physics.Layer.Solid))
 							{
-								if (h_faction.id != 0 && result.GetFactionID() == h_faction.id) continue;
+								if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
 								if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 							}
 
@@ -593,8 +593,8 @@ namespace TC2.Base.Components
 				ref var region = ref Client.GetRegion();
 
 				var radius = this.melee.thickness;
-				var c_radius = radius * GUI.GetWorldToCanvasScale();
-				var c_pos = GUI.WorldToCanvas(this.pos_target);
+				var c_radius = radius * region.GetWorldToCanvasScale();
+				var c_pos = region.WorldToCanvas(this.pos_target);
 
 				//if (this.melee.category == Melee.Category.Pointed)
 				{
@@ -605,7 +605,7 @@ namespace TC2.Base.Components
 
 					GUI.DrawCircleFilled(c_pos, c_radius, this.color.WithAlphaMult(0.10f), segments: 16);
 					GUI.DrawCircle(c_pos, c_radius, this.color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
-					GUI.DrawCircleFilled(GUI.WorldToCanvas(this.pos_hit), 3.00f, this.color, segments: 4);
+					GUI.DrawCircleFilled(region.WorldToCanvas(this.pos_hit), 3.00f, this.color, segments: 4);
 				}
 			}
 		}

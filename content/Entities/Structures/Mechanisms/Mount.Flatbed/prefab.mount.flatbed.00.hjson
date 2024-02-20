@@ -64,6 +64,8 @@ attachment:
 
 	force_multiplier: 10.000
 	torque_multiplier: 10.000
+
+	tags: medium, turret, mount, fixed
 }
 
 animated.renderer:
@@ -170,5 +172,12 @@ storage:
 		identifier: "mount"
 		gui_size: [146.000, 120.000]
 		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
+
+		tags_filter:
+		{
+			require: none
+			include: tiny, small, medium, large, weapon, tool, rotary, linear, fixed, coaxial
+			exclude: none
+		}
 	}
 }

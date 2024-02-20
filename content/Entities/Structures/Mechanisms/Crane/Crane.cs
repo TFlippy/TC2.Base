@@ -76,6 +76,7 @@
 					if (window.show)
 					{
 						var dirty = false;
+						ref var region = ref this.ent_crane.GetRegion();
 
 						var a = this.transform.LocalToWorldInterpolated(new Vector2(-this.crane.length_a * 0.50f, 0.00f));
 						//var b = this.transform.LocalToWorldInterpolated(new Vector2(this.crane.length_a * 0.50f, 0.00f));
@@ -84,11 +85,11 @@
 
 						var color = GUI.font_color_yellow;
 
-						var scale = GUI.GetWorldToCanvasScale();
+						var scale = region.GetWorldToCanvasScale();
 
-						var cpos_a = GUI.WorldToCanvas(a);
-						var cpos_b = GUI.WorldToCanvas(b);
-						var cpos_c = GUI.WorldToCanvas(c);
+						var cpos_a = region.WorldToCanvas(a);
+						var cpos_b = region.WorldToCanvas(b);
+						var cpos_c = region.WorldToCanvas(c);
 
 						GUI.DrawLine(cpos_a, cpos_b, color.WithAlphaMult(0.40f), scale * 0.20f);
 						GUI.DrawLine(cpos_b, cpos_c, color.WithAlphaMult(0.40f), scale * 0.20f);

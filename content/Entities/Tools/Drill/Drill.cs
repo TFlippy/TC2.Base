@@ -137,7 +137,7 @@ namespace TC2.Base.Components
 							ref var hit = ref results[i];
 							if (hit.entity == parent || hit.entity_parent == parent || hit.entity == entity) continue;
 
-							var hit_faction_id = hit.GetFactionID();
+							var hit_faction_id = hit.GetFactionHandle();
 							if (hit_faction_id != 0 && hit_faction_id == faction.id) continue;
 
 							var is_terrain = !hit.entity.IsValid();

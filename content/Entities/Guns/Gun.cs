@@ -316,7 +316,7 @@
 				if (ammo.IsNotNull() && ammo.prefab.TryGetPrefab(out var prefab_projectile))
 				{
 					var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
-					var canvas_scale = GUI.GetWorldToCanvasScale();
+					var canvas_scale = region.GetWorldToCanvasScale();
 
 					var color = GUI.font_color_red;
 
@@ -381,13 +381,13 @@
 								//GUI.DrawCircleFilled(pos_line_a.WorldToCanvas(), 4, GUI.col_button_yellow.WithAlphaMult(0.50f), segments: 4, layer: GUI.Layer.Background);
 								//GUI.DrawCircleFilled(pos_line_b.WorldToCanvas(), 4, GUI.col_button_yellow.WithAlphaMult(0.50f), segments: 4, layer: GUI.Layer.Background);
 
-								GUI.DrawLine((pos_line_a + (dir * line_gap)).WorldToCanvas(), (pos_line_b).WorldToCanvas(), color.WithAlphaMult(alpha), 4.00f, layer: GUI.Layer.Background);
+								GUI.DrawLine(region.WorldToCanvas(pos_line_a + (dir * line_gap)), region.WorldToCanvas(pos_line_b), color.WithAlphaMult(alpha), 4.00f, layer: GUI.Layer.Background);
 								dist_delta = 0;
 							}
 						}
 
 						var canvas_rect = GUI.GetCanvasRect();
-						var c_pos_last = pos_last.WorldToCanvas();
+						var c_pos_last = region.WorldToCanvas(pos_last);
 						var c_pos_last_clipped = c_pos_last;
 						var c_radius = (1.00f + (gun.jitter_multiplier * ammo.spread_mult)) * canvas_scale * 4.00f;
 
@@ -432,7 +432,7 @@
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair"u8, GUI.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
+				using (var window = GUI.Window.HUD("Crosshair"u8, region.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
 				{
 					if (window.show)
 					{
@@ -452,14 +452,14 @@
 
 				var dist = Vector2.Distance(pos_a, pos_b);
 
-				Gun.DrawCrosshair(ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
 
-		public static void DrawCrosshair(ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
+		public static void DrawCrosshair(ref Region.Data region, ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
 		{
 			var dist = Vector2.Distance(position_a, position_b);
-			var cpos_target = GUI.WorldToCanvas(position_a + (dir * dist));
+			var cpos_target = region.WorldToCanvas(position_a + (dir * dist));
 
 			radius = Maths.Min(radius, 20.00f);
 			radius *= MathF.Sqrt(dist);

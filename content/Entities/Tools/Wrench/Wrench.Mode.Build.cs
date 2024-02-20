@@ -1064,12 +1064,16 @@ namespace TC2.Base.Components
 						var placement_range = 4.00f;
 						var placement_range_sq = placement_range * placement_range;
 
-						ref var player = ref connection.GetPlayerData();
+						//ref var player = ref connection.GetPlayerData();
 						ref var transform = ref entity.GetComponent<Transform.Data>();
 						ref var recipe = ref build.recipe.GetData();
-						if (!recipe.IsNull() && !transform.IsNull() && !player.IsNull())
+						ref var character_data = ref connection.GetCharacter(out var h_character);
+
+						if (recipe.IsNotNull() && transform.IsNotNull() && character_data.IsNotNull())
 						{
-							Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
+							//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
+							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, entity, out var context);
+							//var ent_character = connection.enti
 
 							if (recipe.type == Crafting.Recipe.Type.Build)
 							{
@@ -1081,8 +1085,8 @@ namespace TC2.Base.Components
 									var random = XorRandom.New(true);
 
 									var ent_parent = entity.GetParent(Relation.Type.Child);
-									var inventory = player.GetInventory();
-									var h_faction = player.faction_id;
+									//var inventory = player.GetInventory();
+									var h_faction = character_data.faction;
 
 									if (product.type == Crafting.Product.Type.Block)
 									{
@@ -1095,7 +1099,7 @@ namespace TC2.Base.Components
 
 											errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
 											amount_multiplier = placed_block_count;
-											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: player.faction_id);
+											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
@@ -1128,19 +1132,19 @@ namespace TC2.Base.Components
 													break;
 												}
 
-												var ent_character = player.GetControlledCharacter().entity;
-												if (ent_character.IsValid())
-												{
-													//App.WriteLine($"char {ent_character}");
+												//var ent_character = player.GetControlledCharacter().entity;
+												//if (ent_character.IsValid())
+												//{
+												//	//App.WriteLine($"char {ent_character}");
 
-													var ev = new Character.BuildEvent()
-													{
-														recipe = build.recipe,
-														block = product.block,
-														amount = args.count
-													};
-													ent_character.TriggerEvent(ref ev);
-												}
+												//	var ev = new Character.BuildEvent()
+												//	{
+												//		recipe = build.recipe,
+												//		block = product.block,
+												//		amount = args.count
+												//	};
+												//	ent_character.TriggerEvent(ref ev);
+												//}
 
 												success = true;
 											}
@@ -1172,7 +1176,7 @@ namespace TC2.Base.Components
 
 											errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
 											amount_multiplier = 1.00f;
-											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: player.faction_id);
+											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1332,17 +1336,17 @@ namespace TC2.Base.Components
 														}
 													});
 
-													var ent_character = player.GetControlledCharacter().entity;
-													if (ent_character.IsValid())
-													{
-														var ev = new Character.BuildEvent()
-														{
-															recipe = build.recipe,
-															prefab = prefab_handle,
-															amount = 1
-														};
-														ent_character.TriggerEvent(ref ev);
-													}
+													//var ent_character = player.GetControlledCharacter().entity;
+													//if (ent_character.IsValid())
+													//{
+													//	var ev = new Character.BuildEvent()
+													//	{
+													//		recipe = build.recipe,
+													//		prefab = prefab_handle,
+													//		amount = 1
+													//	};
+													//	ent_character.TriggerEvent(ref ev);
+													//}
 
 													success = true;
 												}
@@ -1357,7 +1361,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										Notification.Push(in player, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
+										Notification.Push(ref connection, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
 									}
 
 									build.next_place = region.GetWorldTime() + placement.cooldown;
