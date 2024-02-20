@@ -61,6 +61,7 @@ holdable:
 attachment:
 {
 	offset: [0.000, 1.750]
+	flags: disable_parent_facing
 	force_multiplier: 2.000
 	torque_multiplier: 8.000
 }
@@ -160,6 +161,7 @@ threat:
 {
 	joint.base:
 	{
+		rotation_origin: -1.571
 		offset_a: [-0.700, -0.550]
 		max_force: 700000.000
 		max_torque: 100000.000
@@ -197,15 +199,16 @@ threat:
 		damping: 1500.000
 		axis_force: 400000.000
 		spring_max_bias: 8.000
-		max_distance: 2.000
+		max_distance: 1.000
 		rotation: 0.000
 		stress_mult_axis: 1.000
 	}
 
-	joint_gear:
+	joint.gear:
 	{
-		min: -0.500
-		max: 2.600
+		min: -2.300
+		max: 0.600
+		flags: normalize_angle, normalize_limit, use_min_max, use_transform, use_sign_parent
 		step: 10.000
 		error_bias: 0.020
 		max_bias: 5.000
@@ -229,6 +232,7 @@ threat:
 {
 	joint.base:
 	{
+		rotation_origin: -1.571
 		offset_a: [0.700, -0.550]
 		max_force: 700000.000
 		max_torque: 800000.000
@@ -266,15 +270,16 @@ threat:
 		damping: 1500.000
 		axis_force: 400000.000
 		spring_max_bias: 8.000
-		max_distance: 2.000
+		max_distance: 1.000
 		rotation: 0.000
 		stress_mult_axis: 1.000
 	}
 
-	joint_gear:
+	joint.gear:
 	{
-		min: 0.500
-		max: -2.600
+		min: -0.600
+		max: 2.300
+		flags: normalize_angle, normalize_limit, use_min_max, use_transform, use_sign_parent
 		step: 10.000
 		error_bias: 0.020
 		max_bias: 5.000
