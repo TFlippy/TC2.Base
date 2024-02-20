@@ -12,19 +12,19 @@
 		frame: [0, 0]
 	}
 	
-	material_type: metal
+	material_type: coal
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 7500.000
 	
 	smoothing: 0.200
-	mass: 0.080
+	mass: 9.400
 	friction: 0.950
 	elasticity: 0.210
-	stability: 8.000
-	strength_tensile: 21.000
-	strength_compressive: 9.000
+	stability: 6.000
+	strength_tensile: 12.000
+	strength_compressive: 15.000
 	collision_layer: none
 	collision_mask: none
 	

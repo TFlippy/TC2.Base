@@ -12,19 +12,19 @@
 		frame: [0, 0]
 	}
 	
-	material_type: metal
+	material_type: cermet
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 290000.000
+	max_health: 340000.000
 	
 	smoothing: 0.200
 	mass: 9.400
 	friction: 0.450
 	elasticity: 0.550
 	stability: 8.000
-	strength_tensile: 21.000
-	strength_compressive: 9.000
+	strength_tensile: 12.000
+	strength_compressive: 36.000
 	collision_layer: none
 	collision_mask: none
 	

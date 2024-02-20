@@ -17,7 +17,7 @@
 	
 	}
 	
-	type: powder
+	type: coal
 	flags: raw, powder, magnetic, granular, metal, despawnable
 	mass_per_unit: 0.760
 	quantity_max: 500.000

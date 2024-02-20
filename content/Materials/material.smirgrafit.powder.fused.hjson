@@ -17,7 +17,7 @@
 	
 	}
 	
-	type: metal
+	type: cermet
 	flags: magnetic, metal, ingot
 	mass_per_unit: 0.760
 	quantity_max: 500.000
