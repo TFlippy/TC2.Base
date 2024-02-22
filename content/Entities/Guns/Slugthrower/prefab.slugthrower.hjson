@@ -123,3 +123,22 @@ packable:
 {
 
 }
+
+arcaneaccelerator:
+{
+	h_essence: "motion"
+	sound: "gun.accelerator.arcane.00"
+	sound_volume_mult: 0.500
+	sound_pitch: 1.700
+	offset: [0.750, -0.250]
+
+	@light:
+	{
+		color: [0.000, 1.000, 0.800, 1.500]
+		offset: [-0.750, -0.250]
+		scale: [2.000, 1.000]
+		intensity: 1.500
+		texture: "light.box.00"
+		rotation: 0.000
+	}
+}
