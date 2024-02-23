@@ -4,6 +4,8 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.080
+
 	@shape.line:
 	{
 		a: [-2.000, 0.000]
@@ -86,7 +88,7 @@ holdable:
 {
 	offset: [-0.500, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 
 	force_multiplier: 4.000
 	torque_multiplier: 1.000

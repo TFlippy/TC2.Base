@@ -9,6 +9,7 @@ $tags: []
 body:
 {
 	fall_damage_multiplier: 0.500
+	buoyancy: 0.080
 
 	@shape.line:
 	{
