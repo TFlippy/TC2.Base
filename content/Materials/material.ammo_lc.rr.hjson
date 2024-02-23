@@ -30,8 +30,8 @@
 	{
 		count: 1
 		mass: 0.006
-		heat: 10.500
-		velocity_min: 80.000
+		heat: 3.500
+		velocity_min: 60.000
 		
 		speed_mult: 0.850
 		spread_mult: 1.100
