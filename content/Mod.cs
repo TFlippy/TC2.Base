@@ -53,7 +53,7 @@ namespace TC2.Base
 			ref var region = ref context.GetRegion();
 			Assert.NotNull(ref region);
 
-			ref var player = ref context.GetPlayer();
+			ref var player = ref context.GetPlayerData();
 			Assert.NotNull(ref player);
 
 			var random = XorRandom.New(true);
@@ -87,7 +87,7 @@ namespace TC2.Base
 			ref var region = ref context.GetRegion();
 			Assert.NotNull(ref region);
 
-			ref var player = ref context.GetPlayer();
+			ref var player = ref context.GetPlayerData();
 			Assert.NotNull(ref player);
 
 			ref var character = ref player.GetControlledCharacter().data;
