@@ -1,22 +1,25 @@
 $name: "Mining Drill"
 $desc: 
 	'''
-	A heavy-duty mining drill powered by a high-torque ARC-MT motor.
+	Heavy mining drill powered by a high-torque ARC-MT motor.
+
+	Considering the weight and size, it's more suited for giants or vehicles.
 	'''
 $tags: []
 
 body:
 {
 	buoyancy: 0.100
+	fall_damage_multiplier: 0.500
 
 	@shape.line:
 	{
 		a: [-0.500, 0.000]
 		b: [0.000, 0.000]
-		mass: 35.000
+		mass: 135.000
 		radius: 0.500
-		friction: 0.650
-		elasticity: 0.350
+		friction: 0.550
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, item, shield
 		mask: world
@@ -25,7 +28,7 @@ body:
 
 health:
 {
-	max: 8000.000
+	max: 68000.000
 }
 
 armor:
@@ -40,12 +43,12 @@ armor:
 
 drill:
 {
-	damage: 400.000
-	damage_terrain_multiplier: 1.150
+	damage: 650.000
+	damage_terrain_multiplier: 1.250
 
 	max_distance: 2.000
-	speed: 9.000
-	radius: 0.900
+	speed: 8.000
+	radius: 1.100
 	
 	@inventory4:
 	{
@@ -63,8 +66,11 @@ interactable:
 
 holdable:
 {
-	offset: [-0.200, 0.000]
+	offset: [-0.875, 0.000]
 	flags: storable
+
+	force_multiplier: 1.350
+	torque_multiplier: 1.250
 }
 
 attachment:
@@ -94,7 +100,7 @@ overheat:
 	heat_medium: 450.000
 	heat_high: 600.000
 	heat_critical: 700.000
-	cool_rate: 55.000
+	cool_rate: 75.000
 	
 	@light:
 	{
