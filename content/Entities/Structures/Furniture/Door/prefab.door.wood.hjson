@@ -35,9 +35,10 @@ animated.renderer:
 		texture: "door.wood"
 		mask: "door.wood.mask"
 		count: 5
-		size: [24, 24]
+		size: [16, 24]
 	}
 	z: 100.000
+	offset: [0.500, 0.000]
 }
 
 faction.colorable:
