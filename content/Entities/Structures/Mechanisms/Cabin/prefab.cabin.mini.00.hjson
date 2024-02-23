@@ -42,7 +42,7 @@ holdable:
 	offset: [0.000, 0.000]
 	offset_attachment: [0.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:

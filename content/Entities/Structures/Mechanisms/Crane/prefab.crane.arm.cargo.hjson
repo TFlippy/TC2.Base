@@ -71,9 +71,9 @@ holdable:
 {
 	offset: [-4.000, 0.000]
 	radius: 0.000
-	flags: disable_parent_facing, disable_control
 	force_multiplier: 2.000
 	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 transform:

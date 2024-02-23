@@ -68,7 +68,7 @@ transform:
 holdable:
 {
 	radius: 0.000
-	flags: disable_parent_facing, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control
 	stress_multiplier: 0.500
 }
 

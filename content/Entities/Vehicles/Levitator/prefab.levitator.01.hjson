@@ -71,7 +71,7 @@ holdable:
 	force_multiplier: 2.000
 	torque_multiplier: 0.750
 	stress_multiplier: 0.500
-	flags: disable_parent_facing, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 interactable:
