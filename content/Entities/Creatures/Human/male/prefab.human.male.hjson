@@ -655,6 +655,7 @@ commandable:
 		stress_threshold: 1.000
 		stress_damp: 0.500
 		flags: control_write, facing_reset_pos, force_facing
+		z: 100.000
 	}
 	
 	// joint.pivot:

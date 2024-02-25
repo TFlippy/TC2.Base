@@ -51,7 +51,7 @@ despawn:
 
 }
 
-health:
-{
-	max: 500.000
-}
+// health:
+// {
+// 	max: 500.000
+// }
