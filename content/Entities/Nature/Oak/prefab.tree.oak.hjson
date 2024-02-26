@@ -55,24 +55,24 @@ animated.renderer:
 	z: -80.000
 }
 
-foliage.renderer:
-{
-	offset: [-0, -7.625]
-	z: -45.000
-	
-	sprite:
-	{
-		texture: "tree.oak.foliage"
-		mask: "tree.oak.foliage.mask"
-	}
-}
-
 tree:
 {
 	prefab_stump: "tree.oak.stump"
 	health_cut: 0.980
 	sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
+
+	@foliage.renderer:
+	{
+		offset: [-0, -7.625]
+		z: -45.000
+		
+		sprite:
+		{
+			texture: "tree.oak.foliage"
+			mask: "tree.oak.foliage.mask"
+		}
+	}
 }
 
 harvestable:
