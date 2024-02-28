@@ -122,13 +122,13 @@ controllable:
 		max_bias: 0.350
 	}
 
-	facing:
-	{
-		flags: none
-		offset: 0.000
-		threshold: 2.000
-		flip_interval: 0.500
-	}
+	// facing:
+	// {
+	// 	flags: none
+	// 	offset: 0.000
+	// 	threshold: 2.000
+	// 	flip_interval: 0.500
+	// }
 
 	attachment.slot:
 	{

@@ -114,7 +114,7 @@ storage:
 
 interactable:
 {
-	window_size: [240.000, 320.000]
+	window_size: [224.000, 320.000]
 }
 
 sound.emitter|"exhaust":
@@ -236,7 +236,7 @@ burner.state:
 		offset_a: [-3.750, 0.125]
 		max_force: 400000.000
 		max_torque: 80000.000
-		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, invert_facing
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, mirror_x
 		z: 75.000
 		material_type: metal
 	}

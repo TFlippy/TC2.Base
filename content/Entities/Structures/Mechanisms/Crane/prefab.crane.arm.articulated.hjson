@@ -98,6 +98,7 @@ attachment:
 {
 	offset: [-4.000, 0.000]
 	flags: disable_facing_use_rotation, full_rotate
+	tags: large, tool, rotary
 
 	force_multiplier: 2.000
 	torque_multiplier: 4.000
@@ -111,7 +112,7 @@ essencecontainer:
 
 interactable:
 {
-	window_size: [216.000, 160.000]
+	window_size: [200.000, 128.000]
 	window_offset: [0.000, 0.000]
 	flags: none
 }
@@ -192,6 +193,6 @@ vehicle:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read
 
-		gui_size: [216.000, 136.000]
+		gui_size: [0.000, 128.000]
 	}
 }

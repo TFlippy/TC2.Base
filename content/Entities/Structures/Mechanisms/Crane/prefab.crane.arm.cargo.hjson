@@ -103,7 +103,7 @@ storage:
 
 interactable:
 {
-	window_size: [200.000, 160.000]
+	window_size: [200.000, 128.000]
 	window_offset: [0.000, 0.000]
 	flags: none
 }
@@ -183,6 +183,6 @@ vehicle:
 		flags: keyboard_write, mouse_write, loose
 		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read, loose
 
-		gui_size: [200.000, 160.000]
+		gui_size: [0.000, 128.000]
 	}
 }

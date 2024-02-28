@@ -120,7 +120,7 @@ burner.state:
 				resource:
 				{
 					material: "pellet.motion"
-					quantity: 6.000
+					quantity: 8.000
 				}
 			}
 		}

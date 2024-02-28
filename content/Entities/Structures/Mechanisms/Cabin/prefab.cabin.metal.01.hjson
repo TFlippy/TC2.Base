@@ -168,7 +168,7 @@ threat:
 		max_torque: 100000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing, invert_facing
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing, mirror_x
 		z: -20.000
 		material_type: metal
 
@@ -231,8 +231,8 @@ threat:
 		tags_filter:
 		{
 			require: none
-			include: small, medium, weapon, tool, turret, rotary
-			exclude: large, huge, cabin, wheel
+			include: small, medium, large, weapon, tool, turret, rotary
+			exclude: huge, cabin, wheel
 		}
 	}
 }
@@ -294,13 +294,6 @@ threat:
 		max_bias: 5.000
 		max_bias_bounce: 20.000
 		bounce: 20.000
-
-		tags_filter:
-		{
-			require: none
-			include: small, medium, weapon, tool, turret, rotary
-			exclude: large, huge, cabin, wheel
-		}
 	}
 	
 	attachment.slot:
@@ -313,5 +306,12 @@ threat:
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
 		gui_size: [128.000, 72.000]
+
+		tags_filter:
+		{
+			require: none
+			include: small, medium, large, weapon, tool, turret, rotary
+			exclude: huge, cabin, wheel
+		}
 	}
 }

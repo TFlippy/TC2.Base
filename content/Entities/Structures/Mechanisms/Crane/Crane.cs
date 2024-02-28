@@ -255,7 +255,7 @@
 
 				var parity = transform.scale.GetParity();
 
-				crane_state.rotation_a = transform_parent.TransformAngle(crane_state.angle_a, flip: false); // transform_parent.WorldToLocalRotation(crane_state.angle_a, rotation: false, scale: true, normalize: false);
+				crane_state.rotation_a = transform_parent.WorldToLocalRotation(crane_state.angle_a, scale: true, normalize: false); // transform_parent.WorldToLocalRotation(crane_state.angle_a, rotation: false, scale: true, normalize: false);
 				//crane_state.rotation_b = transform.WorldToLocalRotation(crane_state.angle_b, rotation: false, scale: true, normalize: false);
 				crane_state.rotation_b = transform.TransformAngle(crane_state.angle_b, flip: invert);
 

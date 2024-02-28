@@ -32,7 +32,7 @@ control:
 
 health:
 {
-	max: 25000.000
+	max: 32000.000
 }
 
 armor:
@@ -84,7 +84,7 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	window_size: [200.000, 128.000]
 	window_offset: [64.000, 128.000]
 }
 
@@ -170,7 +170,7 @@ storage:
 		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation, hold
 		name: "Mount"
 		identifier: "mount"
-		gui_size: [146.000, 120.000]
+		gui_size: [0.000, 128.000]
 		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
 
 		tags_filter:
