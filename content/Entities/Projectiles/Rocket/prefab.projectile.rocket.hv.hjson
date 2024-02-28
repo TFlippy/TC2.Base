@@ -2,7 +2,7 @@ $tags: []
 
 projectile:
 {
-	damage_base: 2500.000
+	damage_base: 3500.000
 	damage_bonus: 1500.000
 	lifetime: 15.000
 	ignore_time: 0.100
