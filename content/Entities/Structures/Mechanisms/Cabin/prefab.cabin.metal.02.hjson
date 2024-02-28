@@ -73,7 +73,7 @@ animated.renderer:
 		mask: "cabin.metal.02.bg.mask"
 		size: [32, 32]
 	}
-	z: 60.000
+	z: 30.000
 	flags: has_damage
 }
 

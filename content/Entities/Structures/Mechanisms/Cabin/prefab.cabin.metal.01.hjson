@@ -49,7 +49,7 @@ armor:
 
 holdable:
 {
-	force_multiplier: 7.500
+	force_multiplier: 0.800
 	torque_multiplier: 0.800
 	stress_multiplier: 0.500
 	offset: [0.000, 0.000]
@@ -74,7 +74,7 @@ animated.renderer:
 		texture: "cabin.metal.01.fg"
 		size: [40, 40]
 	}
-	z: 100.000
+	z: 90.000
 	// mask: "cabin.metal.mask.02"
 	flags: has_damage
 }
@@ -88,7 +88,7 @@ vehicle:
 			texture: "cabin.metal.01.bg"
 			size: [40, 40]
 		}
-		z: -90.000
+		z: 30.000
 		// mask: "cabin.metal.fg.mask.02"
 		flags: has_damage
 	}
@@ -169,7 +169,7 @@ threat:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing, mirror_x
-		z: -20.000
+		z: 55.000
 		material_type: metal
 
 		@sound.emitter:
@@ -228,12 +228,12 @@ threat:
 
 		gui_size: [128.000, 72.000]
 
-		tags_filter:
-		{
-			require: none
-			include: small, medium, large, weapon, tool, turret, rotary
-			exclude: huge, cabin, wheel
-		}
+		// tags_filter:
+		// {
+		// 	require: none
+		// 	include: small, medium, large, weapon, tool, turret, rotary
+		// 	exclude: huge, cabin, wheel
+		// }
 	}
 }
 
@@ -248,7 +248,7 @@ threat:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
-		z: -20.000
+		z: 60.000
 		material_type: metal
 
 		@sound.emitter:
@@ -307,11 +307,11 @@ threat:
 
 		gui_size: [128.000, 72.000]
 
-		tags_filter:
-		{
-			require: none
-			include: small, medium, large, weapon, tool, turret, rotary
-			exclude: huge, cabin, wheel
-		}
+		// tags_filter:
+		// {
+		// 	require: none
+		// 	include: small, medium, large, weapon, tool, turret, rotary
+		// 	exclude: huge, cabin, wheel
+		// }
 	}
 }
