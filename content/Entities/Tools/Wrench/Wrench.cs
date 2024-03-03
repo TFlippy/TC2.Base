@@ -220,7 +220,7 @@ namespace TC2.Base.Components
 			public IRecipe.Handle SelectedRecipe { get; }
 
 			public Physics.Layer LayerMask { get; }
-			public TInfo CreateTargetInfo(Entity entity, bool is_src);
+			public TInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src);
 
 #if CLIENT
 			public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst);
@@ -318,8 +318,8 @@ namespace TC2.Base.Components
 
 				var scale = region.GetWorldToCanvasScale();
 
-				var info_src = this.CreateTargetInfo(this.EntitySrc, true);
-				var info_dst = this.CreateTargetInfo(this.EntityDst, false);
+				var info_src = this.CreateTargetInfo(ref region.AsCommon(), this.EntitySrc, wpos_mouse, true);
+				var info_dst = this.CreateTargetInfo(ref region.AsCommon(), this.EntityDst, wpos_mouse, false);
 				var info_new = default(TInfo);
 
 				var errors_src = Wrench.Mode.Build.Errors.None;
@@ -335,7 +335,7 @@ namespace TC2.Base.Components
 						{
 							if (result.entity == info_src.Entity || result.entity == info_dst.Entity) continue;
 
-							info_new = this.CreateTargetInfo(result.entity, !info_src.IsValid);
+							info_new = this.CreateTargetInfo(ref region.AsCommon(), result.entity, wpos_mouse, !info_src.IsValid);
 							if (info_new.IsValid)
 							{
 								break;

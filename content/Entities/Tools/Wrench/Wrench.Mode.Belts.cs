@@ -28,7 +28,7 @@
 					public readonly Entity EntityDst => this.ent_dst;
 					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public readonly TargetInfo CreateTargetInfo(Entity entity, bool is_src)
+					public readonly TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
 					{
 						return new TargetInfo(entity, is_src);
 					}

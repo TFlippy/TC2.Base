@@ -396,7 +396,7 @@ namespace TC2.Base.Components
 								{
 									h_dismantlable.data.flags.SetFlag(Dismantlable.Flags.Active, true);
 									h_dismantlable.data.yield = Maths.Clamp(h_dismantlable.data.yield, 0.00f, 1.00f);
-									h_dismantlable.Sync(true);
+									h_dismantlable.Sync();
 									h_dismantlable.entity.Delete();
 
 									deconstruct.ref_dismantlable.Reset();
@@ -407,7 +407,7 @@ namespace TC2.Base.Components
 								{
 									Sound.Play(ref region, deconstruct.sound_dismantle, transform.position, volume: random.NextFloatRange(0.90f, 1.10f), pitch: random.NextFloatRange(0.95f, 1.05f));
 
-									h_dismantlable.Sync(true);
+									h_dismantlable.Sync();
 								}
 							}
 						}

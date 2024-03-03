@@ -1,12 +1,57 @@
 ﻿
 namespace TC2.Base.Components
 {
+	public static class Air
+	{
+		public static partial class Container
+		{
+			[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
+			public struct Data: IComponent, ITrait
+			{
+				[Flags]
+				public enum Flags: uint
+				{
+					None = 0u,
+				}
+
+				public Amount moles_o2;
+				public Amount moles_h2;
+				public Amount moles_n2;
+				public Amount moles_co2;
+
+				public Amount moles_co;
+				public Amount moles_so2;
+				public Amount moles_no2;
+				public Amount moles_h2o;
+
+				public Temperature temperature = Temperature.Ambient;
+				public Volume volume = 1.00f.m3();
+
+				public Air.Container.Data.Flags flags;
+
+				public Data()
+				{
+
+				}
+			}
+		}
+	}
+
 	public static partial class Vent
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
 		public struct Data: IComponent, ITrait
 		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0u,
+
+				Has_Pipe = 1u << 0
+			}
+
 			public Inventory.Type type;
+			public Vent.Data.Flags flags;
 
 			[Editor.Picker.Position(true, true)] 
 			public Vector2 offset;
@@ -108,8 +153,15 @@ namespace TC2.Base.Components
 					resizable.a = transform.WorldToLocal(pos_a);
 					resizable.b = transform.WorldToLocal(pos_b);
 
-					resizable.cap_a_rotation = transform_a.LocalToWorldRotation(MathF.PI);
-					resizable.cap_b_rotation = transform_b.LocalToWorldRotation(0.00f);
+					//App.WriteLine("test");
+
+					//resizable.cap_a_rotation = transform_a.LocalToWorldRotation(MathF.PI);
+					//resizable.cap_b_rotation = transform_b.LocalToWorldRotation(0.00f);
+					//entity.GetRegion().DrawDebugText(transform.position, $"{vent_a.data.direction}; {vent_a.data.direction.GetAngleRadians()}", Color32BGRA.White);
+
+
+					resizable.cap_a_rotation = transform_a.LocalToWorldDirection(vent_a.data.direction).GetAngleRadiansFast(); // transform_a.LocalToWorldDirection(vent_a.data.direction).GetAngleRadiansFast(); //.LocalToWorldRotation(MathF.PI);
+					resizable.cap_b_rotation = transform_b.LocalToWorldDirection(vent_b.data.direction).GetAngleRadiansFast();
 				}
 			}
 		}
@@ -127,13 +179,21 @@ namespace TC2.Base.Components
 					var pos_a = transform_a.LocalToWorld(vent_a.data.offset);
 					var pos_b = transform_b.LocalToWorld(vent_b.data.offset);
 
-					var dir = (pos_b - pos_a).GetNormalized(out var len);
+					var delta = (pos_b - pos_a);
+					var dir = delta.GetNormalized(out var len);
 
-					renderer.p0 = pos_a;
-					renderer.p3 = pos_b;
+					//var rect = new AABB(pos_a, pos_b);
 
-					renderer.p1 = pos_a + (new Vector2(pos_b.X - pos_a.X, 0.00f));
-					renderer.p2 = renderer.p1 + new Vector2(0.00f, 0.00f);
+					//App.WriteLine("test");
+
+					renderer.p0 = pos_a + transform_a.LocalToWorldDirection(vent_a.data.direction * 0.250f);
+					renderer.p3 = pos_b + transform_b.LocalToWorldDirection(vent_b.data.direction * 0.250f);
+
+					//renderer.p1 = pos_a + (new Vector2(pos_b.X - pos_a.X, 0.00f));
+					//renderer.p2 = renderer.p1 + new Vector2(0.00f, 0.00f);
+
+					renderer.p1 = pos_a + transform_a.LocalToWorldDirection(vent_a.data.direction * 2.50f);
+					renderer.p2 = pos_b + transform_b.LocalToWorldDirection(vent_b.data.direction * 2.50f);
 
 					//renderer.p1 = new Vector2(pos_a.X, pos_b.Y);
 					//renderer.p2 = new Vector2(pos_b.X, pos_a.Y);
@@ -178,12 +238,16 @@ namespace TC2.Base.Components
 		}
 #endif
 
+
 #if SERVER
 		[ISystem.Modified<Pipe.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Resizable.Data resizable)
 		{
 			if (pipe.a.TryGetHandle(out var vent_a) && pipe.b.TryGetHandle(out var vent_b))
 			{
+				vent_a.data.flags.AddFlag(Vent.Data.Flags.Has_Pipe);
+				vent_b.data.flags.AddFlag(Vent.Data.Flags.Has_Pipe);
+
 				ref var transform_a = ref pipe.a.entity.GetComponent<Transform.Data>();
 				ref var transform_b = ref pipe.b.entity.GetComponent<Transform.Data>();
 
@@ -210,6 +274,25 @@ namespace TC2.Base.Components
 					//	entity.SyncTrait<Body.Data, Shape.Line>(shape_ptr);
 					//}
 				}
+
+				vent_a.Sync();
+				vent_b.Sync();
+			}
+		}
+
+		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnRemove(ISystem.Info info, Entity entity, [Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state)
+		{
+			if (pipe.a.TryGetHandle(out var vent_a))
+			{
+				vent_a.data.flags.RemoveFlag(Vent.Data.Flags.Has_Pipe);
+				vent_a.Sync();
+			}
+
+			if (pipe.b.TryGetHandle(out var vent_b))
+			{
+				vent_b.data.flags.RemoveFlag(Vent.Data.Flags.Has_Pipe);
+				vent_b.Sync();
 			}
 		}
 #endif

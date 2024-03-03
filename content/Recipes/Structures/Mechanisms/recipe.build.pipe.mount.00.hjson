@@ -1,0 +1,65 @@
+﻿{
+	name: "Pipe Mount"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "pipe.mount.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: none
+	tags: architecture
+	rank: -639.000
+	
+	dismantle_work: 20.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings, terrain_is_support
+		
+		size: [1.250, 1.500]
+		
+		cooldown: 0.500
+		min_support: 0.300
+		min_clearance: 0.850
+		min_claim: 1.000
+		
+		rotation_max: 6.283
+		rotation_step: 0.19634954084
+		rotation_offset: -1.570
+		
+		sound: "building_place"
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 15.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "pipe.mount.00"
+			amount: 1.000
+		}
+	]
+}

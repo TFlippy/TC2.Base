@@ -1020,6 +1020,8 @@ namespace TC2.Base.Components
 							if (placement.rotation_max > 0.00f)
 							{
 								var dir = (pos_raw - (pos_a_raw ?? pos_raw)).GetNormalized(out var len);
+								if (placement.rotation_offset != 0.00f) dir = dir.RotateByRad(placement.rotation_offset);
+
 								dir = Vector2.Lerp(new Vector2(0, -1), dir, Maths.Clamp((len - 0.25f) * 2.00f, 0.00f, 1.00f));
 
 								var rot_max = Maths.Snap(MathF.Abs(placement.rotation_max), placement.rotation_step);

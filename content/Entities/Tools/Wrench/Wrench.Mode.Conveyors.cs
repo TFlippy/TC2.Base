@@ -31,7 +31,7 @@
 					public Entity EntityDst => this.ent_dst;
 					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public TargetInfo CreateTargetInfo(Entity entity, bool is_src)
+					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
 					{
 						return new TargetInfo(entity, is_src ? this.inventory_id_src : this.inventory_id_dst, is_src);
 					}
