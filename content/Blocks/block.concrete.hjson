@@ -38,8 +38,8 @@
 	resources:
 	[
 		{
-			material: "cement"
-			quantity: 0.250
+			material: "scrap.concrete"
+			quantity: 1.100
 		}
 		{
 		

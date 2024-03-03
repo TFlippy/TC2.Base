@@ -12,19 +12,19 @@
 		frame: [0, 0]
 	}
 	
-	material_type: stone
+	material_type: concrete
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 50000.000
 	
 	smoothing: 0.180
-	mass: 8.000
+	mass: 2.700
 	friction: 0.850
 	elasticity: 0.600
-	stability: 0.500
-	strength_tensile: 1.120
-	strength_compressive: 7.760
+	stability: 1.440
+	strength_tensile: 1.920
+	strength_compressive: 9.760
 	collision_layer: none
 	collision_mask: none
 	
@@ -38,8 +38,8 @@
 	resources:
 	[
 		{
-			material: "cement"
-			quantity: 0.250
+			material: "scrap.concrete"
+			quantity: 1.000
 		}
 		{
 		
