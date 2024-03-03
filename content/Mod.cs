@@ -82,7 +82,7 @@ namespace TC2.Base
 		}
 
 		[ChatCommand.Region("tp", "", creative: true)]
-		public static void TeleportCommand(ref ChatCommand.Context context)
+		public static void TeleportCommand(ref ChatCommand.Context context, float? x = null, float? y = null)
 		{
 			ref var region = ref context.GetRegion();
 			Assert.NotNull(ref region);
@@ -113,7 +113,11 @@ namespace TC2.Base
 			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Stored);
 			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Rope);
 
-			var mouse_pos = player.control.mouse.position;
+			var target_pos = player.control.mouse.position;
+			if (x.TryGetValue(out var x_value) && y.TryGetValue(out var y_value))
+			{
+				target_pos = new Vector2(x_value, y_value);
+			}
 
 			foreach (var ent in entities)
 			{
@@ -128,7 +132,7 @@ namespace TC2.Base
 				{
 					var offset = transform.position - transform_root.position;
 
-					transform.SetPosition(mouse_pos + offset);
+					transform.SetPosition(target_pos + offset);
 					transform.Sync(ent, true);
 
 					//ref var physics = ref ent.GetComponent<Physics.Data>();
