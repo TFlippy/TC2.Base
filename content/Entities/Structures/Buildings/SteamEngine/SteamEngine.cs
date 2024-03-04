@@ -335,7 +335,7 @@ namespace TC2.Base.Components
 							//GUI.DrawTemperatureRange(this.steam_engine_state.temperature_current, Maths.CelsiusToKelvin(100), Maths.CelsiusToKelvin(375), size: new Vector2(24, GUI.RmY), color_a: GUI.col_white, color_b: GUI.col_white);
 
 							GUI.SameLine();
-							GUI.DrawTemperatureRange(this.burner_state.temperature_exhaust, this.burner_state.temperature_exhaust, 2000, size: new Vector2(24, GUI.RmY));
+							GUI.DrawTemperatureRange(300, 300, 2000, size: new Vector2(24, GUI.RmY));  // TODO: update this to use vents
 							//GUI.SameLine();
 							//GUI.DrawWorkV(0.50f, size: new Vector2(24, GUI.RmY));
 

@@ -213,7 +213,8 @@
 				}
 				else
 				{
-					refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.temperature_exhaust, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
+					// TODO: update this to use vents
+					//refinery_state.temperature_current = Maths.MoveTowards(refinery_state.temperature_current, burner_state.temperature_exhaust, (float)((burner_state.available_power * Maths.Clamp(1.00f, 0.00f, 1.00f)) / joule_per_kelvin) * Refinery.update_interval);
 				}
 
 				////refinery_state.pressure_current = CalculateAirPressure(refinery_state.temperature_current);
@@ -379,7 +380,7 @@
 									{
 										using (GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2)))
 										{
-											GUI.DrawTemperatureRange(this.burner_state.temperature_exhaust, this.burner_state.temperature_exhaust, max_temperature, new Vector2(24, GUI.RmY));
+											GUI.DrawTemperatureRange(300, 300, max_temperature, new Vector2(24, GUI.RmY)); // TODO: update this to use vents
 											GUI.SameLine();
 											GUI.DrawInventoryDock(Inventory.Type.Input, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2));
 

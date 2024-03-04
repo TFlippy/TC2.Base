@@ -190,7 +190,7 @@ namespace TC2.Base.Components
 				public Pressure pressure_cached;
 				public Density density_cached;
 				public Mass mass_cached;
-				public Temperature temperature_cached = Temperature.Ambient;
+				public Temperature temperature = Temperature.Ambient;
 
 				public Data()
 				{
