@@ -185,15 +185,15 @@
 		}
 #endif
 
-		public static float base_altitude = 100.00f;
+		//public static float base_altitude = 100.00f;
 
-		public static float GetAltitude(ref Region.Data region, float y)
-		{
-			ref var terrain = ref region.GetTerrain();
-			var map_height = terrain.GetHeight();
+		//public static float GetAltitude(ref Region.Data region, float y)
+		//{
+		//	ref var terrain = ref region.GetTerrain();
+		//	var map_height = terrain.GetHeight();
 
-			return base_altitude + (map_height * 0.50f) - y;
-		}
+		//	return base_altitude + (map_height * 0.50f) - y;
+		//}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateScale(ISystem.Info info, ref Region.Data region,
@@ -264,7 +264,7 @@
 
 			var temperature_speed = 20.00f;
 
-			balloon_state.altitude = GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
+			balloon_state.altitude = region.GetAltitude(transform.position.Y + (body.GetVelocity().Y * App.fixed_update_interval_s)); // // GetAltitude(ref region, transform.position.Y + body.GetVelocity().Y);
 			var fuel_modifier_target = burner_state.modifier_fluid_target;
 
 			var temperature_ambient = Region.ambient_temperature - (balloon_state.altitude * 0.02f);

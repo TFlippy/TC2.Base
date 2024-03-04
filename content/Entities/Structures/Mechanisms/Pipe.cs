@@ -1,8 +1,174 @@
 ﻿
+using System.Runtime.Intrinsics;
+
 namespace TC2.Base.Components
 {
-	public static class Air
+	public static partial class Air
 	{
+		public readonly struct Blob
+		{
+			public readonly Air.Composition air;
+
+			public readonly Temperature temperature;
+			public readonly Mass mass;
+			//public readonly Volume volume;
+			public readonly Amount moles_total;
+
+			public Blob(Composition air, Temperature temperature)
+			{
+				this.air = air;
+				this.temperature = temperature;
+
+				this.moles_total = air.GetTotalMoles();
+				this.mass = air.GetMass();
+			}
+
+			public readonly Volume GetVolume(Pressure pressure)
+			{
+				Phys.IdealGasLaw(pressure, out var volume, this.moles_total, this.temperature);
+				return volume;
+			}
+
+			public readonly Density GetDensity(Volume volume)
+			{
+				return this.mass / volume;
+			}
+		}
+
+		public struct Composition
+		{
+			//public static readonly Air.Composition Ambient = new Air.Composition
+			//(
+			//	moles_o2:  Phys.air_o2_ratio
+			//);
+
+			// more common gases - operating with lower half of vector registers is faster
+			public Amount moles_n2;
+			public Amount moles_o2;
+			public Amount moles_co2;
+			public Amount moles_h2o;
+
+			// less common gases
+			public Amount moles_h2;
+			public Amount moles_co;
+			public Amount moles_so2;
+			public Amount moles_no2;
+
+			public Composition(Amount moles_o2, Amount moles_h2, Amount moles_n2, Amount moles_co, Amount moles_co2, Amount moles_so2, Amount moles_no2, Amount moles_h2o)
+			{
+				this.moles_o2 = moles_o2;
+				this.moles_h2 = moles_h2;
+				this.moles_n2 = moles_n2;
+				this.moles_co = moles_co;
+				this.moles_co2 = moles_co2;
+				this.moles_so2 = moles_so2;
+				this.moles_no2 = moles_no2;
+				this.moles_h2o = moles_h2o;
+			}
+
+			// TODO: vectorize this
+			public readonly float GetTotalMoles()
+			{
+				var moles_total =
+				this.moles_o2 +
+				this.moles_h2 +
+				this.moles_n2 +
+				this.moles_co +
+				this.moles_co2 +
+				this.moles_so2 +
+				this.moles_no2 +
+				this.moles_h2o;
+
+				return moles_total;
+			}
+
+			// TODO: vectorize this
+			public readonly Mass GetMass()
+			{
+				var mass_total =
+				(this.moles_o2 * Phys.o2_molar_mass) +
+				(this.moles_h2 * Phys.h2_molar_mass) +
+				(this.moles_n2 * Phys.n2_molar_mass) +
+				(this.moles_co * Phys.co_molar_mass) +
+				(this.moles_co2 * Phys.co2_molar_mass) +
+				(this.moles_so2 * Phys.so2_molar_mass) +
+				(this.moles_no2 * Phys.no2_molar_mass) +
+				(this.moles_h2o * Phys.h2o_molar_mass);
+				return mass_total.m_value;
+			}
+
+			// TODO: vectorize this
+			public readonly Energy GetHeatCapacity()
+			{
+				var heat_capacity =
+				(this.moles_o2 * Phys.o2_molar_heat_capacity) +
+				(this.moles_h2 * Phys.h2_molar_heat_capacity) +
+				(this.moles_n2 * Phys.n2_molar_heat_capacity) +
+				(this.moles_co * Phys.co_molar_heat_capacity) +
+				(this.moles_co2 * Phys.co2_molar_heat_capacity) +
+				(this.moles_so2 * Phys.so2_molar_heat_capacity) +
+				(this.moles_no2 * Phys.no2_molar_heat_capacity) +
+				(this.moles_h2o * Phys.h2o_molar_heat_capacity);
+				return heat_capacity;
+			}
+
+			public readonly Volume GetVolume(Temperature temperature, Pressure pressure)
+			{
+				Phys.IdealGasLaw(pressure, out var volume, this.GetTotalMoles(), temperature);
+				return volume;
+			}
+
+			public readonly Density GetDensity(Volume volume)
+			{
+				return this.GetMass() / volume;
+			}
+
+			// TODO: vectorize this
+			public static Air.Composition operator *(Air.Composition air, float value)
+			{
+				air.moles_o2 *= value;
+				air.moles_h2 *= value;
+				air.moles_n2 *= value;
+				air.moles_co *= value;
+				air.moles_co2 *= value;
+				air.moles_so2 *= value;
+				air.moles_no2 *= value;
+				air.moles_h2o *= value;
+				
+				return air;
+			}
+
+			// TODO: vectorize this
+			public static Air.Composition operator +(Air.Composition a, Air.Composition b)
+			{
+				a.moles_o2 += b.moles_o2;
+				a.moles_h2 += b.moles_h2;
+				a.moles_n2 += b.moles_n2;
+				a.moles_co += b.moles_co;
+				a.moles_co2 += b.moles_co2;
+				a.moles_so2 += b.moles_so2;
+				a.moles_no2 += b.moles_no2;
+				a.moles_h2o += b.moles_h2o;
+
+				return a;
+			}
+
+			// TODO: vectorize this
+			public static Air.Composition operator -(Air.Composition a, Air.Composition b)
+			{
+				a.moles_o2 -= b.moles_o2;
+				a.moles_h2 -= b.moles_h2;
+				a.moles_n2 -= b.moles_n2;
+				a.moles_co -= b.moles_co;
+				a.moles_co2 -= b.moles_co2;
+				a.moles_so2 -= b.moles_so2;
+				a.moles_no2 -= b.moles_no2;
+				a.moles_h2o -= b.moles_h2o;
+
+				return a;
+			}
+		}
+
 		public static partial class Container
 		{
 			[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
@@ -14,27 +180,46 @@ namespace TC2.Base.Components
 					None = 0u,
 				}
 
-				public Amount moles_o2;
-				public Amount moles_h2;
-				public Amount moles_n2;
-				public Amount moles_co2;
+				public Air.Composition air;
 
-				public Amount moles_co;
-				public Amount moles_so2;
-				public Amount moles_no2;
-				public Amount moles_h2o;
-
-				public Temperature temperature = Temperature.Ambient;
 				public Volume volume = 1.00f.m3();
 
 				public Air.Container.Data.Flags flags;
+
+				public Amount moles_total_cached;
+				public Pressure pressure_cached;
+				public Density density_cached;
+				public Mass mass_cached;
+				public Temperature temperature_cached = Temperature.Ambient;
 
 				public Data()
 				{
 
 				}
+
+				//public readonly Pressure GetPressure()
+				//{
+				//	Phys.IdealGasLaw(out var pressure, this.volume, this.air.GetTotalMoles(), this.temperature);
+				//	return pressure;
+				//}
 			}
 		}
+
+		//public static void TakeAmbient(ref readonly Region.Data region, Volume volume, out Air.Blob blob)
+		//{
+		//	var density = region.GetAirDensityAtAltitude(altitude);
+
+		//	var air = new Air.Composition();
+		//	air.moles_n2 =
+		//}
+
+		//public static void TakeAmbient(ref readonly Region.Data region, Volume volume, float altitude, out Air.Blob blob)
+		//{
+		//	var density = region.GetAirDensityAtAltitude(altitude);
+
+		//	var air = new Air.Composition();
+		//	air.moles_n2 = 
+		//}
 	}
 
 	public static partial class Vent
@@ -47,21 +232,30 @@ namespace TC2.Base.Components
 			{
 				None = 0u,
 
-				Has_Pipe = 1u << 0
+				Has_Pipe = 1u << 0,
+
+				[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 			}
+
+			public Air.Blob blob;
 
 			public Inventory.Type type;
 			public Vent.Data.Flags flags;
 
-			[Editor.Picker.Position(true, true)] 
+			[Editor.Picker.Position(true, true)]
 			public Vector2 offset;
-			[Editor.Picker.Direction(true, true)]
+			[Editor.Picker.Direction(true, true), Obsolete]
 			public Vector2 direction = new(0, -1);
 
 			public Area cross_section = Area.Circle(10.00f.cm());
 
-			//public float velocity;
-			public float flow_rate;
+			public Pressure pressure_outside = Phys.atmospheric_pressure_kordel;
+			public Pressure pressure_inside = Phys.atmospheric_pressure_kordel;
+
+			public float rotation;
+			public float velocity;
+			public float modifier = 1.00f;
+			public Volume flow_rate;
 
 			[Save.Ignore, Net.Ignore] public float t_next_smoke;
 
@@ -69,6 +263,12 @@ namespace TC2.Base.Components
 			{
 
 			}
+		}
+
+		public static Volume GetFlowRate(ref readonly this Vent.Data vent)
+		{
+			Phys.VolumetricFlowRate(vent.cross_section * vent.modifier, vent.velocity, out var flow_rate);
+			return flow_rate;
 		}
 
 		public static float GetFlowVelocity(ref readonly this Vent.Data vent)
