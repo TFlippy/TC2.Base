@@ -186,13 +186,16 @@ namespace TC2.Base.Components
 
 				public Air.Container.Data.Flags flags;
 
-				public Area vent_area_total_cached;
-				//public Area vent_area_total_cached_new;
-				public Amount moles_total_cached;
-				public Pressure pressure_cached;
-				public Density density_cached;
-				public Mass mass_cached;
 				public Temperature temperature = Temperature.Ambient;
+
+				[Save.Ignore, Net.Ignore] public Area vent_area_total_cached;
+				[Save.Ignore, Net.Ignore] public Amount moles_total_cached;
+				[Save.Ignore, Net.Ignore] public Pressure pressure_cached;
+				[Save.Ignore, Net.Ignore] public Density density_cached;
+				[Save.Ignore, Net.Ignore] public Mass mass_cached;
+				
+				[Save.Ignore, Net.Ignore] public float vent_y_top_cached;
+				[Save.Ignore, Net.Ignore] public float vent_y_bottom_cached;
 
 				public Data()
 				{
@@ -217,7 +220,18 @@ namespace TC2.Base.Components
 			}
 
 			container.vent_area_total_cached = 0.00f;
+
+			container.vent_y_bottom_cached = -10.00f;
+			container.vent_y_top_cached = 10.00f;
 		}
+
+		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		//public static void System_ModifiedVentContainer(ISystem.Info info, ref Region.Data region, Entity entity,
+		//[Source.Owned] ref Air.Container.Data air_container, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
+		//[Source.Owned, Pair.All] ref Vent.Data vent)
+		//{
+		//	air_container. Maths.Min
+		//}
 
 		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
 		public static void System_UpdateVentContainer(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
@@ -237,8 +251,6 @@ namespace TC2.Base.Components
 				var air_vent = vent.blob.air;
 				var air_cont = air_container.air;
 
-				var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
-
 				if (vent.flow_rate.m_value.IsNegative())
 				{
 					var air_tmp = air_cont - air_vent;
@@ -248,12 +260,16 @@ namespace TC2.Base.Components
 				{
 					var air_tmp = air_cont + air_vent;
 					air_container.air = air_tmp;
-				}
 
-				air_container.temperature = Maths.Lerp01(air_container.temperature, vent.blob.temperature, mass_ratio);
+					var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
+					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio);
+				}
 
 				vent.blob = default;
 			}
+
+			air_container.vent_y_bottom_cached = Maths.Max(vent.offset.Y, air_container.vent_y_bottom_cached);
+			air_container.vent_y_top_cached = Maths.Min(vent.offset.Y, air_container.vent_y_top_cached);
 
 			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		}
@@ -301,7 +317,7 @@ namespace TC2.Base.Components
 			var dt = info.DeltaTime;
 
 
-			var vent_ratio = 1.00f; // Maths.Normalize01(area, air_container.vent_area_total_cached);
+			var vent_ratio = Maths.Normalize01(area, air_container.vent_area_total_cached);
 
 
 			//var flow_rate = (Volume)0.00f;
@@ -331,7 +347,11 @@ namespace TC2.Base.Components
 				//density_outside = Phys.GetAirDensity(pressure_outside, Phys.ambient_temperature)
 			}
 
+			var height = air_container.vent_y_bottom_cached - vent.offset.Y;
 			var delta_p = pressure_inside - pressure_outside;
+
+			var flow_rate = vent.flow_rate;
+			var flow_rate_convection = (Volume)0.00f;
 
 			if (Vent.Data.is_debug)
 			{
@@ -349,8 +369,20 @@ namespace TC2.Base.Components
 				//flow_rate = vent.flow_rate.m_value.Abs();
 				//flow_rate = flow_rate_in - flow_rate_out;
 
-				var flow_rate = vent.flow_rate;
 				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside);
+
+				if (height > Maths.epsilon)
+				{
+					Phys.VentilationAirFlow(area, height, air_container.temperature, temperature_ambient, out flow_rate_convection);
+				}
+
+				if (flow_rate_target.m_value.IsNegative())
+				{
+					flow_rate_target -= flow_rate_convection;
+				}
+
+				//flow_rate_target -= flow_rate_convection;
+
 				//flow_rate_target = Maths.ClampMagnitude(flow_rate_target, air_container.volume) * vent_ratio;
 
 				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, delta_p.m_value.Abs() * 100, 0.10f);
@@ -390,7 +422,7 @@ namespace TC2.Base.Components
 				}
 
 				vent.flow_rate = flow_rate;
-				vent.velocity = vent.flow_rate / area;
+				vent.velocity = vent.flow_rate / vent.cross_section;
 			}
 			else
 			{
@@ -430,6 +462,9 @@ namespace TC2.Base.Components
 
 					$"delta_p: {delta_p:+0.0000;-0.0000}\n" +
 					$"vent_ratio: {vent_ratio:0.00}\n" +
+					//$"mass_ratio: {Maths.Normalize(vent.blob.mass, air_container.mass_cached):0.0000}\n" +
+
+					$"height: {height:0.00}\n" +
 					$"temperature: {air_container.temperature:0.00}\n" +
 					$"temperature_ambient: {temperature_ambient:0.00}\n" +
 
