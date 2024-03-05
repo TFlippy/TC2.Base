@@ -64,7 +64,7 @@
 						faction_id: projectile.faction_id
 					);
 
-					if (cluster.speed > 0.00f)
+					if (cluster.speed > Maths.epsilon)
 					{
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
 					}
@@ -126,7 +126,7 @@
 						faction_id: body.GetFaction()
 					);
 
-					if (cluster.speed > 0.00f)
+					if (cluster.speed > Maths.epsilon)
 					{
 						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
 					}

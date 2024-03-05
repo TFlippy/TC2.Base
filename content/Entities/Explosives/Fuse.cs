@@ -53,7 +53,7 @@ namespace TC2.Base.Components
 				Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
 				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);
 
-				if (fuse.failure_chance > 0.00f && random.NextBool(fuse.failure_chance))
+				if (fuse.failure_chance > Maths.epsilon && random.NextBool(fuse.failure_chance))
 				{
 					fuse.failure_time = fuse.time * random.NextFloatRange(0.30f, 0.70f);
 				}
@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 			fuse.time -= App.fixed_update_interval_s;
 
 #if SERVER
-			if (fuse.failure_chance > 0.00f && fuse.time > 0.50f && fuse.time < fuse.failure_time)
+			if (fuse.failure_chance > Maths.epsilon && fuse.time > 0.50f && fuse.time < fuse.failure_time)
 			{
 				entity.RemoveTag("lit");
 				fuse.failure_time = 0.00f;

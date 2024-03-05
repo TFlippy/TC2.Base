@@ -154,7 +154,7 @@
 							if (!health.IsNull())
 							{
 								var heal_integrity_max = Maths.Clamp(1.00f - medkit.heal_min_integrity, 0.00f, 1.00f);
-								if (heal_integrity_max > 0.00f && (1.00f - health.integrity) <= heal_integrity_max)
+								if (heal_integrity_max > Maths.epsilon && (1.00f - health.integrity) <= heal_integrity_max)
 								{
 									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
 									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
@@ -167,7 +167,7 @@
 								}
 
 								var heal_durability_max = Maths.Clamp(1.00f - medkit.heal_min_durability, 0.00f, 1.00f);
-								if (heal_durability_max > 0.00f && (1.00f - health.durability) <= heal_durability_max)
+								if (heal_durability_max > Maths.epsilon && (1.00f - health.durability) <= heal_durability_max)
 								{
 									var heal_normalized = Maths.Normalize(power, health.max);
 									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
@@ -179,13 +179,13 @@
 									healed_amount_max = Maths.Max(healed_amount_max, heal_amount);
 								}
 
-								if (healed_amount_max > 0.00f)
+								if (healed_amount_max > Maths.epsilon)
 								{
 									hit.entity.MarkModified<Health.Data>(sync: true);
 								}
 							}
 
-							if (healed_amount_max > 0.00f)
+							if (healed_amount_max > Maths.epsilon)
 							{
 								ref var organic_state = ref hit.entity.GetComponent<Organic.State>();
 								if (!organic_state.IsNull())
@@ -202,7 +202,7 @@
 							}
 						}
 
-						if (total_healed_amount > 0.00f)
+						if (total_healed_amount > Maths.epsilon)
 						{
 							Sound.Play(ref region, sounds.GetShuffledRandom(ref random), control.mouse.position, volume: 0.50f, priority: 0.50f);
 							Experience.Add(entity, Experience.Type.Medicine, random.NextFloatRange(total_healed_amount * 0.05f, total_healed_amount * 0.10f));

@@ -60,7 +60,7 @@ namespace TC2.Base.Components
 			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
 
 			var modifier_b = (adrenaline.modifier_withdrawal - adrenaline.modifier_current).Clamp0X();
-			if (modifier_b > 0.00f)
+			if (modifier_b > Maths.epsilon)
 			{
 				organic.endurance *= Maths.Lerp01(1.00f, 0.50f, modifier_b * 1.50f);
 				organic.strength *= Maths.Lerp01(1.00f, 0.50f, modifier_b * 1.10f);
@@ -81,7 +81,7 @@ namespace TC2.Base.Components
 			//weight_scale = 4;
 			adrenaline.release_rate_current = Maths.MoveTowards(adrenaline.release_rate_current, adrenaline.release_rate_target, adrenaline.release_step * App.fixed_update_interval_s);
 
-			if (adrenaline.amount > 0.00f)
+			if (adrenaline.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(adrenaline.release_rate_current, 0.00f, adrenaline.amount) * App.fixed_update_interval_s;
 
@@ -154,7 +154,7 @@ namespace TC2.Base.Components
 			var modifier = MathF.Pow(adrenaline.modifier_current, 1.40f);
 
 			var pos_modifier = MathF.Pow((adrenaline.modifier_current - 0.10f).Clamp0X(), 1.30f);
-			if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
+			if (pos_modifier > Maths.epsilon) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
 			camera.damp_modifier *= 1.00f + (modifier * 2.00f);
 			camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.60f, (modifier * 3.50f).Clamp0X());

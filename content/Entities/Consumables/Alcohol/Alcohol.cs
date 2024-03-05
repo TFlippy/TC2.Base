@@ -123,7 +123,7 @@ namespace TC2.Base.Components
 		{
 			alcohol.release_rate_current = Maths.MoveTowards(alcohol.release_rate_current, alcohol.release_rate_target, alcohol.release_step * info.DeltaTime);
 
-			if (alcohol.amount > 0.00f)
+			if (alcohol.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(alcohol.release_rate_current, 0.00f, alcohol.amount) * info.DeltaTime;
 

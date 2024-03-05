@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, [Source.Owned] ref Overheat.Data overheat, [Source.Owned] ref Body.Data body)
 		{
 			var heat_excess = Maths.Max(overheat.heat_current - overheat.heat_critical, 0.00f);
-			if (heat_excess > 0.00f && random.NextBool(heat_excess * 0.01f))
+			if (heat_excess > Maths.epsilon && random.NextBool(heat_excess * 0.01f))
 			{
 				var damage = Maths.Lerp(heat_excess, health.max, 0.35f) * random.NextFloatRange(0.80f, 1.20f);
 				entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), damage, damage, damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Fire, yield: 0.00f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);

@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 		{
 			codeine.release_rate_current = Maths.MoveTowards(codeine.release_rate_current, codeine.release_rate_target, codeine.release_step * App.fixed_update_interval_s);
 
-			if (codeine.amount > 0.00f)
+			if (codeine.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(codeine.release_rate_current, 0.00f, codeine.amount) * App.fixed_update_interval_s;
 

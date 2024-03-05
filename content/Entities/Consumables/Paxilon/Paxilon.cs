@@ -65,7 +65,7 @@ namespace TC2.Base.Components
 		{
 			paxilon.release_rate_current = Maths.MoveTowards(paxilon.release_rate_current, paxilon.release_rate_target, paxilon.release_step * App.fixed_update_interval_s);
 
-			if (paxilon.amount > 0.00f)
+			if (paxilon.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(paxilon.release_rate_current, 0.00f, paxilon.amount) * App.fixed_update_interval_s;
 

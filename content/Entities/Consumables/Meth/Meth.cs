@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
 
 			var modifier_b = (meth.modifier_withdrawal - meth.modifier_current).Clamp0X();
-			if (modifier_b > 0.00f)
+			if (modifier_b > Maths.epsilon)
 			{
 				organic.consciousness *= Maths.Lerp01(1.00f, 0.60f, modifier_b);
 				organic.endurance *= Maths.Lerp01(1.00f, 0.50f, modifier_b);
@@ -98,7 +98,7 @@ namespace TC2.Base.Components
 		{
 			meth.release_rate_current = Maths.MoveTowards(meth.release_rate_current, meth.release_rate_target, meth.release_step * App.fixed_update_interval_s);
 
-			if (meth.amount > 0.00f)
+			if (meth.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(meth.release_rate_current, 0.00f, meth.amount) * App.fixed_update_interval_s;
 
@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 			var modifier = MathF.Pow(meth.modifier_current, 1.40f);
 
 			var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);
-			if (pos_modifier > 0.00f) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
+			if (pos_modifier > Maths.epsilon) camera.position_offset = random.NextUnitVector2Range(0.00f, 0.40f) * pos_modifier;
 
 			camera.damp_modifier *= 1.00f + (modifier * 14.00f);
 			camera.distance_modifier += modifier * 0.10f;

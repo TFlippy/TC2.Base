@@ -583,7 +583,7 @@ namespace TC2.Base.Components
 
 													using (GUI.Wrap.Push())
 													{
-														if (placement.min_support > 0.00f)
+														if (placement.min_support > Maths.epsilon)
 														{
 															GUI.TextShaded($"Support: {(support * 100.00f):0}%/{(placement.min_support * 100.00f):0}%", color: support >= placement.min_support ? color_ok : color_error);
 														}
@@ -703,7 +703,7 @@ namespace TC2.Base.Components
 
 					var errors = Build.Errors.None;
 
-					if (placement.min_claim > 0.00f)
+					if (placement.min_claim > Maths.epsilon)
 					{
 						var claim_ratio = Claim.GetOverlapRatio(ref region, bb, faction_id, !placement.flags.HasAll(Placement.Flags.Require_Claimed));
 						if (claim_ratio < placement.min_claim) errors |= Errors.Claimed;
@@ -712,8 +712,8 @@ namespace TC2.Base.Components
 					support = 1.00f;
 					var clearance = 1.00f;
 
-					var check_support = placement.min_support > 0.00f && !skip_support;
-					var check_clearance = placement.min_clearance > 0.00f;
+					var check_support = placement.min_support > Maths.epsilon && !skip_support;
+					var check_clearance = placement.min_clearance > Maths.epsilon;
 
 					if (check_support || check_clearance)
 					{
@@ -747,12 +747,12 @@ namespace TC2.Base.Components
 
 						var len = Vector2.Distance(a, b);
 
-						if (placement.length_min > 0.00f && len < placement.length_min)
+						if (placement.length_min > Maths.epsilon && len < placement.length_min)
 						{
 							errors |= Build.Errors.MinLength;
 						}
 
-						if (placement.length_max > 0.00f && len > placement.length_max + placement.length_step)
+						if (placement.length_max > Maths.epsilon && len > placement.length_max + placement.length_step)
 						{
 							errors |= Build.Errors.MaxLength;
 						}
@@ -1017,7 +1017,7 @@ namespace TC2.Base.Components
 
 						case Placement.Type.Simple:
 						{
-							if (placement.rotation_max > 0.00f)
+							if (placement.rotation_max > Maths.epsilon)
 							{
 								var dir = (pos_raw - (pos_a_raw ?? pos_raw)).GetNormalized(out var len);
 								if (placement.rotation_offset != 0.00f) dir = dir.RotateByRad(placement.rotation_offset);
@@ -1673,7 +1673,7 @@ namespace TC2.Base.Components
 						//	}
 						//}
 
-						if (pos_a.HasValue && placement.length_max > 0.00f)
+						if (pos_a.HasValue && placement.length_max > Maths.epsilon)
 						{
 							var pivot = Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
 							pos = Maths.ClampRadiusSnapped2(pos, pivot, placement.length_min, placement.length_max, placement.length_step);

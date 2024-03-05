@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 		{
 			morphine.release_rate_current = Maths.MoveTowards(morphine.release_rate_current, morphine.release_rate_target, morphine.release_step * App.fixed_update_interval_s);
 
-			if (morphine.amount > 0.00f)
+			if (morphine.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(morphine.release_rate_current, 0.00f, morphine.amount) * App.fixed_update_interval_s;
 

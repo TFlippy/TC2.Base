@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 		{
 			food.release_rate_current = Maths.MoveTowards(food.release_rate_current, food.release_rate_target, food.release_step * info.DeltaTime);
 
-			if (food.amount > 0.00f)
+			if (food.amount > Maths.epsilon)
 			{
 				var amount_released = Maths.Clamp(food.release_rate_current, 0.00f, food.amount) * info.DeltaTime;
 

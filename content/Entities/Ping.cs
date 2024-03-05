@@ -96,7 +96,7 @@ namespace TC2.Base.Components
 						var col_outer = col_lines.WithAlphaMult(Maths.LerpEaseOut(0.00f, 0.95f, expand_lerp_t, Maths.Easing.Quad));
 						var col_expand = this.ping.color;
 
-						if (fade_lerp_t > 0.00f)
+						if (fade_lerp_t > Maths.epsilon)
 						{
 							col_text = col_text.WithAlphaMult(fade_alpha);
 							col_inner = col_inner.WithAlphaMult(fade_alpha);

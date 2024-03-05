@@ -479,7 +479,7 @@
 			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
 			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
 
-			if (ammo_count_max > 0.00f)
+			if (ammo_count_max > Maths.epsilon)
 			{
 				var step = MathF.Tau / ammo_count_max;
 				var count = (int)ammo_count_max;
@@ -875,13 +875,13 @@
 
 					if (!overheat.IsNull())
 					{
-						if (overheat.heat_critical > 0.00f && ammo.heat > 0.00f)
+						if (overheat.heat_critical > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
 							var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(overheat.capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							overheat.heat_current += heat;
 
 							var heat_excess = Maths.Max(overheat.heat_current - overheat.heat_high, 0.00f);
-							if (heat_excess > 0.00f)
+							if (heat_excess > Maths.epsilon)
 							{
 								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
 								stability_ratio = Maths.Clamp(stability_ratio - (heat_excess * 0.005f), 0.00f, 1.00f);
@@ -1161,7 +1161,7 @@
 #if CLIENT
 				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
 				{
-					if (gun.flash_size > 0.00f)
+					if (gun.flash_size > Maths.epsilon)
 					{
 						Particle.Spawn(ref region, new Particle.Data()
 						{
@@ -1178,7 +1178,7 @@
 						});
 					}
 
-					if (gun.smoke_size > 0.00f && gun.smoke_amount > 0.00f)
+					if (gun.smoke_size > Maths.epsilon && gun.smoke_amount > Maths.epsilon)
 					{
 						var smoke_count = (int)gun.smoke_amount;
 						for (var i = 0; i < smoke_count; i++)

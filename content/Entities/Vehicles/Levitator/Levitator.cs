@@ -87,7 +87,7 @@ namespace TC2.Base.Components
 					ref var node_edit = ref this.settings[i];
 					ref var node = ref data.nodes[i];
 
-					if (node.ratio > 0.00f)
+					if (node.ratio > Maths.epsilon)
 					{
 						if (node_edit.key.HasValue)
 						{
@@ -628,7 +628,7 @@ namespace TC2.Base.Components
 						for (var i = 0; i < this.levitator.nodes.Length; i++)
 						{
 							ref var node = ref this.levitator.nodes[i];
-							if (node.ratio > 0.00f)
+							if (node.ratio > Maths.epsilon)
 							{
 								using (GUI.ID.Push(100 + i))
 								{

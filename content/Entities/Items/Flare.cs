@@ -40,11 +40,11 @@ namespace TC2.Base.Components
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmoke(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
-			if (flare.lifetime > 0.00f)
+			if (flare.lifetime > Maths.epsilon)
 			{
 				var modifier = Maths.Clamp(flare.lifetime * 0.10f, 0.00f, 1.00f);
 
-				if (flare.smoke_amount > 0.00f)
+				if (flare.smoke_amount > Maths.epsilon)
 				{
 					flare.smoke_accumulator += flare.smoke_amount * modifier;
 					while (flare.smoke_accumulator >= 1.00f)
@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (flare.sparks_amount > 0.00f)
+				if (flare.sparks_amount > Maths.epsilon)
 				{
 					flare.sparks_accumulator += flare.sparks_amount * modifier;
 					while (flare.sparks_accumulator >= 1.00f)

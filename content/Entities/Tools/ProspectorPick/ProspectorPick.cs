@@ -64,7 +64,7 @@ namespace TC2.Base.Components
 							total_count += sample.quantity;
 						}
 
-						if (total_count > 0.00f)
+						if (total_count > Maths.epsilon)
 						{
 							//GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
 							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default.WithAlphaMult(1.00f), GUI.font_color_default.WithAlphaMult(0.50f), 4.00f, 1.00f);
