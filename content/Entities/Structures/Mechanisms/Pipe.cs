@@ -1,4 +1,5 @@
-﻿
+﻿#define USE_SIMD
+
 using System.Runtime.Intrinsics;
 
 namespace TC2.Base.Components
@@ -11,8 +12,8 @@ namespace TC2.Base.Components
 
 			public readonly Temperature temperature;
 			public readonly Mass mass;
-			//public readonly Volume volume;
 			public readonly Amount moles_total;
+			private readonly uint unused;
 
 			public Blob(Composition air, Temperature temperature)
 			{
@@ -54,21 +55,25 @@ namespace TC2.Base.Components
 			public Amount moles_so2;
 			public Amount moles_no2;
 
-			public Composition(Amount moles_o2, Amount moles_h2, Amount moles_n2, Amount moles_co, Amount moles_co2, Amount moles_so2, Amount moles_no2, Amount moles_h2o)
+			public Composition(Amount moles_n2, Amount moles_o2, Amount moles_co2, Amount moles_h2o, Amount moles_h2, Amount moles_co, Amount moles_so2, Amount moles_no2)
 			{
-				this.moles_o2 = moles_o2;
-				this.moles_h2 = moles_h2;
 				this.moles_n2 = moles_n2;
-				this.moles_co = moles_co;
+				this.moles_o2 = moles_o2;
 				this.moles_co2 = moles_co2;
+				this.moles_h2o = moles_h2o;
+
+				this.moles_h2 = moles_h2;
+				this.moles_co = moles_co;
 				this.moles_so2 = moles_so2;
 				this.moles_no2 = moles_no2;
-				this.moles_h2o = moles_h2o;
 			}
 
-			// TODO: vectorize this
 			public readonly float GetTotalMoles()
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(this);
+				return ymm0.Sum();
+#else
 				var moles_total =
 				this.moles_o2 +
 				this.moles_h2 +
@@ -80,11 +85,28 @@ namespace TC2.Base.Components
 				this.moles_h2o;
 
 				return moles_total;
+#endif
 			}
 
-			// TODO: vectorize this
 			public readonly Mass GetMass()
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(this);
+				var ymm1 = new Vec8f
+				(
+					Phys.n2_molar_mass,
+					Phys.o2_molar_mass,
+					Phys.co2_molar_mass,
+					Phys.h2o_molar_mass,
+					
+					Phys.h2_molar_mass,
+					Phys.co_molar_mass,
+					Phys.so2_molar_mass,
+					Phys.no2_molar_mass
+				);
+				ymm0 *= ymm1;
+				return ymm0.Sum();
+#else
 				var mass_total =
 				(this.moles_o2 * Phys.o2_molar_mass) +
 				(this.moles_h2 * Phys.h2_molar_mass) +
@@ -95,11 +117,28 @@ namespace TC2.Base.Components
 				(this.moles_no2 * Phys.no2_molar_mass) +
 				(this.moles_h2o * Phys.h2o_molar_mass);
 				return mass_total.m_value;
+#endif
 			}
 
-			// TODO: vectorize this
 			public readonly Energy GetHeatCapacity()
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(this);
+				var ymm1 = new Vec8f
+				(
+					Phys.n2_molar_heat_capacity,
+					Phys.o2_molar_heat_capacity,
+					Phys.co2_molar_heat_capacity,
+					Phys.h2o_molar_heat_capacity,
+
+					Phys.h2_molar_heat_capacity,
+					Phys.co_molar_heat_capacity,
+					Phys.so2_molar_heat_capacity,
+					Phys.no2_molar_heat_capacity
+				);
+				ymm0 *= ymm1;
+				return ymm0.Sum();
+#else
 				var heat_capacity =
 				(this.moles_o2 * Phys.o2_molar_heat_capacity) +
 				(this.moles_h2 * Phys.h2_molar_heat_capacity) +
@@ -110,6 +149,7 @@ namespace TC2.Base.Components
 				(this.moles_no2 * Phys.no2_molar_heat_capacity) +
 				(this.moles_h2o * Phys.h2o_molar_heat_capacity);
 				return heat_capacity;
+#endif
 			}
 
 			public readonly Volume GetVolume(Temperature temperature, Pressure pressure)
@@ -123,9 +163,13 @@ namespace TC2.Base.Components
 				return this.GetMass() / volume;
 			}
 
-			// TODO: vectorize this
 			public static Air.Composition operator *(Air.Composition air, float value)
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(air);
+				ymm0 *= value;
+				return ymm0.As<Air.Composition>();
+#else
 				air.moles_o2 *= value;
 				air.moles_h2 *= value;
 				air.moles_n2 *= value;
@@ -136,11 +180,17 @@ namespace TC2.Base.Components
 				air.moles_h2o *= value;
 
 				return air;
+#endif
 			}
 
-			// TODO: vectorize this
 			public static Air.Composition operator +(Air.Composition a, Air.Composition b)
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(a);
+				var ymm1 = Vec8f.From(b);
+				ymm0 += ymm1;
+				return ymm0.As<Air.Composition>();
+#else
 				a.moles_o2 += b.moles_o2;
 				a.moles_h2 += b.moles_h2;
 				a.moles_n2 += b.moles_n2;
@@ -151,11 +201,17 @@ namespace TC2.Base.Components
 				a.moles_h2o += b.moles_h2o;
 
 				return a;
+#endif
 			}
 
-			// TODO: vectorize this
 			public static Air.Composition operator -(Air.Composition a, Air.Composition b)
 			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(a);
+				var ymm1 = Vec8f.From(b);
+				ymm0 -= ymm1;
+				return ymm0.As<Air.Composition>();
+#else
 				a.moles_o2 -= b.moles_o2;
 				a.moles_h2 -= b.moles_h2;
 				a.moles_n2 -= b.moles_n2;
@@ -166,6 +222,7 @@ namespace TC2.Base.Components
 				a.moles_h2o -= b.moles_h2o;
 
 				return a;
+#endif
 			}
 		}
 
@@ -210,7 +267,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_ResetContainer(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Air.Container.Data container)
 		{
@@ -233,7 +290,7 @@ namespace TC2.Base.Components
 		//	air_container. Maths.Min
 		//}
 
-		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVentContainer(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
@@ -276,7 +333,7 @@ namespace TC2.Base.Components
 			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		}
 
-		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 300)]
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 300, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_RefreshContainer(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Air.Container.Data container)
 		{
@@ -285,6 +342,7 @@ namespace TC2.Base.Components
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
 
+			//var ts = Timestamp.Now();
 			var air = container.air;
 
 			var moles_total = air.GetTotalMoles();
@@ -298,6 +356,9 @@ namespace TC2.Base.Components
 			container.mass_cached = mass;
 			container.pressure_cached = pressure;
 			container.moles_total_cached = moles_total;
+			//var ts_elapsed = ts.GetMilliseconds();
+			//App.WriteLine($"{ts_elapsed:0.0000} ms");
+
 			//container.vent_area_total_cached = 0.00f;
 		}
 
@@ -308,7 +369,7 @@ namespace TC2.Base.Components
 		//	container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		//}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVent(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
 		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] in Air.Container.Data air_container)
@@ -355,10 +416,12 @@ namespace TC2.Base.Components
 			var flow_rate = vent.flow_rate;
 			var flow_rate_convection = (Volume)0.00f;
 
+#if DEBUG
 			if (Vent.Data.is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) goto end;
 			}
+#endif
 
 			if (area > Maths.epsilon)
 			{
@@ -437,6 +500,7 @@ namespace TC2.Base.Components
 			vent.pressure_outside = pressure_outside;
 			vent.pressure_inside = pressure_inside;
 
+#if DEBUG
 			end:
 			{
 #if CLIENT
@@ -481,6 +545,7 @@ namespace TC2.Base.Components
 				}
 #endif
 			}
+#endif
 		}
 
 		//public static void TakeAmbient(ref readonly Region.Data region, Volume volume, out Air.Blob blob)
@@ -502,42 +567,58 @@ namespace TC2.Base.Components
 
 	public static partial class Vent
 	{
+		public enum Type: ushort
+		{
+			Undefined = 0,
+
+			Input,
+			Output,
+
+
+
+
+			//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
+		}
+
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
 		public struct Data: IComponent, ITrait
 		{
+#if DEBUG
 			public static ulong time_step = 10;
 			public static bool is_debug = false;
+#else
+			public const ulong time_step = 1;
+			public const bool is_debug = false;
+#endif
 
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
-				None = 0u,
+				None = 0,
 
-				Has_Pipe = 1u << 0,
+				Has_Pipe = 1 << 0,
 
-				[Save.Ignore] Has_Pressure_Cached = 1u << 31,
+				//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 			}
 
 			public Air.Blob blob;
 
-			public Inventory.Type type;
-			public Vent.Data.Flags flags;
-
 			[Editor.Picker.Position(true, true)]
 			public Vector2 offset;
-			//[Editor.Picker.Direction(true, true), Obsolete]
-			//public Vector2 direction = new(0, -1);
-
-			public Area cross_section = Area.Circle(10.00f.cm());
-
-			public Pressure pressure_outside = Phys.atmospheric_pressure_kordel;
-			public Pressure pressure_inside = Phys.atmospheric_pressure_kordel;
 
 			[Editor.Slider.Clamped(-MathF.Tau, +MathF.Tau, snap: MathF.Tau / 32.00f, mark_modified: true)]
 			public float rotation;
-			public float velocity;
+			public Area cross_section = Area.Circle(10.00f.cm()); // TODO: dumb name, rename this
+			
 			public float modifier = 1.00f;
-			public Volume flow_rate;
+			public Vent.Data.Flags flags;
+			public Vent.Type type;
+
+			[Save.Ignore, Net.Ignore] public Color32BGRA color_smoke;
+			[Save.Ignore, Net.Ignore] public Pressure pressure_outside = Phys.atmospheric_pressure_kordel; // TODO: is this really needed?
+			[Save.Ignore, Net.Ignore] public Pressure pressure_inside = Phys.atmospheric_pressure_kordel; // TODO: is this really needed?
+			[Save.Ignore, Net.Ignore] public Volume flow_rate;
+			[Save.Ignore, Net.Ignore] public float velocity;
 
 			[Save.Ignore, Net.Ignore] public float t_next_smoke;
 
@@ -545,18 +626,6 @@ namespace TC2.Base.Components
 			{
 
 			}
-		}
-
-		public static Volume GetFlowRate(ref readonly this Vent.Data vent)
-		{
-			Phys.VolumetricFlowRate(vent.cross_section * vent.modifier, vent.velocity, out var flow_rate);
-			return flow_rate;
-		}
-
-		public static float GetFlowVelocity(ref readonly this Vent.Data vent)
-		{
-			Phys.VolumetricFlowRate(vent.cross_section, out var velocity, vent.flow_rate);
-			return velocity;
 		}
 	}
 
