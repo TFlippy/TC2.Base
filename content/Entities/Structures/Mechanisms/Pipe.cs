@@ -255,11 +255,13 @@ namespace TC2.Base.Components
 				{
 					var air_tmp = air_cont - air_vent;
 					air_container.air = air_tmp;
+					air_container.mass_cached -= vent.blob.mass;
 				}
 				else
 				{
 					var air_tmp = air_cont + air_vent;
 					air_container.air = air_tmp;
+					air_container.mass_cached += vent.blob.mass;
 
 					var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
 					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio);
@@ -452,7 +454,7 @@ namespace TC2.Base.Components
 					//	color: Color32BGRA.Orange.WithAlpha(50), filled: true);
 
 					region.DrawDebugDir(transform.LocalToWorld(vent.offset),
-						dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation)) * Maths.Abs(vent.velocity).Sqrt(),
+						dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation)) * Maths.Abs(vent.velocity).Sqrt().WithSign(-vent.velocity),
 						color: color, thickness: 4.00f);
 
 					region.DrawDebugText(transform.LocalToWorld(vent.offset + new Vector2(0.75f, -1.00f)),
@@ -504,7 +506,7 @@ namespace TC2.Base.Components
 		public struct Data: IComponent, ITrait
 		{
 			public static ulong time_step = 10;
-			public static bool is_debug = true;
+			public static bool is_debug = false;
 
 			[Flags]
 			public enum Flags: uint
