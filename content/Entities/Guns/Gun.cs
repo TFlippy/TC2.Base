@@ -1173,7 +1173,7 @@
 							frame_count_total = 6,
 							scale = gun.flash_size,
 							lit = 1.00f,
-							rotation = transform.rotation + gun.particle_rotation + (transform.scale.X < 0.00f ? MathF.PI : 0),
+							rotation = transform.rotation + gun.particle_rotation + (transform.scale.X.IsNegative() ? MathF.PI : 0),
 							vel = base_vel
 						});
 					}

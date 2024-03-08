@@ -750,10 +750,10 @@ namespace TC2.Base.Components
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
-		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable)
+		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable, [Source.Owned, Optional] in Aimable.Data aimable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range, true);
-			holdable.hints.SetFlag(NPC.ItemHints.Usable, true);
+			holdable.hints.AddFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable);
+			holdable.grip_min = aimable.deadzone;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]

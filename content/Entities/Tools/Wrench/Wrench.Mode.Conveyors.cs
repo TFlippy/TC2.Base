@@ -332,23 +332,23 @@
 
 					void Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 					{
-						if (info_src.IsValid)
+						if (info_src.IsSelectable)
 						{
-							if (!info_new.IsValid && !info_dst.IsValid)
+							if (!info_new.IsSelectable && !info_dst.IsSelectable)
 							{
 								var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
 
 								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (wpos_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 8.00f, 8.00f);
 							}
 
-							if (info_new.IsValid)
+							if (info_new.IsSelectable)
 							{
 								var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
 
 								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_new.Position).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 8.00f, 8.00f);
 							}
 
-							if (info_dst.IsValid)
+							if (info_dst.IsSelectable)
 							{
 								var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
 
@@ -356,19 +356,19 @@
 							}
 						}
 
-						if (info_src.IsValid)
+						if (info_src.IsSelectable)
 						{
 							//GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * GUI.GetWorldToCanvasScale(), color_src, 2.00f);
 							GUI.DrawEntity(info_src.Entity, color_src.WithAlphaMult(0.50f));
 						}
 
-						if (info_dst.IsValid)
+						if (info_dst.IsSelectable)
 						{
 							//GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * GUI.GetWorldToCanvasScale(), color_dst, 2.00f);
 							GUI.DrawEntity(info_dst.Entity, color_dst.WithAlphaMult(0.50f));
 						}
 
-						if (info_new.IsValid)
+						if (info_new.IsSelectable)
 						{
 							//GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * GUI.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
 							GUI.DrawEntity(info_new.Entity, color_new.WithAlphaMult(0.50f));
@@ -382,20 +382,20 @@
 					public Entity entity;
 					public IComponent.Handle inventory_id;
 
-					public Transform.Data transform;
-
 					public float radius;
 					public Vector2 pos;
 
 					public bool is_src;
 					public bool alive;
 					public bool valid;
+					public bool selectable;
 
 					public Entity Entity => this.entity;
 					public IComponent.Handle ComponentID => this.inventory_id;
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => this.is_src;
+					public readonly bool IsSelectable => this.selectable;
 					public bool IsAlive => this.alive;
 					public bool IsValid => this.valid;
 
@@ -409,7 +409,7 @@
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValueFromRef(out var transform);
 
 							var has_inventory = false;
 
@@ -420,7 +420,7 @@
 								{
 									has_inventory = true;
 									this.inventory_id = h_inventory.ID;
-									this.pos = this.transform.LocalToWorld(h_inventory.Offset);
+									this.pos = transform.LocalToWorld(h_inventory.Offset);
 
 									break;
 								}

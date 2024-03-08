@@ -21,15 +21,15 @@
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 1, 0);
 					public static string Name { get; } = "Pipes";
 
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Pipe;
-					public Physics.Layer LayerMask => Physics.Layer.Pipe;
-					public Color32BGRA ColorOk => Color32BGRA.Green;
-					public Color32BGRA ColorError => Color32BGRA.Red;
-					public Color32BGRA ColorNew => Color32BGRA.Yellow;
+					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Pipe;
+					public readonly Physics.Layer LayerMask => Physics.Layer.Pipe;
+					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
+					public readonly Color32BGRA ColorError => Color32BGRA.Red;
+					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					public Entity EntitySrc => this.ent_src;
-					public Entity EntityDst => this.ent_dst;
-					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
+					public readonly Entity EntitySrc => this.ent_src;
+					public readonly Entity EntityDst => this.ent_dst;
+					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
 					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
 					{
@@ -157,7 +157,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawVents(ref vents_src, ref this.vent_id_src, ref sync);
+												DrawVents(ref info_src, ref info_dst, ref vents_src, ref this.vent_id_src, ref sync);
 											}
 										}
 
@@ -176,7 +176,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawVents(ref vents_dst, ref this.vent_id_dst, ref sync);
+												DrawVents(ref info_src, ref info_dst, ref vents_dst, ref this.vent_id_dst, ref sync);
 											}
 										}
 									}
@@ -244,7 +244,7 @@
 						}
 					}
 
-					private static void DrawVents(scoped ref IComponent.List<Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
+					private static void DrawVents(ref readonly TargetInfo target_src, ref readonly TargetInfo target_dst, scoped ref IComponent.List<Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
 					{
 						for (var i = 0; i < vents.count; i++)
 						{
@@ -260,7 +260,18 @@
 										GUI.TitleCentered(pair.data.type.GetEnumName(), pivot: new(0.50f, 0.50f));
 
 										var is_selected = selected_vent_id == pair.handle;
-										if (GUI.Selectable3(pair.data.type.GetEnumName(), group_row.GetOuterRect(), is_selected))
+										var enabled = (is_selected || pair.data.type != target_src.vent_type) && (is_selected || pair.data.type != target_dst.vent_type);
+
+										//if (target_src.vent_id == pair.handle)
+										//{
+										//	enabled &= pair.data.type != target_dst.vent_type;
+										//}
+										//else if (target_dst.entity == pair.en)
+										//{
+										//	enabled &= pair.data.type != target_src.vent_type;
+										//}
+
+										if (GUI.Selectable3(pair.data.type.GetEnumName(), group_row.GetOuterRect(), selected: is_selected, enabled: enabled))
 										{
 											selected_vent_id = is_selected ? 0 : pair.handle;
 											sync = true;
@@ -281,23 +292,23 @@
 
 					void Wrench.ILinkerMode<Pipes.TargetInfo, Pipe.Data>.DrawGizmos(Entity ent_wrench, ref Vector2 wpos_mouse, ref TargetInfo info_src, ref TargetInfo info_dst, ref TargetInfo info_new, ref Color32BGRA color_src, ref Color32BGRA color_dst, ref Color32BGRA color_new)
 					{
-						if (info_src.IsValid)
+						if (info_src.IsSelectable)
 						{
-							if (!info_new.IsValid && !info_dst.IsValid)
+							if (!info_new.IsSelectable && !info_dst.IsSelectable)
 							{
 								var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
 
 								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (wpos_mouse).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.00f), 8.00f, 8.00f);
 							}
 
-							if (info_new.IsValid)
+							if (info_new.IsSelectable)
 							{
 								var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
 
 								GUI.DrawLine2((info_src.Position).WorldToCanvas(), (info_new.Position).WorldToCanvas(), color_src, color_new.WithAlphaMult(0.50f), 8.00f, 8.00f);
 							}
 
-							if (info_dst.IsValid)
+							if (info_dst.IsSelectable)
 							{
 								var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
 
@@ -305,19 +316,19 @@
 							}
 						}
 
-						if (info_src.IsValid)
+						if (info_src.IsSelectable)
 						{
 							//GUI.DrawCircle(info_src.Position.WorldToCanvas(), info_src.Radius * GUI.GetWorldToCanvasScale(), color_src, 2.00f);
 							GUI.DrawEntity(info_src.Entity, color_src.WithAlphaMult(0.50f));
 						}
 
-						if (info_dst.IsValid)
+						if (info_dst.IsSelectable)
 						{
 							//GUI.DrawCircle(info_dst.Position.WorldToCanvas(), info_dst.Radius * GUI.GetWorldToCanvasScale(), color_dst, 2.00f);
 							GUI.DrawEntity(info_dst.Entity, color_dst.WithAlphaMult(0.50f));
 						}
 
-						if (info_new.IsValid)
+						if (info_new.IsSelectable)
 						{
 							//GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * GUI.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
 							GUI.DrawEntity(info_new.Entity, color_new.WithAlphaMult(0.50f));
@@ -330,8 +341,7 @@
 				{
 					public Entity entity;
 					public IComponent.Handle vent_id;
-
-					public Transform.Data transform;
+					public Vent.Type vent_type;
 
 					public float radius;
 					public Vector2 pos;
@@ -339,14 +349,16 @@
 					public bool is_src;
 					public bool alive;
 					public bool valid;
+					public bool selectable;
 
-					public Entity Entity => this.entity;
-					public IComponent.Handle ComponentID => this.vent_id;
-					public Vector2 Position => this.pos;
-					public float Radius => this.radius;
-					public bool IsSource => this.is_src;
-					public bool IsAlive => this.alive;
-					public bool IsValid => this.valid;
+					public readonly Entity Entity => this.entity;
+					public readonly IComponent.Handle ComponentID => this.vent_id;
+					public readonly Vector2 Position => this.pos;
+					public readonly float Radius => this.radius;
+					public readonly bool IsSource => this.is_src;
+					public readonly bool IsSelectable => this.selectable;
+					public readonly bool IsAlive => this.alive;
+					public readonly bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity, IComponent.Handle vent_id, bool is_src)
 					{
@@ -356,32 +368,35 @@
 
 						if (this.alive)
 						{
-							this.valid = true;
-
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
-
-							var has_vent = false;
-
-							var vents = this.entity.GetComponents<Vent.Data>();
-							for (var i = 0; i < vents.count; i++)
+							ref var transform = ref this.entity.GetComponent<Transform.Data>();
+							if (transform.IsNotNull())
 							{
-								var pair = vents[i];
-								if ((vent_id == 0 || pair.handle == vent_id))
+								this.pos = transform.position;
+
+								var vents = this.entity.GetComponents<Vent.Data>();
+								for (var i = 0; i < vents.count; i++)
 								{
-									has_vent = true;
-									this.vent_id = pair.handle;
-									this.pos = this.transform.LocalToWorld(pair.data.offset);
+									var pair = vents[i];
+									if (!pair.data.flags.HasAny(Vent.Data.Flags.Has_Pipe))
+									{
+										this.selectable = true;
+										if (vent_id != 0 && pair.handle == vent_id)
+										{
+											this.vent_id = pair.handle;
+											this.pos = transform.LocalToWorld(pair.data.offset);
+											this.vent_type = pair.data.type;
+											this.valid = true;
 
-									break;
+											break;
+										}
+									}
 								}
-							}
 
-							this.valid &= has_vent;
-
-							if (this.valid)
-							{
-								this.radius = 1.00f;
-								//this.pos = this.transform.LocalToWorld(invento;
+								if (this.selectable)
+								{
+									this.radius = 1.00f;
+									//this.pos = this.transform.LocalToWorld(invento;
+								}
 							}
 						}
 					}

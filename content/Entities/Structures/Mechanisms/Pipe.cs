@@ -267,7 +267,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_ResetContainer(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Air.Container.Data container)
 		{
@@ -282,7 +282,7 @@ namespace TC2.Base.Components
 			container.vent_y_top_cached = 10.00f;
 		}
 
-		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		//[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
 		//public static void System_ModifiedVentContainer(ISystem.Info info, ref Region.Data region, Entity entity,
 		//[Source.Owned] ref Air.Container.Data air_container, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
 		//[Source.Owned, Pair.All] ref Vent.Data vent)
@@ -290,7 +290,7 @@ namespace TC2.Base.Components
 		//	air_container. Maths.Min
 		//}
 
-		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVentContainer(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
@@ -333,8 +333,8 @@ namespace TC2.Base.Components
 			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		}
 
-		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 300, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void System_RefreshContainer(ISystem.Info info, ref Region.Data region, Entity entity,
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 300, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void System_RefreshContainer(ref Region.Data region,
 		[Source.Owned] ref Air.Container.Data container)
 		{
 			if (Vent.Data.is_debug)
@@ -345,17 +345,21 @@ namespace TC2.Base.Components
 			//var ts = Timestamp.Now();
 			var air = container.air;
 
-			var moles_total = air.GetTotalMoles();
 			var volume = container.volume;
 			var temperature = container.temperature;
+
+			var moles_total = air.GetTotalMoles();
 			var mass = air.GetMass();
 
-			Phys.IdealGasLaw(out var pressure, volume, moles_total, temperature);
+			var density = mass.GetDensity(volume);
 
-			container.density_cached = mass / volume;
-			container.mass_cached = mass;
-			container.pressure_cached = pressure;
+			Phys.IdealGasLawFast(out var pressure, volume, moles_total, temperature);
+
 			container.moles_total_cached = moles_total;
+			container.pressure_cached = pressure;
+			container.density_cached = density; // mass / volume;
+			container.mass_cached = mass;
+
 			//var ts_elapsed = ts.GetMilliseconds();
 			//App.WriteLine($"{ts_elapsed:0.0000} ms");
 
@@ -369,7 +373,7 @@ namespace TC2.Base.Components
 		//	container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		//}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVent(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
 		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] in Air.Container.Data air_container)

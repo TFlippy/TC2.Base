@@ -38,6 +38,7 @@ namespace TC2.Base.Components
 			public Vector2 Position { get; }
 			public float Radius { get; }
 
+			public bool IsSelectable { get; }
 			public bool IsSource { get; }
 			public bool IsAlive { get; }
 			public bool IsValid { get; }
@@ -103,7 +104,7 @@ namespace TC2.Base.Components
 							if (result.entity == info_target.Entity) continue;
 
 							info_new = this.CreateTargetInfo(result.entity);
-							if (info_new.IsValid)
+							if (info_new.IsSelectable)
 							{
 								break;
 							}
@@ -111,7 +112,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (info_new.IsValid)
+				if (info_new.IsSelectable)
 				{
 					GUI.SetCursor(App.CursorType.Hand, 10);
 				}
@@ -162,13 +163,13 @@ namespace TC2.Base.Components
 					color_new = this.ColorError;
 				}
 
-				if (info_target.IsValid)
+				if (info_target.IsSelectable)
 				{
 					//GUI.DrawCircle(info_target.Position.WorldToCanvas(), info_target.Radius * scale, color_target, 2.00f);
 					GUI.DrawEntity(info_target.Entity, color_target.WithAlphaMult(0.50f));
 				}
 
-				if (info_new.IsValid)
+				if (info_new.IsSelectable)
 				{
 					//GUI.DrawCircle(info_new.Position.WorldToCanvas(), info_new.Radius * scale, color_new.WithAlphaMult(0.50f), 2.00f);
 					GUI.DrawEntity(info_new.Entity, color_new.WithAlphaMult(0.50f));
@@ -176,7 +177,7 @@ namespace TC2.Base.Components
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
 				{
-					if (info_new.IsValid)
+					if (info_new.IsSelectable)
 					{
 						if (errors_new == Wrench.Mode.Build.Errors.None)
 						{
@@ -191,7 +192,7 @@ namespace TC2.Base.Components
 				}
 				else if (mouse.GetKeyDown(Mouse.Key.Right))
 				{
-					if (info_target.IsValid)
+					if (info_target.IsSelectable)
 					{
 						this.SendSetTargetRPC(ent_wrench, ent_target: default);
 						Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
@@ -204,7 +205,7 @@ namespace TC2.Base.Components
 					this.DrawInfo(ent_wrench, ref info_target);
 				}
 
-				if (info_target.IsValid)
+				if (info_target.IsSelectable)
 				{
 					this.DrawHUD(ent_wrench, ref info_target);
 				}
@@ -237,7 +238,7 @@ namespace TC2.Base.Components
 			{
 				var errors = Wrench.Mode.Build.Errors.None;
 
-				if (this.IsRecipeValid(ref region, ref recipe) && info.IsValid)
+				if (this.IsRecipeValid(ref region, ref recipe) && info.IsSelectable)
 				{
 					var placement = recipe.placement.Value;
 
@@ -258,7 +259,7 @@ namespace TC2.Base.Components
 				var errors = Wrench.Mode.Build.Errors.None;
 				distance = 0.00f;
 
-				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsValid && info_dst.IsValid && (info_src.Entity != info_dst.Entity || info_src.ComponentID != info_dst.ComponentID))
+				if (this.IsRecipeValid(ref region, ref recipe) && info_src.IsSelectable && info_dst.IsSelectable && (info_src.Entity != info_dst.Entity || info_src.ComponentID != info_dst.ComponentID))
 				{
 					var placement = recipe.placement.Value;
 
@@ -335,8 +336,8 @@ namespace TC2.Base.Components
 						{
 							if (result.entity == info_src.Entity || result.entity == info_dst.Entity) continue;
 
-							info_new = this.CreateTargetInfo(ref region.AsCommon(), result.entity, wpos_mouse, !info_src.IsValid);
-							if (info_new.IsValid)
+							info_new = this.CreateTargetInfo(ref region.AsCommon(), result.entity, wpos_mouse, !info_src.IsSelectable);
+							if (info_new.IsSelectable)
 							{
 								break;
 							}
@@ -344,19 +345,19 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (info_new.IsValid)
+				if (info_new.IsSelectable)
 				{
 					GUI.SetCursor(App.CursorType.Hand, 10);
 				}
 
 				var distance = 0.00f;
-				if (info_src.IsValid)
+				if (info_src.IsSelectable)
 				{
-					if (info_dst.IsValid)
+					if (info_dst.IsSelectable)
 					{
 						distance = Vector2.Distance(info_src.Position, info_dst.Position);
 					}
-					else if (info_new.IsValid)
+					else if (info_new.IsSelectable)
 					{
 						distance = Vector2.Distance(info_src.Position, info_new.Position);
 					}
@@ -374,28 +375,28 @@ namespace TC2.Base.Components
 					ref var recipe = ref this.SelectedRecipe.GetData();
 					if (!recipe.IsNull())
 					{
-						if (info_src.IsValid)
+						if (info_src.IsSelectable)
 						{
 							errors_src |= this.EvaluateNode(ref region, ref info_src, ref recipe, faction_id: faction_id);
-							if (!info_new.IsValid)
+							if (!info_new.IsSelectable)
 							{
 								errors_new.SetFlag(Wrench.Mode.Build.Errors.MaxLength | Wrench.Mode.Build.Errors.OutOfRange, Vector2.Distance(info_src.Position, wpos_mouse) > recipe.placement.Value.length_max);
 							}
 						}
 
-						if (info_dst.IsValid)
+						if (info_dst.IsSelectable)
 						{
 							errors_dst |= this.EvaluateNode(ref region, ref info_dst, ref recipe, faction_id: faction_id);
-							if (info_src.IsValid)
+							if (info_src.IsSelectable)
 							{
 								errors_dst |= this.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
 							}
 						}
 
-						if (info_new.IsValid)
+						if (info_new.IsSelectable)
 						{
 							errors_new |= this.EvaluateNode(ref region, ref info_new, ref recipe, faction_id: faction_id);
-							if (info_src.IsValid)
+							if (info_src.IsSelectable)
 							{
 								//errors_new |= this.EvaluateNodePair(ref region, ref info_src, ref info_new, ref recipe, out _, player.faction_id);
 							}
@@ -422,7 +423,7 @@ namespace TC2.Base.Components
 
 				if (mouse.GetKeyDown(Mouse.Key.Left))
 				{
-					if (info_new.IsValid)
+					if (info_new.IsSelectable)
 					{
 						if (errors_new == Wrench.Mode.Build.Errors.None)
 						{
@@ -437,9 +438,9 @@ namespace TC2.Base.Components
 				}
 				else if (mouse.GetKeyDown(Mouse.Key.Right))
 				{
-					if (info_src.IsValid || info_dst.IsValid)
+					if (info_src.IsSelectable || info_dst.IsSelectable)
 					{
-						this.SendSetTargetRPC(ent_wrench, ent_src: info_dst.IsValid ? info_src.Entity : default, ent_dst: default);
+						this.SendSetTargetRPC(ent_wrench, ent_src: info_dst.IsSelectable ? info_src.Entity : default, ent_dst: default);
 						Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
 					}
 				}
@@ -510,7 +511,7 @@ namespace TC2.Base.Components
 					this.DrawInfo(ent_wrench, ref info_src, ref info_dst, errors_src, errors_dst, distance);
 				}
 
-				if (info_src.IsValid && info_dst.IsValid)
+				if (info_src.IsSelectable && info_dst.IsSelectable)
 				{
 					this.DrawHUD(ent_wrench, ref info_src, ref info_dst, errors_src, errors_dst, distance);
 				}
@@ -520,9 +521,9 @@ namespace TC2.Base.Components
 			{
 				ref var region = ref ent_wrench.GetRegionCommon();
 
-				if (info_src.IsValid)
+				if (info_src.IsSelectable)
 				{
-					if (!info_new.IsValid && !info_dst.IsValid)
+					if (!info_new.IsSelectable && !info_dst.IsSelectable)
 					{
 						var dir = (info_src.Position - wpos_mouse).GetNormalizedFast();
 						var n = new Vector2(-dir.Y, dir.X);
@@ -533,7 +534,7 @@ namespace TC2.Base.Components
 						GUI.DrawLine2(region.WorldToCanvas(info_src.Position - offset_src), region.WorldToCanvas(wpos_mouse - offset_mouse), color_src, color_new.WithAlphaMult(0.00f), 2.00f, 2.00f);
 					}
 
-					if (info_new.IsValid)
+					if (info_new.IsSelectable)
 					{
 						var dir = (info_src.Position - info_new.Position).GetNormalizedFast();
 						var n = new Vector2(-dir.Y, dir.X);
@@ -544,7 +545,7 @@ namespace TC2.Base.Components
 						GUI.DrawLine2(region.WorldToCanvas(info_src.Position - offset_src), region.WorldToCanvas(info_new.Position - offset_new), color_src, color_new.WithAlphaMult(0.50f), 2.00f, 2.00f);
 					}
 
-					if (info_dst.IsValid)
+					if (info_dst.IsSelectable)
 					{
 						var dir = (info_src.Position - info_dst.Position).GetNormalizedFast();
 						var n = new Vector2(-dir.Y, dir.X);
@@ -556,19 +557,19 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (info_src.IsValid)
+				if (info_src.IsSelectable)
 				{
 					GUI.DrawCircle(region.WorldToCanvas(info_src.Position), info_src.Radius * region.GetWorldToCanvasScale(), color_src, 2.00f);
 					this.DrawNode(ent_wrench, ref info_src, color_src);
 				}
 
-				if (info_dst.IsValid)
+				if (info_dst.IsSelectable)
 				{
 					GUI.DrawCircle(region.WorldToCanvas(info_dst.Position), info_dst.Radius * region.GetWorldToCanvasScale(), color_dst, 2.00f);
 					this.DrawNode(ent_wrench, ref info_dst, color_dst);
 				}
 
-				if (info_new.IsValid)
+				if (info_new.IsSelectable)
 				{
 					GUI.DrawCircle(region.WorldToCanvas(info_new.Position), info_new.Radius * region.GetWorldToCanvasScale(), color_new.WithAlphaMult(0.50f), 2.00f);
 					this.DrawNode(ent_wrench, ref info_new, color_new);

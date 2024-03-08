@@ -168,7 +168,7 @@ namespace TC2.Base.Components
 
 							if (door.flags.HasAll(Door.Flags.Bidirectional))
 							{
-								sign = (float)((door.direction == Direction.Horizontal ? delta.X : delta.Y) < 0.00f ? -1.00f : 1.00f);
+								sign = (float)((door.direction == Direction.Horizontal ? delta.X : delta.Y) < Maths.epsilon ? -1.00f : 1.00f);
 							}
 
 							var scale = door.direction == Direction.Horizontal ? new Vector2(sign, 1.00f) : new Vector2(1.00f, sign);

@@ -168,12 +168,14 @@
 					public bool is_src;
 					public bool alive;
 					public bool valid;
+					public bool selectable;
 
 					public readonly Entity Entity => this.entity;
 					public readonly IComponent.Handle ComponentID => ECS.GetID<Axle.Data>();
 					public readonly Vector2 Position => this.pos;
 					public readonly float Radius => this.radius;
 					public readonly bool IsSource => this.is_src;
+					public bool IsSelectable => this.selectable;
 					public readonly bool IsAlive => this.alive;
 					public readonly bool IsValid => this.valid;
 
@@ -187,8 +189,8 @@
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetRefValue(out this.axle);
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Axle.Data>().TryGetValueFromRef(out this.axle);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValueFromRef(out this.transform);
 
 							if (this.valid)
 							{

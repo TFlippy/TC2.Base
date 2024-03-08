@@ -427,12 +427,14 @@ namespace TC2.Base.Components
 
 					public bool alive;
 					public bool valid;
+					public bool selectable;
 
 					public Entity Entity => this.entity;
 					public IComponent.Handle ComponentID => ECS.GetID<Dismantlable.Data>();
 					public Vector2 Position => this.pos;
 					public float Radius => this.radius;
 					public bool IsSource => true;
+					public bool IsSelectable => this.selectable;
 					public bool IsAlive => this.alive;
 					public bool IsValid => this.valid;
 
@@ -445,8 +447,8 @@ namespace TC2.Base.Components
 						{
 							this.valid = true;
 
-							this.valid &= this.entity.GetComponent<Dismantlable.Data>().TryGetRefValue(out this.dismantlable);
-							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetRefValue(out this.transform);
+							this.valid &= this.entity.GetComponent<Dismantlable.Data>().TryGetValueFromRef(out this.dismantlable);
+							this.valid &= this.entity.GetComponent<Transform.Data>().TryGetValueFromRef(out this.transform);
 
 							if (this.valid)
 							{
