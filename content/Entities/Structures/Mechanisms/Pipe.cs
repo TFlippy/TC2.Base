@@ -143,7 +143,7 @@ namespace TC2.Base.Components
 					Phys.o2_molar_mass,
 					Phys.co2_molar_mass,
 					Phys.h2o_molar_mass,
-					
+
 					Phys.h2_molar_mass,
 					Phys.co_molar_mass,
 					Phys.so2_molar_mass,
@@ -317,7 +317,7 @@ namespace TC2.Base.Components
 				[Save.Ignore, Net.Ignore] public Pressure pressure_cached;
 				[Save.Ignore, Net.Ignore] public Density density_cached;
 				[Save.Ignore, Net.Ignore] public Mass mass_cached;
-				
+
 				[Save.Ignore, Net.Ignore] public float vent_y_top_cached;
 				[Save.Ignore, Net.Ignore] public float vent_y_bottom_cached;
 
@@ -357,8 +357,133 @@ namespace TC2.Base.Components
 		//	air_container. Maths.Min
 		//}
 
-		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void System_UpdateVentContainer(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: -200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void System_UpdateVentContainer1(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
+		[Source.Owned, Pair.All] ref Vent.Data vent)
+		{
+			if (Vent.Data.is_debug)
+			{
+				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
+			}
+
+			if (vent.flow_rate.m_value.Abs() > Maths.epsilon && vent.blob.moles_total > Maths.epsilon)
+			{
+				var air_vent = vent.blob.air;
+				var air_cont = air_container.air;
+
+				if (vent.flow_rate.m_value.IsNegative())
+				{
+					var air_tmp = checked(air_cont - air_vent);
+					air_container.air = air_tmp;
+					air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+				}
+				//else
+				//{
+				//	var air_tmp = air_cont + air_vent;
+				//	air_container.air = air_tmp;
+				//	air_container.mass_cached += vent.blob.mass;
+
+				//	var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
+				//	air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
+
+				//	vent.blob = default;
+				//}
+			}
+
+			air_container.vent_y_bottom_cached = Maths.Max(vent.offset.Y, air_container.vent_y_bottom_cached);
+			air_container.vent_y_top_cached = Maths.Min(vent.offset.Y, air_container.vent_y_top_cached);
+
+			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
+		}
+
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void System_UpdateVentConnections(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		[Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] in Transform.Data transform)
+		{
+			if (Vent.Data.is_debug)
+			{
+				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
+			}
+
+			if (pipe.a.TryGetHandle(out var vent_a) && pipe.b.TryGetHandle(out var vent_b))
+			{
+				//var sync = false;
+
+				var flow_rate_a = vent_a.data.flow_rate;
+				var flow_rate_b = vent_b.data.flow_rate;
+
+				var flow_rate_delta = ((flow_rate_a.m_value.Abs() - flow_rate_b.m_value.Abs()) * 0.50f);
+
+				if (vent_a.data.type == Vent.Type.Output)
+				{
+					//var air_tmp = vent_a.data.blob.air; // vent_b.data.blob.air + vent_a.data.blob.air;
+					//vent_b.data.blob = new Blob(air_tmp, Maths.SumWeighted(vent_a.data.blob.temperature, vent_b.data.blob.temperature, vent_a.data.blob.mass, vent_b.data.blob.mass));
+					//vent_b.data.blob = new Blob(air_tmp, vent_a.data.blob.temperature);
+					//vent_b.data.flow_rate = vent_a.data.flow_rate.m_value.Abs();
+					//vent_b.data.flow_rate = 4;
+
+					//vent_b.data.blob.air = vent_a.data.blob.air;
+					//vent_b.data.particulates = vent_a.data.particulates;
+					////vent_b.data.flow_rate = flow_rate_delta;
+
+					////vent_a.data.blob = default;
+					////vent_a.data.particulates = default;
+					//vent_a.data.flow_rate = -vent_b.data.flow_rate;
+
+					vent_b.data.blob = vent_a.data.blob;
+					vent_b.data.particulates = vent_a.data.particulates;
+					vent_b.data.flow_rate = flow_rate_delta.Abs();
+
+					vent_b.data.pressure_outside = vent_a.data.pressure_inside;
+					vent_a.data.pressure_outside = vent_b.data.pressure_inside;
+
+					vent_a.data.flow_rate = -flow_rate_delta.Abs();
+
+					//vent_b.data.velocity = vent_a.data.velocity.Abs();
+
+					//vent_a.data.blob = default;
+					//vent_a.data.particulates = default;
+
+					//vent_a.data.flow_rate = -8.00f;
+				}
+				//else
+				//{
+				//	vent_b.data.blob = vent_a.data.blob;
+				//	vent_b.data.particulates = vent_a.data.particulates;
+				//	vent_b.data.flow_rate = vent_
+
+				//	vent_a.data.blob = default;
+				//	vent_a.data.particulates = default;
+				//}
+
+				//var flow_rate_a = vent_a.data.flow_rate;
+				//var flow_rate_b = vent_b.data.flow_rate;
+
+				//var flow_rate_delta = (flow_rate_a - flow_rate_b);
+
+				//if (vent_a.data.flow_rate < vent_b.data.flow_rate)
+				//{
+
+				//	//vent.blob = default;
+				//}
+				//else
+				//{
+
+				//}
+
+				//#if SERVER
+				//				if (sync)
+				//				{
+				//					//entity.SyncComponent(ref pipe_state);
+				//					pipe_state.Sync(entity);
+				//				}
+				//#endif
+			}
+		}
+
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void System_UpdateVentContainer2(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
 		{
@@ -377,9 +502,10 @@ namespace TC2.Base.Components
 
 				if (vent.flow_rate.m_value.IsNegative())
 				{
-					var air_tmp = checked(air_cont - air_vent);
-					air_container.air = air_tmp;
-					air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+					//var air_tmp = checked(air_cont - air_vent);
+					//air_container.air = air_tmp;
+					//air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+					//vent.particulates = default;
 				}
 				else
 				{
@@ -391,16 +517,11 @@ namespace TC2.Base.Components
 					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
 				}
 
-				vent.blob = default;
+				//vent.blob = default;
 			}
-
-			air_container.vent_y_bottom_cached = Maths.Max(vent.offset.Y, air_container.vent_y_bottom_cached);
-			air_container.vent_y_top_cached = Maths.Min(vent.offset.Y, air_container.vent_y_top_cached);
-
-			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		}
 
-		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 300, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_RefreshContainer(ref Region.Data region,
 		[Source.Owned] ref Air.Container.Data container)
 		{
@@ -469,7 +590,7 @@ namespace TC2.Base.Components
 
 			if (vent.flags.HasAny(Vent.Data.Flags.Has_Pipe))
 			{
-
+				density_outside = Phys.GetAirDensity(pressure_outside, vent.blob.temperature);
 			}
 			else
 			{
@@ -507,14 +628,17 @@ namespace TC2.Base.Components
 
 				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside);
 
-				if (height > Maths.epsilon)
+				if (!vent.flags.HasAny(Vent.Data.Flags.Has_Pipe))
 				{
-					Phys.VentilationAirFlow(area, height, air_container.temperature, temperature_ambient, out flow_rate_convection);
-				}
+					if (height > Maths.epsilon)
+					{
+						Phys.VentilationAirFlow(area, height, air_container.temperature, temperature_ambient, out flow_rate_convection);
+					}
 
-				if (flow_rate_target.m_value.IsNegative())
-				{
-					flow_rate_target -= flow_rate_convection;
+					if (flow_rate_target.m_value.IsNegative())
+					{
+						flow_rate_target -= flow_rate_convection;
+					}
 				}
 
 				//flow_rate_target -= flow_rate_convection;
@@ -540,8 +664,13 @@ namespace TC2.Base.Components
 
 						vent.blob = new Air.Blob(air, air_container.temperature);
 					}
+					else if (vent.flags.HasAny(Vent.Data.Flags.Has_Pipe))
+					{
+
+					}
 					else
 					{
+						
 						//Maths.MoveTowardsDamped(ref flow_rate, Maths.Clamp(flow_rate_in, 0.00f, air_container.volume), delta_p * dt, 0.10f);
 						//flow_rate = Maths.Clamp(flow_rate_in, 0.00f, air_container.volume);
 
@@ -684,7 +813,7 @@ namespace TC2.Base.Components
 			[Editor.Slider.Clamped(-MathF.Tau, +MathF.Tau, snap: MathF.Tau / 32.00f, mark_modified: true)]
 			public float rotation;
 			public Area cross_section = Area.Circle(10.00f.cm()); // TODO: dumb name, rename this
-			
+
 			public float modifier = 1.00f;
 			public Vent.Data.Flags flags;
 			public Vent.Type type;
@@ -720,13 +849,13 @@ namespace TC2.Base.Components
 			var h2o_ratio = air.moles_h2o.m_value * Phys.h2o_molar_mass * mass_total_inv;
 			var so2_ratio = air.moles_so2.m_value * Phys.so2_molar_mass * mass_total_inv;
 			var no2_ratio = air.moles_no2.m_value * Phys.no2_molar_mass * mass_total_inv;
-			
+
 			var ash_ratio = prt.ash.m_value * mass_total_inv;
 			var soot_ratio = prt.soot.m_value * mass_total_inv;
 			var dust_ratio = prt.dust.m_value * mass_total_inv;
 
 			var color = ColorBGRA.White.WithAlphaMult(0.30f);
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.555f, 0.443f, 0.006f), (no2_ratio * 4.80f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.655f, 0.443f, 0.306f), (no2_ratio * 2.80f).Clamp01());
 			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.755f, 0.790f, 0.26f), (so2_ratio * 3.80f).Clamp01());
 			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.98f, 0.98f, 0.98f), (h2o_ratio * 10.00f).Clamp01());
 			color = ColorBGRA.Lerp(color, new ColorBGRA(1.20f, 0.255f, 0.242f, 0.24f), (soot_ratio * 4.50f).Clamp01());
@@ -762,16 +891,16 @@ namespace TC2.Base.Components
 
 					if (modifier > 0.02f && color_smoke.IsVisible() && Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
 					{
-						var dir = Maths.RadToDir(vent.rotation);
+						var dir = Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation));
 
 						var pos = transform.LocalToWorld(vent.offset);
 						Particle.Spawn(ref region, new Particle.Data()
 						{
 							texture = texture_smoke,
 							lifetime = Maths.Clamp(random.NextFloatRange(2.00f, 6.00f) * modifier, 1.00f, 4.00f),
-							pos = pos + random.NextVector2(0.10f) + (dir * vel * 0.17f),
+							pos = pos + random.NextVector2(0.10f) + (dir * 0.50f),
 							//vel = new Vector2(0.70f, -1.10f) * (1.00f + (modifier2 * 0.10f)),
-							vel = transform.LocalToWorld(dir * vel * random.NextFloatRange(0.90f, 1.10f), position: false),
+							vel = dir * vel * random.NextFloatRange(0.90f, 1.10f),
 							force = new Vector2(2.50f, -2.50f) * random.NextFloatRange(0.90f, 1.10f),
 							fps = random.NextByteRange(6, 10),
 							frame_count = 64,
@@ -834,25 +963,6 @@ namespace TC2.Base.Components
 
 			[Net.Ignore, Save.Ignore] public float next_tick;
 		}
-
-#if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
-		public static void OnLateUpdate(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] in Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] in Transform.Data transform)
-		{
-			var ts = Timestamp.Now();
-
-			if (info.WorldTime >= pipe_state.next_tick)
-			{
-				var sync = false;
-
-				if (sync)
-				{
-					//entity.SyncComponent(ref pipe_state);
-					pipe_state.Sync(entity);
-				}
-			}
-		}
-#endif
 
 #if CLIENT
 		[ISystem.PreRender(ISystem.Mode.Single, ISystem.Scope.Region)]
