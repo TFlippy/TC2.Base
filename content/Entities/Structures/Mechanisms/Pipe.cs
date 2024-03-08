@@ -36,6 +36,51 @@ namespace TC2.Base.Components
 			}
 		}
 
+		public struct Particulates
+		{
+			public Mass ash;
+			public Mass soot;
+			public Mass dust;
+			public Mass unused;
+
+			public Particulates(Mass ash, Mass soot, Mass dust, Mass unused)
+			{
+				this.ash = ash;
+				this.soot = soot;
+				this.dust = dust;
+				this.unused = unused;
+			}
+
+			public readonly Mass GetMass()
+			{
+				var xmm0 = Vec4f.From(this);
+				return xmm0.Sum();
+			}
+
+			public static Air.Particulates operator *(Air.Particulates a, float value)
+			{
+				var xmm0 = Vec4f.From(a);
+				xmm0 *= value;
+				return xmm0.As<Air.Particulates>();
+			}
+
+			public static Air.Particulates operator +(Air.Particulates a, Air.Particulates b)
+			{
+				var xmm0 = Vec4f.From(a);
+				var xmm1 = Vec4f.From(b);
+				xmm0 += xmm1;
+				return xmm0.As<Air.Particulates>();
+			}
+
+			public static Air.Particulates operator -(Air.Particulates a, Air.Particulates b)
+			{
+				var xmm0 = Vec4f.From(a);
+				var xmm1 = Vec4f.From(b);
+				xmm0 -= xmm1;
+				return xmm0.As<Air.Particulates>();
+			}
+		}
+
 		public struct Composition
 		{
 			//public static readonly Air.Composition Ambient = new Air.Composition
@@ -373,7 +418,7 @@ namespace TC2.Base.Components
 		//	container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		//}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 500, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVent(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
 		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] in Air.Container.Data air_container)
@@ -571,6 +616,9 @@ namespace TC2.Base.Components
 
 	public static partial class Vent
 	{
+		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
+		public static readonly Texture.Handle texture_light = "light.circle.00";
+
 		public enum Type: ushort
 		{
 			Undefined = 0,
@@ -606,6 +654,7 @@ namespace TC2.Base.Components
 			}
 
 			public Air.Blob blob;
+			public Air.Particulates particulates;
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 offset;
@@ -631,6 +680,97 @@ namespace TC2.Base.Components
 
 			}
 		}
+
+
+
+		// TODO: vectorize this
+		public static Color32BGRA GetSmokeColor(ref readonly this Vent.Data vent)
+		{
+			var air = vent.blob.air;
+			var prt = vent.particulates;
+
+			var mass_air = vent.blob.mass;
+			var mass_prt = prt.GetMass();
+
+			var mass_total = mass_air + mass_prt;
+			var mass_total_inv = mass_total.m_value.RcpFast();
+
+			var h2o_ratio = air.moles_h2o.m_value * Phys.h2o_molar_mass * mass_total_inv;
+			var so2_ratio = air.moles_so2.m_value * Phys.so2_molar_mass * mass_total_inv;
+			var no2_ratio = air.moles_no2.m_value * Phys.no2_molar_mass * mass_total_inv;
+			
+			var ash_ratio = prt.ash.m_value * mass_total_inv;
+			var soot_ratio = prt.soot.m_value * mass_total_inv;
+			var dust_ratio = prt.dust.m_value * mass_total_inv;
+
+			var color = ColorBGRA.White.WithAlphaMult(0.30f);
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.98f, 0.98f, 0.98f), (h2o_ratio * 10.00f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(1.00f, 0.245f, 0.23f, 0.26f), (soot_ratio * 2.00f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(1.00f, 0.755f, 0.743f, 0.746f), ash_ratio);
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.455f, 0.343f, 0.026f), (no2_ratio * 4.00f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.70f, 0.655f, 0.543f, 0.026f), so2_ratio);
+			color = ColorBGRA.Lerp(color, 0xff837462, dust_ratio);
+			//color = ColorBGRA.Lerp(color, new ColorBGRA(0.20f * ash_ratio, 0.755f, 0.743f, 0.746f), ash_ratio);
+			//color += (new ColorBGRA(0.60f, 0.95f, 0.95f, 0.95f) * h2o_ratio);
+			//color += (new ColorBGRA(0.60f, 0.95f, 0.95f, 0.95f) * h2o_ratio);
+
+			//App.WriteLine(vent.blob.temperature);
+
+			return color;
+		}
+
+#if CLIENT
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
+		public static void System_VentEffects(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
+		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.All] ref Vent.Data vent)
+		{
+			if (info.WorldTime >= vent.t_next_smoke && !vent.flags.HasAny(Vent.Data.Flags.Has_Pipe))
+			{
+				if (vent.flow_rate < -0.001f && vent.blob.temperature > 400.00f)
+				{
+					var flow_rate_abs = vent.flow_rate.m_value.Abs();
+					var modifier = MathF.Sqrt(flow_rate_abs * 2.00f) * 0.30f;
+					var vel = Maths.Min(vent.velocity.Abs(), 20.00f);
+
+					var color_smoke = vent.GetSmokeColor();
+
+					vent.t_next_smoke = info.WorldTime + Maths.Lerp01(0.40f, 0.10f, Maths.Normalize01(vel * 0.90f, 8.00f)); //  (0.40f * Maths.Mulpo(purity, 0.40f));
+					vent.color_smoke = color_smoke;
+
+					if (modifier > 0.02f && color_smoke.IsVisible() && Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
+					{
+						var dir = Maths.RadToDir(vent.rotation);
+
+						var pos = transform.LocalToWorld(vent.offset);
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = texture_smoke,
+							lifetime = Maths.Clamp(random.NextFloatRange(2.00f, 6.00f) * modifier, 1.00f, 4.00f),
+							pos = pos + random.NextVector2(0.10f) + (dir * vel * 0.17f),
+							//vel = new Vector2(0.70f, -1.10f) * (1.00f + (modifier2 * 0.10f)),
+							vel = transform.LocalToWorld(dir * vel * random.NextFloatRange(0.90f, 1.10f), position: false),
+							force = new Vector2(2.50f, -2.50f) * random.NextFloatRange(0.90f, 1.10f),
+							fps = random.NextByteRange(6, 10),
+							frame_count = 64,
+							frame_count_total = 64,
+							frame_offset = random.NextByteRange(0, 64),
+							scale = (modifier * 0.22f) + random.NextFloatRange(0.19f, 0.28f),
+							rotation = random.NextFloatRange(-10.00f, 10.00f),
+							angular_velocity = random.NextFloat(0.60f),
+							growth = 0.25f * (1.00f + (modifier.Clamp01() * 0.15f)) * random.NextFloatRange(0.90f, 1.10f),
+							drag = random.NextFloatRange(0.015f, 0.04f),
+							color_a = color_smoke,
+							color_b = color_smoke.WithAlpha(0)
+						});
+					}
+				}
+				else
+				{
+					vent.t_next_smoke = info.WorldTime + random.NextFloatRange(0.50f, 1.00f);
+				}
+			}
+		}
+#endif
 	}
 
 	public static partial class Pipe

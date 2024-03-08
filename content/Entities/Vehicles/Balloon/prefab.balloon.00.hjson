@@ -113,14 +113,6 @@ interactable:
 // 	z: -285.000
 // }
 
-sound.emitter|"exhaust":
-{
-	file: "balloon.burner.loop.00"
-	volume: 0.500
-	pitch: 0.550
-	size: 0.800
-}
-
 sound.emitter|"aux":
 {
 	file: "burner.gas.loop.02"
@@ -158,6 +150,14 @@ burner:
 	insulation: 0.000
 	airtightness: 0.000
 	valve_strength: 3.000
+
+	@sound.emitter:
+	{
+		file: "balloon.burner.loop.00"
+		volume: 0.500
+		pitch: 0.550
+		size: 0.800
+	}
 
 	@animated.renderer:
 	{
