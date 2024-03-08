@@ -218,13 +218,17 @@ namespace TC2.Base.Components
 		{
 			public Entity EntitySrc { get; }
 			public Entity EntityDst { get; }
+
+			public IComponent.Handle ComponentSrc { get; }
+			public IComponent.Handle ComponentDst { get; }
+
 			public IRecipe.Handle SelectedRecipe { get; }
 
 			public Physics.Layer LayerMask { get; }
-			public TInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src);
+			public TInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, IComponent.Handle h_component, Vector2 pos, bool is_src);
 
 #if CLIENT
-			public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst);
+			public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, IComponent.Handle h_component_src, Entity ent_dst, IComponent.Handle h_component_dst);
 			public void SendSetRecipeRPC(Entity ent_wrench, IRecipe.Handle recipe);
 
 			public void DrawInfo(Entity ent_wrench, ref TInfo info_src, ref TInfo info_dst, Wrench.Mode.Build.Errors errors_src, Wrench.Mode.Build.Errors errors_dst, float distance);
@@ -306,10 +310,11 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine("test");
 
-				ref var player = ref Client.GetPlayer();
+				ref var character = ref Client.GetCharacter();
 				ref var region = ref Client.GetRegion();
+				ref var region_common = ref region.AsCommon();
 
-				var faction_id = player.faction_id;
+				var h_faction = character.faction;
 
 				ref readonly var kb = ref Control.GetKeyboard();
 				ref readonly var mouse = ref Control.GetMouse();
@@ -319,8 +324,8 @@ namespace TC2.Base.Components
 
 				var scale = region.GetWorldToCanvasScale();
 
-				var info_src = this.CreateTargetInfo(ref region.AsCommon(), this.EntitySrc, wpos_mouse, true);
-				var info_dst = this.CreateTargetInfo(ref region.AsCommon(), this.EntityDst, wpos_mouse, false);
+				var info_src = this.CreateTargetInfo(ref region_common, this.EntitySrc, this.ComponentSrc, wpos_mouse, true);
+				var info_dst = this.CreateTargetInfo(ref region_common, this.EntityDst, this.ComponentDst, wpos_mouse, false);
 				var info_new = default(TInfo);
 
 				var errors_src = Wrench.Mode.Build.Errors.None;
@@ -336,7 +341,7 @@ namespace TC2.Base.Components
 						{
 							if (result.entity == info_src.Entity || result.entity == info_dst.Entity) continue;
 
-							info_new = this.CreateTargetInfo(ref region.AsCommon(), result.entity, wpos_mouse, !info_src.IsSelectable);
+							info_new = this.CreateTargetInfo(ref region_common, result.entity, default, wpos_mouse, !info_src.IsSelectable);
 							if (info_new.IsSelectable)
 							{
 								break;
@@ -377,7 +382,7 @@ namespace TC2.Base.Components
 					{
 						if (info_src.IsSelectable)
 						{
-							errors_src |= this.EvaluateNode(ref region, ref info_src, ref recipe, faction_id: faction_id);
+							errors_src |= this.EvaluateNode(ref region, ref info_src, ref recipe, faction_id: h_faction);
 							if (!info_new.IsSelectable)
 							{
 								errors_new.SetFlag(Wrench.Mode.Build.Errors.MaxLength | Wrench.Mode.Build.Errors.OutOfRange, Vector2.Distance(info_src.Position, wpos_mouse) > recipe.placement.Value.length_max);
@@ -386,16 +391,16 @@ namespace TC2.Base.Components
 
 						if (info_dst.IsSelectable)
 						{
-							errors_dst |= this.EvaluateNode(ref region, ref info_dst, ref recipe, faction_id: faction_id);
+							errors_dst |= this.EvaluateNode(ref region, ref info_dst, ref recipe, faction_id: h_faction);
 							if (info_src.IsSelectable)
 							{
-								errors_dst |= this.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out _, player.faction_id);
+								errors_dst |= this.EvaluateNodePair(ref region, ref info_src, ref info_dst, ref recipe, out _, h_faction);
 							}
 						}
 
 						if (info_new.IsSelectable)
 						{
-							errors_new |= this.EvaluateNode(ref region, ref info_new, ref recipe, faction_id: faction_id);
+							errors_new |= this.EvaluateNode(ref region, ref info_new, ref recipe, faction_id: h_faction);
 							if (info_src.IsSelectable)
 							{
 								//errors_new |= this.EvaluateNodePair(ref region, ref info_src, ref info_new, ref recipe, out _, player.faction_id);
@@ -427,7 +432,22 @@ namespace TC2.Base.Components
 					{
 						if (errors_new == Wrench.Mode.Build.Errors.None)
 						{
-							this.SendSetTargetRPC(ent_wrench, ent_src: info_new.IsSource ? info_new.Entity : this.EntitySrc, ent_dst: !info_new.IsSource ? info_new.Entity : this.EntityDst);
+							if (info_new.IsSource)
+							{
+								this.SendSetTargetRPC(ent_wrench,
+									ent_src: info_new.Entity, h_component_src: info_new.ComponentID,
+									ent_dst: this.EntityDst, h_component_dst: this.ComponentDst);
+							}
+							else
+							{
+								this.SendSetTargetRPC(ent_wrench,
+									ent_src: this.EntitySrc, h_component_src: this.ComponentSrc,
+									ent_dst: info_new.Entity, h_component_dst: info_new.ComponentID);
+
+								//this.SendSetTargetRPC(ent_wrench, ent_src: info_new.IsSource ? info_new.Entity : this.EntitySrc, ent_dst: !info_new.IsSource ? info_new.Entity : this.EntityDst);
+							}
+
+							//this.SendSetTargetRPC(ent_wrench, ent_src: info_new.IsSource ? info_new.Entity : this.EntitySrc, ent_dst: !info_new.IsSource ? info_new.Entity : this.EntityDst);
 							Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: info_new.IsSource ? 0.80f : 0.95f);
 						}
 						else
@@ -440,7 +460,20 @@ namespace TC2.Base.Components
 				{
 					if (info_src.IsSelectable || info_dst.IsSelectable)
 					{
-						this.SendSetTargetRPC(ent_wrench, ent_src: info_dst.IsSelectable ? info_src.Entity : default, ent_dst: default);
+						if (info_dst.IsSelectable)
+						{
+							this.SendSetTargetRPC(ent_wrench,
+								ent_src: this.EntitySrc, h_component_src: this.ComponentSrc,
+								ent_dst: default, h_component_dst: default);
+						}
+						else
+						{
+							this.SendSetTargetRPC(ent_wrench,
+								ent_src: default, h_component_src: default,
+								ent_dst: default, h_component_dst: default);
+						}
+
+						//this.SendSetTargetRPC(ent_wrench, ent_src: info_dst.IsSelectable ? info_src.Entity : default, ent_dst: default);
 						Sound.PlayGUI(GUI.sound_select, volume: 0.07f, pitch: 0.80f);
 					}
 				}

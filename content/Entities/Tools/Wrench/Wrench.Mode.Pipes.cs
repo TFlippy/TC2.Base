@@ -12,8 +12,8 @@
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					[Save.Ignore] public IComponent.Handle vent_id_src;
-					[Save.Ignore] public IComponent.Handle vent_id_dst;
+					[Save.Ignore] public IComponent.Handle h_component_src;
+					[Save.Ignore] public IComponent.Handle h_component_dst;
 
 					public IRecipe.Handle selected_recipe;
 					//public Belt.Flags flags;
@@ -29,20 +29,27 @@
 
 					public readonly Entity EntitySrc => this.ent_src;
 					public readonly Entity EntityDst => this.ent_dst;
+
+					public readonly IComponent.Handle ComponentSrc => this.h_component_src;
+					public readonly IComponent.Handle ComponentDst => this.h_component_dst;
+
 					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
+					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, IComponent.Handle h_component, Vector2 pos, bool is_src)
 					{
-						return new TargetInfo(entity, is_src ? this.vent_id_src : this.vent_id_dst, is_src);
+						return new TargetInfo(entity, is_src ? this.h_component_src : this.h_component_dst, is_src);
 					}
 
 #if CLIENT
-					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst)
+					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, IComponent.Handle h_component_src, Entity ent_dst, IComponent.Handle h_component_dst)
 					{
 						var rpc = new SetTargetRPC
 						{
 							ent_src = ent_src,
-							ent_dst = ent_dst
+							ent_dst = ent_dst,
+
+							h_component_src = h_component_src,
+							h_component_dst = h_component_dst,
 						};
 						rpc.Send(ent_wrench);
 					}
@@ -157,7 +164,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawVents(ref info_src, ref info_dst, ref vents_src, ref this.vent_id_src, ref sync);
+												DrawVents(ref info_src, ref info_dst, ref vents_src, ref this.h_component_src, ref sync);
 											}
 										}
 
@@ -176,7 +183,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawVents(ref info_src, ref info_dst, ref vents_dst, ref this.vent_id_dst, ref sync);
+												DrawVents(ref info_src, ref info_dst, ref vents_dst, ref this.h_component_dst, ref sync);
 											}
 										}
 									}
@@ -188,8 +195,8 @@
 											ent_src = this.ent_src,
 											ent_dst = this.ent_dst,
 
-											component_id_src = this.vent_id_src,
-											component_id_dst = this.vent_id_dst,
+											h_component_src = this.h_component_src,
+											h_component_dst = this.h_component_dst,
 										};
 										rpc.Send(ent_wrench);
 									}
@@ -253,15 +260,22 @@
 							{
 								using (GUI.ID.Push(pair.handle))
 								{
+									GUI.NewLine(4);
+
 									using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 32), padding: new(4)))
 									{
-										GUI.DrawBackground(GUI.tex_panel, group_row.GetOuterRect(), new Vector4(4));
-
-										GUI.TitleCentered(pair.data.type.GetEnumName(), pivot: new(0.50f, 0.50f));
-
 										var is_selected = selected_vent_id == pair.handle;
 										var enabled = (is_selected || pair.data.type != target_src.vent_type) && (is_selected || pair.data.type != target_dst.vent_type);
 
+										var color = Color32BGRA.Black.WithAlpha(100);
+
+										if (is_selected) color = GUI.col_button_ok.WithColorMult(0.50f).WithAlpha(150);
+										else if (!enabled) color = GUI.col_button_error.WithColorMult(0.50f).WithAlpha(150);
+
+										GUI.DrawBackground(GUI.tex_panel_white, group_row.GetOuterRect(), new Vector4(4), color: color);
+										GUI.TitleCentered(pair.data.type.GetEnumName(), pivot: new(0.50f, 0.50f));
+
+									
 										//if (target_src.vent_id == pair.handle)
 										//{
 										//	enabled &= pair.data.type != target_dst.vent_type;
@@ -407,8 +421,8 @@
 					public Entity ent_src;
 					public Entity ent_dst;
 
-					public IComponent.Handle component_id_src;
-					public IComponent.Handle component_id_dst;
+					public IComponent.Handle h_component_src;
+					public IComponent.Handle h_component_dst;
 
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Pipes.Data data)
@@ -417,14 +431,14 @@
 
 						ref var region = ref entity.GetRegion();
 
-						var info_src = new TargetInfo(this.ent_src, this.component_id_src, true);
-						var info_dst = new TargetInfo(this.ent_dst, this.component_id_dst, false);
+						var info_src = new TargetInfo(this.ent_src, this.h_component_src, true);
+						var info_dst = new TargetInfo(this.ent_dst, this.h_component_dst, false);
 
 						data.ent_src = info_src.entity;
 						data.ent_dst = info_dst.entity;
 
-						data.vent_id_src = info_src.vent_id;
-						data.vent_id_dst = info_dst.vent_id;
+						data.h_component_src = info_src.vent_id;
+						data.h_component_dst = info_dst.vent_id;
 
 						data.Sync(entity);
 					}
@@ -470,8 +484,8 @@
 						{
 							var errors = Build.Errors.None;
 
-							var info_src = new TargetInfo(data.ent_src, data.vent_id_src, true);
-							var info_dst = new TargetInfo(data.ent_dst, data.vent_id_dst, false);
+							var info_src = new TargetInfo(data.ent_src, data.h_component_src, true);
+							var info_dst = new TargetInfo(data.ent_dst, data.h_component_dst, false);
 
 							if (info_src.valid && info_dst.valid)
 							{
@@ -522,8 +536,8 @@
 									data.ent_src = default;
 									data.ent_dst = default;
 
-									data.vent_id_src = default;
-									data.vent_id_dst = default;
+									data.h_component_src = default;
+									data.h_component_dst = default;
 								}
 							}
 

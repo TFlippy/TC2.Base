@@ -7,13 +7,13 @@
 			public static partial class Conveyors
 			{
 				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Conveyors)", region_only: true)]
-				public partial struct Data: IComponent, Wrench.IMode,  Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
+				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
-					[Save.Ignore] public ulong inventory_id_src;
-					[Save.Ignore] public ulong inventory_id_dst;
+					[Save.Ignore] public IComponent.Handle inventory_id_src;
+					[Save.Ignore] public IComponent.Handle inventory_id_dst;
 
 					public IRecipe.Handle selected_recipe;
 					//public Belt.Flags flags;
@@ -29,20 +29,27 @@
 
 					public Entity EntitySrc => this.ent_src;
 					public Entity EntityDst => this.ent_dst;
+
+					public readonly IComponent.Handle ComponentSrc => this.inventory_id_src;
+					public readonly IComponent.Handle ComponentDst => this.inventory_id_dst;
+
 					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
+					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, IComponent.Handle h_component, Vector2 pos, bool is_src)
 					{
 						return new TargetInfo(entity, is_src ? this.inventory_id_src : this.inventory_id_dst, is_src);
 					}
 
 #if CLIENT
-					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst)
+					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, IComponent.Handle h_component_src, Entity ent_dst, IComponent.Handle h_component_dst)
 					{
 						var rpc = new SetTargetRPC
 						{
 							ent_src = ent_src,
-							ent_dst = ent_dst
+							ent_dst = ent_dst,
+
+							h_component_src = h_component_src,
+							h_component_dst = h_component_dst,
 						};
 						rpc.Send(ent_wrench);
 					}
@@ -171,7 +178,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawInventories(ref inventories_src, ref this.inventory_id_src, ref sync);
+												DrawInventories(ref inventories_src, ref this.inventory_id_src.AsU64(), ref sync);
 											}
 										}
 
@@ -190,7 +197,7 @@
 
 												GUI.SeparatorThick();
 
-												DrawInventories(ref inventories_dst, ref this.inventory_id_dst, ref sync);
+												DrawInventories(ref inventories_dst, ref this.inventory_id_dst.AsU64(), ref sync);
 											}
 										}
 									}
@@ -202,8 +209,8 @@
 											ent_src = this.ent_src,
 											ent_dst = this.ent_dst,
 
-											component_id_src = this.inventory_id_src,
-											component_id_dst = this.inventory_id_dst,
+											h_component_src = this.inventory_id_src,
+											h_component_dst = this.inventory_id_dst,
 										};
 										rpc.Send(ent_wrench);
 									}
@@ -442,8 +449,8 @@
 					public Entity ent_src;
 					public Entity ent_dst;
 
-					public ulong component_id_src;
-					public ulong component_id_dst;
+					public IComponent.Handle h_component_src;
+					public IComponent.Handle h_component_dst;
 
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
@@ -452,8 +459,8 @@
 
 						ref var region = ref entity.GetRegion();
 
-						var info_src = new TargetInfo(this.ent_src, this.component_id_src, true);
-						var info_dst = new TargetInfo(this.ent_dst, this.component_id_dst, false);
+						var info_src = new TargetInfo(this.ent_src, this.h_component_src, true);
+						var info_dst = new TargetInfo(this.ent_dst, this.h_component_dst, false);
 
 						data.ent_src = info_src.entity;
 						data.ent_dst = info_dst.entity;

@@ -12,6 +12,9 @@
 					[Save.Ignore] public Entity ent_src;
 					[Save.Ignore] public Entity ent_dst;
 
+					[Save.Ignore] public IComponent.Handle h_component_src;
+					[Save.Ignore] public IComponent.Handle h_component_dst;
+
 					public IRecipe.Handle selected_recipe;
 					public Belt.Flags flags;
 
@@ -26,20 +29,27 @@
 
 					public readonly Entity EntitySrc => this.ent_src;
 					public readonly Entity EntityDst => this.ent_dst;
+
+					public readonly IComponent.Handle ComponentSrc => this.h_component_src;
+					public readonly IComponent.Handle ComponentDst => this.h_component_dst;
+
 					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
-					public readonly TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, Vector2 pos, bool is_src)
+					public readonly TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, IComponent.Handle h_component, Vector2 pos, bool is_src)
 					{
 						return new TargetInfo(entity, is_src);
 					}
 
 #if CLIENT
-					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, Entity ent_dst)
+					public void SendSetTargetRPC(Entity ent_wrench, Entity ent_src, IComponent.Handle h_component_src, Entity ent_dst, IComponent.Handle h_component_dst)
 					{
-						var rpc = new Wrench.Mode.Belts.SetTargetRPC()
+						var rpc = new SetTargetRPC
 						{
 							ent_src = ent_src,
-							ent_dst = ent_dst
+							ent_dst = ent_dst,
+
+							h_component_src = h_component_src,
+							h_component_dst = h_component_dst,
 						};
 						rpc.Send(ent_wrench);
 					}
@@ -206,8 +216,8 @@
 					public Entity ent_src;
 					public Entity ent_dst;
 
-					public ulong component_id_src;
-					public ulong component_id_dst;
+					public IComponent.Handle h_component_src;
+					public IComponent.Handle h_component_dst;
 
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
