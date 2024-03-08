@@ -3,8 +3,6 @@
 	description:
 		'''
 		Low-quality liquid fuel produced from coal tar and peat.
-
-
 		'''
 	
 	icon:
@@ -25,7 +23,7 @@
 	flags: liquid, toxic, chemical, manufactured, fuel
 	hints: materials, chemical
 	// kg
-	mass_per_unit: 0.100
+	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.naphtha"
 	
@@ -41,6 +39,10 @@
 		flammability: 0.650
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.100
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 3406.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 2806.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 628.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
@@ -49,11 +51,13 @@
 		specific_heat: 0.800
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000180
+		thermal_conductivity: 0.00018
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc
 		volatility: 0.189
+		// TODO: Desc
+		viscosity: 1.200
 		// TODO: Desc
 		surface_area_mult: 0.000
 		

@@ -269,6 +269,28 @@ namespace TC2.Base.Components
 				return a;
 #endif
 			}
+
+			public static Air.Composition operator checked -(Air.Composition a, Air.Composition b)
+			{
+#if USE_SIMD
+				var ymm0 = Vec8f.From(a);
+				var ymm1 = Vec8f.From(b);
+				ymm0 -= ymm1;
+				ymm0 = Vec8f.Max(ymm0, Vec8f.Zero);
+				return ymm0.As<Air.Composition>();
+#else
+				a.moles_o2 -= b.moles_o2;
+				a.moles_h2 -= b.moles_h2;
+				a.moles_n2 -= b.moles_n2;
+				a.moles_co -= b.moles_co;
+				a.moles_co2 -= b.moles_co2;
+				a.moles_so2 -= b.moles_so2;
+				a.moles_no2 -= b.moles_no2;
+				a.moles_h2o -= b.moles_h2o;
+
+				return a;
+#endif
+			}
 		}
 
 		public static partial class Container
@@ -355,9 +377,9 @@ namespace TC2.Base.Components
 
 				if (vent.flow_rate.m_value.IsNegative())
 				{
-					var air_tmp = air_cont - air_vent;
+					var air_tmp = checked(air_cont - air_vent);
 					air_container.air = air_tmp;
-					air_container.mass_cached -= vent.blob.mass;
+					air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
 				}
 				else
 				{
@@ -366,7 +388,7 @@ namespace TC2.Base.Components
 					air_container.mass_cached += vent.blob.mass;
 
 					var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
-					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio);
+					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
 				}
 
 				vent.blob = default;
@@ -704,12 +726,13 @@ namespace TC2.Base.Components
 			var dust_ratio = prt.dust.m_value * mass_total_inv;
 
 			var color = ColorBGRA.White.WithAlphaMult(0.30f);
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.555f, 0.443f, 0.006f), (no2_ratio * 4.80f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.755f, 0.790f, 0.26f), (so2_ratio * 3.80f).Clamp01());
 			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.98f, 0.98f, 0.98f), (h2o_ratio * 10.00f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(1.00f, 0.245f, 0.23f, 0.26f), (soot_ratio * 2.00f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(1.00f, 0.755f, 0.743f, 0.746f), ash_ratio);
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.455f, 0.343f, 0.026f), (no2_ratio * 4.00f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.70f, 0.655f, 0.543f, 0.026f), so2_ratio);
+			color = ColorBGRA.Lerp(color, new ColorBGRA(1.20f, 0.255f, 0.242f, 0.24f), (soot_ratio * 4.50f).Clamp01());
+			color = ColorBGRA.Lerp(color, new ColorBGRA(6.40f, 0.655f, 0.683f, 0.616f), (ash_ratio * 3.40f).Clamp01());
 			color = ColorBGRA.Lerp(color, 0xff837462, dust_ratio);
+			color.a = Maths.Clamp01(color.a);
 			//color = ColorBGRA.Lerp(color, new ColorBGRA(0.20f * ash_ratio, 0.755f, 0.743f, 0.746f), ash_ratio);
 			//color += (new ColorBGRA(0.60f, 0.95f, 0.95f, 0.95f) * h2o_ratio);
 			//color += (new ColorBGRA(0.60f, 0.95f, 0.95f, 0.95f) * h2o_ratio);

@@ -23,7 +23,7 @@
 	flags: liquid, toxic, intermediate, chemical, manufactured, fuel
 	hints: materials, dangerous, advanced, chemical, industrial
 	// kg
-	mass_per_unit: 0.100
+	mass_per_unit: 0.200
 	quantity_max: 500.000
 	prefab: "resource.benzene"
 	
