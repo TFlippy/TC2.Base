@@ -322,13 +322,16 @@ namespace TC2.Base.Components
 
 				public Temperature temperature = Temperature.Ambient;
 
-				[Save.Ignore, Net.Ignore] public Area vent_area_total_cached;
-
 				[Save.Ignore, Net.Ignore] public Amount moles_total_cached;
 				[Save.Ignore, Net.Ignore] public Pressure pressure_cached;
 				[Save.Ignore, Net.Ignore] public Density density_cached;
 				[Save.Ignore, Net.Ignore] public Mass mass_cached;
 
+				[Save.Ignore, Net.Ignore] public Area vent_area_total_cached_new;
+				[Save.Ignore, Net.Ignore] public float vent_y_top_cached_new;
+				[Save.Ignore, Net.Ignore] public float vent_y_bottom_cached_new;
+
+				[Save.Ignore, Net.Ignore] public Area vent_area_total_cached;
 				[Save.Ignore, Net.Ignore] public float vent_y_top_cached;
 				[Save.Ignore, Net.Ignore] public float vent_y_bottom_cached;
 
@@ -345,8 +348,8 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void System_ResetContainer(ISystem.Info info, ref Region.Data region, Entity entity,
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
+		public static void System_ResetContainer(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] ref Air.Container.Data container)
 		{
 			if (Vent.Data.is_debug)
@@ -354,10 +357,71 @@ namespace TC2.Base.Components
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
 
-			container.vent_area_total_cached = 0.00f;
-			
-			container.vent_y_bottom_cached = -1000.00f;
-			container.vent_y_top_cached = 1000.00f;
+			container.vent_area_total_cached = container.vent_area_total_cached_new;
+			container.vent_y_bottom_cached = container.vent_y_bottom_cached_new;
+			container.vent_y_top_cached = container.vent_y_top_cached_new;
+
+			container.vent_area_total_cached_new = 0.00f;
+			container.vent_y_bottom_cached_new = -1000.00f;
+			container.vent_y_top_cached_new = 1000.00f;
+
+			var air = container.air;
+
+			var volume = container.volume;
+			var temperature = container.temperature;
+
+			var moles_total = air.GetTotalMoles();
+			var mass = air.GetMass();
+			var density = mass.GetDensity(volume);
+
+			Phys.IdealGasLawFast(out var pressure, volume, moles_total, temperature);
+
+			container.moles_total_cached = moles_total;
+			container.pressure_cached = pressure;
+			container.density_cached = density;
+			container.mass_cached = mass;
+		}
+
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		public static void System_ResetVent(ISystem.Info info, ref Region.Data region,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Air.Container.Data air_container,
+		[Source.Owned, Pair.All] ref Vent.Data vent)
+		{
+			if (Vent.Data.is_debug)
+			{
+				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
+			}
+
+			var pos_y = transform.LocalToWorld(vent.offset).Y;
+
+			var has_pipe = vent.flags.HasAny(Vent.Data.Flags.Has_Pipe);
+			if (has_pipe)
+			{
+				vent.pressure_inside = air_container.pressure_cached;
+				vent.pressure_outside = air_container.pressure_cached;
+
+				vent.temperature_inside = air_container.temperature;
+				vent.temperature_outside = air_container.temperature;
+
+				vent.density_inside = air_container.density_cached;
+				vent.density_outside = air_container.density_cached;
+				//density_outside = Phys.GetAirDensity(pressure_outside, temperature_outside);
+			}
+			else
+			{
+				region.GetAtmospherićInfo(pos_y, out var altitude, out var temperature_ambient, out var pressure_ambient);
+
+				vent.pressure_inside = air_container.pressure_cached;
+				vent.pressure_outside = pressure_ambient;
+
+				vent.temperature_inside = air_container.temperature;
+				vent.temperature_outside = temperature_ambient;
+
+				vent.density_inside = air_container.density_cached;
+				vent.density_outside = Phys.GetAirDensity(pressure_ambient, temperature_ambient);
+			}
+
+			vent.pos_y = pos_y;
 		}
 
 		//[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
@@ -368,7 +432,7 @@ namespace TC2.Base.Components
 		//	air_container. Maths.Min
 		//}
 
-		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
 		public static void System_UpdateVentConnections(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] in Transform.Data transform)
 		{
@@ -384,41 +448,51 @@ namespace TC2.Base.Components
 				ref var vent_a = ref h_vent_a.data;
 				ref var vent_b = ref h_vent_b.data;
 
-				if (vent_a.pressure_inside > vent_b.pressure_inside)
-				//if (flow_rate.m_value.IsPositive())
+				if (vent_a.modifier * vent_b.modifier > 0.01f)
 				{
-					//vent_a.flow_rate = flow_rate_abs;
-					//vent_a.flow_rate = -flow_rate_abs;
-					//vent_b.flow_rate = vent_a.flow_rate.m_value.Abs();
+					if (vent_a.pressure_inside > vent_b.pressure_inside)
+					//if (flow_rate.m_value.IsPositive())
+					{
+						//vent_a.flow_rate = flow_rate_abs;
+						//vent_a.flow_rate = -flow_rate_abs;
+						//vent_b.flow_rate = vent_a.flow_rate.m_value.Abs();
 
-					vent_b.blob = vent_a.blob;
-					vent_b.particulates = vent_a.particulates;
-					//vent_b.velocity = -vent_a.velocity;
+						vent_b.blob = vent_a.blob;
+						vent_b.particulates = vent_a.particulates;
+						//vent_b.velocity = -vent_a.velocity;
 
-					pipe_state.flow_rate = vent_b.flow_rate;
-					pipe_state.velocity = vent_b.velocity;
+						pipe_state.flow_rate = vent_b.flow_rate;
+						pipe_state.velocity = vent_b.velocity;
+					}
+					else
+					{
+						//vent_a.flow_rate = vent_b.flow_rate.m_value.Abs();
+						//vent_b.flow_rate = -flow_rate_abs;
+						//vent_b.flow_rate = flow_rate_abs;
+
+						vent_a.blob = vent_b.blob;
+						vent_a.particulates = vent_b.particulates;
+						//vent_a.velocity = -vent_b.velocity;
+
+						pipe_state.flow_rate = vent_a.flow_rate;
+						pipe_state.velocity = vent_a.velocity;
+					}
+
+					if (vent_a.modifier > 0.00f)
+					{
+						vent_a.pressure_outside = vent_b.pressure_inside;
+						vent_a.density_outside = vent_b.density_inside;
+						vent_a.temperature_outside = vent_b.temperature_inside;
+					}
+
+					if (vent_b.modifier > 0.00f)
+					{
+						vent_b.pressure_outside = vent_a.pressure_inside;
+						vent_b.density_outside = vent_a.density_inside;
+						vent_b.temperature_outside = vent_a.temperature_inside;
+					}
 				}
-				else
-				{
-					//vent_a.flow_rate = vent_b.flow_rate.m_value.Abs();
-					//vent_b.flow_rate = -flow_rate_abs;
-					//vent_b.flow_rate = flow_rate_abs;
 
-					vent_a.blob = vent_b.blob;
-					vent_a.particulates = vent_b.particulates;
-					//vent_a.velocity = -vent_b.velocity;
-
-					pipe_state.flow_rate = vent_a.flow_rate;
-					pipe_state.velocity = vent_a.velocity;
-				}
-
-				vent_a.pressure_outside = vent_b.pressure_inside;
-				vent_a.density_outside = vent_b.density_inside;
-				vent_a.temperature_outside = vent_b.temperature_inside;
-
-				vent_b.pressure_outside = vent_a.pressure_inside;
-				vent_b.density_outside = vent_a.density_inside;
-				vent_b.temperature_outside = vent_a.temperature_inside;
 
 
 				vent_a.pos_y_connected = vent_b.pos_y;
@@ -426,7 +500,204 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: -200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: -500, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void System_UpdateVent(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] in Transform.Data transform, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
+		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] in Air.Container.Data air_container)
+		{
+			float pressure_inside = vent.pressure_inside;
+			float pressure_outside = vent.pressure_outside;
+
+			float temperature_inside = vent.temperature_inside;
+			float temperature_outside = vent.temperature_outside;
+
+			float density_inside = vent.density_inside;
+			float density_outside = vent.density_outside;
+
+			float vent_y = vent.pos_y;
+
+			var area = vent.cross_section * vent.modifier;
+			var dt = info.DeltaTime;
+
+			var vent_ratio = Maths.Normalize01(area, air_container.vent_area_total_cached);
+
+			var has_pipe = vent.flags.HasAny(Vent.Data.Flags.Has_Pipe);
+
+			//if (has_pipe)
+			//{
+			//	vent_y = vent.pos_y;
+
+			//	pressure_inside = air_container.pressure_cached;
+			//	pressure_outside = vent.pressure_outside;
+
+			//	temperature_inside = air_container.temperature;
+			//	temperature_outside = vent.temperature_outside;
+
+			//	density_inside = air_container.density_cached;
+			//	density_outside = vent.density_outside;
+			//	//density_outside = Phys.GetAirDensity(pressure_outside, temperature_outside);
+			//}
+			//else
+			//{
+			//	vent_y = vent.pos_y;
+
+			//	region.GetAtmospherićInfo(vent_y, out var altitude, out var temperature_ambient, out var pressure_ambient);
+
+			//	pressure_inside = air_container.pressure_cached;
+			//	pressure_outside = pressure_ambient;
+
+			//	temperature_inside = air_container.temperature;
+			//	temperature_outside = temperature_ambient;
+
+			//	density_inside = air_container.density_cached;
+			//	density_outside = Phys.GetAirDensity(pressure_outside, temperature_outside);
+			//}
+
+			var height = vent_y - air_container.vent_y_top_cached;
+			var delta_p = pressure_inside - pressure_outside;
+
+			var flow_rate = vent.flow_rate;
+			var velocity = vent.velocity;
+
+			var flow_rate_convection = (Volume)0.00f;
+
+#if DEBUG
+			if (Vent.Data.is_debug)
+			{
+				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) goto end;
+			}
+#endif
+
+			if (area > Maths.epsilon)
+			{
+				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside);
+
+				//if (height > Maths.epsilon)
+				//{
+				//	Phys.VentilationAirFlow(area, height, temperature_inside, temperature_outside, out flow_rate_convection);
+				//}
+
+				//if (flow_rate_target.m_value.IsNegative())
+				//{
+				//	flow_rate_target -= flow_rate_convection;
+				//}
+
+				//flow_rate_target *= vent_ratio;
+
+				//Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, delta_p.m_value.Abs() * 50.00f, 0.50f);
+				//Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.20f, 0.50f);
+
+				flow_rate = Maths.Lerp(flow_rate, flow_rate_target, 0.10f);
+				velocity = Maths.Lerp(velocity, flow_rate / vent.cross_section, 0.10f);
+
+				var flow_rate_abs = Maths.Abs(flow_rate);
+
+				//flow_rate = flow_rate; // Maths.Lerp(vent.flow_rate, flow_rate, 0.50f);
+				//velocity = flow_rate / vent.cross_section; // Maths.Lerp(vent.velocity, vent.flow_rate / vent.cross_section, 0.50f);
+
+				//flow_rate = flow_rate_target;
+				if (flow_rate_abs > Maths.epsilon)
+				{
+					if (flow_rate.m_value.IsNegative())
+					{
+						var volume = flow_rate_abs * dt;
+						var ratio = Maths.Normalize01(volume, air_container.volume);
+
+						var air = air_container.air;
+						air *= ratio;
+
+						var particulates = air_container.particulates;
+						particulates *= ratio;
+
+						vent.blob = new Air.Blob(air, temperature_inside);
+						vent.particulates = particulates;
+					}
+					else if (!has_pipe)
+					{
+						var volume = flow_rate_abs * dt;
+						var mass = density_outside * volume;
+
+						var air = new Air.Composition();
+						air.moles_n2 = (mass * Phys.air_n2_ratio) * Phys.n2_molar_mass_inv;
+						air.moles_o2 = (mass * Phys.air_o2_ratio) * Phys.o2_molar_mass_inv;
+						air.moles_co2 = (mass * Phys.air_co2_ratio) * Phys.co2_molar_mass_inv;
+
+						vent.blob = new Air.Blob(air, temperature_outside);
+						vent.particulates = default;
+					}
+				}
+
+				//vent.flow_rate = flow_rate; // Maths.Lerp(vent.flow_rate, flow_rate, 0.50f);
+				//vent.velocity = flow_rate / vent.cross_section; // Maths.Lerp(vent.velocity, vent.flow_rate / vent.cross_section, 0.50f);
+			}
+			else
+			{
+				flow_rate = 0.00f;
+				velocity = 0.00f;
+
+				vent.blob = default;
+				vent.particulates = default;
+			}
+
+			vent.flow_rate = flow_rate;
+			vent.velocity = velocity;
+
+			//vent.pressure_outside = pressure_outside;
+			//vent.pressure_inside = pressure_inside;
+
+			//vent.temperature_outside = temperature_outside;
+			//vent.temperature_inside = temperature_inside;
+
+			//vent.density_outside = density_outside;
+			//vent.density_inside = density_inside;
+
+#if DEBUG
+			end:
+			{
+#if CLIENT
+				var color = vent.velocity.Abs() > 0.05f ? (vent.flow_rate.m_value.IsPositive() ? Color32BGRA.Blue : Color32BGRA.Red) : Color32BGRA.Gray;
+				var radius = MathF.Sqrt(vent.cross_section / MathF.PI);
+
+				region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius,
+					color: color.WithAlpha(150), filled: false);
+
+				region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius * vent.modifier,
+					color: color.WithAlpha(50), filled: true);
+
+				//region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius_actual,
+				//	color: Color32BGRA.Orange.WithAlpha(50), filled: true);
+
+				region.DrawDebugDir(transform.LocalToWorld(vent.offset),
+					dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation)) * Maths.Abs(vent.velocity).WithSign(-vent.velocity),
+					color: color, thickness: 4.00f);
+
+				//region.DrawDebugText(transform.LocalToWorld(vent.offset + new Vector2(0.75f, -1.00f)),
+				////$"in: {flow_rate_in:0.0000} m³/s\n" +
+				////$"out: {flow_rate_out:0.0000} m³/s\n" +
+				//$"flow: {vent.flow_rate:+0.0000;-0.0000} m³/s\n" +
+
+				//$"delta_p: {delta_p:+0.0000;-0.0000}\n" +
+				//$"vent_ratio: {vent_ratio:0.00}\n" +
+				////$"mass_ratio: {Maths.Normalize(vent.blob.mass, air_container.mass_cached):0.0000}\n" +
+
+				//$"height: {height:0.00}\n" +
+				//$"temperature: {air_container.temperature:0.00}\n" +
+				//$"temperature_ambient: {temperature_ambient:0.00}\n" +
+
+				//$"density_inside: {density_inside:0.0000}\n" +
+				//$"density_outside: {density_outside:0.0000}\n" +
+
+				//$"pressure_inside: {pressure_inside:0.0000}\n" +
+				//$"pressure_outside: {pressure_outside:0.0000}\n" +
+
+				//$"velocity: {vent.velocity:+0.000;-0.000} m/s\n" +
+				//"", Color32BGRA.White);
+#endif
+			}
+#endif
+		}
+
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: -200, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void System_UpdateVentContainer1(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
@@ -467,90 +738,54 @@ namespace TC2.Base.Components
 				vent.particulates = default;
 			}
 
-			var pos_y = transform.LocalToWorld(vent.offset).Y;
+			var pos_y = vent.pos_y;
 			var pos_y_connected = vent.flags.HasAny(Vent.Data.Flags.Has_Pipe) ? vent.pos_y_connected : pos_y;
 
-			air_container.vent_y_bottom_cached = Maths.Max(Maths.Max(pos_y, pos_y_connected), air_container.vent_y_bottom_cached);
-			air_container.vent_y_top_cached = Maths.Min(Maths.Min(pos_y, pos_y_connected), air_container.vent_y_top_cached);
-			air_container.vent_area_total_cached += vent.cross_section * vent.modifier;
+			air_container.vent_y_bottom_cached_new = Maths.Max(Maths.Max(pos_y, pos_y_connected), air_container.vent_y_bottom_cached_new);
+			air_container.vent_y_top_cached_new = Maths.Min(Maths.Min(pos_y, pos_y_connected), air_container.vent_y_top_cached_new);
+			air_container.vent_area_total_cached_new += vent.cross_section * vent.modifier;
 
-			vent.pos_y = pos_y;
+			//vent.pos_y = pos_y;
 		}
 
+
+
 		//[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		//public static void System_UpdateVentContainer2(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
-		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
-		//[Source.Owned, Pair.All] ref Vent.Data vent)
+		//public static void System_RefreshContainer(ref Region.Data region,
+		//[Source.Owned] ref Air.Container.Data container)
 		//{
 		//	if (Vent.Data.is_debug)
 		//	{
 		//		if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 		//	}
 
-		//	//var pressure_a = vent.pressure_outside;
-		//	//var pressure_b = vent.pressure_inside;
+		//	//var ts = Timestamp.Now();
+		//	var air = container.air;
 
-		//	if (vent.blob.moles_total > Maths.epsilon)
-		//	{
-		//		var air_vent = vent.blob.air;
-		//		var air_cont = air_container.air;
+		//	var volume = container.volume;
+		//	var temperature = container.temperature;
 
-		//		if (vent.flow_rate.m_value.IsNegative())
-		//		{
-		//			//var air_tmp = checked(air_cont - air_vent);
-		//			//air_container.air = air_tmp;
-		//			//air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
-		//			//vent.particulates = default;
-		//		}
-		//		else
-		//		{
-		//			var air_tmp = air_cont + air_vent;
-		//			air_container.air = air_tmp;
-		//			air_container.mass_cached += vent.blob.mass;
+		//	var moles_total = air.GetTotalMoles();
+		//	var mass = air.GetMass();
 
-		//			var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
-		//			air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
-		//		}
+		//	var density = mass.GetDensity(volume);
 
-		//		//vent.blob = default;
-		//	}
+		//	Phys.IdealGasLawFast(out var pressure, volume, moles_total, temperature);
 
-		//	//vent.pressure_inside = air_container.pressure_cached;
-		//	//vent.density_inside = air_container.density_cached;
+		//	//container.vent_area_total_cached = container.vent_area_total_cached_new;
+		//	//container.vent_y_bottom_cached = container.vent_y_bottom_cached_new;
+		//	//container.vent_y_top_cached = container.vent_y_top_cached_new;
+
+		//	container.moles_total_cached = moles_total;
+		//	container.pressure_cached = pressure;
+		//	container.density_cached = density; // mass / volume;
+		//	container.mass_cached = mass;
+
+		//	//var ts_elapsed = ts.GetMilliseconds();
+		//	//App.WriteLine($"{ts_elapsed:0.0000} ms");
+
+		//	//container.vent_area_total_cached = 0.00f;
 		//}
-
-		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 100, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void System_RefreshContainer(ref Region.Data region,
-		[Source.Owned] ref Air.Container.Data container)
-		{
-			if (Vent.Data.is_debug)
-			{
-				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
-			}
-
-			//var ts = Timestamp.Now();
-			var air = container.air;
-
-			var volume = container.volume;
-			var temperature = container.temperature;
-
-			var moles_total = air.GetTotalMoles();
-			var mass = air.GetMass();
-
-			var density = mass.GetDensity(volume);
-
-			Phys.IdealGasLawFast(out var pressure, volume, moles_total, temperature);
-
-			container.moles_total_cached = moles_total;
-			container.pressure_cached = pressure;
-			container.density_cached = density; // mass / volume;
-			container.mass_cached = mass;
-
-			//var ts_elapsed = ts.GetMilliseconds();
-			//App.WriteLine($"{ts_elapsed:0.0000} ms");
-
-			//container.vent_area_total_cached = 0.00f;
-		}
 
 		//[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: -300)]
 		//public static void System_RefreshVentContainer(ISystem.Info info, ref Region.Data region, Entity entity,
@@ -558,194 +793,6 @@ namespace TC2.Base.Components
 		//{
 		//	container.vent_area_total_cached += vent.cross_section * vent.modifier;
 		//}
-
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: -500, flags: ISystem.Flags.Unchecked | ISystem.Flags.Experimental), MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void System_UpdateVent(ISystem.Info info, ref Region.Data region, Entity entity,
-		[Source.Owned] in Transform.Data transform, [HasTag("static", true, Source.Modifier.Owned)] bool is_static,
-		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] in Air.Container.Data air_container)
-		{
-			float pressure_inside;
-			float pressure_outside;
-
-			float temperature_inside;
-			float temperature_outside;
-
-			float density_inside;
-			float density_outside;
-
-			float vent_y;
-
-			var area = vent.cross_section * vent.modifier;
-			var dt = info.DeltaTime;
-
-			var vent_ratio = Maths.Normalize01(area, air_container.vent_area_total_cached);
-
-			var has_pipe = vent.flags.HasAny(Vent.Data.Flags.Has_Pipe);
-			if (!has_pipe)
-			{
-				vent_y = vent.pos_y;
-
-				region.GetAtmospherićInfo(vent_y, out var altitude, out var temperature_ambient, out var pressure_ambient);
-
-				pressure_inside = air_container.pressure_cached;
-				pressure_outside = pressure_ambient;
-
-				temperature_inside = air_container.temperature;
-				temperature_outside = temperature_ambient;
-
-				density_inside = air_container.density_cached;
-				density_outside = Phys.GetAirDensity(pressure_outside, temperature_outside);
-			}
-			else
-			{
-				vent_y = vent.pos_y;
-
-				pressure_inside = air_container.pressure_cached;
-				pressure_outside = vent.pressure_outside;
-
-				temperature_inside = air_container.temperature;
-				temperature_outside = vent.temperature_outside;
-
-				density_inside = air_container.density_cached;
-				density_outside = vent.density_outside;
-				//density_outside = Phys.GetAirDensity(pressure_outside, temperature_outside);
-			}
-
-			var height = vent_y - air_container.vent_y_top_cached;
-			var delta_p = pressure_inside - pressure_outside;
-
-			var flow_rate = vent.flow_rate;
-			var flow_rate_convection = (Volume)0.00f;
-
-#if DEBUG
-			if (Vent.Data.is_debug)
-			{
-				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) goto end;
-			}
-#endif
-
-			if (area > Maths.epsilon)
-			{
-				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside);
-
-				//if (height > Maths.epsilon)
-				//{
-				//	Phys.VentilationAirFlow(area, height, temperature_inside, temperature_outside, out flow_rate_convection);
-				//}
-
-				//if (flow_rate_target.m_value.IsNegative())
-				//{
-				//	flow_rate_target -= flow_rate_convection;
-				//}
-
-				//flow_rate_target *= vent_ratio;
-
-				//Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, delta_p.m_value.Abs() * 50.00f, 0.50f);
-				//Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.20f, 0.50f);
-
-				flow_rate = flow_rate_target;
-				var flow_rate_abs = Maths.Abs(flow_rate);
-
-				//flow_rate = flow_rate_target;
-				if (flow_rate_abs > Maths.epsilon)
-				{
-					if (flow_rate.m_value.IsNegative())
-					{
-						var volume = flow_rate_abs * dt;
-						var ratio = Maths.Normalize01(volume, air_container.volume);
-
-						var air = air_container.air;
-						air *= ratio;
-
-						var particulates = air_container.particulates;
-						particulates *= ratio;
-
-						vent.blob = new Air.Blob(air, temperature_inside);
-						vent.particulates = particulates;
-					}
-					else if (!has_pipe)
-					{
-						var volume = flow_rate_abs * dt;
-						var mass = density_outside * volume;
-
-						var air = new Air.Composition();
-						air.moles_n2 = (mass * Phys.air_n2_ratio) * Phys.n2_molar_mass_inv;
-						air.moles_o2 = (mass * Phys.air_o2_ratio) * Phys.o2_molar_mass_inv;
-						air.moles_co2 = (mass * Phys.air_co2_ratio) * Phys.co2_molar_mass_inv;
-
-						vent.blob = new Air.Blob(air, temperature_outside);
-						vent.particulates = default;
-					}
-				}
-
-				vent.flow_rate = flow_rate; // Maths.Lerp(vent.flow_rate, flow_rate, 0.50f);
-				vent.velocity = flow_rate / vent.cross_section; // Maths.Lerp(vent.velocity, vent.flow_rate / vent.cross_section, 0.50f);
-			}
-			else
-			{
-				vent.flow_rate = 0.00f;
-				vent.velocity = 0.00f;
-
-				vent.blob = default;
-				vent.particulates = default;
-			}
-
-			vent.pressure_outside = pressure_outside;
-			vent.pressure_inside = pressure_inside;
-
-			vent.temperature_outside = temperature_outside;
-			vent.temperature_inside = temperature_inside;
-
-			vent.density_outside = density_outside;
-			vent.density_inside = density_inside;
-
-#if DEBUG
-			end:
-			{
-#if CLIENT
-				{
-					var color = vent.velocity.Abs() > 0.05f ? (vent.flow_rate.m_value.IsPositive() ? Color32BGRA.Blue : Color32BGRA.Red) : Color32BGRA.Gray;
-					var radius = MathF.Sqrt(vent.cross_section / MathF.PI);
-
-					region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius,
-						color: color.WithAlpha(150), filled: false);
-
-					region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius * vent.modifier,
-						color: color.WithAlpha(50), filled: true);
-
-					//region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius_actual,
-					//	color: Color32BGRA.Orange.WithAlpha(50), filled: true);
-
-					region.DrawDebugDir(transform.LocalToWorld(vent.offset),
-						dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation)) * Maths.Abs(vent.velocity).WithSign(-vent.velocity),
-						color: color, thickness: 4.00f);
-
-					//region.DrawDebugText(transform.LocalToWorld(vent.offset + new Vector2(0.75f, -1.00f)),
-					////$"in: {flow_rate_in:0.0000} m³/s\n" +
-					////$"out: {flow_rate_out:0.0000} m³/s\n" +
-					//$"flow: {vent.flow_rate:+0.0000;-0.0000} m³/s\n" +
-
-					//$"delta_p: {delta_p:+0.0000;-0.0000}\n" +
-					//$"vent_ratio: {vent_ratio:0.00}\n" +
-					////$"mass_ratio: {Maths.Normalize(vent.blob.mass, air_container.mass_cached):0.0000}\n" +
-
-					//$"height: {height:0.00}\n" +
-					//$"temperature: {air_container.temperature:0.00}\n" +
-					//$"temperature_ambient: {temperature_ambient:0.00}\n" +
-
-					//$"density_inside: {density_inside:0.0000}\n" +
-					//$"density_outside: {density_outside:0.0000}\n" +
-
-					//$"pressure_inside: {pressure_inside:0.0000}\n" +
-					//$"pressure_outside: {pressure_outside:0.0000}\n" +
-
-					//$"velocity: {vent.velocity:+0.000;-0.000} m/s\n" +
-					//"", Color32BGRA.White);
-				}
-#endif
-			}
-#endif
-		}
 
 		//public static void TakeAmbient(ref readonly Region.Data region, Volume volume, out Air.Blob blob)
 		//{
@@ -855,14 +902,14 @@ namespace TC2.Base.Components
 
 				[Save.Ignore, Net.Ignore] public Color32BGRA color_smoke;
 
-				[Save.Ignore, Net.Ignore] public Pressure pressure_outside = Phys.atmospheric_pressure_kordel;
 				[Save.Ignore, Net.Ignore] public Pressure pressure_inside = Phys.atmospheric_pressure_kordel;
+				[Save.Ignore, Net.Ignore] public Pressure pressure_outside = Phys.atmospheric_pressure_kordel;
 
-				[Save.Ignore, Net.Ignore] public Density density_outside = Phys.air_density_kordel;
 				[Save.Ignore, Net.Ignore] public Density density_inside = Phys.air_density_kordel;
+				[Save.Ignore, Net.Ignore] public Density density_outside = Phys.air_density_kordel;
 
-				[Save.Ignore, Net.Ignore] public Temperature temperature_outside = Temperature.Ambient;
 				[Save.Ignore, Net.Ignore] public Temperature temperature_inside = Temperature.Ambient;
+				[Save.Ignore, Net.Ignore] public Temperature temperature_outside = Temperature.Ambient;
 
 				[Save.Ignore, Net.Ignore] public Volume flow_rate;
 				[Save.Ignore, Net.Ignore] public float velocity;
