@@ -116,8 +116,8 @@
 
 									var hud_rect = hud.group.GetOuterRect();
 
-									var vents_src = info_src.entity.GetComponents<Vent.Data>();
-									var vents_dst = info_dst.entity.GetComponents<Vent.Data>();
+									var vents_src = info_src.entity.GetComponents<Air.Vent.Data>();
+									var vents_dst = info_dst.entity.GetComponents<Air.Vent.Data>();
 
 									var sync = false;
 
@@ -251,7 +251,7 @@
 						}
 					}
 
-					private static void DrawVents(ref readonly TargetInfo target_src, ref readonly TargetInfo target_dst, scoped ref IComponent.List<Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
+					private static void DrawVents(ref readonly TargetInfo target_src, ref readonly TargetInfo target_dst, scoped ref IComponent.List<Air.Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
 					{
 						for (var i = 0; i < vents.count; i++)
 						{
@@ -355,7 +355,7 @@
 				{
 					public Entity entity;
 					public IComponent.Handle vent_id;
-					public Vent.Type vent_type;
+					public Air.Vent.Type vent_type;
 
 					public float radius;
 					public Vector2 pos;
@@ -387,11 +387,11 @@
 							{
 								this.pos = transform.position;
 
-								var vents = this.entity.GetComponents<Vent.Data>();
+								var vents = this.entity.GetComponents<Air.Vent.Data>();
 								for (var i = 0; i < vents.count; i++)
 								{
 									var pair = vents[i];
-									if (!pair.data.flags.HasAny(Vent.Data.Flags.Has_Pipe))
+									if (!pair.data.flags.HasAny(Air.Vent.Data.Flags.Has_Pipe))
 									{
 										this.selectable = true;
 										if (vent_id != 0 && pair.handle == vent_id)
