@@ -561,28 +561,37 @@ namespace TC2.Base.Components
 
 				if (vent.flow_rate.m_value.IsNegative())
 				{
-					var air_tmp = checked(air_container.air - vent.blob.air);
-					var particulates_tmp = checked(air_container.particulates - vent.particulates);
+					if (region.GetCurrentTick() % 2 == 0)
+					{
+						var air_tmp = checked(air_container.air - vent.blob.air);
+						var particulates_tmp = checked(air_container.particulates - vent.particulates);
 
-					air_container.air = air_tmp;
-					air_container.particulates = particulates_tmp;
-					air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+						air_container.air = air_tmp;
+						air_container.particulates = particulates_tmp;
+						air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+
+						vent.blob = default;
+						vent.particulates = default;
+					}
 				}
 				else
 				{
-					var air_tmp = (air_container.air + vent.blob.air);
-					var particulates_tmp = (air_container.particulates + vent.particulates);
+					if (region.GetCurrentTick() % 2 == 1)
+					{
+						var air_tmp = (air_container.air + vent.blob.air);
+						var particulates_tmp = (air_container.particulates + vent.particulates);
 
-					air_container.air = air_tmp;
-					air_container.particulates = particulates_tmp;
-					air_container.mass_cached += vent.blob.mass;
+						air_container.air = air_tmp;
+						air_container.particulates = particulates_tmp;
+						air_container.mass_cached += vent.blob.mass;
 
-					var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
-					air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
+						var mass_ratio = Maths.Normalize01(vent.blob.mass, air_container.mass_cached);
+						air_container.temperature = Maths.Lerp(air_container.temperature, vent.blob.temperature, mass_ratio * 0.80f);
+
+						vent.blob = default;
+						vent.particulates = default;
+					}
 				}
-
-				vent.blob = default;
-				vent.particulates = default;
 			}
 
 			var pos_y = vent.pos_y;
@@ -664,8 +673,12 @@ namespace TC2.Base.Components
 					Phys.VentilationAirFlow(area, height, temperature_inside, temperature_outside, out flow_rate_convection);
 					//App.WriteLine(flow_rate_convection);
 				}
+				else
+				{
+					Phys.VentilationAirFlow(area, -height, temperature_inside, temperature_outside, out flow_rate_convection);
+				}
 
-				if (flow_rate_target.m_value.IsNegative())
+				//if (flow_rate_target.m_value.IsNegative())
 				{
 					flow_rate_target -= flow_rate_convection;
 				}
@@ -673,7 +686,7 @@ namespace TC2.Base.Components
 				//flow_rate_target *= vent_ratio;
 
 				//Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, delta_p.m_value.Abs() * 50.00f, 0.50f);
-				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.20f, 0.10f);
+				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.50f, 0.20f);
 
 				//flow_rate = flow_rate_target;
 				//flow_rate = Maths.Lerp(flow_rate, flow_rate_target, 0.50f);
@@ -689,32 +702,39 @@ namespace TC2.Base.Components
 				{
 					if (flow_rate.m_value.IsNegative())
 					{
-						var volume = flow_rate_abs * dt * vent_ratio;
-						var ratio = Maths.Normalize01(volume, air_container.volume);
+						if (region.GetCurrentTick() % 2 == 0)
+						{
 
-						var air = air_container.air;
-						air *= ratio;
+							var volume = flow_rate_abs * dt * vent_ratio;
+							var ratio = Maths.Normalize01(volume, air_container.volume);
 
-						var particulates = air_container.particulates;
-						particulates *= ratio;
+							var air = air_container.air;
+							air *= ratio;
 
-						vent.blob = new Air.Blob(air, temperature_inside);
-						vent.particulates = particulates;
+							var particulates = air_container.particulates;
+							particulates *= ratio;
+
+							vent.blob = new Air.Blob(air, temperature_inside);
+							vent.particulates = particulates;
+						}
 					}
 					else if (!has_pipe)
 					{
-						var volume = flow_rate_abs * dt * vent_ratio;
-						var ratio = Maths.Normalize01(volume, air_container.volume);
+						if (region.GetCurrentTick() % 2 == 1)
+						{
+							var volume = flow_rate_abs * dt * vent_ratio;
+							var ratio = Maths.Normalize01(volume, air_container.volume);
 
-						var mass = density_outside * volume * ratio;
+							var mass = density_outside * volume;
 
-						var air = new Air.Composition();
-						air.moles_n2 = (mass * Phys.air_n2_ratio) * Phys.n2_molar_mass_inv;
-						air.moles_o2 = (mass * Phys.air_o2_ratio) * Phys.o2_molar_mass_inv;
-						air.moles_co2 = (mass * Phys.air_co2_ratio) * Phys.co2_molar_mass_inv;
+							var air = new Air.Composition();
+							air.moles_n2 = (mass * Phys.air_n2_ratio) * Phys.n2_molar_mass_inv;
+							air.moles_o2 = (mass * Phys.air_o2_ratio) * Phys.o2_molar_mass_inv;
+							air.moles_co2 = (mass * Phys.air_co2_ratio) * Phys.co2_molar_mass_inv;
 
-						vent.blob = new Air.Blob(air, temperature_outside);
-						vent.particulates = default;
+							vent.blob = new Air.Blob(air, temperature_outside);
+							vent.particulates = default;
+						}
 					}
 				}
 			}
