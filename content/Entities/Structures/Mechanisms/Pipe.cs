@@ -390,7 +390,7 @@ namespace TC2.Base.Components
 		public static void System_ResetContainer(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] ref Air.Container.Data container)
 		{
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -420,7 +420,7 @@ namespace TC2.Base.Components
 		public static void System_UpdatePipeConnections_A(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] in Transform.Data transform)
 		{
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -479,7 +479,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
 		{
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -610,7 +610,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
 		{
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -689,7 +689,7 @@ namespace TC2.Base.Components
 				Air.Container.Data.dev_purge = false;
 			}
 
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -722,7 +722,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Pair.All] ref Vent.Data vent)
 		{
 #if DEBUG
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -771,7 +771,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] in Transform.Data transform)
 		{
 #if DEBUG
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) return;
 			}
@@ -878,7 +878,7 @@ namespace TC2.Base.Components
 			//Phys.OrificeFlowVelocity(out velocity, Maths.Avg(density_inside, density_outside), pressure_inside, pressure_outside);
 
 #if DEBUG
-			if (Vent.Data.is_debug)
+			if (Vent.Data.dev_is_debug)
 			{
 				if (Vent.Data.time_step > 0 && (region.GetCurrentTick() % Vent.Data.time_step) != 0) goto end;
 			}
@@ -943,10 +943,12 @@ namespace TC2.Base.Components
 				//flow_rate = Maths.MoveTowards(flow_rate, flow_rate_target, 0.10f);
 				//velocity = ((flow_rate * area_modifier) / area); // Maths.Lerp(velocity, flow_rate / vent.cross_section, 0.50f);
 
-				flow_rate = flow_rate_target;
-				var flow_rate_abs = Maths.Abs(flow_rate);
+				//flow_rate = flow_rate_target;
 
-				//flow_rate = flow_rate; // Maths.Lerp(vent.flow_rate, flow_rate, 0.50f);
+				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.38f, 0.40f);
+
+
+				//flow_rate = Maths.Lerp(flow_rate, flow_rate_target, 0.30f);
 				velocity = flow_rate / vent.cross_section; // Maths.Lerp(vent.velocity, vent.flow_rate / vent.cross_section, 0.50f);
 
 				//flow_rate = flow_rate_target;
@@ -954,6 +956,7 @@ namespace TC2.Base.Components
 
 				//if (((region.GetCurrentTick() % 2) == (vent.type == Vent.Type.Input ? 0UL : 1UL)))
 
+				var flow_rate_abs = Maths.Abs(flow_rate);
 				if (Vent.Data.dev_enable_transport)
 				{
 					if (flow_rate.m_value.IsNegative())
@@ -1020,6 +1023,7 @@ namespace TC2.Base.Components
 
 #if DEBUG
 			end:
+			//if (false)
 			{
 #if CLIENT
 
@@ -1028,53 +1032,59 @@ namespace TC2.Base.Components
 				//var color = (vent.pressure_inside < vent.pressure_outside ? Color32BGRA.Blue : Color32BGRA.Red);
 				var radius = MathF.Sqrt(vent.cross_section / MathF.PI);
 
-				region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius,
-					color: color.WithAlpha(150), filled: false);
-
-				region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius * vent.modifier,
-					color: color.WithAlpha(50), filled: true);
-
-				//region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius_actual,
-				//	color: Color32BGRA.Orange.WithAlpha(50), filled: true);
-
-				region.DrawDebugDir(transform.LocalToWorld(vent.offset),
-					dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation, normalize: false)) * -(Maths.Min(3, MathF.Pow(vent.velocity.Abs(), 0.65f))).WithSign(vent.velocity),
-					color: color.WithAlpha(75), thickness: 4.00f);
-
-				if (Control.GetMouse().position.IsInDistance(transform.LocalToWorld(vent.offset), 1.00f))
+				if (Vent.Data.dev_draw_arrows)
 				{
-					region.DrawDebugText(transform.LocalToWorld(vent.offset) + new Vector2(0.75f, -1.00f),
-					//$"in: {flow_rate_in:0.0000} m³/s\n" +
-					//$"out: {flow_rate_out:0.0000} m³/s\n" +
-					$"flow: {vent.flow_rate:+0.0000;-0.0000} m³/s\n" +
+					region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius,
+						color: color.WithAlpha(150), filled: false);
 
-					$"delta_p: {delta_p:+0.0000;-0.0000}\n" +
-					$"vent_ratio: {vent_ratio:0.00}\n" +
-					//$"mass_ratio: {Maths.Normalize(vent.blob.mass, air_container.mass_cached):0.0000}\n" +
+					region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius * vent.modifier,
+						color: color.WithAlpha(50), filled: true);
 
-					$"height: {height:0.00}\n" +
-					$"temperature: {air_container.temperature:0.00}\n" +
-					//$"temperature_ambient: {temperature_ambient:0.00}\n" +
+					//region.DrawDebugCircle(transform.LocalToWorld(vent.offset), radius: radius_actual,
+					//	color: Color32BGRA.Orange.WithAlpha(50), filled: true);
 
-					$"density_inside: {density_inside:0.0000}\n" +
-					$"density_outside: {density_outside:0.0000}\n" +
-
-					$"pressure_inside: {pressure_inside:0.0000}\n" +
-					$"pressure_outside: {pressure_outside:0.0000}\n" +
-
-					$"type: {vent.type}\n" +
-
-					$"velocity: {vent.velocity:+0.000;-0.000} m/s\n" +
-					"", Color32BGRA.White);
+					region.DrawDebugDir(transform.LocalToWorld(vent.offset),
+						dir: Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation, normalize: false)) * -(Maths.Min(3, MathF.Pow(vent.velocity.Abs(), 0.65f))).WithSign(vent.velocity),
+						color: color.WithAlpha(75), thickness: 4.00f);
 				}
-				else
+
+				if (Vent.Data.dev_draw_stats)
 				{
-					region.DrawDebugText(transform.LocalToWorld(vent.offset) - new Vector2(0.00f, 0.50f),
-					$"{flow_rate:+0.000;-0.000} m³/s\n" +
-					$"{delta_p:+0.0000;-0.0000} bar\n" +
-					//$"{(delta_p.x2()).SqrtSigned():+0.0000;-0.0000} bar\n" +
-					$"{velocity:+0.000;-0.000} m/s\n" +
-					"", Color32BGRA.White.WithAlpha(180));
+					if (Control.GetMouse().position.IsInDistance(transform.LocalToWorld(vent.offset), 1.00f))
+					{
+						region.DrawDebugText(transform.LocalToWorld(vent.offset) + new Vector2(0.75f, -1.00f),
+						//$"in: {flow_rate_in:0.0000} m³/s\n" +
+						//$"out: {flow_rate_out:0.0000} m³/s\n" +
+						$"flow: {vent.flow_rate:+0.0000;-0.0000} m³/s\n" +
+
+						$"delta_p: {delta_p:+0.0000;-0.0000}\n" +
+						$"vent_ratio: {vent_ratio:0.00}\n" +
+						//$"mass_ratio: {Maths.Normalize(vent.blob.mass, air_container.mass_cached):0.0000}\n" +
+
+						$"height: {height:0.00}\n" +
+						$"temperature: {air_container.temperature:0.00}\n" +
+						//$"temperature_ambient: {temperature_ambient:0.00}\n" +
+
+						$"density_inside: {density_inside:0.0000}\n" +
+						$"density_outside: {density_outside:0.0000}\n" +
+
+						$"pressure_inside: {pressure_inside:0.0000}\n" +
+						$"pressure_outside: {pressure_outside:0.0000}\n" +
+
+						$"type: {vent.type}\n" +
+
+						$"velocity: {vent.velocity:+0.000;-0.000} m/s\n" +
+						"", Color32BGRA.White);
+					}
+					else
+					{
+						region.DrawDebugText(transform.LocalToWorld(vent.offset) - new Vector2(0.00f, 0.50f),
+						$"{flow_rate:+0.000;-0.000} m³/s\n" +
+						$"{delta_p:+0.0000;-0.0000} bar\n" +
+						//$"{(delta_p.x2()).SqrtSigned():+0.0000;-0.0000} bar\n" +
+						$"{velocity:+0.000;-0.000} m/s\n" +
+						"", Color32BGRA.White.WithAlpha(180));
+					}
 				}
 #endif
 			}
@@ -1258,11 +1268,13 @@ namespace TC2.Base.Components
 #if DEBUG
 				public static ulong time_step = 10;
 				public static bool dev_enable_transport = true;
-				public static bool is_debug = false;
+				public static bool dev_is_debug = false;
+				public static bool dev_draw_arrows = false;
+				public static bool dev_draw_stats = false;
 #else
 				public const ulong time_step = 1;
 				public const bool dev_enable_transport = true;
-				public const bool is_debug = false;
+				public const bool dev_is_debug = false;
 #endif
 
 				[Flags]
