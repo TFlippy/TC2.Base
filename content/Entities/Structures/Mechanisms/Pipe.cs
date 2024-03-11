@@ -557,11 +557,11 @@ namespace TC2.Base.Components
 
 			if (info.WorldTime >= vent.t_next_smoke && !vent.flags.HasAny(Vent.Data.Flags.Has_Pipe))
 			{
-				if (vent.flow_rate < -0.001f && vent.blob.temperature > 400.00f)
+				if (vent.flow_rate_old < -0.001f && vent.blob.temperature > 400.00f)
 				{
 					//throw new Exception();
 
-					var flow_rate_abs = vent.flow_rate.m_value.Abs();
+					var flow_rate_abs = vent.flow_rate_old.m_value.Abs();
 					var modifier = MathF.Sqrt(flow_rate_abs * 2.00f) * 0.30f;
 					var vel = Maths.Min(vent.velocity.Abs(), 20.00f);
 
@@ -629,7 +629,7 @@ namespace TC2.Base.Components
 
 						container.air = air_tmp;
 						container.particulates = particulates_tmp;
-						//air_container.mass_cached = Maths.Max(air_container.mass_cached - vent.blob.mass, 0.00f);
+						//container.mass_cached = Maths.Max(container.mass_cached - vent.blob.mass, 0.00f);
 
 						vent.blob = default;
 						vent.particulates = default;
@@ -647,7 +647,7 @@ namespace TC2.Base.Components
 						//air_container.mass_cached += vent.blob.mass;
 
 						var mass_ratio = Maths.Normalize01(vent.blob.mass, container.mass_cached, 1.00f);
-						container.temperature = Maths.Lerp(container.temperature, vent.blob.temperature, mass_ratio);
+						container.temperature = Maths.Lerp(container.temperature, vent.blob.temperature, mass_ratio * 0.82f);
 
 						vent.blob = default;
 						vent.particulates = default;
