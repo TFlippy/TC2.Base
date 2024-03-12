@@ -945,7 +945,9 @@ namespace TC2.Base.Components
 
 				//flow_rate = flow_rate_target;
 
-				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, (flow_rate_target - flow_rate).m_value.Abs() * 0.38f, 0.40f);
+				Maths.MoveTowardsDamped(ref flow_rate.m_value, flow_rate_target, area * 10.00f, 0.50f);
+
+				flow_rate *= vent_ratio;
 
 
 				//flow_rate = Maths.Lerp(flow_rate, flow_rate_target, 0.30f);
@@ -967,7 +969,7 @@ namespace TC2.Base.Components
 						//if (region.GetCurrentTick() % 2 == 0)
 						//{
 
-						var volume = flow_rate_abs * dt;
+						var volume = flow_rate_abs * dt * vent_ratio;
 
 						var ratio = Maths.Normalize01(volume, air_container.volume);
 						//var ratio = Maths.OverflowRatio(volume, air_container.volume);
@@ -998,7 +1000,7 @@ namespace TC2.Base.Components
 						}
 						else
 						{
-							var volume = flow_rate_abs * dt;
+							var volume = flow_rate_abs * dt * vent_ratio;
 
 							air_container.flow_volume_in_new += Maths.Max(0.00f, volume);
 							air_container.flow_volume_out_new += Maths.Min(0.00f, volume);

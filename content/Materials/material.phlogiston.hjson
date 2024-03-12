@@ -2,7 +2,7 @@
 	name: "Phlogiston"
 	description:
 		'''
-		Extremely potent fuel extracted from ancient underground pipelines.
+		Exotic oxygen-rich fuel capable of reaching incredibly high temperatures.
 		'''
 	
 	icon:
@@ -23,7 +23,7 @@
 	flags: liquid, chemical, raw, fuel
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
 	// kg
-	mass_per_unit: 0.100
+	mass_per_unit: 0.500
 	quantity_max: 100.000
 	prefab: "resource.phlogiston"
 	
@@ -71,17 +71,17 @@
 		// TODO: Desc
 		type: liquid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 81000.000
+		energy_combustion: 21000.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.998
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 4.900
+		flammability: 8.900
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 1.800
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 4400.000
+		flame_temperature_o2: 4300.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 2700.000
+		flame_temperature_air: 1300.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 210.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
