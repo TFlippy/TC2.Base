@@ -816,7 +816,7 @@ namespace TC2.Base.Components
 			{
 				//var flow_rate_target = (Volume)0.00f;
 				//Phys.OrificeFlow(out flow_rate_target, area, Maths.Avg(density_inside, density_outside), pressure_inside, pressure_outside);
-				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside, discharge_coefficient: 0.65f);
+				Phys.OrificeFlowDual(out var flow_rate_target, area, density_inside, density_outside, pressure_inside, pressure_outside);
 
 				vent.pressure_loss = delta_p;
 
@@ -849,8 +849,8 @@ namespace TC2.Base.Components
 				flow_rate = 0.00f;
 				velocity = 0.00f;
 
-				//vent.blob = default;
-				//vent.particulates = default;
+				vent.blob = default;
+				vent.particulates = default;
 			}
 
 			vent.flow_rate = Maths.Lerp(vent.flow_rate, flow_rate, 0.10f);
@@ -970,11 +970,17 @@ namespace TC2.Base.Components
 							if (blob.moles_total > 0.00f)
 							{
 								var air_new = air_container.air + blob.air;
-								var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total);
+								//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.air.GetHeatCapacity(), blob.air.GetHeatCapacity());
+								//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total);
+								//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.mass_cached, blob.mass);
+								var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total * vent_ratio);
 
 								air_container.air = air_new;
 								air_container.particulates += vent.particulates;
 								air_container.temperature = temperature_new;
+								air_container.mass_cached += blob.mass;
+								air_container.moles_total_cached += blob.moles_total;
+
 
 								//air_container.mass_cached += blob.mass;
 
@@ -983,6 +989,7 @@ namespace TC2.Base.Components
 								//air_container.temperature = Maths.Lerp(air_container.temperature, blob.temperature, mass_ratio * 0.82f);
 
 								air_container.flow_volume_in_new += volume;
+								air_container.flow_velocity_in_new += blob.moles_total;
 							}
 						}
 						else
@@ -998,11 +1005,16 @@ namespace TC2.Base.Components
 							//vent.pressure_loss = volume.m_value;
 
 							var air_new = air_container.air + blob.air;
-							var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total);
+							//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.air.GetHeatCapacity(), blob.air.GetHeatCapacity());
+							//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total);
+							//var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.mass_cached, blob.mass);
+							var temperature_new = Maths.AvgWeighted(air_container.temperature, blob.temperature, air_container.moles_total_cached, blob.moles_total * vent_ratio);
 
 							air_container.air = air_new;
 							air_container.particulates += vent.particulates;
 							air_container.temperature = temperature_new;
+							air_container.mass_cached += blob.mass;
+							air_container.moles_total_cached += blob.moles_total;
 
 							//var air_tmp = air_container.air;
 							//air_tmp += blob.air;
@@ -1015,6 +1027,7 @@ namespace TC2.Base.Components
 							//air_container.temperature = Maths.Lerp(air_container.temperature, blob.temperature, mass_ratio * 0.82f);
 
 							air_container.flow_volume_in_new += volume;
+							air_container.flow_velocity_in_new += blob.moles_total;
 						}
 
 						vent.blob = default;
@@ -1054,7 +1067,7 @@ namespace TC2.Base.Components
 					{
 						var volume = flow_rate_abs * dt;
 
-						var volume_ratio = Maths.Normalize01(volume, air_container.volume, 1.00f);
+						var volume_ratio = Maths.Normalize01(volume, air_container.volume + air_container.flow_volume_in_new, 1.00f);
 
 						var temperature_inside = vent.temperature_inside;
 
@@ -1065,6 +1078,9 @@ namespace TC2.Base.Components
 						var particulates_tmp = air_container.particulates;
 						particulates_tmp *= volume_ratio;
 						vent.particulates = particulates_tmp;
+
+						air_container.flow_volume_out_new += volume;
+						air_container.flow_velocity_out_new += air_container.moles_total_cached * volume_ratio;
 					}
 				}
 			}
@@ -1682,6 +1698,38 @@ namespace TC2.Base.Components
 			public Data()
 			{
 
+			}
+
+			public void PrintNetwork()
+			{
+				//var hs_visited = new HashSet<Entity>();
+				//var air = new Air.Composition();
+
+				//Recursion(this.a.entity);
+				//Recursion(this.b.entity);
+
+				//void Recursion(Entity ent)
+				//{
+				//	if (hs_visited.Add(ent))
+				//	{
+				//		var vents = ent.GetComponents<Air.Vent.Data>();
+				//		for (var i = 0; i < vents.count; i++)
+				//		{
+				//			var pair = vents[i];
+				//			ref var vent = ref pair.data;
+
+				//			air += vent.blob.air;
+				//		}
+
+				//		ref var container = ref ent.GetComponent<Air.Container.Data>();
+				//		if (container.IsNotNull())
+				//		{
+				//			air += container.air;
+				//		}
+				//	}
+				//}
+
+				//App.WriteLine(Vec8f.From(air));
 			}
 		}
 
