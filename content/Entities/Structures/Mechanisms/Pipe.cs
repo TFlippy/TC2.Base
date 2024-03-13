@@ -65,6 +65,14 @@ namespace TC2.Base.Components
 				return xmm0.Sum();
 			}
 
+			// TODO: check if JIT doesn't do self-xor already during "this = default"
+			public void Clear()
+			{
+				var xmm0 = Vec4f.From(this);
+				xmm0 ^= xmm0;
+				this = xmm0.As<Air.Particulates>();
+			}
+
 			public static Air.Particulates operator *(Air.Particulates a, float value)
 			{
 				var xmm0 = Vec4f.From(a);
@@ -214,6 +222,14 @@ namespace TC2.Base.Components
 #endif
 			}
 
+			// TODO: check if JIT doesn't do self-xor already during "this = default"
+			public void Clear()
+			{
+				var ymm0 = Vec8f.From(this);
+				ymm0 ^= ymm0;
+				this = ymm0.To<Air.Composition>();
+			}
+
 			public readonly Volume GetVolume(Temperature temperature, Pressure pressure)
 			{
 				Phys.IdealGasLaw(pressure, out var volume, this.GetTotalMoles(), temperature);
@@ -349,11 +365,11 @@ namespace TC2.Base.Components
 				[Save.Ignore, Net.Ignore] public Volume flow_volume_in_new;
 				[Save.Ignore, Net.Ignore] public Volume flow_volume_out_new;
 
-				[Save.Ignore, Net.Ignore] public float flow_velocity_in;
-				[Save.Ignore, Net.Ignore] public float flow_velocity_out;
+				[Save.Ignore, Net.Ignore] public float flow_moles_in;
+				[Save.Ignore, Net.Ignore] public float flow_moles_out;
 
-				[Save.Ignore, Net.Ignore] public float flow_velocity_in_new;
-				[Save.Ignore, Net.Ignore] public float flow_velocity_out_new;
+				[Save.Ignore, Net.Ignore] public float flow_moles_in_new;
+				[Save.Ignore, Net.Ignore] public float flow_moles_out_new;
 
 				[Save.Ignore, Net.Ignore] public Amount moles_total_cached;
 				[Save.Ignore, Net.Ignore] public Pressure pressure_cached;
@@ -423,14 +439,14 @@ namespace TC2.Base.Components
 			container.flow_volume_in = container.flow_volume_in_new;
 			container.flow_volume_out = container.flow_volume_out_new;
 
-			container.flow_velocity_in = container.flow_velocity_in_new;
-			container.flow_velocity_out = container.flow_velocity_out_new;
+			container.flow_moles_in = container.flow_moles_in_new;
+			container.flow_moles_out = container.flow_moles_out_new;
 
 			container.flow_volume_in_new = default;
 			container.flow_volume_out_new = default;
 
-			container.flow_velocity_in_new = default;
-			container.flow_velocity_out_new = default;
+			container.flow_moles_in_new = default;
+			container.flow_moles_out_new = default;
 		}
 
 		//[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
@@ -543,7 +559,7 @@ namespace TC2.Base.Components
 
 
 		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void System_ApplyContainer(ISystem.Info info, ref Region.Data region,
+		public static void System_PrepareContainer(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] ref Air.Container.Data container)
 		{
 #if DEBUG
@@ -578,8 +594,8 @@ namespace TC2.Base.Components
 			container.mass_cached = mass;
 		}
 
-		[ISystem.PreUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
-		public static void System_ResetVent(ISystem.Info info, ref Region.Data region,
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
+		public static void System_PrepareVent(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
 		[Source.Owned, Pair.All] ref Vent.Data vent)
 		{
@@ -989,7 +1005,7 @@ namespace TC2.Base.Components
 								//air_container.temperature = Maths.Lerp(air_container.temperature, blob.temperature, mass_ratio * 0.82f);
 
 								air_container.flow_volume_in_new += volume;
-								air_container.flow_velocity_in_new += blob.moles_total;
+								air_container.flow_moles_in_new += blob.moles_total;
 							}
 						}
 						else
@@ -1027,7 +1043,7 @@ namespace TC2.Base.Components
 							//air_container.temperature = Maths.Lerp(air_container.temperature, blob.temperature, mass_ratio * 0.82f);
 
 							air_container.flow_volume_in_new += volume;
-							air_container.flow_velocity_in_new += blob.moles_total;
+							air_container.flow_moles_in_new += blob.moles_total;
 						}
 
 						vent.blob = default;
@@ -1080,14 +1096,36 @@ namespace TC2.Base.Components
 						vent.particulates = particulates_tmp;
 
 						air_container.flow_volume_out_new += volume;
-						air_container.flow_velocity_out_new += air_container.moles_total_cached * volume_ratio;
+						air_container.flow_moles_out_new += air_container.moles_total_cached * volume_ratio;
 					}
 				}
 			}
 		}
 
-#if CLIENT
+		//[ISystem.PostUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region, order: 800)]
+		//public static void System_PushVents_Output_After(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data container,
+		//[Source.Owned, Pair.All] ref Vent.Data vent)
+		//{
+		//	if (Air.Container.Data.dev_is_debug)
+		//	{
+		//		if (Air.Container.Data.time_step > 0 && (region.GetCurrentTick() % Air.Container.Data.time_step) != 0) return;
+		//	}
 
+		//	if (Air.Container.Data.dev_enable_transport)
+		//	{
+		//		if (flow_rate <= -0.001f)
+		//		{
+		//			var air_tmp = checked(container.air - vent.blob.air);
+		//			var particulates_tmp = checked(container.particulates - vent.particulates);
+
+		//			container.air = air_tmp;
+		//			container.particulates = particulates_tmp;		
+		//		}
+		//	}
+		//}
+
+#if CLIENT
 		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void System_VentEffects(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.All] ref Vent.Data vent)
@@ -1702,34 +1740,35 @@ namespace TC2.Base.Components
 
 			public void PrintNetwork()
 			{
-				//var hs_visited = new HashSet<Entity>();
-				//var air = new Air.Composition();
+				var hs_visited = new HashSet<Entity>();
+				var air = new Air.Composition();
 
-				//Recursion(this.a.entity);
-				//Recursion(this.b.entity);
+				Recursion(this.a.entity);
+				Recursion(this.b.entity);
 
-				//void Recursion(Entity ent)
-				//{
-				//	if (hs_visited.Add(ent))
-				//	{
-				//		var vents = ent.GetComponents<Air.Vent.Data>();
-				//		for (var i = 0; i < vents.count; i++)
-				//		{
-				//			var pair = vents[i];
-				//			ref var vent = ref pair.data;
+				// TODO: finish this
+				void Recursion(Entity ent)
+				{
+					if (hs_visited.Add(ent))
+					{
+						var vents = ent.GetComponents<Air.Vent.Data>();
+						for (var i = 0; i < vents.count; i++)
+						{
+							var pair = vents[i];
+							ref var vent = ref pair.data;
 
-				//			air += vent.blob.air;
-				//		}
+							air += vent.blob.air;
+						}
 
-				//		ref var container = ref ent.GetComponent<Air.Container.Data>();
-				//		if (container.IsNotNull())
-				//		{
-				//			air += container.air;
-				//		}
-				//	}
-				//}
+						ref var container = ref ent.GetComponent<Air.Container.Data>();
+						if (container.IsNotNull())
+						{
+							air += container.air;
+						}
+					}
+				}
 
-				//App.WriteLine(Vec8f.From(air));
+				App.WriteLine(Vec8f.From(air));
 			}
 		}
 
