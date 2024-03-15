@@ -126,18 +126,25 @@ sound.emitter|"aux":
 	size_max_modifier: 0.500
 }
 
-vent|"exhaust":
+air.vent|"exhaust":
 {
 	type: output
 	offset: [0.000, -4.500]
+	rotation: -1.571
 	cross_section: 2.000
 }
 
-vent|"intake":
+air.vent|"intake":
 {
 	type: input
 	offset: [-0.125, 0.625]
-	cross_section: 8.000
+	rotation: 1.571
+	cross_section: 2.000
+}
+
+air.container:
+{
+	volume: 1.000
 }
 
 burner:

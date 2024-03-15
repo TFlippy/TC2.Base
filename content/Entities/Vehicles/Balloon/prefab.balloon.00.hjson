@@ -122,18 +122,25 @@ sound.emitter|"aux":
 	size_max_modifier: 0.500
 }
 
-vent|"exhaust":
+air.vent|"exhaust":
 {
 	type: output
 	offset: [0.250, -1.750]
+	rotation: -1.571
 	cross_section: 1.500
 }
 
-vent|"intake":
+air.vent|"intake":
 {
 	type: input
 	offset: [-0.125, 0.625]
-	cross_section: 3.000
+	rotation: 1.571
+	cross_section: 1.500
+}
+
+air.container:
+{
+	volume: 1.000
 }
 
 burner:
@@ -142,7 +149,7 @@ burner:
 	type: gas
 	height: 4.000
 	area_fuel: 0.500
-	area_aux: 0.010
+	area_aux: 0.004
 	area_surface: 1.000
 	volume_chamber: 0.500
 	pressure_max: 8.000

@@ -1,8 +1,7 @@
-$name: "Ladder (Metal)"
+$name: "Giant Ladder (Metal)"
 $desc:
 	'''
-	A durable metal ladder.
-	Can be climbed.
+	More robust ladder designed for giants.
 	'''
 $tags: []
 
@@ -20,14 +19,14 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
+		layer: entity, climbable, building, no_overlapped_placement, ignore_bullet
 		mask: world
 	}
 }
 
 health:
 {
-	max: 18500.000
+	max: 28500.000
 }
 
 animated.renderer:

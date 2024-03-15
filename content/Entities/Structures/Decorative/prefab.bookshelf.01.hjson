@@ -5,24 +5,17 @@ $tags: []
 body:
 {
 	type: dynamic
-	buoyancy: 0.100
+	buoyancy: 0.600
 	
-	@shape.polygon:
+	@shape.box:
 	{
-		points: 
-		[
-			[-1.250, -0.500]
-			[1.250, 0.000]
-			[1.250, 0.500]
-			[-1.250, 0.500]
-		]
-		offset: [0.000, 0.000]
-		mass: 250.000
-		radius: 0.250
-		friction: 0.900
+		size: [1.500, 2.500]
+		mass: 150.000
+		radius: 0.175
+		friction: 0.700
 		elasticity: 0.400
-		material: metal
-		layer: entity, building
+		material: wood
+		layer: entity, decoration, building
 		mask: world
 	}
 }
@@ -38,7 +31,7 @@ animated.renderer:
 	{
 		texture: "bookshelf.01"
 	}
-	offset: [0.000, -0.250]
+	offset: [0.000, -0.125]
 	z: -90.000
 }
 
@@ -59,12 +52,8 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.wood"
 			quantity: 100.000
-		}
-		{
-			material: "cloth"
-			quantity: 30.000
 		}
 	]
 }

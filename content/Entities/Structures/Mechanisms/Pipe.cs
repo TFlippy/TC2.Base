@@ -1,7 +1,5 @@
 ﻿#define USE_SIMD
 
-using System.Runtime.Intrinsics;
-
 namespace TC2.Base.Components
 {
 	public static partial class Air
@@ -1639,8 +1637,13 @@ namespace TC2.Base.Components
 				Input,
 				Output,
 
+				Intake,
+				Exhaust,
 
-
+				Top,
+				Bottom,
+				Front,
+				Back
 
 				//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 			}

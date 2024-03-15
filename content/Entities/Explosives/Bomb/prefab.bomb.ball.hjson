@@ -53,7 +53,7 @@ fuse:
 {
 	time: 5.000
 	sparkle_offset: [0.375, -0.500]
-	failure_chance: 0.050
+	failure_chance: 0.0350
 	sound: "fuse_set"
 	flags: sparkle
 	

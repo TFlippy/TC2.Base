@@ -273,9 +273,9 @@
 			var air_density_ambient = Phys.GetAirDensity(atmospheric_pressure_ambient, Region.ambient_temperature);
 
 			var htc_air = Phys.GetAirConvectionHTC(wind_speed + body.GetVelocity().Length());
-			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness) * (1.00f + (balloon_state.altitude * 0.014f)).Pow2();
+			var htc_envelope = Phys.GetConvectionHTC(balloon.envelope_thermal_conductivity, balloon.envelope_thickness) * (1.00f + (balloon_state.altitude * 0.004f)).Pow2();
 
-			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, vent_exhaust.blob.temperature, balloon_state.envelope_volume, vent_exhaust.flow_rate_old * temperature_speed * 2.00f);
+			balloon_state.current_temperature_air = Maths.SumWeighted(balloon_state.current_temperature_air, vent_exhaust.blob.temperature, balloon_state.envelope_volume, vent_exhaust.flow_rate_old.m_value.Abs() * temperature_speed * 2.00f);
 
 			Phys.CharlesLaw(balloon_state.envelope_volume, Phys.ambient_temperature, out var envelope_volume_hot, balloon_state.current_temperature_air);
 			balloon_state.current_volume = Maths.Lerp(Maths.Max(balloon_state.current_volume, balloon_state.envelope_volume), envelope_volume_hot, 0.10f);

@@ -269,8 +269,9 @@
 
 					ref var player = ref Client.GetPlayer();
 					ref var region = ref Client.GetRegion();
+					ref var character = ref Client.GetCharacter(out var character_asset);
 
-					Crafting.Context.NewFromPlayer(ref region, ref player, ent_producer: this.ent_refinery, out var context);
+					Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_refinery, out var context);
 
 					var w_right = (48 * 4) + 24;
 

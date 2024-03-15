@@ -68,44 +68,74 @@ furnace.state:
 	
 }
 
-burner:
+sound.emitter|"aux":
 {
-	smoke_offset: [-0.250, -4.250]
-	capacity: 20.000
-	energy_loss: 50000.000
-	efficiency: 0.400
-	
-	@inventory1:
-	{
-		name: "Fuel"
-		stack_size_multiplier: 8.000
-		filter_flags: fuel
-		type: fuel
-		flags: allow_ducts, ignore_mass
-		offset: [1.000, 1.500]
-	}
-
-	@light:
-	{
-		color: [1.000, 0.500, 0.000, 3.200]
-		offset: [1.000, 2.750]
-		scale: [22.000, 14.000]
-		intensity: 0.000
-		texture: "light.circle.04"
-	}
-	
-	@sound.emitter:
-	{
-		file: "furnace_loop"
-		volume: 0.000
-		pitch: 0.500
-	}
+	file: "burner.gas.loop.02"
+	volume: 0.300
+	pitch: 0.500
+	size: 1.000
+	size_max_modifier: 0.500
 }
 
-burner.state:
+air.vent|"exhaust":
 {
-	current_temperature: 300.000
+	type: exhaust
+	offset: [-0.250, -3.500]
+	rotation: -1.571
+	cross_section: 1.000
 }
+
+air.vent|"intake":
+{
+	type: intake
+	offset: [0.000, 1.000]
+	rotation: 1.571
+	cross_section: 0.900
+}
+
+air.container:
+{
+	volume: 5.000
+}
+
+// burner:
+// {
+// 	smoke_offset: [-0.250, -4.250]
+// 	capacity: 20.000
+// 	energy_loss: 50000.000
+// 	efficiency: 0.400
+	
+// 	@inventory1:
+// 	{
+// 		name: "Fuel"
+// 		stack_size_multiplier: 8.000
+// 		filter_flags: fuel
+// 		type: fuel
+// 		flags: allow_ducts, ignore_mass
+// 		offset: [1.000, 1.500]
+// 	}
+
+// 	@light:
+// 	{
+// 		color: [1.000, 0.500, 0.000, 3.200]
+// 		offset: [1.000, 2.750]
+// 		scale: [22.000, 14.000]
+// 		intensity: 0.000
+// 		texture: "light.circle.04"
+// 	}
+	
+// 	@sound.emitter:
+// 	{
+// 		file: "furnace_loop"
+// 		volume: 0.000
+// 		pitch: 0.500
+// 	}
+// }
+
+// burner.state:
+// {
+// 	current_temperature: 300.000
+// }
 
 crafter:
 {
@@ -113,11 +143,12 @@ crafter:
 	
 	@inventory16:
 	{
-		name: "Output"
-		stack_size_multiplier: 4.000
-		type: output
-		flags: allow_ducts, ignore_mass, public, faction, no_auto_pickup
+		filter_flags: none
 		offset: [-0.875, 2.500]
+		stack_size_multiplier: 4.000
+		flags: allow_ducts, ignore_mass, public, no_auto_pickup, faction
+		type: output
+		filter_type: none
 	}
 }
 
@@ -125,11 +156,11 @@ crafter.state:
 {
 	@inventory4:
 	{
-		name: "Input"
-		stack_size_multiplier: 4.000
-		type: input
-		flags: allow_ducts, ignore_mass
 		offset: [-0.875, -1.375]
+		stack_size_multiplier: 4.000
+		flags: allow_ducts, ignore_mass
+		type: input
+		filter_type: none
 	}
 }
 
