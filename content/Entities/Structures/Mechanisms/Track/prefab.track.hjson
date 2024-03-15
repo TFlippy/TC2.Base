@@ -140,12 +140,12 @@ mount:
 	joint.gear:
 	{
 		error_bias: 0.001
-		max_bias: 5.000
+		max_bias: 1.000
 		max_bias_bounce: 5.000
 		stress_mult: 1.000
 		min: -3.140
 		max: 3.140
-		step: 50.000
+		step: 5.000
 		bounce: 0.900
 		max_torque: 10000.000
 

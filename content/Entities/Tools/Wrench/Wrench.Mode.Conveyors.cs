@@ -397,14 +397,14 @@
 					public bool valid;
 					public bool selectable;
 
-					public Entity Entity => this.entity;
-					public IComponent.Handle ComponentID => this.inventory_id;
-					public Vector2 Position => this.pos;
-					public float Radius => this.radius;
-					public bool IsSource => this.is_src;
-					public readonly bool IsSelectable => this.selectable;
-					public bool IsAlive => this.alive;
-					public bool IsValid => this.valid;
+					public readonly Entity Entity => this.entity;
+					public readonly IComponent.Handle ComponentID => this.inventory_id;
+					public readonly Vector2 Position => this.pos;
+					public readonly float Radius => this.radius;
+					public readonly bool IsSource => this.is_src;
+					public readonly bool IsSelectable => this.valid;
+					public readonly bool IsAlive => this.alive;
+					public readonly bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity, ulong inventory_id, bool is_src)
 					{

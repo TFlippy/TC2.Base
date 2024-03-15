@@ -429,14 +429,14 @@ namespace TC2.Base.Components
 					public bool valid;
 					public bool selectable;
 
-					public Entity Entity => this.entity;
-					public IComponent.Handle ComponentID => ECS.GetID<Dismantlable.Data>();
-					public Vector2 Position => this.pos;
-					public float Radius => this.radius;
-					public bool IsSource => true;
-					public bool IsSelectable => this.selectable;
-					public bool IsAlive => this.alive;
-					public bool IsValid => this.valid;
+					public readonly Entity Entity => this.entity;
+					public readonly IComponent.Handle ComponentID => ECS.GetID<Dismantlable.Data>();
+					public readonly Vector2 Position => this.pos;
+					public readonly float Radius => this.radius;
+					public readonly bool IsSource => true;
+					public readonly bool IsSelectable => this.selectable;
+					public readonly bool IsAlive => this.alive;
+					public readonly bool IsValid => this.valid;
 
 					public TargetInfo(Entity entity)
 					{

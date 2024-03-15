@@ -185,7 +185,7 @@
 					public readonly Vector2 Position => this.pos;
 					public readonly float Radius => this.radius;
 					public readonly bool IsSource => this.is_src;
-					public bool IsSelectable => this.selectable;
+					public readonly bool IsSelectable => this.valid;
 					public readonly bool IsAlive => this.alive;
 					public readonly bool IsValid => this.valid;
 

@@ -16,7 +16,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 340000.000
+	max_health: 280000.000
 	
 	smoothing: 0.200
 	mass: 9.400
