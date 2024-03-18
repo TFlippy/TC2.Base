@@ -17,6 +17,7 @@ body:
 		material: wood
 		layer: entity, building, solid, platform
 		mask: world, solid
+		exclude: held, attached
 	}
 }
 

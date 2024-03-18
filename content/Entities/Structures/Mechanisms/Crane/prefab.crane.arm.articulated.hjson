@@ -194,5 +194,12 @@ vehicle:
 		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read
 
 		gui_size: [0.000, 128.000]
+
+		tags_filter:
+		{
+			require: rotary
+			include: small, medium, large
+			exclude: wheel
+		}
 	}
 }

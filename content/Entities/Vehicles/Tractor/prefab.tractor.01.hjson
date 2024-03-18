@@ -69,6 +69,16 @@ vehicle:
 	}
 }
 
+holdable:
+{
+	force_multiplier: 0.800
+	torque_multiplier: 0.800
+	stress_multiplier: 1.000
+	radius: 0.000
+	hints: none
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
 faction.colorable:
 {
 	intensity_a: 0.500
@@ -213,6 +223,13 @@ axle:
 
 		gui_size: [144.000, 144.000]
 		rank: -8.000
+
+		tags_filter:
+		{
+			require: fixed
+			include: medium, large, turret, cabin, mount, huge
+			exclude: none
+		}
 	}
 }
 
@@ -251,6 +268,13 @@ axle:
 		flags_editable: locked, disabled
 
 		gui_size: [96.000, 96.000]
+
+		tags_filter:
+		{
+			require: fixed
+			include: small, medium
+			exclude: none
+		}
 	}
 }
 
@@ -292,6 +316,13 @@ axle:
 
 		gui_size: [144.000, 144.000]
 		rank: -4.000
+
+		tags_filter:
+		{
+			require: fixed
+			include: medium, large, turret, cabin, mount
+			exclude: none
+		}
 	}
 }
 
