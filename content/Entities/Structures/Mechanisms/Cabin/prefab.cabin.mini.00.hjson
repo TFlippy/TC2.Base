@@ -48,6 +48,7 @@ holdable:
 attachment:
 {
 	offset: [0.000, 1.500]
+	tags: small, cabin, fixed
 }
 
 animated.renderer:

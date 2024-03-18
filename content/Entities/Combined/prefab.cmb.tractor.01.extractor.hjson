@@ -1,18 +1,6 @@
 $name: "Crane Tractor"
 $prefab: "tractor.01"
 
-burner:
-{
-	@inventory1:
-	{
-		resource:
-		{
-			material: "phlogiston"
-			quantity: 100.000
-		}
-	}
-}
-
 +slot_rear|instance:
 {
 	attachment.slot:

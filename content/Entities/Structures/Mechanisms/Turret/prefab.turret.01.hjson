@@ -57,6 +57,7 @@ attachment:
 {
 	offset: [0.000, 0.000]
 	flags: mirror_rotate, full_rotate
+	tags: medium, turret, mount, rotary, coaxial
 }
 
 aimable:

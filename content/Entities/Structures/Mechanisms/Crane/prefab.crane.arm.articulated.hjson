@@ -98,7 +98,7 @@ attachment:
 {
 	offset: [-4.000, 0.000]
 	flags: disable_facing_use_rotation, full_rotate
-	tags: large, tool, rotary
+	tags: medium, tool, rotary, mount
 
 	force_multiplier: 2.000
 	torque_multiplier: 4.000

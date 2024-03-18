@@ -61,6 +61,7 @@ attachment:
 	offset: [0.000, 0.000]
 	radius: 0.000
 	flags: disable_parent_facing
+	tags: large, wheel
 }
 
 transform:

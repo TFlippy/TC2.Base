@@ -371,6 +371,13 @@ axle:
 
 		gui_size: [96.000, 96.000]
 		rank: 0.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: medium, large, huge
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -408,6 +415,13 @@ axle:
 
 		gui_size: [96.000, 96.000]
 		rank: 1.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: medium, large, huge
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -445,6 +459,13 @@ axle:
 
 		gui_size: [96.000, 96.000]
 		rank: 2.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: medium, large, huge
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -482,6 +503,13 @@ axle:
 
 		gui_size: [96.000, 96.000]
 		rank: 3.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: medium, large, huge
+			exclude: none
+		}
 	}
 
 	joint.base:

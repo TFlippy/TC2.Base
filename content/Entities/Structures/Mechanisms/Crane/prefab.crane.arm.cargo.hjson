@@ -88,6 +88,8 @@ attachment:
 	
 	force_multiplier: 2.000
 	torque_multiplier: 4.000
+
+	tags: medium, tool, rotary, mount
 }
 
 storage:

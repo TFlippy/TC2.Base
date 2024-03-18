@@ -80,6 +80,7 @@ attachment:
 {
 	offset: [-0.625, 0.000]
 	radius: 0.000
+	tags: medium, tool
 }
 
 // norotate:

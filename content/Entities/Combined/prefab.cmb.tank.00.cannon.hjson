@@ -1,18 +1,6 @@
 $name: "Tank"
 $prefab: "tank.00"
 
-burner:
-{
-	@inventory1:
-	{
-		resource:
-		{
-			material: "phlogiston"
-			quantity: 100.000
-		}
-	}
-}
-
 +slot_heavy_0|instance:
 {
 

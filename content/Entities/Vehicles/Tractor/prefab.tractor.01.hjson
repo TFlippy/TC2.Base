@@ -311,6 +311,13 @@ axle:
 		rank: 5.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -350,6 +357,13 @@ axle:
 		rank: 6.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -389,6 +403,13 @@ axle:
 		rank: 7.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -428,6 +449,13 @@ axle:
 		rank: 8.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:

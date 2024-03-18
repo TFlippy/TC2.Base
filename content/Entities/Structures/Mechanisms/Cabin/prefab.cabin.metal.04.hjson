@@ -63,6 +63,7 @@ attachment:
 	offset: [0.000, 1.250]
 	force_multiplier: 2.000
 	torque_multiplier: 8.000
+	tags: medium, cabin, fixed
 }
 
 animated.renderer:

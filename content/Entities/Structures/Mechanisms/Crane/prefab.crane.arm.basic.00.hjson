@@ -65,6 +65,8 @@ attachment:
 
 	force_multiplier: 1.000
 	torque_multiplier: 1.000
+
+	tags: medium, tool, rotary, mount
 }
 
 // joint.base:
