@@ -13,8 +13,8 @@ body:
 		b: [4.000, 0.000]
 		mass: 300.000
 		radius: 0.500
-		friction: 0.950
-		elasticity: 0.100
+		friction: 0.350
+		elasticity: 0.450
 		material: metal
 		layer: entity, solid, ignore_bullet
 		mask: world
