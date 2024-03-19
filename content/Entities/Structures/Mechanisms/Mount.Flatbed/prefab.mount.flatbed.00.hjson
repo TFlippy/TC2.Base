@@ -65,7 +65,7 @@ attachment:
 	force_multiplier: 10.000
 	torque_multiplier: 10.000
 
-	tags: medium, turret, mount, fixed
+	tags: medium, turret, mount, platform, fixed
 }
 
 animated.renderer:
@@ -176,8 +176,8 @@ storage:
 		tags_filter:
 		{
 			require: none
-			include: tiny, small, medium, large, weapon, tool, rotary, linear, fixed, coaxial
-			exclude: none
+			include: tiny, small, medium, rotary, linear, fixed, coaxial
+			exclude: cabin, platform
 		}
 	}
 }

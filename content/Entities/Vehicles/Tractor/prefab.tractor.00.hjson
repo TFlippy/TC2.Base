@@ -308,6 +308,13 @@ axle:
 
 		gui_size: [144.000, 88.000]
 		rank: -5.000
+
+		tags_filter:
+		{
+			require: motor, fixed
+			include: small, medium
+			exclude: none
+		}
 	}
 }
 

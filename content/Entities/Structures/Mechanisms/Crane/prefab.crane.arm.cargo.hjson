@@ -89,7 +89,7 @@ attachment:
 	force_multiplier: 2.000
 	torque_multiplier: 4.000
 
-	tags: medium, tool, rotary, mount
+	tags: medium, rotary, mount, utility, long
 }
 
 storage:
@@ -148,7 +148,7 @@ vehicle:
 
 	joint.pivot:
 	{
-		error_bias: 0.010
+		error_bias: 0.000
 		max_bias: 10.000
 	}
 

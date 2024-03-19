@@ -58,7 +58,7 @@ attachment:
 	offset: [0.375, 0.375]
 	// flags: mirror_rotate
 	flags: none
-	tags: none
+	tags: small, utility
 }
 
 // equipment:

@@ -77,7 +77,7 @@ attachment:
 {
 	offset: [-0.200, 0.000]
 	flags: none
-	tags: medium, weapon, tool, rotary, linear, fixed, coaxial
+	tags: small, weapon, tool, utility, rotary, linear, fixed, coaxial
 }
 
 animated.renderer:

@@ -73,5 +73,5 @@ attachment:
 	torque_multiplier: 4.000
 	offset: [0.000, 0.650]
 	flags: disable_parent_facing
-	tags: none
+	tags: small, fixed
 }

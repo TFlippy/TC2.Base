@@ -763,5 +763,12 @@ commandable:
 		flags_editable: locked, disabled
 
 		gui_size: [192.000, 160.000]
+
+		tags_filter:
+		{
+			require: none
+			include: tiny, small
+			exclude: none
+		}
 	}
 }

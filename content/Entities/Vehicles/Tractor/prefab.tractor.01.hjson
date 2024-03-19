@@ -220,7 +220,7 @@ axle:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, keyboard_read, mouse_read, keyboard_write, mouse_write, offset
 
-		offset_bounds: [-0.500, -0.125, 0.500, 0.500]
+		offset_bounds: [-1.000, -0.125, 1.000, 0.500]
 
 		gui_size: [144.000, 144.000]
 		rank: -8.000
@@ -272,7 +272,7 @@ axle:
 
 		tags_filter:
 		{
-			require: fixed
+			require: motor, fixed
 			include: small, medium
 			exclude: none
 		}

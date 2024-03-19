@@ -92,7 +92,7 @@ attachment:
 	flags: disable_parent_facing, full_rotate
 	force_multiplier: 1.500
 	torque_multiplier: 1.700
-	tags: large
+	tags: large, rotary, fixed
 }
 
 interactable:
