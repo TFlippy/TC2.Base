@@ -73,6 +73,17 @@ vehicle:
 	}
 }
 
+holdable:
+{
+	force_multiplier: 1.200
+	torque_multiplier: 0.800
+	stress_multiplier: 0.650
+	grip_min: 0.000
+	radius: 0.000
+	hints: none
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
 damage.effects:
 {
 

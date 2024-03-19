@@ -97,7 +97,7 @@ axle:
 
 interactable:
 {
-	window_size: [268.000, 128.000]
+	window_size: [224.000, 128.000]
 	// window_offset: [-134.000, -80.000]
 	// window_offset: [80.000, 80.000]
 	window_offset: [48.000, 128.000]
@@ -121,7 +121,7 @@ mount:
 
 		flags: keyboard_write, mouse_write, manual_aim, use_center_of_gravity
 		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake, offset, hold
-		gui_size: [268.000, 128.000]
+		gui_size: [0.000, 128.000]
 		offset_bounds: [0.000, -0.750, 0.000, 0.750]
 	}
 
