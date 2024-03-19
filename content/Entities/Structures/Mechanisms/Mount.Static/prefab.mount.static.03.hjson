@@ -1,0 +1,145 @@
+$name: "Mount (Static, Tall)"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.500, -2.875]
+			[0.500, -2.875]
+			[0.875, 3.500]
+			[-0.875, 3.500]
+		]
+		mass: 1450.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, ignore_melee
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 135000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.static.03"
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [224.000, 120.000]
+	window_offset: [0.000, 178.000]
+}
+
+vehicle:
+{
+	// inventory_type: ammo
+	// flags: include_misc_window
+}
+
+mount:
+{
+
+}
+
+// storage:
+// {
+// 	@inventory1:
+// 	{
+// 		name: "Ammo"
+// 		stack_size_multiplier: 8.000
+// 		type: ammo
+// 		flags: allow_ducts, ignore_mass, faction
+// 	}
+// }
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -1.000]
+		max_force: 1000000.000
+		max_torque: 500000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		z: -50.000
+		flags: attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing
+		material_type: metal
+
+		@sound.emitter:
+		{
+			file: "attachment_rotate_loop_00"
+			volume: 0.000
+			pitch: 1.000
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 1.000
+			pitch_modifier: 0.150
+			volume_min: 0.000
+			pitch_min: 0.500
+			volume_lerp_a: 0.020
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.040
+			pitch_lerp_b: 0.010
+		}
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		rotation: 0.000
+		min: -3.140
+		max: 3.140
+		flags: normalize_angle, normalize_limit, use_min_max, use_transform, use_sign_parent
+		ratio: 1.000
+		step: 1.000
+		error_bias: 0.001
+		max_bias: 0.600
+		max_bias_bounce: 2.000
+		max_torque: 0.000
+		bounce: 2.000
+		j_mult_a: 1.000
+		j_mult_b: 1.000
+		modifier: 1.000
+		stress_mult: 1.000
+	}
+
+	attachment.slot:
+	{
+		radius: 1.000
+		flags: manual_aim
+		flags_editable: locked, disabled, loose, offset
+		name: "Mount"
+		identifier: "mount"
+		gui_size: [0.000, 120.000]
+		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
+	}
+}
