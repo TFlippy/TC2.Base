@@ -36,6 +36,11 @@
 		length_step: 0.125
 		
 		sound: "metal_place_01"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

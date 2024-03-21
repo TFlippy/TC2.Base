@@ -734,8 +734,6 @@ namespace TC2.Base.Components
 
 			if (pipe.a.TryGetHandle(out var h_vent_a) && pipe.b.TryGetHandle(out var h_vent_b))
 			{
-				var dt = App.fixed_update_interval_s;
-
 				ref var vent_a = ref h_vent_a.data;
 				ref var vent_b = ref h_vent_b.data;
 
@@ -777,6 +775,12 @@ namespace TC2.Base.Components
 						vent_b.pos_y_connected = vent_a.pos_y;
 					}
 				}
+			}
+			else
+			{
+#if SERVER
+				entity.Delete();
+#endif
 			}
 		}
 

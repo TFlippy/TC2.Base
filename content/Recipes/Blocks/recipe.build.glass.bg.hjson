@@ -35,6 +35,11 @@
 		min_claim: 1.000
 		
 		sound: "metal_place_01"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

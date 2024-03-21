@@ -228,6 +228,13 @@ namespace TC2.Base.Components
 														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
 														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
+														var icon_extra = recipe.icon_extra;
+														if (icon_extra.texture.id != 0)
+														{
+															var icon_extra_size = icon_extra.GetFrameSize();
+															GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
+														}
+
 														if (button.pressed)
 														{
 															var rpc = new Build.ConfigureRPC

@@ -9,10 +9,18 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [14, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "resource.smirgrafit.compacted"
+		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	color_button: "0xffaeb59a"
+	icon_extra_offset: [-5.000, -6.000]
 	
 	min: 0
 	max: 0
@@ -21,7 +29,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -95.500
+	rank: -82.500
 	
 	placement:
 	{

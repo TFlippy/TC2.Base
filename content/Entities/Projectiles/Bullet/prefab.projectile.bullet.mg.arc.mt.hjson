@@ -64,7 +64,7 @@ rocket:
 essencecontainer:
 {
 	h_essence: motion
-	available: 55.000
+	available: 25.000
 	stability: 0.000
 	health_threshold: 0.000
 }

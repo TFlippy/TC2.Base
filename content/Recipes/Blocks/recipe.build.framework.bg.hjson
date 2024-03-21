@@ -9,7 +9,7 @@
 	{
 		texture: "block_icons"
 		size: [16, 16]
-		frame: [6, 1]
+		frame: [14, 1]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -94.000
+	rank: -85.000
 	
 	placement:
 	{
@@ -37,6 +37,11 @@
 		length_step: 0.125
 		
 		sound: "metal.place.00"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

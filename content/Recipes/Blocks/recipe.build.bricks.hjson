@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: 0.000
+	rank: -94.000
 	
 	placement:
 	{
@@ -35,6 +35,11 @@
 		min_claim: 1.000
 		
 		sound: "stone_place_0"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

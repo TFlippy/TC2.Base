@@ -22,7 +22,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -94.000
+	rank: -92.000
 	
 	placement:
 	{
@@ -38,6 +38,11 @@
 		length_step: 0.125
 		
 		sound: "metal.place.00"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

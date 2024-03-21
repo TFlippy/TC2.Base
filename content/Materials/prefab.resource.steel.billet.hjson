@@ -13,6 +13,7 @@ body:
 		material: metal
 		layer: entity, solid, resource, ignore_melee, billet
 		mask: world, billet
+		exclude: held
 	}
 }
 
@@ -42,7 +43,7 @@ holdable:
 	torque_multiplier: 2.000
 	radius: 0.000
 	offset: [0.000, 0.450]
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_rotation
 }
 
 norotate:
