@@ -82,7 +82,7 @@ namespace TC2.Base
 		}
 
 		[ChatCommand.Region("tp", "", creative: true)]
-		public static void TeleportCommand(ref ChatCommand.Context context, float? x = null, float? y = null)
+		public static void TeleportCommand(ref ChatCommand.Context context)
 		{
 			ref var region = ref context.GetRegion();
 			Assert.NotNull(ref region);
@@ -93,6 +93,7 @@ namespace TC2.Base
 			ref var character = ref player.GetControlledCharacter().data;
 			Assert.NotNull(ref character);
 
+			//var ent_root = context.GetTargetEntity(); // character.ent_controlled;
 			var ent_root = character.ent_controlled;
 			Assert.Check(ent_root.IsAlive());
 
@@ -113,12 +114,8 @@ namespace TC2.Base
 			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Stored);
 			ent_root.RemoveRelation(Entity.Wildcard, Relation.Type.Rope);
 
-			var target_pos = player.control.mouse.position;
-			if (x.TryGetValue(out var x_value) && y.TryGetValue(out var y_value))
-			{
-				target_pos = new Vector2(x_value, y_value);
-			}
-
+			var target_pos = context.GetTargetPosition();
+			
 			foreach (var ent in entities)
 			{
 				//var ref_transform = ent.GetComponentWithOwner<Transform.Data>(Relation.Type.Instance);
@@ -133,7 +130,9 @@ namespace TC2.Base
 					var offset = transform.position - transform_root.position;
 
 					transform.SetPosition(target_pos + offset);
-					transform.Sync(ent, true);
+					transform.Modified(ent, true);
+
+					ent.MarkModified<Body.Data>(true);
 
 					//ref var physics = ref ent.GetComponent<Physics.Data>();
 					//if (physics.IsNotNull())
@@ -149,6 +148,27 @@ namespace TC2.Base
 
 			var ts_elapsed = ts.GetMilliseconds();
 			App.WriteLine($"Teleported in {ts_elapsed:0.0000} ms");
+		}
+
+		[ChatCommand.Global("move", "", creative: true)]
+		public static void MoveCommand(ref ChatCommand.Context context)
+		{
+			ref var region = ref context.GetRegionCommon();
+			Assert.NotNull(ref region);
+
+			var ent_target = context.GetTargetEntity();
+			Assert.Check(ent_target.IsAlive());
+
+			var pos = context.GetTargetPosition();
+
+			ref var transform = ref ent_target.GetComponent<Transform.Data>();
+			if (transform.IsNotNull())
+			{
+				transform.SetPosition(pos);
+				transform.Modified(ent_target, true);
+
+				ent_target.MarkModified<Body.Data>(true);
+			}
 		}
 #endif
 	}
