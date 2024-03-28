@@ -1,7 +1,9 @@
-$name: "Shipment"
+$name: "Box (ISO/030-A)"
 $desc:
 	'''
-	A tiny shipping crate used for storage and transport of various goods.
+	Imperial Standard Box, Type 030-A.
+	
+	Small shipping crate used for storage and transport of various goods.
 	'''
 $tags: []
 

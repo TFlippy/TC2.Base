@@ -1,10 +1,9 @@
 ﻿{
-	$prefab: ""
-	
-	name: "Pouch"
+	name: "Pouch (ISO/039-G)"
 	desc:
 		'''
-		Low-quality pouch used for holding items. 
+		Imperial Standard Low-Quality Pouch, Type 039-G.
+
 		Feels like it's going to fall apart once you empty it.
 		'''
 	
@@ -19,4 +18,6 @@
 	
 	max_volume: 5.000
 	max_weight: 5.000
+	
+	size: [1.000, 1.000]
 }

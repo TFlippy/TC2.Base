@@ -1,7 +1,8 @@
-$name: "Pouch"
+$name: "Pouch (ISO/039-G)"
 $desc:
 	'''
-	Low-quality pouch used for holding items. 
+	Imperial Standard Low-Quality Pouch, Type 039-G.
+
 	Feels like it's going to fall apart once you empty it.
 	'''
 $tags: []
@@ -26,7 +27,7 @@ body:
 holdable:
 {
 	radius: 4.000
-	flags: none
+	flags: storable
 }
 
 animated.renderer:

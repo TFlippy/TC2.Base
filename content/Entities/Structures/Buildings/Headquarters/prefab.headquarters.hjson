@@ -93,7 +93,7 @@ claimer:
 interactable:
 {
 	window_size: [624.000, 384.000]
-	window_size_misc: [264.000, 0.000]
+	window_size_misc: [262.000, 0.000]
 }
 
 depot:
