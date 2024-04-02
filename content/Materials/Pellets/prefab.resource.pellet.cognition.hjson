@@ -53,3 +53,14 @@ norotate:
 {
 
 }
+
+health:
+{
+	max: 6500.000
+}
+
+essencecontainer:
+{
+	stability: 0.000
+	health_threshold: 0.800
+}
