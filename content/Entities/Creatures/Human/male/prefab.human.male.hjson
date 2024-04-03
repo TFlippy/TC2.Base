@@ -15,14 +15,14 @@ body:
 	inventory_weight_multiplier: 0.200
 
 	fall_damage_multiplier: 1.500
-	buoyancy: 0.650
+	buoyancy: 0.630
 	
 	@shape.circle:
 	{
 		mass: 25.000
 		radius: 0.600
-		friction: 0.500
-		elasticity: 0.050
+		friction: 0.400
+		elasticity: 0.250
 		material: flesh
 		layer: entity, solid, creature, storage, flammable
 		mask: world
@@ -293,7 +293,7 @@ commandable:
 		displacement_stress_modifier: 0.200
 		displacement_force_modifier: 1.400
 
-		z: 15.000
+		z: 10.000
 
 		@animated.renderer:
 		{
@@ -507,6 +507,8 @@ commandable:
 		max_displacement: 0.400
 		displacement_stress_modifier: 0.500
 		displacement_force_modifier: 0.500
+
+		z: -5.000
 		
 		@animated.renderer:
 		{
