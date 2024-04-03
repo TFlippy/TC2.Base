@@ -13,6 +13,9 @@ $tags:
 body:
 {
 	inventory_weight_multiplier: 0.200
+
+	fall_damage_multiplier: 1.500
+	buoyancy: 0.650
 	
 	@shape.circle:
 	{
@@ -43,7 +46,7 @@ faction:
 
 health:
 {
-	max: 2900.000
+	max: 3000.000
 }
 
 human:
@@ -170,7 +173,7 @@ equipment.slot:
 
 norotate:
 {
-	bias: 0.220
+	bias: 0.030
 	multiplier: 1.000
 	speed: 5.000
 	mass_multiplier: 75.000
@@ -341,6 +344,9 @@ commandable:
 		
 		body:
 		{
+			fall_damage_multiplier: 1.700
+			buoyancy: 0.550
+
 			@shape.circle:
 			{
 				mass: 10.000
@@ -388,7 +394,7 @@ commandable:
 		
 		health:
 		{
-			max: 1900.000
+			max: 2500.000
 		}
 
 		regen:
@@ -548,7 +554,7 @@ commandable:
 		
 		body:
 		{
-			fall_damage_multiplier: 1.400
+			fall_damage_multiplier: 1.600
 			buoyancy: 0.300
 
 			@shape.circle:
@@ -611,7 +617,7 @@ commandable:
 		
 		health:
 		{
-			max: 3400.000
+			max: 3500.000
 		}
 
 		regen:
