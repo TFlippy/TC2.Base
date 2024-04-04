@@ -76,9 +76,10 @@ norotate:
 
 storage:
 {
-	@inventory8:
+	@inventory4:
 	{
 		name: "Balloon"
+		flags: standalone
 		stack_size_multiplier: 4.000
 		type: storage
 	}
@@ -86,8 +87,11 @@ storage:
 
 interactable:
 {
-	window_size: [224.000, 256.000]
+	window_size: [168.000, 200.000]
+	window_size_min: [192.000, 144.000]
+	window_size_misc: [120.000, 0.000]
 	window_offset: [-256.000, -128.000]
+	flags: none
 }
 
 +seat|instance:
@@ -231,7 +235,7 @@ burner.state:
 		flags_editable: locked, disabled, hold, invert, keyboard_write, mouse_write, loose
 
 		rank: -5.000
-		gui_size: [128.000, 128.000]
+		gui_size: [0.000, 72.000]
 
 		offset_bounds: [-1.000, -0.125, 1.000, 0.125]
 	}
