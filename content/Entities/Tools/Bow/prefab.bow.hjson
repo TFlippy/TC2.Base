@@ -85,7 +85,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		// texture: "bow"
+		texture: "bow"
 	}
 }
 

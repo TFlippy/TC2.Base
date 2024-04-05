@@ -220,7 +220,7 @@ ai.search:
 ai.gunner:
 {
 	aim_min_dot: 0.990
-	aim_speed_mult: 1.900
+	aim_speed_mult: 1.700
 	aim_time_mult: 1.000
 
 	attack_distance: 40.000
@@ -293,7 +293,7 @@ commandable:
 		displacement_stress_modifier: 0.200
 		displacement_force_modifier: 1.400
 
-		z: 10.000
+		z: 4.000
 
 		@animated.renderer:
 		{
@@ -671,8 +671,6 @@ commandable:
 
 +arm|instance:
 {
-	$tags: []
-	
 	joint.base:
 	{
 		offset_a: [0.000, -0.100]

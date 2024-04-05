@@ -74,7 +74,7 @@ holdable:
 
 interactable:
 {
-	window_size: [200.000, 98.000]
+	window_size: [200.000, 96.000]
 }
 
 attachment:

@@ -34,7 +34,7 @@ animated.renderer:
 	{
 		texture: "crate"
 	}
-	z: -90.000
+	z: 10.000
 }
 
 transform:
@@ -55,7 +55,7 @@ storage:
 
 interactable:
 {
-	window_size: [224.000, 128.000]
+	window_size: [192.000, 96.000]
 }
 
 cover:

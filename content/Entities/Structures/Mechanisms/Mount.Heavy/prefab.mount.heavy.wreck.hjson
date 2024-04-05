@@ -66,8 +66,9 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	window_size: [192.000, 248.000]
 	window_offset: [0.000, 192.000]
+	window_size_misc: [72.000, 0.000]
 	flags: none
 }
 
@@ -81,6 +82,7 @@ mount:
 		}
 		z: 10.000
 	}
+	flags: slider_vertical
 }
 
 storage:
@@ -90,7 +92,7 @@ storage:
 		name: "Ammo"
 		stack_size_multiplier: 5.000
 		type: ammo
-		flags: allow_ducts, ignore_mass
+		flags: standalone, ignore_mass
 	}
 }
 
@@ -179,6 +181,6 @@ harvestable:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, manual_aim
 
-		gui_size: [224.000, 96.000]
+		gui_size: [0.000, 96.000]
 	}
 }
