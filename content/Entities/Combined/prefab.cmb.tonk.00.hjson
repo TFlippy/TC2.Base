@@ -1,0 +1,122 @@
+﻿{
+	$name: "Tonk"
+	$desc:
+		'''
+		Miniaturized personal tank for children.
+
+		Equipped with 2 light machine guns and a cutting-edge Prokopnik motor - now your offspring can be doing their part while also having a heap of fun!
+		'''
+	$prefab: "chassis.01"
+	
+	+slot_motor|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "motor.prokopnik.00"
+			
+			essencecontainer:
+			{
+				h_essence: "motion"
+
+				@inventory1:
+				{
+					resource:
+					{
+						material: "pellet.motion"
+						quantity: 10.000
+					}
+				}
+			}
+			
+			motor:
+			{
+				speed_target_ratio: 1.000
+			}
+		}
+	}
+	
+	+cab|instance:
+	{
+		attachment.slot:
+		{
+			offset: [0.375, 0.750]
+		}
+
+		+attached|child:
+		{
+			$prefab: "cabin.metal.04"
+			
+			storage:
+			{
+				@inventory1:
+				{
+					resource:
+					{
+						material: "ammo_hc.hv"
+						quantity: 400.000
+					}
+				}
+			}
+
+			+mount.00|instance:
+			{
+				attachment.slot:
+				{
+					cycle_interval: 0.100
+				}
+				
+				+attached|child:
+				{
+					$prefab: "lmg"			
+				}
+			}
+			
+			+mount.01|instance:
+			{
+				attachment.slot:
+				{
+					flags: keyboard_write, mouse_write
+					cycle_interval: 0.100
+					cycle_offset: 0.100
+				}
+				
+				+attached|child:
+				{
+					$prefab: "lmg"
+				}
+			}
+		}
+	}
+	
+	+wheel_0|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "wheel.rubber.00.md"
+		}
+	}
+	
+	+wheel_1|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "wheel.rubber.00.md"
+		}
+	}
+	
+	+wheel_2|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "wheel.rubber.00.md"
+		}
+	}
+	
+	+wheel_3|instance:
+	{
+		+attached|child:
+		{
+			$prefab: "wheel.rubber.00.md"
+		}
+	}
+}

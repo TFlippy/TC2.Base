@@ -35,6 +35,12 @@ health:
 	max: 3000.000
 }
 
+regen:
+{
+	amount: 85.000
+	interval: 10.000
+}
+
 animated.renderer:
 {
 	sprite:
@@ -340,6 +346,12 @@ faction:
 		{
 			max: 2700.000
 		}
+
+		regen:
+		{
+			amount: 85.000
+			interval: 10.000
+		}
 		
 		holdable:
 		{
@@ -564,7 +576,13 @@ faction:
 		{
 			max: 2300.000
 		}
-		
+
+		regen:
+		{
+			amount: 75.000
+			interval: 10.000
+		}
+				
 		holdable:
 		{
 			offset: [0.000, 0.000]
