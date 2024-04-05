@@ -116,18 +116,19 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 256.000]
+	window_size: [144.000, 200.000]
 	window_offset: [0.000, 0.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 storage:
 {
 	@inventory4:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 4.000
 		type: ammo
-		flags: allow_ducts
+		flags: standalone, allow_ducts
+		layout: vertical
 		offset: [-1.000, 0.375]
 	}
 }
@@ -159,7 +160,7 @@ threat:
 
 mount:
 {
-	flags: none
+	flags: slider_vertical
 }
 
 +mount|instance:

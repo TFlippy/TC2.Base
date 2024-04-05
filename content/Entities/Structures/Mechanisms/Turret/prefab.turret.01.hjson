@@ -89,8 +89,9 @@ faction:
 
 interactable:
 {
-	window_size: [224.000, 96.000]
+	window_size: [160.000, 96.000]
 	window_offset: [0.000, 192.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 mount:
@@ -112,7 +113,7 @@ storage:
 		name: "Ammo"
 		stack_size_multiplier: 8.000
 		type: ammo
-		flags: allow_ducts, ignore_mass, faction
+		flags: standalone, allow_ducts, ignore_mass, faction
 		filter_flags: ammo
 	}
 }

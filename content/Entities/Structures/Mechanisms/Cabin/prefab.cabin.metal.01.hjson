@@ -117,7 +117,8 @@ transform:
 
 interactable:
 {
-	window_size: [256.000, 192.000]
+	window_size: [192.000, 104.000]
+	window_size_misc: [72.000, 0.000]
 	window_offset: [0.000, 0.000]
 }
 
@@ -128,7 +129,8 @@ storage:
 		name: "Ammo"
 		stack_size_multiplier: 4.000
 		type: ammo
-		flags: allow_ducts
+		flags: standalone, allow_ducts
+		layout: vertical
 		offset: [-1.000, 0.375]
 	}
 }
@@ -226,7 +228,7 @@ threat:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
-		gui_size: [128.000, 72.000]
+		gui_size: [96.000, 100.000]
 
 		// tags_filter:
 		// {
@@ -305,7 +307,7 @@ threat:
 		flags: keyboard_write, mouse_write, invert
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, cycle
 
-		gui_size: [128.000, 72.000]
+		gui_size: [96.000, 100.000]
 
 		// tags_filter:
 		// {

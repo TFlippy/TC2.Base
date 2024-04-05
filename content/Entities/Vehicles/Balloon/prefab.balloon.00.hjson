@@ -78,7 +78,6 @@ storage:
 {
 	@inventory4:
 	{
-		name: "Balloon"
 		flags: standalone
 		stack_size_multiplier: 4.000
 		type: storage

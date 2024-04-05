@@ -173,16 +173,17 @@ interactable:
 {
 	window_size: [384.000, 256.000]
 	window_offset: [0.000, 0.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 storage:
 {
 	@inventory4:
 	{
-		name: "Cargo"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: public, faction
+		layout: vertical
+		flags: standalone, public, faction
 	}
 }
 
@@ -482,7 +483,7 @@ axle:
 		identifier: "wheel.2"
 		flags_editable: locked, offset
 
-		gui_size: [96.000, 72.000]
+		gui_size: [96.000, 96.000]
 		offset_bounds: [0.000, -0.250, 0.000, 0.250]
 		rank: 3.000
 
@@ -528,7 +529,7 @@ axle:
 		identifier: "wheel.3"
 		flags_editable: locked, offset
 
-		gui_size: [96.000, 72.000]
+		gui_size: [96.000, 96.000]
 		offset_bounds: [0.000, -0.250, 0.000, 0.250]
 		rank: 4.000
 

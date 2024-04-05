@@ -84,8 +84,9 @@ transform:
 
 interactable:
 {
-	window_size: [200.000, 128.000]
+	window_size: [168.000, 128.000]
 	window_offset: [64.000, 128.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 vehicle:
@@ -102,10 +103,9 @@ storage:
 {
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
-		flags: allow_ducts, ignore_mass
+		flags: standalone, allow_ducts, ignore_mass
 	}
 }
 

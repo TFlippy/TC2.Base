@@ -106,15 +106,17 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Storage"
+		flags: standalone
 		stack_size_multiplier: 4.000
+		layout: horizontal
 		type: storage
 	}
 }
 
 interactable:
 {
-	window_size: [224.000, 320.000]
+	window_size: [224.000, 256.000]
+	window_size_misc: [216.000, 0.000]
 }
 
 sound.emitter|"aux":

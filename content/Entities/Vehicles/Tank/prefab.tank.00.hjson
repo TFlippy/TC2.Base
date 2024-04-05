@@ -155,16 +155,17 @@ interactable:
 {
 	window_size: [384.000, 328.000]
 	window_offset: [0.000, 0.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 storage:
 {
 	@inventory8:
 	{
-		name: "Cargo"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: public, faction
+		layout: vertical
+		flags: standalone, public, faction
 	}
 }
 

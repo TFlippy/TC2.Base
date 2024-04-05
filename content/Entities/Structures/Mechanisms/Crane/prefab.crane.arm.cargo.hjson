@@ -99,7 +99,7 @@ storage:
 		name: "Cargo"
 		stack_size_multiplier: 4.000
 		type: storage
-		flags: allow_ducts, no_auto_pickup
+		flags: standalone, allow_ducts, no_auto_pickup
 	}
 }
 
@@ -107,6 +107,7 @@ interactable:
 {
 	window_size: [200.000, 128.000]
 	window_offset: [0.000, 0.000]
+	window_size_misc: [120.000, 0.000]
 	flags: none
 }
 

@@ -81,8 +81,9 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	window_size: [96.000, 96.000]
 	window_offset: [0.000, 192.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 mount:
@@ -94,10 +95,9 @@ storage:
 {
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 4.000
 		type: ammo
-		flags: allow_ducts
+		flags: standalone, allow_ducts
 	}
 }
 
@@ -214,6 +214,6 @@ sticky:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, hold, invert
 
-		gui_size: [0.000, 64.000]
+		gui_size: [0.000, 96.000]
 	}
 }
