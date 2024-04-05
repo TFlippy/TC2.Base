@@ -51,6 +51,8 @@ gun:
 	heuristic_range: 25.000
 	stability: 350.000
 
+	sound_dist_multiplier: 1.500
+
 	shake_amount: 0.200
 	
 	@inventory1:

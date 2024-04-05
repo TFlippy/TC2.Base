@@ -47,6 +47,10 @@ gun:
 	type: smg
 	feed: drum
 
+	sound_volume: 0.750
+	sound_size: 1.500
+	sound_dist_multiplier: 1.750
+
 	heuristic_range: 25.000
 
 	shake_amount: 0.200
