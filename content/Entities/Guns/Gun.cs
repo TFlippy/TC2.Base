@@ -7,9 +7,10 @@
 
 		public static readonly Sound.Handle sound_gun_break = "gun_break";
 
-		public enum Stage: uint
+		public enum Stage: byte
 		{
-			Ready,
+			Ready = 0,
+
 			Fired,
 			Cycling,
 			Reloading,
@@ -17,28 +18,31 @@
 		}
 
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: ushort
 		{
 			None = 0,
 
 			[Name("Automatic")]
-			Automatic = 1u << 0,
+			Automatic = 1 << 0,
 
 			[Name("Full Reload")]
-			Full_Reload = 1u << 1,
+			Full_Reload = 1 << 1,
 
 			[Name("Cycle on Shoot")]
-			Cycle_On_Shoot = 1u << 2,
+			Cycle_On_Shoot = 1 << 2,
 
 			[Name("Manual Cycle")]
-			Manual_Cycle = 1u << 3,
+			Manual_Cycle = 1 << 3,
 
-			No_Particles = 1u << 4,
+			No_Particles = 1 << 4,
 
-			Child_Projectiles = 1u << 5,
-			Rope_Projectiles = 1u << 6,
-			No_LMB_Cycle = 1u << 7,
-			Cycled_When_Reloaded = 1u << 8,
+			Child_Projectiles = 1 << 5,
+			Rope_Projectiles = 1 << 6,
+			No_LMB_Cycle = 1 << 7,
+			Cycled_When_Reloaded = 1 << 8,
+
+			[Name("Reset Bursts")]
+			Reset_Bursts = 1 << 9,
 		}
 
 		public enum Type: byte
@@ -109,7 +113,7 @@
 		//}
 
 		[Flags]
-		public enum Hints: uint
+		public enum Hints: ushort
 		{
 			None = 0,
 
@@ -129,12 +133,13 @@
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.Data>]
 		public partial struct Animation: IComponent
 		{
-			public uint frame_ready;
-			public uint frame_ready_loaded;
-			public uint frame_fired;
-			public uint frame_cycling;
-			public uint frame_reloading;
-			public uint frame_jammed;
+			public byte frame_ready;
+			public byte frame_ready_loaded;
+			public byte frame_fired;
+			public byte frame_cycling;
+
+			public byte frame_reloading;
+			public byte frame_jammed;
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
@@ -150,16 +155,19 @@
 			[Save.NewLine]
 			[Editor.Picker.Position(true, true)]
 			public Vector2 particle_offset;
+
 			public float particle_rotation;
 			public float flash_size = 1.00f;
 
-			[Save.NewLine] 
+
+			[Save.NewLine]
 			public float smoke_size = 1.00f;
 			public float smoke_amount = 1.00f;
 
-			[Save.NewLine] 
+			[Save.NewLine]
 			public float shake_amount = 0.20f;
 			public float shake_radius = 16.00f;
+
 
 			[Save.NewLine]
 			[Statistics.Info("Loudness", description: "Loudness of the shot.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
@@ -168,12 +176,17 @@
 			public float sound_dist_multiplier = 2.00f;
 			public float sound_pitch = 1.00f;
 
-			[Save.NewLine] 
+
+			[Save.NewLine]
 			public Sound.Handle sound_shoot;
 			public Sound.Handle sound_cycle;
+
 			public Sound.Handle sound_reload;
 			public Sound.Handle sound_empty;
+
+			public Sound.Handle sound_unused;
 			public Sound.Handle sound_jam = sound_jam_default;
+
 
 			[Save.NewLine]
 			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
@@ -184,6 +197,7 @@
 			public float jitter_multiplier;
 			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float recoil_multiplier;
+
 			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float reload_interval;
 			[Statistics.Info("Cycle Speed", description: "Rate of fire.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
@@ -194,16 +208,20 @@
 			public float failure_rate = 0.00f;
 
 			[Save.NewLine]
-			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public int projectile_count = 1;
+			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
+			public Material.Flags ammo_filter;
+
 			[Statistics.Info("Ammunition Usage", description: "Ammo used per shot.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float ammo_per_shot = 1.00f;
 			[Statistics.Info("Maximum Ammunition", description: "Ammo capacity.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_ammo;
-			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public Material.Flags ammo_filter;
-			[Statistics.Info("Barrel Count", description: "Number of barrels.", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public int barrel_count = 1;
+
+			[Statistics.Info("Barrel Count", description: "Number of barrels.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public byte barrel_count = 1;
+			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public byte projectile_count = 1;
+			[Statistics.Info("Burst Count", description: "Number of shots per burst.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public byte burst_count = 1;
 
 			[Save.NewLine]
 			[Statistics.Info("Operation", description: "Operation mode of the weapon.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
@@ -212,7 +230,10 @@
 			public Gun.Type type;
 			[Statistics.Info("Feed", description: "Method of loading ammunition.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Gun.Feed feed;
+
+			[Save.NewLine]
 			public Gun.Flags flags;
+
 			public float heuristic_range = 30.00f;
 
 			public Data()
@@ -224,16 +245,19 @@
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
-			public Gun.Stage stage;
 			public Gun.Hints hints;
+			public Gun.Stage stage;
+			public byte burst_rem;
 
 			public float angle_jitter;
 			public float muzzle_velocity;
+
 			public Resource.Data resource_ammo;
 			//public IMaterial.Handle h_last_ammo;
 
 			[Save.Ignore] public XorRandom random_det = XorRandom.New(true);
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
+
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 
@@ -686,7 +710,8 @@
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
 			{
-				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, false);
+				gun_state.burst_rem = gun.burst_count;
+				gun_state.hints.RemoveFlag(Gun.Hints.Wants_Reload);
 				gun_state.stage = Gun.Stage.Reloading;
 				gun_state.Sync(entity, true);
 
@@ -700,7 +725,7 @@
 				{
 					if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
 					{
-						gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
+						gun_state.hints.AddFlag(Gun.Hints.Cycled);
 						gun_state.stage = Gun.Stage.Ready;
 					}
 					else
@@ -712,7 +737,7 @@
 					gun_state.Sync(entity, true);
 #endif
 				}
-				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAll(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
+				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAny(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 
@@ -741,7 +766,7 @@
 
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
-								gun_state.hints.SetFlag(Gun.Hints.No_Ammo, false);
+								gun_state.hints.RemoveFlag(Gun.Hints.No_Ammo);
 								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
 								gun_state.angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f) * ammo.spread_mult * 0.50f;
 								gun_state.resource_ammo = resource;
@@ -754,7 +779,7 @@
 					if (inventory_magazine.resource.material != 0) // If magazine knows that ammo it wants to use, withdraw it from parent inventory
 					{
 #if SERVER
-						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
+						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
 
 						var amount = Maths.Clamp(Maths.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
@@ -764,7 +789,7 @@
 						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount, unlimited: Constants.Requirements.unlimited_ammo))
 						{
 							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
-							inventory_magazine.flags.SetFlag(Inventory.Flags.Dirty, true);
+							inventory_magazine.flags.AddFlag(Inventory.Flags.Dirty);
 
 							Sound.Play(ref region, gun.sound_reload, transform.position);
 						}
@@ -773,7 +798,7 @@
 						{
 							if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
 							{
-								gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
+								gun_state.hints.AddFlag(Gun.Hints.Cycled);
 								gun_state.stage = Gun.Stage.Ready;
 							}
 							else
@@ -791,7 +816,7 @@
 					else
 					{
 						gun_state.next_reload = info.WorldTime + 0.10f;
-						gun_state.hints.SetFlag(Gun.Hints.No_Ammo, true);
+						gun_state.hints.AddFlag(Gun.Hints.No_Ammo);
 #if SERVER
 						gun_state.stage = Gun.Stage.Ready;
 						gun_state.Sync(entity, true);
@@ -801,7 +826,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
@@ -822,7 +847,9 @@
 				var stability_ratio = 1.00f;
 				var stability = gun.stability;
 
+#if SERVER
 				var force_jammed = false;
+#endif
 
 #if CLIENT
 				Shake.Emit(ref region, transform.position, gun.shake_amount, gun.shake_amount * 1.25f, gun.shake_radius);
@@ -1055,86 +1082,13 @@
 
 									explosion.Sync(ent_explosion, true);
 								});
-
-								//region.SpawnPrefab("explosion", (transform.position + pos_w_offset) * 0.50f).ContinueWith(x =>
-								//{
-								//	ref var explosion = ref x.GetComponent<Explosion.Data>();
-								//	if (!explosion.IsNull())
-								//	{
-								//		explosion.power = 4.00f;
-								//		explosion.radius = shockwave_radius;
-								//		explosion.damage_entity = 0.00f;
-								//		explosion.damage_terrain = 90.00f;
-								//		explosion.damage_type = Damage.Type.Shockwave;
-								//		explosion.ent_owner = entity;
-								//		explosion.fire_amount = 0.00f;
-								//		explosion.smoke_amount = 0.00f;
-								//		explosion.smoke_lifetime_multiplier = 1.10f;
-								//		explosion.smoke_velocity_multiplier = 1.00f;
-								//		explosion.flash_duration_multiplier = 0.00f;
-								//		explosion.flash_intensity_multiplier = 0.00f;
-								//		explosion.sparks_amount = 0.00f;
-								//		explosion.volume = 0.00f;
-								//		explosion.pitch = 0.00f;
-								//		explosion.shake_multiplier = shake_amount;
-								//		explosion.force_multiplier = shake_amount * 2.00f;
-								//		explosion.flags |= Explosion.Flags.No_Split;
-								//		//explosion.ent_ignored = explosion_tmp.ent_ignored;
-
-								//		explosion.Sync(x, true);
-								//	}
-								//});
 							}
 						}
 					}
-
-					//var stability_ratio_sub = 1.00f - stability_ratio;
-					//var explode_chance = Maths.Lerp(failure_rate, Maths.Pow2(stability_ratio_sub), 0.50f);
-					//App.WriteLine(explode_chance);
-
-					//if (stability_ratio < 1.00f && random.NextBool(explode_chance))
-					//{
-					//	var explosion_data = new Explosion.Data()
-					//	{
-					//		power = 2.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((count - 1) * 0.35f)), 0.45f) * 0.05f), // + (count * 0.80f),
-					//		radius = (2.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((count - 1) * 0.40f)), 0.55f) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
-					//		damage_entity = ammo.stability_base * ((1.00f + ((count - 1) * 1.10f))) * stability_ratio_sub,
-					//		damage_terrain = ammo.stability_base * (1.00f + (count * 0.80f)) * stability_ratio_sub,
-					//		smoke_amount = 1.10f,
-					//		sparks_amount = 3.00f,
-					//		pitch = 1.50f,
-					//		ent_owner = body.GetParent()
-					//	};
-
-					//	region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
-					//	{
-					//		ref var explosion = ref ent.GetComponent<Explosion.Data>();
-					//		if (!explosion.IsNull())
-					//		{
-					//			explosion.power = explosion_data.power;
-					//			explosion.radius = explosion_data.radius;
-					//			explosion.damage_entity = explosion_data.damage_entity;
-					//			explosion.damage_terrain = explosion_data.damage_terrain;
-					//			explosion.ent_owner = explosion_data.ent_owner;
-					//			explosion.smoke_amount = explosion_data.smoke_amount;
-					//			explosion.sparks_amount = explosion_data.sparks_amount;
-					//			explosion.pitch = explosion_data.pitch;
-
-					//			explosion.Sync(ent, true);
-					//		}
-					//	});
-
-					//	Sound.Play(ref region, sound_gun_break, pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f);
-
-					//	if (random.NextBool(stability_ratio_sub))
-					//	{
-					//		entity.Delete();
-					//	}
-					//}
 #endif
 				}
 
-				if (gun.flags.HasAll(Gun.Flags.Cycle_On_Shoot))
+				if (gun.flags.HasAny(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 				}
@@ -1223,7 +1177,7 @@
 				{
 					if (time < gun_state.next_cycle) break;
 
-					if (gun_state.hints.HasAll(Gun.Hints.Cycled))
+					if (gun_state.hints.HasAny(Gun.Hints.Cycled))
 					{
 						gun_state.stage = Gun.Stage.Ready;
 					}
@@ -1233,7 +1187,7 @@
 						//if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
-						gun_state.hints.SetFlag(Gun.Hints.Cycled, true);
+						gun_state.hints.AddFlag(Gun.Hints.Cycled);
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
@@ -1244,7 +1198,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
 		{
 			aimable.offset = gun.muzzle_offset; // new Vector2(0.00f, gun.muzzle_offset.Y);
@@ -1255,7 +1209,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable, [Source.Owned] ref Body.Data body)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun, true);
+			holdable.hints.AddFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun);
 			holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
 			holdable.hints.SetFlag(NPC.ItemHints.Long_Range, gun_state.hints.HasAny(Gun.Hints.Long_Range));
 			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
@@ -1283,7 +1237,7 @@
 #if SERVER
 
 					//gun_state.stage = Gun.Stage.Reloading;
-					gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
+					gun_state.hints.AddFlag(Gun.Hints.Wants_Reload);
 					gun_state.Sync(entity, true);
 #endif
 					return;
@@ -1298,21 +1252,32 @@
 					return;
 				}
 
-				if (gun_state.hints.HasAll(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (control.mouse.GetKey(Mouse.Key.Left) && gun.flags.HasAll(Gun.Flags.Automatic))))
+				if (gun_state.hints.HasAny(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (gun.flags.HasAny(Gun.Flags.Automatic) && (control.mouse.GetKey(Mouse.Key.Left) && (gun.burst_count <= 1 || gun_state.burst_rem > 0)))))
 				{
 					if (inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0)
 					{
-#if SERVER
-						gun_state.stage = Gun.Stage.Fired;
-						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
-						gun_state.Sync(entity, true);
+						if (control.mouse.GetKeyDown(Mouse.Key.Left) && (gun.flags.HasAny(Gun.Flags.Reset_Bursts) || gun_state.burst_rem == 0))
+						{
+							gun_state.burst_rem = gun.burst_count;
+						}
 
+#if SERVER
+
+
+						if (gun.burst_count <= 1 || gun_state.burst_rem > 0)
+						{
+							gun_state.stage = Gun.Stage.Fired;
+							gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
+							gun_state.burst_rem = (byte)Maths.Clamp(gun_state.burst_rem - 1, 0, gun.burst_count);
+						}
+
+						gun_state.Sync(entity, true);
 #endif
 					}
 					else
 					{
-						gun_state.stage = gun.flags.HasAll(Flags.Automatic) ? Gun.Stage.Ready : Gun.Stage.Cycling;
-						gun_state.hints.SetFlag(Gun.Hints.Cycled, false);
+						gun_state.stage = gun.flags.HasAny(Gun.Flags.Automatic) ? Gun.Stage.Ready : Gun.Stage.Cycling;
+						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);					
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
@@ -1336,7 +1301,7 @@
 
 						//gun_state.stage = Gun.Stage.Reloading;
 
-						gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
+						gun_state.hints.AddFlag(Gun.Hints.Wants_Reload);
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 
 						gun_state.Sync(entity, true);

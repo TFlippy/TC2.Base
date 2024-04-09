@@ -78,7 +78,7 @@
 			identifier: "gun.expanded_magazine"
 			flags: none
 			modifier: 0.000
-			data: 1073657938
+			data: 1073741824
 		}
 		{
 			identifier: "gun.tempered_frame"
@@ -93,9 +93,9 @@
 			data: 13690942870402367488
 		}
 		{
-			identifier: "undefined"
+			identifier: "gun.burst"
 			flags: none
-			modifier: 0.000
+			modifier: 0.157895
 			data: 0
 		}
 		{

@@ -2633,6 +2633,50 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Gun.Data>
 			(
+				identifier: "gun.burst",
+				category: "Gun (Receiver)",
+				name: "Mode: Burst",
+				description: "Converts automatic fire mode to burst.",
+
+				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && data.flags.HasAny(Gun.Flags.Automatic) && data.burst_count <= 1 && !augments.HasAugment(handle);
+				},
+
+#if CLIENT
+				draw_editor: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					ref var modifier = ref handle.GetModifier();
+					ref var reset_bursts = ref handle.GetData<bool>();
+
+					var dirty = GUI.SliderIntLerp("Count", ref modifier, 1, (int)data.max_ammo, size: new(GUI.RmX - GUI.RmY, GUI.RmY));
+					GUI.SameLine();
+					dirty |= GUI.Checkbox("Reset Bursts", ref reset_bursts, size: new(GUI.RmY), show_text: false, show_tooltip: true);
+
+					return dirty;
+				},
+#endif
+
+				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					if (data.flags.HasAny(Gun.Flags.Automatic))
+					{
+						ref var modifier = ref handle.GetModifier();
+						ref var reset_bursts = ref handle.GetData<bool>();
+
+						var count = Maths.LerpInt(1, (int)data.max_ammo, modifier);
+
+						data.burst_count = (byte)count;
+						data.failure_rate *= Maths.Lerp(0.82f, 1.00f, modifier);
+						data.flags.AddFlag(Gun.Flags.Reset_Bursts, reset_bursts);
+					}
+
+					return true;
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Gun.Data>
+			(
 				identifier: "gun.extra_barrel",
 				category: "Gun (Barrel)",
 				name: "Extra Barrel",
