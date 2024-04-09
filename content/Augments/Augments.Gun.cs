@@ -2538,8 +2538,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.feed = Gun.Feed.Single;
-					data.flags.SetFlag(Gun.Flags.Full_Reload, false);
-					data.flags.SetFlag(Gun.Flags.Automatic, false);
+					data.flags.RemoveFlag(Gun.Flags.Full_Reload | Gun.Flags.Automatic);
 					data.max_ammo = 1;
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))

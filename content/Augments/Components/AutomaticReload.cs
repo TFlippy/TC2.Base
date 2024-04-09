@@ -18,7 +18,7 @@ namespace TC2.Base.Components
 			if (info.WorldTime >= automatic_reload.next_reload && gun_state.stage != Gun.Stage.Reloading && inventory_magazine.resource.quantity < gun.ammo_per_shot)
 			{
 				//gun_state.stage = Gun.Stage.Reloading;
-				gun_state.hints.SetFlag(Gun.Hints.Wants_Reload, true);
+				gun_state.hints.AddFlag(Gun.Hints.Wants_Reload);
 				gun_state.Sync(entity, true);
 
 				automatic_reload.next_reload = info.WorldTime + 3.00f;

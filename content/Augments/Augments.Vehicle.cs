@@ -66,7 +66,7 @@ namespace TC2.Base
 				{
 					ref var modifier = ref handle.GetModifier();
 
-					data.flags.SetFlag(Mount.Flags.Show_Trajectory, true);
+					data.flags.AddFlag(Mount.Flags.Show_Trajectory);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Mount.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

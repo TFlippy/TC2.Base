@@ -1223,7 +1223,7 @@ namespace TC2.Base
 
 				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.flags.SetFlag(Equipment.Flags.Unremovable, true);
+					data.flags.AddFlag(Equipment.Flags.Unremovable);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

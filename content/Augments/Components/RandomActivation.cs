@@ -42,7 +42,7 @@ namespace TC2.Base.Components
 #if SERVER
 				if (info.WorldTime >= random_activation.time_stop)
 				{
-					random_activation.flags.SetFlag(RandomActivation.Flags.Active, false);
+					random_activation.flags.RemoveFlag(RandomActivation.Flags.Active);
 					random_activation.Sync(entity);
 				}
 #endif
@@ -53,7 +53,7 @@ namespace TC2.Base.Components
 				if (random.NextBool(random_activation.chance))
 				{
 					random_activation.time_stop = info.WorldTime + random_activation.duration;
-					random_activation.flags.SetFlag(RandomActivation.Flags.Active, true);
+					random_activation.flags.AddFlag(RandomActivation.Flags.Active);
 					random_activation.Sync(entity);
 				}
 #endif
