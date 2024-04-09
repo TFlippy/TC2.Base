@@ -138,7 +138,7 @@ dormitory:
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction
 	asset_flags: recycle
-	kit_default: "null"
+	// kit_default: "null"
 	characters_capacity: 6
 	characters_initial_count: 0
 	repopulate_interval: 120.000
