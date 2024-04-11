@@ -16,12 +16,12 @@ body:
 	{
 		a: [0.000, 0.300]
 		b: [0.000, -0.300]
-		mass: 1.300
+		mass: 2.300
 		radius: 0.350
 		friction: 0.980
 		elasticity: 0.600
 		material: paper
-		layer: entity, solid, flammable
+		layer: entity, solid, item, flammable
 		mask: world
 	}
 }

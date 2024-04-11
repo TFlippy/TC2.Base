@@ -1,7 +1,7 @@
 $name: "Beer"
 $desc:
 	'''
-	
+	It's beer.
 	'''
 
 $tags: []
@@ -16,7 +16,7 @@ body:
 		friction: 0.350
 		elasticity: 0.700
 		material: glass
-		layer: entity, solid
+		layer: entity, solid, item
 		mask: world
 	}
 }

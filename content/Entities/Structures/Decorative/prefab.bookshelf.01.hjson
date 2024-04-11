@@ -15,7 +15,7 @@ body:
 		friction: 0.700
 		elasticity: 0.400
 		material: wood
-		layer: entity, decoration, building
+		layer: entity, decoration, building, flammable
 		mask: world
 	}
 }
@@ -43,7 +43,7 @@ transform:
 holdable:
 {
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_rotation, disable_control
 	stress_multiplier: 0.500
 }
 

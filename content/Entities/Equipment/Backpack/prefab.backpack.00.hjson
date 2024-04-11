@@ -16,7 +16,7 @@ body:
 		friction: 0.600
 		elasticity: 0.100
 		material: leather
-		layer: entity, solid
+		layer: entity, solid, item, flammable
 		mask: world
 		rigidity_dynamic: 0.750
 	}

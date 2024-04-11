@@ -8,15 +8,15 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.250
+	inventory_weight_multiplier: 0.300
 	
 	@shape.box:
 	{
-		size: [3.000, 1.700]
-		offset: [0.000, 0.000]
-		mass: 40.000
-		friction: 0.950
-		elasticity: 0.700
+		size: [2.250, 1.125]
+		radius: 0.250
+		mass: 45.000
+		friction: 0.850
+		elasticity: 0.600
 		material: wood
 		layer: entity, solid, crate, storage, flammable
 		mask: world
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 4000.000
+	max: 3500.000
 }
 
 animated.renderer:
@@ -69,7 +69,7 @@ holdable:
 	torque_multiplier: 0.500
 
 	radius: 0.000
-	flags: disable_parent_facing
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:
@@ -78,5 +78,5 @@ attachment:
 	torque_multiplier: 4.000
 	offset: [-0.750, 0.900]
 	flags: disable_parent_facing
-	tags: none
+	tags: medium, fixed
 }

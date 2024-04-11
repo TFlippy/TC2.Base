@@ -2,10 +2,14 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.750
+	damping: 0.968
+	fall_damage_multiplier: 0.100
+
 	@shape.box:
 	{
-		size: [1.400, 1.000]
-		offset: [0.000, 0.000]
+		size: [1.000, 0.625]
+		radius: 0.200
 		mass: 0.500
 		friction: 0.950
 		elasticity: 0.020

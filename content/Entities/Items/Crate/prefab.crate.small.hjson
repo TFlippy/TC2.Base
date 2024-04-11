@@ -12,11 +12,11 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.500, 1.200]
-		offset: [0.000, 0.000]
+		size: [1.250, 0.950]
+		radius: 0.150
 		mass: 20.000
-		friction: 0.950
-		elasticity: 0.700
+		friction: 0.850
+		elasticity: 0.600
 		material: wood
 		layer: entity, solid, crate, storage, ignore_bullet, flammable
 		mask: world
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 1500.000
+	max: 2400.000
 }
 
 animated.renderer:

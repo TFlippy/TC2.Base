@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 4300.000
 }
 
 animated.renderer:
@@ -59,9 +59,9 @@ storage:
 	@inventory8:
 	{
 		name: "Inventory"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		type: storage
-		flags: standalone, ignore_mass, public, faction
+		flags: standalone, ignore_mass, public, no_auto_pickup, faction
 	}
 }
 

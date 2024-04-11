@@ -5,12 +5,12 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 1.000
+		mass: 1.5000
 		radius: 0.400
 		friction: 0.500
 		elasticity: 0.050
 		material: fabric
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, item
 		mask: world
 	}
 }
@@ -50,11 +50,6 @@ equipment:
 	frame_default: 0
 	frame_equipped_male: 1
 	frame_equipped_female: 1
-}
-
-norotate:
-{
-
 }
 
 packable:
