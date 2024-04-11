@@ -121,7 +121,7 @@
 
 									var sync = false;
 
-									var inventory_filter = new Inventory.Filter();
+									var inventory_filter = new Filter.Mask<Material.Flags>();
 
 									if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
 									{
