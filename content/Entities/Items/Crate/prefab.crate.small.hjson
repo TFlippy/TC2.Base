@@ -47,7 +47,7 @@ storage:
 	@inventory4:
 	{
 		name: "Inventory"
-		stack_size_multiplier: 1.000
+		stack_size_multiplier: 4.000
 		type: storage
 		flags: public
 	}
@@ -64,7 +64,7 @@ holdable:
 	torque_multiplier: 0.500
 
 	radius: 0.000
-	flags: storable, disable_parent_facing
+	flags: storable, disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:

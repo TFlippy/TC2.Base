@@ -2,8 +2,7 @@
 	name: "Machine Parts"
 	description:
 		'''
-		A pile of assorted machine parts used for
-		more advanced tools and machinery.
+		A pile of assorted machine parts used for more advanced tools and machinery.
 		'''
 	
 	icon:
