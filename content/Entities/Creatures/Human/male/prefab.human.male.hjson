@@ -675,7 +675,7 @@ commandable:
 	{
 		offset_a: [0.000, -0.100]
 		max_force: 4000.000
-		max_torque: 2500.000
+		max_torque: 10000.000
 		max_stress: 2.000
 		stress_threshold: 1.000
 		stress_damp: 0.500
