@@ -22,7 +22,7 @@ body:
 		radius: 0.250
 		friction: 0.980
 		elasticity: 0.600
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, item
 		mask: world
 		material: metal
 	}
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 400.000
+	max: 600.000
 }
 
 holdable:

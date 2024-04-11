@@ -19,18 +19,16 @@ namespace TC2.Base.Components
 		{
 			[Statistics.Info("Duration", description: "Burn time.", format: "{0:0.00} s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float time;
-
-			[Net.Ignore] public float failure_time;
-
 			[Statistics.Info("Failure Chance", description: "Chance to stop burning when lit.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
-			public float failure_chance = 0.00f;
-
-			public Vector2 sparkle_offset = new Vector2(0.40f, -0.25f);
+			public float failure_chance;
 
 			public Sound.Handle sound;
 			public Sound.Handle sound_extinguish = Fuse.sound_extinguish_default;
 
+			public Vector2 sparkle_offset;
+
 			public Fuse.Flags flags;
+			[Net.Ignore] public float failure_time;
 
 			public Data()
 			{

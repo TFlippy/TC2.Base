@@ -14,7 +14,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: glass
-		layer: entity, building, no_overlapped_placement, ignore_melee
+		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
 		mask: world
 	}
 }

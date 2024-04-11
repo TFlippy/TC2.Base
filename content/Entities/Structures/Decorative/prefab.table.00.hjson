@@ -15,9 +15,9 @@ body:
 		friction: 0.900
 		elasticity: 0.400
 		material: wood
-		layer: entity, building, solid, platform
+		layer: entity, building, solid, platform, decoration, furniture
 		mask: world, solid
-		exclude: held, attached, creature
+		exclude: held, attached, creature, wheel
 	}
 }
 

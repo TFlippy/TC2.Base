@@ -47,7 +47,7 @@ melee:
 	attack_type: swing
 	category: pointed
 	hit_mask: world
-	hit_exclude: ignore_melee
+	hit_exclude: ignore_melee, furniture, climbable, decoration, tree
 }
 
 melee.state:

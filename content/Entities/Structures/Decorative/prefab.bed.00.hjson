@@ -22,7 +22,7 @@ body:
 		friction: 0.900
 		elasticity: 0.400
 		material: metal
-		layer: entity, building
+		layer: entity, solid, furniture
 		mask: world
 	}
 }

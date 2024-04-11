@@ -26,7 +26,7 @@ body:
 		elasticity: 0.400
 		radius: 0.500
 		material: metal
-		layer: entity, solid, building, ignore_bullet
+		layer: entity, solid, ignore_bullet, decoration
 		mask: world
 	}
 }

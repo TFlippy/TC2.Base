@@ -1,17 +1,6 @@
 $name: "Mouchus Mushroom"
 $desc: "A really big red mushroom."
-$prefab: "mushroom.red.00"
 $tags: []
-
-animated.renderer:
-{
-	sprite:
-	{
-		texture: "mushroom.red.01"
-	}
-	offset: [0.500, -3.500]
-	z: -200.000
-}
 
 body:
 {
@@ -26,7 +15,7 @@ body:
 		friction: 1.500
 		elasticity: 0.010
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet, flammable
+		layer: entity, solid, tree, ignore_bullet, flammable, plant
 		mask: world
 	}
 }
@@ -39,6 +28,16 @@ transform:
 health:
 {
 	max: 20000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mushroom.red.01"
+	}
+	offset: [0.500, -3.500]
+	z: -200.000
 }
 
 harvestable:

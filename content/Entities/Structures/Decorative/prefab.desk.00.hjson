@@ -16,7 +16,7 @@ body:
 		friction: 0.900
 		elasticity: 0.200
 		material: metal
-		layer: entity, platform, solid, ignore_melee
+		layer: entity, platform, solid, ignore_melee, furniture, decoration
 		mask: world, item
 		exclude: held, attached
 	}

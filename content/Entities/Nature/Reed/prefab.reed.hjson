@@ -15,7 +15,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
-		layer: entity
+		layer: entity, plant
 		mask: world
 	}
 }

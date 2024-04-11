@@ -46,7 +46,7 @@ melee:
 	attack_type: swing
 	category: bladed
 	hit_mask: world, destructible
-	hit_exclude: ignore_melee, decoration
+	hit_exclude: ignore_melee, decoration, tree, climbable
 }
 
 melee.state:

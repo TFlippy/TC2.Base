@@ -1,7 +1,7 @@
 $name: "Shitty Chair (Wood)"
 $desc:
 	'''
-	Closer inspection reveals that it also serves as a latrine.
+	Closer inspection reveals that it also served as a latrine.
 	'''
 $tags: []
 
@@ -21,7 +21,7 @@ body:
 		friction: 0.950
 		elasticity: 0.300
 		material: wood
-		layer: entity, solid, flammable, ignore_bullet
+		layer: entity, solid, flammable, ignore_bullet, decoration, furniture
 		mask: world
 	}
 }

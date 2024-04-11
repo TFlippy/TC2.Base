@@ -10,18 +10,17 @@ body:
 		b: [0.375, 0.000]
 		radius: 0.625
 		mass: 20.000
-		offset: [0.000, 0.000]
 		friction: 0.750
 		elasticity: 0.400
 		material: metal
-		layer: entity, solid, ignore_melee, ignore_bullet
+		layer: entity, solid, ignore_melee, ignore_bullet, item
 		mask: world
 	}
 }
 
 health:
 {
-	max: 10000.000
+	max: 5500.000
 }
 
 animated.renderer:

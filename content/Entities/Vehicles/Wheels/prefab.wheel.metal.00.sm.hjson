@@ -17,8 +17,9 @@ body:
 		friction: 0.800
 		elasticity: 0.650
 		material: metal
-		layer: entity, solid, wheel
-		mask: world
+		layer: entity, solid, wheel, item
+		mask: world, platform
+		exclude: vehicle, wheel
 	}
 }
 
@@ -33,7 +34,7 @@ animated.renderer:
 
 health:
 {
-	max: 21000.000
+	max: 12000.000
 }
 
 armor:

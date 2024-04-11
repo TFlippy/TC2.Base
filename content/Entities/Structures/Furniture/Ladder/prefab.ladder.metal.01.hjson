@@ -19,7 +19,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, climbable, building, no_overlapped_placement, ignore_bullet
+		layer: entity, climbable, no_overlapped_placement, ignore_bullet, furniture
 		mask: world
 	}
 }

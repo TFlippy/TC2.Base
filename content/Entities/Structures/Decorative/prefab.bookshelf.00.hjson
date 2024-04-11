@@ -20,7 +20,7 @@ body:
 		friction: 0.700
 		elasticity: 0.400
 		material: wood
-		layer: entity, decoration, building
+		layer: entity, decoration, furniture
 		mask: world
 	}
 }
