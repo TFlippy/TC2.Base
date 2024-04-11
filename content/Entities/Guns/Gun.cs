@@ -413,7 +413,7 @@
 						var canvas_rect = GUI.GetCanvasRect();
 						var c_pos_last = region.WorldToCanvas(pos_last);
 						var c_pos_last_clipped = c_pos_last;
-						var c_radius = (1.00f + (gun.jitter_multiplier * ammo.spread_mult)) * canvas_scale * 4.00f;
+						var c_radius = (1.00f + (gun.jitter_multiplier * ammo.spread_mult)) * canvas_scale * 1.00f;
 
 						GUI.DrawLine(c_pos_last - new Vector2(c_radius * 1.50f, 0.00f), c_pos_last + new Vector2(c_radius * 1.50f, 0.00f), color: color.WithAlphaMult(0.250f), thickness: 1.00f, layer: GUI.Layer.Background);
 						GUI.DrawLine(c_pos_last - new Vector2(0.00f, c_radius * 1.50f), c_pos_last + new Vector2(0.00f, c_radius * 1.50f), color: color.WithAlphaMult(0.250f), thickness: 1.00f, layer: GUI.Layer.Background);
@@ -476,6 +476,7 @@
 
 				var dist = Vector2.Distance(pos_a, pos_b);
 
+				//Gun.DrawTrajectory(ref region, gun_state.resource_ammo.material, in gun, in transform);
 				Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
@@ -485,9 +486,11 @@
 			var dist = Vector2.Distance(position_a, position_b);
 			var cpos_target = region.WorldToCanvas(position_a + (dir * dist));
 
+			//if (!GUI.IsHovered) GUI.SetCursor(App.CursorType.Hidden, 100);
+
 			radius = Maths.Min(radius, 20.00f);
 			radius *= MathF.Sqrt(dist);
-			var line_length = Maths.Max(15.00f, radius * 2.00f);
+			var line_length = Maths.Clamp(radius * 2.00f, 28.00f, 64.00f);
 
 			var color = new Color32BGRA(0xffff0000);
 
@@ -497,13 +500,27 @@
 			}
 
 			var color_circle = color.WithAlphaMult(0.30f);
-			var color_line = color.WithAlphaMult(0.80f);
+			var color_line = color;
 
-			GUI.DrawCircle(cpos_target, radius, color_circle);
-			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
-			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
+			//var line_thickness_ammo = 2.00f;
+			var line_thickness_ammo = Maths.Clamp(16.00f / gun.max_ammo, 2, 8);
+			var r_outer = 8.00f;
+			var r_inner = 3.00f;
 
-			if (ammo_count_max > Maths.epsilon)
+
+
+			//GUI.DrawCircle(cpos_target + new Vector2(0.50f), radius, color_circle);
+			GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
+			//GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
+			//GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
+
+			GUI.DrawLine(cpos_target + new Vector2(+line_length, 0), cpos_target + new Vector2(+r_outer, 0), color_line, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(-r_outer, 0), color_line, 1.00f);
+
+			GUI.DrawLine(cpos_target + new Vector2(0, +line_length), cpos_target + new Vector2(0, +r_outer), color_line, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, -r_outer), color_line, 1.00f);
+
+			if (ammo_count_max > Resource.epsilon)
 			{
 				var step = MathF.Tau / ammo_count_max;
 				var count = (int)ammo_count_max;
@@ -512,12 +529,16 @@
 				{
 					var (sin, cos) = MathF.SinCos(i * -step);
 
-					var col = color;
-					col = col.WithColorMult(i < ammo_count ? 1.00f : 0.10f);
-					col = col.WithAlphaMult(0.60f);
+					var is_empty = i >= ammo_count;
 
-					var r = 3.50f;
-					GUI.DrawCircleFilled(cpos_target + (new Vector2(cos, sin) * 24), r, col);
+					var col = color;
+					col = col.WithColorMult(is_empty ? 0.10f : 0.80f);
+					if (is_empty) col = col.WithAlphaMult(0.50f);
+
+
+					//GUI.DrawCircleFilled(cpos_target + (new Vector2(cos, sin) * (is_empty ? 18 : 24)), r, col, segments: 4);
+					GUI.DrawLine(cpos_target + (new Vector2(cos, sin) * (is_empty ? 8 : 14)), cpos_target + (new Vector2(cos, sin) * (is_empty ? 16 : 22)), thickness: line_thickness_ammo, color: col);
+					//GUI.DrawLine(cpos_target + (new Vector2(cos, sin) * (radius + (is_empty ? -2 : -2))), cpos_target + (new Vector2(cos, sin) * (radius + (is_empty ? 4 : 8))), thickness: line_thickness_ammo, color: col);
 				}
 			}
 		}
@@ -1277,7 +1298,7 @@
 					else
 					{
 						gun_state.stage = gun.flags.HasAny(Gun.Flags.Automatic) ? Gun.Stage.Ready : Gun.Stage.Cycling;
-						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);					
+						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
