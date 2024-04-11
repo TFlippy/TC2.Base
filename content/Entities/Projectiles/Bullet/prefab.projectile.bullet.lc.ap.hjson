@@ -13,6 +13,7 @@ projectile:
 	ricochet_threshold_multiplier: 1.200
 	tracer_length: 2.500
 	mass: 0.009
+	hit_mask: world, solid, essence
 }
 
 projectile.renderer:

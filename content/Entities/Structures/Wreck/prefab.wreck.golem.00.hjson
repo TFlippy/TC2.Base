@@ -19,7 +19,7 @@ body:
 		elasticity: 0.100
 		material: metal
 		layer: entity, building
-		mask: world
+		mask: world, essence
 	}
 }
 

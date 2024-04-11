@@ -11,7 +11,7 @@ body:
 		elasticity: 0.100
 		material: coin
 		layer: entity, solid, resource, ignore_bullet, ignore_melee
-		mask: world
+		mask: world, essence
 	}
 }
 

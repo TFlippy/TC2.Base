@@ -14,6 +14,7 @@ projectile:
 	damp: 0.998
 
 	mass: 17.000
+	hit_mask: world, solid, essence
 }
 
 transform:
