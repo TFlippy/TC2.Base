@@ -1,4 +1,8 @@
 $name: "Backpack"
+$desc:
+	'''
+	A pack for your back.
+	'''
 $tags: []
 
 body:
@@ -58,7 +62,7 @@ attachment:
 	offset: [0.375, 0.375]
 	// flags: mirror_rotate
 	flags: none
-	tags: small, utility
+	tags: small, utility, harness
 }
 
 // equipment:

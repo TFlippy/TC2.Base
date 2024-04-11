@@ -156,8 +156,8 @@ worker.state:
 
 facing:
 {
-	threshold: 0.500
-	offset: -0.500
+	threshold: 0.300
+	offset: 0.000
 	flip_interval: 0.250
 }
 
@@ -793,7 +793,7 @@ commandable:
 
 		tags_filter:
 		{
-			require: none
+			require: harness
 			include: tiny, small
 			exclude: none
 		}
