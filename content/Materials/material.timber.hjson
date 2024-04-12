@@ -1,13 +1,13 @@
 ﻿{
-	name: "Gravel"
+	name: "Timber"
 	description:
 		'''
-		Wars were fought over gravel.
+		Raw unprocessed wood.
 		'''
 	
 	icon:
 	{
-		texture: "resource.gravel"
+		texture: "resource.timber"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,13 +19,11 @@
 		frame: [0, 0]
 	}
 	
-	type: gravel
-	flags: granular, despawnable, raw, gravel
+	type: wood
+	flags: hard, long, organic, raw, fuel
 	hints: none
 	// kg
-	mass_per_unit: 0.200
+	mass_per_unit: 2.000
 	quantity_max: 500.000
-	prefab: "resource.gravel"
-	
-	scrap: []
+	prefab: "resource.timber"
 }

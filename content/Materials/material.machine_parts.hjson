@@ -20,7 +20,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, magnetic, granular
+	flags: hard, magnetic, granular, intermediate, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.2575
@@ -29,14 +29,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: components, construction_materials, consumer, industrial, military, toys
+		
 		industries_produce: manufacturing, metallurgy, scrap, kobolds
 		industries_consume: telecommunications, agricultural, mining, manufacturing, low_tech, high_tech, automotive, military, arcane, construction, logistics, colonization, munitions, railway, engineering, weapons, experimental, aviation, naval, furniture, architecture
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: factory, labor_camp, foundry, manufactory, scrapyard, metalworks
 		buildings_consume: warehouse, factory, airport, trainyard, minefield, artillery, power_plant, docks, walls, manufactory, refinery, mine, borehole, laboratory, university, school, lumber_mill, barracks, subway, train_station, farm, arsenal, phlogiston, fuel_depot
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wasteland, urban, advanced, modern, mechanized
 		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech, frontier, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 10.000
 		market_price_min: 18.000
@@ -46,4 +65,6 @@
 		quantity_wholesale: 150.000
 		quantity_industry: 4000.000
 	}
+	
+	scrap: []
 }

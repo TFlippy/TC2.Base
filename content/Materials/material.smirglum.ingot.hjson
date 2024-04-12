@@ -20,7 +20,7 @@
 	}
 	
 	type: metal
-	flags: magnetic, metal, ingot
+	flags: hard, magnetic, metal, intermediate, heavy, small, ingot
 	hints: none
 	// kg
 	mass_per_unit: 15.200

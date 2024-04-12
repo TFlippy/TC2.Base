@@ -20,7 +20,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, chemical, raw, fuel
+	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
 	// kg
 	mass_per_unit: 0.500

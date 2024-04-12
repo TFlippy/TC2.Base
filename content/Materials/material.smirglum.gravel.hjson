@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Smirglum Gravel"
 	description:
 		'''
@@ -15,15 +15,18 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: gravel
-	flags: raw, gravel, magnetic, granular, metal, despawnable
+	flags: magnetic, granular, metal, mineral, despawnable, heavy, small, raw, ore, gravel
+	hints: none
+	// kg
 	mass_per_unit: 0.760
 	quantity_max: 500.000
 	prefab: "resource.smirglum.gravel"
 	
-	specific_heat: 45.500
-	thermal_conductivity: 0.640
+	scrap: []
 }

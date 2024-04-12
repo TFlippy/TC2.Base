@@ -20,7 +20,7 @@
 	}
 	
 	type: scrap
-	flags: manufactured, magnetic, metal, despawnable, intermediate
+	flags: magnetic, granular, metal, despawnable, intermediate, small, manufactured
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.560

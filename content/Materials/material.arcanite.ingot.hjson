@@ -20,7 +20,7 @@
 	}
 	
 	type: metal
-	flags: magnetic, metal, ingot
+	flags: hard, magnetic, metal, intermediate, heavy, small, ingot
 	hints: none
 	// kg
 	mass_per_unit: 13.212
@@ -29,14 +29,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: metals, refined, artificial, arcane, jewelry, luxury, industrial
+		
 		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical, engineering, experimental, luxury, jewelry
 		industries_consume: telecommunications, manufacturing, high_tech, metallurgy, chemical, automotive, power, arcane, construction, research, education, engineering, weapons, experimental, luxury, jewelry
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: factory, power_plant, foundry, refinery, laboratory, university, metalworks, phlogiston
 		buildings_consume: factory, airport, power_plant, foundry, manufactory, refinery, laboratory, university, school, arsenal, metalworks, phlogiston, bank
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: imperial, industrial, wasteland, commercial, urban, governmental, financial, magitech, wealthy, advanced, developing, innovative
 		categories_consume: military, imperial, industrial, wasteland, commercial, residential, urban, administrative, governmental, financial, magitech, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 125.000
 		market_price_min: 0.000

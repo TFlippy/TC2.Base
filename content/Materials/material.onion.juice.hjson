@@ -20,7 +20,7 @@
 	}
 	
 	type: liquid
-	flags: manufactured
+	flags: food, liquid, organic, bottled, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.100
@@ -29,14 +29,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: beverages, medicine, cooking, consumer, toys
+		
 		industries_produce: agricultural, chemical, food, beverage
 		industries_consume: agricultural, entertainment, tourism, food, hospitality, kobolds, training, research, pharmaceutical, medical, administrative, naval, luxury
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: factory, slum, farm, brewery
 		buildings_consume: office, hotel, hospital, docks, theatre, constabulary, laboratory, university, apartments, barracks, circus
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, wilderness, overgrown, agricultural
 		categories_consume: imperial, commercial, residential, criminal, administrative, governmental, financial
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 10.000
 		market_price_min: 7.000
@@ -46,4 +65,6 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

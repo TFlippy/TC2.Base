@@ -22,7 +22,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, raw
+	flags: food, liquid, chemical, bottled, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.100

@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Plant Trimmings"
 	description:
 		'''
@@ -14,18 +14,57 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: foliage
-	flags: raw, organic, despawnable
+	flags: soft, granular, organic, raw
+	hints: none
+	// kg
 	mass_per_unit: 0.084
 	quantity_max: 500.000
 	prefab: "resource.plants"
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: none
 		categories: waste, fertilizers
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
+		
 		market_price: 0.020
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 0.000
+		quantity_industry: 0.000
 	}
+	
+	scrap: []
 }

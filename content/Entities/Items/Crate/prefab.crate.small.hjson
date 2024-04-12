@@ -64,7 +64,7 @@ holdable:
 	torque_multiplier: 0.500
 
 	radius: 0.000
-	flags: storable, disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:

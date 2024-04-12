@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		material: wood
+		material: glass
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.wood"
+		texture: "resource.glue"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,13 +32,11 @@ transform:
 
 resource:
 {
-	material: "wood"
+	material: "glue"
 }
 
 holdable:
 {
-	force_multiplier: 1.800
-	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 
@@ -47,7 +45,7 @@ norotate:
 
 }
 
-// despawn:
-// {
-
-// }
+health:
+{
+	max: 400.000
+}

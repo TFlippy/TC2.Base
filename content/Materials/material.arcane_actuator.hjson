@@ -22,7 +22,7 @@
 	}
 	
 	type: metal
-	flags: manufactured, magnetic
+	flags: hard, magnetic, granular, essence, metal, intermediate, heavy, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 1.650

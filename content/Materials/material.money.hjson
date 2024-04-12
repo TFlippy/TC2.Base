@@ -23,7 +23,7 @@
 	}
 	
 	type: coin
-	flags: manufactured, granular, metal, currency, ingot
+	flags: hard, magnetic, granular, metal, currency, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.015625
@@ -32,14 +32,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: none
 		categories: consumer, toys, stocks
+		
 		industries_produce: financial, entertainment, tourism, logistics, hospitality, recruitment, real_estate, retail, wholesale, training, media, administrative, criminal, trading, commerce, luxury, jewelry
 		industries_consume: financial, telecommunications, entertainment, arcane, recruitment, real_estate, research, education, administrative, criminal, trading, literature, propaganda, experimental, commerce, architecture
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: warehouse, office, hotel, airport, theatre, constabulary, customs, bar, apartments, train_station, exchange, black_market, zoo, circus, market, bank
 		buildings_consume: office, theatre, checkpoint, customs, laboratory, university, school, exchange, black_market, market, bank
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: military, imperial, rebel, commercial, residential, criminal, urban, administrative, governmental, financial, lawless, magitech, wealthy, advanced, developing, secure, innovative, mercantile, powerful, warzone, modern
 		categories_consume: military, imperial, border, industrial, rebel, commercial, residential, criminal, urban, administrative, governmental, lawless, magitech, frontier, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, expansive, mechanized
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 1.000
 		market_price_min: 0.000
@@ -49,4 +68,6 @@
 		quantity_wholesale: 8000.000
 		quantity_industry: 15000.000
 	}
+	
+	scrap: []
 }

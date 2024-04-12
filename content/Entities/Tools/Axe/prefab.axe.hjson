@@ -50,8 +50,9 @@ melee:
 	damage_type: axe
 	attack_type: swing
 	category: bladed
-	hit_mask: destructible
-	hit_exclude: ignore_melee, decoration
+	hit_mask: solid, creature, tree, door, plant, organic, rubble, furniture, equipment
+	hit_require: destructible
+	hit_exclude: belt, duct, pipe, conveyor, water, fire, gas, stored
 }
 
 melee.state:

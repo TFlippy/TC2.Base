@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "Rich Soil"
 	description:
 		'''
@@ -14,12 +14,18 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	type: soil
-	flags: raw, granular, despawnable
+	flags: soft, malleable, sticky, granular, despawnable, raw
+	hints: none
+	// kg
 	mass_per_unit: 0.130
 	quantity_max: 500.000
 	prefab: "resource.soil.rich"
+	
+	scrap: []
 }

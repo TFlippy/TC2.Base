@@ -20,7 +20,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, toxic, chemical, manufactured, fuel
+	flags: liquid, toxic, intermediate, chemical, bottled, manufactured, fuel
 	hints: materials, chemical
 	// kg
 	mass_per_unit: 0.200

@@ -20,7 +20,7 @@
 	}
 	
 	type: soil
-	flags: granular, toxic, chemical, manufactured
+	flags: soft, malleable, sticky, granular, toxic, chemical, corrosive, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.100

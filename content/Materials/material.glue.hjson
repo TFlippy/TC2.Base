@@ -1,0 +1,25 @@
+{
+	name: "Glue"
+	description:
+		'''
+		Mighty adhesive.
+		'''
+	
+	icon:
+	{
+		texture: "resource.glue"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+	
+	}
+	
+	type: liquid
+	flags: manufactured
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.glue"
+}

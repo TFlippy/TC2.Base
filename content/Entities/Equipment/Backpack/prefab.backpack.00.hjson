@@ -103,7 +103,8 @@ storage:
 {
 	@inventory8:
 	{
-		stack_size_multiplier: 1.000
+		stack_size_multiplier: 2.000
+		filter_flags: soft, malleable, granular, small
 		type: backpack
 	}
 }
