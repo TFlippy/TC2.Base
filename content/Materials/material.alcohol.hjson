@@ -19,7 +19,7 @@
 	}
 	
 	type: liquid
-	flags: chemical, manufactured, fuel
+	flags: food, liquid, intermediate, chemical, bottled, manufactured, fuel
 	hints: food, materials, chemical
 	// kg
 	mass_per_unit: 0.100

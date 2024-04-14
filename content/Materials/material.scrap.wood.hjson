@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: scrap
+	type: wood
 	flags: magnetic, metal, intermediate, manufactured
 	hints: materials, junk, construction, cheap
 	// kg

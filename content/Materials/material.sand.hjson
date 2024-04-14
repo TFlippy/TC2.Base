@@ -19,7 +19,7 @@
 	}
 	
 	type: sand
-	flags: granular, raw
+	flags: granular, mineral, raw, powder
 	hints: none
 	// kg
 	mass_per_unit: 0.700

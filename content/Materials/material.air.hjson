@@ -19,7 +19,7 @@
 	}
 	
 	type: gas
-	flags: none
+	flags: gas
 	hints: none
 	// kg
 	mass_per_unit: 0.01225

@@ -20,7 +20,7 @@
 		texture: "missing"
 	}
 	
-	type: metal
+	type: metal_pole
 	flags: magnetic, metal, intermediate, billet
 	hints: none
 	// kg

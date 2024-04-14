@@ -19,7 +19,7 @@
 	}
 	
 	type: rubble
-	flags: granular, manufactured, gravel
+	flags: granular, large, heavy, gravel
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.780

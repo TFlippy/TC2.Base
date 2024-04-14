@@ -19,7 +19,7 @@
 	}
 	
 	type: insect
-	flags: granular, organic, raw
+	flags: soft, malleable, sticky, food, organic, corrosive, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.250

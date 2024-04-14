@@ -19,7 +19,7 @@
 	}
 	
 	type: stone
-	flags: granular, raw
+	flags: hard, granular, mineral, heavy, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.900

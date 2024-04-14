@@ -19,7 +19,7 @@
 	}
 	
 	type: powder
-	flags: granular, manufactured
+	flags: food, granular, organic, intermediate, raw, manufactured, powder
 	hints: none
 	// kg
 	mass_per_unit: 0.200

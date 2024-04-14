@@ -20,7 +20,7 @@
 	}
 	
 	type: gravel
-	flags: metal, raw, gravel
+	flags: granular, metal, raw, gravel
 	hints: none
 	// kg
 	mass_per_unit: 0.230

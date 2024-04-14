@@ -19,7 +19,7 @@
 	}
 	
 	type: powder
-	flags: powder
+	flags: granular, powder
 	hints: none
 	// kg
 	mass_per_unit: 0.900

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Methane"
 	description:
 		'''
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: gas
-	flags: none
+	flags: gas, explosive
 	hints: none
 	// kg
 	mass_per_unit: 0.050
@@ -29,6 +28,16 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: none
 		categories: chemicals, dangerous, industrial, military
 		
@@ -58,20 +67,54 @@
 	
 	fuel:
 	{
-		// Energy density (LHV) in kJ/kg, see https://en.wikipedia.org/wiki/Energy_density#In_chemical_reactions_(oxidation).
-		energy: 49853.000
-		// Ratio of available thermal energy.
+		// TODO: Desc
+		type: undefined
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 0.000
+		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 1.000
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 28.000
-		// Adiabatic flame temperature (Kelvin) in 100% oxygen environment.
-		temperature: 3083.150
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.000
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 0.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 0.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		ignition_temperature: 1000.000
+		autoignition_temperature: 0.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
 		flash_point: 0.000
-		// Kg of air for complete combustion of 1kg of this fuel.
-		air_fuel_ratio: 17.190
+		// kJ/(kg*K)
+		specific_heat: 0.000
+		
+		// kW/(m*K)
+		thermal_conductivity: 0.000
+		// TODO: Desc
+		porosity: 0.000
+		// TODO: Desc
+		volatility: 0.000
+		// TODO: Desc
+		viscosity: 1.000
+		// TODO: Desc
+		surface_area_mult: 0.000
+		
+		// Percentage of carbon.
+		carbon_ratio: 0.000
+		// Percentage of hydrogen.
+		hydrogen_ratio: 0.000
+		// Percentage of nitrogen.
+		nitrogen_ratio: 0.000
+		// Percentage of oxygen.
+		oxygen_ratio: 0.000
+		// Percentage of sulfur.
+		sulfur_ratio: 0.000
+		// Percentage of water.
+		water_ratio: 0.000
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.000
+		volatiles: []
 	}
 	
 	scrap: []
@@ -79,13 +122,13 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.01604
-		// kg/m3
+		// kg/m³
 		density: 0.657
-		// J/(kg*K)
+		// kJ/(kg*K)
 		specific_heat: 35800.000
-		// W/(m*K)
+		// kW/(m*K)
 		thermal_conductivity: 0.0344
 		// K
 		melting_point: 91.150
