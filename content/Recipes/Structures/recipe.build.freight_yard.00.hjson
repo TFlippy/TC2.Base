@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Freight Yard"
 	desc:
 		'''
@@ -9,7 +10,6 @@
 	{
 		texture: "freight_yard.00"
 		size: [96, 72]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -34,27 +34,51 @@
 		size: [12.000, 9.000]
 		offset: [0.000, -2.000]
 		
+		rect_foundation: [-6.000, 1.250, 6.000, 2.500]
+		
 		cooldown: 0.500
 		min_support: 0.200
 		min_clearance: 0.900
 		min_claim: 1.000
 		
-		rotation_max: 0.100
-		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	construction:
 	{
-		prefab: "construction.9x6"
+		prefab: "construction.freight_yard.00"
 		
 		requirements:
 		[
 			{
 				type: resource
 				material: "wood"
-				amount: 5.000
+				amount: 50.000
 			}
+			{
+				type: resource
+				material: "stone"
+				amount: 120.000
+			}
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
 		]
 	}
 	
@@ -63,12 +87,17 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 800.000
+			amount: 1200.000
 		}
 		{
 			type: resource
 			material: "stone"
-			amount: 600.000
+			amount: 800.000
+		}
+		{
+			type: resource
+			material: "steel.ingot"
+			amount: 20.000
 		}
 		{
 			type: resource

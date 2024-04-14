@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Pouch (ISO/039-G)"
 	desc:
 		'''
@@ -8,15 +9,17 @@
 		'''
 	
 	material_flags: none
+	flags: padded, soft
+	kind: bag
 	
 	h_prefab: "shipment.pouch.00"
 	
-	base_price: 50.000
+	base_price: 10.000
 	
 	base_volume: 5.000
-	base_weight: 5.000
+	base_weight: 0.400
 	
-	max_volume: 5.000
+	max_volume: 0.150
 	max_weight: 5.000
 	
 	size: [1.000, 1.000]

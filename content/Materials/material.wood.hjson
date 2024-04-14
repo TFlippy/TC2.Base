@@ -1,8 +1,9 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Wood"
 	description:
 		'''
-		Common building material obtained from trees.
+		Small planks used for construction.
 		'''
 	
 	icon:
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: wood
-	flags: hard, long, organic, raw, fuel
+	flags: hard, organic, intermediate, small, fuel
 	hints: none
 	// kg
 	mass_per_unit: 0.600

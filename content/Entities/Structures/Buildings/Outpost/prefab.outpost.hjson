@@ -4,16 +4,27 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.complex:
 	{
-		size: [5.000, 6.000]
-		offset: [0.000, 0.000]
-		mass: 52.000
+		points:
+		[
+			[-1.875, -0.250]
+			[0.000, -2.250]
+			[1.875, -0.250]
+			[1.875, 2.250]
+			[-1.875, 2.250]
+		]
+		count: 5
+		mass: 120.000
+		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
+		rigidity_static: 1.000
+		rigidity_dynamic: 1.000
 		material: wood
-		layer: entity, building, ignore_melee, flammable, dormitory
+		layer: entity, building, dormitory, flammable, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
@@ -33,6 +44,11 @@ animated.renderer:
 }
 
 faction.colorable:
+{
+
+}
+
+faction:
 {
 
 }
@@ -73,11 +89,6 @@ headquarters:
 	flags: enable_join, enable_leave, manage_members, manage_leader, manage_style, show_members
 }
 
-faction:
-{
-
-}
-
 claimable:
 {
 	flags: no_menu
@@ -92,18 +103,18 @@ claimer:
 
 interactable:
 {
-	window_size: [624.000, 384.000]
-	window_size_misc: [264.000, 0.000]
+	window_size: [592.000, 352.000]
+	window_size_misc: [216.000, 0.000]
 }
 
-depot:
-{
-	offset: [0.000, 0.000]
-	size: [4.000, 3.000]
-	flags: allow_deposit, allow_withdraw, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
+// depot:
+// {
+// 	offset: [0.000, 0.000]
+// 	size: [4.000, 3.000]
+// 	flags: allow_deposit, allow_withdraw, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
-	shipping_fee_base: 20.000
-}
+// 	shipping_fee_base: 20.000
+// }
 
 minimap.marker:
 {
@@ -124,7 +135,7 @@ armory:
 		stack_size_multiplier: 4.000
 		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass, public, faction
+		flags: ignore_mass, public, faction, vertical
 	}
 }
 
@@ -136,7 +147,7 @@ shipment:
 dormitory:
 {
 	species: "human"
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
 	asset_flags: recycle
 	kit_default: "default.outpost"
 	characters_capacity: 3

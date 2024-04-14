@@ -24,7 +24,7 @@ body:
 
 health:
 {
-	max: 4000.000
+	max: 2000.000
 }
 
 animated.renderer:
@@ -49,6 +49,7 @@ building:
 interactable:
 {
 	window_size: [600.000, 440.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 shop:
@@ -61,9 +62,8 @@ workshop:
 {
 	@inventory4:
 	{
-		name: "Storage"
 		stack_size_multiplier: 1.000
 		type: storage
-		flags: standalone, public, ignore_mass
+		flags: standalone, ignore_mass, public, vertical
 	}
 }

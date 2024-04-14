@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Air"
 	description:
 		'''
@@ -15,8 +16,6 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: gas
@@ -72,13 +71,13 @@
 	substance:
 	{
 		// Molar mass in kg/mol (for elements, use atomic mass)
-		molar_mass: 0.029643228
+		molar_mass: 0.029643
 		// kg/m³
 		density: 1.1884
 		// kJ/(kg*K)
 		specific_heat: 1.005
 		// kW/(m*K)
-		thermal_conductivity: 0.000030
+		thermal_conductivity: 0.00003
 		// K
 		melting_point: 54.800
 		// K

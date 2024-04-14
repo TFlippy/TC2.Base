@@ -1,10 +1,9 @@
 ﻿{
-	name: "Concrete"
+	$version: "0.1.60.4"
+	name: "Framework (Concrete)"
 	desc:
 		'''
-		Solid block of concrete. Very durable.
-
-		* Must be placed over existing blocks!
+		Reinforced concrete cast into steel framework.
 		'''
 	
 	icon:

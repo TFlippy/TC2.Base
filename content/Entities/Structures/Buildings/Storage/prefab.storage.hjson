@@ -69,7 +69,7 @@ storage:
 		filter:
 		{
 			require: none
-			include: soft, hard, large, small, bottled
+			include: soft, hard, granular, large, small, bottled
 			exclude: none
 		}
 		

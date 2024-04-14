@@ -1,0 +1,82 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-5.000, -3.750]
+			[-0.500, -3.750]
+			[1.625, 3.375]
+			[-5.125, 3.375]
+		]
+		friction: 0.500
+		elasticity: 0.500
+		material: stone
+		mass: 1000.000
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+
+	@shape.line:
+	{
+		a: [-5.250, 4.000]
+		b: [5.250, 4.000]
+		offset: [0.000, 0.000]
+		friction: 0.500
+		elasticity: 0.500
+		radius: 0.750
+		material: wood
+		mass: 1000.000
+		layer: entity, solid, platform
+		mask: world, solid, crate, shipment
+		exclude: vehicle, platform, stored, wheel
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "construction.freight_yard.00"
+	}
+	z: -300.000
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [500.000, 350.000]
+}
+
+construction:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items
+}

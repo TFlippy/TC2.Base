@@ -546,7 +546,7 @@ commandable:
 		
 		body:
 		{
-			fall_damage_multiplier: 1.400
+			fall_damage_multiplier: 1.200
 			buoyancy: 0.300
 
 			@shape.circle:
@@ -554,7 +554,7 @@ commandable:
 				mass: 32.000
 				radius: 0.500
 				friction: 0.800
-				elasticity: 0.350
+				elasticity: 0.100
 				material: flesh
 				layer: entity, solid, creature, flammable
 				mask: world

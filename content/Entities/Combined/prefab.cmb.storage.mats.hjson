@@ -11,13 +11,15 @@
 	{
 		@inventory16:
 		{
-			flags: standalone, allow_ducts, ignore_mass, public, no_auto_pickup, no_drop
+			stack_size_multiplier: 100.000
+			type: storage
+			flags: allow_ducts, ignore_mass, public, faction, no_drop, no_auto_pickup
 
 			resources:
 			[
 				{
-					material: "scrap"
-					quantity: 5000.000
+					material: "money"
+					quantity: 50000.000
 				}
 				{
 					material: "wood"
@@ -68,16 +70,16 @@
 					quantity: 5000.000
 				}
 				{
-					material: "smirglum.ingot"
-					quantity: 500.000
-				}
-				{
 					material: "glass"
 					quantity: 1000.000
 				}
 				{
 					material: "gravel"
 					quantity: 5000.000
+				}
+				{
+					material: "limelight"
+					quantity: 500.000
 				}
 			]
 		}

@@ -145,7 +145,7 @@ namespace TC2.Base.Components
 
 								GUI.SameLine();
 
-								if (GUI.TextInput("##search", "search (Ctrl+F)", ref edit_name_filter, new Vector2(GUI.RmX - 40, GUI.RmY), show_label: false))
+								if (GUI.TextInput("##search"u8, "search (Ctrl+F)"u8, ref edit_name_filter, new Vector2(GUI.RmX - 40, GUI.RmY), show_label: false))
 								{
 
 								}
@@ -155,14 +155,14 @@ namespace TC2.Base.Components
 
 								using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new Vector2(24, 24)))
 								{
-									GUI.Checkbox("Zones", ref show_zones, new Vector2(GUI.RmY), show_text: false);
-									GUI.DrawHoverTooltip("Show Zones");
+									GUI.Checkbox("Zones"u8, ref show_zones, new Vector2(GUI.RmY), show_text: false);
+									GUI.DrawHoverTooltip("Show Zones"u8);
 								}
 							}
 
 							GUI.SeparatorThick();
 
-							using (GUI.Scrollbox.New("Build.Recipes", GUI.Rm))
+							using (GUI.Scrollbox.New("Build.Recipes"u8, GUI.Rm))
 							{
 								using (var grid = GUI.Grid.New(size: GUI.Rm, new Vector2(48, 48)))
 								{
@@ -214,7 +214,7 @@ namespace TC2.Base.Components
 										ref var recipe = ref h_recipe.GetData(out var recipe_asset);
 										if (recipe.IsNotNull() && (recipe.tags.HasAny(edit_tags_filter) || is_searching))
 										{
-											if (!is_searching || recipe.name.ToString().Contains(search_filter, StringComparison.OrdinalIgnoreCase))
+											if (!is_searching || recipe.name.Contains(search_filter, StringComparison.OrdinalIgnoreCase))
 											{
 												var frame_size = recipe.icon.GetFrameSize(scale);
 												frame_size += new Vector2(8, 8);
@@ -246,7 +246,7 @@ namespace TC2.Base.Components
 													}
 													if (GUI.IsItemHovered())
 													{
-														using (GUI.Tooltip.New(size: new(256, 0)))
+														using (GUI.Tooltip.New(size: new(280, 0)))
 														{
 															using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
 															{
@@ -439,7 +439,7 @@ namespace TC2.Base.Components
 															var construction = recipe.construction.Value;
 
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-															if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															if (!context.Evaluate(construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 														}
 														else
 														{
@@ -483,7 +483,7 @@ namespace TC2.Base.Components
 																	{
 																		sprite = resizable.cap_a,
 																		rotation = renderer.rotation,
-																		scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
+																		scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
 																		offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
 																	};
 
@@ -491,7 +491,7 @@ namespace TC2.Base.Components
 																	{
 																		sprite = resizable.cap_b,
 																		rotation = renderer.rotation,
-																		scale = new Vector2(resizable.flags.HasAll(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
+																		scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
 																		offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
 																	};
 
@@ -505,53 +505,50 @@ namespace TC2.Base.Components
 															default:
 															case Placement.Type.Simple:
 															{
-																var transform = new Transform.Data(pos_final, rot_final, scale);
-
 																if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
 																{
+																	var transform = new Transform.Data(pos_final, rot_final, scale);
 
-																}
-
-																var sprite = recipe.icon;
-																if (sprite.texture.id != 0)
-																{
-																	renderer.sprite = sprite;
-																}
-
-																//renderer.offset -= placement.offset;
-
-
-																if (recipe.construction.HasValue)
-																{
-																	var construction = recipe.construction.Value;
-																	var construction_prefab = construction.prefab.GetPrefab();
-
-																	GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
-
-																	if (construction_prefab != null)
+																	var sprite = recipe.icon;
+																	if (sprite.texture.id != 0)
 																	{
-																		if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
+																		renderer.sprite = sprite;
+																	}
+
+																	//renderer.offset -= placement.offset;
+
+
+																	if (recipe.construction.HasValue)
+																	{
+																		var construction = recipe.construction.Value;
+																		var construction_prefab = construction.prefab.GetPrefab();
+
+																		GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
+
+																		if (construction_prefab != null)
 																		{
-																			GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
+																			if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
+																			{
+																				GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
+																			}
+																		}
+
+																		ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
+																		if (rect_foundation.IsNotNull())
+																		{
+																			var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																			GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
+
+																			GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
 																		}
 																	}
-
-																	ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
-																	if (rect_foundation.IsNotNull())
+																	else
 																	{
-																		var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																		GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
-
-																		GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																		GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
 																	}
-																}
-																else
-																{
-																	GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
-																}
 
-																GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
-
+																	GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+																}
 																//GUI.DrawRect
 
 																//var bb_canvas = AABB.Centered(pos_final, placement.size);
@@ -565,15 +562,13 @@ namespace TC2.Base.Components
 
 												if (!GUI.IsHovered)
 												{
-
 													GUI.Title(recipe.name);
 
 													GUI.Separator();
 
-													if (recipe.construction.HasValue)
+													ref var construction = ref recipe.construction.GetRefOrNull();
+													if (construction.IsNotNull())
 													{
-														var construction = recipe.construction.Value;
-
 														GUI.DrawRequirements(ref context, construction.requirements, Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
 
 														GUI.NewLine(6);
@@ -628,12 +623,12 @@ namespace TC2.Base.Components
 															}
 														}
 
-														var time = region.GetWorldTime();
+														var time = region.GetFixedTime();
 
 														place &= time >= next_place_local;
 														if (place)
 														{
-															if (!errors.HasAny(Build.Errors.ZeroCount))
+															if (errors.HasNone(Build.Errors.ZeroCount))
 															{
 																var rpc = new Build.PlaceRPC
 																{
@@ -645,7 +640,7 @@ namespace TC2.Base.Components
 																rpc.Send(ent_wrench);
 															}
 
-															if (!placement.flags.HasAny(Placement.Flags.Continuous))
+															if (placement.flags.HasNone(Placement.Flags.Continuous))
 															{
 																reset = true;
 															}
@@ -712,7 +707,7 @@ namespace TC2.Base.Components
 
 					if (placement.min_claim > Maths.epsilon)
 					{
-						var claim_ratio = Claim.GetOverlapRatio(ref region, bb, faction_id, !placement.flags.HasAll(Placement.Flags.Require_Claimed));
+						var claim_ratio = Claim.GetOverlapRatio(ref region, bb, faction_id, placement.flags.HasNone(Placement.Flags.Require_Claimed));
 						if (claim_ratio < placement.min_claim) errors |= Errors.Claimed;
 					}
 
@@ -830,7 +825,7 @@ namespace TC2.Base.Components
 					placed_block_count = Build.CalculateBlockCount(ref region, in placement, block, tile_flags, pos, pos_a, pos_b);
 					if (placed_block_count <= 0) errors |= Build.Errors.ZeroCount;
 
-					if (tile_flags.HasAll(TileFlags.Solid) && !placement.flags.HasAny(Placement.Flags.Ignore_Obstructed))
+					if (tile_flags.HasAny(TileFlags.Solid) && placement.flags.HasNone(Placement.Flags.Ignore_Obstructed))
 					{
 						if (placement.type == Placement.Type.Line)
 						{
@@ -877,7 +872,7 @@ namespace TC2.Base.Components
 
 					if (placement.flags.HasAny(Placement.Flags.Require_Terrain))
 					{
-						errors.SetFlag(Build.Errors.NoTerrain, true);
+						errors.AddFlag(Build.Errors.NoTerrain);
 					}
 
 					if (placement.type == Placement.Type.Line)
@@ -893,41 +888,41 @@ namespace TC2.Base.Components
 								{
 									if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
 									{
-										errors.SetFlag(Build.Errors.NoTerrain, false);
+										errors.RemoveFlag(Build.Errors.NoTerrain);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
 									}
 								}
-								else if (placement.flags.HasAll(Placement.Flags.Allow_Placement_Over_Buildings))
+								else if (placement.flags.HasAny(Placement.Flags.Allow_Placement_Over_Buildings))
 								{
-									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
+									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
-									else if (result.layer.HasAll(Physics.Layer.Support))
+									else if (result.layer.HasAny(Physics.Layer.Support))
 									{
 										skip_support = true;
 									}
-									else if (result.layer.HasAll(Physics.Layer.Building))
+									else if (result.layer.HasAny(Physics.Layer.Building))
 									{
 
 									}
 									else
 									{
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 								else
 								{
-									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
+									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 
 									}
 									else
 									{
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 							}
@@ -953,37 +948,37 @@ namespace TC2.Base.Components
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
 									}
 								}
-								else if (placement.flags.HasAll(Placement.Flags.Allow_Placement_Over_Buildings))
+								else if (placement.flags.HasAny(Placement.Flags.Allow_Placement_Over_Buildings))
 								{
-									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
+									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
-									else if (result.layer.HasAll(Physics.Layer.Support))
+									else if (result.layer.HasAny(Physics.Layer.Support))
 									{
 										skip_support = true;
 									}
-									else if (result.layer.HasAll(Physics.Layer.Building))
+									else if (result.layer.HasAny(Physics.Layer.Building))
 									{
 
 									}
 									else
 									{
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 								else
 								{
-									if (result.layer.HasAll(Physics.Layer.No_Overlapped_Placement))
+									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 
 									}
 									else
 									{
-										if (!placement.flags.HasAny(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 								}
 							}
@@ -997,7 +992,7 @@ namespace TC2.Base.Components
 				public static void GetPlacementInfo(ref Placement placement, Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
 				{
 					var snap = new Vector2(0.125f);
-					if (!placement.flags.HasAny(Placement.Flags.No_Snapping) && flags.HasAny(Build.Flags.Snap))
+					if (placement.flags.HasNone(Placement.Flags.No_Snapping) && flags.HasAny(Build.Flags.Snap))
 					{
 						snap = placement.snap ?? placement.size;
 					}
@@ -1373,7 +1368,7 @@ namespace TC2.Base.Components
 										Notification.Push(ref connection, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
 									}
 
-									build.next_place = region.GetWorldTime() + placement.cooldown;
+									build.next_place = region.GetFixedTime() + placement.cooldown;
 								}
 							}
 						}
@@ -1449,7 +1444,7 @@ namespace TC2.Base.Components
 				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CountTileFunc(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
 				{
-					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
 						args.count++;
 					}
@@ -1507,7 +1502,7 @@ namespace TC2.Base.Components
 				static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
 				{
 					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
-					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
 						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color);
 					}
@@ -1545,7 +1540,7 @@ namespace TC2.Base.Components
 				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
 				{
-					if ((tile.BlockID == 0 || args.tile_flags.HasAll(TileFlags.Solid)) && !tile.Flags.HasAll(TileFlags.Solid))
+					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
 						tile.Reset();
 
@@ -1584,7 +1579,7 @@ namespace TC2.Base.Components
 				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CalculateSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
 				{
-					if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
+					if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
 					{
 						args.support_count++;
 					}
@@ -1599,7 +1594,7 @@ namespace TC2.Base.Components
 
 				private static void CalculateSupportFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
 				{
-					if ((tile.BlockID != 0 || tile.Flags.HasAll(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
+					if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
 					{
 						args.support_count++;
 					}

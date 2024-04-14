@@ -129,7 +129,7 @@ minimap.marker:
 dormitory:
 {
 	species: "human"
-	flags: no_kit_selection, no_kit_requirements
+	flags: no_kit_selection, no_kit_requirements, region_only
 	asset_flags: recycle
 	max_kits: 2
 	kit_default: "default.mine"
