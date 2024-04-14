@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Ammonia"
 	description:
 		'''
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: gas
-	flags: none
+	flags: gas, toxic, intermediate, chemical, corrosive
 	hints: none
 	// kg
 	mass_per_unit: 0.050
@@ -78,7 +77,7 @@
 		// kJ/(kg*K)
 		specific_heat: 2.200
 		// kW/(m*K)
-		thermal_conductivity: 0.00002407
+		thermal_conductivity: 0.000024
 		// K
 		melting_point: 195.400
 		// K

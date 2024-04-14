@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Silver Ore"
 	description:
 		'''
@@ -15,15 +16,16 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
 	}
 	
 	type: stone
-	flags: raw, ore, granular, metal, despawnable
+	flags: granular, metal, raw, ore
+	hints: none
+	// kg
 	mass_per_unit: 0.266
 	quantity_max: 500.000
 	prefab: "resource.silver.ore"
 	
-	specific_heat: 117.500
-	thermal_conductivity: 0.215
+	scrap: []
 }

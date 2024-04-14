@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Steel Billet"
 	description:
 		'''
@@ -17,12 +18,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: magnetic, metal, intermediate, bulk, billet
+	flags: magnetic, metal, intermediate, billet
 	hints: none
 	// kg
 	mass_per_unit: 128.000
@@ -31,14 +30,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
 		flags: marketable
 		categories: metals, refined, construction_materials, industrial
+		
 		industries_produce: metallurgy
 		industries_consume: telecommunications, manufacturing, metallurgy, automotive, military, construction, railway, engineering, architecture
+		industries_buy: none
+		industries_sell: none
+		
 		buildings_produce: foundry, metalworks
 		buildings_consume: warehouse, factory, trainyard, manufactory, subway, train_station, metalworks
+		buildings_buy: none
+		buildings_sell: none
+		
 		categories_produce: industrial, urban
 		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 980.000
 		market_price_min: 780.000
@@ -49,16 +67,18 @@
 		quantity_industry: 400.000
 	}
 	
+	scrap: []
+	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.05497
-		// kg/m3
+		// kg/m³
 		density: 7812.000
-		// J/(kg*K)
+		// kJ/(kg*K)
 		specific_heat: 490.000
-		// W/(m*K)
+		// kW/(m*K)
 		thermal_conductivity: 43.000
 		// K
 		melting_point: 1811.000

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Copper Scrap"
 	description:
 		'''
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: scrap
-	flags: manufactured, magnetic, metal, despawnable, intermediate
+	flags: magnetic, metal, intermediate, manufactured
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.560
@@ -29,6 +28,7 @@
 	
 	commodity:
 	{
+		availability: 1.000
 		rarity: 2.250
 		scalability: 1.000
 		reusability: 1.000
@@ -36,6 +36,7 @@
 		complexity: 1.000
 		tech: 1.000
 		liquidity: 1.000
+		demand: 1.000
 		
 		flags: marketable
 		categories: metals, scrap, construction_materials, waste, industrial, toys

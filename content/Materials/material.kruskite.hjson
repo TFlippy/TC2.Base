@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Kruskite"
 	description:
 		'''
@@ -14,15 +15,16 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
 	}
 	
 	type: stone
-	flags: raw, ore, granular, metal, despawnable
+	flags: granular, metal, raw, ore
+	hints: none
+	// kg
 	mass_per_unit: 0.900
 	quantity_max: 500.000
 	prefab: "resource.kruskite"
 	
-	specific_heat: 99.625
-	thermal_conductivity: 0.0395
+	scrap: []
 }

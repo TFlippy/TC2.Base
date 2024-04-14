@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Rich Soil"
 	description:
 		'''
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: soil
-	flags: soft, malleable, sticky, granular, despawnable, raw
+	flags: soft, malleable, sticky, granular, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.130
