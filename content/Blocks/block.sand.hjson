@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Sand"
 	desc:
 		'''
@@ -8,8 +9,6 @@
 	icon:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	material_type: sand
@@ -18,7 +17,7 @@
 	
 	max_health: 4000.000
 	
-	smoothing: 0.150
+	smoothing: 0.230
 	mass: 0.800
 	friction: 0.971
 	elasticity: 0.030
@@ -33,7 +32,9 @@
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.500
+	texture_offset: 0.000
 	color_preview: "0xff80775f"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[

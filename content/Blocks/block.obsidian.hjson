@@ -1,24 +1,51 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Obsidian"
-	desc: "Volcanic glass."
+	desc:
+		'''
+		Volcanic glass.
+		'''
 	
-	material_type: stone
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: cermet
 	tile_flags: non_empty
 	flags: raw, mineral
 	
 	max_health: 100000.000
+	
 	smoothing: 0.200
 	mass: 1.000
 	friction: 0.450
-	elasticity: 0.700
+	elasticity: 0.510
 	stability: 0.900
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.obsidian"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.710
 	texture_overshoot: 0.000
-
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+		
+		}
+		{
+		
+		}
+	]
+	
 	mappings:
 	[
 		{

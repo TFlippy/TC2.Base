@@ -1,32 +1,49 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Metal Roof (Blue)"
 	desc:
 		'''
 		A fancy blue metal roof built to the Imperial standard.
 		'''
 	
-	material_type: metal
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: metal_sheet
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 5000.000
+	
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.950
-	elasticity: 0.200
+	elasticity: 0.660
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.roof.metal.blue"
 	pattern: "pattern.scaffolding"
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.250
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
 			material: "scrap.ferrous"
 			quantity: 0.050
+		}
+		{
+		
 		}
 	]
 	

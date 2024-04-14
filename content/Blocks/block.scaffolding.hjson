@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Scaffolding"
 	desc:
 		'''
@@ -8,11 +9,9 @@
 	icon:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
-	material_type: metal
+	material_type: metal_frame
 	tile_flags: non_empty
 	flags: artificial
 	
@@ -21,7 +20,7 @@
 	smoothing: 0.150
 	mass: 0.443
 	friction: 0.950
-	elasticity: 0.200
+	elasticity: 0.750
 	stability: 5.000
 	strength_tensile: 14.000
 	strength_compressive: 25.200
@@ -33,7 +32,9 @@
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.500
+	texture_offset: 0.000
 	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[

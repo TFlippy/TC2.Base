@@ -1,25 +1,47 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Glass"
 	desc: ""
+	
+	icon:
+	{
+		texture: "missing"
+	}
 	
 	material_type: glass
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 40.000
+	
 	smoothing: 0.150
 	mass: 5.000
 	friction: 0.020
-	elasticity: 0.500
+	elasticity: 0.460
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.glass"
 	pattern: "pattern.glass"
 	
 	texture_scale: 1.000
 	texture_overshoot: 0.250
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
-	resources: []
+	resources:
+	[
+		{
+		
+		}
+		{
+		
+		}
+	]
 	
 	mappings:
 	[

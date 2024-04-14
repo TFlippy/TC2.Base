@@ -1,23 +1,40 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Planks"
-	desc: "Wooden planks hammered together."
+	desc:
+		'''
+		Wooden planks hammered together.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+	}
 	
 	material_type: wood
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 1200.000
+	
 	smoothing: 0.110
 	mass: 1.000
 	friction: 0.950
-	elasticity: 0.400
+	elasticity: 0.370
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.planks.mithril"
 	pattern: "pattern.planks"
-
+	
 	texture_scale: 0.800
 	texture_overshoot: -0.750
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
@@ -26,8 +43,7 @@
 			quantity: 0.010
 		}
 		{
-			material: "mithril"
-			quantity: 0.050
+		
 		}
 	]
 	

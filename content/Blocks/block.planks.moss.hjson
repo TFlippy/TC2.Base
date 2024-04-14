@@ -1,23 +1,40 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Planks (Moss)"
-	desc: "Wooden planks mossed together."
+	desc:
+		'''
+		Wooden planks mossed together.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+	}
 	
 	material_type: wood
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 2700.000
+	
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.950
-	elasticity: 0.400
+	elasticity: 0.420
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.planks.moss"
 	pattern: "pattern.planks"
 	
 	texture_scale: 0.800
 	texture_overshoot: -0.750
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
@@ -26,8 +43,7 @@
 			quantity: 0.010
 		}
 		{
-			material: "plants"
-			quantity: 0.100
+		
 		}
 	]
 	

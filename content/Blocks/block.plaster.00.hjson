@@ -1,29 +1,49 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Clay Bricks"
-	desc: "Clay bricks of varying sizes."
+	desc:
+		'''
+		Clay bricks of varying sizes.
+		'''
 	
-	material_type: stone
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: concrete
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 24000.000
+	
 	smoothing: 0.110
 	mass: 5.000
 	friction: 0.900
 	elasticity: 0.600
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.brick"
 	pattern: "pattern.plaster.00"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
 			material: "stone"
 			quantity: 0.100
+		}
+		{
+		
 		}
 	]
 	

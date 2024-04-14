@@ -1,29 +1,49 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Scaffolding"
-	desc: "TODO: Desc"
+	desc:
+		'''
+		TODO: Desc
+		'''
 	
-	material_type: metal
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: metal_frame
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 3600.000
+	
 	smoothing: 0.150
 	mass: 1.000
 	friction: 0.950
-	elasticity: 0.200
+	elasticity: 0.750
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.scaffolding.moss"
 	pattern: "pattern.scaffolding"
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.500
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
 			material: "scrap.ferrous"
 			quantity: 0.030
+		}
+		{
+		
 		}
 	]
 	

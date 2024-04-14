@@ -1,29 +1,49 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Mud Bricks"
-	desc: "Mud bricks made by the best of mudders."
+	desc:
+		'''
+		Mud bricks made by the best of mudders.
+		'''
 	
-	material_type: brick
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: stone
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 7000.000
+	
 	smoothing: 0.110
 	mass: 5.000
 	friction: 0.900
-	elasticity: 0.600
+	elasticity: 0.450
 	stability: 0.500
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.mudbrick"
 	pattern: "pattern.mudbrick"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "mudbrick_dry"
+			material: "null"
 			quantity: 0.400
+		}
+		{
+		
 		}
 	]
 	
