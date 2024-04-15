@@ -19,7 +19,7 @@
 	}
 	
 	type: coal
-	flags: hard, granular, organic, mineral, small, raw, fuel
+	flags: hard, granular, organic, mineral, small, raw, fuel, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.400

@@ -19,7 +19,7 @@
 	}
 	
 	type: gas
-	flags: gas
+	flags: gas, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.01225

@@ -19,7 +19,7 @@
 	}
 	
 	type: coal
-	flags: hard, granular, intermediate, small, raw, fuel
+	flags: hard, granular, intermediate, small, raw, fuel, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.400

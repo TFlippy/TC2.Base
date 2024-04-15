@@ -19,7 +19,7 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_arrow, manufactured
+	flags: ammo, ammo_arrow, manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.040

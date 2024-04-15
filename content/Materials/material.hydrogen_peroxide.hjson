@@ -19,7 +19,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, bottled, corrosive, manufactured
+	flags: liquid, bottled, corrosive, manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.100

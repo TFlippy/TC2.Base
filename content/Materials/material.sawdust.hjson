@@ -19,7 +19,7 @@
 	}
 	
 	type: powder
-	flags: granular, organic, intermediate, powder
+	flags: granular, organic, intermediate, powder, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.060

@@ -19,7 +19,7 @@
 	}
 	
 	type: fabric
-	flags: manufactured
+	flags: manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.400

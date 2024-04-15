@@ -19,7 +19,7 @@
 	}
 	
 	type: wood
-	flags: hard, long, organic, intermediate, small, raw, manufactured, fuel
+	flags: hard, long, organic, intermediate, small, raw, manufactured, fuel, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.600

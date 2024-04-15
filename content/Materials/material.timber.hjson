@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Timber"
 	description:
 		'''
@@ -15,15 +16,15 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: wood
-	flags: hard, long, organic, raw, fuel
+	flags: hard, long, organic, raw, fuel, flammable
 	hints: none
 	// kg
 	mass_per_unit: 2.000
 	quantity_max: 500.000
 	prefab: "resource.timber"
+	
+	scrap: []
 }

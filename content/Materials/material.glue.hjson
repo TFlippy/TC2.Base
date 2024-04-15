@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Glue"
 	description:
 		'''
@@ -14,12 +15,16 @@
 	
 	icon_extra:
 	{
-	
+		texture: "missing"
 	}
 	
 	type: liquid
-	flags: manufactured
+	flags: manufactured, flammable
+	hints: none
+	// kg
 	mass_per_unit: 0.100
 	quantity_max: 500.000
 	prefab: "resource.glue"
+	
+	scrap: []
 }

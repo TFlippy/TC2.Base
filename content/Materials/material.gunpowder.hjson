@@ -19,7 +19,7 @@
 	}
 	
 	type: powder
-	flags: granular, explosive, manufactured
+	flags: granular, explosive, manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.100

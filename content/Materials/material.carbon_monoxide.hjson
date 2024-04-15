@@ -19,7 +19,7 @@
 	}
 	
 	type: gas
-	flags: gas, toxic, chemical
+	flags: gas, toxic, chemical, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.050
