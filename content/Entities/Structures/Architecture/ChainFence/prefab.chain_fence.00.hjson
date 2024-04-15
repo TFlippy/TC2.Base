@@ -1,0 +1,43 @@
+$name: "Chain-Link Fence"
+$desc:
+	'''
+	Cheap fence made of woven metal wire used to keep intruders off your property.
+	Sadly, most of them usually just walk around it.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.500, 3.000]
+		offset: [0.000, 0.000]
+		mass: 50.000
+		friction: 0.850
+		elasticity: 0.100
+		material: wire
+		layer: entity, no_overlapped_placement, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 4000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "chain_fence.00"
+	}
+	z: -350.000
+}
+
+transform:
+{
+
+}

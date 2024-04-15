@@ -1,0 +1,63 @@
+$name: "Barbed Wire"
+$desc: "Better not walk through it."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		offset: [0.000, 0.250]
+		mass: 25.000
+		radius: 1.000
+		friction: 0.200
+		elasticity: 0.200
+		rigidity_dynamic: 0.050
+		rigidity_static: 0.050
+		material: wire
+		layer: entity, building, ignore_bullet, ignore_melee, no_overlapped_placement, barbed
+		mask: solid, creature
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "barbed_wire"
+	}
+	z: 100.000
+}
+
+transform:
+{
+
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "barbed_wire.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "barbed_wire.cap"
+	}
+
+	flags: mirror_cap_b
+}
+
+barbedwire:
+{
+	damage: 100.000
+}

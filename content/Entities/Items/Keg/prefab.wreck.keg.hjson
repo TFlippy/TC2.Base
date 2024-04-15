@@ -1,0 +1,98 @@
+$name: "Decommissioned Explosive Keg"
+$desc: "Unexploded ordnance is fun ordnance."
+$tags: []
+
+body:
+{
+	@shape.box:
+	{
+		size: [0.500, 1.000]
+		offset: [0.000, 0.000]
+		mass: 150.000
+		radius: 0.375
+		friction: 0.980
+		elasticity: 0.400
+		material: wood
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 2200.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+attachment:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 2.000
+	offset: [0.000, 0.650]
+	tags: small, fixed
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wreck.keg"
+	}
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 5.000
+	failure_chance: 0.700
+	sound: "fuse_set"
+	flags: sparkle
+	
+	@light:
+	{
+		color: [1.000, 0.600, 0.000, 2.000]
+		offset: [-0.100, 0.100]
+		scale: [12.000, 12.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		volume: 0.000
+		pitch: 0.000
+	}
+}
+
+explosive:
+{
+	radius: 16.000
+	power: 3.000
+	damage_entity: 10000.000
+	damage_terrain: 40000.000
+	smoke_amount: 3.000
+	sparks_amount: 0.000
+	smoke_lifetime_multiplier: 2.000
+	smoke_velocity_multiplier: 6.000
+	flash_duration_multiplier: 0.500
+	flash_intensity_multiplier: 0.300
+	volume: 2.000
+	pitch: 1.000
+	health_threshold: 0.500
+	flags: explode_when_primed
+}

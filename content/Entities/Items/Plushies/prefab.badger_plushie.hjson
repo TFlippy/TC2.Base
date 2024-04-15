@@ -1,0 +1,56 @@
+$name: "Badger Plushie"
+$desc: 
+	'''
+	Badger plush toy made from a genuine badger.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.250, 0.125]
+		b: [0.325, 0.000]
+		mass: 1.000
+		friction: 0.950
+		elasticity: 0.300
+		radius: 0.400
+		layer: entity, solid, item, decoration, flammable
+		mask: world
+		material: fabric
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "badger_plushie"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+health:
+{
+	max: 100.000
+}
+
+packable:
+{
+
+}

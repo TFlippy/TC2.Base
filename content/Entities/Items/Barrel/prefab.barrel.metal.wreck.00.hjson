@@ -1,0 +1,64 @@
+$name: "Incontinent Barrel (Metal)"
+$desc:
+	'''
+	A poor, old, rusty barrel.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.400
+	buoyancy: 0.400
+	
+	@shape.box:
+	{
+		size: [0.875, 1.375]
+		radius: 0.250
+		mass: 30.000
+		friction: 0.850
+		elasticity: 0.400
+		material: metal
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 2100.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "barrel.metal.wreck.00"
+	}
+	z: -80.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 70.000
+		}
+		{
+			material: "steel.plate"
+			quantity: 20.000
+		}
+	]
+}

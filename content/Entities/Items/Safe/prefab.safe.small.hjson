@@ -1,0 +1,99 @@
+$name: "Safe"
+$desc:
+	'''
+	A ridiculously durable safe.
+	What kind of treasure could be contained inside?
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.100
+
+	@shape.box:
+	{
+		size: [1.500, 1.500]
+		offset: [0.000, 0.000]
+		mass: 950.000
+		radius: 0.250
+		friction: 0.750
+		elasticity: 0.400
+		material: metal
+		layer: entity, solid, crate
+		mask: world, creature, crate
+		exclude: tree, resource, essence
+	}
+}
+
+health:
+{
+	max: 25000.000
+}
+
+armor:
+{
+	toughness: 1500.000
+	protection: 0.980
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "safe.small"
+		size: [16, 16]
+	}
+	flags: has_damage
+}
+
+damage.effects:
+{
+	frame_count: 4
+}
+
+transform:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit, locked
+}
+
+loot.container:
+{
+	rolls: 4
+	rolls_extra: 0
+
+	tables:
+	[
+		"safe"
+	]
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+}
+
+lockable:
+{
+	flags: locked
+}
+
+cover:
+{
+	threshold: 0.100
+}

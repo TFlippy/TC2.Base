@@ -1,0 +1,104 @@
+$name: "Explosive Keg"
+$desc:
+	'''
+	Wooden keg filled with explosives. Used for demolition and mining.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 2.500
+
+	@shape.box:
+	{
+		size: [0.500, 1.000]
+		offset: [0.000, 0.000]
+		mass: 60.000
+		radius: 0.375
+		friction: 0.980
+		elasticity: 0.300
+		material: wood
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 2500.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing
+}
+
+attachment:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 2.000
+	offset: [0.000, 0.650]
+	tags: small, fixed
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "keg"
+	}
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 5.000
+	failure_chance: 0.050
+	sound: "fuse_set"
+	flags: sparkle
+	
+	@light:
+	{
+		color: [1.000, 0.600, 0.000, 2.000]
+		offset: [-0.100, 0.100]
+		scale: [12.000, 12.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		volume: 0.000
+		pitch: 0.000
+	}
+}
+
+explosive:
+{
+	radius: 13.000
+	power: 3.800
+	damage_entity: 38000.000
+	damage_terrain: 115000.000
+	smoke_amount: 0.900
+	sparks_amount: 1.500
+	fire_amount: 1.800
+	smoke_lifetime_multiplier: 1.200
+	smoke_velocity_multiplier: 3.600
+	flash_duration_multiplier: 2.500
+	flash_intensity_multiplier: 0.300
+	volume: 2.000
+	pitch: 0.800
+	health_threshold: 0.999
+	flags: explode_when_primed
+}

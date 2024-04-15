@@ -1,0 +1,93 @@
+$tags: []
+
+body:
+{
+	@shape.box:
+	{
+		size: [0.500, 0.250]
+		offset: [0.000, 0.000]
+		mass: 3.000
+		radius: 0.375
+		friction: 0.980
+		elasticity: 0.100
+		material: leather
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 500.000
+}
+
+holdable:
+{
+	flags: disable_parent_facing
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "satchel_charge"
+	}
+	z: 100.000
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 7.000
+	failure_chance: 0.050
+	sound: "fuse_set"
+	flags: sparkle
+	
+	@light:
+	{
+		color: [1.000, 0.600, 0.000, 2.000]
+		offset: [-0.100, 0.100]
+		scale: [12.000, 12.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		volume: 0.000
+		pitch: 0.000
+	}
+}
+
+explosive:
+{
+	radius: 4.000
+	power: 4.000
+	damage_entity: 8000.000
+	damage_terrain: 35000.000
+
+	smoke_amount: 0.700
+	pitch: 1.200
+}
+
+sticky:
+{
+	min_contact_count: 1
+	min_contact_distance: 0.100
+	max_force: 20000.000
+	flags: attach_on_collide
+	mask: world, solid
+	exclude: dynamic, essence
+
+	sound: "fabric.hit.generic.00"
+}

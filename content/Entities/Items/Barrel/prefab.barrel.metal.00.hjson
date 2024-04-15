@@ -1,0 +1,49 @@
+$name: "Barrel (Metal)"
+$desc:
+	'''
+	A jolly metal barrel.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.400
+	buoyancy: 1.000
+	
+	@shape.box:
+	{
+		size: [0.875, 1.375]
+		radius: 0.250
+		mass: 35.000
+		friction: 0.750
+		elasticity: 0.700
+		material: metal
+		layer: entity, solid, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 4700.000
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "barrel.metal.00"
+	}
+	z: -80.000
+}
+
+transform:
+{
+
+}

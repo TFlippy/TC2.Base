@@ -1,0 +1,74 @@
+$name: "Tired Pallet (Steel Ingot)"
+$desc:
+	'''
+	An old shipping pallet with a bunch of stacked rusty steel ingots on it.
+
+	For reasons unknown, they're stuck together, which may explain why no-one has stolen these yet.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.100
+	fall_damage_multiplier: 0.700
+
+	@shape.polygon:	
+	{
+		points: 
+		[
+			[1.125, 0.625]
+			[-1.125, 0.625]
+			[-0.500, -0.375]
+			[0.500, -0.375]
+		]
+		radius: 0.250
+		mass: 600.000
+		friction: 0.750
+		elasticity: 0.600
+		material: metal
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 20000.000
+}
+
+holdable:
+{
+	radius: 0.000
+	force_multiplier: 1.500
+	torque_multiplier: 2.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "pallet.ingot.steel.wreck.00"
+	}
+	z: 150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap"
+			quantity: 100.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 300.000
+		}
+	]
+}

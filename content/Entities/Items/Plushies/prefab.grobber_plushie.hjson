@@ -1,0 +1,56 @@
+$name: "Grobber Plushie"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.025, -0.300]
+		b: [0.050, 0.300]
+		mass: 22.000
+		friction: 0.950
+		elasticity: 0.880
+		radius: 0.450
+		layer: entity, solid, item, decoration, flammable
+		mask: world
+		material: leather
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "grobber_plushie"
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+
+}
+
+health:
+{
+	max: 800.000
+}
+
+packable:
+{
+
+}

@@ -1,0 +1,101 @@
+$name: "Vending Machine"
+$desc: 
+	'''
+	Elektron Imperial's solution to the high turnover rate of vendors in high-risk areas.
+	'''
+
+$tags: []
+
+body:
+{
+	type: dynamic
+	buoyancy: 0.300
+	
+	@shape.box:
+	{
+		size: [2.500, 3.000]
+		offset: [0.000, 0.500]
+		mass: 700.000
+		radius: 0.000
+		friction: 0.400
+		elasticity: 0.500
+		material: metal
+		layer: entity, solid, ignore_bullet, furniture
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9000.000
+}
+
+armor:
+{
+	toughness: 400.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "vending_machine.00"
+	}
+	offset: [0.000, 0.000]
+	z: -80.000
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	name: "Vending Machine"
+	tags: vending_machine
+
+	@light:
+	{
+		color: [0.600, 1.000, 0.900, 1.400]
+		offset: [0.500, 0.000]
+		scale: [28.000, 28.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+interactable:
+{
+	window_size: [600.000, 400.000]
+}
+
+lamp:
+{
+	flicker: 0.000
+	blink_frequency: 1.000
+	blink_amplitude: 0.500
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.500]
+		offset: [1.000, -1.500]
+		scale: [22.000, 22.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation
+	stress_multiplier: 0.500
+}

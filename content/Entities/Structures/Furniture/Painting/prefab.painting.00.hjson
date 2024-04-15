@@ -1,0 +1,44 @@
+$name: "Portrait"
+$desc: 
+	'''
+	Standard-issue portrait of Josefus Kordelsky IV., our wonderful Emperor, fit for every household.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.125, 2.750]
+		offset: [-0.0625, -0.0625]
+		mass: 25.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, ignore_melee, ignore_bullet, decoration, furniture
+		mask: world
+	}
+}
+
+health:
+{
+	max: 500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "painting.00"
+	}
+	z: -150.000
+	scale: [0.850, 0.850]
+}
+
+transform:
+{
+
+}
