@@ -1,0 +1,24 @@
+﻿{
+	name: "Motion"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: motion
+	
+	color_emit: [0.000, 1.000, 0.800, 1.500]
+	force_emit: 1100.000
+	heat_emit: 9.000
+	
+	sound_emit_loop: "essence.emit.motion.loop.00"
+	sound_drain_loop: "essence.drain.loop.00"
+	sound_collapse: "essence.drain.zap.01"
+	sound_zap: "essence.drain.zap.01"
+	sound_blast: "essence.blast.00"
+	sound_impulse: "essence.drain.zap.00"
+	
+	h_prefab_node: "essence_node.motion"
+	h_material_pellet: "pellet.motion"
+}

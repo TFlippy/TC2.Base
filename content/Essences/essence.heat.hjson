@@ -1,0 +1,24 @@
+﻿{
+	name: "Heat"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: heat
+	
+	color_emit: [0.944954, 0.338103, 0.000, 1.000]
+	force_emit: 850.000
+	heat_emit: 47.000
+	
+	sound_emit_loop: "essence.emit.heat.loop.00"
+	sound_drain_loop: "essence.drain.loop.00"
+	sound_collapse: "essence.collapse.heat.00"
+	sound_zap: "essence.drain.zap.01"
+	sound_blast: "essence.blast.00"
+	sound_impulse: "essence.drain.zap.00"
+	
+	h_prefab_node: "essence_node.heat"
+	h_material_pellet: "pellet.heat"
+}

@@ -1,0 +1,24 @@
+﻿{
+	name: "Radiance"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: radiance
+	
+	color_emit: [1.000, 0.967679, 0.779816, 1.500]
+	force_emit: 380.000
+	heat_emit: 28.000
+	
+	sound_emit_loop: "essence.emit.generic.loop.12"
+	sound_drain_loop: "essence.drain.loop.00"
+	sound_collapse: "essence.collapse.radiance.00"
+	sound_zap: "essence.drain.zap.01"
+	sound_blast: "essence.blast.00"
+	sound_impulse: "essence.drain.zap.00"
+	
+	h_prefab_node: "essence_node.radiance"
+	h_material_pellet: "pellet.radiance"
+}

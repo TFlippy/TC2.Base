@@ -1,0 +1,24 @@
+﻿{
+	name: "Failure"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: failure
+	
+	color_emit: [0.633028, 0.458, 0.371686, 0.994]
+	force_emit: -550.000
+	heat_emit: 7.000
+	
+	sound_emit_loop: "essence.emit.cognition.loop.00"
+	sound_drain_loop: "essence.drain.loop.00"
+	sound_collapse: "essence.collapse.failure.01"
+	sound_zap: "essence.collapse.failure.00"
+	sound_blast: "essence.blast.00"
+	sound_impulse: "essence.drain.zap.00"
+	
+	h_prefab_node: "essence_node.failure"
+	h_material_pellet: "pellet.failure"
+}
