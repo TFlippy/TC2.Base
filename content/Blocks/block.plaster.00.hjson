@@ -39,7 +39,7 @@
 	resources:
 	[
 		{
-			material: "stone"
+			material: "scrap.rubble"
 			quantity: 0.100
 		}
 		{

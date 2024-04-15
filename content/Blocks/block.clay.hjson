@@ -39,7 +39,8 @@
 	resources:
 	[
 		{
-		
+			material: "clay"
+			quantity: 0.100
 		}
 		{
 		

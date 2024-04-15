@@ -39,7 +39,7 @@
 	resources:
 	[
 		{
-			material: "stone"
+			material: "pjerdelite"
 			quantity: 0.750
 		}
 		{
