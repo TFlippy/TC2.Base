@@ -1,0 +1,22 @@
+{
+	name: "Granny"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: female
+	flags: hair
+	species: "giant"
+	character_flags: none
+	character_flags_exclude: none
+	
+	sprite:
+	{
+		texture: "giant.female.head.hair.gray"
+		mask: "giant.female.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [0, 0]
+	}
+}

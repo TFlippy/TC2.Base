@@ -1,0 +1,22 @@
+{
+	name: "Hoob"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: beard
+	species: "giant"
+	character_flags: none
+	character_flags_exclude: none
+	
+	sprite:
+	{
+		texture: "giant.male.head.beard.gray"
+		mask: "giant.male.head.beard.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [1, 0]
+	}
+}

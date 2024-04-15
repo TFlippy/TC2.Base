@@ -1,0 +1,22 @@
+{
+	name: "Potato"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: beard
+	character_flags: none
+	character_flags_exclude: none
+	species: "human"
+	
+	sprite:
+	{
+		texture: "human.male.head.beard.gray"
+		mask: "human.male.head.beard.gray.mask"
+		count: 1
+		size: [16, 16]
+		frame: [3, 0]
+	}
+}

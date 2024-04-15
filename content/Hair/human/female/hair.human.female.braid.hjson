@@ -1,0 +1,22 @@
+{
+	name: "Braid"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: female
+	flags: hair
+	character_flags: none
+	character_flags_exclude: none
+	species: "human"
+	
+	sprite:
+	{
+		texture: "human.female.head.hair.gray"
+		mask: "human.female.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [11, 0]
+	}
+}

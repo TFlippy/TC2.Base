@@ -1,0 +1,22 @@
+{
+	name: "Professor"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: hair
+	character_flags: scientist, medical, professional
+	character_flags_exclude: military, law, nobility, soldier, social
+	species: "human"
+	
+	sprite:
+	{
+		texture: "human.male.head.hair.gray"
+		mask: "human.male.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [17, 0]
+	}
+}

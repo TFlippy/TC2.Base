@@ -1,0 +1,22 @@
+﻿{
+	name: "Clean"
+	desc:
+		'''
+		TODO
+		'''
+	
+	flags: hair
+	gender: male
+	species: "human"
+	character_flags: none
+	character_flags_exclude: lowlife, feral, pest, junkie, lower_class
+	
+	sprite:
+	{
+		texture: "human.male.head.hair.gray"
+		mask: "human.male.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [5, 0]
+	}
+}

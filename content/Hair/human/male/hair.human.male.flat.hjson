@@ -1,0 +1,22 @@
+{
+	name: "Flat"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: hair
+	character_flags: none
+	character_flags_exclude: none
+	species: "human"
+	
+	sprite:
+	{
+		texture: "human.male.head.hair.gray"
+		mask: "human.male.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [6, 0]
+	}
+}

@@ -1,0 +1,22 @@
+{
+	name: "Fufu"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: hair
+	species: "kobold"
+	character_flags: none
+	character_flags_exclude: none
+	
+	sprite:
+	{
+		texture: "kobold.male.head.hair.gray"
+		mask: "kobold.male.head.hair.gray.mask"
+		count: 1
+		size: [24, 24]
+		frame: [7, 0]
+	}
+}

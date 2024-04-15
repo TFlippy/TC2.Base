@@ -1,0 +1,22 @@
+{
+	name: "None"
+	desc:
+		'''
+		TODO
+		'''
+	
+	gender: male
+	flags: beard
+	species: "kobold"
+	character_flags: none
+	character_flags_exclude: none
+	
+	sprite:
+	{
+		texture: "kobold.male.head.beard.gray"
+		mask: "kobold.male.head.beard.gray.mask"
+		count: 1
+		size: [16, 16]
+		frame: [0, 0]
+	}
+}
