@@ -1,0 +1,30 @@
+﻿{
+	name: "Smytec"
+	name_short: "Smytec"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "null"
+	size: 1.000
+	offset: [0.000, 0.000]
+	
+	color_border: "0xff1d69bf"
+	color_fill: "0xff1d69bf"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[-4, -12]
+		[-4, -10]
+		[-6, -8]
+		[-10, -6]
+		[-10, -10]
+		[-8, -12]
+	]
+	
+	roads: []
+}

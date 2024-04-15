@@ -1,0 +1,35 @@
+﻿{
+	name: "Spajcl"
+	name_short: "Spajcl"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "kapuca"
+	size: 1.000
+	offset: [0.000, 0.000]
+	
+	color_border: "0xff315111"
+	color_fill: "0xffd7ff33"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[49, -2]
+		[49, -3]
+		[50, -5]
+		[53, -6]
+		[55, -8]
+		[57, -7]
+		[56, -5]
+		[56, -4]
+		[54, -3]
+		[53, -2]
+		[50, -1]
+	]
+	
+	roads: []
+}

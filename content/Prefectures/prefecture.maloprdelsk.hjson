@@ -1,0 +1,39 @@
+﻿{
+	name: "Maloprdelsk"
+	name_short: "Maloprdelsk"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "spargl"
+	size: 1.000
+	offset: [0.000, -0.500]
+	
+	color_border: "0xff8f5200"
+	color_fill: "0xff8f5200"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[2, -10]
+		[6, -8]
+		[8, -4]
+		[6, -2]
+		[6, 2]
+		[2, -2]
+		[0, -2]
+		[-4, -4]
+		[-8, -4]
+		[-10, -6]
+		[-6, -8]
+		[-4, -10]
+		[-4, -12]
+		[0, -14]
+		[2, -12]
+	]
+	
+	roads: []
+}

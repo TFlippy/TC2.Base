@@ -1,0 +1,129 @@
+﻿{
+	name: "Samorepublik Nekordel"
+	name_short: "S.R.N."
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "krumpelsutr"
+	size: 1.000
+	offset: [2.625, 0.125]
+	
+	color_border: "0xffff0000"
+	color_fill: "0xffa60d0d"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[34, -6]
+		[32, -7]
+		[31, -9]
+		[38, -8]
+		[40, -6]
+	]
+	
+	roads:
+	[
+		{
+			type: road
+			speed_mult: 1.600
+			integrity: 0.650
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.02"
+			
+			points:
+			[
+				[35.62049, -8.3269]
+				[35.31601, -7.873238]
+				[34.23942, -7.454064]
+				[33.1771, -7.729892]
+				[32.25644, -8.200081]
+				[31.77031, -8.58678]
+				[31.37808, -9.045295]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[31.73052, -7.250372]
+				[32.38005, -7.156925]
+				[33.27499, -6.897284]
+				[34.09258, -6.521634]
+				[34.86252, -6.349533]
+				[35.63573, -6.393404]
+				[36.12812, -6.692903]
+				[36.34283, -7.07289]
+				[36.38284, -7.731337]
+				[36.39578, -8.220251]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[36.33178, -7.056317]
+				[35.93982, -7.524597]
+				[35.60389, -7.766784]
+				[34.63653, -8.240779]
+				[33.92559, -8.654841]
+			]
+		}
+		{
+			type: road
+			speed_mult: 1.450
+			integrity: 0.740
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.02"
+			
+			points:
+			[
+				[35.05112, -6.789859]
+				[34.62086, -7.236946]
+				[34.223, -7.461734]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[36.69534, -5.745976]
+				[36.47659, -6.426648]
+				[36.33178, -7.067366]
+			]
+		}
+	]
+}

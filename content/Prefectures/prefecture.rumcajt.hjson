@@ -1,0 +1,30 @@
+﻿{
+	name: "Rumcajt"
+	name_short: "Rumcajt"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "spargl"
+	size: 1.000
+	offset: [0.000, 0.000]
+	
+	color_border: "0xff9a2d00"
+	color_fill: "0xff9a2d00"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[14, 2]
+		[10, 4]
+		[6, 2]
+		[6, -2]
+		[8, -4]
+		[14, -2]
+	]
+	
+	roads: []
+}

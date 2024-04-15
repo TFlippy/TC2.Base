@@ -1,0 +1,39 @@
+﻿{
+	name: "Novokordelsk"
+	name_short: "Novokordelsk"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "kordelsk"
+	size: 1.000
+	offset: [0.000, 0.000]
+	
+	color_border: "0xffffb300"
+	color_fill: "0xffffb300"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[20, -156]
+		[-8, -150]
+		[-30, -148]
+		[-46, -166]
+		[-60, -186]
+		[-58, -206]
+		[66, -200]
+		[126, -140]
+		[114, -54]
+		[90, -60]
+		[80, -66]
+		[70, -76]
+		[46, -114]
+		[30, -118]
+		[24, -136]
+	]
+	
+	roads: []
+}

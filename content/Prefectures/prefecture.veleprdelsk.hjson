@@ -1,0 +1,286 @@
+﻿{
+	name: "Veleprdelsk"
+	name_short: "Veleprdelsk"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	h_governorate: "krumpelsutr"
+	size: 1.000
+	offset: [0.375, 1.250]
+	
+	color_border: "0xe2695900"
+	color_fill: "0xe2695900"
+	border_scale: 0.150
+	z: 0.250
+	h_texture_border: "worldmap.border.02"
+	
+	points:
+	[
+		[11, -13]
+		[6, -14]
+		[5, -15]
+		[4, -17]
+		[1, -19]
+		[2, -21]
+		[5, -20]
+		[8, -19]
+		[11, -19]
+		[14, -18]
+		[16, -19]
+		[17, -18]
+		[16, -17]
+		[15, -14]
+		[13, -12]
+	]
+	
+	roads:
+	[
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xffa3a183"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[14.52999, -13.58208]
+				[13.7435, -13.36127]
+				[13.21441, -13.08798]
+				[12.72222, -12.83017]
+				[12.27093, -12.51835]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 0.650
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[14.57264, -16.56297]
+				[15.00692, -17.2402]
+				[15.44368, -17.5857]
+				[16.05677, -17.76977]
+				[16.41496, -18.07686]
+				[16.61595, -18.51477]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.250
+			integrity: 0.800
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[11.20148, -17.30423]
+				[11.9074, -17.17764]
+				[12.73516, -16.91534]
+				[13.39141, -16.92315]
+				[14.13846, -16.8225]
+				[14.57798, -16.56566]
+				[14.56039, -15.78105]
+				[14.67984, -15.30055]
+				[14.84194, -14.68909]
+				[14.88882, -14.18127]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[6.11745, -15.85617]
+				[7.208461, -15.29272]
+				[7.495958, -14.86484]
+				[7.653899, -14.30739]
+				[7.611906, -13.74189]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xffa3a183"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[15.72026, -16.83978]
+				[16.25932, -17.22259]
+				[16.56401, -17.69134]
+				[16.76841, -18.20525]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[4.535576, -17.30582]
+				[3.597937, -17.84488]
+				[2.510908, -18.71092]
+				[1.696292, -19.63065]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xffa3a183"
+			scale: 0.250
+			z: 0.000
+			h_texture: "worldmap.railway.00"
+			
+			points:
+			[
+				[14.02545, -15.57118]
+				[13.17904, -14.89297]
+				[12.87157, -14.47444]
+				[12.61143, -13.87984]
+			]
+		}
+		{
+			type: road
+			speed_mult: 1.750
+			integrity: 0.620
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.02"
+			
+			points:
+			[
+				[14.89347, -14.18329]
+				[14.42788, -13.87659]
+				[13.70186, -13.07391]
+				[13.18165, -12.5428]
+				[12.67623, -12.16508]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[5.821166, -18.76522]
+				[5.2236, -18.46988]
+				[4.543913, -18.38394]
+				[2.671623, -18.6816]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[6.638952, -17.92906]
+				[7.456198, -17.33138]
+				[7.82816, -16.56333]
+				[7.54645, -15.85789]
+				[7.216274, -15.29272]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.150
+			integrity: 0.700
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[13.3185, -14.3607]
+				[13.74819, -14.88414]
+				[14.27861, -15.21651]
+				[14.67432, -15.30608]
+			]
+		}
+		{
+			type: road
+			speed_mult: 0.200
+			integrity: 1.000
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.01"
+			
+			points:
+			[
+				[12.53985, -15.2669]
+				[12.40566, -15.84391]
+				[12.47425, -16.50374]
+				[12.71173, -16.89971]
+			]
+		}
+		{
+			type: road
+			speed_mult: 1.500
+			integrity: 0.600
+			
+			color_border: "0xff868472"
+			scale: 0.1875
+			z: 0.000
+			h_texture: "worldmap.road.02"
+			
+			points:
+			[
+				[14.67432, -15.30608]
+				[15.07037, -15.36588]
+				[15.32632, -15.31409]
+			]
+		}
+	]
+}
