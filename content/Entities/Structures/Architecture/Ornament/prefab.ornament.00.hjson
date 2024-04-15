@@ -1,0 +1,67 @@
+$name: "Ornament (Imperial)"
+$desc:
+	'''
+	Ornate wall-mounted lamp.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.250, 0.000]
+		b: [4.000, 0.000]
+		mass: 100.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, decoration
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ornament.00"
+	}
+	offset: [2.250, -0.875]
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.100
+	
+	@light:
+	{
+		color: [1.000, 0.850, 0.000, 2.500]
+		offset: [3.000, 0.375]
+		scale: [40.000, 24.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+sound.emitter:
+{
+	file: "lamp_hum_loop_01"
+	volume: 0.150
+	size: 0.200
+	size_max_modifier: 0.700
+	pitch: 2.000
+}

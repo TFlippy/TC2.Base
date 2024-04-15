@@ -1,0 +1,46 @@
+$name: "Bracket (Metal)"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-1.625, -0.200]
+		b: [1.500, -0.200]
+
+		mass: 50.000
+		radius: 0.375
+		friction: 0.700
+		elasticity: 0.500
+		material: metal
+		layer: entity, solid, decoration, building, support, platform
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "architecture.00"
+		size: [32, 16]
+		frame: [0, 3]
+	}
+	z: 225.000
+}
+
+transform:
+{
+
+}

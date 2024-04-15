@@ -1,0 +1,70 @@
+$name: "HVAC Unit (Large)"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [1.750, 0.875]
+		offset: [0.000, 0.125]
+		mass: 100.000
+		radius: 0.375
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, decoration
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "architecture.00"
+		size: [32, 16]
+		frame: [0, 1]
+	}
+	offset: [-0.250, 0.000]
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+sound_emitter:
+{
+	file: "hvac.loop.00"
+	channel_type: world
+	flags: none
+	volume: 2.500
+	pitch: 1.250
+	size: 1.500
+	size_max_modifier: 0.450
+	spread: 90.000
+	mix_3d: 1.000
+	doppler: 1.000
+	priority: 0.300
+	offset: [0.000, 0.000]
+}
+
+vibrate:
+{
+	frequency: 40.000
+	modifier: 1.000
+	rotation_mult: 0.015
+	position_mult: [0.030, 0.050]
+}

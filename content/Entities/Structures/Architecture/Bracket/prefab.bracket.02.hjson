@@ -1,0 +1,51 @@
+$name: "Bracket (Metal)"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-0.875, -0.750]
+			[0.875, -0.750]
+			[-0.500, 0.750]
+			[-0.875, 0.750]
+		]
+
+		mass: 50.000
+		radius: 0.250
+		friction: 0.700
+		elasticity: 0.500
+		material: metal
+		layer: entity, solid, decoration, building, support, platform
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "architecture.00"
+		size: [16, 16]
+		frame: [2, 4]
+	}
+	z: 225.000
+}
+
+transform:
+{
+
+}

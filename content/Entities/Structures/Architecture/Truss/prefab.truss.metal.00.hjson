@@ -1,0 +1,64 @@
+$name: "Truss (Metal)"
+$desc:
+	'''
+	Metal framework for supporting structures.
+	Can be climbed.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
+		mass: 200.000
+		radius: 0.900
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, climbable, building, support, ignore_melee, decoration
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "truss.metal.00"
+	}
+	z: -290.000
+}
+
+transform:
+{
+
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "ladder.metal.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "ladder.metal.cap"
+	}
+	
+	flags: mirror_cap_b
+	
+	a: [0.000, 0.000]
+	b: [0.000, -5.000]
+	cap_offset: 0.375
+}

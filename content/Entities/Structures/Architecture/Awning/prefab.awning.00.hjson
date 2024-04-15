@@ -1,0 +1,50 @@
+$name: "Awning (Metal)"
+$desc:
+	'''
+	A smaller roof.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points: 
+		[
+			[-1.500, -0.625]
+			[0.750, -0.625]
+			[1.500, 0.625]
+			[-0.750, 0.625]
+		]
+		mass: 100.000
+		radius: 0.250
+		friction: 0.500
+		elasticity: 0.800
+		material: metal
+		layer: entity, solid, building
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "architecture.00"
+		size: [32, 16]
+		frame: [0, 2]
+	}
+	z: 250.000
+}
+
+transform:
+{
+
+}

@@ -1,0 +1,44 @@
+$name: "Ornament (Imperial)"
+$desc:
+	'''
+	Ornate wall-mounted banner.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.250, 0.000]
+		b: [4.000, 0.000]
+		mass: 100.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, decoration
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ornament.01"
+	}
+	offset: [2.250, 0.625]
+	z: -150.000
+}
+
+transform:
+{
+
+}
