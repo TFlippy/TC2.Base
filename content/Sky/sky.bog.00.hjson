@@ -1,0 +1,98 @@
+﻿{
+	color: "0xffb4667f"
+	
+	fog_scale_0: 1.024
+	fog_scale_1: 0.890
+	fog_scale_2: 0.311
+	fog_scale_3: 0.331
+	
+	fog_min: 0.350
+	fog_max: 1.000
+	
+	fog_speed: 0.700
+	
+	ambient:
+	[
+		"0xff100c2a"
+		"0xff331f27"
+		"0xff472c1b"
+		"0xff785951"
+		"0xffc1967e"
+		"0xfff8c293"
+		"0xfffff2e7"
+		"0xffffefdf"
+		"0xfff8e6cc"
+		"0xffd7b384"
+		"0xffa3824d"
+		"0xff412712"
+		"0xff171338"
+	]
+	
+	top:
+	[
+		"0xff05051d"
+		"0xff282031"
+		"0xff3a2a37"
+		"0xff4b4771"
+		"0xff7870b1"
+		"0xff8db6df"
+		"0xff98f4ff"
+		"0xff98f4ff"
+		"0xff87e2c6"
+		"0xff7aa2a8"
+		"0xff57385f"
+		"0xff2f182e"
+		"0xff152335"
+	]
+	
+	bottom:
+	[
+		"0xff3d222c"
+		"0xff533926"
+		"0xff90456f"
+		"0xffbd6046"
+		"0xffef7836"
+		"0xffef7836"
+		"0xffef7836"
+		"0xffef7836"
+		"0xffef7836"
+		"0xffd5641f"
+		"0xfff9a987"
+		"0xff7a423b"
+		"0xff291123"
+	]
+	
+	fog_fg:
+	[
+		"0x51ffffff"
+		"0x5dffffff"
+		"0x32ffffff"
+		"0x44c5af99"
+		"0x49dba773"
+		"0x42dd984c"
+		"0x42dd984c"
+		"0x42dd984c"
+		"0x6edba773"
+		"0x6edba773"
+		"0x19ffffff"
+		"0x36ffffff"
+		"0x65ffffff"
+	]
+	
+	fog_bg:
+	[
+		"0x2735325c"
+		"0x2049325c"
+		"0x1ca76547"
+		"0x22b37b58"
+		"0x17b88159"
+		"0x1b9d652e"
+		"0x1b9d652e"
+		"0x1b9d652e"
+		"0x18b46f11"
+		"0x15bc5b21"
+		"0x13895d0b"
+		"0x3b48325c"
+		"0x2835325c"
+	]
+}
