@@ -1,0 +1,690 @@
+$name: "Drevokocur"
+$desc: 
+	'''
+	A drevokocur with a troubled past, and nothing left to lose.
+	'''
+$export: false
+$tags: ["drevokocur"]
+
+body:
+{
+	fall_damage_multiplier: 0.500
+
+	@shape.circle:
+	{
+		offset: [-0.125, 0.125]
+		mass: 30.000
+		radius: 1.000
+		friction: 0.250
+		elasticity: 0.700
+		rigidity_static: 0.800
+		
+		material: flesh
+		layer: entity, solid, creature, flammable
+		mask: world, vehicle
+	}
+}
+
+organic:
+{
+	h_species: "drevokocur"
+}
+
+organic.state:
+{
+
+}
+
+health:
+{
+	max: 3800.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "drevokocur.body.front"
+		size: [24, 24]
+	}
+	offset: [0.500, -0.250]
+	z: -20.000
+	flags: has_damage
+}
+
+damage.effects:
+{
+	offset: 1
+	frame_count: 4
+	threshold_wreck: 0.200
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+facing:
+{
+	offset: -0.400
+	threshold: 0.500
+	flip_interval: 0.800
+}
+
+holdable:
+{
+
+}
+
+animal:
+{
+	attack_cooldown: 0.050
+
+	attack_distance_melee: 1.000
+	attack_cooldown_melee: 0.050
+
+	attack_distance_ranged: 5.000
+	attack_cooldown_ranged: 1.000
+
+	charge_distance: 6.000
+	retreat_distance: 2.500
+	growl_cooldown: 0.100
+}
+
+animal.state:
+{
+
+}
+
+npc:
+{
+	pain_modifier: 0.500
+	min_consciousness: 0.300
+	min_distance: [0.500, 0.000]
+	max_distance: [2.000, 2.000]
+	wander_radius: 12.000
+}
+
+npc.emotions:
+{
+	hostility: 1.100
+	courage: 1.200
+	cruelty: 2.500
+	irritability: 2.000
+	apathy: 0.400
+}
+
+npc.emotions.state:
+{
+
+}
+
+ai:
+{
+	stance: aggressive
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	type: attack
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
+}
+
+ai.search:
+{
+	radius: 16.000
+}
+
+pathfinding:
+{
+	flags: land
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
+}
+
+runner:
+{
+	walk_force: 12000.000
+	jump_force: 25000.000
+	max_speed: 18.000
+	max_jump_speed: 20.000
+	max_jump_time: 0.500
+	max_air_time: 0.500
+	max_grounded_dot: 0.900
+	propagate_ratio: 1.000
+	walk_lerp: 0.250
+	jump_decay: 0.600
+	crouch_speed_modifier: 0.500
+	air_brake_modifier: 0.000
+	no_rotate_air_mult: 0.020
+}
+
+runner.state:
+{
+	
+}
+
+threat:
+{
+	priority: 2.000
+}
+
+dive:
+{
+	sound: "drevokocur.pissed.00"
+	offset: [1.125, -0.125]
+	cooldown: 1.500
+	speed: 25.000
+}
+
+drevokocur:
+{
+	
+}
+
+norotate:
+{
+	rotation: 0.000
+	bias: 0.050
+	speed: 6.000
+	multiplier: 3.000
+	mass_multiplier: 50.000
+	flags: no_share
+}
+
+interactable:
+{
+	window_size: [192.000, 232.000]
+}
+
+legs:
+{
+	sound_interval_multiplier: 0.870
+	sound_volume: 0.250
+	sound_pitch: 0.870
+	frame_count: 5
+	fps: 12
+	frame_sitting: [0, 0]
+	frames_jump: [1, 1]
+	frame_air: 4
+}
+
+headbob:
+{
+	multiplier: [-0.150, -0.150]
+	speed: -11.000
+}
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 30.000
+			max: 50.000
+		}
+		{
+			material: "leather"
+			min: 10.000
+			max: 20.000
+		}
+		{
+			material: "tallow"
+			min: 12.000
+			max: 25.000
+		}
+	]
+}
+
+faction:
+{
+	id: "drevokocur"
+}
+
++slot_butt|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [-0.375, -0.625]
+		max_force: 25000.000
+		max_torque: 2500.000
+		flags: organic, control_write, facing_reset_pos, force_facing
+		max_stress: 2.000
+		stress_threshold: 2.010
+		material_type: flesh
+		z: 15.000
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [0, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -30.000
+		}
+	}
+	
+	joint_pivot:
+	{
+		error_bias: 0.010
+		max_bias: 10.000
+		stress_mult: 0.600
+	}
+	
+	joint_rotaryspring:
+	{
+		stiffness: 250.000
+		damping: 2.000
+		angle: 0.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 12000.000
+		max_bias: 6.000
+		min: -1.700
+		max: 1.700
+		error_bias: 0.080
+	}
+	
+	+butt|child:
+	{
+		$tags: []
+		
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 45.000
+				radius: 1.030
+				friction: 0.300
+				elasticity: 0.400
+				rigidity_static: 0.850
+				material: flesh
+				layer: entity, solid, creature, flammable
+				mask: world, vehicle
+			}
+		}
+		
+		norotate:
+		{
+			rotation: 0.000
+			bias: 0.010
+			speed: 4.000
+			multiplier: 6.000
+			mass_multiplier: 105.000
+			flags: none
+		}
+				
+		organic:
+		{
+			h_species: "drevokocur"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [1, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -39.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 4500.000
+		}
+		
+		holdable:
+		{
+			offset: [0.250, -0.700]
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "drevokocur.body.back"
+				count: 1
+				size: [24, 24]
+			}
+			offset: [-0.375, -0.125]
+			z: -40.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
+		}
+		
+		runner:
+		{
+			walk_force: 10000.000
+			jump_force: 8000.000
+			max_speed: 18.000
+			max_jump_speed: 20.000
+			max_jump_time: 0.050
+			max_air_time: 0.050
+			max_grounded_dot: 0.900
+			propagate_ratio: 1.000
+			walk_lerp: 0.250
+			jump_decay: 0.350
+			crouch_speed_modifier: 0.500
+			air_brake_modifier: 0.000
+			no_rotate_air_mult: 0.020
+		}
+
+		runner.state:
+		{
+			
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+
+		legs:
+		{
+			sound_interval_multiplier: 0.700
+			sound_volume: 0.250
+			sound_pitch: 0.780
+			frame_count: 5
+			fps: 12
+			frame_sitting: [0, 0]
+			frames_jump: [2, 2]
+			frame_air: 3
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 30.000
+					max: 50.000
+				}
+				{
+					material: "leather"
+					min: 5.000
+					max: 20.000
+				}
+			]
+		}
+	}
+}
+
++slot_head|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.250, -0.625]
+		max_force: 22000.000
+		max_torque: 2000.000
+		flags: organic, control_write, facing_reset_pos, force_facing
+		max_stress: 2.000
+		stress_threshold: 2.010
+		material_type: flesh
+		z: 15.000
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [3, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -25.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 10.000
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 400.000
+		damping: 20.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 8000.000
+		max_bias: 8.000
+		min: -1.000
+		max: 1.000
+	}
+	
+	+head|child:
+	{
+		$tags: []
+		
+		body:
+		{
+			fall_damage_multiplier: 0.500
+
+			@shape.circle:
+			{
+				offset: [0.000, -0.125]
+				mass: 15.000
+				radius: 0.650
+				friction: 0.400
+				elasticity: 0.350
+				material: flesh
+				layer: entity, solid, creature, flammable
+				mask: world, vehicle
+			}
+		}
+		
+		lookat:
+		{
+			head_modifier: 0.900
+			body_modifier: 0.000
+			deadzone: 0.350
+		}
+		
+		// biter:
+		// {
+		// 	sound: "drevokocur_attack"
+		// 	damage_base: 40.000
+		// 	damage_bonus: 140.000
+		// 	velocity: 45.000
+		// 	force: -270.000
+
+		// 	cooldown: 0.800
+		// 	max_distance: 2.200
+		// 	penetration: 1
+		// 	aoe: 0.450
+		// 	damage_type: bite
+		// 	hit_mask: destructible
+		// }
+
+		melee:
+		{
+			sound_swing: "tool_swing_00"
+			sound_volume: 0.800
+			sound_size: 1.000
+			sound_pitch: 0.600
+			hit_offset: [0.875, 0.375]
+			hit_direction: [1.000, 0.000]
+			swing_offset: [0.625, -0.875]
+			swing_rotation: 0.000
+			attack_type: thrust
+			damage_base: 350.000
+			damage_bonus: 500.000
+			primary_damage_multiplier: 1.300
+			secondary_damage_multiplier: 0.800
+			terrain_damage_multiplier: 0.500
+			pain_multiplier: 0.100
+			stun_multiplier: 0.100
+			disarm_chance: 0.150
+			cooldown: 0.260
+			max_distance: 0.500
+			aoe: 1.250
+			thickness: 1.250
+			knockback: -2650.000
+			yield: 0.800
+			penetration_falloff: 0.800
+			penetration: 3
+			damage_type: scratch
+			category: misc
+			flags: no_handle, no_material_filter
+			hit_mask: creature, organic
+			hit_require: destructible
+			hit_exclude: world, decoration, tree, essence, water, gas, ignore_melee
+		}
+
+		melee.state:
+		{
+
+		}
+		
+		organic:
+		{
+			tags: brain
+			h_species: "drevokocur"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [2, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -39.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 3000.000
+		}
+		
+		holdable:
+		{
+			offset: [-0.125, 0.125]
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "drevokocur.head"
+				count: 1
+				size: [16, 16]
+			}
+			z: -30.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
+		}
+				
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+			voice_pitch: 1.000
+
+			// sound_pain: "drevokocur.pain.01"
+			// sound_death: "drevokocur.death.00"
+
+			offset_mouth: [0.500, 0.150]
+
+			frame_pain: 1
+			frame_dead: 2
+		}
+		
+		control:
+		{
+			
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 10.000
+					max: 25.000
+				}
+				{
+					material: "leather"
+					min: 5.000
+					max: 15.000
+				}
+				{
+					material: "tallow"
+					min: 15.000
+					max: 30.000
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,807 @@
+$name: "Kobold"
+$desc: 
+	'''
+	A domestic kobold.
+	'''
+$export: false
+$tags: 
+[
+	"female"
+	"kobold"
+]
+
+body:
+{
+	inventory_weight_multiplier: 0.100
+	
+	fall_damage_multiplier: 1.300
+	buoyancy: 0.600
+
+	@shape.circle:
+	{
+		mass: 30.000
+		offset: [0.000, -0.125]
+		radius: 0.625
+		friction: 0.500
+		elasticity: 0.050
+		material: flesh
+		layer: entity, solid, creature, storage, flammable
+		mask: world
+	}
+}
+
+organic:
+{
+	h_species: "kobold"
+}
+
+organic.state:
+{
+
+}
+
+faction:
+{
+
+}
+
+health:
+{
+	max: 4500.000
+}
+
+kobold:
+{
+
+}
+
+regen:
+{
+	amount: 30.000
+	interval: 5.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "kobold.female.torso.shirt"
+		mask: "kobold.female.torso.shirt.mask"
+		size: [16, 16]
+	}
+	z: -40.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.800
+	intensity_b: 0.500
+}
+
+threat:
+{
+	priority: 7.000
+}
+
+climber:
+{
+	climb_force: 1500.000
+	cling_force: 3500.000
+
+	@shape.circle:
+	{
+		mass: 0.001
+		radius: 0.500
+		friction: 0.000
+		elasticity: 0.000
+		rigidity_dynamic: 0.000
+		rigidity_static: 0.000
+		layer: entity
+		mask: climbable
+		// flags: no_mass
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+torso:
+{
+
+}
+
+headbob:
+{
+	speed: 25.000
+	multiplier: [0.050, 0.100]
+}
+
+storage:
+{
+	@inventory8:
+	{
+		stack_size_multiplier: 1.500
+		filter_flags: soft, malleable, granular, small
+		type: personal
+		flags: public
+	}
+}
+
+holdable:
+{
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+worker:
+{
+
+}
+
+worker.state:
+{
+
+}
+
+facing:
+{
+	threshold: 0.300
+	offset: 0.000
+	flip_interval: 0.250
+}
+
+interactable:
+{
+	window_size: [288.000, 244.000]
+}
+
+equipment.slot:
+{
+	type: chest
+}
+
+norotate:
+{
+	bias: 0.030
+	multiplier: 1.000
+	speed: 5.000
+	mass_multiplier: 75.000
+}
+
+speechbubble:
+{
+
+}
+
+// claimable:
+// {
+// 	flags: none
+// }
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 40.000
+			max: 60.000
+		}
+	]
+}
+
+seat.attachable:
+{
+
+}
+
+ai:
+{
+	courage: 1000.000
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, evade, chase, charge
+}
+
+ai.search:
+{
+	radius: 32.000
+}
+
+ai.gunner:
+{
+	aim_min_dot: 0.950
+	aim_speed_mult: 1.900
+	aim_time_mult: 0.500
+
+	attack_distance: 32.000
+	cover_distance_offset: 28.000
+
+	attack_cooldown: 0.300
+	attack_burst_time: 1.000
+}
+
+ai.gunner.state:
+{
+
+}
+
+npc:
+{
+	pain_modifier: 0.450
+	min_consciousness: 0.300
+	avoid_distance: [1.000, 0.000]
+	idle_distance: [1.500, 1.500]
+
+	wander_interval: 10.000
+	wander_interval_extra: 8.000
+	wander_radius: 16.000
+}
+
+npc.emotions:
+{
+	hostility: 0.400
+	courage: 0.400
+	cruelty: 1.200
+	irritability: 0.600
+	apathy: 0.900
+}
+
+npc.emotions.state:
+{
+
+}
+
+pathfinding:
+{
+	flags: land
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
+}
+
++slot_head|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.125, -0.200]
+		max_force: 8000.000
+		max_torque: 1200000.000
+		max_stress: 1.700
+		stress_threshold: 1.400
+		stress_damp: 0.300
+		flags: organic, control_write, force_facing, facing_reset_pos
+		material_type: flesh
+		
+		max_displacement: 1.000
+		displacement_stress_modifier: 0.200
+		displacement_force_modifier: 1.400
+
+		z: 4.000
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [2, 0]
+			}
+			offset: [0.100, -0.400]
+			z: -39.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+		stress_mult: 0.500
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 100000.000
+		min: -0.500
+		max: 0.500
+		max_bias: 8.000
+		stress_mult: 0.500
+	}
+
+	joint.rotaryspring:
+	{
+		stiffness: 500.000
+		damping: 42.000
+	}
+	
+	+head|child:
+	{
+		$name: "Kobold (Head)"
+		$desc: 
+			'''
+			Domestic kobold head.
+			'''
+		$tags: 
+		[
+			"female"
+			"kobold"
+		]
+		
+		body:
+		{
+			fall_damage_multiplier: 1.200
+			buoyancy: 0.450
+
+			@shape.circle:
+			{
+				mass: 11.000
+				radius: 0.400
+				friction: 0.320
+				elasticity: 0.550
+				material: flesh
+				layer: entity, solid, creature, flammable
+				mask: world
+			}
+		}
+
+		animated.renderer|"hair":
+		{
+			sprite:
+			{
+				texture: "kobold.female.head.hair.gray"
+				count: 1
+				size: [24, 24]
+			}
+			z: -34.900
+		}
+		
+		organic:
+		{
+			tags: brain
+			h_species: "kobold"
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 3200.000
+		}
+
+		regen:
+		{
+			amount: 80.000
+			interval: 5.000
+		}
+		
+		holdable:
+		{
+			offset: [0.000, 0.350]
+		}
+		
+		equipment.slot:
+		{
+			type: head
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "kobold.female.head"
+				count: 1
+				size: [16, 16]
+			}
+			z: -35.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+			voice_pitch: 1.500
+
+			sound_pain: "human.pain.00"
+			sound_death: "human.death.00"
+
+			offset_mouth: [0.450, 0.400]
+
+			frame_pain: 1
+			frame_dead: 2
+		}
+		
+		human:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+		
+		emote:
+		{
+			voice_pitch: 1.500
+		}
+		
+		// norotate:
+		// {
+		// 	bias: 0.070
+		// 	multiplier: 1.000
+		// 	mass_multiplier: 60.000
+		// }
+		
+		lookat:
+		{
+			head_modifier: 0.500
+			body_modifier: 0.400
+			deadzone: 1.000
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 12.000
+					max: 18.000
+				}
+			]
+		}
+	}
+}
+
++slot_waist|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.250]
+		max_force: 12000.000
+		max_torque: 4000.000
+		max_stress: 1.500
+		stress_threshold: 1.400
+		stress_damp: 0.300
+		flags: organic, control_write, force_facing, facing_reset_pos
+		material_type: flesh
+
+		max_displacement: 0.400
+		displacement_stress_modifier: 0.500
+		displacement_force_modifier: 0.500
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "human.gore.stub"
+				size: [16, 16]
+				frame: [1, 0]
+			}
+			offset: [0.000, 0.500]
+			z: -38.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+	
+	joint.rotarylimit:
+	{
+		min: -0.850
+		max: 0.850
+		max_bias: 8.000
+		stress_mult: 0.200
+	}
+	
+	+waist|child:
+	{
+		$name: "Kobold (Waist)"
+		$desc:
+			'''
+			Domestic kobold waist.
+			'''
+		$tags: 
+		[
+			"female"
+			"kobold"
+		]
+		
+		transform:
+		{
+		
+		}
+		
+		body:
+		{
+			fall_damage_multiplier: 1.340
+			buoyancy: 0.300
+
+			@shape.circle:
+			{
+				mass: 38.000
+				radius: 0.500
+				friction: 0.800
+				elasticity: 0.280
+				material: flesh
+				layer: entity, solid, creature, flammable
+				mask: world
+			}
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "kobold.female.waist.pants"
+				size: [16, 8]
+			}
+			z: -50.000
+		}
+		
+		runner:
+		{
+			walk_force: 10000.000
+			jump_force: 28000.000
+			max_speed: 9.500
+
+			crouch_speed_modifier: 0.800
+			walk_lerp: 0.090
+		}
+
+		runner.state:
+		{
+			
+		}
+		
+		organic:
+		{
+			h_species: "kobold"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "human.gore.stub"
+					size: [16, 16]
+				}
+				z: -49.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 5000.000
+		}
+
+		regen:
+		{
+			amount: 60.000
+			interval: 5.000
+		}
+
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		legs:
+		{
+			sound_interval_multiplier: 0.820
+			sound_volume: 0.200
+			sound_pitch: 1.100
+
+			frame_sitting: [6, 0]
+			frames_jump: [5, 8]
+			frame_air: 8
+		}
+		
+		norotate:
+		{
+			bias: 0.030
+			multiplier: 1.000
+			speed: 8.000
+			mass_multiplier: 150.000
+		}
+		
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 60.000
+					max: 80.000
+				}
+			]
+		}
+	}
+}
+
++arm|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [-0.125, -0.175]
+		max_force: 14000.000
+		max_torque: 13500.000
+		max_stress: 2.000
+		stress_threshold: 1.200
+		stress_damp: 0.500
+		flags: control_write, facing_reset_pos, force_facing
+		z: 100.000
+	}
+	
+	// joint.pivot:
+	// {
+	// 	error_bias: 0.0005
+	// 	max_bias: 8.000
+	// }
+	
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 7.000
+		stiffness: 6300.000
+		damping: 190.000
+		axis_force: 27000.000
+		spring_max_bias: 3.400
+		max_distance: 0.300
+		stress_mult_axis: 0.900
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.0005
+		min: -2.000
+		max: 2.000
+		step: 24.000
+		max_bias: 6.000
+		stress_mult: 0.300
+	}
+	
+	interactor:
+	{
+	
+	}
+	
+	arm:
+	{
+		// flags: no_stress
+		aim_torque: 3900.000
+	}
+
+	drag:
+	{
+		max_force: 9500.000
+		max_distance: 2.250
+	}
+
+	puncher:
+	{
+		sound: "swish.00"
+		damage_base: 60.000
+		damage_bonus: 150.000
+
+		cooldown: 0.320
+		max_distance: 1.400
+		aoe: 0.250
+		damage_type: punch
+		hit_mask: destructible, world
+		knockback: 4.000
+		penetration: 0
+		force: 700.000
+
+		frame: [9, 0]
+		offset: [0.250, -0.125]
+	}
+}
+
++toolbelt|instance:
+{
+	$tags: []
+	
+	toolbelt:
+	{
+	
+	}
+}
+
++back|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.500, -0.250]
+		max_force: 18000.000
+		max_torque: 11000.000
+		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing
+		material_type: leather
+		max_stress: 1.500
+		stress_threshold: 1.410
+		z: -60.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.003
+		max_bias: 12.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 6.000
+		step: 14.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Back"
+		identifier: "back"
+
+		flags: use_center_of_gravity, keyboard_write, mouse_write
+		flags_editable: locked, disabled
+
+		gui_size: [192.000, 160.000]
+
+		tags_filter:
+		{
+			require: harness
+			include: tiny, small
+			exclude: none
+		}
+	}
+}
