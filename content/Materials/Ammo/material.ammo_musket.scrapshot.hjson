@@ -26,18 +26,16 @@
 	quantity_max: 50.000
 	prefab: "resource.ammo_musket.scrapshot"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 8
-		mass: 0.050
+		mass: 0.030
 		heat: 30.000
 		velocity_min: 5.000
 		
 		speed_base: 0.000
 		speed_mult: 0.700
-		spin_base: 0.000
+		spin_base: 0.740
 		spin_mult: 1.000
 		spread_mult: 4.500
 		recoil_mult: 1.200
@@ -45,7 +43,7 @@
 		failure_base: 0.050
 		failure_mult: 1.100
 		
-		stability_base: 150.000
+		stability_base: 95.000
 		stability_mult: 0.750
 		
 		prefab: "projectile.musket.scrapshot"

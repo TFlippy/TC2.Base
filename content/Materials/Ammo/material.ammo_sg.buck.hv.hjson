@@ -29,18 +29,16 @@
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.buck.hv"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 4
 		mass: 0.050
 		heat: 50.000
-		velocity_min: 80.000
+		velocity_min: 30.000
 		
 		speed_base: 0.000
 		speed_mult: 1.000
-		spin_base: 0.000
+		spin_base: 0.010
 		spin_mult: 1.000
 		spread_mult: 1.350
 		recoil_mult: 1.000

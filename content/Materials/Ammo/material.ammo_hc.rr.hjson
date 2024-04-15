@@ -29,8 +29,6 @@
 	quantity_max: 50.000
 	prefab: "resource.ammo_hc.rr"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
@@ -42,7 +40,7 @@
 		speed_mult: 0.900
 		spin_base: 0.000
 		spin_mult: 1.000
-		spread_mult: 1.100
+		spread_mult: 0.950
 		recoil_mult: 0.950
 		
 		failure_base: 0.002

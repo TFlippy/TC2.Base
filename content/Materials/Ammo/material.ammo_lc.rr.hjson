@@ -29,12 +29,10 @@
 	quantity_max: 60.000
 	prefab: "resource.ammo_lc.rr"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
-		mass: 0.006
+		mass: 0.004
 		heat: 3.500
 		velocity_min: 60.000
 		
@@ -42,7 +40,7 @@
 		speed_mult: 0.850
 		spin_base: 0.000
 		spin_mult: 1.000
-		spread_mult: 1.100
+		spread_mult: 0.950
 		recoil_mult: 0.800
 		
 		failure_base: 0.002

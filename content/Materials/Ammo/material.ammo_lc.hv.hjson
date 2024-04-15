@@ -29,20 +29,18 @@
 	quantity_max: 60.000
 	prefab: "resource.ammo_lc.hv"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
-		mass: 0.006
+		mass: 0.005
 		heat: 9.000
-		velocity_min: 80.000
+		velocity_min: 70.000
 		
 		speed_base: 0.000
 		speed_mult: 1.140
 		spin_base: 0.000
 		spin_mult: 1.000
-		spread_mult: 0.900
+		spread_mult: 0.750
 		recoil_mult: 1.120
 		
 		failure_base: 0.000

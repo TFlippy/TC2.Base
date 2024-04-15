@@ -29,20 +29,18 @@
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.bird.hv"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 7
 		mass: 0.050
 		heat: 50.000
-		velocity_min: 80.000
+		velocity_min: 30.000
 		
 		speed_base: 0.000
 		speed_mult: 1.200
-		spin_base: 0.000
+		spin_base: 0.010
 		spin_mult: 1.000
-		spread_mult: 2.500
+		spread_mult: 2.750
 		recoil_mult: 1.000
 		
 		failure_base: 0.000

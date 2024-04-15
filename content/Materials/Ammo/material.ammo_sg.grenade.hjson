@@ -28,8 +28,6 @@
 	quantity_max: 12.000
 	prefab: "resource.ammo_sg.grenade"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
@@ -39,13 +37,13 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.160
-		spin_base: 0.000
+		spin_base: 0.330
 		spin_mult: 1.000
-		spread_mult: 0.400
+		spread_mult: 1.650
 		recoil_mult: 1.400
 		
 		failure_base: 0.050
-		failure_mult: 1.300
+		failure_mult: 1.350
 		
 		stability_base: 650.000
 		stability_mult: 1.000

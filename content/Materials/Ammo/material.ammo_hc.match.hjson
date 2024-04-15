@@ -29,14 +29,12 @@
 	quantity_max: 50.000
 	prefab: "resource.ammo_hc.match"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
 		mass: 0.017
 		heat: 25.000
-		velocity_min: 80.000
+		velocity_min: 70.000
 		
 		speed_base: 0.000
 		speed_mult: 1.050

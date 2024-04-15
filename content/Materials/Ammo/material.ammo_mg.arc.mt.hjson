@@ -29,8 +29,6 @@
 	quantity_max: 50.000
 	prefab: "resource.ammo_mg.arc.mt"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
@@ -40,9 +38,9 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.200
-		spin_base: 2.000
+		spin_base: 2.190
 		spin_mult: 2.000
-		spread_mult: 4.500
+		spread_mult: 4.400
 		recoil_mult: 3.000
 		
 		failure_base: 0.008

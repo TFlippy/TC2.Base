@@ -26,8 +26,6 @@
 	quantity_max: 50.000
 	prefab: "resource.ammo_musket"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
@@ -37,7 +35,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 1.000
-		spin_base: 0.000
+		spin_base: 0.030
 		spin_mult: 1.000
 		spread_mult: 0.800
 		recoil_mult: 1.200

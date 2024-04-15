@@ -29,18 +29,16 @@
 	quantity_max: 24.000
 	prefab: "resource.ammo_sg.slug"
 	
-	scrap: []
-	
 	ammo:
 	{
 		count: 1
 		mass: 0.070
 		heat: 50.000
-		velocity_min: 80.000
+		velocity_min: 50.000
 		
 		speed_base: 0.000
 		speed_mult: 0.450
-		spin_base: 0.000
+		spin_base: 0.020
 		spin_mult: 1.000
 		spread_mult: 0.500
 		recoil_mult: 1.300

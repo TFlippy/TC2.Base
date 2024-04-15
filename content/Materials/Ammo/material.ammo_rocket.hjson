@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Rocket Ammo (Standard)"
 	description:
 		'''
@@ -9,18 +10,18 @@
 	{
 		texture: "resource.ammo_rocket"
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	type: metal
-	flags: manufactured, ammo, ammo_rocket, magnetic, explosive
+	flags: ammo, ammo_rocket, magnetic, explosive, manufactured
+	hints: none
+	// kg
 	mass_per_unit: 3.000
 	quantity_max: 4.000
 	prefab: "resource.ammo_rocket"
@@ -36,7 +37,7 @@
 		speed_mult: 1.000
 		spin_base: 0.100
 		spin_mult: 3.000
-		spread_mult: 5.000
+		spread_mult: 3.500
 		recoil_mult: 1.000
 		
 		failure_base: 0.000
