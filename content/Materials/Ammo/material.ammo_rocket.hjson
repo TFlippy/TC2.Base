@@ -19,7 +19,7 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_rocket, magnetic, explosive, manufactured
+	flags: ammo, ammo_rocket, hard, magnetic, explosive, metal, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 3.000

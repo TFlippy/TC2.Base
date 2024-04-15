@@ -19,7 +19,7 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_musket, magnetic, granular, manufactured
+	flags: ammo, ammo_musket, magnetic, granular, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.070

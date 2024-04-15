@@ -17,8 +17,8 @@
 		texture: "missing"
 	}
 	
-	type: metal
-	flags: ammo, ammo_grapple, magnetic, manufactured
+	type: metal_pole
+	flags: ammo, ammo_grapple, long, magnetic, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 5.000

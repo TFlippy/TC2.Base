@@ -18,8 +18,8 @@
 		texture: "missing"
 	}
 	
-	type: metal
-	flags: ammo, ammo_arrow, manufactured, flammable
+	type: wood
+	flags: ammo, ammo_arrow, soft, small, manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.040

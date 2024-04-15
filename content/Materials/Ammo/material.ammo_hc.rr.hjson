@@ -22,11 +22,11 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_hc, magnetic, granular, manufactured
+	flags: ammo, ammo_hc, magnetic, granular, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.022
-	quantity_max: 50.000
+	quantity_max: 80.000
 	prefab: "resource.ammo_hc.rr"
 	
 	ammo:

@@ -20,8 +20,8 @@
 		frame: [11, 0]
 	}
 	
-	type: metal
-	flags: ammo, ammo_musket, magnetic, granular, manufactured
+	type: metal_solid
+	flags: ammo, ammo_musket, magnetic, granular, explosive, small, fragile, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.150

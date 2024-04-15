@@ -19,7 +19,7 @@
 		frame: [10, 0]
 	}
 	
-	type: metal
+	type: metal_solid
 	flags: ammo, ammo_shell, magnetic, manufactured
 	hints: none
 	// kg

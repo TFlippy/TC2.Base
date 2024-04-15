@@ -20,7 +20,7 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_shell, magnetic, explosive, manufactured
+	flags: ammo, ammo_shell, magnetic, explosive, fragile, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 7.000

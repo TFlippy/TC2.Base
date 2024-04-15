@@ -21,7 +21,7 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_sg, granular, explosive, manufactured
+	flags: ammo, ammo_sg, granular, explosive, small, fragile, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.150

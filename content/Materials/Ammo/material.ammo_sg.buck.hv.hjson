@@ -21,8 +21,8 @@
 		frame: [1, 0]
 	}
 	
-	type: metal
-	flags: ammo, ammo_sg, granular, manufactured
+	type: wax
+	flags: ammo, ammo_sg, granular, small, manufactured
 	hints: none
 	// kg
 	mass_per_unit: 0.100
