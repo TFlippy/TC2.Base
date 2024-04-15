@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Sulfur Dioxide"
 	description:
 		'''
@@ -15,12 +16,10 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: gas
-	flags: none
+	flags: gas, toxic, chemical
 	hints: none
 	// kg
 	mass_per_unit: 0.050
@@ -29,7 +28,33 @@
 	
 	commodity:
 	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: none
 		categories: chemicals, waste, dangerous, industrial, military
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
 		
 		market_price: 6.000
 		market_price_min: 0.000
@@ -43,13 +68,13 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (atomic mass for elements)
+		// Molar mass in kg/mol (for elements, use atomic mass)
 		molar_mass: 0.064066
-		// kg/m3
+		// kg/m³
 		density: 2.279
-		// J/(kg*K)
+		// kJ/(kg*K)
 		specific_heat: 622.000
-		// W/(m*K)
+		// kW/(m*K)
 		thermal_conductivity: 0.204
 		// K
 		melting_point: 201.100

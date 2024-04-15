@@ -20,7 +20,7 @@
 		texture: "missing"
 	}
 	
-	type: metal_pole
+	type: metal_solid
 	flags: magnetic, metal, intermediate, billet
 	hints: none
 	// kg
@@ -66,8 +66,6 @@
 		quantity_wholesale: 50.000
 		quantity_industry: 400.000
 	}
-	
-	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

@@ -21,7 +21,7 @@
 	}
 	
 	type: metal_sheet
-	flags: magnetic, metal, intermediate, plate
+	flags: magnetic, metal, intermediate, manufactured, plate
 	hints: none
 	// kg
 	mass_per_unit: 1.000
@@ -66,8 +66,6 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

@@ -19,7 +19,7 @@
 	}
 	
 	type: fabric
-	flags: manufactured, flammable
+	flags: soft, malleable, intermediate, manufactured, flammable
 	hints: none
 	// kg
 	mass_per_unit: 0.400
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

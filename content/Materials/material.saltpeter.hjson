@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: stone
+	type: chalk
 	flags: granular, mineral, raw, powder
 	hints: none
 	// kg
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

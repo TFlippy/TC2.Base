@@ -19,7 +19,7 @@
 	}
 	
 	type: chitin
-	flags: granular, organic, raw
+	flags: hard, granular, organic, raw
 	hints: none
 	// kg
 	mass_per_unit: 0.500
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

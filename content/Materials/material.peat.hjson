@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: soil
+	type: peat
 	flags: granular, organic, raw, fuel, flammable
 	hints: none
 	// kg
@@ -116,6 +116,4 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
-	
-	scrap: []
 }

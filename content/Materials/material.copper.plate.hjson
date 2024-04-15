@@ -19,7 +19,7 @@
 	}
 	
 	type: metal_sheet
-	flags: metal, manufactured
+	flags: metal, intermediate, manufactured, plate
 	hints: none
 	// kg
 	mass_per_unit: 1.148
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

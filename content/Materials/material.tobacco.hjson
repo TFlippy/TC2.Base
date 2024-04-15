@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: powder
+	type: peat
 	flags: granular, organic, small, raw, powder, flammable
 	hints: none
 	// kg
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

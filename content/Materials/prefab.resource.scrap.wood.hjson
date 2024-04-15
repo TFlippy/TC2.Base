@@ -7,8 +7,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.300
+		friction: 0.890
+		elasticity: 0.150
 		material: wood
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Limelight"
 	description:
 		'''
@@ -17,11 +18,9 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
-	type: metal
+	type: chalk
 	flags: hard, magnetic, granular, essence, metal, intermediate, heavy, small, corrosive, fragile, manufactured
 	hints: none
 	// kg
@@ -67,6 +66,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

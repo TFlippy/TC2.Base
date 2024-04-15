@@ -19,7 +19,7 @@
 	}
 	
 	type: gas
-	flags: gas, flammable
+	flags: gas
 	hints: none
 	// kg
 	mass_per_unit: 0.01225
@@ -64,8 +64,6 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:

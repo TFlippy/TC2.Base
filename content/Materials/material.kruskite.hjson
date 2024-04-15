@@ -25,6 +25,4 @@
 	mass_per_unit: 0.900
 	quantity_max: 500.000
 	prefab: "resource.kruskite"
-	
-	scrap: []
 }

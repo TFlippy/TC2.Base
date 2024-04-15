@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: liquid
+	type: slime
 	flags: sticky, liquid, explosive, intermediate, chemical, bottled, fragile, manufactured, flammable
 	hints: none
 	// kg
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

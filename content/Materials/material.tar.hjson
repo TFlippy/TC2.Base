@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: soil
+	type: tar
 	flags: soft, malleable, sticky, toxic, intermediate, raw, flammable
 	hints: none
 	// kg
@@ -64,6 +64,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	scrap: []
 }

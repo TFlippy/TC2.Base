@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: liquid
+	type: slime
 	flags: soft, malleable, sticky, food, magnetic, organic, bottled, manufactured
 	hints: none
 	// kg
@@ -64,6 +64,4 @@
 		quantity_wholesale: 50.000
 		quantity_industry: 400.000
 	}
-	
-	scrap: []
 }
