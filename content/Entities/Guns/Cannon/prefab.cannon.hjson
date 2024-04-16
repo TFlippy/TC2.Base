@@ -34,7 +34,7 @@ gun:
 	velocity_multiplier: 220.000
 	jitter_multiplier: 0.350
 	damage_multiplier: 70.000
-	recoil_multiplier: 1.500
+	recoil_multiplier: 1.200
 	reload_interval: 5.000
 	cycle_interval: 1.500
 	failure_rate: 0.000
@@ -108,8 +108,8 @@ attachment:
 {
 	offset: [-1.875, 0.000]
 
-	force_multiplier: 5.000
-	torque_multiplier: 1.000
+	force_multiplier: 15.000
+	torque_multiplier: 3.000
 }
 
 animated.renderer:

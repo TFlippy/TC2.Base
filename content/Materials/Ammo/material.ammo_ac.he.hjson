@@ -47,9 +47,9 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.150
-		spin_base: 0.100
+		spin_base: 0.400
 		spin_mult: 1.000
-		spread_mult: 2.500
+		spread_mult: 4.500
 		recoil_mult: 1.000
 		
 		failure_base: 0.002

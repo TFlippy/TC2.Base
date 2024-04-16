@@ -39,9 +39,9 @@ gun:
 	cycle_interval: 0.330
 	failure_rate: 0.002
 	max_ammo: 12.000
-	sound_volume: 2.500
-	sound_size: 2.500
-	sound_dist_multiplier: 2.000
+	sound_volume: 1.000
+	sound_size: 5.000
+	sound_dist_multiplier: 3.000
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
 	ammo_filter: ammo_ac

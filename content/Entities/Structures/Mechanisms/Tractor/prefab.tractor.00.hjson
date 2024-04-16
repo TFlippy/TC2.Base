@@ -166,7 +166,7 @@ norotate:
 {
 	multiplier: 0.400
 	bias: 0.200
-	mass_multiplier: 90.000
+	mass_multiplier: 250.000
 }
 
 interactable:
