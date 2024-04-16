@@ -19,7 +19,10 @@
 	}
 	
 	type: scrap
-	flags: magnetic, metal, intermediate, manufactured
+	// Flags defining properties of the raw material.
+	flags: magnetic, granular, metal, raw, waste
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.560
@@ -64,6 +67,4 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
-	
-	scrap: []
 }

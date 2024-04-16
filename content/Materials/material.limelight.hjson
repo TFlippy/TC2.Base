@@ -21,7 +21,10 @@
 	}
 	
 	type: chalk
-	flags: hard, magnetic, granular, essence, metal, intermediate, heavy, small, corrosive, fragile, manufactured
+	// Flags defining properties of the raw material.
+	flags: hard, magnetic, granular, essence, metal, intermediate, heavy, small, corrosive, fragile, manufactured, device
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.450

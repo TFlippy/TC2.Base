@@ -27,7 +27,10 @@
 	}
 	
 	type: metal
+	// Flags defining properties of the raw material.
 	flags: ammo, ammo_ac, magnetic, small, manufactured
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.950

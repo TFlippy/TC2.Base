@@ -127,8 +127,7 @@ storage:
 	{
 		stack_size_multiplier: 4.000
 		type: ammo
-		flags: standalone, allow_ducts
-		layout: vertical
+		flags: standalone, allow_ducts, vertical
 		offset: [-1.000, 0.375]
 	}
 }

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.4"
 	name: "Magitronic Scrap"
 	description:
 		'''
@@ -15,12 +16,13 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: scrap
-	flags: manufactured, magnetic, granular, essence, metal, intermediate
+	// Flags defining properties of the raw material.
+	flags: magnetic, granular, essence, metal, raw, manufactured, waste, device
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: materials, junk, advanced, construction, expensive
 	// kg
 	mass_per_unit: 0.560
@@ -65,6 +67,4 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
-	
-	scrap: []
 }

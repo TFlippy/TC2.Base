@@ -92,18 +92,18 @@ claimer:
 
 interactable:
 {
-	window_size: [624.000, 384.000]
-	window_size_misc: [262.000, 0.000]
+	window_size: [624.000, 448.000]
+	window_size_misc: [218.000, 0.000]
 }
 
-depot:
-{
-	offset: [1.000, 1.000]
-	size: [4.000, 3.000]
-	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
+// depot:
+// {
+// 	offset: [1.000, 1.000]
+// 	size: [4.000, 3.000]
+// 	flags: allow_withdraw, allow_deposit, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
 
-	shipping_fee_base: 13.000
-}
+// 	shipping_fee_base: 13.000
+// }
 
 minimap.marker:
 {
@@ -120,11 +120,10 @@ armory:
 {
 	@inventory4:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 4.000
 		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass, public, faction
+		flags: ignore_mass, public, faction, vertical
 	}
 }
 

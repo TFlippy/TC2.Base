@@ -19,12 +19,13 @@
 	}
 	
 	type: cermet
-	flags: granular, manufactured
+	// Flags defining properties of the raw material.
+	flags: hard, granular, heavy, raw, waste
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.800
 	quantity_max: 500.000
 	prefab: "resource.slag.rich"
-	
-	scrap: []
 }
