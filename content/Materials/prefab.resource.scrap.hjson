@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.040
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]

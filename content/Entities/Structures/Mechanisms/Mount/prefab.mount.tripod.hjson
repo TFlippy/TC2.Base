@@ -23,7 +23,7 @@ body:
 		friction: 1.000
 		elasticity: 0.300
 		radius: 0.500
-		material: wire
+		material: metal_frame
 		layer: entity, solid, ignore_bullet
 		mask: world
 	}
@@ -149,7 +149,7 @@ sticky:
 	joint.base:
 	{
 		offset_a: [0.000, -0.750]
-		max_force: 30000.000
+		max_force: 75000.000
 		max_torque: 30000.000
 		max_stress: 2.000
 		stress_threshold: 2.010
