@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || overheat.flags.HasNone(Overheat.Flags.Overheated)))
 			{
 				if (info.WorldTime >= drill.next_hit)
 				{

@@ -128,10 +128,6 @@ namespace TC2.Base.Components
 			if (runner_state.flags.HasAny(Runner.State.Flags.Climbing))
 			{
 				runner_state.last_climb = info.WorldTime;
-			}
-
-			if (runner_state.flags.HasAll(Runner.State.Flags.Climbing))
-			{
 				runner_state.last_wallclimb_force = climber.last_force;
 			}
 		}
@@ -353,7 +349,7 @@ namespace TC2.Base.Components
 			runner_state.jump_force_current *= runner.jump_decay;
 
 			runner_state.flags.SetFlag(Runner.State.Flags.Crouching, can_move && control.keyboard.GetKey(Keyboard.Key.MoveDown) && (time - runner_state.last_ground) <= 0.25f);
-			if (runner_state.flags.HasAll(Runner.State.Flags.Crouching))
+			if (runner_state.flags.HasAny(Runner.State.Flags.Crouching))
 			{
 				runner_state.jump_force_current *= 0.50f;
 				max_speed.X *= runner.crouch_speed_modifier;
@@ -366,7 +362,7 @@ namespace TC2.Base.Components
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 				required_force_dir.Y = 0.00f;
 
-				if (!runner_state.flags.HasAll(Runner.State.Flags.Grounded))
+				if (runner_state.flags.HasNone(Runner.State.Flags.Grounded))
 				{
 					required_force_dir.X *= runner.air_brake_modifier;
 				}

@@ -34,7 +34,7 @@ namespace TC2.Base.Components
 		public static void Update(ISystem.Info info, ref XorRandom random, Entity entity,
 		[Source.Owned] ref Control.Data control, [Source.Owned] ref RandomActivation.Data random_activation)
 		{
-			if (random_activation.flags.HasAll(RandomActivation.Flags.Active))
+			if (random_activation.flags.HasAny(RandomActivation.Flags.Active))
 			{
 				control.mouse.SetKeyPressed(Mouse.Key.Left, true);
 				control.keyboard.SetKeyPressed(Keyboard.Key.Spacebar, true);

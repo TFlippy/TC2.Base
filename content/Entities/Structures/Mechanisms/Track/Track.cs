@@ -215,7 +215,7 @@
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Track.Data track, [Source.Owned] in Track.State track_state, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new TrackGUI()
 				{

@@ -670,7 +670,7 @@ namespace TC2.Base.Components
 		public static void OnGUI(Entity entity, [Source.Owned] in Levitator.Data levitator, [Source.Owned] in Levitator.State levitator_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new LevitatorGUI()
 				{

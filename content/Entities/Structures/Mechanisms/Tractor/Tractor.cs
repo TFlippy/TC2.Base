@@ -71,7 +71,7 @@ namespace TC2.Base.Components
 		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] ref Tractor.State tractor_state, 
 		[Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
 		{
-			if (wheel_slot.flags.HasAll(Wheel.Flags.Has_Wheel))
+			if (wheel_slot.flags.HasAny(Wheel.Flags.Has_Wheel))
 			{
 				joint.speed = tractor_state.current_motor_speed;
 				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
@@ -246,7 +246,7 @@ namespace TC2.Base.Components
 //		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		public static void OnGUI(Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Tractor.Data tractor, [Source.Owned] in Interactable.Data interactable)
 //		{
-//			if (interactable.show)
+//			if (interactable.IsActive())
 //			{
 //				var gui = new TractorGUI()
 //				{

@@ -168,7 +168,7 @@
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in Control.Data control, [Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new ControllableGUI()
 				{

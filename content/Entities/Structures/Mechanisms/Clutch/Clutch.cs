@@ -125,7 +125,7 @@ namespace TC2.Base.Components
 		public static void OnGUI(Entity entity, [Source.Owned] in Clutch.Data clutch,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] in Axle.State axle_state, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new ClutchGUI()
 				{

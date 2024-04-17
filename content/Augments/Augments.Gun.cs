@@ -322,7 +322,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (!data.flags.HasAll(Gun.Flags.Automatic))
+					if (data.flags.HasNone(Gun.Flags.Automatic))
 					{
 						switch (data.action)
 						{
@@ -367,7 +367,7 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					if (data.flags.HasAll(Gun.Flags.Automatic))
+					if (data.flags.HasAny(Gun.Flags.Automatic))
 					{
 						switch (data.action)
 						{

@@ -63,7 +63,7 @@ namespace TC2.Base.Components
 				overheat.flags |= Overheat.Flags.Overheated;
 			}
 
-			if (overheat.flags.HasAll(Overheat.Flags.Overheated))
+			if (overheat.flags.HasAny(Overheat.Flags.Overheated))
 			{
 				if (overheat.heat_current <= overheat.heat_medium)
 				{

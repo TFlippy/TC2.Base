@@ -58,7 +58,7 @@
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
 		public static void UpdateJoints([Source.Shared] in Torso.Data torso, [Source.Owned] ref Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				if (torso.flags.HasAny(Torso.Flags.Crouching))
 				{
@@ -71,11 +71,11 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateJoints([Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, [Source.Parent] ref Torso.Data torso, [Source.Parent] in Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				torso.air_time = runner_state.air_time;
 
-				if (runner_state.flags.HasAll(Runner.State.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
+				if (runner_state.flags.HasAny(Runner.State.Flags.Crouching)) torso.flags |= Torso.Flags.Crouching;
 				else torso.flags &= ~Torso.Flags.Crouching;
 			}
 		}

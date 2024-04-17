@@ -437,7 +437,7 @@
 		[Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new RefineryGUI()
 				{

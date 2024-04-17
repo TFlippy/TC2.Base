@@ -325,7 +325,7 @@
 		[Source.Owned] in Axle.Data axle, [Source.Owned] in Axle.State axle_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new PressGUI()
 				{

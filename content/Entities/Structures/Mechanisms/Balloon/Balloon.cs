@@ -168,7 +168,7 @@
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, [Source.Owned] in Transform.Data transform, [Source.Parent] in Interactable.Data interactable,
 		[Source.Parent] in Burner.Data burner, [Source.Parent] in Burner.State burner_state)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new BalloonGUI()
 				{

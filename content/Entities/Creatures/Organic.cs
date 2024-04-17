@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
-			if (organic_original.tags.HasAll(Organic.Tags.Brain))
+			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
 				var p = (MathF.Pow(Maths.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
@@ -39,7 +39,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
 		[Source.Parent] in Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				organic_state_child.consciousness_shared_new = Maths.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
 				organic_state_child.motorics_shared_new = Maths.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
@@ -56,7 +56,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
 		[Source.Parent] in Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
 				organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
@@ -96,7 +96,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint([Source.Shared] in Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				var modifier = Maths.Lerp01(organic_state.efficiency * organic_state.efficiency, organic_state.consciousness_shared * 1.50f, 0.50f) * (1.00f - organic_state.stun_norm);
 				joint.torque_modifier = modifier;
@@ -200,7 +200,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint1A(ISystem.Info info, [Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
-			if (joint.flags.HasAll(Joint.Flags.Organic))
+			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				//joint.torque_modifier = organic.consciousness;
 

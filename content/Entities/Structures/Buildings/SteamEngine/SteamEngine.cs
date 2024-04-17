@@ -378,7 +378,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] in Axle.State wheel_state, [Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new SteamEngineGUI()
 				{

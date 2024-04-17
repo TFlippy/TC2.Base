@@ -148,7 +148,7 @@
 		[Source.Owned] in Crane.Data crane, [Source.Owned] in Crane.State crane_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new CraneGUI()
 				{

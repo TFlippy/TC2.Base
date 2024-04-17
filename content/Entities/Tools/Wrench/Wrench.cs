@@ -756,7 +756,7 @@ namespace TC2.Base.Components
 		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new WrenchGUI()
 				{
@@ -773,7 +773,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
 		{
-			if (interactable.show && wrench.selected_component_id == ECS.GetID<T>())
+			if (interactable.IsActive() && wrench.selected_component_id == ECS.GetID<T>())
 			{
 				var gui = new WrenchModeGUI<T>()
 				{

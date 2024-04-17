@@ -257,7 +257,7 @@
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state, [Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.show)
+			if (interactable.IsActive())
 			{
 				var gui = new SawMillGUI()
 				{

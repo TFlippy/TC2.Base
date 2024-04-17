@@ -92,13 +92,13 @@ namespace TC2.Base.Components
 		{
 			var is_same_faction = faction.id == 0 || (data.faction_id == faction.id);
 
-			if (door.flags.HasAll(Door.Flags.Lockable) && data.control.keyboard.GetKey(Keyboard.Key.LeftShift))
+			if (door.flags.HasAny(Door.Flags.Lockable) && data.control.keyboard.GetKey(Keyboard.Key.LeftShift))
 			{
-				if (!door.flags.HasAll(Door.Flags.Open) && is_same_faction)
+				if (door.flags.HasNone(Door.Flags.Open) && is_same_faction)
 				{
 					door.flags ^= Door.Flags.Locked;
 
-					if (door.flags.HasAll(Door.Flags.Locked))
+					if (door.flags.HasAny(Door.Flags.Locked))
 					{
 						Sound.Play(ref region, door.sound_lock, transform.position, volume: 0.70f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.70f);
 						WorldNotification.Push(ref region, "* Locks *", 0xffffda00, transform.position);
@@ -124,7 +124,7 @@ namespace TC2.Base.Components
 					var stuck = false;
 					door.last_use_time = info.WorldTime;
 
-					if (door.flags.HasAll(Door.Flags.Open))
+					if (door.flags.HasAny(Door.Flags.Open))
 					{
 						var mask = shape.GetCombinedMask(); 
 						mask.SetFlag(Physics.Layer.Solid, true);
@@ -158,15 +158,15 @@ namespace TC2.Base.Components
 					{
 						door.flags ^= Door.Flags.Open;
 
-						if (door.flags.HasAll(Door.Flags.Open))
+						if (door.flags.HasAny(Door.Flags.Open))
 						{
-							shape.mask.SetFlag(Physics.Layer.Solid, false);
-							shape.layer.SetFlag(Physics.Layer.Solid, false);
+							shape.mask.RemoveFlag(Physics.Layer.Solid);
+							shape.layer.RemoveFlag(Physics.Layer.Solid);
 
 							var delta = (data.control.mouse.position - transform.position);
 							var sign = 1.00f;
 
-							if (door.flags.HasAll(Door.Flags.Bidirectional))
+							if (door.flags.HasAny(Door.Flags.Bidirectional))
 							{
 								sign = (float)((door.direction == Direction.Horizontal ? delta.X : delta.Y) < Maths.epsilon ? -1.00f : 1.00f);
 							}
@@ -184,8 +184,8 @@ namespace TC2.Base.Components
 						}
 						else
 						{
-							shape.mask.SetFlag(Physics.Layer.Solid, true);
-							shape.layer.SetFlag(Physics.Layer.Solid, true);
+							shape.mask.AddFlag(Physics.Layer.Solid);
+							shape.layer.AddFlag(Physics.Layer.Solid);
 
 							shape.size = door.size_closed;
 							shape.offset = door.offset_closed;

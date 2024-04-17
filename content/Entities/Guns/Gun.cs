@@ -758,7 +758,7 @@
 					gun_state.Sync(entity, true);
 #endif
 				}
-				else if (!gun.flags.HasAll(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAny(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
+				else if (gun.flags.HasNone(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAny(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 
@@ -771,7 +771,7 @@
 					gun_state.next_reload = info.WorldTime + gun.reload_interval;
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
-					if (material_ammo.IsNotNull() && !material_ammo.flags.HasAny(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (material_ammo.IsNotNull() && material_ammo.flags.HasNone(gun.ammo_filter)) inventory_magazine.resource.material = default;
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
 					{
@@ -1051,12 +1051,12 @@
 										explosive.Sync(ent, true);
 									}
 
-									if (args.gun_flags.HasAll(Gun.Flags.Child_Projectiles))
+									if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
 									{
 										ent.AddRelation(args.ent_gun, Relation.Type.Child);
 									}
 
-									if (args.gun_flags.HasAll(Gun.Flags.Rope_Projectiles))
+									if (args.gun_flags.HasAny(Gun.Flags.Rope_Projectiles))
 									{
 										var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
 										if (ent_child.IsAlive())
@@ -1253,7 +1253,7 @@
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
-				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun_state.hints.HasAll(Gun.Hints.Loaded)))
+				if (control.keyboard.GetKeyDown(Keyboard.Key.Reload) || (control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasNone(Gun.Hints.Loaded)))
 				{
 #if SERVER
 
@@ -1264,7 +1264,7 @@
 					return;
 				}
 
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) && !gun.flags.HasAny(Gun.Flags.No_LMB_Cycle) && !gun_state.hints.HasAll(Gun.Hints.Cycled))
+				if (control.mouse.GetKeyDown(Mouse.Key.Left) && gun.flags.HasNone(Gun.Flags.No_LMB_Cycle) && gun_state.hints.HasNone(Gun.Hints.Cycled))
 				{
 #if SERVER
 					gun_state.stage = Gun.Stage.Cycling;
