@@ -179,7 +179,7 @@
 		[Source.Parent] ref Body.Data body_parent, [Source.Owned] ref Body.Data body, [Source.Parent] in Attachment.Slot attachment_slot,
 		[Source.Parent] ref Joint.Base joint_base_parent, [Source.Parent, Override] ref Joint.Gear gear_parent, [Source.Owned] ref Crane.Data crane, [Source.Owned] ref Crane.State crane_state)
 		{
-			if (!joint_base_parent.flags.HasAll(Joint.Flags.No_Aiming))
+			if (joint_base_parent.flags.HasNone(Joint.Flags.No_Aiming))
 			{
 				var invert = float.IsNegative(transform.scale.GetParity()); // != crane.flags.HasAny(Crane.Flags.Inverted);
 				var is_relative = crane.flags.HasAny(Crane.Flags.Relative);
