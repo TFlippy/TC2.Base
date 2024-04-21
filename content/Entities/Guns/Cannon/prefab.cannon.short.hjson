@@ -107,8 +107,8 @@ attachment:
 {
 	offset: [-1.375, 0.000]
 
-	force_multiplier: 2.000
-	torque_multiplier: 1.000
+	force_multiplier: 6.000
+	torque_multiplier: 4.000
 }
 
 animated.renderer:

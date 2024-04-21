@@ -630,7 +630,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		public static void DrawModeButton<T>(Entity ent_wrench, ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
-			ref var info = ref ECS.GetInfo<T>();
+			ref readonly var info = ref ECS.GetInfo<T>();
 
 			using (GUI.ID.Push(info.id))
 			{
@@ -739,7 +739,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				ref var info = ref ECS.GetInfo<T>();
+				ref readonly var info = ref ECS.GetInfo<T>();
 
 				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier, padding: new(0, 0)))
 				{

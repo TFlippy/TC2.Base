@@ -108,7 +108,7 @@ attachment:
 {
 	offset: [-1.875, 0.000]
 
-	force_multiplier: 15.000
+	force_multiplier: 8.000
 	torque_multiplier: 3.000
 }
 

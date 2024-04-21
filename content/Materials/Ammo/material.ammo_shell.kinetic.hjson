@@ -39,12 +39,12 @@
 		spin_base: 0.030
 		spin_mult: 1.000
 		spread_mult: 0.050
-		recoil_mult: 0.600
+		recoil_mult: 0.520
 		
 		failure_base: 0.000
 		failure_mult: 0.100
 		
-		stability_base: 16550.000
+		stability_base: 15550.000
 		stability_mult: 1.000
 		
 		prefab: "projectile.shell.kinetic"
