@@ -18,6 +18,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
+		material: stone
 		layer: entity, building, ignore_melee
 		mask: world
 	}

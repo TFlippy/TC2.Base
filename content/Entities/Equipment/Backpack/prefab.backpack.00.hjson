@@ -12,7 +12,7 @@ body:
 	@shape.circle:
 	{
 		mass: 2.000
-		radius: 0.750
+		radius: 0.500
 		friction: 0.600
 		elasticity: 0.100
 		material: leather

@@ -164,7 +164,7 @@ facing:
 
 interactable:
 {
-	window_size: [224.000, 232.000]
+	window_size: [192.000, 216.000]
 }
 
 equipment.slot:
