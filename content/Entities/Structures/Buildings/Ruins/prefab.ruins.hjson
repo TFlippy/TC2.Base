@@ -45,7 +45,7 @@ nameable:
 
 spawn:
 {
-	flags: faction, neutral_only
+	flags: public
 }
 
 minimap.marker:
@@ -82,31 +82,60 @@ faction:
 // 	]
 // }
 
-dormitory:
-{
-	species: "human"
-	flags: no_hiring, no_kit_selection, no_kit_requirements, region_only
-	asset_flags: recycle
-	max_kits: 2
-	kit_default: "default.ruins"
-	characters_capacity: 4
-	characters_initial_count: 0
+// dormitory:
+// {
+// 	species: "human"
+// 	flags: no_hiring, no_kit_selection, no_kit_requirements, region_only
+// 	asset_flags: recycle
+// 	max_kits: 2
+// 	kit_default: "default.ruins"
+// 	characters_capacity: 4
+// 	characters_initial_count: 0
 
-	repopulate_interval: 600.000
-	repopulate_interval_extra: 400.000
-	repopulate_num: 1
-	repopulate_num_extra: 3
+// 	repopulate_interval: 600.000
+// 	repopulate_interval_extra: 400.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 3
 
-	character_flags_filter: 
-	{
-		require: nomad
-		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
-		exclude: none
-		weight: 2.000
-	}
-}
+// 	character_flags_filter: 
+// 	{
+// 		require: nomad
+// 		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
+// 		exclude: none
+// 		weight: 2.000
+// 	}
+// }
 
-entrance:
-{
+// dormitory:
+// {
+// 	species: "human"
+// 	flags: no_repopulate, no_kit_selection, no_kit_requirements
+// 	asset_flags: recycle
+// 	max_kits: 2
+// 	kit_default: "null"
+// 	characters_capacity: 4
+// 	characters_initial_count: 0
 
-}
+// 	repopulate_interval: 600.000
+// 	repopulate_interval_extra: 400.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 3
+
+// 	character_flags_filter: 
+// 	{
+// 		require: nomad
+// 		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
+// 		exclude: none
+// 		weight: 2.000
+// 	}
+// }
+
+// checkpoint:
+// {
+
+// }
+
+// entrance:
+// {
+// 	flags: force_spawn
+// }

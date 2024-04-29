@@ -32,6 +32,7 @@ health:
 
 splittable:
 {
+	split_health: 0.900
 	rect: [-0.500, -10.750, 0.500, -1.250]
 	texture_stub: "tree.oak.stub"
 	sound_split: "tree_snap_00"
@@ -58,7 +59,7 @@ animated.renderer:
 tree:
 {
 	prefab_stump: "tree.oak.stump"
-	health_cut: 0.980
+	health_cut: 0.940
 	sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 
