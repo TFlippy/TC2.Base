@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Chainsaw.Data chainsaw, [Source.Owned] ref Holdable.Data holdable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable, true);
+			holdable.hints.AddFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable);
 		}
 
 #if CLIENT
@@ -47,7 +47,7 @@ namespace TC2.Base.Components
 				ref var region = ref this.entity.GetRegion();
 
 				var wpos = this.world_position;
-				var cpos = this.WorldToCanvas(wpos);
+				var cpos = region.WorldToCanvas(wpos);
 
 				var radius = this.chainsaw.radius;
 

@@ -225,7 +225,7 @@ namespace TC2.Base.Components
 													var selected = this.recipe.id == pair.index;
 													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 													{
-														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
 														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
 														var icon_extra = recipe.icon_extra;
@@ -539,13 +539,15 @@ namespace TC2.Base.Components
 																			var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
 																			GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
 
-																			GUI.DrawRect(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																			GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
 																		}
 																	}
 																	else
 																	{
 																		GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
 																	}
+
+																	GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
 
 																	GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
 																}

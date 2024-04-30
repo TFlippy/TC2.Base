@@ -1,15 +1,16 @@
-{
+﻿{
+	$version: "0.1.60.4"
 	name: "Bald"
 	desc:
 		'''
 		TODO
 		'''
 	
-	gender: male
 	flags: hair
+	gender: male
+	species: "human"
 	character_flags: none
 	character_flags_exclude: none
-	species: "human"
 	
 	sprite:
 	{
