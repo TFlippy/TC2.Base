@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
 						if (amount > Resource.epsilon)
 						{
-							Resource.Spawn(ref region, item.material, body.GetPosition() + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, flags: Resource.SpawnFlags.Merge);
+							Resource.Spawn(ref region, item.material, body.GetPosition() + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, flags: Resource.SpawnFlags.Merge, velocity: (body.GetVelocity() * 0.20f) + random.NextUnitVector2Range(0.50f, 6.50f), angular_velocity: body.GetAngularVelocity() + random.NextFloatRange(-2.50f, 2.50f));
 						}
 						item = default;
 					}
