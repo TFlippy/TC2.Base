@@ -170,12 +170,10 @@
 				using (var window = GUI.Window.Interaction("Track"u8, this.ent_track, no_mouse_close: true))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
-
 					if (window.show)
 					{
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref Client.GetRegion();
-
 
 						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{

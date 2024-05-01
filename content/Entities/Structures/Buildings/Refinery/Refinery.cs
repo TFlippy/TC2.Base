@@ -266,160 +266,162 @@
 				using (var window = GUI.Window.Interaction("Refinery"u8, this.ent_refinery))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
-
-					ref var player = ref Client.GetPlayer();
-					ref var region = ref Client.GetRegion();
-					ref var character = ref Client.GetCharacter(out var character_asset);
-
-					Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_refinery, out var context);
-
-					var w_right = (48 * 4) + 24;
-
-					using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+					if (window.show)
 					{
+						ref var player = ref Client.GetPlayer();
+						ref var region = ref Client.GetRegion();
+						ref var character = ref Client.GetCharacter(out var character_asset);
+
+						Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_refinery, out var context);
+
+						var w_right = (48 * 4) + 24;
+
 						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
-						{
-							//GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-							using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.Rm, padding: new(8, 8)))
-							{
-								GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
-
-								if (this.crafter.recipe.id != 0)
-								{
-									CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
-								}
-								else
-								{
-									GUI.TitleCentered("<no recipe selected>", size: 24);
-								}
-									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
-								//CrafterExt.DrawRecipe(context: ref context, recipe: ref this.crafter.GetCurrentRecipe(), current_index: this.crafter_state.current_index, progress: this.crafter_state.progress.AsSpan(), amount_multiplier: this.crafter.amount_multiplier);
-
-
-								//ref var recipe = ref this.crafter.GetCurrentRecipe();
-								//if (!recipe.IsNull())
-								//{
-								//	ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
-								//	GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
-								//}
-							}
-						}
-
-						//using (GUI.Group.New(size: GUI.Rm))
-						//{
-						//	GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-						//	using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-						//	{
-						//		using (GUI.Group.New(size: new(48, GUI.RmY)))
-						//		{
-						//			GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.RmY));
-
-						//			GUI.SameLine();
-
-						//			GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.RmY));
-						//		}
-
-						//		GUI.SameLine();
-
-						//		using (GUI.Group.New(size: GUI.Rm))
-						//		{
-						//			if (GUI.SliderFloat("Value", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24)))
-						//			{
-						//				var rpc = new Refinery.ConfigureRPC()
-						//				{
-						//					burner_modifier = this.burner_state.modifier
-						//				};
-						//				rpc.Send(this.ent_refinery);
-						//			}
-
-						//			//var changed = false;
-
-						//			//changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
-						//			//GUI.SameLine();
-						//			//changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
-						//			////GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
-
-						//			//if (changed)
-						//			//{
-						//			//	var rpc = new Refinery.ConfigureRPC()
-						//			//	{
-						//			//		pressure_target = this.refinery_state.pressure_target,
-						//			//		temperature_target = this.refinery_state.temperature_target
-						//			//	};
-						//			//	rpc.Send(this.ent_refinery);
-						//			//}
-						//		}
-						//	}
-						//}
-					}
-
-					//GUI.SameLine();
-
-					using (var window_child = window.BeginChildWindow("refinery.settings.sub"u8, GUI.AlignX.Right, GUI.AlignY.Center, size: new(248, window.group.size.Y - 32), padding: new(8), open: true, flags: GUI.Window.Flags.No_Click_Focus | GUI.Window.Flags.No_Appear_Focus))
-					{
-						if (window_child.show)
 						{
 							using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 							{
-								using (var group_output = GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 4), padding: new Vector2(4, 4), add_padding_to_size: true))
-								{
-									group_output.DrawBackground(GUI.tex_frame);
+								//GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-									//using (GUI.Group.New(padding: new(12, 12)))
+								using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.Rm, padding: new(8, 8)))
+								{
+									GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
+
+									if (this.crafter.recipe.id != 0)
 									{
-										GUI.DrawInventoryDock(Inventory.Type.Output, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 4));
+										CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 									}
-								}
-
-								using (var group_input = GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 3) + new Vector2(24, 0), padding: new Vector2(4, 4), add_padding_to_size: true))
-								{
-									group_input.DrawBackground(GUI.tex_frame);
-
-									//using (GUI.Group.New(padding: new(12, 12)))
+									else
 									{
-										using (GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2)))
-										{
-											GUI.DrawTemperatureRange(300, 300, max_temperature, new Vector2(24, GUI.RmY)); // TODO: update this to use vents
-											GUI.SameLine();
-											GUI.DrawInventoryDock(Inventory.Type.Input, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2));
+										GUI.TitleCentered("<no recipe selected>", size: 24);
+									}
+									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+									//CrafterExt.DrawRecipe(context: ref context, recipe: ref this.crafter.GetCurrentRecipe(), current_index: this.crafter_state.current_index, progress: this.crafter_state.progress.AsSpan(), amount_multiplier: this.crafter.amount_multiplier);
 
-											//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
-											//GUI.SameLine();
-											//GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
+
+									//ref var recipe = ref this.crafter.GetCurrentRecipe();
+									//if (!recipe.IsNull())
+									//{
+									//	ref var inventory_data = ref this.ent_refinery.GetTrait<Crafter.State, Inventory8.Data>();
+									//	GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_refinery, player.ent_controlled, default, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
+									//}
+								}
+							}
+
+							//using (GUI.Group.New(size: GUI.Rm))
+							//{
+							//	GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+
+							//	using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+							//	{
+							//		using (GUI.Group.New(size: new(48, GUI.RmY)))
+							//		{
+							//			GUI.DrawTemperatureRange(this.refinery_state.temperature_current, this.refinery_state.temperature_target, max_temperature, new Vector2(24, GUI.RmY));
+
+							//			GUI.SameLine();
+
+							//			GUI.DrawPressureRange(this.refinery_state.pressure_current, this.refinery_state.pressure_target, max_pressure, new Vector2(24, GUI.RmY));
+							//		}
+
+							//		GUI.SameLine();
+
+							//		using (GUI.Group.New(size: GUI.Rm))
+							//		{
+							//			if (GUI.SliderFloat("Value", ref this.burner_state.modifier, 0.00f, 1.00f, size: new(GUI.RmX, 24)))
+							//			{
+							//				var rpc = new Refinery.ConfigureRPC()
+							//				{
+							//					burner_modifier = this.burner_state.modifier
+							//				};
+							//				rpc.Send(this.ent_refinery);
+							//			}
+
+							//			//var changed = false;
+
+							//			//changed |= GUI.SliderFloat("Temperature", ref this.refinery_state.temperature_target, 300.00f, max_temperature, "%.2f", new Vector2(80, 24));
+							//			//GUI.SameLine();
+							//			//changed |= GUI.SliderDouble("Pressure", ref this.refinery_state.pressure_target, atmospheric_pressure, max_pressure, "%.2f", new Vector2(80, 24));
+							//			////GUI.DrawWorkH(Maths.Normalize(this.crafter_state.current_work, this.crafter.required_work), new Vector2(160, 24));
+
+							//			//if (changed)
+							//			//{
+							//			//	var rpc = new Refinery.ConfigureRPC()
+							//			//	{
+							//			//		pressure_target = this.refinery_state.pressure_target,
+							//			//		temperature_target = this.refinery_state.temperature_target
+							//			//	};
+							//			//	rpc.Send(this.ent_refinery);
+							//			//}
+							//		}
+							//	}
+							//}
+						}
+
+						//GUI.SameLine();
+
+						using (var window_child = window.BeginChildWindow("refinery.settings.sub"u8, GUI.AlignX.Right, GUI.AlignY.Center, size: new(248, window.group.size.Y - 32), padding: new(8), open: true, flags: GUI.Window.Flags.No_Click_Focus | GUI.Window.Flags.No_Appear_Focus))
+						{
+							if (window_child.show)
+							{
+								using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+								{
+									using (var group_output = GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 4), padding: new Vector2(4, 4), add_padding_to_size: true))
+									{
+										group_output.DrawBackground(GUI.tex_frame);
+
+										//using (GUI.Group.New(padding: new(12, 12)))
+										{
+											GUI.DrawInventoryDock(Inventory.Type.Output, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 4));
 										}
+									}
 
-										using (var group_burner = GUI.Group.New(size: new Vector2(GUI.RmX, Inventory.slot_size.Y * 1)))
+									using (var group_input = GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 3) + new Vector2(24, 0), padding: new Vector2(4, 4), add_padding_to_size: true))
+									{
+										group_input.DrawBackground(GUI.tex_frame);
+
+										//using (GUI.Group.New(padding: new(12, 12)))
 										{
-											//group_burner.DrawRect(layer: GUI.Layer.Foreground);
-
-											GUI.DrawInventoryDock(Inventory.Type.Fuel, Inventory.GetFrameSize(1, 1));
-
-											GUI.SameLine();
-
-											using (var group_burner_slider = GUI.Group.New(size: GUI.Rm))
+											using (GUI.Group.New(size: new Vector2(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2)))
 											{
-												if (GUI.SliderFloat("Burner Intake", ref this.burner_state.modifier_intake_target, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
-												{
-													var rpc = new Refinery.ConfigureRPC()
-													{
-														burner_modifier = this.burner_state.modifier_intake_target
-													};
-													rpc.Send(this.ent_refinery);
-												}
+												GUI.DrawTemperatureRange(300, 300, max_temperature, new Vector2(24, GUI.RmY)); // TODO: update this to use vents
+												GUI.SameLine();
+												GUI.DrawInventoryDock(Inventory.Type.Input, size: new(Inventory.slot_size.X * 4, Inventory.slot_size.Y * 2));
 
-												GUI.TitleCentered($"{(this.burner_state.available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
-												//GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
+												//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
+												//GUI.SameLine();
+												//GUI.DrawInventoryDock(Inventory.Type.Fuel, new Vector2(48, 48));
 											}
-										}
 
-										using (var group_notes = GUI.Group.New(size: GUI.Rm))
-										{
-											//if (!this.burner_state.cached_fuel_material.IsValid())
-											//{
-											//	GUI.Title("Burner has no fuel!", color: GUI.font_color_red);
-											//}
+											using (var group_burner = GUI.Group.New(size: new Vector2(GUI.RmX, Inventory.slot_size.Y * 1)))
+											{
+												//group_burner.DrawRect(layer: GUI.Layer.Foreground);
+
+												GUI.DrawInventoryDock(Inventory.Type.Fuel, Inventory.GetFrameSize(1, 1));
+
+												GUI.SameLine();
+
+												using (var group_burner_slider = GUI.Group.New(size: GUI.Rm))
+												{
+													if (GUI.SliderFloat("Burner Intake", ref this.burner_state.modifier_intake_target, 0.00f, 1.00f, size: new(GUI.RmX, 24), color_frame: GUI.col_output))
+													{
+														var rpc = new Refinery.ConfigureRPC()
+														{
+															burner_modifier = this.burner_state.modifier_intake_target
+														};
+														rpc.Send(this.ent_refinery);
+													}
+
+													GUI.TitleCentered($"{(this.burner_state.available_power * 0.001):0} KW", pivot: new(0.00f, 0.50f), offset: new(4, 0));
+													//GUI.TitleCentered($"{this.burner_state.fuel_quantity:0.00}", pivot: new(1.00f, 0.50f), offset: new(-4, 0));
+												}
+											}
+
+											using (var group_notes = GUI.Group.New(size: GUI.Rm))
+											{
+												//if (!this.burner_state.cached_fuel_material.IsValid())
+												//{
+												//	GUI.Title("Burner has no fuel!", color: GUI.font_color_red);
+												//}
+											}
 										}
 									}
 								}

@@ -235,7 +235,6 @@
 				using (var window = GUI.Window.Interaction("Press"u8, this.ent_press))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
-
 					if (window.show)
 					{
 						ref var player = ref Client.GetPlayer();

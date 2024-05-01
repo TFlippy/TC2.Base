@@ -76,7 +76,8 @@ holdable:
 
 interactable:
 {
-	window_size: [200.000, 192.000]
+	window_size: [200.000, 144.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 attachment:
@@ -99,7 +100,7 @@ essencecontainer:
 		stack_size_multiplier: 1.000
 		filter_flags: essence
 		type: essence
-		flags: none
+		flags: standalone
 	}
 
 	@sound.emitter:
