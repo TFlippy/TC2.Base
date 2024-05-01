@@ -154,21 +154,17 @@ namespace TC2.Base.Components
 			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
 			static void Func(ref Tile tile, int x, int y, byte mask, ref (int a, FixedArray8<OreSample> samples) arg)
 			{
-				if (tile.BlockID != 0)
+				if (tile.BlockFlags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
 				{
-					ref var block = ref tile.Block;
-					if (block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
+					for (var i = 0; i < arg.samples.Length; i++)
 					{
-						for (var i = 0; i < arg.samples.Length; i++)
+						ref var sample = ref arg.samples[i];
+						if (sample.block.id == 0 || sample.block.id == tile.BlockID)
 						{
-							ref var sample = ref arg.samples[i];
-							if (sample.block.id == 0 || sample.block.id == tile.BlockID)
-							{
-								sample.block = tile.BlockID;
-								sample.quantity += 1.00f;
+							sample.block = tile.BlockID;
+							sample.quantity += 1.00f;
 
-								break;
-							}
+							break;
 						}
 					}
 				}

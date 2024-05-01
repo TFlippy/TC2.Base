@@ -564,12 +564,12 @@ namespace TC2.Base.Components
 				var material_type = default(Material.Type);
 				if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
 				{
-					material_type = tile.Block.material_type;
+					material_type = tile.MaterialType;
 				}
 
 				if (material_type != Material.Type.None)
 				{
-					hit_results.SetFlag(HitResults.Terrain, true);
+					hit_results.AddFlag(HitResults.Terrain);
 
 					if (do_hit)
 					{
