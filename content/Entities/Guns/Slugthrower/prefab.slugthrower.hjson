@@ -127,9 +127,9 @@ packable:
 arcaneaccelerator:
 {
 	h_essence: "motion"
-	sound: "gun.accelerator.arcane.00"
+	sound: "gun.accelerator.arcane.02"
 	sound_volume_mult: 0.500
-	sound_pitch: 1.700
+	sound_pitch: 1.810
 	offset: [0.750, -0.250]
 
 	@light:

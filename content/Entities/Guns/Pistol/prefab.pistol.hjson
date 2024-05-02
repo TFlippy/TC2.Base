@@ -33,11 +33,11 @@ gun:
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
 	velocity_multiplier: 340.000
-	jitter_multiplier: 0.300
-	damage_multiplier: 2.750
-	recoil_multiplier: 4.500
+	jitter_multiplier: 0.350
+	damage_multiplier: 2.350
+	recoil_multiplier: 4.300
 	reload_interval: 1.800
-	cycle_interval: 0.080
+	cycle_interval: 0.123
 	failure_rate: 0.007
 	max_ammo: 10.000
 	flash_size: 0.700

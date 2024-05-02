@@ -73,7 +73,7 @@ armor:
 	coverage: 0.600
 
 	knockback_modifier: 1.500
-	pain_modifier: 1.400
+	pain_modifier: 0.600
 
 	material_type: metal
 }
