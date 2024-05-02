@@ -278,7 +278,7 @@ namespace TC2.Base.Components
 		//public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
 		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
@@ -291,14 +291,14 @@ namespace TC2.Base.Components
 		//	renderer.offset = headbob.offset;
 		//}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");

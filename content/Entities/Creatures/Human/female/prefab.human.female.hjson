@@ -351,6 +351,7 @@ commandable:
 			@shape.circle:
 			{
 				mass: 8.000
+				offset: [0.000, -0.050]
 				radius: 0.350
 				friction: 0.300
 				elasticity: 0.600

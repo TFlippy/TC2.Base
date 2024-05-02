@@ -10,8 +10,8 @@ body:
 	@shape.circle:
 	{
 		mass: 5.000
-		radius: 0.500
-		offset: [0.000, -0.125]
+		radius: 0.600
+		offset: [0.010, 0.050]
 		friction: 0.500
 		elasticity: 0.450
 		material: metal
@@ -56,12 +56,14 @@ transform:
 equipment:
 {
 	type: head
-
+	flags: none
+	offset: [0.000, 0.000]
 	z: 6.000
-
-	frame_default: 0
 	frame_equipped_male: 1
 	frame_equipped_female: 1
+	frame_default: 0
+	frame_hair_y: 1
+	frame_beard_y: 0
 }
 
 armor:
@@ -76,10 +78,10 @@ armor:
 	material_type: metal
 }
 
-norotate:
-{
+// norotate:
+// {
 
-}
+// }
 
 packable:
 {

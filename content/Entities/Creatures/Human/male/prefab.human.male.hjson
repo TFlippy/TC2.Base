@@ -358,7 +358,8 @@ commandable:
 			@shape.circle:
 			{
 				mass: 10.000
-				radius: 0.400
+				offset: [0.000, -0.050]
+				radius: 0.420
 				friction: 0.320
 				elasticity: 0.550
 				material: flesh
