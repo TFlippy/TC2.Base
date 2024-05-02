@@ -216,24 +216,26 @@ ai.movement:
 
 ai.behavior:
 {
-	movement_flags: none
-	combat_flags: attack_when_hit, cover, flee, defend
+	movement_flags: hold
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, evade, charge
 }
 
 ai.search:
 {
-	radius: 32.000
+	radius: 40.000
 }
 
 ai.gunner:
 {
-	aim_min_dot: 0.990
+	aim_min_dot: 0.994
 	aim_speed_mult: 1.700
 	aim_time_mult: 1.000
 
 	attack_distance: 40.000
-	attack_cooldown: 0.800
-	attack_burst_time: 1.500
+	cover_distance_offset: 12.000
+
+	attack_cooldown: 1.000
+	attack_burst_time: 2.000
 }
 
 ai.gunner.state:
@@ -250,7 +252,7 @@ npc:
 
 	wander_interval: 10.000
 	wander_interval_extra: 20.000
-	wander_radius: 16.000
+	wander_radius: 24.000
 }
 
 npc.emotions:
@@ -269,7 +271,7 @@ npc.emotions.state:
 
 pathfinding:
 {
-	flags: land
+	flags: land, climber
 }
 
 pathfinding.state:

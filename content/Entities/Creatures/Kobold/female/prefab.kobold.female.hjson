@@ -271,7 +271,7 @@ npc.emotions.state:
 
 pathfinding:
 {
-	flags: land
+	flags: land, climber
 }
 
 pathfinding.state:
