@@ -215,17 +215,17 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 32.000
+	radius: 48.000
 }
 
 ai.gunner:
 {
 	aim_min_dot: 0.994
-	aim_speed_mult: 1.500
+	aim_speed_mult: 1.400
 	aim_time_mult: 0.950
 
-	attack_distance: 48.000
-	cover_distance_offset: 18.000
+	attack_distance: 30.000
+	cover_distance_offset: 7.000
 
 	attack_cooldown: 0.600
 	attack_burst_time: 1.200

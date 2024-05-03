@@ -56,7 +56,13 @@ namespace TC2.Base
 			ref var player = ref context.GetPlayerData();
 			Assert.NotNull(ref player);
 
+
+
 			var random = XorRandom.New(true);
+
+			ref var origin_data = ref h_origin.GetData(out var origin_asset);
+			Assert.NotNull(ref origin_data);
+
 
 			//var h_origin = (IOrigin.Handle)origin;
 
@@ -73,10 +79,20 @@ namespace TC2.Base
 			}
 			else
 			{
-				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player);
+				var h_faction = origin_data.faction;
+				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
 				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
-					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, control: true);
+					Spawner.TryGenerateKits(ref random, h_character);
+
+					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, h_faction: h_faction, control: true).ContinueWith((ent) =>
+					{
+						ref var character = ref h_character.GetData();
+						if (character.IsNotNull())
+						{
+							Loadout.Spawn(ent, character.kits, money: character.money);
+						}
+					});
 				}
 			}
 		}
