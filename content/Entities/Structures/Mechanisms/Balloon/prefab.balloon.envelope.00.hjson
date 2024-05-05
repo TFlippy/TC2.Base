@@ -91,3 +91,10 @@ claimable:
 {
 	flags: none
 }
+
+threat:
+{
+	priority: 15.000
+	flags: no_melee
+	item_hints: vehicle, weak
+}

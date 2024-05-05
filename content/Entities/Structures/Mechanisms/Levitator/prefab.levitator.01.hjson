@@ -71,6 +71,7 @@ holdable:
 	force_multiplier: 2.000
 	torque_multiplier: 0.750
 	stress_multiplier: 0.500
+	hints: armor, dangerous, rare, heavy, explosive, advanced, powerful, machine, device, expensive, arcane, tech
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 

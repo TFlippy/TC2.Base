@@ -23,7 +23,7 @@ body:
 		radius: 0.100
 		friction: 0.750
 		elasticity: 0.650
-		material: metal
+		material: metal_frame
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
 		exclude: tree, wheel, attached
@@ -39,6 +39,7 @@ armor:
 {
 	toughness: 800.000
 	protection: 0.750
+	coverage: 0.500
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
@@ -54,7 +55,7 @@ animated.renderer:
 		texture: "balloon.bottom.01"
 		size: [80, 32]
 	}
-	
+	flags: has_damage
 	z: 100.000
 }
 
@@ -86,6 +87,13 @@ holdable:
 faction:
 {
 
+}
+
+threat:
+{
+	priority: 20.000
+	self_hints: can_fly, can_hold_items, can_use_items, can_use_guns, has_armor, is_armored, is_vulnerable, is_dangerous
+	item_hints: armor, weapon, vehicle, heavy, long_range, machine, inaccurate, device, expensive, military, industrial, tech, slow
 }
 
 claimable:
