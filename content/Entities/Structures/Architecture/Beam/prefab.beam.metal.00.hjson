@@ -18,7 +18,7 @@ body:
 		radius: 0.325
 		friction: 0.600
 		elasticity: 0.400
-		material: metal
+		material: metal_solid
 		layer: entity, solid, ignore_melee
 		mask: world
 	}

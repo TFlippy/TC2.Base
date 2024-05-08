@@ -103,7 +103,7 @@ claimer:
 
 interactable:
 {
-	window_size: [592.000, 352.000]
+	window_size: [568.000, 360.000]
 	window_size_misc: [216.000, 0.000]
 }
 
