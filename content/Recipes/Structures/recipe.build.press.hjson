@@ -60,21 +60,7 @@
 	
 	requirements:
 	[
-		{
-			type: resource
-			material: "steel.ingot"
-			amount: 140.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 25.000
-		}
-		{
-			type: resource
-			material: "cement"
-			amount: 270.000
-		}
+		
 	]
 	
 	products:

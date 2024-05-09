@@ -65,45 +65,45 @@ furnace.state:
 	
 }
 
-burner:
-{
-	smoke_offset: [0.000, -3.125]
-	capacity: 6.000
-	energy_loss: 18000.000
-	efficiency: 0.600
-	volume_modifier: 0.600
+// burner:
+// {
+// 	smoke_offset: [0.000, -3.125]
+// 	capacity: 6.000
+// 	energy_loss: 18000.000
+// 	efficiency: 0.600
+// 	volume_modifier: 0.600
 	
-	@inventory1:
-	{
-		name: "Fuel"
-		stack_size_multiplier: 1.000
-		filter_flags: fuel
-		type: fuel
-		flags: allow_ducts, ignore_mass
-		offset: [0.000, 0.875]
-	}
+// 	@inventory1:
+// 	{
+// 		name: "Fuel"
+// 		stack_size_multiplier: 1.000
+// 		filter_flags: fuel
+// 		type: fuel
+// 		flags: allow_ducts, ignore_mass
+// 		offset: [0.000, 0.875]
+// 	}
 
-	@light:
-	{
-		color: [1.000, 0.500, 0.000, 3.500]
-		offset: [0.000, 0.875]
-		scale: [15.000, 11.000]
-		intensity: 0.000
-		texture: "light.circle.04"
-	}
+// 	@light:
+// 	{
+// 		color: [1.000, 0.500, 0.000, 3.500]
+// 		offset: [0.000, 0.875]
+// 		scale: [15.000, 11.000]
+// 		intensity: 0.000
+// 		texture: "light.circle.04"
+// 	}
 	
-	@sound.emitter:
-	{
-		file: "furnace_loop"
-		volume: 0.000
-		pitch: 0.500
-	}
-}
+// 	@sound.emitter:
+// 	{
+// 		file: "furnace_loop"
+// 		volume: 0.000
+// 		pitch: 0.500
+// 	}
+// }
 
-burner.state:
-{
-	current_temperature: 300.000
-}
+// burner.state:
+// {
+// 	current_temperature: 300.000
+// }
 
 crafter:
 {
@@ -134,4 +134,25 @@ crafter.state:
 interactable:
 {
 	window_size: [650.000, 480.000]
+}
+
+air.vent|"intake":
+{
+	type: intake
+	offset: [0.000, 2.250]
+	rotation: 1.5708
+	cross_section: 0.900
+}
+
+air.vent|"exhaust":
+{
+	type: exhaust
+	offset: [1.375, -2.250]
+	rotation: 0.000
+	cross_section: 0.900
+}
+
+air.container:
+{
+	volume: 1.500
 }

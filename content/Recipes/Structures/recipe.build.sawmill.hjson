@@ -60,26 +60,7 @@
 	
 	requirements:
 	[
-		{
-			type: resource
-			material: "steel.ingot"
-			amount: 45.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 8.000
-		}
-		{
-			type: resource
-			material: "wood"
-			amount: 200.000
-		}
-		{
-			type: resource
-			material: "stone"
-			amount: 140.000
-		}
+
 	]
 	
 	products:

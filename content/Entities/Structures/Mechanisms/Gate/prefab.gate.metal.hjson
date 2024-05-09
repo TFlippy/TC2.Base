@@ -81,8 +81,8 @@ interactable:
 	{
 		offset_a: [0.000, -6.125]
 		offset_b: [0.000, -3.000]
-		max_force: 500000.000
-		max_torque: 500000.000
+		max_force: 800000.000
+		max_torque: 800000.000
 
 		max_stress: 2.000
 		stress_threshold: 2.010
@@ -97,7 +97,7 @@ interactable:
 		max: 0.000
 
 		error_bias: 0.001
-		max_force: 200000.000
+		max_force: 600000.000
 		max_bias: 20.000
 	}
 
@@ -117,7 +117,7 @@ interactable:
 	joint.distance:
 	{
 		step: 10.000
-		max_force: 500000.000
+		max_force: 700000.000
 		error_bias: 0.001
 		max_bias: 7.000
 		max_bias_bounce: 30.000

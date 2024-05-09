@@ -60,26 +60,7 @@
 	
 	requirements:
 	[
-		{
-			type: resource
-			material: "steel.plate"
-			amount: 850.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 20.000
-		}
-		{
-			type: resource
-			material: "copper.plate"
-			amount: 150.000
-		}
-		{
-			type: resource
-			material: "stone"
-			amount: 240.000
-		}
+
 	]
 	
 	products:

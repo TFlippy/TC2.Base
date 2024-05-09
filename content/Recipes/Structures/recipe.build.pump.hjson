@@ -60,26 +60,7 @@
 	
 	requirements:
 	[
-		{
-			type: resource
-			material: "steel.plate"
-			amount: 60.000
-		}
-		{
-			type: resource
-			material: "copper.ingot"
-			amount: 25.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 18.000
-		}
-		{
-			type: resource
-			material: "stone"
-			amount: 200.000
-		}
+		
 	]
 	
 	products:
