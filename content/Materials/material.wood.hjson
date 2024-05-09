@@ -20,12 +20,12 @@
 	
 	type: wood
 	// Flags defining properties of the raw material.
-	flags: hard, long, organic, intermediate, small, raw, manufactured, fuel, flammable, solid
+	flags: hard, organic, intermediate, small, raw, manufactured, fuel, flammable, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.600
+	mass_per_unit: 0.510
 	quantity_max: 500.000
 	prefab: "resource.wood"
 	
@@ -73,26 +73,26 @@
 		// TODO: Desc
 		type: solid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 3000.000
+		energy_combustion: 11200.000
 		// Ratio of produced exhaust gas and leftover ashes.
-		purity: 0.420
+		purity: 0.720
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 0.132
+		flammability: 0.732
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.130
+		decay_rate: 0.140
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 1740.000
+		flame_temperature_o2: 2140.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 1100.000
+		flame_temperature_air: 900.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 601.150
+		autoignition_temperature: 411.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 483.150
+		flash_point: 373.150
 		// kJ/(kg*K)
-		specific_heat: 2.660
+		specific_heat: 1.960
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.111
+		thermal_conductivity: 0.0024
 		// TODO: Desc
 		porosity: 0.081
 		// TODO: Desc
@@ -100,7 +100,7 @@
 		// TODO: Desc
 		viscosity: 1.000
 		// TODO: Desc
-		surface_area_mult: 0.300
+		surface_area_mult: 1.000
 		
 		// Percentage of carbon.
 		carbon_ratio: 0.330
@@ -109,11 +109,11 @@
 		// Percentage of nitrogen.
 		nitrogen_ratio: 0.079
 		// Percentage of oxygen.
-		oxygen_ratio: 0.000
+		oxygen_ratio: 0.090
 		// Percentage of sulfur.
 		sulfur_ratio: 0.007
 		// Percentage of water.
-		water_ratio: 0.332
+		water_ratio: 0.132
 		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.340

@@ -73,50 +73,50 @@
 		// TODO: Desc
 		type: solid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 0.000
+		energy_combustion: 7100.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.300
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 0.090
+		flammability: 0.410
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.130
+		decay_rate: 0.120
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 1550.000
+		flame_temperature_o2: 1650.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 850.000
+		flame_temperature_air: 950.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 650.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 510.000
+		flash_point: 380.000
 		// kJ/(kg*K)
 		specific_heat: 1.880
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.140
+		thermal_conductivity: 0.00340
 		// TODO: Desc
 		porosity: 0.110
 		// TODO: Desc
-		volatility: 0.220
+		volatility: 0.120
 		// TODO: Desc
 		viscosity: 1.000
 		// TODO: Desc
-		surface_area_mult: 1.050
+		surface_area_mult: 1.450
 		
 		// Percentage of carbon.
-		carbon_ratio: 0.000
+		carbon_ratio: 0.240
 		// Percentage of hydrogen.
-		hydrogen_ratio: 0.000
+		hydrogen_ratio: 0.320
 		// Percentage of nitrogen.
-		nitrogen_ratio: 0.000
+		nitrogen_ratio: 0.129
 		// Percentage of oxygen.
-		oxygen_ratio: 0.000
+		oxygen_ratio: 0.210
 		// Percentage of sulfur.
-		sulfur_ratio: 0.000
+		sulfur_ratio: 0.007
 		// Percentage of water.
-		water_ratio: 0.000
+		water_ratio: 0.402
 		
 		// Percentage of volatiles.
-		volatiles_ratio: 0.000
-		volatiles: []
+		volatiles_ratio: 0.220
+		volatiles: ["methane"]
 	}
 }

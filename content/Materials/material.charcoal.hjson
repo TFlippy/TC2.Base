@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.400
+	mass_per_unit: 0.170
 	quantity_max: 500.000
 	prefab: "resource.charcoal"
 	
@@ -73,34 +73,34 @@
 		// TODO: Desc
 		type: solid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 22000.000
+		energy_combustion: 26000.000
 		// Ratio of produced exhaust gas and leftover ashes.
-		purity: 0.838
+		purity: 0.878
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 0.0194
+		flammability: 0.224
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.236
+		decay_rate: 0.036
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 2973.150
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 1653.150
+		flame_temperature_air: 1953.150
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 652.150
+		autoignition_temperature: 552.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 593.150
+		flash_point: 413.150
 		// kJ/(kg*K)
-		specific_heat: 1.130
+		specific_heat: 1.030
 		
 		// kW/(m*K)
 		thermal_conductivity: 0.00342
 		// TODO: Desc
-		porosity: 0.481
+		porosity: 0.581
 		// TODO: Desc
 		volatility: 0.000844
 		// TODO: Desc
 		viscosity: 1.000
 		// TODO: Desc
-		surface_area_mult: 1.511
+		surface_area_mult: 1.711
 		
 		// Percentage of carbon.
 		carbon_ratio: 0.770
@@ -113,7 +113,7 @@
 		// Percentage of sulfur.
 		sulfur_ratio: 0.020
 		// Percentage of water.
-		water_ratio: 0.093
+		water_ratio: 0.043
 		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.02883
