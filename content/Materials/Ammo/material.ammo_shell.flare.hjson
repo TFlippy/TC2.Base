@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Artillery Shell (Flare)"
 	description:
 		'''
@@ -20,7 +20,10 @@
 	}
 	
 	type: metal
-	flags: ammo, ammo_shell, magnetic, explosive, manufactured
+	// Flags defining properties of the raw material.
+	flags: ammo, ammo_shell, magnetic, explosive, manufactured, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 8.000

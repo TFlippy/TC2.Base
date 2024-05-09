@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Arcanite Pellets (Motion)"
 	description:
 		'''
@@ -19,7 +19,10 @@
 	}
 	
 	type: metal_solid
-	flags: hard, magnetic, essence, metal, intermediate, heavy, small, manufactured
+	// Flags defining properties of the raw material.
+	flags: hard, magnetic, essence, metal, intermediate, heavy, small, manufactured, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.500

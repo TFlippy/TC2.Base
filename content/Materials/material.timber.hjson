@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Timber"
 	description:
 		'''
@@ -19,12 +19,13 @@
 	}
 	
 	type: wood
-	flags: hard, long, organic, raw, fuel, flammable
+	// Flags defining properties of the raw material.
+	flags: hard, long, organic, raw, fuel, flammable, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 2.000
 	quantity_max: 500.000
 	prefab: "resource.timber"
-	
-	scrap: []
 }

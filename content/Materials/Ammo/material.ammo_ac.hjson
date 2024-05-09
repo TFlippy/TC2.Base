@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "AC Ammo (Standard)"
 	description:
 		'''
@@ -28,7 +28,7 @@
 	
 	type: metal
 	// Flags defining properties of the raw material.
-	flags: ammo, ammo_ac, magnetic, small, manufactured
+	flags: ammo, ammo_ac, magnetic, small, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none

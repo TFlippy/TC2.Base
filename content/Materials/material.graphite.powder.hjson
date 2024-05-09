@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.5"
 	name: "Graphite (Powder)"
 	description:
 		'''
@@ -15,17 +16,16 @@
 	icon_extra:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	type: powder
-	flags: granular, mineral, raw, powder
+	// Flags defining properties of the raw material.
+	flags: granular, mineral, raw, powder, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.900
 	quantity_max: 500.000
 	prefab: "resource.graphite.powder"
-	
-	scrap: []
 }

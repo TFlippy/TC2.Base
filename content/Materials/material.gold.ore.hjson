@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Gold Ore"
 	description:
 		'''
@@ -20,12 +20,13 @@
 	}
 	
 	type: stone
-	flags: granular, metal, raw, ore
+	// Flags defining properties of the raw material.
+	flags: granular, metal, raw, ore, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.500
 	quantity_max: 500.000
 	prefab: "resource.gold.ore"
-	
-	scrap: []
 }
