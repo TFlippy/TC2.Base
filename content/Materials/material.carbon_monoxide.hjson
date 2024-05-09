@@ -19,65 +19,13 @@
 	}
 	
 	type: gas
-	flags: gas, toxic, chemical, flammable
+	flags: gas, toxic, chemical
 	hints: none
 	// kg
 	mass_per_unit: 0.050
 	quantity_max: 1000.000
 	prefab: "resource.carbon_monoxide"
-	
-	fuel:
-	{
-		// TODO: Desc
-		type: undefined
-		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 0.000
-		// Ratio of produced exhaust gas and leftover ashes.
-		purity: 1.000
-		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 28.000
-		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.000
-		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 0.000
-		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 0.000
-		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 0.000
-		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 0.000
-		// kJ/(kg*K)
-		specific_heat: 0.000
-		
-		// kW/(m*K)
-		thermal_conductivity: 0.000
-		// TODO: Desc
-		porosity: 0.000
-		// TODO: Desc
-		volatility: 0.000
-		// TODO: Desc
-		viscosity: 1.000
-		// TODO: Desc
-		surface_area_mult: 0.000
-		
-		// Percentage of carbon.
-		carbon_ratio: 0.000
-		// Percentage of hydrogen.
-		hydrogen_ratio: 0.000
-		// Percentage of nitrogen.
-		nitrogen_ratio: 0.000
-		// Percentage of oxygen.
-		oxygen_ratio: 0.000
-		// Percentage of sulfur.
-		sulfur_ratio: 0.000
-		// Percentage of water.
-		water_ratio: 0.000
-		
-		// Percentage of volatiles.
-		volatiles_ratio: 0.000
-		volatiles: []
-	}
-	
+
 	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.

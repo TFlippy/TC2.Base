@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Nitric Acid"
 	description:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, toxic, intermediate, chemical, bottled, corrosive, manufactured
+	flags: liquid, toxic, intermediate, chemical, bottled, corrosive, manufactured, flammable
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: toxic, corrosive
 	hints: none
