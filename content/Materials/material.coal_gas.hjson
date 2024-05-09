@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Coal Gas"
 	description:
 		'''
@@ -19,7 +19,10 @@
 	}
 	
 	type: gas
+	// Flags defining properties of the raw material.
 	flags: gas, explosive, toxic, chemical, manufactured, fuel, flammable
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.050
@@ -56,7 +59,7 @@
 		// TODO: Desc
 		volatility: 0.210
 		// TODO: Desc
-		viscosity: 0.010
+		viscosity: 0.014
 		// TODO: Desc
 		surface_area_mult: 0.000
 		
@@ -77,6 +80,4 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
-	
-	scrap: []
 }

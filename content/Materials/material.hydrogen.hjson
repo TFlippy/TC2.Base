@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Hydrogen"
 	description:
 		'''
@@ -19,7 +19,10 @@
 	}
 	
 	type: gas
+	// Flags defining properties of the raw material.
 	flags: gas, explosive, flammable
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 0.050
@@ -68,34 +71,34 @@
 	fuel:
 	{
 		// TODO: Desc
-		type: undefined
+		type: gas
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 0.000
+		energy_combustion: 141000.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 1.000
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 45.000
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.000
+		decay_rate: 1.890
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 0.000
+		flame_temperature_o2: 2933.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 0.000
+		flame_temperature_air: 2440.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 0.000
+		autoignition_temperature: 800.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 0.000
+		flash_point: 120.000
 		// kJ/(kg*K)
-		specific_heat: 0.000
+		specific_heat: 14.320
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000
+		thermal_conductivity: 0.00005
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc
 		volatility: 0.000
 		// TODO: Desc
-		viscosity: 1.000
+		viscosity: 0.001
 		// TODO: Desc
 		surface_area_mult: 0.000
 		
@@ -116,8 +119,6 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
-	
-	scrap: []
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
