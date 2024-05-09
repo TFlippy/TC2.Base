@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.60.4"
-	name: "TODO"
+	$version: "0.1.60.5"
+	name: "Burner"
 	desc:
 		'''
 		TODO: Desc
@@ -8,8 +8,8 @@
 	
 	icon:
 	{
-		texture: "chest"
-		size: [16, 14]
+		texture: "burner.00"
+		size: [24, 32]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,11 +19,11 @@
 	step: 0
 	
 	type: build
-	flags: none
-	tags: construction
-	rank: -109.000
+	flags: blueprintable
+	tags: industry
+	rank: 0.000
 	
-	dismantle_work: 5.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -31,15 +31,17 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [2.000, 2.500]
-		offset: [0.000, -0.250]
+		size: [3.000, 4.000]
+		offset: [0.000, -1.500]
+		
+		rect_foundation: [-1.250, -0.250, 1.250, 0.750]
 		
 		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.750
+		min_support: 0.850
+		min_clearance: 0.850
 		min_claim: 1.000
 		
-		rotation_max: 0.300
+		rotation_max: 0.100
 		
 		sound: "building_place"
 		
@@ -49,16 +51,30 @@
 		}
 	}
 	
+	construction:
+	{
+		prefab: "construction.3x4"
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: "wood"
+				amount: 5.000
+			}
+		]
+	}
+	
 	requirements:
 	[
-
+		
 	]
 	
 	products:
 	[
 		{
 			type: prefab
-			prefab: "chest"
+			prefab: "burner.00"
 			amount: 1.000
 		}
 	]

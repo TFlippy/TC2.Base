@@ -21,7 +21,7 @@
 	type: build
 	flags: no_amount_multiplier, blueprintable
 	tags: mechanisms
-	rank: 0.000
+	rank: -334.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800

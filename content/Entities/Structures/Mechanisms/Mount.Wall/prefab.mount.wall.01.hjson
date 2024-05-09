@@ -64,7 +64,7 @@ vehicle:
 		max_stress: 3.000
 		stress_threshold: 3.010
 		z: -50.000
-		flags: no_wrap, no_stress, attachment, allow_dragging, force_facing
+		flags: attachment, allow_dragging
 		material_type: metal
 	}
 
@@ -104,12 +104,12 @@ vehicle:
 	{
 		radius: 1.000
 		flags: brake, offset
-		flags_editable: locked, disabled, offset
+		flags_editable: use_center_of_gravity, locked, disabled, brake, loose, offset, rotation
 		name: "Mount"
 		identifier: "mount"
 		offset: [0.000, 0.000]
 		offset_bounds: [0.000, -0.250, 0.000, 1.000]
-		gui_size: [224.000, 192.000]
+		gui_size: [0.000, 168.000]
 	}
 }
 
