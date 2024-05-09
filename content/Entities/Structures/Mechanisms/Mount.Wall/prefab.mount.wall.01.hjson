@@ -7,12 +7,12 @@ body:
 	
 	@shape.circle:
 	{
-		mass: 4000.000
+		mass: 75.000
 		radius: 0.750
 		friction: 0.500
 		elasticity: 0.500
 		material: metal
-		layer: entity, solid, building, ignore_melee
+		layer: entity, background, building, no_overlapped_placement, ignore_melee
 	}
 }
 
@@ -23,7 +23,7 @@ control:
 
 health:
 {
-	max: 45000.000
+	max: 21000.000
 }
 
 animated.renderer:
@@ -42,7 +42,11 @@ transform:
 
 interactable:
 {
-	window_size: [224.000, 192.000]
+	flags: centered_inventory
+	window_size: [168.000, 168.000]
+	window_size_min: [192.000, 144.000]
+	window_size_misc: [0.000, 0.000]
+	window_offset: [0.000, 0.000]
 }
 
 vehicle:

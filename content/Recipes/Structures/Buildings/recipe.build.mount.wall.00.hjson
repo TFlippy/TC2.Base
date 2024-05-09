@@ -1,5 +1,6 @@
 ﻿{
-	name: "Mount (Static, Rotary)"
+	$version: "0.1.60.5"
+	name: "Mount (Wall)"
 	desc:
 		'''
 		TODO: Desc
@@ -7,9 +8,8 @@
 	
 	icon:
 	{
-		texture: "mount.static.02"
-		size: [48, 40]
-		frame: [0, 0]
+		texture: "mount.wall.01"
+		size: [16, 16]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: blueprintable
+	flags: no_amount_multiplier, blueprintable
 	tags: mechanisms
 	rank: 0.000
 	
@@ -28,34 +28,23 @@
 	
 	placement:
 	{
-		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		type: circle
+		flags: allow_placement_over_buildings, no_solid_support
 		
-		size: [5.000, 5.000]
-		offset: [0.000, -1.500]
+		size: [2.000, 2.000]
+		radius: 1.000
 		
 		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.900
+		min_support: 0.850
+		min_clearance: 0.950
 		min_claim: 1.000
 		
-		rotation_max: 0.200
-		
 		sound: "building_place"
-	}
-	
-	construction:
-	{
-		prefab: "construction.5x5"
 		
-		requirements:
-		[
-			{
-				type: resource
-				material: "wood"
-				amount: 5.000
-			}
-		]
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:
@@ -63,17 +52,12 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 75.000
+			amount: 20.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 35.000
-		}
-		{
-			type: resource
-			material: "cement"
-			amount: 900.000
+			amount: 8.000
 		}
 	]
 	
@@ -81,7 +65,7 @@
 	[
 		{
 			type: prefab
-			prefab: "mount.static.02"
+			prefab: "mount.wall.01"
 			amount: 1.000
 		}
 	]

@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: mechanisms
-	rank: -300.000
+	rank: -336.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800
