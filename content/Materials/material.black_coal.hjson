@@ -81,9 +81,9 @@
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.077
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 2600.000
+		flame_temperature_o2: 2650.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 1600.000
+		flame_temperature_air: 1420.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 510.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
@@ -100,7 +100,7 @@
 		// TODO: Desc
 		viscosity: 1.000
 		// TODO: Desc
-		surface_area_mult: 1.431
+		surface_area_mult: 1.131
 		
 		// Percentage of carbon.
 		carbon_ratio: 0.6713

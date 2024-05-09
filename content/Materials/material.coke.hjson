@@ -73,7 +73,7 @@
 		// TODO: Desc
 		type: solid
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 50000.000
+		energy_combustion: 37400.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.930
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
@@ -81,9 +81,9 @@
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.108
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 3420.000
+		flame_temperature_o2: 3020.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 2100.000
+		flame_temperature_air: 1600.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 700.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
@@ -92,9 +92,9 @@
 		specific_heat: 0.660
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000242
+		thermal_conductivity: 0.000742
 		// TODO: Desc
-		porosity: 2.9939
+		porosity: 0.9939
 		// TODO: Desc
 		volatility: 0.0366
 		// TODO: Desc
