@@ -77,7 +77,7 @@
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.930
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 0.164
+		flammability: 0.188
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.108
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
