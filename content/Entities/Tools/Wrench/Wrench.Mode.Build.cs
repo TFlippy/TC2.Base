@@ -76,6 +76,7 @@ namespace TC2.Base.Components
 
 							Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
 
+							// Top bar
 							using (GUI.Group.New(size: new(GUI.RmX, 40)))
 							{
 								using (GUI.Group.New(size: new(category_values.Length * 40, GUI.RmY)))
@@ -220,12 +221,12 @@ namespace TC2.Base.Components
 												frame_size += new Vector2(8, 8);
 												frame_size = frame_size.ScaleToNearestMultiple(new Vector2(48, 48));
 
-												using (grid.Push(frame_size))
+												using (grid.Push(frame_size, id: (uint)recipe_asset.GetHashCode()))
 												{
 													var selected = this.recipe.id == pair.index;
-													using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+													using (var button = GUI.CustomButton.New("recipe"u8, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
 													{
-														GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
+														GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
 														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
 														var icon_extra = recipe.icon_extra;
@@ -234,6 +235,18 @@ namespace TC2.Base.Components
 															var icon_extra_size = icon_extra.GetFrameSize();
 															GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
 														}
+
+														if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
+														{
+															var icon_blueprint = new Sprite("ui_icons_crafting.mini", 16, 16, ((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u), 0);
+															GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
+														}
+
+														//if (recipe.h_company.TryGetDefinition(out var company_asset))
+														//{
+														//	ref var company_data = ref company_asset.GetData();
+														//	GUI.DrawSpriteCentered(company_data.GetLogo(ICompany.LogoSize.Sign_2x1), button.bb.Pad(u: 4, l: 4), layer: GUI.Layer.Window, pivot: new(0.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
+														//}
 
 														if (button.pressed)
 														{
@@ -265,7 +278,6 @@ namespace TC2.Base.Components
 									}
 								}
 							}
-
 						}
 
 
@@ -671,6 +683,7 @@ namespace TC2.Base.Components
 									}
 								}
 							}
+						
 						}
 					}
 #endif

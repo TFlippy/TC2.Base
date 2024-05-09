@@ -1,18 +1,17 @@
 ﻿{
 	$version: "0.1.60.4"
-	name: "Chest"
+	name: "Radio Tower"
 	desc:
 		'''
-		A small chest to store stuff in.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: "chest"
-		size: [16, 14]
+		texture: "radio_tower.00"
 	}
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xff6a7a9a"
 	
 	min: 0
 	max: 0
@@ -20,7 +19,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture
+	tags: construction
 	rank: -109.000
 	
 	dismantle_work: 5.000
@@ -29,19 +28,19 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: require_terrain, terrain_is_support
 		
-		size: [2.000, 2.500]
-		offset: [0.000, -0.250]
+		size: [3.000, 15.000]
+		offset: [0.000, -7.000]
 		
 		cooldown: 0.500
 		min_support: 0.200
 		min_clearance: 0.750
 		min_claim: 1.000
 		
-		rotation_max: 0.300
+		rotation_max: 0.050
 		
-		sound: "building_place"
+		sound: "burner.bang.00"
 		
 		mappings_replace:
 		{
@@ -49,20 +48,13 @@
 		}
 	}
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: "wood"
-			amount: 85.000
-		}
-	]
+	requirements: []
 	
 	products:
 	[
 		{
 			type: prefab
-			prefab: "chest"
+			prefab: "radio_tower.00"
 			amount: 1.000
 		}
 	]

@@ -1,15 +1,15 @@
 ﻿{
-	$version: "0.1.60.4"
-	name: "Workbench"
+	name: "Door (Metal)"
 	desc:
 		'''
-		A place where you can craft simple items.
+		A sturdy metal door to keep the intruders out.
 		'''
 	
 	icon:
 	{
-		texture: "workbench"
-		size: [32, 24]
+		texture: "door.metal.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -21,40 +21,35 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -20.000
+	rank: -7.000
 	
-	dismantle_work: 5.000
+	dismantle_work: 50.000
 	dismantle_yield: 0.800
 	
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
 		
-		size: [4.000, 3.500]
+		size: [0.750, 3.000]
 		offset: [0.000, -0.500]
 		
 		cooldown: 0.500
-		min_support: 0.200
+		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
 		
-		rotation_max: 0.200
+		rotation_max: 0.400
 		
 		sound: "building_place"
-		
-		mappings_replace:
-		{
-		
-		}
 	}
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
-			amount: 75.000
+			material: "steel.ingot"
+			amount: 15.000
 		}
 	]
 	
@@ -62,8 +57,9 @@
 	[
 		{
 			type: prefab
-			prefab: "workbench"
+			prefab: "door.metal"
 			amount: 1.000
+			amount_extra: 0.000
 		}
 	]
 }

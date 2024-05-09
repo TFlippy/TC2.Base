@@ -1,14 +1,16 @@
 ﻿{
-	$version: "0.1.60.4"
-	name: "Hatch (Metal)"
+	name: "Ladder (Metal)"
 	desc:
 		'''
-		A sturdy metal hatch to keep the intruders out.
+		More durable ladder with longer placement range.
+		Can be also directly embedded in ground.
 		'''
 	
 	icon:
 	{
-		texture: "hatch.metal.icon"
+		texture: "ladder.metal.icon"
+		size: [0, 0]
+		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -20,31 +22,28 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: -801.000
+	rank: 74.000
 	
-	dismantle_work: 20.000
+	dismantle_work: 5.000
 	dismantle_yield: 0.800
 	
 	placement:
 	{
-		type: simple
+		type: line
 		flags: allow_placement_over_buildings, terrain_is_support
 		
-		size: [2.500, 0.750]
+		size: [0.625, 0.625]
 		
 		cooldown: 0.500
-		min_support: 0.300
-		min_clearance: 0.850
+		min_support: 0.150
+		min_clearance: 0.750
 		min_claim: 1.000
 		
-		rotation_max: 6.283
+		length_min: 1.000
+		length_max: 10.000
+		length_step: 0.625
 		
 		sound: "building_place"
-		
-		mappings_replace:
-		{
-		
-		}
 	}
 	
 	requirements:
@@ -52,7 +51,7 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 15.000
+			amount: 1.500
 		}
 	]
 	
@@ -60,7 +59,7 @@
 	[
 		{
 			type: prefab
-			prefab: "hatch.metal"
+			prefab: "ladder.metal"
 			amount: 1.000
 		}
 	]

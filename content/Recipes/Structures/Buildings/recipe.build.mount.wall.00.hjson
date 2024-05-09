@@ -1,5 +1,4 @@
 ﻿{
-	$version: "0.1.60.5"
 	name: "Mount (Static, Rotary)"
 	desc:
 		'''
@@ -10,6 +9,7 @@
 	{
 		texture: "mount.static.02"
 		size: [48, 40]
+		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -21,7 +21,7 @@
 	type: build
 	flags: blueprintable
 	tags: mechanisms
-	rank: -160.000
+	rank: 0.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -42,11 +42,6 @@
 		rotation_max: 0.200
 		
 		sound: "building_place"
-		
-		mappings_replace:
-		{
-		
-		}
 	}
 	
 	construction:
@@ -60,21 +55,6 @@
 				material: "wood"
 				amount: 5.000
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
@@ -83,12 +63,12 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 125.000
+			amount: 75.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			amount: 25.000
+			amount: 35.000
 		}
 		{
 			type: resource
