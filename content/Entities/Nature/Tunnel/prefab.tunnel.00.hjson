@@ -1,0 +1,76 @@
+$name: "Tunnel"
+$desc: 
+	'''
+	A dark tunnel that leads somewhere.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.625, -2.000]
+			[2.500, -3.000]
+			[3.625, 2.000]
+			[-2.500, 2.500]
+		]
+
+		mass: 20000.000
+		radius: 0.750
+		friction: 0.600
+		elasticity: 0.500
+		material: stone
+		layer: entity, background, ignore_melee
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tunnel.00"
+	}
+	z: -400.000
+}
+
+transform:
+{
+
+}
+
+nameable:
+{
+	
+}
+
+spawn:
+{
+	flags: public
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [5, 0]
+	}
+
+	flags: spawner
+}
+
+interactable:
+{
+	window_size: [600.000, 422.000]
+}
+
+faction:
+{
+
+}
