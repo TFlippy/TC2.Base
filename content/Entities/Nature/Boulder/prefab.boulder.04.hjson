@@ -1,0 +1,59 @@
+$name: "Boulder"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.circle:
+	{
+		offset: [0.000, -0.500]
+		mass: 5000.000
+		radius: 2.250
+		friction: 0.950
+		elasticity: 0.020
+		material: stone
+		layer: entity, solid, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 170000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "boulder.04"
+	}
+	offset: [0.000, -0.625]
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+cover:
+{
+	threshold: 0.200
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "stone"
+			quantity: 8350.000
+		}
+	]
+}

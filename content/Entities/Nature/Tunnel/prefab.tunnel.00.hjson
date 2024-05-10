@@ -15,8 +15,8 @@ body:
 		[
 			[-1.625, -2.000]
 			[2.500, -3.000]
-			[3.625, 2.000]
-			[-2.500, 2.500]
+			[1.500, 2.375]
+			[-2.250, 2.500]
 		]
 
 		mass: 20000.000
@@ -24,7 +24,7 @@ body:
 		friction: 0.600
 		elasticity: 0.500
 		material: stone
-		layer: entity, background, ignore_melee
+		layer: entity, solid, background, ignore_melee
 		mask: world
 	}
 }
