@@ -97,11 +97,18 @@ essencecontainer:
 
 	@inventory1:
 	{
-		name: "Essence"
-		stack_size_multiplier: 1.000
-		filter_flags: essence
 		type: essence
 		flags: standalone
+		stack_size_multiplier: 0.500
+		
+		filter:
+		{
+			require: small, pellet, solid
+			include: none
+			exclude: none
+		}
+		
+		offset: [0.000, -0.500]
 	}
 
 	@sound.emitter:

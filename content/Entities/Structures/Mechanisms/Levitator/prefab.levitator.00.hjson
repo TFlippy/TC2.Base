@@ -74,7 +74,9 @@ holdable:
 
 interactable:
 {
-	window_size: [200.000, 96.000]
+	flags: none
+	window_size: [118.000, 96.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 attachment:
@@ -98,11 +100,18 @@ essencecontainer:
 
 	@inventory1:
 	{
-		name: "Essence"
-		stack_size_multiplier: 0.150
-		filter_flags: essence
 		type: essence
-		flags: none
+		flags: standalone
+		stack_size_multiplier: 0.150
+		
+		filter:
+		{
+			require: small, pellet, solid
+			include: none
+			exclude: none
+		}
+		
+		offset: [0.250, 0.000]
 	}
 
 	@sound.emitter:
