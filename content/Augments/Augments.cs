@@ -997,8 +997,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X.Clamp(-0.50f, 0.50f);
-					offset.Y.Clamp(-1.00f, 0.00f);
+					offset.X.ClampRef(-0.50f, 0.50f);
+					offset.Y.ClampRef(-1.00f, 0.00f);
 					offset.Snap(0.125f, out offset);
 
 					return true;
@@ -1058,7 +1058,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 2.00f);
+					value.ClampRef(1.00f, 2.00f);
 
 					return true;
 				},
@@ -1099,7 +1099,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 3.00f);
+					value.ClampRef(1.00f, 3.00f);
 
 					return true;
 				},
@@ -1140,7 +1140,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.00f, 1.00f);
+					value.ClampRef(0.00f, 1.00f);
 
 					return true;
 				},
@@ -1177,7 +1177,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.00f, 1.00f);
+					value.ClampRef(0.00f, 1.00f);
 
 					return true;
 				},
@@ -1348,7 +1348,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 500.00f);
+					value.ClampRef(1.00f, 500.00f);
 
 					return true;
 				},
@@ -1396,7 +1396,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 200.00f);
+					value.ClampRef(1.00f, 200.00f);
 
 					return true;
 				},
@@ -1444,7 +1444,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.05f, 50.00f);
+					value.ClampRef(0.05f, 50.00f);
 
 					return true;
 				},
@@ -1492,7 +1492,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 100.00f);
+					value.ClampRef(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1540,7 +1540,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 100.00f);
+					value.ClampRef(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1588,7 +1588,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(1.00f, 100.00f);
+					value.ClampRef(1.00f, 100.00f);
 
 					return true;
 				},
@@ -1631,7 +1631,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.01f, 0.20f);
+					value.ClampRef(0.01f, 0.20f);
 
 					return true;
 				},
@@ -1671,7 +1671,7 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.00f, 1.50f);
+					value.ClampRef(0.00f, 1.50f);
 
 					return true;
 				},
@@ -1692,7 +1692,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
-					value.Clamp(0.00f, 1.50f);
+					value.ClampRef(0.00f, 1.50f);
 
 					data.force_multiplier.MultCapped(Maths.Mulpo(value, 0.70f), 3.00f);
 					data.torque_multiplier.MultCapped(Maths.Mulpo(value, 1.20f), 3.00f);
@@ -1715,8 +1715,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X.Clamp(-1.00f, 1.00f);
-					offset.Y.Clamp(-1.00f, 1.00f);
+					offset.X.ClampRef(-1.00f, 1.00f);
+					offset.Y.ClampRef(-1.00f, 1.00f);
 					offset.Snap(0.125f, out offset);
 
 					return true;

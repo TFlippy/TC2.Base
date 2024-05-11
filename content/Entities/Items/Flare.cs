@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateLight(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Light.Data light)
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.25f, 0.00f, 1.00f);
@@ -141,7 +141,7 @@ namespace TC2.Base.Components
 			light.scale = new Vector2(flare.size * modifier);
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] ref Flare.Data flare, [Source.Owned, Pair.Of<Flare.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.10f, 0.00f, 1.00f);

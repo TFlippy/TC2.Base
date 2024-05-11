@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		public static void UpdateSprite(ISystem.Info info, Entity entity,
 		[Source.Owned] ref LandMine.Data landmine, [Source.Owned] ref Animated.Renderer.Data renderer,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform)

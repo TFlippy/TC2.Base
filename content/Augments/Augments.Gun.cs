@@ -1358,8 +1358,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
-					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
+					offset.X.ClampRef(context.rect.a.X, context.rect.b.X);
+					offset.Y.ClampRef(context.rect.a.Y, context.rect.b.Y);
 					offset.Snap(0.125f, out offset);
 
 					return true;
@@ -1462,8 +1462,8 @@ namespace TC2.Base
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
-					offset.X.Clamp(context.rect.a.X, context.rect.b.X);
-					offset.Y.Clamp(context.rect.a.Y, context.rect.b.Y);
+					offset.X.ClampRef(context.rect.a.X, context.rect.b.X);
+					offset.Y.ClampRef(context.rect.a.Y, context.rect.b.Y);
 					offset.Snap(0.125f, out offset);
 
 					return true;
@@ -2945,8 +2945,8 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					offset.Snap(0.125f, out offset);
-					offset.X.Clamp(-0.50f, 0.50f);
-					offset.Y.Clamp(0.00f, 1.00f);
+					offset.X.ClampRef(-0.50f, 0.50f);
+					offset.Y.ClampRef(0.00f, 1.00f);
 
 					return true;
 				},
@@ -3022,8 +3022,8 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					offset.Snap(0.125f, out offset);
-					offset.X.Clamp(-0.25f, 0.25f);
-					offset.Y.Clamp(-0.125f, 0.125f);
+					offset.X.ClampRef(-0.25f, 0.25f);
+					offset.Y.ClampRef(-0.125f, 0.125f);
 
 					return true;
 				},
@@ -3131,8 +3131,8 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					offset.Snap(0.125f, out offset);
-					offset.X.Clamp(-0.50f, 0.50f);
-					offset.Y.Clamp(0.00f, 1.00f);
+					offset.X.ClampRef(-0.50f, 0.50f);
+					offset.Y.ClampRef(0.00f, 1.00f);
 
 					return true;
 				},
@@ -3214,8 +3214,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.receiver_offset.X - 0.250f, Maths.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
-					offset.Y.Clamp(data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
+					offset.X.ClampRef(data.receiver_offset.X - 0.250f, Maths.Min(data.receiver_offset.X + 1.250f, data.muzzle_offset.X - 0.500f));
+					offset.Y.ClampRef(data.receiver_offset.Y - 0.125f, data.receiver_offset.Y + 0.250f);
 
 					return true;
 				},
@@ -3387,8 +3387,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(-0.375f, data.muzzle_offset.X - 0.250f);
-					offset.Y.Clamp(-0.125f, 0.250f);
+					offset.X.ClampRef(-0.375f, data.muzzle_offset.X - 0.250f);
+					offset.Y.ClampRef(-0.125f, 0.250f);
 
 					return true;
 				},
@@ -3553,8 +3553,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.receiver_offset.X, data.muzzle_offset.X);
-					offset.Y.Clamp(data.receiver_offset.Y, data.receiver_offset.Y);
+					offset.X.ClampRef(data.receiver_offset.X, data.muzzle_offset.X);
+					offset.Y.ClampRef(data.receiver_offset.Y, data.receiver_offset.Y);
 
 					return true;
 				},
@@ -3719,8 +3719,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.receiver_offset.X + 0.500f, data.muzzle_offset.X - 0.375f);
-					offset.Y.Clamp(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.125f);
+					offset.X.ClampRef(data.receiver_offset.X + 0.500f, data.muzzle_offset.X - 0.375f);
+					offset.Y.ClampRef(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.125f);
 
 					return true;
 				},
@@ -3948,8 +3948,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.muzzle_offset.X - 0.375f, data.muzzle_offset.X + 0.125f);
-					offset.Y.Clamp(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.250f);
+					offset.X.ClampRef(data.muzzle_offset.X - 0.375f, data.muzzle_offset.X + 0.125f);
+					offset.Y.ClampRef(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.250f);
 
 					return true;
 				},
@@ -4042,8 +4042,8 @@ namespace TC2.Base
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
-					offset.X.Clamp(data.receiver_offset.X + 0.500f, data.muzzle_offset.X + 0.125f);
-					offset.Y.Clamp(data.muzzle_offset.Y - 0.000f, data.muzzle_offset.Y + 0.500f);
+					offset.X.ClampRef(data.receiver_offset.X + 0.500f, data.muzzle_offset.X + 0.125f);
+					offset.Y.ClampRef(data.muzzle_offset.Y - 0.000f, data.muzzle_offset.Y + 0.500f);
 
 					return true;
 				},
