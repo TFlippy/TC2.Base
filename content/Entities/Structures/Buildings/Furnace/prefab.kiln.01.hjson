@@ -136,23 +136,23 @@ interactable:
 	window_size: [650.000, 480.000]
 }
 
-air.vent|"intake":
-{
-	type: intake
-	offset: [0.000, 2.250]
-	rotation: 1.5708
-	cross_section: 0.900
-}
-
 air.vent|"exhaust":
 {
 	type: exhaust
-	offset: [1.375, -2.250]
+	offset: [0.000, -2.500]
+	rotation: -1.5708
+	cross_section: 0.700
+}
+
+air.vent|"intake":
+{
+	type: intake
+	offset: [0.875, 1.875]
 	rotation: 0.000
-	cross_section: 0.900
+	cross_section: 0.700
 }
 
 air.container:
 {
-	volume: 1.500
+	volume: 1.300
 }

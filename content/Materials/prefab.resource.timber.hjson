@@ -4,7 +4,7 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
+		offset: [0.000, 0.170]
 		mass: 1.000
 		radius: 0.750
 		friction: 0.650
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.wood"
+		texture: "resource.timber"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "wood"
+	material: "timber"
 }
 
 holdable:
