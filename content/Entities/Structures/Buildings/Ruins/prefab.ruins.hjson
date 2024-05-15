@@ -40,7 +40,9 @@ transform:
 
 nameable:
 {
-	name: "Ruins"
+	tags: lame, homely
+	flags: no_rename
+	type: location
 }
 
 spawn:

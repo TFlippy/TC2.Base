@@ -31,13 +31,13 @@
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State: IComponent
 		{
-			public float angle_a;
-			public float angle_b;
+			[Asset.Ignore] public float angle_a;
+			[Asset.Ignore] public float angle_b;
 
-			public float rotation_a;
-			public float rotation_b;
+			[Asset.Ignore] public float rotation_a;
+			[Asset.Ignore] public float rotation_b;
 
-			public Vector2 pos_target;
+			[Asset.Ignore] public Vector2 pos_target;
 
 			[Save.Ignore, Net.Ignore] public float last_rotation;
 			[Save.Ignore, Net.Ignore] public float next_sync;

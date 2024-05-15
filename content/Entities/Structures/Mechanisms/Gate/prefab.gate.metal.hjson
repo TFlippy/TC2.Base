@@ -15,7 +15,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.600
 		elasticity: 0.350
-		material: metal
+		material: metal_frame
 		layer: entity, building, ignore_melee
 		mask: world
 	}
@@ -147,7 +147,7 @@ interactable:
 				friction: 0.450
 				elasticity: 0.500
 				radius: 0.000
-				material: metal
+				material: metal_solid
 				layer: entity, solid
 				mask: world, solid
 			}

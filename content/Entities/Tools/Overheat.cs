@@ -89,7 +89,7 @@ namespace TC2.Base.Components
 			if (heat_excess > Maths.epsilon && random.NextBool(heat_excess * 0.01f))
 			{
 				var damage = Maths.Lerp(heat_excess, health.max, 0.35f) * random.NextFloatRange(0.80f, 1.20f);
-				entity.Hit(entity, entity, transform.position, random.NextUnitVector2Range(1, 1), random.NextUnitVector2Range(1, 1), damage, damage, damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Fire, yield: 0.00f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
+				Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: entity, position: transform.position, velocity: random.NextUnitVector2Range(1, 1), normal: random.NextUnitVector2Range(1, 1), damage_integrity: damage, damage_durability: damage, damage_terrain: damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Fire, yield: 0.00f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
 			}
 		}
 #endif

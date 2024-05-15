@@ -89,8 +89,8 @@
 		public partial struct State: IComponent
 		{
 			public Temperature current_temperature_air = Region.ambient_temperature;
-			public float speed_current;
-			public Volume current_volume;
+			[Asset.Ignore] public float speed_current;
+			[Asset.Ignore] public Volume current_volume;
 
 			[Net.Ignore, Save.Ignore] public float lift_modifier;
 			[Net.Ignore, Save.Ignore] public float altitude_modifier;

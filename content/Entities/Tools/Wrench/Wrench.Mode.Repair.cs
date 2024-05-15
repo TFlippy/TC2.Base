@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 				{
 					None = 0,
 
-					Active = 1 << 0,
+					[Asset.Ignore] Active = 1 << 0,
 				}
 
 				[Flags]
@@ -43,8 +43,8 @@ namespace TC2.Base.Components
 				{
 					public static readonly Sound.Handle sound_repair_default = "wrench.repair.00";
 
-					public EntRef<Repairable.Data> ref_repairable;
-					public EntRef<Health.Data> ref_health;
+					[Asset.Ignore] public EntRef<Repairable.Data> ref_repairable;
+					[Asset.Ignore] public EntRef<Health.Data> ref_health;
 					public Repair.Flags flags;
 					public Repair.Filter filter = Filter.Buildings | Filter.Belts | Filter.Conveyors | Filter.Ladders | Filter.Doors;
 					public Sound.Handle sound_repair = sound_repair_default;

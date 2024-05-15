@@ -13,10 +13,10 @@ namespace TC2.Base.Components
 				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Build)", region_only: true)]
 				public partial struct Data: IComponent, Wrench.IMode
 				{
-					public IRecipe.Handle recipe;
-					public Build.Flags flags;
+					[Asset.Ignore] public IRecipe.Handle recipe;
+					[Asset.Ignore] public Build.Flags flags;
 
-					[Save.Ignore, Net.Ignore] public float next_place;
+					[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_place;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";

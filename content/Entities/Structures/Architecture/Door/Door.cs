@@ -34,10 +34,8 @@ namespace TC2.Base.Components
 			public float fps_close = 10.00f;
 			public float fps_open = 10.00f;
 
-			public float animation_progress;
-
-			[Net.Ignore, Save.Ignore]
-			public float last_use_time;
+			[Asset.Ignore] public float animation_progress;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float last_use_time;
 
 			public Data()
 			{

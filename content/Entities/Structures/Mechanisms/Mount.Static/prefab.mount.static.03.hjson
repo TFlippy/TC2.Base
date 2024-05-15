@@ -147,8 +147,8 @@ mount:
 	attachment.slot:
 	{
 		radius: 1.000
-		flags: manual_aim
-		flags_editable: locked, disabled, loose, offset
+		flags: keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset
 		name: "Mount"
 		identifier: "mount"
 		gui_size: [0.000, 200.000]

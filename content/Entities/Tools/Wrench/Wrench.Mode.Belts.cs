@@ -15,8 +15,8 @@
 					[Save.Ignore] public IComponent.Handle h_component_src;
 					[Save.Ignore] public IComponent.Handle h_component_dst;
 
-					public IRecipe.Handle selected_recipe;
-					public Belt.Flags flags;
+					[Asset.Ignore] public IRecipe.Handle selected_recipe;
+					[Asset.Ignore] public Belt.Flags flags;
 
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 0, 0);
 					public static string Name { get; } = "Belts";

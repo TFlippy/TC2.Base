@@ -45,7 +45,9 @@ transform:
 
 nameable:
 {
-	
+	tags: lame, dangerous, industrial, homely
+	flags: no_rename
+	type: location
 }
 
 spawn:

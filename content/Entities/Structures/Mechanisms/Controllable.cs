@@ -13,7 +13,7 @@
 				Mouse_Orthogonal = 1u << 0
 			}
 
-			public Vector2 target_pos;
+			[Asset.Ignore] public Vector2 target_pos;
 			public Controllable.Data.Flags flags;
 
 			[Net.Ignore, Save.Ignore] public float t_last_sync;

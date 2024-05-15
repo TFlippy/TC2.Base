@@ -23,7 +23,7 @@ animated.renderer:
 		texture: "construction.billet.00"
 		size: [32, 16]
 	}
-	z: -10.000
+	z: -80.000
 }
 
 transform:

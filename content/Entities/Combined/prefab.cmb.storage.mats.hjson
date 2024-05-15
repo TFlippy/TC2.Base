@@ -62,7 +62,7 @@
 					quantity: 500.000
 				}
 				{
-					material: "arcane_actuator"
+					material: "brick"
 					quantity: 1000.000
 				}
 				{
@@ -70,7 +70,7 @@
 					quantity: 5000.000
 				}
 				{
-					material: "glass"
+					material: "mudbrick.dry"
 					quantity: 1000.000
 				}
 				{

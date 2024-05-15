@@ -28,6 +28,12 @@
 
 			switch (data.damage_type)
 			{
+				case Damage.Type.Motion_Impulse:
+				{
+					data.stun *= 0.32f;
+				}
+				break;
+
 				case Damage.Type.Explosion:
 				{
 					data.stun *= 0.25f;

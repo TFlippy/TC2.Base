@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 				{
 					None = 0,
 
-					Active = 1 << 0,
+					[Asset.Ignore] Active = 1 << 0,
 				}
 
 				[Flags]
@@ -43,7 +43,7 @@ namespace TC2.Base.Components
 				{
 					public static readonly Sound.Handle sound_dismantle_default = "wrench.dismantle.00";
 
-					public EntRef<Dismantlable.Data> ref_dismantlable;
+					[Asset.Ignore] public EntRef<Dismantlable.Data> ref_dismantlable;
 					public Deconstruct.Flags flags;
 					public Deconstruct.Filter filter = Filter.Buildings | Filter.Belts | Filter.Conveyors | Filter.Ladders | Filter.Doors;
 					public Sound.Handle sound_dismantle = sound_dismantle_default;

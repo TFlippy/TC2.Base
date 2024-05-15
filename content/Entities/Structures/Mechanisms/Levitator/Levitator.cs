@@ -55,10 +55,10 @@ namespace TC2.Base.Components
 		{
 			public FixedArray4<float> node_rates;
 
-			public Vector2 current_direction;
-			public Vector2 current_offset;
-			public float current_force;
-			[Save.Ignore, Net.Ignore] public float next_linecast;
+			[Asset.Ignore] public Vector2 current_direction;
+			[Asset.Ignore] public Vector2 current_offset;
+			[Asset.Ignore] public float current_force;
+			[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_linecast;
 
 			public State()
 			{

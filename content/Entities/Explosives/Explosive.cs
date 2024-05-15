@@ -108,7 +108,13 @@ namespace TC2.Base.Components
 						case Damage.Type.Bullet_HC:
 						case Damage.Type.Bullet_SG:
 						case Damage.Type.Bullet_MG:
+						case Damage.Type.Bullet_AC:
+						case Damage.Type.Bullet_EMRG:
+						case Damage.Type.Rivet:
+						case Damage.Type.Club:
+						case Damage.Type.Electricity:
 						case Damage.Type.Bullet_Musket:
+						case Damage.Type.Pickaxe:
 						case Damage.Type.Explosion:
 						case Damage.Type.Fire:
 						{
