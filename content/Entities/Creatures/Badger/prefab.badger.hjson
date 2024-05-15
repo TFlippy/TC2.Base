@@ -168,6 +168,13 @@ commandable:
 	
 }
 
+norotate:
+{
+	bias: 0.100
+	multiplier: 2.000
+	mass_multiplier: 35.000
+}
+
 runner:
 {
 	walk_force: 8000.000
@@ -199,13 +206,6 @@ dive:
 badger:
 {
 
-}
-
-norotate:
-{
-	bias: 0.100
-	multiplier: 2.000
-	mass_multiplier: 35.000
 }
 
 interactable:
@@ -263,6 +263,7 @@ faction:
 		max_force: 22000.000
 		max_torque: 2000.000
 		flags: organic, control_write, facing_reset_pos, force_facing
+		material_type: flesh
 
 		@animated.renderer:
 		{
@@ -279,17 +280,20 @@ faction:
 	
 	joint.pivot:
 	{
+		stress_mult: 0.800
 		max_bias: 10.000
 	}
 	
 	joint.rotaryspring:
 	{
+		stress_mult: 0.800
 		stiffness: 400.000
-		damping: 20.000
+		damping: 15.000
 	}
 	
 	joint.rotarylimit:
 	{
+		stress_mult: 0.800
 		max_torque: 8000.000
 		max_bias: 8.000
 		min: -1.000
@@ -488,6 +492,7 @@ faction:
 		max_force: 20000.000
 		max_torque: 1500.000
 		flags: organic, control_write, facing_reset_pos, force_facing
+		material_type: flesh
 
 		@animated.renderer:
 		{
@@ -539,16 +544,7 @@ faction:
 				mask: world, vehicle
 			}
 		}
-		
-		norotate:
-		{
-			rotation: 0.000
-			bias: 0.100
-			speed: 5.000
-			multiplier: 7.000
-			mass_multiplier: 240.000
-		}
-		
+			
 		organic:
 		{
 			h_species: "badger"
@@ -606,6 +602,15 @@ faction:
 			frame_count: 4
 			threshold_wreck: 0.200
 		}
+
+		norotate:
+		{
+			rotation: 0.000
+			bias: 0.100
+			speed: 5.000
+			multiplier: 7.000
+			mass_multiplier: 240.000
+		}
 		
 		runner:
 		{
@@ -614,6 +619,7 @@ faction:
 			max_speed: 10.000
 			max_jump_time: 0.100
 			max_air_time: 0.700
+			propagate_ratio: 0.500
 			air_brake_modifier: 0.000
 		}
 		

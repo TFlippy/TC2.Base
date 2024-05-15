@@ -90,13 +90,13 @@ namespace TC2.Base.Components
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
 		{
-			runner_state.flags.SetFlag(Runner.State.Flags.Sitting, true);
+			runner_state.flags.AddFlag(Runner.State.Flags.Sitting);
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true)]
 		public static void OnUnSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
 		{
-			runner_state.flags.SetFlag(Runner.State.Flags.Sitting, false);
+			runner_state.flags.RemoveFlag(Runner.State.Flags.Sitting);
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -119,7 +119,7 @@ namespace TC2.Base.Components
 			//}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent] in Climber.Data climber)
 		{
 			runner_state.flags.SetFlag(Runner.State.Flags.Climbing, climber.cling_entity.IsValid());
@@ -132,7 +132,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
@@ -144,13 +144,14 @@ namespace TC2.Base.Components
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
 			}
 
+			//no_rotate.speed *= modifier;
 			no_rotate.multiplier *= modifier;
 			no_rotate.mass_multiplier *= modifier;
 
 			if (runner.flags.HasAny(Runner.Data.Flags.No_Rotate_Align_Surface)) no_rotate.rotation = -(runner_state.last_normal.GetAngleRadiansFast()) - (MathF.PI * 0.50f);
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
@@ -163,6 +164,8 @@ namespace TC2.Base.Components
 				modifier *= 0.00f;
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
 			}
+
+			//no_rotate_parent.speed = Maths.Lerp(no_rotate_parent.speed, no_rotate_parent.speed * modifier, runner.propagate_ratio);
 
 			no_rotate_parent.multiplier = Maths.Lerp(no_rotate_parent.multiplier, no_rotate_parent.multiplier * modifier, runner.propagate_ratio);
 			no_rotate_parent.mass_multiplier = Maths.Lerp(no_rotate_parent.mass_multiplier, no_rotate_parent.mass_multiplier * modifier, runner.propagate_ratio);
