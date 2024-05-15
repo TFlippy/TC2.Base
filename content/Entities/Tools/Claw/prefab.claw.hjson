@@ -22,7 +22,7 @@ body:
 		mass: 80.000
 		friction: 0.250
 		elasticity: 0.650
-		material: metal
+		material: metal_pole
 		layer: entity, solid, ignore_bullet, item
 		mask: world
 		exclude: item, vehicle

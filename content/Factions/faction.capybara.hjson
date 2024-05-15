@@ -1,0 +1,17 @@
+﻿{
+	$version: "0.1.60.5"
+	tag: "capybara"
+	name: "Capybara Party"
+	
+	color_a: "0xffbd6a25"
+	color_b: "0xff3d3223"
+	
+	kind: party
+	flags: npc, no_player_squads
+	
+	leader_player_id: 0
+	
+	scout_count: 0
+	
+	h_company: "null"
+}

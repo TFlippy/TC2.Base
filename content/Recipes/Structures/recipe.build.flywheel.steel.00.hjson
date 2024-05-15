@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.5"
 	name: "Flywheel (Steel) [WIP]"
 	desc:
 		'''
@@ -11,6 +12,12 @@
 		size: [32, 32]
 	}
 	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
 	flags: none
 	tags: mechanisms
@@ -21,10 +28,11 @@
 	
 	placement:
 	{
-		type: simple
-		flags: allow_placement_over_buildings
+		type: circle
+		flags: allow_placement_over_buildings, no_solid_support
 		
 		size: [4.000, 4.000]
+		radius: 2.000
 		
 		cooldown: 0.500
 		min_support: 0.200
@@ -32,6 +40,11 @@
 		min_claim: 1.000
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

@@ -7,9 +7,9 @@
 	
 	icon:
 	{
-		texture: "door.wood.icon"
-		size: [0, 0]
-		frame: [0, 0]
+		texture: "door.wood"
+		mask: "door.wood.mask"
+		size: [16, 24]
 	}
 	
 	color_button: "0xffaeb59a"

@@ -1,5 +1,5 @@
 ﻿{
-	name: "Ladder (Metal)"
+	name: "Giant adder (Metal)"
 	desc:
 		'''
 		More durable ladder with longer placement range.
@@ -59,7 +59,7 @@
 	[
 		{
 			type: prefab
-			prefab: "ladder.metal"
+			prefab: "ladder.metal.01"
 			amount: 1.000
 		}
 	]

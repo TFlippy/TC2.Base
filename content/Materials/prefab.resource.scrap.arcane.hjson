@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.200
-		material: metal
+		material: scrap
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
 	}

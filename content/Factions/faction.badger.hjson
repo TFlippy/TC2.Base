@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.4"
 	tag: "badger"
-	name: "Badgers"
+	name: "Badger Central Committee"
 	
 	color_a: "0xff494440"
 	color_b: "0xff2e2a27"

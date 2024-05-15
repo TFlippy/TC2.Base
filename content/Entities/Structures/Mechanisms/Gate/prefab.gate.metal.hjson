@@ -116,6 +116,7 @@ interactable:
 
 	joint.distance:
 	{
+		distance: 5.500
 		step: 10.000
 		max_force: 700000.000
 		error_bias: 0.001

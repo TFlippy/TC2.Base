@@ -23,7 +23,7 @@ body:
 		radius: 0.250
 		friction: 0.700
 		elasticity: 0.500
-		material: metal
+		material: metal_pole
 		layer: entity, solid, decoration, building, support, platform
 		mask: world, solid
 	}

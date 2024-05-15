@@ -33,7 +33,7 @@
 		type: simple
 		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
 		
-		size: [4.000, 4.000]
+		size: [5.000, 4.000]
 		offset: [0.000, -1.000]
 		
 		cooldown: 0.500

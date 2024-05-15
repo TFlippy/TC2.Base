@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.5"
 	name: "Pjerdelite"
 	desc:
 		'''
@@ -11,7 +11,7 @@
 		texture: "missing"
 	}
 	
-	material_type: stone
+	material_type: concrete
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
