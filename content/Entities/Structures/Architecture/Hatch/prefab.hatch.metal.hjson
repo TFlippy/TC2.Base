@@ -17,7 +17,7 @@ body:
 		mass: 58.000
 		friction: 0.750
 		elasticity: 0.300
-		material: metal
+		material: metal_sheet
 		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid
 	}

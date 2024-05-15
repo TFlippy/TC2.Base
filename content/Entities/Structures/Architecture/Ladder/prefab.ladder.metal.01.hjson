@@ -18,7 +18,7 @@ body:
 		radius: 1.250
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: metal_pole
 		layer: entity, climbable, no_overlapped_placement, ignore_bullet, furniture
 		mask: world
 	}

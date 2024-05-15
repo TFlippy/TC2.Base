@@ -18,7 +18,7 @@ body:
 		radius: 0.250
 		friction: 0.750
 		elasticity: 0.400
-		material: metal
+		material: metal_solid
 		layer: entity, solid, crate
 		mask: world, creature, crate
 		exclude: tree, resource, essence
@@ -38,7 +38,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 

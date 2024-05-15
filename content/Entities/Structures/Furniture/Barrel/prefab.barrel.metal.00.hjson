@@ -17,7 +17,7 @@ body:
 		mass: 35.000
 		friction: 0.750
 		elasticity: 0.700
-		material: metal
+		material: metal_sheet
 		layer: entity, solid, ignore_bullet
 		mask: world
 	}
