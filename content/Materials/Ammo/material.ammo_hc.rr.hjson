@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "HC Ammo (Reduced Recoil)"
+	name: "HC-13.2mm/RR Ammo"
 	description:
 		'''
-		Ammunition for rifles
-		and other larger firearms. Less recoil and heat, cheaper but weaker.
+		High-caliber 13.2mm ammunition.
 		'''
 	
 	icon:

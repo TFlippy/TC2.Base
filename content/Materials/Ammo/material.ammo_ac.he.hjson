@@ -1,16 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "AC Ammo (HE)"
+	name: "AC-33.6mm/HE Ammo"
 	description:
 		'''
-		30x210mm explosive ammunition, primarily used by autocannons.
-
-		Effective against infantry, structures and unarmored targets.
-
-		- High splash damage
-		- Medium explosion radius
-		- Low velocity
-		- Low recoil
+		AC-caliber 33.6mm ammunition.
 		'''
 	
 	icon:

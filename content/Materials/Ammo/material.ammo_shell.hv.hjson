@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (HV)"
+	name: "HW-106.7mm/HV Ammo"
 	description:
 		'''
-		Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:

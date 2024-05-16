@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (Kinetic)"
+	name: "HW-106.7mm/KC Ammo"
 	description:
 		'''
-		Ammunition for cannons. Non-explosive, deals enormous amount of damage on impact.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:

@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "AC Ammo (AA)"
+	name: "AC-33.6mm/AA Ammo"
 	description:
 		'''
-		30x210mm ammunition, primarily used by autocannons. (Anti-Air)
+		AC-caliber 33.6mm ammunition.
 		'''
 	
 	icon:

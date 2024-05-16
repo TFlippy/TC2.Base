@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (Shrapnel)"
+	name: "HW-106.7mm/SP Ammo"
 	description:
 		'''
-		Ammunition for cannons.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:

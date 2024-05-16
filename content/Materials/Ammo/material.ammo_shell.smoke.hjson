@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (Smoke)"
+	name: "HW-106.7mm/SM Ammo"
 	description:
 		'''
-		Ammunition for cannons. Produces a lot of smoke on impact, explosion deals almost no damage, though the projectile itself is extremely dangerous if it hits.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:

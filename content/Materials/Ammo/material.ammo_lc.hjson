@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "LC Ammo (Standard)"
+	name: "LC-9.4mm Ammo"
 	description:
 		'''
-		Ammunition for pistols, revolvers
-		and submachine guns. Gunpowder is weaker, but cheap.
+		Low-caliber 9.4mm ammunition.
 		'''
 	
 	icon:

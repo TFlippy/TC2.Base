@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "HC Ammo (ARC-MT)"
+	name: "HC-13.2mm/EMT Ammo"
 	description:
 		'''
-		Ammunition for rifles and other larger firearms.
-		Special self-propelled variant utilizing arcanite infused with motion essence.
+		High-caliber 13.2mm ammunition.
 		'''
 	
 	icon:
@@ -18,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [11, 0]
+		frame: [13, 0]
 	}
 	
 	type: metal_solid

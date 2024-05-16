@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "MG Ammo (Standard)"
+	name: "MG-20.4mm Ammo"
 	description:
 		'''
-		Ammunition for machine guns
-		and other heavy weapons.
+		MG-caliber 20.4mm ammunition.
 		'''
 	
 	icon:

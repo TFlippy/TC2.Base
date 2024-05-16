@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "LC Ammo (HV)"
+	name: "LC-9.4mm/HV Ammo"
 	description:
 		'''
-		Ammunition for pistols, revolvers
-		and submachine guns.
+		Low-caliber 9.4mm ammunition.
 		'''
 	
 	icon:

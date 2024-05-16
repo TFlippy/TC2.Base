@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "MG Ammo (ARC-MT)"
+	name: "MG-20.4mm/EMT Ammo"
 	description:
 		'''
-		Ammunition for machine guns
-		and other heavy weapons.
+		MG-caliber 20.4mm ammunition.
 		'''
 	
 	icon:
@@ -18,7 +17,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [11, 0]
+		frame: [13, 0]
 	}
 	
 	type: metal_solid

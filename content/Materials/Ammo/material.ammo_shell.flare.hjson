@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (Flare)"
+	name: "HW-106.7mm/FL Ammo"
 	description:
 		'''
-		Ammunition for cannons. Emits a very intense light.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:

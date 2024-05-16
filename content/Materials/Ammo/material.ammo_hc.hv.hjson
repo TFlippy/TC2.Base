@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "HC Ammo (HV)"
+	name: "HC-13.2mm/HV Ammo"
 	description:
 		'''
-		Ammunition for rifles
-		and other larger firearms.
+		High-caliber 13.2mm ammunition.
 		'''
 	
 	icon:

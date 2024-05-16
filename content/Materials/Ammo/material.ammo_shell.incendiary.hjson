@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Artillery Shell (Incendiary)"
+	name: "HW-106.7mm/IN Ammo"
 	description:
 		'''
-		Ammunition for cannons. Phlogiston payload.
+		HW-caliber 106.7mm ammunition.
 		'''
 	
 	icon:
@@ -16,7 +16,7 @@
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [4, 0]
+		frame: [3, 0]
 	}
 	
 	type: metal

@@ -1,16 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "AC Ammo (Standard)"
+	name: "AC-33.6mm Ammo"
 	description:
 		'''
-		30x210mm ammunition, primarily used by autocannons.
-
-		Effective against armored targets.
-
-		- High damage
-		- Large radius
-		- Low velocity
-		- Low recoil
+		AC-caliber 33.6mm ammunition.
 		'''
 	
 	icon:

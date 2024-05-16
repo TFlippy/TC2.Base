@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "HC Ammo (Match Grade)"
+	name: "HC-13.2mm/HQ Ammo"
 	description:
 		'''
-		Ammunition for rifles
-		and other larger firearms. Increased damage and muzzle velocity, great accuracy.
+		High-caliber 13.2mm ammunition.
 		'''
 	
 	icon:

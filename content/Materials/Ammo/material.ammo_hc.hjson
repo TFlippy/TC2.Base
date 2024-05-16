@@ -1,11 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "HC Ammo  (Standard)"
+	name: "HC-13.2mm Ammo"
 	description:
 		'''
-		Ammunition for medium-sized firearms.
-
-		Gunpowder is weaker, but cheap.
+		High-caliber 13.2mm ammunition.
 		'''
 	
 	icon:
