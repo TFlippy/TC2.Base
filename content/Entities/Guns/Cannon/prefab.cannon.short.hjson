@@ -1,7 +1,7 @@
 $name: "Short Cannon"
 $desc: 
 	'''
-	A short cannon based on an antiquated imperial cannon model, 
+	Short cannon based on an antiquated imperial cannon model, 
 	which is cheaper, lighter and of worse performance.
 	'''
 $tags: []
@@ -132,7 +132,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 
