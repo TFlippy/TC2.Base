@@ -2,15 +2,16 @@ $tags: []
 
 body:
 {
-	@shape.circle:
+	@shape.line:
 	{
-		offset: [0.000, 0.170]
+		a: [-0.750, 0.250]
+		b: [0.750, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.850
+		elasticity: 0.400
 		material: wood
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -21,7 +22,7 @@ animated.renderer:
 	{
 		texture: "resource.timber"
 		count: 4
-		size: [16, 16]
+		size: [24, 16]
 	}
 }
 
@@ -37,15 +38,16 @@ resource:
 
 holdable:
 {
-	force_multiplier: 1.800
+	force_multiplier: 1.000
 	torque_multiplier: 0.700
-	offset: [0.000, 0.750]
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
-norotate:
-{
+// norotate:
+// {
 
-}
+// }
 
 // despawn:
 // {
