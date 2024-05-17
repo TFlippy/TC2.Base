@@ -27,7 +27,7 @@ body:
 		material: cermet
 		layer: entity, solid
 		mask: world, essence, solid
-		exclude: attached
+		exclude: attached, resource
 	}
 }
 

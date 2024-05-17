@@ -30,6 +30,8 @@ gun:
 
 	sound_shoot: "machine_gun_shoot"
 	sound_reload: "machine_gun_reload"
+	sound_volume: 1.000
+	sound_size: 3.000
 	sound_dist_multiplier: 3.000
 	velocity_multiplier: 600.000
 	jitter_multiplier: 2.400

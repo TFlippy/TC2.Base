@@ -28,4 +28,19 @@
 	mass_per_unit: 0.145
 	quantity_max: 500.000
 	prefab: "resource.woodchips"
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		fire:
+		{
+			h_material: "ash"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 0.660
+			chance: 0.260
+		}
+	}
 }
