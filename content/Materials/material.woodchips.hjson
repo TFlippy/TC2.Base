@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Resin"
+	name: "Woodchips"
 	description:
 		'''
-		Sticky resin harvested from trees.
+		Small bits of wood.
 		'''
 	
 	icon:
 	{
-		texture: "resource.resin"
+		texture: "resource.woodchips"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -18,14 +18,14 @@
 		texture: "missing"
 	}
 	
-	type: resin
+	type: wood_powder
 	// Flags defining properties of the raw material.
-	flags: hard, sticky, granular, organic, small, fragile, raw, fuel, flammable, solid
+	flags: hard, organic, intermediate, small, raw, manufactured, fuel, flammable, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.200
-	quantity_max: 200.000
-	prefab: "resource.resin"
+	mass_per_unit: 0.145
+	quantity_max: 500.000
+	prefab: "resource.woodchips"
 }
