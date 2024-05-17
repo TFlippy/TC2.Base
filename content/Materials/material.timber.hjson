@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: wood
+	type: tree
 	// Flags defining properties of the raw material.
 	flags: hard, long, organic, large, heavy, raw, fuel, flammable, solid
 	// Flags to remove if stored in a bottle/tank/can.
@@ -28,4 +28,65 @@
 	mass_per_unit: 6.940
 	quantity_max: 100.000
 	prefab: "resource.timber"
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		saw:
+		{
+			h_material: "sawdust"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.030
+			ratio_extra: 0.050
+			yield: 0.980
+			
+			chance: 0.820
+		}
+		axe:
+		{
+			h_material: "woodchips"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.070
+			ratio_extra: 0.050
+			yield: 0.950
+			
+			chance: 0.600
+		}
+		explosion:
+		{
+			h_material: "woodchips"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			
+			ratio: 0.130
+			ratio_extra: 0.640
+			yield: 0.760
+			
+			chance: 1.000
+		}
+		fire:
+		{
+			h_material: "charcoal"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			
+			ratio: 0.030
+			ratio_extra: 0.640
+			yield: 0.000
+			
+			chance: 1.000
+		}
+	}
 }
