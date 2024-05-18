@@ -54,7 +54,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "wood"
+			material: "woodchips"
 			quantity: 140.000
 		}
 	]

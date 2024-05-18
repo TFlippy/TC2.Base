@@ -80,12 +80,12 @@ harvestable:
 	resources:
 	[
 		{
-			material: "wood"
-			quantity: 1150.000
+			material: "timber"
+			quantity: 950.000
 		}
 		{
 			material: "plants"
-			quantity: 1700.000
+			quantity: 700.000
 		}
 		{
 			material: "resin"

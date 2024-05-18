@@ -81,7 +81,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "wood"
+			material: "timber"
 			quantity: 800.000
 		}
 		{

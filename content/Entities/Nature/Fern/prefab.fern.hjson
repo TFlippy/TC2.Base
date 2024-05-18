@@ -8,7 +8,7 @@ body:
 	
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		mass: 9.100
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 180.000
+			quantity: 88.000
 		}
 	]
 }

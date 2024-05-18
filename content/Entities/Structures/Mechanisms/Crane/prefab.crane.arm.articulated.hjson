@@ -11,12 +11,12 @@ body:
 	{
 		a: [-4.000, 0.000]
 		b: [4.000, 0.000]
-		mass: 300.000
+		mass: 400.000
 		radius: 0.500
 		friction: 0.350
 		elasticity: 0.450
 		material: metal_solid
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid
 		mask: world
 		exclude: item, vehicle
 	}
@@ -45,20 +45,31 @@ faction:
 
 health:
 {
-	max: 50000.000
+	max: 58000.000
 }
 
-armor:
+damage.effects:
 {
-	toughness: 800.000
-	protection: 0.750
-	
-	knockback_modifier: 1.300
-	pain_modifier: 0.000
-
-	material_type: metal
-	flags: no_damage_type_conversion
+	threshold_wreck: 0.550
 }
+
+cover:
+{
+	threshold: 0.300
+	flags: none
+}
+
+// armor:
+// {
+// 	toughness: 800.000
+// 	protection: 0.750
+	
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
+
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
 
 control:
 {
