@@ -10,7 +10,7 @@ body:
 	{
 		radius: 1.125
 		offset: [0.080, -0.375]
-		mass: 770.000
+		mass: 481.000
 		friction: 0.950
 		elasticity: 0.500
 		material: tree
@@ -26,7 +26,7 @@ transform:
 
 health:
 {
-	max: 8000.000
+	max: 9800.000
 }
 
 animated.renderer:
@@ -45,7 +45,7 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 110.000
+			quantity: 67.000
 		}
 	]
 }
