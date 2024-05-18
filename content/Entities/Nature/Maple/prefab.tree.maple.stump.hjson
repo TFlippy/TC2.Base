@@ -1,5 +1,5 @@
-$name: "Oak Stump"
-$desc: "What's left of an oak tree."
+$name: "Maple Stump"
+$desc: "What's left of a maple tree."
 $tags: []
 
 body:
@@ -10,10 +10,10 @@ body:
 	{
 		radius: 1.000
 		offset: [0.125, -0.500]
-		mass: 100.000
+		mass: 650.000
 		friction: 0.950
 		elasticity: 0.500
-		material: wood
+		material: tree
 		layer: entity, solid, ignore_bullet, flammable
 		mask: world
 	}
@@ -26,7 +26,7 @@ transform:
 
 health:
 {
-	max: 1500.000
+	max: 7200.000
 }
 
 animated.renderer:
@@ -45,7 +45,7 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 200.000
+			quantity: 92.000
 		}
 	]
 }

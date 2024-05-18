@@ -1,4 +1,4 @@
-$name: "Oak Tree"
+$name: "Maple Tree"
 $desc: "A dead tree. Seems like a good source of wood."
 $tags: []
 
@@ -10,11 +10,11 @@ body:
 	{
 		a: [0.000, -1.750]
 		b: [0.000, -10.250]
-		mass: 550.000
+		mass: 1640.000
 		radius: 0.500
 		friction: 1.000
 		elasticity: 0.010
-		material: wood
+		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world
 	}
@@ -27,7 +27,7 @@ transform:
 
 health:
 {
-	max: 25000.000
+	max: 18400.000
 }
 
 splittable:
@@ -69,11 +69,11 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 420.000
+			quantity: 225.000
 		}
 		{
 			material: "resin"
-			quantity: 50.000
+			quantity: 110.000
 		}
 	]
 }

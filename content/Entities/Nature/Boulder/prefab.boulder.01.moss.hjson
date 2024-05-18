@@ -21,7 +21,7 @@ body:
 			[-1.250, 1.125]
 		]
 		radius: 0.500
-		mass: 500.000
+		mass: 710.000
 		friction: 0.950
 		elasticity: 0.020
 		material: stone

@@ -8,7 +8,7 @@ body:
 	
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		mass: 28.000
 		radius: 1.250
 		friction: 0.950
 		elasticity: 0.500
@@ -25,7 +25,7 @@ transform:
 
 health:
 {
-	max: 500.000
+	max: 1400.000
 }
 
 foliage.renderer:
@@ -45,7 +45,11 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 180.000
+			quantity: 274.000
+		}
+		{
+			material: "woodchips"
+			quantity: 32.000
 		}
 	]
 }

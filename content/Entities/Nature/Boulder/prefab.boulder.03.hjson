@@ -14,7 +14,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 5000.000
+		mass: 4400.000
 		radius: 2.250
 		friction: 0.950
 		elasticity: 0.020
@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 90000.000
+	max: 120000.000
 }
 
 animated.renderer:
@@ -55,7 +55,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 3350.000
+			quantity: 4350.000
 		}
 	]
 }

@@ -10,11 +10,11 @@ body:
 	{
 		a: [0.000, -0.500]
 		b: [0.000, -11.000]
-		mass: 1500.000
+		mass: 6780.000
 		radius: 0.500
 		friction: 1.000
 		elasticity: 0.010
-		material: wood
+		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world
 	}
@@ -27,7 +27,7 @@ transform:
 
 health:
 {
-	max: 20000.000
+	max: 112000.000
 }
 
 splittable:
@@ -69,11 +69,11 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 700.000
+			quantity: 910.000
 		}
 		{
 			material: "resin"
-			quantity: 70.000
+			quantity: 780.000
 		}
 	]
 }

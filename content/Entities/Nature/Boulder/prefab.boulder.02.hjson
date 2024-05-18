@@ -20,7 +20,7 @@ body:
 			[1.750, 2.000]
 			[-1.750, 2.000]
 		]
-		mass: 1000.000
+		mass: 2800.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.020
@@ -32,7 +32,7 @@ body:
 
 health:
 {
-	max: 62000.000
+	max: 82000.000
 }
 
 animated.renderer:
@@ -60,7 +60,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 1950.000
+			quantity: 3050.000
 		}
 	]
 }

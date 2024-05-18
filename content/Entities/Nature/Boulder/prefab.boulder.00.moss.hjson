@@ -21,7 +21,7 @@ body:
 			[-2.125, 1.250]
 		]
 		offset: [0.000, 0.000]
-		mass: 5000.000
+		mass: 1800.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.020
@@ -33,7 +33,7 @@ body:
 
 health:
 {
-	max: 30000.000
+	max: 41000.000
 }
 
 animated.renderer:
@@ -61,7 +61,7 @@ harvestable:
 	[
 		{
 			material: "stone"
-			quantity: 1350.000
+			quantity: 1850.000
 		}
 		{
 			material: "plants"
