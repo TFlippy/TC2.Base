@@ -149,6 +149,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.Tree => true,
 						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,
@@ -170,6 +171,7 @@ namespace TC2.Base.Components
 						Material.Type.Chitin => true,
 						Material.Type.Rubble => false,
 						Material.Type.Scrap => false,
+						Material.Type.Wreck => false,
 						Material.Type.Tool => false,
 						_ => false
 					};
@@ -247,6 +249,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.Tree => true,
 						Material.Type.Wood => true,
 						Material.Type.Stone => true,
 						Material.Type.Gravel => true,
@@ -342,6 +345,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.Tree => true,
 						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,
@@ -374,6 +378,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.Tree => true,
 						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,
@@ -406,6 +411,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.Tree => true,
 						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,

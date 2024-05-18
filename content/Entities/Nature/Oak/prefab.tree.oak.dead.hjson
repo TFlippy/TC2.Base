@@ -1,5 +1,5 @@
-$name: "Oak Tree"
-$desc: "A dead tree. Seems like a good source of wood."
+$name: "Oak Tree (Dead)"
+$desc: "A dead oak tree. Seems like a good source of wood."
 $tags: []
 
 body:
