@@ -50,7 +50,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "tree.pine"
+		texture: "tree.pine.00"
 	}
 	offset: [-0, -5.500]
 	z: -80.000

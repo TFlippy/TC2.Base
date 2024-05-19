@@ -9,14 +9,14 @@ body:
 	@shape.line:
 	{
 		a: [0.000, -6.000]
-		b: [0.000, -0.500]
-		mass: 1780.000
+		b: [0.000, 0.000]
+		mass: 780.000
 		radius: 0.375
-		friction: 1.000
-		elasticity: 0.010
+		friction: 0.800
+		elasticity: 0.110
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
-		mask: world
+		mask: world, tree
 	}
 }
 
@@ -27,13 +27,13 @@ transform:
 
 health:
 {
-	max: 21000.000
+	max: 11000.000
 }
 
 splittable:
 {
 	split_health: 0.900
-	rect: [-0.375, -6.375, 0.500, -0.125]
+	rect: [-0.375, -6.000, 0.375, 0.000]
 	texture_stub: "tree.maple.stub"
 	sound_split: "tree_snap_00"
 }
@@ -81,15 +81,15 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 240.000
+			quantity: 108.000
 		}
 		{
 			material: "plants"
-			quantity: 200.000
+			quantity: 115.000
 		}
 		{
 			material: "resin"
-			quantity: 160.000
+			quantity: 92.000
 		}
 	]
 }
