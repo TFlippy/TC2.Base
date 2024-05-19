@@ -15,7 +15,8 @@ body:
 		elasticity: 0.500
 		material: tree
 		layer: entity, solid, ignore_bullet, flammable
-		mask: world
+		mask: world, tree
+		exclude: held
 	}
 }
 
@@ -33,9 +34,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "tree.pine.stump"
+		texture: "tree.pine.00.stump"
 	}
-	offset: [-0, -0.500]
+	offset: [0.000, -0.500]
 	z: -250.000
 }
 

@@ -13,10 +13,11 @@ body:
 		mass: 780.000
 		radius: 0.375
 		friction: 0.800
-		elasticity: 0.110
+		elasticity: 0.190
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world, tree
+		exclude: held
 	}
 }
 
@@ -32,9 +33,14 @@ health:
 
 splittable:
 {
-	split_health: 0.900
+	split_health: 0.910
 	rect: [-0.375, -6.000, 0.375, 0.000]
-	texture_stub: "tree.maple.stub"
+	sprite_stub:
+	{
+		texture: "tree.stubs.00"
+		size: [8, 8]
+		frame: [0, 1]
+	}
 	sound_split: "tree_snap_00"
 }
 
@@ -50,7 +56,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "tree.maple"
+		texture: "tree.maple.00"
 	}
 	offset: [0.000, -3.000]
 	z: -80.000
@@ -58,9 +64,9 @@ animated.renderer:
 
 tree:
 {
-	prefab_stump: "tree.maple.stump"
-	health_cut: 0.960
-	sprite_cut: "tree.maple.cut"
+	// prefab_stump: "tree.maple.stump"
+	// health_cut: 0.960
+	// sprite_cut: "tree.maple.cut"
 	sound_cut: "tree_fall"
 	
 	@foliage.renderer:
@@ -70,7 +76,8 @@ tree:
 	
 		sprite:
 		{
-			texture: "tree.maple.foliage"
+			texture: "tree.maple.00.foliage"
+			mask: "tree.maple.00.foliage.mask"
 		}
 	}
 }

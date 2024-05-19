@@ -17,6 +17,7 @@ body:
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
 		mask: world, tree
+		exclude: held
 	}
 }
 
@@ -38,6 +39,7 @@ splittable:
 	{
 		texture: "tree.stubs.00"
 		size: [16, 8]
+		frame: [0, 0]
 	}
 	sound_split: "tree_snap_00"
 }
@@ -63,7 +65,7 @@ animated.renderer:
 tree:
 {
 	// prefab_stump: "tree.oak.stump"
-	health_cut: 0.940
+	// health_cut: 0.940
 	// sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 

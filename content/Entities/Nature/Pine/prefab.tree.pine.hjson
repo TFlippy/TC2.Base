@@ -8,15 +8,16 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -0.500]
-		b: [0.000, -11.000]
+		a: [0.000, -10.500]
+		b: [0.000, -0.250]
 		mass: 6130.000
 		radius: 0.500
-		friction: 1.000
-		elasticity: 0.010
+		friction: 0.940
+		elasticity: 0.210
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
-		mask: world
+		mask: world, tree
+		exclude: held
 	}
 }
 
@@ -32,9 +33,14 @@ health:
 
 splittable:
 {
-	split_health: 0.900
-	rect: [-0.500, -11.500, 0.500, 0.000]
-	texture_stub: "tree.pine.stub"
+	split_health: 0.960
+	rect: [-0.500, -10.500, 0.500, -0.250]
+	sprite_stub:
+	{
+		texture: "tree.stubs.00"
+		size: [16, 8]
+		frame: [1, 0]
+	}
 	sound_split: "tree_snap_00"
 }
 
@@ -58,9 +64,9 @@ animated.renderer:
 
 tree:
 {
-	prefab_stump: "tree.pine.stump"
-	health_cut: 0.940
-	sprite_cut: "tree.pine.cut"
+	// prefab_stump: "tree.pine.stump"
+	// health_cut: 0.940
+	// sprite_cut: "tree.pine.cut"
 	sound_cut: "tree_fall"
 	
 	@foliage.renderer:
@@ -70,7 +76,8 @@ tree:
 		
 		sprite:
 		{
-			texture: "tree.pine.foliage"
+			texture: "tree.pine.00.foliage"
+			mask: "tree.pine.00.foliage.mask"
 		}
 	}
 }

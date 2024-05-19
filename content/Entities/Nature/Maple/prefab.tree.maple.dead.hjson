@@ -8,15 +8,16 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -1.750]
-		b: [0.000, -10.250]
-		mass: 1640.000
-		radius: 0.500
-		friction: 1.000
-		elasticity: 0.010
+		a: [0.000, -6.000]
+		b: [0.000, 0.000]
+		mass: 710.000
+		radius: 0.375
+		friction: 0.860
+		elasticity: 0.140
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
-		mask: world
+		mask: world, tree
+		exclude: held
 	}
 }
 
@@ -27,13 +28,19 @@ transform:
 
 health:
 {
-	max: 18400.000
+	max: 8400.000
 }
 
 splittable:
 {
-	rect: [-0.500, -10.750, 0.500, -1.250]
-	texture_stub: "tree.oak.stub"
+	split_health: 0.950
+	rect: [-0.375, -6.000, 0.375, 0.000]
+	sprite_stub:
+	{
+		texture: "tree.stubs.00"
+		size: [8, 8]
+		frame: [0, 1]
+	}
 	sound_split: "tree_snap_00"
 }
 
@@ -49,17 +56,17 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "tree.oak"
+		texture: "tree.maple.00"
 	}
-	offset: [-0, -5.500]
+	offset: [0.000, -3.000]
 	z: -80.000
 }
 
 tree:
 {
-	prefab_stump: "tree.oak.stump"
-	health_cut: 0.980
-	sprite_cut: "tree.oak.cut"
+	// prefab_stump: "tree.oak.stump"
+	// health_cut: 0.980
+	// sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 }
 
@@ -69,11 +76,15 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 225.000
+			quantity: 89.000
+		}
+		{
+			material: "plants"
+			quantity: 15.000
 		}
 		{
 			material: "resin"
-			quantity: 110.000
+			quantity: 70.000
 		}
 	]
 }
