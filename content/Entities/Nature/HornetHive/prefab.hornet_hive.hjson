@@ -9,11 +9,11 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 10000.000
+		mass: 1400.000
 		radius: 1.500
 		friction: 0.950
 		elasticity: 0.500
-		material: soil
+		material: fabric
 		layer: entity, flammable
 		mask: world
 	}
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 80000.000
+	max: 60000.000
 }
 
 animated.renderer:
@@ -84,22 +84,24 @@ claimer:
 			
 			@shape.line:
 			{
-				a: [1.250, -1.125]
-				b: [-0.625, 0.500]
-				offset: [0.000, 0.000]
-				mass: 2000.000
+				a: [1.000, -2.500]
+				b: [0.125, -1.500]
+				offset: [-0.750, 1.875]
+				mass: 2100.000
 				radius: 1.500
 				friction: 0.950
 				elasticity: 0.500
-				material: soil
+				material: fabric
 				layer: entity, solid, flammable
 				mask: world
+				exclude: none
+				flags: none
 			}
 		}
 		
 		health:
 		{
-			max: 60000.000
+			max: 48000.000
 		}
 		
 		animated.renderer:
@@ -199,7 +201,9 @@ claimer:
 
 		nameable:
 		{
-			name: "Hornet Hive"
+			tags: chemical, tech, dangerous
+			flags: randomize
+			type: building
 		}
 
 		// faction.new:

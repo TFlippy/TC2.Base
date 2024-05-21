@@ -15,6 +15,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.600
 		elasticity: 0.350
+		mass: 800.000
 		material: metal_frame
 		layer: entity, building, ignore_melee
 		mask: world

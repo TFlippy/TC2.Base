@@ -14,7 +14,7 @@ body:
 		radius: 1.000
 		friction: 0.400
 		elasticity: 0.200
-		material: metal
+		material: metal_solid
 		layer: entity, solid, building, no_overlapped_placement
 		mask: world, essence
 	}
@@ -33,7 +33,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 

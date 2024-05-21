@@ -181,10 +181,10 @@ threat:
 // 	speed: 25.000
 // }
 
-drop_bear:
-{
+// drop_bear:
+// {
 
-}
+// }
 
 norotate:
 {

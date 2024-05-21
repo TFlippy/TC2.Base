@@ -1,7 +1,7 @@
-$name: "Wrecked Car"
+$name: "Perturbed Automobile"
 $desc:
 	'''
-	A brand new car after 3 years of service to an imperial citizen.
+	A brand new car after 3 years of service to an Imperial citizen.
 	Can be salvaged for spare parts.
 	'''
 $tags: []
@@ -21,8 +21,8 @@ body:
 			[1.500, -0.500]
 		]
 		offset: [0.000, 0.000]
-		mass: 500.000
-		friction: 0.850
+		mass: 834.000
+		friction: 0.960
 		elasticity: 0.400
 		radius: 0.500
 		material: metal
@@ -33,7 +33,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 12000.000
 }
 
 animated.renderer:
