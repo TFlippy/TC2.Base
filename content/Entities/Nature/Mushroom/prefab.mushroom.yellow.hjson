@@ -13,10 +13,10 @@ body:
 	{
 		a: [0.000, 0.220]
 		b: [0.700, -7.500]
-		mass: 1500.000
+		mass: 490.000
 		radius: 1.500
-		friction: 1.500
-		elasticity: 0.010
+		friction: 0.500
+		elasticity: 0.400
 		material: mushroom
 		layer: entity, solid, tree, ignore_bullet, flammable, plant
 		mask: world
@@ -56,11 +56,11 @@ harvestable:
 	[
 		{
 			material: "mushroom"
-			quantity: 900.000
+			quantity: 850.000
 		}
 		{
 			material: "mushroom.yellow"
-			quantity: 650.000
+			quantity: 680.000
 		}
 	]
 }

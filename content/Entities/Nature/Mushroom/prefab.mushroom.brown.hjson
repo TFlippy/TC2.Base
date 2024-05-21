@@ -10,10 +10,10 @@ body:
 	{
 		a: [0.000, -0.140]
 		b: [0.450, -6.550]
-		mass: 1500.000
+		mass: 280.000
 		radius: 0.500
-		friction: 1.500
-		elasticity: 0.010
+		friction: 0.400
+		elasticity: 0.400
 		material: mushroom
 		layer: entity, solid, tree, ignore_bullet, flammable, plant
 		mask: world
