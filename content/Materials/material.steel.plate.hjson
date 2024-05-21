@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.6"
 	name: "Steel Plate"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	
 	type: metal_sheet
 	// Flags defining properties of the raw material.
-	flags: magnetic, metal, intermediate, manufactured, plate, solid
+	flags: hard, magnetic, metal, intermediate, small, manufactured, plate, flexible, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
@@ -85,5 +85,80 @@
 		melting_point: 1811.000
 		// K
 		boiling_point: 3143.000
+	}
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		bullet_ac:
+		{
+			h_material: "scrap.steel"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.820
+			ratio_extra: 0.100
+			yield: 0.910
+			
+			chance: 0.920
+		}
+		pickaxe:
+		{
+			h_material: "scrap.steel"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.120
+			ratio_extra: 0.200
+			yield: 0.988
+			
+			chance: 0.540
+		}
+		blunt:
+		{
+			h_material: "scrap.steel"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.180
+			ratio_extra: 0.300
+			yield: 0.980
+			
+			chance: 0.250
+		}
+		club:
+		{
+			h_material: "scrap.steel"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.200
+			ratio_extra: 0.500
+			yield: 0.980
+			
+			chance: 0.140
+		}
+		axe:
+		{
+			h_material: "scrap.steel"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.220
+			ratio_extra: 0.400
+			yield: 0.910
+			
+			chance: 0.660
+		}
 	}
 }

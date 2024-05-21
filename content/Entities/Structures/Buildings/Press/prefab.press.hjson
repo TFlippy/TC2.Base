@@ -89,10 +89,18 @@ crafter:
 {
 	@inventory8:
 	{
-		name: "Output"
-		stack_size_multiplier: 4.000
 		type: output
-		flags: allow_ducts, ignore_mass, public, faction
+		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: none
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -100,10 +108,18 @@ crafter.state:
 {
 	@inventory4:
 	{
-		name: "Input"
-		stack_size_multiplier: 4.000
 		type: input
-		flags: allow_ducts, ignore_mass
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: none
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -130,6 +146,7 @@ axle:
 interactable:
 {
 	window_size: [650.000, 450.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 shipment:

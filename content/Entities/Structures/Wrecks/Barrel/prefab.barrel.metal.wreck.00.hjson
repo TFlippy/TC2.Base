@@ -14,11 +14,11 @@ body:
 	{
 		size: [0.875, 1.375]
 		radius: 0.250
-		mass: 30.000
+		mass: 29.000
 		friction: 0.850
 		elasticity: 0.400
 		material: metal_sheet
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, decoration, furniture, ignore_bullet
 		mask: world
 	}
 }
@@ -54,11 +54,11 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 70.000
+			quantity: 42.000
 		}
 		{
 			material: "steel.plate"
-			quantity: 20.000
+			quantity: 5.000
 		}
 	]
 }

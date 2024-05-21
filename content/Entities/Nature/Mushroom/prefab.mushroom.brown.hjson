@@ -20,6 +20,22 @@ body:
 	}
 }
 
+// splittable:
+// {
+// 	split_health: 0.999
+// 	rect: [-0.500, -6.625, 1.000, -0.125]
+// 	sprite_stub:
+// 	{
+// 		texture: "split_test.00.stub"
+// 		mask: "missing"
+// 		fps: 0.000
+// 		count: 0
+// 		size: [8, 8]
+// 		frame: [0, 0]
+// 	}
+// 	sound_split: "metal.snap.medium.00"
+// }
+
 transform:
 {
 
