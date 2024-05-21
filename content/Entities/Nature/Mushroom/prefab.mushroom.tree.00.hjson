@@ -50,7 +50,7 @@ harvestable:
 		}
 		{
 			material: "plants"
-			quantity: 1500.000
+			quantity: 900.000
 		}
 	]
 }

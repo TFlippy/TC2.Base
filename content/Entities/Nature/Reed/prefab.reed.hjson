@@ -14,6 +14,7 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
+		mass: 8.000
 		material: foliage
 		layer: entity, plant
 		mask: world
@@ -46,7 +47,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 130.000
+			quantity: 38.000
 		}
 	]
 }

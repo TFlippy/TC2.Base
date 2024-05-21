@@ -11,7 +11,7 @@ body:
 		a: [-0.000, 1.250]
 		b: [-0.250, -0.500]
 		offset: [0.000, 0.000]
-		mass: 25.000
+		mass: 36.000
 		radius: 1.375
 		friction: 1.100
 		elasticity: 0.400
@@ -55,7 +55,7 @@ harvestable:
 	[
 		{
 			material: "woodchips"
-			quantity: 140.000
+			quantity: 210.000
 		}
 	]
 }

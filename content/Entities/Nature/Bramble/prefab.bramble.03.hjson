@@ -16,13 +16,13 @@ body:
 			[-2.625, 2.000]
 		]
 		offset: [0.000, 0.000]
-		mass: 125.000
+		mass: 98.000
 		radius: 0.500
 		friction: 1.500
 		elasticity: 0.200
 		rigidity_dynamic: 0.500
 		rigidity_static: 0.250
-		material: wood
+		material: bramble
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
 		mask: solid, creature
 		exclude: tree
@@ -60,7 +60,7 @@ harvestable:
 	[
 		{
 			material: "woodchips"
-			quantity: 210.000
+			quantity: 610.000
 		}
 	]
 }

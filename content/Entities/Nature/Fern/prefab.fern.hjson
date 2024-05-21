@@ -44,7 +44,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 88.000
+			quantity: 42.000
 		}
 	]
 }

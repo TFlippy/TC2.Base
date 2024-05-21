@@ -58,7 +58,7 @@ harvestable:
 		}
 		{
 			material: "plants"
-			quantity: 80.000
+			quantity: 40.000
 		}
 	]
 }

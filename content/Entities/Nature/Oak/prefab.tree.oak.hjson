@@ -92,7 +92,7 @@ harvestable:
 		}
 		{
 			material: "plants"
-			quantity: 580.000
+			quantity: 480.000
 		}
 		{
 			material: "resin"

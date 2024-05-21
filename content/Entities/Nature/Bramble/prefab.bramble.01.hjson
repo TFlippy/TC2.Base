@@ -9,7 +9,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 25.000
+		mass: 19.000
 		radius: 1.250
 		friction: 1.000
 		elasticity: 0.400
@@ -54,11 +54,11 @@ harvestable:
 	[
 		{
 			material: "woodchips"
-			quantity: 45.000
+			quantity: 95.000
 		}
 		{
 			material: "plants"
-			quantity: 60.000
+			quantity: 21.000
 		}
 	]
 }

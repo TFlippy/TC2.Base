@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 900.000
+	max: 1100.000
 }
 
 foliage.renderer:
@@ -51,7 +51,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 210.000
+			quantity: 138.000
 		}
 	]
 }

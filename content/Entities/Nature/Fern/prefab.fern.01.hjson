@@ -45,11 +45,7 @@ harvestable:
 	[
 		{
 			material: "plants"
-			quantity: 274.000
-		}
-		{
-			material: "woodchips"
-			quantity: 32.000
+			quantity: 144.000
 		}
 	]
 }

@@ -12,6 +12,7 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
+		mass: 6.500
 		material: foliage
 		layer: entity, flammable, plant
 		mask: world
@@ -45,8 +46,12 @@ harvestable:
 	resources:
 	[
 		{
+			material: "woodchips"
+			quantity: 5.000
+		}
+		{
 			material: "plants"
-			quantity: 110.000
+			quantity: 31.000
 		}
 	]
 }

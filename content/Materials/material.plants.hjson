@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.6"
 	name: "Plant Trimmings"
 	description:
 		'''
@@ -20,12 +20,12 @@
 	
 	type: foliage
 	// Flags defining properties of the raw material.
-	flags: soft, malleable, granular, organic, raw, waste, flexible, solid
+	flags: soft, malleable, granular, organic, small, raw, flammable, waste, flexible, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	hints: none
+	hints: materials, junk, primitive, crappy
 	// kg
-	mass_per_unit: 0.084
+	mass_per_unit: 0.184
 	quantity_max: 500.000
 	prefab: "resource.plants"
 	
