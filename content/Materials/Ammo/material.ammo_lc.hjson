@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.6"
 	name: "LC-9.4mm Ammo"
 	description:
 		'''
@@ -51,5 +51,12 @@
 		stability_mult: 0.940
 		
 		prefab: "projectile.bullet.lc"
+		
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+		}
+		casing_scale: 0.900
 	}
 }

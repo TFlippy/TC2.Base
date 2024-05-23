@@ -13,7 +13,7 @@ body:
 		radius: 0.300
 		friction: 0.400
 		elasticity: 0.450
-		material: metal
+		material: metal_sheet
 		layer: entity, solid, item, shield
 		mask: world
 	}
@@ -63,7 +63,7 @@ armor:
 	
 	knockback_modifier: 4.500
 	
-	material_type: metal
+	material_type: metal_sheet
 	flags: no_damage_type_conversion
 }
 

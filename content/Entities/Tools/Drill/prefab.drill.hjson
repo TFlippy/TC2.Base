@@ -20,7 +20,7 @@ body:
 		radius: 0.500
 		friction: 0.550
 		elasticity: 0.450
-		material: metal
+		material: machine
 		layer: entity, solid, item, shield
 		mask: world
 	}
@@ -38,7 +38,7 @@ armor:
 	
 	knockback_modifier: 1.500
 	
-	material_type: metal
+	material_type: metal_solid
 }
 
 drill:

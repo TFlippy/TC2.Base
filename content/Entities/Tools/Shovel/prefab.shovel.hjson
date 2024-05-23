@@ -22,7 +22,7 @@ body:
 		radius: 0.200
 		friction: 0.950
 		elasticity: 0.050
-		material: wood
+		material: tool
 		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}

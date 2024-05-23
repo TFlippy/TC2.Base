@@ -21,6 +21,22 @@ body:
 	}
 }
 
+// splittable:
+// {
+// 	split_health: 0.999
+// 	rect: [-0.400, -2.500, 0.400, 2.750]
+// 	sprite_stub:
+// 	{
+// 		texture: "split_test.00.stub"
+// 		mask: "missing"
+// 		fps: 0.000
+// 		count: 0
+// 		size: [8, 8]
+// 		frame: [0, 0]
+// 	}
+// 	sound_split: "metal.snap.medium.00"
+// }
+
 health:
 {
 	max: 3200.000

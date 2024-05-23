@@ -52,5 +52,12 @@
 		stability_mult: 1.200
 		
 		prefab: "projectile.bullet.lc.rr"
+
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+		}
+		casing_scale: 0.900
 	}
 }

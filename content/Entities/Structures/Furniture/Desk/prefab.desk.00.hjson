@@ -10,12 +10,12 @@ body:
 	@shape.box:
 	{
 		size: [3.000, 0.750]
-		offset: [0.000, -0.250]
-		mass: 90.000
+		offset: [0.000, 0.000]
+		mass: 70.000
 		radius: 0.250
 		friction: 0.900
-		elasticity: 0.200
-		material: metal
+		elasticity: 0.720
+		material: metal_sheet
 		layer: entity, platform, solid, ignore_melee, furniture, decoration
 		mask: world, item
 		exclude: held, attached
@@ -33,7 +33,7 @@ animated.renderer:
 	{
 		texture: "desk.00"
 	}
-	offset: [0.000, -0.250]
+	offset: [0.000, 0.000]
 	z: -90.000
 }
 

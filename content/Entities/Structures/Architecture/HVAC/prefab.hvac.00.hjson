@@ -17,7 +17,7 @@ body:
 		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: machine
 		layer: entity, decoration
 		mask: world
 	}

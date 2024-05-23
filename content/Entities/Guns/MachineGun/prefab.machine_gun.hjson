@@ -29,6 +29,9 @@ gun:
 	muzzle_offset: [1.750, -0.0625]
 	receiver_offset: [-0.750, 0.000]
 
+	eject_direction: [-6.800, -7.400]
+	eject_angular_velocity: 16.000
+
 	sound_shoot: "musket_shoot"
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000

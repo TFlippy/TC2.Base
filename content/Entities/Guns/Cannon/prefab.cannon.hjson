@@ -29,7 +29,11 @@ gun:
 	muzzle_offset: [3.500, -0.050]
 	receiver_offset: [-3.000, 0.000]
 
+	eject_direction: [-2.800, -6.400]
+	eject_angular_velocity: 7.000
+
 	sound_shoot: "cannon_shoot"
+	sound_eject: "cannon.eject.00"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 220.000
 	jitter_multiplier: 0.350
@@ -48,7 +52,7 @@ gun:
 	smoke_amount: 5.000
 	flash_size: 2.000
 	projectile_count: 1
-	flags: manual_cycle, cycled_when_reloaded
+	flags: manual_cycle
 	ammo_filter: ammo_shell
 	action: manual
 	type: cannon

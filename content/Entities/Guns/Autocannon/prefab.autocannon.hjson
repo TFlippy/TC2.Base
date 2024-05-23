@@ -29,6 +29,9 @@ gun:
 	muzzle_offset: [2.750, -0.0625]
 	receiver_offset: [-2.125, 0.000]
 
+	eject_direction: [-2.800, -10.400]
+	eject_angular_velocity: 15.000
+
 	sound_shoot: "autocannon_shoot"
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 800.000

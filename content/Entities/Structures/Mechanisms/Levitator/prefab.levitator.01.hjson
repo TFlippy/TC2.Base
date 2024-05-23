@@ -22,7 +22,7 @@ body:
 		radius: 0.375
 		friction: 0.700
 		elasticity: 0.650
-		material: metal
+		material: machine
 		layer: entity, solid
 		mask: world, essence
 		exclude: vehicle

@@ -118,7 +118,6 @@
 			None = 0,
 
 			//Can_Reload = 1 << 0,
-			//Can_Shoot = 1 << 1,
 			Cycled = 1 << 2,
 			Loaded = 1 << 3,
 			Wants_Reload = 1 << 4,
@@ -128,6 +127,8 @@
 			Supressive_Fire = 1 << 8,
 			Long_Range = 1 << 9,
 			Close_Range = 1 << 10,
+
+			[Net.Ignore] Eject_Pending = 1 << 15,
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.Data>]
@@ -155,6 +156,13 @@
 			[Save.NewLine]
 			[Editor.Picker.Position(true, true)]
 			public Vector2 particle_offset;
+
+			[Save.NewLine]
+			[Editor.Picker.Direction(true, false, scale: 1.00f)]
+			public Vector2 eject_direction;
+			public float eject_angular_velocity = 0.10f;
+			//public float eject_scale = 1.00f;
+
 
 			public float particle_rotation;
 			public float flash_size = 1.00f;
@@ -184,7 +192,7 @@
 			public Sound.Handle sound_reload;
 			public Sound.Handle sound_empty;
 
-			public Sound.Handle sound_unused;
+			public Sound.Handle sound_eject;
 			public Sound.Handle sound_jam = sound_jam_default;
 
 
@@ -746,7 +754,10 @@
 				{
 					if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
 					{
-						gun_state.hints.AddFlag(Gun.Hints.Cycled);
+						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
+						{
+
+						}	
 						gun_state.stage = Gun.Stage.Ready;
 					}
 					else
@@ -1109,6 +1120,8 @@
 #endif
 				}
 
+				gun_state.hints.AddFlag(Hints.Eject_Pending);
+
 				if (gun.flags.HasAny(Gun.Flags.Cycle_On_Shoot))
 				{
 					gun_state.stage = Gun.Stage.Cycling;
@@ -1134,7 +1147,7 @@
 #endif
 
 #if CLIENT
-				if (!gun.flags.HasAll(Gun.Flags.No_Particles))
+				if (gun.flags.HasNone(Gun.Flags.No_Particles))
 				{
 					if (gun.flash_size > Maths.epsilon)
 					{
@@ -1192,6 +1205,49 @@
 #endif
 			}
 
+			if (gun_state.stage == Stage.Reloading || gun_state.hints.HasAny(Hints.Cycled))
+			{
+				if (gun_state.hints.TryRemoveFlag(Hints.Eject_Pending))
+				{
+#if CLIENT
+					ref var material = ref gun_state.resource_ammo.material.GetData();
+					if (material.IsNotNull())
+					{
+						ref var ammo = ref material.ammo.GetRefOrNull();
+						if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0)
+						{
+							var casing_count = (uint)gun.ammo_per_shot; // gun_state.resource_ammo.quantity
+							for (var i = 0; i < casing_count; i++)
+							{
+								Particle.Spawn(ref region, new Particle.Data()
+								{
+									texture = ammo.sprite_casing.texture,
+									pos = transform.LocalToWorld(gun.receiver_offset),
+									lifetime = random.NextFloatRange(1.10f, 1.30f) * ammo.casing_scale,
+									fps = 0,
+									frame_count = 1,
+									frame_count_total = 8,
+									frame_offset = (byte)ammo.sprite_casing.frame.X,
+									scale = ammo.casing_scale,
+									angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
+									vel = (transform.LocalToWorldDirection(gun.eject_direction) * random.NextFloatRange(1.00f, 1.50f)) + random.NextUnitVector2Range(0.20f, 1.20f),
+									force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),
+									growth = -random.NextFloatRange(0.65f, 0.70f),
+									drag = random.NextFloatRange(0.004f, 0.010f),
+									color_a = ColorBGRA.White,
+									color_b = ColorBGRA.White,
+								});
+							}
+
+							Sound.Play(ref region, gun.sound_eject, transform.position, volume: 0.80f);
+						}
+					}
+
+					//Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
+#endif
+				}
+			}
+
 			switch (gun_state.stage)
 			{
 				case Gun.Stage.Cycling:
@@ -1208,7 +1264,39 @@
 						//if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
 						gun_state.next_cycle = info.WorldTime + cycle_interval;
-						gun_state.hints.AddFlag(Gun.Hints.Cycled);
+						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
+						{
+#if CLIENT
+//							ref var material = ref inventory_magazine.resource.material.GetData();
+//							if (material.IsNotNull())
+//							{
+//								ref var ammo = ref material.ammo.GetRefOrNull();
+//								if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0) 
+//								{
+//									Particle.Spawn(ref region, new Particle.Data()
+//									{
+//										texture = ammo.sprite_casing.texture,
+//										pos = transform.LocalToWorld(gun.receiver_offset),
+//										lifetime = random.NextFloatRange(1.10f, 1.30f),
+//										fps = 0,
+//										frame_count = 1,
+//										frame_count_total = 8,
+//										frame_offset = (byte)ammo.sprite_casing.frame.X,
+//										scale = random.NextFloatRange(0.85f, 1.00f),
+//										angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
+//										vel = transform.LocalToWorldDirection(gun.eject_direction) * random.NextFloatRange(1.00f, 1.50f),
+//										force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),
+//										growth = -random.NextFloatRange(0.75f, 0.90f),
+//										drag = random.NextFloatRange(0.008f, 0.012f),
+//										color_a = ColorBGRA.White,
+//										color_b = ColorBGRA.White,
+//									});
+//								}
+//							}
+
+							//Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
+#endif
+						}
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);

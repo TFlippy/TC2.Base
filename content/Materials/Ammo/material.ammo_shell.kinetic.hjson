@@ -51,5 +51,13 @@
 		stability_mult: 1.000
 		
 		prefab: "projectile.shell.kinetic"
+
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+			frame: [6, 0]
+		}
+		casing_scale: 1.200
 	}
 }

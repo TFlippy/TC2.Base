@@ -17,7 +17,7 @@ body:
 		]
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: wreck
 		layer: entity, building, decoration
 		mask: world
 	}

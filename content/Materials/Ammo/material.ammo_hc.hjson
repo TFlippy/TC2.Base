@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.6"
 	name: "HC-13.2mm Ammo"
 	description:
 		'''
@@ -51,5 +51,13 @@
 		stability_mult: 1.000
 		
 		prefab: "projectile.bullet.hc"
+		
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+			frame: [1, 0]
+		}
+		casing_scale: 1.000
 	}
 }

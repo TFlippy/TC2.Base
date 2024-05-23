@@ -15,7 +15,7 @@ body:
 		mass: 310.000
 		friction: 0.700
 		elasticity: 0.600
-		material: metal
+		material: machine
 		layer: entity, solid
 		mask: world
 	}

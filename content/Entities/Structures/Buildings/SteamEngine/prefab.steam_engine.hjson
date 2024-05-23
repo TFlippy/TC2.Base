@@ -26,7 +26,7 @@ body:
 		mass: 990.000
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: machine
 		layer: entity, building, ignore_melee
 		mask: world
 	}
@@ -45,7 +45,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_sheet
 	flags: no_damage_type_conversion
 }
 

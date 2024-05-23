@@ -12,7 +12,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: wreck
 		layer: entity, ignore_melee, decoration
 		mask: world
 	}
