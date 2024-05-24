@@ -58,6 +58,6 @@
 			size: [8, 8]
 			frame: [1, 0]
 		}
-		casing_scale: 1.000
+		casing_scale: 0.850
 	}
 }
