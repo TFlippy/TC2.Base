@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_rp.grapple.spike"
+		texture: "resource.ammo_rocket.grapple.spike"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "ammo_rp.grapple.spike"
+	material: "ammo_rocket.grapple.spike"
 }
 
 holdable:

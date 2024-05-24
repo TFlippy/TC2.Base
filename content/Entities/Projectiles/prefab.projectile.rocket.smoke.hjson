@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 1900.000
-	damage_bonus: 500.000
+	damage_base: 1800.000
+	damage_bonus: 600.000
 	lifetime: 15.000
 	ignore_time: 0.100
 	damage_type: bullet_ac
@@ -22,7 +22,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "projectile.rp"
+		texture: "projectile.rocket.smoke"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
@@ -30,19 +30,22 @@ animated.renderer:
 
 explosive:
 {
-	damage_type: explosion
+	damage_type: shrapnel
 	damage_type_secondary: shrapnel
 
 	radius: 7.000
 	power: 4.000
-	damage_entity: 9000.000
-	damage_terrain: 14000.000
-	sparks_amount: 0.600
-	smoke_amount: 3.000
-	smoke_lifetime_multiplier: 0.300
-	smoke_velocity_multiplier: 2.000
-	flash_duration_multiplier: 0.750
-	flash_intensity_multiplier: 0.500
+	damage_entity: 200.000
+	damage_terrain: 500.000
+	fire_amount: 0.000
+	smoke_amount: 5.000
+	smoke_lifetime_multiplier: 2.000
+	smoke_velocity_multiplier: 4.000
+	flash_duration_multiplier: 0.080
+	flash_intensity_multiplier: 0.700
+	sparks_amount: 1.000
+	volume: 0.700
+	pitch: 2.000
 	flags: primed
 }
 
@@ -50,7 +53,7 @@ rocket:
 {
 	mass: 3.000
 	force: 60.000
-	fuel_time: 3.000
+	fuel_time: 2.000
 	
 	@light:
 	{

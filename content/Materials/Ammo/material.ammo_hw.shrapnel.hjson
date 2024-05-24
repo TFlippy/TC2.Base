@@ -50,6 +50,6 @@
 		stability_base: 4500.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.hw.shrapnel"
+		prefab: "projectile.kn.shrapnel"
 	}
 }

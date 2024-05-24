@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_rp.grapple"
+		texture: "resource.ammo_rocket.grapple"
 		size: [16, 16]
 	}
 	
@@ -19,14 +19,14 @@
 	
 	type: metal_pole
 	// Flags defining properties of the raw material.
-	flags: ammo, ammo_rp, magnetic, large, manufactured, solid
+	flags: ammo, ammo_rocket, magnetic, large, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
 	mass_per_unit: 8.000
 	quantity_max: 1.000
-	prefab: "resource.ammo_rp.grapple"
+	prefab: "resource.ammo_rocket.grapple"
 	
 	ammo:
 	{
@@ -48,6 +48,6 @@
 		stability_base: 50.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.rp.grapple"
+		prefab: "projectile.rocket.grapple"
 	}
 }

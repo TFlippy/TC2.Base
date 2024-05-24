@@ -7,7 +7,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_mg.arc.mt"
+		texture: "resource.ammo_mg.emt"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -59,7 +59,7 @@
 	[
 		{
 			type: resource
-			material: "ammo_mg.arc.mt"
+			material: "ammo_mg.emt"
 			amount: 1.000
 			amount_extra: 0.000
 		}

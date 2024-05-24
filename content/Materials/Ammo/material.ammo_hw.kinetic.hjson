@@ -50,7 +50,7 @@
 		stability_base: 15550.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.hw.kinetic"
+		prefab: "projectile.kn.kinetic"
 
 		sprite_casing:
 		{

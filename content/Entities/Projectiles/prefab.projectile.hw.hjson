@@ -29,7 +29,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "projectile.shell"
+		texture: "projectile.hw"
 	}
 	scale: [0.750, 0.750]
 	z: -40.000

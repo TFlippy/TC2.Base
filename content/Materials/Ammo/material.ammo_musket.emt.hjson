@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Musket Ammo (Motion)"
+	name: "Musket Ammo (EMT)"
 	description:
 		'''
 		TODO: Make this spin uncontrollably
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_musket.motion"
+		texture: "resource.ammo_musket.emt"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -29,7 +29,7 @@
 	// kg
 	mass_per_unit: 0.150
 	quantity_max: 50.000
-	prefab: "resource.ammo_musket.motion"
+	prefab: "resource.ammo_musket.emt"
 	
 	ammo:
 	{
@@ -51,6 +51,6 @@
 		stability_base: 320.000
 		stability_mult: 0.900
 		
-		prefab: "projectile.musket.motion"
+		prefab: "projectile.musket.emt"
 	}
 }

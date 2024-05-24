@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_hc.arc.mt"
+		texture: "resource.ammo_hc.emt"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -29,7 +29,7 @@
 	// kg
 	mass_per_unit: 0.120
 	quantity_max: 50.000
-	prefab: "resource.ammo_hc.arc.mt"
+	prefab: "resource.ammo_hc.emt"
 	
 	ammo:
 	{
@@ -51,7 +51,7 @@
 		stability_base: 750.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.hc.arc.mt"
+		prefab: "projectile.hc.emt"
 
 		sprite_casing:
 		{

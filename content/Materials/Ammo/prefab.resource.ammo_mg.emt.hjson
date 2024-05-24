@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		mask: world, essence
 		material: metal
 	}
 }
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_musket.motion"
+		texture: "resource.ammo_mg.emt"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,16 +32,7 @@ transform:
 
 resource:
 {
-	material: "ammo_musket.motion"
-
-	@light:
-	{
-		color: [0.000, 1.000, 1.000, 1.200]
-		offset: [0.000, 0.500]
-		scale: [12.000, 12.000]
-		intensity: 1.000
-		texture: "light.circle.00"
-	}
+	material: "ammo_mg.emt"
 }
 
 holdable:
