@@ -932,7 +932,7 @@
 
 					var count = (ammo.count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
 
-					if (!overheat.IsNull())
+					if (overheat.IsNotNull())
 					{
 						if (overheat.heat_critical > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
@@ -983,7 +983,7 @@
 						region.SpawnPrefab("explosion", pos_w_offset).ContinueWith(ent =>
 						{
 							ref var explosion = ref ent.GetComponent<Explosion.Data>();
-							if (!explosion.IsNull())
+							if (explosion.IsNotNull())
 							{
 								explosion.damage_type = Damage.Type.Shrapnel;
 								explosion.damage_type_secondary = Damage.Type.Shrapnel;
@@ -1087,8 +1087,8 @@
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
-								//App.WriteLine(shockwave_radius);
-								Explosion.Spawn(ref region, pos_w_offset, (Entity ent_explosion, ref Explosion.Data explosion) =>
+								App.WriteLine(shockwave_radius);
+								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (Entity ent_explosion, ref Explosion.Data explosion) =>
 								{
 									explosion.power = 3.00f;
 									explosion.radius = shockwave_radius;
@@ -1099,16 +1099,16 @@
 									explosion.ent_owner = entity;
 									explosion.fire_amount = 0.00f;
 									explosion.smoke_amount = 0.00f;
-									explosion.smoke_lifetime_multiplier = 1.10f;
+									explosion.smoke_lifetime_multiplier = 1.00f;
 									explosion.smoke_velocity_multiplier = 1.00f;
 									explosion.flash_duration_multiplier = 0.00f;
 									explosion.flash_intensity_multiplier = 0.00f;
 									explosion.sparks_amount = 0.00f;
 									explosion.volume = 0.00f;
 									explosion.pitch = 0.00f;
-									explosion.stun_multiplier = 0.50f;
+									explosion.stun_multiplier = 0.60f;
 									explosion.shake_multiplier = shake_amount;
-									explosion.force_multiplier = 0.10f;
+									explosion.force_multiplier = 0.19f;
 									explosion.flags |= Explosion.Flags.No_Split;
 									explosion.ent_ignored = entity;
 
@@ -1216,21 +1216,24 @@
 						ref var ammo = ref material.ammo.GetRefOrNull();
 						if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0)
 						{
+							var pos_eject = transform.LocalToWorld(gun.receiver_offset);
+							var dir_eject = transform.LocalToWorldDirection(gun.eject_direction);
+
 							var casing_count = (uint)gun.ammo_per_shot; // gun_state.resource_ammo.quantity
 							for (var i = 0; i < casing_count; i++)
 							{
 								Particle.Spawn(ref region, new Particle.Data()
 								{
 									texture = ammo.sprite_casing.texture,
-									pos = transform.LocalToWorld(gun.receiver_offset),
-									lifetime = random.NextFloatRange(1.10f, 1.30f) * ammo.casing_scale,
+									pos = pos_eject,
+									lifetime = random.NextFloatRange(0.90f, 1.20f) * ammo.casing_scale,
 									fps = 0,
 									frame_count = 1,
-									frame_count_total = 8,
+									frame_count_total = 32,
 									frame_offset = (byte)ammo.sprite_casing.frame.X,
 									scale = ammo.casing_scale,
 									angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
-									vel = (transform.LocalToWorldDirection(gun.eject_direction) * random.NextFloatRange(1.00f, 1.50f)) + random.NextUnitVector2Range(0.20f, 1.20f),
+									vel = (dir_eject * random.NextFloatRange(1.00f, 1.50f)) + random.NextUnitVector2Range(0.20f, 1.20f),
 									force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),
 									growth = -random.NextFloatRange(0.65f, 0.70f),
 									drag = random.NextFloatRange(0.004f, 0.010f),

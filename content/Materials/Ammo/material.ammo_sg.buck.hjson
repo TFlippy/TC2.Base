@@ -53,5 +53,13 @@
 		stability_mult: 1.000
 		
 		prefab: "projectile.sg.buck"
+
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+			frame: [13, 0]
+		}
+		casing_scale: 1.000
 	}
 }

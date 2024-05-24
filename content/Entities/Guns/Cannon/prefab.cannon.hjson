@@ -1,4 +1,4 @@
-$name: "Cannon"
+$name: "Howitzer"
 $desc: 
 	'''
 	Heavy artillery cannon for long-range shelling.
@@ -27,10 +27,10 @@ body:
 gun:
 {
 	muzzle_offset: [3.500, -0.050]
-	receiver_offset: [-3.000, 0.000]
+	receiver_offset: [-3.375, 0.000]
 
-	eject_direction: [-2.800, -6.400]
-	eject_angular_velocity: 7.000
+	eject_direction: [-1.800, -9.400]
+	eject_angular_velocity: 2.000
 
 	sound_shoot: "cannon_shoot"
 	sound_eject: "cannon.eject.00"
@@ -56,9 +56,9 @@ gun:
 	ammo_filter: ammo_hw
 	action: manual
 	type: cannon
-	feed: single
+	feed: breech
 
-	stability: 24000.000
+	stability: 29000.000
 
 	shake_amount: 0.900
 	shake_radius: 100.000

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.6"
 	name: "HW-106.7mm/FL Ammo"
 	description:
 		'''
@@ -51,5 +51,13 @@
 		stability_mult: 1.000
 		
 		prefab: "projectile.hw.flare"
+		
+		sprite_casing:
+		{
+			texture: "atlas.ammo.casings.00"
+			size: [8, 8]
+			frame: [6, 0]
+		}
+		casing_scale: 1.200
 	}
 }
