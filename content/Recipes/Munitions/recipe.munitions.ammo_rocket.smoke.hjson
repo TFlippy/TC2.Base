@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_rocket.smoke"
+		texture: "resource.ammo_rp.smoke"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -62,7 +62,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_rocket.smoke"
+			material: "ammo_rp.smoke"
 			amount: 1.000
 		}
 	]

@@ -53,7 +53,7 @@ gun:
 	flash_size: 2.000
 	projectile_count: 1
 	flags: manual_cycle
-	ammo_filter: ammo_shell
+	ammo_filter: ammo_hw
 	action: manual
 	type: cannon
 	feed: single
@@ -68,7 +68,7 @@ gun:
 		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
-		filter_flags: ammo_shell
+		filter_flags: ammo_hw
 		flags: hidden, ignore_mass, no_auto_pickup
 	}
 	

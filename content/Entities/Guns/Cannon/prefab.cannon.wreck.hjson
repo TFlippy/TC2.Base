@@ -47,7 +47,7 @@ gun:
 	flash_size: 2.000
 	projectile_count: 1
 	flags: manual_cycle
-	ammo_filter: ammo_shell
+	ammo_filter: ammo_kn
 	action: manual
 	type: cannon
 	feed: single

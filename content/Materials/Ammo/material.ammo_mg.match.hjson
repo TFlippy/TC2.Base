@@ -51,7 +51,7 @@
 		stability_base: 1350.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.bullet.mg.match"
+		prefab: "projectile.mg.match"
 
 		sprite_casing:
 		{

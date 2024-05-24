@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_shell.hv"
+		texture: "resource.ammo_hw.hv"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -57,7 +57,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell.hv"
+			material: "ammo_hw.hv"
 			amount: 1.000
 		}
 	]

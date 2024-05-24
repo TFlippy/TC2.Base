@@ -52,6 +52,6 @@
 		stability_base: 380.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.bullet.sg.slug"
+		prefab: "projectile.sg.slug"
 	}
 }

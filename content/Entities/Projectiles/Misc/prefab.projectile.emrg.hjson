@@ -5,7 +5,7 @@ projectile:
 	damage_base: 89990.999
 	damage_bonus: 10000.000
 	lifetime: 10.000
-	damage_type: bullet_emrg
+	damage_type: bullet_hw
 	tracer_length: 10.000
 	
 	@light:

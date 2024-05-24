@@ -1,0 +1,55 @@
+﻿{
+	$version: "0.1.60.5"
+	name: "HW-106.7mm/SP Ammo"
+	description:
+		'''
+		HW-caliber 106.7mm ammunition.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_hw.shrapnel"
+		size: [16, 16]
+	}
+	
+	icon_extra:
+	{
+		texture: "ui_icons_gunsmith.mini"
+		size: [16, 16]
+		frame: [7, 0]
+	}
+	
+	type: metal
+	// Flags defining properties of the raw material.
+	flags: ammo, ammo_hw, magnetic, explosive, manufactured, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 14.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_hw.shrapnel"
+	
+	ammo:
+	{
+		count: 1
+		mass: 11.000
+		heat: 4000.000
+		velocity_min: 30.000
+		
+		speed_base: 0.000
+		speed_mult: 1.000
+		spin_base: 0.120
+		spin_mult: 1.000
+		spread_mult: 1.150
+		recoil_mult: 1.000
+		
+		failure_base: 0.050
+		failure_mult: 1.000
+		
+		stability_base: 4500.000
+		stability_mult: 1.000
+		
+		prefab: "projectile.hw.shrapnel"
+	}
+}

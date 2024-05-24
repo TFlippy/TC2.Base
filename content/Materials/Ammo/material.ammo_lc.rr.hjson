@@ -51,7 +51,7 @@
 		stability_base: 70.000
 		stability_mult: 1.200
 		
-		prefab: "projectile.bullet.lc.rr"
+		prefab: "projectile.lc.rr"
 
 		sprite_casing:
 		{

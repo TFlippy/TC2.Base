@@ -1,0 +1,52 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_hw.kinetic"
+		count: 4
+		size: [16, 16]
+	}
+	offset: [0.000, 0.300]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_hw.kinetic"
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 8000.000
+}

@@ -1,0 +1,53 @@
+﻿{
+	$version: "0.1.60.5"
+	name: "Grappling Gun Ammo"
+	description:
+		'''
+		A self-propelled grappling hook.
+		'''
+	
+	icon:
+	{
+		texture: "resource.ammo_rp.grapple.spike"
+		size: [16, 16]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: metal_pole
+	// Flags defining properties of the raw material.
+	flags: ammo, ammo_rp, hard, long, magnetic, granular, metal, manufactured, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 5.000
+	quantity_max: 1.000
+	prefab: "resource.ammo_rp.grapple.spike"
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.001
+		heat: 1000.000
+		velocity_min: 5.000
+		
+		speed_base: 0.000
+		speed_mult: 1.000
+		spin_base: 0.050
+		spin_mult: 1.000
+		spread_mult: 1.000
+		recoil_mult: 0.100
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 50.000
+		stability_mult: 1.000
+		
+		prefab: "projectile.rp.grapple.spike"
+	}
+}

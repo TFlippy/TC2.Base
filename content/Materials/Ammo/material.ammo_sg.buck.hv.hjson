@@ -52,6 +52,6 @@
 		stability_base: 550.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.bullet.sg.buck.hv"
+		prefab: "projectile.sg.buck.hv"
 	}
 }

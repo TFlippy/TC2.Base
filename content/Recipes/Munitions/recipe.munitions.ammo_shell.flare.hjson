@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_shell.flare"
+		texture: "resource.ammo_hw.flare"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -62,7 +62,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell.flare"
+			material: "ammo_hw.flare"
 			amount: 1.000
 		}
 	]

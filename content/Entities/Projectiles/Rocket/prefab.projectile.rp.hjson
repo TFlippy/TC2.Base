@@ -1,0 +1,63 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 1900.000
+	damage_bonus: 500.000
+	lifetime: 15.000
+	ignore_time: 0.100
+	damage_type: bullet_ac
+	size: 0.500
+	ricochet_count: 0
+	speed_modifier_min: 0.300
+	speed_modifier_max: 1.300
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "projectile.rp"
+	}
+	scale: [0.750, 0.750]
+	z: -40.000
+}
+
+explosive:
+{
+	damage_type: explosion
+	damage_type_secondary: shrapnel
+
+	radius: 7.000
+	power: 4.000
+	damage_entity: 9000.000
+	damage_terrain: 14000.000
+	sparks_amount: 0.600
+	smoke_amount: 3.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 2.000
+	flash_duration_multiplier: 0.750
+	flash_intensity_multiplier: 0.500
+	flags: primed
+}
+
+rocket:
+{
+	mass: 3.000
+	force: 60.000
+	fuel_time: 3.000
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 4.000]
+		offset: [-3.000, 0.000]
+		scale: [6.000, 3.000]
+		intensity: 1.000
+		texture: "light_cone"
+	}
+}

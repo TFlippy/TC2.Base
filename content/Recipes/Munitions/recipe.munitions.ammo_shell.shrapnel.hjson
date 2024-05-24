@@ -4,7 +4,7 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_shell.shrapnel"
+		texture: "resource.ammo_hw.shrapnel"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -57,7 +57,7 @@
 	[
 		{
 			type: "resource"
-			material: "ammo_shell.shrapnel"
+			material: "ammo_hw.shrapnel"
 			amount: 1.000
 		}
 	]

@@ -52,7 +52,7 @@
 		stability_base: 250.000
 		stability_mult: 1.100
 		
-		prefab: "projectile.bullet.sg.bird"
+		prefab: "projectile.sg.bird"
 		
 		sprite_casing:
 		{

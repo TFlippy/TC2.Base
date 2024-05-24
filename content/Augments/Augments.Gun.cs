@@ -95,7 +95,7 @@ namespace TC2.Base
 						break;
 					}
 
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
 						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.20f));
 						mass *= 4.00f;
@@ -105,7 +105,7 @@ namespace TC2.Base
 						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.30f));
 						mass *= 2.50f;
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_RP))
 					{
 						amount = Maths.Max(1.00f, MathF.Floor(amount * 0.40f));
 						mass *= 1.20f;
@@ -2541,7 +2541,7 @@ namespace TC2.Base
 					data.flags.RemoveFlag(Gun.Flags.Full_Reload | Gun.Flags.Automatic);
 					data.max_ammo = 1;
 
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
 						data.reload_interval = 3.00f;
 						data.sound_reload = "cannon_reload";
@@ -2551,7 +2551,7 @@ namespace TC2.Base
 						data.reload_interval = 0.50f;
 						data.sound_reload = "musket_reload";
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_RP))
 					{
 						data.reload_interval = 2.00f;
 						data.sound_reload = "bazooka_reload";
@@ -3254,7 +3254,7 @@ namespace TC2.Base
 
 					var frame_y = 0u;
 
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
 						frame_y = 6;
 					}
@@ -3262,7 +3262,7 @@ namespace TC2.Base
 					{
 						frame_y = 5;
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_RP))
 					{
 						frame_y = 4;
 					}
@@ -3307,7 +3307,7 @@ namespace TC2.Base
 
 					var extra_mass = 0.00f;
 
-					if (data.ammo_filter.HasAll(Material.Flags.Ammo_Shell))
+					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
@@ -3321,7 +3321,7 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250.00f, 20));
 					}
-					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_RP))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 3.00f), ref extra_mass);
@@ -3442,11 +3442,11 @@ namespace TC2.Base
 					{
 						frame_y = 1u;
 					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_RP))
 					{
 						frame_y = 2u;
 					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW | Material.Flags.Ammo_AC))
 					{
 						frame_y = 3u;
 					}
@@ -3492,12 +3492,12 @@ namespace TC2.Base
 							pellet_count = (1.00f + type) * 1.00f;
 							smirglum_count = (1.00f + type) * 1.50f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_RP))
 						{
 							pellet_count = (1.00f + type) * 3.00f;
 							smirglum_count = (1.00f + type) * 3.00f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW | Material.Flags.Ammo_AC))
 						{
 							pellet_count = (1.00f + type) * 5.00f;
 							smirglum_count = (1.00f + type) * 7.00f * 0.25f;
@@ -3608,11 +3608,11 @@ namespace TC2.Base
 					{
 						frame_y = 1u;
 					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_Rocket))
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_RP))
 					{
 						frame_y = 2u;
 					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell | Material.Flags.Ammo_AC))
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW | Material.Flags.Ammo_AC))
 					{
 						frame_y = 3u;
 					}
@@ -3663,12 +3663,12 @@ namespace TC2.Base
 							pellet_count = (1.00f + type) * 4.00f;
 							smirglum_count = (1.00f + type) * 1.20f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Rocket | Material.Flags.Ammo_AC))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_RP | Material.Flags.Ammo_AC))
 						{
 							pellet_count = (1.00f + type) * 8.00f;
 							smirglum_count = (1.00f + type) * 3.00f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_Shell))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW))
 						{
 							pellet_count = (1.00f + type) * 15.00f;
 							smirglum_count = (1.00f + type) * 14.00f * 0.25f;

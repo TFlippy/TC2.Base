@@ -19,19 +19,19 @@ $prefab: "tank.00"
 				resources:
 				[
 					{
-						material: "ammo_shell.kinetic"
+						material: "ammo_hw.kinetic"
 						quantity: 4.000
 					}
 					{
-						material: "ammo_shell.kinetic"
+						material: "ammo_hw.kinetic"
 						quantity: 4.000
 					}
 					{
-						material: "ammo_shell.kinetic"
+						material: "ammo_hw.kinetic"
 						quantity: 4.000
 					}
 					{
-						material: "ammo_shell.kinetic"
+						material: "ammo_hw.kinetic"
 						quantity: 4.000
 					}
 				]

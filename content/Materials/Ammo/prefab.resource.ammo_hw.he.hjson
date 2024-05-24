@@ -1,0 +1,74 @@
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 60.000
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.250
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+		material: metal
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo_hw.he"
+		count: 4
+		size: [16, 16]
+	}
+	offset: [0.000, 0.300]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo_hw.he"
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 400.000
+}
+
+explosive:
+{
+	radius: 7.000
+	power: 6.000
+	damage_entity: 25000.000
+	damage_terrain: 40000.000
+	smoke_amount: 1.200
+	smoke_velocity_multiplier: 2.500
+	smoke_lifetime_multiplier: 0.700
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 2.500
+	force_multiplier: 2.000
+	sparks_amount: 2.500
+	volume: 3.000
+	pitch: 3.300
+
+	health_threshold: 0.990
+	flags: any_damage, explode_when_primed
+}

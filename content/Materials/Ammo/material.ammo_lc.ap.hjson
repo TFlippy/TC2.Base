@@ -51,7 +51,7 @@
 		stability_base: 380.000
 		stability_mult: 0.945
 		
-		prefab: "projectile.bullet.lc.ap"
+		prefab: "projectile.lc.ap"
 
 		sprite_casing:
 		{
