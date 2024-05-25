@@ -36,7 +36,7 @@ gun:
 	smoke_amount: 7
 	projectile_count: 1
 	flags: none
-	ammo_filter: ammo_rivet
+	ammo_filter: ammo_ac
 	action: blowback
 	type: rifle
 	feed: magazine

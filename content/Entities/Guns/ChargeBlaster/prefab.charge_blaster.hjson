@@ -34,7 +34,7 @@ gun:
 	smoke_amount: 3
 	projectile_count: 1
 	flags: automatic, full_reload, cycle_on_shoot
-	ammo_filter: ammo_rivet
+	ammo_filter: ammo_ac
 	action: blowback
 	type: rifle
 	feed: magazine

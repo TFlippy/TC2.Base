@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 60.000
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
@@ -11,7 +13,7 @@ body:
 		elasticity: 0.500
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world, essence
-		material: metal
+		material: metal_solid
 	}
 }
 
@@ -48,5 +50,61 @@ norotate:
 
 health:
 {
-	max: 8000.000
+	max: 400.000
 }
+
+explosive:
+{
+	damage_type: shrapnel
+	damage_type_secondary: explosion
+
+	radius: 7.000
+	power: 4.000
+	damage_entity: 11000.000
+	damage_terrain: 40000.000
+	smoke_amount: 1.300
+	smoke_velocity_multiplier: 1.500
+	smoke_lifetime_multiplier: 0.900
+	flash_duration_multiplier: 0.300
+	flash_intensity_multiplier: 1.500
+	sparks_amount: 4.500
+	volume: 2.000
+	pitch: 2.000
+
+	health_threshold: 0.900
+	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.hw.kinetic"
+	velocity: [0.000, -5.000]
+	offset: [0.250, -1.000]
+	radius: 0.010
+	spread: 4.000
+	speed: 200.000
+	count: 1
+	damage_modifier: 0.350
+	speed_modifier_min: 0.500
+	speed_modifier_max: 1.400
+	lifetime_modifier_min: 0.400
+	lifetime_modifier_max: 0.800
+	// flags: no_velocity_rotate
+}
+
+// cluster:
+// {
+// 	prefab: "projectile.mg.ap"
+// 	velocity: [0.000, -15.000]
+// 	offset: [0.250, -1.000]
+// 	radius: 0.010
+// 	spread: 4.000
+// 	speed: 200.000
+// 	count: 24
+// 	damage_modifier: 0.950
+// 	speed_modifier_min: 0.500
+// 	speed_modifier_max: 1.400
+// 	lifetime_modifier_min: 1.100
+// 	lifetime_modifier_max: 1.800
+// 	flags: no_velocity_rotate
+// }

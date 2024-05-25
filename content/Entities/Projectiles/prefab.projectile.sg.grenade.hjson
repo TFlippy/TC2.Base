@@ -43,6 +43,6 @@ explosive:
 	flash_intensity_multiplier: 0.500
 	shake_multiplier: 0.500
 	volume: 1.000
-	pitch: 2.000
+	pitch: 2.500
 	flags: primed
 }

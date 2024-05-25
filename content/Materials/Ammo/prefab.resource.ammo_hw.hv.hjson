@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 60.000
+	fall_damage_multiplier: 30.000
 
 	@shape.circle:
 	{
@@ -13,7 +13,7 @@ body:
 		elasticity: 0.250
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
-		material: metal
+		material: metal_solid
 	}
 }
 

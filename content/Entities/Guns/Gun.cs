@@ -256,11 +256,13 @@
 			public Gun.Hints hints;
 			public Gun.Stage stage;
 			public byte burst_rem;
+			public byte eject_rem;
 
 			public float angle_jitter;
 			public float muzzle_velocity;
 
 			public Resource.Data resource_ammo;
+			
 			//public IMaterial.Handle h_last_ammo;
 
 			[Save.Ignore] public XorRandom random_det = XorRandom.New(true);
@@ -920,6 +922,8 @@
 
 					//App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");
 
+
+
 #if SERVER
 					var loaded_ammo = new Resource.Data()
 					{
@@ -1044,7 +1048,7 @@
 								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel).ContinueWith(ent =>
 								{
 									ref var projectile = ref ent.GetComponent<Projectile.Data>();
-									if (!projectile.IsNull())
+									if (projectile.IsNotNull())
 									{
 										projectile.damage_base *= args.damage_mult;
 										projectile.damage_bonus *= args.damage_mult;
@@ -1056,7 +1060,7 @@
 									}
 
 									ref var explosive = ref ent.GetComponent<Explosive.Data>();
-									if (!explosive.IsNull())
+									if (explosive.IsNotNull())
 									{
 										explosive.ent_owner = args.ent_owner;
 										explosive.Sync(ent, true);
@@ -1120,6 +1124,7 @@
 #endif
 				}
 
+				gun_state.eject_rem += (byte)Maths.Min(gun.ammo_per_shot, gun_state.resource_ammo.quantity);
 				gun_state.hints.AddFlag(Hints.Eject_Pending);
 
 				if (gun.flags.HasAny(Gun.Flags.Cycle_On_Shoot))
@@ -1205,9 +1210,9 @@
 #endif
 			}
 
-			if (gun_state.stage == Stage.Reloading || gun_state.hints.HasAny(Hints.Cycled))
+			if (gun_state.stage == Stage.Reloading || (gun.action != Action.Revolver && gun_state.hints.HasAny(Hints.Cycled)))
 			{
-				if (gun_state.hints.TryRemoveFlag(Hints.Eject_Pending))
+				if (gun_state.eject_rem > 0 && gun_state.hints.TryRemoveFlag(Hints.Eject_Pending))
 				{
 #if CLIENT
 					ref var material = ref gun_state.resource_ammo.material.GetData();
@@ -1219,7 +1224,7 @@
 							var pos_eject = transform.LocalToWorld(gun.receiver_offset);
 							var dir_eject = transform.LocalToWorldDirection(gun.eject_direction);
 
-							var casing_count = (uint)gun.ammo_per_shot; // gun_state.resource_ammo.quantity
+							var casing_count = (uint)gun_state.eject_rem; // gun_state.resource_ammo.quantity
 							for (var i = 0; i < casing_count; i++)
 							{
 								Particle.Spawn(ref region, new Particle.Data()
@@ -1248,6 +1253,8 @@
 
 					//Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
 #endif
+
+					gun_state.eject_rem = 0;
 				}
 			}
 

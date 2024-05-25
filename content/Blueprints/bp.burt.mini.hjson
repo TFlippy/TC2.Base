@@ -2,7 +2,7 @@
 	name: "Burt-Mini"
 	description:
 		'''
-		Semi-automatic double-barreled machine pistol with an arcer.
+		Semi-automatic double-barreled PDW with an arcer.
 		'''
 	
 	flags: none
