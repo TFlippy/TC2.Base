@@ -218,15 +218,20 @@ axle:
 		offset_a: [-2.000, -0.125]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_read, control_write, no_wrap, force_facing, attachment, use_proxy_body
-		z: 0.000
+		flags: attachment, control_read, control_write, facing_reset_pos, force_facing, use_proxy_body
+		z: -5.000
+		max_displacement: 0.750
+		displacement_stress_modifier: 0.350
+		displacement_force_modifier: 0.000
+		max_stress: 1.500
+		stress_threshold: 1.600
 		material_type: metal
 	}
 
 	joint.pivot:
 	{
 		error_bias: 0.0001
-		max_bias: 100.000
+		max_bias: 25.000
 	}
 
 	joint.gear:
@@ -258,15 +263,20 @@ axle:
 		offset_a: [0.500, -0.125]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_read, control_write, no_wrap, force_facing, attachment, use_proxy_body
-		z: 0.000
+		flags: attachment, control_read, control_write, facing_reset_pos, force_facing, use_proxy_body
+		z: -4.000
+		max_displacement: 0.750
+		displacement_stress_modifier: 0.350
+		displacement_force_modifier: 0.000
+		max_stress: 1.500
+		stress_threshold: 1.600
 		material_type: metal
 	}
 
 	joint.pivot:
 	{
 		error_bias: 0.0001
-		max_bias: 100.000
+		max_bias: 25.000
 	}
 
 	joint.gear:

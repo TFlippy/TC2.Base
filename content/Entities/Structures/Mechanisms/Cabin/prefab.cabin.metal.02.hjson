@@ -168,14 +168,25 @@ mount:
 	joint.base:
 	{
 		offset_a: [-0.500, -1.250]
+		
 		max_force: 700000.000
 		max_torque: 100000.000
+		force_modifier: 1.000
+		torque_modifier: 1.000
+
+		max_displacement: 0.750
+		
+		displacement_stress_modifier: 0.500
+		displacement_force_modifier: 0.000
+		
 		max_stress: 3.000
 		stress_threshold: 3.010
-		flags: attachment, allow_dragging, control_write, facing_reset_rot, force_facing
+		stress_damp: 0.900
+		
 		z: 75.000
 		material_type: metal
-
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		
 		@sound.emitter:
 		{
 			file: "attachment_rotate_loop_00"
@@ -198,8 +209,8 @@ mount:
 
 	joint_piston:
 	{
-		error_bias: 0.000
-		max_bias: 50.000
+		error_bias: 0.002
+		max_bias: 8.000
 		stiffness: 32000.000
 		damping: 1200.000
 		axis_force: 10000000.000
