@@ -13,7 +13,7 @@ body:
 		elasticity: 0.300
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
-		material: metal
+		material: metal_solid
 	}
 }
 

@@ -58,7 +58,7 @@ explosive:
 	damage_type: shrapnel
 	damage_type_secondary: explosion
 
-	radius: 7.000
+	radius: 6.000
 	power: 4.000
 	damage_entity: 11000.000
 	damage_terrain: 40000.000
@@ -68,8 +68,8 @@ explosive:
 	flash_duration_multiplier: 0.300
 	flash_intensity_multiplier: 1.500
 	sparks_amount: 4.500
-	volume: 2.000
-	pitch: 2.000
+	volume: 1.000
+	pitch: 1.700
 
 	health_threshold: 0.900
 	flags: any_damage, explode_when_primed

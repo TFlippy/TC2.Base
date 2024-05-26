@@ -84,7 +84,6 @@ gun.state:
 holdable:
 {
 	offset: [-0.700, 0.100]
-	offset_attachment: [-0.400, 0.300]
 	radius: 8.000
 	flags: storable, full_rotate
 
