@@ -42,11 +42,11 @@
 		{
 			if (controllable.flags.HasAny(Controllable.Data.Flags.Mouse_Orthogonal))
 			{
-
+				control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, new Vector2(0.125f * 8));
 			}
 			else
 			{
-				control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, new Vector2(0.125f * 8));
+
 			}
 		}
 
@@ -134,7 +134,7 @@
 								var mouse_pos_tmp = this.control.mouse.position;
 								if (GUI.Picker("mouse_pos", "Position", picker_size, ref mouse_pos_tmp, new Vector2(-4000, -4000), new Vector2(4000, 4000), sensitivity: 0.10f, absolute: true))
 								{
-									rpc.mouse_position = mouse_pos_tmp;
+									rpc.mouse_position = mouse_pos_tmp.SnapFloor(0.125f);
 									dirty = true;
 								}
 
@@ -155,8 +155,8 @@
 								}
 
 								//GUI.DrawLine()
-								GUI.DrawRectFilled(AABB.Centered(this.controllable.target_pos.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
-								GUI.DrawRectFilled(AABB.Centered(this.control.mouse.position.WorldToCanvas(), new Vector2(8.00f)), Color32BGRA.Orange);
+								GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.controllable.target_pos.SnapFloor(0.125f), new Vector2(0.250f))), Color32BGRA.Orange);
+								GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.control.mouse.position.SnapFloor(0.125f), new Vector2(0.250f))), Color32BGRA.Orange);
 							}
 						}
 					}

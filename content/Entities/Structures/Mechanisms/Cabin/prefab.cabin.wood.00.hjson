@@ -289,6 +289,7 @@ control:
 	
 	seat:
 	{
+		flags: covered, open
 		offset: [0.125, 0.250]
 		max_tilt: 5.000
 	}
