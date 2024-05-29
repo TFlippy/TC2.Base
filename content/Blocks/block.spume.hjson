@@ -2,7 +2,7 @@
 	name: "Spume"
 	desc: "Very brittle pumice-like rock."
 	
-	material_type: stone
+	material_type: stone_porous
 	tile_flags: non_empty
 	flags: artificial
 	

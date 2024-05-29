@@ -11,11 +11,11 @@
 		texture: "missing"
 	}
 	
-	material_type: concrete
+	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 43000.000
+	max_health: 71500.000
 	
 	smoothing: 0.160
 	mass: 11.000

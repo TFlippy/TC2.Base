@@ -11,7 +11,7 @@
 		texture: "missing"
 	}
 	
-	material_type: concrete
+	material_type: stone_dense
 	tile_flags: non_empty
 	flags: raw, mineral
 	

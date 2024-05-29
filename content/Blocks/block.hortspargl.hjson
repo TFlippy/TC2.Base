@@ -1,45 +1,46 @@
 ﻿{
-	name: "Magnetite"
+	$version: "0.1.60.5"
+	name: "Hortspargl"
 	desc:
 		'''
-		Common mineral, very rich in iron.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
 		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
-	material_type: stone_metallic
+	material_type: stone_dense
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 56000.000
+	max_health: 92000.000
 	
-	smoothing: 0.130
-	mass: 3.000
-	friction: 0.800
-	elasticity: 0.200
-	stability: 6.140
+	smoothing: 0.160
+	mass: 11.000
+	friction: 0.700
+	elasticity: 0.560
+	stability: 8.940
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.magnetite"
+	texture: "terrain.hortspargl"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.400
-	texture_overshoot: -0.750
-	color_preview: "0xff80775f"
+	texture_overshoot: -0.650
+	texture_offset: 0.000
+	color_preview: "0xff615e59"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "magnetite"
-			quantity: 0.650
+			material: "hortspargl"
+			quantity: 0.750
 		}
 		{
 		
@@ -49,7 +50,7 @@
 	mappings:
 	[
 		{
-			color: "0xff484a45"
+			color: "0xff615e59"
 			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}

@@ -12,11 +12,11 @@
 		frame: [0, 0]
 	}
 	
-	material_type: stone
+	material_type: stone_porous
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 14000.000
+	max_health: 15000.000
 	
 	smoothing: 0.140
 	mass: 2.100

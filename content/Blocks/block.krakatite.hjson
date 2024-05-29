@@ -13,7 +13,7 @@
 		texture: "missing"
 	}
 	
-	material_type: stone
+	material_type: stone_dense
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	

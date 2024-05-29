@@ -11,7 +11,7 @@
 		texture: "missing"
 	}
 	
-	material_type: stone
+	material_type: stone_slab
 	tile_flags: non_empty
 	flags: artificial
 	

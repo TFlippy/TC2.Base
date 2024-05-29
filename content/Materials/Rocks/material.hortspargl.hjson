@@ -1,0 +1,31 @@
+﻿{
+	$version: "0.1.60.5"
+	name: "Hortspargl"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.hortspargl"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: stone
+	// Flags defining properties of the raw material.
+	flags: granular, metal, corrosive, raw, ore, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 1.400
+	quantity_max: 500.000
+	prefab: "resource.hortspargl"
+}
