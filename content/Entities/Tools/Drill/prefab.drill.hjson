@@ -50,19 +50,19 @@ drill:
 	speed: 8.000
 	radius: 1.100
 	
-	@inventory4:
-	{
-		name: "Drill"
-		stack_size_multiplier: 2.000
-		type: storage
-		flags: hidden, allow_ducts
-	}
+	// @inventory4:
+	// {
+	// 	name: "Drill"
+	// 	stack_size_multiplier: 2.000
+	// 	type: storage
+	// 	flags: hidden, allow_ducts
+	// }
 }
 
-interactable:
-{
-	window_size: [192.000, 48.000]
-}
+// interactable:
+// {
+// 	window_size: [192.000, 48.000]
+// }
 
 holdable:
 {
