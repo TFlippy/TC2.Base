@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Hortspargl"
 	description:
 		'''
@@ -20,12 +20,12 @@
 	
 	type: stone_dense
 	// Flags defining properties of the raw material.
-	flags: granular, metal, corrosive, raw, ore, solid
+	flags: hard, granular, mineral, heavy, raw, ore, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 1.400
+	mass_per_unit: 1.130
 	quantity_max: 500.000
 	prefab: "resource.hortspargl"
 }

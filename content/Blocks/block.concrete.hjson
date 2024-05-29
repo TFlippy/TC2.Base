@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Concrete"
 	desc:
 		'''
@@ -40,7 +40,7 @@
 	[
 		{
 			material: "scrap.concrete"
-			quantity: 1.100
+			quantity: 1.360
 		}
 		{
 		

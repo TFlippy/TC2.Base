@@ -2,13 +2,15 @@ $tags: []
 
 projectile:
 {
-	damage_base: 300.000
-	damage_bonus: 1500.000
+	damage_base: 800.000
+	damage_bonus: 1900.000
 	lifetime: 20.000
-	damage_type: bullet_musket
-	size: 0.150
+	damage_type: bullet_mg
+	size: 0.350
 	damp: 0.995
-	ricochet_count: 0
+	ricochet_count: 1
+	tracer_length: 3.000
+	mass: 0.100
 }
 
 animated.renderer:
@@ -19,6 +21,13 @@ animated.renderer:
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
+}
+
+projectile.renderer:
+{
+	intensity: 1.500
+	thickness_a: 0.100
+	thickness_b: 0.020
 }
 
 transform:

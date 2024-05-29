@@ -4,10 +4,10 @@ projectile:
 {
 	damage_base: 5000.000
 	damage_bonus: 10000.000
-	lifetime: 0.200
+	lifetime: 2.000
 	ignore_time: 0.040
 	damage_type: bullet_ac
-	size: 0.150
+	size: 0.250
 	ricochet_count: 0
 	damp: 0.988
 }
@@ -32,16 +32,16 @@ explosive:
 	damage_type: shrapnel
 	damage_type_secondary: shrapnel
 
-	radius: 4.000
+	radius: 12.000
 	power: 2.000
-	damage_entity: 5000.000
-	damage_terrain: 5000.000
+	damage_entity: 12000.000
+	damage_terrain: 6000.000
 	smoke_amount: 3.000
-	smoke_velocity_multiplier: 7.000
-	smoke_lifetime_multiplier: 0.750
+	smoke_velocity_multiplier: 4.000
+	smoke_lifetime_multiplier: 0.550
 	flash_duration_multiplier: 0.150
 	flash_intensity_multiplier: 1.500
-	sparks_amount: 2.500
+	sparks_amount: 4.500
 	volume: 1.500
 	pitch: 1.500
 	flags: primed
@@ -50,10 +50,10 @@ explosive:
 cluster:
 {
 	prefab: "projectile.shrapnel"
-	spread: 0.400
+	spread: 2.000
 	speed: 0.000
-	count: 40
+	count: 60
 
-	speed_modifier_min: 0.300
-	speed_modifier_max: 1.300
+	speed_modifier_min: 0.500
+	speed_modifier_max: 1.000
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.6"
+	$version: "0.1.60.7"
 	name: "HW-106.7mm/SP Ammo"
 	description:
 		'''
@@ -35,10 +35,10 @@
 		count: 1
 		mass: 11.000
 		heat: 4000.000
-		velocity_min: 30.000
+		velocity_min: 20.000
 		
 		speed_base: 0.000
-		speed_mult: 1.000
+		speed_mult: 0.800
 		spin_base: 0.120
 		spin_mult: 1.000
 		spread_mult: 1.150

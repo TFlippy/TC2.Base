@@ -18,7 +18,7 @@
 	max_health: 58400.000
 	
 	smoothing: 0.160
-	mass: 11.000
+	mass: 3.000
 	friction: 0.700
 	elasticity: 0.560
 	stability: 8.940
@@ -40,7 +40,7 @@
 	[
 		{
 			material: "betoniter"
-			quantity: 0.750
+			quantity: 0.930
 		}
 		{
 		

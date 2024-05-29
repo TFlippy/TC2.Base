@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Woodchips"
 	description:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: wood_powder
 	// Flags defining properties of the raw material.
-	flags: hard, organic, intermediate, small, raw, manufactured, fuel, flammable, solid
+	flags: soft, granular, organic, intermediate, small, raw, powder, fuel, flammable, waste, flexible, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none

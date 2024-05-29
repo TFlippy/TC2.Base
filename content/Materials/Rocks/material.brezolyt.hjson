@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Brezolyt"
 	description:
 		'''
@@ -20,12 +20,12 @@
 	
 	type: stone_porous
 	// Flags defining properties of the raw material.
-	flags: granular, metal, raw, ore, solid
+	flags: granular, mineral, fragile, raw, ore, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.900
+	mass_per_unit: 0.470
 	quantity_max: 500.000
 	prefab: "resource.brezolyt"
 }
