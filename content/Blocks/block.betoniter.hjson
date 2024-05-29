@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Betoniter"
 	desc:
 		'''
@@ -30,8 +30,8 @@
 	texture: "terrain.betoniter"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.400
-	texture_overshoot: -0.650
+	texture_scale: 1.330
+	texture_overshoot: -0.280
 	texture_offset: 0.000
 	color_preview: "0xff4f5353"
 	color_fill: "0xff140e08"

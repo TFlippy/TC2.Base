@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Hortspargl"
 	desc:
 		'''
@@ -15,9 +15,9 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 92000.000
+	max_health: 82000.000
 	
-	smoothing: 0.160
+	smoothing: 0.130
 	mass: 11.000
 	friction: 0.700
 	elasticity: 0.560
@@ -30,8 +30,8 @@
 	texture: "terrain.hortspargl"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.400
-	texture_overshoot: -0.650
+	texture_scale: 1.490
+	texture_overshoot: -0.150
 	texture_offset: 0.000
 	color_preview: "0xff615e59"
 	color_fill: "0xff140e08"
@@ -40,7 +40,7 @@
 	[
 		{
 			material: "hortspargl"
-			quantity: 0.750
+			quantity: 1.734
 		}
 		{
 		

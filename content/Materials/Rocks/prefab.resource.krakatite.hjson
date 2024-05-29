@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		material: stone
+		material: stone_dense
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -47,7 +47,7 @@ norotate:
 
 }
 
-despawn:
-{
+// despawn:
+// {
 
-}
+// }

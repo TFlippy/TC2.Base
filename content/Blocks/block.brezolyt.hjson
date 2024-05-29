@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Brezolyt"
 	desc:
 		'''
@@ -30,9 +30,9 @@
 	texture: "terrain.brezolyt"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.400
+	texture_scale: 1.270
 	texture_overshoot: -0.650
-	texture_offset: 0.000
+	texture_offset: 0.150
 	color_preview: "0xff82796a"
 	color_fill: "0xff140e08"
 	

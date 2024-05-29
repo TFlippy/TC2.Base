@@ -19,7 +19,7 @@
 		texture: "missing"
 	}
 	
-	type: stone
+	type: stone_metallic
 	// Flags defining properties of the raw material.
 	flags: magnetic, granular, metal, raw, ore, solid
 	// Flags to remove if stored in a bottle/tank/can.
