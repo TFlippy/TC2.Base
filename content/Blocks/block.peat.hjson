@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Peat"
 	desc: ""
 	
@@ -12,7 +12,7 @@
 	tile_flags: non_empty
 	flags: raw, common
 	
-	max_health: 4000.000
+	max_health: 5700.000
 	
 	smoothing: 0.170
 	mass: 1.000

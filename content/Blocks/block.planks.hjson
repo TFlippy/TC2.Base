@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Planks"
 	desc:
 		'''
@@ -15,7 +15,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 3200.000
+	max_health: 5000.000
 	
 	smoothing: 0.178
 	mass: 0.190

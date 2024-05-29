@@ -1,77 +1,112 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Wildcard"
-	desc: "DEV: Used as a target color by map ore generators."
+	desc:
+		'''
+		DEV: Used as a target color by map ore generators.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+	}
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
-	max_health: 18446744073709551616.000
+	max_health: 18446740000000000000.000
+	
 	smoothing: 0.150
 	mass: 10.000
 	friction: 0.900
 	elasticity: 0.600
 	stability: 0.900
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
 	texture: "terrain.wildcard"
 	pattern: "pattern.stone"
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+		
+		}
+		{
+		
+		}
+	]
 	
 	mappings:
 	[
 		{
 			color: "0xffff0000"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xff00ff00"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xff0000ff"
 			tile_flags: solid
+			meta: 0
 		}
-		
 		{
 			color: "0xffffff00"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xff00ffff"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xffff00ff"
 			tile_flags: solid
+			meta: 0
 		}
-
 		{
 			color: "0xffff8000"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xffff0080"
 			tile_flags: solid
+			meta: 0
 		}
-
 		{
 			color: "0xff00ff80"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xff80ff00"
 			tile_flags: solid
+			meta: 0
 		}
-
 		{
 			color: "0xff8000ff"
 			tile_flags: solid
+			meta: 0
 		}
 		{
 			color: "0xff0080ff"
 			tile_flags: solid
+			meta: 0
 		}
 	]
 }

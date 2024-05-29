@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Grass"
 	desc:
 		'''
@@ -15,7 +15,7 @@
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 1600.000
+	max_health: 3200.000
 	
 	smoothing: 0.200
 	mass: 5.000

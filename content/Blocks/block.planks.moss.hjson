@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Planks (Moss)"
 	desc:
 		'''
@@ -15,7 +15,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 2700.000
+	max_health: 3950.000
 	
 	smoothing: 0.150
 	mass: 1.000

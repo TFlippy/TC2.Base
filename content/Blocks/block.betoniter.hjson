@@ -15,7 +15,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 61400.000
+	max_health: 58400.000
 	
 	smoothing: 0.160
 	mass: 11.000

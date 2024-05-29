@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Asphalt"
 	desc:
 		'''
@@ -15,7 +15,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 10000.000
+	max_health: 13000.000
 	
 	smoothing: 0.200
 	mass: 3.000

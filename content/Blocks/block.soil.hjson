@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Soil"
 	desc:
 		'''
@@ -13,9 +13,9 @@
 	
 	material_type: soil
 	tile_flags: non_empty
-	flags: none
+	flags: raw
 	
-	max_health: 3200.000
+	max_health: 5800.000
 	
 	smoothing: 0.200
 	mass: 1.900
