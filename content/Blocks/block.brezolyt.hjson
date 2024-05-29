@@ -11,28 +11,28 @@
 		texture: "missing"
 	}
 	
-	material_type: stone_porous
+	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 27800.000
+	max_health: 31800.000
 	
 	smoothing: 0.160
-	mass: 11.000
-	friction: 0.700
-	elasticity: 0.560
-	stability: 8.940
-	strength_tensile: 4.800
-	strength_compressive: 21.000
+	mass: 3.700
+	friction: 0.840
+	elasticity: 0.580
+	stability: 4.040
+	strength_tensile: 6.500
+	strength_compressive: 8.100
 	collision_layer: none
 	collision_mask: none
 	
 	texture: "terrain.brezolyt"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.270
+	texture_scale: 1.610
 	texture_overshoot: -0.650
-	texture_offset: 0.150
+	texture_offset: -0.300
 	color_preview: "0xff82796a"
 	color_fill: "0xff140e08"
 	

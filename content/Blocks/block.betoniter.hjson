@@ -30,8 +30,8 @@
 	texture: "terrain.betoniter"
 	pattern: "pattern.stone"
 	
-	texture_scale: 1.330
-	texture_overshoot: -0.280
+	texture_scale: 1.130
+	texture_overshoot: -0.740
 	texture_offset: 0.000
 	color_preview: "0xff4f5353"
 	color_fill: "0xff140e08"
