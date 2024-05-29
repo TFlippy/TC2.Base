@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Machine Scrap"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: materials, junk, construction, cheap
 	// kg
-	mass_per_unit: 0.560
+	mass_per_unit: 0.930
 	quantity_max: 500.000
 	prefab: "resource.scrap.machine"
 	

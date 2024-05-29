@@ -12,6 +12,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
+		mass: 200.000
 		material: wreck
 		layer: entity, ignore_melee, decoration
 		mask: world
@@ -20,7 +21,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 3400.000
 }
 
 animated.renderer:
@@ -43,15 +44,15 @@ harvestable:
 	[
 		{
 			material: "scrap"
-			quantity: 150.000
+			quantity: 78.000
 		}
 		{
 			material: "iron.ingot"
-			quantity: 15.000
+			quantity: 21.000
 		}
 		{
 			material: "plants"
-			quantity: 50.000
+			quantity: 10.000
 		}
 	]
 }

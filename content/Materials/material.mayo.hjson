@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Majonez"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: sticky
 	hints: none
 	// kg
-	mass_per_unit: 0.500
+	mass_per_unit: 0.620
 	quantity_max: 100.000
 	prefab: "resource.mayo"
 	

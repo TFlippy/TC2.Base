@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Planks"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.475
+	mass_per_unit: 0.675
 	quantity_max: 500.000
 	prefab: "resource.wood"
 	
@@ -114,7 +114,6 @@
 		sulfur_ratio: 0.007
 		// Percentage of water.
 		water_ratio: 0.132
-		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.340
 		volatiles: ["wood_gas"]

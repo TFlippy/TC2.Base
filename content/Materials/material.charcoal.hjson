@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Charcoal"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.170
+	mass_per_unit: 0.240
 	quantity_max: 500.000
 	prefab: "resource.charcoal"
 	
@@ -114,7 +114,6 @@
 		sulfur_ratio: 0.020
 		// Percentage of water.
 		water_ratio: 0.043
-		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.02883
 		volatiles: ["coal_gas"]

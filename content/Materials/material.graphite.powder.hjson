@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Graphite (Powder)"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.900
+	mass_per_unit: 0.360
 	quantity_max: 500.000
 	prefab: "resource.graphite.powder"
 }

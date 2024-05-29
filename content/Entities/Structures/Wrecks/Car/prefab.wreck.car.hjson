@@ -26,7 +26,7 @@ body:
 		elasticity: 0.400
 		radius: 0.500
 		material: wreck
-		layer: entity, solid, ignore_bullet, decoration
+		layer: entity, solid, decoration
 		mask: world
 	}
 }

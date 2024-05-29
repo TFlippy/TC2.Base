@@ -18,6 +18,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
+		mass: 1400.000
 		material: wreck
 		layer: entity, building, decoration
 		mask: world
@@ -50,12 +51,12 @@ harvestable:
 		{
 			type: resource
 			material: "scrap"
-			quantity: 700.000
+			quantity: 780.000
 		}
 		{
 			type: resource
 			material: "machine_parts"
-			quantity: 20.000
+			quantity: 40.000
 		}
 		{
 			type: resource

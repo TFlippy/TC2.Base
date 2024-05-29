@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Black Coal"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.400
+	mass_per_unit: 0.420
 	quantity_max: 500.000
 	prefab: "resource.black_coal"
 	
@@ -114,7 +114,6 @@
 		sulfur_ratio: 0.0314
 		// Percentage of water.
 		water_ratio: 0.0112
-		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.0497
 		volatiles: ["coal_gas"]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Krakatite"
 	description:
 		'''
@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 1.400
+	mass_per_unit: 1.330
 	quantity_max: 500.000
 	prefab: "resource.krakatite"
 }

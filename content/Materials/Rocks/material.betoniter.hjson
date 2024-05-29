@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 1.840
+	mass_per_unit: 1.450
 	quantity_max: 500.000
 	prefab: "resource.betoniter"
 }
