@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Somrwald"
 	name_short: "Somrwald"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "SWD"
 	
 	h_governorate: "krumpelsutr"
 	size: 1.250

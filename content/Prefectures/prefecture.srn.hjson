@@ -1,10 +1,13 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Samorepublik Nekordel"
 	name_short: "S.R.N."
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "SRN"
 	
 	h_governorate: "krumpelsutr"
 	size: 1.000

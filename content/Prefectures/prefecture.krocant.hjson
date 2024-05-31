@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Krocant"
 	name_short: "Krocant"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "KRC"
 	
 	h_governorate: "krumpelsutr"
 	size: 0.670

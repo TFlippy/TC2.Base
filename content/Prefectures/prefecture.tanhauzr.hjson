@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Tanhauzr"
 	name_short: "Tanhauzr"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "THZ"
 	
 	h_governorate: "krumpelsutr"
 	size: 0.900

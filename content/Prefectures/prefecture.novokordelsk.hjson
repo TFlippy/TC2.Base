@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Novokordelsk"
 	name_short: "Novokordelsk"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "NKO"
 	
 	h_governorate: "kordelsk"
 	size: 3.000

@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Horec-Snehovy"
 	name_short: "Horec-Snehovy"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	
+	post_code: "HOR"
 	
 	h_governorate: "krumpelsutr"
 	size: 1.000
