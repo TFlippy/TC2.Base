@@ -72,6 +72,11 @@ faction:
 
 }
 
+entrance.linkable:
+{
+	
+}
+
 // claimable:
 // {
 // 	// flags: no_menu
