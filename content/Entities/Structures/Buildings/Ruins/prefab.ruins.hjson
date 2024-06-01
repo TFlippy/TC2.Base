@@ -77,6 +77,11 @@ entrance.linkable:
 	
 }
 
+address:
+{
+	
+}
+
 // claimable:
 // {
 // 	// flags: no_menu

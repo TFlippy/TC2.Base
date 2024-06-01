@@ -13,15 +13,20 @@ body:
 		radius: 0.000
 		friction: 0.950
 		elasticity: 0.500
-		material: stone
+		material: stone_slab
 		layer: entity, building, support, ignore_melee
 		mask: world
 	}
 }
 
+transform:
+{
+
+}
+
 health:
 {
-	max: 20000.000
+	max: 80000.000
 }
 
 animated.renderer:
@@ -35,33 +40,35 @@ animated.renderer:
 	z: -300.000
 }
 
+faction:
+{
+
+}
+
 faction.colorable:
 {
 
 }
 
-transform:
+nameable:
 {
-
+	tags: market
+	flags: randomize
+	type: building
 }
 
-market:
+claimable:
 {
-	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+	flags: no_menu
+}
 
-	perms_owner: buy, sell, add, remove, restock
-	perms_faction: buy, sell
-	perms_ally: buy, sell
-	perms_neutral: buy, sell
-	perms_enemy: none
-
-	@inventory1:
-	{
-		type: money
-		stack_size_multiplier: 10.000
-		flags: ignore_mass, no_auto_pickup, faction
-		filter_flags: currency
-	}
+interactable:
+{
+	flags: none
+	window_size: [642.000, 504.000]
+	window_size_min: [192.000, 144.000]
+	window_size_misc: [168.000, 0.000]
+	window_offset: [0.000, 0.000]
 }
 
 // light:
@@ -73,11 +80,6 @@ market:
 // 	texture: "light.circle.04"
 // 	rotation: 0.000
 // }
-
-faction:
-{
-
-}
 
 company:
 {
@@ -100,33 +102,40 @@ company:
 	}
 }
 
-claimable:
+market:
 {
-	flags: no_menu
+	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+
+	perms_owner: buy, sell, add, remove, restock
+	perms_faction: buy, sell
+	perms_ally: buy, sell
+	perms_neutral: buy, sell
+	perms_enemy: none
+
+	@inventory1:
+	{
+		type: money
+		stack_size_multiplier: 10.000
+		flags: ignore_mass, no_auto_pickup, faction
+		filter_flags: currency
+	}
 }
 
-nameable:
+stockpile:
 {
-	tags: market
-	flags: randomize, no_rename
-	type: building
+	request_types: move, send, load
+	flags: hide_unowned
+	grid_column_count: 4
+	capacity_items: 0
+	capacity_shipments: 4
 }
 
-interactable:
+address:
 {
-	window_size: [642.000, 504.000]
-}
-
-// depot:
-// {
-// 	offset: [0.000, 0.000]
-// 	size: [4.000, 3.000]
-// 	flags: allow_withdraw, allow_deposit, allow_send, allow_request, allow_receive, allow_local, allow_region, allow_world, local, region
-
-// 	shipping_fee_base: 20.000
-// }
-
-// stockpile:
-// {
 	
-// }
+}
+
+entrance.linkable:
+{
+
+}
