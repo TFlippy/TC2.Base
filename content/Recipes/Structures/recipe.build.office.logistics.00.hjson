@@ -1,13 +1,13 @@
 ﻿{
-	name: "Office"
+	name: "Logistics Office"
 	desc:
 		'''
-		Bureaucracy is performed here.
+		Logistics-oriented bureaucracy is performed here.
 		'''
 	
 	icon:
 	{
-		texture: "office.00"
+		texture: "office.logistics.00"
 		size: [48, 40]
 		frame: [0, 0]
 	}
@@ -82,7 +82,7 @@
 	[
 		{
 			type: prefab
-			prefab: "office.00"
+			prefab: "office.logistics.00"
 			amount: 1.000
 		}
 	]

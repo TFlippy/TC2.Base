@@ -120,10 +120,18 @@ armory:
 {
 	@inventory4:
 	{
-		stack_size_multiplier: 4.000
-		filter_flags: ammo
 		type: ammo
 		flags: ignore_mass, public, faction, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: ammo
+			include: granular, small
+			exclude: large
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
