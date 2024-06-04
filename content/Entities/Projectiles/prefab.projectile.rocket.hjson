@@ -11,6 +11,7 @@ projectile:
 	ricochet_count: 0
 	speed_modifier_min: 0.300
 	speed_modifier_max: 1.300
+	damp: 0.967
 }
 
 transform:
@@ -37,9 +38,9 @@ explosive:
 	power: 4.000
 	damage_entity: 9000.000
 	damage_terrain: 14000.000
-	sparks_amount: 0.600
-	smoke_amount: 3.000
-	smoke_lifetime_multiplier: 0.300
+	sparks_amount: 1.600
+	smoke_amount: 2.000
+	smoke_lifetime_multiplier: 0.500
 	smoke_velocity_multiplier: 2.000
 	flash_duration_multiplier: 0.750
 	flash_intensity_multiplier: 0.500

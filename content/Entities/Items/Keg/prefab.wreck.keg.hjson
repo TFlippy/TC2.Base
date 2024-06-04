@@ -8,7 +8,7 @@ body:
 	{
 		size: [0.500, 1.000]
 		offset: [0.000, 0.000]
-		mass: 150.000
+		mass: 60.000
 		radius: 0.375
 		friction: 0.980
 		elasticity: 0.400
@@ -81,15 +81,16 @@ fuse:
 
 explosive:
 {
-	radius: 16.000
-	power: 3.000
-	damage_entity: 10000.000
-	damage_terrain: 40000.000
-	smoke_amount: 3.000
-	sparks_amount: 0.000
-	smoke_lifetime_multiplier: 2.000
-	smoke_velocity_multiplier: 6.000
-	flash_duration_multiplier: 0.500
+	radius: 12.000
+	power: 3.500
+	damage_entity: 31000.000
+	damage_terrain: 85000.000
+	smoke_amount: 0.900
+	sparks_amount: 1.100
+	fire_amount: 1.500
+	smoke_lifetime_multiplier: 1.200
+	smoke_velocity_multiplier: 3.000
+	flash_duration_multiplier: 2.500
 	flash_intensity_multiplier: 0.300
 	volume: 2.000
 	pitch: 1.000
