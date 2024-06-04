@@ -30,9 +30,9 @@
 	texture: "terrain.stonebrick.moss"
 	pattern: "pattern.stonebrick.moss"
 	
-	texture_scale: 1.500
+	texture_scale: 1.250
 	texture_overshoot: -0.750
-	texture_offset: 0.000
+	texture_offset: 0.200
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	

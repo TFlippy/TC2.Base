@@ -11,7 +11,7 @@
 	
 	h_governorate: "krumpelsutr"
 	size: 1.000
-	offset: [2.625, 0.125]
+	offset: [-0.750, 0.275]
 	
 	color_border: "0xffff0000"
 	color_fill: "0xffa60d0d"

@@ -34,21 +34,21 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.110
-		heat: 110.000
+		mass: 0.130
+		heat: 130.000
 		velocity_min: 50.000
 		
-		speed_base: 0.000
-		speed_mult: 0.900
+		speed_base: 0.200
+		speed_mult: 1.400
 		spin_base: 0.000
 		spin_mult: 1.000
 		spread_mult: 1.450
-		recoil_mult: 1.300
+		recoil_mult: 1.100
 		
 		failure_base: 0.0011
 		failure_mult: 1.064
 		
-		stability_base: 2650.000
+		stability_base: 2950.000
 		stability_mult: 1.000
 		
 		prefab: "projectile.mg.ap"
