@@ -17,7 +17,7 @@ body:
 			[-1.250, 1.000]
 		]
 		offset: [0.000, 0.000]
-		mass: 400.000
+		mass: 348.000
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.400
@@ -29,7 +29,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 6900.000
 }
 
 animated.renderer:
@@ -59,8 +59,8 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
-			quantity: 270.000
+			material: "scrap.steel"
+			quantity: 230.000
 		}
 		{
 			material: "cloth"

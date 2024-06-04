@@ -68,6 +68,7 @@ harvestable:
 		}
 		{
 			material: "wood"
+			flags: drop_on_break
 			quantity: 10.000
 		}
 	]

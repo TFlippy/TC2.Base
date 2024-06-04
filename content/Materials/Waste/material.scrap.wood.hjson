@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Wooden Scrap"
+	name: "Wooden Debris"
 	description:
 		'''
-		TODO: Desc
+		Remains of something that used to be made of wood.
 		'''
 	
 	icon:

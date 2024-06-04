@@ -98,16 +98,16 @@ claimable:
 // 	work_required: 500.000
 // }
 
-depot:
-{
-	offset: [1.000, 1.000]
-	size: [4.000, 3.000]
-	flags: allow_withdraw, allow_deposit, allow_send, allow_local, local, public
+// depot:
+// {
+// 	offset: [1.000, 1.000]
+// 	size: [4.000, 3.000]
+// 	flags: allow_withdraw, allow_deposit, allow_send, allow_local, local, public
 
-	shipping_fee_base: 25.000
-	shipping_fee_per_kg: 0.500
-	// shipping_fee_per_km: 0.070
-}
+// 	shipping_fee_base: 25.000
+// 	shipping_fee_per_kg: 0.500
+// 	// shipping_fee_per_km: 0.070
+// }
 
 spawn:
 {
