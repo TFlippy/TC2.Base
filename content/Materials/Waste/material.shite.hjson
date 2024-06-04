@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Sand"
+	name: "Shite"
 	description:
 		'''
-		Pile of sand - fit for glass production.
+		But will it burn?
 		'''
 	
 	icon:
 	{
-		texture: "resource.sand"
+		texture: "resource.shite"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -18,14 +18,14 @@
 		texture: "missing"
 	}
 	
-	type: sand
+	type: mud
 	// Flags defining properties of the raw material.
-	flags: granular, mineral, raw, powder, solid
+	flags: granular, organic, raw, fuel, flammable, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 0.740
+	mass_per_unit: 0.410
 	quantity_max: 500.000
-	prefab: "resource.sand"
+	prefab: "resource.shite"
 }

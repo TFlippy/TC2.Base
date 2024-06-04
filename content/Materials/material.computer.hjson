@@ -18,7 +18,7 @@
 		texture: "missing"
 	}
 	
-	type: metal_frame
+	type: machine
 	// Flags defining properties of the raw material.
 	flags: hard, magnetic, metal, intermediate, large, heavy, manufactured, device, solid
 	// Flags to remove if stored in a bottle/tank/can.

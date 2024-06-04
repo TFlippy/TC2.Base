@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Arcanite Pellets (Radiance)"
+	name: "Arcanite Pellets (Radiant)"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.

@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.chlorine"
+		texture: "missing"
 		size: [16, 16]
 		frame: [3, 0]
 	}
