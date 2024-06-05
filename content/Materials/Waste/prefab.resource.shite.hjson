@@ -10,7 +10,7 @@ body:
 		friction: 0.950
 		elasticity: 0.000
 		material: mud
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, flammable
 		mask: world
 	}
 }
@@ -48,4 +48,17 @@ norotate:
 despawn:
 {
 
+}
+
+rotting:
+{
+	rate: 0.000
+
+	@sound.emitter:
+	{
+		file: "flies.loop.00"
+		volume: 0.400
+		pitch: 1.000
+		priority: 0.100
+	}
 }

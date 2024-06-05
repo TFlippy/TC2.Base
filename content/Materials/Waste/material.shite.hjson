@@ -20,12 +20,12 @@
 	
 	type: mud
 	// Flags defining properties of the raw material.
-	flags: granular, organic, raw, fuel, flammable, solid
+	flags: soft, malleable, sticky, granular, organic, raw, fuel, flammable, waste, flexible
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	hints: none
+	hints: junk, primitive, weak, cheap, dumb, crappy, fast
 	// kg
-	mass_per_unit: 0.410
+	mass_per_unit: 0.213
 	quantity_max: 500.000
 	prefab: "resource.shite"
 }
