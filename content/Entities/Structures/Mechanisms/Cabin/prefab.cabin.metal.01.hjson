@@ -95,7 +95,7 @@ vehicle:
 
 damage.effects:
 {
-
+	threshold_wreck: 0.460
 }
 
 // faction.colorable:

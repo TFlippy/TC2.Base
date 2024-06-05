@@ -21,7 +21,7 @@ body:
 		]
 		offset: [0.000, 0.000]
 		radius: 0.375
-		mass: 700.000
+		mass: 800.000
 		friction: 0.650
 		elasticity: 0.450
 		material: metal
@@ -32,7 +32,12 @@ body:
 
 health:
 {
-	max: 95000.000
+	max: 115000.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.610
 }
 
 armor:
@@ -43,7 +48,7 @@ armor:
 	knockback_modifier: 1.500
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 
@@ -90,11 +95,6 @@ vehicle:
 		z: 90.000
 		flags: has_damage
 	}
-}
-
-damage.effects:
-{
-
 }
 
 faction.colorable:

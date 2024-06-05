@@ -35,6 +35,11 @@ health:
 	max: 65000.000
 }
 
+damage.effects:
+{
+	threshold_wreck: 0.560
+}
+
 armor:
 {
 	toughness: 620.000
@@ -90,11 +95,6 @@ vehicle:
 		z: 90.000
 		flags: has_damage
 	}
-}
-
-damage.effects:
-{
-
 }
 
 faction.colorable:

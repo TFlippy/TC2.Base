@@ -32,7 +32,12 @@ body:
 
 health:
 {
-	max: 10700.000
+	max: 45500.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.760
 }
 
 armor:
@@ -89,11 +94,6 @@ vehicle:
 	// 	// mask: "cabin.metal.03.fg.mask"
 	// 	flags: has_damage
 	// }
-}
-
-damage.effects:
-{
-
 }
 
 faction.colorable:

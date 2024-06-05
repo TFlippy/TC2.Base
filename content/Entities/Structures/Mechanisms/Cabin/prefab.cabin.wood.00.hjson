@@ -31,7 +31,12 @@ body:
 
 health:
 {
-	max: 7500.000
+	max: 11500.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.400
 }
 
 holdable:

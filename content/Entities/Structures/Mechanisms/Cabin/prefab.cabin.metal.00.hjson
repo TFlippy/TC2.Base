@@ -31,7 +31,12 @@ body:
 
 health:
 {
-	max: 14000.000
+	max: 30000.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.220
 }
 
 armor:
@@ -42,7 +47,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_sheet
 	flags: no_damage_type_conversion
 }
 
