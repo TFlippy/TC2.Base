@@ -7,7 +7,7 @@ projectile:
 	damage_type: bullet_hw
 	knockback_multiplier: 13.000
 
-	lifetime: 10.000
+	lifetime: 60.000
 	ignore_time: 0.000
 	size: 0.250
 	ricochet_count: 1

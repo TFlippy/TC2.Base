@@ -45,10 +45,14 @@ transform:
 equipment:
 {
 	type: head
-
-	frame_default: 0
+	flags: none
+	offset: [0.000, 0.000]
+	z: 6.000
 	frame_equipped_male: 1
 	frame_equipped_female: 1
+	frame_default: 0
+	frame_hair_y: 1
+	frame_beard_y: 0
 }
 
 norotate:
