@@ -8,6 +8,7 @@ $tags: []
 body:
 {
 	inventory_weight_multiplier: 0.200
+	fall_damage_multiplier: 0.400
 
 	@shape.line:
 	{
@@ -47,7 +48,7 @@ faction:
 
 health:
 {
-	max: 45000.000
+	max: 85000.000
 }
 
 damage.effects:
@@ -57,7 +58,8 @@ damage.effects:
 
 cover:
 {
-
+	threshold: 0.300
+	flags: none
 }
 
 // armor:

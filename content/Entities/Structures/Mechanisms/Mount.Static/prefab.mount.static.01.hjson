@@ -61,7 +61,7 @@ vehicle:
 
 controllable:
 {
-	
+	speed: 5.000	
 }
 
 // storage:
