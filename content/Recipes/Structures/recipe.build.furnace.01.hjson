@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Furnace (Large)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: industry
 	rank: 154.000
 	

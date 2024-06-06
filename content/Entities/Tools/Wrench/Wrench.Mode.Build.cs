@@ -52,6 +52,9 @@ namespace TC2.Base.Components
 					public static bool show_zones;
 					public static bool enable_grid;
 
+					public static Sprite ui_icons_crafting_mini = new Sprite("ui_icons_crafting.mini", 16, 16, 0, 0);
+					public static Sprite ui_icons_builder_categories = new Sprite("ui_icons_builder_categories", 16, 16, 0, 0);
+
 					public void Draw(GUI.Window window, Entity ent_wrench, ref Wrench.Data wrench)
 					{
 						ref var region = ref Client.GetRegion();
@@ -126,7 +129,7 @@ namespace TC2.Base.Components
 												break;
 											}
 
-											if (GUI.DrawIconButton($"build.category.{i}", new Sprite("ui_icons_builder_categories", 16, 16, (uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
+											if (GUI.DrawIconButton("build.category"u8, ui_icons_builder_categories.WithFrame((uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
 											{
 												edit_tags_filter = button_tags_filter;
 											}
@@ -213,7 +216,7 @@ namespace TC2.Base.Components
 										var h_recipe = (IRecipe.Handle)pair.index;
 
 										ref var recipe = ref h_recipe.GetData(out var recipe_asset);
-										if (recipe.IsNotNull() && (recipe.tags.HasAny(edit_tags_filter) || is_searching))
+										if (recipe.IsNotNull() && (is_searching || recipe.tags.HasAny(edit_tags_filter)))
 										{
 											if (!is_searching || recipe.name.Contains(search_filter, StringComparison.OrdinalIgnoreCase))
 											{
@@ -224,7 +227,7 @@ namespace TC2.Base.Components
 												using (grid.Push(frame_size, id: (uint)recipe_asset.GetHashCode()))
 												{
 													var selected = this.recipe.id == pair.index;
-													using (var button = GUI.CustomButton.New("recipe"u8, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+													using (var button = GUI.CustomButton.New("recipe"u8, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
 													{
 														GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
 														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
@@ -238,7 +241,7 @@ namespace TC2.Base.Components
 
 														if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
 														{
-															var icon_blueprint = new Sprite("ui_icons_crafting.mini", 16, 16, ((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u), 0);
+															var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
 															GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
 														}
 
@@ -266,7 +269,16 @@ namespace TC2.Base.Components
 																GUI.Title(recipe.name);
 																GUI.Text(recipe.desc, color: GUI.font_color_default);
 
-																GUI.NewLine();
+																GUI.SeparatorThick(spacing: 16);
+
+																ref var construction = ref recipe.construction.GetRefOrNull();
+																if (construction.IsNotNull())
+																{
+																	GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
+
+																	GUI.SeparatorThick(spacing: 16);
+																}
+
 																GUI.DrawRequirements(ref context, recipe.requirements.AsSpan());
 															}
 														}

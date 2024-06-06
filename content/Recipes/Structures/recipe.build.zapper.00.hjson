@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Zapper"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	step: 0
 	
 	type: build
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: construction
 	rank: -109.000
 	
