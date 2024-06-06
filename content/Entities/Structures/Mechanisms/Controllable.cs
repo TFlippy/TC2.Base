@@ -179,7 +179,7 @@
 
 								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 40)))
 								{
-									if (GUI.DrawButton("LMB", size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow))
+									if (GUI.DrawButton("LMB", size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
 									{
 										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Left);
 										dirty = true;
@@ -196,7 +196,7 @@
 
 									GUI.SameLine();
 
-									if (GUI.DrawButton("RMB", size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow))
+									if (GUI.DrawButton("RMB", size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
 									{
 										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Right);
 										dirty = true;

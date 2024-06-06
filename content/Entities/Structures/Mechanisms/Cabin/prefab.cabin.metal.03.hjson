@@ -154,6 +154,75 @@ controllable:
 	
 }
 
+analog.relay:
+{
+
+}
+
+analog.transducer:
+{
+	binds:
+	[
+		{
+			keys_positive: moveup
+			keys_negative: movedown
+			mouse_positive: none
+			mouse_negative: none
+			flags: none
+			type: none
+			magnitude: 1.000
+			gain: 1.000
+			ramp: 0.500
+			decay: 0.750
+			blend: 1.000
+			center: 0.000
+		}
+		{
+			keys_positive: moveright
+			keys_negative: moveleft
+			mouse_positive: none
+			mouse_negative: none
+			flags: none
+			type: none
+			magnitude: 1.000
+			gain: 1.000
+			ramp: 0.500
+			decay: 0.750
+			blend: 1.000
+			center: 0.000
+		}
+		{
+			keys_positive: none
+			keys_negative: none
+			mouse_positive: none
+			mouse_negative: none
+			flags: none
+			type: none
+			magnitude: 0.000
+			gain: 0.000
+			ramp: 0.000
+			decay: 0.000
+			blend: 0.000
+			center: 0.000
+		}
+		{
+			keys_positive: none
+			keys_negative: none
+			mouse_positive: none
+			mouse_negative: none
+			flags: none
+			type: none
+			magnitude: 0.000
+			gain: 0.000
+			ramp: 0.000
+			decay: 0.000
+			blend: 0.000
+			center: 0.000
+		}
+	]
+	flags: none
+}
+
 +seat|instance:
 {
 	$tags: []

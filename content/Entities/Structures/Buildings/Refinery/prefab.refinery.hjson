@@ -162,5 +162,5 @@ sound.emitter:
 {
 	file: "refinery.loop.03"
 	volume: 1.000
-	pitch: 0.000
+	pitch: 1.000
 }

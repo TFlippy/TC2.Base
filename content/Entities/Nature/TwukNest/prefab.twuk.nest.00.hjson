@@ -1,0 +1,104 @@
+$name: "Capybara Lair"
+$desc: 
+	'''
+	In academic literature, there are numerous claims that capybaras don't live in lairs.
+	Sadly, capybaras can't read.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		radius: 1.000
+		friction: 0.750
+		elasticity: 0.500
+		material: stone
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 11000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "capybara.lair.00"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+nameable:
+{
+
+}
+
+spawner:
+{
+	prefab: "capybara"
+	interval: 60.000
+	interval_extra: 60.000
+	interval_count_modifier: 30.000
+	max_count: 8
+	filter_tag: "capybara"
+}
+
+faction:
+{
+	id: "capybara"
+}
+
+claimer:
+{
+	radius: 12.000
+	strength: 1.300
+	falloff: 0.500
+}
+
+spawn:
+{
+	flags: neutral_only, faction
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+
+	flags: faction, spawner
+}
+
+dormitory:
+{
+	species: "badger"
+	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
+	asset_flags: recycle
+	characters_capacity: 4
+	characters_initial_count: 2
+}
+
+// faction.new:
+// {
+// 	tag: "BAD"
+// 	name: "Badgers"
+// 	color_a: "0xff0030ff"
+// 	color_b: "0xff080a52"
+
+// 	id: 201
+// }

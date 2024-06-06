@@ -49,7 +49,7 @@ transform:
 // 	{
 // 		file: "grinder_loop"
 // 		volume: 1.000
-// 		pitch: 0.000
+// 		pitch: 1.000
 // 		size: 0.800
 // 	}
 // }

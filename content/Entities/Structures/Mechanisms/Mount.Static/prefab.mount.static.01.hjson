@@ -39,7 +39,7 @@ animated.renderer:
 	{
 		texture: "mount.static.01"
 	}
-	z: 85.000
+	z: -200.000
 }
 
 transform:
@@ -84,7 +84,7 @@ controllable:
 		max_torque: 1000000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
-		z: -10.000
+		z: -450.000
 		// flags: no_wrap, attachment, allow_dragging, control_read, control_write, facing_reset_pos, force_facing, use_proxy_body
 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
 		material_type: metal
