@@ -14,7 +14,13 @@
 			}
 
 			[Asset.Ignore] public Vector2 target_pos;
-			public float speed = 1.00f;
+
+			public float speed = 5.00f;
+			public float speed_max = 15.00f;
+
+			public float radius = 16.00f;
+			public float radius_max = 32.00f;
+
 			public Controllable.Data.Flags flags;
 
 			[Net.Ignore, Save.Ignore] public float t_last_sync;
@@ -33,26 +39,59 @@
 		//		[Source.Owned] ref Joint.Base joint_base)
 		//		{
 
-		//		}
-		//#endif
+//		}
+//#endif
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateControls(ISystem.Info info, Entity entity, Entity ent_joint_base,
-		[Source.Shared] ref Control.Data control, [Source.Shared] in Controllable.Data controllable, [Source.Shared] in Transform.Data transform,
-		[Source.Owned] ref Joint.Base joint_base)
+#if SERVER
+		// ensures target position isn't [0, 0] when spawned
+		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
+		public static void OnAdd(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Control.Data control, [Source.Owned] ref Controllable.Data controllable, [Source.Owned] in Transform.Data transform)
 		{
-			if (controllable.flags.HasAny(Controllable.Data.Flags.Mouse_Orthogonal))
+			App.WriteLine($"{controllable.target_pos}; {transform.position}");
+			if (controllable.target_pos == Vector2.Zero) controllable.target_pos = transform.LocalToWorld(new Vector2(0, -3));
+		}
+#endif
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateControls(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Control.Data control, [Source.Owned] ref Controllable.Data controllable, [Source.Owned] in Transform.Data transform)
+		{
+			if (control.mouse.position != controllable.target_pos)
 			{
-				control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, new Vector2(controllable.speed * info.DeltaTime));
-			}
-			else
-			{
-				control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, controllable.speed * info.DeltaTime);
+				controllable.target_pos = controllable.target_pos.ClampRadius(transform.position, controllable.radius);
+
+				if (controllable.flags.HasAny(Controllable.Data.Flags.Mouse_Orthogonal))
+				{
+					control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, new Vector2(controllable.speed * info.DeltaTime));
+				}
+				else
+				{
+					control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, controllable.speed * info.DeltaTime);
+				}
 			}
 		}
 
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void UpdateControls(ISystem.Info info, Entity entity, Entity ent_joint_base,
+		//[Source.Shared] ref Control.Data control, [Source.Shared] ref Controllable.Data controllable, [Source.Shared] in Transform.Data transform,
+		//[Source.Owned] ref Joint.Base joint_base)
+		//{
+		//	if (controllable.flags.HasAny(Controllable.Data.Flags.Mouse_Orthogonal))
+		//	{
+		//		control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, new Vector2(controllable.speed * info.DeltaTime));
+		//	}
+		//	else
+		//	{
+		//		control.mouse.position = Maths.MoveTowards(control.mouse.position, controllable.target_pos, controllable.speed * info.DeltaTime);
+		//	}
+		//}
+
 		public struct ConfigureRPC: Net.IRPC<Controllable.Data>
 		{
+			public float? radius;
+			public float? speed;
+
 			public Vector2? mouse_position;
 			public Keyboard.Key? keyboard;
 			public Mouse.Key? mouse;
@@ -65,6 +104,9 @@
 				if (control.IsNotNull())
 				{
 					var sync = false;
+
+					sync |= this.radius.TryCopyToClamped(ref data.radius, 0.00f, data.radius_max);
+					sync |= this.speed.TryCopyToClamped(ref data.speed, 0.00f, data.speed_max);
 
 					sync |= this.mouse_position.TryCopyTo(ref data.target_pos);
 					sync |= this.keyboard.TryCopyTo(ref control.keyboard.GetMask());
@@ -86,6 +128,8 @@
 		{
 			public Entity ent_controllable;
 
+			public Transform.Data transform;
+
 			public Control.Data control;
 			public Controllable.Data controllable;
 
@@ -97,7 +141,7 @@
 					if (window.show)
 					{
 						ref var player = ref Client.GetPlayer();
-						ref var region = ref Client.GetRegion();
+						ref var region = ref this.ent_controllable.GetRegion();
 
 						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{
@@ -109,6 +153,8 @@
 
 								var w_pos_mouse = this.control.mouse.position;
 								var w_pos_target = this.controllable.target_pos;
+
+								w_pos_target = w_pos_target.ClampRadius(this.transform.position, this.controllable.radius);
 
 								var c_pos_mouse = region.WorldToCanvas(w_pos_mouse);
 								var c_pos_target = region.WorldToCanvas(w_pos_target);
@@ -159,9 +205,20 @@
 
 								GUI.SeparatorThick();
 
-								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 40)))
+								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
 								{
 									if (GUI.Checkbox("Orthogonal"u8, this.controllable.flags, ref rpc.flags, Controllable.Data.Flags.Mouse_Orthogonal, size: new(0, 24)))
+									{
+										dirty = true;
+									}
+
+									if (GUI.SliderFloat("Radius"u8, in this.controllable.radius, ref rpc.radius, 0.00f, this.controllable.radius_max, size: new(GUI.RmX, 24), snap: 0.500f))
+									{
+										rpc.mouse_position = w_pos_target.ClampRadius(this.transform.position, rpc.radius.Value);
+										dirty = true;
+									}
+
+									if (GUI.SliderFloat("Speed"u8, in this.controllable.speed, ref rpc.speed, 0.00f, this.controllable.speed_max, size: new(GUI.RmX, 24), snap: 0.100f))
 									{
 										dirty = true;
 									}
@@ -175,15 +232,17 @@
 									rpc.Send(this.ent_controllable);
 								}
 
+								GUI.DrawCircle(region.WorldToCanvas(this.transform.GetInterpolatedPosition()), this.controllable.radius * region.GetWorldToCanvasScale(), thickness: 2.00f, segments: 64, color: Color32BGRA.Orange.WithAlpha(50));
+
 								var delta = w_pos_mouse - w_pos_target;
 								if (this.controllable.flags.HasAny(Data.Flags.Mouse_Orthogonal))
 								{
-
+									var dir = delta.GetNormalized(out var dist);
+									GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
 								}
 								else
 								{
 									var dir = delta.GetNormalized(out var dist);
-
 									GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
 								}
 
@@ -198,13 +257,17 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, [Source.Owned] in Control.Data control, [Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI(Entity entity, 
+		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.IsActive())
 			{
 				var gui = new ControllableGUI()
 				{
 					ent_controllable = entity,
+
+					transform = transform,
 
 					control = control,
 					controllable = controllable,

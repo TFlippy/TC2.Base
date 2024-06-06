@@ -1,0 +1,75 @@
+﻿{
+	$prefab: "mount.static.01"
+	$enabled: true
+	$tags: ["static"]
+	
+	+mount|instance:
+	{
+		$enabled: true
+		
+		attachment.slot:
+		{
+			offset: [0.000, -0.250]
+		}
+		
+		+attached|child:
+		{
+			$prefab: "chassis.03"
+			$enabled: true
+	
+			+slot.side.left|instance:
+			{
+				$enabled: true
+		
+				+attached|child:
+				{
+					$prefab: "crane.arm.articulated"
+					$enabled: true
+					
+					+mount|instance:
+					{
+						$enabled: true
+
+						+attached|child:
+						{
+							$prefab: "crane.arm.cargo"
+							$enabled: true
+		
+							+mount|instance:
+							{
+								$enabled: true							
+							}
+						}
+					}
+				}
+			}
+			
+			+slot.side.right|instance:
+			{
+				$enabled: true
+				
+				+attached|child:
+				{
+					$prefab: "crane.arm.articulated"
+					$enabled: true
+					
+					+mount|instance:
+					{
+						$enabled: true
+						
+						+attached|child:
+						{
+							$prefab: "crane.arm.cargo"
+							$enabled: true
+							
+							+mount|instance:
+							{
+								$enabled: true
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

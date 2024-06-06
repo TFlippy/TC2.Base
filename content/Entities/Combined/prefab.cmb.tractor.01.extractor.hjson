@@ -115,7 +115,7 @@ $prefab: "tractor.01"
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.01"
+		$prefab: "wheel.rubber.00.lg"
 	}
 }
 
@@ -123,7 +123,7 @@ $prefab: "tractor.01"
 {
 	+attached|child:
 	{
-		$prefab: "wheel.rubber.01"
+		$prefab: "wheel.rubber.00.lg"
 	}
 }
 

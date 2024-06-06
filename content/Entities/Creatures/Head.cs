@@ -220,6 +220,7 @@ namespace TC2.Base.Components
 			sound_emitter.channel_type = Sound.ChannelType.Master;
 			//sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
 			sound_emitter.volume = 1.00f;
+			sound_emitter.volume_mult = 0.00f;
 			sound_emitter.pitch = 1.50f;
 			sound_emitter.mix_3d = 1.00f;
 			sound_emitter.priority = 0.60f;

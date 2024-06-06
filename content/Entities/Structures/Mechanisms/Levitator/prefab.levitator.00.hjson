@@ -116,13 +116,22 @@ essencecontainer:
 
 	@sound.emitter:
 	{
-		file: "levitator.loop.00"
+		// file: "levitator.loop.00"
 		volume: 1.000
-		pitch: 0.300
-		size: 4.000
+		pitch: 1.300
+		size: 5.000
 		size_max_modifier: 5.000
-		priority: 0.900
+		priority: 0.850
 		spread: 90.000
+	}
+
+	@light:
+	{
+		offset: [0.750, -0.375]
+		scale: [1.000, 5.000]
+		intensity: 2.000
+		texture: "light.box.03"
+		rotation: 0.000
 	}
 }
 
