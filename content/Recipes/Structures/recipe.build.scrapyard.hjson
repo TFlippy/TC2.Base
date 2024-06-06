@@ -21,7 +21,7 @@
 	type: build
 	flags: disabled, wip
 	tags: buildings
-	rank: 500.000
+	rank: 205.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Kiln (Small)"
 	desc:
 		'''
@@ -21,7 +21,7 @@
 	type: build
 	flags: none
 	tags: industry
-	rank: -231.000
+	rank: -232.000
 	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800

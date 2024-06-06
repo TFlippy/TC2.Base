@@ -21,7 +21,7 @@
 	type: build
 	flags: disabled, wip
 	tags: industry
-	rank: -116.000
+	rank: 108.000
 	
 	dismantle_work: 20.000
 	dismantle_yield: 0.800

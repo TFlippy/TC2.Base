@@ -21,7 +21,7 @@
 	type: build
 	flags: blueprintable
 	tags: industry
-	rank: 0.000
+	rank: -156.000
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800

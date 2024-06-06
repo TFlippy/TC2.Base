@@ -1,5 +1,6 @@
 ﻿{
-	name: "Giant adder (Metal)"
+	$version: "0.1.60.7"
+	name: "Giant Ladder (Metal)"
 	desc:
 		'''
 		More durable ladder with longer placement range.
@@ -9,8 +10,6 @@
 	icon:
 	{
 		texture: "ladder.metal.icon"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -20,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: wip
 	tags: architecture
 	rank: 74.000
 	
@@ -44,6 +43,11 @@
 		length_step: 0.625
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

@@ -1,9 +1,10 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Chain Fence"
 	desc:
 		'''
 		Cheap fence made of woven metal wire used to keep intruders off your property.
-		
+
 		Sadly, most of them usually just walk around it.
 		'''
 	
@@ -11,7 +12,6 @@
 	{
 		texture: "chain_fence.00"
 		size: [40, 32]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -23,7 +23,7 @@
 	type: build
 	flags: none
 	tags: architecture
-	rank: 48.000
+	rank: 50.000
 	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
@@ -44,6 +44,11 @@
 		rotation_max: 0.400
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:
