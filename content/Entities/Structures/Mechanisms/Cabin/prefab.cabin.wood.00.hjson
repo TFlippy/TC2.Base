@@ -124,7 +124,7 @@ control:
 // 	// @sound.emitter:
 // 	// {
 // 	// 	file: "shaft.loop.overload.00"
-// 	// 	volume: 0.000
+// 	// 	volume: 1.000
 // 	// 	pitch: 1.000
 // 	// }
 // }

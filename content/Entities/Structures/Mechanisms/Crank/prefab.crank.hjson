@@ -84,7 +84,7 @@ transform:
 		@sound.emitter:
 		{
 			file: "crank.wood.loop.00"
-			volume: 0.000
+			volume: 1.000
 			pitch: 1.000
 		}
 		

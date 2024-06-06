@@ -118,8 +118,8 @@
 		{
 			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(axle_speed * 0.05f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.60f + (Maths.Clamp(axle_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
+			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, Maths.Clamp(axle_speed * 0.05f, 0.00f, 0.50f) * random.NextFloatRange(0.90f, 1.00f), 0.10f, 0.02f);
+			sound_emitter.pitch_mult = Maths.Lerp2(sound_emitter.pitch_mult, 0.60f + (Maths.Clamp(axle_speed * 0.11f, 0.00f, 0.50f)) * random.NextFloatRange(0.80f, 1.00f), 0.02f, 0.01f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -130,8 +130,8 @@
 			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? Maths.Min(axle_speed * 0.08f, 1.00f) : 0.00f;
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, modifier * 0.60f, 0.05f, 0.30f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.45f + (Maths.Min(modifier, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
+			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, modifier * 0.60f, 0.05f, 0.30f);
+			sound_emitter.pitch_mult = Maths.Lerp2(sound_emitter.pitch_mult, 0.45f + (Maths.Min(modifier, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
 		}
 #endif
 

@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 		public static void EssenceBoomCommand(ref ChatCommand.Context context, string identifier, float amount)
 		{
 			ref var region = ref context.GetRegion();
-			if (!region.IsNull())
+			if (region.IsNotNull())
 			{
 				var random = XorRandom.New(true);
 				//EssenceNode.Collapse(ref region, ref random, identifier, default, context.GetPlayer().control.mouse.position, amount);
@@ -94,7 +94,7 @@ namespace TC2.Base.Components
 						region.SpawnPrefab(prefab, position).ContinueWith(x =>
 						{
 							ref var essence_node = ref x.GetComponent<EssenceNode.Data>();
-							if (!essence_node.IsNull())
+							if (essence_node.IsNotNull())
 							{
 								essence_node.h_essence = h_essence;
 								essence_node.amount = amount;

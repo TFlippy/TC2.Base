@@ -142,7 +142,7 @@ vehicle:
 		@sound.emitter:
 		{
 			file: "essence_motor.loop.00"
-			volume: 0.000
+			volume: 1.000
 			pitch: 1.000
 		}
 

@@ -375,7 +375,7 @@ namespace TC2.Base.Components
 
 				if (sound_emitter.IsNotNull())
 				{
-					sound_emitter.volume = 0.00f;
+					sound_emitter.volume_mult = 0.00f;
 				}
 			}
 			else
@@ -385,7 +385,7 @@ namespace TC2.Base.Components
 
 				if (sound_emitter.IsNotNull())
 				{
-					sound_emitter.volume = 1.00f;
+					sound_emitter.volume_mult = 1.00f;
 				}
 
 				if (random.NextBool(0.004f))

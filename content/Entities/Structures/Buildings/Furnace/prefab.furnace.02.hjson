@@ -146,7 +146,7 @@ overheat:
 	@sound.emitter:
 	{
 		file: "fire.loop.00"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 1.400
 		size_max_modifier: 1.500

@@ -467,8 +467,8 @@
 		{
 			var axle_speed = MathF.Abs(axle_state.angular_velocity);
 
-			sound_emitter.volume = Maths.Clamp(axle_speed * 0.50f, 0.00f, 0.50f);
-			sound_emitter.pitch = Maths.Clamp(axle_speed * 0.80f, 0.50f, 1.00f);
+			sound_emitter.volume_mult = Maths.Clamp(axle_speed * 0.50f, 0.00f, 0.50f);
+			sound_emitter.pitch_mult = Maths.Clamp(axle_speed * 0.80f, 0.50f, 1.00f);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]

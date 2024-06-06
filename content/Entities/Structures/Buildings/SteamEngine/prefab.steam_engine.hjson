@@ -89,7 +89,7 @@ steamengine:
 	@sound.emitter:
 	{
 		file: "steam_engine_loop"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 2.000
 		size_max_modifier: 0.800
@@ -132,7 +132,7 @@ burner:
 	@sound.emitter:
 	{
 		file: "furnace_loop"
-		volume: 0.000
+		volume: 1.000
 		pitch: 0.500
 		size: 0.700
 		size_max_modifier: 0.600
@@ -196,7 +196,7 @@ boiler.state:
 	@sound.emitter:
 	{
 		file: "tractor.steam.loop.00"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 1.000
 		size_max_modifier: 0.870

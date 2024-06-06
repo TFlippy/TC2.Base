@@ -578,8 +578,8 @@ namespace TC2.Base.Components
 			var modifier = container.available * container.rate * 0.30f;
 			//App.WriteLine(modifier);
 
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(modifier * 0.08f, 0.00f, 1.50f), 0.02f, 0.05f);
-			sound_emitter.pitch = Maths.Lerp2(sound_emitter.pitch, 0.30f + Maths.Clamp(modifier * 0.10f, 0.40f, 1.00f) * 0.40f, 0.01f, 0.04f);
+			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, Maths.Clamp(modifier * 0.08f, 0.00f, 1.50f), 0.02f, 0.05f);
+			sound_emitter.pitch_mult = Maths.Lerp2(sound_emitter.pitch_mult, 0.30f + Maths.Clamp(modifier * 0.10f, 0.40f, 1.00f) * 0.40f, 0.01f, 0.04f);
 		}
 
 		public partial struct LevitatorGUI: IGUICommand

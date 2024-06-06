@@ -457,8 +457,8 @@ namespace TC2.Base.Components
 		{
 			var speed = MathF.Abs(wheel_state.angular_velocity);
 
-			sound_emitter.volume = Maths.Clamp(speed * 0.50f * steam_engine.volume_multiplier, 0.00f, 1.00f);
-			sound_emitter.pitch = 0.60f + Maths.Clamp(speed * 0.10f * steam_engine.pitch_multiplier, 0.00f, 2.00f);
+			sound_emitter.volume_mult = Maths.Clamp(speed * 0.50f * steam_engine.volume_multiplier, 0.00f, 1.00f);
+			sound_emitter.pitch_mult = 0.60f + Maths.Clamp(speed * 0.10f * steam_engine.pitch_multiplier, 0.00f, 2.00f);
 		}
 
 		//[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]

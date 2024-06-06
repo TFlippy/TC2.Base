@@ -76,8 +76,8 @@ namespace TC2.Base.Components
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Flyer.Data flyer, [Source.Owned] in Body.Data body, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			var vel_len = body.GetVelocity().Length();
-			sound_emitter.volume = ((flyer.sound_volume * 0.50f) + Maths.Clamp(vel_len * flyer.sound_speed_modifier, 0.00f, flyer.sound_volume * 0.50f)) * flyer.lift_modifier;
-			sound_emitter.pitch = 0.80f + Maths.Clamp(vel_len * flyer.sound_speed_modifier, 0.00f, 0.30f);
+			sound_emitter.volume_mult = ((flyer.sound_volume * 0.50f) + Maths.Clamp(vel_len * flyer.sound_speed_modifier, 0.00f, flyer.sound_volume * 0.50f)) * flyer.lift_modifier;
+			sound_emitter.pitch_mult = 0.80f + Maths.Clamp(vel_len * flyer.sound_speed_modifier, 0.00f, 0.30f);
 		}
 #endif
 	}

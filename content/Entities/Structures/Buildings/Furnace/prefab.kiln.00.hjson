@@ -95,7 +95,7 @@ burner:
 	@sound.emitter:
 	{
 		file: "furnace_loop"
-		volume: 0.000
+		volume: 1.000
 		pitch: 0.500
 	}
 }

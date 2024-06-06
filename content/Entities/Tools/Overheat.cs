@@ -108,8 +108,8 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Overheat.Data overheat, [Source.Owned, Pair.Of<Overheat.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.offset = overheat.offset;
-			sound_emitter.volume = Maths.Clamp(Maths.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
-			sound_emitter.pitch = 0.50f + Maths.Clamp(Maths.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
+			sound_emitter.volume_mult = Maths.Clamp(Maths.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
+			sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(overheat.heat_current - overheat.heat_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 
 			if (overheat.heat_current >= 100.00f && info.WorldTime >= overheat.next_steam)
 			{

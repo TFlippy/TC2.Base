@@ -159,7 +159,7 @@ sticky:
 		@sound.emitter:
 		{
 			file: "crane_loop_b"
-			volume: 0.000
+			volume: 1.000
 			pitch: 1.000
 		}
 		

@@ -218,8 +218,8 @@ namespace TC2.Base.Components
 
 					Shake.Emit(ref region, pos_b, 0.30f * mod_inv, 0.20f);
 
-					sound_emitter.volume = 1.00f;
-					sound_emitter.pitch = Maths.Damp(sound_emitter.pitch, 0.80f + (mod * 0.50f), 2.00f, App.fixed_update_interval_s);
+					sound_emitter.volume_mult = 1.00f;
+					sound_emitter.pitch_mult = Maths.Damp(sound_emitter.pitch_mult, 0.80f + (mod * 0.50f), 2.00f, App.fixed_update_interval_s);
 #endif
 				}
 
@@ -230,8 +230,8 @@ namespace TC2.Base.Components
 			else
 			{
 #if CLIENT
-				sound_emitter.volume = 0.00f;
-				sound_emitter.pitch = 1.00f;
+				sound_emitter.volume_mult = 0.00f;
+				sound_emitter.pitch_mult = 1.00f;
 
 				renderer.offset = default;
 #endif

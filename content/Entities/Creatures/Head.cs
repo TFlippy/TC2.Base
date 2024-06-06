@@ -219,6 +219,7 @@ namespace TC2.Base.Components
 			sound_emitter.file = sound_tinnitus;
 			sound_emitter.channel_type = Sound.ChannelType.Master;
 			//sound_emitter.flags |= Sound.Emitter.Flags.No_DSP;
+			sound_emitter.volume = 1.00f;
 			sound_emitter.pitch = 1.50f;
 			sound_emitter.mix_3d = 1.00f;
 			sound_emitter.priority = 0.60f;
@@ -229,7 +230,7 @@ namespace TC2.Base.Components
 		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//sound_emitter.pitch = 1.50f;
-			sound_emitter.volume = Maths.Lerp2(sound_emitter.volume, Maths.Clamp(head_global.tinnitus_volume, 0.00f, 0.10f), 0.05f, 0.40f);
+			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, Maths.Clamp(head_global.tinnitus_volume, 0.00f, 0.10f), 0.05f, 0.40f);
 
 			//if (!sound_emitter.flags.HasAny(Sound.Emitter.Flags.No_DSP))
 			//{

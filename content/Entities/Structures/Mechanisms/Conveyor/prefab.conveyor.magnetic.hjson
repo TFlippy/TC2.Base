@@ -99,7 +99,7 @@ axle:
 	@sound.emitter:
 	{
 		file: "conveyor.loop.00"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 1.000
 		size_max_modifier: 0.800

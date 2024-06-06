@@ -146,8 +146,8 @@ namespace TC2.Base.Components
 		{
 			var modifier = Maths.Clamp(flare.lifetime * 0.10f, 0.00f, 1.00f);
 
-			sound_emitter.volume = flare.sound_volume * modifier;
-			sound_emitter.pitch = Maths.Max(flare.sound_pitch * modifier, 0.20f);
+			sound_emitter.volume_mult = flare.sound_volume * modifier;
+			sound_emitter.pitch_mult = Maths.Max(flare.sound_pitch * modifier, 0.20f);
 		}
 #endif
 	}

@@ -157,7 +157,7 @@ overheat:
 	@sound.emitter:
 	{
 		file: "overheat_loop"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 	}
 }
@@ -201,6 +201,6 @@ crank:
 sound.emitter:
 {
 	file: "winch.loop.00"
-	volume: 0.000
+	volume: 1.000
 	pitch: 1.000
 }

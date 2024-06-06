@@ -82,7 +82,7 @@ animated.renderer:
 sound.emitter:
 {
 	file: "chainsaw_loop"
-	volume: 0.000
+	volume: 1.000
 	pitch: 1.000
 }
 
@@ -115,7 +115,7 @@ overheat:
 	@sound.emitter:
 	{
 		file: "overheat_loop"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 	}
 }

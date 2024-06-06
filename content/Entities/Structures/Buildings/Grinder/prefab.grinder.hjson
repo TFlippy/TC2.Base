@@ -48,7 +48,7 @@ transform:
 // 	@sound.emitter:
 // 	{
 // 		file: "grinder_loop"
-// 		volume: 0.000
+// 		volume: 1.000
 // 		pitch: 0.000
 // 		size: 0.800
 // 	}

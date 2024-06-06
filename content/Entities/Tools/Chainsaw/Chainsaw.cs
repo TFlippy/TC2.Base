@@ -181,23 +181,23 @@ namespace TC2.Base.Components
 					}
 
 #if CLIENT
-					sound_emitter.volume = Maths.Lerp(sound_emitter.volume, 1.50f, 0.50f);
-					sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, 0.60f + (modifier * 0.80f), 0.20f);
+					sound_emitter.volume_mult = Maths.Lerp(sound_emitter.volume_mult, 1.50f, 0.50f);
+					sound_emitter.pitch_mult = Maths.Lerp(sound_emitter.pitch_mult, 0.60f + (modifier * 0.80f), 0.20f);
 #endif
 				}
 			}
 			else
 			{
 #if CLIENT
-				sound_emitter.volume = Maths.Lerp(sound_emitter.volume, 0.00f, 0.05f);
-				sound_emitter.pitch = Maths.Lerp(sound_emitter.pitch, 0.60f, 0.10f);
+				sound_emitter.volume_mult = Maths.Lerp(sound_emitter.volume_mult, 0.00f, 0.05f);
+				sound_emitter.pitch_mult = Maths.Lerp(sound_emitter.pitch_mult, 0.60f, 0.10f);
 
 				renderer.offset = default;
 #endif
 			}
 
 #if CLIENT
-			renderer.offset = random.NextVector2(sound_emitter.volume * 0.10f);
+			renderer.offset = random.NextVector2(sound_emitter.volume * sound_emitter.volume_mult * 0.10f);
 #endif
 		}
 	}

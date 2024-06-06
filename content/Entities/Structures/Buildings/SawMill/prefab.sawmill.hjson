@@ -76,7 +76,7 @@ sawmill:
 	@sound.emitter:
 	{
 		file: "sawmill.idle.loop.00"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 0.800
 	}
@@ -106,7 +106,7 @@ sawmill.state:
 	@sound.emitter:
 	{
 		file: "sawmill.cut.loop.00"
-		volume: 0.000
+		volume: 1.000
 		pitch: 1.000
 		size: 1.400
 	}

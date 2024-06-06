@@ -119,8 +119,8 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdateSoundLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
-			sound_emitter.pitch = 1.00f + ((2.00f - MathF.Min(2.00f, fuse.time)) * 0.50f);
-			sound_emitter.volume = 1.00f;
+			sound_emitter.pitch_mult = 1.00f + ((2.00f - MathF.Min(2.00f, fuse.time)) * 0.50f);
+			sound_emitter.volume_mult = 1.00f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
@@ -135,7 +135,7 @@ namespace TC2.Base.Components
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdateSoundUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
-			sound_emitter.volume = 0.00f;
+			sound_emitter.volume_mult = 0.00f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]

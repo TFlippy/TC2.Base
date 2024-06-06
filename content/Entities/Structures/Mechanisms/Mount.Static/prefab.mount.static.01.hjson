@@ -49,7 +49,7 @@ transform:
 
 interactable:
 {
-	window_size: [210.000, 120.000]
+	window_size: [210.000, 168.000]
 	window_offset: [0.000, 178.000]
 }
 
@@ -92,7 +92,7 @@ controllable:
 		@sound.emitter:
 		{
 			file: "attachment_rotate_loop_00"
-			volume: 0.000
+			volume: 1.000
 			pitch: 1.000
 		}
 		
