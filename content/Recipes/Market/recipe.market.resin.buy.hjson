@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Resin"
-	desc: "Small chunks of resin."
+	desc:
+		'''
+		Small chunks of resin.
+		'''
 	
 	icon:
 	{
@@ -9,16 +13,22 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 10
 	max: 100
 	step: 10
+	
 	type: buy
+	flags: disabled, wip
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 1.299
 		}
 	]
@@ -26,7 +36,7 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "resin"
 			amount: 1.000
 		}

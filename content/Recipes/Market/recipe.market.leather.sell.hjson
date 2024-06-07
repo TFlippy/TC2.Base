@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Leather"
-	desc: "A bundle of leather."
+	desc:
+		'''
+		A bundle of leather.
+		'''
 	
 	icon:
 	{
@@ -8,24 +12,28 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icon_sell"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 5
 	max: 50
 	step: 5
+	
 	type: sell
+	flags: disabled, wip
 	tags: market
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "leather"
 			amount: 1.000
 		}
@@ -34,7 +42,8 @@
 	products:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 7.000
 		}
 	]
