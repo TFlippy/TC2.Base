@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Wall Lamp (Red)"
 	desc:
 		'''
@@ -9,7 +10,6 @@
 	{
 		texture: "lamp.02"
 		size: [8, 8]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: architecture
 	rank: -163.000
 	
@@ -42,6 +42,11 @@
 		rotation_max: 6.283
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

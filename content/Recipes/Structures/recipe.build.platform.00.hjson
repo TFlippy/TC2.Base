@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Platform"
 	desc:
 		'''
@@ -8,8 +9,6 @@
 	icon:
 	{
 		texture: "platform.00"
-		size: [0, 0]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,7 +18,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: mechanisms
 	rank: 12.000
 	
@@ -42,6 +41,11 @@
 		length_step: 0.750
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:

@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: industry
 	rank: 5.000
 	

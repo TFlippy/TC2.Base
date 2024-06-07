@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: industry
 	rank: -156.000
 	

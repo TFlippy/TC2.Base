@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: architecture
 	rank: -109.000
 	

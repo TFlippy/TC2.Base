@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Mount (Static, Tall)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: mechanisms
 	rank: 0.000
 	
@@ -62,6 +62,21 @@
 				material: "wood"
 				amount: 5.000
 			}
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
 		]
 	}
 	

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Lamp Post (Metal, Pole)"
 	desc:
 		'''
@@ -9,7 +10,6 @@
 	{
 		texture: "lamp_post.metal.00"
 		size: [13, 48]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xffaeb59a"
@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: architecture
 	rank: -5.000
 	
@@ -41,6 +41,11 @@
 		rotation_max: 0.500
 		
 		sound: "building_place"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:
@@ -63,7 +68,6 @@
 			type: prefab
 			prefab: "lamp_post.metal.00"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
