@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Asphalt"
 	desc:
 		'''
@@ -12,9 +13,16 @@
 		frame: [8, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
+	min: 0
+	max: 0
+	step: 0
+	
 	type: build
-	flags: none
+	flags: disabled, wip
 	tags: architecture
+	rank: 0.000
 	
 	placement:
 	{
@@ -27,6 +35,11 @@
 		min_claim: 1.000
 		
 		sound: "stone_place_0"
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	requirements:
