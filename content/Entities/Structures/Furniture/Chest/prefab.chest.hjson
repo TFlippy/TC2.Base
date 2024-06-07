@@ -9,7 +9,7 @@ body:
 	@shape.box:
 	{
 		size: [2.000, 1.750]
-		offset: [0.000, 0.000]
+		offset: [0.000, -0.250]
 		mass: 50.000
 		friction: 0.500
 		elasticity: 0.500
@@ -31,6 +31,7 @@ animated.renderer:
 		texture: "chest"
 		mask: "chest.mask"
 	}
+	offset: [0.000, -0.250]
 	z: -280.000
 }
 

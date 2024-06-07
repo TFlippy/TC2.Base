@@ -14,7 +14,7 @@ body:
 	{
 		size: [1.250, 0.950]
 		radius: 0.150
-		mass: 20.000
+		mass: 12.000
 		friction: 0.850
 		elasticity: 0.600
 		material: wood

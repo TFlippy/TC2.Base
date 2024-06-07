@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 
 							renderer.scale = scale;
 							//renderer.sprite.frame.X = 4;
-							renderer.z = -100;
+							renderer.z = -200;
 
 							Sound.Play(ref region, door.sound_open, transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
 						}
