@@ -1,51 +1,57 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Land Mine"
-	desc: "Small deployable explosive that detonates upon contact."
+	desc:
+		'''
+		Small deployable explosive that detonates upon contact.
+		'''
 	
 	icon:
 	{
 		texture: "landmine"
 		size: [8, 8]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 20
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 2.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitroglycerine"
 			amount: 10.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 1.000
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 150.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "landmine"
 			amount: 1.000
 		}

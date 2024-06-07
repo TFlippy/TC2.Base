@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Machine Parts"
-	desc: "TODO: Desc"
+	desc:
+		'''
+		TODO: Desc
+		'''
 	
 	icon:
 	{
@@ -9,48 +13,52 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 5
 	max: 100
 	step: 5
-
+	
 	type: workshop
+	flags: disabled, wip
 	tags: lathe
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.400
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.200
 		}
 		{
-			type: "work"
-			work: "machining"
+			type: work
+			work: machining
 			amount: 15.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 1.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "iron.powder"
 			amount: 0.400
 			amount_extra: 0.600
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.powder"
 			amount: 0.400
 			amount_extra: 0.200

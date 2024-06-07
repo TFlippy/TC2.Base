@@ -1,6 +1,7 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Machine Gun Ammo (Standard)"
-	desc: 
+	desc:
 		'''
 		Used against vehicles and large or armored targets.
 		- High damage
@@ -15,24 +16,29 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 10
 	max: 50
 	step: 10
+	
 	type: buy
+	flags: disabled, wip
 	tags: vending_machine
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 5.490
 		}
 	]
@@ -40,7 +46,7 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_mg"
 			amount: 1.000
 		}

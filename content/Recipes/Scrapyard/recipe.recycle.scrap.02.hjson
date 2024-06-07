@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Salvage Scrap (Crude)"
 	desc:
 		'''
@@ -16,7 +17,6 @@
 	{
 		texture: "ui_icons_crafting.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	color_button: "0xff769d49"
@@ -27,7 +27,7 @@
 	step: 50
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: forge, workbench, scrapyard
 	rank: 0.000
 	

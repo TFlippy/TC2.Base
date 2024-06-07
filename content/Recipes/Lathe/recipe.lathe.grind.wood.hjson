@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Sawdust"
 	desc:
 		'''
@@ -19,6 +20,7 @@
 		frame: [2, 0]
 	}
 	
+	color_button: "0xffaeb59a"
 	icon_extra_offset: [-4.000, -7.000]
 	
 	min: 50
@@ -26,8 +28,9 @@
 	step: 50
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: lathe
+	rank: 0.000
 	
 	requirements:
 	[
@@ -38,9 +41,9 @@
 		}
 		{
 			type: work
-			work: "machining"
+			work: machining
 			amount: 3.000
-			difficulty: 1.000
+			difficulty: 1
 		}
 	]
 	

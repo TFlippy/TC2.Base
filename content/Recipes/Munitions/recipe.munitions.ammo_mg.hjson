@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Machine Gun Ammo (Standard)"
-	desc: "Ammunition for machine guns and other heavy weapons."
+	desc:
+		'''
+		Ammunition for machine guns and other heavy weapons.
+		'''
 	
 	icon:
 	{
@@ -8,49 +12,53 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 10
 	max: 500
 	step: 10
+	
 	type: workshop
+	flags: disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.160
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.050
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitrocellulose"
 			amount: 0.500
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 50.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_mg"
 			amount: 1.000
 		}

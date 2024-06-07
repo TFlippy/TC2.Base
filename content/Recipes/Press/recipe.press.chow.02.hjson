@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Scrub's Chow (Meatloaf)"
-	desc: "Delicious meatloaf with a hearty earthy flavour."
+	desc:
+		'''
+		Delicious meatloaf with a hearty earthy flavour.
+		'''
 	
 	icon:
 	{
@@ -8,59 +12,60 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "resource.soil"
 		size: [16, 16]
 		frame: [2, 0]
 	}
-
-	icon_extra_offset: [-3, -6]
-	icon_extra_scale: 1.000
+	
+	color_button: "0xffaeb59a"
+	icon_extra_offset: [-3.000, -6.000]
 	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier
 	type: crafter
+	flags: no_amount_multiplier, disabled, wip
 	tags: press, kitchen
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "sauce"
 			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "sawdust"
 			amount: 8.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "soil"
 			amount: 3.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.plate"
 			amount: 1.000
 		}
 		{
-			type: "work"
-			work: "pressing"
+			type: work
+			work: pressing
 			amount: 5.000
-			difficulty: 1.000
+			difficulty: 1
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "chow"
 			amount: 10.000
 		}

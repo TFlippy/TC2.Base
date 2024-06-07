@@ -1,6 +1,7 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Autocannon Ammo (Standard)"
-	desc: 
+	desc:
 		'''
 		Used against armored targets or aerial vehicles.
 		- High damage
@@ -14,24 +15,29 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 2
 	max: 10
 	step: 2
+	
 	type: buy
+	flags: disabled, wip
 	tags: vending_machine
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "money"
+			type: resource
+			material: "money"
 			amount: 28.490
 		}
 	]
@@ -39,7 +45,7 @@
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_ac"
 			amount: 1.000
 		}

@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Artillery Shell (Shrapnel)"
-	desc: "Ammunition for cannons."
+	desc:
+		'''
+		Ammunition for cannons.
+		'''
 	
 	icon:
 	{
@@ -8,7 +12,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -16,47 +20,52 @@
 		frame: [7, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 20
 	step: 1
+	
 	type: workshop
+	flags: disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 12.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "gunpowder"
 			amount: 20.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 3.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 600.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 300.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_hw.shrapnel"
 			amount: 1.000
 		}

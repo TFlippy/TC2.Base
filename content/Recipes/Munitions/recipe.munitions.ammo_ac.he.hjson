@@ -1,6 +1,7 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Autocannon Ammo (High-Explosive)"
-	desc: 
+	desc:
 		'''
 		Ammunition for autocannons. Explodes upon impact.
 		'''
@@ -11,7 +12,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -19,46 +20,51 @@
 		frame: [4, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 4
 	max: 100
 	step: 4
+	
 	type: workshop
+	flags: disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.100
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.200
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitrocellulose"
 			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitroglycerine"
 			amount: 25.000
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 80.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_ac.he"
 			amount: 1.000
 		}

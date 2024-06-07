@@ -1,49 +1,56 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Dynamite"
-	desc: "Often used for mining and demolition."
+	desc:
+		'''
+		Often used for mining and demolition.
+		'''
 	
 	icon:
 	{
 		texture: "dynamite"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 8
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: munitions, kitchen
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "nitroglycerine"
 			amount: 12.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "sand"
 			amount: 8.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "paper"
 			amount: 2.000
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 100.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "dynamite"
 			amount: 1.000
 		}

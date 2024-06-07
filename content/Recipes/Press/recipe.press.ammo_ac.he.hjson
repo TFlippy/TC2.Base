@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Autocannon Ammo (High-Explosive)"
-	desc: "Ammunition for autocannons. (High-Explosive)"
+	desc:
+		'''
+		Ammunition for autocannons. (High-Explosive)
+		'''
 	
 	icon:
 	{
@@ -8,7 +12,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -16,48 +20,51 @@
 		frame: [4, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 4
 	max: 4
 	step: 4
 	
-	flags: no_amount_multiplier
 	type: crafter
+	flags: no_amount_multiplier, disabled, wip
 	tags: press
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.100
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.200
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitrocellulose"
 			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitroglycerine"
 			amount: 25.000
 		}
 		{
-			type: "work"
-			work: "pressing"
+			type: work
+			work: pressing
 			amount: 2.500
-			difficulty: 1.000
+			difficulty: 1
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_ac.he"
 			amount: 1.000
 		}

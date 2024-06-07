@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Artillery Shell (High-Velocity)"
-	desc: "Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling."
+	desc:
+		'''
+		Ammunition for cannons. Greatly increased velocity, at the cost of additional heat when firing. Very useful for long range shelling.
+		'''
 	
 	icon:
 	{
@@ -8,7 +12,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
@@ -16,47 +20,52 @@
 		frame: [1, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 20
 	step: 1
+	
 	type: workshop
+	flags: disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 8.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "nitrocellulose"
 			amount: 60.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 3.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 400.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 750.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_hw.hv"
 			amount: 1.000
 		}

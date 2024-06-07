@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Bow"
 	desc:
 		'''
@@ -11,13 +12,16 @@
 		texture: "bow"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 5
 	step: 1
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: workbench
+	rank: 0.000
 	
 	requirements:
 	[
@@ -33,15 +37,15 @@
 		}
 		{
 			type: work
-			work: "woodworking"
+			work: woodworking
 			amount: 170.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 		{
 			type: work
-			work: "assembling"
+			work: assembling
 			amount: 80.000
-			difficulty: 3.000
+			difficulty: 3
 		}
 	]
 	
@@ -51,7 +55,6 @@
 			type: prefab
 			prefab: "bow"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

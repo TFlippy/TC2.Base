@@ -1,6 +1,7 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Copper Plate"
-	desc: 
+	desc:
 		'''
 		Brute-force method of producing metal plates by mashing a copper ingot until it's thin enough.
 		'''
@@ -12,33 +13,36 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier
 	type: crafter
+	flags: no_amount_multiplier, disabled, wip
 	tags: press
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 1.000
 		}
 		{
-			type: "work"
-			work: "pressing"
+			type: work
+			work: pressing
 			amount: 4.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "copper.plate"
 			amount: 4.000
 		}

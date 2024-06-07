@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Machine Gun Ammo (ARC-MT)"
 	desc:
 		'''
@@ -26,7 +27,7 @@
 	step: 10
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: munitions
 	rank: 0.000
 	
@@ -51,7 +52,7 @@
 			type: work
 			work: assembling
 			amount: 85.000
-			difficulty: 12.000
+			difficulty: 12
 		}
 	]
 	
@@ -61,7 +62,6 @@
 			type: resource
 			material: "ammo_mg.emt"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

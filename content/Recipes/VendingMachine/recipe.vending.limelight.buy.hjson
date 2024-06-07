@@ -1,9 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Limelight"
 	desc:
 		'''
 		Small stackable cylinders of compacted quicklime with a heat essence pellet inside.
-		
+
 		Commonly used for illumination.
 		'''
 	
@@ -14,18 +15,22 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 50
 	step: 1
 	
 	type: buy
-	flags: none
+	flags: disabled, wip
 	tags: vending_machine
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: money
+			type: resource
+			material: "money"
 			amount: 27.990
 		}
 	]
@@ -36,7 +41,6 @@
 			type: resource
 			material: "limelight"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

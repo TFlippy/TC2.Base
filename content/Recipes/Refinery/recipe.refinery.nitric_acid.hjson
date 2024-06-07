@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Nitric Acid (Saltpeter)"
-	desc: "Produce nitric acid from saltpeter and sulfuric acid."
+	desc:
+		'''
+		Produce nitric acid from saltpeter and sulfuric acid.
+		'''
 	
 	icon:
 	{
@@ -9,44 +13,47 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier
 	type: crafter
+	flags: no_amount_multiplier, disabled, wip
 	tags: refinery
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "saltpeter"
 			amount: 25.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "sulfuric_acid"
 			amount: 25.000
 		}
 		{
-			type: "work"
-			work: "refining"
+			type: work
+			work: refining
 			amount: 1000.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "nitric_acid"
 			amount: 25.000
 			amount_extra: 5.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "sludge"
 			amount: 20.000
 			amount_extra: 15.000

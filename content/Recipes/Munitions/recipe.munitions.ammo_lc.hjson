@@ -1,10 +1,11 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Low-Caliber Ammo (Standard)"
 	desc:
 		'''
 		Ammunition for pistols, revolvers
 		and submachine guns.
-		
+
 		Gunpowder is weaker, but cheap.
 		'''
 	
@@ -14,49 +15,53 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-
+	
 	icon_extra:
 	{
 		texture: "ui_icons_gunsmith.mini"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 50
 	max: 500
 	step: 50
+	
 	type: workshop
+	flags: disabled, wip
 	tags: munitions
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 0.015
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "copper.ingot"
 			amount: 0.015
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "gunpowder"
 			amount: 0.020
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 8.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "ammo_lc"
 			amount: 1.000
 		}

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Universal Brown Sauce"
 	desc:
 		'''
@@ -19,7 +20,7 @@
 	step: 1
 	
 	type: crafter
-	flags: no_amount_multiplier
+	flags: no_amount_multiplier, disabled, wip
 	tags: refinery, kitchen
 	rank: 0.000
 	
@@ -44,7 +45,7 @@
 			type: work
 			work: refining
 			amount: 1250.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 	]
 	
