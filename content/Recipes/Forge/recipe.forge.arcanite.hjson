@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Arcanite Powder"
-	desc: "A powdered mixture of smirglum and gold."
+	desc:
+		'''
+		A powdered mixture of smirglum and gold.
+		'''
 	
 	icon:
 	{
@@ -9,36 +13,41 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 10
 	max: 100
 	step: 10
+	
 	type: workshop
+	flags: disabled, wip
 	tags: forge, kitchen
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "smirglum.powder"
 			amount: 0.600
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "gold.powder"
 			amount: 0.400
 		}
 		{
-			type: "work"
-			work: "mixing"
+			type: work
+			work: mixing
 			amount: 10.000
-			difficulty: 16.000
+			difficulty: 16
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "arcanite.powder"
 			amount: 1.000
 		}

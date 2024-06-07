@@ -1,41 +1,47 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Shield"
-	desc: "Large protective shield."
+	desc:
+		'''
+		Large protective shield.
+		'''
 	
 	icon:
 	{
 		texture: "shield"
 		size: [16, 16]
-		frame: [0, 0]
 	}
+	
+	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 5
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: forge
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 6.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 450.000
-			difficulty: 5.000
+			difficulty: 5
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "shield"
 			amount: 1.000
 		}

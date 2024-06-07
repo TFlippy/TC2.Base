@@ -1,6 +1,10 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Recondite Powder"
-	desc: "A powdered mixture of smirglum and silver."
+	desc:
+		'''
+		A powdered mixture of smirglum and silver.
+		'''
 	
 	icon:
 	{
@@ -9,36 +13,41 @@
 		frame: [3, 0]
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 10
 	max: 100
 	step: 10
+	
 	type: workshop
+	flags: disabled, wip
 	tags: forge, kitchen
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "smirglum.powder"
 			amount: 0.700
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "silver.powder"
 			amount: 0.300
 		}
 		{
-			type: "work"
-			work: "mixing"
+			type: work
+			work: mixing
 			amount: 10.000
-			difficulty: 13.000
+			difficulty: 13
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "recondite.powder"
 			amount: 1.000
 		}

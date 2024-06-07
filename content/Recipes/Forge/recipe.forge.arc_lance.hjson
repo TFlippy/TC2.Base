@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Arc Lance"
 	desc:
 		'''
@@ -10,13 +11,16 @@
 		texture: "arc_lance"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 4
 	step: 1
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: forge
+	rank: 0.000
 	
 	requirements:
 	[
@@ -42,15 +46,15 @@
 		}
 		{
 			type: work
-			work: "assembling"
+			work: assembling
 			amount: 350.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 		{
 			type: work
-			work: "smithing"
+			work: smithing
 			amount: 500.000
-			difficulty: 10.000
+			difficulty: 10
 		}
 	]
 	
@@ -60,7 +64,6 @@
 			type: prefab
 			prefab: "arc_lance"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
