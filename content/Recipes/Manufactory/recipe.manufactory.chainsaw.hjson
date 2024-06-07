@@ -1,55 +1,62 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Chainsaw"
-	desc: "Advanced tool used for cutting down trees and people."
+	desc:
+		'''
+		Advanced tool used for cutting down trees and people.
+		'''
 	
 	icon:
 	{
 		texture: "chainsaw"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 5
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 7.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 13.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "arcane_actuator"
 			amount: 2.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 300.000
-			difficulty: 13.000
+			difficulty: 13
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 500.000
-			difficulty: 10.000
+			difficulty: 10
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "chainsaw"
 			amount: 1.000
 		}

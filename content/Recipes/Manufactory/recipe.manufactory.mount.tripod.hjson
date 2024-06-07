@@ -1,50 +1,57 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Tripod"
-	desc: "A metal tripod that can have various tools and weapons attached to."
+	desc:
+		'''
+		A metal tripod that can have various tools and weapons attached to.
+		'''
 	
 	icon:
 	{
 		texture: "mount.tripod"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
 	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 6.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 3.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 600.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 200.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "mount.tripod"
 			amount: 1.000
 		}

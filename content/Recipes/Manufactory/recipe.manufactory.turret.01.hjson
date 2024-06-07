@@ -1,50 +1,57 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Turret (Coaxial)"
-	desc: "Light metal turret with a coaxial attachment slot and a gunner seat."
+	desc:
+		'''
+		Light metal turret with a coaxial attachment slot and a gunner seat.
+		'''
 	
 	icon:
 	{
 		texture: "turret.01.fg"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
 	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 35.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 8.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 1000.000
-			difficulty: 10.000
+			difficulty: 10
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 700.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "turret.01"
 			amount: 1.000
 		}

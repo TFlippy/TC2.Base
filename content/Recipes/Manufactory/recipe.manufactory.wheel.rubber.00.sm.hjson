@@ -1,51 +1,57 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Wheel (Rubber, Small)"
-	desc: "Small high-friction wheel that can be attached to vehicles."
+	desc:
+		'''
+		Small high-friction wheel that can be attached to vehicles.
+		'''
 	
 	icon:
 	{
 		texture: "wheel.rubber.00.sm"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 8
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
 	rank: -150.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "rubber"
 			amount: 12.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 250.000
-			difficulty: 9.000
+			difficulty: 9
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 300.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "wheel.rubber.00.sm"
 			amount: 1.000
 		}

@@ -1,56 +1,62 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Crane Arm (Cargo)"
-	desc: "Advanced crane arm with a built-in storage that can be accessed by attached objects."
+	desc:
+		'''
+		Advanced crane arm with a built-in storage that can be accessed by attached objects.
+		'''
 	
 	icon:
 	{
 		texture: "crane.arm.cargo"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
 	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manufactory
 	rank: -340.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 18.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 5.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "arcane_actuator"
 			amount: 3.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 700.000
-			difficulty: 13.000
+			difficulty: 13
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 400.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "crane.arm.cargo"
 			amount: 1.000
 		}

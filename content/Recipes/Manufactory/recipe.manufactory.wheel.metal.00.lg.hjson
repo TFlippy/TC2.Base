@@ -1,46 +1,52 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Wheel (Metal, Large)"
-	desc: "Large metal wheel that can be attached to vehicles."
+	desc:
+		'''
+		Large metal wheel that can be attached to vehicles.
+		'''
 	
 	icon:
 	{
 		texture: "wheel.metal.00.lg"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 8
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
 	rank: -150.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 18.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 700.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 100.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "wheel.metal.00.lg"
 			amount: 1.000
 		}

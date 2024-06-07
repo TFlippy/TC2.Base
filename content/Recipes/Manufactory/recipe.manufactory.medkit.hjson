@@ -1,44 +1,51 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Medkit"
-	desc: "Bag with various tools for treating injuries."
+	desc:
+		'''
+		Bag with various tools for treating injuries.
+		'''
 	
 	icon:
 	{
 		texture: "medkit"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 8
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "cloth"
 			amount: 8.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 2.000
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 150.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "medkit"
 			amount: 1.000
 		}

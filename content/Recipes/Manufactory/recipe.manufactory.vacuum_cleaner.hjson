@@ -1,60 +1,67 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Vacuum Cleaner [WIP]"
-	desc: "Handheld cleaning device."
+	desc:
+		'''
+		Handheld cleaning device.
+		'''
 	
 	icon:
 	{
 		texture: "vacuum_cleaner"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 5
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "copper.plate"
 			amount: 10.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "wood"
 			amount: 4.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 7.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "arcane_actuator"
 			amount: 3.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 400.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 700.000
-			difficulty: 8.000
+			difficulty: 8
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "vacuum_cleaner"
 			amount: 1.000
 		}

@@ -1,55 +1,62 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Mining Drill"
-	desc: "Advanced tool used for mining."
+	desc:
+		'''
+		Advanced tool used for mining.
+		'''
 	
 	icon:
 	{
 		texture: "drill"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 5
 	step: 1
 	
-	flags: blueprintable
 	type: workshop
+	flags: blueprintable, disabled, wip
 	tags: manufactory
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 15.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 10.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "arcane_actuator"
 			amount: 5.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 700.000
-			difficulty: 14.000
+			difficulty: 14
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 500.000
-			difficulty: 9.000
+			difficulty: 9
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "drill"
 			amount: 1.000
 		}
