@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Autocannon"
 	desc:
 		'''
@@ -10,13 +11,16 @@
 		texture: "autocannon"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 4
 	step: 1
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: gunsmith
+	rank: 0.000
 	
 	requirements:
 	[
@@ -37,21 +41,21 @@
 		}
 		{
 			type: work
-			work: "smithing"
+			work: smithing
 			amount: 2000.000
-			difficulty: 17.000
+			difficulty: 17
 		}
 		{
 			type: work
-			work: "woodworking"
+			work: woodworking
 			amount: 500.000
-			difficulty: 2.000
+			difficulty: 2
 		}
 		{
 			type: work
-			work: "assembling"
+			work: assembling
 			amount: 1200.000
-			difficulty: 7.000
+			difficulty: 7
 		}
 	]
 	
@@ -61,7 +65,6 @@
 			type: prefab
 			prefab: "autocannon"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }

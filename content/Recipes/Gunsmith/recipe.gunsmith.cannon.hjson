@@ -1,50 +1,57 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Cannon"
-	desc: "Heavy artillery cannon for long-range shelling."
+	desc:
+		'''
+		Heavy artillery cannon for long-range shelling.
+		'''
 	
 	icon:
 	{
 		texture: "cannon"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 1
 	step: 1
 	
-	flags: no_amount_multiplier, blueprintable
 	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: gunsmith
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
+			type: resource
 			material: "steel.ingot"
 			amount: 85.000
 		}
 		{
-			type: "resource"
+			type: resource
 			material: "machine_parts"
 			amount: 30.000
 		}
 		{
-			type: "work"
-			work: "smithing"
+			type: work
+			work: smithing
 			amount: 3000.000
-			difficulty: 13.000
+			difficulty: 13
 		}
 		{
-			type: "work"
-			work: "assembling"
+			type: work
+			work: assembling
 			amount: 2000.000
-			difficulty: 10.000
+			difficulty: 10
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "prefab"
+			type: prefab
 			prefab: "cannon"
 			amount: 1.000
 		}

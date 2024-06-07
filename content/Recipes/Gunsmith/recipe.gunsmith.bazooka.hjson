@@ -1,4 +1,5 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Bazooka"
 	desc:
 		'''
@@ -11,13 +12,16 @@
 		texture: "bazooka"
 	}
 	
+	color_button: "0xffaeb59a"
+	
 	min: 1
 	max: 20
 	step: 1
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, disabled, wip
 	tags: gunsmith
+	rank: 0.000
 	
 	requirements:
 	[
@@ -38,21 +42,21 @@
 		}
 		{
 			type: work
-			work: "smithing"
+			work: smithing
 			amount: 400.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 		{
 			type: work
-			work: "woodworking"
+			work: woodworking
 			amount: 150.000
-			difficulty: 3.000
+			difficulty: 3
 		}
 		{
 			type: work
-			work: "assembling"
+			work: assembling
 			amount: 150.000
-			difficulty: 4.000
+			difficulty: 4
 		}
 	]
 	
@@ -62,7 +66,6 @@
 			type: prefab
 			prefab: "bazooka"
 			amount: 1.000
-			amount_extra: 0.000
 		}
 	]
 }
