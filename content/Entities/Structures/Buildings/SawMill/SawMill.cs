@@ -5,9 +5,12 @@
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<SawMill.State>]
 		public struct Data: IComponent
 		{
+			[Editor.Picker.Position(relative: true)] public Vector2 saw_offset;
+
 			public float slider_distance = 5.00f;
-			public Vector2 saw_offset;
 			public float saw_radius = 1.00f;
+			public float max_torque = 1000.00f;
+			public float efficiency = 0.80f;
 
 			public Data()
 			{
@@ -22,6 +25,8 @@
 			public float slider_ratio;
 
 			[Net.Ignore, Save.Ignore] public float next_update;
+			[Net.Ignore, Save.Ignore] public float current_modifier;
+			[Net.Ignore, Save.Ignore] public float current_load;
 			[Net.Ignore, Save.Ignore] public float last_hit;
 
 			public State()
@@ -62,31 +67,40 @@
 			joint_distance.distance = sawmill.slider_distance * sawmill_state.slider_ratio;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.12f)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateTorque(ISystem.Info info, Entity entity,
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state)
+		{
+			//if (attachment.tags_filter.)
+			//axle_state.ApplyTorque(sawmill_state.current_load, 0.00f);
+		}
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.12f)]
 		public static void UpdateDamage(ISystem.Info info, Entity entity, Entity ent_health,
 		[Source.Parent] ref Axle.Data axle, [Source.Parent] ref Axle.State axle_state, [Source.Parent] in SawMill.Data sawmill, [Source.Parent] ref SawMill.State sawmill_state, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Body.Data body_child)
 		{
-			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
+			var axle_speed = Maths.Max(axle_state.angular_velocity.Abs() - 2.00f, 0.00f);
 			if (axle_speed > 2.00f)
 			{
 				var wpos_saw = transform_parent.LocalToWorld(sawmill.saw_offset);
-
 				var overlap = body_child.GetClosestPoint(wpos_saw);
-				var dir = (-transform_parent.GetDirection()).RotateByDeg(30.00f);
-
-				//App.WriteLine()
 
 				if (overlap.distance < sawmill.saw_radius)
 				{
+					var distance_ratio = 1.00f - Maths.Normalize01(overlap.distance, sawmill.saw_radius);
+					var momentum = Maths.Abs(axle_state.angular_momentum);
+					var momentum_app = momentum * sawmill.efficiency * distance_ratio;
+
+					sawmill_state.current_load = momentum_app;
+
 #if SERVER
-
-
-					var damage = Maths.Clamp(axle_state.net_torque * 0.15f, 0.00f, axle_speed * 35.00f);
-					//App.WriteLine(damage);
-
+					var damage = momentum_app;
+					//  Maths.Clamp(axle_state.net_torque * 0.15f, 0.00f, axle_speed * 35.00f);
 					if (damage > 25.00f)
 					{
+						var dir = (-transform_parent.GetDirection()).RotateByDeg(30.00f);
+
 						//entity.Hit(entity, ent_health, overlap.world_position, dir, -dir, damage, overlap.material_type, Damage.Type.Saw, yield: 1.00f, speed: axle_speed);
 						Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_health,
 							position: overlap.world_position - overlap.gradient, velocity: dir * axle_speed, normal: -dir,
@@ -94,6 +108,10 @@
 							target_material_type: overlap.material_type, damage_type: Damage.Type.Saw,
 							yield: 1.00f, size: 0.50f, impulse: 0.00f);
 					}
+
+					//var damage = Maths.Clamp(axle_state.net_torque * 0.15f, 0.00f, axle_speed * 35.00f);
+
+					
 #endif
 
 					sawmill_state.last_hit = info.WorldTime;
@@ -130,8 +148,8 @@
 			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? Maths.Min(axle_speed * 0.08f, 1.00f) : 0.00f;
 
-			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, modifier * 0.60f, 0.05f, 0.30f);
-			sound_emitter.pitch_mult = Maths.Lerp2(sound_emitter.pitch_mult, 0.45f + (Maths.Min(modifier, 0.25f) * random.NextFloatRange(0.50f, 1.20f)), 0.02f, 0.08f);
+			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, modifier * 1.00f, 0.05f, 0.04f);
+			sound_emitter.pitch_mult = Maths.Lerp2(sound_emitter.pitch_mult, 0.45f + (modifier * 0.25f * random.NextFloatRange(0.50f, 1.20f)), 0.12f, 0.08f);
 		}
 #endif
 

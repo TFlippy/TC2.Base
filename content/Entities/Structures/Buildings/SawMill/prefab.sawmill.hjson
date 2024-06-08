@@ -30,12 +30,13 @@ body:
 
 health:
 {
-	max: 21000.000
+	max: 85000.000
 }
 
 interactable:
 {
 	window_size: [400.000, 220.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 transform:
@@ -75,18 +76,32 @@ sawmill:
 
 	@sound.emitter:
 	{
-		file: "sawmill.idle.loop.00"
+		file: "track.move.loop.03"
+		channel_type: world
+		flags: none
 		volume: 1.000
-		pitch: 1.000
-		size: 0.800
+		pitch: 0.840
+		size: 5.000
+		size_max_modifier: 1.000
+		spread: 90.000
+		mix_3d: 1.000
+		doppler: 1.000
+		priority: 0.500
+		offset: [0.000, 0.000]
 	}
 
 	@inventory8:
 	{
-		name: "Output"
-		stack_size_multiplier: 8.000
 		type: output
-		flags: allow_ducts, ignore_mass, public
+		flags: standalone, allow_ducts, ignore_mass, public, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: none
+		}
 	}
 }
 
@@ -106,9 +121,17 @@ sawmill.state:
 	@sound.emitter:
 	{
 		file: "sawmill.cut.loop.00"
-		volume: 1.000
-		pitch: 1.000
+		channel_type: world
+		flags: none
+		volume: 0.650
+		pitch: 1.150
 		size: 1.400
+		size_max_modifier: 1.000
+		spread: 90.000
+		mix_3d: 1.000
+		doppler: 1.000
+		priority: 0.500
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -147,12 +170,20 @@ axle:
 
 	joint.gear:
 	{
-		min: 0.000
-		max: 0.000
-
-		step: 1000.000
-		error_bias: 0.0001
-		max_bias: 5.000
+		rotation: 0.000
+		min: -0.100
+		max: 0.100
+		flags: normalize_angle, normalize_limit, use_min_max, use_transform, use_sign_parent
+		ratio: 1.000
+		step: 2.000
+		error_bias: 0.100
+		max_bias: 3.000
+		max_bias_bounce: 0.000
+		max_torque: 0.000
+		bounce: 0.000
+		j_mult_a: 1.000
+		j_mult_b: 1.000
+		modifier: 1.000
 		stress_mult: 0.000
 	}
 
@@ -160,21 +191,24 @@ axle:
 	{
 		a: [0.000, 0.000]
 		b: [-5.000, 0.000]
-
 		max_force: 200000.000
-
+		max_bias: 3.000
+		error_bias: 0.040
 		min: 0.000
 		max: 5.000
-
-		error_bias: 0.0001
-		max_bias: 20.000
-		stress_mult: 0.400
+		stress_mult: 0.300
 	}
 
 	joint.distance:
 	{
+		distance: 0.000
 		max_force: 50000.000
+		step: 4.000
 		max_bias: 2.000
+		max_bias_bounce: 40.000
+		error_bias: 0.010
 		stress_mult: 0.000
+		bounce: 0.000
+		modifier: 1.000
 	}
 }

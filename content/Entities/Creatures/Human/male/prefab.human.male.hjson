@@ -507,20 +507,23 @@ commandable:
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
-		max_force: 12000.000
-		max_torque: 4000.000
+		offset_b: [0.000, 0.000]
+		rotation_origin: 0.000
+		rotation_offset: 0.000
+		max_force: 16000.000
+		max_torque: 8000.000
+		max_displacement: 0.400
+		displacement_stress_modifier: 0.500
+		displacement_force_modifier: 0.800
 		max_stress: 1.500
 		stress_threshold: 1.400
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos
-		material_type: flesh
-
-		max_displacement: 0.400
-		displacement_stress_modifier: 0.500
-		displacement_force_modifier: 0.500
-
+		offset_a_modifier: 1.000
+		offset_b_modifier: 1.000
 		z: -5.000
-		
+		material_type: flesh
+		flags: organic, control_write, facing_reset_pos, force_facing
+
 		@animated.renderer:
 		{
 			sprite:
@@ -541,8 +544,8 @@ commandable:
 	
 	joint.rotarylimit:
 	{
-		min: -0.850
-		max: 0.850
+		min: -0.300
+		max: 0.300
 		max_bias: 8.000
 		stress_mult: 0.200
 	}

@@ -598,33 +598,6 @@ namespace TC2.Base.Components
 						var rpc = new Levitator.EditRPC();
 						var sync = false;
 
-						//Boiler.DrawGauge(this.levitator.EssenceAvailable * this.levitator.EssenceRate, 0.00f, this.levitator.EssenceAvailable);
-
-						//GUI.SameLine();
-
-						//GUI.DrawInventoryDock(Inventory.Type.Essence, new Vector2(48, 48));
-
-						//GUI.SameLine();
-
-						//using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, 48), padding: new Vector2(4, 4)))
-						//{
-						//	GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
-
-						//	//if (this.levitator.flags_editable.HasAny(Levitator.Data.Flags.Hold_Shift))
-						//	//{
-						//	//	if (GUI.Checkbox("Hold Shift", ref this.levitator.flags, Levitator.Data.Flags.Hold_Shift, new Vector2(96, 24)))
-						//	//	{
-						//	//		rpc.flags = this.levitator.flags;
-						//	//		sync = true;
-						//	//	}
-						//	//	GUI.DrawHoverTooltip("Require holding shift to control the levitator.");
-						//	//}
-						//}
-
-						//GUI.Text($"{(this.levitator.force_multiplier * 0.001f):0.00} kN");
-						//GUI.Text($"{(this.levitator.EssenceAvailable):0.00}");
-
-
 						for (var i = 0; i < this.levitator.nodes.Length; i++)
 						{
 							ref var node = ref this.levitator.nodes[i];
@@ -650,17 +623,6 @@ namespace TC2.Base.Components
 						{
 							rpc.Send(this.ent_levitator);
 						}
-
-						//if (GUI.SliderFloat("Power", ref this.levitator.essence_available, 0.00f, 1.00f, size: new Vector2(160, 32)))
-						//{
-						//	var rpc = new Levitator.ConfigureRPC()
-						//	{
-						//		power = this.levitator.essence_available
-						//	};
-						//	rpc.Send(this.ent_levitator);
-						//}
-
-
 					}
 				}
 			}
