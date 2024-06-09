@@ -1,0 +1,73 @@
+$name: "Flagpole (Wood)"
+$desc:
+	'''
+	Wooden flagpole indicating a claimed territory.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -5.000]
+		b: [0.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 55.000
+		radius: 0.250
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 6000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "flagpost.wood.00"
+		mask: "flagpost.wood.00.mask"
+	}
+	offset: [0.250, 0.000]
+	z: -150.000
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+claimer:
+{
+	radius: 32.000
+	strength: 1.300
+	falloff: 0.500
+}
+
+// interactable:
+// {
+// 	window_size: [96.000, 96.000]
+// }

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Flagpole (Metal)"
+	name: "Flagpole (Wood)"
 	desc:
 		'''
 		Claims a large area, but with low influence.
@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: "flagpost.metal.00"
+		texture: "flagpost.wood.00"
 		size: [16, 80]
 	}
 	
@@ -53,8 +53,8 @@
 	[
 		{
 			type: resource
-			material: "steel.billet"
-			amount: 2.000
+			material: "wood"
+			amount: 90.000
 		}
 		{
 			type: resource
@@ -67,7 +67,7 @@
 	[
 		{
 			type: prefab
-			prefab: "flagpost.metal.00"
+			prefab: "flagpost.wood.00"
 			amount: 1.000
 		}
 	]

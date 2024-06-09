@@ -1,4 +1,4 @@
-$name: "Flagpole"
+$name: "Flagpole (Metal)"
 $desc:
 	'''
 	Metal flagpole indicating a claimed territory.
@@ -14,7 +14,7 @@ body:
 		a: [0.000, -5.000]
 		b: [0.000, 5.000]
 		offset: [0.000, 0.000]
-		mass: 130.000
+		mass: 245.000
 		radius: 0.250
 		friction: 0.500
 		elasticity: 0.500
@@ -26,15 +26,15 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 18000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "flagpost.metal"
-		mask: "flagpost.metal.mask"
+		texture: "flagpost.metal.00"
+		mask: "flagpost.metal.00.mask"
 	}
 	offset: [0.250, 0.000]
 	z: -150.000
