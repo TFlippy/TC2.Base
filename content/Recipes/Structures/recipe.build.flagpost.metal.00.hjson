@@ -21,11 +21,11 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: architecture
 	rank: 100.000
 	
-	dismantle_work: 7.000
+	dismantle_work: 15.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -36,7 +36,10 @@
 		size: [0.500, 10.000]
 		offset: [0.000, -4.000]
 		
-		cooldown: 0.500
+		rect_foundation: [-0.750, 0.500, 0.750, 1.000]
+		
+		cooldown: 1.000
+		min_clearance: 0.940
 		min_claim: 1.000
 		
 		rotation_max: 0.200
