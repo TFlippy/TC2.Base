@@ -20,7 +20,7 @@
 	step: 1
 	
 	type: crafter
-	flags: no_amount_multiplier, disabled, wip
+	flags: no_amount_multiplier, wip
 	tags: press
 	rank: 0.000
 	

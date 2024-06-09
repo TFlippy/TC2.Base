@@ -14,10 +14,10 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
-			public Prefab.Handle prefab_stump;
-			public float health_cut = 0.80f;
+			//public Prefab.Handle prefab_stump;
+			//public float health_cut = 0.80f;
 
-			public Texture.Handle sprite_cut;
+			//public Texture.Handle sprite_cut;
 			public Sound.Handle sound_cut = Tree.sound_tree_cut_default;
 
 			public Tree.Flags flags;

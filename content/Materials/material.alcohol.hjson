@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Alcohol"
 	description:
 		'''
@@ -114,7 +114,6 @@
 		sulfur_ratio: 0.001
 		// Percentage of water.
 		water_ratio: 0.076
-		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []

@@ -42,10 +42,10 @@ damage.effects:
 
 armor:
 {
-	toughness: 1500.000
-	protection: 0.800
+	toughness: 800.000
+	protection: 0.980
 	
-	knockback_modifier: 1.500
+	knockback_modifier: 1.600
 	pain_modifier: 0.000
 
 	material_type: metal_solid
@@ -142,7 +142,8 @@ control:
 
 threat:
 {
-
+	priority: 4.000
+	item_hints: armor, vehicle, heavy, machine, defensive, military, industrial
 }
 
 +seat|instance:

@@ -20,8 +20,8 @@ namespace TC2.Base.Components
 			//public int gear = default;
 			//public float gear_mod = default;
 
-			[Editor.Picker.Position(relative: true)]
-			public Vector2 smoke_offset;
+			//[Editor.Picker.Position(relative: true)]
+			//public Vector2 smoke_offset;
 
 			public Data()
 			{
@@ -34,17 +34,10 @@ namespace TC2.Base.Components
 		{
 			public float target_wheel_speed;
 
-			[Save.Ignore, Net.Ignore]
-			public float current_motor_speed;
-
-			[Save.Ignore, Net.Ignore]
-			public float current_motor_force;
-
-			[Save.Ignore, Net.Ignore]
-			public float current_wheel_torque_load;
-
-			[Save.Ignore, Net.Ignore]
-			public float t_next_sync;
+			[Save.Ignore, Net.Ignore] public float current_motor_speed;
+			[Save.Ignore, Net.Ignore] public float current_motor_force;
+			[Save.Ignore, Net.Ignore] public float current_wheel_torque_load;
+			[Save.Ignore, Net.Ignore] public float t_next_sync;
 
 			public State()
 			{
@@ -77,7 +70,7 @@ namespace TC2.Base.Components
 				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
 				joint.brake = 0.00f;
 
-				if (joint.speed.Abs() > 0.01f) joint_base.state |= Joint.State.Roused;
+				if (joint.speed.Abs() > 0.01f) joint_base.Activate();
 				tractor_state.current_wheel_torque_load += (joint.GetMotorReactionTorqueRaw().Abs() + joint.GetMotorBrakeReactionTorqueRaw().Abs());
 
 			}

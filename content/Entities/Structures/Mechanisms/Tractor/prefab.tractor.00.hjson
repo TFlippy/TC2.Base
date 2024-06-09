@@ -22,7 +22,7 @@ body:
 		mass: 1100.000
 		friction: 0.500
 		elasticity: 0.450
-		material: metal
+		material: machine
 		layer: entity, solid, vehicle
 		mask: world
 	}
@@ -46,12 +46,12 @@ health:
 armor:
 {
 	toughness: 250.000
-	protection: 0.650
+	protection: 0.850
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_sheet
 	flags: no_damage_type_conversion
 }
 
@@ -180,10 +180,11 @@ storage:
 {
 	@inventory4:
 	{
-		stack_size_multiplier: 4.000
 		type: storage
-		layout: vertical
-		flags: standalone, public, faction
+		flags: standalone, public, faction, vertical
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
 	}
 }
 
