@@ -13,7 +13,7 @@ body:
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: glass
+		material: metal
 		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
 		mask: world
 	}

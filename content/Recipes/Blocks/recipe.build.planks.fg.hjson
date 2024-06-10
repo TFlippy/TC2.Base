@@ -32,7 +32,7 @@
 		size: [0.750, 0.750]
 		
 		cooldown: 0.400
-		min_support: 0.040
+		min_support: 0.035
 		min_claim: 1.000
 		length_max: 8.000
 		length_step: 0.125

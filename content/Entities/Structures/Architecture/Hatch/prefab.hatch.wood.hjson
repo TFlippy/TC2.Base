@@ -1,7 +1,7 @@
 $name: "Hatch (Wood)"
 $desc:
 	'''
-	A standard wooden hatch.
+	Standard wooden hatch.
 	Can be locked.
 	'''
 $tags: []
@@ -14,7 +14,7 @@ body:
 	{
 		size: [2.500, 0.500]
 		offset: [0.000, 0.000]
-		mass: 28.000
+		mass: 11.000
 		friction: 0.750
 		elasticity: 0.300
 		material: wood
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 5800.000
+	max: 13800.000
 }
 
 animated.renderer:
@@ -52,7 +52,7 @@ faction:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 interactable:

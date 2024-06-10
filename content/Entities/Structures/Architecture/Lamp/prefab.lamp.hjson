@@ -9,11 +9,11 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 4.000
+		mass: 8.700
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: glass
+		material: chalk
 		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
 		mask: world
 	}
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 200.000
+	max: 1350.000
 }
 
 animated.renderer:
@@ -46,7 +46,7 @@ lamp:
 	{
 		color: [1.000, 0.750, 0.100, 1.250]
 		offset: [0.000, -0.250]
-		scale: [64.000, 64.000]
+		scale: [72.000, 72.000]
 		intensity: 1.000
 		texture: "light.circle.00"
 	}

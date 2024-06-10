@@ -3,7 +3,7 @@
 	name: "Hatch (Metal)"
 	desc:
 		'''
-		A sturdy metal hatch to keep the intruders out.
+		Sturdy metal hatch to keep the intruders out.
 		'''
 	
 	icon:
@@ -18,7 +18,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: blueprintable
 	tags: architecture
 	rank: -801.000
 	
@@ -28,13 +28,13 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings, terrain_is_support
+		flags: allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
 		
 		size: [2.500, 0.750]
 		
 		cooldown: 0.500
-		min_support: 0.300
-		min_clearance: 0.850
+		min_support: 0.800
+		min_clearance: 0.710
 		min_claim: 1.000
 		
 		rotation_max: 6.283
@@ -52,7 +52,12 @@
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 15.000
+			amount: 8.000
+		}
+		{
+			type: resource
+			material: "steel.plate"
+			amount: 10.000
 		}
 	]
 	

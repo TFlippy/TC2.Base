@@ -13,7 +13,7 @@ body:
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: glass
+		material: metal
 		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
 		mask: world
 	}
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 800.000
+	max: 1000.000
 }
 
 animated.renderer:

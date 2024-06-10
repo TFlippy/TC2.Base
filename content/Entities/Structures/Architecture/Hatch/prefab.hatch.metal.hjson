@@ -1,7 +1,7 @@
-$name: "Door (Metal)"
+$name: "Hatch (Metal)"
 $desc:
 	'''
-	A standard metal hatch.
+	Standard metal hatch.
 	Can be locked.
 	'''
 $tags: []
@@ -14,9 +14,9 @@ body:
 	{
 		size: [2.500, 0.500]
 		offset: [0.000, 0.000]
-		mass: 58.000
+		mass: 40.000
 		friction: 0.750
-		elasticity: 0.300
+		elasticity: 0.400
 		material: metal_sheet
 		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid
@@ -25,18 +25,18 @@ body:
 
 health:
 {
-	max: 14000.000
+	max: 16000.000
 }
 
 armor:
 {
-	toughness: 800.000
-	protection: 0.750
+	toughness: 400.000
+	protection: 0.450
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 
@@ -64,7 +64,7 @@ faction:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 interactable:
@@ -79,18 +79,13 @@ transform:
 
 door:
 {
-	sound_open: "door_open"
-	sound_close: "door_close"
+	sound_open: "depot_load"
+	sound_close: "depot_unload"
 	size_open: [2.500, 1.600]
 	size_closed: [2.500, 0.500]
 	offset_open: [0.000, -0.700]
-	offset_closed: [0.000, 0.000]
 	direction: vertical
 	flags: lockable
-
-	frame_closed: 0
-	frame_open: 4
-
-	fps_close: 8.000
-	fps_open: 6.000
+	fps_close: 4.000
+	fps_open: 5.000
 }
