@@ -19,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: none
 	tags: architecture
 	rank: -6.000
 	
@@ -53,12 +53,12 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 85.000
+			amount: 65.000
 		}
 		{
 			type: resource
 			material: "steel.ingot"
-			amount: 2.500
+			amount: 3.000
 		}
 		{
 			type: resource

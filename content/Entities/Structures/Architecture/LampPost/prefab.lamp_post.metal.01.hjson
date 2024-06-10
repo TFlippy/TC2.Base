@@ -11,7 +11,7 @@ body:
 		a: [0.000, -2.500]
 		b: [0.000, 2.750]
 		offset: [0.000, 0.000]
-		mass: 128.000
+		mass: 120.000
 		radius: 0.400
 		friction: 0.500
 		elasticity: 0.500
@@ -23,7 +23,7 @@ body:
 
 health:
 {
-	max: 14000.000
+	max: 18000.000
 }
 
 animated.renderer:

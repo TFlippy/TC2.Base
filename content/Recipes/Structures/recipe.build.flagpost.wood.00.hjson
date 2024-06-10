@@ -57,7 +57,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 90.000
+			amount: 105.000
 		}
 		{
 			type: resource

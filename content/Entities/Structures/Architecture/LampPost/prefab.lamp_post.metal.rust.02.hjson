@@ -11,7 +11,7 @@ body:
 		a: [-1.000, -2.375]
 		b: [-1.000, 2.375]
 		offset: [0.000, 0.000]
-		mass: 270.000
+		mass: 160.000
 		radius: 0.400
 		friction: 0.500
 		elasticity: 0.500
@@ -23,7 +23,7 @@ body:
 
 health:
 {
-	max: 4500.000
+	max: 11500.000
 }
 
 animated.renderer:
@@ -59,9 +59,9 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.steel"
 			flags: none
-			quantity: 100.000
+			quantity: 20.000
 		}
 		{
 			material: "steel.billet"
