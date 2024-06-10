@@ -20,7 +20,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: none
 	tags: architecture
 	rank: 5.000
 	
@@ -29,15 +29,15 @@
 		type: line
 		flags: continuous
 		
-		size: [0.750, 0.750]
+		size: [0.500, 0.500]
 		
 		cooldown: 0.500
-		min_support: 0.300
+		min_support: 0.500
 		min_claim: 1.000
-		length_max: 5.000
+		length_max: 6.000
 		length_step: 0.125
 		
-		sound: "metal_place_01"
+		sound: "metal.place.00"
 		
 		mappings_replace:
 		{

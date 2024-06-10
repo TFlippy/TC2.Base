@@ -20,18 +20,18 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: none
 	tags: architecture
 	rank: -97.000
 	
 	placement:
 	{
 		type: circle
-		flags: continuous, no_snapping
+		flags: continuous, no_snapping, require_terrain, terrain_is_support
 		radius: 0.750
 		
 		cooldown: 0.200
-		min_support: 0.200
+		min_support: 0.580
 		min_claim: 1.000
 		
 		sound: "stone_place_0"
@@ -47,7 +47,7 @@
 		{
 			type: resource
 			material: "stone"
-			amount: 0.040
+			amount: 0.085
 		}
 	]
 	
