@@ -273,7 +273,15 @@ namespace TC2.Base.Components
 															{
 																using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
 																{
-																	GUI.Title(recipe.name);
+																	using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
+																	{
+																		GUI.Title(recipe.name);
+
+																		GUI.SameLine();
+																		var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
+																		GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
+																	}
+
 																	GUI.Text(recipe.desc, color: GUI.font_color_default);
 
 																	GUI.SeparatorThick(spacing: 16);
@@ -564,19 +572,19 @@ namespace TC2.Base.Components
 																				GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
 																			}
 																		}
-
-																		ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
-																		if (rect_foundation.IsNotNull())
-																		{
-																			var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																			GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
-
-																			GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
-																		}
 																	}
 																	else
 																	{
 																		GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																	}
+
+																	ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
+																	if (rect_foundation.IsNotNull())
+																	{
+																		var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																		GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
+
+																		GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
 																	}
 
 																	GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
@@ -703,7 +711,7 @@ namespace TC2.Base.Components
 									}
 								}
 							}
-						
+
 						}
 					}
 #endif
