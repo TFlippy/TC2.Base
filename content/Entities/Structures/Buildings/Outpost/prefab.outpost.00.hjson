@@ -4,41 +4,36 @@ body:
 {
 	type: static
 	
-	@shape.complex:
+	@shape.box:
 	{
-		points:
-		[
-			[-1.875, -0.250]
-			[0.000, -2.250]
-			[1.875, -0.250]
-			[1.875, 2.250]
-			[-1.875, 2.250]
-		]
-		count: 5
-		mass: 120.000
+		size: [4.000, 4.000]
+		mass: 450.000
 		radius: 0.500
-		friction: 0.500
-		elasticity: 0.500
-		rigidity_static: 1.000
-		rigidity_dynamic: 1.000
 		material: wood
 		layer: entity, building, dormitory, flammable, ignore_bullet
-		mask: world
-		exclude: none
 	}
 }
 
 health:
 {
-	max: 6500.000
+	max: 22500.000
 }
+
+// armor:
+// {
+// 	toughness: 150.000
+// 	protection: 0.950
+// 	coverage: 0.850
+// 	knockback_modifier: 0.600
+// 	material_type: fabric
+// }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "outpost"
-		mask: "outpost.mask"
+		texture: "outpost.00"
+		mask: "outpost.00.mask"
 	}
 	z: -300.000
 }
@@ -65,7 +60,9 @@ building:
 
 nameable:
 {
+	tags: lame, homely, food
 	flags: randomize
+	type: building
 }
 
 spawn:
@@ -77,10 +74,16 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Storage"
-		stack_size_multiplier: 2.000
 		type: storage
 		flags: standalone, ignore_mass, public, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			exclude: large, heavy
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -131,11 +134,16 @@ armory:
 {
 	@inventory4:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 4.000
-		filter_flags: ammo
 		type: ammo
-		flags: ignore_mass, public, faction, vertical
+		flags: ignore_mass, faction, vertical
+
+		filter:
+		{
+			require: ammo, solid
+			include: granular, small
+			exclude: large
+		}
 	}
 }
 
