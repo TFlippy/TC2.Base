@@ -34,6 +34,8 @@
 		size: [1.000, 6.000]
 		offset: [0.000, -2.500]
 		
+		rect_foundation: [-0.375, -0.250, 0.375, 0.500]
+		
 		cooldown: 0.500
 		min_clearance: 0.150
 		min_claim: 1.000

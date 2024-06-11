@@ -106,7 +106,8 @@ claimer:
 
 interactable:
 {
-	window_size: [568.000, 360.000]
+	flags: none
+	window_size: [568.000, 440.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -179,4 +180,40 @@ dormitory:
 		exclude: sedentary, upper_middle_class, upper_class, elite_class
 		weight: 1.000
 	}
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+personnel:
+{
+	slots:
+	[
+		{
+			role: officer
+			tags: management, administrative, military, paperwork, sedentary
+			color: "0xff719240"
+			multiplier: 3.000
+		}
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: guard
+			tags: security, combat, military
+			color: "0xff719240"
+			multiplier: 1.000
+		}
+	]
+	characters_capacity: 3
 }
