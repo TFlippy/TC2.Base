@@ -27,8 +27,8 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 1.650
-	quantity_max: 100.000
+	mass_per_unit: 8.650
+	quantity_max: 50.000
 	prefab: "resource.arcane_actuator"
 	
 	commodity:
