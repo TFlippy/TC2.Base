@@ -112,6 +112,8 @@
 								if (hud.show)
 								{
 									//GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
+
+									Crafting.Context.NewFromCharacter(region: ref region, h_character: Client.GetCharacterHandle(), ent_producer: ent_wrench, context: out var context);
 									GUI.DrawWindowBackground(GUI.tex_window, padding: new Vector4(4));
 
 									var hud_rect = hud.group.GetOuterRect();
@@ -211,7 +213,8 @@
 											GUI.SeparatorThick();
 											GUI.NewLine(4);
 
-											var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
+											var has_reqs = GUI.DrawRequirements(context: ref context, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
+											//var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 											if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 										}
 

@@ -32,8 +32,7 @@
 
 					public readonly IComponent.Handle ComponentSrc => this.inventory_id_src;
 					public readonly IComponent.Handle ComponentDst => this.inventory_id_dst;
-
-					public IRecipe.Handle SelectedRecipe => this.selected_recipe;
+					public readonly IRecipe.Handle SelectedRecipe => this.selected_recipe;
 
 					public TargetInfo CreateTargetInfo(ref Region.Data.Common region, Entity entity, IComponent.Handle h_component, Vector2 pos, bool is_src)
 					{
@@ -111,6 +110,8 @@
 							{
 								if (hud.show)
 								{
+									Crafting.Context.NewFromCharacter(region: ref region, h_character: Client.GetCharacterHandle(), ent_producer: ent_wrench, context: out var context);
+
 									//GUI.DrawBackground(GUI.tex_window, hud.group.GetOuterRect(), padding: new(4));
 									GUI.DrawWindowBackground(GUI.tex_window, padding: new Vector4(4));
 
@@ -225,7 +226,8 @@
 											GUI.SeparatorThick();
 											GUI.NewLine(4);
 
-											var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
+											var has_reqs = GUI.DrawRequirements(context: ref context, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
+											//var has_reqs = GUI.DrawRequirements(ref region, ent_wrench, ref Client.GetPlayer(), world_position: pos, requirements: recipe.requirements.AsSpan(), amount_multiplier: 1.00f + MathF.Ceiling(distance));
 											if (!has_reqs) errors |= Build.Errors.RequirementsNotMet;
 										}
 

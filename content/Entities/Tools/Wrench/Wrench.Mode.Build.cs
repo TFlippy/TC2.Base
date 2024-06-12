@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 					public Color32BGRA ColorError => Color32BGRA.Red;
 					public Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					[UnscopedRef] public ref IRecipe.Handle SelectedRecipe => ref this.recipe;
+					public IRecipe.Handle SelectedRecipe => this.recipe;
 
 #if CLIENT
 
