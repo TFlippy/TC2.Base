@@ -27,7 +27,7 @@
 	step: 50
 	
 	type: workshop
-	flags: disabled, wip
+	flags: wip
 	tags: forge, workbench, scrapyard
 	rank: 0.000
 	

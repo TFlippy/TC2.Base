@@ -13,16 +13,12 @@
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: liquid
 	// Flags defining properties of the raw material.
 	flags: food, liquid, intermediate, chemical, bottled, manufactured, fuel, flammable, volatile
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: flammable, volatile
+	display_flags: none
 	hints: food, materials, chemical
 	// kg
 	mass_per_unit: 0.100
@@ -135,4 +131,7 @@
 		// K
 		boiling_point: 351.390
 	}
+	
+	// Component materials.
+	composition: []
 }

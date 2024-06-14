@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.arcane_actuator"
+		texture: "resource.actuator"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "arcane_actuator"
+	material: "actuator"
 
 	@light:
 	{

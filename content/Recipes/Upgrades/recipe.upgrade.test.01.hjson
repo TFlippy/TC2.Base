@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Crate"
+	name: "Upgrade B"
 	desc:
 		'''
-		Portable storage - considerably larger than your pockets.
+		It's also gud.
 		'''
 	
 	icon:
@@ -17,9 +17,9 @@
 	max: 1
 	step: 1
 	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, wip
-	tags: workbench
+	type: upgrade
+	flags: no_amount_multiplier, blueprintable, wip, upgrade
+	tags: none
 	rank: 0.000
 	
 	requirements:
@@ -27,7 +27,7 @@
 		{
 			type: resource
 			material: "wood"
-			amount: 75.000
+			amount: 100.000
 		}
 		{
 			type: work
