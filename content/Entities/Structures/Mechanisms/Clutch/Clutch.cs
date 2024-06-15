@@ -50,15 +50,15 @@ namespace TC2.Base.Components
 
 							if (this.state == -1)
 							{
-								WorldNotification.Push(ref region, $"* Reverse *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Reverse *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else if (this.state == 0)
 							{
-								WorldNotification.Push(ref region, $"* Neutral *", Color32BGRA.Yellow, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Neutral *", Color32BGRA.Yellow, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else
 							{
-								WorldNotification.Push(ref region, $"* Forward *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Forward *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
 							}
 						}
 
@@ -103,12 +103,15 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Clutch"u8, this.ent_clutch, new Vector2(64, 128)))
+				using (var window = GUI.Window.InteractionMisc("Clutch"u8, this.ent_clutch, new Vector2(32, 128)))
 				{
-					//this.StoreCurrentWindowTypeID();
+					this.StoreCurrentWindowTypeID(10);
 					if (window.show)
 					{
-						if (GUI.SliderInt("State", ref this.clutch.state, -1, 1, size: new Vector2(GUI.RmX, GUI.RmY), snap: 1, vertical: true))
+						//var color_slider = GUI.col_button_yellow;
+
+
+						if (GUI.SliderInt("State"u8, ref this.clutch.state, -1, 1, size: new Vector2(GUI.RmX, GUI.RmY), snap: 1, vertical: true))
 						{
 							var rpc = new Clutch.ConfigureRPC()
 							{

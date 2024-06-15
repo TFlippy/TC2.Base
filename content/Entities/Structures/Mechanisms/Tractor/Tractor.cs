@@ -131,7 +131,7 @@ namespace TC2.Base.Components
 		//	tractor_state.current_motor_speed = Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_motor_speed, tractor.speed_step);
 		//}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateEngine1(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)

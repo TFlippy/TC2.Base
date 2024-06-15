@@ -287,7 +287,7 @@ namespace TC2.Base.Components
 		//#endif
 		//		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag<SteamEngine.Data>("damaged", true, Source.Modifier.Owned), HasComponent<Boiler.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateDamaged(ISystem.Info info,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Burner.Data burner, [Source.Owned] ref Burner.State burner_state,
