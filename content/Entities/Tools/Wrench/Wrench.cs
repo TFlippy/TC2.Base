@@ -481,7 +481,7 @@ namespace TC2.Base.Components
 				//using (GUI.Group.New(size: new Vector2(48 + 32 + 2, GUI.RmY)))
 				using (GUI.Group.New(size: new Vector2(48 + 30, GUI.RmY)))
 				{
-					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes", GUI.Rm, padding: new Vector2(4, 4)))
+					using (var scrollbox = GUI.Scrollbox.New("wrench.recipes"u8, GUI.Rm, padding: new Vector2(4, 4)))
 					{
 						GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
 

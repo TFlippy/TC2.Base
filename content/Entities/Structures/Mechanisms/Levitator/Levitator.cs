@@ -603,13 +603,13 @@ namespace TC2.Base.Components
 							ref var node = ref this.levitator.nodes[i];
 							if (node.ratio > Maths.epsilon)
 							{
-								using (GUI.ID.Push(100 + i))
+								using (GUI.ID<Levitator.EditRPC, Keyboard.Key>.Push(i))
 								{
 									using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, 48), padding: new Vector2(4, 4)))
 									{
 										GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
 
-										if (GUI.EnumInput($"key.{i}", ref node.key, new Vector2(GUI.RmX, 40), show_label: false))
+										if (GUI.EnumInput("key"u8, ref node.key, new Vector2(GUI.RmX, 40), show_label: false))
 										{
 											rpc.settings[i].key = node.key;
 											sync = true;
