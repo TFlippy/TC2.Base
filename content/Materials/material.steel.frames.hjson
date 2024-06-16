@@ -1,0 +1,31 @@
+﻿{
+	$version: "0.1.60.6"
+	name: "Steel Frames"
+	description:
+		'''
+		Various structural steel components - frames, braces, struts.
+		'''
+	
+	icon:
+	{
+		texture: "resource.steel.frames"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: metal_frame
+	// Flags defining properties of the raw material.
+	flags: hard, magnetic, metal, intermediate, small, manufactured, flexible, solid, processed
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 2.500
+	quantity_max: 400.000
+	prefab: "resource.steel.frames"
+}

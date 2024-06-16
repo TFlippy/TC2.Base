@@ -1,0 +1,46 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.700
+		material: metal_frame
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.steel.frames"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "steel.frames"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
