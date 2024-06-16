@@ -664,19 +664,24 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				var window_size = new Vector2(422, 500);
+				//var window_size = new Vector2(422, 500);
 
 				//using (var window = GUI.Window.Standalone("Wrench", size: window_size, padding: new(8, 8), pivot: new(0.50f, 0.50f)))
-				using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
+				//using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
+				//{
+
+				using (var widget = Sidebar.Widget.New("wrench", "Wrench", new Sprite("wrench", 8, 16, 0, 0), new Vector2(454, 442), lockable: false, order: 2.00f, flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled))
 				{
-					this.StoreCurrentWindowTypeID();
-					if (window.show)
+					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{
+						//this.StoreCurrentWindowTypeID();
+						//if (window.show)
+						//{
 						//GUI.DrawWindowBackground(GUI.tex_window_menu, new Vector4(8, 8, 8, 8));
 
 						ref var region = ref Client.GetRegion();
 
-						using (GUI.Group.New(size: new(GUI.RmX, 64)))
+						using (GUI.Group.New(size: new(GUI.AvX, 64)))
 						{
 							if (this.ent_wrench.HasComponent<Wrench.Mode.Build.Data>())
 							{
@@ -717,7 +722,7 @@ namespace TC2.Base.Components
 
 						GUI.SeparatorThick();
 
-						using (GUI.Group.New(size: GUI.Rm))
+						using (GUI.Group.New(size: GUI.Av))
 						{
 							using (var dock = GUI.Dock.New(Wrench.dock_identifier))
 							{
@@ -751,12 +756,11 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasTag("dead", false, Source.Modifier.Parent), HasComponent<Interactor.Data>(Source.Modifier.Parent, true)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
-		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
-		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
+		[Source.Owned] ref Wrench.Data wrench, [Source.Owned] in Transform.Data transform)
 		{
-			if (interactable.IsActive())
+			//if (interactable.IsActive())
 			{
 				var gui = new WrenchGUI()
 				{
@@ -768,12 +772,12 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasTag("dead", false, Source.Modifier.Parent), HasComponent<Interactor.Data>(Source.Modifier.Parent, true)]
 		public static void OnGUIMode<T>(ISystem.Info info, Entity entity,
-		[Source.Owned] in T mode, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] ref Interactable.Data interactable,
-		[Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control) where T : unmanaged, Wrench.IMode
+		[Source.Owned] in T mode, [Source.Owned] ref Wrench.Data wrench, [Source.Owned] in Transform.Data transform) where T : unmanaged, Wrench.IMode
 		{
-			if (interactable.IsActive() && wrench.selected_component_id == ECS.GetID<T>())
+			//if (interactable.IsActive() && wrench.selected_component_id == ECS.GetID<T>())
+			if (wrench.selected_component_id == ECS.GetID<T>())
 			{
 				var gui = new WrenchModeGUI<T>()
 				{

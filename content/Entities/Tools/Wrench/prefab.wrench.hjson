@@ -6,11 +6,6 @@ $desc:
 	'''
 $tags: []
 
-control:
-{
-
-}
-
 body:
 {
 	buoyancy: 0.100
@@ -23,7 +18,7 @@ body:
 		radius: 0.375
 		friction: 0.750
 		elasticity: 0.350
-		material: metal
+		material: tool
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -48,11 +43,16 @@ animated.renderer:
 	}
 }
 
-interactable:
-{
-	window_size: [454.000, 442.000]
-	flags: require_held, interact_on_pickup, keep_window_pos
-}
+// control:
+// {
+
+// }
+
+// interactable:
+// {
+// 	flags: no_window
+// 	window_size: [454.000, 442.000]
+// }
 
 transform:
 {
