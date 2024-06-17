@@ -14,14 +14,15 @@
 		frame: [28, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: skilled, social, science, advanced, careful, wip
+	cooldown: 1.000
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: bureaucrat, educated, military, professional, law, social, engineer, insane, nomad, outdoor
 		exclude: unskilled, dumb
+		weight: 1.000
 	}
 	
 	skills_min:

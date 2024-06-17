@@ -14,14 +14,15 @@
 		frame: [29, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: manual, skilled, social, ambient, dangerous, advanced, careful, politics, wip
+	cooldown: 3.000
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: slave, bureaucrat, criminal, educated, law, social, commerce, lowlife, nomad, entertainer, politician, thief
 		exclude: insane, feral, dumb
+		weight: 1.000
 	}
 	
 	skills_min:

@@ -14,7 +14,7 @@
 		frame: [35, 0]
 	}
 	
-	flags: generated, wip, disabled
+	flags: manual, machine, dangerous, industrial, wip
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
@@ -22,6 +22,7 @@
 	{
 		include: construction, artisan, laborer, technician, engineer, miner, naval, arcane
 		exclude: alcoholic
+		weight: 1.000
 	}
 	
 	skills_min:

@@ -14,14 +14,15 @@
 		frame: [27, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: skilled, social, ambient, politics, wip
+	cooldown: 3.000
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: educated, military, nobility, law, social, rich, entertainer, artist, evil, politician, fanatic
 		exclude: insane, pet, feral
+		weight: 1.000
 	}
 	
 	skills_min:

@@ -14,13 +14,14 @@
 		frame: [19, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: manual, machine, automated, ambient, wip
+	cooldown: 0.700
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: slave, insane, illiterate, sedentary, evil, fanatic, dumb
+		weight: 1.000
 	}
 	
 	skills_min:

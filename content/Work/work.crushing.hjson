@@ -14,13 +14,14 @@
 		frame: [25, 0]
 	}
 	
-	flags: generated, wip, disabled
+	flags: manual, machine, automated, industrial, wip
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: slave, unskilled, insane, alcoholic, feral, brawler, outdoor, strong, junkie, evil, murderer, terrorist, dumb
+		weight: 1.000
 	}
 	
 	skills_min:

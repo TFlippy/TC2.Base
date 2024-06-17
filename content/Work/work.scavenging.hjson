@@ -14,13 +14,14 @@
 		frame: [9, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: manual, simple, technical, industrial, wip
+	cooldown: 0.500
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: slave, construction, medical, laborer, lowlife, technician, engineer, poor, insane, nomad, outdoor, strong, junkie
+		weight: 1.000
 	}
 	
 	skills_min:

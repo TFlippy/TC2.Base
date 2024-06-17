@@ -14,13 +14,14 @@
 		frame: [14, 0]
 	}
 	
-	flags: generated, wip, disabled
+	flags: manual, skilled, machine, tools, dangerous, technical, construction, industrial, wip
 	cooldown: 0.320
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: construction, artisan, laborer, technician, strong
+		weight: 1.000
 	}
 	
 	skills_min:

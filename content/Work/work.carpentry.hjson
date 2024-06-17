@@ -14,13 +14,14 @@
 		frame: [16, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: manual, skilled, tools, construction, wip
+	cooldown: 0.400
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: construction, artisan, farmer, professional, laborer, hunter, culinary, entertainer, artist, outdoor
+		weight: 1.000
 	}
 	
 	skills_min:

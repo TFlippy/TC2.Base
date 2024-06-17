@@ -14,7 +14,7 @@
 		frame: [18, 0]
 	}
 	
-	flags: generated, wip, disabled
+	flags: manual, skilled, politics, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	
@@ -22,6 +22,7 @@
 	{
 		include: bureaucrat, scientist, educated, law, commerce, sedentary, evil, politician
 		exclude: unskilled, illiterate, feral, animal
+		weight: 1.000
 	}
 	
 	skills_min:

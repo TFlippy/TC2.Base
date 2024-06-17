@@ -14,13 +14,14 @@
 		frame: [23, 0]
 	}
 	
-	flags: generated, wip, disabled
-	cooldown: 0.200
+	flags: manual, machine, automated, industrial, wip
+	cooldown: 0.500
 	color: "0xffaeb59a"
 	
 	character_traits:
 	{
 		include: slave, medical, chemist, culinary, nomad, naval, entertainer, artist, outdoor
+		weight: 1.000
 	}
 	
 	skills_min:
