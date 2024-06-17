@@ -14,9 +14,12 @@
 		frame: [28, 0]
 	}
 	
-	flags: skilled, social, science, ambient, advanced, careful, politics, wip
+	flags: skilled, social, science, ambient, advanced, careful, politics, bureaucracy, wip
 	cooldown: 1.000
 	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: pencil, paper, radio, telephone, magnifying_glass, calculator, towel
 	
 	character_traits:
 	{

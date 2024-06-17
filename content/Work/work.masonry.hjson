@@ -18,6 +18,9 @@
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	
+	tools_required: hammer
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: slave, construction, artisan, laborer, miner, artist, outdoor, strong

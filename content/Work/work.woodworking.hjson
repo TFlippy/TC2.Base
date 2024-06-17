@@ -18,6 +18,9 @@
 	cooldown: 0.350
 	color: "0xffaeb59a"
 	
+	tools_required: hammer, saw
+	tools_optional: pencil, ruler, lathe, hammer, saw, drill, screwdriver, tweezers, table, chair, vise, axe, file, chisel, knife
+	
 	character_traits:
 	{
 		include: slave, construction, artisan, farmer, laborer, poor, hunter, culinary, insane, nomad, entertainer, outdoor, strong

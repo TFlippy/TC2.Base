@@ -1,0 +1,41 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Torture"
+	name_short: "Torture"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [37, 0]
+	}
+	
+	flags: manual, tools, social, dangerous, leisure, wip
+	cooldown: 0.350
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: pencil, paper, ruler, hammer, cutters, drill, screwdriver, radio, telephone, tweezers, magnifying_glass, chair, vise, bucket, syringe, stapler, towel, spatula, tongs, pick, crowbar, knife, bed
+	
+	character_traits:
+	{
+		include: criminal, military, insane, alcoholic, brawler, evil, murderer, terrorist, fanatic, dumb
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sounds: []
+}

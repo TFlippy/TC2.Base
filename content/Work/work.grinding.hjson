@@ -18,6 +18,9 @@
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
+	tools_required: grinder
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: slave, laborer, chemist, culinary, insane, brawler, strong, junkie, evil

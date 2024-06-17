@@ -18,6 +18,9 @@
 	cooldown: 2.000
 	color: "0xffaeb59a"
 	
+	tools_required: cleaver, table
+	tools_optional: cutters, saw, dishes, cleaver, table, vise, bucket, axe, towel, rack, tongs, crowbar, knife
+	
 	character_traits:
 	{
 		include: slave, scientist, medical, nobility, farmer, laborer, hunter, culinary, insane, feral, brawler, strong, evil, murderer

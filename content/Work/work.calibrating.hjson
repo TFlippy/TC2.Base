@@ -18,10 +18,13 @@
 	cooldown: 1.000
 	color: "0xffaeb59a"
 	
+	tools_required: ruler, screwdriver, tweezers
+	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, table, chair, vise, calculator, syringe, file, towel, pick
+	
 	character_traits:
 	{
 		include: construction, scientist, educated, artisan, professional, technician, engineer, artist, sedentary
-		exclude: feral, animal, junkie, dumb
+		exclude: feral, animal, brawler, junkie, dumb
 		weight: 1.000
 	}
 	

@@ -18,6 +18,9 @@
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
+	tools_required: none
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: slave, bureaucrat, construction, criminal, medical, artisan, farmer, laborer, hunter, culinary, insane, strong, junkie, evil, murderer

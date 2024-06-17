@@ -18,6 +18,9 @@
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
+	tools_required: drill
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: construction, artisan, laborer, technician, insane, evil

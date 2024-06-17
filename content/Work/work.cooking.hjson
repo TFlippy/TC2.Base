@@ -14,9 +14,12 @@
 		frame: [2, 0]
 	}
 	
-	flags: manual, skilled, tools, ambient, careful, wip
+	flags: manual, skilled, tools, ambient, careful, leisure, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
+	
+	tools_required: dishes, heater, spatula, knife
+	tools_optional: hammer, saw, grinder, cauldron, oven, glassware, pressure_cooker, dishes, cleaver, heater, bottle, barrel, table, chair, bucket, calculator, towel, rack, spatula
 	
 	character_traits:
 	{

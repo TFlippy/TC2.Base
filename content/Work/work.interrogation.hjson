@@ -1,0 +1,42 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Interrogation"
+	name_short: "Interrogation"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [37, 0]
+	}
+	
+	flags: skilled, social, advanced, careful, politics, wip
+	cooldown: 0.350
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: pencil, paper, telephone, magnifying_glass, chair, towel
+	
+	character_traits:
+	{
+		include: bureaucrat, scientist, educated, military, armed, law, social, brawler, evil, politician
+		exclude: dumb
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sounds: []
+}

@@ -18,9 +18,13 @@
 	cooldown: 0.320
 	color: "0xffaeb59a"
 	
+	tools_required: lathe, hammer, table, vise, file
+	tools_optional: ruler, grinder, anvil, heater, tweezers, magnifying_glass, table, chair, vise, calculator, file, chisel, tongs, crowbar
+	
 	character_traits:
 	{
 		include: construction, artisan, laborer, technician, strong
+		exclude: dumb
 		weight: 1.000
 	}
 	

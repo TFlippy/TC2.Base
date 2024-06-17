@@ -14,9 +14,12 @@
 		frame: [9, 0]
 	}
 	
-	flags: manual, simple, technical, industrial, wip
+	flags: manual, simple, technical, industrial, leisure, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: hammer, cutters, drill, screwdriver, wrench, tweezers, magnifying_glass, table, chair, vise, calculator, towel, tongs, pick, crowbar
 	
 	character_traits:
 	{

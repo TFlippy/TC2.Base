@@ -18,10 +18,13 @@
 	cooldown: 1.000
 	color: "0xffaeb59a"
 	
+	tools_required: none
+	tools_optional: pencil, paper, radio, telephone, towel
+	
 	character_traits:
 	{
 		include: bureaucrat, educated, nobility, professional, law, social, rich, entertainer, politician
-		exclude: slave, insane, feral, animal
+		exclude: slave, insane, feral, animal, dumb
 		weight: 1.000
 	}
 	

@@ -14,14 +14,17 @@
 		frame: [18, 0]
 	}
 	
-	flags: manual, skilled, tools, simple, wip
+	flags: manual, skilled, tools, simple, bureaucracy, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
+	
+	tools_required: pencil, paper, table, chair
+	tools_optional: pencil, paper, ruler, cutters, glassware, radio, tweezers, magnifying_glass, table, chair, calculator, stapler, rack, knife
 	
 	character_traits:
 	{
 		include: bureaucrat, scientist, educated, law, commerce, sedentary, evil, politician
-		exclude: unskilled, illiterate, feral, animal
+		exclude: unskilled, illiterate, feral, animal, dumb
 		weight: 1.000
 	}
 	

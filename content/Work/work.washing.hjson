@@ -18,6 +18,9 @@
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	
+	tools_required: none
+	tools_optional: bucket, towel
+	
 	character_traits:
 	{
 		include: slave, medical, chemist, culinary, nomad, naval, entertainer, artist, outdoor

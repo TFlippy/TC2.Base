@@ -18,6 +18,9 @@
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	
+	tools_required: smelter, heater, crucible
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: insane, alcoholic, evil

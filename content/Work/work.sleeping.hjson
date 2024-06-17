@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Heating"
-	name_short: "Heating"
+	name: "Sleeping"
+	name_short: "Sleeping"
 	desc:
 		'''
 		TODO: Desc
@@ -11,19 +11,18 @@
 	{
 		texture: "ui.icons.work.00"
 		size: [16, 16]
-		frame: [11, 0]
+		frame: [37, 0]
 	}
 	
-	flags: machine, automated, ambient, dangerous, chemical, industrial, wip
+	flags: manual, ambient, simple, leisure, wip
 	cooldown: 0.350
 	color: "0xffaeb59a"
 	
-	tools_required: heater
-	tools_optional: none
+	tools_required: bed
+	tools_optional: air_filter, heater, tweezers, bucket, towel
 	
 	character_traits:
 	{
-		include: insane, alcoholic, evil
 		weight: 1.000
 	}
 	

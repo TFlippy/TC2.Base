@@ -18,6 +18,9 @@
 	cooldown: 0.400
 	color: "0xffaeb59a"
 	
+	tools_required: hammer, saw
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: construction, artisan, farmer, professional, laborer, hunter, culinary, entertainer, artist, outdoor

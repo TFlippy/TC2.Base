@@ -18,6 +18,9 @@
 	cooldown: 0.350
 	color: "0xffaeb59a"
 	
+	tools_required: hammer, chisel
+	tools_optional: none
+	
 	character_traits:
 	{
 		include: slave, construction, laborer, insane, illiterate, brawler, outdoor, strong, terrorist, fanatic

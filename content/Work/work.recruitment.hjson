@@ -14,14 +14,17 @@
 		frame: [27, 0]
 	}
 	
-	flags: skilled, social, ambient, politics, wip
+	flags: skilled, social, ambient, politics, bureaucracy, wip
 	cooldown: 3.000
 	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: pencil, paper, radio, telephone, towel
 	
 	character_traits:
 	{
 		include: educated, military, nobility, law, social, rich, entertainer, artist, evil, politician, fanatic
-		exclude: insane, pet, feral
+		exclude: slave, insane, pet, feral
 		weight: 1.000
 	}
 	
