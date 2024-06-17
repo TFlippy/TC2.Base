@@ -1,0 +1,41 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Carpentry"
+	name_short: "Carpentry"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [16, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		carpentry: 1.000
+		construction: 0.800
+		strength: 0.300
+	}
+	
+	sounds:
+	[
+		"work_woodworking_00"
+		"work_woodworking_01"
+		"work_woodworking_02"
+		"work_woodworking_03"
+		"work_woodworking_04"
+		"work_woodworking_05"
+	]
+}

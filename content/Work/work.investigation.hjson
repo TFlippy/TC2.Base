@@ -1,0 +1,33 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Investigation"
+	name_short: "Investigation"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [28, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		intellect: 0.800
+		law: 0.750
+		charisma: 0.550
+	}
+	
+	sounds: []
+}

@@ -1,0 +1,36 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Machining"
+	name_short: "Machining"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [14, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.320
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		engineering: 1.000
+		dexterity: 0.300
+		strength: 0.200
+	}
+	
+	sounds:
+	[
+		"work_machining_00_loop"
+	]
+}

@@ -1,0 +1,36 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Mixing"
+	name_short: "Mixing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [13, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		endurance: 0.800
+		strength: 0.200
+	}
+	
+	sounds:
+	[
+		"work_mix_00"
+		"work_mix_01"
+	]
+}

@@ -1,0 +1,41 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Assembling"
+	name_short: "Assembling"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [8, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		construction: 0.750
+		scavenging: 0.600
+		dexterity: 0.500
+	}
+	
+	sounds:
+	[
+		"work_assembly_00"
+		"work_assembly_01"
+		"work_assembly_02"
+		"work_assembly_03"
+		"work_assembly_04"
+	]
+}

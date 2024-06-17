@@ -1,0 +1,43 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Paperwork"
+	name_short: "Paperwork"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [18, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.500
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		intellect: 0.400
+		law: 0.750
+		commerce: 0.400
+		leadership: 0.450
+	}
+	
+	sounds:
+	[
+		"work.paperwork.pencil.00"
+		"work.paperwork.pencil.01"
+		"work.paperwork.pencil.02"
+		"work.paperwork.pencil.03"
+		"work.paperwork.page.00"
+		"work.paperwork.page.01"
+		"work.paperwork.page.02"
+	]
+}

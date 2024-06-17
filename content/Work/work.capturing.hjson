@@ -1,0 +1,35 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Capturing"
+	name_short: "Capturing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [17, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		leadership: 0.800
+		charisma: 0.800
+		endurance: 0.650
+		intellect: 0.650
+		law: 0.750
+	}
+	
+	sounds: []
+}

@@ -1,0 +1,40 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Scavenging"
+	name_short: "Scavenging"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		scavenging: 0.800
+		strength: 0.250
+		construction: 0.500
+		engineering: 0.450
+	}
+	
+	sounds:
+	[
+		"work.scavenging.00"
+		"work.scavenging.01"
+		"work.scavenging.02"
+		"work.scavenging.03"
+	]
+}

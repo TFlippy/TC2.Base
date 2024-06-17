@@ -1,0 +1,40 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Smithing"
+	name_short: "Smithing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "ui.icons.work.00"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	flags: generated, wip, disabled
+	cooldown: 0.200
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		blacksmithing: 1.000
+		strength: 0.600
+		metallurgy: 0.100
+	}
+	
+	sounds:
+	[
+		"work_smithing_00"
+		"work_smithing_01"
+		"work_smithing_02"
+		"work_smithing_03"
+		"work_smithing_04"
+	]
+}
