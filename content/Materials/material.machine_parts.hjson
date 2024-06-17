@@ -3,7 +3,7 @@
 	name: "Machine Parts"
 	description:
 		'''
-		A pile of assorted machine parts used for more advanced tools and machinery.
+		Pile of small machine parts and fasteners - gears, hinges, bolts, springs, screws.
 		'''
 	
 	icon:
@@ -20,7 +20,7 @@
 	
 	type: components
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, granular, intermediate, small, manufactured, device, solid
+	flags: hard, magnetic, metal, granular, intermediate, small, manufactured, device, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	hints: none

@@ -1,0 +1,60 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Motor (Servus)"
+	desc:
+		'''
+		Inefficient but very cheap motor consisting of 2 arcane actuators linked to a crankshaft.
+		'''
+	
+	icon:
+	{
+		texture: "motor.servus.00"
+		size: [24, 16]
+		frame: [2, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	type: workshop
+	flags: blueprintable
+	tags: forge, workbench, scrapyard, manufactory
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "steel.frames"
+			amount: 10.000
+		}
+		{
+			type: resource
+			material: "machine_parts"
+			amount: 4.000
+		}
+		{
+			type: resource
+			material: "arcane_actuator"
+			amount: 2.000
+		}
+		{
+			type: work
+			work: assembling
+			amount: 200.000
+			difficulty: 3
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: "motor.servus.00"
+			amount: 1.000
+		}
+	]
+}

@@ -51,14 +51,14 @@
 		{
 			type: resource
 			material: "lime"
-			amount: 0.350
-			amount_extra: 0.550
+			amount: 0.253
+			amount_extra: 0.052
 		}
 		{
 			type: resource
 			material: "recondite.ingot"
-			amount: 0.060
-			amount_extra: 0.025
+			amount: 0.050
+			amount_extra: 0.017
 		}
 		{
 			type: resource
