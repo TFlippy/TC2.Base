@@ -16,6 +16,13 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, bureaucrat, criminal, educated, law, social, commerce, lowlife, nomad, entertainer, politician, thief
+		exclude: insane, feral, dumb
+	}
 	
 	skills_min:
 	{

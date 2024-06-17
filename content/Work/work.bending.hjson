@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, laborer, insane, alcoholic, brawler, strong, evil
+	}
 	
 	skills_min:
 	{

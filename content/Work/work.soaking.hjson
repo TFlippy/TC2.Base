@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, scientist, medical, farmer, laborer, chemist, culinary, alcoholic, nomad, entertainer, outdoor, junkie
+	}
 	
 	skills_min:
 	{

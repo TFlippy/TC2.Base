@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, medical, chemist, insane, pet, entertainer, artist
+	}
 	
 	skills_min:
 	{

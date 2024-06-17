@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, laborer, lowlife, hunter, culinary, insane, alcoholic, entertainer, feral, pest, animal, brawler, outdoor, strong, junkie, evil, murderer, terrorist, fanatic, dumb
+	}
 	
 	skills_min:
 	{

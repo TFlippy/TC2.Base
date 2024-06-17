@@ -18,6 +18,11 @@
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
+	character_traits:
+	{
+		include: construction, military, artisan, laborer, technician, engineer, miner, soldier, insane, naval, thief
+	}
+	
 	skills_min:
 	{
 	

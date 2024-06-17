@@ -16,6 +16,13 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: bureaucrat, educated, nobility, professional, law, social, rich, entertainer, politician
+		exclude: slave, insane, feral, animal
+	}
 	
 	skills_min:
 	{

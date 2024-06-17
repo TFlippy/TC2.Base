@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: bureaucrat, criminal, educated, military, nobility, armed, law, social, soldier, entertainer, brawler, strong, evil, politician, terrorist, fanatic
+	}
 	
 	skills_min:
 	{

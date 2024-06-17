@@ -16,6 +16,13 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: bureaucrat, educated, military, professional, law, social, engineer, insane, nomad, outdoor
+		exclude: unskilled, dumb
+	}
 	
 	skills_min:
 	{

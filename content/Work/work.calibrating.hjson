@@ -16,6 +16,13 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: construction, scientist, educated, artisan, professional, technician, engineer, artist, sedentary
+		exclude: feral, animal, junkie, dumb
+	}
 	
 	skills_min:
 	{

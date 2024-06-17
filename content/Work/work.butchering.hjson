@@ -16,6 +16,12 @@
 	
 	flags: generated, wip, disabled
 	cooldown: 0.200
+	color: "0xffaeb59a"
+	
+	character_traits:
+	{
+		include: slave, scientist, medical, nobility, farmer, laborer, hunter, culinary, insane, feral, brawler, strong, evil, murderer
+	}
 	
 	skills_min:
 	{
