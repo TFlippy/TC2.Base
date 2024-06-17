@@ -16,7 +16,7 @@
 	
 	flags: skilled, social, ambient, dangerous, advanced, careful, politics, bureaucracy, wip
 	cooldown: 3.000
-	color: "0xffaeb59a"
+	color: "0xff719240"
 	
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, magnifying_glass, crowbar

@@ -16,7 +16,7 @@
 	
 	flags: manual, skilled, machine, tools, dangerous, technical, construction, industrial, wip
 	cooldown: 0.320
-	color: "0xffaeb59a"
+	color: "0xffbb7f18"
 	
 	tools_required: lathe, hammer, table, vise, file
 	tools_optional: ruler, grinder, anvil, heater, tweezers, magnifying_glass, table, chair, vise, calculator, file, chisel, tongs, crowbar

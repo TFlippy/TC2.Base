@@ -18,7 +18,7 @@
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	
-	tools_required: none
+	tools_required: cutters
 	tools_optional: none
 	
 	character_traits:

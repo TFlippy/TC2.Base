@@ -16,9 +16,9 @@
 	
 	flags: manual, machine, tools, technical, construction, industrial, wip
 	cooldown: 0.350
-	color: "0xffaeb59a"
+	color: "0xffbb7f18"
 	
-	tools_required: screwdriver, wrench
+	tools_required: screwdriver, wrench, table
 	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, anvil, heater, table, chair, vise, calculator, stapler, towel, tongs, pick, crowbar, knife
 	
 	character_traits:

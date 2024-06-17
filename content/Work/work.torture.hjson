@@ -16,9 +16,9 @@
 	
 	flags: manual, tools, social, dangerous, leisure, wip
 	cooldown: 0.350
-	color: "0xffaeb59a"
+	color: "0xff719240"
 	
-	tools_required: none
+	tools_required: towel
 	tools_optional: pencil, paper, ruler, hammer, cutters, drill, screwdriver, radio, telephone, tweezers, magnifying_glass, chair, vise, bucket, syringe, stapler, towel, spatula, tongs, pick, crowbar, knife, bed
 	
 	character_traits:

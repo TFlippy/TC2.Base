@@ -16,7 +16,7 @@
 	
 	flags: manual, skilled, machine, automated, science, ambient, dangerous, technical, chemical, careful, industrial, wip
 	cooldown: 1.000
-	color: "0xffaeb59a"
+	color: "0x8f14d081"
 	
 	tools_required: none
 	tools_optional: centrifuge, glassware, air_filter, condenser, heater, bottle, syringe

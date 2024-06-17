@@ -18,7 +18,7 @@
 	cooldown: 0.350
 	color: "0xffaeb59a"
 	
-	tools_required: hammer, saw
+	tools_required: hammer, saw, file, knife
 	tools_optional: pencil, ruler, lathe, hammer, saw, drill, screwdriver, tweezers, table, chair, vise, axe, file, chisel, knife
 	
 	character_traits:

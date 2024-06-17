@@ -16,7 +16,7 @@
 	
 	flags: skilled, social, politics, wip
 	cooldown: 1.000
-	color: "0xffaeb59a"
+	color: "0x8f005ec2"
 	
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, towel

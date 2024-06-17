@@ -16,9 +16,9 @@
 	
 	flags: skilled, social, advanced, careful, politics, wip
 	cooldown: 0.350
-	color: "0xffaeb59a"
+	color: "0x8f005ec2"
 	
-	tools_required: none
+	tools_required: table, chair
 	tools_optional: pencil, paper, telephone, magnifying_glass, chair, towel
 	
 	character_traits:

@@ -16,7 +16,10 @@
 	
 	flags: social, ambient, dangerous, simple, politics, wip
 	cooldown: 0.800
-	color: "0xffaeb59a"
+	color: "0xff719240"
+	
+	tools_required: none
+	tools_optional: none
 	
 	character_traits:
 	{

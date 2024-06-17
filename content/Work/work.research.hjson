@@ -16,7 +16,7 @@
 	
 	flags: skilled, science, advanced, technical, careful, industrial, bureaucracy, wip
 	cooldown: 1.000
-	color: "0xffaeb59a"
+	color: "0x8f14d081"
 	
 	tools_required: pencil, paper, table, chair
 	tools_optional: pencil, paper, ruler, radio, telephone, air_filter, tweezers, magnifying_glass, table, chair, calculator, syringe, towel
