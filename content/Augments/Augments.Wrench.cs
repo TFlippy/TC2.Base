@@ -53,7 +53,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100, 10));
 				}
 			));
 
@@ -76,7 +76,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100, 10));
 				}
 			));
 
@@ -99,7 +99,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100, 10));
 				}
 			));
 
@@ -122,7 +122,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100, 10));
 				}
 			));
 
@@ -145,7 +145,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100, 10));
 				}
 			));
 		}

@@ -156,9 +156,9 @@ namespace TC2.Base
 
 							case Crafting.Requirement.Type.Work:
 							{
-								switch (requirement.work)
+								switch (requirement.work.GetIdentifier())
 								{
-									case Work.Type.Smithing:
+									case "smithing":
 									{
 										context.requirements_new.Add(Crafting.Requirement.Work(requirement.work, 50.00f * amount, (byte)MathF.Ceiling(5.00f * amount)));
 									}
@@ -287,16 +287,16 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.difficulty = (byte)(requirement.difficulty * Maths.Lerp(1.00f, 1.75f, ratio));
 									requirement.amount += Maths.Lerp(0.00f, 300.00f, ratio);
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.difficulty = (byte)(requirement.difficulty * Maths.Lerp(1.00f, 1.50f, ratio));
 									requirement.amount += Maths.Lerp(0.00f, 200.00f, ratio);
@@ -580,30 +580,30 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 1.50f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
@@ -665,30 +665,30 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 1.50f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
@@ -765,30 +765,30 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 1.20f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 1.10f;
 									requirement.difficulty = (byte)(requirement.difficulty * 1.20f);
@@ -1293,23 +1293,23 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.20f;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.20f;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.05f;
 									context.requirements_new.Add(requirement);
@@ -1325,15 +1325,15 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.difficulty += 2;
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.difficulty += 2;
 								}
@@ -1431,9 +1431,9 @@ namespace TC2.Base
 
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.20f;
 									requirement.difficulty += 8;
@@ -1539,16 +1539,16 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.20f;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.05f;
 									context.requirements_new.Add(requirement);
@@ -1617,14 +1617,14 @@ namespace TC2.Base
 			//						{
 			//							switch (requirement.work)
 			//							{
-			//								case Work.Type.Smithing:
+			//								case "smithing":
 			//								{
 			//									requirement.amount *= 0.20f;
 			//									context.requirements_new.Add(requirement);
 			//								}
 			//								break;
 
-			//								case Work.Type.Machining:
+			//								case "machining":
 			//								{
 			//									requirement.amount *= 0.05f;
 			//									context.requirements_new.Add(requirement);
@@ -1693,14 +1693,14 @@ namespace TC2.Base
 			//						{
 			//							switch (requirement.work)
 			//							{
-			//								case Work.Type.Smithing:
+			//								case "smithing":
 			//								{
 			//									requirement.amount *= 0.20f;
 			//									context.requirements_new.Add(requirement);
 			//								}
 			//								break;
 
-			//								case Work.Type.Machining:
+			//								case "machining":
 			//								{
 			//									requirement.amount *= 0.05f;
 			//									context.requirements_new.Add(requirement);
@@ -1756,9 +1756,9 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.00f + (mult * 0.25f);
 								}
@@ -1893,30 +1893,30 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.90f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.90f);
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 0.85f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.90f);
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.65f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.80f);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.60f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
@@ -1995,27 +1995,27 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.50f;
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 1.05f;
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 2.00f;
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 2.00f;
 								}
@@ -2076,27 +2076,27 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 2.50f;
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 1.05f;
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 3.00f;
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 3.00f;
 								}
@@ -2155,27 +2155,27 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.60f;
 								}
 								break;
 
-								case Work.Type.Woodworking:
+								case "woodworking":
 								{
 									requirement.amount *= 0.95f;
 								}
 								break;
 
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.60f;
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.60f;
 								}
@@ -2297,15 +2297,15 @@ namespace TC2.Base
 					{
 						if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount += 80.00f;
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount += 60.00f;
 								}
@@ -2494,9 +2494,9 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 1.10f;
 									requirement.amount += 50.00f;
@@ -2504,14 +2504,14 @@ namespace TC2.Base
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 1.40f;
 									requirement.difficulty += 3;
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.70f;
 									requirement.difficulty += 2;
@@ -2603,23 +2603,23 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.50f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.65f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.30f;
 									requirement.difficulty = (byte)(requirement.difficulty * 0.20f);
@@ -2853,23 +2853,23 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= 0.50f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= 0.75f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= 0.70f * barrel_count_inv;
 									context.requirements_new.Add(requirement);
@@ -3115,7 +3115,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.25f));
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 150.00f, 10));
 				}
 			));
 
@@ -3312,35 +3312,35 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 25.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 500.00f, 20));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 500.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 5.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 7.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250.00f, 20));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 250.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_TG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 3.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 17.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 10));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 10));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 2.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 200.00f, 20));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.50f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
 					{
@@ -3351,7 +3351,7 @@ namespace TC2.Base
 								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.25f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f), ref extra_mass);
-								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 350.00f, 20));
+								context.requirements_new.Add(Crafting.Requirement.Work("assembling", 350.00f, 20));
 							}
 							break;
 
@@ -3360,7 +3360,7 @@ namespace TC2.Base
 								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
-								context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 20));
+								context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 20));
 							}
 							break;
 						}
@@ -3370,7 +3370,7 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.10f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 4.00f), ref extra_mass);
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 100.00f, 15));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 15));
 					}
 
 					context.mass_new += extra_mass;
@@ -3506,7 +3506,7 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
 						context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
 						context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 
 						context.mass_new += mass_added;
 
@@ -3677,7 +3677,7 @@ namespace TC2.Base
 						context.requirements_new.Add(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
 						context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
 						context.requirements_new.Add(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
-						context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
+						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 
 						context.mass_new += mass_added;
 

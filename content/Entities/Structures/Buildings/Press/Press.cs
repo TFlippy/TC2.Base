@@ -180,35 +180,35 @@
 			//	}
 			//}
 
-			switch (crafter_state.current_work_type)
-			{
-				case Work.Type.Pressing:
-				{
-					press.load_multiplier = crafter_state.current_work_difficulty;
+			//switch (crafter_state.current_work_type)
+			//{
+			//	case Work.Type.Pressing:
+			//	{
+			//		press.load_multiplier = crafter_state.current_work_difficulty;
 
-					press_state.flags.SetFlag(Press.State.Flags.Success, false);
+			//		press_state.flags.SetFlag(Press.State.Flags.Success, false);
 
-					if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
-					{
-						if (MathF.Abs(axle_state.angular_velocity) >= 1.00f)
-						{
-							crafter_state.work += 1.00f;
-							press_state.flags.SetFlag(Press.State.Flags.Success, true);
-						}
-						else
-						{
-							crafter_state.work = 0.00f;
-						}
+			//		if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
+			//		{
+			//			if (MathF.Abs(axle_state.angular_velocity) >= 1.00f)
+			//			{
+			//				crafter_state.work += 1.00f;
+			//				press_state.flags.SetFlag(Press.State.Flags.Success, true);
+			//			}
+			//			else
+			//			{
+			//				crafter_state.work = 0.00f;
+			//			}
 
-						press_state.flags.SetFlag(Press.State.Flags.Smashed, true);
+			//			press_state.flags.SetFlag(Press.State.Flags.Smashed, true);
 
-						axle_state.Sync(entity, true);
-						//crafter_state.Sync(entity);
-						press_state.Sync(entity, true);
-					}
-				}
-				break;
-			}
+			//			axle_state.Sync(entity, true);
+			//			//crafter_state.Sync(entity);
+			//			press_state.Sync(entity, true);
+			//		}
+			//	}
+			//	break;
+			//}
 		}
 #endif
 

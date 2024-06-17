@@ -330,7 +330,7 @@ namespace TC2.Base
 						{
 							requirement.amount *= 1.70f;
 							requirement.difficulty += 1;
-							if (requirement.work == Work.Type.Smithing)
+							if (requirement.work.GetIdentifier() == "smithing")
 							{
 								requirement.difficulty += 3;
 								requirement.amount += 100.00f;

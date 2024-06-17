@@ -595,21 +595,21 @@ namespace TC2.Base
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
 						{
-							switch (requirement.work)
+							switch (requirement.work.GetIdentifier())
 							{
-								case Work.Type.Machining:
+								case "machining":
 								{
 									requirement.amount *= MathF.Pow(0.95f, batch_size - 1);
 								}
 								break;
 
-								case Work.Type.Smithing:
+								case "smithing":
 								{
 									requirement.amount *= MathF.Pow(0.93f, batch_size - 1);
 								}
 								break;
 
-								case Work.Type.Assembling:
+								case "assembling":
 								{
 									requirement.amount *= MathF.Pow(0.90f, batch_size - 1);
 								}
@@ -770,21 +770,21 @@ namespace TC2.Base
 							}
 							else if (requirement.type == Crafting.Requirement.Type.Work)
 							{
-								switch (requirement.work)
+								switch (requirement.work.GetIdentifier())
 								{
-									case Work.Type.Machining:
+									case "machining":
 									{
 										requirement.amount *= MathF.Pow(1.00f - ratio, 1.50f);
 									}
 									break;
 
-									case Work.Type.Smithing:
+									case "smithing":
 									{
 										requirement.amount *= MathF.Pow(1.00f - ratio, 1.30f);
 									}
 									break;
 
-									case Work.Type.Assembling:
+									case "assembling":
 									{
 										requirement.amount *= MathF.Pow(1.00f - (ratio * 0.80f), 1.10f);
 									}
@@ -1085,7 +1085,7 @@ namespace TC2.Base
 					data.zoom_min /= 0.50f + (value * 0.50f);
 					data.zoom_max /= 0.50f + (value * 0.50f);
 
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150, 10));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 150, 10));
 				}
 			));
 
@@ -1126,7 +1126,7 @@ namespace TC2.Base
 					data.zoom_min += (value * 0.50f);
 					data.zoom_max *= value;
 
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 250, 5));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 250, 5));
 				}
 			));
 
@@ -1163,7 +1163,7 @@ namespace TC2.Base
 					ref var value = ref handle.GetData<float>();
 
 					data.zoom_modifier = Maths.Lerp(data.zoom_modifier, 0.50f, value * 0.90f);
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 120, (byte)MathF.Pow(7, 1.00f + (value * 1.50f))));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 120, (byte)MathF.Pow(7, 1.00f + (value * 1.50f))));
 				}
 			));
 
@@ -1205,7 +1205,7 @@ namespace TC2.Base
 					data.zoom_min /= 1.00f + (value * 0.50f);
 					data.zoom_max *= 1.00f + (value * 0.25f);
 
-					context.requirements_new.Add(Crafting.Requirement.Work(Work.Type.Assembling, 150, 7));
+					context.requirements_new.Add(Crafting.Requirement.Work("assembling", 150, 7));
 				}
 			));
 
@@ -2619,23 +2619,23 @@ namespace TC2.Base
 							}
 							else if (requirement.type == Crafting.Requirement.Type.Work)
 							{
-								switch (requirement.work)
+								switch (requirement.work.GetIdentifier())
 								{
-									case Work.Type.Machining:
+									case "machining":
 									{
 										requirement.amount *= 0.85f;
 										requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
 									}
 									break;
 
-									case Work.Type.Smithing:
+									case "smithing":
 									{
 										requirement.amount *= 0.77f;
 										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
-									case Work.Type.Assembling:
+									case "assembling":
 									{
 										requirement.amount *= 0.85f;
 										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.80f) - 2.00f);
@@ -2885,23 +2885,23 @@ namespace TC2.Base
 							}
 							else if (requirement.type == Crafting.Requirement.Type.Work)
 							{
-								switch (requirement.work)
+								switch (requirement.work.GetIdentifier())
 								{
-									case Work.Type.Machining:
+									case "machining":
 									{
 										requirement.amount *= 0.85f;
 										requirement.difficulty = (byte)(requirement.difficulty * 0.75f);
 									}
 									break;
 
-									case Work.Type.Smithing:
+									case "smithing":
 									{
 										requirement.amount *= 0.77f;
 										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.90f) - 3.00f);
 									}
 									break;
 
-									case Work.Type.Assembling:
+									case "assembling":
 									{
 										requirement.amount *= 0.85f;
 										requirement.difficulty = (byte)Maths.Max(3, (requirement.difficulty * 0.80f) - 2.00f);

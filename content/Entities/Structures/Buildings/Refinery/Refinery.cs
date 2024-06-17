@@ -147,51 +147,51 @@
 			return (moles * gas_constant * (double)temperature) / (double)volume;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateWheel(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
-		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
-		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
-		{
-			switch (crafter_state.current_work_type)
-			{
-				case Work.Type.Mixing:
-				{
-					axle_state.force_load_new += crafter_state.current_work_difficulty * 100.00f;
-					crafter_state.work += axle_state.angular_velocity * info.DeltaTime;
-				}
-				break;
-			}
-		}
+		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void UpdateWheel(ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform,
+		//[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
+		//[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		//[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		//{
+		//	switch (crafter_state.current_work_type)
+		//	{
+		//		case Work.Type.Mixing:
+		//		{
+		//			axle_state.force_load_new += crafter_state.current_work_difficulty * 100.00f;
+		//			crafter_state.work += axle_state.angular_velocity * info.DeltaTime;
+		//		}
+		//		break;
+		//	}
+		//}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
-		public static void UpdateCrafter(ISystem.Info info, Entity entity,
-		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
-		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
-		[Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state)
-		//[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
-		{
-			switch (crafter_state.current_work_type)
-			{
-				case Work.Type.Cooking:
-				case Work.Type.Heating:
-				{
-					var power = burner_state.available_power;
-					var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
-					crafter_state.work += work_amount;
-				}
-				break;
+		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
+		//public static void UpdateCrafter(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state,
+		//[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
+		//[Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state)
+		////[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		//{
+		//	switch (crafter_state.current_work_type)
+		//	{
+		//		case Work.Type.Cooking:
+		//		case Work.Type.Heating:
+		//		{
+		//			var power = burner_state.available_power;
+		//			var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+		//			crafter_state.work += work_amount;
+		//		}
+		//		break;
 
-				case Work.Type.Refining:
-				{
-					var power = burner_state.available_power;
-					var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
-					crafter_state.work += work_amount;
-				}
-				break;
-			}
-		}
+		//		case Work.Type.Refining:
+		//		{
+		//			var power = burner_state.available_power;
+		//			var work_amount = (float)((power / Maths.Max(crafter_state.current_work_difficulty, 1.00f)) * info.DeltaTime * 0.001f);
+		//			crafter_state.work += work_amount;
+		//		}
+		//		break;
+		//	}
+		//}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity,
