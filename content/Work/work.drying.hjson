@@ -14,7 +14,7 @@
 		frame: [19, 0]
 	}
 	
-	flags: manual, machine, automated, ambient, wip
+	flags: machine, automated, ambient, simple, wip
 	cooldown: 0.700
 	color: "0xffaeb59a"
 	

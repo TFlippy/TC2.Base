@@ -14,7 +14,7 @@
 		frame: [29, 0]
 	}
 	
-	flags: manual, skilled, social, ambient, dangerous, advanced, careful, politics, wip
+	flags: skilled, social, ambient, dangerous, advanced, careful, politics, wip
 	cooldown: 3.000
 	color: "0xffaeb59a"
 	

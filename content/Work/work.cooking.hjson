@@ -14,7 +14,7 @@
 		frame: [2, 0]
 	}
 	
-	flags: manual, tools, ambient, wip
+	flags: manual, skilled, tools, ambient, careful, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	

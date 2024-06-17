@@ -14,7 +14,7 @@
 		frame: [18, 0]
 	}
 	
-	flags: manual, skilled, politics, wip
+	flags: manual, skilled, tools, simple, wip
 	cooldown: 0.500
 	color: "0xffaeb59a"
 	

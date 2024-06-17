@@ -14,7 +14,7 @@
 		frame: [3, 0]
 	}
 	
-	flags: manual, tools, simple, wip
+	flags: manual, tools, dangerous, simple, wip
 	cooldown: 2.000
 	color: "0xffaeb59a"
 	

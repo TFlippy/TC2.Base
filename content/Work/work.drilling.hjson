@@ -14,7 +14,7 @@
 		frame: [33, 0]
 	}
 	
-	flags: manual, machine, automated, industrial, wip
+	flags: manual, machine, automated, tools, dangerous, simple, technical, careful, construction, industrial, wip
 	cooldown: 0.200
 	color: "0xffaeb59a"
 	

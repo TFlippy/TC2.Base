@@ -14,7 +14,7 @@
 		frame: [17, 0]
 	}
 	
-	flags: manual, social, ambient, dangerous, simple, politics, wip
+	flags: social, ambient, dangerous, simple, politics, wip
 	cooldown: 0.800
 	color: "0xffaeb59a"
 	
