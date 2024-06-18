@@ -8,14 +8,14 @@
 	
 	icon:
 	{
-		texture: "resource.scrap"
+		texture: resource.scrap
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_crafting.mini"
+		texture: ui_icons_crafting.mini
 		size: [16, 16]
 	}
 	
@@ -27,7 +27,7 @@
 	step: 50
 	
 	type: workshop
-	flags: wip
+	flags: disabled, wip
 	tags: forge, workbench, scrapyard
 	rank: 0.000
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			type: resource
-			material: "scrap"
+			material: scrap
 			amount: 1.000
 		}
 		{
@@ -50,25 +50,25 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 0.030
 			amount_extra: 0.095
 		}
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 0.020
 			amount_extra: 0.175
 		}
 		{
 			type: resource
-			material: "copper.ingot"
+			material: copper.ingot
 			amount: 0.007
 			amount_extra: 0.040
 		}
 		{
 			type: resource
-			material: "scrap"
+			material: scrap
 			amount: 0.100
 			amount_extra: 0.250
 		}

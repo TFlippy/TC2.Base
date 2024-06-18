@@ -3,24 +3,24 @@
 	name: "Sawed Steel Frames"
 	desc:
 		'''
-		Laboriously cut steel plates into frames using only a handsaw.
+		Laboriously cut steel plates into shapes resembling frames only using a handsaw.
 		'''
 	
 	icon:
 	{
-		texture: "resource.steel.frames"
+		texture: resource.steel.frames
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xffe28426"
 	
 	min: 1
 	max: 100
 	step: 1
 	
 	type: workshop
-	flags: wip
+	flags: none
 	tags: forge, workbench, manufactory
 	rank: 0.000
 	
@@ -28,14 +28,14 @@
 	[
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 4.000
 		}
 		{
 			type: work
-			work: smithing
-			amount: 100.000
-			difficulty: 6
+			work: sawing
+			amount: 400.000
+			difficulty: 21
 		}
 	]
 	
@@ -43,14 +43,15 @@
 	[
 		{
 			type: resource
-			material: "steel.frames"
+			material: steel.frames
 			amount: 1.000
+			amount_extra: 0.500
 		}
 		{
 			type: resource
-			material: "scrap.steel"
-			amount: 0.550
-			amount_extra: 0.490
+			material: scrap.steel
+			amount: 0.100
+			amount_extra: 0.060
 		}
 	]
 }

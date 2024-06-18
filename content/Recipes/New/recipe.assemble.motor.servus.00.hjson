@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "motor.servus.00"
+		texture: motor.servus.00
 		size: [24, 16]
 		frame: [2, 0]
 	}
@@ -28,17 +28,17 @@
 	[
 		{
 			type: resource
-			material: "steel.frames"
+			material: steel.frames
 			amount: 10.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 4.000
 		}
 		{
 			type: resource
-			material: "arcane_actuator"
+			material: arcane_actuator
 			amount: 2.000
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: prefab
-			prefab: "motor.servus.00"
+			prefab: motor.servus.00
 			amount: 1.000
 		}
 	]

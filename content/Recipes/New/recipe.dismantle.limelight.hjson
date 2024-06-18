@@ -3,23 +3,23 @@
 	name: "Dismantle Limelight"
 	desc:
 		'''
-		Scrap a limelight for parts.
+		Scrap a limelight for spare parts.
 		'''
 	
 	icon:
 	{
-		texture: "resource.limelight"
+		texture: resource.limelight
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_crafting.mini"
+		texture: ui_icons_crafting.mini
 		size: [16, 16]
 	}
 	
-	color_button: "0xff769d49"
+	color_button: "0xffc16344"
 	icon_extra_offset: [0.000, -6.000]
 	
 	min: 5
@@ -27,7 +27,7 @@
 	step: 5
 	
 	type: workshop
-	flags: wip
+	flags: none
 	tags: workbench, scrapyard, manufactory
 	rank: -348.000
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			type: resource
-			material: "limelight"
+			material: limelight
 			amount: 1.000
 		}
 		{
@@ -50,19 +50,19 @@
 	[
 		{
 			type: resource
-			material: "lime"
-			amount: 0.253
-			amount_extra: 0.052
+			material: lime
+			amount: 0.453
+			amount_extra: 0.312
 		}
 		{
 			type: resource
-			material: "recondite.ingot"
-			amount: 0.050
-			amount_extra: 0.017
+			material: scrap.heavy
+			amount: 0.130
+			amount_extra: 0.087
 		}
 		{
 			type: resource
-			material: "pellet.heat"
+			material: pellet.heat
 			amount: 0.200
 		}
 	]

@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "crate"
+		texture: crate
 	}
 	
 	color_button: "0xffaeb59a"
@@ -26,7 +26,7 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 75.000
 		}
 		{
@@ -41,7 +41,7 @@
 	[
 		{
 			type: prefab
-			prefab: "crate"
+			prefab: crate
 			amount: 1.000
 		}
 	]
