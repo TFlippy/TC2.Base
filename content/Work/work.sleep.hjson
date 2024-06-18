@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Sleeping"
-	name_short: "Sleeping"
+	name: "Sleep"
+	name_short: "Sleep"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [37, 0]
 	}
@@ -20,6 +20,15 @@
 	
 	tools_required: bed
 	tools_optional: air_filter, heater, tweezers, bucket, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

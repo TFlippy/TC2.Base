@@ -22,19 +22,24 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 6.000
-		}
-		{
-			type: resource
-			material: cloth
-			amount: 2.000
+			material: timber
+			amount: 0.500
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 170.000
 			difficulty: 6
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 2.000
 		}
 		{
 			type: work
@@ -50,6 +55,13 @@
 			type: prefab
 			prefab: crossbow
 			amount: 1.000
+		}
+		{
+			type: resource
+			flags: byproduct, waste
+			material: woodchips
+			amount: 4.140
+			amount_extra: 2.760
 		}
 	]
 }

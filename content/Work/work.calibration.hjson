@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Calibrating"
-	name_short: "Calibrating"
+	name: "Calibration"
+	name_short: "Calibration"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [24, 0]
 	}
@@ -20,6 +20,15 @@
 	
 	tools_required: ruler, screwdriver, tweezers
 	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, table, chair, vise, calculator, syringe, file, towel, pick
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

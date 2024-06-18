@@ -3,7 +3,7 @@
 	name: "Dismantle Limelight"
 	desc:
 		'''
-		Smash a limelight for spare parts.
+		Smash a limelight into spare parts.
 		'''
 	
 	icon:
@@ -40,7 +40,7 @@
 		}
 		{
 			type: work
-			work: shattering
+			work: shatter
 			amount: 47.000
 			difficulty: 4
 		}

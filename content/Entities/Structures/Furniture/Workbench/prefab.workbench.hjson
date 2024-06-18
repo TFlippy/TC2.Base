@@ -48,8 +48,9 @@ building:
 
 interactable:
 {
-	window_size: [600.000, 440.000]
-	window_size_misc: [72.000, 0.000]
+	flags: none
+	window_size: [600.000, 488.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 shop:
@@ -60,7 +61,7 @@ shop:
 
 workshop:
 {
-	@inventory4:
+	@inventory8:
 	{
 		stack_size_multiplier: 1.000
 		type: storage
