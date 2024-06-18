@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Dismantle Arcane Actuators"
+	name: "Dismantle Magitronic Actuators"
 	desc:
 		'''
-		Scrap arcane actuators for parts.
+		Scrap magitronic actuators for spare parts.
 		'''
 	
 	icon:
 	{
-		texture: "resource.arcane_actuator"
+		texture: "resource.actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -35,7 +35,7 @@
 	[
 		{
 			type: resource
-			material: "arcane_actuator"
+			material: "actuator"
 			amount: 1.000
 		}
 		{

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Arcane Actuators"
+	name: "Magitronic Actuators"
 	desc:
 		'''
 		Advanced essence-infused actuators used to bring machines to motion.
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.arcane_actuator"
+		texture: "resource.actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -58,7 +58,7 @@
 	[
 		{
 			type: resource
-			material: "arcane_actuator"
+			material: "actuator"
 			amount: 1.000
 		}
 	]

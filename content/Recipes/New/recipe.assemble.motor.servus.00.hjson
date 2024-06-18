@@ -3,7 +3,7 @@
 	name: "Motor (Servus)"
 	desc:
 		'''
-		Inefficient but very cheap motor consisting of 2 arcane actuators linked to a crankshaft.
+		Inefficient but very cheap motor consisting of 2 magitronic actuators linked to a crankshaft.
 		'''
 	
 	icon:
@@ -38,7 +38,7 @@
 		}
 		{
 			type: resource
-			material: arcane_actuator
+			material: actuator
 			amount: 2.000
 		}
 		{

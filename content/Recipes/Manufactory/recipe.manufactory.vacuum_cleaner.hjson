@@ -41,7 +41,7 @@
 		}
 		{
 			type: resource
-			material: "arcane_actuator"
+			material: "actuator"
 			amount: 3.000
 		}
 		{

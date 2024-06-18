@@ -526,11 +526,11 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // High cost
+					context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 1.00f)); // High cost
 
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f)); // Even higher cost on melee weapons
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 1.00f)); // Even higher cost on melee weapons
 					}
 				}
 			));

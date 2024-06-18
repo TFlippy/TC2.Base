@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: "resource.arcane_actuator"
+		texture: "resource.actuator"
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -25,7 +25,7 @@
 	// kg
 	mass_per_unit: 8.650
 	quantity_max: 50.000
-	prefab: "resource.arcane_actuator"
+	prefab: "resource.actuator"
 	
 	commodity:
 	{

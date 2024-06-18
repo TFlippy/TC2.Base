@@ -3309,35 +3309,35 @@ namespace TC2.Base
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 10.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 10.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 25.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 500.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 5.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 5.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 7.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 250.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_TG))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 3.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 17.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 10));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 4.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 4.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 2.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 2.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.50f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 20));
@@ -3348,7 +3348,7 @@ namespace TC2.Base
 						{
 							case 0:
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.25f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 5.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Work("assembling", 350.00f, 20));
@@ -3357,7 +3357,7 @@ namespace TC2.Base
 
 							default:
 							{
-								context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 2.00f), ref extra_mass);
+								context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 2.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
 								context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 20));
@@ -3367,7 +3367,7 @@ namespace TC2.Base
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
-						context.requirements_new.Add(Crafting.Requirement.Resource("arcane_actuator", 1.00f), ref extra_mass);
+						context.requirements_new.Add(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("steel.ingot", 0.10f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Resource("machine_parts", 4.00f), ref extra_mass);
 						context.requirements_new.Add(Crafting.Requirement.Work("assembling", 100.00f, 15));
