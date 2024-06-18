@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Smithing"
-	name_short: "Smithing"
+	name: "Shattering"
+	name_short: "Shattering"
 	desc:
 		'''
 		TODO: Desc
@@ -14,16 +14,16 @@
 		frame: [1, 0]
 	}
 	
-	flags: manual, skilled, machine, tools, dangerous, construction, industrial, wip
+	flags: manual, machine, tools, wip
 	cooldown: 1.000
 	color: "0xffffa200"
 	
-	tools_required: hammer, anvil, forge, table, tongs
+	tools_required: hammer, table
 	tools_optional: none
 	
 	character_traits:
 	{
-		include: construction, artisan, laborer, technician, artist, brawler, outdoor, strong
+		include: laborer, brawler, strong, dumb
 		weight: 1.000
 	}
 	
@@ -34,9 +34,7 @@
 	
 	skills_mult:
 	{
-		blacksmithing: 1.000
-		strength: 0.600
-		metallurgy: 0.100
+		strength: 1.100
 	}
 	
 	sounds:

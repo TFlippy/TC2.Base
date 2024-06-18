@@ -1,23 +1,31 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "TODO: Name"
+	name: "Handsawn Planks"
 	desc:
 		'''
-		TODO: Desc
+		Cut raw timber into nicer, more usable planks using a handsaw.
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.frames
+		texture: resource.wood
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	color_button: "0xffe28426"
+	icon_extra:
+	{
+		texture: resource.sawdust
+		size: [16, 16]
+		frame: [1, 0]
+	}
 	
-	min: 1
+	color_button: "0xffe28426"
+	icon_extra_offset: [0.250, -5.000]
+	
+	min: 4
 	max: 100
-	step: 1
+	step: 4
 	
 	type: workshop
 	flags: none
@@ -28,14 +36,14 @@
 	[
 		{
 			type: resource
-			material: steel.plate
-			amount: 4.000
+			material: timber
+			amount: 1.000
 		}
 		{
 			type: work
 			work: sawing
-			amount: 400.000
-			difficulty: 21
+			amount: 460.000
+			difficulty: 7
 		}
 	]
 	
@@ -43,15 +51,15 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 1.000
-			amount_extra: 0.500
+			material: wood
+			amount: 7.000
+			amount_extra: 2.000
 		}
 		{
 			type: resource
-			material: scrap.steel
-			amount: 0.100
-			amount_extra: 0.060
+			material: sawdust
+			amount: 1.100
+			amount_extra: 1.260
 		}
 	]
 }

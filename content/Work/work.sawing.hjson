@@ -9,17 +9,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [31, 0]
 	}
 	
 	flags: manual, machine, automated, tools, dangerous, simple, industrial, wip
-	cooldown: 0.400
+	cooldown: 0.500
 	color: "0xffaeb59a"
 	
 	tools_required: saw
-	tools_optional: none
+	tools_optional: table, chair, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Sawed Steel Frames"
+	name: "Handsawn Steel Frames"
 	desc:
 		'''
 		Laboriously cut steel plates into shapes resembling frames only using a handsaw.
@@ -49,9 +49,9 @@
 		}
 		{
 			type: resource
-			material: scrap.steel
-			amount: 0.100
-			amount_extra: 0.060
+			material: steel.powder
+			amount: 0.780
+			amount_extra: 0.260
 		}
 	]
 }
