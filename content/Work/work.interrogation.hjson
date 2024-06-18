@@ -9,17 +9,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [37, 0]
 	}
 	
 	flags: skilled, social, advanced, careful, politics, wip
-	cooldown: 0.350
+	cooldown: 1.850
 	color: "0x8f005ec2"
 	
 	tools_required: table, chair
 	tools_optional: pencil, paper, telephone, magnifying_glass, chair, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -38,5 +47,24 @@
 	
 	}
 	
-	sounds: []
+	sounds:
+	[
+		work.paperwork.page.00
+		work.paperwork.pencil.03
+		vo_give
+		work.paperwork.pencil.00
+		work.paperwork.pencil.01
+		vo_what
+		vo_bad
+		work.paperwork.page.01
+		vo_no
+		work.paperwork.page.02
+		vo_idiot
+		vo_huh
+		vo_okay
+		work.paperwork.page.02
+		work.paperwork.pencil.00
+		work.paperwork.pencil.01
+		vo_fire
+	]
 }

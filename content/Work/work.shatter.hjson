@@ -14,11 +14,11 @@
 		frame: [1, 0]
 	}
 	
-	flags: manual, machine, tools, wip
+	flags: manual, machine, automated, tools, simple, leisure, wip
 	cooldown: 1.000
 	color: "0xffffa200"
 	
-	tools_required: hammer, table
+	tools_required: hammer
 	tools_optional: none
 	
 	machines_required: none
@@ -33,7 +33,7 @@
 	character_traits:
 	{
 		require: strong
-		include: slave, laborer, miner, insane, alcoholic, brawler, strong, evil, dumb
+		include: slave, laborer, miner, insane, alcoholic, feral, pest, brawler, strong, evil, dumb
 		weight: 1.000
 	}
 	
@@ -44,7 +44,8 @@
 	
 	skills_mult:
 	{
-		strength: 1.100
+		strength: 1.450
+		clubs: 1.200
 	}
 	
 	sounds:

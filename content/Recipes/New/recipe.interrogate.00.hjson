@@ -1,0 +1,70 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Interrogate"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.emotes.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	type: workshop
+	flags: no_amount_multiplier, wip
+	tags: headquarters
+	rank: -12.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: paper
+			amount: 5.000
+		}
+		{
+			type: work
+			work: interrogation
+			amount: 40.000
+			difficulty: 8
+		}
+		{
+			type: work
+			work: torture
+			amount: 150.000
+			difficulty: 6
+		}
+		{
+			type: work
+			work: interrogation
+			amount: 350.000
+			difficulty: 4
+		}
+		{
+			type: work
+			work: paperwork
+			amount: 400.000
+			difficulty: 6
+		}
+	]
+	
+	products: []
+	
+	on_complete:
+	{
+		handle: "headquarters.infiltration"
+		data:
+		{
+			h_origin: human.scout
+		}
+	}
+}

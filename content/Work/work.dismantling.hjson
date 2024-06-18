@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Dismantling"
+	name_short: "Dismantling"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	flags: manual, skilled, tools, science, dangerous, technical, careful, industrial, wip
+	cooldown: 0.500
+	color: "0xffbb7f18"
+	
+	tools_required: screwdriver
+	tools_optional: cutters, drill, wrench, tweezers, magnifying_glass, table, chair, vise, knife
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
+	
+	character_traits:
+	{
+		include: construction, scientist, medical, laborer, technician, engineer, poor, culinary, soldier, insane, arcane, thief, terrorist
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		scavenging: 0.550
+		intellect: 0.800
+		dexterity: 0.400
+		engineering: 0.850
+		strength: 0.400
+	}
+	
+	sounds:
+	[
+		wrench.dismantle.00
+		item.adjust.00
+		work_assembly_04
+		burner.lid.clang.00
+		burner.lid.clang.01
+	]
+}

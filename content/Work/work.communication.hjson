@@ -9,17 +9,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [30, 0]
 	}
 	
-	flags: skilled, social, politics, wip
-	cooldown: 1.000
+	flags: skilled, social, politics, leisure, wip
+	cooldown: 1.500
 	color: "0x8f005ec2"
 	
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -40,5 +49,10 @@
 		leadership: 0.700
 	}
 	
-	sounds: []
+	sounds:
+	[
+		npc_talk_00
+		npc_talk_01
+		npc_talk_02
+	]
 }

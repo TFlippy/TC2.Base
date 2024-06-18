@@ -9,17 +9,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [37, 0]
 	}
 	
 	flags: manual, tools, social, dangerous, leisure, wip
-	cooldown: 0.350
+	cooldown: 1.100
 	color: "0xff719240"
 	
 	tools_required: towel
 	tools_optional: pencil, paper, ruler, hammer, cutters, drill, screwdriver, radio, telephone, tweezers, magnifying_glass, chair, vise, bucket, syringe, stapler, towel, spatula, tongs, pick, crowbar, knife, bed
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -37,5 +46,25 @@
 	
 	}
 	
-	sounds: []
+	sounds:
+	[
+		vo_idiot
+		flesh_hit_blunt_00
+		vo_die
+		flesh_hit_blunt_01
+		flesh_hit_blunt_00
+		vo_haha
+		equip.00
+		zabar.tongue.return
+		zabar.tongue.return
+		zabar.tongue.return
+		flesh.hit.scratch.00
+		vo_rip
+		vo_neutral
+		flesh_hit_blunt_00
+		metal.frame.hit.00
+		vo_look
+		item.rattle.00
+		flesh_hit_blunt_01
+	]
 }

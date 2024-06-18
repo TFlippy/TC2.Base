@@ -9,17 +9,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [18, 0]
 	}
 	
 	flags: manual, skilled, tools, simple, bureaucracy, wip
-	cooldown: 0.500
+	cooldown: 2.310
 	color: "0x8f005ec2"
 	
 	tools_required: pencil, paper, table, chair, stapler
 	tools_optional: pencil, paper, ruler, cutters, glassware, radio, tweezers, magnifying_glass, table, chair, calculator, stapler, rack, knife
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -43,12 +52,12 @@
 	
 	sounds:
 	[
-		"work.paperwork.pencil.00"
-		"work.paperwork.pencil.01"
-		"work.paperwork.pencil.02"
-		"work.paperwork.pencil.03"
-		"work.paperwork.page.00"
-		"work.paperwork.page.01"
-		"work.paperwork.page.02"
+		work.paperwork.pencil.00
+		work.paperwork.pencil.01
+		work.paperwork.pencil.02
+		work.paperwork.page.00
+		work.paperwork.page.01
+		work.paperwork.pencil.01
+		work.paperwork.page.02
 	]
 }

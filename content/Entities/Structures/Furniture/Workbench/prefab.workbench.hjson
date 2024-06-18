@@ -64,7 +64,7 @@ workshop:
 	@inventory8:
 	{
 		stack_size_multiplier: 1.000
-		type: storage
+		type: workshop
 		flags: standalone, ignore_mass, public, vertical
 	}
 }

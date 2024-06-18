@@ -41,8 +41,14 @@
 		{
 			type: work
 			work: shatter
-			amount: 47.000
-			difficulty: 4
+			amount: 8.000
+			difficulty: 3
+		}
+		{
+			type: work
+			work: dismantling
+			amount: 25.000
+			difficulty: 7
 		}
 	]
 	
