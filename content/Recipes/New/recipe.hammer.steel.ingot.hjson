@@ -1,19 +1,26 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "TODO: Name"
+	name: "Hammered Steel Plates"
 	desc:
 		'''
-		TODO: Desc
+		Keep hitting a steel ingot with a hammer until it becomes a plate.
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.frames
+		texture: resource.steel.ingot
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
+	icon_offset: [-2.000, -1.000]
 	
-	color_button: "0xffe28426"
+	icon_extra:
+	{
+		texture: resource.steel.plate
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-2.000, -7.000]
 	
 	min: 1
 	max: 100
@@ -22,20 +29,22 @@
 	type: workshop
 	flags: none
 	tags: workbench
+	
+	color_button: "0xffe28426"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: steel.plate
-			amount: 4.000
+			material: steel.ingot
+			amount: 1.000
 		}
 		{
 			type: work
-			work: sawing
+			work: hammering
 			amount: 400.000
-			difficulty: 21
+			difficulty: 17
 		}
 	]
 	
@@ -43,15 +52,8 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 1.000
-			amount_extra: 0.500
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.100
-			amount_extra: 0.060
+			material: steel.plate
+			amount: 4.000
 		}
 	]
 }

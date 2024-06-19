@@ -8,12 +8,19 @@
 	
 	icon:
 	{
+		texture: resource.steel.plate
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [0.000, -3.000]
+	
+	icon_extra:
+	{
 		texture: resource.steel.frames
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [1, 0]
 	}
-	
-	color_button: "0xffe28426"
+	icon_extra_offset: [-4.000, -7.000]
 	
 	min: 1
 	max: 100
@@ -22,6 +29,8 @@
 	type: workshop
 	flags: none
 	tags: forge, workbench, manufactory
+	
+	color_button: "0xffe28426"
 	rank: 0.000
 	
 	requirements:
