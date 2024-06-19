@@ -19,8 +19,6 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	
-	color_button: "0xffe28426"
 	icon_extra_offset: [0.250, -5.000]
 	
 	min: 4
@@ -30,7 +28,9 @@
 	type: workshop
 	flags: none
 	tags: workbench
-	rank: 0.000
+	
+	color_button: "0xffe28426"
+	rank: -200.000
 	
 	requirements:
 	[

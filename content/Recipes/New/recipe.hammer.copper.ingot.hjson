@@ -31,7 +31,7 @@
 	tags: workbench
 	
 	color_button: "0xffe28426"
-	rank: 0.000
+	rank: -16.000
 	
 	requirements:
 	[
@@ -43,8 +43,8 @@
 		{
 			type: work
 			work: hammering
-			amount: 350.000
-			difficulty: 8
+			amount: 440.000
+			difficulty: 11
 		}
 	]
 	

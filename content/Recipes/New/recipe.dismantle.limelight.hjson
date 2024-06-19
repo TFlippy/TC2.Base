@@ -18,8 +18,6 @@
 		texture: ui_icons_crafting.mini
 		size: [16, 16]
 	}
-	
-	color_button: "0xffc16344"
 	icon_extra_offset: [0.000, -6.000]
 	
 	min: 5
@@ -29,7 +27,9 @@
 	type: workshop
 	flags: none
 	tags: workbench, scrapyard, manufactory
-	rank: -348.000
+	
+	color_button: "0xffc16344"
+	rank: -100.000
 	
 	requirements:
 	[

@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [1, 0]
 	}
@@ -20,6 +20,15 @@
 	
 	tools_required: hammer, table
 	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -34,15 +43,18 @@
 	
 	skills_mult:
 	{
-		strength: 1.100
+		strength: 0.730
+		blacksmithing: 0.280
+		clubs: 0.170
+		endurance: 0.330
 	}
 	
 	sounds:
 	[
-		"work_smithing_00"
-		"work_smithing_01"
-		"work_smithing_02"
-		"work_smithing_03"
-		"work_smithing_04"
+		work_smithing_00
+		work_smithing_01
+		work_smithing_02
+		work_smithing_03
+		work_smithing_04
 	]
 }
