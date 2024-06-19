@@ -25,7 +25,7 @@
 	flags_bottle_rem: none
 	hints: none
 	// kg
-	mass_per_unit: 3.304
+	mass_per_unit: 3.303
 	quantity_max: 256.000
 	prefab: "resource.arcanite.plate"
 	

@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Hammered Steel Plates"
+	name: "Hammered Recondite Plates"
 	desc:
 		'''
-		Keep hitting a steel ingot with a hammer until it becomes a plate.
+		Keep hitting a recondite ingot with a hammer until it becomes a plate.
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.ingot
+		texture: resource.recondite.ingot
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -16,7 +16,7 @@
 	
 	icon_extra:
 	{
-		texture: resource.steel.plate
+		texture: resource.recondite.plate
 		size: [16, 16]
 		frame: [1, 0]
 	}
@@ -37,14 +37,14 @@
 	[
 		{
 			type: resource
-			material: steel.ingot
+			material: recondite.ingot
 			amount: 1.000
 		}
 		{
 			type: work
 			work: hammering
 			amount: 350.000
-			difficulty: 23
+			difficulty: 16
 		}
 	]
 	
@@ -52,17 +52,8 @@
 	[
 		{
 			type: resource
-			material: steel.plate
-			amount: 3.000
-			amount_extra: 0.700
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.090
-			amount_extra: 0.120
-			flags: waste, residue
-			group: 1
+			material: recondite.plate
+			amount: 4.000
 		}
 	]
 }

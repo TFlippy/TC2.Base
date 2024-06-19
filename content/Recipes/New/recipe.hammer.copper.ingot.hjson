@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Hammered Steel Plates"
+	name: "Hammered Copper Plates"
 	desc:
 		'''
-		Keep hitting a steel ingot with a hammer until it becomes a plate.
+		Keep hitting a copper ingot with a hammer until it becomes a plate.
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.ingot
+		texture: resource.copper.ingot
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -16,7 +16,7 @@
 	
 	icon_extra:
 	{
-		texture: resource.steel.plate
+		texture: resource.copper.plate
 		size: [16, 16]
 		frame: [1, 0]
 	}
@@ -37,14 +37,14 @@
 	[
 		{
 			type: resource
-			material: steel.ingot
+			material: copper.ingot
 			amount: 1.000
 		}
 		{
 			type: work
 			work: hammering
 			amount: 350.000
-			difficulty: 23
+			difficulty: 8
 		}
 	]
 	
@@ -52,15 +52,15 @@
 	[
 		{
 			type: resource
-			material: steel.plate
-			amount: 3.000
-			amount_extra: 0.700
+			material: copper.plate
+			amount: 3.720
+			amount_extra: 0.160
 		}
 		{
 			type: resource
-			material: scrap.steel
+			material: scrap.copper
 			amount: 0.090
-			amount_extra: 0.120
+			amount_extra: 0.030
 			flags: waste, residue
 			group: 1
 		}
