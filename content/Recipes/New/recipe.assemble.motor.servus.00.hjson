@@ -45,7 +45,7 @@
 			type: work
 			work: assembling
 			amount: 200.000
-			difficulty: 3
+			difficulty: 5
 		}
 	]
 	
@@ -55,6 +55,14 @@
 			type: prefab
 			prefab: motor.servus.00
 			amount: 1.000
+		}
+		{
+			type: resource
+			material: scrap.machine
+			amount: 0.650
+			amount_extra: 1.210
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

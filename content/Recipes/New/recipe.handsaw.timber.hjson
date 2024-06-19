@@ -42,8 +42,8 @@
 		{
 			type: work
 			work: sawing
-			amount: 460.000
-			difficulty: 7
+			amount: 245.000
+			difficulty: 5
 		}
 	]
 	
@@ -60,6 +60,8 @@
 			material: sawdust
 			amount: 1.100
 			amount_extra: 1.260
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

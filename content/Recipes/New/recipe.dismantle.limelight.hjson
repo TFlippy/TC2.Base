@@ -48,7 +48,7 @@
 			type: work
 			work: dismantling
 			amount: 25.000
-			difficulty: 7
+			difficulty: 4
 		}
 	]
 	
@@ -56,20 +56,24 @@
 	[
 		{
 			type: resource
+			material: pellet.heat
+			amount: 0.200
+		}
+		{
+			type: resource
 			material: lime
 			amount: 0.453
 			amount_extra: 0.312
+			flags: byproduct
+			group: 1
 		}
 		{
 			type: resource
 			material: scrap.heavy
 			amount: 0.130
 			amount_extra: 0.087
-		}
-		{
-			type: resource
-			material: pellet.heat
-			amount: 0.200
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

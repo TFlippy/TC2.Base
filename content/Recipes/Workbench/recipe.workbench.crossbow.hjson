@@ -14,7 +14,7 @@
 	step: 1
 	
 	type: workshop
-	flags: wip
+	flags: none
 	tags: workbench
 	rank: 0.000
 	
@@ -58,10 +58,11 @@
 		}
 		{
 			type: resource
-			flags: byproduct, waste
 			material: woodchips
 			amount: 4.140
 			amount_extra: 2.760
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

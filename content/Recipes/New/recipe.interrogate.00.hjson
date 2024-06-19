@@ -34,13 +34,13 @@
 		{
 			type: work
 			work: interrogation
-			amount: 40.000
+			amount: 50.000
 			difficulty: 8
 		}
 		{
 			type: work
 			work: torture
-			amount: 150.000
+			amount: 280.000
 			difficulty: 6
 		}
 		{
@@ -52,7 +52,7 @@
 		{
 			type: work
 			work: paperwork
-			amount: 400.000
+			amount: 200.000
 			difficulty: 6
 		}
 	]

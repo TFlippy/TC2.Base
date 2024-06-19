@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Salvaged Steel Frames"
+	name: "Recovered Steel Frames"
 	desc:
 		'''
 		Search a pile of machine garbage for anything that could be used as steel frames.
@@ -59,6 +59,8 @@
 			material: scrap.metal
 			amount: 1.540
 			amount_extra: 1.970
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

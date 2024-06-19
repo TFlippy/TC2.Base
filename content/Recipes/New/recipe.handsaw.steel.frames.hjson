@@ -52,6 +52,8 @@
 			material: steel.powder
 			amount: 0.780
 			amount_extra: 0.260
+			flags: waste, residue
+			group: 1
 		}
 	]
 }
