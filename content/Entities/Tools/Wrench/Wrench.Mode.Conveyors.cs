@@ -69,7 +69,7 @@
 						{
 							using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 							{
-								GUI.TitleCentered(recipe.name, size: 24, pivot: new Vector2(0.00f, 0.50f));
+								GUI.TitleCentered(recipe.GetName(), size: 24, pivot: new Vector2(0.00f, 0.50f));
 							}
 
 							GUI.SeparatorThick();
@@ -78,7 +78,7 @@
 							{
 								using (GUI.Wrap.Push(GUI.RmX))
 								{
-									GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
+									GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_desc);
 
 									GUI.NewLine();
 
@@ -222,7 +222,7 @@
 									{
 										using (GUI.Group.New2(size: new(GUI.RmX, GUI.RmY - 40), padding: new(6, 0, 6, 4)))
 										{
-											GUI.Title("Requires");
+											GUI.Title("Requires"u8);
 											GUI.SeparatorThick();
 											GUI.NewLine(4);
 
@@ -233,7 +233,7 @@
 
 										using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new(100, 40)))
 										{
-											if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
+											if (GUI.DrawButton("Create"u8, new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: errors != Build.Errors.None, color: GUI.col_button_ok))
 											{
 												var rpc = new Wrench.Mode.Conveyors.ConfirmRPC()
 												{

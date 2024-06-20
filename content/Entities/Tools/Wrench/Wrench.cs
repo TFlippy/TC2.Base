@@ -522,8 +522,8 @@ namespace TC2.Base.Components
 												{
 													using (GUI.Wrap.Push(256))
 													{
-														GUI.Title(recipe.name);
-														GUI.Text(recipe.desc, color: GUI.font_color_default);
+														GUI.Title(recipe.GetName());
+														GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
 													}
 												}
 											}

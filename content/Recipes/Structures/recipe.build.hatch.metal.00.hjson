@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "hatch.metal.icon"
+		texture: hatch.metal.icon
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,6 +18,8 @@
 	type: build
 	flags: blueprintable
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -801.000
 	
 	dismantle_work: 20.000
@@ -39,7 +39,7 @@
 		
 		rotation_max: 6.283
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,12 +51,12 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 8.000
+			material: steel.frames
+			amount: 12.000
 		}
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 10.000
 		}
 	]
@@ -65,7 +65,7 @@
 	[
 		{
 			type: prefab
-			prefab: "hatch.metal"
+			prefab: hatch.metal
 			amount: 1.000
 		}
 	]

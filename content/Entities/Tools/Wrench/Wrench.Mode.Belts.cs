@@ -70,7 +70,7 @@
 						{
 							using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 							{
-								GUI.TitleCentered(recipe.name, size: 24, pivot: new Vector2(0.00f, 0.50f));
+								GUI.TitleCentered(recipe.GetName(), size: 24, pivot: new Vector2(0.00f, 0.50f));
 							}
 
 							GUI.SeparatorThick();
@@ -79,7 +79,7 @@
 							{
 								using (GUI.Wrap.Push(GUI.RmX))
 								{
-									GUI.TextShaded(recipe.desc, color: GUI.font_color_desc);
+									GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_desc);
 
 									GUI.NewLine();
 
@@ -122,9 +122,9 @@
 
 									using (GUI.Group.New(size: GUI.Rm - new Vector2(0, 48), padding: new(4)))
 									{
-										GUI.LabelShaded("Distance:", distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
+										GUI.LabelShaded("Distance:"u8, distance, $"{{0:0.00}}/{placement.length_max:0.00} m");
 
-										if (GUI.Checkbox("Reversed", ref this.flags, Belt.Flags.Crossed, size: new Vector2(GUI.RmX, 32)))
+										if (GUI.Checkbox("Reversed"u8, ref this.flags, Belt.Flags.Crossed, size: new Vector2(GUI.RmX, 32)))
 										{
 											var rpc = new Wrench.Mode.Belts.EditRPC
 											{
@@ -136,7 +136,7 @@
 
 									using (GUI.Group.Centered(outer_size: GUI.Rm, inner_size: new(100, 40)))
 									{
-										if (GUI.DrawButton("Create", new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
+										if (GUI.DrawButton("Create"u8, new Vector2(100, 40), enabled: info_src.valid && info_dst.valid, error: (errors_src | errors_dst) != Build.Errors.None, color: GUI.col_button_ok))
 										{
 											var rpc = new Wrench.Mode.Belts.ConfirmRPC()
 											{
@@ -144,7 +144,7 @@
 											};
 											rpc.Send(ent_wrench);
 										}
-										GUI.DrawHoverTooltip("Create a belt connection.");
+										GUI.DrawHoverTooltip("Create a belt connection."u8);
 									}
 								}
 							}

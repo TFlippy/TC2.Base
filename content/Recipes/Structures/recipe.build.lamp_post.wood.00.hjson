@@ -1,18 +1,12 @@
 ﻿{
 	$version: "0.1.60.7"
 	name: "Lamp Post (Wood)"
-	desc:
-		'''
-		A simple wooden lamp post to illuminate the streets.
-		'''
 	
 	icon:
 	{
-		texture: "lamp_post.wood"
+		texture: lamp_post.wood
 		size: [8, 48]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,6 +15,8 @@
 	type: build
 	flags: blueprintable
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -6.000
 	
 	dismantle_work: 4.000
@@ -40,7 +36,7 @@
 		
 		rotation_max: 0.500
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,17 +48,17 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 65.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 3.000
+			material: steel.frames
+			amount: 5.000
 		}
 		{
 			type: resource
-			material: "limelight"
+			material: limelight
 			amount: 3.000
 		}
 	]
@@ -71,7 +67,7 @@
 	[
 		{
 			type: prefab
-			prefab: "lamp_post.wood"
+			prefab: lamp_post.wood
 			amount: 1.000
 		}
 	]

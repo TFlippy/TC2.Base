@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 								{
 									for (var i = 0; i < category_values.Length; i++)
 									{
-										using (GUI.ID.Push(i + 1))
+										using (GUI.ID<Build.Category>.Push(i + 1))
 										{
 											var button_tags_filter = Crafting.Recipe.Tags.None;
 
@@ -182,22 +182,19 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.IsNotNull())
+										if (recipe.type == Crafting.Recipe.Type.Build)
 										{
-											if (recipe.type == Crafting.Recipe.Type.Build)
-											{
-												var size = (Vector2)recipe.icon.GetFrameSize();
+											var size = (Vector2)recipe.icon.GetFrameSize();
 
-												var rank = recipe.rank;
-												rank += d_recipe.id * 0.000001f;
+											var rank = recipe.rank;
+											rank += d_recipe.id * 0.000001f;
 
-												if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 10000.00f;
-												rank += (size.X) * 1.00f;
-												rank -= (size.Y) * 10.00f;
-												//rank -= size.Y * 0.10f;
+											if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 10000.00f;
+											rank += (size.X) * 1.00f;
+											rank -= (size.Y) * 10.00f;
+											//rank -= size.Y * 0.10f;
 
-												recipe_indices.Add((d_recipe.id, rank));
-											}
+											recipe_indices.Add((d_recipe.id, rank));
 										}
 									}
 
@@ -229,28 +226,30 @@ namespace TC2.Base.Components
 													if (cell.group.IsVisible())
 													{
 														var selected = this.recipe.id == pair.index;
-														using (var button = GUI.CustomButton.New("recipe"u8, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
+														using (var button = GUI.CustomButton.New(h_recipe, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
 														{
 															GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
-															GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
+															//GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
-															var icon_extra = recipe.icon_extra;
-															if (icon_extra.texture.id != 0)
-															{
-																var icon_extra_size = icon_extra.GetFrameSize();
-																GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
-															}
+															//var icon_extra = recipe.icon_extra;
+															//if (icon_extra.texture.id != 0)
+															//{
+															//	var icon_extra_size = icon_extra.GetFrameSize();
+															//	GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
+															//}
 
-															if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
-															{
-																var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
-																GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
-															}
+															//if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
+															//{
+															//	var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
+															//	GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
+															//}
 
-															if (recipe.flags.HasAny(Crafting.Recipe.Flags.WIP))
-															{
-																GUI.TextShadedCenteredRect("WIP"u8, pivot: new(0.50f, 0.50f), rect: button.bb, font: GUI.Font.Superstar, size: 24, color: GUI.font_color_yellow_b, box_shadow: false);
-															}
+															//if (recipe.flags.HasAny(Crafting.Recipe.Flags.WIP))
+															//{
+															//	GUI.TextShadedCenteredRect("WIP"u8, pivot: new(0.50f, 0.50f), rect: button.bb, font: GUI.Font.Superstar, size: 24, color: GUI.font_color_yellow_b, box_shadow: false);
+															//}
+
+															GUI.DrawRecipeIcon(h_recipe, button.bb);
 
 															//if (recipe.h_company.TryGetDefinition(out var company_asset))
 															//{
@@ -275,14 +274,14 @@ namespace TC2.Base.Components
 																{
 																	using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
 																	{
-																		GUI.Title(recipe.name);
+																		GUI.Title(recipe.GetName());
 
 																		GUI.SameLine();
 																		var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
 																		GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
 																	}
 
-																	GUI.Text(recipe.desc, color: GUI.font_color_default);
+																	GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
 
 																	GUI.SeparatorThick(spacing: 16);
 
@@ -379,227 +378,234 @@ namespace TC2.Base.Components
 
 												GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
 
-												if (product.type == Crafting.Product.Type.Block)
+												switch (product.type)
 												{
-													ref var block = ref product.block.GetData();
-													if (!block.IsNull())
+													case Crafting.Product.Type.Block:
 													{
-														var tile_flags = block.tile_flags | product.tile_flags;
-
-														ref var terrain = ref region.GetTerrain();
-
-														errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
-														amount_multiplier = placed_block_count;
-														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: character.faction);
-
-														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+														ref var block = ref product.block.GetData();
+														if (!block.IsNull())
 														{
-															Claim.DrawFullOverlay(ref region, show_zones, true);
-															Claim.DrawClaimerOverlay(ref region, show_zones, true);
-														}
+															var tile_flags = block.tile_flags | product.tile_flags;
 
-														//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-														if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															ref var terrain = ref region.GetTerrain();
 
-														if (errors != Build.Errors.None)
-														{
-															color_dummy_fg = color_error_fg;
-															color_dummy_bg = color_error_bg;
+															errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
+															amount_multiplier = placed_block_count;
+															errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: character.faction);
 
-															//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
-														}
-
-														var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
-
-														var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
-														switch (placement.type)
-														{
-															case Placement.Type.Rectangle:
+															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 															{
-																terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																Claim.DrawFullOverlay(ref region, show_zones, true);
+																Claim.DrawClaimerOverlay(ref region, show_zones, true);
 															}
-															break;
 
-															case Placement.Type.Circle:
-															{
-																terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-															}
-															break;
-
-															case Placement.Type.Line:
-															{
-																//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-																terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-															}
-															break;
-														}
-													}
-												}
-												else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
-												{
-													var prefab_handle = default(Prefab.Handle);
-													if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
-													else if (product.type == Crafting.Product.Type.Resource)
-													{
-														ref var material = ref product.material.GetData();
-														if (material.IsNotNull())
-														{
-															prefab_handle = material.prefab;
-														}
-													}
-
-													if (prefab_handle.TryGetPrefab(out var prefab))
-													{
-														//var prefab_handle = product.prefab;
-
-														var scale = new Vector2(1, 1);
-
-														if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < wrench_transform.position.X)
-														{
-															scale.X *= -1.00f;
-														}
-
-														errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
-														amount_multiplier = 1.00f;
-														errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: character.faction);
-
-														if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
-														{
-															Claim.DrawFullOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
-															Claim.DrawClaimerOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
-														}
-
-														if (placement.type == Placement.Type.Line)
-														{
-															amount_multiplier += Vector2.Distance(pos_a, pos_b);
-														}
-
-														if (recipe.construction.HasValue)
-														{
-															var construction = recipe.construction.Value;
-
-															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-															if (!context.Evaluate(construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
-														}
-														else
-														{
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 															if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
-														}
 
-														if (errors != Build.Errors.None)
-														{
-															color_dummy_fg = color_error_fg;
-															color_dummy_bg = color_error_bg;
-
-															//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
-														}
-
-														switch (placement.type)
-														{
-															case Placement.Type.Line:
+															if (errors != Build.Errors.None)
 															{
-																if (prefab.Root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
-																{
-																	resizable.a = Vector2.Zero;
-																	resizable.b = pos_b - pos_a;
+																color_dummy_fg = color_error_fg;
+																color_dummy_bg = color_error_bg;
 
-																	var sprite_size = renderer.sprite.texture.Value.Size / 8.00f;
-
-																	var dir = (resizable.b - resizable.a).GetNormalized(out var len);
-																	var mid = (resizable.a + resizable.b) * 0.50f;
-
-																	var angle = dir.GetAngleRadians();
-
-																	renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, resizable.offset_y).RotateByRad(angle);
-																	renderer.rotation = -angle;
-																	renderer.rect.Z = len / sprite_size.X;
-
-																	var normalized = (resizable.b - resizable.a).GetNormalized(out var length);
-
-																	var transform = new Transform.Data(pos_final, rot_final, scale);
-
-																	var renderer_a = new Animated.Renderer.Data
-																	{
-																		sprite = resizable.cap_a,
-																		rotation = renderer.rotation,
-																		scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
-																		offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
-																	};
-
-																	var renderer_b = new Animated.Renderer.Data
-																	{
-																		sprite = resizable.cap_b,
-																		rotation = renderer.rotation,
-																		scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
-																		offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
-																	};
-
-																	GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
-																	GUI.DrawRenderer(in transform, in renderer_a, color_dummy_fg);
-																	GUI.DrawRenderer(in transform, in renderer_b, color_dummy_fg);
-																}
+																//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 															}
-															break;
 
-															default:
-															case Placement.Type.Simple:
+															var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
+
+															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
+															switch (placement.type)
 															{
-																if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																case Placement.Type.Rectangle:
 																{
-																	var transform = new Transform.Data(pos_final, rot_final, scale);
-
-																	var sprite = recipe.icon;
-																	if (sprite.texture.id != 0)
-																	{
-																		renderer.sprite = sprite;
-																	}
-
-																	//renderer.offset -= placement.offset;
-
-
-																	if (recipe.construction.HasValue)
-																	{
-																		var construction = recipe.construction.Value;
-																		var construction_prefab = construction.prefab.GetPrefab();
-
-																		GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
-
-																		if (construction_prefab != null)
-																		{
-																			if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
-																			{
-																				GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
-																			}
-																		}
-																	}
-																	else
-																	{
-																		GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
-																	}
-
-																	ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
-																	if (rect_foundation.IsNotNull())
-																	{
-																		var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																		GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
-
-																		GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
-																	}
-
-																	GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
-
-																	GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+																	terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 																}
-																//GUI.DrawRect
+																break;
 
-																//var bb_canvas = AABB.Centered(pos_final, placement.size);
-																//GUI.DrawRect(GUI.WorldToCanvas(bb_canvas), color_dummy_fg);
-																//GUI.DrawRect(sprite, GUI.WorldToCanvas(bb), color_dummy_fg, clip: false);
+																case Placement.Type.Circle:
+																{
+																	terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																}
+																break;
+
+																case Placement.Type.Line:
+																{
+																	//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
+																	terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																}
+																break;
 															}
-															break;
 														}
 													}
+													break;
+
+													case Crafting.Product.Type.Prefab:
+													case Crafting.Product.Type.Resource:
+													{
+														var prefab_handle = default(Prefab.Handle);
+														if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
+														else if (product.type == Crafting.Product.Type.Resource)
+														{
+															ref var material = ref product.material.GetData();
+															if (material.IsNotNull())
+															{
+																prefab_handle = material.prefab;
+															}
+														}
+
+														if (prefab_handle.TryGetPrefab(out var prefab))
+														{
+															//var prefab_handle = product.prefab;
+
+															var scale = new Vector2(1, 1);
+
+															if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < wrench_transform.position.X)
+															{
+																scale.X *= -1.00f;
+															}
+
+															errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
+															amount_multiplier = 1.00f;
+															errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: character.faction);
+
+															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+															{
+																Claim.DrawFullOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
+																Claim.DrawClaimerOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
+															}
+
+															if (placement.type == Placement.Type.Line)
+															{
+																amount_multiplier += Vector2.Distance(pos_a, pos_b);
+															}
+
+															if (recipe.construction.HasValue)
+															{
+																var construction = recipe.construction.Value;
+
+																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															}
+															else
+															{
+																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															}
+
+															if (errors != Build.Errors.None)
+															{
+																color_dummy_fg = color_error_fg;
+																color_dummy_bg = color_error_bg;
+
+																//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
+															}
+
+															switch (placement.type)
+															{
+																case Placement.Type.Line:
+																{
+																	if (prefab.Root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																	{
+																		resizable.a = Vector2.Zero;
+																		resizable.b = pos_b - pos_a;
+
+																		var sprite_size = renderer.sprite.texture.Value.Size / 8.00f;
+
+																		var dir = (resizable.b - resizable.a).GetNormalized(out var len);
+																		var mid = (resizable.a + resizable.b) * 0.50f;
+
+																		var angle = dir.GetAngleRadians();
+
+																		renderer.offset = mid - new Vector2((len - sprite_size.X) * 0.50f, resizable.offset_y).RotateByRad(angle);
+																		renderer.rotation = -angle;
+																		renderer.rect.Z = len / sprite_size.X;
+
+																		var normalized = (resizable.b - resizable.a).GetNormalized(out var length);
+
+																		var transform = new Transform.Data(pos_final, rot_final, scale);
+
+																		var renderer_a = new Animated.Renderer.Data
+																		{
+																			sprite = resizable.cap_a,
+																			rotation = renderer.rotation,
+																			scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_A) ? -1.00f : 1.00f, 1.00f),
+																			offset = resizable.a - (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
+																		};
+
+																		var renderer_b = new Animated.Renderer.Data
+																		{
+																			sprite = resizable.cap_b,
+																			rotation = renderer.rotation,
+																			scale = new Vector2(resizable.flags.HasAny(Resizable.Flags.Mirror_Cap_B) ? -1.00f : 1.00f, 1.00f),
+																			offset = resizable.b + (normalized * resizable.cap_offset) - new Vector2(0.00f, resizable.offset_y).RotateByDir(normalized)
+																		};
+
+																		GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																		GUI.DrawRenderer(in transform, in renderer_a, color_dummy_fg);
+																		GUI.DrawRenderer(in transform, in renderer_b, color_dummy_fg);
+																	}
+																}
+																break;
+
+																default:
+																case Placement.Type.Simple:
+																{
+																	if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																	{
+																		var transform = new Transform.Data(pos_final, rot_final, scale);
+
+																		var sprite = recipe.icon;
+																		if (sprite.texture.id != 0)
+																		{
+																			renderer.sprite = sprite;
+																		}
+
+																		//renderer.offset -= placement.offset;
+
+
+																		if (recipe.construction.HasValue)
+																		{
+																			var construction = recipe.construction.Value;
+																			var construction_prefab = construction.prefab.GetPrefab();
+
+																			GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
+
+																			if (construction_prefab != null)
+																			{
+																				if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
+																				{
+																					GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
+																				}
+																			}
+																		}
+																		else
+																		{
+																			GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
+																		}
+
+																		ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
+																		if (rect_foundation.IsNotNull())
+																		{
+																			var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																			GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
+
+																			GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																		}
+
+																		GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
+
+																		GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
+																	}
+																	//GUI.DrawRect
+
+																	//var bb_canvas = AABB.Centered(pos_final, placement.size);
+																	//GUI.DrawRect(GUI.WorldToCanvas(bb_canvas), color_dummy_fg);
+																	//GUI.DrawRect(sprite, GUI.WorldToCanvas(bb), color_dummy_fg, clip: false);
+																}
+																break;
+															}
+														}
+													}
+													break;
 												}
 
 												if (!GUI.IsHovered)
@@ -646,7 +652,7 @@ namespace TC2.Base.Components
 														var place = false;
 														if (placement.type == Placement.Type.Line)
 														{
-															place = pos_a_raw.HasValue && pos_b_raw.HasValue; // && mouse.GetKeyUp(Mouse.Key.Left);
+															place = pos_a_raw.HasValue & pos_b_raw.HasValue; // && mouse.GetKeyUp(Mouse.Key.Left);
 															reset |= mouse.GetKeyDown(Mouse.Key.Right);
 														}
 														else

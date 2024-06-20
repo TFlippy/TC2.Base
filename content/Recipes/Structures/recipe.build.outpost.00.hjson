@@ -12,11 +12,9 @@
 	
 	icon:
 	{
-		texture: "outpost.00"
+		texture: outpost.00
 		size: [40, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -25,6 +23,8 @@
 	type: build
 	flags: wip
 	tags: buildings
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	dismantle_work: 25.000
@@ -47,7 +47,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -57,13 +57,13 @@
 	
 	construction:
 	{
-		prefab: "construction.5x5"
+		prefab: construction.5x5
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 15.000
 			}
 			null
@@ -88,13 +88,13 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 185.000
 		}
 		{
 			type: resource
-			material: "stone"
-			amount: 300.000
+			material: stone
+			amount: 350.000
 		}
 		{
 			type: work
@@ -114,7 +114,7 @@
 	[
 		{
 			type: prefab
-			prefab: "outpost.00"
+			prefab: outpost.00
 			amount: 1.000
 		}
 	]

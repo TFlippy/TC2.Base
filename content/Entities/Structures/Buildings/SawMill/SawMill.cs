@@ -188,8 +188,8 @@
 
 									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - slider_h - 64)))
 									{
-										GUI.LabelShaded("Angular Velocity:", this.axle_state.angular_velocity, "{0:0.00} rad/s");
-										GUI.LabelShaded("Torque:", this.axle_state.net_torque, "{0:0.00} Nm/s");
+										GUI.LabelShaded("Angular Velocity:"u8, this.axle_state.angular_velocity, "{0:0.00} rad/s");
+										GUI.LabelShaded("Torque:"u8, this.axle_state.net_torque, "{0:0.00} Nm/s");
 									}
 
 									var ent_child = default(Entity);
@@ -201,7 +201,7 @@
 										ent_child = ent_joint.GetChild(Relation.Type.Child);
 									}
 
-									using (var slot = GUI.EntitySlot.New(ref context, "slot.sawmill", "Item", ent_child, new Vector2(GUI.RmX, 64)))
+									using (var slot = GUI.EntitySlot.New(ref context, "slot.sawmill"u8, "Item"u8, ent_child, new Vector2(GUI.RmX, 64)))
 									{
 										if (slot.pressed)
 										{
@@ -241,7 +241,7 @@
 									}
 
 									var dirty = false;
-									if (GUI.SliderFloat("Slider", ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.RmX, slider_h)))
+									if (GUI.SliderFloat("Slider"u8, ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.RmX, slider_h)))
 									{
 										dirty = true;
 									}

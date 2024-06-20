@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "workbench"
+		texture: workbench
 		size: [32, 24]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,6 +19,8 @@
 	type: build
 	flags: disabled, wip
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -20.000
 	
 	dismantle_work: 5.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 75.000
 		}
 	]
@@ -62,7 +62,7 @@
 	[
 		{
 			type: prefab
-			prefab: "workbench"
+			prefab: workbench
 			amount: 1.000
 		}
 	]
