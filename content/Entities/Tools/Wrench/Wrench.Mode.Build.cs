@@ -77,7 +77,8 @@ namespace TC2.Base.Components
 							//	//Sound.PlayGUI(GUI.sound_select, volume: 0.07f);
 							//}
 
-							Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
+							//Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
+							Crafting.Context.NewFromCurrentCharacter(ent_wrench, out var context);
 
 							// Top bar
 							using (GUI.Group.New(size: new(GUI.RmX, 40)))
@@ -268,32 +269,35 @@ namespace TC2.Base.Components
 														}
 														if (GUI.IsItemHovered())
 														{
-															using (GUI.Tooltip.New(size: new(280, 0)))
+															using (GUI.Tooltip.New(size: new(300, 0)))
 															{
-																using (GUI.Wrap.Push(GUI.GetRemainingWidth()))
+																using (GUI.Wrap.Push(GUI.RmX))
 																{
-																	using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
-																	{
-																		GUI.Title(recipe.GetName());
+																	GUI.DrawShopRecipe(ref context, h_recipe,
+																		flags_rem: GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Background | GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Tooltip);
 
-																		GUI.SameLine();
-																		var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
-																		GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
-																	}
+																	//using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
+																	//{
+																	//	GUI.Title(recipe.GetName());
 
-																	GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
+																	//	GUI.SameLine();
+																	//	var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
+																	//	GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
+																	//}
 
-																	GUI.SeparatorThick(spacing: 16);
+																	//GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
 
-																	ref var construction = ref recipe.construction.GetRefOrNull();
-																	if (construction.IsNotNull())
-																	{
-																		GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
+																	//GUI.SeparatorThick(spacing: 16);
 
-																		GUI.SeparatorThick(spacing: 16);
-																	}
+																	//ref var construction = ref recipe.construction.GetRefOrNull();
+																	//if (construction.IsNotNull())
+																	//{
+																	//	GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
 
-																	GUI.DrawRequirements(ref context, recipe.requirements.AsSpan(), highlight: true);
+																	//	GUI.SeparatorThick(spacing: 16);
+																	//}
+
+																	//GUI.DrawRequirements(ref context, recipe.requirements.AsSpan(), highlight: true);
 																}
 															}
 														}
@@ -1288,7 +1292,7 @@ namespace TC2.Base.Components
 														{
 															case Crafting.Requirement.Type.Work:
 															{
-																order.work[work_count++] = new(requirement.work, requirement.difficulty, requirement.amount * Constants.Construction.work_requirement_multiplier, 0.00f);
+																order.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.difficulty, requirement.amount * Constants.Construction.work_requirement_multiplier, 0.00f);
 															}
 															break;
 

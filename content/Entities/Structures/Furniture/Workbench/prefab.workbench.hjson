@@ -49,14 +49,15 @@ building:
 interactable:
 {
 	flags: none
-	window_size: [600.000, 488.000]
+	window_size: [600.000, 466.000]
 	window_size_misc: [120.000, 0.000]
 }
 
 shop:
 {
 	name: "Workbench"
-	tags: workbench
+	tags: workbench	
+	menu_columns: 4
 }
 
 workshop:

@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: "resource.steel.frames"
+		texture: resource.steel.frames
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,7 +23,47 @@
 	// kg
 	mass_per_unit: 2.500
 	quantity_max: 200.000
-	prefab: "resource.steel.frames"
+	prefab: resource.steel.frames
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		explosion:
+		{
+			h_material: scrap.ferrous
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			
+			ratio: 0.220
+			ratio_extra: 0.710
+			yield: 0.790
+			
+			chance: 0.850
+		}
+		saw:
+		{
+			h_material: steel.powder
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge, pickup
+			
+			ratio: 0.010
+			ratio_extra: 0.070
+			yield: 0.960
+			
+			chance: 0.320
+		}
+	}
 	
 	// Component materials.
 	composition: []
