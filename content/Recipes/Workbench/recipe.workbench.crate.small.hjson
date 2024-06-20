@@ -1,24 +1,20 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Small Crate"
-	desc:
-		'''
-		Small portable storage - can be attached to toolbelt.
-		'''
+	name: "Crate (Small)"
 	
 	icon:
 	{
-		texture: "crate.small"
+		texture: crate.small
 	}
 	
 	color_button: "0xffaeb59a"
 	
 	min: 1
-	max: 8
+	max: 1
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: no_amount_multiplier, blueprintable
 	tags: workbench
 	rank: 0.000
 	
@@ -26,14 +22,20 @@
 	[
 		{
 			type: resource
-			material: "wood"
-			amount: 40.000
+			material: wood
+			amount: 20.000
 		}
 		{
 			type: work
-			work: woodworking
-			amount: 150.000
+			work: sawing
+			amount: 75.000
 			difficulty: 3
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 120.000
+			difficulty: 4
 		}
 	]
 	
@@ -41,8 +43,16 @@
 	[
 		{
 			type: prefab
-			prefab: "crate.small"
+			prefab: crate.small
 			amount: 1.000
+		}
+		{
+			type: resource
+			material: sawdust
+			amount: 0.310
+			amount_extra: 1.280
+			flags: waste, residue
+			group: 1
 		}
 	]
 }

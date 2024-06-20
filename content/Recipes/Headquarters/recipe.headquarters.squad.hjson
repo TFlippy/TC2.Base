@@ -8,26 +8,26 @@
 	
 	icon:
 	{
-		texture: "ui.icons.headquarters"
+		texture: ui.icons.headquarters
 		size: [24, 24]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
 	step: 1
 	
 	type: workshop
-	flags: no_amount_multiplier, disabled, wip
+	flags: no_amount_multiplier, wip
 	tags: headquarters
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 389.000
 		}
 		{
@@ -38,7 +38,7 @@
 		}
 		{
 			type: resource
-			material: "paper"
+			material: paper
 			amount: 15.000
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: prefab
-			prefab: "squad"
+			prefab: squad
 			amount: 1.000
 		}
 	]

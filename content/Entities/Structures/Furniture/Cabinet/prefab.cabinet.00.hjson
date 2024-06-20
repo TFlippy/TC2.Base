@@ -46,17 +46,17 @@ transform:
 
 }
 
-harvestable:
-{
-	resources:
-	[
-		{
-			material: "scrap"
-			quantity: 100.000
-		}
-		{
-			material: "cloth"
-			quantity: 30.000
-		}
-	]
-}
+// harvestable:
+// {
+// 	resources:
+// 	[
+// 		{
+// 			material: "scrap"
+// 			quantity: 100.000
+// 		}
+// 		{
+// 			material: "cloth"
+// 			quantity: 30.000
+// 		}
+// 	]
+// }

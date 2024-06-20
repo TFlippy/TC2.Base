@@ -15,8 +15,9 @@
 	}
 	
 	flags: manual, skilled, tools, science, dangerous, technical, careful, industrial, wip
-	cooldown: 0.500
-	color: "0xffbb7f18"
+	cooldown: 1.150
+	multiplier: 1.000
+	color: "0xffffa200"
 	
 	tools_required: screwdriver
 	tools_optional: cutters, drill, wrench, tweezers, magnifying_glass, table, chair, vise, knife
@@ -43,19 +44,20 @@
 	
 	skills_mult:
 	{
-		scavenging: 0.550
-		intellect: 0.800
-		dexterity: 0.400
-		engineering: 0.850
-		strength: 0.400
+		scavenging: 0.240
+		intellect: 0.300
+		dexterity: 0.220
+		engineering: 0.450
+		strength: 0.120
 	}
 	
 	sounds:
 	[
 		wrench.dismantle.00
-		item.adjust.00
-		work_assembly_04
+		wrench.dismantle.00
+		wrench.dismantle.00
 		burner.lid.clang.00
+		work_assembly_04
 		burner.lid.clang.01
 	]
 }

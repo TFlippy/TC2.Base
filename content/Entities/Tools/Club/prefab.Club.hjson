@@ -20,7 +20,7 @@ body:
 		radius: 0.250
 		friction: 0.950
 		elasticity: 0.650
-		material: wood
+		material: tree
 		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}
@@ -28,7 +28,7 @@ body:
 
 health:
 {
-	max: 1000.000
+	max: 800.000
 }
 
 melee:

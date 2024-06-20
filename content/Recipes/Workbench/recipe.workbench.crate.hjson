@@ -28,14 +28,14 @@
 		{
 			type: work
 			work: sawing
-			amount: 100.000
+			amount: 150.000
 			difficulty: 3
 		}
 		{
 			type: work
 			work: carpentry
-			amount: 150.000
-			difficulty: 4
+			amount: 200.000
+			difficulty: 6
 		}
 	]
 	
@@ -49,8 +49,8 @@
 		{
 			type: resource
 			material: sawdust
-			amount: 0.650
-			amount_extra: 0.180
+			amount: 1.650
+			amount_extra: 2.980
 			flags: waste, residue
 			group: 1
 		}

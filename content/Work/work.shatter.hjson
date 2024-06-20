@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, machine, automated, tools, simple, leisure, wip
-	cooldown: 1.000
+	cooldown: 2.000
 	color: "0xffffa200"
 	
 	tools_required: hammer
