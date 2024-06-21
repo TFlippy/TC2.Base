@@ -349,6 +349,8 @@ namespace TC2.Base.Components
 											if (recipe.placement.TryGetValue(out var placement))
 											{
 												var pos_raw = mouse.position;
+												var pos_origin = wrench_transform.position;
+
 												var h_faction = character.faction;
 
 												if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
@@ -366,7 +368,10 @@ namespace TC2.Base.Components
 												var flags = this.flags;
 												flags.SetFlag(Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
 
-												Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
+												var scale = new Vector2(1, 1);
+												scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < pos_origin.X);
+
+												Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, scale, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
 
 												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
 
@@ -472,8 +477,8 @@ namespace TC2.Base.Components
 														{
 															//var prefab_handle = product.prefab;
 
-															var scale = new Vector2(1, 1);
-															scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
+															//var scale = new Vector2(1, 1);
+															//scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
 															errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
 															amount_multiplier = 1.00f;
@@ -564,6 +569,8 @@ namespace TC2.Base.Components
 																	if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
 																	{
 																		var transform = new Transform.Data(pos_final, rot_final, scale);
+																		//var offset = transform.LocalToWorld(placement.offset);
+
 
 																		var sprite = recipe.icon;
 																		if (sprite.texture.id != 0)
@@ -699,10 +706,11 @@ namespace TC2.Base.Components
 															{
 																var rpc = new Build.PlaceRPC
 																{
+																	pos_origin = pos_origin,
 																	pos_raw = pos_raw,
 																	pos_a_raw = pos_a_raw,
 																	pos_b_raw = pos_b_raw,
-																	flags = flags
+																	flags = flags,
 																};
 																rpc.Send(ent_wrench);
 															}
@@ -1057,7 +1065,7 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static void GetPlacementInfo(ref Placement placement, Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
+				public static void GetPlacementInfo(ref Placement placement, Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
 				{
 					var snap = new Vector2(0.125f);
 					if (placement.flags.HasNone(Placement.Flags.No_Snapping) && flags.HasAny(Build.Flags.Snap))
@@ -1071,9 +1079,11 @@ namespace TC2.Base.Components
 					pos = Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
 					pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
 					pos_b = Build.ConstrainPosition(in placement, pos_b_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
-					pos += placement.offset;
-					pos_a += placement.offset;
-					pos_b += placement.offset;
+					//pos += placement.offset;
+					//pos_a += placement.offset;
+					//pos_b += placement.offset;
+
+					var offset = placement.offset * scale;
 
 					pos_final = pos;
 					rot_final = 0.00f;
@@ -1097,12 +1107,15 @@ namespace TC2.Base.Components
 								var rot_max = Maths.Snap(MathF.Abs(placement.rotation_max), placement.rotation_step);
 								var rot = Maths.Clamp(Maths.Snap(dir.GetAngleRadians() + (MathF.PI * 0.50f), placement.rotation_step), -rot_max, +rot_max);
 
-								pos_final = pos_a + (placement.offset.RotateByRad(rot)) - placement.offset;
+								pos_final = pos_a + (offset.RotateByRad(rot)); // - offset;
 								rot_final = rot;
 							}
 						}
 						break;
 					}
+
+					//var mat = Maths.TRS3x2(pos_final, 0.00f, scale);
+					//pos_final = Vector2.Transform(placement.offset, mat);
 
 					bb = placement.type switch
 					{
@@ -1117,10 +1130,11 @@ namespace TC2.Base.Components
 				public partial struct PlaceRPC: Net.IRPC<Build.Data>
 				{
 					public Build.Flags flags;
+					public Vector2 pos_origin;
 					public Vector2 pos_raw;
 					public Vector2? pos_a_raw;
 					public Vector2? pos_b_raw;
-
+		
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Build.Data build)
 					{
@@ -1152,7 +1166,10 @@ namespace TC2.Base.Components
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))
 								{
-									Build.GetPlacementInfo(ref placement, this.flags, this.pos_raw, this.pos_a_raw, this.pos_b_raw, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
+									var scale = new Vector2(1, 1);
+									scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < this.pos_origin.X);
+
+									Build.GetPlacementInfo(ref placement, this.flags, this.pos_raw, this.pos_a_raw, this.pos_b_raw, scale, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
 
 									var random = XorRandom.New(true);
 
@@ -1239,12 +1256,12 @@ namespace TC2.Base.Components
 										{
 											//var prefab_handle = product.prefab;
 
-											var scale = new Vector2(1, 1);
+											//var scale = new Vector2(1, 1);
 
-											if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && this.pos_raw.X < transform.position.X)
-											{
-												scale.X *= -1.00f;
-											}
+											//if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && this.pos_raw.X < transform.position.X)
+											//{
+											//	scale.X *= -1.00f;
+											//}
 
 											errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
 											amount_multiplier = 1.00f;

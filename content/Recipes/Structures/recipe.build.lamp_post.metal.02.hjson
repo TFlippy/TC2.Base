@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "lamp_post.metal.02"
+		texture: lamp_post.metal.02
 		size: [32, 48]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,6 +19,8 @@
 	type: build
 	flags: blueprintable, wip
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -5.000
 	
 	dismantle_work: 7.000
@@ -31,8 +31,10 @@
 		type: simple
 		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
 		
-		size: [1.000, 7.000]
+		size: [3.000, 6.000]
 		offset: [1.000, -2.500]
+		
+		rect_foundation: [0.500, -0.125, -0.500, 0.500]
 		
 		cooldown: 0.500
 		min_clearance: 0.850
@@ -40,7 +42,7 @@
 		
 		rotation_max: 0.500
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,17 +54,17 @@
 	[
 		{
 			type: resource
-			material: "steel.billet"
+			material: steel.billet
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 8.000
 		}
 		{
 			type: resource
-			material: "limelight"
+			material: limelight
 			amount: 3.000
 		}
 	]
@@ -71,7 +73,7 @@
 	[
 		{
 			type: prefab
-			prefab: "lamp_post.metal.02"
+			prefab: lamp_post.metal.02
 			amount: 1.000
 		}
 	]
