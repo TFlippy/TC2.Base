@@ -21,12 +21,12 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
-					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Construction;
-					public Color32BGRA ColorOk => Color32BGRA.Green;
-					public Color32BGRA ColorError => Color32BGRA.Red;
-					public Color32BGRA ColorNew => Color32BGRA.Yellow;
+					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Construction;
+					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
+					public readonly Color32BGRA ColorError => Color32BGRA.Red;
+					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
 
-					public IRecipe.Handle SelectedRecipe => this.recipe;
+					public readonly IRecipe.Handle SelectedRecipe => this.recipe;
 
 #if CLIENT
 
@@ -226,82 +226,94 @@ namespace TC2.Base.Components
 												{
 													if (cell.group.IsVisible())
 													{
-														var selected = this.recipe.id == pair.index;
-														using (var button = GUI.CustomButton.New(h_recipe, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
+														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref this.recipe,
+														evaluation_flags: Crafting.EvaluateFlags.None,
+														flags_add: GUI.DrawRecipeFlags.None,
+														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))
 														{
-															GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
-															//GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
-
-															//var icon_extra = recipe.icon_extra;
-															//if (icon_extra.texture.id != 0)
-															//{
-															//	var icon_extra_size = icon_extra.GetFrameSize();
-															//	GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
-															//}
-
-															//if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
-															//{
-															//	var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
-															//	GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
-															//}
-
-															//if (recipe.flags.HasAny(Crafting.Recipe.Flags.WIP))
-															//{
-															//	GUI.TextShadedCenteredRect("WIP"u8, pivot: new(0.50f, 0.50f), rect: button.bb, font: GUI.Font.Superstar, size: 24, color: GUI.font_color_yellow_b, box_shadow: false);
-															//}
-
-															GUI.DrawRecipeIcon(h_recipe, button.bb);
-
-															//if (recipe.h_company.TryGetDefinition(out var company_asset))
-															//{
-															//	ref var company_data = ref company_asset.GetData();
-															//	GUI.DrawSpriteCentered(company_data.GetLogo(ICompany.LogoSize.Sign_2x1), button.bb.Pad(u: 4, l: 4), layer: GUI.Layer.Window, pivot: new(0.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
-															//}
-
-															if (button.pressed)
+															var rpc = new Build.ConfigureRPC
 															{
-																var rpc = new Build.ConfigureRPC
-																{
-																	recipe = new IRecipe.Handle(pair.index)
-																};
-																rpc.Send(ent_wrench);
-															}
+																recipe = h_recipe
+															};
+															rpc.Send(ent_wrench);
 														}
-														if (GUI.IsItemHovered())
-														{
-															using (GUI.Tooltip.New(size: new(300, 0)))
-															{
-																using (GUI.Wrap.Push(GUI.RmX))
-																{
-																	GUI.DrawShopRecipe(ref context, h_recipe,
-																		flags_rem: GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Background | GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Tooltip);
 
-																	//using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
-																	//{
-																	//	GUI.Title(recipe.GetName());
+														//var selected = this.recipe.id == pair.index;
+														//using (var button = GUI.CustomButton.New(h_recipe, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
+														//{
+														//	GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
+														//	//GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
 
-																	//	GUI.SameLine();
-																	//	var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
-																	//	GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
-																	//}
+														//	//var icon_extra = recipe.icon_extra;
+														//	//if (icon_extra.texture.id != 0)
+														//	//{
+														//	//	var icon_extra_size = icon_extra.GetFrameSize();
+														//	//	GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
+														//	//}
 
-																	//GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
+														//	//if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
+														//	//{
+														//	//	var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
+														//	//	GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
+														//	//}
 
-																	//GUI.SeparatorThick(spacing: 16);
+														//	//if (recipe.flags.HasAny(Crafting.Recipe.Flags.WIP))
+														//	//{
+														//	//	GUI.TextShadedCenteredRect("WIP"u8, pivot: new(0.50f, 0.50f), rect: button.bb, font: GUI.Font.Superstar, size: 24, color: GUI.font_color_yellow_b, box_shadow: false);
+														//	//}
 
-																	//ref var construction = ref recipe.construction.GetRefOrNull();
-																	//if (construction.IsNotNull())
-																	//{
-																	//	GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
+														//	GUI.DrawRecipeIcon(h_recipe, button.bb);
 
-																	//	GUI.SeparatorThick(spacing: 16);
-																	//}
+														//	//if (recipe.h_company.TryGetDefinition(out var company_asset))
+														//	//{
+														//	//	ref var company_data = ref company_asset.GetData();
+														//	//	GUI.DrawSpriteCentered(company_data.GetLogo(ICompany.LogoSize.Sign_2x1), button.bb.Pad(u: 4, l: 4), layer: GUI.Layer.Window, pivot: new(0.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
+														//	//}
 
-																	//GUI.DrawRequirements(ref context, recipe.requirements.AsSpan(), highlight: true);
-																}
-															}
-														}
-														GUI.FocusableAsset(h_recipe);
+														//	if (button.pressed)
+														//	{
+														//		var rpc = new Build.ConfigureRPC
+														//		{
+														//			recipe = new IRecipe.Handle(pair.index)
+														//		};
+														//		rpc.Send(ent_wrench);
+														//	}
+														//}
+														//if (GUI.IsItemHovered())
+														//{
+														//	using (GUI.Tooltip.New(size: new(300, 0)))
+														//	{
+														//		using (GUI.Wrap.Push(GUI.RmX))
+														//		{
+														//			GUI.DrawShopRecipe(ref context, h_recipe,
+														//				flags_rem: GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Background | GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Tooltip);
+
+														//			//using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
+														//			//{
+														//			//	GUI.Title(recipe.GetName());
+
+														//			//	GUI.SameLine();
+														//			//	var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
+														//			//	GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
+														//			//}
+
+														//			//GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
+
+														//			//GUI.SeparatorThick(spacing: 16);
+
+														//			//ref var construction = ref recipe.construction.GetRefOrNull();
+														//			//if (construction.IsNotNull())
+														//			//{
+														//			//	GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
+
+														//			//	GUI.SeparatorThick(spacing: 16);
+														//			//}
+
+														//			//GUI.DrawRequirements(ref context, recipe.requirements.AsSpan(), highlight: true);
+														//		}
+														//	}
+														//}
+														//GUI.FocusableAsset(h_recipe);
 													}
 												}
 											}
@@ -329,7 +341,7 @@ namespace TC2.Base.Components
 									if (recipe.IsNotNull() && character.IsNotNull())
 									{
 										//Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
-										Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_wrench, out var context);
+										Crafting.Context.NewFromCurrentCharacter(ent_wrench, out var context);
 
 										if (recipe.type == Crafting.Recipe.Type.Build)
 										{
@@ -461,11 +473,7 @@ namespace TC2.Base.Components
 															//var prefab_handle = product.prefab;
 
 															var scale = new Vector2(1, 1);
-
-															if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && pos_raw.X < wrench_transform.position.X)
-															{
-																scale.X *= -1.00f;
-															}
+															scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
 															errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
 															amount_multiplier = 1.00f;
@@ -589,13 +597,20 @@ namespace TC2.Base.Components
 																		ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
 																		if (rect_foundation.IsNotNull())
 																		{
-																			var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																			GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
+																			//var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																			//var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a, rotation: false), transform.LocalToWorld(rect_foundation.b, rotation: false));
+																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
+																			//GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
 
-																			GUI.DrawRectFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																			var rect_offset = transform.LocalToWorld(rect_foundation - placement.offset); // + transform.position;
+																			GUI.DrawQuadFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
 																		}
 
-																		GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
+																		//GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
+																		//GUI.DrawQuad(region.WorldToCanvas(bb.Rotate(transform.rotation)), color_dummy_fg);
+																		GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
+
 
 																		GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
 																	}
