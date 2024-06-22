@@ -369,9 +369,9 @@ namespace TC2.Base.Components
 												flags.SetFlag(Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
 
 												var scale = new Vector2(1, 1);
-												scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < pos_origin.X);
+												if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(pos_raw.X < pos_origin.X);
 
-												Build.GetPlacementInfo(ref placement, flags, pos_raw, pos_a_raw, pos_b_raw, scale, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
+												Build.GetPlacementInfo(placement: ref placement, flags: flags, pos_raw: pos_raw, pos_a_raw: pos_a_raw, pos_b_raw: pos_b_raw, scale: scale, pos: out var pos, pos_a: out var pos_a, pos_b: out var pos_b, pos_final: out var pos_final, rot_final: out var rot_final, bb: out var bb);
 
 												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
 
@@ -432,26 +432,33 @@ namespace TC2.Base.Components
 															}
 
 															var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
+															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
 
 															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 															switch (placement.type)
 															{
 																case Placement.Type.Rectangle:
 																{
-																	terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																	terrain.IterateRect(world_position: pos, size: placement.size * App.pixels_per_unit, argument: ref args,
+																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
+																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 																}
 																break;
 
 																case Placement.Type.Circle:
 																{
-																	terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																	terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
+																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
+																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 																}
 																break;
 
 																case Placement.Type.Line:
 																{
 																	//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-																	terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																	terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
+																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 																}
 																break;
 															}
@@ -1077,7 +1084,8 @@ namespace TC2.Base.Components
 					//var pos_b_raw = build.pos_b ?? pos_raw;
 
 					pos = Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
-					pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
+					//pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
+					pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
 					pos_b = Build.ConstrainPosition(in placement, pos_b_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
 					//pos += placement.offset;
 					//pos_a += placement.offset;
@@ -1167,7 +1175,7 @@ namespace TC2.Base.Components
 								if (recipe.placement.TryGetValue(out var placement))
 								{
 									var scale = new Vector2(1, 1);
-									scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < this.pos_origin.X);
+									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(this.pos_raw.X < this.pos_origin.X);
 
 									Build.GetPlacementInfo(ref placement, this.flags, this.pos_raw, this.pos_a_raw, this.pos_b_raw, scale, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
 
@@ -1180,7 +1188,7 @@ namespace TC2.Base.Components
 									if (product.type == Crafting.Product.Type.Block)
 									{
 										ref var block = ref product.block.GetData();
-										if (!block.IsNull())
+										if (block.IsNotNull())
 										{
 											var tile_flags = block.tile_flags | product.tile_flags;
 
@@ -1203,20 +1211,29 @@ namespace TC2.Base.Components
 												{
 													case Placement.Type.Rectangle:
 													{
-														terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateRect(world_position: pos, size: placement.size * App.pixels_per_unit, argument: ref args,
+															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 
 													case Placement.Type.Circle:
 													{
-														terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
+															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 
 													case Placement.Type.Line:
 													{
 														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-														terrain.IterateSquareLine(pos_a, pos_b, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc, dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider, iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+														terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 												}
@@ -1560,19 +1577,25 @@ namespace TC2.Base.Components
 					{
 						case Placement.Type.Rectangle:
 						{
-							terrain.IterateRect(pos, placement.size * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateRect(world_position: pos, size: placement.size * App.pixels_per_unit, argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
 						case Placement.Type.Circle:
 						{
-							terrain.IterateCircle(pos, placement.radius * App.pixels_per_unit, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
 						case Placement.Type.Line:
 						{
-							terrain.IterateSquareLine(pos_a ?? pos, pos_b ?? pos, placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateSquareLine(world_position_a: pos_a ?? pos, world_position_b: pos_b ?? pos, thickness: placement.size.X, argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 					}
@@ -1705,13 +1728,17 @@ namespace TC2.Base.Components
 						case Placement.Type.Simple:
 						case Placement.Type.Rectangle:
 						{
-							terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2.00f), ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateRect(world_position: pos, size: (placement.size * App.pixels_per_unit) + new Vector2(2.00f), argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
 						case Placement.Type.Circle:
 						{
-							terrain.IterateCircle(pos, (placement.radius * App.pixels_per_unit) + 2.00f, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateCircle(world_position: pos, radius: (placement.radius * App.pixels_per_unit) + 2.00f, argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 
@@ -1719,7 +1746,10 @@ namespace TC2.Base.Components
 						{
 							var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
 
-							terrain.IterateSquareLine((pos_a ?? pos) - (dir * 0.125f), (pos_b ?? pos) + (dir * 0.125f), placement.size.X, ref args, placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc, iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							terrain.IterateSquareLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
+								thickness: placement.size.X, argument: ref args,
+								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
 						break;
 					}
