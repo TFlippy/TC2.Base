@@ -859,7 +859,7 @@ namespace TC2.Base.Components
 					var check_support = placement.min_support > Maths.epsilon && !skip_support;
 					var check_clearance = placement.min_clearance > Maths.epsilon;
 
-					if (check_support || check_clearance)
+					if (check_support | check_clearance)
 					{
 						Build.CalculateSupport(region: ref region,
 							placement: in placement,
@@ -1093,7 +1093,7 @@ namespace TC2.Base.Components
 							{
 								if (result.layer.HasAny(Physics.Layer.World))
 								{
-									if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
+									if (!placement.rect_foundation.HasValue && placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
 									{
 										errors.SetFlag(Build.Errors.NoTerrain, false);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
@@ -1108,7 +1108,7 @@ namespace TC2.Base.Components
 
 										break;
 									}
-									else if (result.layer.HasAny(Physics.Layer.Support))
+									else if (!placement.rect_foundation.HasValue && result.layer.HasAny(Physics.Layer.Support))
 									{
 										skip_support = true;
 									}

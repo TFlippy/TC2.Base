@@ -25,15 +25,16 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings
 		
 		size: [1.000, 6.000]
 		offset: [0.000, -2.500]
 		
-		rect_foundation: [-0.375, -0.250, 0.375, 0.500]
+		rect_foundation: [-0.500, -0.250, 0.500, 0.500]
 		tileflags_foundation: solid
 		
 		cooldown: 0.500
+		min_support: 0.600
 		min_clearance: 0.150
 		min_claim: 1.000
 		
