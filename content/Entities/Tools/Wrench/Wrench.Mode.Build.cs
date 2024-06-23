@@ -385,6 +385,8 @@ namespace TC2.Base.Components
 													bb: out var bb);
 												
 												var transform = new Transform.Data(pos_final, rot_final, scale);
+												var matrix = transform.GetMatrix3x2();
+
 												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
 
 												Color32BGRA color_ok = 0xff00ff00;
@@ -487,25 +489,25 @@ namespace TC2.Base.Components
 													case Crafting.Product.Type.Prefab:
 													case Crafting.Product.Type.Resource:
 													{
-														var prefab_handle = default(Prefab.Handle);
-														if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
+														var h_prefab = default(Prefab.Handle);
+														if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
 														else if (product.type == Crafting.Product.Type.Resource)
 														{
 															ref var material = ref product.material.GetData();
 															if (material.IsNotNull())
 															{
-																prefab_handle = material.prefab;
+																h_prefab = material.prefab;
 															}
 														}
 
-														if (prefab_handle.TryGetPrefab(out var prefab))
+														if (h_prefab.TryGetPrefab(out var prefab))
 														{
 															//var prefab_handle = product.prefab;
 
 															//var scale = new Vector2(1, 1);
 															//scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
-															errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, bb: bb, pos: pos_final, pos_a: pos_a, pos_b: pos_b);
+															errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
 															errors |= Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
@@ -545,7 +547,7 @@ namespace TC2.Base.Components
 															{
 																case Placement.Type.Line:
 																{
-																	if (prefab.Root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																	if (prefab.root.TryGetComponentData<Resizable.Data>(out var resizable, initialized: true) && prefab.root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
 																	{
 																		resizable.a = Vector2.Zero;
 																		resizable.b = pos_b - pos_a;
@@ -591,7 +593,7 @@ namespace TC2.Base.Components
 																default:
 																case Placement.Type.Simple:
 																{
-																	if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
+																	if (prefab.root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
 																	{
 																		//var transform = new Transform.Data(pos_final, rot_final, scale);
 																		//var offset = transform.LocalToWorld(placement.offset);
@@ -615,7 +617,7 @@ namespace TC2.Base.Components
 
 																			if (construction_prefab != null)
 																			{
-																				if (construction_prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
+																				if (construction_prefab.root.TryGetComponentData<Animated.Renderer.Data>(out var renderer_construction, initialized: true))
 																				{
 																					GUI.DrawRenderer(in transform, in renderer_construction, color_dummy_fg);
 																				}
@@ -1002,19 +1004,19 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static Build.Errors EvaluatePrefab(ref Region.Data region, in Placement placement, ref bool skip_support, AABB bb, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				public static Build.Errors EvaluatePrefab(ref Region.Data region, in Placement placement, ref bool skip_support, Prefab.Handle h_prefab, in Matrix3x2 matrix, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
 					var errors = Build.Errors.None;
 
 					//bb = new AABB(bb.a + new Vector2(0.50f), bb.b - new Vector2(0.50f));
 
-					var bb_size = bb.GetSize();
-					var bb_size_inner = bb_size;
+					//var bb_size = bb.GetSize();
+					//var bb_size_inner = bb_size;
 
-					bb_size_inner.X -= Maths.Clamp(bb_size.X - 0.50f, 0.00f, 0.50f);
-					bb_size_inner.Y -= Maths.Clamp(bb_size.Y - 0.50f, 0.00f, 0.50f);
+					//bb_size_inner.X -= Maths.Clamp(bb_size.X - 0.50f, 0.00f, 0.50f);
+					//bb_size_inner.Y -= Maths.Clamp(bb_size.Y - 0.50f, 0.00f, 0.50f);
 
-					bb = bb.GetPaddedRect(bb_size_inner);
+					//bb = bb.GetPaddedRect(bb_size_inner);
 
 					var mask = Physics.Layer.Building | Physics.Layer.Support | Physics.Layer.No_Overlapped_Placement | Physics.Layer.World;
 
@@ -1083,7 +1085,8 @@ namespace TC2.Base.Components
 
 						//var ts = Timestamp.Now();
 						Span<ShapeOverlapResult> results = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
-						if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+						//if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						{
 							//App.WriteLine(results.Length);
 							foreach (ref var result in results)
@@ -1258,6 +1261,8 @@ namespace TC2.Base.Components
 										bb: out var bb);
 
 									var transform = new Transform.Data(pos_final, rot_final, scale);
+									var matrix = transform.GetMatrix3x2();
+
 									var ent_parent = entity.GetParent(Relation.Type.Child);
 									//var inventory = player.GetInventory();
 									var h_faction = character_data.faction;
@@ -1335,18 +1340,18 @@ namespace TC2.Base.Components
 									}
 									else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
 									{
-										var prefab_handle = default(Prefab.Handle);
-										if (product.type == Crafting.Product.Type.Prefab) prefab_handle = product.prefab;
+										var h_prefab = default(Prefab.Handle);
+										if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
 										else if (product.type == Crafting.Product.Type.Resource)
 										{
 											ref var material = ref product.material.GetData();
 											if (material.IsNotNull())
 											{
-												prefab_handle = material.prefab;
+												h_prefab = material.prefab;
 											}
 										}
 
-										if (prefab_handle.TryGetPrefab(out var prefab))
+										if (h_prefab.TryGetPrefab(out var prefab))
 										{
 											//var prefab_handle = product.prefab;
 
@@ -1357,7 +1362,7 @@ namespace TC2.Base.Components
 											//	scale.X *= -1.00f;
 											//}
 
-											errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, bb: bb, pos: pos_final, pos_a: pos_a, pos_b: pos_b);
+											errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
 											errors |= Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
@@ -1441,7 +1446,7 @@ namespace TC2.Base.Components
 														ref var construction = ref ent.GetComponent<Construction.Data>();
 														if (!construction.IsNull())
 														{
-															construction.prefab = prefab_handle;
+															construction.prefab = h_prefab;
 															construction.order = order;
 															construction.stage = Construction.Stage.Materials;
 															construction.quantity = quantity;
@@ -1493,7 +1498,7 @@ namespace TC2.Base.Components
 														rot_final = dir.GetAngleRadians();
 													}
 
-													region.SpawnPrefab(prefab: prefab_handle, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab: h_prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (!dismantlable.IsNull())

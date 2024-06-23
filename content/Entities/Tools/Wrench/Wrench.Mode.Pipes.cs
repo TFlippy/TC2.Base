@@ -85,7 +85,7 @@
 
 									if (recipe.products[0].type == Crafting.Product.Type.Prefab && recipe.products[0].prefab.TryGetPrefab(out var prefab))
 									{
-										var root = prefab.Root;
+										var root = prefab.root;
 										if (root != null)
 										{
 											GUI.DrawStats(root, priority_min: Statistics.Priority.Low);

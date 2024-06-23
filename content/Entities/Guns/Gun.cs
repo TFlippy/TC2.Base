@@ -354,7 +354,7 @@
 
 					var color = GUI.font_color_red;
 
-					if (prefab_projectile.Root.TryGetComponentData<Projectile.Data>(out var projectile, true))
+					if (prefab_projectile.root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
 						var vel = transform.GetDirection() * gun.velocity_multiplier * ammo.speed_mult; // * random_multiplier;
 
