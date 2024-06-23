@@ -31,14 +31,16 @@
 	placement:
 	{
 		type: simple
-		flags: require_claimed, require_terrain
+		flags: require_claimed
 		
 		size: [0.500, 10.000]
 		offset: [0.000, -4.000]
 		
-		rect_foundation: [-0.750, 0.500, 0.750, 1.000]
+		rect_foundation: [-0.750, 0.750, 0.750, 1.250]
+		tileflags_foundation: solid
 		
 		cooldown: 1.000
+		min_support: 0.800
 		min_clearance: 0.940
 		min_claim: 1.000
 		
@@ -62,7 +64,7 @@
 		{
 			type: resource
 			material: "cloth"
-			amount: 15.000
+			amount: 35.000
 		}
 	]
 	

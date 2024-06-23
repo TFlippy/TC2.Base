@@ -17,7 +17,7 @@
 	step: 0
 	
 	type: build
-	flags: blueprintable, wip
+	flags: blueprintable
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
@@ -29,14 +29,16 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
+		flags: allow_mirror_x, allow_placement_over_buildings
 		
 		size: [3.000, 6.000]
 		offset: [1.000, -2.500]
 		
 		rect_foundation: [0.500, -0.125, -0.500, 0.500]
+		tileflags_foundation: solid
 		
 		cooldown: 0.500
+		min_support: 0.600
 		min_clearance: 0.850
 		min_claim: 1.000
 		
@@ -59,13 +61,13 @@
 		}
 		{
 			type: resource
-			material: steel.ingot
-			amount: 8.000
+			material: steel.frames
+			amount: 12.000
 		}
 		{
 			type: resource
 			material: limelight
-			amount: 3.000
+			amount: 6.000
 		}
 	]
 	

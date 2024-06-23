@@ -637,12 +637,12 @@ namespace TC2.Base.Components
 																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
 																			//GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
 
-																			var tile_flags = placement.tileflags_foundation;
+																			//var tile_flags = placement.tileflags_foundation;
 
 																			ref var terrain = ref region.GetTerrain();
 
-																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset).Snap(0.125f); // + transform.position;
-																			var quad_world_aabb = quad_world.GetAABB(); //.Snap(0.125f);
+																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset); // + transform.position;
+																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f);  //.Snap(0.125f);
 																														//quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
 																														//quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
 
@@ -654,9 +654,9 @@ namespace TC2.Base.Components
 
 																			var args = new DrawFoundationArgs(offset: quad_canvas_aabb.a,
 																				pixel_size: pixel_size,
-																				tile_flags: tile_flags,
+																				tile_flags: placement.tileflags_foundation,
 																				max_health: 1000,
-																				color: color_ok_fg);
+																				color: color_ok_fg.WithAlpha(100));
 
 																			//terrain.IterateRect(quad_world_aabb, argument: ref args,
 																			//	func: DrawFoundationFunc,
@@ -672,7 +672,7 @@ namespace TC2.Base.Components
 																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
 
-																			//GUI.DrawQuadFilled(region.WorldToCanvas(quad_world), color_dummy_fg);
+																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg);
 																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 
