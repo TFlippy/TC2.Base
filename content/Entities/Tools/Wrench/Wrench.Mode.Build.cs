@@ -391,6 +391,9 @@ namespace TC2.Base.Components
 												var color_gray_bg = color_gray.WithAlphaMult(0.10f);
 												var color_gray_fg = color_gray.WithAlphaMult(0.60f);
 
+												var color_ok_bg = color_ok.WithAlphaMult(0.10f);
+												var color_ok_fg = color_ok.WithAlphaMult(0.30f);
+
 												var color_error_bg = color_error.WithAlphaMult(0.10f);
 												var color_error_fg = color_error.WithAlphaMult(0.30f);
 
@@ -404,7 +407,7 @@ namespace TC2.Base.Components
 													case Crafting.Product.Type.Block:
 													{
 														ref var block = ref product.block.GetData();
-														if (!block.IsNull())
+														if (block.IsNotNull())
 														{
 															var tile_flags = block.tile_flags | product.tile_flags;
 
@@ -431,10 +434,13 @@ namespace TC2.Base.Components
 																//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 															}
 
-															var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
-															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
+															var pixel_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 
-															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), rect_size: rect_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
+															//GUI.DrawCross(region.WorldToCanvas(pos_a), radius: 16, layer: GUI.Layer.Background, color: color_dummy_fg);
+															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
+															GUI.DrawCross(region.WorldToCanvas(pos_a), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 3.00f);
+
+															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), pixel_size: pixel_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 															switch (placement.type)
 															{
 																case Placement.Type.Rectangle:
@@ -617,13 +623,44 @@ namespace TC2.Base.Components
 																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
 																			//GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
 
-																			var rect_offset = transform.LocalToWorld(rect_foundation - placement.offset); // + transform.position;
-																			GUI.DrawQuadFilled(region.WorldToCanvas(rect_offset), color_dummy_fg);
+																			var tile_flags = placement.tileflags_foundation;
+
+																			ref var terrain = ref region.GetTerrain();
+
+																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset).Snap(0.125f); // + transform.position;
+																			var quad_world_aabb = quad_world.GetAABB(); //.Snap(0.125f);
+																			//quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
+																			//quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
+
+																			var quad_canvas = region.WorldToCanvas(quad_world);
+																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
+
+
+																			var pixel_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
+
+																			var args = new DrawFoundationArgs(offset: quad_canvas_aabb.a, pixel_size: pixel_size, tile_flags: tile_flags, max_health: 1000, color: color_ok_fg);
+																			//terrain.IterateRect(quad_world_aabb, argument: ref args,
+																			//	func: DrawFoundationFunc,
+																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+																			terrain.IterateRectRotated(quad_world, argument: ref args,
+																				func: DrawFoundationFunc,
+																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+																			//var args = new DrawTileArgs(offset: quad_canvas_aabb.a, pixel_size: pixel_size, color: color_dummy_fg, tile_flags: tile_flags, block: default, max_health: 1000);
+																			//terrain.IterateRectRotated(quad_world, argument: ref args,
+																			//	func: DrawTileFunc,
+																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+
+																			//GUI.DrawQuadFilled(region.WorldToCanvas(quad_world), color_dummy_fg);
+																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 
 																		//GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
 																		//GUI.DrawQuad(region.WorldToCanvas(bb.Rotate(transform.rotation)), color_dummy_fg);
 																		GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
+																		//GUI.DrawRect(region.WorldToCanvas(bb.RotateByRad(transform.rotation)).GetAABB(), color: GUI.font_color_yellow);
 
 
 																		GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
@@ -844,7 +881,7 @@ namespace TC2.Base.Components
 					}
 
 					ref var transform = ref entity.GetComponent<Transform.Data>();
-					if (!transform.IsNull())
+					if (transform.IsNotNull())
 					{
 						var placement_range_sq = placement_range * placement_range;
 						var dist_sq = float.PositiveInfinity;
@@ -1142,7 +1179,7 @@ namespace TC2.Base.Components
 					public Vector2 pos_raw;
 					public Vector2? pos_a_raw;
 					public Vector2? pos_b_raw;
-		
+
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Build.Data build)
 					{
@@ -1606,33 +1643,47 @@ namespace TC2.Base.Components
 
 #if CLIENT
 				#region DrawTile
-				private record struct DrawTileArgs(Vector2 offset, Vector2 rect_size, TileFlags tile_flags, IBlock.Handle block, float max_health, Color32BGRA color, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
+				private record struct DrawTileArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, IBlock.Handle block, float max_health, Color32BGRA color, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
 				{
-					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
+					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color);
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, args.color);
 					}
 					else
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, color_gray.WithAlpha(100));
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, color_gray.WithAlpha(100));
 					}
 				}
 
 				static void DrawTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
 				{
-					var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
+					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != args.block.id)
 					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
 					if (args.mappings_replace.TryGetValue(tile.GetBlockHandle(), out var mapping) && tile.Flags.HasAny(TileFlags.Solid) == mapping.flags.HasAny(TileFlags.Solid))
 					{
-						GUI.DrawRectFilled(pos, pos + args.rect_size, args.color);
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, args.color);
 					}
 					else
 					{
 						//GUI.DrawRectFilled(pos, pos + args.rect_size, args.color_gray);
-						GUI.DrawRectFilled(pos, pos + args.rect_size, color_gray.WithAlpha(100));
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, color_gray.WithAlpha(100));
+					}
+				}
+
+				private record struct DrawFoundationArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, float max_health, Color32BGRA color);
+				static void DrawFoundationFunc(ref Tile tile, int x, int y, byte mask, ref DrawFoundationArgs args)
+				{
+					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
+					if (tile.Flags.HasAny(args.tile_flags))
+					{
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, args.color);
+					}
+					else
+					{
+						GUI.DrawRectFilled(pos, pos + args.pixel_size, color_gray.WithAlpha(100));
 					}
 				}
 				#endregion

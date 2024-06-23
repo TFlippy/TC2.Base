@@ -66,7 +66,7 @@
 					public void DrawInfo(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
 						ref var recipe = ref this.selected_recipe.GetData();
-						if (!recipe.IsNull() && recipe.placement.HasValue)
+						if (recipe.IsNotNull() && recipe.placement.HasValue)
 						{
 							using (GUI.Group.New(size: new(GUI.RmX, 28), padding: new(4, 2)))
 							{
@@ -99,7 +99,7 @@
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
 						ref var recipe = ref this.selected_recipe.GetData();
-						if (!recipe.IsNull() && recipe.placement.HasValue)
+						if (recipe.IsNotNull() && recipe.placement.HasValue)
 						{
 							ref var region = ref Client.GetRegionCommon();
 							var placement = recipe.placement.Value;
@@ -483,7 +483,7 @@
 						ref var character = ref connection.GetCharacter();
 						ref var recipe = ref data.selected_recipe.GetData();
 
-						if (!region.IsNull() && !character.IsNull() && !recipe.IsNull())
+						if (!region.IsNull() && !character.IsNull() && recipe.IsNotNull())
 						{
 							var errors = Build.Errors.None;
 

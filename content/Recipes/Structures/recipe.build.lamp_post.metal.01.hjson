@@ -1,18 +1,12 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Lamp Post (Metal, Straight)"
-	desc:
-		'''
-		Straight metal lamp to be placed on walls.
-		'''
+	name: "Lamp Post (Metal, Coaxial)"
 	
 	icon:
 	{
-		texture: "lamp_post.metal.01"
+		texture: lamp_post.metal.01
 		size: [13, 48]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,6 +15,8 @@
 	type: build
 	flags: blueprintable
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -5.000
 	
 	dismantle_work: 7.000
@@ -35,6 +31,7 @@
 		offset: [0.000, -2.500]
 		
 		rect_foundation: [-0.375, -0.250, 0.375, 0.500]
+		tileflags_foundation: solid
 		
 		cooldown: 0.500
 		min_clearance: 0.150
@@ -42,7 +39,7 @@
 		
 		rotation_max: 7.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -54,12 +51,12 @@
 	[
 		{
 			type: resource
-			material: "steel.billet"
+			material: steel.billet
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "limelight"
+			material: limelight
 			amount: 3.000
 		}
 	]
@@ -68,7 +65,7 @@
 	[
 		{
 			type: prefab
-			prefab: "lamp_post.metal.01"
+			prefab: lamp_post.metal.01
 			amount: 1.000
 		}
 	]

@@ -106,7 +106,7 @@
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;
 
-			if (!headbob.IsNull())
+			if (headbob.IsNotNull())
 			{
 				bob_amplitude = headbob.multiplier;
 				bob_speed = headbob.speed;
@@ -122,7 +122,7 @@
 				//var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos(info.WorldTime * bob_speed) + 1.00f) * 0.50f), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
 				var offset = new Vector2(-bob_amplitude.X * Maths.HvCos(info.WorldTime * bob_speed), -bob_amplitude.Y * Maths.HvSin(info.WorldTime * bob_speed));
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.75f);
 				}
@@ -140,7 +140,7 @@
 				//var pain_mult = 1.00f + (organic.pain_shared / 10000.00f);
 				var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f), -bob_amplitude.Y * ((MathF.Sin((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f));
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
@@ -159,7 +159,7 @@
 
 				var offset = Vector2.Zero;
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, new Vector2(0, 0.10f * Maths.Clamp01((torso.air_time) * 3.00f)), 0.50f);
 				}
@@ -176,7 +176,7 @@
 			{
 				var offset = Vector2.Zero;
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = offset;
 				}

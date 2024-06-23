@@ -78,7 +78,7 @@ namespace TC2.Base.Components
 			var bob_amplitude = Vector2.Zero;
 			var bob_speed = 0.00f;
 
-			if (!headbob.IsNull())
+			if (headbob.IsNotNull())
 			{
 				bob_amplitude = headbob.multiplier;
 				bob_speed = headbob.speed;
@@ -105,7 +105,7 @@ namespace TC2.Base.Components
 				renderer.sprite.count = legs.frame_count;
 
 				var offset = runner_state.flags.HasAll(Runner.State.Flags.Grounded) ? new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f)) : Vector2.Zero;
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
@@ -139,7 +139,7 @@ namespace TC2.Base.Components
 			{
 				var offset = Vector2.Zero;
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 			{
 				var offset = Vector2.Zero;
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
@@ -171,7 +171,7 @@ namespace TC2.Base.Components
 			{
 				var offset = Vector2.Zero;
 
-				if (!headbob.IsNull())
+				if (headbob.IsNotNull())
 				{
 					headbob.offset = offset;
 				}

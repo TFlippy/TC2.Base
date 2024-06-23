@@ -39,6 +39,7 @@
 		offset: [0.000, -1.500]
 		
 		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
+		tileflags_foundation: solid
 		
 		cooldown: 1.000
 		min_support: 0.250
