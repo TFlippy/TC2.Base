@@ -371,8 +371,20 @@ namespace TC2.Base.Components
 												var scale = new Vector2(1, 1);
 												if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(pos_raw.X < pos_origin.X);
 
-												Build.GetPlacementInfo(placement: ref placement, flags: flags, pos_raw: pos_raw, pos_a_raw: pos_a_raw, pos_b_raw: pos_b_raw, scale: scale, pos: out var pos, pos_a: out var pos_a, pos_b: out var pos_b, pos_final: out var pos_final, rot_final: out var rot_final, bb: out var bb);
-
+												Build.GetPlacementInfo(placement: ref placement,
+													flags: flags,
+													pos_raw: pos_raw,
+													pos_a_raw: pos_a_raw,
+													pos_b_raw: pos_b_raw,
+													scale: scale,
+													pos: out var pos,
+													pos_a: out var pos_a,
+													pos_b: out var pos_b,
+													pos_final: out var pos_final,
+													rot_final: out var rot_final,
+													bb: out var bb);
+												
+												var transform = new Transform.Data(pos_final, rot_final, scale);
 												var ent_parent = ent_wrench.GetParent(Relation.Type.Child);
 
 												Color32BGRA color_ok = 0xff00ff00;
@@ -413,9 +425,9 @@ namespace TC2.Base.Components
 
 															ref var terrain = ref region.GetTerrain();
 
-															errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
+															errors |= Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = placed_block_count;
-															errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: character.faction);
+															errors |= Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 															{
@@ -424,7 +436,7 @@ namespace TC2.Base.Components
 															}
 
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-															if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 															if (errors != Build.Errors.None)
 															{
@@ -493,9 +505,9 @@ namespace TC2.Base.Components
 															//var scale = new Vector2(1, 1);
 															//scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
-															errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
+															errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, bb: bb, pos: pos_final, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
-															errors |= Build.Evaluate(ent_wrench, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: character.faction);
+															errors |= Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
 															{
@@ -513,12 +525,12 @@ namespace TC2.Base.Components
 																var construction = recipe.construction.Value;
 
 																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-																if (!context.Evaluate(construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(requirements: construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 															}
 															else
 															{
 																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-																if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 															}
 
 															if (errors != Build.Errors.None)
@@ -551,7 +563,7 @@ namespace TC2.Base.Components
 
 																		var normalized = (resizable.b - resizable.a).GetNormalized(out var length);
 
-																		var transform = new Transform.Data(pos_final, rot_final, scale);
+																		//var transform = new Transform.Data(pos_final, rot_final, scale);
 
 																		var renderer_a = new Animated.Renderer.Data
 																		{
@@ -581,7 +593,7 @@ namespace TC2.Base.Components
 																{
 																	if (prefab.Root.TryGetComponentData<Animated.Renderer.Data>(out var renderer, initialized: true))
 																	{
-																		var transform = new Transform.Data(pos_final, rot_final, scale);
+																		//var transform = new Transform.Data(pos_final, rot_final, scale);
 																		//var offset = transform.LocalToWorld(placement.offset);
 
 
@@ -629,8 +641,8 @@ namespace TC2.Base.Components
 
 																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset).Snap(0.125f); // + transform.position;
 																			var quad_world_aabb = quad_world.GetAABB(); //.Snap(0.125f);
-																			//quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
-																			//quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
+																														//quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
+																														//quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
 
 																			var quad_canvas = region.WorldToCanvas(quad_world);
 																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
@@ -638,7 +650,12 @@ namespace TC2.Base.Components
 
 																			var pixel_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 
-																			var args = new DrawFoundationArgs(offset: quad_canvas_aabb.a, pixel_size: pixel_size, tile_flags: tile_flags, max_health: 1000, color: color_ok_fg);
+																			var args = new DrawFoundationArgs(offset: quad_canvas_aabb.a,
+																				pixel_size: pixel_size,
+																				tile_flags: tile_flags,
+																				max_health: 1000,
+																				color: color_ok_fg);
+
 																			//terrain.IterateRect(quad_world_aabb, argument: ref args,
 																			//	func: DrawFoundationFunc,
 																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
@@ -819,7 +836,7 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public static Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default, float placement_range = 4.00f)
+				public static Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default, float placement_range = 4.00f)
 				{
 					ref var region = ref entity.GetRegion();
 
@@ -827,7 +844,10 @@ namespace TC2.Base.Components
 
 					if (placement.min_claim > Maths.epsilon)
 					{
-						var claim_ratio = Claim.GetOverlapRatio(ref region, bb, faction_id, placement.flags.HasNone(Placement.Flags.Require_Claimed));
+						var claim_ratio = Claim.GetOverlapRatio(region: ref region,
+							bb: bb,
+							faction_id: faction_id,
+							allow_unclaimed: placement.flags.HasNone(Placement.Flags.Require_Claimed));
 						if (claim_ratio < placement.min_claim) errors |= Errors.Claimed;
 					}
 
@@ -839,7 +859,15 @@ namespace TC2.Base.Components
 
 					if (check_support || check_clearance)
 					{
-						Build.CalculateSupport(ref region, in placement, out var support_count, out var blocked_count, out var total_count, pos, pos_a, pos_b);
+						Build.CalculateSupport(region: ref region,
+							placement: in placement,
+							transform: in transform,
+							support_count: out var support_count,
+							blocked_count: out var blocked_count,
+							total_count: out var total_count,
+							pos: pos,
+							pos_a: pos_a,
+							pos_b: pos_b);
 
 						//Build.CalculateSupport(ref region, in placement, out var support_count, out var blocked_count, out var total_count, pos, pos_a, pos_b);
 
@@ -880,8 +908,8 @@ namespace TC2.Base.Components
 						}
 					}
 
-					ref var transform = ref entity.GetComponent<Transform.Data>();
-					if (transform.IsNotNull())
+					ref var transform_entity = ref entity.GetComponent<Transform.Data>();
+					if (transform_entity.IsNotNull())
 					{
 						var placement_range_sq = placement_range * placement_range;
 						var dist_sq = float.PositiveInfinity;
@@ -890,7 +918,7 @@ namespace TC2.Base.Components
 						{
 							case Placement.Type.Simple:
 							{
-								dist_sq = Vector2.DistanceSquared(transform.position, bb.ClipPoint(transform.position));
+								dist_sq = Vector2.DistanceSquared(transform_entity.position, bb.ClipPoint(transform_entity.position));
 
 								//#if CLIENT
 								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
@@ -900,7 +928,7 @@ namespace TC2.Base.Components
 
 							case Placement.Type.Rectangle:
 							{
-								dist_sq = Vector2.DistanceSquared(transform.position, bb.ClipPoint(transform.position));
+								dist_sq = Vector2.DistanceSquared(transform_entity.position, bb.ClipPoint(transform_entity.position));
 
 								//#if CLIENT
 								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
@@ -910,14 +938,14 @@ namespace TC2.Base.Components
 
 							case Placement.Type.Circle:
 							{
-								dist_sq = Vector2.DistanceSquared(transform.position, pos) - (placement.radius * placement.radius);
+								dist_sq = Vector2.DistanceSquared(transform_entity.position, pos) - (placement.radius * placement.radius);
 							}
 							break;
 
 							case Placement.Type.Line:
 							{
 								var line = new Line(pos_a ?? pos, pos_b ?? pos);
-								dist_sq = Vector2.DistanceSquared(line.GetClosestPoint(transform.position), transform.position);
+								dist_sq = Vector2.DistanceSquared(line.GetClosestPoint(transform_entity.position), transform_entity.position);
 
 								//#if CLIENT
 								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(line.GetClosestPoint(transform.position)), 4.00f, 0xffffffff);
@@ -952,7 +980,7 @@ namespace TC2.Base.Components
 							var radius = placement.size.GetMax() * 0.125f;
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
 
-							Span<LinecastResult> hits = stackalloc LinecastResult[16];
+							Span<LinecastResult> hits = FixedArray.CreateSpan16<LinecastResult>(out var buffer);
 							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius + 0.25f)), (pos_b ?? pos) + (dir * (radius + 0.25f)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
 							{
 								errors |= Errors.Obstructed;
@@ -963,7 +991,7 @@ namespace TC2.Base.Components
 							//Span<OverlapBBResult> hits = stackalloc OverlapBBResult[16];
 							//if (region.TryOverlapBBAll(pos, bb.GetSize() - new Vector2(0.25f), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
 
-							Span<ShapeOverlapResult> hits = stackalloc ShapeOverlapResult[16];
+							Span<ShapeOverlapResult> hits = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
 							if (region.TryOverlapRectAll(bb, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
 							{
 								errors |= Errors.Obstructed;
@@ -997,7 +1025,7 @@ namespace TC2.Base.Components
 
 					if (placement.type == Placement.Type.Line)
 					{
-						Span<LinecastResult> results = stackalloc LinecastResult[32];
+						Span<LinecastResult> results = FixedArray.CreateSpan32<LinecastResult>(out var buffer);
 						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						{
 							foreach (ref var result in results)
@@ -1054,7 +1082,7 @@ namespace TC2.Base.Components
 						//if (region.TryOverlapBBAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 
 						//var ts = Timestamp.Now();
-						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[32];
+						Span<ShapeOverlapResult> results = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
 						if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						{
 							//App.WriteLine(results.Length);
@@ -1196,11 +1224,11 @@ namespace TC2.Base.Components
 						var placement_range_sq = placement_range * placement_range;
 
 						//ref var player = ref connection.GetPlayerData();
-						ref var transform = ref entity.GetComponent<Transform.Data>();
+						ref var transform_entity = ref entity.GetComponent<Transform.Data>();
 						ref var recipe = ref build.recipe.GetData();
 						ref var character_data = ref connection.GetCharacter(out var h_character);
 
-						if (recipe.IsNotNull() && transform.IsNotNull() && character_data.IsNotNull())
+						if (recipe.IsNotNull() && transform_entity.IsNotNull() && character_data.IsNotNull())
 						{
 							//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
 							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, entity, out var context);
@@ -1214,10 +1242,22 @@ namespace TC2.Base.Components
 									var scale = new Vector2(1, 1);
 									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(this.pos_raw.X < this.pos_origin.X);
 
-									Build.GetPlacementInfo(ref placement, this.flags, this.pos_raw, this.pos_a_raw, this.pos_b_raw, scale, out var pos, out var pos_a, out var pos_b, out var pos_final, out var rot_final, out var bb);
-
 									var random = XorRandom.New(true);
 
+									Build.GetPlacementInfo(placement: ref placement,
+										flags: this.flags,
+										pos_raw: this.pos_raw,
+										pos_a_raw: this.pos_a_raw,
+										pos_b_raw: this.pos_b_raw,
+										scale: scale,
+										pos: out var pos,
+										pos_a: out var pos_a,
+										pos_b: out var pos_b,
+										pos_final: out var pos_final,
+										rot_final: out var rot_final,
+										bb: out var bb);
+
+									var transform = new Transform.Data(pos_final, rot_final, scale);
 									var ent_parent = entity.GetParent(Relation.Type.Child);
 									//var inventory = player.GetInventory();
 									var h_faction = character_data.faction;
@@ -1231,17 +1271,17 @@ namespace TC2.Base.Components
 
 											ref var terrain = ref region.GetTerrain();
 
-											errors |= Build.EvaluateBlock(ref region, in placement, ref skip_support, out var placed_block_count, bb, product.block, tile_flags, pos, pos_a, pos_b);
+											errors |= Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos, pos_a, pos_b, faction_id: h_faction);
+											errors |= Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-											if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 											if (errors == Build.Errors.None)
 											{
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-												context.Consume(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 												switch (placement.type)
@@ -1317,9 +1357,9 @@ namespace TC2.Base.Components
 											//	scale.X *= -1.00f;
 											//}
 
-											errors |= Build.EvaluatePrefab(ref region, in placement, ref skip_support, bb, pos_final, pos_a, pos_b);
+											errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, bb: bb, pos: pos_final, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											errors |= Build.Evaluate(entity, in placement, ref skip_support, out support, bb, pos_final, pos_a, pos_b, faction_id: h_faction);
+											errors |= Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1331,12 +1371,12 @@ namespace TC2.Base.Components
 												var construction = recipe.construction.Value;
 
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(construction.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = 0.90f;
@@ -1390,7 +1430,7 @@ namespace TC2.Base.Components
 														}
 													}
 
-													region.SpawnPrefab(construction.prefab, pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab: construction.prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (!dismantlable.IsNull())
@@ -1420,12 +1460,12 @@ namespace TC2.Base.Components
 											else
 											{
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = recipe.dismantle_yield;
@@ -1453,7 +1493,7 @@ namespace TC2.Base.Components
 														rot_final = dir.GetAngleRadians();
 													}
 
-													region.SpawnPrefab(prefab_handle, pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab: prefab_handle, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (!dismantlable.IsNull())
@@ -1766,50 +1806,101 @@ namespace TC2.Base.Components
 					args.total_count++;
 				}
 
-				public static void CalculateSupport(ref Region.Data region, in Placement placement, out int support_count, out int blocked_count, out int total_count, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				private record struct CalculateFoundationSupportArgs(int support_count, int blocked_count, int total_count, TileFlags tile_flags, float max_health);
+				private static void CalculateFoundationSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateFoundationSupportArgs args)
+				{
+					if (tile.Flags.HasAny(args.tile_flags))
+					{
+						args.support_count++;
+					}
+					else
+					{
+
+					}
+
+					args.total_count++;
+
+					//if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
+					//{
+					//	args.support_count++;
+					//}
+
+					//if (tile.Flags.HasAny(TileFlags.Solid))
+					//{
+					//	args.blocked_count++;
+					//}
+
+					//args.total_count++;
+				}
+
+				public static void CalculateSupport(ref Region.Data region, in Placement placement, in Transform.Data transform, out int support_count, out int blocked_count, out int total_count, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
 					ref var terrain = ref region.GetTerrain();
 
 					//var args = new CalculateSupportArgs(valid_count: 0, total_count: 0);
 					//terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2, 2), ref args, CalculateSupportFunc);
 
-					var args = new CalculateSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, mappings_replace: placement.mappings_replace);
-					switch (placement.type)
+					if (placement.rect_foundation.TryGetValue(out var rect_foundation))
 					{
-						case Placement.Type.Simple:
-						case Placement.Type.Rectangle:
-						{
-							terrain.IterateRect(world_position: pos, size: (placement.size * App.pixels_per_unit) + new Vector2(2.00f), argument: ref args,
-								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
-								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
+						var tile_flags = placement.tileflags_foundation;
 
-						case Placement.Type.Circle:
-						{
-							terrain.IterateCircle(world_position: pos, radius: (placement.radius * App.pixels_per_unit) + 2.00f, argument: ref args,
-								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
-								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
+						var quad_world = transform.LocalToWorld(rect_foundation - placement.offset).Snap(0.125f);
+						var quad_world_aabb = quad_world.GetAABB();
 
-						case Placement.Type.Line:
-						{
-							var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
+						var args = new CalculateFoundationSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, tile_flags: placement.tileflags_foundation, max_health: 10000.00f);
 
-							terrain.IterateSquareLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
-								thickness: placement.size.X, argument: ref args,
-								func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
-								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-						}
-						break;
+						//terrain.IterateRect(quad_world_aabb, argument: ref args,
+						//	func: DrawFoundationFunc,
+						//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+						terrain.IterateRectRotated(quad_world, argument: ref args,
+							func: CalculateFoundationSupportFunc,
+							iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+						support_count = args.support_count;
+						blocked_count = args.blocked_count;
+						total_count = args.total_count;
 					}
+					else
+					{
+						var args = new CalculateSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, mappings_replace: placement.mappings_replace);
+						switch (placement.type)
+						{
+							case Placement.Type.Simple:
+							case Placement.Type.Rectangle:
+							{
+								terrain.IterateRect(world_position: pos, size: (placement.size * App.pixels_per_unit) + new Vector2(2.00f), argument: ref args,
+									func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+									iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							}
+							break;
 
-					//return args.total_count > 0 ? args.valid_count / (float)args.total_count : 0.00f;
+							case Placement.Type.Circle:
+							{
+								terrain.IterateCircle(world_position: pos, radius: (placement.radius * App.pixels_per_unit) + 2.00f, argument: ref args,
+									func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+									iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							}
+							break;
 
-					support_count = args.support_count;
-					blocked_count = args.blocked_count;
-					total_count = args.total_count;
+							case Placement.Type.Line:
+							{
+								var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
+
+								terrain.IterateSquareLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
+									thickness: placement.size.X, argument: ref args,
+									func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
+									iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+							}
+							break;
+						}
+
+						//return args.total_count > 0 ? args.valid_count / (float)args.total_count : 0.00f;
+
+						support_count = args.support_count;
+						blocked_count = args.blocked_count;
+						total_count = args.total_count;
+					}
 
 					//support_ratio = Maths.NormalizeClamp(args.support_count, args.total_count);
 					//blocked_ratio = Maths.NormalizeClamp(args.blocked_count, args.total_count);
