@@ -28,8 +28,8 @@
 	flags: none
 	tags: workbench, scrapyard, manufactory
 	
-	color_button: "0xffc16344"
-	rank: -100.000
+	color_button: "0xffac7534"
+	rank: -135.000
 	
 	requirements:
 	[
@@ -62,16 +62,16 @@
 		{
 			type: resource
 			material: lime
-			amount: 0.453
-			amount_extra: 0.312
+			amount: 0.563
+			amount_extra: 0.112
 			flags: byproduct
 			group: 1
 		}
 		{
 			type: resource
 			material: scrap.heavy
-			amount: 0.130
-			amount_extra: 0.087
+			amount: 0.170
+			amount_extra: 0.047
 			flags: waste, residue
 			group: 1
 		}
