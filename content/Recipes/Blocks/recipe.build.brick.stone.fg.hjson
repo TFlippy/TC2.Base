@@ -1,16 +1,15 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Glass"
+	name: "Stone Bricks"
 	desc:
 		'''
-		Pretty and brittle.
+		Stone cut into bricks. Perfect for masonry.
 		'''
 	
 	icon:
 	{
 		texture: block_icons
 		size: [16, 16]
-		frame: [5, 0]
 	}
 	
 	min: 0
@@ -18,26 +17,24 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: wip
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -43.500
+	rank: -92.500
 	
 	placement:
 	{
-		type: line
+		type: rectangle
 		flags: continuous
 		
-		size: [0.500, 0.500]
+		size: [1.500, 1.500]
 		
 		cooldown: 0.400
-		min_support: 0.100
+		min_support: 0.050
 		min_claim: 1.000
-		length_max: 5.000
-		length_step: 0.125
 		
-		sound: metal_place_01
+		sound: stone_place_0
 		
 		mappings_replace:
 		{
@@ -49,8 +46,13 @@
 	[
 		{
 			type: resource
-			material: glass
-			amount: 0.100
+			material: brick.stone
+			amount: 0.250
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 0.017
 		}
 	]
 	
@@ -58,8 +60,8 @@
 	[
 		{
 			type: block
-			block: glass
-			tile_flags: solid, become_background_on_break, no_replace
+			block: brick.stone
+			tile_flags: solid, become_background_on_break
 		}
 	]
 }

@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "block_icons"
+		texture: block_icons
 		size: [16, 16]
 		frame: [8, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -22,7 +20,9 @@
 	type: build
 	flags: disabled, wip
 	tags: architecture
-	rank: 0.000
+	
+	color_button: "0xffaeb59a"
+	rank: -94.000
 	
 	placement:
 	{
@@ -34,7 +34,7 @@
 		min_support: 0.300
 		min_claim: 1.000
 		
-		sound: "stone_place_0"
+		sound: stone_place_0
 		
 		mappings_replace:
 		{
@@ -46,12 +46,12 @@
 	[
 		{
 			type: resource
-			material: "gravel"
+			material: gravel
 			amount: 0.600
 		}
 		{
 			type: resource
-			material: "tar"
+			material: tar
 			amount: 0.200
 		}
 	]
@@ -60,7 +60,7 @@
 	[
 		{
 			type: block
-			block: "asphalt"
+			block: asphalt
 			tile_flags: solid, become_background_on_break, no_replace
 		}
 	]

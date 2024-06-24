@@ -6,11 +6,11 @@
 		Stones cobbled together.
 		'''
 	
-	material_type: stone_slab
+	material_type: stone
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 8800.000
+	max_health: 13700.000
 	
 	smoothing: 0.150
 	mass: 5.000

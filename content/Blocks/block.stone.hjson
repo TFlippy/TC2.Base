@@ -6,16 +6,11 @@
 		Natural stone.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
-	max_health: 20000.000
+	max_health: 30000.000
 	
 	smoothing: 0.150
 	mass: 3.800
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.stone"
-	pattern: "pattern.stone"
+	texture: terrain.stone
+	pattern: pattern.stone
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "stone"
+			material: stone
 			quantity: 0.500
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

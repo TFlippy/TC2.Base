@@ -1,41 +1,41 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Concrete (Steel-Reinforced)"
+	name: "Concrete Bricks"
 	desc:
 		'''
-		Durable cast concrete, reinforced with steel.
+		Durable concrete bricks.
 		'''
 	
 	material_type: concrete
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 98000.000
+	max_health: 37000.000
 	
 	smoothing: 0.180
-	mass: 2.900
+	mass: 2.700
 	friction: 0.850
-	elasticity: 0.600
-	stability: 4.000
-	strength_tensile: 11.650
-	strength_compressive: 22.000
+	elasticity: 0.440
+	stability: 1.800
+	strength_tensile: 1.800
+	strength_compressive: 11.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.concrete.steel
-	pattern: pattern.concrete.steel
+	texture: terrain.brick.concrete
+	pattern: pattern.brick.concrete
 	
 	texture_scale: 1.070
 	texture_overshoot: -0.400
 	texture_offset: 0.000
-	color_preview: "0xff66645c"
+	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
 			material: scrap.concrete
-			quantity: 1.600
+			quantity: 1.360
 		}
 		null
 	]
@@ -43,12 +43,12 @@
 	mappings:
 	[
 		{
-			color: "0xff66645c"
+			color: "0xff838079"
 			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
 		{
-			color: "0xff56554e"
+			color: "0xff474542"
 			tile_flags: non_empty
 			meta: 0
 		}

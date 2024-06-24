@@ -6,16 +6,11 @@
 		TODO: Desc
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 31800.000
+	max_health: 21800.000
 	
 	smoothing: 0.160
 	mass: 3.700
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.brezolyt"
-	pattern: "pattern.stone"
+	texture: terrain.brezolyt
+	pattern: pattern.stone
 	
 	texture_scale: 1.610
 	texture_overshoot: -0.650
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "brezolyt"
+			material: brezolyt
 			quantity: 0.750
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

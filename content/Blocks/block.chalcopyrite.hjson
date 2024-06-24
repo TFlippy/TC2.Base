@@ -1,21 +1,16 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Chalcopyrite"
 	desc:
 		'''
 		Common mineral, mixture of copper and iron.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 21000.000
+	max_health: 31000.000
 	
 	smoothing: 0.130
 	mass: 3.000
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.chalcopyrite"
-	pattern: "pattern.stone"
+	texture: terrain.chalcopyrite
+	pattern: pattern.stone
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "chalcopyrite"
+			material: chalcopyrite
 			quantity: 0.450
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

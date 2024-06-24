@@ -1,34 +1,29 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Clay Bricks"
+	name: "Mud Bricks"
 	desc:
 		'''
-		Clay bricks of varying sizes.
+		Mud bricks made by the best ofmediocre mudders.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: brick
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 22000.000
+	max_health: 9500.000
 	
 	smoothing: 0.110
 	mass: 5.000
 	friction: 0.900
-	elasticity: 0.290
+	elasticity: 0.450
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.brick"
-	pattern: "pattern.brick"
+	texture: terrain.brick.mud
+	pattern: pattern.brick.mud
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
@@ -39,23 +34,21 @@
 	resources:
 	[
 		{
-			material: "scrap.rubble"
-			quantity: 0.100
+			material: brick.mud
+			quantity: 0.400
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
 	[
 		{
-			color: "0xffb55f4c"
+			color: "0xff6f5f53"
 			tile_flags: solid, non_empty, become_background_on_break
 			meta: 0
 		}
 		{
-			color: "0xff55342d"
+			color: "0xff2f251d"
 			tile_flags: non_empty
 			meta: 0
 		}

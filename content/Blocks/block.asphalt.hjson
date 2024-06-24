@@ -6,16 +6,11 @@
 		TODO: Desc
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: asphalt
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 13000.000
+	max_health: 9700.000
 	
 	smoothing: 0.200
 	mass: 3.000
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.asphalt"
-	pattern: "pattern.soil"
+	texture: terrain.asphalt
+	pattern: pattern.soil
 	
 	texture_scale: 1.550
 	texture_overshoot: -0.250
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "tar"
+			material: tar
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
