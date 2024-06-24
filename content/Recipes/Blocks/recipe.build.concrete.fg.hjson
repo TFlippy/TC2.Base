@@ -8,19 +8,17 @@
 	
 	icon:
 	{
-		texture: "block_icons"
+		texture: block_icons
 		size: [16, 16]
 		frame: [14, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.cement"
+		texture: resource.cement
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	icon_extra_offset: [-3.000, -6.000]
 	
 	min: 0
@@ -28,8 +26,10 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -83.500
 	
 	placement:
@@ -43,13 +43,13 @@
 		cooldown: 0.200
 		min_claim: 1.000
 		
-		sound: "stone_place_0"
+		sound: stone_place_0
 		
 		mappings_replace:
 		{
 			framework:
 			{
-				block: "concrete"
+				block: concrete
 				meta: 0
 				flags: solid, become_background_on_break
 			}
@@ -60,12 +60,12 @@
 	[
 		{
 			type: resource
-			material: "gravel"
+			material: gravel
 			amount: 0.200
 		}
 		{
 			type: resource
-			material: "cement"
+			material: cement
 			amount: 0.100
 		}
 	]
@@ -74,7 +74,7 @@
 	[
 		{
 			type: block
-			block: "concrete"
+			block: concrete
 			tile_flags: solid, become_background_on_break
 		}
 	]

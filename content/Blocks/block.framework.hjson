@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Framework (Empty)"
 	desc:
 		'''
 		TODO: Desc
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: metal_frame
 	tile_flags: non_empty, transparent
@@ -17,7 +12,7 @@
 	
 	max_health: 2100.000
 	
-	smoothing: 0.200
+	smoothing: 0.400
 	mass: 0.080
 	friction: 0.550
 	elasticity: 0.570
@@ -27,23 +22,22 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.framework"
-	pattern: "pattern.framework"
+	texture: terrain.framework
+	pattern: pattern.framework
 	
 	texture_scale: 1.000
-	texture_overshoot: 0.000
-	texture_offset: -1.000
+	texture_overshoot: -0.050
+	texture_offset: -1.250
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-		
+			material: steel.frames
+			quantity: 0.050
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
