@@ -37,13 +37,13 @@
 		type: rectangle
 		flags: continuous, replace, ignore_obstructed
 		
-		size: [2.500, 2.500]
+		size: [2.000, 2.000]
 		radius: 1.000
 		
 		cooldown: 0.200
 		min_claim: 1.000
 		
-		sound: stone_place_0
+		sound: gravel_place_0
 		
 		mappings_replace:
 		{
@@ -51,7 +51,7 @@
 			{
 				block: framework.smirgrafit
 				meta: 0
-				flags: solid, non_empty, become_background_on_break
+				flags: solid, non_empty
 			}
 		}
 	}
@@ -70,7 +70,7 @@
 		{
 			type: block
 			block: framework.smirgrafit
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty
 		}
 	]
 }

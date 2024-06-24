@@ -12,15 +12,15 @@
 	
 	max_health: 7500.000
 	
-	smoothing: 0.200
+	smoothing: 0.150
 	mass: 9.400
 	friction: 0.950
 	elasticity: 0.470
 	stability: 6.000
-	strength_tensile: 12.000
-	strength_compressive: 15.000
+	strength_tensile: 19.000
+	strength_compressive: 8.000
 	collision_layer: none
-	collision_mask: none
+	collision_mask: essence
 	
 	texture: terrain.framework.smirgrafit
 	pattern: pattern.framework
@@ -33,8 +33,14 @@
 	
 	resources:
 	[
-		null
-		null
+		{
+			material: steel.frames
+			quantity: 0.050
+		}
+		{
+			material: smirgrafit.powder
+			quantity: 0.050
+		}
 	]
 	
 	mappings:
