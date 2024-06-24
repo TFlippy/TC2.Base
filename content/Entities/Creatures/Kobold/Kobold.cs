@@ -117,7 +117,7 @@ namespace TC2.Base.Components
 			"mate"
 		};
 
-		internal static string[] w_enders =
+		internal static string[] w_enders_misc =
 		{
 			" innit",
 			" ha",
@@ -125,7 +125,36 @@ namespace TC2.Base.Components
 			"!!!",
 			"!?",
 			" ye",
-			" truly"
+			" truly",
+			"'yknow",
+			" indeed",
+			" hm...",
+			" ok",
+			" oke",
+			" yes?",
+			" ya?",
+			" ugh...",
+			" huh",
+			" mate",
+			" ey",
+			" eyy",
+			" ay",
+			" surely",
+			" mayb",
+			"'it",
+			" happen!",
+			" evrytim",
+			" woe",
+			" hear'ye",
+			"'ye",
+			"'mate",
+			"'ait",
+			"'aight",
+			" aight",
+			" alright?",
+			" rite?",
+			"'rite?",
+			" not",
 		};
 
 		internal static string[] w_enders_upset =
@@ -140,6 +169,38 @@ namespace TC2.Base.Components
 			"!?!",
 			"...!",
 			"...?",
+			"'fokin'!?",
+			" aaaa",
+			" happen!",
+			" evrytim!!",
+			" ay!!!?",
+			"'ait!?",
+			" no!?",
+			"!!?",
+			" innit!?",
+			" argh",
+			" fshhhhh!!",
+			" huh??!",
+			" ya?!",
+			" wha??!",
+		};
+
+		internal static string[] w_enders_nevermind =
+		{
+			"...or not",
+			"...nevemind",
+			" or...",
+			" wait no",
+			"...wait",
+			"...noooo!!",
+			" or not",
+			"..fug...",
+			"..no",
+			"...not",
+			"..nah",
+			"..fshhhh",
+			"--",
+			"...uh?"
 		};
 
 		internal static string[] w_enders_curious =
@@ -152,6 +213,16 @@ namespace TC2.Base.Components
 			" hm?",
 			" huh?",
 			" huh",
+			"'innit?",
+			" yes?",
+			" ya?",
+			" rite?",
+			"'rite?",
+			"'yknow???",
+			"...or??",
+			" or...?",
+			" hmm??",
+			" hmm....",
 		};
 
 		internal static string[] w_enders_low =
@@ -164,9 +235,34 @@ namespace TC2.Base.Components
 			" pfft...",
 			" pff",
 			"..",
+			" eee...",
+			"'fsgh...",
+			" bleh..",
+			" bleh",
+			" huhu?",
+			" huhul?",
+			"--",
+			" oof",
+			" foof",
+			"'yknow...",
+			"..hm",
+			" oh...",
+			" hhhh...",
+			" fss...",
+			"'gd..",
+			"'it...",
+			" grr..",
+			" uh....",
+			"...or",
+			" or...",
+			"...nevermind",
+			"...oh",
+			"...duh",
+			"...pff",
+			"..maybe.",
 		};
 
-		internal static string[] w_verbs_b =
+		internal static string[] w_verbs_bad =
 		{
 			"eat",
 			"drink",
@@ -192,7 +288,7 @@ namespace TC2.Base.Components
 			"jump",
 		};
 
-		internal static string[] w_verbs =
+		internal static string[] w_verbs_misc =
 		{
 			"eat",
 			"drink",
@@ -255,6 +351,16 @@ namespace TC2.Base.Components
 			"ours",
 			"kobold",
 			"kobs",
+		};
+
+		internal static string[] w_and =
+		{
+			"and",
+			"plus",
+			"also",
+			"along",
+			"and too",
+			"withal"
 		};
 
 		internal static string[] w_your =
@@ -326,7 +432,7 @@ namespace TC2.Base.Components
 			"kobs",
 		};
 
-		internal static string[] w_we =
+		internal static string[] w_us =
 		{
 			"we",
 			"kobold",
@@ -411,6 +517,33 @@ namespace TC2.Base.Components
 			"carry"
 		};
 
+
+		internal static string[] w_it =
+		{
+			"it",
+			"some",
+			"one",
+			"them",
+			"this",
+			"such",
+			"that",
+		};
+
+		internal static string[] w_but =
+		{
+			"but",
+			"tho",
+			"however",
+			"altough",
+			"except",
+			"nobbut",
+			"yet",
+			"tough",
+			"though",
+			"thought",
+			"natheless",
+		};
+
 		internal static string[] w_i_will =
 		{
 			"i'ma",
@@ -419,8 +552,6 @@ namespace TC2.Base.Components
 			"am gonna",
 			"am gunna",
 			"i shall",
-			"gunna",
-			"gonna",
 			"i'll",
 			"i will"
 		};
@@ -472,6 +603,32 @@ namespace TC2.Base.Components
 			"gnat",
 		};
 
+		internal static string[] w_bad =
+		{
+			"dumb",
+			"bad",
+			"stupid",
+			"lame",
+			"shite",
+			"shat",
+			"small",
+			"poor",
+			"ugly",
+			"broke",
+			"broked",
+			"bork",
+			"rusty",
+			"junked",
+			"slow",
+			"dented",
+			"old",
+			"failed",
+			"fail",
+			"smelly",
+			"crappy",
+			"crap",
+		};
+
 		internal static string[] w_adjectives_vulgar =
 		{
 			"dumb",
@@ -496,7 +653,7 @@ namespace TC2.Base.Components
 			"fookin'"
 		};
 
-		internal static string[] w_adjectives_cool =
+		internal static string[] w_cool =
 		{
 			"shiny",
 			"good",
@@ -512,7 +669,20 @@ namespace TC2.Base.Components
 			"grand"
 		};
 
-		internal static string[] w_verbs_defile =
+		internal static string[] w_become =
+		{
+			"be",
+			"become",
+			"turn",
+			"get",
+			"grow",
+			"develop",
+			"gain",
+			"emerge",
+			"metamorse"
+		};
+
+		internal static string[] w_defile =
 		{
 			"jerk",
 			"piss",
@@ -527,7 +697,7 @@ namespace TC2.Base.Components
 			"suck",
 		};
 
-		internal static string[] w_verbs_fear =
+		internal static string[] w_fear =
 		{
 			"cry",
 			"run",
@@ -539,7 +709,72 @@ namespace TC2.Base.Components
 			"fret",
 		};
 
-		internal static string[] w_verbs_take =
+		internal static string[] w_hear =
+		{
+			"hear",
+			"know",
+			"heared",
+			"listen",
+			"see",
+		};
+
+		internal static string[] w_say =
+		{
+			"say",
+			"talk",
+			"inform",
+			"tell",
+			"told",
+			"yell",
+			"speak",
+			"spoke",
+			"whisper",
+			"advice",
+			"warn",
+			"alert",
+		};
+
+		internal static string[] w_infosource =
+		{
+			"poster",
+			"friend",
+			"paper",
+			"tale",
+			"story",
+			"leaf",
+			"sign",
+			"legend",
+			"epitaph",
+			"etipaph",
+			"scroll",
+			"newsman",
+			"news",
+			"voice",
+			"brother",
+			"cousin",
+			"granma",
+			"uncle",
+			"grampa",
+			"foreman",
+			"chief",
+			"solder",
+			"soldier",
+			"guard",
+			"sound",
+			"text",
+			"film",
+			"speaker",
+			"display",
+			"radio",
+			"someone",
+			"kobs",
+			"giant",
+			"human",
+			"they",
+			"them",
+		};
+
+		internal static string[] w_take =
 		{
 			"grab",
 			"take",
@@ -554,7 +789,7 @@ namespace TC2.Base.Components
 			"seize",
 		};
 
-		internal static string[] w_verbs_destroy =
+		internal static string[] w_destroy =
 		{
 			"burn",
 			"destroy",
@@ -579,7 +814,7 @@ namespace TC2.Base.Components
 			"waste"
 		};
 
-		internal static string[] w_verbs_violence =
+		internal static string[] w_fight =
 		{
 			"bash",
 			"kick",
@@ -613,7 +848,7 @@ namespace TC2.Base.Components
 			"bang",
 		};
 
-		internal static string[] w_verbs_move =
+		internal static string[] w_move =
 		{
 			"go",
 			"run",
@@ -685,7 +920,7 @@ namespace TC2.Base.Components
 			"rrr"
 		};
 
-		internal static string[] w_question_what =
+		internal static string[] w_what =
 		{
 			"what",
 			"wat",
@@ -694,7 +929,7 @@ namespace TC2.Base.Components
 			"whut",
 		};
 
-		internal static string[] w_verbs_insert =
+		internal static string[] w_insert =
 		{
 			"jam",
 			"bash",
@@ -708,7 +943,7 @@ namespace TC2.Base.Components
 			"add"
 		};
 
-		internal static string[] w_verbs_work =
+		internal static string[] w_work =
 		{
 			"work",
 			"spin",
@@ -726,7 +961,7 @@ namespace TC2.Base.Components
 			"commit",
 		};
 
-		internal static string[] w_verbs_eat =
+		internal static string[] w_eat =
 		{
 			"eat",
 			"chomp",
@@ -758,6 +993,16 @@ namespace TC2.Base.Components
 			"down",
 			"forth",
 			"up"
+		};
+
+		internal static string[] w_at =
+		{
+			"at",
+			"onto",
+			"on",
+			"toward",
+			"ontop",
+			"after"
 		};
 
 		internal static string[] w_through =
@@ -803,7 +1048,7 @@ namespace TC2.Base.Components
 			"as"
 		};
 
-		internal static string[] w_verbs_vulgar =
+		internal static string[] w_curse =
 		{
 			"fuck",
 			"screw",
@@ -814,7 +1059,7 @@ namespace TC2.Base.Components
 			"woe"
 		};
 
-		internal static string[] w_verbs_throw =
+		internal static string[] w_throw =
 		{
 			"throw",
 			"toss",
@@ -834,7 +1079,7 @@ namespace TC2.Base.Components
 			"cast"
 		};
 
-		internal static string[] w_verbs_guard =
+		internal static string[] w_watch =
 		{
 			"watch",
 			"see",
@@ -852,7 +1097,7 @@ namespace TC2.Base.Components
 			"escort"
 		};
 
-		internal static string[] w_verbs_gather =
+		internal static string[] w_gather =
 		{
 			"mine",
 			"dig",
@@ -869,7 +1114,7 @@ namespace TC2.Base.Components
 			"accrue",
 		};
 
-		internal static string[] w_verbs_buy =
+		internal static string[] w_buy =
 		{
 			"buy",
 			"get",
@@ -1102,7 +1347,7 @@ namespace TC2.Base.Components
 			"dubass"
 		};
 
-		internal static string[] w_animals =
+		internal static string[] w_animal =
 		{
 			"mouse",
 			"cat",
@@ -1142,7 +1387,7 @@ namespace TC2.Base.Components
 			"baby"
 		};
 
-		internal static string[] w_animals_cute =
+		internal static string[] w_animal_cute =
 		{
 			"kitten",
 			"kitty",
@@ -1156,7 +1401,7 @@ namespace TC2.Base.Components
 			"snail"
 		};
 
-		internal static string[] w_animals_big =
+		internal static string[] w_animal_big =
 		{
 			"cow",
 			"poh",
@@ -1169,7 +1414,7 @@ namespace TC2.Base.Components
 			"giant"
 		};
 
-		internal static string[] w_objects =
+		internal static string[] w_objects_misc =
 		{
 			"brick",
 			"arse",
@@ -1225,7 +1470,7 @@ namespace TC2.Base.Components
 			"handle",
 			"knob",
 			"donkey",
-			"majonezr",
+			"mayor",
 			"sheriff",
 			"king",
 			"sack",
@@ -1283,7 +1528,7 @@ namespace TC2.Base.Components
 			"snail"
 		};
 
-		internal static string[] w_vulgar_suffix =
+		internal static string[] w_suffix_vulgar =
 		{
 			"brick",
 			"arse",
@@ -1382,25 +1627,33 @@ namespace TC2.Base.Components
 			"electron"
 		};
 
-		internal static string[] w_objects_dear =
+		internal static string[] w_family =
 		{
 			"mum",
+			"dad",
 			"dog",
 			"cat",
 			"sis",
+			"bruh",
 			"nun",
 			"grampa",
+			"gramp",
+			"gran",
 			"granma",
 			"granny",
 			"auntie",
+			"uncle",
+			"babby",
+			"boy",
+			"gurl",
+			"kobs",
 			"missus",
-			"bruh",
 			"fren",
 			"jamarcus",
-			"dream"
+			"dreams"
 		};
 
-		internal static string[] w_objects_body =
+		internal static string[] w_bodypart =
 		{
 			"head",
 			"nose",
@@ -1429,6 +1682,31 @@ namespace TC2.Base.Components
 			"pelvis",
 			"spine",
 			"fur"
+		};
+
+		internal static string[] w_comrades =
+		{
+			"comrades",
+			"fren",
+			"family",
+			"squad",
+			"crew",
+			"kobs",
+			"guys",
+			"cowworkers",
+			"workers",
+			"company",
+			"buysness",
+			"shop",
+			"ogranizaton",
+			"group",
+			"circle",
+			"class",
+			"bunch",
+			"house",
+			"fam",
+			"kind",
+			"stronks",
 		};
 
 		internal static string[] w_valuables =
@@ -1518,7 +1796,7 @@ namespace TC2.Base.Components
 
 		public static string GetObjectName(ref XorRandom random, Material.Type material_type, Physics.Layer layer)
 		{
-			var sb = new System.Text.StringBuilder(64);
+			var sb = new System.Text.StringBuilder(32);
 
 			switch (material_type)
 			{
@@ -1673,9 +1951,9 @@ namespace TC2.Base.Components
 
 					if (time >= kobold.next_talk)
 					{
-						if (!speech_bubble.IsNull())
+						if (speech_bubble.IsNotNull())
 						{
-							var sb = new System.Text.StringBuilder(100);
+							var sb = new System.Text.StringBuilder(128);
 
 							var index = random.NextIntRange(0, 3);
 							//App.WriteLine(index);
@@ -1690,7 +1968,7 @@ namespace TC2.Base.Components
 
 								case 1:
 								{
-									sb.Append(w_verbs_vulgar.GetRandom(ref random));
+									sb.Append(w_curse.GetRandom(ref random));
 									sb.Append(' ');
 									sb.Append(w_you.GetRandom(ref random));
 								}
@@ -1715,11 +1993,11 @@ namespace TC2.Base.Components
 
 										if (random.NextBool(0.90f))
 										{
-											sb.Append(w_objects_dear.GetRandom(ref random));
+											sb.Append(w_family.GetRandom(ref random));
 										}
 										else
 										{
-											sb.Append(w_objects.GetRandom(ref random));
+											sb.Append(w_objects_misc.GetRandom(ref random));
 										}
 									}
 
@@ -1729,7 +2007,7 @@ namespace TC2.Base.Components
 
 								case 3:
 								{
-									sb.Append(w_verbs_vulgar.GetRandom(ref random));
+									sb.Append(w_curse.GetRandom(ref random));
 									sb.Append(' ');
 									sb.Append("this");
 								}
@@ -1747,7 +2025,7 @@ namespace TC2.Base.Components
 
 									if (random.NextBool(0.50f))
 									{
-										sb.Append(w_objects.GetRandom(ref random));
+										sb.Append(w_objects_misc.GetRandom(ref random));
 									}
 								}
 								break;
@@ -1783,9 +2061,9 @@ namespace TC2.Base.Components
 					{
 						if (time >= kobold.next_talk || skip_timer)
 						{
-							if (!speech_bubble.IsNull())
+							if (speech_bubble.IsNotNull())
 							{
-								var sb = new System.Text.StringBuilder(100);
+								var sb = new System.Text.StringBuilder(128);
 
 								if (ai_original.anger >= 200.00f)
 								{
@@ -1802,7 +2080,7 @@ namespace TC2.Base.Components
 												if (random.NextBool(0.30f)) sb.Append($"{w_enders_upset.GetRandom(ref random)} ");
 											}
 
-											sb.Append($"{w_verbs.GetRandom(ref random)} ");
+											sb.Append($"{w_verbs_misc.GetRandom(ref random)} ");
 											if (random.NextBool(0.60f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 											if (random.NextBool(0.40f)) sb.Append($"{w_adjectives.GetRandom(ref random)} ");
 
@@ -1811,15 +2089,15 @@ namespace TC2.Base.Components
 												sb.Append(w_objects_vulgar.GetRandom(ref random));
 												if (random.NextBool(0.50f))
 												{
-													sb.Append(w_vulgar_suffix.GetRandom(ref random));
+													sb.Append(w_suffix_vulgar.GetRandom(ref random));
 												}
 											}
 											else
 											{
-												sb.Append(w_objects.GetRandom(ref random));
+												sb.Append(w_objects_misc.GetRandom(ref random));
 											}
 
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1829,7 +2107,7 @@ namespace TC2.Base.Components
 											sb.Append($"{w_you.GetRandom(ref random)} ");
 											if (random.NextBool(0.70f)) sb.Append($"{w_adjectives.GetRandom(ref random)} ");
 											sb.Append(w_objects_vulgar.GetRandom(ref random));
-											if (random.NextBool(0.80f)) sb.Append(w_vulgar_suffix.GetRandom(ref random));
+											if (random.NextBool(0.80f)) sb.Append(w_suffix_vulgar.GetRandom(ref random));
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1837,12 +2115,12 @@ namespace TC2.Base.Components
 										case 2:
 										{
 											sb.Append($"{w_you.GetRandom(ref random)} ");
-											sb.Append($"{w_verbs.GetRandom(ref random)} ");
+											sb.Append($"{w_verbs_misc.GetRandom(ref random)} ");
 											sb.Append($"{w_you.GetRandom(ref random)} ");
 											if (random.NextBool(0.80f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 											if (random.NextBool(0.50f)) sb.Append($"{w_me.GetRandom(ref random)} ");
-											sb.Append(w_objects.GetRandom(ref random));
-											if (random.NextBool(0.50f)) sb.Append(w_vulgar_suffix.GetRandom(ref random));
+											sb.Append(w_objects_misc.GetRandom(ref random));
+											if (random.NextBool(0.50f)) sb.Append(w_suffix_vulgar.GetRandom(ref random));
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1853,17 +2131,17 @@ namespace TC2.Base.Components
 
 											if (random.NextBool(0.60f))
 											{
-												sb.Append(w_objects_dear.GetRandom(ref random));
+												sb.Append(w_family.GetRandom(ref random));
 											}
 											else
 											{
-												sb.Append(w_objects.GetRandom(ref random));
+												sb.Append(w_objects_misc.GetRandom(ref random));
 											}
 
 											if (random.NextBool(0.50f)) sb.Append($" is");
-											sb.Append($" {w_verbs.GetRandom(ref random)} ");
-											sb.Append(w_objects.GetRandom(ref random));
-											if (random.NextBool(0.50f)) sb.Append(w_vulgar_suffix.GetRandom(ref random));
+											sb.Append($" {w_verbs_misc.GetRandom(ref random)} ");
+											sb.Append(w_objects_misc.GetRandom(ref random));
+											if (random.NextBool(0.50f)) sb.Append(w_suffix_vulgar.GetRandom(ref random));
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1872,7 +2150,7 @@ namespace TC2.Base.Components
 										{
 											if (random.NextBool(0.70f))
 											{
-												sb.Append(w_verbs_b.GetRandom(ref random));
+												sb.Append(w_verbs_bad.GetRandom(ref random));
 												if (random.NextBool(0.80f))
 												{
 													if (random.NextBool(0.50f))
@@ -1889,7 +2167,7 @@ namespace TC2.Base.Components
 											sb.Append(w_objects_vulgar.GetRandom(ref random));
 											//if (random.NextBool(0.50f)) sb.Append(w_objects.GetRandom(ref random));						
 
-											if (random.NextBool(0.50f)) sb.Append(w_vulgar_suffix.GetRandom(ref random));
+											if (random.NextBool(0.50f)) sb.Append(w_suffix_vulgar.GetRandom(ref random));
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1897,16 +2175,16 @@ namespace TC2.Base.Components
 										case 5:
 										{
 											sb.Append($"{w_you.GetRandom(ref random)} ");
-											sb.Append($"{w_verbs_b.GetRandom(ref random)}ed ");
+											sb.Append($"{w_verbs_bad.GetRandom(ref random)}ed ");
 
 											if (random.NextBool(0.40f))
 											{
 												if (random.NextBool(0.50f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 												if (random.NextBool(0.50f)) sb.Append($"{w_your.GetRandom(ref random)} ");
-												sb.Append(w_objects.GetRandom(ref random));
+												sb.Append(w_objects_misc.GetRandom(ref random));
 											}
 
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1920,12 +2198,12 @@ namespace TC2.Base.Components
 											else
 											{
 												sb.Append($"{w_your.GetRandom(ref random)} ");
-												sb.Append(w_objects_dear.GetRandom(ref random));
+												sb.Append(w_family.GetRandom(ref random));
 											}
 
 											sb.Append($" eat ");
-											sb.Append($"{w_objects.GetRandom(ref random)}");
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											sb.Append($"{w_objects_misc.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1934,12 +2212,12 @@ namespace TC2.Base.Components
 										{
 											sb.Append($"{w_me.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_verbs_defile.GetRandom(ref random)}");
+											sb.Append($"{w_defile.GetRandom(ref random)}");
 											sb.Append(' ');
 											if (random.NextBool(0.50f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 											sb.Append($"{w_your.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1948,13 +2226,13 @@ namespace TC2.Base.Components
 										{
 											sb.Append($"{w_you.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_verbs_defile.GetRandom(ref random)}");
+											sb.Append($"{w_defile.GetRandom(ref random)}");
 											sb.Append(' ');
 											if (random.NextBool(0.50f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 											sb.Append($"{w_your.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1963,12 +2241,12 @@ namespace TC2.Base.Components
 										{
 											sb.Append(w_your.GetRandom(ref random));
 											sb.Append(' ');
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_verbs_defile.GetRandom(ref random)}");
+											sb.Append($"{w_defile.GetRandom(ref random)}");
 											sb.Append(' ');
 											sb.Append($"{w_you.GetRandom(ref random)}");
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1977,13 +2255,13 @@ namespace TC2.Base.Components
 										{
 											sb.Append($"{w_your.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
 											sb.Append($" is ");
 											if (random.NextBool(0.40f)) sb.Append($"{w_directions.GetRandom(ref random)} ");
 											sb.Append($"{w_your.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -1993,22 +2271,22 @@ namespace TC2.Base.Components
 											//sb.Append($"{w_me.GetRandom(ref random)}");
 											sb.Append('i');
 											sb.Append($" sware on me ");
-											sb.Append($"{w_objects_dear.GetRandom(ref random)}");
+											sb.Append($"{w_family.GetRandom(ref random)}");
 										}
 										break;
 
 										case 12:
 										{
 											sb.Append($"{w_your.GetRandom(ref random)} ");
-											sb.Append($"{w_objects_dear.GetRandom(ref random)} is so ");
+											sb.Append($"{w_family.GetRandom(ref random)} is so ");
 											sb.Append($"{w_adjectives_vulgar.GetRandom(ref random)}");
 
 											if (random.NextBool(0.40f))
 											{
-												sb.Append($" and {w_verbs_defile.GetRandom(ref random)} {w_objects.GetRandom(ref random)}");
+												sb.Append($" and {w_defile.GetRandom(ref random)} {w_objects_misc.GetRandom(ref random)}");
 											}
 
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -2017,7 +2295,7 @@ namespace TC2.Base.Components
 										{
 											sb.Append($"{w_i_will.GetRandom(ref random)}");
 											sb.Append(' ');
-											sb.Append($"{w_verbs_violence.GetRandom(ref random)}");
+											sb.Append($"{w_fight.GetRandom(ref random)}");
 											sb.Append(' ');
 											sb.Append($"{w_your.GetRandom(ref random)}");
 											sb.Append(' ');
@@ -2026,7 +2304,7 @@ namespace TC2.Base.Components
 												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
 												sb.Append(' ');
 											}
-											sb.Append($"{w_objects_body.GetRandom(ref random)}");
+											sb.Append($"{w_bodypart.GetRandom(ref random)}");
 											if (random.NextBool(0.50f))
 											{
 												sb.Append(' ');
@@ -2038,7 +2316,7 @@ namespace TC2.Base.Components
 
 										case 14:
 										{
-											sb.Append(w_verbs_insert.GetRandom(ref random));
+											sb.Append(w_insert.GetRandom(ref random));
 											sb.Append(" a ");
 											sb.Append(w_objects_vulgar.GetRandom(ref random));
 											sb.Append(" in it");
@@ -2061,7 +2339,7 @@ namespace TC2.Base.Components
 										case 15:
 										{
 											sb.Append("get ");
-											sb.Append(w_verbs_defile.GetRandom(ref random));
+											sb.Append(w_defile.GetRandom(ref random));
 											sb.Append(w_ed.GetRandom(ref random));
 											sb.Append(' ');
 											sb.Append(w_into.GetRandom(ref random));
@@ -2076,14 +2354,14 @@ namespace TC2.Base.Components
 												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
 												sb.Append(' ');
 											}
-											sb.Append(w_objects_body.GetRandom(ref random));
+											sb.Append(w_bodypart.GetRandom(ref random));
 											sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
 
 										case 16:
 										{
-											sb.Append(w_verbs_move.GetRandom(ref random));
+											sb.Append(w_move.GetRandom(ref random));
 											sb.Append(' ');
 											sb.Append(w_into.GetRandom(ref random));
 											sb.Append(' ');
@@ -2101,14 +2379,14 @@ namespace TC2.Base.Components
 											if (random.NextBool(0.40f))
 											{
 												sb.Append(w_objects_vulgar.GetRandom(ref random));
-												if (random.NextBool(0.50f)) sb.Append(w_vulgar_suffix.GetRandom(ref random));
+												if (random.NextBool(0.50f)) sb.Append(w_suffix_vulgar.GetRandom(ref random));
 											}
 											else
 											{
-												sb.Append(w_objects.GetRandom(ref random));
+												sb.Append(w_objects_misc.GetRandom(ref random));
 											}
 
-											if (random.NextBool(0.20f)) sb.Append($" {w_enders.GetRandom(ref random)}");
+											if (random.NextBool(0.20f)) sb.Append($" {w_enders_misc.GetRandom(ref random)}");
 											if (random.NextBool(0.70f)) sb.Append($"{w_enders_upset.GetRandom(ref random)}");
 										}
 										break;
@@ -2150,11 +2428,11 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_me.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_move.GetRandom(ref random));
+													sb.Append(w_move.GetRandom(ref random));
 													if (random.NextBool(0.25f))
 													{
 														sb.Append(" like ");
-														sb.Append(w_animals.GetRandom(ref random));
+														sb.Append(w_animal.GetRandom(ref random));
 													}
 												}
 												break;
@@ -2182,7 +2460,7 @@ namespace TC2.Base.Components
 														sb.Append(w_i_will.GetRandom(ref random));
 													}
 													sb.Append(' ');
-													sb.Append(w_verbs_gather.GetRandom(ref random));
+													sb.Append(w_gather.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(Kobold.GetObjectName(ref random, commandable.last_material_type, commandable.last_layer));
 													if (random.NextBool(0.50f))
@@ -2200,10 +2478,10 @@ namespace TC2.Base.Components
 														}
 
 														sb.Append(' ');
-														sb.Append(w_verbs_buy.GetRandom(ref random));
+														sb.Append(w_buy.GetRandom(ref random));
 
 														sb.Append(' ');
-														sb.Append(w_adjectives_cool.GetRandom(ref random));
+														sb.Append(w_cool.GetRandom(ref random));
 
 														sb.Append(' ');
 														sb.Append(w_valuables.GetRandom(ref random));
@@ -2234,7 +2512,7 @@ namespace TC2.Base.Components
 														sb.Append(w_i_will.GetRandom(ref random));
 													}
 													sb.Append(' ');
-													sb.Append(w_verbs_take.GetRandom(ref random));
+													sb.Append(w_take.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(Kobold.GetObjectName(ref random, commandable.last_material_type, commandable.last_layer));
 												}
@@ -2263,7 +2541,7 @@ namespace TC2.Base.Components
 														sb.Append(w_i_will.GetRandom(ref random));
 													}
 													sb.Append(' ');
-													sb.Append(w_verbs_work.GetRandom(ref random));
+													sb.Append(w_work.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(Kobold.GetObjectName(ref random, commandable.last_material_type, commandable.last_layer));
 												}
@@ -2286,7 +2564,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_violence.GetRandom(ref random));
+													sb.Append(w_fight.GetRandom(ref random));
 												}
 												break;
 
@@ -2304,7 +2582,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_me.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_violence.GetRandom(ref random));
+													sb.Append(w_fight.GetRandom(ref random));
 													if (random.NextBool(0.75f))
 													{
 														sb.Append(' ');
@@ -2318,11 +2596,11 @@ namespace TC2.Base.Components
 													sb.Append(' ');
 													if (random.NextBool(0.50f))
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 													}
 													else
 													{
-														sb.Append(w_objects.GetRandom(ref random));
+														sb.Append(w_objects_misc.GetRandom(ref random));
 													}
 												}
 												break;
@@ -2331,9 +2609,9 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_me.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_violence.GetRandom(ref random));
+													sb.Append(w_fight.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_objects_body.GetRandom(ref random));
+													sb.Append(w_bodypart.GetRandom(ref random));
 												}
 												break;
 
@@ -2341,7 +2619,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_destroy.GetRandom(ref random));
+													sb.Append(w_destroy.GetRandom(ref random));
 													if (random.NextBool(0.75f))
 													{
 														sb.Append(' ');
@@ -2361,24 +2639,24 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_take.GetRandom(ref random));
+													sb.Append(w_take.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_their.GetRandom(ref random));
 													sb.Append(' ');
 													if (random.NextBool(0.50f))
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 													}
 													else
 													{
-														sb.Append(w_objects.GetRandom(ref random));
+														sb.Append(w_objects_misc.GetRandom(ref random));
 													}
 													if (random.NextBool(0.50f))
 													{
 														sb.Append(" and then ");
 														sb.Append(w_they.GetRandom(ref random));
 														sb.Append(' ');
-														sb.Append(w_verbs_fear.GetRandom(ref random));
+														sb.Append(w_fear.GetRandom(ref random));
 													}
 												}
 												break;
@@ -2387,17 +2665,17 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_insert.GetRandom(ref random));
+													sb.Append(w_insert.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_their.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_objects_body.GetRandom(ref random));
+													sb.Append(w_bodypart.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_into.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_their.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_objects_dear.GetRandom(ref random));
+													sb.Append(w_family.GetRandom(ref random));
 												}
 												break;
 
@@ -2405,7 +2683,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_destroy.GetRandom(ref random));
+													sb.Append(w_destroy.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_they.GetRandom(ref random));
 													sb.Append(" with ");
@@ -2422,13 +2700,13 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_take.GetRandom(ref random));
+													sb.Append(w_take.GetRandom(ref random));
 													sb.Append(' ');
 													sb.Append(w_their.GetRandom(ref random));
 													sb.Append(' ');
 													if (random.NextBool(0.30f))
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 													}
 													else if (random.NextBool(0.40f))
 													{
@@ -2436,11 +2714,11 @@ namespace TC2.Base.Components
 													}
 													else if (random.NextBool(0.40f))
 													{
-														sb.Append(w_animals_cute.GetRandom(ref random));
+														sb.Append(w_animal_cute.GetRandom(ref random));
 													}
 													else
 													{
-														sb.Append(w_objects_body.GetRandom(ref random));
+														sb.Append(w_bodypart.GetRandom(ref random));
 													}
 													if (random.NextBool(0.50f))
 													{
@@ -2450,7 +2728,7 @@ namespace TC2.Base.Components
 															sb.Append(w_me.GetRandom(ref random));
 															sb.Append(' ');
 														}
-														sb.Append(w_verbs_eat.GetRandom(ref random));
+														sb.Append(w_eat.GetRandom(ref random));
 														sb.Append(" it");
 													}
 												}
@@ -2460,7 +2738,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_throw.GetRandom(ref random));
+													sb.Append(w_throw.GetRandom(ref random));
 													sb.Append(' ');
 													if (random.NextBool(0.50f))
 													{
@@ -2469,12 +2747,12 @@ namespace TC2.Base.Components
 													}
 													if (random.NextBool(0.75f))
 													{
-														sb.Append(w_objects.GetRandom(ref random));
+														sb.Append(w_objects_misc.GetRandom(ref random));
 														sb.Append(' ');
 													}
 													else
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 														sb.Append(' ');
 													}
 													sb.Append(w_through.GetRandom(ref random));
@@ -2492,7 +2770,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_i_will.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_violence.GetRandom(ref random));
+													sb.Append(w_fight.GetRandom(ref random));
 													if (random.NextBool(0.25f))
 													{
 														sb.Append(' ');
@@ -2520,7 +2798,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_me.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_guard.GetRandom(ref random));
+													sb.Append(w_watch.GetRandom(ref random));
 												}
 												break;
 
@@ -2538,7 +2816,7 @@ namespace TC2.Base.Components
 												{
 													sb.Append(w_me.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_guard.GetRandom(ref random));
+													sb.Append(w_watch.GetRandom(ref random));
 													if (random.NextBool(0.75f))
 													{
 														sb.Append(' ');
@@ -2548,7 +2826,7 @@ namespace TC2.Base.Components
 													sb.Append(' ');
 													if (random.NextBool(0.50f))
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 													}
 													else
 													{
@@ -2569,12 +2847,12 @@ namespace TC2.Base.Components
 													}
 													else
 													{
-														sb.Append(w_objects_dear.GetRandom(ref random));
+														sb.Append(w_family.GetRandom(ref random));
 													}
 													sb.Append(' ');
 													sb.Append(w_is.GetRandom(ref random));
 													sb.Append(' ');
-													sb.Append(w_verbs_guard.GetRandom(ref random));
+													sb.Append(w_watch.GetRandom(ref random));
 													if (random.NextBool(0.50f))
 													{
 														sb.Append(w_ed.GetRandom(ref random));
@@ -2628,59 +2906,26 @@ namespace TC2.Base.Components
 										{
 											if (random.NextBool(0.40f))
 											{
-												if (random.NextBool(0.40f))
-												{
-													sb.Append(w_we.GetRandom(ref random));
-													sb.Append(' ');
-												}
-												else if (random.NextBool(0.40f))
-												{
-													sb.Append(w_you.GetRandom(ref random));
-													sb.Append(' ');
-												}
-												else
-												{
-													sb.Append(w_me.GetRandom(ref random));
-													sb.Append(' ');
-												}
-												sb.Append(w_learn.GetRandom(ref random));
-												sb.Append(' ');
+												if (random.NextBool(0.40f)) sb.AppendSuffixed(w_us.GetRandom(ref random));
+												else if (random.NextBool(0.40f)) sb.AppendSuffixed(w_you.GetRandom(ref random));
+												else sb.AppendSuffixed(w_me.GetRandom(ref random));
+
+												sb.AppendSuffixed(w_learn.GetRandom(ref random));
 											}
-											sb.Append(w_question_what.GetRandom(ref random));
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_we.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.30f))
-											{
-												sb.Append(' ');
-												sb.Append(w_you.GetRandom(ref random));
-											}
-											else
-											{
-												sb.Append(' ');
-												sb.Append(w_me.GetRandom(ref random));
-											}
-											sb.Append(' ');
-											sb.Append(w_verbs_eat.GetRandom(ref random));
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(' ');
-												sb.Append(w_time.GetRandom(ref random));
-											}
-											sb.Append(' ');
-											sb.Append(w_for.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_supper.GetRandom(ref random));
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(w_enders_curious.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.20f))
-											{
-												sb.Append(w_enders_upset.GetRandom(ref random));
-											}
+
+											sb.Append(w_what.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_us.GetRandom(ref random));
+											else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_you.GetRandom(ref random));
+											else sb.AppendPrefixed(w_me.GetRandom(ref random));
+
+											sb.AppendPrefixed(w_eat.GetRandom(ref random));
+											if (random.NextBool(0.70f)) sb.AppendPrefixed(w_time.GetRandom(ref random));
+											sb.AppendPrefixed(w_for.GetRandom(ref random));
+											sb.AppendPrefixed(w_supper.GetRandom(ref random));
+
+											if (random.NextBool(0.70f)) sb.Append(w_enders_curious.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.Append(w_enders_upset.GetRandom(ref random));
 										}
 										break;
 
@@ -2688,95 +2933,47 @@ namespace TC2.Base.Components
 										case 1:
 										{
 											sb.Append(w_me.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_want.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_verbs_violence.GetRandom(ref random));
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
-											}
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_animals.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_enemy.GetRandom(ref random));
-											}
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_enders.GetRandom(ref random));
-											}
+											sb.AppendPrefixed(w_want.GetRandom(ref random));
+											sb.AppendPrefixed(w_fight.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.Append(w_enders_misc.GetRandom(ref random));
 										}
 										break;
 
 										// complaining about someone wronging them
 										case 2:
 										{
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
-												sb.Append(' ');
-											}
-											else if (random.NextBool(0.40f))
-											{
-												sb.Append(w_adjectives.GetRandom(ref random));
-												sb.Append(' ');
-											}
+											if (random.NextBool(0.40f)) sb.AppendSuffixed(w_adjectives_vulgar.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendSuffixed(w_adjectives.GetRandom(ref random));
+
 											sb.Append(w_enemy.GetRandom(ref random));
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_verbs_destroy.GetRandom(ref random));
-											}
-											else
-											{
-												sb.Append(' ');
-												sb.Append(w_verbs_take.GetRandom(ref random));
-											}
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_destroy.GetRandom(ref random));
+											else sb.AppendPrefixed(w_take.GetRandom(ref random));
 											sb.Append(w_ed.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_our.GetRandom(ref random));
+
+											sb.AppendPrefixed(w_our.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_structures.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_valuables.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
+											else sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+
 											if (random.NextBool(0.40f))
 											{
-												sb.Append(' ');
-												sb.Append(w_structures.GetRandom(ref random));
+												sb.AppendPrefixed(w_because.GetRandom(ref random));
+												sb.AppendPrefixed(w_they.GetRandom(ref random));
+												sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+												if (random.NextBool(0.80f)) sb.AppendPrefixed(w_as.GetRandom(ref random));
+												sb.AppendPrefixed(w_objects_vulgar.GetRandom(ref random));
 											}
-											else if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_valuables.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_objects.GetRandom(ref random));
-											}
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_because.GetRandom(ref random));
-												sb.Append(' ');
-												sb.Append(w_they.GetRandom(ref random));
-												sb.Append(' ');
-												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
-												if (random.NextBool(0.40f))
-												{
-													sb.Append(' ');
-													sb.Append(w_as.GetRandom(ref random));
-												}
-												sb.Append(' ');
-												sb.Append(w_objects_vulgar.GetRandom(ref random));
-											}
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(w_enders_upset.GetRandom(ref random));
-											}
+
+											if (random.NextBool(0.80f)) sb.Append(w_enders_upset.GetRandom(ref random));
 										}
 										break;
 
@@ -2784,31 +2981,88 @@ namespace TC2.Base.Components
 										case 3:
 										{
 											sb.Append(w_me.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_want.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_want.GetRandom(ref random));
+											else if (random.NextBool(0.50f)) sb.AppendPrefixed(w_gather.GetRandom(ref random));
+											else sb.AppendPrefixed(w_take.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+											sb.AppendPrefixed(w_valuables.GetRandom(ref random));
 											if (random.NextBool(0.40f))
 											{
-												sb.Append(' ');
-												sb.Append(w_adjectives_cool.GetRandom(ref random));
-											}
-											sb.Append(' ');
-											sb.Append(w_valuables.GetRandom(ref random));
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_because.GetRandom(ref random));
+												sb.AppendPrefixed(w_because.GetRandom(ref random));
+												if (random.NextBool(0.40f)) sb.AppendPrefixed(w_they.GetRandom(ref random));
+												sb.AppendPrefixed(w_cool.GetRandom(ref random));
 												if (random.NextBool(0.40f))
 												{
-													sb.Append(' ');
-													sb.Append(w_they.GetRandom(ref random));
+													sb.AppendPrefixed(w_and.GetRandom(ref random));
+													if (random.NextBool(0.40f))
+													{
+														if (random.NextBool(0.40f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+														else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_family.GetRandom(ref random));
+														else sb.AppendPrefixed(w_authority.GetRandom(ref random));
+
+														if (random.NextBool(0.10f))
+														{
+															sb.AppendPrefixed(w_enders_nevermind.GetRandom(ref random));
+															break;
+														}
+
+														sb.AppendPrefixed(w_have.GetRandom(ref random));
+														sb.AppendPrefixed(w_it.GetRandom(ref random));
+														if (random.NextBool(0.50f))
+														{
+															sb.AppendPrefixed(w_but.GetRandom(ref random));
+															sb.AppendPrefixed(w_is.GetRandom(ref random));
+															sb.AppendPrefixed(w_bad.GetRandom(ref random));
+														}
+														else if (random.NextBool(0.50f))
+														{
+															sb.AppendPrefixed(w_because.GetRandom(ref random));
+															sb.AppendPrefixed(w_they.GetRandom(ref random));
+															if (random.NextBool(0.50f))
+															{
+																sb.AppendPrefixed(w_have.GetRandom(ref random));
+																sb.AppendPrefixed(w_it.GetRandom(ref random));
+															}
+															else
+															{
+																if (random.NextBool(0.40f)) sb.AppendPrefixed(w_take.GetRandom(ref random));
+																else if (random.NextBool(0.50f)) sb.AppendPrefixed(w_work.GetRandom(ref random));
+																else sb.AppendPrefixed(w_cool.GetRandom(ref random));
+
+																if (random.NextBool(0.40f))
+																{
+																	sb.Append(w_enders_low.GetRandom(ref random));
+
+																	if (random.NextBool(0.30f))
+																	{
+																		sb.AppendPrefixed(w_objects_vulgar.GetRandom(ref random));
+																		sb.AppendPrefixed(w_suffix_vulgar.GetRandom(ref random));
+
+																		if (random.NextBool(0.80f)) sb.Append(w_enders_upset.GetRandom(ref random));
+																	}
+																}
+															}
+														}
+													}
+													else
+													{
+														sb.AppendPrefixed(w_i_will.GetRandom(ref random));
+														sb.AppendPrefixed(w_become.GetRandom(ref random));
+
+														if (random.NextBool(0.40f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+														else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_authority.GetRandom(ref random));
+														else sb.AppendPrefixed(w_they.GetRandom(ref random));
+
+														if (random.NextBool(0.50f)) sb.Append(w_enders_upset.GetRandom(ref random));
+														else if (random.NextBool(0.50f)) sb.Append(w_enders_misc.GetRandom(ref random));
+													}
 												}
-												sb.Append(' ');
-												sb.Append(w_adjectives_cool.GetRandom(ref random));
 											}
-											if (random.NextBool(0.50f))
+											else
 											{
-												sb.Append(' ');
-												sb.Append(w_enders.GetRandom(ref random));
+												if (random.NextBool(0.50f)) sb.Append(w_enders_misc.GetRandom(ref random));
 											}
 										}
 										break;
@@ -2816,43 +3070,60 @@ namespace TC2.Base.Components
 										// wants more stuff
 										case 4:
 										{
-											sb.Append(w_me.GetRandom(ref random));
+											sb.AppendSuffixed(w_me.GetRandom(ref random));
 											if (random.NextBool(0.40f))
 											{
-												sb.Append(" and ");
-												sb.Append(w_we.GetRandom(ref random));
+												sb.AppendPrefixed(w_and.GetRandom(ref random));
+
+												if (random.NextBool(0.30f)) sb.AppendPrefixed(w_our.GetRandom(ref random));
+												else if (random.NextBool(0.50f)) sb.AppendPrefixed(w_my.GetRandom(ref random));
+
+												if (random.NextBool(0.30f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+												else if (random.NextBool(0.15f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+
+												if (random.NextBool(0.50f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+												else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_us.GetRandom(ref random));
+												else sb.AppendPrefixed(w_authority.GetRandom(ref random));
 											}
-											sb.Append(' ');
-											sb.Append(w_want.GetRandom(ref random));
+											sb.AppendPrefixed(w_want.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_have.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_take.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_gather.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_buy.GetRandom(ref random));
+
+											if (random.NextBool(0.70f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_weapons.GetRandom(ref random));
+											else if (random.NextBool(0.45f)) sb.AppendPrefixed(w_valuables.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
+											else sb.AppendPrefixed(w_devices.GetRandom(ref random));
+
 											if (random.NextBool(0.40f))
 											{
-												sb.Append(' ');
-												sb.Append(w_verbs_buy.GetRandom(ref random));
-											}
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(' ');
-												sb.Append(w_adjectives_cool.GetRandom(ref random));
-											}
-											if (random.NextBool(0.50f))
-											{
-												sb.Append(' ');
-												sb.Append(w_weapons.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.50f))
-											{
-												sb.Append(' ');
-												sb.Append(w_valuables.GetRandom(ref random));
+												sb.AppendPrefixed(w_and.GetRandom(ref random));
+
+												if (random.NextBool(0.40f))
+												{
+													sb.AppendPrefixed(w_throw.GetRandom(ref random));
+													if (random.NextBool(0.60f)) sb.AppendPrefixed(w_at.GetRandom(ref random));
+													else sb.AppendPrefixed(w_through.GetRandom(ref random));
+												}
+												else if (random.NextBool(0.45f)) sb.AppendPrefixed(w_fight.GetRandom(ref random));
+												else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_curse.GetRandom(ref random));
+												else sb.AppendPrefixed(w_take.GetRandom(ref random));
+
+												if (random.NextBool(0.40f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+												else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+												else sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
+
+												if (random.NextBool(0.50f)) sb.Append(w_enders_upset.GetRandom(ref random));
+												else sb.Append(w_enders_misc.GetRandom(ref random));
 											}
 											else
 											{
-												sb.Append(' ');
-												sb.Append(w_devices.GetRandom(ref random));
-											}
-											if (random.NextBool(0.80f))
-											{
-												sb.Append(' ');
-												sb.Append(w_enders.GetRandom(ref random));
+												if (random.NextBool(0.70f)) sb.Append(w_enders_misc.GetRandom(ref random));
+												else sb.Append(w_enders_nevermind.GetRandom(ref random));
 											}
 										}
 										break;
@@ -2860,32 +3131,12 @@ namespace TC2.Base.Components
 										// curious about inner workings of something 
 										case 5:
 										{
-											sb.Append(w_question.GetRandom(ref random));
-											if (random.NextBool(0.80f))
-											{
-												sb.Append(' ');
-												sb.Append(w_is.GetRandom(ref random));
-											}
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_objects.GetRandom(ref random));
-											}
-											else
-											{
-												sb.Append(' ');
-												sb.Append(w_objects_dear.GetRandom(ref random));
-											}
-											if (random.NextBool(0.50f))
-											{
-												sb.Append(' ');
-												sb.Append(w_verbs_work.GetRandom(ref random));
-											}
-											else
-											{
-												sb.Append(' ');
-												sb.Append(w_verbs_move.GetRandom(ref random));
-											}
+											sb.AppendSuffixed(w_question.GetRandom(ref random));
+											if (random.NextBool(0.80f)) sb.AppendPrefixed(w_is.GetRandom(ref random));
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
+											else sb.AppendPrefixed(w_family.GetRandom(ref random));
+											if (random.NextBool(0.50f)) sb.AppendPrefixed(w_work.GetRandom(ref random));
+											else sb.AppendPrefixed(w_move.GetRandom(ref random));
 											sb.Append(w_enders_curious.GetRandom(ref random));
 										}
 										break;
@@ -2893,50 +3144,20 @@ namespace TC2.Base.Components
 										// wondering about meals and eating
 										case 6:
 										{
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(w_me.GetRandom(ref random));
-												sb.Append(' ');
-											}
-											else
-											{
-												sb.Append(w_we.GetRandom(ref random));
-												sb.Append(' ');
-											}
-											sb.Append(w_verbs_eat.GetRandom(ref random));
-											if (random.NextBool(0.30f))
-											{
-												sb.Append(' ');
-												sb.Append(w_adjectives.GetRandom(ref random));
-											}
-											else if (random.NextBool(0.30f))
-											{
-												sb.Append(' ');
-												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
-											}
-											sb.Append(' ');
-											sb.Append(w_food.GetRandom(ref random));
+											if (random.NextBool(0.70f)) sb.AppendSuffixed(w_me.GetRandom(ref random));
+											else sb.AppendSuffixed(w_us.GetRandom(ref random));
+											sb.Append(w_eat.GetRandom(ref random));
+											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
+											else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+											sb.AppendPrefixed(w_food.GetRandom(ref random));
 											if (random.NextBool(0.60f))
 											{
-												sb.Append(' ');
-												sb.Append(w_then.GetRandom(ref random));
-												sb.Append(' ');
-												sb.Append(w_food.GetRandom(ref random));
+												sb.AppendPrefixed(w_then.GetRandom(ref random));
+												sb.AppendPrefixed(w_food.GetRandom(ref random));
 											}
-											if (random.NextBool(0.50f))
-											{
-												sb.Append(' ');
-												sb.Append(w_time.GetRandom(ref random));
-											}
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(" mmmmm");
-											}
-											if (random.NextBool(0.70f))
-											{
-												sb.Append(' ');
-												sb.Append(w_enders.GetRandom(ref random));
-											}
+											if (random.NextBool(0.50f)) sb.AppendPrefixed(w_time.GetRandom(ref random));
+											if (random.NextBool(0.70f)) sb.AppendPrefixed("mmmmm");
+											if (random.NextBool(0.70f)) sb.Append(w_enders_misc.GetRandom(ref random));
 										}
 										break;
 
@@ -2944,7 +3165,7 @@ namespace TC2.Base.Components
 										case 7:
 										{
 											if (random.NextBool(0.20f)) sb.AppendSuffixed(w_starters.GetRandom(ref random));
-											else if (random.NextBool(0.20f)) sb.AppendSuffixed(w_verbs_vulgar.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.AppendSuffixed(w_curse.GetRandom(ref random));
 
 											sb.Append(w_me.GetRandom(ref random));
 
@@ -2953,14 +3174,23 @@ namespace TC2.Base.Components
 												switch (random.NextUIntRange(0, 4))
 												{
 													default:
-													case 0: sb.AppendPrefixed(w_objects_body.GetRandom(ref random)); break;
-													case 1: sb.AppendPrefixed(w_objects_dear.GetRandom(ref random)); break;
-													case 2: sb.AppendPrefixed(w_animals.GetRandom(ref random)); break;
+													case 0: sb.AppendPrefixed(w_bodypart.GetRandom(ref random)); break;
+													case 1: sb.AppendPrefixed(w_family.GetRandom(ref random)); break;
+													case 2: sb.AppendPrefixed(w_animal.GetRandom(ref random)); break;
 													case 3: sb.AppendPrefixed(w_authority.GetRandom(ref random)); break;
 												}
 											}
 
-											sb.AppendPrefixed(w_have.GetRandom(ref random));
+											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_is.GetRandom(ref random));
+											else if (random.NextBool(0.25f)) sb.AppendPrefixed(w_have.GetRandom(ref random));
+											else if (random.NextBool(0.22f)) sb.AppendPrefixed(w_through.GetRandom(ref random));
+											else
+											{
+												sb.AppendPrefixed(w_fight.GetRandom(ref random));
+												sb.Append(w_ed.GetRandom(ref random));
+
+												if (random.NextBool(0.40f)) sb.AppendPrefixed(w_because.GetRandom(ref random));
+											}
 
 											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
 											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
@@ -2978,7 +3208,7 @@ namespace TC2.Base.Components
 													if (random.NextBool(0.40f))
 													{
 														if (random.NextBool(0.60f)) sb.AppendPrefixed(w_discomfort.GetRandom(ref random));
-														else sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+														else sb.AppendPrefixed(w_curse.GetRandom(ref random));
 
 														if (random.NextBool(0.60f)) sb.Append(w_enders_low.GetRandom(ref random));
 														else if (random.NextBool(0.40f)) sb.Append(w_enders_curious.GetRandom(ref random));
@@ -2993,7 +3223,7 @@ namespace TC2.Base.Components
 											}
 											else
 											{
-												sb.Append(w_enders.GetRandom(ref random));
+												sb.Append(w_enders_misc.GetRandom(ref random));
 											}
 										}
 										break;
@@ -3005,18 +3235,18 @@ namespace TC2.Base.Components
 											else if (random.NextBool(0.40f)) sb.Append(w_into.GetRandom(ref random));
 											else sb.Append(w_i_am.GetRandom(ref random));
 
-											if (random.NextBool(0.10f)) sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+											if (random.NextBool(0.10f)) sb.AppendPrefixed(w_curse.GetRandom(ref random));
 											else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_time.GetRandom(ref random));
 											else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_through.GetRandom(ref random));
 
 											sb.AppendPrefixed(w_then.GetRandom(ref random));
 
-											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_we.GetRandom(ref random));
+											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_us.GetRandom(ref random));
 											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_is.GetRandom(ref random));
 											else sb.AppendPrefixed(w_i_will.GetRandom(ref random));
 
-											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_verbs_fear.GetRandom(ref random));
-											else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_verbs_move.GetRandom(ref random));
+											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_fear.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_move.GetRandom(ref random));
 
 											if (random.NextBool(0.70f))
 											{
@@ -3025,13 +3255,13 @@ namespace TC2.Base.Components
 												// sudden realization
 												if (random.NextBool(0.10f))
 												{
-													sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+													sb.AppendPrefixed(w_curse.GetRandom(ref random));
 													if (random.NextBool(0.40f)) sb.Append(w_enders_upset.GetRandom(ref random));
 												}
 											}
 											else
 											{
-												sb.Append(w_enders.GetRandom(ref random));
+												sb.Append(w_enders_misc.GetRandom(ref random));
 											}
 										}
 										break;
@@ -3041,7 +3271,7 @@ namespace TC2.Base.Components
 										{
 											sb.Append(w_my.GetRandom(ref random));
 											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
-											sb.AppendPrefixed(w_objects_body.GetRandom(ref random));
+											sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
 											sb.AppendPrefixed(w_discomfort.GetRandom(ref random));
 											if (random.NextBool(0.40f))
 											{
@@ -3050,16 +3280,16 @@ namespace TC2.Base.Components
 												sb.AppendPrefixed(w_objects_vulgar.GetRandom(ref random));
 											}
 											if (random.NextBool(0.50f)) sb.Append(w_enders_low.GetRandom(ref random));
-											if (random.NextBool(0.30f)) sb.Append(w_enders.GetRandom(ref random));
+											if (random.NextBool(0.30f)) sb.Append(w_enders_misc.GetRandom(ref random));
 										}
 										break;
 									}
 
-									kobold.next_talk = time + random.NextFloatRange(10.00f, 20.00f);
+									kobold.next_talk = time + random.NextFloatRange(10.00f, 30.00f);
 									head.next_sound = time + 0.50f;
 								}
 
-								var text = sb.ToString().Trim();
+								var text = sb.ToString().AsSpan().Trim();
 
 								speech_bubble.text = text;
 								speech_bubble.Sync(ent_speech_bubble, true);
