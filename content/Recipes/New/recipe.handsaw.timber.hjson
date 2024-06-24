@@ -52,14 +52,14 @@
 		{
 			type: resource
 			material: wood
-			amount: 7.000
-			amount_extra: 2.000
+			amount: 7.220
+			amount_extra: 0.900
 		}
 		{
 			type: resource
 			material: sawdust
-			amount: 1.100
-			amount_extra: 1.260
+			amount: 5.100
+			amount_extra: 2.460
 			flags: waste, residue
 			group: 1
 		}

@@ -1,7 +1,7 @@
 $name: "Door (Wood)"
 $desc:
 	'''
-	A standard wooden door.
+	Standard wooden door.
 	Can be locked.
 	'''
 $tags: []
@@ -14,7 +14,7 @@ body:
 	{
 		size: [0.500, 3.000]
 		offset: [0.000, 0.000]
-		mass: 42.000
+		mass: 16.200
 		friction: 0.750
 		elasticity: 0.300
 		material: wood

@@ -17,7 +17,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: none
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
@@ -29,17 +29,20 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x
 		
-		size: [4.000, 3.500]
-		offset: [0.000, -0.500]
+		size: [4.000, 3.000]
+		offset: [0.000, -0.750]
+		
+		rect_foundation: [-2.000, 0.750, 2.000, 1.250]
+		tileflags_foundation: solid
 		
 		cooldown: 0.500
-		min_support: 0.200
+		min_support: 0.700
 		min_clearance: 0.750
 		min_claim: 1.000
 		
-		rotation_max: 0.200
+		rotation_max: 0.120
 		
 		sound: building_place
 		
