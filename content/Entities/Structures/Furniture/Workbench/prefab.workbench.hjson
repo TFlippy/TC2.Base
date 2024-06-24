@@ -24,7 +24,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 3500.000
 }
 
 animated.renderer:
@@ -32,8 +32,16 @@ animated.renderer:
 	sprite:
 	{
 		texture: "workbench"
+		size: [32, 24]
 	}
 	z: -100.000
+	flags: has_damage
+}
+
+damage.effects:
+{
+	frame_count: 2
+	threshold_wreck: 0.500
 }
 
 transform:

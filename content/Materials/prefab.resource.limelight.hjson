@@ -34,6 +34,15 @@ transform:
 resource:
 {
 	material: "limelight"
+	
+	@light:
+	{
+		color: [1.000, 0.412844, 0.000, 1.000]
+		offset: [0.000, 0.250]
+		scale: [16.000, 16.000]
+		intensity: 1.000
+		texture: light.circle.03
+	}
 }
 
 holdable:
@@ -45,3 +54,14 @@ norotate:
 {
 
 }
+
+// health:
+// {
+// 	max: 3500.000
+// }
+
+// essencecontainer:
+// {
+// 	stability: 1.000
+// 	health_threshold: 0.200
+// }

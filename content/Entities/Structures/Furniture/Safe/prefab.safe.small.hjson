@@ -2,7 +2,7 @@ $name: "Safe"
 $desc:
 	'''
 	A ridiculously durable safe.
-	What kind of treasure could be contained inside?
+	What kind of treasure (or evil?) could be sealed inside?
 	'''
 $tags: []
 
@@ -27,12 +27,12 @@ body:
 
 health:
 {
-	max: 25000.000
+	max: 75000.000
 }
 
 armor:
 {
-	toughness: 1500.000
+	toughness: 800.000
 	protection: 0.980
 	
 	knockback_modifier: 1.300
