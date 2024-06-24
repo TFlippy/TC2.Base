@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Scaffolding (Background)"
+	name: "Scaffolding (Back)"
 	desc:
 		'''
-		Decently durable metal scaffolding.
+		Lightweight metal scaffolding.
 		Has a long placement range.
 		'''
 	

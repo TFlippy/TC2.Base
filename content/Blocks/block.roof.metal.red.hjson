@@ -3,19 +3,14 @@
 	name: "Metal Roof (Red)"
 	desc:
 		'''
-		A fancy red metal roof built to the Imperial standard.
+		Fancy and durable - a metal roof built to the Imperial standard, painted red to instil fear in the enemies of the state.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: metal_sheet
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 6500.000
+	max_health: 8800.000
 	
 	smoothing: 0.150
 	mass: 1.000
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.roof.metal.red"
-	pattern: "pattern.scaffolding"
+	texture: terrain.roof.metal.red
+	pattern: pattern.scaffolding
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.250
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
-			quantity: 0.050
+			material: steel.plate
+			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

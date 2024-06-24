@@ -26,7 +26,7 @@
 	pattern: pattern.framework
 	
 	texture_scale: 1.000
-	texture_overshoot: -0.050
+	texture_overshoot: -0.250
 	texture_offset: -1.250
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"

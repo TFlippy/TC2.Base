@@ -1,12 +1,6 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Glass"
-	desc: ""
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: glass
 	tile_flags: non_empty
@@ -24,8 +18,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.glass"
-	pattern: "pattern.glass"
+	texture: terrain.glass
+	pattern: pattern.glass
 	
 	texture_scale: 1.000
 	texture_overshoot: 0.250
@@ -36,11 +30,10 @@
 	resources:
 	[
 		{
-		
+			material: glass
+			quantity: 0.050
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

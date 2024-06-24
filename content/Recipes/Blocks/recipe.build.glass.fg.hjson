@@ -8,35 +8,36 @@
 	
 	icon:
 	{
-		texture: "block_icons"
+		texture: block_icons
 		size: [16, 16]
 		frame: [5, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: none
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -93.500
 	
 	placement:
 	{
 		type: line
+		flags: continuous
 		
 		size: [0.500, 0.500]
 		
 		cooldown: 0.400
-		min_support: 0.050
+		min_support: 0.100
 		min_claim: 1.000
 		length_max: 5.000
 		length_step: 0.125
 		
-		sound: "metal_place_01"
+		sound: metal_place_01
 		
 		mappings_replace:
 		{
@@ -48,8 +49,8 @@
 	[
 		{
 			type: resource
-			material: "glass"
-			amount: 0.03125
+			material: glass
+			amount: 0.100
 		}
 	]
 	
@@ -57,7 +58,7 @@
 	[
 		{
 			type: block
-			block: "glass"
+			block: glass
 			tile_flags: solid, become_background_on_break, no_replace
 		}
 	]
