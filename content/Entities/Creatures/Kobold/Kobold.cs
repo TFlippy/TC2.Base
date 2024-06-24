@@ -713,9 +713,13 @@ namespace TC2.Base.Components
 		{
 			"hear",
 			"know",
-			"heared",
+			"heard",
 			"listen",
-			"see",
+			"sound",
+			"ear",
+			"eardrop",
+			"eavesdrop",
+			"voice"
 		};
 
 		internal static string[] w_say =
@@ -726,6 +730,7 @@ namespace TC2.Base.Components
 			"tell",
 			"told",
 			"yell",
+			"voice",
 			"speak",
 			"spoke",
 			"whisper",
@@ -2896,8 +2901,8 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									var index = random.NextIntRange(0, 10);
-									//index = 6;
+									var index = random.NextIntRange(0, 13);
+									//index = 12;
 
 									switch (index)
 									{
@@ -3004,7 +3009,7 @@ namespace TC2.Base.Components
 
 														if (random.NextBool(0.10f))
 														{
-															sb.AppendPrefixed(w_enders_nevermind.GetRandom(ref random));
+															sb.Append(w_enders_nevermind.GetRandom(ref random));
 															break;
 														}
 
@@ -3267,7 +3272,7 @@ namespace TC2.Base.Components
 										break;
 
 										// rants about some discomfort
-										default:
+										case 9:
 										{
 											sb.Append(w_my.GetRandom(ref random));
 											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
@@ -3281,6 +3286,170 @@ namespace TC2.Base.Components
 											}
 											if (random.NextBool(0.50f)) sb.Append(w_enders_low.GetRandom(ref random));
 											if (random.NextBool(0.30f)) sb.Append(w_enders_misc.GetRandom(ref random));
+										}
+										break;
+
+										// gossips
+										default:
+										{
+											if (random.NextBool(0.30f))
+											{
+												sb.Append(w_me.GetRandom(ref random));
+
+												sb.AppendPrefixed(w_hear.GetRandom(ref random)); 
+												sb.Append(w_ed.GetRandom(ref random));
+											}
+											else
+											{
+												sb.Append(w_my.GetRandom(ref random));
+
+												if (random.NextBool(0.47f))
+												{
+													sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+													sb.Append("'s");
+												}
+
+												if (random.NextBool(0.40f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+												else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_authority.GetRandom(ref random));
+												else sb.AppendPrefixed(w_infosource.GetRandom(ref random));
+
+												if (random.NextBool(0.50f))
+												{
+													sb.AppendPrefixed(w_hear.GetRandom(ref random));
+													sb.Append(w_ed.GetRandom(ref random));
+
+													if (random.NextBool(0.40f)) sb.AppendPrefixed(w_that.GetRandom(ref random));
+
+													if (random.NextBool(0.20f)) sb.AppendPrefixed(w_authority.GetRandom(ref random));
+													else sb.AppendPrefixed(w_infosource.GetRandom(ref random));
+
+													sb.AppendPrefixed(w_say.GetRandom(ref random));
+													sb.Append(w_ed.GetRandom(ref random));
+												}
+												else
+												{
+													sb.AppendPrefixed(w_say.GetRandom(ref random));
+													sb.Append(w_ed.GetRandom(ref random));
+												}
+											}
+
+											if (random.NextBool(0.22f)) sb.AppendSuffixed(w_enders_low.GetRandom(ref random));
+
+											sb.AppendPrefixed(w_that.GetRandom(ref random));
+
+											if (random.NextBool(0.25f)) sb.AppendSuffixed(w_enders_low.GetRandom(ref random));
+
+											if (random.NextBool(0.24f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+											else if (random.NextBool(0.22f))
+											{
+												sb.AppendPrefixed(w_diseases.GetRandom(ref random));
+												sb.Append(w_ed.GetRandom(ref random));
+											}
+											else if (random.NextBool(0.24f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+											else if (random.NextBool(0.38f)) sb.AppendPrefixed(w_bad.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
+
+											if (random.NextBool(0.10f)) sb.AppendSuffixed(w_enders_low.GetRandom(ref random));							
+
+											if (random.NextBool(0.24f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+											else if (random.NextBool(0.32f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+											else if (random.NextBool(0.24f))
+											{
+												sb.AppendPrefixed(w_authority.GetRandom(ref random));
+
+												if (random.NextBool(0.32f))
+												{
+													sb.Append(w_enders_nevermind.GetRandom(ref random));
+													break;
+												}
+											}
+											else if (random.NextBool(0.48f)) sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
+											else sb.AppendPrefixed(w_us.GetRandom(ref random));
+
+											if (random.NextBool(0.25f)) sb.AppendSuffixed(w_enders_low.GetRandom(ref random));
+
+											if (random.NextBool(0.40f))
+											{
+												sb.AppendPrefixed(w_have.GetRandom(ref random));
+
+												if (random.NextBool(0.44f)) sb.AppendPrefixed(w_cool.GetRandom(ref random));
+												else if (random.NextBool(0.48f)) sb.AppendPrefixed(w_bad.GetRandom(ref random));
+												else sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
+
+												if (random.NextBool(0.10f)) sb.AppendSuffixed(w_enders_low.GetRandom(ref random));
+												
+												if (random.NextBool(0.40f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
+												else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_weapons.GetRandom(ref random));
+												else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_structures.GetRandom(ref random));
+												else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+												else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_devices.GetRandom(ref random));
+												else sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
+											}
+											else if (random.NextBool(0.40f))
+											{
+												sb.AppendPrefixed(w_eat.GetRandom(ref random));
+
+												if (random.NextBool(0.10f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
+												else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+
+												if (random.NextBool(0.12f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
+												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_supper.GetRandom(ref random));
+												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
+												else sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
+											}
+											else // if (random.NextBool(0.20f))
+											{
+												sb.AppendPrefixed(w_become.GetRandom(ref random));
+
+												if (random.NextBool(0.32f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+												else if (random.NextBool(0.22f)) sb.AppendPrefixed(w_authority.GetRandom(ref random));
+												else if (random.NextBool(0.32f)) sb.AppendPrefixed(w_objects_vulgar.GetRandom(ref random));
+												else sb.AppendPrefixed(w_animal.GetRandom(ref random));
+											}
+											//else if (random.NextBool(0.20f))
+											//{
+											//	sb.AppendPrefixed(w_work.GetRandom(ref random));
+
+											//	if (random.NextBool(0.30f)) sb.AppendPrefixed(w_at.GetRandom(ref random));
+											//	else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_as.GetRandom(ref random));
+
+											//	if (random.NextBool(0.20f)) sb.AppendPrefixed(w_structures.GetRandom(ref random));
+											//	else if (random.NextBool(0.15f)) sb.AppendPrefixed(w_authority.GetRandom(ref random));
+											//	else if (random.NextBool(0.14f)) sb.AppendPrefixed(w_animal_big.GetRandom(ref random));
+											//	else sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+											//}
+											//else
+											//{
+											//	if (random.NextBool(0.30f)) sb.AppendPrefixed(w_insert.GetRandom(ref random));
+											//	else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_throw.GetRandom(ref random));
+											//	else if (random.NextBool(0.30f)) sb.AppendPrefixed(w_move.GetRandom(ref random));
+											//	else sb.AppendPrefixed(w_defile.GetRandom(ref random));
+
+											//	if (random.NextBool(0.20f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
+											//	else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_family.GetRandom(ref random));
+											//	else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+											//	else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_animal_big.GetRandom(ref random));
+											//	else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+											//	else sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+
+											//	if (random.NextBool(0.30f)) sb.AppendPrefixed(w_at.GetRandom(ref random));
+											//	else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_into.GetRandom(ref random));
+											//	else sb.AppendPrefixed(w_directions.GetRandom(ref random));
+
+											//	if (random.NextBool(0.30f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+											//	else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_structures.GetRandom(ref random));
+											//	else sb.AppendPrefixed(w_devices.GetRandom(ref random));
+											//}
+
+											if (random.NextBool(0.30f)) sb.Append(w_enders_low.GetRandom(ref random));
+
+											if (random.NextBool(0.35f)) sb.Append(w_enders_curious.GetRandom(ref random));
+											else if (random.NextBool(0.35f)) sb.Append(w_enders_upset.GetRandom(ref random));
+											else if (random.NextBool(0.35f)) sb.Append(w_enders_misc.GetRandom(ref random));
+											else sb.Append(w_enders_low.GetRandom(ref random));
 										}
 										break;
 									}
