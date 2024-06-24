@@ -27,9 +27,9 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: continuous, no_snapping
 		
-		size: [1.000, 1.000]
+		size: [1.250, 1.000]
 		
 		cooldown: 0.300
 		min_support: 0.050
@@ -48,7 +48,12 @@
 		{
 			type: resource
 			material: brick.mud
-			amount: 0.300
+			amount: 0.200
+		}
+		{
+			type: resource
+			material: mud
+			amount: 0.068
 		}
 	]
 	

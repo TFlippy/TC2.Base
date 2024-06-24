@@ -47,8 +47,13 @@
 	[
 		{
 			type: resource
-			material: stone
-			amount: 0.210
+			material: brick.concrete
+			amount: 0.300
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 0.040
 		}
 	]
 	

@@ -29,7 +29,7 @@
 		type: rectangle
 		flags: continuous
 		
-		size: [1.500, 1.500]
+		size: [1.500, 1.000]
 		
 		cooldown: 0.220
 		min_support: 0.050
@@ -48,12 +48,12 @@
 		{
 			type: resource
 			material: brick.stone
-			amount: 0.120
+			amount: 0.125
 		}
 		{
 			type: resource
 			material: mortar
-			amount: 0.012
+			amount: 0.015
 		}
 	]
 	

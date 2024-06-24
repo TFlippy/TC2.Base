@@ -48,7 +48,12 @@
 		{
 			type: resource
 			material: brick.clay
-			amount: 0.300
+			amount: 0.100
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 0.014
 		}
 	]
 	
