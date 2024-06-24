@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Clay Mortar"
+	name: "Cement Mortar"
 	desc:
 		'''
-		TODO: Desc
+		Simpler mortar mixed from cement, sand and water, with the higher amount of cement making up for the lack of lime.
 		'''
 	
 	icon:
@@ -16,11 +16,11 @@
 	
 	icon_extra:
 	{
-		texture: resource.clay
+		texture: resource.cement
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [1.000, -11.000]
+	icon_extra_offset: [0.000, -11.000]
 	
 	min: 1
 	max: 10

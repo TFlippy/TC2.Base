@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Cement-based Mortar"
+	name: "Cement-lime Mortar"
 	desc:
 		'''
-		TODO: Desc
+		Quality mortar mixed from lime, cement, sand and water. Efficient, but somewhat complex to make. 
 		'''
 	
 	icon:
@@ -12,14 +12,15 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [0.000, -6.000]
 	
 	icon_extra:
 	{
-		texture: resource.cement
+		texture: resource.lime
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [1.000, -6.000]
+	icon_extra_offset: [-2.000, -9.000]
 	
 	min: 1
 	max: 10
@@ -37,17 +38,27 @@
 		{
 			type: resource
 			material: lime
-			amount: 10.000
+			amount: 1.300
 		}
 		{
 			type: resource
 			material: cement
-			amount: 10.000
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: sand
+			amount: 12.000
+		}
+		{
+			type: resource
+			material: water
+			amount: 50.000
 		}
 		{
 			type: work
 			work: mixing
-			amount: 280.000
+			amount: 250.000
 			difficulty: 6
 		}
 	]
@@ -57,8 +68,8 @@
 		{
 			type: resource
 			material: mortar
-			amount: 0.490
-			amount_extra: 1.870
+			amount: 19.478
+			amount_extra: 0.372
 		}
 	]
 }

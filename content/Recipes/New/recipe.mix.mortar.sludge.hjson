@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Clay Mortar"
+	name: "Dubious Mortar"
 	desc:
 		'''
-		TODO: Desc
+		Dilute a perfectly decent mortar with some gross & terrible dross and hope nobody finds out.
 		'''
 	
 	icon:
@@ -16,11 +16,11 @@
 	
 	icon_extra:
 	{
-		texture: resource.clay
+		texture: resource.sludge
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [1.000, -11.000]
+	icon_extra_offset: [0.000, -11.000]
 	
 	min: 1
 	max: 10
@@ -37,24 +37,29 @@
 	[
 		{
 			type: resource
-			material: cement
-			amount: 2.700
+			material: mortar
+			amount: 8.000
 		}
 		{
 			type: resource
-			material: sand
-			amount: 9.400
+			material: sludge
+			amount: 25.000
+		}
+		{
+			type: resource
+			material: ash
+			amount: 5.000
 		}
 		{
 			type: resource
 			material: water
-			amount: 50.000
+			amount: 15.000
 		}
 		{
 			type: work
 			work: mixing
-			amount: 220.000
-			difficulty: 5
+			amount: 400.000
+			difficulty: 8
 		}
 	]
 	
@@ -63,8 +68,14 @@
 		{
 			type: resource
 			material: mortar
-			amount: 16.178
-			amount_extra: 1.572
+			amount: 12.178
+			amount_extra: 7.572
+		}
+		{
+			type: resource
+			material: water.toxic
+			amount: 16.391
+			amount_extra: 8.112
 		}
 	]
 }

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Clay Mortar"
+	name: "Brezolyt Mortar"
 	desc:
 		'''
 		TODO: Desc
@@ -16,11 +16,11 @@
 	
 	icon_extra:
 	{
-		texture: resource.clay
+		texture: resource.brezolyt
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [1.000, -11.000]
+	icon_extra_offset: [1.000, -10.000]
 	
 	min: 1
 	max: 10
@@ -37,13 +37,18 @@
 	[
 		{
 			type: resource
+			material: lime
+			amount: 1.300
+		}
+		{
+			type: resource
 			material: cement
-			amount: 2.700
+			amount: 1.000
 		}
 		{
 			type: resource
 			material: sand
-			amount: 9.400
+			amount: 12.000
 		}
 		{
 			type: resource
@@ -53,8 +58,8 @@
 		{
 			type: work
 			work: mixing
-			amount: 220.000
-			difficulty: 5
+			amount: 250.000
+			difficulty: 6
 		}
 	]
 	
@@ -63,8 +68,8 @@
 		{
 			type: resource
 			material: mortar
-			amount: 16.178
-			amount_extra: 1.572
+			amount: 19.478
+			amount_extra: 0.372
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Water (Dirty)"
 	description:
 		'''
@@ -10,23 +10,29 @@
 	
 	icon:
 	{
-		texture: "resource.water.dirty"
+		texture: resource.water.dirty
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: liquid
+	// Flags defining properties of the raw material.
 	flags: liquid, bottled, raw
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.105
 	quantity_max: 500.000
-	prefab: "resource.water.dirty"
+	prefab: resource.water.dirty
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -66,4 +72,7 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	// Component materials.
+	composition: []
 }
