@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 				public partial struct Data: IComponent, Wrench.IMode
 				{
 					[Asset.Ignore] public IRecipe.Handle recipe;
-					[Asset.Ignore] public Build.Flags flags;
+					[Asset.Ignore] public Wrench.Mode.Build.Flags flags;
 
 					[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_place;
 
@@ -31,13 +31,13 @@ namespace TC2.Base.Components
 #if CLIENT
 
 					//public Entity ent_build;
-					//public Build.Data build;
+					//public Wrench.Mode.Build.Data build;
 					////public Control.Data control;
 					//public Transform.Data transform;
 
 
-					public static readonly string[] category_names = Enum.GetNames<Build.Category>();
-					public static readonly Build.Category[] category_values = Enum.GetValues<Build.Category>();
+					public static readonly string[] category_names = Enum.GetNames<Wrench.Mode.Build.Category>();
+					public static readonly Wrench.Mode.Build.Category[] category_values = Enum.GetValues<Wrench.Mode.Build.Category>();
 					public static FixedString64 edit_name_filter;
 
 					public static Crafting.Recipe.Tags edit_tags_filter = Crafting.Recipe.Tags.Architecture;
@@ -87,43 +87,43 @@ namespace TC2.Base.Components
 								{
 									for (var i = 0; i < category_values.Length; i++)
 									{
-										using (GUI.ID<Build.Category>.Push(i + 1))
+										using (GUI.ID<Wrench.Mode.Build.Category>.Push(i + 1))
 										{
 											var button_tags_filter = Crafting.Recipe.Tags.None;
 
-											switch ((Build.Category)i)
+											switch ((Wrench.Mode.Build.Category)i)
 											{
-												case Build.Category.Architecture:
+												case Wrench.Mode.Build.Category.Architecture:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Architecture;
 												}
 												break;
 
-												case Build.Category.Construction:
+												case Wrench.Mode.Build.Category.Construction:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Construction;
 												}
 												break;
 
-												case Build.Category.Industry:
+												case Wrench.Mode.Build.Category.Industry:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Industry;
 												}
 												break;
 
-												case Build.Category.Buildings:
+												case Wrench.Mode.Build.Category.Buildings:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Buildings;
 												}
 												break;
 
-												case Build.Category.Mechanisms:
+												case Wrench.Mode.Build.Category.Mechanisms:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Mechanisms;
 												}
 												break;
 
-												case Build.Category.Misc:
+												case Wrench.Mode.Build.Category.Misc:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Misc;
 												}
@@ -231,89 +231,12 @@ namespace TC2.Base.Components
 														flags_add: GUI.DrawRecipeFlags.None,
 														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))
 														{
-															var rpc = new Build.ConfigureRPC
+															var rpc = new Wrench.Mode.Build.ConfigureRPC
 															{
 																recipe = h_recipe
 															};
 															rpc.Send(ent_wrench);
 														}
-
-														//var selected = this.recipe.id == pair.index;
-														//using (var button = GUI.CustomButton.New(h_recipe, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled)))
-														//{
-														//	GUI.Draw9Slice((selected | button.hovered) ? GUI.tex_slot_white_hover : GUI.tex_slot_white, new Vector4(4), button.bb, color: recipe.color_button);
-														//	//GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: scale);
-
-														//	//var icon_extra = recipe.icon_extra;
-														//	//if (icon_extra.texture.id != 0)
-														//	//{
-														//	//	var icon_extra_size = icon_extra.GetFrameSize();
-														//	//	GUI.DrawSpriteCentered(icon_extra, AABB.Centered(button.bb.b - icon_extra_size + recipe.icon_extra_offset, icon_extra_size + recipe.icon_extra_offset), layer: GUI.Layer.Window, scale: 2 * recipe.icon_extra_scale);
-														//	//}
-
-														//	//if (recipe.flags.HasAny(Crafting.Recipe.Flags.Custom))
-														//	//{
-														//	//	var icon_blueprint = ui_icons_crafting_mini.WithFrame((frame_size.X > 48 & frame_size.Y > 48) ? 3u : 2u, 0);
-														//	//	GUI.DrawSpriteCentered(icon_blueprint, button.bb.Pad(u: 4, r: 4), layer: GUI.Layer.Window, pivot: new(1.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
-														//	//}
-
-														//	//if (recipe.flags.HasAny(Crafting.Recipe.Flags.WIP))
-														//	//{
-														//	//	GUI.TextShadedCenteredRect("WIP"u8, pivot: new(0.50f, 0.50f), rect: button.bb, font: GUI.Font.Superstar, size: 24, color: GUI.font_color_yellow_b, box_shadow: false);
-														//	//}
-
-														//	GUI.DrawRecipeIcon(h_recipe, button.bb);
-
-														//	//if (recipe.h_company.TryGetDefinition(out var company_asset))
-														//	//{
-														//	//	ref var company_data = ref company_asset.GetData();
-														//	//	GUI.DrawSpriteCentered(company_data.GetLogo(ICompany.LogoSize.Sign_2x1), button.bb.Pad(u: 4, l: 4), layer: GUI.Layer.Window, pivot: new(0.00f, 0.00f), scale: 2.00f, color: Color32BGRA.White.WithAlpha(200));
-														//	//}
-
-														//	if (button.pressed)
-														//	{
-														//		var rpc = new Build.ConfigureRPC
-														//		{
-														//			recipe = new IRecipe.Handle(pair.index)
-														//		};
-														//		rpc.Send(ent_wrench);
-														//	}
-														//}
-														//if (GUI.IsItemHovered())
-														//{
-														//	using (GUI.Tooltip.New(size: new(300, 0)))
-														//	{
-														//		using (GUI.Wrap.Push(GUI.RmX))
-														//		{
-														//			GUI.DrawShopRecipe(ref context, h_recipe,
-														//				flags_rem: GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Background | GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Tooltip);
-
-														//			//using (var row = GUI.Group.New(size: new(GUI.RmX, 0)))
-														//			//{
-														//			//	GUI.Title(recipe.GetName());
-
-														//			//	GUI.SameLine();
-														//			//	var mass = recipe.products.AsSpan().GetTotalMass().GetSum();
-														//			//	GUI.TextShadedCentered(mass, format: "0.00 kg", pivot: new(1.00f, 0.50f));
-														//			//}
-
-														//			//GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
-
-														//			//GUI.SeparatorThick(spacing: 16);
-
-														//			//ref var construction = ref recipe.construction.GetRefOrNull();
-														//			//if (construction.IsNotNull())
-														//			//{
-														//			//	GUI.DrawRequirements(ref context, construction.requirements.AsSpan());
-
-														//			//	GUI.SeparatorThick(spacing: 16);
-														//			//}
-
-														//			//GUI.DrawRequirements(ref context, recipe.requirements.AsSpan(), highlight: true);
-														//		}
-														//	}
-														//}
-														//GUI.FocusableAsset(h_recipe);
 													}
 												}
 											}
@@ -332,7 +255,7 @@ namespace TC2.Base.Components
 							{
 								if (window_hud.show)
 								{
-									var errors = Build.Errors.None;
+									var errors = Wrench.Mode.Build.Errors.None;
 									var skip_support = false;
 									var support = 0.00f;
 									var amount_multiplier = 1.00f;
@@ -366,12 +289,12 @@ namespace TC2.Base.Components
 
 
 												var flags = this.flags;
-												flags.SetFlag(Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
+												flags.SetFlag(Wrench.Mode.Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
 
 												var scale = new Vector2(1, 1);
 												if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(pos_raw.X < pos_origin.X);
 
-												Build.GetPlacementInfo(placement: ref placement,
+												Wrench.Mode.Build.GetPlacementInfo(placement: ref placement,
 													flags: flags,
 													pos_raw: pos_raw,
 													pos_a_raw: pos_a_raw,
@@ -427,11 +350,11 @@ namespace TC2.Base.Components
 
 															ref var terrain = ref region.GetTerrain();
 
-															errors |= Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
+															errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = placed_block_count;
-															errors |= Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
-															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
 																Claim.DrawFullOverlay(ref region, show_zones, true);
 																Claim.DrawClaimerOverlay(ref region, show_zones, true);
@@ -440,7 +363,7 @@ namespace TC2.Base.Components
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 															if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
-															if (errors != Build.Errors.None)
+															if (errors != Wrench.Mode.Build.Errors.None)
 															{
 																color_dummy_fg = color_error_fg;
 																color_dummy_bg = color_error_bg;
@@ -507,11 +430,11 @@ namespace TC2.Base.Components
 															//var scale = new Vector2(1, 1);
 															//scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
-															errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
+															errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
-															errors |= Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
-															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Build.Errors.Claimed))
+															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
 																Claim.DrawFullOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
 																Claim.DrawClaimerOverlay(ref region, show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed), true);
@@ -535,7 +458,7 @@ namespace TC2.Base.Components
 																if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 															}
 
-															if (errors != Build.Errors.None)
+															if (errors != Wrench.Mode.Build.Errors.None)
 															{
 																color_dummy_fg = color_error_fg;
 																color_dummy_bg = color_error_bg;
@@ -727,7 +650,7 @@ namespace TC2.Base.Components
 															GUI.TextShaded($"Support: {(support * 100.00f):0}%/{(placement.min_support * 100.00f):0}%", color: support >= placement.min_support ? color_ok : color_error);
 														}
 
-														if (errors != Build.Errors.None)
+														if (errors != Wrench.Mode.Build.Errors.None)
 														{
 															GUI.TextShaded(errors.ToFormattedString("* {0}!", "\n"), color: color_error);
 														}
@@ -765,9 +688,9 @@ namespace TC2.Base.Components
 														place &= time >= next_place_local;
 														if (place)
 														{
-															if (errors.HasNone(Build.Errors.ZeroCount))
+															if (errors.HasNone(Wrench.Mode.Build.Errors.ZeroCount))
 															{
-																var rpc = new Build.PlaceRPC
+																var rpc = new Wrench.Mode.Build.PlaceRPC
 																{
 																	pos_origin = pos_origin,
 																	pos_raw = pos_raw,
@@ -825,12 +748,12 @@ namespace TC2.Base.Components
 					//Logistics
 				}
 
-				public partial struct ConfigureRPC: Net.IRPC<Build.Data>
+				public partial struct ConfigureRPC: Net.IRPC<Wrench.Mode.Build.Data>
 				{
 					public IRecipe.Handle recipe;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Build.Data build)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
 					{
 						build.recipe = this.recipe;
 						build.Sync(entity);
@@ -838,11 +761,11 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public static Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default, float placement_range = 4.00f)
+				public static Wrench.Mode.Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default, float placement_range = 4.00f)
 				{
 					ref var region = ref entity.GetRegion();
 
-					var errors = Build.Errors.None;
+					var errors = Wrench.Mode.Build.Errors.None;
 
 					if (placement.min_claim > Maths.epsilon)
 					{
@@ -861,7 +784,7 @@ namespace TC2.Base.Components
 
 					if (check_support | check_clearance)
 					{
-						Build.CalculateSupport(region: ref region,
+						Wrench.Mode.Build.CalculateSupport(region: ref region,
 							placement: in placement,
 							transform: in transform,
 							support_count: out var support_count,
@@ -901,12 +824,12 @@ namespace TC2.Base.Components
 
 						if (placement.length_min > Maths.epsilon && len < placement.length_min)
 						{
-							errors |= Build.Errors.MinLength;
+							errors |= Wrench.Mode.Build.Errors.MinLength;
 						}
 
 						if (placement.length_max > Maths.epsilon && len > placement.length_max + placement.length_step)
 						{
-							errors |= Build.Errors.MaxLength;
+							errors |= Wrench.Mode.Build.Errors.MaxLength;
 						}
 					}
 
@@ -923,7 +846,7 @@ namespace TC2.Base.Components
 								dist_sq = Vector2.DistanceSquared(transform_entity.position, bb.ClipPoint(transform_entity.position));
 
 								//#if CLIENT
-								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
+								//GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
 								//#endif
 							}
 							break;
@@ -933,24 +856,24 @@ namespace TC2.Base.Components
 								dist_sq = Vector2.DistanceSquared(transform_entity.position, bb.ClipPoint(transform_entity.position));
 
 								//#if CLIENT
-								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
+								//GUI.DrawCircleFilled(GUI.WorldToCanvas(bb.ClipPoint(transform.position)), 4.00f, 0xffffffff);
 								//#endif
 							}
 							break;
 
 							case Placement.Type.Circle:
 							{
-								dist_sq = Vector2.DistanceSquared(transform_entity.position, pos) - (placement.radius * placement.radius);
+								dist_sq = Vector2.DistanceSquared(transform_entity.position, pos) - placement.radius.Pow2();
 							}
 							break;
 
 							case Placement.Type.Line:
 							{
 								var line = new Line(pos_a ?? pos, pos_b ?? pos);
-								dist_sq = Vector2.DistanceSquared(line.GetClosestPoint(transform_entity.position), transform_entity.position);
+								dist_sq = Vector2.DistanceSquared(transform_entity.position, line.GetClosestPoint(transform_entity.position));
 
 								//#if CLIENT
-								//						GUI.DrawCircleFilled(GUI.WorldToCanvas(line.GetClosestPoint(transform.position)), 4.00f, 0xffffffff);
+								//GUI.DrawCircleFilled(GUI.WorldToCanvas(line.GetClosestPoint(transform.position)), 4.00f, 0xffffffff);
 								//#endif
 							}
 							break;
@@ -958,7 +881,7 @@ namespace TC2.Base.Components
 
 						if (dist_sq > placement_range_sq)
 						{
-							errors |= Build.Errors.OutOfRange;
+							errors |= Wrench.Mode.Build.Errors.OutOfRange;
 						}
 
 						//var placement_range_sq = placement_range * placement_range;
@@ -968,12 +891,12 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static Build.Errors EvaluateBlock(ref Region.Data region, in Placement placement, ref bool skip_support, out int placed_block_count, AABB bb, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				public static Wrench.Mode.Build.Errors EvaluateBlock(ref Region.Data region, in Placement placement, ref bool skip_support, out int placed_block_count, AABB bb, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
-					var errors = Build.Errors.None;
+					var errors = Wrench.Mode.Build.Errors.None;
 
-					placed_block_count = Build.CalculateBlockCount(ref region, in placement, block, tile_flags, pos, pos_a, pos_b);
-					if (placed_block_count <= 0) errors |= Build.Errors.ZeroCount;
+					placed_block_count = Wrench.Mode.Build.CalculateBlockCount(ref region, in placement, block, tile_flags, pos, pos_a, pos_b);
+					if (placed_block_count <= 0) errors |= Wrench.Mode.Build.Errors.ZeroCount;
 
 					if (tile_flags.HasAny(TileFlags.Solid) && placement.flags.HasNone(Placement.Flags.Ignore_Obstructed))
 					{
@@ -1004,9 +927,9 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static Build.Errors EvaluatePrefab(ref Region.Data region, in Placement placement, ref bool skip_support, Prefab.Handle h_prefab, in Matrix3x2 matrix, Vector2? pos_a = default, Vector2? pos_b = default)
+				public static Wrench.Mode.Build.Errors EvaluatePrefab(ref Region.Data region, in Placement placement, ref bool skip_support, Prefab.Handle h_prefab, in Matrix3x2 matrix, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
-					var errors = Build.Errors.None;
+					var errors = Wrench.Mode.Build.Errors.None;
 
 					//bb = new AABB(bb.a + new Vector2(0.50f), bb.b - new Vector2(0.50f));
 
@@ -1022,7 +945,7 @@ namespace TC2.Base.Components
 
 					if (placement.flags.HasAny(Placement.Flags.Require_Terrain))
 					{
-						errors.AddFlag(Build.Errors.NoTerrain);
+						errors.AddFlag(Wrench.Mode.Build.Errors.NoTerrain);
 					}
 
 					if (placement.type == Placement.Type.Line)
@@ -1038,7 +961,7 @@ namespace TC2.Base.Components
 								{
 									if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
 									{
-										errors.RemoveFlag(Build.Errors.NoTerrain);
+										errors.RemoveFlag(Wrench.Mode.Build.Errors.NoTerrain);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
 									}
 								}
@@ -1095,7 +1018,7 @@ namespace TC2.Base.Components
 								{
 									if (!placement.rect_foundation.HasValue && placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
 									{
-										errors.SetFlag(Build.Errors.NoTerrain, false);
+										errors.SetFlag(Wrench.Mode.Build.Errors.NoTerrain, false);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
 									}
 								}
@@ -1140,10 +1063,10 @@ namespace TC2.Base.Components
 					return errors;
 				}
 
-				public static void GetPlacementInfo(ref Placement placement, Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
+				public static void GetPlacementInfo(ref Placement placement, Wrench.Mode.Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
 				{
 					var snap = new Vector2(0.125f);
-					if (placement.flags.HasNone(Placement.Flags.No_Snapping) && flags.HasAny(Build.Flags.Snap))
+					if (placement.flags.HasNone(Placement.Flags.No_Snapping) && flags.HasAny(Wrench.Mode.Build.Flags.Snap))
 					{
 						snap = placement.snap ?? placement.size;
 					}
@@ -1151,10 +1074,10 @@ namespace TC2.Base.Components
 					//var pos_a_raw = build.pos_a ?? pos_raw;
 					//var pos_b_raw = build.pos_b ?? pos_raw;
 
-					pos = Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
+					pos = Wrench.Mode.Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
 					//pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
-					pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
-					pos_b = Build.ConstrainPosition(in placement, pos_b_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
+					pos_a = Wrench.Mode.Build.ConstrainPosition(in placement, pos_a_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
+					pos_b = Wrench.Mode.Build.ConstrainPosition(in placement, pos_b_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
 					//pos += placement.offset;
 					//pos_a += placement.offset;
 					//pos_b += placement.offset;
@@ -1163,6 +1086,7 @@ namespace TC2.Base.Components
 
 					pos_final = pos;
 					rot_final = 0.00f;
+
 					switch (placement.type)
 					{
 						case Placement.Type.Line:
@@ -1190,9 +1114,6 @@ namespace TC2.Base.Components
 						break;
 					}
 
-					//var mat = Maths.TRS3x2(pos_final, 0.00f, scale);
-					//pos_final = Vector2.Transform(placement.offset, mat);
-
 					bb = placement.type switch
 					{
 						Placement.Type.Rectangle => AABB.Centered(pos, placement.size),
@@ -1203,20 +1124,20 @@ namespace TC2.Base.Components
 					};
 				}
 
-				public partial struct PlaceRPC: Net.IRPC<Build.Data>
+				public partial struct PlaceRPC: Net.IRPC<Wrench.Mode.Build.Data>
 				{
-					public Build.Flags flags;
+					public Wrench.Mode.Build.Flags flags;
 					public Vector2 pos_origin;
 					public Vector2 pos_raw;
 					public Vector2? pos_a_raw;
 					public Vector2? pos_b_raw;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Build.Data build)
+					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
 					{
 						ref var region = ref entity.GetRegion();
 
-						var errors = Build.Errors.None;
+						var errors = Wrench.Mode.Build.Errors.None;
 
 						var success = false;
 						var skip_support = false;
@@ -1247,7 +1168,7 @@ namespace TC2.Base.Components
 
 									var random = XorRandom.New(true);
 
-									Build.GetPlacementInfo(placement: ref placement,
+									Wrench.Mode.Build.GetPlacementInfo(placement: ref placement,
 										flags: this.flags,
 										pos_raw: this.pos_raw,
 										pos_a_raw: this.pos_a_raw,
@@ -1276,14 +1197,14 @@ namespace TC2.Base.Components
 
 											ref var terrain = ref region.GetTerrain();
 
-											errors |= Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
+											errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											errors |= Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
-											if (errors == Build.Errors.None)
+											if (errors == Wrench.Mode.Build.Errors.None)
 											{
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
@@ -1362,9 +1283,9 @@ namespace TC2.Base.Components
 											//	scale.X *= -1.00f;
 											//}
 
-											errors |= Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
+											errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											errors |= Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1378,7 +1299,7 @@ namespace TC2.Base.Components
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
-												if (errors == Build.Errors.None)
+												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier);
@@ -1467,7 +1388,7 @@ namespace TC2.Base.Components
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
-												if (errors == Build.Errors.None)
+												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
@@ -1916,12 +1837,12 @@ namespace TC2.Base.Components
 				{
 					if (pos_a.HasValue)
 					{
-						var pivot = Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
-						pos = Build.GetSnappedPosition(pos, pivot, snap ?? new Vector2(0.125f));
+						var pivot = Wrench.Mode.Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
+						pos = Wrench.Mode.Build.GetSnappedPosition(pos, pivot, snap ?? new Vector2(0.125f));
 					}
 					else
 					{
-						pos = Build.GetSnappedPosition(pos, null, new Vector2(0.125f));
+						pos = Wrench.Mode.Build.GetSnappedPosition(pos, null, new Vector2(0.125f));
 					}
 
 					if (placement.type == Placement.Type.Line)
@@ -1939,7 +1860,7 @@ namespace TC2.Base.Components
 
 						if (pos_a.HasValue && placement.length_max > Maths.epsilon)
 						{
-							var pivot = Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
+							var pivot = Wrench.Mode.Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
 							pos = Maths.ClampRadiusSnapped2(pos, pivot, placement.length_min, placement.length_max, placement.length_step);
 						}
 
