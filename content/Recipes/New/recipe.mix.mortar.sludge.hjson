@@ -3,7 +3,7 @@
 	name: "Dubious Mortar"
 	desc:
 		'''
-		Dilute a perfectly decent mortar with some gross & terrible dross and hope nobody finds out.
+		Dilute a perfectly decent mortar with some gross and truly terrible dross, then hope nobody finds out.
 		'''
 	
 	icon:
@@ -57,9 +57,9 @@
 		}
 		{
 			type: work
-			work: mixing
+			work: soaking
 			amount: 400.000
-			difficulty: 8
+			difficulty: 5
 		}
 	]
 	

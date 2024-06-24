@@ -37,28 +37,29 @@
 	[
 		{
 			type: resource
-			material: lime
-			amount: 1.300
+			material: brezolyt
+			amount: 25.000
+		}
+		{
+			type: work
+			work: shatter
+			amount: 250.000
+			difficulty: 4
 		}
 		{
 			type: resource
-			material: cement
-			amount: 1.000
-		}
-		{
-			type: resource
-			material: sand
-			amount: 12.000
+			material: soil
+			amount: 6.000
 		}
 		{
 			type: resource
 			material: water
-			amount: 50.000
+			amount: 60.000
 		}
 		{
 			type: work
-			work: mixing
-			amount: 250.000
+			work: soaking
+			amount: 400.000
 			difficulty: 6
 		}
 	]
@@ -68,8 +69,20 @@
 		{
 			type: resource
 			material: mortar
-			amount: 19.478
-			amount_extra: 0.372
+			amount: 9.122
+			amount_extra: 4.990
+		}
+		{
+			type: resource
+			material: clay
+			amount: 1.068
+			amount_extra: 2.372
+		}
+		{
+			type: resource
+			material: water.dirty
+			amount: 24.478
+			amount_extra: 8.372
 		}
 	]
 }
