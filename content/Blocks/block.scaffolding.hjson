@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Scaffolding"
 	desc:
 		'''
 		TODO: Desc
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: metal_frame
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.scaffolding"
-	pattern: "pattern.scaffolding"
+	texture: terrain.scaffolding
+	pattern: pattern.scaffolding
 	
 	texture_scale: 1.000
 	texture_overshoot: -0.500
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.steel"
-			quantity: 0.030
+			material: scrap.steel
+			quantity: 0.0540
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

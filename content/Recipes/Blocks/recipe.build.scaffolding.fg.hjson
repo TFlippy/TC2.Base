@@ -30,7 +30,7 @@
 		type: line
 		flags: continuous
 		
-		size: [0.750, 0.750]
+		size: [0.500, 0.500]
 		
 		cooldown: 0.500
 		min_support: 0.020
@@ -51,7 +51,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.030
+			amount: 0.03125
 		}
 	]
 	

@@ -51,7 +51,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.015
+			amount: 0.03125
 		}
 	]
 	
