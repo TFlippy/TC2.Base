@@ -239,7 +239,8 @@ namespace TC2.Base.Components
 												{
 													if (cell.group.IsVisible())
 													{
-														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref h_recipe_selected,
+														var h_recipe_selected_tmp = h_recipe_selected;
+														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref h_recipe_selected_tmp,
 														evaluation_flags: Crafting.EvaluateFlags.None,
 														flags_add: GUI.DrawRecipeFlags.None,
 														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))

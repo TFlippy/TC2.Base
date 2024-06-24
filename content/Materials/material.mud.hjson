@@ -1,0 +1,70 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Clay"
+	description:
+		'''
+		Funny clay that can be fired into bricks.
+		'''
+	
+	icon:
+	{
+		texture: "resource.clay"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: clay
+	// Flags defining properties of the raw material.
+	flags: soft, malleable, sticky, raw, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 0.570
+	quantity_max: 500.000
+	prefab: "resource.clay"
+	
+	commodity:
+	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: marketable
+		categories: raw
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 0.070
+		market_price_min: 0.050
+		market_price_max: 0.090
+		
+		quantity_retail: 15.000
+		quantity_wholesale: 500.000
+		quantity_industry: 5000.000
+	}
+}

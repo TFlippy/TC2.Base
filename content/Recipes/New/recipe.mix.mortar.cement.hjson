@@ -1,0 +1,64 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Cement-based Mortar"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.mortar
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: resource.cement
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [1.000, -6.000]
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	type: workshop
+	flags: none
+	tags: workbench
+	
+	color_button: "0xffaeb59a"
+	rank: -140.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: lime
+			amount: 10.000
+		}
+		{
+			type: resource
+			material: cement
+			amount: 10.000
+		}
+		{
+			type: work
+			work: mixing
+			amount: 280.000
+			difficulty: 6
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: mortar
+			amount: 0.490
+			amount_extra: 1.870
+		}
+	]
+}
