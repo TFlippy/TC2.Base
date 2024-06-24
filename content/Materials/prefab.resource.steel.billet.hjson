@@ -10,7 +10,7 @@ body:
 		radius: 0.825
 		friction: 0.650
 		elasticity: 0.550
-		material: metal
+		material: metal_solid
 		layer: entity, solid, resource, ignore_melee, billet
 		mask: world, billet
 		exclude: held

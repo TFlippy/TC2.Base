@@ -217,8 +217,8 @@ namespace TC2.Base.Components
 									var h_recipe_prev = IRecipe.Handle.None;
 									var recipe_switch_dir = 0;
 
-									if (mouse.GetKeyDown(Mouse.Key.Back)) recipe_switch_dir = -1;
-									else if (mouse.GetKeyDown(Mouse.Key.Forward)) recipe_switch_dir = 1;
+									if (mouse.GetKeyDown(Mouse.Key.Back)) recipe_switch_dir = 1;
+									else if (mouse.GetKeyDown(Mouse.Key.Forward)) recipe_switch_dir = -1;
 
 									foreach (var pair in recipe_indices)
 									{
