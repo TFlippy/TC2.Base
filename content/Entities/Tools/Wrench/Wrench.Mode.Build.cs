@@ -13,6 +13,8 @@ namespace TC2.Base.Components
 				[IComponent.Data(Net.SendType.Reliable, name: "Wrench (Build)", region_only: true)]
 				public partial struct Data: IComponent, Wrench.IMode
 				{
+					public float placement_range = 4.00f;
+
 					[Asset.Ignore] public IRecipe.Handle recipe;
 					[Asset.Ignore] public Wrench.Mode.Build.Flags flags;
 
@@ -28,6 +30,10 @@ namespace TC2.Base.Components
 
 					public readonly IRecipe.Handle SelectedRecipe => this.recipe;
 
+					public Data()
+					{
+
+					}
 #if CLIENT
 
 					//public Entity ent_build;
@@ -306,7 +312,7 @@ namespace TC2.Base.Components
 													pos_final: out var pos_final,
 													rot_final: out var rot_final,
 													bb: out var bb);
-												
+
 												var transform = new Transform.Data(pos_final, rot_final, scale);
 												var matrix = transform.GetMatrix3x2();
 
@@ -352,7 +358,7 @@ namespace TC2.Base.Components
 
 															errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = placed_block_count;
-															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -414,14 +420,7 @@ namespace TC2.Base.Components
 													{
 														var h_prefab = default(Prefab.Handle);
 														if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
-														else if (product.type == Crafting.Product.Type.Resource)
-														{
-															ref var material = ref product.material.GetData();
-															if (material.IsNotNull())
-															{
-																h_prefab = material.prefab;
-															}
-														}
+														else if (product.type == Crafting.Product.Type.Resource) h_prefab = product.material.GetPrefabHandle();
 
 														if (h_prefab.TryGetPrefab(out var prefab))
 														{
@@ -432,7 +431,7 @@ namespace TC2.Base.Components
 
 															errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
-															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -566,8 +565,8 @@ namespace TC2.Base.Components
 
 																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset); // + transform.position;
 																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f);  //.Snap(0.125f);
-																														//quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
-																														//quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
+																																		  //quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
+																																		  //quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
 
 																			var quad_canvas = region.WorldToCanvas(quad_world);
 																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
@@ -761,7 +760,7 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public static Wrench.Mode.Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default, float placement_range = 4.00f)
+				public static Wrench.Mode.Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
 				{
 					ref var region = ref entity.GetRegion();
 
@@ -1144,9 +1143,6 @@ namespace TC2.Base.Components
 						var support = 0.00f;
 						var amount_multiplier = 1.00f;
 
-						var placement_range = 4.00f;
-						var placement_range_sq = placement_range * placement_range;
-
 						//ref var player = ref connection.GetPlayerData();
 						ref var transform_entity = ref entity.GetComponent<Transform.Data>();
 						ref var recipe = ref build.recipe.GetData();
@@ -1199,7 +1195,7 @@ namespace TC2.Base.Components
 
 											errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
@@ -1263,14 +1259,7 @@ namespace TC2.Base.Components
 									{
 										var h_prefab = default(Prefab.Handle);
 										if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
-										else if (product.type == Crafting.Product.Type.Resource)
-										{
-											ref var material = ref product.material.GetData();
-											if (material.IsNotNull())
-											{
-												h_prefab = material.prefab;
-											}
-										}
+										else if (product.type == Crafting.Product.Type.Resource) h_prefab = product.material.GetPrefabHandle();
 
 										if (h_prefab.TryGetPrefab(out var prefab))
 										{
@@ -1285,7 +1274,7 @@ namespace TC2.Base.Components
 
 											errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{

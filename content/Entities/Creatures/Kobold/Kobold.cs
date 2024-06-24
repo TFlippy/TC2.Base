@@ -322,7 +322,8 @@ namespace TC2.Base.Components
 		{
 			"i",
 			"am",
-			"me",
+			"my",
+			"kobs",
 		};
 
 		internal static string[] w_we =
@@ -333,7 +334,8 @@ namespace TC2.Base.Components
 			"our",
 			"evyrone",
 			"other",
-			"frends"
+			"frends",
+			"kobs"
 		};
 
 		internal static string[] w_my =
@@ -357,6 +359,7 @@ namespace TC2.Base.Components
 			"them",
 			"theirs",
 			"those",
+			"these",
 			"the",
 			"there"
 		};
@@ -540,39 +543,6 @@ namespace TC2.Base.Components
 			"seize",
 		};
 
-		internal static string[] w_structures =
-		{
-			"house",
-			"home",
-			"tavern",
-			"inn",
-			"dorm",
-			"school",
-			"castle",
-			"village",
-			"town",
-			"lamp",
-			"city",
-			"tower",
-			"barn",
-			"farm",
-			"shack",
-			"booth",
-			"cabin",
-			"lodge",
-			"shop",
-			"cottage",
-			"residence",
-			"abode",
-			"dormitory",
-			"jester",
-			"dwelling",
-			"domicile",
-			"castle",
-			"tent",
-			"stall",
-		};
-
 		internal static string[] w_verbs_destroy =
 		{
 			"burn",
@@ -713,28 +683,6 @@ namespace TC2.Base.Components
 			"whut",
 		};
 
-		internal static string[] w_authority =
-		{
-			"boss",
-			"sire",
-			"master",
-			"liege",
-			"lord",
-			"big man",
-			"love",
-			"chief",
-			"general",
-			"leader",
-			"captain",
-			"mayor",
-			"mayo",
-			"inspector",
-			"foreman",
-			"m'am",
-			"dad",
-			"mom"
-		};
-
 		internal static string[] w_verbs_insert =
 		{
 			"jam",
@@ -782,6 +730,173 @@ namespace TC2.Base.Components
 			"feed"
 		};
 
+		internal static string[] w_for =
+		{
+			"for",
+			"as",
+			"fo'",
+			"with",
+			"wit"
+		};
+
+		internal static string[] w_into =
+		{
+			"in",
+			"into",
+			"to",
+			"down",
+			"forth",
+			"up"
+		};
+
+		internal static string[] w_through =
+		{
+			"through",
+			"thru",
+			"forth",
+			"to",
+			"unto",
+		};
+
+		internal static string[] w_ed =
+		{
+			"'d",
+			"ed",
+			"d",
+		};
+
+		internal static string[] w_then =
+		{
+			"so",
+			"then",
+			"and",
+			"also",
+			"thus",
+			"ergo",
+			"cue",
+			"next",
+			"afters",
+		};
+
+		internal static string[] w_because =
+		{
+			"cus",
+			"because",
+			"bcuse",
+			"cause",
+			"since",
+			"hence",
+			"ergo",
+			"for",
+			"due",
+			"as"
+		};
+
+		internal static string[] w_verbs_vulgar =
+		{
+			"fuck",
+			"screw",
+			"damn",
+			"piss",
+			"shit",
+			"curse",
+			"woe"
+		};
+
+		internal static string[] w_verbs_throw =
+		{
+			"throw",
+			"toss",
+			"fling",
+			"hurl",
+			"lob",
+			"launch",
+			"fly",
+			"push",
+			"catapult",
+			"cast",
+			"fall",
+			"send",
+			"flip",
+			"sling",
+			"swing",
+			"cast"
+		};
+
+		internal static string[] w_verbs_guard =
+		{
+			"watch",
+			"see",
+			"keep",
+			"protect",
+			"protec",
+			"defend",
+			"safe",
+			"save",
+			"guard",
+			"gourd",
+			"help",
+			"look",
+			"survilance",
+			"escort"
+		};
+
+		internal static string[] w_verbs_gather =
+		{
+			"mine",
+			"dig",
+			"excavate",
+			"shovel",
+			"chop",
+			"find",
+			"get",
+			"pick",
+			"accumulate",
+			"capture",
+			"confiscate",
+			"procure",
+			"accrue",
+		};
+
+		internal static string[] w_verbs_buy =
+		{
+			"buy",
+			"get",
+			"trade",
+			"obtain",
+			"acquire",
+			"money",
+			"take",
+			"shop",
+			"market",
+			"transaction",
+			"change"
+		};
+
+		internal static string[] w_discomfort =
+		{
+			"itch",
+			"smell",
+			"ache",
+			"hurt",
+			"burn",
+			"suffer",
+			"sore",
+			"dull",
+			"dry",
+			"wet",
+			"pains",
+			"blunt",
+			"bubble",
+			"cold",
+			"warm",
+			"shake",
+			"cracks",
+			"stink",
+			"numb",
+			"tired",
+		};
+
 		internal static string[] w_time =
 		{
 			"today",
@@ -792,6 +907,88 @@ namespace TC2.Base.Components
 			"now",
 			"before",
 			"then",
+		};
+
+		internal static string[] w_structures =
+		{
+			"house",
+			"home",
+			"tavern",
+			"inn",
+			"dorm",
+			"school",
+			"castle",
+			"village",
+			"town",
+			"lamp",
+			"city",
+			"tower",
+			"barn",
+			"farm",
+			"shack",
+			"booth",
+			"cabin",
+			"lodge",
+			"shop",
+			"cottage",
+			"residence",
+			"abode",
+			"adobe",
+			"dormitory",
+			"jester",
+			"dwelling",
+			"domicile",
+			"castle",
+			"tent",
+			"stall",
+			"brother",
+			"subway",
+			"factorio",
+			"factorium",
+			"chair",
+			"gate",
+			"skycraper",
+			"foundry",
+			"mill",
+			"ditch",
+			"kitchen"
+		};
+
+		internal static string[] w_authority =
+		{
+			"boss",
+			"sire",
+			"master",
+			"liege",
+			"lord",
+			"big man",
+			"love",
+			"chief",
+			"general",
+			"leader",
+			"ladder",
+			"captain",
+			"mayor",
+			"mayo",
+			"inspector",
+			"foreman",
+			"m'am",
+			"dad",
+			"mom",
+			"forman",
+			"empiror",
+			"umpire",
+			"man",
+			"chef",
+			"enginar",
+			"enguith",
+			"m'lord",
+			"m'lady",
+			"duke",
+			"boron",
+			"baron",
+			"major",
+			"majordomo",
 		};
 
 		internal static string[] w_supper =
@@ -809,10 +1006,9 @@ namespace TC2.Base.Components
 			"snack"
 		};
 
-
 		internal static string[] w_food =
 		{
-			"mayo",
+			"majonez",
 			"pudding",
 			"pudling",
 			"puding",
@@ -866,162 +1062,6 @@ namespace TC2.Base.Components
 			"butter",
 		};
 
-		internal static string[] w_for =
-		{
-			"for",
-			"as",
-			"fo'",
-			"with",
-			"wit"
-		};
-
-		internal static string[] w_into =
-		{
-			"in",
-			"into",
-			"to",
-			"down",
-			"up"
-		};
-
-		internal static string[] w_through =
-		{
-			"through",
-			"thru",
-			"to",
-		};
-
-		internal static string[] w_ed =
-		{
-			"'d",
-			"ed",
-			"d",
-		};
-
-		internal static string[] w_then =
-		{
-			"so",
-			"then",
-			"and",
-			"also",
-			"thus",
-			"ergo"
-		};
-
-		internal static string[] w_because =
-		{
-			"cus",
-			"because",
-			"bcuse",
-			"cause",
-			"since",
-			"for",
-			"due",
-			"as"
-		};
-
-		internal static string[] w_verbs_vulgar =
-		{
-			"fuck",
-			"screw",
-			"damn",
-			"piss",
-			"shit",
-			"curse",
-		};
-
-		internal static string[] w_verbs_throw =
-		{
-			"throw",
-			"toss",
-			"fling",
-			"hurl",
-			"lob",
-			"launch",
-			"fly",
-			"push",
-			"catapult",
-			"cast",
-			"fall",
-			"send",
-			"flip",
-			"sling",
-			"swing",
-			"cast"
-		};
-
-		internal static string[] w_verbs_guard =
-		{
-			"watch",
-			"see",
-			"keep",
-			"protect",
-			"protec",
-			"defend",
-			"safe",
-			"save",
-			"guard",
-			"gourd",
-			"help",
-			"look",
-			"survilance",
-			"escort"
-		};
-
-		internal static string[] w_verbs_gather =
-		{
-			"mine",
-			"dig",
-			"excavate",
-			"shovel",
-			"chop",
-			"find",
-			"get",
-			"pick",
-			"accumulate",
-			"capture",
-			"confiscate"
-		};
-
-		internal static string[] w_verbs_buy =
-		{
-			"buy",
-			"get",
-			"trade",
-			"obtain",
-			"acquire",
-			"money",
-			"take",
-			"shop",
-			"market",
-			"transaction",
-			"change"
-		};
-
-		internal static string[] w_discomfort =
-		{
-			"itch",
-			"smell",
-			"ache",
-			"hurt",
-			"burn",
-			"suffer",
-			"sore",
-			"dull",
-			"dry",
-			"wet",
-			"pains",
-			"blunt",
-			"bubble",
-			"cold",
-			"warm",
-			"shake",
-			"cracks",
-			"stink",
-			"numb",
-			"tired",
-		};
-
 		internal static string[] w_enemy =
 		{
 			"enemy",
@@ -1043,9 +1083,12 @@ namespace TC2.Base.Components
 			"disenter",
 			"impostor",
 			"hobo",
+			"hobold",
+			"sabot",
 			"saboter",
 			"protestor",
-			"sketpic"
+			"sketpic",
+			"dubass"
 		};
 
 		internal static string[] w_animals =
@@ -1054,6 +1097,7 @@ namespace TC2.Base.Components
 			"cat",
 			"dog",
 			"badger",
+			"bagel",
 			"twuk",
 			"poh",
 			"snake",
@@ -1077,7 +1121,14 @@ namespace TC2.Base.Components
 			"duck",
 			"cow",
 			"horse",
-			"pig"
+			"pig",
+			"peasant",
+			"pheasant",
+			"passant",
+			"molusk",
+			"snail",
+			"dwarfe",
+			"baby"
 		};
 
 		internal static string[] w_animals_cute =
@@ -1089,6 +1140,9 @@ namespace TC2.Base.Components
 			"birdy",
 			"doggy",
 			"ferret",
+			"tetrad",
+			"chiken",
+			"snail"
 		};
 
 		internal static string[] w_animals_big =
@@ -1096,7 +1150,12 @@ namespace TC2.Base.Components
 			"cow",
 			"poh",
 			"bison",
-			"mamoth"
+			"mamoth",
+			"wale",
+			"whale",
+			"wahale",
+			"bigfish",
+			"giant"
 		};
 
 		internal static string[] w_objects =
@@ -1140,7 +1199,7 @@ namespace TC2.Base.Components
 			"boat",
 			"barrow",
 			"wood",
-			"mayo",
+			"majonez",
 			"goat",
 			"sheep",
 			"doorhandle",
@@ -1155,7 +1214,7 @@ namespace TC2.Base.Components
 			"handle",
 			"knob",
 			"donkey",
-			"mayor",
+			"majonezr",
 			"sheriff",
 			"king",
 			"sack",
@@ -1209,7 +1268,8 @@ namespace TC2.Base.Components
 			"cunce",
 			"bramble",
 			"weed",
-			"hair"
+			"hair",
+			"snail"
 		};
 
 		internal static string[] w_vulgar_suffix =
@@ -1321,7 +1381,8 @@ namespace TC2.Base.Components
 			"auntie",
 			"missus",
 			"bruh",
-			"fren"
+			"fren",
+			"jamarcus"
 		};
 
 		internal static string[] w_objects_body =
@@ -1351,15 +1412,36 @@ namespace TC2.Base.Components
 			"car",
 			"coin",
 			"key",
-			"mayo",
+			"majonez",
 			"food",
 			"box",
 			"jewel",
 			"tractor",
+			"traktor",
 			"happy",
 			"ring",
 			"jewel",
-			"hat"
+			"hat",
+			"nexus",
+			"energy",
+			"mason",
+			"tank",
+			"diamond",
+			"dimond",
+			"minerals",
+			"biggest",
+			"maximum",
+			"power",
+			"wealth",
+			"sock",
+			"iron",
+			"feast",
+			"convex",
+			"foobal",
+			"room",
+			"mom",
+			"mum",
+			"snail"
 		};
 
 		public static string GetObjectName(ref XorRandom random, Material.Type material_type, Physics.Layer layer)
