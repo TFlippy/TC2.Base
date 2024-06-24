@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		material: brick
+		material: stone_slabs
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.brick"
+		texture: "resource.brick.stone"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "brick"
+	material: "brick.stone"
 }
 
 holdable:
@@ -41,11 +41,6 @@ holdable:
 }
 
 norotate:
-{
-
-}
-
-despawn:
 {
 
 }
