@@ -6,11 +6,6 @@
 		Wooden planks hammered together.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: wood
 	tile_flags: non_empty
 	flags: artificial
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.planks"
-	pattern: "pattern.planks"
+	texture: terrain.planks
+	pattern: pattern.planks
 	
 	texture_scale: 0.800
 	texture_overshoot: -0.275
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.wood"
+			material: scrap.wood
 			quantity: 0.010
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

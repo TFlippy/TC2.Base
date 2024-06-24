@@ -39,7 +39,7 @@
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
+			material: "scrap.steel"
 			quantity: 0.030
 		}
 		{

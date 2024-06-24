@@ -340,7 +340,8 @@ namespace TC2.Base.Components
 		{
 			"that",
 			"dat",
-			"tat",
+			"those",
+			"these",
 			"the"
 		};
 
@@ -679,7 +680,7 @@ namespace TC2.Base.Components
 			"develop",
 			"gain",
 			"emerge",
-			"metamorse"
+			"metamorsel"
 		};
 
 		internal static string[] w_defile =
@@ -3075,7 +3076,8 @@ namespace TC2.Base.Components
 										// wants more stuff
 										case 4:
 										{
-											sb.AppendSuffixed(w_me.GetRandom(ref random));
+											sb.Append(w_me.GetRandom(ref random));
+
 											if (random.NextBool(0.40f))
 											{
 												sb.AppendPrefixed(w_and.GetRandom(ref random));
@@ -3136,7 +3138,7 @@ namespace TC2.Base.Components
 										// curious about inner workings of something 
 										case 5:
 										{
-											sb.AppendSuffixed(w_question.GetRandom(ref random));
+											sb.Append(w_question.GetRandom(ref random));
 											if (random.NextBool(0.80f)) sb.AppendPrefixed(w_is.GetRandom(ref random));
 											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
 											else sb.AppendPrefixed(w_family.GetRandom(ref random));
@@ -3392,13 +3394,13 @@ namespace TC2.Base.Components
 												if (random.NextBool(0.10f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
 												else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
 
-												if (random.NextBool(0.12f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
-												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
-												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_supper.GetRandom(ref random));
-												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
-												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
-												else if (random.NextBool(0.12f)) sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
-												else sb.AppendPrefixed(w_objects_misc.GetRandom(ref random));
+												if (random.NextBool(0.25f)) sb.AppendPrefixed(w_food.GetRandom(ref random));
+												else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_animal.GetRandom(ref random));
+												else if (random.NextBool(0.24f)) sb.AppendPrefixed(w_supper.GetRandom(ref random));
+												else if (random.NextBool(0.22f)) sb.AppendPrefixed(w_comrades.GetRandom(ref random));
+												else if (random.NextBool(0.32f)) sb.AppendPrefixed(w_enemy.GetRandom(ref random));
+												else if (random.NextBool(0.22f)) sb.AppendPrefixed(w_bodypart.GetRandom(ref random));
+												else sb.AppendPrefixed(w_family.GetRandom(ref random));
 											}
 											else // if (random.NextBool(0.20f))
 											{
@@ -3459,6 +3461,7 @@ namespace TC2.Base.Components
 								}
 
 								var text = sb.ToString().AsSpan().Trim();
+								App.WriteLine($"\"{text}\" -- Some kobold", App.Color.DarkGray, show_stacktrace: false);
 
 								speech_bubble.text = text;
 								speech_bubble.Sync(ent_speech_bubble, true);
