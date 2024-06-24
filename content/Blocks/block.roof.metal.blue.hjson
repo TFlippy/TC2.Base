@@ -6,11 +6,6 @@
 		A fancy blue metal roof built to the Imperial standard.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: metal_sheet
 	tile_flags: non_empty
 	flags: artificial
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.roof.metal.blue"
-	pattern: "pattern.scaffolding"
+	texture: terrain.roof.metal.blue
+	pattern: pattern.scaffolding
 	
 	texture_scale: 1.750
 	texture_overshoot: -0.250
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
+			material: scrap.steel
 			quantity: 0.050
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

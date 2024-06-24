@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "block_icons"
+		texture: block_icons
 		size: [16, 16]
 		frame: [12, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -22,6 +20,8 @@
 	type: build
 	flags: none
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: 6.000
 	
 	placement:
@@ -37,7 +37,7 @@
 		length_max: 6.000
 		length_step: 0.125
 		
-		sound: "metal.place.00"
+		sound: metal.place.00
 		
 		mappings_replace:
 		{
@@ -49,8 +49,8 @@
 	[
 		{
 			type: resource
-			material: "steel.plate"
-			amount: 0.050
+			material: steel.plate
+			amount: 0.100
 		}
 	]
 	
@@ -58,7 +58,7 @@
 	[
 		{
 			type: block
-			block: "roof.metal.green"
+			block: roof.metal.green
 			tile_flags: solid, no_replace
 		}
 	]

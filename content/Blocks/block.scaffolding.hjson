@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: scrap.steel
-			quantity: 0.0540
+			material: steel.frames
+			quantity: 0.03125
 		}
 		null
 	]

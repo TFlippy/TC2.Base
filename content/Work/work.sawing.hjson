@@ -16,6 +16,7 @@
 	
 	flags: manual, machine, automated, tools, dangerous, simple, industrial, wip
 	cooldown: 0.500
+	multiplier: 1.200
 	color: "0xffaeb59a"
 	
 	tools_required: saw
@@ -43,7 +44,10 @@
 	
 	skills_mult:
 	{
-	
+		carpentry: 0.500
+		strength: 0.400
+		endurance: 0.550
+		woodcutting: 0.650
 	}
 	
 	sounds: []

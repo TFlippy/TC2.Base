@@ -50,7 +50,7 @@
 		{
 			type: resource
 			material: wood
-			amount: 0.035
+			amount: 0.040
 		}
 	]
 	
