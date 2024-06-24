@@ -213,6 +213,13 @@ namespace TC2.Base.Components
 
 									//GUI.Text($"{ts.GetMilliseconds():0.0000} ms");
 
+									var h_recipe_selected = this.recipe;
+									var h_recipe_prev = IRecipe.Handle.None;
+									var recipe_switch_dir = 0;
+
+									if (mouse.GetKeyDown(Mouse.Key.Back)) recipe_switch_dir = -1;
+									else if (mouse.GetKeyDown(Mouse.Key.Forward)) recipe_switch_dir = 1;
+
 									foreach (var pair in recipe_indices)
 									{
 										//GUI.Text($"{pair.rank}");
@@ -232,7 +239,7 @@ namespace TC2.Base.Components
 												{
 													if (cell.group.IsVisible())
 													{
-														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref this.recipe,
+														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref h_recipe_selected,
 														evaluation_flags: Crafting.EvaluateFlags.None,
 														flags_add: GUI.DrawRecipeFlags.None,
 														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))
@@ -244,6 +251,40 @@ namespace TC2.Base.Components
 															rpc.Send(ent_wrench);
 														}
 													}
+												}
+
+												if (recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled | Crafting.Recipe.Flags.Hidden))
+												{
+													if (recipe_switch_dir < 0)
+													{
+														if (h_recipe == h_recipe_selected && h_recipe_prev != 0)
+														{
+															Sound.PlayGUI(GUI.sound_select, volume: 0.08f, pitch: 0.95f);
+
+															var rpc = new Wrench.Mode.Build.ConfigureRPC
+															{
+																recipe = h_recipe_prev
+															};
+															rpc.Send(ent_wrench);
+															recipe_switch_dir = 0;
+														}
+													}
+													else if (recipe_switch_dir > 0)
+													{
+														if (h_recipe_prev == h_recipe_selected)
+														{
+															Sound.PlayGUI(GUI.sound_select, volume: 0.08f, pitch: 1.05f);
+
+															var rpc = new Wrench.Mode.Build.ConfigureRPC
+															{
+																recipe = h_recipe
+															};
+															rpc.Send(ent_wrench);
+															recipe_switch_dir = 0;
+														}
+													}
+
+													h_recipe_prev = h_recipe;
 												}
 											}
 										}
@@ -343,6 +384,7 @@ namespace TC2.Base.Components
 												var color_yellow_bg = color_yellow.WithAlphaMult(0.10f);
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
+												GUI.DrawChunkRect(ref region, pos_raw);
 												GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
 
 												switch (product.type)
