@@ -119,13 +119,13 @@ namespace TC2.Base.Components
 
 		internal static string[] w_enders =
 		{
-			"innit",
-			"ha",
-			"??",
+			" innit",
+			" ha",
+			" ??",
 			"!!!",
 			"!?",
-			"ye",
-			"truly"
+			" ye",
+			" truly"
 		};
 
 		internal static string[] w_enders_upset =
@@ -398,6 +398,17 @@ namespace TC2.Base.Components
 			"crave",
 			"wish",
 			"demand",
+		};
+
+		internal static string[] w_have =
+		{
+			"has",
+			"have",
+			"own",
+			"owns",
+			"contains",
+			"haves",
+			"carry"
 		};
 
 		internal static string[] w_i_will =
@@ -1365,7 +1376,10 @@ namespace TC2.Base.Components
 			"thing",
 			"stuff",
 			"utensil",
-			"ware"
+			"ware",
+			"utility",
+			"implement",
+			"electron"
 		};
 
 		internal static string[] w_objects_dear =
@@ -1382,7 +1396,8 @@ namespace TC2.Base.Components
 			"missus",
 			"bruh",
 			"fren",
-			"jamarcus"
+			"jamarcus",
+			"dream"
 		};
 
 		internal static string[] w_objects_body =
@@ -1390,18 +1405,30 @@ namespace TC2.Base.Components
 			"head",
 			"nose",
 			"eyes",
+			"eye",
 			"teeth",
+			"toof",
 			"arse",
 			"knee",
 			"chin",
 			"skull",
 			"feet",
+			"skin",
 			"hands",
 			"innars",
 			"innards",
+			"appendix",
+			"cranium",
+			"toe",
+			"finger",
+			"hair",
+			"beard",
 			"gut",
 			"neck",
-			"legs"
+			"legs",
+			"pelvis",
+			"spine",
+			"fur"
 		};
 
 		internal static string[] w_valuables =
@@ -1441,7 +1468,52 @@ namespace TC2.Base.Components
 			"room",
 			"mom",
 			"mum",
-			"snail"
+			"snail",
+			"dream",
+			"spice",
+			"fuel"
+		};
+
+		internal static string[] w_diseases =
+		{
+			"rickets",
+			"fleas",
+			"crickets",
+			"pneummia",
+			"coronavirus",
+			"flu",
+			"flue",
+			"infulenza",
+			"dementia",
+			"dumb",
+			"malus",
+			"disease",
+			"ill",
+			"dead",
+			"malapriapism",
+			"dysfunction",
+			"syndrome",
+			"infecton",
+			"deficency",
+			"bacilus",
+			"fungi",
+			"prions",
+			"virus",
+			"bactery",
+			"retrovirus",
+			"aids",
+			"schizofren",
+			"schism",
+			"lumbago",
+			"herpes",
+			"poverty",
+			"craps",
+			"tubecoloris",
+			"stork",
+			"pathology",
+			"prognosis",
+			"parasite",
+			"worms"
 		};
 
 		public static string GetObjectName(ref XorRandom random, Material.Type material_type, Physics.Layer layer)
@@ -2546,11 +2618,12 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									var index = random.NextIntRange(0, 8);
+									var index = random.NextIntRange(0, 10);
 									//index = 6;
 
 									switch (index)
 									{
+										// wondering about food
 										case 0:
 										{
 											if (random.NextBool(0.40f))
@@ -2611,6 +2684,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// wants to beat the shit out of something
 										case 1:
 										{
 											sb.Append(w_me.GetRandom(ref random));
@@ -2641,6 +2715,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// complaining about someone wronging them
 										case 2:
 										{
 											if (random.NextBool(0.40f))
@@ -2705,6 +2780,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// wants wealth
 										case 3:
 										{
 											sb.Append(w_me.GetRandom(ref random));
@@ -2737,6 +2813,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// wants more stuff
 										case 4:
 										{
 											sb.Append(w_me.GetRandom(ref random));
@@ -2780,6 +2857,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// curious about inner workings of something 
 										case 5:
 										{
 											sb.Append(w_question.GetRandom(ref random));
@@ -2812,6 +2890,7 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// wondering about meals and eating
 										case 6:
 										{
 											if (random.NextBool(0.70f))
@@ -2861,39 +2940,117 @@ namespace TC2.Base.Components
 										}
 										break;
 
+										// talks about diseases
+										case 7:
+										{
+											if (random.NextBool(0.20f)) sb.AppendSuffixed(w_starters.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.AppendSuffixed(w_verbs_vulgar.GetRandom(ref random));
+
+											sb.Append(w_me.GetRandom(ref random));
+
+											if (random.NextBool(0.80f))
+											{
+												switch (random.NextUIntRange(0, 4))
+												{
+													default:
+													case 0: sb.AppendPrefixed(w_objects_body.GetRandom(ref random)); break;
+													case 1: sb.AppendPrefixed(w_objects_dear.GetRandom(ref random)); break;
+													case 2: sb.AppendPrefixed(w_animals.GetRandom(ref random)); break;
+													case 3: sb.AppendPrefixed(w_authority.GetRandom(ref random)); break;
+												}
+											}
+
+											sb.AppendPrefixed(w_have.GetRandom(ref random));
+
+											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_adjectives.GetRandom(ref random));
+											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+
+											sb.AppendPrefixed(w_diseases.GetRandom(ref random));
+
+											if (random.NextBool(0.76f))
+											{
+												sb.Append(w_enders_low.GetRandom(ref random));
+												if (random.NextBool(0.40f))
+												{
+													sb.AppendPrefixed(w_is.GetRandom(ref random));
+													if (random.NextBool(0.25f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+
+													if (random.NextBool(0.40f))
+													{
+														if (random.NextBool(0.60f)) sb.AppendPrefixed(w_discomfort.GetRandom(ref random));
+														else sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+
+														if (random.NextBool(0.60f)) sb.Append(w_enders_low.GetRandom(ref random));
+														else if (random.NextBool(0.40f)) sb.Append(w_enders_curious.GetRandom(ref random));
+														else sb.Append(w_enders_upset.GetRandom(ref random));
+													}
+													else
+													{
+														if (random.NextBool(0.30f)) sb.AppendPrefixed(w_okay.GetRandom(ref random));
+														else sb.AppendPrefixed(w_discomfort.GetRandom(ref random));
+													}
+												}
+											}
+											else
+											{
+												sb.Append(w_enders.GetRandom(ref random));
+											}
+										}
+										break;
+
+										// abstract kobold philosophy
+										case 8:
+										{
+											if (random.NextBool(0.30f)) sb.Append(w_because.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.Append(w_into.GetRandom(ref random));
+											else sb.Append(w_i_am.GetRandom(ref random));
+
+											if (random.NextBool(0.10f)) sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+											else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_time.GetRandom(ref random));
+											else if (random.NextBool(0.10f)) sb.AppendPrefixed(w_through.GetRandom(ref random));
+
+											sb.AppendPrefixed(w_then.GetRandom(ref random));
+
+											if (random.NextBool(0.30f)) sb.AppendPrefixed(w_we.GetRandom(ref random));
+											else if (random.NextBool(0.40f)) sb.AppendPrefixed(w_is.GetRandom(ref random));
+											else sb.AppendPrefixed(w_i_will.GetRandom(ref random));
+
+											if (random.NextBool(0.20f)) sb.AppendPrefixed(w_verbs_fear.GetRandom(ref random));
+											else if (random.NextBool(0.20f)) sb.AppendPrefixed(w_verbs_move.GetRandom(ref random));
+
+											if (random.NextBool(0.70f))
+											{
+												sb.Append(w_enders_low.GetRandom(ref random));
+
+												// sudden realization
+												if (random.NextBool(0.10f))
+												{
+													sb.AppendPrefixed(w_verbs_vulgar.GetRandom(ref random));
+													if (random.NextBool(0.40f)) sb.Append(w_enders_upset.GetRandom(ref random));
+												}
+											}
+											else
+											{
+												sb.Append(w_enders.GetRandom(ref random));
+											}
+										}
+										break;
+
+										// rants about some discomfort
 										default:
 										{
 											sb.Append(w_my.GetRandom(ref random));
+											if (random.NextBool(0.40f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+											sb.AppendPrefixed(w_objects_body.GetRandom(ref random));
+											sb.AppendPrefixed(w_discomfort.GetRandom(ref random));
 											if (random.NextBool(0.40f))
 											{
-												sb.Append(' ');
-												sb.Append(w_adjectives_vulgar.GetRandom(ref random));
+												sb.AppendPrefixed(w_as.GetRandom(ref random));
+												if (random.NextBool(0.20f)) sb.AppendPrefixed(w_adjectives_vulgar.GetRandom(ref random));
+												sb.AppendPrefixed(w_objects_vulgar.GetRandom(ref random));
 											}
-											sb.Append(' ');
-											sb.Append(w_objects_body.GetRandom(ref random));
-											sb.Append(' ');
-											sb.Append(w_discomfort.GetRandom(ref random));
-											if (random.NextBool(0.40f))
-											{
-												sb.Append(' ');
-												sb.Append(w_as.GetRandom(ref random));
-												if (random.NextBool(0.20f))
-												{
-													sb.Append(' ');
-													sb.Append(w_adjectives_vulgar.GetRandom(ref random));
-												}
-												sb.Append(' ');
-												sb.Append(w_objects_vulgar.GetRandom(ref random));
-											}
-											if (random.NextBool(0.50f))
-											{
-												sb.Append(w_enders_low.GetRandom(ref random));
-											}
-											if (random.NextBool(0.30f))
-											{
-												sb.Append(' ');
-												sb.Append(w_enders.GetRandom(ref random));
-											}
+											if (random.NextBool(0.50f)) sb.Append(w_enders_low.GetRandom(ref random));
+											if (random.NextBool(0.30f)) sb.Append(w_enders.GetRandom(ref random));
 										}
 										break;
 									}
