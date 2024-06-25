@@ -22,14 +22,14 @@
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -85.500
+	rank: -110.500
 	
 	placement:
 	{
 		type: line
 		flags: continuous
 		
-		size: [0.500, 0.500]
+		size: [0.750, 0.750]
 		
 		cooldown: 0.500
 		min_support: 0.040

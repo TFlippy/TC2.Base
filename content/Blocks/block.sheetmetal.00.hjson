@@ -12,7 +12,7 @@
 	
 	max_health: 7800.000
 	
-	smoothing: 0.150
+	smoothing: 0.240
 	mass: 0.443
 	friction: 0.950
 	elasticity: 0.750
@@ -25,9 +25,9 @@
 	texture: terrain.sheetmetal.00
 	pattern: pattern.sheetmetal.00
 	
-	texture_scale: 1.000
-	texture_overshoot: -0.500
-	texture_offset: 0.000
+	texture_scale: 0.545
+	texture_overshoot: -0.150
+	texture_offset: -0.350
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -39,4 +39,6 @@
 		}
 		null
 	]
+	
+	mappings: []
 }

@@ -22,7 +22,7 @@
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -85.000
+	rank: -110.000
 	
 	placement:
 	{
@@ -31,7 +31,7 @@
 		
 		size: [0.750, 1.500]
 		
-		cooldown: 0.500
+		cooldown: 0.300
 		min_support: 0.022
 		min_claim: 1.000
 		length_max: 6.000
