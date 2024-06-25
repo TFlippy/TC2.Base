@@ -4,7 +4,6 @@
 	desc:
 		'''
 		Small faction outpost.
-
 		- Can be respawned at
 		- Provides a small storage
 		- Access to faction management
@@ -90,12 +89,12 @@
 		{
 			type: resource
 			material: wood
-			amount: 185.000
+			amount: 160.000
 		}
 		{
 			type: resource
-			material: stone
-			amount: 350.000
+			material: brick.concrete
+			amount: 90.000
 		}
 		{
 			type: work

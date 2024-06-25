@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Concrete Bricks"
+	name: "Concrete Slabs"
 	desc:
 		'''
-		Durable concrete bricks.
+		Durable concrete slabs.
 		'''
 	
 	material_type: concrete
