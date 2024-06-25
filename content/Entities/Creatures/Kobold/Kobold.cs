@@ -1336,21 +1336,28 @@ namespace TC2.Base.Components
 			"agent",
 			"spy",
 			"rebel",
+			"rebil",
 			"disent",
 			"bandit",
 			"detractor",
 			"traitor",
 			"deserter",
+			"desserter",
 			"defector",
+			"difector",
 			"disenter",
 			"impostor",
 			"hobo",
 			"hobold",
-			"sabot",
+			"sabotaur",
+			"sabotaurus",
 			"saboter",
 			"protestor",
 			"sketpic",
-			"dubass"
+			"dubass",
+			"collaborateur",
+			"colabolatur",
+			"coraburator"
 		};
 
 		internal static string[] w_animal =

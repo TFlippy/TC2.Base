@@ -55,10 +55,12 @@ harvestable:
 		{
 			material: "woodchips"
 			quantity: 95.000
+			flags: no_autopickup
 		}
 		{
 			material: "plants"
 			quantity: 21.000
+			flags: no_autopickup
 		}
 	]
 }

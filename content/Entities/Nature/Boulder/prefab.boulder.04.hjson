@@ -54,6 +54,7 @@ harvestable:
 		{
 			material: "stone"
 			quantity: 8350.000
+			flags: no_autopickup
 		}
 	]
 }

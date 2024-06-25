@@ -56,8 +56,13 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 75.000
+			material: timber
+			amount: 8.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 2.000
 		}
 	]
 	

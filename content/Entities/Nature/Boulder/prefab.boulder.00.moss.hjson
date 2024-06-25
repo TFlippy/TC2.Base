@@ -66,6 +66,7 @@ harvestable:
 		{
 			material: "plants"
 			quantity: 100.000
+			flags: no_autopickup
 		}
 	]
 }

@@ -61,10 +61,12 @@ harvestable:
 		{
 			material: "stone"
 			quantity: 760.000
+			flags: no_autopickup
 		}
 		{
 			material: "plants"
 			quantity: 35.000
+			flags: no_autopickup
 		}
 	]
 }

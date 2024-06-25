@@ -77,6 +77,7 @@ harvestable:
 		{
 			material: "timber"
 			quantity: 395.000
+			flags: no_autopickup
 		}
 		{
 			material: "resin"

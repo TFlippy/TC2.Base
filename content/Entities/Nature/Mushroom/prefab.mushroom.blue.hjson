@@ -56,6 +56,7 @@ harvestable:
 		{
 			material: "mushroom"
 			quantity: 85.000
+			flags: no_autopickup
 		}
 		{
 			material: "mushroom.blue"
