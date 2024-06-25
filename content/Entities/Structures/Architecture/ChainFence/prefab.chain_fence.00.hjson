@@ -13,19 +13,17 @@ body:
 	@shape.box:
 	{
 		size: [4.500, 3.000]
-		offset: [0.000, 0.000]
-		mass: 50.000
+		mass: 35.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wire
-		layer: entity, no_overlapped_placement, ignore_melee
-		mask: world
+		layer: entity, decoration, background, no_overlapped_placement, ignore_melee, ignore_bullet
 	}
 }
 
 health:
 {
-	max: 4000.000
+	max: 6000.000
 }
 
 animated.renderer:

@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Handsawn Steel Billet"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.steel.billet
+		size: [32, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-8.000, 3.000]
+	
+	icon_extra:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-6.000, -8.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	type: workshop
+	flags: no_amount_multiplier
+	tags: forge, workbench, manufactory
+	
+	color_button: "0xff818b48"
+	rank: -17.300
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.billet
+			amount: 1.000
+		}
+		{
+			type: work
+			work: sawing
+			amount: 2000.000
+			difficulty: 26
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 28.000
+			amount_extra: 2.000
+		}
+		{
+			type: resource
+			material: steel.powder
+			amount: 27.780
+			amount_extra: 11.260
+			flags: waste, residue
+			group: 1
+		}
+	]
+}

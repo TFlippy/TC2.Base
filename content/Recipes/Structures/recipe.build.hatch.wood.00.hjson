@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "hatch.wood.icon"
+		texture: hatch.wood.icon
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	type: build
 	flags: blueprintable
 	tags: architecture
-	rank: -802.000
+	
+	color_button: "0xffaeb59a"
+	rank: -634.000
 	
 	dismantle_work: 7.000
 	dismantle_yield: 0.800
@@ -39,7 +39,7 @@
 		
 		rotation_max: 6.283
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,8 +51,13 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 20.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 2.000
 		}
 	]
 	
@@ -60,7 +65,7 @@
 	[
 		{
 			type: prefab
-			prefab: "hatch.wood"
+			prefab: hatch.wood
 			amount: 1.000
 		}
 	]

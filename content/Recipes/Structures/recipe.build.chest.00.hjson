@@ -1,27 +1,23 @@
 ﻿{
 	$version: "0.1.60.7"
 	name: "Chest"
-	desc:
-		'''
-		A small chest to store stuff in.
-		'''
 	
 	icon:
 	{
-		texture: "chest"
+		texture: chest
 		size: [16, 14]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: architecture
-	rank: -109.000
+	
+	color_button: "0xffaeb59a"
+	rank: -565.000
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800
@@ -40,7 +36,7 @@
 		
 		rotation_max: 0.300
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,8 +48,13 @@
 	[
 		{
 			type: resource
-			material: "wood"
-			amount: 85.000
+			material: wood
+			amount: 65.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
 		}
 	]
 	
@@ -61,7 +62,7 @@
 	[
 		{
 			type: prefab
-			prefab: "chest"
+			prefab: chest
 			amount: 1.000
 		}
 	]

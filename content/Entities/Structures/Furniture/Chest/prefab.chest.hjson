@@ -1,5 +1,8 @@
 $name: "Chest"
-$desc: "Small wooden chest for storage."
+$desc: 
+	'''
+	Small personal storage.
+	'''
 $tags: []
 
 body:
@@ -8,20 +11,17 @@ body:
 	
 	@shape.box:
 	{
-		size: [2.000, 1.750]
-		offset: [0.000, -0.250]
-		mass: 50.000
-		friction: 0.500
-		elasticity: 0.500
+		size: [1.500, 1.250]
+		mass: 40.000
+		radius: 0.250
 		material: wood
-		layer: entity, storage, ignore_melee, flammable, furniture
-		mask: world
+		layer: entity, storage, furniture, flammable, ignore_melee
 	}
 }
 
 health:
 {
-	max: 4300.000
+	max: 6300.000
 }
 
 animated.renderer:
@@ -31,7 +31,7 @@ animated.renderer:
 		texture: "chest"
 		mask: "chest.mask"
 	}
-	offset: [0.000, -0.250]
+	offset: [0.000, 0.000]
 	z: -280.000
 }
 
@@ -59,14 +59,32 @@ storage:
 {
 	@inventory8:
 	{
-		name: "Inventory"
-		stack_size_multiplier: 4.000
 		type: storage
-		flags: standalone, ignore_mass, public, no_auto_pickup, faction
+		flags: standalone, ignore_mass, no_auto_pickup, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			include: granular, small, solid
+			exclude: long, corrosive
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
 interactable:
 {
-	window_size: [192.000, 96.000]
+	flags: none
+	window_size: [192.000, 136.000]
+}
+
+lockable:
+{
+
+}
+
+nameable:
+{
+
 }

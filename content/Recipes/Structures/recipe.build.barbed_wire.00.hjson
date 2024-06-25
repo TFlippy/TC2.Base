@@ -8,19 +8,19 @@
 	
 	icon:
 	{
-		texture: "barbed_wire.icon"
+		texture: barbed_wire.icon
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, wip
 	tags: architecture
-	rank: -115.000
+	
+	color_button: "0xffaeb59a"
+	rank: -390.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.200
@@ -41,7 +41,7 @@
 		length_max: 8.000
 		length_step: 0.250
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -53,12 +53,12 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.frames
 			amount: 1.500
 		}
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 2.500
 		}
 	]
@@ -67,7 +67,7 @@
 	[
 		{
 			type: prefab
-			prefab: "barbed_wire"
+			prefab: barbed_wire
 			amount: 0.000
 		}
 	]

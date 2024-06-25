@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "door.metal.01"
-		mask: "missing"
+		texture: door.metal.01
+		mask: missing
 		size: [24, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -22,7 +20,9 @@
 	type: build
 	flags: disabled, wip
 	tags: architecture
-	rank: 143.000
+	
+	color_button: "0xffaeb59a"
+	rank: 147.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.800
@@ -42,7 +42,7 @@
 		
 		rotation_max: 0.400
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -54,7 +54,7 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 15.000
 		}
 	]
@@ -63,7 +63,7 @@
 	[
 		{
 			type: prefab
-			prefab: "door.metal.01"
+			prefab: door.metal.01
 			amount: 1.000
 		}
 	]

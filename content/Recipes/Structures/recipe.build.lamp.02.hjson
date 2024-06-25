@@ -8,20 +8,20 @@
 	
 	icon:
 	{
-		texture: "lamp.02"
+		texture: lamp.02
 		size: [8, 8]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: architecture
-	rank: -163.000
+	
+	color_button: "0xffaeb59a"
+	rank: -426.000
 	
 	dismantle_work: 3.000
 	dismantle_yield: 0.800
@@ -41,7 +41,7 @@
 		
 		rotation_max: 6.283
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -53,12 +53,17 @@
 	[
 		{
 			type: resource
-			material: "machine_parts"
+			material: steel.frames
 			amount: 2.000
 		}
 		{
 			type: resource
-			material: "limelight"
+			material: machine_parts
+			amount: 2.000
+		}
+		{
+			type: resource
+			material: limelight
 			amount: 1.000
 		}
 	]
@@ -67,7 +72,7 @@
 	[
 		{
 			type: prefab
-			prefab: "lamp.02"
+			prefab: lamp.02
 			amount: 1.000
 		}
 	]

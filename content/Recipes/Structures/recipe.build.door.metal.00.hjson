@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
 	name: "Door (Metal)"
-	desc:
-		'''
-		A sturdy metal door to keep the intruders out.
-		'''
 	
 	icon:
 	{
@@ -12,6 +8,7 @@
 		mask: door.metal.mask
 		size: [16, 24]
 	}
+	icon_offset: [8.000, 3.000]
 	
 	min: 0
 	max: 0
@@ -22,7 +19,7 @@
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -7.000
+	rank: -475.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.800

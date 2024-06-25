@@ -9,11 +9,11 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.000]
-		mass: 7.800
+		mass: 6.100
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: device
 		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
 		mask: world
 	}
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 1000.000
+	max: 1500.000
 }
 
 animated.renderer:

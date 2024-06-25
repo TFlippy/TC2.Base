@@ -31,7 +31,7 @@
 	tags: forge, workbench, manufactory
 	
 	color_button: "0xff818b48"
-	rank: -17.000
+	rank: -18.000
 	
 	requirements:
 	[
@@ -43,7 +43,7 @@
 		{
 			type: work
 			work: sawing
-			amount: 400.000
+			amount: 280.000
 			difficulty: 21
 		}
 	]
