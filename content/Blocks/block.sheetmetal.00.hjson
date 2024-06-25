@@ -1,0 +1,42 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Sheetmetal"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: metal_sheet
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 7800.000
+	
+	smoothing: 0.150
+	mass: 0.443
+	friction: 0.950
+	elasticity: 0.750
+	stability: 5.000
+	strength_tensile: 14.000
+	strength_compressive: 25.200
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.sheetmetal.00
+	pattern: pattern.sheetmetal.00
+	
+	texture_scale: 1.000
+	texture_overshoot: -0.500
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: steel.plate
+			quantity: 0.03125
+		}
+		null
+	]
+}
