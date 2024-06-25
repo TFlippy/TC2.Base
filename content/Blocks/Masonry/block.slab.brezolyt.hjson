@@ -41,7 +41,10 @@
 	[
 		{
 			material: brezolyt
-			quantity: 0.200
+			quantity: 0.300
 		}
+		null
 	]
+	
+	mappings: []
 }

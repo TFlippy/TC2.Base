@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Krakatite"
 	desc:
 		'''
@@ -7,11 +7,6 @@
 
 		Commonly found in swamps, bogs and mushroom forests.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: stone_dense
 	tile_flags: non_empty
@@ -29,8 +24,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.krakatite"
-	pattern: "pattern.stone"
+	texture: terrain.krakatite
+	pattern: pattern.stone
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.650
@@ -41,12 +36,10 @@
 	resources:
 	[
 		{
-			material: "krakatite"
-			quantity: 0.500
+			material: krakatite
+			quantity: 1.000
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

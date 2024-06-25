@@ -6,11 +6,6 @@
 		TODO: Desc
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: stone_dense
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.hortspargl"
-	pattern: "pattern.stone"
+	texture: terrain.hortspargl
+	pattern: pattern.stone
 	
 	texture_scale: 1.490
 	texture_overshoot: -0.250
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "hortspargl"
-			quantity: 1.734
+			material: hortspargl
+			quantity: 1.000
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

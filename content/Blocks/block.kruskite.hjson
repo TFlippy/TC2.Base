@@ -1,16 +1,10 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Kruskite"
 	desc:
 		'''
 		TODO: Desc
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
-	}
 	
 	material_type: stone_porous
 	tile_flags: non_empty
@@ -28,22 +22,22 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.kruskite"
-	pattern: "pattern.stone"
+	texture: terrain.kruskite
+	pattern: pattern.stone
 	
 	texture_scale: 1.300
 	texture_overshoot: -0.750
+	texture_offset: 0.000
 	color_preview: "0xff80775f"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "kruskite"
-			quantity: 0.600
+			material: kruskite
+			quantity: 1.000
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

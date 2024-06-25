@@ -18,11 +18,11 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -81.000
+	rank: 11.000
 	
 	placement:
 	{
