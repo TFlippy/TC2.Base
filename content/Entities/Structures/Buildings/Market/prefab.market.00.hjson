@@ -6,16 +6,20 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [6.000, 4.000]
-		mass: 2000.000
-		radius: 0.000
+		points:
+		[
+			[-1.750, 0.000]
+			[1.375, -1.625]
+			[1.750, 2.375]
+			[-2.000, 2.500]
+		]
+		mass: 1540.000
+		radius: 1.000
 		friction: 0.950
-		elasticity: 0.500
 		material: rubble
 		layer: entity, building, ignore_melee
-		mask: world
 	}
 }
 
@@ -40,14 +44,67 @@ transform:
 
 interactable:
 {
-	window_size: [800.000, 500.000]
+	flags: none
+	window_size: [280.000, 236.000]
 }
 
 nameable:
 {
-	tags: lame, homely, food
-	flags: randomize, no_rename
+	tags: lame, dangerous, food
 	type: building
+	flags: no_rename, randomize
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			type: resource
+			material: "scrap.rubble"
+			flags: no_autopickup, drop_on_break
+			quantity: 610.000
+		}
+		{
+			type: resource
+			material: "scrap.metal"
+			flags: no_autopickup
+			quantity: 380.000
+		}
+		{
+			type: resource
+			material: "scrap.machine"
+			quantity: 95.000
+		}
+		{
+			type: resource
+			material: "scrap.wood"
+			flags: no_autopickup
+			quantity: 185.000
+		}
+	]
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 4
+	rolls_extra: 0
+
+	// rarity_min: 1.500
+	// rarity_max: 4.000
+
+	tables:
+	[
+		"safe"
+		"construction.00"
+		"junk.00"
+		"oven"
+	]
 }
 
 // spawn:

@@ -40,7 +40,7 @@ body:
 
 health:
 {
-	max: 45000.000
+	max: 75000.000
 }
 
 armor:
@@ -239,15 +239,15 @@ axle:
 		offset_a: [-1.125, 0.250]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_read, force_facing, attachment, use_proxy_body
 		z: -7.000
 		material_type: metal
+		flags: no_wrap, attachment, allow_dragging, control_read, facing_reset_pos, force_facing, use_proxy_body
 	}
 
 	joint.pivot:
 	{
 		error_bias: 0.0001
-		max_bias: 100.000
+		max_bias: 60.000
 	}
 
 	joint.gear:

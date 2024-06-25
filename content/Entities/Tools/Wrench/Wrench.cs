@@ -654,6 +654,7 @@ namespace TC2.Base.Components
 		}
 
 		public const string dock_identifier = "wrench.mode.dock";
+		public static Sprite sprite_wrench = new Sprite("wrench", 8, 16, 0, 0);
 
 		public struct WrenchGUI: IGUICommand
 		{
@@ -670,7 +671,7 @@ namespace TC2.Base.Components
 				//using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
 				//{
 
-				using (var widget = Sidebar.Widget.New("wrench", "Wrench", new Sprite("wrench", 8, 16, 0, 0), new Vector2(454 - 48, 442), lockable: false, order: 2.00f, flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled))
+				using (var widget = Sidebar.Widget.New("wrench", "Wrench", sprite_wrench, new Vector2(454 - 48, 442), lockable: false, order: 2.00f, flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled))
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{

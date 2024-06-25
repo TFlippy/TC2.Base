@@ -10,9 +10,9 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 7800.000
+	max_health: 5000.000
 	
-	smoothing: 0.180
+	smoothing: 0.170
 	mass: 0.443
 	friction: 0.950
 	elasticity: 0.750
@@ -26,8 +26,8 @@
 	pattern: pattern.sheetmetal.00
 	
 	texture_scale: 0.545
-	texture_overshoot: -0.150
-	texture_offset: -0.350
+	texture_overshoot: -1.000
+	texture_offset: 0.000
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: steel.plate
-			quantity: 0.03125
+			quantity: 0.030
 		}
 		null
 	]
