@@ -1,0 +1,47 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Brezolyt Slabs"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+	}
+	
+	material_type: stone_slab
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 40000.000
+	
+	smoothing: 0.160
+	mass: 1.400
+	friction: 0.900
+	elasticity: 0.600
+	stability: 0.500
+	strength_tensile: 1.100
+	strength_compressive: 8.000
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.slab.brezolyt
+	pattern: pattern.slab.brezolyt
+	
+	texture_scale: 1.500
+	texture_overshoot: -0.300
+	texture_offset: 0.000
+	color_preview: "0xff80775f"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: brezolyt
+			quantity: 0.200
+		}
+	]
+}

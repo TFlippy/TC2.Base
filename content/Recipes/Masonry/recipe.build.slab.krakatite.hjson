@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Krakatite Slabs"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+		frame: [18, 0]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: wip
+	tags: architecture
+	
+	color_button: "0xffaeb59a"
+	rank: -91.500
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.400
+		min_support: 0.050
+		min_claim: 1.000
+		
+		sound: stone_place_0
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: krakatite
+			amount: 0.200
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 0.040
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: slab.krakatite
+			tile_flags: solid, become_background_on_break
+		}
+	]
+}
