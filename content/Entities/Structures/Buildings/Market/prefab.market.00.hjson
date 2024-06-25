@@ -1,0 +1,81 @@
+$name: "Crashed Market"
+$desc: "...It used to be a place to trade at."
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 4.000]
+		mass: 2000.000
+		radius: 0.000
+		friction: 0.950
+		elasticity: 0.500
+		material: rubble
+		layer: entity, building, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 35000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "market.wrecked.00"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [800.000, 500.000]
+}
+
+nameable:
+{
+	tags: lame, homely, food
+	flags: randomize, no_rename
+	type: building
+}
+
+// spawn:
+// {
+// 	flags: public
+// }
+
+// dormitory:
+// {
+// 	species: "human"
+// 	flags: no_kit_selection, no_kit_requirements, region_only
+// 	asset_flags: recycle
+// 	max_kits: 2
+// 	kit_default: "survival"
+
+// 	characters_capacity: 5
+// 	characters_initial_count: 0
+
+// 	repopulate_interval: 400.000
+// 	repopulate_interval_extra: 400.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 3
+
+// 	character_flags_filter: 
+// 	{
+// 		require: none
+// 		include: bureaucrat, construction, artisan, farmer, civillian, social, commerce, miner, hunter, nomad, artist, outdoor, lower_middle_class, middle_class
+// 		exclude: criminal, military, lowlife, sedentary, upper_class, elite_class
+// 		weight: 2.000
+// 	}
+// }
