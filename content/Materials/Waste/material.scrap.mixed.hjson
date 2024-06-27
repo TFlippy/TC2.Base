@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: resource.scrap
+		texture: resource.scrap.mixed
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,7 +23,7 @@
 	// kg
 	mass_per_unit: 1.380
 	quantity_max: 500.000
-	prefab: resource.scrap
+	prefab: resource.scrap.mixed
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

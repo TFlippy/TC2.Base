@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.scrap"
+		texture: "resource.scrap.mixed"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "scrap.mixed"
+	material: "scrap.mixed.mixed"
 }
 
 holdable:
