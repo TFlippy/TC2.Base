@@ -24,7 +24,7 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.krakatite
+	texture: terrain.rock.krakatite
 	pattern: pattern.stone
 	
 	texture_scale: 1.500

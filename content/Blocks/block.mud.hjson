@@ -6,11 +6,6 @@
 		TODO: Desc
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: mud
 	tile_flags: non_empty
 	flags: raw
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.mud"
-	pattern: "pattern.soil"
+	texture: terrain.mud
+	pattern: pattern.soil
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "mud"
+			material: mud
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

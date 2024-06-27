@@ -1,40 +1,40 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Kruskite"
+	name: "Betoniter"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: stone_porous
+	material_type: concrete
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 15000.000
+	max_health: 58400.000
 	
-	smoothing: 0.140
-	mass: 2.100
-	friction: 0.900
-	elasticity: 0.200
-	stability: 4.140
+	smoothing: 0.160
+	mass: 3.000
+	friction: 0.700
+	elasticity: 0.560
+	stability: 8.940
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.kruskite
+	texture: terrain.rock.betoniter
 	pattern: pattern.stone
 	
-	texture_scale: 1.300
-	texture_overshoot: -0.750
+	texture_scale: 1.130
+	texture_overshoot: -0.740
 	texture_offset: 0.000
-	color_preview: "0xff80775f"
+	color_preview: "0xff4f5353"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: kruskite
+			material: betoniter
 			quantity: 1.000
 		}
 		null
@@ -43,7 +43,7 @@
 	mappings:
 	[
 		{
-			color: "0xff80775f"
+			color: "0xff4f5353"
 			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}

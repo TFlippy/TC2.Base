@@ -1,40 +1,40 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Hortspargl"
+	name: "Pjerdelite"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: stone_dense
+	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 82000.000
+	max_health: 71500.000
 	
-	smoothing: 0.134
-	mass: 7.360
-	friction: 0.650
-	elasticity: 0.790
-	stability: 9.660
-	strength_tensile: 8.500
-	strength_compressive: 15.800
+	smoothing: 0.160
+	mass: 11.000
+	friction: 0.700
+	elasticity: 0.560
+	stability: 8.940
+	strength_tensile: 4.800
+	strength_compressive: 21.000
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.hortspargl
+	texture: terrain.rock.pjerdelite
 	pattern: pattern.stone
 	
-	texture_scale: 1.490
-	texture_overshoot: -0.250
+	texture_scale: 1.400
+	texture_overshoot: -0.650
 	texture_offset: 0.000
-	color_preview: "0xff615e59"
+	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: hortspargl
+			material: pjerdelite
 			quantity: 1.000
 		}
 		null
@@ -43,7 +43,7 @@
 	mappings:
 	[
 		{
-			color: "0xff615e59"
+			color: "0xff7c5642"
 			tile_flags: solid, non_empty, ground, no_replace
 			meta: 0
 		}
