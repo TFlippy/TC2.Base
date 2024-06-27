@@ -250,7 +250,7 @@ lootable:
 
 faction:
 {
-	id: "badger"
+	id: badger
 }
 
 +slot.head|instance:

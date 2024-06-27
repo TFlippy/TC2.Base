@@ -239,7 +239,7 @@ lootable:
 
 faction:
 {
-	id: "drop_bear"
+	id: dropbear
 }
 
 +slot_head|instance:

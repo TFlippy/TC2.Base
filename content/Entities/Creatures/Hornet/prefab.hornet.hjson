@@ -250,5 +250,5 @@ lootable:
 
 faction:
 {
-	id: "hornet"
+	id: hornet
 }

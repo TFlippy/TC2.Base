@@ -261,7 +261,7 @@ lootable:
 
 faction:
 {
-	id: "drevokocur"
+	id: drevokocur
 }
 
 +slot_butt|instance:
