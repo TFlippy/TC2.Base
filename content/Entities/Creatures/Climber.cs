@@ -11,13 +11,15 @@ namespace TC2.Base.Components
 		};
 
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Of<Climber.Data>] ref Shape.Circle shape,
+		[Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control)
+		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control, [Source.Parent, Optional] in Joint.Base joint_base)
 		{
 			//var ts = Timestamp.Now();
+
+			//App.WriteLine(entity.GetFullName());
 
 			ref var keyboard = ref control.keyboard;
 
@@ -29,8 +31,8 @@ namespace TC2.Base.Components
 
 			var is_climbing = false;
 			var is_wallclimbing = false;
-			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !body.GetParent().IsValid();
-			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var can_move = !keyboard.GetKeyNow(Keyboard.Key.NoMove | Keyboard.Key.X) && (joint_base.flags.IsEmpty() || joint_base.flags.HasAny(Joint.Flags.Organic)); // && !body.GetParent().IsValid();
+			var can_wallclimb = can_move && keyboard.GetKeyNow(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var force = new Vector2(0, float.Epsilon);
 			var normal = new Vector2(0, -0.01f);
@@ -47,9 +49,9 @@ namespace TC2.Base.Components
 //#endif
 
 					var layer = arbiter.GetLayer();
-					if (!layer.HasAny(Physics.Layer.Bounds))
+					if (layer.HasNone(Physics.Layer.Bounds))
 					{
-						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable) && !layer.HasAny(Physics.Layer.Tree))
+						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable) && layer.HasNone(Physics.Layer.Tree))
 						{
 							var ent_arbiter = arbiter.GetEntity();
 
@@ -61,10 +63,10 @@ namespace TC2.Base.Components
 
 							var vel = Vector2.Zero;
 
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveRight)) vel.X += 1.50f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
 
 							vel *= climb_speed;
 
@@ -103,10 +105,10 @@ namespace TC2.Base.Components
 
 							var vel = Vector2.Zero;
 
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.20f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.20f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 0.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 8.00f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveLeft)) vel.X -= 1.20f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveRight)) vel.X += 1.20f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveUp)) vel.Y -= 0.50f;
+							if (keyboard.GetKeyNow(Keyboard.Key.MoveDown)) vel.Y += 8.00f;
 
 							vel *= 0.10f;
 
@@ -121,14 +123,14 @@ namespace TC2.Base.Components
 				}
 			}
 
-			if (can_wallclimb && is_wallclimbing)
+			if (can_wallclimb & is_wallclimbing)
 			{
 				if (climber.wallclimb_timer <= 0.50f)
 				{
 					climb_force += climber.climb_force;
 					climb_force *= organic_state.efficiency * organic.strength * (1.00f - organic_state.stun_norm);
 
-					var max_speed = new Vector2(10, 10);
+					var max_speed = climber.max_speed;
 
 					normal = normal.GetNormalized(out var normal_len);
 					if (normal_len > 0.01f && info.WorldTime >= climber.last_walljump + 0.20f)

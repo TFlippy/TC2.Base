@@ -170,7 +170,7 @@ runner.state:
 
 threat:
 {
-	priority: 2.000
+	priority: 5.000
 }
 
 // dive:

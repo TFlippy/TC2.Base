@@ -26,7 +26,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
@@ -39,7 +39,7 @@ namespace TC2.Base.Components
 			no_rotate.bias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
 		{
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
@@ -64,7 +64,7 @@ namespace TC2.Base.Components
 		};
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
@@ -87,9 +87,9 @@ namespace TC2.Base.Components
 			if (organic_state.efficiency < 0.20f) goto dead;
 			else if (true) //Runner.State.Flags.HasAll(Runner.State.Flags.Grounded))
 			{
-				if (runner_state.flags.HasAll(Runner.State.Flags.Sitting)) goto sitting;
-				else if (!runner_state.flags.HasAny(Runner.State.Flags.Grounded) && (info.WorldTime - runner_state.last_jump) < 1.00f) goto jumping;
-				else if (runner_state.flags.HasAll(Runner.State.Flags.Walking)) goto walking;
+				if (runner_state.flags.HasAny(Runner.State.Flags.Sitting)) goto sitting;
+				else if (runner_state.flags.HasAny(Runner.State.Flags.Jumping)) goto jumping;
+				else if (runner_state.flags.HasAny(Runner.State.Flags.Walking)) goto walking;
 				else if (runner_state.flags.HasAny(Runner.State.Flags.Grounded)) goto idle;
 				else goto air;
 			}

@@ -19,6 +19,7 @@ body:
 		material: insect
 		layer: entity, solid, creature, flammable
 		mask: world
+		exclude: plant, tree
 	}
 }
 
@@ -84,11 +85,12 @@ control:
 
 npc:
 {
+	wander_radius: 32.000
+	wander_interval: 0.500
+	wander_interval_extra: 1.500
+	
 	pain_modifier: 0.500
 	min_consciousness: 0.500
-	min_distance: [0.125, 0.000]
-	max_distance: [1.000, 1.000]
-	wander_radius: 32.000
 }
 
 animal:
@@ -148,16 +150,17 @@ commandable:
 
 threat:
 {
-	priority: 4.000
+	priority: 6.000
 }
 
 flyer:
 {
 	max_speed: 20.000
 	force: 200.000
-	brake_modifier: 0.700
+	brake_modifier: 0.150
 	sound_speed_modifier: 0.025
 	sound_volume: 1.500
+	force_modifier: 2.350
 }
 
 hornet:

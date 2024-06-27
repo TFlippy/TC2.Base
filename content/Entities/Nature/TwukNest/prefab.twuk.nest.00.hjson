@@ -49,12 +49,13 @@ nameable:
 
 spawner:
 {
-	interval: 10.000
-	interval_extra: 80.000
-	interval_count_modifier: 50.000
+	interval: 20.000
+	interval_extra: 100.000
+	interval_count_modifier: 60.000
 	ai_stance: aggressive
 	ai_type: attack
 	filter_tag: "twuk"
+	max_count: 4
 }
 
 faction:

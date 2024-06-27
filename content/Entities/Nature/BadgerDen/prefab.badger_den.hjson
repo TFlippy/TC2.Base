@@ -44,11 +44,12 @@ nameable:
 
 spawner:
 {
-	prefab: "badger"
 	interval: 60.000
 	interval_extra: 60.000
 	interval_count_modifier: 30.000
-	max_count: 8
+	ai_stance: aggressive
+	ai_type: defend
+	max_count: 7
 	filter_tag: "badger"
 }
 

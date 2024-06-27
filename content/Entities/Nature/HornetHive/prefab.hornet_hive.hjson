@@ -122,10 +122,10 @@ claimer:
 		{
 			group_size: 1
 			group_size_extra: 2
-			interval: 30.000
-			interval_extra: 60.000
-			interval_count_modifier: 20.000
-			max_count: 8
+			interval: 15.000
+			interval_extra: 30.000
+			interval_count_modifier: 40.000
+			max_count: 10
 			filter_tag: "hornet"
 			ai_stance: aggressive
 			ai_type: attack
@@ -155,6 +155,12 @@ claimer:
 			asset_flags: recycle
 			characters_capacity: 8
 			characters_initial_count: 6
+
+			repopulate_interval: 5.000
+			repopulate_interval_extra: 15.000
+
+			repopulate_num: 1
+			repopulate_num_extra: 1
 
 			character_flags_filter: 
 			{
