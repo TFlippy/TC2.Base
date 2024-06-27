@@ -68,7 +68,7 @@
 		}
 		{
 			type: resource
-			material: "scrap"
+			material: "scrap.machine"
 			amount: 75.000
 			amount_extra: 25.000
 		}

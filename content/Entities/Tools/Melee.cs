@@ -238,6 +238,7 @@ namespace TC2.Base.Components
 						Material.Type.Chitin => true,
 						Material.Type.Rubble => false,
 						Material.Type.Scrap => true,
+						Material.Type.Wreck => true,
 						Material.Type.Tool => false,
 						_ => false
 					};

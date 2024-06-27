@@ -42,7 +42,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.heavy"
 			quantity: 150.000
 		}
 		{

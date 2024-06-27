@@ -56,7 +56,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.ferrous"
 			quantity: 450.000
 		}
 		{

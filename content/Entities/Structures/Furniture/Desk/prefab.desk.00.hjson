@@ -54,7 +54,7 @@ holdable:
 // 	resources:
 // 	[
 // 		{
-// 			material: "scrap"
+// 			material: "scrap.mixed"
 // 			quantity: 100.000
 // 		}
 // 		{

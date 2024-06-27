@@ -49,7 +49,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.steel"
 			quantity: 80.000
 		}
 		{

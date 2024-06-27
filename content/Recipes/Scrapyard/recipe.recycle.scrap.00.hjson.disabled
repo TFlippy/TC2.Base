@@ -35,7 +35,7 @@
 	[
 		{
 			type: resource
-			material: "scrap"
+			material: "scrap.mixed"
 			amount: 1.000
 		}
 		{
@@ -68,7 +68,7 @@
 		}
 		{
 			type: resource
-			material: "scrap"
+			material: "scrap.mixed"
 			amount: 0.500
 			amount_extra: 0.200
 		}

@@ -738,7 +738,7 @@ namespace TC2.Base
 				{
 					ref var ratio = ref handle.GetData<float>();
 
-					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap.ferrous", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
 					{
 						var total_mass = 0.00f;
@@ -2585,7 +2585,7 @@ namespace TC2.Base
 					//var total_mass = 5.00f;
 					//var mass_added = 0.00f;
 
-					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap.ferrous", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
 					{
 						context.requirements_new.Add(Crafting.Requirement.Resource(material_scrap_id, mass / material_scrap.mass_per_unit));
@@ -2740,7 +2740,7 @@ namespace TC2.Base
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
 					}
 
-					//var h_material = new IMaterial.Handle("scrap");
+					//var h_material = new IMaterial.Handle("scrap.ferrous");
 
 					//ref var material = ref h_material.GetData();
 					//if (material.IsNotNull())
@@ -2850,7 +2850,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var material_scrap = ref IMaterial.Database.GetData("scrap", out var material_scrap_id);
+					ref var material_scrap = ref IMaterial.Database.GetData("scrap.ferrous", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
 					{
 						var total_mass = 5.00f;

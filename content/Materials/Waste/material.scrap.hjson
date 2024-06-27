@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.scrap"
+		texture: resource.scrap
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: scrap
@@ -23,11 +18,19 @@
 	flags: magnetic, granular, metal, small, raw, waste, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 1.380
 	quantity_max: 500.000
-	prefab: "resource.scrap"
+	prefab: resource.scrap
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -67,4 +70,7 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
+	
+	// Component materials.
+	composition: []
 }

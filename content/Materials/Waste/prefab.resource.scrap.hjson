@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "scrap"
+	material: "scrap.mixed"
 }
 
 holdable:

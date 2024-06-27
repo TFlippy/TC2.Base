@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Heavy Scrap"
 	description:
 		'''
@@ -8,26 +8,29 @@
 	
 	icon:
 	{
-		texture: "resource.scrap.heavy"
+		texture: resource.scrap.heavy
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, granular, large, heavy, raw, waste, solid
+	flags: hard, magnetic, granular, metal, intermediate, heavy, raw, manufactured, waste, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 2.130
 	quantity_max: 500.000
-	prefab: "resource.scrap.heavy"
+	prefab: resource.scrap.heavy
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -67,4 +70,7 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
+	
+	// Component materials.
+	composition: []
 }

@@ -38,11 +38,8 @@
 	resources:
 	[
 		{
-			material: "scrap"
+			material: "scrap.mixed"
 			quantity: 2.310
-		}
-		{
-		
 		}
 	]
 	

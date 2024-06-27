@@ -45,7 +45,7 @@
 		}
 		{
 			type: resource
-			material: "scrap"
+			material: "scrap.ferrous"
 			amount: 7.000
 		}
 		{
