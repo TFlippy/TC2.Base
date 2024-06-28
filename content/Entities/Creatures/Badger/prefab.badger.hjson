@@ -190,6 +190,14 @@ runner.state:
 	
 }
 
+climber:
+{
+	max_speed: [4.000, 4.000]
+	climb_speed: 16.000
+	climb_force: 3200.000
+	cling_force: 4000.000
+}
+
 threat:
 {
 	priority: 7.000

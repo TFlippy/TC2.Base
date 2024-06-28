@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
@@ -85,18 +85,11 @@ namespace TC2.Base.Components
 			}
 
 			if (organic_state.efficiency < 0.20f) goto dead;
-			else if (true) //Runner.State.Flags.HasAll(Runner.State.Flags.Grounded))
-			{
-				if (runner_state.flags.HasAny(Runner.State.Flags.Sitting)) goto sitting;
-				else if (runner_state.flags.HasAny(Runner.State.Flags.Jumping)) goto jumping;
-				else if (runner_state.flags.HasAny(Runner.State.Flags.Walking)) goto walking;
-				else if (runner_state.flags.HasAny(Runner.State.Flags.Grounded)) goto idle;
-				else goto air;
-			}
-			else
-			{
-				goto air;
-			}
+			else if (runner_state.flags.HasAny(Runner.State.Flags.Sitting)) goto sitting;
+			else if (runner_state.flags.HasAny(Runner.State.Flags.Jumping)) goto jumping;
+			else if (runner_state.flags.HasAny(Runner.State.Flags.Falling | Runner.State.Flags.Swimming | Runner.State.Flags.Climbing | Runner.State.Flags.WallClimbing)) goto air;
+			else if (runner_state.flags.HasAny(Runner.State.Flags.Walking)) goto walking;
+			else goto idle;
 
 			walking:
 			{

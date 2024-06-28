@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Musket Ammo (Shot)"
 	description:
 		'''
@@ -8,26 +8,29 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_musket.shot"
+		texture: resource.ammo_musket.shot
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
-	type: metal
+	type: scrap
 	// Flags defining properties of the raw material.
 	flags: ammo, ammo_musket, magnetic, granular, small, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.090
 	quantity_max: 50.000
-	prefab: "resource.ammo_musket.shot"
+	prefab: resource.ammo_musket.shot
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	ammo:
 	{
@@ -49,6 +52,10 @@
 		stability_base: 130.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.musket.shot"
+		prefab: projectile.musket.shot
+		casing_scale: 1.000
 	}
+	
+	// Component materials.
+	composition: []
 }

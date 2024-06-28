@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.6"
+	$version: "0.1.60.7"
 	name: "AC-33.6mm Ammo"
 	description:
 		'''
@@ -8,27 +8,35 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_ac"
+		texture: resource.ammo_ac
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
 	
-	type: metal
+	type: components
 	// Flags defining properties of the raw material.
 	flags: ammo, ammo_ac, magnetic, small, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.950
 	quantity_max: 20.000
-	prefab: "resource.ammo_ac"
+	prefab: resource.ammo_ac
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	ammo:
 	{
@@ -50,14 +58,17 @@
 		stability_base: 5500.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.ac"
+		prefab: projectile.ac
 		
 		sprite_casing:
 		{
-			texture: "atlas.ammo.casings.00"
+			texture: atlas.ammo.casings.00
 			size: [8, 8]
 			frame: [4, 0]
 		}
 		casing_scale: 1.300
 	}
+	
+	// Component materials.
+	composition: []
 }
