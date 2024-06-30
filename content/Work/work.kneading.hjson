@@ -1,0 +1,54 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Kneading"
+	name_short: "Kneading"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	flags: manual, machine, automated, simple, wip
+	cooldown: 2.000
+	color: "0xffffa200"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
+	
+	character_traits:
+	{
+		require: none
+		include: none
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+
+	}
+	
+	sounds:
+	[
+
+	]
+}
