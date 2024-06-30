@@ -168,6 +168,7 @@ namespace TC2.Base.Components
 						Material.Type.Leather => true,
 						Material.Type.Wire => true,
 						Material.Type.Bone => true,
+						Material.Type.Bramble => true,
 						Material.Type.Chitin => true,
 						Material.Type.Rubble => false,
 						Material.Type.Scrap => false,

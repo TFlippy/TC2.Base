@@ -42,6 +42,7 @@ namespace TC2.Base.Components
 			if (yield > 0.01f && health.integrity <= 0.00f)
 			{
 				ref var items = ref lootable.items;
+				var pos = body.GetPosition();
 
 				for (var i = 0; i < items.Length; i++)
 				{
@@ -49,9 +50,9 @@ namespace TC2.Base.Components
 					if (item.material.id != 0)
 					{
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
-						if (amount > Resource.epsilon)
+						if (amount >= Resource.epsilon)
 						{
-							Resource.Spawn(ref region, item.material, body.GetPosition() + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, flags: Resource.SpawnFlags.Merge, velocity: (body.GetVelocity() * 0.20f) + random.NextUnitVector2Range(0.50f, 6.50f), angular_velocity: body.GetAngularVelocity() + random.NextFloatRange(-2.50f, 2.50f));
+							Resource.Spawn(ref region, item.material, pos + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, flags: Resource.SpawnFlags.Merge, velocity: (body.GetVelocity() * 0.20f) + random.NextUnitVector2Range(0.50f, 6.50f), angular_velocity: body.GetAngularVelocity() + random.NextFloatRange(-2.50f, 2.50f));
 						}
 						item = default;
 					}

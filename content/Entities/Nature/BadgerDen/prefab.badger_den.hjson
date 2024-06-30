@@ -12,6 +12,7 @@ body:
 		radius: 1.500
 		friction: 0.950
 		elasticity: 0.500
+		mass: 250.000
 		material: soil
 		layer: entity, solid, ignore_bullet
 		mask: world
@@ -20,7 +21,7 @@ body:
 
 health:
 {
-	max: 3000.000
+	max: 18000.000
 }
 
 animated.renderer:
@@ -55,7 +56,7 @@ spawner:
 
 faction:
 {
-	id: "badger"
+	id: badger
 }
 
 claimer:
@@ -89,6 +90,33 @@ dormitory:
 	asset_flags: recycle
 	characters_capacity: 4
 	characters_initial_count: 2
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: shite
+			quantity: 183.000
+			chance: 0.500
+		}
+		{
+			material: money
+			quantity: 588.000
+			chance: 0.220
+		}
+		{
+			material: mushroom.blue
+			quantity: 73.000
+			chance: 0.100
+		}
+		{
+			material: peat
+			flags: no_autopickup, drop_on_break
+			quantity: 277.000
+		}
+	]
 }
 
 // faction.new:

@@ -3,7 +3,15 @@ namespace TC2.Base.Components
 {
 	public static partial class Regen
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Regen.State>()]
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0u
+		
+			
+		}
+
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Regen.State>]
 		public partial struct Data: IComponent, IOverridable
 		{
 			public float amount;
@@ -35,16 +43,62 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.22f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Health.Data health, [Source.Owned, Override] in Regen.Data regen, [Source.Owned] ref Regen.State regen_state, [Source.Owned] in Transform.Data transform)
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.22f), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void OnUpdateOrganic(ISystem.Info info, Entity entity, ref XorRandom random,
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Health.Data health, 
+		[Source.Owned, Override] in Regen.Data regen, [Source.Owned] ref Regen.State regen_state, 
+		[Source.Owned] in Transform.Data transform)
 		{
 			if (info.WorldTime >= regen_state.next_regen)
 			{
-				regen_state.next_regen = info.WorldTime + regen.interval;
-
 				if (health.integrity < 1.00f || health.durability < 1.00f)
 				{
-					entity.Heal(entity, entity, transform.position, regen.amount, min_a: regen.min_a, max_a: regen.max_a, min_b: regen.min_b, max_b: regen.max_b, multiplier_a: organic.regeneration, multiplier_b: organic.regeneration);
+					entity.Heal(ent_healer: entity,
+						ent_owner: entity,
+						world_position: transform.position,
+						amount: regen.amount * random.NextFloatRange(0.80f, 1.00f),
+						min_a: regen.min_a,
+						max_a: regen.max_a,
+						min_b: regen.min_b,
+						max_b: regen.max_b,
+						multiplier_a: organic.regeneration * regen.multiplier_a,
+						multiplier_b: organic.regeneration * regen.multiplier_b);
+
+					regen_state.next_regen = info.WorldTime + regen.interval;
+				}
+				else
+				{
+					regen_state.next_regen = info.WorldTime + 10.00f;
+				}
+			}
+		}
+
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.22f), HasTag("wrecked", false, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, false)]
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
+		[Source.Owned] ref Health.Data health,
+		[Source.Owned, Override] in Regen.Data regen, [Source.Owned] ref Regen.State regen_state,
+		[Source.Owned] in Transform.Data transform)
+		{
+			if (info.WorldTime >= regen_state.next_regen)
+			{
+				if (health.integrity < 1.00f || health.durability < 1.00f)
+				{
+					entity.Heal(ent_healer: entity,
+						ent_owner: entity,
+						world_position: transform.position,
+						amount: regen.amount * random.NextFloatRange(0.80f, 1.00f),
+						min_a: regen.min_a,
+						max_a: regen.max_a,
+						min_b: regen.min_b,
+						max_b: regen.max_b,
+						multiplier_a: regen.multiplier_a,
+						multiplier_b: regen.multiplier_b);
+
+					regen_state.next_regen = info.WorldTime + regen.interval;
+				}
+				else
+				{
+					regen_state.next_regen = info.WorldTime + 10.00f;
 				}
 			}
 		}
