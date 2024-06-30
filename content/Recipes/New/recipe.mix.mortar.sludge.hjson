@@ -57,9 +57,9 @@
 		}
 		{
 			type: work
-			work: soaking
-			amount: 400.000
-			difficulty: 5
+			work: blending
+			amount: 350.000
+			difficulty: 7
 		}
 	]
 	
@@ -68,14 +68,14 @@
 		{
 			type: resource
 			material: mortar
-			amount: 12.178
+			amount: 13.878
 			amount_extra: 7.572
 		}
 		{
 			type: resource
 			material: water.toxic
-			amount: 16.391
-			amount_extra: 8.112
+			amount: 12.391
+			amount_extra: 2.112
 		}
 	]
 }

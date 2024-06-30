@@ -57,9 +57,9 @@
 		}
 		{
 			type: work
-			work: mixing
-			amount: 250.000
-			difficulty: 6
+			work: blending
+			amount: 500.000
+			difficulty: 4
 		}
 	]
 	

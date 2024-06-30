@@ -42,9 +42,9 @@
 		}
 		{
 			type: work
-			work: shatter
-			amount: 250.000
-			difficulty: 4
+			work: shattering
+			amount: 150.000
+			difficulty: 3
 		}
 		{
 			type: resource
@@ -58,7 +58,7 @@
 		}
 		{
 			type: work
-			work: soaking
+			work: blending
 			amount: 400.000
 			difficulty: 6
 		}

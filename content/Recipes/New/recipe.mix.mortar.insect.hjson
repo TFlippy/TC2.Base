@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Cement Mortar"
+	name: "Slimy Mortar"
 	desc:
 		'''
-		Simpler mortar mixed from cement, sand and water, with the higher amount of cement making up for the lack of lime.
+		While this slop barely even counts as mortar, at least it doesn't need water.
 		'''
 	
 	icon:
@@ -16,9 +16,9 @@
 	
 	icon_extra:
 	{
-		texture: resource.cement
+		texture: resource.insect
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [1, 0]
 	}
 	icon_extra_offset: [0.000, -11.000]
 	
@@ -31,36 +31,36 @@
 	tags: workbench
 	
 	color_button: "0xffaeb59a"
-	rank: -159.000
+	rank: -158.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: cement
-			amount: 2.700
+			material: insect
+			amount: 18.000
 		}
 		{
 			type: resource
-			material: sand
-			amount: 9.400
+			material: plants
+			amount: 35.000
 		}
 		{
 			type: work
-			work: mixing
-			amount: 150.000
-			difficulty: 5
+			work: slicing
+			amount: 350.000
+			difficulty: 4
 		}
 		{
 			type: resource
-			material: water
-			amount: 50.000
+			material: lime
+			amount: 4.000
 		}
 		{
 			type: work
-			work: blending
-			amount: 320.000
-			difficulty: 5
+			work: soaking
+			amount: 450.000
+			difficulty: 3
 		}
 	]
 	
@@ -69,8 +69,14 @@
 		{
 			type: resource
 			material: mortar
-			amount: 16.178
-			amount_extra: 1.572
+			amount: 3.618
+			amount_extra: 6.012
+		}
+		{
+			type: resource
+			material: sludge
+			amount: 3.684
+			amount_extra: 2.526
 		}
 	]
 }
