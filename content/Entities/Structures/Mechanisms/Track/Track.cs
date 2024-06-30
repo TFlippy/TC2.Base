@@ -107,7 +107,7 @@
 #endif
 		}
 
-		[ISystem.Modified<Resizable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Modified.Component<Resizable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModified(ISystem.Info info, Entity entity, [Source.Shared] in Transform.Data transform, [Source.Shared] ref Resizable.Data resizable,
 		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Original] ref Joint.Slider joint_slider)
 		{

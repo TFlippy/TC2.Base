@@ -77,7 +77,7 @@ namespace TC2.Base.Components
 			return (uint)Maths.Clamp(MathF.Ceiling(MathF.Log2((1.00f - ((float)uses / Maths.Max((float)uses_max, 1.00f))) * frame_count) + 1), 0.00f, (int)frame_count - 1);
 		}
 
-		[ISystem.Modified<Consumable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Modified.Component<Consumable.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSprite([Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Sprite_Frames))

@@ -507,7 +507,7 @@ namespace TC2.Base.Components
 		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 800)]
 		public static void System_TransferVentContainers(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data container,
-		[Source.Owned, Pair.All] ref Vent.Data vent)
+		[Source.Owned, Pair.Wildcard] ref Vent.Data vent)
 		{
 			if (Air.Container.Data.dev_is_debug)
 			{
@@ -595,7 +595,7 @@ namespace TC2.Base.Components
 		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 200)]
 		public static void System_PrepareVent(ISystem.Info info, ref Region.Data region,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Air.Container.Data air_container,
-		[Source.Owned, Pair.All] ref Vent.Data vent)
+		[Source.Owned, Pair.Wildcard] ref Vent.Data vent)
 		{
 			if (Air.Container.Data.dev_is_debug)
 			{
@@ -787,7 +787,7 @@ namespace TC2.Base.Components
 		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void System_UpdateVentFlow(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
+		[Source.Owned, Pair.Wildcard] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
 		{
 			float pressure_inside = vent.pressure_inside;
 			float pressure_outside = vent.pressure_outside;
@@ -953,7 +953,7 @@ namespace TC2.Base.Components
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void System_PushVents_Input(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
+		[Source.Owned, Pair.Wildcard] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
 		{
 #if DEBUG
 			if (Air.Container.Data.dev_is_debug)
@@ -1058,7 +1058,7 @@ namespace TC2.Base.Components
 		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void System_PushVents_Output(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned, Pair.All] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
+		[Source.Owned, Pair.Wildcard] ref Vent.Data vent, [Source.Owned] ref Air.Container.Data air_container)
 		{
 #if DEBUG
 			if (Air.Container.Data.dev_is_debug)
@@ -1902,7 +1902,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[Shitcode]
-		[ISystem.Modified<Pipe.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Modified.Component<Pipe.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnModified(ISystem.Info info, Entity entity, [Source.Owned] ref Pipe.Data pipe, [Source.Owned] ref Pipe.State pipe_state, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Resizable.Data resizable)
 		{
 			if (pipe.a.TryGetHandle(out var vent_a) && pipe.b.TryGetHandle(out var vent_b))

@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Purified Water"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.water"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	type: workshop
+	flags: no_amount_multiplier, wip
+	tags: workshop
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "water"
+			amount: 250.000
+		}
+		{
+			type: resource
+			material: "flour"
+			amount: 15.000
+		}
+		{
+			type: resource
+			material: "mushroom.brown"
+			amount: 2.941176
+		}
+		{
+			type: work
+			work: refining
+			amount: 1250.000
+			difficulty: 4
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: "sauce"
+			amount: 40.000
+			amount_extra: 10.000
+		}
+	]
+}

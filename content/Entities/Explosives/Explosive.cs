@@ -136,7 +136,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Modified<Resource.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Modified.Component<Resource.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
 			ref var material = ref resource.material.GetData();

@@ -1,0 +1,77 @@
+$name: "Fermenter (Small)"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, 0.125]
+		b: [0.000, 0.500]
+		mass: 50.000
+		radius: 1.230
+		material: wood
+		layer: entity, solid, building, ignore_melee
+	}
+}
+
+health:
+{
+	max: 8500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "fermenter.00"
+		size: [24, 24]
+		frame: [0, 0]
+	}
+	z: -280.000
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags: fermenter
+	menu_columns: 4
+}
+
+crafter:
+{
+	@inventory4:
+	{
+		stack_size_multiplier: 2.000
+		type: output
+		flags: standalone, ignore_mass, no_auto_pickup, faction
+		offset: [0.000, 0.125]
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		stack_size_multiplier: 2.000
+		type: input
+		flags: standalone, ignore_mass, no_auto_pickup
+		offset: [0.000, -0.125]
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [584.000, 480.000]
+	window_size_misc: [120.000, 0.000]
+}

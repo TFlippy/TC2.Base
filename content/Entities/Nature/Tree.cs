@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 		public static readonly Sound.Handle sound_tree_cut_default = "tree_fall";
 
 #if SERVER
-		[ISystem.Modified<Split.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Modified.Component<Split.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnSplit(ISystem.Info info, Entity entity, 
 		[Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Pair.Of<Tree.Data>] in Foliage.Renderer.Data renderer)
 		{
