@@ -13,11 +13,11 @@ body:
 	{
 		a: [-1.625, 0.750]
 		b: [1.500, 0.750]
-		mass: 100.000
+		mass: 160.000
 		radius: 1.100
 		friction: 0.750
-		material: soil
-		layer: entity, solid
+		material: bramble
+		layer: entity, solid, harvestable, flammable
 	}
 }
 
@@ -60,13 +60,13 @@ spawner:
 
 faction:
 {
-	id: "twuk"
+	id: twuk
 }
 
 claimer:
 {
-	radius: 20.000
-	strength: 1.000
+	radius: 24.000
+	strength: 2.000
 	falloff: 0.500
 }
 
@@ -89,19 +89,33 @@ minimap.marker:
 
 dormitory:
 {
-	species: "twuk"
+	species: twuk
 	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
 	asset_flags: recycle
-	characters_capacity: 4
+	characters_capacity: 3
 	characters_initial_count: 2
 }
 
-// faction.new:
-// {
-// 	tag: "BAD"
-// 	name: "Badgers"
-// 	color_a: "0xff0030ff"
-// 	color_b: "0xff080a52"
-
-// 	id: 201
-// }
+harvestable:
+{
+	resources:
+	[
+		{
+			material: eggs
+			quantity: 140.000
+			chance: 0.850
+		}
+		{
+			material: peat
+			flags: no_autopickup, drop_on_break
+			quantity: 95.000
+		}
+		{
+			material: scrap.wood
+			flags: no_autopickup, drop_on_break
+			quantity: 115.000
+			chance: 0.900
+		}
+		null
+	]
+}
