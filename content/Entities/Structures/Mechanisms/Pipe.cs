@@ -618,7 +618,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				region.GetAtmospherićInfo(pos_y, out var altitude, out var temperature_ambient, out var pressure_ambient);
+				region.GetAtmosphericInfo(pos_y, out var altitude, out var temperature_ambient, out var pressure_ambient);
 
 				vent.pressure_inside = air_container.pressure_cached;
 				vent.pressure_outside = pressure_ambient;
@@ -1542,7 +1542,7 @@ namespace TC2.Base.Components
 		// TODO: speed this up
 		public static void GetAmbientAir(ref readonly this Region.Data region, Vector2 pos, Volume volume, out Air.Blob blob)
 		{
-			region.GetAtmospherićInfo(pos.Y, out var altitude, out var temperature_ambient, out var pressure_ambient);
+			region.GetAtmosphericInfo(pos.Y, out var altitude, out var temperature_ambient, out var pressure_ambient);
 			Phys.IdealGasLaw(pressure_ambient, volume, out var moles, temperature_ambient);
 
 			//var air = new Air.Composition();

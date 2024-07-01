@@ -8,19 +8,17 @@
 	
 	icon:
 	{
-		texture: "resource.sulfuric_acid"
+		texture: resource.sulfuric_acid
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.slag"
+		texture: resource.slag
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	icon_extra_offset: [0.000, -5.000]
 	
 	min: 1
@@ -28,25 +26,27 @@
 	step: 1
 	
 	type: crafter
-	flags: no_amount_multiplier, disabled, wip
+	flags: no_amount_multiplier, wip
 	tags: distillery, fermenter
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "plants"
+			material: plants
 			amount: 150.000
 		}
 		{
 			type: resource
-			material: "mushroom.green"
+			material: mushroom.green
 			amount: 5.000
 		}
 		{
 			type: resource
-			material: "brown_coal"
+			material: brown_coal
 			amount: 8.000
 		}
 		{
@@ -61,19 +61,19 @@
 	[
 		{
 			type: resource
-			material: "syngas"
+			material: syngas
 			amount: 48.000
 			amount_extra: 35.000
 		}
 		{
 			type: resource
-			material: "peat"
+			material: peat
 			amount: 11.000
 			amount_extra: 6.000
 		}
 		{
 			type: resource
-			material: "water.dirty"
+			material: water.dirty
 			amount: 5.000
 			amount_extra: 6.000
 		}

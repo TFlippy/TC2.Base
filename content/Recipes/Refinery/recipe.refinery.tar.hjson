@@ -8,27 +8,27 @@
 	
 	icon:
 	{
-		texture: "resource.tar"
+		texture: resource.tar
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
 	step: 1
 	
 	type: crafter
-	flags: no_amount_multiplier, disabled, wip
+	flags: no_amount_multiplier, wip
 	tags: refinery
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "resin"
+			material: resin
 			amount: 75.000
 		}
 		{
@@ -43,19 +43,19 @@
 	[
 		{
 			type: resource
-			material: "tar"
+			material: tar
 			amount: 27.000
 			amount_extra: 8.000
 		}
 		{
 			type: resource
-			material: "lubricant"
+			material: lubricant
 			amount: 7.000
 			amount_extra: 4.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 10.000
 			amount_extra: 5.000
 		}

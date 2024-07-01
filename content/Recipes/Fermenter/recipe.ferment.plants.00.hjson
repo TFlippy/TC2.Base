@@ -39,7 +39,7 @@
 		{
 			type: work
 			work: fermenting
-			amount: 1250.000
+			amount: 900.000
 			difficulty: 4
 		}
 	]
@@ -48,21 +48,33 @@
 	[
 		{
 			type: resource
+			material: compost
+			amount: 39.780
+			amount_extra: 6.843
+			flags: residue
+		}
+		{
+			type: resource
 			material: rot
-			amount: 14.780
-			amount_extra: 7.398
+			amount: 9.780
+			amount_extra: 6.398
+			flags: waste
 		}
 		{
 			type: resource
 			material: alcohol
-			amount: 9.234
-			amount_extra: 4.124
+			amount: 3.234
+			amount_extra: 14.124
+			flags: byproduct
+			group: 1
 		}
 		{
 			type: resource
 			material: biogas
-			amount: 17.444
-			amount_extra: 6.094
+			amount: 22.444
+			amount_extra: 9.094
+			flags: byproduct, spawn
+			group: 2
 		}
 	]
 }

@@ -7,14 +7,16 @@ $tags: []
 
 body:
 {
-	type: static
-	
-	@shape.line:
+	buoyancy: 0.550
+	fall_damage_multiplier: 0.950
+
+	@shape.box:
 	{
-		a: [0.000, 0.125]
-		b: [0.000, 0.500]
-		mass: 50.000
-		radius: 1.230
+		size: [1.375, 2.000]
+		mass: 85.000
+		radius: 0.480
+		friction: 0.750
+		elasticity: 0.410
 		material: wood
 		layer: entity, solid, building, ignore_melee
 	}
@@ -22,7 +24,7 @@ body:
 
 health:
 {
-	max: 8500.000
+	max: 9500.000
 }
 
 animated.renderer:
@@ -41,6 +43,28 @@ transform:
 
 }
 
+holdable:
+{
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+	stress_multiplier: 0.250
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 1.250]
+	tags: medium, utility, fixed
+}
+
+norotate:
+{
+	bias: 0.000
+	multiplier: 1.800
+	mass_multiplier: 7.000
+}
+
 shop:
 {
 	tags: fermenter
@@ -57,7 +81,7 @@ crafter:
 	{
 		stack_size_multiplier: 2.000
 		type: output
-		flags: standalone, ignore_mass, no_auto_pickup, faction
+		flags: standalone, no_auto_pickup
 		offset: [0.000, 0.125]
 	}
 }
@@ -68,7 +92,7 @@ crafter.state:
 	{
 		stack_size_multiplier: 2.000
 		type: input
-		flags: standalone, ignore_mass, no_auto_pickup
+		flags: standalone, no_auto_pickup
 		offset: [0.000, -0.125]
 	}
 }
