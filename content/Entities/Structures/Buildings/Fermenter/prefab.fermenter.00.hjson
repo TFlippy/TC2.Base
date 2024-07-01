@@ -49,7 +49,9 @@ shop:
 
 crafter:
 {
-	environment: warm, container
+	tools: bucket, spatula
+	equipment: tap, barrel
+	environment: warm, container, stationary, contaminated
 
 	@inventory4:
 	{

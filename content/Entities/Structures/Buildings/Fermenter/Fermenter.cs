@@ -11,7 +11,14 @@
 				None = 0,
 			}
 
+			public float work_amount_base = 10.00f;
+			public float work_level_base = 4.00f;
+
 			public Fermenter.Data.Flags flags;
+
+			public Data()
+			{
+			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
@@ -25,6 +32,10 @@
 
 			public IRecipe.Handle h_recipe_cached;
 			public Fermenter.State.Flags flags;
+
+			public State()
+			{
+			}
 		}
 
 #if CLIENT
@@ -39,8 +50,8 @@
 #endif
 
 #if SERVER
-		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void Update(ISystem.Info info, Entity entity,
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global, interval: 1.13f)]
+		public static void Update(ISystem.Info.Common info, ref Region.Data.Common region, Entity entity,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Fermenter.Data fermenter, [Source.Owned] ref Fermenter.State fermenter_state, 
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
@@ -68,8 +79,14 @@
 				ref var work_data = ref crafter_state.current_work_type.GetData();
 				if (work_data.IsNotNull())
 				{
+					var ratio_env = crafter.environment.GetRatio(work_data.filter_environment.include);
 
+					var amount_base = fermenter.work_amount_base;
+					var amount = amount_base * ratio_env;
 
+					crafter_state.work += amount * info.DeltaTime;
+
+					//App.WriteLine(ratio_env);
 					//App.WriteLine("work");
 				}
 			}

@@ -1,0 +1,47 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.600]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.100
+		material: fur
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.rot"
+		count: 4
+		size: [16, 16]
+	}
+	offset: [0.000, 0.375]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "rot"
+}
+
+holdable:
+{
+	offset: [0.000, 1.000]
+}
+
+norotate:
+{
+
+}

@@ -17,16 +17,23 @@
 	flags: machine, automated, ambient, simple, chemical, wip
 	cooldown: 1.000
 	multiplier: 1.000
-	color: "0xffaeb59a"
+	color: "0xff818c11"
 	
 	tools_required: none
-	tools_optional: none
+	tools_optional: bucket, spatula
 	
 	machinery_required: none
-	machinery_optional: none
+	machinery_optional: heater
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: barrel
+	
+	filter_environment:
+	{
+		require: container
+		include: warm, stationary, contaminated, polluted, smelly, ugly, scary
+		exclude: cold, disinfected, sterile, toxic
+	}
 	
 	character_traits:
 	{

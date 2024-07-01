@@ -1,0 +1,122 @@
+﻿{
+	$version: "0.1.60.5"
+	name: "Biogas"
+	description:
+		'''
+		Low-grade mixture of methane and other gases.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: gas
+	// Flags defining properties of the raw material.
+	flags: gas, chemical, raw, fuel, flammable
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 0.070
+	quantity_max: 1000.000
+	prefab: "resource.biogas"
+	
+	commodity:
+	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: none
+		categories: chemicals, dangerous, industrial, military
+		
+		industries_produce: none
+		industries_consume: none
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: none
+		buildings_consume: none
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: none
+		categories_consume: none
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 11.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 0.000
+		quantity_industry: 0.000
+	}
+	
+	fuel:
+	{
+		// TODO: Desc
+		type: gas
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 14200.000
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.921
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 3.491
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.110
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 1980.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 1350.000
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		autoignition_temperature: 500.000
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 280.000
+		// kJ/(kg*K)
+		specific_heat: 2.980
+		
+		// kW/(m*K)
+		thermal_conductivity: 0.001
+		// TODO: Desc
+		porosity: 0.000
+		// TODO: Desc
+		volatility: 0.000
+		// TODO: Desc
+		viscosity: 0.020
+		// TODO: Desc
+		surface_area_mult: 0.000
+		
+		// Percentage of carbon.
+		carbon_ratio: 0.168
+		// Percentage of hydrogen.
+		hydrogen_ratio: 0.653
+		// Percentage of nitrogen.
+		nitrogen_ratio: 0.040
+		// Percentage of oxygen.
+		oxygen_ratio: 0.025
+		// Percentage of sulfur.
+		sulfur_ratio: 0.009
+		// Percentage of water.
+		water_ratio: 0.048
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.000
+		volatiles: []
+	}
+}
