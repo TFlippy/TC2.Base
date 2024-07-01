@@ -68,6 +68,8 @@
 				ref var work_data = ref crafter_state.current_work_type.GetData();
 				if (work_data.IsNotNull())
 				{
+
+
 					//App.WriteLine("work");
 				}
 			}

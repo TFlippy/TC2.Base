@@ -16,19 +16,17 @@
 	
 	flags: manual, skilled, machine, tools, science, advanced, technical, careful, construction, industrial, wip
 	cooldown: 1.000
+	multiplier: 1.000
 	color: "0x8f14d081"
 	
 	tools_required: ruler, screwdriver, tweezers
-	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, table, chair, vise, calculator, syringe, file, towel, pick
+	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, calculator, syringe, file, towel, pick
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_optional: table, chair, vise
 	
 	character_traits:
 	{

@@ -9,17 +9,24 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [10, 0]
 	}
 	
 	flags: machine, automated, ambient, dangerous, industrial, wip
 	cooldown: 0.500
+	multiplier: 1.000
 	color: "0xffaeb59a"
 	
-	tools_required: smelter, heater, crucible
+	tools_required: none
 	tools_optional: none
+	
+	machinery_required: smelter, heater
+	machinery_optional: none
+	
+	equipment_required: crucible
+	equipment_optional: none
 	
 	character_traits:
 	{

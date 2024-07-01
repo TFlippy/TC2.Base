@@ -22,14 +22,11 @@
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, towel
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
 	equipment_required: none
 	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
 	
 	character_traits:
 	{

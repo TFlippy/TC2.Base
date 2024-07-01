@@ -16,19 +16,17 @@
 	
 	flags: machine, automated, science, ambient, simple, chemical, wip
 	cooldown: 1.000
+	multiplier: 1.000
 	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: none
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
 	equipment_required: none
 	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
 	
 	character_traits:
 	{

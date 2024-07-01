@@ -20,16 +20,13 @@
 	color: "0xff719240"
 	
 	tools_required: hammer, saw, file, knife
-	tools_optional: pencil, ruler, lathe, hammer, saw, drill, screwdriver, tweezers, table, chair, vise, axe, file, chisel, knife
+	tools_optional: pencil, ruler, hammer, saw, drill, screwdriver, tweezers, axe, file, chisel, knife
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: lathe
 	
 	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_optional: table, chair, vise
 	
 	character_traits:
 	{

@@ -16,24 +16,20 @@
 	
 	flags: manual, machine, automated, tools, simple, wip
 	cooldown: 2.000
+	multiplier: 1.000
 	color: "0xffffa200"
 	
 	tools_required: none
 	tools_optional: none
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
 	equipment_required: none
 	equipment_optional: none
 	
-	environment_required: none
-	environment_optional: none
-	
 	character_traits:
 	{
-		require: none
-		include: none
 		weight: 1.000
 	}
 	
@@ -47,8 +43,5 @@
 		blades: 1.400
 	}
 	
-	sounds:
-	[
-		
-	]
+	sounds: []
 }

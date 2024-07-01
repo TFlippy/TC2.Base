@@ -19,17 +19,14 @@
 	multiplier: 1.000
 	color: "0xff6e3535"
 	
-	tools_required: cleaver, table
-	tools_optional: cutters, saw, dishes, cleaver, table, vise, bucket, axe, towel, rack, tongs, crowbar, knife
+	tools_required: cleaver
+	tools_optional: cutters, saw, cleaver, bucket, axe, towel, tongs, crowbar, knife
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_required: table
+	equipment_optional: dishes, table, vise, rack
 	
 	character_traits:
 	{

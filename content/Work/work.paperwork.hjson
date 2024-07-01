@@ -16,19 +16,17 @@
 	
 	flags: manual, skilled, tools, simple, bureaucracy, wip
 	cooldown: 2.310
+	multiplier: 1.000
 	color: "0x8f005ec2"
 	
-	tools_required: pencil, paper, table, chair, stapler
-	tools_optional: pencil, paper, ruler, cutters, glassware, radio, tweezers, magnifying_glass, table, chair, calculator, stapler, rack, knife
+	tools_required: pencil, paper, stapler
+	tools_optional: pencil, paper, ruler, cutters, radio, tweezers, magnifying_glass, calculator, stapler, knife
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_required: table, chair
+	equipment_optional: glassware, table, chair, rack
 	
 	character_traits:
 	{

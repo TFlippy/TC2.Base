@@ -19,17 +19,14 @@
 	multiplier: 1.000
 	color: "0xffffa200"
 	
-	tools_required: screwdriver, wrench, table
-	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, anvil, heater, table, chair, vise, calculator, stapler, towel, tongs, pick, crowbar, knife
+	tools_required: screwdriver, wrench
+	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, calculator, stapler, towel, tongs, pick, crowbar, knife
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: heater
 	
-	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_required: table
+	equipment_optional: anvil, table, chair, vise
 	
 	character_traits:
 	{

@@ -20,16 +20,13 @@
 	color: "0xff6e3535"
 	
 	tools_required: towel
-	tools_optional: pencil, paper, ruler, hammer, cutters, drill, screwdriver, radio, telephone, tweezers, magnifying_glass, chair, vise, bucket, syringe, stapler, towel, spatula, tongs, pick, crowbar, knife, bed
+	tools_optional: pencil, paper, ruler, hammer, cutters, drill, screwdriver, radio, telephone, tweezers, magnifying_glass, bucket, syringe, stapler, towel, spatula, tongs, pick, crowbar, knife
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: none
+	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_optional: chair, vise, bed
 	
 	character_traits:
 	{

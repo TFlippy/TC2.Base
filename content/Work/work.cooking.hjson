@@ -19,17 +19,14 @@
 	multiplier: 1.000
 	color: "0xff719240"
 	
-	tools_required: dishes, heater, spatula, knife
-	tools_optional: hammer, saw, grinder, cauldron, oven, glassware, pressure_cooker, dishes, cleaver, heater, bottle, barrel, table, chair, bucket, calculator, towel, rack, spatula
+	tools_required: spatula, knife
+	tools_optional: hammer, saw, cleaver, bucket, calculator, towel, spatula
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: heater
+	machinery_optional: grinder, heater
 	
-	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_required: dishes
+	equipment_optional: cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	
 	character_traits:
 	{

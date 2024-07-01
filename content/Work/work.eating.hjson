@@ -9,17 +9,24 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [37, 0]
 	}
 	
 	flags: manual, simple, leisure, wip
 	cooldown: 0.350
+	multiplier: 1.000
 	color: "0xffaeb59a"
 	
-	tools_required: table
-	tools_optional: cutters, glassware, dishes, bottle, chair, towel, spatula, knife
+	tools_required: none
+	tools_optional: cutters, towel, spatula, knife
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: table
+	equipment_optional: glassware, dishes, bottle, chair
 	
 	character_traits:
 	{

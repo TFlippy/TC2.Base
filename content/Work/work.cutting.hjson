@@ -9,17 +9,24 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [34, 0]
 	}
 	
 	flags: manual, machine, automated, tools, dangerous, industrial, wip
 	cooldown: 0.200
+	multiplier: 1.000
 	color: "0xffaeb59a"
 	
 	tools_required: cutters
 	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
 	
 	character_traits:
 	{

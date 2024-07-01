@@ -19,17 +19,14 @@
 	multiplier: 1.000
 	color: "0xffffa200"
 	
-	tools_required: lathe, hammer, table, vise, file
-	tools_optional: ruler, grinder, anvil, heater, tweezers, magnifying_glass, table, chair, vise, calculator, file, chisel, tongs, crowbar
+	tools_required: hammer, file
+	tools_optional: ruler, tweezers, magnifying_glass, calculator, file, chisel, tongs, crowbar
 	
-	machines_required: none
-	machines_optional: none
+	machinery_required: lathe
+	machinery_optional: grinder, heater
 	
-	equipment_required: none
-	equipment_optional: none
-	
-	environment_required: none
-	environment_optional: none
+	equipment_required: table, vise
+	equipment_optional: anvil, table, chair, vise
 	
 	character_traits:
 	{
