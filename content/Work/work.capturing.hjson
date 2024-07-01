@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [17, 0]
 	}
 	
 	flags: social, ambient, dangerous, simple, politics, wip
 	cooldown: 0.800
-	color: "0xff719240"
+	multiplier: 1.000
+	color: "0xff6e3535"
 	
 	tools_required: none
 	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [14, 0]
 	}
 	
 	flags: manual, skilled, machine, tools, dangerous, technical, construction, industrial, wip
 	cooldown: 0.320
-	color: "0xffbb7f18"
+	multiplier: 1.000
+	color: "0xffffa200"
 	
 	tools_required: lathe, hammer, table, vise, file
 	tools_optional: ruler, grinder, anvil, heater, tweezers, magnifying_glass, table, chair, vise, calculator, file, chisel, tongs, crowbar
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -42,6 +52,6 @@
 	
 	sounds:
 	[
-		"work_machining_00_loop"
+		work_machining_00_loop
 	]
 }

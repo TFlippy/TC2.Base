@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [28, 0]
 	}
 	
 	flags: skilled, social, science, ambient, advanced, careful, politics, bureaucracy, wip
 	cooldown: 1.000
-	color: "0x8f005ec2"
+	multiplier: 1.000
+	color: "0xff4e5570"
 	
 	tools_required: magnifying_glass
 	tools_optional: pencil, paper, radio, telephone, magnifying_glass, calculator, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

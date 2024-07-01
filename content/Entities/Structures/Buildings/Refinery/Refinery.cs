@@ -286,7 +286,7 @@
 								{
 									GUI.DrawBackground(GUI.tex_frame, scrollbox.group_frame.GetInnerRect(), new(8, 8, 8, 8));
 
-									if (this.crafter.recipe.id != 0)
+									if (this.crafter.h_recipe.id != 0)
 									{
 										CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 									}

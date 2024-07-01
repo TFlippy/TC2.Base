@@ -7,8 +7,6 @@
 		texture: chair.wood.00
 	}
 	
-	color_button: "0xffaeb59a"
-	
 	min: 1
 	max: 4
 	step: 1
@@ -16,6 +14,8 @@
 	type: workshop
 	flags: blueprintable
 	tags: workbench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
@@ -35,7 +35,7 @@
 			type: work
 			work: carpentry
 			amount: 240.000
-			difficulty: 9
+			difficulty: 7
 		}
 	]
 	

@@ -9,14 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [13, 0]
 	}
 	
 	flags: manual, machine, automated, simple, wip
 	cooldown: 0.250
-	color: "0xffaeb59a"
+	multiplier: 1.000
+	color: "0xff719240"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -37,7 +50,7 @@
 	
 	sounds:
 	[
-		"work_mix_00"
-		"work_mix_01"
+		work_mix_00
+		work_mix_01
 	]
 }

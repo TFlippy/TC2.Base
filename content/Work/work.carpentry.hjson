@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [16, 0]
 	}
 	
 	flags: manual, skilled, tools, construction, wip
-	cooldown: 0.400
-	color: "0xffaeb59a"
+	cooldown: 1.000
+	multiplier: 1.000
+	color: "0xff719240"
 	
 	tools_required: hammer, saw
 	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -34,18 +44,18 @@
 	
 	skills_mult:
 	{
-		carpentry: 1.000
-		construction: 0.800
+		carpentry: 1.400
+		construction: 0.900
 		strength: 0.300
 	}
 	
 	sounds:
 	[
-		"work_woodworking_00"
-		"work_woodworking_01"
-		"work_woodworking_02"
-		"work_woodworking_03"
-		"work_woodworking_04"
-		"work_woodworking_05"
+		work_woodworking_00
+		work_woodworking_01
+		work_woodworking_02
+		work_woodworking_03
+		work_woodworking_04
+		work_woodworking_05
 	]
 }

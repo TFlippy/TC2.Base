@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	flags: manual, tools, dangerous, simple, wip
 	cooldown: 2.000
-	color: "0xffaeb59a"
+	multiplier: 1.000
+	color: "0xff6e3535"
 	
 	tools_required: cleaver, table
 	tools_optional: cutters, saw, dishes, cleaver, table, vise, bucket, axe, towel, rack, tongs, crowbar, knife
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

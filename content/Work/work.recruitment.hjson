@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [27, 0]
 	}
 	
 	flags: skilled, social, ambient, politics, bureaucracy, wip
 	cooldown: 3.000
-	color: "0xff719240"
+	multiplier: 1.000
+	color: "0x8f005ec2"
 	
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, towel
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{

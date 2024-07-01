@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [4, 0]
 	}
 	
 	flags: manual, skilled, machine, tools, construction, wip
 	cooldown: 1.000
-	color: "0xffaeb59a"
+	multiplier: 1.000
+	color: "0xff719240"
 	
 	tools_required: hammer, saw, file, knife
 	tools_optional: pencil, ruler, lathe, hammer, saw, drill, screwdriver, tweezers, table, chair, vise, axe, file, chisel, knife
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -42,11 +52,11 @@
 	
 	sounds:
 	[
-		"work_woodworking_00"
-		"work_woodworking_01"
-		"work_woodworking_02"
-		"work_woodworking_03"
-		"work_woodworking_04"
-		"work_woodworking_05"
+		work_woodworking_00
+		work_woodworking_01
+		work_woodworking_02
+		work_woodworking_03
+		work_woodworking_04
+		work_woodworking_05
 	]
 }

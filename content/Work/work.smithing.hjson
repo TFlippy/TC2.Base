@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [1, 0]
 	}
 	
 	flags: manual, skilled, machine, tools, dangerous, construction, industrial, wip
 	cooldown: 1.000
+	multiplier: 1.000
 	color: "0xffffa200"
 	
 	tools_required: hammer, anvil, forge, table, tongs
 	tools_optional: none
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -41,10 +51,10 @@
 	
 	sounds:
 	[
-		"work_smithing_00"
-		"work_smithing_01"
-		"work_smithing_02"
-		"work_smithing_03"
-		"work_smithing_04"
+		work_smithing_00
+		work_smithing_01
+		work_smithing_02
+		work_smithing_03
+		work_smithing_04
 	]
 }

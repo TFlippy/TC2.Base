@@ -23,6 +23,7 @@
 				None = 0,
 			}
 
+			public IRecipe.Handle h_recipe_cached;
 			public Fermenter.State.Flags flags;
 		}
 
@@ -38,35 +39,38 @@
 #endif
 
 #if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Fermenter.Data fermenter, [Source.Owned] ref Fermenter.State fermenter_state, 
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
-			//if (crafter.recipe.id != 0)
-			//{
-			//	if (fermenter.recipe_cached.id != crafter.recipe.id)
-			//	{
-			//		ref var recipe = ref crafter.GetCurrentRecipe();
-			//		if (!recipe.IsNull())
-			//		{
-			//			var load = 0.00f;
+			if (crafter.h_recipe != 0)
+			{
+				if (fermenter_state.h_recipe_cached.TrySet(crafter.h_recipe))
+				{
+					ref var recipe = ref crafter.GetCurrentRecipe();
+					if (recipe.IsNotNull())
+					{
+						//var load = 0.00f;
 
-			//			foreach (ref var requirement in recipe.requirements.AsSpan())
-			//			{
-			//				if (requirement.type == Crafting.Requirement.Type.Work && requirement.work == Work.Type.Fermentering)
-			//				{
-			//					load += requirement.difficulty;
-			//				}
-			//			}
+						//foreach (ref var requirement in recipe.requirements.AsSpan())
+						//{
+						//	if (requirement.type == Crafting.Requirement.Type.Work && requirement.work == crafter.h_work) // && requirement.work == Work.Type.Fermentering)
+						//	{
+						//		crafter_state.current_work_type
+						//		//load += requirement.difficulty;
+						//	}
+						//}
+					}
+				}
 
-			//			fermenter.load_multiplier = load;
-			//		}
-
-			//		fermenter.recipe_cached = crafter.recipe;
-			//	}
-			//}
+				ref var work_data = ref crafter_state.current_work_type.GetData();
+				if (work_data.IsNotNull())
+				{
+					//App.WriteLine("work");
+				}
+			}
 
 			//switch (crafter_state.current_work_type)
 			//{
@@ -156,31 +160,7 @@
 
 						using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
 						{
-							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-							}
-
-							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-								{
-									GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 2));
-								}
-							}
-
-							using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-								{
-									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
-								}
-							}
+							
 						}
 					}
 				}

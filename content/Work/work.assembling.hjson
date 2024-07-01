@@ -9,17 +9,27 @@
 	
 	icon:
 	{
-		texture: "ui.icons.work.00"
+		texture: ui.icons.work.00
 		size: [16, 16]
 		frame: [8, 0]
 	}
 	
 	flags: manual, machine, tools, technical, construction, industrial, wip
 	cooldown: 0.350
-	color: "0xffbb7f18"
+	multiplier: 1.000
+	color: "0xffffa200"
 	
 	tools_required: screwdriver, wrench, table
 	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, anvil, heater, table, chair, vise, calculator, stapler, towel, tongs, pick, crowbar, knife
+	
+	machines_required: none
+	machines_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	environment_required: none
+	environment_optional: none
 	
 	character_traits:
 	{
@@ -41,10 +51,10 @@
 	
 	sounds:
 	[
-		"work_assembly_00"
-		"work_assembly_01"
-		"work_assembly_02"
-		"work_assembly_03"
-		"work_assembly_04"
+		work_assembly_00
+		work_assembly_01
+		work_assembly_02
+		work_assembly_03
+		work_assembly_04
 	]
 }

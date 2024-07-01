@@ -16,7 +16,8 @@
 	
 	flags: manual, machine, automated, simple, wip
 	cooldown: 2.000
-	color: "0xffffa200"
+	multiplier: 1.000
+	color: "0xff719240"
 	
 	tools_required: none
 	tools_optional: none
@@ -32,8 +33,6 @@
 	
 	character_traits:
 	{
-		require: none
-		include: none
 		weight: 1.000
 	}
 	
@@ -48,8 +47,5 @@
 		clubs: 1.300
 	}
 	
-	sounds:
-	[
-
-	]
+	sounds: []
 }
