@@ -1,5 +1,8 @@
 $name: "Rusty Chain-Link Fence"
-$desc: "A rusted-down fence full of holes."
+$desc: 
+	'''
+	Rrusted-down fence full of holes.
+	'''
 $tags: []
 
 body:

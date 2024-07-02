@@ -20,7 +20,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.070
+	mass_per_unit: 0.010
 	quantity_max: 1000.000
 	prefab: resource.biogas
 	

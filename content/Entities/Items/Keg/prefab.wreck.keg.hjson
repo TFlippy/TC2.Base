@@ -1,5 +1,8 @@
 $name: "Decommissioned Explosive Keg"
-$desc: "Unexploded ordnance is fun ordnance."
+$desc: 
+	'''
+	Unexploded ordnance is fun ordnance.
+	'''
 $tags: []
 
 body:

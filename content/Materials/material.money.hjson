@@ -1,37 +1,44 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Kordel Denar"
 	description:
 		'''
 		Standard Imperial coins.
-
 		40% Gold, 60% Smirglum.
 		'''
 	
 	icon:
 	{
-		texture: "resource.money"
+		texture: resource.money
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icon_sell"
+		texture: ui_icon_sell
 		count: 1
 		size: [16, 16]
 	}
 	
 	type: coin
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, granular, metal, currency, small, manufactured, solid
+	flags: hard, magnetic, granular, metal, currency, small, manufactured, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.015625
 	quantity_max: 4000.000
-	prefab: "resource.money"
+	prefab: resource.money
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -71,4 +78,7 @@
 		quantity_wholesale: 8000.000
 		quantity_industry: 15000.000
 	}
+	
+	// Component materials.
+	composition: []
 }

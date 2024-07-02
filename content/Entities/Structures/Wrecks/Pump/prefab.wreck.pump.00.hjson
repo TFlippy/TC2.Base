@@ -1,5 +1,8 @@
 $name: "Dumped Pump"
-$desc: "It's dumb."
+$desc: 
+	'''
+	It's dumb.
+	'''
 $tags: []
 
 body:

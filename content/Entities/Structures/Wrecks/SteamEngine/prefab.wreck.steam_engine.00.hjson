@@ -1,5 +1,9 @@
 $name: "Busted Steam Engine"
-$desc: "It ran out of steam."
+$desc: 
+	'''
+	It ran out of steam.
+	'''
+
 $tags: []
 
 body:

@@ -2,6 +2,7 @@ $name: "Drop Bear"
 $desc: 
 	'''
 	An utterly abhorrent failure of a creature that can latch onto (more or less) anything.
+	
 	Sometimes found in canopies of trees, which makes it especially unpopular among those who stroll under said trees.
 	'''
 $export: false

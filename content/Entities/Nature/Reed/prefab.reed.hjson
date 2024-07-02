@@ -1,5 +1,8 @@
-$name: "Reed"
-$desc: "People have been trying to turn these into sugar for centuries, but to no avail."
+$name: "Reeds"
+$desc: 
+	'''
+	People have been trying to turn these into sugar for centuries, but to no avail.
+	'''
 $tags: []
 
 body:

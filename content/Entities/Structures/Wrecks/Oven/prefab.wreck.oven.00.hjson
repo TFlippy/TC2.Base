@@ -1,5 +1,8 @@
 $name: "Antiquated Oven"
-$desc: "Where did we go wrong?"
+$desc: 
+	'''
+	Where did we go wrong?
+	'''
 $tags: []
 
 body:
