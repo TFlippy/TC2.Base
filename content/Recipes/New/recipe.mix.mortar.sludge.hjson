@@ -12,15 +12,23 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, -6.000]
+	icon_offset: [-1.000, 1.000]
 	
 	icon_extra:
 	{
 		texture: resource.sludge
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [3, 0]
 	}
-	icon_extra_offset: [0.000, -11.000]
+	icon_extra_offset: [6.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.water.toxic
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-8.000, -14.000]
 	
 	min: 1
 	max: 10

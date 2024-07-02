@@ -10,9 +10,9 @@
 	{
 		texture: resource.mortar
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [0.000, -6.000]
+	icon_offset: [0.000, -2.000]
 	
 	icon_extra:
 	{
@@ -20,7 +20,15 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [0.000, -11.000]
+	icon_extra_offset: [-2.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.plants
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-12.000, -14.000]
 	
 	min: 1
 	max: 10

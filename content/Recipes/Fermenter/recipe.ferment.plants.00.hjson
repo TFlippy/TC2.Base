@@ -12,6 +12,23 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [4.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.compost
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-16.000, -5.000]
+	
+	icon_c:
+	{
+		texture: resource.mushroom
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [6.000, -4.000]
 	
 	min: 1
 	max: 1
@@ -29,17 +46,17 @@
 		{
 			type: resource
 			material: plants
-			amount: 100.000
+			amount: 50.000
 		}
 		{
 			type: resource
 			material: mushroom
-			amount: 40.000
+			amount: 20.000
 		}
 		{
 			type: work
 			work: fermenting
-			amount: 900.000
+			amount: 420.000
 			difficulty: 4
 		}
 	]
@@ -49,30 +66,30 @@
 		{
 			type: resource
 			material: compost
-			amount: 39.780
-			amount_extra: 6.843
+			amount: 19.890
+			amount_extra: 3.4215
 			flags: residue
 		}
 		{
 			type: resource
 			material: rot
-			amount: 9.780
-			amount_extra: 6.398
+			amount: 4.890
+			amount_extra: 3.199
 			flags: waste
 		}
 		{
 			type: resource
 			material: alcohol
-			amount: 3.234
-			amount_extra: 14.124
+			amount: 1.617
+			amount_extra: 7.062
 			flags: byproduct
 			group: 1
 		}
 		{
 			type: resource
 			material: biogas
-			amount: 22.444
-			amount_extra: 9.094
+			amount: 11.222
+			amount_extra: 4.547
 			flags: byproduct, spawn
 			group: 2
 		}

@@ -6,8 +6,7 @@
 	{
 		texture: club
 	}
-	
-	color_button: "0xffaeb59a"
+	icon_offset: [-1.000, 0.000]
 	
 	min: 1
 	max: 5
@@ -16,6 +15,8 @@
 	type: workshop
 	flags: blueprintable
 	tags: workbench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:

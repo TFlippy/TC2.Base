@@ -77,24 +77,40 @@ crafter:
 	equipment: tap, barrel
 	environment: warm, container, stationary, contaminated
 
-	@inventory4:
+	@inventory8:
 	{
+		type: input_output
+		flags: standalone, no_auto_pickup, vertical
 		stack_size_multiplier: 2.000
-		type: output
-		flags: standalone, no_auto_pickup
-		offset: [0.000, 0.125]
+		
+		filter:
+		{
+			require: none
+			include: soft, malleable, food, granular, organic, small
+			exclude: heavy
+		}
+				
+		offset: [-0.875, 0.250]
 	}
+
+	// @inventory4:
+	// {
+	// 	stack_size_multiplier: 2.000
+	// 	type: output
+	// 	flags: standalone, no_auto_pickup
+	// 	offset: [0.000, 0.125]
+	// }
 }
 
 crafter.state:
 {
-	@inventory4:
-	{
-		stack_size_multiplier: 2.000
-		type: input
-		flags: standalone, no_auto_pickup
-		offset: [0.000, -0.125]
-	}
+	// @inventory4:
+	// {
+	// 	stack_size_multiplier: 2.000
+	// 	type: input
+	// 	flags: standalone, no_auto_pickup
+	// 	offset: [0.000, -0.125]
+	// }
 }
 
 interactable:
