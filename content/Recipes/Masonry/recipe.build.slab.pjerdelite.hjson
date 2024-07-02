@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Pjerdelite Slabs"
+	name: "Pjerdelite Masonry"
 	desc:
 		'''
-		TODO: Desc
+		Extremely heavy and durable masonry composed of Pjerdelite - which also makes it impermeable to essences. 
 		'''
 	
 	icon:

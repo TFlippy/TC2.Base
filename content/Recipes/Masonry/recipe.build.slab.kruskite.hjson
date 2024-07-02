@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Kruskite Slabs"
+	name: "Kruskite Masonry"
 	desc:
 		'''
-		TODO: Desc
+		It may be crumbly masonry, but the trace amounts of gold and silver make it glitter nicely.
 		'''
 	
 	icon:

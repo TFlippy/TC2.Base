@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Brezolyt Slabs"
+	name: "Brezolyt Masonry"
 	desc:
 		'''
-		TODO: Desc
+		Not exactly durable masonry, but a very lightweight one.
 		'''
 	
 	icon:

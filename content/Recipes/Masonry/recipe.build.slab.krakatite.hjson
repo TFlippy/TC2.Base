@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Krakatite Slabs"
+	name: "Krakatite Masonry"
 	desc:
 		'''
-		TODO: Desc
+		While building masonry out of a toxic, volatile rock may not be the best idea, at least others will know who they're dealing with.
 		'''
 	
 	icon:

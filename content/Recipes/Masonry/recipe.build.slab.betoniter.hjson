@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Betoniter Slabs"
+	name: "Betoniter Masonry"
 	desc:
 		'''
-		TODO: Desc
+		Grand masonry made of natural concrete.
 		'''
 	
 	icon:

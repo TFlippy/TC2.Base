@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Hortspargl Slabs"
+	name: "Hortspargl Masonry"
 	desc:
 		'''
-		TODO: Desc
+		Sturdy Hortspargl masonry with a nice metallic luster.
 		'''
 	
 	icon:
