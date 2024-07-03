@@ -14,14 +14,14 @@
 	
 	type: gas
 	// Flags defining properties of the raw material.
-	flags: gas, chemical, raw, fuel, flammable
+	flags: gas, organic, chemical, raw, fuel, flammable, waste, volatile
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.010
-	quantity_max: 1000.000
+	quantity_max: 500.000
 	prefab: resource.biogas
 	
 	color_dust: "0xffffffff"

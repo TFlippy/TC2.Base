@@ -77,10 +77,12 @@ crafter:
 	equipment: tap, barrel
 	environment: warm, container, stationary, contaminated
 
+	spawn_offset: [-0.125, -1.000]
+
 	@inventory8:
 	{
 		type: input_output
-		flags: standalone, no_auto_pickup, vertical
+		flags: standalone, vertical
 		stack_size_multiplier: 2.000
 		
 		filter:
