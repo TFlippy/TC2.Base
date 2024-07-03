@@ -15,10 +15,13 @@ body:
 		material: gas
 		layer: entity, gas, solid, resource, ignore_melee, flammable
 		mask: world, gas
+		exclude: barbed, background, decoration
 	}
 
 	gravity: 0.020
 	damping: 0.870
+	mass_multiplier: 400.000
+	fall_damage_multiplier: 0.000
 }
 
 transform:
@@ -33,8 +36,8 @@ gas:
 	lifetime: 5.000
 	speed: 0.100
 	interval: 0.400
-	color_a: "0x425bff8d"
-	color_b: "0x0052a929"
+	color_a: "0x42485c51"
+	color_b: "0x00423c2f"
 }
 
 resource:

@@ -10,15 +10,18 @@ body:
 		radius: 2.250
 		friction: 0.110
 		elasticity: 0.500
-		rigidity_static: 0.250
+		rigidity_static: 0.100
 		rigidity_dynamic: 0.050
 		material: gas
 		layer: entity, gas, solid, resource, ignore_melee, flammable
 		mask: world, gas
+		exclude: barbed, background, decoration
 	}
 
 	gravity: -0.240
-	damping: 0.940
+	damping: 0.970
+	mass_multiplier: 220.000
+	fall_damage_multiplier: 0.000
 }
 
 transform:
@@ -28,9 +31,9 @@ transform:
 
 gas:
 {
-	radius: 4.000
+	radius: 5.000
 	size: 2.000
-	lifetime: 2.000
+	lifetime: 4.000
 	speed: 1.500
 	interval: 0.200
 	color_a: "0x38b5e9ff"
@@ -52,10 +55,10 @@ explosive:
 	damage_type: shockwave
 	damage_type_secondary: explosion
 
-	radius: 7.500
+	radius: 6.500
 	power: 5.000
-	damage_entity: 10000.000
-	damage_terrain: 28000.000
+	damage_entity: 15000.000
+	damage_terrain: 48000.000
 	smoke_amount: 6.000
 	smoke_color: "0xdce6e6e6"
 	smoke_lifetime_multiplier: 0.400

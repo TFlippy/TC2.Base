@@ -15,10 +15,13 @@ body:
 		material: gas
 		layer: entity, gas, solid, resource, ignore_melee, flammable
 		mask: world, gas
+		exclude: barbed, background, decoration
 	}
 
 	gravity: -0.014
 	damping: 0.900
+	mass_multiplier: 400.000
+	fall_damage_multiplier: 0.000
 }
 
 transform:
