@@ -178,8 +178,8 @@ norotate:
 	rotation: 0.000
 	bias: 0.050
 	speed: 10.000
-	multiplier: 2.000
-	mass_multiplier: 8.000
+	multiplier: 3.000
+	mass_multiplier: 12.000
 }
 
 sound.emitter:
