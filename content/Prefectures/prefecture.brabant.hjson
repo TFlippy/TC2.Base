@@ -9,22 +9,23 @@
 	
 	post_code: "BBT"
 	
-	h_governorate: "krumpelsutr"
+	h_governorate: krumpelsutr
 	size: 1.250
-	offset: [2.500, -0.500]
+	offset: [1.625, -0.875]
 	
 	color_border: "0xffffc400"
 	color_fill: "0xffffc400"
 	border_scale: 0.150
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
 		[50, -12]
 		[54, -10]
-		[54, -8]
-		[50, -6]
+		[54, -9]
+		[53, -8]
+		[49, -6]
 		[48, -4]
 		[44, -6]
 		[46, -10]
@@ -40,7 +41,7 @@
 			color_border: "0xff868472"
 			scale: 0.125
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[
@@ -63,7 +64,7 @@
 			color_border: "0xff73818c"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -73,9 +74,9 @@
 				[49.63789, -9.967189]
 				[49.81311, -9.242352]
 				[49.90056, -8.5038]
-				[49.98184, -7.845985]
-				[50.11135, -7.24287]
-				[50.43413, -6.339553]
+				[50.06585, -7.7539]
+				[50.06059, -7.173851]
+				[50.15697, -6.604726]
 			]
 		}
 		{
@@ -86,7 +87,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -98,8 +99,8 @@
 				[49.41947, -8.748347]
 				[49.41947, -8.328502]
 				[49.48023, -7.765027]
-				[49.71784, -7.07182]
-				[50.20328, -6.18763]
+				[49.60733, -7.267763]
+				[49.90628, -6.437332]
 			]
 		}
 		{
@@ -110,15 +111,15 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.01"
+			h_texture: worldmap.road.01
 			
 			points:
 			[
 				[47.3368, -7.51483]
 				[47.7677, -6.929258]
-				[48.40851, -6.82982]
-				[49.30344, -6.94583]
-				[50.12656, -7.222044]
+				[48.57988, -6.968875]
+				[49.19575, -7.184776]
+				[50.0548, -7.742852]
 			]
 		}
 		{
@@ -129,7 +130,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -152,7 +153,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -171,7 +172,7 @@
 			color_border: "0xff868472"
 			scale: 0.125
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[

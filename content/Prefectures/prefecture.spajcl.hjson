@@ -9,7 +9,7 @@
 	
 	post_code: "SPJ"
 	
-	h_governorate: "kapuca"
+	h_governorate: kapuca
 	size: 1.000
 	offset: [0.000, 0.000]
 	
@@ -17,14 +17,14 @@
 	color_fill: "0xffd7ff33"
 	border_scale: 0.150
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
 		[49, -2]
 		[49, -3]
 		[50, -5]
-		[53, -6]
+		[51, -6]
 		[55, -8]
 		[57, -7]
 		[56, -5]
@@ -34,5 +34,41 @@
 		[50, -1]
 	]
 	
-	roads: []
+	roads:
+	[
+		{
+			type: road
+			speed_mult: 2.000
+			integrity: 0.940
+			
+			color_border: "0xff73818c"
+			scale: 0.250
+			z: 0.000
+			h_texture: worldmap.road.00
+			
+			points:
+			[
+				[51.13331, -5.315955]
+				[50.76318, -5.768948]
+				[50.13488, -6.599202]
+			]
+		}
+		{
+			type: rail
+			speed_mult: 1.000
+			integrity: 1.000
+			
+			color_border: "0xffa3a183"
+			scale: 0.250
+			z: 0.000
+			h_texture: worldmap.railway.00
+			
+			points:
+			[
+				[50.89029, -5.118696]
+				[50.54778, -5.555114]
+				[49.90696, -6.438998]
+			]
+		}
+	]
 }
