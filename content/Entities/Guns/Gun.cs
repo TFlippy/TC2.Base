@@ -255,19 +255,17 @@
 		{
 			public Gun.Hints hints;
 			public Gun.Stage stage;
+
 			public byte burst_rem;
 			public byte eject_rem;
 
-			public float angle_jitter;
-			public float muzzle_velocity;
-
 			public Resource.Data resource_ammo;
-			
+
 			//public IMaterial.Handle h_last_ammo;
 
-			[Save.Ignore] public XorRandom random_det = XorRandom.New(true);
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
-
+			[Save.Ignore, Net.Ignore] public float angle_jitter;
+			[Save.Ignore, Net.Ignore] public float muzzle_velocity;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
 
@@ -667,7 +665,6 @@
 
 #if CLIENT
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static void UpdateAnimation([Source.Owned] in Gun.State gun_state, [Source.Owned] in Gun.Animation animation, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var frame = 0u;
@@ -726,12 +723,11 @@
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void UpdateReload<T>(ref Region.Data region, ISystem.Info info, Entity entity,
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateReload(ref Region.Data region, ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any, Pair.Of<Storage.Data>] ref T inventory) where T : unmanaged, IInventory
+		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine, [Source.Any] ref Storage.Data storage)
 		{
 			gun_state.resource_ammo.quantity = inventory_magazine.resource.quantity;
 
@@ -759,7 +755,7 @@
 						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
 						{
 
-						}	
+						}
 						gun_state.stage = Gun.Stage.Ready;
 					}
 					else
@@ -779,7 +775,7 @@
 					gun_state.Sync(entity, true);
 #endif
 				}
-				else // Reloading
+				else if (storage.inv_storage.TryGetHandle(out var h_inventory))  // Reloading
 				{
 					gun_state.next_reload = info.WorldTime + gun.reload_interval;
 
@@ -788,10 +784,12 @@
 
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
 					{
-						var count = inventory.Length;
+						var count = h_inventory.Length;
+						var inventory_span = h_inventory.GetReadonlySpan();
+
 						for (var i = 0; i < count; i++)
 						{
-							ref var resource = ref inventory[i];
+							var resource = inventory_span[i];
 
 							ref var material = ref resource.material.GetData();
 							if (material.IsNotNull() && material.flags.HasAny(gun.ammo_filter) && material.ammo.HasValue)
@@ -815,12 +813,12 @@
 #if SERVER
 						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
 
-						var amount = Maths.Clamp(Maths.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAll(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
+						var amount = Maths.Clamp(Maths.Min(gun.max_ammo - inventory_magazine.resource.quantity, gun.flags.HasAny(Gun.Flags.Full_Reload) ? gun.max_ammo : 1.00f), 0.00f, gun.max_ammo);
 						//App.WriteLine(amount);
 
 						var done_reloading = true;
 
-						if (Resource.Withdraw(ref inventory, ref inventory_magazine.resource, ref amount, unlimited: Constants.Requirements.unlimited_ammo))
+						if (h_inventory.Withdraw(ref inventory_magazine.resource, ref amount, unlimited: Constants.Requirements.unlimited_ammo))
 						{
 							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
 							inventory_magazine.flags.AddFlag(Inventory.Flags.Dirty);
@@ -860,12 +858,12 @@
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine,
+		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine,
 		[Source.Owned, Optional(true)] ref Overheat.Data overheat)
 		{
 			var time = info.WorldTime;
@@ -934,7 +932,7 @@
 					var amount = gun.ammo_per_shot;
 					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
 
-					var count = (ammo.count * gun.projectile_count) * (loaded_ammo.quantity / gun.ammo_per_shot);
+					var count = (ammo.count * gun.projectile_count) * (uint)Maths.Normalize(loaded_ammo.quantity, gun.ammo_per_shot);
 
 					if (overheat.IsNotNull())
 					{
@@ -1016,20 +1014,33 @@
 					}
 					else
 					{
-						for (var i = 0; i < count; i++)
+						var vel_base = body.GetVelocity();
+						var vel_min_sq = ammo.velocity_min.Pow2();
+						var h_faction = body.GetFaction();
+						var ent_owner = body.GetParent();
+
+						for (var i = 0u; i < count; i++)
 						{
 							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
 							var random_multiplier = 1.00f + Maths.Clamp(random.NextFloat(velocity_jitter), -0.50f, 0.50f);
+
+							var vel = (dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * (ammo.speed_mult + random.NextFloat(ammo.speed_jitter)) * random_multiplier);
+							if (vel.LengthSquared() < vel_min_sq)
+							{
+								force_jammed = true;
+								continue;
+							}
+
 							//App.WriteLine(random_multiplier);
 
 							var args =
 							(
 								damage_mult: gun.damage_multiplier * random_multiplier,
-								vel: dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult * random_multiplier,
+								vel: vel_base + vel,
 								ang_vel: random.NextFloatRange(-0.05f, 0.05f) * (angle_jitter + ammo.spin_base) * ammo.spin_mult * random_multiplier,
-								ent_owner: body.GetParent(),
+								ent_owner: ent_owner,
 								ent_gun: entity,
-								faction_id: body.GetFaction(),
+								faction_id: h_faction,
 								gun_flags: gun.flags
 							);
 
@@ -1038,51 +1049,43 @@
 								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
 							}
 
-							if (args.vel.LengthSquared() < (ammo.velocity_min * ammo.velocity_min))
+							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel).ContinueWith(ent =>
 							{
-								force_jammed = true;
-								continue;
-							}
-							else
-							{
-								region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel).ContinueWith(ent =>
+								ref var projectile = ref ent.GetComponent<Projectile.Data>();
+								if (projectile.IsNotNull())
 								{
-									ref var projectile = ref ent.GetComponent<Projectile.Data>();
-									if (projectile.IsNotNull())
-									{
-										projectile.damage_base *= args.damage_mult;
-										projectile.damage_bonus *= args.damage_mult;
-										projectile.velocity = args.vel;
-										projectile.angular_velocity = args.ang_vel;
-										projectile.ent_owner = args.ent_owner;
-										projectile.faction_id = args.faction_id;
-										projectile.Sync(ent, true);
-									}
+									projectile.damage_base *= args.damage_mult;
+									projectile.damage_bonus *= args.damage_mult;
+									projectile.velocity = args.vel;
+									projectile.angular_velocity = args.ang_vel;
+									projectile.ent_owner = args.ent_owner;
+									projectile.faction_id = args.faction_id;
+									projectile.Sync(ent, true);
+								}
 
-									ref var explosive = ref ent.GetComponent<Explosive.Data>();
-									if (explosive.IsNotNull())
-									{
-										explosive.ent_owner = args.ent_owner;
-										explosive.Sync(ent, true);
-									}
+								ref var explosive = ref ent.GetComponent<Explosive.Data>();
+								if (explosive.IsNotNull())
+								{
+									explosive.ent_owner = args.ent_owner;
+									explosive.Sync(ent, true);
+								}
 
-									if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
-									{
-										ent.AddRelation(args.ent_gun, Relation.Type.Child);
-									}
+								if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
+								{
+									ent.AddRelation(args.ent_gun, Relation.Type.Child);
+								}
 
-									if (args.gun_flags.HasAny(Gun.Flags.Rope_Projectiles))
+								if (args.gun_flags.HasAny(Gun.Flags.Rope_Projectiles))
+								{
+									var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
+									if (ent_child.IsAlive())
 									{
-										var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
-										if (ent_child.IsAlive())
-										{
-											ent_child.RemoveRelation(entity, Relation.Type.Rope);
-											ent_child.Delete();
-										}
-										ent.AddRelation(args.ent_gun, Relation.Type.Rope);
+										ent_child.RemoveRelation(entity, Relation.Type.Rope);
+										ent_child.Delete();
 									}
-								});
-							}
+									ent.AddRelation(args.ent_gun, Relation.Type.Rope);
+								}
+							});
 						}
 
 						if (gun.shake_amount > 0.50f)
@@ -1309,7 +1312,7 @@
 						}
 
 #if SERVER
-						Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
+						Sound.Play(ref region, gun.sound_cycle, transform.LocalToWorld(gun.receiver_offset), volume: 0.50f);
 #endif
 					}
 				}
@@ -1342,7 +1345,7 @@
 		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
+		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
 			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && (gun.cycle_interval <= 0.10f || (gun.cycle_interval <= 0.20f && gun.flags.HasAny(Gun.Flags.Automatic))));
@@ -1422,7 +1425,6 @@
 
 						gun_state.hints.AddFlag(Gun.Hints.Wants_Reload);
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
-
 						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);

@@ -36,12 +36,12 @@ health:
 
 armor:
 {
-	toughness: 1500.000
-	protection: 0.800
-	
+	toughness: 1200.000
+	protection: 0.850
+	coverage: 0.874
+	durability_modifier: 0.600
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
-
 	material_type: cermet
 	flags: no_damage_type_conversion
 }
@@ -88,6 +88,13 @@ attachment:
 	flags: disable_parent_facing
 	force_multiplier: 2.500
 	tags: large, propulsion, fixed
+}
+
+threat:
+{
+	priority: 3.500
+	self_hints: can_fly, has_armor, is_armored, is_vehicle, is_loud
+	item_hints: armor, tools, vehicle, heavy, explosive, advanced, powerful, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
 }
 
 essencecontainer:

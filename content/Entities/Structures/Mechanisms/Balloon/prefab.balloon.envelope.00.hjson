@@ -94,7 +94,8 @@ claimable:
 
 threat:
 {
-	priority: 15.000
+	priority: 3.000
 	flags: no_melee
-	item_hints: vehicle, weak
+	self_hints: can_fly, is_vehicle
+	item_hints: vehicle, heavy, weak, cheap, slow, propulsion
 }
