@@ -75,9 +75,9 @@
 		// TODO: Desc
 		type: gas
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 55000.000
+		energy_combustion: 51000.000
 		// Ratio of produced exhaust gas and leftover ashes.
-		purity: 1.000
+		purity: 0.968
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
 		flammability: 28.000
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering

@@ -49,8 +49,8 @@ health:
 
 explosive:
 {
-	damage_type: fire
-	damage_type_secondary: fire
+	damage_type: explosion
+	damage_type_secondary: deflagration
 
 	radius: 12.500
 	power: 2.000

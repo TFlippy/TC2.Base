@@ -109,14 +109,26 @@ namespace TC2.Base.Components
 						case Damage.Type.Bullet_SG:
 						case Damage.Type.Bullet_MG:
 						case Damage.Type.Bullet_AC:
+						case Damage.Type.Bullet_GR:
+						case Damage.Type.Bullet_KN:
 						case Damage.Type.Bullet_HW:
+						case Damage.Type.Bullet_Musket:
 						case Damage.Type.Rivet:
 						case Damage.Type.Club:
+						case Damage.Type.Crush:
+						case Damage.Type.Impact:
+						case Damage.Type.Motion_Impulse:
+						case Damage.Type.Axe:
+						case Damage.Type.Saw:
+						case Damage.Type.Shrapnel:
+						case Damage.Type.Stress:
+						case Damage.Type.Fracture:
 						case Damage.Type.Electricity:
-						case Damage.Type.Bullet_Musket:
 						case Damage.Type.Pickaxe:
 						case Damage.Type.Explosion:
 						case Damage.Type.Fire:
+						case Damage.Type.Deflagration:
+						case Damage.Type.Shockwave:
 						{
 							explosive.flags |= Explosive.Flags.Primed;
 						}

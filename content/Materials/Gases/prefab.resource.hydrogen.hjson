@@ -6,21 +6,23 @@ body:
 
 	@shape.circle:
 	{
-		mass: 1.000
 		radius: 2.250
-		friction: 0.110
-		elasticity: 0.500
-		rigidity_static: 0.100
+		friction: 0.980
+		elasticity: 0.980
+		rigidity_static: 0.250
 		rigidity_dynamic: 0.050
+		
 		material: gas
-		layer: entity, gas, solid, resource, ignore_melee, flammable
+		miss_chance: 0.019
+		
+		layer: entity, solid, resource, gas, flammable, ignore_melee
 		mask: world, gas
-		exclude: barbed, background, decoration
+		exclude: decoration, background, barbed
 	}
 
-	gravity: -0.240
-	damping: 0.970
-	mass_multiplier: 220.000
+	gravity: -0.390
+	damping: 0.910
+	mass_multiplier: 100.000
 	fall_damage_multiplier: 0.000
 }
 
@@ -31,7 +33,7 @@ transform:
 
 gas:
 {
-	radius: 5.000
+	radius: 5.500
 	size: 2.000
 	lifetime: 4.000
 	speed: 1.500
@@ -55,21 +57,21 @@ explosive:
 	damage_type: shockwave
 	damage_type_secondary: explosion
 
-	radius: 6.500
-	power: 5.000
-	damage_entity: 15000.000
+	radius: 8.500
+	power: 4.500
+	damage_entity: 12000.000
 	damage_terrain: 48000.000
 	smoke_amount: 6.000
-	smoke_color: "0xdce6e6e6"
-	smoke_lifetime_multiplier: 0.400
-	smoke_velocity_multiplier: 3.500
-	flash_duration_multiplier: 2.000
-	flash_intensity_multiplier: 0.900
+	smoke_color: "0xdcffffff"
+	smoke_lifetime_multiplier: 0.200
+	smoke_velocity_multiplier: 4.500
+	flash_duration_multiplier: 0.200
+	flash_intensity_multiplier: 1.100
 	force_multiplier: 1.200
-	shake_multiplier: 0.110
-	fire_amount: 8.000
+	shake_multiplier: 0.070
+	fire_amount: 3.000
 	volume: 1.800
-	pitch: 0.700
+	pitch: 1.100
 	health_threshold: 0.999
 	flags: explode_when_primed
 }

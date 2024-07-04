@@ -6,21 +6,23 @@ body:
 
 	@shape.circle:
 	{
-		mass: 1.000
-		radius: 2.000
-		friction: 0.100
-		elasticity: 0.900
-		rigidity_static: 0.800
-		rigidity_dynamic: 0.210
+		radius: 1.700
+		friction: 0.980
+		elasticity: 0.980
+		rigidity_static: 0.780
+		rigidity_dynamic: 0.450
+		
 		material: gas
-		layer: entity, gas, solid, resource, ignore_melee, flammable
+		miss_chance: 0.219
+		
+		layer: entity, solid, resource, gas, flammable, ignore_melee
 		mask: world, gas
-		exclude: barbed, background, decoration
+		exclude: decoration, background, barbed
 	}
 
-	gravity: -0.040
-	damping: 0.900
-	mass_multiplier: 400.000
+	gravity: -0.020
+	damping: 0.890
+	mass_multiplier: 380.000
 	fall_damage_multiplier: 0.000
 }
 
@@ -52,7 +54,7 @@ health:
 
 explosive:
 {
-	damage_type: fire
+	damage_type: deflagration
 	damage_type_secondary: explosion
 
 	radius: 6.500
