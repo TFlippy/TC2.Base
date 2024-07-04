@@ -41,6 +41,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.700
+		speed_jitter: 0.800
 		spin_base: 0.740
 		spin_mult: 1.000
 		spread_mult: 4.500

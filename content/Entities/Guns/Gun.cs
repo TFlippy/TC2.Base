@@ -1019,12 +1019,17 @@
 						var h_faction = body.GetFaction();
 						var ent_owner = body.GetParent();
 
+						var step = Maths.RcpFast(count);
+						var step_current = 0.00f;
+
 						for (var i = 0u; i < count; i++)
 						{
-							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
-							var random_multiplier = 1.00f + Maths.Clamp(random.NextFloat(velocity_jitter), -0.50f, 0.50f);
+							step_current += step;
 
-							var vel = (dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * (ammo.speed_mult + random.NextFloat(ammo.speed_jitter)) * random_multiplier);
+							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
+							var random_multiplier = 1.00f + Maths.Clamp(random.NextFloat(velocity_jitter * step_current), -0.50f, 0.50f);
+
+							var vel = (dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * (random.NextFloatExtra(ammo.speed_mult, -ammo.speed_jitter * step_current)) * random_multiplier);
 							if (vel.LengthSquared() < vel_min_sq)
 							{
 								force_jammed = true;
@@ -1041,7 +1046,8 @@
 								ent_owner: ent_owner,
 								ent_gun: entity,
 								faction_id: h_faction,
-								gun_flags: gun.flags
+								gun_flags: gun.flags,
+								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current)
 							);
 
 							if (gun.type == Gun.Type.Launcher)
@@ -1060,6 +1066,7 @@
 									projectile.angular_velocity = args.ang_vel;
 									projectile.ent_owner = args.ent_owner;
 									projectile.faction_id = args.faction_id;
+									projectile.damp *= args.drag_jitter; 
 									projectile.Sync(ent, true);
 								}
 
