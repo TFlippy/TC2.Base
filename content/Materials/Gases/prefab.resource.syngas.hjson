@@ -15,7 +15,7 @@ body:
 		material: gas
 		miss_chance: 0.219
 		
-		layer: entity, solid, resource, gas, flammable, ignore_melee
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
@@ -73,4 +73,13 @@ explosive:
 	pitch: 0.500
 	health_threshold: 0.999
 	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 7.000
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }

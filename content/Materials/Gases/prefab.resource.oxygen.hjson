@@ -6,19 +6,24 @@ body:
 
 	@shape.circle:
 	{
-		mass: 1.000
-		radius: 1.250
-		friction: 0.100
-		elasticity: 0.900
-		rigidity_static: 0.900
-		rigidity_dynamic: 0.300
+		radius: 1.500
+		friction: 0.480
+		elasticity: 0.380
+		rigidity_static: 0.800
+		rigidity_dynamic: 0.250
+		
 		material: gas
-		layer: entity, gas, solid, resource, ignore_melee, ignore_bullet, flammable
+		miss_chance: 0.490
+		
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover, ignore_bullet
 		mask: world, gas
+		exclude: decoration, background, barbed
 	}
 
-	gravity: -0.001
-	damping: 0.900
+	gravity: -0.003
+	damping: 0.820
+	mass_multiplier: 200.000
+	fall_damage_multiplier: 0.000
 }
 
 transform:
@@ -69,4 +74,13 @@ explosive:
 	pitch: 1.000
 	health_threshold: 0.999
 	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 2.500
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }

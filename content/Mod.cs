@@ -97,6 +97,39 @@ namespace TC2.Base
 			}
 		}
 
+		[ChatCommand.Region("control", "", creative: true)]
+		public static void ControlCommand(ref ChatCommand.Context context)
+		{
+			ref var region = ref context.GetRegion();
+			Assert.NotNull(ref region);
+
+			ref var player = ref context.GetPlayerData();
+			Assert.NotNull(ref player);
+
+			var ent_target = context.GetTargetEntity();
+			Assert.Check(ent_target.IsAlive());
+
+			var ent_target_root = ent_target.GetRoot();
+			Assert.Check(ent_target_root.IsAlive());
+
+			ref var character = ref ent_target_root.GetComponentWithOwner<Character.Data>(Relation.Type.Instance, out var ent_character, include_self: true);
+			if (character.IsNotNull())
+			{
+				ref var character_data = ref character.character_id.GetData(out var character_asset);
+				Assert.NotNull(ref character_data);
+
+				player.SetControlledCharacter(ent_character);
+			}
+			//else
+			//{
+			//	character = ref player.GetControlledCharacter().data;
+			//	if (character.IsNotNull())
+			//	{
+			//		ent_target_root.SetAssociatedCharacter(character.ent_character);
+			//	}
+			//}
+		}
+
 		[ChatCommand.Region("tp", "", creative: true)]
 		public static void TeleportCommand(ref ChatCommand.Context context)
 		{

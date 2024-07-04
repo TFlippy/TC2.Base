@@ -1,0 +1,92 @@
+$name: "Rucksack"
+$desc:
+	'''
+	A pack for your back.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.300
+
+	@shape.line:
+	{
+		a: [-0.250, 0.000]
+		b: [0.250, 0.000]
+		
+		mass: 1.600
+		radius: 0.500
+		friction: 0.600
+		elasticity: 0.100
+		rigidity_dynamic: 0.750
+		
+		material: fabric
+		
+		layer: entity, solid, item, storage, equipment, flammable
+	}
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: none
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "backpack.01"
+		mask: "backpack.01.mask"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+}
+
+faction.colorable:
+{
+	intensity_a: 0.700
+	intensity_b: 0.700
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	offset: [0.375, 0.375]
+	// flags: mirror_rotate
+	flags: none
+	tags: small, utility, harness
+}
+
+storage:
+{
+	@inventory4:
+	{
+		type: backpack
+		flags: standalone, public, faction, horizontal
+		stack_size_multiplier: 6.000
+
+		filter:
+		{
+			require: none
+			include: long, granular, small
+			exclude: large, heavy
+		}
+	}
+}
+
+interactable:
+{
+	window_size: [192.000, 96.000]
+}

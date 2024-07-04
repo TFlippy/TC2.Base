@@ -15,12 +15,12 @@ body:
 		material: gas
 		miss_chance: 0.262
 		
-		layer: entity, solid, resource, gas, flammable, ignore_melee
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
 
-	gravity: -0.150
+	gravity: -0.050
 	damping: 0.870
 	mass_multiplier: 180.000
 	fall_damage_multiplier: 0.000
@@ -73,4 +73,13 @@ explosive:
 	pitch: 0.700
 	health_threshold: 0.999
 	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 16.000
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }

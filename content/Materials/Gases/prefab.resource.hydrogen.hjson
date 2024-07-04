@@ -15,12 +15,12 @@ body:
 		material: gas
 		miss_chance: 0.019
 		
-		layer: entity, solid, resource, gas, flammable, ignore_melee
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
 
-	gravity: -0.390
+	gravity: -0.090
 	damping: 0.910
 	mass_multiplier: 100.000
 	fall_damage_multiplier: 0.000
@@ -33,8 +33,8 @@ transform:
 
 gas:
 {
-	radius: 5.500
-	size: 2.000
+	radius: 6.500
+	size: 2.500
 	lifetime: 4.000
 	speed: 1.500
 	interval: 0.200
@@ -63,15 +63,24 @@ explosive:
 	damage_terrain: 48000.000
 	smoke_amount: 6.000
 	smoke_color: "0xdcffffff"
-	smoke_lifetime_multiplier: 0.200
+	smoke_lifetime_multiplier: 0.250
 	smoke_velocity_multiplier: 4.500
-	flash_duration_multiplier: 0.200
-	flash_intensity_multiplier: 1.100
+	flash_duration_multiplier: 0.100
+	flash_intensity_multiplier: 0.500
 	force_multiplier: 1.200
-	shake_multiplier: 0.070
+	shake_multiplier: 0.170
 	fire_amount: 3.000
 	volume: 1.800
-	pitch: 1.100
+	pitch: 0.300
 	health_threshold: 0.999
 	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 1.000
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }

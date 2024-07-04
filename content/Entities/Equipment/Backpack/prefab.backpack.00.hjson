@@ -11,7 +11,7 @@ body:
 
 	@shape.circle:
 	{
-		mass: 2.000
+		mass: 3.400
 		radius: 0.500
 		friction: 0.600
 		elasticity: 0.100

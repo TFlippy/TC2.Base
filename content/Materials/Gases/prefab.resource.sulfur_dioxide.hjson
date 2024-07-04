@@ -6,19 +6,24 @@ body:
 
 	@shape.circle:
 	{
-		mass: 1.000
-		radius: 1.250
-		friction: 0.100
-		elasticity: 0.900
-		rigidity_static: 1.000
+		radius: 1.800
+		friction: 0.980
+		elasticity: 0.080
+		rigidity_static: 0.800
 		rigidity_dynamic: 0.500
+		
 		material: gas
-		layer: entity, gas, resource, ignore_melee, ignore_bullet
+		miss_chance: 0.560
+		
+		layer: entity, solid, resource, gas, ignore_melee, ignore_hover
 		mask: world, gas
+		exclude: decoration, background, barbed
 	}
 
-	gravity: 0.400
-	damping: 0.700
+	gravity: 0.900
+	damping: 0.821
+	mass_multiplier: 375.000
+	fall_damage_multiplier: 0.000
 }
 
 transform:
@@ -30,8 +35,8 @@ gas:
 {
 	radius: 6.000
 	size: 1.400
-	lifetime: 10.000
-	speed: 0.900
+	lifetime: 8.500
+	speed: 0.500
 	interval: 0.500
 	color_a: "0x5f914f1f"
 	color_b: "0x00531b07"
@@ -40,4 +45,13 @@ gas:
 resource:
 {
 	material: "sulfur_dioxide"
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 30.000
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }

@@ -15,7 +15,7 @@ body:
 		material: gas
 		miss_chance: 0.680
 		
-		layer: entity, solid, resource, gas, flammable, ignore_melee
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
@@ -38,7 +38,7 @@ gas:
 	lifetime: 5.000
 	speed: 0.100
 	interval: 0.400
-	color_a: "0x42485c51"
+	color_a: "0x425c5948"
 	color_b: "0x00423c2f"
 }
 
@@ -73,4 +73,13 @@ explosive:
 	pitch: 0.900
 	health_threshold: 0.999
 	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 13.000
+	ratio_delete: 0.010
+	ratio_despawning: 1.500
 }
