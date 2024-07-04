@@ -45,12 +45,12 @@
 		count: 7
 		mass: 0.050
 		heat: 50.000
-		velocity_min: 30.000
+		velocity_min: 20.000
 		
 		speed_base: 0.000
 		speed_mult: 0.600
-		spin_base: 0.040
-		spin_mult: 1.000
+		spin_base: 0.070
+		spin_mult: 1.600
 		spread_mult: 2.750
 		recoil_mult: 1.100
 		

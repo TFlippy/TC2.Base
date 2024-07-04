@@ -2,11 +2,11 @@ $tags: []
 
 projectile:
 {
-	damage_base: 800.000
+	damage_base: 1000.000
 	damage_bonus: 1900.000
 	lifetime: 20.000
 	damage_type: bullet_mg
-	size: 0.350
+	size: 0.450
 	damp: 0.995
 	ricochet_count: 1
 	tracer_length: 3.000

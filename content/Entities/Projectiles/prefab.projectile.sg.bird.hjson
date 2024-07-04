@@ -5,11 +5,14 @@ projectile:
 	damage_base: 40.000
 	damage_bonus: 150.000
 	knockback_multiplier: 50.000
-	lifetime: 2.000
+	lifetime: 2.500
 	damage_type: bullet_sg
-	size: 0.400
+	size: 0.500
 	ricochet_count: 0
 	tracer_length: 3.000
+	gravity: 1.400
+	stabilization: 0.100
+	damp: 0.970
 }
 
 projectile.renderer:
