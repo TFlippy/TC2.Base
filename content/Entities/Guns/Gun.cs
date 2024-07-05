@@ -785,7 +785,7 @@
 					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
 					{
 						var count = h_inventory.Length;
-						var inventory_span = h_inventory.GetReadonlySpan();
+						var inventory_span = h_inventory.GetReadOnlySpan();
 
 						for (var i = 0; i < count; i++)
 						{
