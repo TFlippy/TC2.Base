@@ -1,15 +1,15 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Water (Dirty)"
+	name: "Water (Swampy)"
 	description:
 		'''
-		Water, impure water.
+		Water, swampy water.
 		Anytime you want it, day or night, free of charge and it tastes just like shite.
 		'''
 	
 	icon:
 	{
-		texture: resource.water.dirty
+		texture: resource.water.swamp
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -24,7 +24,7 @@
 	// kg
 	mass_per_unit: 0.105
 	quantity_max: 500.000
-	prefab: resource.water.dirty
+	prefab: resource.water.swamp
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

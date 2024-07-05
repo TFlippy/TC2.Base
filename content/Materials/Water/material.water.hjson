@@ -1,9 +1,9 @@
 ﻿{
-	name: "Water"
+	name: "Water (Fresh)"
 	description:
 		'''
-		Water, pure water.
-		Anytime you want it, day or night, free of charge and it tastes just like every other kind of water out there.
+		Water, fresh water.
+		Anytime you want it, day or night, free of charge and it tastes just like every other kind of water out there, but then you die of dysentery.
 		'''
 	
 	icon:
