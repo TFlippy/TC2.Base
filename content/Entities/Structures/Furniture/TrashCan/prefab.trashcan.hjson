@@ -14,7 +14,7 @@ body:
 	{
 		size: [1.200, 1.700]
 		offset: [0.000, 0.000]
-		mass: 5.000
+		mass: 16.000
 		friction: 0.650
 		elasticity: 0.700
 		material: metal_sheet
@@ -74,12 +74,14 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
-			quantity: 45.000
+			material: "scrap.steel"
+			quantity: 7.000
+			chance: 0.100
 		}
 		{
 			material: "steel.plate"
 			quantity: 5.000
+			chance: 0.400
 		}
 	]
 }

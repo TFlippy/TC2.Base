@@ -64,6 +64,7 @@ harvestable:
 		{
 			material: "steel.ingot"
 			quantity: 200.000
+			chance: 0.420
 		}
 		{
 			material: "wood"

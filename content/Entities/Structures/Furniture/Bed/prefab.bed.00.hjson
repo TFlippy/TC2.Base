@@ -17,7 +17,7 @@ body:
 			[-1.250, 0.500]
 		]
 		offset: [0.000, 0.000]
-		mass: 155.000
+		mass: 65.000
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.400
@@ -59,8 +59,12 @@ harvestable:
 	resources:
 	[
 		{
+			material: "steel.frames"
+			quantity: 17.000
+		}
+		{
 			material: "scrap.steel"
-			quantity: 100.000
+			quantity: 8.000
 		}
 		{
 			material: "cloth"

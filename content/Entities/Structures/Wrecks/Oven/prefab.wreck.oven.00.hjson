@@ -53,11 +53,18 @@ harvestable:
 	[
 		{
 			material: "scrap.steel"
-			quantity: 80.000
+			quantity: 60.000
+			chance: 0.351
 		}
 		{
-			material: "steel.ingot"
-			quantity: 8.000
+			material: "scrap.ferrous"
+			quantity: 24.000
+			chance: 0.851
+		}
+		{
+			material: "steel.frames"
+			quantity: 15.000
+			chance: 0.651
 		}
 	]
 }

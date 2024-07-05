@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	type: static
+	type: dynamic
 	
 	@shape.polygon:
 	{
@@ -13,18 +13,18 @@ body:
 			[1.750, 1.500]
 			[-1.875, 1.500]
 		]
-		mass: 50.000
+		mass: 80.000
 		friction: 0.950
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, ignore_melee, flammable, furniture
+		layer: entity, solid, ignore_melee, ignore_bullet, flammable, furniture
 		mask: world
 	}
 }
 
 health:
 {
-	max: 3500.000
+	max: 5500.000
 }
 
 animated.renderer:
@@ -45,11 +45,6 @@ damage.effects:
 }
 
 transform:
-{
-
-}
-
-building:
 {
 
 }
@@ -76,6 +71,6 @@ workshop:
 	{
 		stack_size_multiplier: 1.000
 		type: workshop
-		flags: standalone, ignore_mass, public, vertical
+		flags: standalone, public, vertical
 	}
 }

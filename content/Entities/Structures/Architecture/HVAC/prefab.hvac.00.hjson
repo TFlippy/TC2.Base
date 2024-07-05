@@ -13,7 +13,7 @@ body:
 	{
 		size: [1.750, 0.875]
 		offset: [0.000, 0.125]
-		mass: 100.000
+		mass: 230.000
 		radius: 0.375
 		friction: 0.500
 		elasticity: 0.500
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 8000.000
+	max: 17000.000
 }
 
 animated.renderer:
@@ -67,4 +67,34 @@ vibrate:
 	modifier: 1.000
 	rotation_mult: 0.015
 	position_mult: [0.030, 0.050]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: steel.plate
+			flags: drop_on_break
+			quantity: 40.000
+			chance: 0.180
+		}
+		{
+			material: steel.frames
+			quantity: 38.000
+			chance: 0.478
+		}
+		{
+			material: machine_parts
+			flags: drop_on_break
+			quantity: 28.000
+			chance: 0.380
+		}
+		{
+			material: actuator
+			flags: drop_on_break
+			quantity: 10.000
+			chance: 0.678
+		}
+	]
 }

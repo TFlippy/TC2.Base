@@ -15,7 +15,7 @@ body:
 		a: [0.000, -2.500]
 		b: [0.000, 2.500]
 		offset: [0.000, 0.000]
-		mass: 200.000
+		mass: 50.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
@@ -69,11 +69,11 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 50.000
+			quantity: 30.000
 		}
 		{
-			material: "iron.ingot"
-			quantity: 8.000
+			material: "steel.frames"
+			quantity: 12.000
 		}
 	]
 }

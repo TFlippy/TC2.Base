@@ -12,7 +12,7 @@ body:
 	@shape.box:
 	{
 		size: [1.000, 0.625]
-		mass: 50.000
+		mass: 76.000
 		radius: 0.250
 		friction: 0.500
 		elasticity: 0.500
@@ -66,4 +66,34 @@ vibrate:
 	modifier: 1.000
 	rotation_mult: 0.015
 	position_mult: [0.030, 0.050]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: steel.plate
+			flags: drop_on_break
+			quantity: 10.000
+			chance: 0.180
+		}
+		{
+			material: steel.frames
+			quantity: 15.000
+			chance: 0.478
+		}
+		{
+			material: machine_parts
+			flags: drop_on_break
+			quantity: 8.000
+			chance: 0.380
+		}
+		{
+			material: actuator
+			flags: drop_on_break
+			quantity: 3.000
+			chance: 0.678
+		}
+	]
 }

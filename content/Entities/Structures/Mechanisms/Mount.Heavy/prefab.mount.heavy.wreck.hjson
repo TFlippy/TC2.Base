@@ -19,7 +19,7 @@ body:
 			[-0.500, -1.750]
 		]
 		offset: [0.000, 0.000]
-		mass: 4000.000
+		mass: 1420.000
 		friction: 500.000
 		elasticity: 0.000
 		material: wreck
@@ -31,7 +31,7 @@ body:
 	{
 		radius: 1.250
 		offset: [0.000, 0.000]
-		mass: 100.000
+		mass: 235.000
 		friction: 500.000
 		elasticity: 0.000
 		material: wreck
@@ -106,16 +106,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
+			material: scrap.ferrous
 			quantity: 500.000
+			chance: 0.780
 		}
 		{
-			material: "steel.ingot"
+			material: scrap.machine
 			quantity: 75.000
+			chance: 0.550
 		}
 		{
-			material: "machine_parts"
-			quantity: 20.000
+			material: machine_parts
+			quantity: 45.000
+			chance: 0.290
+		}
+		{
+			material: scrap.concrete
+			quantity: 680.000
+			chance: 0.700
 		}
 	]
 }

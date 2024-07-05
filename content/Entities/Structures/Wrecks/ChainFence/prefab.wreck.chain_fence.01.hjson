@@ -18,7 +18,7 @@ body:
 			[2.250, 1.750]
 			[-2.500, 1.750]
 		]
-		mass: 100.000
+		mass: 38.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wire
@@ -52,7 +52,7 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 70.000
+			quantity: 32.000
 		}
 	]
 }

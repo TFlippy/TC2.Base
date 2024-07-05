@@ -22,7 +22,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
-		mass: 1500.000
+		mass: 1260.000
 		material: wreck
 		layer: entity, building, decoration
 		mask: world
@@ -56,21 +56,25 @@ harvestable:
 			type: resource
 			material: "scrap.ferrous"
 			quantity: 780.000
+			chance: 0.650
 		}
 		{
 			type: resource
 			material: "machine_parts"
 			quantity: 40.000
+			chance: 0.350
 		}
 		{
 			type: resource
-			material: "steel.ingot"
-			quantity: 57.000
+			material: "steel.frames"
+			quantity: 87.000
+			chance: 0.750
 		}
 		{
 			type: resource
 			material: "copper.plate"
 			quantity: 90.000
+			chance: 0.350
 		}	
 	]
 }

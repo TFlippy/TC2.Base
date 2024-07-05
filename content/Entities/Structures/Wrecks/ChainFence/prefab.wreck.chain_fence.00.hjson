@@ -13,7 +13,7 @@ body:
 	{
 		size: [4.500, 3.000]
 		offset: [0.000, 0.000]
-		mass: 100.000
+		mass: 65.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wire
@@ -47,7 +47,7 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 100.000
+			quantity: 56.000
 		}
 	]
 }

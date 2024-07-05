@@ -54,7 +54,7 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 42.000
+			quantity: 20.000
 		}
 		{
 			material: "steel.plate"

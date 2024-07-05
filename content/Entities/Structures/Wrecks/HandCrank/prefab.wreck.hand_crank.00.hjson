@@ -12,7 +12,7 @@ body:
 		offset: [0.000, 0.000]
 		friction: 0.500
 		elasticity: 0.500
-		mass: 200.000
+		mass: 100.000
 		material: wreck
 		layer: entity, ignore_melee, decoration
 		mask: world
@@ -45,14 +45,12 @@ harvestable:
 		{
 			material: "scrap.ferrous"
 			quantity: 78.000
+			chance: 0.720
 		}
 		{
-			material: "iron.ingot"
-			quantity: 21.000
-		}
-		{
-			material: "plants"
-			quantity: 10.000
+			material: "machine_parts"
+			quantity: 20.000
+			chance: 0.420
 		}
 	]
 }

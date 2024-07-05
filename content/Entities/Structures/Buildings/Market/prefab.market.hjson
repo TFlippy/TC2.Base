@@ -64,23 +64,26 @@ harvestable:
 			material: "scrap.rubble"
 			flags: no_autopickup, drop_on_break
 			quantity: 610.000
+			chance: 0.700
 		}
 		{
 			type: resource
 			material: "scrap.metal"
-			flags: no_autopickup
 			quantity: 380.000
+			chance: 0.400
 		}
 		{
 			type: resource
 			material: "scrap.machine"
 			quantity: 95.000
+			chance: 0.400
 		}
 		{
 			type: resource
 			material: "scrap.wood"
 			flags: no_autopickup
 			quantity: 185.000
+			chance: 0.700
 		}
 	]
 }

@@ -62,6 +62,7 @@ harvestable:
 			material: "scrap.steel"
 			flags: none
 			quantity: 20.000
+			chance: 0.250
 		}
 		{
 			material: "steel.billet"

@@ -49,16 +49,25 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.steel"
-			quantity: 85.000
+			material: scrap.ferrous
+			quantity: 48.000
+			chance: 0.620
 		}
 		{
-			material: "steel.billet"
+			material: steel.frames
+			quantity: 19.000
+			chance: 0.251
+		}
+		{
+			material: steel.billet
+			flags: drop_on_break
 			quantity: 1.000
 		}
 		{
-			material: "limelight"
+			material: limelight
 			quantity: 4.000
+			chance: 0.125
+			chance_drop: 0.533
 		}
 	]
 }

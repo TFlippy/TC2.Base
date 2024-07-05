@@ -1,4 +1,4 @@
-$name: "Broken Old Lamp Post"
+$name: "Missing Old Lamp Post"
 $desc:
 	'''
 	Some broken-down, long-forgotten lamp post.
@@ -50,12 +50,14 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.steel"
-			quantity: 55.000
+			material: "scrap.ferrous"
+			quantity: 38.000
+			chance: 0.651
 		}
 		{
-			material: "plants"
-			quantity: 20.000
+			material: steel.frames
+			quantity: 7.000
+			chance: 0.251
 		}
 	]
 }
