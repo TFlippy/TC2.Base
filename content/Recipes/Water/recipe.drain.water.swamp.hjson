@@ -35,8 +35,8 @@
 		{
 			type: work
 			work: draining
-			amount: 10.000
-			difficulty: 4
+			amount: 22.000
+			difficulty: 10
 		}
 	]
 	

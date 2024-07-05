@@ -3,7 +3,8 @@
 	name: "Water (Swampy)"
 	description:
 		'''
-		Water, swampy water.
+		Water, filty swampwater.
+
 		Anytime you want it, day or night, free of charge and it tastes just like shite.
 		'''
 	
@@ -22,7 +23,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.105
+	mass_per_unit: 0.125
 	quantity_max: 500.000
 	prefab: resource.water.swamp
 	

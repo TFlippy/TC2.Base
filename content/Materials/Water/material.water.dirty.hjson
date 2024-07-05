@@ -4,6 +4,7 @@
 	description:
 		'''
 		Water, dirty wastewater.
+
 		Anytime you want it, day or night, free of charge and it tastes just horrible.
 		'''
 	
@@ -22,7 +23,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.105
+	mass_per_unit: 0.1184
 	quantity_max: 500.000
 	prefab: resource.water.dirty
 	
