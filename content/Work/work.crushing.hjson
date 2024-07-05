@@ -30,7 +30,7 @@
 	
 	character_traits:
 	{
-		include: slave, unskilled, insane, alcoholic, feral, brawler, outdoor, strong, junkie, evil, murderer, terrorist, dumb
+		include: slave, unskilled, insane, alcoholic, feral, brawler, outdoor, strong, junkie, evil, murderer, terrorist, dumb, huge
 		weight: 1.000
 	}
 	

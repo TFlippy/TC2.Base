@@ -31,6 +31,7 @@
 	character_traits:
 	{
 		include: slave, construction, medical, laborer, lowlife, technician, engineer, poor, insane, nomad, outdoor, strong, junkie
+		exclude: huge
 		weight: 1.000
 	}
 	

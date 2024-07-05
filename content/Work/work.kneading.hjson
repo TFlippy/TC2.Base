@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, machine, automated, simple, wip
-	cooldown: 2.000
+	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xffffa200"
 	
@@ -26,10 +26,11 @@
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: dishes, table, chair
 	
 	character_traits:
 	{
+		include: medical, farmer, poor, culinary, insane, entertainer, artist, brawler
 		weight: 1.000
 	}
 	

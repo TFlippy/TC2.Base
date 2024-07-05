@@ -31,7 +31,7 @@
 	character_traits:
 	{
 		include: construction, scientist, educated, artisan, professional, technician, engineer, artist, sedentary
-		exclude: feral, animal, brawler, junkie, dumb
+		exclude: feral, animal, brawler, junkie, dumb, clumsy, huge
 		weight: 1.000
 	}
 	

@@ -31,7 +31,7 @@
 	character_traits:
 	{
 		include: slave, bureaucrat, criminal, educated, law, social, commerce, lowlife, nomad, entertainer, politician, thief
-		exclude: insane, feral, dumb
+		exclude: insane, feral, dumb, clumsy, huge
 		weight: 1.000
 	}
 	

@@ -20,17 +20,18 @@
 	color: "0xff719240"
 	
 	tools_required: saw
-	tools_optional: towel
+	tools_optional: pencil, ruler, towel
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: table, chair
+	equipment_optional: table, chair, vise
 	
 	character_traits:
 	{
 		include: slave, construction, medical, artisan, farmer, laborer, hunter, outdoor, strong, evil
+		exclude: huge
 		weight: 1.000
 	}
 	
@@ -41,10 +42,10 @@
 	
 	skills_mult:
 	{
-		carpentry: 0.500
-		strength: 0.400
-		endurance: 0.550
-		woodcutting: 0.650
+		carpentry: 0.600
+		strength: 0.450
+		endurance: 0.520
+		woodcutting: 0.700
 	}
 	
 	sounds: []

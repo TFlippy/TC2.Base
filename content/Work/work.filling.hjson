@@ -30,6 +30,7 @@
 	
 	character_traits:
 	{
+		exclude: huge
 		weight: 1.000
 	}
 	

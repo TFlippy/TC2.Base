@@ -14,8 +14,8 @@
 		frame: [23, 0]
 	}
 	
-	flags: manual, machine, automated, ambient, simple, chemical, industrial, wip
-	cooldown: 0.500
+	flags: manual, machine, automated, simple, chemical, wip
+	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xffaeb59a"
 	
@@ -26,11 +26,18 @@
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: cauldron, barrel, chair, rack
+	
+	filter_environment:
+	{
+		include: warm, container, disinfected, sterile, clean
+		exclude: polluted, smelly
+	}
 	
 	character_traits:
 	{
-		include: slave, medical, chemist, culinary, nomad, naval, entertainer, artist, outdoor
+		include: slave, criminal, medical, farmer, laborer, poor, chemist, hunter, culinary, soldier, nomad, naval, outdoor, murderer, dumb
+		exclude: nobility, feral, upper_class, elite_class
 		weight: 1.000
 	}
 	
@@ -41,8 +48,15 @@
 	
 	skills_mult:
 	{
-	
+		strength: 0.150
+		dexterity: 0.140
+		endurance: 0.830
 	}
 	
-	sounds: []
+	sounds:
+	[
+		water.impact.soft.00
+		water.impact.soft.01
+		water.impact.soft.02
+	]
 }

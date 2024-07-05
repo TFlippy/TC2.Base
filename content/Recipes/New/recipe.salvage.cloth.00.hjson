@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Recovered Steel Frames"
+	name: "Thinly Veiled Threads"
 	desc:
 		'''
-		Search a pile of machine garbage for anything that could be used as steel frames.
+		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.frames
+		texture: resource.cloth
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -26,7 +26,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, scrapyard
+	tags: workbench
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -35,13 +35,24 @@
 	[
 		{
 			type: resource
-			material: scrap.machine
+			material: scrap.mixed
 			amount: 10.000
 		}
 		{
 			type: work
 			work: scavenging
-			amount: 280.000
+			amount: 230.000
+			difficulty: 3
+		}
+		{
+			type: resource
+			material: water
+			amount: 30.000
+		}
+		{
+			type: work
+			work: washing
+			amount: 360.000
 			difficulty: 6
 		}
 	]
@@ -50,15 +61,35 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 0.490
-			amount_extra: 1.870
+			material: cloth
+			amount: 0.647
+			amount_extra: 4.870
 		}
 		{
 			type: resource
-			material: scrap.metal
-			amount: 1.540
-			amount_extra: 1.970
+			material: leather
+			amount: 0.413
+			amount_extra: 3.452
+		}
+		{
+			type: resource
+			material: rubber
+			amount: 0.013
+			amount_extra: 1.452
+		}
+		{
+			type: resource
+			material: scrap.mixed
+			amount: 4.540
+			amount_extra: 2.770
+			flags: waste, residue
+			group: 1
+		}
+		{
+			type: resource
+			material: water.dirty
+			amount: 16.420
+			amount_extra: 3.950
 			flags: waste, residue
 			group: 1
 		}

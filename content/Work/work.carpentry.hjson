@@ -31,6 +31,7 @@
 	character_traits:
 	{
 		include: construction, artisan, farmer, professional, laborer, hunter, culinary, entertainer, artist, outdoor
+		exclude: clumsy, huge
 		weight: 1.000
 	}
 	

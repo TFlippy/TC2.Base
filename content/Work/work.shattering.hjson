@@ -28,13 +28,10 @@
 	equipment_required: none
 	equipment_optional: none
 	
-	environment_required: none
-	environment_optional: none
-	
 	character_traits:
 	{
 		require: strong
-		include: slave, laborer, miner, insane, alcoholic, feral, pest, brawler, strong, evil, dumb
+		include: slave, laborer, miner, insane, alcoholic, feral, pest, brawler, strong, evil, dumb, clumsy, huge
 		weight: 1.000
 	}
 	
