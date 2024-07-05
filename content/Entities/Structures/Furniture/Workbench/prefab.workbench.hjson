@@ -2,23 +2,25 @@ $tags: []
 
 body:
 {
-	type: dynamic
+	inventory_weight_multiplier: 0.900
 	
 	@shape.polygon:
 	{
-		points: 
+		points:
 		[
-			[-0.750, -1.125]
-			[1.750, -1.000]
-			[1.750, 1.500]
-			[-1.875, 1.500]
+			[-1.125, -0.375]
+			[1.375, -0.500]
+			[1.375, 1.125]
+			[-1.500, 1.125]
 		]
+		
 		mass: 78.000
+		radius: 0.350
 		friction: 0.950
-		elasticity: 0.500
+		elasticity: 0.400
 		material: wood
-		layer: entity, solid, ignore_melee, ignore_bullet, flammable, furniture
-		mask: world
+		
+		layer: entity, solid, furniture, flammable, ignore_melee, ignore_bullet
 	}
 }
 
@@ -51,7 +53,8 @@ transform:
 
 holdable:
 {
-	torque_multiplier: 0.300
+	force_multiplier: 0.750
+	torque_multiplier: 0.050
 	stress_multiplier: 0.150
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation, disable_control
@@ -60,9 +63,10 @@ holdable:
 norotate:
 {
 	bias: 0.000
-	speed: 3.000
-	multiplier: 2.000
-	mass_multiplier: 3.000
+	speed: 2.000
+	multiplier: 4.000
+	mass_multiplier: 5.000
+	flags: no_share
 }
 
 interactable:
@@ -75,7 +79,12 @@ interactable:
 shop:
 {
 	name: "Workbench"
-	tags: workbench	
+	tags: workbench
+	
+	work_tools: hammer, saw, bucket, tongs, knife
+	work_equipment: table, rack
+	work_environment: workshop, mobile
+	
 	menu_columns: 4
 }
 

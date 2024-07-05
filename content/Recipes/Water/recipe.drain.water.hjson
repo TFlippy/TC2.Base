@@ -1,0 +1,51 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Drained Water (Fresh)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.water
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	min: 5
+	max: 50
+	step: 5
+	
+	type: workshop
+	flags: wip
+	tags: workbench
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: prefab
+			prefab: water
+			amount: 1.000
+			flags: no_consume, no_scaling, hide_quantity
+		}
+		{
+			type: work
+			work: draining
+			amount: 10.000
+			difficulty: 4
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: water
+			amount: 1.000
+		}
+	]
+}

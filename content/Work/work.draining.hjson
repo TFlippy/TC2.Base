@@ -15,21 +15,22 @@
 	}
 	
 	flags: manual, machine, automated, simple, wip
-	cooldown: 0.500
+	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xffaeb59a"
 	
 	tools_required: none
-	tools_optional: none
+	tools_optional: bucket
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: cauldron, bottle, barrel
 	
 	character_traits:
 	{
+		include: farmer, laborer, hunter, culinary, alcoholic, nomad, naval, outdoor, strong
 		weight: 1.000
 	}
 	
@@ -40,8 +41,15 @@
 	
 	skills_mult:
 	{
-	
+		strength: 0.380
+		dexterity: 0.180
+		endurance: 0.600
 	}
 	
-	sounds: []
+	sounds:
+	[
+		water.impact.soft.00
+		water.impact.soft.01
+		water.impact.soft.02
+	]
 }

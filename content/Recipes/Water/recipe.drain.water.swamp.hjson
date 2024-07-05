@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Water"
+	name: "Drained Water (Swampy)"
 	desc:
 		'''
 		TODO: Desc
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: resource.water
+		texture: resource.water.swamp
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -28,13 +28,13 @@
 	[
 		{
 			type: prefab
-			prefab: water
+			prefab: water.swamp
 			amount: 1.000
-			flags: no_consume, no_scaling
+			flags: no_consume, no_scaling, hide_quantity
 		}
 		{
 			type: work
-			work: pump
+			work: draining
 			amount: 10.000
 			difficulty: 4
 		}
@@ -44,7 +44,7 @@
 	[
 		{
 			type: resource
-			material: water
+			material: water.swamp
 			amount: 1.000
 		}
 	]
