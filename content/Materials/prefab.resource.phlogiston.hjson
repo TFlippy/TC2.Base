@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.280
+
 	@shape.line:
 	{
 		a: [0.000, -0.200]

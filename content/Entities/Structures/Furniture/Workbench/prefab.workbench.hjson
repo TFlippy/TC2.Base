@@ -70,6 +70,8 @@ shop:
 
 workshop:
 {
+	orders_capacity: 2
+
 	@inventory8:
 	{
 		stack_size_multiplier: 1.000

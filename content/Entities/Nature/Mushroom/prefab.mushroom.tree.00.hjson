@@ -17,6 +17,7 @@ body:
 		material: mushroom
 		layer: entity, solid, tree, ignore_bullet, flammable, plant
 		mask: world
+		exclude: tree
 	}
 }
 
