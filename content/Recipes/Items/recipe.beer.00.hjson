@@ -1,0 +1,53 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Beer"
+	desc:
+		'''
+		Common man's water substitute.
+		'''
+	
+	icon:
+	{
+		texture: beer
+	}
+	
+	min: 4
+	max: 40
+	step: 4
+	
+	type: crafter
+	flags: blueprintable, hidden, wip
+	tags: refinery, fermenter, kitchen
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: sauce
+			amount: 0.250
+		}
+		{
+			type: resource
+			material: water
+			amount: 3.000
+		}
+		{
+			type: work
+			work: fermenting
+			amount: 5.000
+			difficulty: 1
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: beer
+			amount: 1.000
+		}
+	]
+}

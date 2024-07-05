@@ -17,7 +17,7 @@
 	step: 0
 	
 	type: build
-	flags: none
+	flags: no_amount_multiplier, blueprintable
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
@@ -29,17 +29,13 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x
+		flags: allow_mirror_x, allow_placement_over_buildings
 		
-		size: [4.000, 3.000]
+		size: [3.500, 2.750]
 		offset: [0.000, -0.750]
 		
-		rect_foundation: [-2.000, 0.750, 2.000, 1.250]
-		tileflags_foundation: solid
-		
 		cooldown: 0.500
-		min_support: 0.700
-		min_clearance: 0.750
+		min_clearance: 0.800
 		min_claim: 1.000
 		
 		rotation_max: 0.120
@@ -56,13 +52,13 @@
 	[
 		{
 			type: resource
-			material: timber
-			amount: 8.000
+			material: wood
+			amount: 80.000
 		}
 		{
 			type: resource
 			material: steel.frames
-			amount: 2.000
+			amount: 10.000
 		}
 	]
 	
