@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: forge
+	tags: workbench, forge
 	rank: 0.000
 	
 	requirements:

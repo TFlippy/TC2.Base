@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, forge
 	rank: 0.000
 	
 	requirements:

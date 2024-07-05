@@ -8,37 +8,37 @@
 	
 	icon:
 	{
-		texture: "resource.water"
+		texture: resource.water
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
 	step: 1
 	
 	type: workshop
-	flags: no_amount_multiplier, wip
-	tags: workshop
+	flags: wip
+	tags: workbench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 250.000
 		}
 		{
 			type: resource
-			material: "flour"
+			material: flour
 			amount: 15.000
 		}
 		{
 			type: resource
-			material: "mushroom.brown"
+			material: mushroom.brown
 			amount: 2.941176
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "sauce"
+			material: sauce
 			amount: 40.000
 			amount_extra: 10.000
 		}

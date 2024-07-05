@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manufactory
+	tags: workbench
 	rank: 0.000
 	
 	requirements:

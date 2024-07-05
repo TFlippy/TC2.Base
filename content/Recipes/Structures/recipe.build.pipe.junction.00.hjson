@@ -8,19 +8,19 @@
 	
 	icon:
 	{
-		texture: "pipe.junction.00"
+		texture: pipe.junction.00
 		size: [24, 24]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: architecture
+	
+	color_button: "0xffaeb59a"
 	rank: -7.000
 	
 	dismantle_work: 20.000
@@ -42,7 +42,7 @@
 		rotation_step: 0.19635
 		rotation_offset: -1.570
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,18 +52,14 @@
 	
 	requirements:
 	[
-		{
-			type: resource
-			material: "steel.ingot"
-			amount: 15.000
-		}
+
 	]
 	
 	products:
 	[
 		{
 			type: prefab
-			prefab: "pipe.junction.00"
+			prefab: pipe.junction.00
 			amount: 1.000
 		}
 	]
