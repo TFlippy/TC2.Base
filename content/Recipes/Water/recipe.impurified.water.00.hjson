@@ -1,0 +1,70 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Impurified Water"
+	desc:
+		'''
+		Drench some shite in pure clearwater to give it a disease.
+		'''
+	
+	icon:
+	{
+		texture: resource.water.clean
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-5.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.shite
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [1.000, -7.000]
+	
+	min: 20
+	max: 250
+	step: 5
+	
+	type: workshop
+	flags: none
+	tags: workbench
+	
+	color_button: "0xff6e3535"
+	rank: -9.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: water.clean
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: shite
+			amount: 0.040
+		}
+		{
+			type: work
+			work: soaking
+			amount: 3.200
+			difficulty: 4
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: water
+			amount: 1.000
+		}
+		{
+			type: resource
+			material: shite
+			amount: 0.029
+			amount_extra: 0.005
+		}
+	]
+}

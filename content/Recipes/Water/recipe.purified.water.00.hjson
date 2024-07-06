@@ -3,12 +3,12 @@
 	name: "Purified Water"
 	desc:
 		'''
-		Pour some hydrogen peroxide into water to cure it of disease.
+		Pour some hydrogen peroxide into impure freshwater to cure it of disease.
 		'''
 	
 	icon:
 	{
-		texture: resource.water.clean
+		texture: resource.water
 		size: [16, 16]
 		frame: [3, 0]
 	}
