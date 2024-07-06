@@ -8,27 +8,27 @@
 	
 	icon:
 	{
-		texture: "resource.water"
+		texture: resource.water
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 5
 	max: 50
 	step: 5
 	
 	type: buy
-	flags: disabled, wip
+	flags: disabled
 	tags: vending_machine
-	rank: 0.000
+	
+	color_button: "0xffaeb59a"
+	rank: -10.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 5.990
 		}
 	]
@@ -37,7 +37,7 @@
 	[
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 1.000
 		}
 	]

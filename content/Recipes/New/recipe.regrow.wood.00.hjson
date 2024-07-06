@@ -3,7 +3,7 @@
 	name: "Healed Planks"
 	desc:
 		'''
-		Regrow wooden debris into plank-shaped wooden debris using two life essence pellets, some feedstock and a catalyst.
+		Reform wooden debris into plank-shaped wooden debris using two life essence pellets, some feedstock and a catalyst.
 		'''
 	
 	icon:
@@ -31,15 +31,15 @@
 	icon_c_offset: [-2.000, -13.000]
 	
 	min: 1
-	max: 10
+	max: 1
 	step: 1
 	
 	type: workshop
-	flags: none
-	tags: workbench, scrapyard
+	flags: no_amount_multiplier
+	tags: workbench, medical, research, kitchen
 	
-	color_button: "0xff00b361"
-	rank: -140.000
+	color_button: "0xff19e2b1"
+	rank: -156.000
 	
 	requirements:
 	[
@@ -89,7 +89,7 @@
 			type: resource
 			material: mushroom.blue
 			amount: 3.889
-			amount_extra: 17.486
+			amount_extra: 14.486
 		}
 		{
 			type: resource

@@ -51,7 +51,7 @@
 			type: work
 			work: scavenging
 			amount: 230.000
-			difficulty: 3
+			difficulty: 4
 		}
 		{
 			type: resource
@@ -62,7 +62,7 @@
 			type: work
 			work: washing
 			amount: 360.000
-			difficulty: 6
+			difficulty: 5
 		}
 	]
 	

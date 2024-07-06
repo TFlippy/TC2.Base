@@ -1,17 +1,18 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Recovered Steel Frames"
+	name: "Refurbished Machine Parts"
 	desc:
 		'''
-		Search a pile of machine garbage for anything that could be used as steel frames.
+		Combine two piles of spare parts into spare machine parts.
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.frames
+		texture: resource.machine_parts
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [1, 0]
 	}
+	icon_offset: [-8.000, 2.000]
 	
 	icon_extra:
 	{
@@ -19,6 +20,14 @@
 		size: [16, 16]
 	}
 	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.machine
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -13.000]
 	
 	min: 1
 	max: 10
@@ -39,10 +48,21 @@
 			amount: 10.000
 		}
 		{
+			type: resource
+			material: scrap.steel
+			amount: 7.000
+		}
+		{
 			type: work
 			work: scavenging
-			amount: 280.000
-			difficulty: 6
+			amount: 450.000
+			difficulty: 9
+		}
+		{
+			type: work
+			work: assembling
+			amount: 300.000
+			difficulty: 4
 		}
 	]
 	
@@ -50,15 +70,29 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 0.490
-			amount_extra: 1.870
+			material: machine_parts
+			amount: 18.160
+			amount_extra: 7.140
 		}
 		{
 			type: resource
-			material: scrap.metal
-			amount: 1.540
-			amount_extra: 1.970
+			material: scrap.copper
+			amount: 1.940
+			amount_extra: 1.440
+			flags: byproduct, residue
+		}
+		{
+			type: resource
+			material: scrap.steel
+			amount: 0.160
+			amount_extra: 0.480
+			flags: byproduct, residue
+		}
+		{
+			type: resource
+			material: scrap.ferrous
+			amount: 4.560
+			amount_extra: 1.880
 			flags: waste, residue
 			group: 1
 		}

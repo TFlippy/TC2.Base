@@ -12,6 +12,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [7.000, 1.000]
 	
 	icon_extra:
 	{
@@ -19,6 +20,14 @@
 		size: [16, 16]
 	}
 	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.machine
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-23.000, -6.000]
 	
 	min: 1
 	max: 10
@@ -51,14 +60,20 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.490
-			amount_extra: 1.870
+			amount: 2.250
+			amount_extra: 0.450
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 0.230
+			amount_extra: 0.490
 		}
 		{
 			type: resource
 			material: scrap.metal
-			amount: 1.540
-			amount_extra: 1.970
+			amount: 1.710
+			amount_extra: 0.230
 			flags: waste, residue
 			group: 1
 		}

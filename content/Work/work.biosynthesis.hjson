@@ -14,35 +14,45 @@
 		frame: [24, 0]
 	}
 	
-	flags: manual, skilled, machine, tools, science, advanced, technical, careful, construction, industrial, wip
+	flags: manual, skilled, science, ambient, dangerous, advanced, chemical, arcane
 	cooldown: 1.000
-	multiplier: 1.000
+	multiplier: 0.150
 	color: "0x8f14d081"
 	
-	tools_required: ruler, screwdriver, tweezers
-	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, calculator, syringe, file, towel, pick
+	tools_required: tongs
+	tools_optional: towel
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: table, chair, vise
+	equipment_optional: anvil, glassware, table, chair, vise
+	
+	filter_environment:
+	{
+		include: disinfected, sterile, clean
+		exclude: toxic
+	}
 	
 	character_traits:
 	{
-		include: construction, scientist, educated, artisan, professional, technician, engineer, artist, sedentary
-		exclude: feral, animal, brawler, junkie, dumb, clumsy, huge
+		include: scientist, educated, farmer, professional, chemist, arcane
 		weight: 1.000
 	}
 	
 	skills_min:
 	{
-	
+		arcanology: 3
+		intellect: 6
+		farming: 4
 	}
 	
 	skills_mult:
 	{
-	
+		arcanology: 2.000
+		intellect: 1.100
+		dexterity: 0.350
+		farming: 0.750
 	}
 	
 	sounds: []

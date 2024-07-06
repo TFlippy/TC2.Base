@@ -17,7 +17,7 @@
 	flags: manual, machine, automated, simple, wip
 	cooldown: 2.000
 	multiplier: 1.000
-	color: "0xff719240"
+	color: "0xff6e3535"
 	
 	tools_required: none
 	tools_optional: none

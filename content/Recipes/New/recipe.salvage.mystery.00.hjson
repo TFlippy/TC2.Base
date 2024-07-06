@@ -26,7 +26,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, scrapyard
+	tags: none
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -63,13 +63,4 @@
 			group: 1
 		}
 	]
-
-	on_complete:
-	{
-		handle: "salvage.mystery.00"
-		data:
-		{
-			
-		}
-	}
 }

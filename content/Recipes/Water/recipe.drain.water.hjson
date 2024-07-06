@@ -10,7 +10,7 @@
 	{
 		texture: resource.water
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 	
 	min: 5
@@ -18,11 +18,11 @@
 	step: 5
 	
 	type: workshop
-	flags: wip
+	flags: none
 	tags: workbench
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: -10.000
 	
 	requirements:
 	[
