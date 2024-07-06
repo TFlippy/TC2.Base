@@ -1,0 +1,49 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Arcane Biosynthesis"
+	name_short: "Biosynthesis"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [24, 0]
+	}
+	
+	flags: manual, skilled, machine, tools, science, advanced, technical, careful, construction, industrial, wip
+	cooldown: 1.000
+	multiplier: 1.000
+	color: "0x8f14d081"
+	
+	tools_required: ruler, screwdriver, tweezers
+	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, calculator, syringe, file, towel, pick
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: table, chair, vise
+	
+	character_traits:
+	{
+		include: construction, scientist, educated, artisan, professional, technician, engineer, artist, sedentary
+		exclude: feral, animal, brawler, junkie, dumb, clumsy, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sounds: []
+}

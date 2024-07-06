@@ -72,7 +72,7 @@ norotate:
 interactable:
 {
 	flags: none
-	window_size: [600.000, 510.000]
+	window_size: [624.000, 510.000]
 	window_size_misc: [120.000, 0.000]
 }
 

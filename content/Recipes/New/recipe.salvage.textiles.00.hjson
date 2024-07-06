@@ -10,8 +10,9 @@
 	{
 		texture: resource.cloth
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
+	icon_offset: [-4.000, 3.000]
 	
 	icon_extra:
 	{
@@ -19,6 +20,14 @@
 		size: [16, 16]
 	}
 	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.mixed
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -16.000]
 	
 	min: 1
 	max: 10
