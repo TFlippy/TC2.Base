@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Dubious Mortar"
+	name: "Evil Mortar"
 	desc:
 		'''
 		Dilute a perfectly decent mortar with some gross and truly terrible dross, then hope nobody finds out.
@@ -51,7 +51,7 @@
 		{
 			type: resource
 			material: sludge
-			amount: 25.000
+			amount: 30.000
 		}
 		{
 			type: resource

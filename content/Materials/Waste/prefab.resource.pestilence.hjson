@@ -1,0 +1,62 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [-0.080, 0.050]
+		radius: 0.700
+		friction: 0.140
+		elasticity: 0.850
+		
+		material: slime
+		miss_chance: 0.376
+		
+		layer: entity, solid, creature, resource, plant, organic, flammable
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.pestilence"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "pestilence"
+}
+
+holdable:
+{
+	radius: 0.000
+	hints: dangerous, illegal, destructive, crappy, rebel, fast, unstable
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+health:
+{
+	max: 7500.000
+}
+
+rotting:
+{
+	rate: 0.000
+
+	@sound.emitter:
+	{
+		file: "flies.loop.00"
+		volume: 0.400
+		pitch: 1.000
+		priority: 0.100
+	}
+}
