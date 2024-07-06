@@ -93,17 +93,10 @@
 		}
 		{
 			type: resource
-			material: rot
-			amount: 2.445
-			amount_extra: 8.923
-			flags: waste
-		}
-		{
-			type: resource
 			material: pestilence
-			amount: 0.000
-			amount_extra: 1.423
-			flags: byproduct, waste, hidden
+			amount: 0.01
+			amount_extra: 12.223
+			flags: byproduct, waste
 			group: 1
 		}
 	]

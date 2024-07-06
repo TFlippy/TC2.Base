@@ -8,11 +8,14 @@ body:
 		radius: 0.700
 		friction: 0.140
 		elasticity: 0.850
+		rigidity_dynamic: 0.650
 		
 		material: slime
 		miss_chance: 0.376
 		
 		layer: entity, solid, creature, resource, plant, organic, flammable
+		mask: world, solid
+		exclude: background, building, furniture
 	}
 }
 
@@ -59,4 +62,15 @@ rotting:
 		pitch: 1.000
 		priority: 0.100
 	}
+}
+
+regen:
+{
+	amount: 80.000
+	interval: 6.000
+}
+
+tumor:
+{
+
 }
