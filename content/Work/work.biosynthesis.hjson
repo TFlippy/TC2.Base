@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, skilled, science, ambient, dangerous, advanced, chemical, arcane
-	cooldown: 1.000
+	cooldown: 2.000
 	multiplier: 0.150
 	color: "0x8f14d081"
 	
@@ -55,5 +55,13 @@
 		farming: 0.750
 	}
 	
-	sounds: []
+	sound_volume: 0.800
+	sound_pitch: 1.000
+	sound_size: 0.850
+	sound_dist: 1.200
+	
+	sounds:
+	[
+		essence.field.generic.loop.00
+	]
 }

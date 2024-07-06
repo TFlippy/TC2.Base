@@ -3,7 +3,7 @@
 	name: "Healed Planks"
 	desc:
 		'''
-		Reform wooden debris into plank-shaped wooden debris using two life essence pellets, some feedstock and a catalyst.
+		Reform wooden debris into plank-shaped wooden debris using life essence pellets, some feedstock and a catalyst.
 		'''
 	
 	icon:
@@ -31,11 +31,11 @@
 	icon_c_offset: [-2.000, -13.000]
 	
 	min: 1
-	max: 1
+	max: 5
 	step: 1
 	
 	type: workshop
-	flags: no_amount_multiplier
+	flags: none
 	tags: workbench, medical, research, kitchen
 	
 	color_button: "0xff19e2b1"
@@ -47,7 +47,7 @@
 			type: resource
 			material: pellet.life
 			amount: 2.000
-			flags: no_consume, no_scaling, hide_quantity
+			flags: no_consume, hide_quantity
 		}
 		{
 			type: resource
@@ -72,7 +72,7 @@
 		{
 			type: work
 			work: biosynthesis
-			amount: 850.000
+			amount: 200.000
 			difficulty: 4
 		}
 	]
@@ -94,7 +94,7 @@
 		{
 			type: resource
 			material: pestilence
-			amount: 0.01
+			amount: 0.010
 			amount_extra: 12.223
 			flags: byproduct, waste
 			group: 1

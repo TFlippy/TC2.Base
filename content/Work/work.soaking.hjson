@@ -41,8 +41,15 @@
 	
 	skills_mult:
 	{
-	
+		strength: 0.380
+		dexterity: 0.180
+		endurance: 0.600
 	}
 	
-	sounds: []
+	sounds:
+	[
+		water.impact.soft.00
+		water.impact.soft.01
+		water.impact.soft.02
+	]
 }
