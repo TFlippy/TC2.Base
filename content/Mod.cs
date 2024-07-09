@@ -72,7 +72,7 @@ namespace TC2.Base
 				ref var character_data = ref character.character_id.GetData(out var character_asset);
 				Assert.NotNull(ref character_data);
 
-				if (Spawner.TryApplyOrigin(ref region, ref random, h_origin, ref character_data))
+				if (Spawner.TryApplyOrigin(ref random, region.GetLocationHandle(), h_origin, ref character_data))
 				{
 					App.WriteLine("ok");
 				}
@@ -80,7 +80,7 @@ namespace TC2.Base
 			else
 			{
 				var h_faction = origin_data.faction;
-				var h_character = Spawner.CreateCharacter(ref region, ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
+				var h_character = Spawner.CreateCharacter(ref region.AsCommon(), ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
 				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
 					Spawner.TryGenerateKits(ref random, h_character);

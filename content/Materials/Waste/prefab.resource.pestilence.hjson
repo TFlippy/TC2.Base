@@ -14,8 +14,8 @@ body:
 		miss_chance: 0.376
 		
 		layer: entity, solid, creature, resource, plant, organic, flammable
-		mask: world, solid
-		exclude: background, building, furniture
+		// mask: world, solid
+		// exclude: background, building, furniture
 	}
 }
 

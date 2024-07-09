@@ -1,38 +1,39 @@
 ﻿{
 	$version: "0.1.60.7"
 	name: "Sledgehammer"
-	desc:
-		'''
-		A weapon of destruction.
-		'''
 	
 	icon:
 	{
-		texture: "sledgehammer"
+		texture: sledgehammer
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 5
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, forge
+	flags: blueprintable, wip
+	tags: forge, workbench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 5.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
-			amount: 15.000
+			material: steel.ingot
+			amount: 2.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.500
 		}
 		{
 			type: work
@@ -43,7 +44,7 @@
 		{
 			type: work
 			work: smithing
-			amount: 1000.000
+			amount: 150.000
 			difficulty: 5
 		}
 	]
@@ -52,7 +53,7 @@
 	[
 		{
 			type: prefab
-			prefab: "sledgehammer"
+			prefab: sledgehammer
 			amount: 1.000
 		}
 	]

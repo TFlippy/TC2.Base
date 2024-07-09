@@ -31,8 +31,8 @@ namespace TC2.Base.Components
 
 			var is_climbing = false;
 			var is_wallclimbing = false;
-			var can_move = !keyboard.GetKeyNow(Keyboard.Key.NoMove | Keyboard.Key.X) && (joint_base.flags.IsEmpty() || joint_base.flags.HasAny(Joint.Flags.Organic)); // && !body.GetParent().IsValid();
-			var can_wallclimb = can_move && keyboard.GetKeyNow(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && (joint_base.flags.IsEmpty() || joint_base.flags.HasAny(Joint.Flags.Organic)); // && !body.GetParent().IsValid();
+			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var force = new Vector2(0, float.Epsilon);
 			var normal = new Vector2(0, -0.01f);
@@ -63,10 +63,10 @@ namespace TC2.Base.Components
 
 							var vel = Vector2.Zero;
 
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveRight)) vel.X += 1.50f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
+							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
 
 							vel *= climb_speed;
 
@@ -105,10 +105,10 @@ namespace TC2.Base.Components
 
 							var vel = Vector2.Zero;
 
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveLeft)) vel.X -= 1.20f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveRight)) vel.X += 1.20f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveUp)) vel.Y -= 0.50f;
-							if (keyboard.GetKeyNow(Keyboard.Key.MoveDown)) vel.Y += 8.00f;
+							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.20f;
+							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.20f;
+							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 0.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 8.00f;
 
 							vel *= 0.10f;
 

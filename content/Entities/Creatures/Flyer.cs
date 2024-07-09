@@ -44,14 +44,14 @@ namespace TC2.Base.Components
 			var force = Vector2.Zero;
 			var vel = body.GetVelocity();
 
-			if ((has_authority || (physics.elapsed < 1.00f && (physics.position + (physics.velocity * physics.elapsed)).IsInDistance(body.GetPosition(), 1.00f))))
+			//if ((has_authority || (physics.elapsed < 1.00f && (physics.position + (physics.velocity * physics.elapsed)).IsInDistance(body.GetPosition(), 1.00f))))
 			{
-				if (!kb.GetKeyNow(Keyboard.Key.NoMove | Keyboard.Key.X))
+				if (!kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X))
 				{
-					if (kb.GetKeyNow(Keyboard.Key.MoveLeft) && vel.X > -flyer.max_speed) force.X -= flyer.force;
-					if (kb.GetKeyNow(Keyboard.Key.MoveRight) && vel.X < +flyer.max_speed) force.X += flyer.force;
-					if (kb.GetKeyNow(Keyboard.Key.MoveUp) && vel.Y > -flyer.max_speed) force.Y -= flyer.force;
-					if (kb.GetKeyNow(Keyboard.Key.MoveDown) && vel.Y < +flyer.max_speed) force.Y += flyer.force;
+					if (kb.GetKey(Keyboard.Key.MoveLeft) && vel.X > -flyer.max_speed) force.X -= flyer.force;
+					if (kb.GetKey(Keyboard.Key.MoveRight) && vel.X < +flyer.max_speed) force.X += flyer.force;
+					if (kb.GetKey(Keyboard.Key.MoveUp) && vel.Y > -flyer.max_speed) force.Y -= flyer.force;
+					if (kb.GetKey(Keyboard.Key.MoveDown) && vel.Y < +flyer.max_speed) force.Y += flyer.force;
 				}
 
 				var max_speed = new Vector2(flyer.max_speed);

@@ -21,7 +21,7 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, wip
-	tags: refinery, kitchen
+	tags: fermenter, refinery, kitchen
 	rank: 0.000
 	
 	requirements:
