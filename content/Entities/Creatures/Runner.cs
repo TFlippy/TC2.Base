@@ -212,7 +212,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state,
-		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Of<Physics.Data>, Optional] in Net.Synchronized synchronized)
+		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
 			var kb = control.keyboard;
 
@@ -224,9 +224,9 @@ namespace TC2.Base.Components
 			var velocity = body.GetVelocity();
 			var mass = body.GetMass();
 
-			var can_move = !kb.GetKeyNow(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.State.Flags.Sitting);
-			var is_walking = can_move && kb.GetKeyNow(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
-			var any = can_move && kb.GetKeyNow(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+			var can_move = !kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.State.Flags.Sitting);
+			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
+			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 			var is_swimming = false;
 			var stick_to_surface = runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface);
 			var move_relative = runner.flags.HasAny(Runner.Data.Flags.Move_Relative);
@@ -247,8 +247,8 @@ namespace TC2.Base.Components
 				runner_state.last_move = time;
 				runner_state.walk_modifier_current = Maths.Lerp(runner_state.walk_modifier_current, 1.00f, runner.walk_lerp);
 
-				if (kb.GetKeyNow(Keyboard.Key.MoveLeft) && Vector2.Dot(dir_v, dir_l) < runner.max_speed) force += dir_l * runner.walk_force * runner_state.walk_modifier_current;
-				if (kb.GetKeyNow(Keyboard.Key.MoveRight) && Vector2.Dot(dir_v, dir_r) < runner.max_speed) force += dir_r * runner.walk_force * runner_state.walk_modifier_current;
+				if (kb.GetKey(Keyboard.Key.MoveLeft) && Vector2.Dot(dir_v, dir_l) < runner.max_speed) force += dir_l * runner.walk_force * runner_state.walk_modifier_current;
+				if (kb.GetKey(Keyboard.Key.MoveRight) && Vector2.Dot(dir_v, dir_r) < runner.max_speed) force += dir_r * runner.walk_force * runner_state.walk_modifier_current;
 				//if (velocity.X < +runner.max_speed && kb.GetKey(Keyboard.Key.MoveRight)) force.X += runner.walk_force * runner_state.walk_modifier_current;
 			}
 			else
@@ -366,7 +366,7 @@ namespace TC2.Base.Components
 			}
 
 			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
-			if (can_move && kb.GetKeyNow(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && Maths.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
+			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && Maths.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = time;
@@ -433,7 +433,7 @@ namespace TC2.Base.Components
 
 			runner_state.last_force = force;
 			//if ((has_authority || physics.position.IsInDistance(body.GetPosition(), 2.00f) && force.LengthSquared() > 0.10f))
-			if ((has_authority || (physics.elapsed < 2.00f && (physics.position + (physics.velocity * physics.elapsed)).IsInDistance(body.GetPosition(), 4.00f))) && force.LengthSquared() > 0.10f)
+			if ((force.LengthSquared() > 0.10f) && (has_authority || (physics.elapsed < 1.00f && (physics.position + (physics.velocity * physics.elapsed)).IsInDistance(body.GetPosition(), 3.00f))))
 			{
 				body.AddForce(force);
 			}

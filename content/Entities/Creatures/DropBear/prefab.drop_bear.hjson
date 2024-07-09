@@ -252,7 +252,7 @@ faction:
 		offset_a: [0.000, -0.625]
 		max_force: 22000.000
 		max_torque: 2000.000
-		flags: organic, control_write, facing_reset_pos, force_facing
+		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
 		max_stress: 2.000
 		stress_threshold: 2.010
 		material_type: flesh

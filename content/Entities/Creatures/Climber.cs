@@ -15,17 +15,26 @@ namespace TC2.Base.Components
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control, [Source.Parent, Optional] in Joint.Base joint_base)
+		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, 
+		[Source.Owned] ref Control.Data control, [Source.Parent, Optional] in Joint.Base joint_base,
+		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
 			//var ts = Timestamp.Now();
 
 			//App.WriteLine(entity.GetFullName());
 
+			//var has_authority = synchronized.HasAuthority();
 			ref var keyboard = ref control.keyboard;
 
 			climber.MaxForce = 0.00f;
 			climber.OffsetA = body.GetPosition() + (body.GetVelocity() * App.fixed_update_interval_s);
 			climber.cling_entity = default;
+
+			//if (!has_authority)
+			//{
+
+			//	return;
+			//}
 
 			//App.WriteLine(climber.wallclimb_timer);
 

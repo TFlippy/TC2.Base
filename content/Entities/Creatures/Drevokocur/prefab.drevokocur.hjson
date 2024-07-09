@@ -21,7 +21,7 @@ body:
 		
 		material: flesh
 		layer: entity, solid, creature, flammable
-		mask: world, vehicle
+		mask: world, vehicle, creature
 	}
 }
 
@@ -37,7 +37,7 @@ organic.state:
 
 health:
 {
-	max: 3800.000
+	max: 11800.000
 }
 
 animated.renderer:
@@ -88,14 +88,14 @@ animal:
 {
 	attack_cooldown: 0.050
 
-	attack_distance_melee: 1.000
+	attack_distance_melee: 2.500
 	attack_cooldown_melee: 0.050
 
 	attack_distance_ranged: 5.000
 	attack_cooldown_ranged: 1.000
 
-	charge_distance: 6.000
-	retreat_distance: 2.500
+	charge_distance: 9.000
+	retreat_distance: 1.500
 	growl_cooldown: 0.100
 }
 
@@ -146,7 +146,7 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 16.000
+	radius: 24.000
 }
 
 pathfinding:
@@ -273,7 +273,7 @@ faction:
 		offset_a: [-0.375, -0.625]
 		max_force: 25000.000
 		max_torque: 2500.000
-		flags: organic, control_write, facing_reset_pos, force_facing
+		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
 		max_stress: 2.000
 		stress_threshold: 2.010
 		material_type: flesh
@@ -330,7 +330,7 @@ faction:
 				rigidity_static: 0.850
 				material: flesh
 				layer: entity, solid, creature, flammable
-				mask: world, vehicle
+				mask: world, vehicle, creature
 			}
 		}
 		
@@ -368,7 +368,7 @@ faction:
 		
 		health:
 		{
-			max: 4500.000
+			max: 12500.000
 		}
 		
 		holdable:
@@ -468,7 +468,7 @@ faction:
 		offset_a: [0.250, -0.625]
 		max_force: 22000.000
 		max_torque: 2000.000
-		flags: organic, control_write, facing_reset_pos, force_facing
+		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
 		max_stress: 2.000
 		stress_threshold: 2.010
 		material_type: flesh
@@ -561,16 +561,16 @@ faction:
 			swing_offset: [0.625, -0.875]
 			swing_rotation: 0.000
 			attack_type: thrust
-			damage_base: 350.000
-			damage_bonus: 500.000
+			damage_base: 450.000
+			damage_bonus: 700.000
 			primary_damage_multiplier: 1.300
 			secondary_damage_multiplier: 0.800
 			terrain_damage_multiplier: 0.500
 			pain_multiplier: 0.100
 			stun_multiplier: 0.100
-			disarm_chance: 0.150
+			disarm_chance: 0.450
 			cooldown: 0.260
-			max_distance: 0.500
+			max_distance: 0.800
 			aoe: 1.250
 			thickness: 1.250
 			knockback: -2650.000
@@ -615,7 +615,7 @@ faction:
 		
 		health:
 		{
-			max: 3000.000
+			max: 8000.000
 		}
 		
 		holdable:

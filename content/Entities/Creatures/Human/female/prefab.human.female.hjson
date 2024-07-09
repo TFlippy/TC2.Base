@@ -289,7 +289,7 @@ commandable:
 		max_stress: 1.700
 		stress_threshold: 1.400
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos
+		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
 		
 		max_displacement: 1.000
@@ -494,7 +494,7 @@ commandable:
 		max_stress: 1.500
 		stress_threshold: 1.400
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos
+		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
 
 		max_displacement: 0.400
@@ -763,7 +763,7 @@ commandable:
 		offset_a: [-0.500, -0.250]
 		max_force: 15000.000
 		max_torque: 9000.000
-		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing
+		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, no_sync
 		material_type: leather
 		max_stress: 1.300
 		stress_threshold: 1.210
