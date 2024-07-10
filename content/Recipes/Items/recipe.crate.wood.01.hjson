@@ -1,12 +1,12 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Crate (Small)"
+	name: "Crate (Wood, Medium)"
 	
 	icon:
 	{
-		texture: crate.small
+		texture: crate.wood.01
 	}
-	icon_offset: [0.000, 5.000]
+	icon_offset: [1.000, 0.000]
 	
 	min: 1
 	max: 1
@@ -24,19 +24,19 @@
 		{
 			type: resource
 			material: wood
-			amount: 20.000
+			amount: 45.000
 		}
 		{
 			type: work
 			work: sawing
-			amount: 75.000
+			amount: 150.000
 			difficulty: 3
 		}
 		{
 			type: work
 			work: carpentry
-			amount: 120.000
-			difficulty: 4
+			amount: 200.000
+			difficulty: 6
 		}
 	]
 	
@@ -44,14 +44,14 @@
 	[
 		{
 			type: prefab
-			prefab: crate.small
+			prefab: crate.wood.01
 			amount: 1.000
 		}
 		{
 			type: resource
 			material: sawdust
-			amount: 0.310
-			amount_extra: 1.280
+			amount: 7.650
+			amount_extra: 8.980
 			flags: waste, residue
 			group: 1
 		}

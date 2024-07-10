@@ -38,7 +38,7 @@
 					quantity: 500.000
 				}
 				{
-					material: "copper.ingot"
+					material: "steel.frames"
 					quantity: 2000.000
 				}
 				{
@@ -46,7 +46,7 @@
 					quantity: 2000.000
 				}
 				{
-					material: "paper"
+					material: "glass"
 					quantity: 2000.000
 				}
 				{
@@ -62,7 +62,7 @@
 					quantity: 500.000
 				}
 				{
-					material: "brick"
+					material: "brick.clay"
 					quantity: 1000.000
 				}
 				{
@@ -70,11 +70,11 @@
 					quantity: 5000.000
 				}
 				{
-					material: "mudbrick.dry"
+					material: "mortar"
 					quantity: 1000.000
 				}
 				{
-					material: "gravel"
+					material: "brick.concrete"
 					quantity: 5000.000
 				}
 				{
