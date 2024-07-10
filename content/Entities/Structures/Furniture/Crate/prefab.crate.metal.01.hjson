@@ -15,7 +15,7 @@ body:
 	{
 		size: [2.375, 1.500]
 		
-		mass: 62.000
+		mass: 55.000
 		radius: 0.250
 		friction: 0.880
 		elasticity: 0.420
@@ -28,7 +28,7 @@ body:
 
 health:
 {
-	max: 11200.000
+	max: 13200.000
 }
 
 animated.renderer:

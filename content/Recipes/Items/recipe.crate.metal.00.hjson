@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Crate (Metal, Medium)"
+	name: "Crate (Metal, Small)"
 	
 	icon:
 	{
-		texture: crate.metal.01
+		texture: crate.metal.00
 	}
 	icon_offset: [0.000, 2.000]
 	
@@ -24,18 +24,18 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 10.000
+			amount: 8.000
 		}
 		{
 			type: resource
 			material: steel.plate
-			amount: 32.000
+			amount: 12.000
 		}
 		{
 			type: work
 			work: assembling
-			amount: 435.000
-			difficulty: 4
+			amount: 300.000
+			difficulty: 6
 		}
 	]
 	
@@ -43,14 +43,14 @@
 	[
 		{
 			type: prefab
-			prefab: crate.metal.01
+			prefab: crate.metal.00
 			amount: 1.000
 		}
 		{
 			type: resource
 			material: scrap.steel
-			amount: 1.210
-			amount_extra: 0.080
+			amount: 0.580
+			amount_extra: 0.070
 			flags: waste, residue
 			group: 1
 		}

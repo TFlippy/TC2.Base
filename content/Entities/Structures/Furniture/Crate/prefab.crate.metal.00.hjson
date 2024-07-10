@@ -1,24 +1,24 @@
-$name: "Crate (Metal, Large)"
+$name: "Crate (Metal, Small)"
 $desc:
 	'''
-	Large storage crate made of metal.
+	Small storage crate made of metal.
 	'''
 $tags: []
 
 body:
 {
-	buoyancy: 0.550
-	fall_damage_multiplier: 0.650
-	inventory_weight_multiplier: 0.300
-
+	buoyancy: 0.300
+	fall_damage_multiplier: 0.200
+	inventory_weight_multiplier: 0.400
+	
 	@shape.box:
 	{
-		size: [2.500, 2.000]
+		size: [1.375, 1.125]
 		
-		mass: 77.000
+		mass: 31.000
 		radius: 0.250
 		friction: 0.880
-		elasticity: 0.420
+		elasticity: 0.680
 		
 		material: metal
 		
@@ -28,17 +28,17 @@ body:
 
 health:
 {
-	max: 17500.000
+	max: 15500.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: crate.metal.02
-		mask: crate.metal.02.mask
+		texture: crate.metal.00
+		mask: crate.metal.00.mask
 	}
-	z: -70.350
+	z: -70.200
 }
 
 faction.colorable:
@@ -58,17 +58,17 @@ faction:
 
 storage:
 {
-	@inventory16:
+	@inventory4:
 	{
 		type: storage
 		flags: public, faction
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 3.000
 		
 		filter:
 		{
 			require: none
-			include: granular, large, heavy, small, pellet, ingot, plate, solid
-			exclude: none
+			include: granular, heavy, small, pellet, ingot, plate, solid
+			exclude: long, large
 		}
 		
 		offset: [0.000, 0.000]
@@ -78,7 +78,7 @@ storage:
 interactable:
 {
 	flags: none
-	window_size: [192.000, 192.000]
+	window_size: [192.000, 96.000]
 }
 
 lockable:
@@ -101,14 +101,14 @@ attachment:
 	torque_multiplier: 4.000
 	offset: [0.000, 0.650]
 	flags: disable_parent_facing
-	tags: large, fixed
+	tags: medium, fixed
 }
 
 norotate:
 {
 	bias: 0.000
 	speed: 3.000
-	multiplier: 3.000
-	mass_multiplier: 5.000
+	multiplier: 2.000
+	mass_multiplier: 4.000
 	flags: no_share
 }

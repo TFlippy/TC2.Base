@@ -24,18 +24,18 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 15.000
+			amount: 12.000
 		}
 		{
 			type: resource
 			material: steel.plate
-			amount: 85.000
+			amount: 50.000
 		}
 		{
 			type: work
 			work: assembling
-			amount: 760.000
-			difficulty: 6
+			amount: 560.000
+			difficulty: 5
 		}
 	]
 	
@@ -49,8 +49,8 @@
 		{
 			type: resource
 			material: scrap.steel
-			amount: 4.742
-			amount_extra: 0.420
+			amount: 1.982
+			amount_extra: 0.050
 			flags: waste, residue
 			group: 1
 		}
