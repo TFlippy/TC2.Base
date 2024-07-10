@@ -1,0 +1,110 @@
+$name: "Medium Crate (Metal)"
+$desc:
+	'''
+	Medium storage crate made of metal.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.300
+	
+	@shape.box:
+	{
+		size: [1.875, 1.500]
+		
+		mass: 72.000
+		radius: 0.250
+		friction: 0.880
+		elasticity: 0.420
+		
+		material: metal
+		
+		layer: entity, solid, crate, storage, furniture, ignore_bullet
+	}
+}
+
+health:
+{
+	max: 11200.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: crate.metal.01
+		mask: crate.metal.01.mask
+	}
+	z: -70.200
+}
+
+faction.colorable:
+{
+
+}
+
+transform:
+{
+
+}
+
+faction:
+{
+	
+}
+
+storage:
+{
+	@inventory8:
+	{
+		type: storage
+		flags: public, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			include: granular, large, small, pellet, ingot, plate, solid
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [192.000, 96.000]
+}
+
+lockable:
+{
+
+}
+
+holdable:
+{
+	force_multiplier: 0.500
+	torque_multiplier: 0.250
+	stress_multiplier: 0.600
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 4.000
+	offset: [0.000, 0.650]
+	flags: disable_parent_facing
+	tags: medium, fixed
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.000
+	multiplier: 3.000
+	mass_multiplier: 5.000
+	flags: no_share
+}

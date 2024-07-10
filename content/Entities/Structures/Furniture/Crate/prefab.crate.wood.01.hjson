@@ -32,7 +32,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crate"
+		texture: "crate.wood.01"
 	}
 	z: 10.000
 }
