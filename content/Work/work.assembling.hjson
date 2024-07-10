@@ -15,8 +15,8 @@
 	}
 	
 	flags: manual, machine, tools, technical, construction, industrial, wip
-	cooldown: 0.350
-	multiplier: 1.000
+	cooldown: 1.280
+	multiplier: 0.750
 	color: "0xffffa200"
 	
 	tools_required: screwdriver, wrench
@@ -45,6 +45,11 @@
 		scavenging: 0.600
 		dexterity: 0.500
 	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
 	
 	sounds:
 	[

@@ -17,7 +17,7 @@
 	tags: workbench
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: -5.200
 	
 	requirements:
 	[
@@ -34,7 +34,7 @@
 		{
 			type: work
 			work: assembling
-			amount: 560.000
+			amount: 1060.000
 			difficulty: 5
 		}
 	]
