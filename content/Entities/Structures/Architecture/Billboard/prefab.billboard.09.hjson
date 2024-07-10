@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	Kolaloka, a carbonated beverage favored by every sober gunfighter.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [4.000, 2.500]
+		offset: [0.125, -0.250]
+		mass: 210.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.09"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 70.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 20.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+		{
+			material: "wood"
+			quantity: 45.000
+		}
+	]
+}

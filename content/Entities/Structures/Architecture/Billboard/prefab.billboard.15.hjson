@@ -1,0 +1,94 @@
+$name: "Sign"
+$desc:
+	'''
+	Energon Imperial - subsidiary of Elektron Imperial specialized in power production and distribution.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.000, 2.750]
+		offset: [0.000, 0.000]
+		mass: 25.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.15"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.060
+	blink_frequency: 3.000
+	blink_amplitude: 0.070
+	
+	@light:
+	{
+		color: [1.000, 0.450, 0.000, 3.000]
+		offset: [0.125, 1.125]
+		scale: [16.000, 24.000]
+		intensity: 1.000
+		texture: "light.box.01"
+	}
+}
+
+sound.emitter:
+{
+	file: "essence.emit.generic.loop.03"
+	channel_type: world
+	volume: 0.320
+	pitch: 0.970
+	size: 3.000
+	size_max_modifier: 0.650
+	spread: 100.000
+	priority: 0.100
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 120.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 25.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+		{
+			material: "pellet.electricity"
+			quantity: 2.000
+		}
+	]
+}

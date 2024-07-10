@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	Horzik, a hunting corporation that specialises in trapping, hunting and butchering hornets.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.500, 4.000]
+		offset: [0.000, -0.375]
+		mass: 320.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 6000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.20"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 180.000
+		}
+		{
+			material: "sauce"
+			quantity: 30.000
+		}
+		{
+			material: "paper"
+			quantity: 80.000
+		}
+		{
+			material: "wood"
+			quantity: 70.000
+		}
+	]
+}

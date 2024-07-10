@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	Traktor Petor manufactures the finest tractors in the Imperial lands.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.000, 2.750]
+		offset: [0.000, 0.000]
+		mass: 210.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 4000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.11"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 70.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 20.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+		{
+			material: "wood"
+			quantity: 45.000
+		}
+	]
+}

@@ -1,0 +1,95 @@
+$name: "Sign"
+$desc:
+	'''
+	Elektron Imperial is one of the most influential companies in the Empire, mostly specialized in development and manufacturing of advanced electronics and arcane technologies.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.750, 3.000]
+		offset: [0.250, -0.250]
+		mass: 280.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.12"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.060
+	blink_frequency: 3.000
+	blink_amplitude: 0.070
+	
+	@light:
+	{
+		color: [0.417431, 1.000, 0.823626, 2.500]
+		offset: [0.125, 1.125]
+		scale: [16.000, 24.000]
+		intensity: 1.000
+		texture: "light.box.01"
+	}
+}
+
+sound.emitter:
+{
+	file: "essence.emit.generic.loop.03"
+	channel_type: world
+	volume: 0.350
+	pitch: 1.730
+	size: 3.000
+	size_max_modifier: 0.550
+	spread: 100.000
+	priority: 0.100
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 120.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 25.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+		{
+			material: "pellet.electricity"
+			flags: drop_on_break
+			quantity: 2.000
+		}
+	]
+}

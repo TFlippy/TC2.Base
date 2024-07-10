@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	Sign informing the reader about Lopat-Prospekto, capital city of the Krumpel island.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 3.000]
+		offset: [0.000, -0.500]
+		mass: 25.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 6000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.04"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 180.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 30.000
+		}
+		{
+			material: "paper"
+			quantity: 80.000
+		}
+		{
+			material: "wood"
+			quantity: 70.000
+		}
+	]
+}

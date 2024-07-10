@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	GRUNKO, a scrap-trading company. They offer scrap materials at an affordable price.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.250, 3.875]
+		offset: [0.000, -0.250]
+		mass: 320.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 6000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.19"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 180.000
+		}
+		{
+			material: "sauce"
+			quantity: 30.000
+		}
+		{
+			material: "paper"
+			quantity: 80.000
+		}
+		{
+			material: "wood"
+			quantity: 70.000
+		}
+	]
+}

@@ -1,0 +1,62 @@
+$name: "Sign"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.125, 6.875]
+		offset: [0.125, 0.000]
+		mass: 630.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.16"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 350.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 35.000
+		}
+		{
+			material: "paper"
+			quantity: 210.000
+		}
+	]
+}

@@ -1,0 +1,66 @@
+$name: "Sign"
+$desc:
+	'''
+	Signboard promoting the Imperial postal service.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.500, 3.000]
+		offset: [0.000, -0.375]
+		mass: 25.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.02"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 90.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 20.000
+		}
+		{
+			material: "paper"
+			quantity: 50.000
+		}
+		{
+			material: "wood"
+			quantity: 70.000
+		}
+	]
+}

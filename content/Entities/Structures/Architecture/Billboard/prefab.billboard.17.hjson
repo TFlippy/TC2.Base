@@ -1,0 +1,95 @@
+$name: "Sign"
+$desc:
+	'''
+	Sign denoting a refueling station.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.000, 2.750]
+		offset: [0.000, 0.000]
+		mass: 270.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.17"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+lamp:
+{
+	flicker: 0.060
+	blink_frequency: 3.000
+	blink_amplitude: 0.070
+	
+	@light:
+	{
+		color: [1.000, 0.192661, 0.000, 2.500]
+		offset: [0.000, -0.250]
+		scale: [14.000, 4.500]
+		intensity: 1.000
+		texture: "light.dual.00"
+	}
+}
+
+sound.emitter:
+{
+	file: "essence.emit.generic.loop.04"
+	channel_type: world
+	volume: 0.360
+	pitch: 1.070
+	size: 3.000
+	size_max_modifier: 0.500
+	spread: 95.000
+	priority: 0.100
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 120.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 25.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+		{
+			material: "pellet.electricity"
+			flags: drop_on_break
+			quantity: 2.000
+		}
+	]
+}

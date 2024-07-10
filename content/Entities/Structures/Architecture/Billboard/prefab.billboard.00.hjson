@@ -1,0 +1,62 @@
+$name: "Sign (Krtec)"
+$desc:
+	'''
+	Krtec, one of many local mining companies.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.500, 5.750]
+		offset: [0.125, 0.000]
+		mass: 25.000
+		radius: 0.000
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "billboard.00"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 100.000
+		}
+		{
+			material: "steel.ingot"
+			quantity: 25.000
+		}
+		{
+			material: "paper"
+			quantity: 35.000
+		}
+	]
+}
