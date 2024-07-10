@@ -1,0 +1,513 @@
+$name: "Vehicle Chassis (Compact)"
+$desc:
+	'''
+	Small vehicle chassis for basic aircraft and portable weapons.
+	(x1 cabin slot, 2x tool slot, 4x wheel slot)
+	'''
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		points:
+		[
+			[1.500, -0.500]
+			[1.250, 0.375]
+			[-1.250, 0.375]
+			[-1.500, -0.500]
+		]
+		offset: [0.000, 0.000]
+		mass: 380.000
+		radius: 0.250
+		friction: 0.400
+		elasticity: 0.550
+		material: metal_frame
+		layer: entity, solid, vehicle
+		mask: world
+	}
+}
+
+health:
+{
+	max: 41000.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.370
+}
+
+
+// armor:
+// {
+// 	toughness: 500.000
+// 	protection: 0.500
+	
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
+
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "chassis.01.bg"
+	}
+	offset: [0.000, 0.000]
+	z: -100.000
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "chassis.01.fg"
+		}
+		z: 100.000
+	}
+}
+
+holdable:
+{
+	radius: 0.000
+	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 0.500]
+	radius: 0.000
+	flags: disable_parent_facing
+	tags: large, mount, fixed, platform
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	// @net.synchronized:
+	// {
+	// 	interval: 0.000
+	// }
+}
+
+norotate:
+{
+	multiplier: 0.400
+	bias: 0.200
+	mass_multiplier: 25.000
+	flags: no_share
+}
+
+interactable:
+{
+	window_size: [288.000, 288.000]
+	window_offset: [0.000, -200.000]
+}
+
+tractor:
+{
+	shake_force: [0.010, 0.060]
+	shake_intensity: 0.035
+	speed: 14.000
+	speed_step: 8.000
+	force: 90000.000
+	brake: 100000.000
+	gear: 0
+	gear_mod: 0.500
+	smoke_offset: [0.750, -2.125]
+}
+
+tractor.state:
+{
+
+}
+
+// axle:
+// {
+// 	offset: [-0.250, -0.125]
+// 	mass: 40.000
+// 	friction: 0.200
+// 	radius_a: 0.750
+// 	radius_b: 0.750
+// 	radius_inner: 0.500
+// 	radius_outer: 0.750
+// 	z: 100.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_0750.steel"
+// 		}
+// 	}
+// }
+
+axle:
+{
+	offset: [0.250, -0.750]
+	offset_inner: [0.000, 0.000]
+	mass: 40.000
+	friction: 0.300
+	radius_a: 0.750
+	radius_b: 0.750
+	radius_inner: 0.500
+	radius_outer: 0.750
+	ratio: 1.000
+	modifier: 1.000
+	z: 100.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0750.steel"
+		}
+	}
+
+	@sound.emitter:
+	{
+		file: "flywheel.loop.01"
+		volume: 1.000
+		pitch: 1.000
+		size: 1.000
+		size_max_modifier: 0.800
+	}
+	
+	@sound.mixer:
+	{
+		volume_modifier: 1.000
+		pitch_modifier: 0.250
+		volume_min: 0.000
+		pitch_min: 0.500
+		volume_lerp_a: 0.050
+		volume_lerp_b: 0.050
+		pitch_lerp_a: 0.050
+		pitch_lerp_b: 0.050
+	}
+}
+
++slot_motor|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.250, -0.750]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: 180.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.0001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Motor"
+		identifier: "motor"
+
+		flags: no_tab
+		flags_editable: locked, disabled
+
+		gui_size: [144.000, 88.000]
+		rank: -5.000
+
+		tags_filter:
+		{
+			require: motor, fixed
+			include: small, medium
+			exclude: none
+		}
+	}
+}
+
++cab|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.750]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: -10.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Cabin"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
+
+		offset_bounds: [-1.000, -1.000, 1.000, 1.000]
+
+		rank: -20.000
+		gui_size: [144.000, 144.000]
+	}
+}
+
++mount_0|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.250]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: -50.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 2.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Rotary Mount\nMid"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [144.000, 72.000]
+		rank: 11.000
+	}
+}
+
++mount_1|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.500]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: -60.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 2.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Fixed Mount\nBottom"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [144.000, 72.000]
+		rank: 21.000
+	}
+}
+
++wheel_0|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel\nRear, A"
+		flags: keyboard_write
+		flags_editable: locked, keyboard_write
+
+		gui_size: [72.000, 72.000]
+		rank: 10.000
+	}
+
+	joint.base:
+	{
+		offset_a: [-1.250, 0.700]
+		flags: no_wrap, force_facing, control_write, attachment
+		z: 110.000
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 0.800
+		rest_length: 0.700
+		stiffness: 100000.000
+		damping: 5000.000
+		rotation: -1.57079632679
+		brake: 200000.000
+	}
+}
+
++wheel_1|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel\nRear, B"
+		flags: keyboard_write
+		flags_editable: locked, keyboard_write
+
+		gui_size: [72.000, 72.000]
+		rank: 20.000
+	}
+
+	joint.base:
+	{
+		offset_a: [-0.625, 0.700]
+		flags: no_wrap, force_facing, control_write, attachment
+		z: -109.000
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 0.800
+		rest_length: 0.700
+		stiffness: 100000.000
+		damping: 5000.000
+		rotation: -1.57079632679
+		brake: 200000.000
+	}
+}
+
++wheel_2|instance:
+{
+	wheel.slot:
+	{
+		
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel\nFront, A"
+		flags: keyboard_write
+		flags_editable: locked, keyboard_write
+
+		gui_size: [72.000, 72.000]
+		rank: 12.000
+	}
+
+	joint.base:
+	{
+		offset_a: [0.625, 0.700]
+		flags: no_wrap, force_facing, control_write, attachment
+		z: 109.000
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 0.800
+		rest_length: 0.700
+		stiffness: 100000.000
+		damping: 5000.000
+		rotation: -1.57079632679
+		brake: 200000.000
+	}
+}
+
++wheel_3|instance:
+{
+	wheel.slot:
+	{
+
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel\nFront, B"
+		flags: keyboard_write
+		flags_editable: locked, keyboard_write
+
+		gui_size: [72.000, 72.000]
+		rank: 22.000
+	}
+
+	joint.base:
+	{
+		offset_a: [1.250, 0.700]
+		flags: no_wrap, force_facing, control_write, attachment
+		z: -110.000
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+		groove_force: 8000000.000
+		spring_force: 80000.000
+		length: 0.800
+		rest_length: 0.700
+		stiffness: 100000.000
+		damping: 5000.000
+		rotation: -1.57079632679
+		brake: 200000.000
+	}
+}

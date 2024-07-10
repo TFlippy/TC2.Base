@@ -1,0 +1,576 @@
+$name: "Vehicle Chassis"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	gravity: 1.000
+	fall_damage_multiplier: 0.400
+
+	@shape.complex:
+	{
+		points:
+		[
+			[-0.500, -0.500]
+			[0.500, -0.500]
+			[3.375, 0.750]
+			[3.000, 1.625]
+			[-3.000, 1.625]
+			[-3.375, 0.750]
+			[0.000, 0.000]
+			[0.000, 0.000]
+		]
+		offset: [0.000, 0.000]
+		count: 6
+		mass: 1150.000
+		radius: 0.500
+		friction: 0.800
+		elasticity: 0.550
+		rigidity_static: 1.000
+		rigidity_dynamic: 1.000
+		material: metal_frame
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: none
+		flags: none
+		dirty_flags: none
+	}
+
+	@shape.line:
+	{
+		a: [-4.500, 0.375]
+		b: [4.500, 0.375]
+		offset: [0.000, 0.000]
+		scale: [1.000, 1.000]
+		mass: 220.000
+		radius: 0.500
+		friction: 0.800
+		elasticity: 0.550
+		rigidity_static: 1.000
+		rigidity_dynamic: 1.000
+		material: metal
+		layer: entity, solid, vehicle, platform
+		mask: world, solid
+		exclude: wheel, attached
+		flags: none
+		dirty_flags: none
+	}
+}
+
+health:
+{
+	max: 116000.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.550
+}
+
+// armor:
+// {
+// 	toughness: 500.000
+// 	protection: 0.500
+	
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
+
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "chassis.04.bg"
+	}
+	offset: [0.000, 0.000]
+	z: -100.000
+}
+
+vehicle:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "chassis.04.fg"
+		}
+		z: 100.000
+	}
+}
+
+holdable:
+{
+	radius: 0.000
+	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 0.500]
+	radius: 0.000
+	flags: disable_parent_facing
+	tags: large, mount, fixed, platform
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	// @net.synchronized:
+	// {
+	// 	interval: 0.000
+	// }
+}
+
+norotate:
+{
+	multiplier: 0.400
+	bias: 0.200
+	mass_multiplier: 25.000
+	flags: no_share
+}
+
+interactable:
+{
+	window_size: [504.000, 328.000]
+	window_offset: [0.000, -200.000]
+}
+
+tractor:
+{
+	shake_force: [0.010, 0.060]
+	shake_intensity: 0.035
+	speed: 14.000
+	speed_step: 8.000
+	force: 90000.000
+	brake: 100000.000
+	gear: 0
+	gear_mod: 0.500
+	smoke_offset: [0.750, -2.125]
+}
+
+tractor.state:
+{
+
+}
+
+// axle:
+// {
+// 	offset: [-0.250, -0.125]
+// 	mass: 40.000
+// 	friction: 0.200
+// 	radius_a: 0.750
+// 	radius_b: 0.750
+// 	radius_inner: 0.500
+// 	radius_outer: 0.750
+// 	z: 100.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_0750.steel"
+// 		}
+// 	}
+// }
+
+axle:
+{
+	offset: [0.000, 0.375]
+	offset_inner: [0.000, 0.000]
+	mass: 180.000
+	friction: 0.300
+	radius_a: 1.500
+	radius_b: 1.500
+	radius_inner: 1.250
+	radius_outer: 1.500
+	ratio: 1.000
+	modifier: 1.000
+	z: 50.000
+	flags: none
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1500.steel"
+		}
+	}
+
+	@sound.emitter:
+	{
+		file: "flywheel.loop.01"
+		volume: 1.000
+		pitch: 1.000
+		size: 1.000
+		size_max_modifier: 0.800
+	}
+	
+	@sound.mixer:
+	{
+		volume_modifier: 1.000
+		pitch_modifier: 0.250
+		volume_min: 0.000
+		pitch_min: 0.500
+		volume_lerp_a: 0.050
+		volume_lerp_b: 0.050
+		pitch_lerp_a: 0.050
+		pitch_lerp_b: 0.050
+	}
+}
+
++slot.motor|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: 180.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.0001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Motor"
+		identifier: "motor"
+
+		flags: no_tab
+		flags_editable: locked, disabled
+
+		gui_size: [144.000, 88.000]
+		rank: -5.000
+
+		tags_filter:
+		{
+			require: motor, fixed
+			include: small, medium
+			exclude: none
+		}
+	}
+}
+
++slot.cab|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.125]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: -40.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Cabin Mount"
+		identifier: "cabin"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled, offset
+
+		rank: -10.000
+		gui_size: [224.000, 120.000]
+		offset_bounds: [-0.500, -0.500, 0.500, 0.500]
+	}
+}
+
++slot.cab.left|instance:
+{
+	joint.base:
+	{
+		offset_a: [-4.125, 0.250]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: no_wrap, attachment, control_read, force_facing, mirror_x, use_proxy_body
+		z: -40.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Cabin\nLeft"
+		identifier: "cabin.left"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled, offset
+
+		rank: -10.000
+		gui_size: [224.000, 120.000]
+		offset_bounds: [-0.500, -0.500, 0.500, 0.500]
+	}
+}
+
++slot.cab.right|instance:
+{
+	joint.base:
+	{
+		offset_a: [4.125, 0.250]
+		max_force: 10000000.000
+		max_torque: 2000000.000
+		flags: control_read, no_wrap, force_facing, attachment, use_proxy_body
+		z: -40.000
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 20.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.00001
+		max_bias: 10.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Cabin\nRight"
+		identifier: "cabin.right"
+
+		flags: keyboard_read, mouse_read
+		flags_editable: locked, disabled, offset
+
+		rank: -10.000
+		gui_size: [224.000, 120.000]
+		offset_bounds: [-0.500, -0.500, 0.500, 0.500]
+	}
+}
+
++slot.mid|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.125]
+		max_force: 850000.000
+		max_torque: 150000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		stress_damp: 0.500
+		z: -100.000
+		material_type: metal
+		stress: 0.000
+		flags: attachment, allow_dragging, control_read, control_write, force_facing
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.500
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 4.000
+		stiffness: 40000.000
+		damping: 1250.000
+		axis_force: 800000.000
+		spring_max_bias: 4.000
+		max_distance: 1.500
+		rotation: 1.5707
+		stress_mult_axis: 1.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (Mid)"
+		identifier: "mid"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
+
+		rank: 10.000
+		gui_size: [224.000, 64.000]
+		offset_bounds: [0.000, -0.750, 0.000, 0.500]
+	}
+}
+
++slot.bottom|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.750]
+		max_force: 850000.000
+		max_torque: 150000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		stress_damp: 0.500
+		z: -100.000
+		material_type: metal
+		stress: 0.000
+		flags: attachment, allow_dragging, control_read, control_write, force_facing
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.500
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 4.000
+		stiffness: 150000.000
+		damping: 10000.000
+		axis_force: 800000.000
+		spring_max_bias: 4.000
+		max_distance: 1.500
+		rotation: 1.5707
+		stress_mult_axis: 1.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (Bottom)"
+		identifier: "bottom"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
+
+		rank: 10.000
+		gui_size: [224.000, 64.000]
+		offset_bounds: [0.000, -0.750, 0.000, 0.500]
+	}
+}
+
++slot.side.left|instance:
+{
+	joint.base:
+	{
+		offset_a: [-2.625, 1.125]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: no_wrap, attachment, control_read, control_write, force_facing, mirror_x, use_proxy_body
+		z: -60.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 2.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount\nLeft"
+		identifier: "side.left"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [144.000, 72.000]
+		rank: 21.000
+	}
+}
+
++slot.side.right|instance:
+{
+	joint.base:
+	{
+		offset_a: [2.625, 1.125]
+		max_force: 10000000.000
+		max_torque: 200000.000
+		flags: no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body
+		z: -60.000
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.01
+		max_bias: 100.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.01
+		max_bias: 2.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount\nRight"
+		identifier: "side.right"
+
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write
+
+		gui_size: [144.000, 72.000]
+		rank: 21.000
+	}
+}

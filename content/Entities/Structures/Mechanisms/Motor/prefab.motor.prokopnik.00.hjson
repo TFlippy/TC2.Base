@@ -1,0 +1,140 @@
+$name: "Motor (Prokopnik)"
+$desc:
+	'''
+	Portable Prokopnik-type ARC-MT motor.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.750, 0.000]
+		b: [0.875, 0.000]
+		mass: 660.000
+		radius: 0.900
+		friction: 0.850
+		elasticity: 0.450
+		material: machine
+		layer: entity, solid, vehicle
+		mask: world, essence
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 45000.000
+}
+
+armor:
+{
+	toughness: 600.000
+	protection: 0.600
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal_solid
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "motor.prokopnik.00"
+	}
+	z: -90.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab
+	window_size: [200.000, 192.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+motor:
+{
+	vibration: 0.150
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+	stress_multiplier: 0.500
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	offset: [0.250, -0.250]
+	flags: none
+	tags: medium, fixed, motor
+}
+
+arcaneengine:
+{
+	offset: [0.250, -0.250]
+	speed_max: 20.000
+	acc: 10.000
+	force_efficiency: 0.120
+	speed_efficiency: 0.800
+	mass: 50.000
+	volume_multiplier: 1.000
+	pitch_multiplier: 0.400
+	type: turbine
+
+	@sound.emitter:
+	{
+		file: "motor.prokopnik.loop.00"
+		// file: essence.device.loop.02
+		volume: 0.750
+		volume_mult: 0.000
+		pitch: 1.300
+		pitch_mult: 1.000
+		size: 1.500
+		size_max_modifier: 1.150
+	}
+
+	@light:
+	{
+		offset: [0.000, 0.000]
+		intensity: 1.000
+		texture: "motor.prokopnik.00.light"
+	}
+}
+
+arcaneengine.state:
+{
+
+}
+
+essencecontainer:
+{
+	stability: 0.900
+	health_threshold: 0.500
+
+	@inventory1:
+	{
+		stack_size_multiplier: 0.100
+		filter_flags: essence
+		type: essence
+		flags: standalone, ignore_mass
+	}
+}
+
+vibrate:
+{
+	modifier: 0.000
+	rotation_mult: 0.100
+	position_mult: [0.250, 0.230]
+}

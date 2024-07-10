@@ -1,0 +1,253 @@
+$name: "Cart"
+$desc: 
+	'''
+	Simple wooden cart with 2 wheel slots, 1 stationary mount and a large inventory.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.650
+	fall_damage_multiplier: 0.550
+	inventory_weight_multiplier: 0.250
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-2.125, -0.375]
+			[0.500, -0.375]
+			[0.375, 0.500]
+			[-1.750, 0.625]
+		]
+		mass: 60.000
+		radius: 0.250
+		friction: 0.550
+		elasticity: 0.350
+		material: wood
+		layer: entity, solid, vehicle
+	}
+
+	@shape.line:
+	{
+		a: [-0.125, 0.125]
+		b: [2.125, 0.250]
+		mass: 10.000
+		friction: 0.550
+		elasticity: 0.550
+		material: metal_pole
+		layer: entity, solid
+	}
+}
+
+health:
+{
+	max: 12000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "cart.00"
+	}
+	z: 100.000
+}
+
+transform:
+{
+
+}
+
+vehicle:
+{
+
+}
+
+control:
+{
+
+}
+
+facing:
+{
+	offset: -0.600
+	threshold: 2.000
+	flip_interval: 1.000
+}
+
+interactable:
+{
+	window_size: [160.000, 200.000]
+	window_size_misc: [216.000, 0.000]
+	window_offset: [100.000, 160.000]
+}
+
+holdable:
+{
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+	stress_multiplier: 0.100
+	grip_min: 0.000
+	offset: [1.625, 0.125]
+	radius: 4.000
+	hints: none
+	flags: disable_parent_facing, disable_rotation
+}
+
+storage:
+{
+	@inventory16:
+	{
+		type: storage
+		flags: standalone, public, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: none
+		}
+		
+		offset: [0.000, -1.750]
+	}
+}
+
++slot.rear|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.750, -0.375]
+		max_force: 500000.000
+		max_torque: 100000.000
+		z: 10.000
+		material_type: metal
+		flags: attachment, allow_dragging, facing_reset_pos, force_facing, use_proxy_body
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.0001
+		max_bias: 10.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount"
+		identifier: "mount"
+
+		flags: none
+		flags_editable: locked, disabled, offset
+		tags_filter:
+		{
+			require: fixed
+			include: small, medium, large, turret, mount
+		}
+		rank: -8.000
+		offset_bounds: [-1.000, -0.125, 1.000, 0.500]
+		gui_size: [0.000, 114.000]
+	}
+}
+
++slot.wheel.00|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 2.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (A)"
+		identifier: "wheel.00"
+		flags: no_tab
+		flags_editable: locked, offset
+		rank: 6.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+		gui_size: [80.000, 80.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium
+			exclude: none
+		}
+	}
+
+	joint.base:
+	{
+		offset_a: [-0.500, 0.625]
+		z: 110.000
+		material_type: metal
+		flags: no_wrap, attachment
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 15.000
+		groove_force: 120000.000
+		spring_force: 75000.000
+		length: 1.400
+		rest_length: 1.000
+		stiffness: 65000.000
+		damping: 1500.000
+	}
+}
+
++slot.wheel.01|instance:
+{
+	wheel.slot:
+	{
+		force_multiplier: 2.000
+	}
+
+	attachment.slot:
+	{
+		name: "Wheel (B)"
+		identifier: "wheel.01"
+		flags: no_tab
+		flags_editable: locked, offset
+		rank: 5.000
+
+		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+		gui_size: [80.000, 80.000]
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium
+			exclude: none
+		}
+	}
+
+	joint.base:
+	{
+		offset_a: [-1.250, 0.625]
+		z: -109.000
+		material_type: metal
+		flags: no_wrap, attachment
+	}
+
+	joint.wheel:
+	{
+		error_bias: 0.000
+		max_bias: 15.000
+		groove_force: 120000.000
+		spring_force: 75000.000
+		length: 1.400
+		rest_length: 1.000
+		stiffness: 65000.000
+		damping: 1500.000
+	}
+}
