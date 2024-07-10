@@ -19,7 +19,7 @@ body:
 			[1.750, 1.250]
 			[-1.875, 1.250]
 		]
-		mass: 100.000
+		mass: 150.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wood
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 3000.000
+	max: 5500.000
 }
 
 animated.renderer:
@@ -71,4 +71,22 @@ loot.container:
 interactable:
 {
 	window_size: [192.000, 96.000]
+	window_offset: [32.000, 96.000]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 50.000
+			chance: 0.680
+		}
+		{
+			material: "wood"
+			quantity: 120.000
+			chance: 0.780
+		}
+	]
 }

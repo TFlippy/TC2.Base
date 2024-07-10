@@ -10,29 +10,34 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [3.250, 2.250]
-		offset: [0.000, 0.250]
-		mass: 100.000
+		points: 
+		[
+			[-0.750, -1.125]
+			[1.500, -1.000]
+			[1.750, 1.250]
+			[-1.875, 1.250]
+		]
+		mass: 150.000
 		friction: 0.850
 		elasticity: 0.100
 		material: wood
-		layer: entity, solid, ignore_bullet, ignore_melee, flammable, decoration, furniture
+		layer: entity, solid, ignore_bullet, ignore_melee, flammable, decoration
 		mask: world
 	}
 }
 
 health:
 {
-	max: 3000.000
+	max: 5500.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "wreck.crates.00"
+		texture: "wreck.crates.01"
 	}
 	z: -100.000
 }
@@ -47,18 +52,41 @@ cover:
 
 }
 
-storage:
+shipment:
 {
-	@inventory16:
-	{
-		name: "Crates"
-		stack_size_multiplier: 4.000
-		type: storage
-		flags: standalone, ignore_mass, public
-	}
+	flags: keep_items, allow_withdraw, allow_deposit
+}
+
+loot.container:
+{
+	rolls: 4
+	rolls_extra: 0
+
+	tables:
+	[
+		"construction.00"
+	]
 }
 
 interactable:
 {
-	window_size: [192.000, 192.000]
+	window_size: [192.000, 96.000]
+	window_offset: [32.000, 96.000]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "scrap.mixed"
+			quantity: 50.000
+			chance: 0.680
+		}
+		{
+			material: "wood"
+			quantity: 120.000
+			chance: 0.780
+		}
+	]
 }
