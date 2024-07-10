@@ -7,13 +7,15 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.400
-	
+	buoyancy: 0.500
+	fall_damage_multiplier: 0.550
+	inventory_weight_multiplier: 0.300
+
 	@shape.box:
 	{
 		size: [2.500, 2.000]
 		
-		mass: 135.000
+		mass: 115.000
 		radius: 0.250
 		friction: 0.880
 		elasticity: 0.420
@@ -26,7 +28,7 @@ body:
 
 health:
 {
-	max: 15500.000
+	max: 18500.000
 }
 
 animated.renderer:
@@ -64,7 +66,9 @@ storage:
 		
 		filter:
 		{
+			require: none
 			include: granular, large, heavy, small, pellet, ingot, plate, solid
+			exclude: none
 		}
 		
 		offset: [0.000, 0.000]

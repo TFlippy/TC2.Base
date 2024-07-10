@@ -7,13 +7,15 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.300
+	buoyancy: 0.400
+	fall_damage_multiplier: 0.400
+	inventory_weight_multiplier: 0.400
 	
 	@shape.box:
 	{
-		size: [1.875, 1.500]
+		size: [2.375, 1.500]
 		
-		mass: 72.000
+		mass: 62.000
 		radius: 0.250
 		friction: 0.880
 		elasticity: 0.420
@@ -60,11 +62,13 @@ storage:
 	{
 		type: storage
 		flags: public, faction
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 3.000
 		
 		filter:
 		{
-			include: granular, large, small, pellet, ingot, plate, solid
+			require: none
+			include: granular, large, heavy, small, pellet, ingot, plate, solid, long
+			exclude: none
 		}
 		
 		offset: [0.000, 0.000]

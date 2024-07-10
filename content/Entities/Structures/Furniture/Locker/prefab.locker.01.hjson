@@ -1,0 +1,83 @@
+$name: "Lockers (Wide)"
+$desc:
+	'''
+	Secure and durable lockers capable of holding all sorts of dangerous goods. 
+	'''
+$tags: []
+
+body:
+{
+	type: static
+
+	@shape.box:
+	{
+		size: [2.750, 1.750]
+		
+		mass: 220.000
+		radius: 0.500
+		friction: 0.900
+		elasticity: 0.400
+		
+		material: metal
+		
+		layer: entity, solid, storage, furniture, ignore_bullet
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 67500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "locker.01"
+	}
+	z: -90.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+	
+}
+
+storage:
+{
+	@inventory16:
+	{
+		type: storage
+		flags: allow_ducts, ignore_mass, no_auto_pickup, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			include: soft, malleable, granular, heavy, small, powder
+			exclude: long, large
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [192.000, 192.000]
+}
+
+lockable:
+{
+
+}
