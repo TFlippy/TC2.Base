@@ -21,10 +21,10 @@ body:
 		elasticity: 0.400
 		rigidity_dynamic: 0.010
 		rigidity_static: 0.010
-		material: wood
+		material: tree
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
-		mask: solid, creature
-		exclude: tree
+		mask: creature
+		exclude: tree, vehicle, wheel
 	}
 }
 

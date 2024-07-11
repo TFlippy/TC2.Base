@@ -49,9 +49,9 @@ nameable:
 
 spawner:
 {
-	interval: 20.000
-	interval_extra: 200.000
-	interval_count_modifier: 60.000
+	interval: 60.000
+	interval_extra: 300.000
+	interval_count_modifier: 120.000
 	ai_stance: aggressive
 	ai_type: attack
 	filter_tag: "twuk"

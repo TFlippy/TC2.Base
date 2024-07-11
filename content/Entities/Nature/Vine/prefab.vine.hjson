@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 1100.000
+	max: 1400.000
 }
 
 foliage.renderer:

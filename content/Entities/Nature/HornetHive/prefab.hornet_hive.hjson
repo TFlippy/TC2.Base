@@ -160,7 +160,7 @@ claimer:
 			repopulate_interval_extra: 15.000
 
 			repopulate_num: 1
-			repopulate_num_extra: 1
+			repopulate_num_extra: 2
 
 			character_flags_filter: 
 			{
