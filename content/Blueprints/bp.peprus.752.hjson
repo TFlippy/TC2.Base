@@ -1,0 +1,115 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Peprus 752-A"
+	description:
+		'''
+		Experimental rapid-fire grenade launcher developed by Houfmistr.
+		'''
+	
+	flags: none
+	company: "houfmistr"
+	
+	prefab: auto_shotgun
+	recipe: gunsmith.auto_shotgun
+	seed: 597236819634
+	
+	augments:
+	[
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 1040187392
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.extra_barrel"
+			flags: none
+			modifier: 0.000
+			data: 1
+		}
+		{
+			identifier: "gun.improved_ammo_loading"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.rapid_fire_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.recoil_compensator"
+			flags: none
+			modifier: 0.333333
+			data: 0
+		}
+		{
+			identifier: "gun.automatic"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.burst"
+			flags: none
+			modifier: 0.115385
+			data: 1
+		}
+		{
+			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.533333
+			data: 9223372037913837568
+		}
+		{
+			identifier: "body.casing.smirglum.large"
+			flags: none
+			modifier: 0.600
+			data: 2147483648
+		}
+		{
+			identifier: "holdable.attachable"
+			flags: none
+			modifier: 0.000
+			data: 1048576000
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.533333
+			data: 1067450368
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
+			data: 1084227584
+		}
+	]
+}
