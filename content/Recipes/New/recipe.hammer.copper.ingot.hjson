@@ -43,7 +43,7 @@
 		{
 			type: work
 			work: hammering
-			amount: 440.000
+			amount: 180.000
 			difficulty: 11
 		}
 	]

@@ -25,14 +25,14 @@ body:
 		elasticity: 0.400
 		radius: 0.500
 		material: wreck
-		layer: entity, solid, decoration
+		layer: entity, solid, harvestable
 		mask: world
 	}
 }
 
 health:
 {
-	max: 12000.000
+	max: 24000.000
 }
 
 animated.renderer:

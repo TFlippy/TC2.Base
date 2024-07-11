@@ -60,7 +60,7 @@ storage:
 	@inventory8:
 	{
 		type: storage
-		flags: standalone, ignore_mass, no_auto_pickup, faction
+		flags: standalone, ignore_mass, no_auto_pickup, faction, public
 		stack_size_multiplier: 4.000
 		
 		filter:

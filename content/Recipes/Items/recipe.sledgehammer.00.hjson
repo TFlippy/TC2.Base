@@ -22,8 +22,8 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 5.000
+			material: timber
+			amount: 1.000
 		}
 		{
 			type: resource
@@ -38,14 +38,14 @@
 		{
 			type: work
 			work: woodworking
-			amount: 50.000
+			amount: 350.000
 			difficulty: 5
 		}
 		{
 			type: work
 			work: smithing
-			amount: 150.000
-			difficulty: 5
+			amount: 420.000
+			difficulty: 7
 		}
 	]
 	
