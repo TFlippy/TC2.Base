@@ -12,6 +12,7 @@ projectile:
 	damp: 0.980
 	ricochet_count: 0
 	tracer_length: 1.750
+	flags: no_miss
 }
 
 projectile.renderer:

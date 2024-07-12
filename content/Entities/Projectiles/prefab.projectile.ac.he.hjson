@@ -11,6 +11,7 @@ projectile:
 	damp: 0.990
 	tracer_length: 1.700
 	mass: 0.300
+	flags: no_miss
 }
 
 projectile.renderer:

@@ -9,6 +9,7 @@ projectile:
 	damage_type: bullet_musket
 	size: 0.050
 	ricochet_count: 0
+	flags: no_miss
 }
 
 transform:

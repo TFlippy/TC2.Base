@@ -10,6 +10,7 @@ projectile:
 	size: 0.250
 	ricochet_count: 0
 	damp: 0.988
+	flags: no_miss
 }
 
 transform:

@@ -5,6 +5,7 @@ projectile:
 	damage_base: 350.000
 	damage_bonus: 100.000
 	damage_type: bullet_ac
+	flags: no_miss
 
 	lifetime: 20.000
 	ignore_time: 0.040

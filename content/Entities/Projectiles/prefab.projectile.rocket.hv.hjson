@@ -13,6 +13,7 @@ projectile:
 	speed_modifier_max: 1.100
 	damp: 0.967
 	stabilization: 0.950
+	flags: no_miss
 }
 
 transform:

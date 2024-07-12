@@ -15,6 +15,7 @@ projectile:
 	tracer_length: 8.000
 	mass: 0.370
 	knockback_multiplier: 20.000
+	flags: no_miss
 }
 
 projectile.renderer:
