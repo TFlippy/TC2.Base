@@ -1,0 +1,56 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Smirgrafit (Mossy)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: cermet
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 258000.000
+	
+	smoothing: 0.150
+	mass: 9.420
+	friction: 0.450
+	elasticity: 0.630
+	stability: 11.000
+	strength_tensile: 25.000
+	strength_compressive: 36.000
+	collision_layer: none
+	collision_mask: essence
+	
+	texture: terrain.framework.smirgrafit.fused.moss
+	pattern: pattern.framework
+	
+	texture_scale: 1.000
+	texture_overshoot: -0.250
+	texture_offset: -1.250
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: scrap.heavy
+			quantity: 0.050
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff777c5f"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xff383c2c"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
+}

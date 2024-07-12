@@ -86,7 +86,7 @@ lamp:
 	@light:
 	{
 		color: [1.000, 0.400, 0.000, 2.500]
-		offset: [1.000, -1.500]
+		offset: [0.875, -1.500]
 		scale: [22.000, 22.000]
 		intensity: 1.000
 		texture: "light.circle.00"
