@@ -19,7 +19,7 @@
 		size: [16, 16]
 	}
 	
-	type: components
+	type: ammo
 	// Flags defining properties of the raw material.
 	flags: ammo, ammo_lc, magnetic, granular, small, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
@@ -47,6 +47,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.800
+		speed_jitter: 0.020
 		spin_base: 0.000
 		spin_mult: 1.000
 		spread_mult: 1.050

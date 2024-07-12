@@ -2,16 +2,18 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 12.000
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.850
+		elasticity: 0.100
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
-		material: metal
+		material: ammo
 	}
 }
 

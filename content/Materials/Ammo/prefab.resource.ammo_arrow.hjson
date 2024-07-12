@@ -4,14 +4,13 @@ body:
 {
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
 		mass: 0.500
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
-		material: wood
+		material: bramble
 	}
 }
 

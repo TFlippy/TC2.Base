@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.6"
+	$version: "0.1.60.7"
 	name: "MG-20.4mm Ammo"
 	description:
 		'''
@@ -8,27 +8,35 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_mg"
+		texture: resource.ammo_mg
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
 	
-	type: metal
+	type: ammo
 	// Flags defining properties of the raw material.
 	flags: ammo, ammo_mg, magnetic, granular, small, manufactured, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.120
 	quantity_max: 50.000
-	prefab: "resource.ammo_mg"
+	prefab: resource.ammo_mg
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	ammo:
 	{
@@ -39,6 +47,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 1.000
+		speed_jitter: 0.020
 		spin_base: 0.000
 		spin_mult: 1.000
 		spread_mult: 1.150
@@ -50,14 +59,17 @@
 		stability_base: 1750.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.mg"
+		prefab: projectile.mg
 		
 		sprite_casing:
 		{
-			texture: "atlas.ammo.casings.00"
+			texture: atlas.ammo.casings.00
 			size: [8, 8]
 			frame: [3, 0]
 		}
 		casing_scale: 1.100
 	}
+	
+	// Component materials.
+	composition: []
 }
