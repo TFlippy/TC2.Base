@@ -60,11 +60,13 @@ namespace TC2.Base.Components
 						var amount_rem = amount;
 
 						var conv_ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra).Clamp01();
+						var waste_ratio = random.NextFloatExtra(conv.ratio_waste, conv.ratio_waste_extra).Clamp01();
+
 						var yield = Maths.Clamp01(conv.yield);
 
 						App.WriteLine($"amount: {amount}; conv_ratio: {conv_ratio}");
 						var amount_converted = amount_rem.Split(conv_ratio);
-						var amount_wasted = amount_rem.Split(1.00f - yield);
+						var amount_wasted = amount_rem.Split(waste_ratio);
 						amount_rem *= data.yield;
 
 						//amount_taken.Split(data.yield * conv.yield, out var amount_wasted, out var amount_converted);
@@ -110,6 +112,11 @@ namespace TC2.Base.Components
 							ent_owner: ent_owner,
 							angular_velocity: body.GetAngularVelocity(),
 							velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+						}
+
+						if (conv.h_sound.id != 0)
+						{
+							Sound.Play(ref region, conv.h_sound, data.world_position, volume: conv.sound_volume, pitch: conv.sound_pitch);
 						}
 
 						//var amount_taken = amount - amount_rem;

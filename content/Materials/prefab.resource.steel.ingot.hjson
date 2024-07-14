@@ -25,6 +25,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	z: -73.000
 }
 
 transform:
@@ -45,4 +46,22 @@ holdable:
 norotate:
 {
 
+}
+
+health:
+{
+	max: 110000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
 }

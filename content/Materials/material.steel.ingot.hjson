@@ -96,30 +96,77 @@
 		bullet_ac:
 		{
 			h_material: scrap.steel
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
+			spawn_flags_waste: none
 			
 			ratio: 0.310
 			ratio_extra: 0.670
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
 			yield: 0.760
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
 			chance: 0.850
 		}
 		pickaxe:
 		{
 			h_material: scrap.steel
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge, pickup
+			spawn_flags_waste: none
 			
 			ratio: 0.120
 			ratio_extra: 0.500
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
 			yield: 0.945
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
 			chance: 0.540
+		}
+		sledgehammer:
+		{
+			h_material: steel.plate
+			h_material_waste: scrap.steel
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.050
+			ratio_extra: 0.920
+			
+			ratio_waste: 0.850
+			ratio_waste_extra: 0.110
+			
+			yield: 0.825
+			yield_extra: 0.160
+			
+			h_sound: metal.snap.medium.02
+			sound_volume: 0.390
+			sound_pitch: 0.900
+			
+			chance: 0.450
 		}
 	}
 	

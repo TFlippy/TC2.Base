@@ -288,7 +288,7 @@ namespace TC2.Base.Components
 						Material.Type.Gas => false,
 						Material.Type.Machine => true,
 						Material.Type.Coin => false,
-						Material.Type.Coal => false,
+						Material.Type.Coal => true,
 						Material.Type.Cermet => true,
 						Material.Type.Sand => false,
 						Material.Type.Resin => false,

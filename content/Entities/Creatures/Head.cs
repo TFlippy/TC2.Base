@@ -77,9 +77,7 @@ namespace TC2.Base.Components
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Any)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state)
 		{
-			//App.WriteLine("head");
-
-			var air_current_norm = head_state.air_current_norm; // Maths.Normalize01(head_state.air_current, head.air_capacity);
+			var air_current_norm = head_state.air_current_norm;
 			var color = Color32BGRA.FromHSV(air_current_norm.Pow2() * 2.00f, 1.00f, 1.00f);
 
 			IStatusEffect.ScheduleDraw(new()
@@ -98,11 +96,7 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
 			var time = info.WorldTime;
-
-			//head_state.air_current.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
 			head_state.air_stored.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
-
-
 			if (time >= head_state.t_next_air_check)
 			{
 				head_state.t_next_air_check = time + 0.50f;
@@ -120,7 +114,6 @@ namespace TC2.Base.Components
 #endif
 
 							is_underwater = arbiter.ContainsPointAABB(transform.LocalToWorld(head.offset_mouth) - new Vector2(0.00f, 0.50f));
-
 							break;
 						}
 					}
@@ -132,39 +125,15 @@ namespace TC2.Base.Components
 			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, head_state.flags.HasAny(Head.State.Flags.Is_Underwater));
 			if (time >= head_state.t_next_breath && head_state.flags.HasNone(Head.State.Flags.Is_Holding_Breath))
 			{
+				if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
+
 				head_state.t_next_breath = time + head.breath_interval;
-				head_state.air_stored += 0.10f; // Maths.Min(head.air_capacity, ;
+				head_state.air_stored += 0.10f;
 				head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
 			}
 
-			//head_state.air_current = Maths.Avg(head_state.air_current, head_state.air_stored);
-			//var air_current_norm = Maths.Normalize01(head_state.air_current, head.air_capacity);
-
-
 			head_state.air_current_norm = Maths.Avg(head_state.air_current_norm, Maths.Normalize01Fast(head_state.air_stored, head.air_capacity));
-
-			//if (head_state.air_current < head.air_capacity)
-			//if (head_state.air_current < head.air_capacity)
-			{
-				organic_override.consciousness *= head_state.air_current_norm; // Maths.Normalize01(head_state.air_current, head.air_capacity);
-				//App.WriteLine("h");
-			}
-
-			//if (head_state.air_prev > 0.001f)
-			//{
-			//	var air_req = (head.air_capacity - head_state.air_current) * info.DeltaTime;
-			//	var air_add = Maths.Clamp(air_req, 0.00f, head_state.air_prev);
-
-			//	head_state.air_current += air_add; // .AddTowards(head.air_capacity, head_state.air_prev.MultSub(0.01f));
-			//									   //head_state.air_current = Maths.Avg(head_state.air_current, head_state.air_prev); // .AddTowards(head.air_capacity, head_state.air_prev.MultSub(0.01f));
-			//	head_state.air_prev -= air_add;
-			//}
-
-
-
-			//head_state.flags.SetFlag(Head.State.Flags.Is_Suffocating, head_state.air_current)
-
-			//App.WriteLine("inhale");
+			organic_override.consciousness *= head_state.air_current_norm;
 		}
 
 		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]

@@ -1,16 +1,10 @@
 ﻿{
+	$version: "0.1.60.7"
 	name: "Scrap"
 	desc:
 		'''
 		Assorted garbage.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-		size: [0, 0]
-		frame: [0, 0]
-	}
 	
 	material_type: scrap
 	tile_flags: non_empty
@@ -28,19 +22,22 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.scrap.00"
-	pattern: "pattern.scrap"
+	texture: terrain.scrap.00
+	pattern: pattern.scrap
 	
 	texture_scale: 1.632
 	texture_overshoot: -0.750
+	texture_offset: 0.000
 	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "scrap.mixed"
-			quantity: 2.310
+			material: scrap.mixed
+			quantity: 0.310
 		}
+		null
 	]
 	
 	mappings:

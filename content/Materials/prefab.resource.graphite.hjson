@@ -45,6 +45,24 @@ norotate:
 
 }
 
+health:
+{
+	max: 5000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
+}
+
 despawn:
 {
 	sleep_count_max: 11

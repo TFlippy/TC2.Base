@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Copper Ingot"
 	description:
 		'''
@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.copper.ingot"
+		texture: resource.copper.ingot
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: metal_solid
@@ -23,11 +18,19 @@
 	flags: hard, metal, intermediate, small, ingot, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 4.600
 	quantity_max: 64.000
-	prefab: "resource.copper.ingot"
+	prefab: resource.copper.ingot
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -84,4 +87,37 @@
 		// K
 		boiling_point: 2835.000
 	}
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: copper.plate
+			h_material_waste: scrap.copper
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.290
+			ratio_extra: 0.760
+			
+			ratio_waste: 0.750
+			ratio_waste_extra: 0.210
+			
+			yield: 0.895
+			yield_extra: 0.100
+			
+			h_sound: metal.hit.sharp.04
+			sound_volume: 0.670
+			sound_pitch: 1.190
+			
+			chance: 0.604
+		}
+	}
+	
+	// Component materials.
+	composition: []
 }

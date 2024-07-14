@@ -448,12 +448,7 @@ commandable:
 		head:
 		{
 			voice_pitch: 1.300
-
-			sound_pain: "human.pain.00"
-			sound_death: "human.death.00"
-
-			offset_mouth: [0.450, 0.400]
-
+			offset_mouth: [0.250, 0.450]
 			frame_pain: 1
 			frame_dead: 2
 		}

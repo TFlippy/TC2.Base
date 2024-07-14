@@ -434,8 +434,8 @@ commandable:
 		{
 			voice_pitch: 1.700
 
-			sound_pain: "human.pain.00"
-			sound_death: "human.death.00"
+			air_capacity: 0.500
+			air_usage: 0.065
 
 			offset_mouth: [0.300, 0.250]
 
