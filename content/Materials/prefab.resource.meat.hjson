@@ -48,8 +48,10 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 8
-	interval: 30.000
+	sleep_count_max: 23
+	interval: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
 }
 
 // health:

@@ -44,3 +44,11 @@ norotate:
 {
 
 }
+
+despawn:
+{
+	sleep_count_max: 42
+	interval: 7.000
+	threshold_delete: 0.030
+	threshold_despawning: 1.000
+}

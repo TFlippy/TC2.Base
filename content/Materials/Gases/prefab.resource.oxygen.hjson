@@ -81,6 +81,6 @@ despawn:
 	sleep_count: 0
 	sleep_count_max: 0
 	interval: 2.500
-	ratio_delete: 0.010
-	ratio_despawning: 1.500
+	threshold_delete: 0.010
+	threshold_despawning: 1.500
 }

@@ -48,3 +48,11 @@ sludge:
 {
 
 }
+
+despawn:
+{
+	sleep_count_max: 113
+	interval: 25.000
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
+}
