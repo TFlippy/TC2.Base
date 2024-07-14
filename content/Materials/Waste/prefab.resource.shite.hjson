@@ -47,7 +47,10 @@ norotate:
 
 despawn:
 {
-	ratio_despawning: 1.000
+	sleep_count_max: 17
+	interval: 20.000
+	ratio_delete: 0.010
+	ratio_despawning: 0.250
 }
 
 rotting:

@@ -47,5 +47,8 @@ norotate:
 
 despawn:
 {
-
+	sleep_count_max: 7
+	interval: 12.000
+	ratio_delete: 0.050
+	ratio_despawning: 1.000
 }

@@ -44,3 +44,11 @@ norotate:
 {
 
 }
+
+despawn:
+{
+	sleep_count_max: 11
+	interval: 15.000
+	ratio_delete: 0.010
+	ratio_despawning: 0.100
+}

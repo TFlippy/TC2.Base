@@ -50,5 +50,5 @@ despawn:
 	sleep_count_max: 11
 	interval: 15.000
 	ratio_delete: 0.010
-	ratio_despawning: 1.250
+	ratio_despawning: 1.000
 }
