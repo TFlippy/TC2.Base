@@ -7,9 +7,9 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
-		material: powder
+		friction: 0.950
+		elasticity: 0.090
+		material: wood_powder
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
