@@ -22,7 +22,9 @@ animated.renderer:
 		texture: "resource.brezolyt"
 		count: 4
 		size: [16, 16]
+		frame: [3, 0]
 	}
+	z: -80.000
 }
 
 transform:

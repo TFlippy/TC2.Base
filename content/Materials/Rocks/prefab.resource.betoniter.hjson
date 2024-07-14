@@ -21,10 +21,12 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.betoniter"
+		texture: resource.betoniter
 		count: 4
 		size: [16, 16]
+		frame: [3, 0]
 	}
+	z: -80.000
 }
 
 transform:
@@ -47,6 +49,24 @@ holdable:
 norotate:
 {
 
+}
+
+health:
+{
+	max: 10000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
 }
 
 // despawn:

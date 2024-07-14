@@ -1,0 +1,56 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, -0.250]
+		b: [0.000, 0.250]
+		mass: 3.000
+		radius: 0.675
+		friction: 0.650
+		elasticity: 0.600
+		material: device
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.canister.piston"
+		count: 4
+		size: [16, 16]
+	}
+	scale: [0.950, 0.950]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "canister.piston"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.000
+	multiplier: 2.000
+	mass_multiplier: 4.000
+}
+
+health:
+{
+	max: 9000.000
+}

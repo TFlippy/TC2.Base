@@ -36,7 +36,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, 
 		[Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Of<Physics.Data>, Optional] in Net.Synchronized synchronized)
+		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
 			var kb = control.keyboard;
 			var has_authority = synchronized.HasAuthority();

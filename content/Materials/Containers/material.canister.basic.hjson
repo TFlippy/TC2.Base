@@ -1,0 +1,22 @@
+﻿{
+	name: "B-Canister (Empty)"
+	description:
+		'''
+		Empty fluid canister.
+		'''
+	
+	icon:
+	{
+		texture: "resource.canister.basic"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+
+	type: device
+	flags: none
+	hints: none
+	// kg
+	mass_per_unit: 0.100
+	quantity_max: 500.000
+	prefab: "resource.canister.basic"
+}

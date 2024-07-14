@@ -156,12 +156,12 @@
 								var heal_integrity_max = Maths.Clamp(1.00f - medkit.heal_min_integrity, 0.00f, 1.00f);
 								if (heal_integrity_max > Maths.epsilon && (1.00f - health.integrity) <= heal_integrity_max)
 								{
-									var heal_normalized = Maths.Normalize(power * 0.25f, health.max);
+									var heal_normalized = Maths.Normalize(power * 0.25f, health.GetMaxHealth());
 									heal_normalized += heal_normalized * medkit.critical_heal * (1.00f - health.integrity);
 
 									var heal_amount = Maths.Min(Maths.Clamp(1.00f - health.integrity, 0.00f, heal_integrity_max), heal_normalized);
 									health.integrity += heal_amount;
-									total_healed_amount += heal_amount * health.max;
+									total_healed_amount += heal_amount * health.GetMaxHealth();
 
 									healed_amount_max = Maths.Max(healed_amount_max, heal_amount);
 								}
@@ -174,7 +174,7 @@
 
 									var heal_amount = Maths.Min(Maths.Clamp(1.00f - health.durability, 0.00f, heal_durability_max), heal_normalized);
 									health.durability += heal_amount;
-									total_healed_amount += heal_amount * health.max;
+									total_healed_amount += heal_amount * health.GetMaxHealth();
 
 									healed_amount_max = Maths.Max(healed_amount_max, heal_amount);
 								}
