@@ -44,3 +44,9 @@ norotate:
 {
 
 }
+
+despawn:
+{
+	ratio_delete: 0.050
+	ratio_despawning: 0.850
+}

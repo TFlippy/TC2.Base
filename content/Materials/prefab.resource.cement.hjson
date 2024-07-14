@@ -47,5 +47,6 @@ norotate:
 
 despawn:
 {
-
+	ratio_delete: 0.010
+	ratio_despawning: 0.060
 }

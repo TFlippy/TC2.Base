@@ -16,17 +16,15 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
 		public struct Data: IComponent
 		{
-			[Save.Force] public IMaterial.Handle h_material;
+			public IMaterial.Handle h_material;
+			public Breakable.Flags flags;
 
-			[Save.NewLine]
-			[Save.Force] public Breakable.Flags flags;
-			[Save.Force] public IMaterial.Conversion.Type conversion_type;
-			[Save.Force] public IMaterial.Conversion.Flags conversion_flags;
-			[Save.Force] public Resource.SpawnFlags spawn_flags;
+			public IMaterial.Conversion.Type conversion_type;
+			public IMaterial.Conversion.Flags conversion_flags;
+			public Resource.SpawnFlags spawn_flags;
+			public Material.Type material_type;
 
-			[Save.NewLine]
-			[Save.Force] public Material.Type material_type;
-			[Save.Force] public Material.Flags material_flags;
+			public Material.Flags material_flags;
 
 			public Data()
 			{
@@ -41,11 +39,11 @@ namespace TC2.Base.Components
 			if (data.flags.HasAny(Damage.Flags.No_Loot_Drop | Damage.Flags.No_Damage)) return;
 
 #if SERVER
-			var yield = data.yield;
-			if (yield >= 0.01f)
+			//var yield = data.yield;
+			//if (yield >= 0.01f)
 			{
 				var damage = data.damage_integrity;
-				var amount_multiplier = damage * Maths.Clamp01(health.GetMaxHealthInv()) * yield;
+				var amount_multiplier = damage * health.GetMaxHealth().RcpFast01();
 
 				var ent_attacker = data.ent_attacker;
 				var ent_owner = data.ent_owner;
@@ -53,40 +51,77 @@ namespace TC2.Base.Components
 				var spawn_flags = breakable.spawn_flags;
 
 				ref var material = ref resource.material.GetData();
-				if (material.IsNotNull())
+				if (material.IsNotNull() && material.conversions != null && material.conversions.TryGetValue(data.damage_type, out var conv) && random.NextBool(conv.chance))
 				{
-					var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
-					if (amount >= 1.00f)
+					ref var material_conv = ref conv.h_material.GetData();
+					if (material_conv.IsNotNull())
 					{
-						if (material.conversions != null && material.conversions.TryGetValue(data.damage_type, out var conv))
+						var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
+						var amount_rem = amount;
+
+						var conv_ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra).Clamp01();
+						var yield = Maths.Clamp01(conv.yield);
+
+						App.WriteLine($"amount: {amount}; conv_ratio: {conv_ratio}");
+						var amount_converted = amount_rem.Split(conv_ratio);
+						var amount_wasted = amount_rem.Split(1.00f - yield);
+						amount_rem *= data.yield;
+
+						//amount_taken.Split(data.yield * conv.yield, out var amount_wasted, out var amount_converted);
+
+
+						var amount_taken = amount - amount_rem;
+						App.WriteLine($"taken: {amount_taken}; wasted: {amount_wasted}; converted: {amount_converted}; rem: {amount_rem}; yield: {yield}");
+
+						//var amount_wasted = amount_rem.MultDiff(conv.yield);
+						//App.WriteLine($"amount_wasted: {amount_wasted}; {amount_rem}");
+
+						//amount_taken -= amount_converted;
+						//amount_taken *= conv.yield;
+
+						//resource.quantity -= amount_converted;
+						//var amount_converted_corrected = amount_converted * (material.mass_per_unit / material_conv.mass_per_unit);
+
 						{
-							if (random.NextBool(conv.chance))
-							{
-								ref var material_conv = ref conv.h_material.GetData();
-								if (material_conv.IsNotNull())
-								{
-									var conv_ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra);
-									var amount_converted = amount *= conv_ratio;
-
-									amount -= amount_converted;
-									amount *= conv.yield;
-
-									resource.quantity -= amount_converted;
-									var amount_converted_corrected = amount_converted * (material.mass_per_unit / material_conv.mass_per_unit);
-
-									var spawn_flags_conv = spawn_flags | conv.spawn_flags;
-									Resource.Spawn(ref region, conv.h_material, data.world_position, amount_converted_corrected, 4.00f, flags: spawn_flags_conv, ent_target: ent_attacker, ent_owner: ent_owner,
-									angular_velocity: body.GetAngularVelocity(), velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 3));
-
-									resource.Modified(entity, true);
-								}
-							}
+							var spawn_flags_conv = spawn_flags | conv.spawn_flags;
+							Resource.Spawn(region: ref region,
+							material: conv.h_material,
+							world_position: data.world_position,
+							amount: Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
+							max_distance: 4.00f,
+							flags: spawn_flags_conv,
+							ent_target: ent_attacker,
+							ent_owner: ent_owner,
+							angular_velocity: body.GetAngularVelocity(),
+							velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 4));
 						}
+
+						ref var material_waste = ref conv.h_material_waste.GetData();
+						if (material_waste.IsNotNull())
+						{
+							var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
+							Resource.Spawn(region: ref region,
+							material: conv.h_material_waste,
+							world_position: data.world_position,
+							amount: Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
+							max_distance: 4.00f,
+							flags: spawn_flags_conv,
+							ent_target: ent_attacker,
+							ent_owner: ent_owner,
+							angular_velocity: body.GetAngularVelocity(),
+							velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+						}
+
+						//var amount_taken = amount - amount_rem;
+						resource.quantity -= amount_taken;
+
+						resource.Modified(entity, true);
 					}
 				}
 			}
 #endif
 
+			data.knockback *= 0.10f;
 			data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 		}
 	}

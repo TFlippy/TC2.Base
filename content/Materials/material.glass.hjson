@@ -1,18 +1,12 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Glass"
-	description: ""
 	
 	icon:
 	{
-		texture: "resource.glass"
+		texture: resource.glass
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: glass
@@ -20,11 +14,19 @@
 	flags: hard, intermediate, fragile, manufactured, plate, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.700
 	quantity_max: 100.000
-	prefab: "resource.glass"
+	prefab: resource.glass
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -64,4 +66,28 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: glass.powder
+			h_material_waste: "null"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.060
+			ratio_extra: 0.490
+			yield: 0.710
+			
+			chance: 1.000
+		}
+	}
+	
+	// Component materials.
+	composition: []
 }

@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.gravel"
+		texture: resource.gravel
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: gravel
@@ -23,9 +18,20 @@
 	flags: granular, raw, gravel, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.910
 	quantity_max: 500.000
-	prefab: "resource.gravel"
+	prefab: resource.gravel
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
+	
+	// Component materials.
+	composition: []
 }

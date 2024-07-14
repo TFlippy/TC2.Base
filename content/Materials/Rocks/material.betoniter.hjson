@@ -38,10 +38,12 @@
 		sledgehammer:
 		{
 			h_material: cement
+			h_material_waste: gravel
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
+			spawn_flags_waste: merge
 			
 			ratio: 0.070
 			ratio_extra: 0.600
