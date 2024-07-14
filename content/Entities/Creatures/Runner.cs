@@ -79,6 +79,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_climb;
 			[Save.Ignore, Net.Ignore] public float last_air;
 			[Save.Ignore, Net.Ignore] public float last_move;
+			[Save.Ignore, Net.Ignore] public float last_swim;
 
 			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
 			[Save.Ignore, Net.Ignore] public Vector2 last_force;
@@ -182,7 +183,7 @@ namespace TC2.Base.Components
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
 			//var modifier = 1.00f - (info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
+			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_swim, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
 				modifier *= 0.00f;
@@ -191,8 +192,19 @@ namespace TC2.Base.Components
 
 			//no_rotate_parent.speed = Maths.Lerp(no_rotate_parent.speed, no_rotate_parent.speed * modifier, runner.propagate_ratio);
 
-			no_rotate_parent.multiplier = Maths.Lerp(no_rotate_parent.multiplier, no_rotate_parent.multiplier * modifier, runner.propagate_ratio);
-			no_rotate_parent.mass_multiplier = Maths.Lerp(no_rotate_parent.mass_multiplier, no_rotate_parent.mass_multiplier * modifier, runner.propagate_ratio);
+			if (runner_state.flags.HasAny(Runner.State.Flags.Swimming))
+			{
+				no_rotate_parent.multiplier *= modifier;
+				no_rotate_parent.mass_multiplier *= modifier;
+
+				no_rotate_parent.rotation = 0.00f;
+				no_rotate_parent.flags.AddFlag(NoRotate.Flags.No_Share);
+			}
+			else
+			{
+				no_rotate_parent.multiplier = Maths.Lerp(no_rotate_parent.multiplier, no_rotate_parent.multiplier * modifier, runner.propagate_ratio);
+				no_rotate_parent.mass_multiplier = Maths.Lerp(no_rotate_parent.mass_multiplier, no_rotate_parent.mass_multiplier * modifier, runner.propagate_ratio);
+			}
 		}
 
 		//		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -293,6 +305,11 @@ namespace TC2.Base.Components
 			var is_grounded = false;
 			var is_on_vehicle = false;
 
+			if (is_swimming)
+			{
+				runner_state.last_swim = time;
+			}
+
 			if (arbiter_count > 0) // && !layers.HasAll(Physics.Layer.Bounds))
 			{
 				//is_grounded = MathF.Abs(normal.X) < 0.35f;
@@ -360,9 +377,11 @@ namespace TC2.Base.Components
 			else
 			{
 				runner_state.flags.RemoveFlag(Runner.State.Flags.Grounded);
-				runner_state.last_air = time;
-
-				if (runner.flags.HasAny(Runner.Data.Flags.Jump_Relative)) jump_dir = transform.Up;
+				if (!is_swimming)
+				{
+					runner_state.last_air = time;
+					if (runner.flags.HasAny(Runner.Data.Flags.Jump_Relative)) jump_dir = transform.Up;
+				}
 			}
 
 			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
@@ -403,7 +422,7 @@ namespace TC2.Base.Components
 			//max_speed *= runner_state.speed_modifier;
 			//force *= runner_state.force_modifier;
 
-			runner_state.air_time = time - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump));
+			runner_state.air_time = time - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump, runner_state.last_swim);
 			runner_state.air_modifier_current = Maths.Lerp(runner_state.air_modifier_current, 1.00f - Maths.Clamp(runner_state.air_time - 0.75f, 0.00f, 1.00f), 0.10f);
 			if (!is_swimming) force *= runner_state.air_modifier_current;
 
@@ -413,7 +432,7 @@ namespace TC2.Base.Components
 
 			force = Physics.LimitForce(ref body, force, max_speed);
 
-			runner_state.flags.SetFlag(State.Flags.Falling, velocity.Y > 0.10f && runner_state.air_time > 0.040f);
+			runner_state.flags.SetFlag(State.Flags.Falling, !is_swimming && velocity.Y > 0.10f && runner_state.air_time > 0.040f);
 			runner_state.flags.SetFlag(State.Flags.Jumping, runner_state.jump_force_current > 1.00f);
 			runner_state.flags.SetFlag(State.Flags.Swimming, is_swimming);
 

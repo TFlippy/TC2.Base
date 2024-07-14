@@ -2,6 +2,9 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 0.280
+	buoyancy: 0.650
+
 	@shape.line:
 	{
 		a: [0.000, -0.250]
@@ -25,6 +28,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	scale: [0.950, 0.950]
+	z: -70.000
 }
 
 transform:
@@ -45,12 +49,12 @@ holdable:
 norotate:
 {
 	bias: 0.000
-	speed: 3.000
+	speed: 3.500
 	multiplier: 2.000
-	mass_multiplier: 4.000
+	mass_multiplier: 3.000
 }
 
 health:
 {
-	max: 9000.000
+	max: 2500.000
 }

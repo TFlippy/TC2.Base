@@ -14,29 +14,157 @@ namespace TC2.Base.Components
 
 	public static partial class Head
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Head.State>()]
 		public partial struct Data: IComponent
 		{
-			public float voice_pitch = 1.00f;
-			[Asset.Ignore, Save.Ignore] public float concussion;
+			[Flags]
+			public enum Flags: ushort
+			{
+				None = 0,
 
-			public Sound.Handle sound_death;
-			public Sound.Handle sound_hit;
-			public Sound.Handle sound_pain;
-			public Sound.Handle sound_attack;
+
+			}
+
+			public float voice_pitch = 1.00f;
+			public float air_capacity = 0.500f;
+			public float air_usage = 0.100f;
+			public float breath_interval = 0.800f;
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 offset_mouth;
 
+			public Head.Data.Flags flags;
 			public byte frame_pain;
 			public byte frame_dead;
-
-			[Save.Ignore, Net.Ignore] public float next_sound;
 
 			public Data()
 			{
 
 			}
+		}
+
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		public partial struct State: IComponent
+		{
+			[Flags]
+			public enum Flags: ushort
+			{
+				None = 0,
+
+				Is_Breathing = 1 << 0,
+				Is_Underwater = 1 << 1,
+				Is_Suffocating = 1 << 2,
+				Is_Holding_Breath = 1 << 3,
+			}
+
+			public Head.State.Flags flags;
+			[Asset.Ignore] public float concussion;
+			//[Save.Ignore, Asset.Ignore] public float air_current;
+			[Asset.Ignore] public float air_current_norm = 1.00f;
+			[Asset.Ignore] public float air_stored;
+			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_breath;
+			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_air_check;
+			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_sound;
+
+			public State()
+			{
+
+			}
+		}
+
+#if CLIENT
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Any)]
+		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state)
+		{
+			//App.WriteLine("head");
+
+			var air_current_norm = head_state.air_current_norm; // Maths.Normalize01(head_state.air_current, head.air_capacity);
+			var color = Color32BGRA.FromHSV(air_current_norm.Pow2() * 2.00f, 1.00f, 1.00f);
+
+			IStatusEffect.ScheduleDraw(new()
+			{
+				icon = "ui_icon_effect.alcohol",
+				value = $"Air\n{air_current_norm:P0}",
+				text_color = color,
+				name = $"Air\n{air_current_norm:P0}"
+			});
+		}
+#endif
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void OnUpdateAir(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
+		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
+		{
+			var time = info.WorldTime;
+
+			//head_state.air_current.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
+			head_state.air_stored.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
+
+
+			if (time >= head_state.t_next_air_check)
+			{
+				head_state.t_next_air_check = time + 0.50f;
+				var is_underwater = false;
+
+				if (body.HasArbiters())
+				{
+					foreach (var arbiter in body.GetArbiters())
+					{
+						var layer = arbiter.GetLayer();
+						if (layer.HasAny(Physics.Layer.Water))
+						{
+#if CLIENT
+							//region.DrawDebugRect(arbiter.GetAABB(), Color32BGRA.Green);
+#endif
+
+							is_underwater = arbiter.ContainsPointAABB(transform.LocalToWorld(head.offset_mouth) - new Vector2(0.00f, 0.50f));
+
+							break;
+						}
+					}
+				}
+
+				head_state.flags.SetFlag(Head.State.Flags.Is_Underwater, is_underwater);
+			}
+
+			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, head_state.flags.HasAny(Head.State.Flags.Is_Underwater));
+			if (time >= head_state.t_next_breath && head_state.flags.HasNone(Head.State.Flags.Is_Holding_Breath))
+			{
+				head_state.t_next_breath = time + head.breath_interval;
+				head_state.air_stored += 0.10f; // Maths.Min(head.air_capacity, ;
+				head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
+			}
+
+			//head_state.air_current = Maths.Avg(head_state.air_current, head_state.air_stored);
+			//var air_current_norm = Maths.Normalize01(head_state.air_current, head.air_capacity);
+
+
+			head_state.air_current_norm = Maths.Avg(head_state.air_current_norm, Maths.Normalize01Fast(head_state.air_stored, head.air_capacity));
+
+			//if (head_state.air_current < head.air_capacity)
+			//if (head_state.air_current < head.air_capacity)
+			{
+				organic_override.consciousness *= head_state.air_current_norm; // Maths.Normalize01(head_state.air_current, head.air_capacity);
+				//App.WriteLine("h");
+			}
+
+			//if (head_state.air_prev > 0.001f)
+			//{
+			//	var air_req = (head.air_capacity - head_state.air_current) * info.DeltaTime;
+			//	var air_add = Maths.Clamp(air_req, 0.00f, head_state.air_prev);
+
+			//	head_state.air_current += air_add; // .AddTowards(head.air_capacity, head_state.air_prev.MultSub(0.01f));
+			//									   //head_state.air_current = Maths.Avg(head_state.air_current, head_state.air_prev); // .AddTowards(head.air_capacity, head_state.air_prev.MultSub(0.01f));
+			//	head_state.air_prev -= air_add;
+			//}
+
+
+
+			//head_state.flags.SetFlag(Head.State.Flags.Is_Suffocating, head_state.air_current)
+
+			//App.WriteLine("inhale");
 		}
 
 		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -66,9 +194,9 @@ namespace TC2.Base.Components
 		{
 			renderer.sprite.frame.X = head.frame_dead;
 
-//#if SERVER
-//			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
-//#endif
+			//#if SERVER
+			//			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
+			//#endif
 		}
 
 #if SERVER
@@ -151,10 +279,10 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] in Organic.State organic_state)
+		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine(organic_state.stun_norm);
-			head.concussion = Maths.Max(Maths.MoveTowards(head.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
+			head_state.concussion = Maths.Max(Maths.MoveTowards(head_state.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
@@ -179,17 +307,17 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
 		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
-		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Of<Control.Data>, Optional(true)] ref Net.Synchronized sync)
+		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform, 
+		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Component<Control.Data>, Optional(true)] ref Net.Synchronized sync)
 		{
-			if (head.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
+			if (head_state.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
 			{
-				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8 * head.concussion.ClampX1();
+				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8 * head_state.concussion.ClampX1();
 
 				//region.DrawDebugCircle(control.mouse.position, 0.125f, Color32BGRA.Yellow, 4);
 
 
-				control.mouse.position = Vector2.Lerp(control.mouse.position, transform.position + offset, Maths.Clamp01(head.concussion * 1.50f));
+				control.mouse.position = Vector2.Lerp(control.mouse.position, transform.position + offset, Maths.Clamp01(head_state.concussion * 1.50f));
 				//control.mouse.position += offset * head.concussion;
 
 				//region.DrawDebugCircle(control.mouse.position, 0.25f, Color32BGRA.Red, 4);
@@ -246,9 +374,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
+		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state,
+		[Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
-			var modifier = Maths.Clamp01(head.concussion);
+			var modifier = Maths.Clamp01(head_state.concussion);
 
 			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.07f, modifier * modifier);
 

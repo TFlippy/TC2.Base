@@ -450,13 +450,9 @@ commandable:
 		
 		head:
 		{
-			voice_pitch: 1.000
-
-			sound_pain: "human.pain.00"
-			sound_death: "human.death.00"
-
+			air_capacity: 0.550
+			air_usage: 0.080
 			offset_mouth: [0.300, 0.350]
-
 			frame_pain: 1
 			frame_dead: 2
 		}

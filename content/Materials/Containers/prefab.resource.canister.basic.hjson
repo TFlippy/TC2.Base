@@ -2,13 +2,16 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 0.400
+	buoyancy: 0.750
+
 	@shape.line:
 	{
 		a: [0.000, -0.250]
 		b: [0.000, 0.250]
 		mass: 3.000
 		radius: 0.675
-		friction: 0.650
+		friction: 0.750
 		elasticity: 0.600
 		material: device
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
@@ -25,6 +28,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	scale: [0.950, 0.950]
+	z: -70.500
 }
 
 transform:
@@ -45,12 +49,12 @@ holdable:
 norotate:
 {
 	bias: 0.000
-	speed: 3.000
-	multiplier: 2.000
-	mass_multiplier: 4.000
+	speed: 3.500
+	multiplier: 2.500
+	mass_multiplier: 2.500
 }
 
 health:
 {
-	max: 4000.000
+	max: 1200.000
 }

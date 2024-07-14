@@ -30,6 +30,7 @@ namespace TC2.Base.Components
 		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Legs.Data legs)
 		{
+			//return;
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
 
 			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
@@ -42,6 +43,7 @@ namespace TC2.Base.Components
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
 		{
+			//return;
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
 			no_rotate_parent.multiplier = Maths.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
