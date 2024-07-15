@@ -127,7 +127,9 @@ namespace TC2.Base.Components
 						case Damage.Type.Pickaxe:
 						case Damage.Type.Explosion:
 						case Damage.Type.Fire:
+						case Damage.Type.Phlogiston:
 						case Damage.Type.Deflagration:
+						case Damage.Type.Sledgehammer:
 						case Damage.Type.Shockwave:
 						{
 							explosive.flags |= Explosive.Flags.Primed;

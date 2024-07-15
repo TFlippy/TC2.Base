@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.sulfur"
+		texture: resource.sulfur
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: powder
@@ -23,11 +18,19 @@
 	flags: granular, toxic, chemical, small, raw, powder, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.230
 	quantity_max: 500.000
-	prefab: "resource.sulfur"
+	prefab: resource.sulfur
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -67,4 +70,36 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+
+		// Conversions into other materials.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: sulfur_dioxide
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.050
+			ratio_extra: 0.415
+			
+			ratio_waste: 0.100
+			ratio_waste_extra: 0.400
+			
+			yield: 0.250
+			yield_extra: 0.750
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.310
+		}
+	}
+	
+	// Component materials.
+	composition: []
 }

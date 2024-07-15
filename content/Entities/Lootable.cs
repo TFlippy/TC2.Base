@@ -62,18 +62,18 @@ namespace TC2.Base.Components
 						var conv_ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra).Clamp01();
 						var waste_ratio = random.NextFloatExtra(conv.ratio_waste, conv.ratio_waste_extra).Clamp01();
 
-						var yield = Maths.Clamp01(conv.yield);
+						var yield = Maths.Clamp01(conv.yield * data.yield);
 
-						App.WriteLine($"amount: {amount}; conv_ratio: {conv_ratio}");
+						//App.WriteLine($"amount: {amount}; conv_ratio: {conv_ratio}");
 						var amount_converted = amount_rem.Split(conv_ratio);
 						var amount_wasted = amount_rem.Split(waste_ratio);
-						amount_rem *= data.yield;
+						amount_rem *= yield;
 
 						//amount_taken.Split(data.yield * conv.yield, out var amount_wasted, out var amount_converted);
 
 
 						var amount_taken = amount - amount_rem;
-						App.WriteLine($"taken: {amount_taken}; wasted: {amount_wasted}; converted: {amount_converted}; rem: {amount_rem}; yield: {yield}");
+						//App.WriteLine($"taken: {amount_taken}; wasted: {amount_wasted}; converted: {amount_converted}; rem: {amount_rem}; yield: {yield}");
 
 						//var amount_wasted = amount_rem.MultDiff(conv.yield);
 						//App.WriteLine($"amount_wasted: {amount_wasted}; {amount_rem}");
@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 
 						if (conv.h_sound.id != 0)
 						{
-							Sound.Play(ref region, conv.h_sound, data.world_position, volume: conv.sound_volume, pitch: conv.sound_pitch);
+							Sound.Play(ref region, conv.h_sound, data.world_position, volume: conv.sound_volume * random.NextFloatExtra(0.90f, 0.20f), pitch: conv.sound_pitch * random.NextFloatExtra(0.95f, 0.10f));
 						}
 
 						//var amount_taken = amount - amount_rem;
