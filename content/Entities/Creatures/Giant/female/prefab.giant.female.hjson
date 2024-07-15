@@ -8,8 +8,9 @@ $tags:
 
 body:
 {
+	buoyancy: 0.800
 	inventory_weight_multiplier: 0.100
-	fall_damage_multiplier: 0.300
+	fall_damage_multiplier: 0.250
 	
 	@shape.line:
 	{
@@ -134,9 +135,11 @@ storage:
 {
 	@inventory8:
 	{
-		stack_size_multiplier: 4.000
-		filter_flags: soft, malleable, long, granular, large, small
 		type: personal
+		flags: standalone, faction, vertical
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -182,10 +185,10 @@ ai.search:
 npc.emotions:
 {
 	hostility: 0.400
-	courage: 1.200
-	cruelty: 1.600
+	courage: 2.000
+	cruelty: 1.800
 	irritability: 0.500
-	apathy: 0.800
+	apathy: 1.600
 }
 
 npc.emotions.state:
@@ -241,7 +244,9 @@ facing:
 
 interactable:
 {
+	flags: none
 	window_size: [288.000, 244.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 norotate:
@@ -406,10 +411,10 @@ vehicle:
 		{
 			amount: 150.000
 			interval: 5.000
-			min_a: 0.400
+			min_a: 0.250
 			max_a: 1.000
 			multiplier_a: 0.500
-			min_b: 0.200
+			min_b: 0.150
 			max_b: 1.000
 			multiplier_b: 1.000
 		}
@@ -552,7 +557,7 @@ vehicle:
 		
 		body:
 		{
-			fall_damage_multiplier: 0.300
+			fall_damage_multiplier: 0.200
 			buoyancy: 0.200
 
 			@shape.line:
@@ -809,12 +814,10 @@ vehicle:
 
 	attachment.slot:
 	{
+		flags: use_center_of_gravity, keyboard_write, mouse_write
+		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
 		name: "Back"
 		identifier: "back"
-
-		flags: use_center_of_gravity, keyboard_write, mouse_write
-		flags_editable: locked, disabled
-
 		gui_size: [192.000, 160.000]
 	}
 }

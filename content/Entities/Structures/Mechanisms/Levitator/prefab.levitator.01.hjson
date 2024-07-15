@@ -90,12 +90,12 @@ attachment:
 	tags: large, propulsion, fixed
 }
 
-threat:
-{
-	priority: 3.500
-	self_hints: can_fly, has_armor, is_armored, is_vehicle, is_loud
-	item_hints: armor, tools, vehicle, heavy, explosive, advanced, powerful, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
-}
+// threat:
+// {
+// 	priority: 3.500
+// 	self_hints: can_fly, has_armor, is_armored, is_vehicle, is_loud
+// 	item_hints: armor, tools, vehicle, heavy, explosive, advanced, powerful, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
+// }
 
 essencecontainer:
 {

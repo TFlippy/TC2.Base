@@ -95,7 +95,7 @@ namespace TC2.Base.Components
 
 			walking:
 			{
-				renderer.sprite.fps = (byte)MathF.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
+				renderer.sprite.fps = MathF.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
 				renderer.sprite.frame.X = 1;
 				renderer.sprite.count = legs.frame_count;
 

@@ -130,7 +130,7 @@ storage:
 	@inventory8:
 	{
 		type: personal
-		flags: none
+		flags: standalone, faction, vertical
 		stack_size_multiplier: 1.000
 		
 		filter:

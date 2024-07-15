@@ -88,12 +88,12 @@ attachment:
 	tags: small, rotary, fixed, coaxial, propulsion
 }
 
-threat:
-{
-	priority: 2.000
-	self_hints: can_fly, has_armor, is_armored, is_vehicle, is_loud
-	item_hints: armor, tools, vehicle, explosive, advanced, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
-}
+// threat:
+// {
+// 	priority: 2.000
+// 	self_hints: can_fly, has_armor, is_armored, is_vehicle, is_loud
+// 	item_hints: armor, tools, vehicle, explosive, advanced, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
+// }
 
 aimable:
 {
