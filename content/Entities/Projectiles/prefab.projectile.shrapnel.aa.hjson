@@ -2,20 +2,23 @@ $tags: []
 
 projectile:
 {
-	damage_base: 250.000
-	damage_bonus: 500.000
-	lifetime: 0.300
-	ignore_time: 0.100
+	damage_base: 450.000
+	damage_bonus: 800.000
+	lifetime: 0.700
+	ignore_time: 0.050
 	damage_type: bullet_musket
-	size: 0.350
+	size: 0.950
 	ricochet_count: 0
-	damp: 0.98
-	tracer_length: 8.000
+	damp: 0.929
+	gravity: 0.450
+	tracer_length: 5.000
 }
 
 projectile.renderer:
 {
-	
+	intensity: 1.400
+	thickness_a: 0.550
+	thickness_b: 0.100
 }
 
 transform:
@@ -25,20 +28,22 @@ transform:
 
 explosive:
 {
-	damage_type: shrapnel
+	damage_type: deflagration
 	damage_type_secondary: shrapnel
 
-	radius: 8.000
-	power: 1.200
-	damage_entity: 3000.000
-	damage_terrain: 1000.000
-	smoke_amount: 0.700
-	smoke_lifetime_multiplier: 1.600
-	smoke_velocity_multiplier: 2.500
+	radius: 9.000
+	power: 1.500
+	damage_entity: 1500.000
+	damage_terrain: 500.000
+	smoke_amount: 1.100
+	smoke_lifetime_multiplier: 1.000
+	smoke_velocity_multiplier: 10.500
 	flash_duration_multiplier: 0.150
-	flash_intensity_multiplier: 0.300
-	sparks_amount: 1.900
+	flash_intensity_multiplier: 0.350
+	shake_multiplier: 0.100
+	force_multiplier: 0.100
+	sparks_amount: 0.500
 	volume: 0.500
-	pitch: 1.400
+	pitch: 0.600
 	flags: primed
 }

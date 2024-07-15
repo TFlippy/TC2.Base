@@ -56,7 +56,7 @@ explosive:
 	fire_amount: 1.000
 	flash_duration_multiplier: 0.100
 	flash_intensity_multiplier: 0.200
-	sparks_amount: 7.500
+	sparks_amount: 1.500
 	force_multiplier: 2.000
 	volume: 1.000
 	pitch: 1.000

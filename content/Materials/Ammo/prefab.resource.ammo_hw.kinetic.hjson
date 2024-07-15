@@ -66,7 +66,7 @@ explosive:
 	smoke_lifetime_multiplier: 0.900
 	flash_duration_multiplier: 0.300
 	flash_intensity_multiplier: 1.500
-	sparks_amount: 4.500
+	sparks_amount: 1.500
 	volume: 1.000
 	pitch: 1.700
 
