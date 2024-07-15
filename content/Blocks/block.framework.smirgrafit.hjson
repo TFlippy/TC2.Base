@@ -12,7 +12,7 @@
 	
 	max_health: 7500.000
 	
-	smoothing: 0.150
+	smoothing: 0.170
 	mass: 9.400
 	friction: 0.950
 	elasticity: 0.470
@@ -25,9 +25,9 @@
 	texture: terrain.framework.smirgrafit
 	pattern: pattern.framework
 	
-	texture_scale: 1.000
-	texture_overshoot: -0.050
-	texture_offset: -1.250
+	texture_scale: 1.370
+	texture_overshoot: -0.030
+	texture_offset: -0.670
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	

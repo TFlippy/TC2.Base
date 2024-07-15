@@ -7,12 +7,12 @@
 		'''
 	
 	material_type: metal_frame
-	tile_flags: non_empty, transparent
+	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 9500.000
 	
-	smoothing: 0.400
+	smoothing: 0.200
 	mass: 0.080
 	friction: 0.550
 	elasticity: 0.570
@@ -25,9 +25,9 @@
 	texture: terrain.framework
 	pattern: pattern.framework
 	
-	texture_scale: 1.000
-	texture_overshoot: -0.050
-	texture_offset: -1.250
+	texture_scale: 1.370
+	texture_overshoot: -0.030
+	texture_offset: -0.670
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
