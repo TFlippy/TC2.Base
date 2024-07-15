@@ -6,27 +6,22 @@
 		It's gud.
 		'''
 	
-	icon:
-	{
-		texture: "crate"
-	}
-	
-	color_button: "0xffaeb59a"
-	
 	min: 1
 	max: 1
 	step: 1
 	
 	type: upgrade
-	flags: no_amount_multiplier, blueprintable, wip, upgrade
+	flags: no_amount_multiplier, disabled, wip, upgrade
 	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 100.000
 		}
 		{
@@ -41,9 +36,9 @@
 	[
 		{
 			type: prefab
-			flags: upgrade
-			prefab: "motor.servus.00.upgrade"
+			prefab: motor.servus.00.upgrade
 			amount: 1.000
+			flags: upgrade
 		}
 	]
 }

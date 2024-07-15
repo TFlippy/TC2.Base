@@ -80,9 +80,18 @@
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.060
-			ratio_extra: 0.490
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			ratio_waste: 0.450
+			ratio_waste_extra: 0.430
+			
 			yield: 0.710
+			yield_extra: 0.190
+			
+			h_sound: glass_hit_sharp_01
+			sound_volume: 1.170
+			sound_pitch: 0.880
 			
 			chance: 1.000
 		}

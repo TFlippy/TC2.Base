@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	z: 10.000
 }
 
 transform:

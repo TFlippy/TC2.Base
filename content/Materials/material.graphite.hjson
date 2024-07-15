@@ -64,7 +64,16 @@
 			
 			ratio: 0.210
 			ratio_extra: 0.455
-			yield: 0.760
+			
+			ratio_waste: 0.400
+			ratio_waste_extra: 0.500
+			
+			yield: 0.700
+			yield_extra: 0.100
+			
+			h_sound: structural.stone.break.small.01
+			sound_volume: 0.580
+			sound_pitch: 1.250
 			
 			chance: 1.000
 		}

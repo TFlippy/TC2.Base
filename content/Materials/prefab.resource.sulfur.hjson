@@ -7,8 +7,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.950
+		elasticity: 0.050
 		material: powder
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	z: -67.500
 }
 
 transform:
@@ -47,9 +48,17 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 0
-	interval: 5.000
-	interval_extra: 21.000
+	sleep_count_max: 11
+
+	interval: 8.000
+	interval_extra: 18.000
+
 	threshold_delete: 0.010
 	threshold_despawning: 1.000
+
+	amount_ratio: 0.005
+	amount_ratio_extra: 0.020
+
+	// h_material_product: sulfur_dioxide
+	// product_ratio: 0.090
 }
