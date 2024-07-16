@@ -68,7 +68,7 @@ explosive:
 	smoke_velocity_multiplier: 2.000
 	flash_duration_multiplier: 0.100
 	flash_intensity_multiplier: 0.800
-	sparks_amount: 4.500
+	sparks_amount: 2.000
 	volume: 0.500
 	pitch: 1.400
 	flags: any_damage, explode_when_primed

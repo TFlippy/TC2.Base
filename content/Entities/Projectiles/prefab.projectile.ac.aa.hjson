@@ -3,11 +3,11 @@ $tags: []
 projectile:
 {
 	damage_base: 250.000
-	damage_bonus: 500.000
-	lifetime: 0.250
+	damage_bonus: 1200.000
+	lifetime: 0.500
 	ignore_time: 0.100
 	damage_type: bullet_ac
-	size: 0.075
+	size: 0.375
 	ricochet_count: 0
 	damp: 0.988
 	tracer_length: 2.000
@@ -32,8 +32,8 @@ explosive:
 	damage_type: shockwave
 	damage_type_secondary: shrapnel
 
-	radius: 10.000
-	power: 1.500
+	radius: 7.000
+	power: 2.500
 	damage_entity: 5000.000
 	damage_terrain: 1000.000
 	smoke_amount: 0.500
@@ -57,11 +57,11 @@ cluster:
 
 	radius: 0.400
 	spread: 5.000
-	speed: 80.000
+	speed: 100.000
 	count: 5
 
 	speed_modifier_min: 0.150
-	speed_modifier_max: 0.300
+	speed_modifier_max: 0.400
 
 	lifetime_modifier_min: 0.200
 	lifetime_modifier_max: 1.500

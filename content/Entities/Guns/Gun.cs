@@ -464,13 +464,14 @@
 
 				ref var region = ref Client.GetRegion();
 
-				using (var window = GUI.Window.HUD("Crosshair"u8, region.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(0, 0), pivot: new(0.50f, 0.00f)))
+				using (var window = GUI.Window.HUD("Crosshair"u8, region.WorldToCanvas(this.world_position_target) + new Vector2(0, -64), size: new(80, 32), pivot: new(0.50f, 0.00f)))
 				{
 					if (window.show)
 					{
 						if (this.gun_state.stage == Gun.Stage.Reloading)
 						{
-							GUI.TitleCentered($"Reloading\n{Maths.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f):0.00}", pivot: new(0.50f, 0.50f));
+							GUI.TitleCentered("Reloading"u8, pivot: new(0.50f, 0.00f));
+							GUI.TitleCentered(Maths.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f), format: "0.00", pivot: new(0.50f, 1.00f));
 						}
 					}
 				}

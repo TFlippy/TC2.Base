@@ -31,9 +31,9 @@ explosive:
 	damage_type: deflagration
 	damage_type_secondary: shrapnel
 
-	radius: 9.000
+	radius: 10.000
 	power: 1.500
-	damage_entity: 1500.000
+	damage_entity: 3500.000
 	damage_terrain: 500.000
 	smoke_amount: 1.100
 	smoke_lifetime_multiplier: 1.000
