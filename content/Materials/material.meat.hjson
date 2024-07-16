@@ -99,31 +99,6 @@
 			
 			chance: 0.350
 		}
-		radiance:
-		{
-			h_material: graphite
-			h_material_waste: ash
-			
-			type: undefined
-			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: merge
-			
-			ratio: 0.010
-			ratio_extra: 0.215
-			
-			ratio_waste: 0.100
-			ratio_waste_extra: 0.400
-			
-			yield: 0.150
-			yield_extra: 0.650
-			
-			h_sound: missing
-			sound_volume: 0.200
-			sound_pitch: 1.280
-			
-			chance: 1.000
-		}
 		fire:
 		{
 			h_material: graphite
@@ -147,7 +122,7 @@
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 1.000
+			chance: 0.150
 		}
 		heat:
 		{
@@ -172,7 +147,7 @@
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 1.000
+			chance: 0.720
 		}
 	}
 	

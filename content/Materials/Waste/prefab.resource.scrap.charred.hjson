@@ -1,0 +1,57 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.480
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.890
+		elasticity: 0.150
+		material: coal
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.scrap.charred"
+		count: 4
+		size: [16, 16]
+	}
+	z: 8.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "scrap.charred"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+	sleep_count_max: 27
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.650
+}

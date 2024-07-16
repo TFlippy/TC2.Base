@@ -51,11 +51,11 @@ spawner:
 {
 	interval: 60.000
 	interval_extra: 300.000
-	interval_count_modifier: 120.000
+	interval_count_modifier: 300.000
 	ai_stance: aggressive
 	ai_type: attack
 	filter_tag: "twuk"
-	max_count: 4
+	max_count: 3
 }
 
 faction:

@@ -254,16 +254,18 @@
 		public partial struct State: IComponent
 		{
 			public Gun.Hints hints;
-			public Gun.Stage stage;
 
+			public Gun.Stage stage;
 			public byte burst_rem;
 			public byte eject_rem;
+			public byte unused;
 
 			public Resource.Data resource_ammo;
 
 			//public IMaterial.Handle h_last_ammo;
 
 			[Save.Ignore, Net.Ignore] public Vector2 last_recoil;
+			[Save.Ignore, Net.Ignore] public Entity ent_projectile_next;
 			[Save.Ignore, Net.Ignore] public float angle_jitter;
 			[Save.Ignore, Net.Ignore] public float muzzle_velocity;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
@@ -874,7 +876,7 @@
 				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
-				var base_vel = body.GetVelocity();
+				var vel_base = body.GetVelocity();
 
 				var failure_rate = gun.failure_rate;
 				var stability_ratio = 1.00f;
@@ -893,7 +895,7 @@
 				{
 					ref var ammo = ref material.ammo.GetRefOrNull();
 
-					var velocity_jitter = Maths.Clamp(gun.jitter_multiplier * 0.20f, 0.00f, 1.00f) * 0.50f;
+					var velocity_jitter = Maths.Clamp01(gun.jitter_multiplier * 0.20f) * 0.50f;
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
 					var recoil_mass = ammo.mass * gun.ammo_per_shot;
@@ -916,7 +918,7 @@
 
 					failure_rate = Maths.Clamp01(failure_rate + ((1.00f - stability_ratio) * 0.10f)); // Maths.Lerp01(failure_rate, 1.00f - stability_ratio, )
 
-					body.AddForceWorld(recoil_force, pos_w_offset);
+					body.AddForceWorld(recoil_force, pos_w_offset); // TODO: use impulse instead
 					gun_state.last_recoil = recoil_force;
 
 					//App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");
@@ -945,8 +947,8 @@
 							var heat_excess = Maths.Max(overheat.heat_current - overheat.heat_high, 0.00f);
 							if (heat_excess > Maths.epsilon)
 							{
-								failure_rate = Maths.Clamp(failure_rate + (heat_excess * 0.01f), 0.00f, 1.00f);
-								stability_ratio = Maths.Clamp(stability_ratio - (heat_excess * 0.005f), 0.00f, 1.00f);
+								failure_rate = Maths.Clamp01(failure_rate + (heat_excess * 0.01f));
+								stability_ratio = Maths.Clamp01(stability_ratio - (heat_excess * 0.005f));
 
 								angle_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.01f);
 								velocity_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.005f);
@@ -1015,10 +1017,11 @@
 					}
 					else
 					{
-						var vel_base = body.GetVelocity();
+						//var vel_base = body.GetVelocity();
 						var vel_min_sq = ammo.velocity_min.Pow2();
 						var h_faction = body.GetFaction();
 						var ent_owner = body.GetParent();
+						var ent_projectile_next = !gun_state.ent_projectile_next.IsAlive() ? gun_state.ent_projectile_next : default;
 
 						var step = Maths.RcpFast(count);
 						var step_current = 0.00f;
@@ -1056,7 +1059,7 @@
 								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
 							}
 
-							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel).ContinueWith(ent =>
+							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
 								ref var projectile = ref ent.GetComponent<Projectile.Data>();
 								if (projectile.IsNotNull())
@@ -1094,6 +1097,12 @@
 									ent.AddRelation(args.ent_gun, Relation.Type.Rope);
 								}
 							});
+
+							if (ent_projectile_next != 0)
+							{
+								ent_projectile_next = default;
+								//gun_state.ent_projectile_next = default;
+							}
 						}
 
 						if (gun.shake_amount > 0.50f)
@@ -1178,7 +1187,7 @@
 							scale = gun.flash_size,
 							lit = 1.00f,
 							rotation = transform.rotation + gun.particle_rotation + (transform.scale.X.IsNegative() ? MathF.PI : 0),
-							vel = base_vel
+							vel = vel_base
 						});
 					}
 
@@ -1198,7 +1207,7 @@
 								frame_offset = random.NextByteRange(0, 64),
 								scale = random.NextFloatRange(0.05f, 0.10f) * gun.smoke_size,
 								angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
-								vel = base_vel + (dir_particle * random.NextFloatRange(1.00f, 1.50f)),
+								vel = vel_base + (dir_particle * random.NextFloatRange(1.00f, 1.50f)),
 								force = new Vector2(0, -random.NextFloatRange(0.00f, 0.20f)) + (dir_particle * random.NextFloatRange(0.05f, 0.20f)),
 								rotation = random.NextFloat(10.00f),
 								growth = random.NextFloatRange(0.15f, 0.30f),

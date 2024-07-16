@@ -1,0 +1,73 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Workbench"
+	desc:
+		'''
+		A place where you can craft simple items.
+		'''
+	
+	icon:
+	{
+		texture: workbench
+		size: [32, 24]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: no_amount_multiplier, blueprintable
+	tags: architecture
+	
+	color_button: "0xffaeb59a"
+	rank: -555.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings
+		
+		size: [3.500, 2.750]
+		offset: [0.000, -0.750]
+		
+		cooldown: 0.500
+		min_clearance: 0.800
+		min_claim: 1.000
+		
+		rotation_max: 0.120
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 80.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: workbench
+			amount: 1.000
+		}
+	]
+}

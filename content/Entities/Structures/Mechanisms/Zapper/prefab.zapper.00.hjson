@@ -64,6 +64,7 @@ zapper:
 
 	@shape.circle:
 	{
+		offset: [0.000, -1.500]
 		mass: 1.000
 		radius: 6.000
 		friction: 0.000

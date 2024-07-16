@@ -26,6 +26,7 @@ body:
 		radius: 0.500
 		material: wreck
 		layer: entity, solid, harvestable
+		miss_chance: 0.435
 		mask: world
 	}
 }
