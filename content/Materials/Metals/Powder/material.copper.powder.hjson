@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Copper Powder"
 	description:
 		'''
@@ -10,14 +10,9 @@
 	
 	icon:
 	{
-		texture: "resource.copper.powder"
+		texture: resource.copper.powder
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: powder
@@ -25,11 +20,19 @@
 	flags: granular, metal, raw, powder, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.230
 	quantity_max: 500.000
-	prefab: "resource.copper.powder"
+	prefab: resource.copper.powder
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -69,4 +72,37 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: copper.chunk
+			h_material_waste: "null"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.620
+			ratio_extra: 0.460
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.080
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.315
+		}
+	}
+	
+	// Component materials.
+	composition: []
 }

@@ -2,16 +2,21 @@ $tags: []
 
 body:
 {
-	@shape.circle:
+	buoyancy: 0.010
+
+	@shape.line:
 	{
-		offset: [0.000, 0.250]
-		mass: 1.000
-		radius: 0.750
-		friction: 0.950
-		elasticity: 0.050
-		material: powder
+		a: [-0.500, 0.125]
+		b: [0.375, 0.125]
+		
+		offset: [0.000, 0.375]
+		radius: 0.480
+		friction: 0.300
+		elasticity: 0.440
+		
+		material: metal_solid
+		
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
 	}
 }
 
@@ -19,11 +24,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper.powder"
+		texture: "resource.copper.chunk"
 		count: 4
 		size: [16, 16]
 	}
-	z: -68.500
+	z: -68.900
 }
 
 transform:
@@ -33,22 +38,20 @@ transform:
 
 resource:
 {
-	material: "copper.powder"
+	material: "copper.chunk"
 }
 
 holdable:
 {
 	offset: [0.000, 0.750]
-}
-
-norotate:
-{
-
+	radius: 0.000
+	hints: dumb, wrecked
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 health:
 {
-	max: 36000.000
+	max: 42000.000
 }
 
 breakable:

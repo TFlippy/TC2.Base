@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.010
+
+	@shape.line:
+	{
+		a: [-0.500, 0.125]
+		b: [0.375, 0.000]
+		
+		offset: [0.000, 0.375]
+		radius: 0.490
+		friction: 0.300
+		elasticity: 0.440
+		
+		material: cermet
+		
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.smirgrafit.chunk"
+		count: 4
+		size: [16, 16]
+	}
+	z: -68.500
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "smirgrafit.chunk"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: advanced, dumb, wrecked
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
