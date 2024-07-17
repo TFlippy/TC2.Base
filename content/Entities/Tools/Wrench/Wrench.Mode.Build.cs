@@ -306,6 +306,7 @@ namespace TC2.Base.Components
 									var errors = Wrench.Mode.Build.Errors.None;
 									var skip_support = false;
 									var support = 0.00f;
+									var clearance = 0.00f;
 									var amount_multiplier = 1.00f;
 
 									ref var recipe = ref this.recipe.GetData();
@@ -401,7 +402,7 @@ namespace TC2.Base.Components
 
 															Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = placed_block_count;
-															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -474,7 +475,7 @@ namespace TC2.Base.Components
 
 															Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
-															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -596,22 +597,11 @@ namespace TC2.Base.Components
 																		ref var rect_foundation = ref placement.rect_foundation.GetRefOrNull();
 																		if (rect_foundation.IsNotNull())
 																		{
-																			//var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																			//var rect_offset = new AABB(transform.LocalToWorld(rect_foundation.a, rotation: false), transform.LocalToWorld(rect_foundation.b, rotation: false));
-																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																			//var rect_offset = transform.LocalToWorld(rect_foundation); // new AABB(transform.LocalToWorld(rect_foundation.a - placement.offset), transform.LocalToWorld(rect_foundation.b - placement.offset));
-																			//GUI.DrawTerrainOutline(ref region, rect_offset.GetPosition(), 12.00f);
-
-																			//var tile_flags = placement.tileflags_foundation;
-
 																			ref var terrain = ref region.GetTerrain();
 
-																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset); // + transform.position;
-																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f);  //.Snap(0.125f);
-																																		  //quad_world_aabb.a = quad_world_aabb.a.SnapFloor(0.125f);
-																																		  //quad_world_aabb.b = quad_world_aabb.b.SnapCeil(0.125f);
-
-																			var quad_canvas = region.WorldToCanvas(quad_world);
+																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset);
+																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f); 
+																			//var quad_canvas = region.WorldToCanvas(quad_world);
 																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
 
 
@@ -623,30 +613,47 @@ namespace TC2.Base.Components
 																				max_health: 1000,
 																				color: color_ok_fg.WithAlpha(100));
 
-																			//terrain.IterateRect(quad_world_aabb, argument: ref args,
-																			//	func: DrawFoundationFunc,
-																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-
 																			terrain.IterateRectRotated(quad_world, argument: ref args,
 																				func: DrawFoundationFunc,
 																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-
-																			//var args = new DrawTileArgs(offset: quad_canvas_aabb.a, pixel_size: pixel_size, color: color_dummy_fg, tile_flags: tile_flags, block: default, max_health: 1000);
-																			//terrain.IterateRectRotated(quad_world, argument: ref args,
-																			//	func: DrawTileFunc,
-																			//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-
 
 																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg);
 																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 
-																		//GUI.DrawRect(region.WorldToCanvas(bb), color_dummy_fg, layer: GUI.Layer.Background);
-																		//GUI.DrawQuad(region.WorldToCanvas(bb.Rotate(transform.rotation)), color_dummy_fg);
-																		GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
-																		//GUI.DrawRect(region.WorldToCanvas(bb.RotateByRad(transform.rotation)).GetAABB(), color: GUI.font_color_yellow);
+																		ref var rect_clearance = ref placement.rect_clearance.GetRefOrNull();
+																		if (rect_clearance.IsNotNull())
+																		{
+																			ref var terrain = ref region.GetTerrain();
+
+																			var quad_world = transform.LocalToWorld(rect_clearance - placement.offset);
+																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f);
+																			//var quad_canvas = region.WorldToCanvas(quad_world);
+																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
 
 
+																			var pixel_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
+
+																			var args = new DrawFoundationArgs(offset: quad_canvas_aabb.a,
+																				pixel_size: pixel_size,
+																				tile_flags: placement.tileflags_clearance,
+																				max_health: 1000,
+																				color: color_error_fg);
+
+																			terrain.IterateRectRotated(quad_world, argument: ref args,
+																				func: DrawFoundationFunc,
+																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg);
+																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
+																		}
+																		else
+																		{
+																			GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
+																		}
+
+
+																		//GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
 																		GUI.DrawCircleFilled(region.WorldToCanvas(transform.LocalToWorld(-placement.offset)), 2.00f, 0xffffffff, segments: 4);
 																	}
 																	//GUI.DrawRect
@@ -690,6 +697,11 @@ namespace TC2.Base.Components
 														if (placement.min_support > Maths.epsilon)
 														{
 															GUI.TextShaded($"Support: {(support * 100.00f):0}%/{(placement.min_support * 100.00f):0}%", color: support >= placement.min_support ? color_ok : color_error);
+														}
+
+														if (placement.min_clearance > Maths.epsilon)
+														{
+															GUI.TextShaded($"Clearance: {(clearance * 100.00f):0}%/{(placement.min_clearance * 100.00f):0}%", color: clearance >= placement.min_clearance ? color_ok : color_error);
 														}
 
 														if (errors != Wrench.Mode.Build.Errors.None)
@@ -803,7 +815,7 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public static void Evaluate(ref Region.Data region, Entity entity, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
+				public static void Evaluate(ref Region.Data region, Entity entity, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, out float support, out float clearance, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
 				{
 					if (placement.min_claim > Maths.epsilon)
 					{
@@ -815,7 +827,7 @@ namespace TC2.Base.Components
 					}
 
 					support = 1.00f;
-					var clearance = 1.00f;
+					clearance = 1.00f;
 
 					var check_support = placement.min_support > Maths.epsilon && !skip_support;
 					var check_clearance = placement.min_clearance > Maths.epsilon;
@@ -827,7 +839,9 @@ namespace TC2.Base.Components
 							transform: in transform,
 							support_count: out var support_count,
 							blocked_count: out var blocked_count,
-							total_count: out var total_count,
+							clear_count: out var clear_count,
+							total_count_support: out var total_count_support,
+							total_count_clearance: out var total_count_clearance,
 							pos: pos,
 							pos_a: pos_a,
 							pos_b: pos_b);
@@ -836,14 +850,14 @@ namespace TC2.Base.Components
 
 						if (check_support)
 						{
-							support = Maths.Normalize01(placement.flags.HasAny(Placement.Flags.No_Solid_Support) ? support_count - blocked_count : support_count, total_count);
+							support = Maths.Normalize01(placement.flags.HasAny(Placement.Flags.No_Solid_Support) ? support_count - blocked_count : support_count, total_count_support);
 							errors.AddFlag(Errors.Unsupported, support < placement.min_support);
 							errors.RemoveFlag(Errors.NoTerrain, placement.rect_foundation.HasValue && support >= placement.min_support);
 						}
 
 						if (check_clearance)
 						{
-							clearance = 1.00f - Maths.Normalize01(blocked_count, total_count);
+							clearance = Maths.Normalize01(clear_count, total_count_clearance);
 							errors.AddFlag(Errors.Obstructed, clearance < placement.min_clearance);
 						}
 					}
@@ -1165,6 +1179,7 @@ namespace TC2.Base.Components
 						var success = false;
 						var skip_support = false;
 						var support = 0.00f;
+						var clearance = 0.00f;
 						var amount_multiplier = 1.00f;
 
 						//ref var player = ref connection.GetPlayerData();
@@ -1219,7 +1234,7 @@ namespace TC2.Base.Components
 
 											Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											Wrench.Mode.Build.Evaluate(region: ref region, entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region, entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
@@ -1298,7 +1313,7 @@ namespace TC2.Base.Components
 
 											Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											Wrench.Mode.Build.Evaluate(region: ref region,  entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region,  entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1758,26 +1773,37 @@ namespace TC2.Base.Components
 					}
 
 					args.total_count++;
-
-					//if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
-					//{
-					//	args.support_count++;
-					//}
-
-					//if (tile.Flags.HasAny(TileFlags.Solid))
-					//{
-					//	args.blocked_count++;
-					//}
-
-					//args.total_count++;
 				}
 
-				public static void CalculateSupport(ref Region.Data region, in Placement placement, in Transform.Data transform, out int support_count, out int blocked_count, out int total_count, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				private record struct CalculateFoundationClearanceArgs(int clear_count, int blocked_count, int total_count, TileFlags tile_flags);
+				private static void CalculateFoundationClearanceFunc(ref Tile tile, int x, int y, byte mask, ref CalculateFoundationClearanceArgs args)
+				{
+					if (tile.Flags.HasAny(args.tile_flags))
+					{
+						args.blocked_count++;
+					}
+					else
+					{
+						args.clear_count++;
+					}
+
+					args.total_count++;
+				}
+
+				public static void CalculateSupport(ref Region.Data region, in Placement placement, in Transform.Data transform, out int support_count, out int blocked_count, out int clear_count, out int total_count_support, out int total_count_clearance, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
 					ref var terrain = ref region.GetTerrain();
 
 					//var args = new CalculateSupportArgs(valid_count: 0, total_count: 0);
 					//terrain.IterateRect(pos, (placement.size * App.pixels_per_unit) + new Vector2(2, 2), ref args, CalculateSupportFunc);
+
+					//support_count = 0;
+					//blocked_count = 0;
+					//clear_count = 0;
+
+					//total_count_support = 0;
+					//total_count_clearance = 0;
+
 
 					if (placement.rect_foundation.TryGetValue(out var rect_foundation))
 					{
@@ -1786,7 +1812,7 @@ namespace TC2.Base.Components
 						var quad_world = transform.LocalToWorld(rect_foundation - placement.offset).Snap(0.125f);
 						var quad_world_aabb = quad_world.GetAABB();
 
-						var args = new CalculateFoundationSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, tile_flags: placement.tileflags_foundation, max_health: 10000.00f);
+						var args = new CalculateFoundationSupportArgs(support_count: 0, blocked_count: 0, total_count: 0, tile_flags: tile_flags, max_health: 10000.00f);
 
 						//terrain.IterateRect(quad_world_aabb, argument: ref args,
 						//	func: DrawFoundationFunc,
@@ -1798,7 +1824,7 @@ namespace TC2.Base.Components
 
 						support_count = args.support_count;
 						blocked_count = args.blocked_count;
-						total_count = args.total_count;
+						total_count_support = args.total_count;
 					}
 					else
 					{
@@ -1838,7 +1864,35 @@ namespace TC2.Base.Components
 
 						support_count = args.support_count;
 						blocked_count = args.blocked_count;
-						total_count = args.total_count;
+						total_count_support = args.total_count;
+					}
+
+					if (placement.rect_clearance.TryGetValue(out var rect_clearance))
+					{
+						var tile_flags = placement.tileflags_clearance;
+
+						var quad_world = transform.LocalToWorld(rect_clearance - placement.offset).Snap(0.125f);
+						var quad_world_aabb = quad_world.GetAABB();
+
+						var args = new CalculateFoundationClearanceArgs(clear_count: 0, blocked_count: 0, total_count: 0, tile_flags: tile_flags);
+
+						//terrain.IterateRect(quad_world_aabb, argument: ref args,
+						//	func: DrawFoundationFunc,
+						//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+						terrain.IterateRectRotated(quad_world, argument: ref args,
+							func: CalculateFoundationClearanceFunc,
+							iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+
+						//support_count = args.support_count;
+						//blocked_count += args.blocked_count;
+						total_count_clearance = args.total_count;
+						clear_count = args.clear_count; // args.support_count;
+					}
+					else
+					{
+						total_count_clearance = total_count_support;
+						clear_count = total_count_clearance - blocked_count - support_count;
 					}
 
 					//support_ratio = Maths.NormalizeClamp(args.support_count, args.total_count);
