@@ -3,13 +3,8 @@
 	name: "Iron"
 	desc:
 		'''
-		A common mineral.
+		TODO: Desc
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.iron.ore"
-	pattern: "pattern.stone"
+	texture: terrain.iron.ore
+	pattern: pattern.stone
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "iron.ore"
-			quantity: 1.700
+			material: iron.gravel
+			quantity: 1.300
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

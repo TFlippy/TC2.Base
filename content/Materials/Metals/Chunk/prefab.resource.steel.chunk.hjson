@@ -28,7 +28,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	z: -68.500
+	z: -68.900
 }
 
 transform:
@@ -47,4 +47,22 @@ holdable:
 	radius: 0.000
 	hints: dumb, wrecked
 	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+health:
+{
+	max: 80000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
 }

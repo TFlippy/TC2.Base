@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Gravel"
 	desc:
 		'''
-		A very rocky soil.
+		Mineral gravy.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: gravel
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.gravel"
-	pattern: "pattern.soil"
+	texture: terrain.gravel
+	pattern: pattern.soil
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "gravel"
+			material: gravel
 			quantity: 1.000
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

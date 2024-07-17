@@ -32,6 +32,36 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+
+	// Conversions into other materials.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: steel.chunk
+			h_material_waste: "null"
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: merge
+			
+			ratio: 0.620
+			ratio_extra: 0.460
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.950
+			yield_extra: 0.070
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.275
+		}
+	}
 	
 	// Component materials.
 	composition: []

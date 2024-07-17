@@ -6,11 +6,6 @@
 		Regular soil, fairly fertile.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: soil
 	tile_flags: non_empty
 	flags: raw
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.soil"
-	pattern: "pattern.soil"
+	texture: terrain.soil
+	pattern: pattern.soil
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "soil"
+			material: soil
 			quantity: 0.700
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

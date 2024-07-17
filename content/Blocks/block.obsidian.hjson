@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.60.7"
 	name: "Obsidian"
 	desc:
 		'''
 		Volcanic glass.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: cermet
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.obsidian"
-	pattern: "pattern.stone"
+	texture: terrain.obsidian
+	pattern: pattern.stone
 	
 	texture_scale: 1.710
 	texture_overshoot: 0.000
@@ -38,12 +33,8 @@
 	
 	resources:
 	[
-		{
-		
-		}
-		{
-		
-		}
+		null
+		null
 	]
 	
 	mappings:

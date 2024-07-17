@@ -70,22 +70,22 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-
+	
 	// Conversions into other materials.
 	conversions:
 	{
 		phlogiston:
 		{
-			h_material: graphite
-			h_material_waste: ash
+			h_material: ash
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.010
-			ratio_extra: 0.215
+			ratio: 0.150
+			ratio_extra: 0.815
 			
 			ratio_waste: 0.100
 			ratio_waste_extra: 0.400
@@ -97,7 +97,7 @@
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 0.350
+			chance: 0.650
 		}
 	}
 	

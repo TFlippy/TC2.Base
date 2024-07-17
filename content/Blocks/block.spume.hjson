@@ -1,30 +1,43 @@
-{
+﻿{
+	$version: "0.1.60.7"
 	name: "Spume"
-	desc: "Very brittle pumice-like rock."
+	desc:
+		'''
+		Very brittle pumice-like rock.
+		'''
 	
 	material_type: stone_porous
 	tile_flags: non_empty
 	flags: artificial
 	
 	max_health: 2000.000
+	
 	smoothing: 0.150
 	mass: 0.100
 	friction: 0.950
 	elasticity: 0.050
 	stability: 0.900
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	collision_layer: none
+	collision_mask: none
 	
-	texture: "terrain.spume"
-	pattern: "pattern.spume"
+	texture: terrain.spume
+	pattern: pattern.spume
 	
 	texture_scale: 1.400
 	texture_overshoot: -0.250
+	texture_offset: 0.000
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "smirglum.powder"
+			material: smirglum.powder
 			quantity: 0.020
 		}
+		null
 	]
 	
 	mappings:

@@ -86,7 +86,7 @@
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.620
+			ratio: 0.720
 			ratio_extra: 0.460
 			
 			ratio_waste: 0.000
@@ -99,7 +99,7 @@
 			sound_volume: 0.630
 			sound_pitch: 0.440
 			
-			chance: 0.315
+			chance: 0.395
 		}
 	}
 	

@@ -6,11 +6,6 @@
 		A precious metal.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.silver.ore"
-	pattern: "pattern.stone"
+	texture: terrain.silver.ore
+	pattern: pattern.stone
 	
 	texture_scale: 1.200
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "silver.ore"
-			quantity: 0.700
+			material: silver.gravel
+			quantity: 0.900
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

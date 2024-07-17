@@ -76,7 +76,7 @@
 	{
 		phlogiston:
 		{
-			h_material: graphite
+			h_material: scrap.charred
 			h_material_waste: ash
 			
 			type: undefined
@@ -84,7 +84,7 @@
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.010
+			ratio: 0.110
 			ratio_extra: 0.215
 			
 			ratio_waste: 0.100
@@ -101,7 +101,7 @@
 		}
 		fire:
 		{
-			h_material: graphite
+			h_material: scrap.charred
 			h_material_waste: ash
 			
 			type: undefined
@@ -109,13 +109,13 @@
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.010
-			ratio_extra: 0.215
+			ratio: 0.310
+			ratio_extra: 0.315
 			
-			ratio_waste: 0.100
-			ratio_waste_extra: 0.400
+			ratio_waste: 0.110
+			ratio_waste_extra: 0.100
 			
-			yield: 0.150
+			yield: 0.130
 			yield_extra: 0.650
 			
 			h_sound: missing
@@ -127,18 +127,18 @@
 		heat:
 		{
 			h_material: graphite
-			h_material_waste: ash
+			h_material_waste: scrap.charred
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
 			spawn_flags_waste: merge
 			
-			ratio: 0.010
-			ratio_extra: 0.215
+			ratio: 0.110
+			ratio_extra: 0.315
 			
 			ratio_waste: 0.100
-			ratio_waste_extra: 0.400
+			ratio_waste_extra: 0.600
 			
 			yield: 0.150
 			yield_extra: 0.650

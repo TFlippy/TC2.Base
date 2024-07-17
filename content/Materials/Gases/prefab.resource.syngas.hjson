@@ -68,7 +68,7 @@ explosive:
 	flash_intensity_multiplier: 0.700
 	force_multiplier: 0.600
 	shake_multiplier: 0.080
-	fire_amount: 10.000
+	fire_amount: 0.000
 	volume: 1.200
 	pitch: 0.500
 	health_threshold: 0.999

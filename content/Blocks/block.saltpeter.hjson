@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.60.7"
 	name: "Saltpeter"
 	desc:
 		'''
 		An uncommon mineral used in chemistry.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: chalk
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.saltpeter"
-	pattern: "pattern.stone"
+	texture: terrain.saltpeter
+	pattern: pattern.stone
 	
 	texture_scale: 1.100
 	texture_overshoot: -0.250
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "saltpeter"
-			quantity: 2.000
+			material: saltpeter
+			quantity: 1.300
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:

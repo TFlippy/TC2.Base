@@ -3,13 +3,8 @@
 	name: "Grass"
 	desc:
 		'''
-		Nice green grass.
+		Nice yellow grass.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: soil
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.grass.01"
-	pattern: "pattern.soil"
+	texture: terrain.grass.01
+	pattern: pattern.soil
 	
 	texture_scale: 1.800
 	texture_overshoot: -0.750
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "soil"
+			material: soil
 			quantity: 0.500
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
