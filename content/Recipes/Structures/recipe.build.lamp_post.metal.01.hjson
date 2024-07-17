@@ -25,17 +25,20 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
 		
 		size: [1.000, 6.000]
 		offset: [0.000, -2.500]
 		
-		rect_foundation: [-0.500, 0.000, 0.500, 0.500]
+		rect_foundation: [-0.375, -0.250, 0.375, 0.500]
 		tileflags_foundation: solid
 		
-		cooldown: 0.500
+		rect_clearance: [-0.250, -5.250, 0.250, 0.500]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
 		min_support: 0.600
-		min_clearance: 0.150
+		min_clearance: 0.850
 		min_claim: 1.000
 		
 		rotation_max: 7.000

@@ -644,12 +644,12 @@ namespace TC2.Base.Components
 																				func: DrawFoundationFunc,
 																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
-																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg);
+																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg.WithAlphaMult(0.50f));
 																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 																		else
 																		{
-																			GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg);
+																			GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg.WithAlphaMult(0.50f));
 																		}
 
 
@@ -1875,28 +1875,18 @@ namespace TC2.Base.Components
 						var quad_world_aabb = quad_world.GetAABB();
 
 						var args = new CalculateFoundationClearanceArgs(clear_count: 0, blocked_count: 0, total_count: 0, tile_flags: tile_flags);
-
-						//terrain.IterateRect(quad_world_aabb, argument: ref args,
-						//	func: DrawFoundationFunc,
-						//	iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-
 						terrain.IterateRectRotated(quad_world, argument: ref args,
 							func: CalculateFoundationClearanceFunc,
 							iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
-						//support_count = args.support_count;
-						//blocked_count += args.blocked_count;
 						total_count_clearance = args.total_count;
-						clear_count = args.clear_count; // args.support_count;
+						clear_count = args.clear_count;
 					}
 					else
 					{
 						total_count_clearance = total_count_support;
 						clear_count = total_count_clearance - blocked_count - support_count;
 					}
-
-					//support_ratio = Maths.NormalizeClamp(args.support_count, args.total_count);
-					//blocked_ratio = Maths.NormalizeClamp(args.blocked_count, args.total_count);
 				}
 				#endregion
 
