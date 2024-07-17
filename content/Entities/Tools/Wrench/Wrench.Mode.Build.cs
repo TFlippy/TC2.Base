@@ -399,9 +399,9 @@ namespace TC2.Base.Components
 
 															ref var terrain = ref region.GetTerrain();
 
-															errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
+															Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = placed_block_count;
-															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -472,9 +472,9 @@ namespace TC2.Base.Components
 															//var scale = new Vector2(1, 1);
 															//scale.X.ToggleSign(placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) & pos_raw.X < wrench_transform.position.X);
 
-															errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
+															Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 															amount_multiplier = 1.00f;
-															errors |= Wrench.Mode.Build.Evaluate(entity: ent_wrench, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
+															Wrench.Mode.Build.Evaluate(region: ref region, entity: ent_wrench, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: this.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: character.faction);
 
 															if (show_zones || placement.flags.HasAny(Placement.Flags.Require_Claimed) || errors.HasAny(Wrench.Mode.Build.Errors.Claimed))
 															{
@@ -803,12 +803,8 @@ namespace TC2.Base.Components
 #endif
 				}
 
-				public static Wrench.Mode.Build.Errors Evaluate(Entity entity, in Placement placement, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
+				public static void Evaluate(ref Region.Data region, Entity entity, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, out float support, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
 				{
-					ref var region = ref entity.GetRegion();
-
-					var errors = Wrench.Mode.Build.Errors.None;
-
 					if (placement.min_claim > Maths.epsilon)
 					{
 						var claim_ratio = Claim.GetOverlapRatio(region: ref region,
@@ -840,20 +836,15 @@ namespace TC2.Base.Components
 
 						if (check_support)
 						{
-							support = Maths.NormalizeClamp(placement.flags.HasAny(Placement.Flags.No_Solid_Support) ? support_count - blocked_count : support_count, total_count);
-							if (support < placement.min_support)
-							{
-								errors |= Errors.Unsupported;
-							}
+							support = Maths.Normalize01(placement.flags.HasAny(Placement.Flags.No_Solid_Support) ? support_count - blocked_count : support_count, total_count);
+							errors.AddFlag(Errors.Unsupported, support < placement.min_support);
+							errors.RemoveFlag(Errors.NoTerrain, placement.rect_foundation.HasValue && support >= placement.min_support);
 						}
 
 						if (check_clearance)
 						{
-							clearance = 1.00f - Maths.NormalizeClamp(blocked_count, total_count);
-							if (clearance < placement.min_clearance)
-							{
-								errors |= Errors.Obstructed;
-							}
+							clearance = 1.00f - Maths.Normalize01(blocked_count, total_count);
+							errors.AddFlag(Errors.Obstructed, clearance < placement.min_clearance);
 						}
 					}
 
@@ -929,14 +920,10 @@ namespace TC2.Base.Components
 						//var placement_range_sq = placement_range * placement_range;
 						//if (Vector2.DistanceSquared(pos, transform.position) >= placement_range_sq) errors |= Errors.OutOfRange;
 					}
-
-					return errors;
 				}
 
-				public static Wrench.Mode.Build.Errors EvaluateBlock(ref Region.Data region, in Placement placement, ref bool skip_support, out int placed_block_count, AABB bb, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
+				public static void EvaluateBlock(ref Region.Data region, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, out int placed_block_count, AABB bb, IBlock.Handle block, TileFlags tile_flags, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
-					var errors = Wrench.Mode.Build.Errors.None;
-
 					placed_block_count = Wrench.Mode.Build.CalculateBlockCount(ref region, in placement, block, tile_flags, pos, pos_a, pos_b);
 					if (placed_block_count <= 0) errors |= Wrench.Mode.Build.Errors.ZeroCount;
 
@@ -965,14 +952,10 @@ namespace TC2.Base.Components
 							}
 						}
 					}
-
-					return errors;
 				}
 
-				public static Wrench.Mode.Build.Errors EvaluatePrefab(ref Region.Data region, in Placement placement, ref bool skip_support, Prefab.Handle h_prefab, in Matrix3x2 matrix, Vector2? pos_a = default, Vector2? pos_b = default)
+				public static void EvaluatePrefab(ref Region.Data region, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, Prefab.Handle h_prefab, in Matrix3x2 matrix, Vector2? pos_a = default, Vector2? pos_b = default)
 				{
-					var errors = Wrench.Mode.Build.Errors.None;
-
 					//bb = new AABB(bb.a + new Vector2(0.50f), bb.b - new Vector2(0.50f));
 
 					//var bb_size = bb.GetSize();
@@ -1101,8 +1084,6 @@ namespace TC2.Base.Components
 						}
 						//App.WriteLine($"{ts.GetMilliseconds():0.000} ms");
 					}
-
-					return errors;
 				}
 
 				public static void GetPlacementInfo(ref Placement placement, Wrench.Mode.Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
@@ -1236,9 +1217,9 @@ namespace TC2.Base.Components
 
 											ref var terrain = ref region.GetTerrain();
 
-											errors |= Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
+											Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region, entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
@@ -1315,9 +1296,9 @@ namespace TC2.Base.Components
 											//	scale.X *= -1.00f;
 											//}
 
-											errors |= Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
+											Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											errors |= Wrench.Mode.Build.Evaluate(entity: entity, placement: in placement, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region,  entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
