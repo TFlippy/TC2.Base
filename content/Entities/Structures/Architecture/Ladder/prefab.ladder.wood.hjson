@@ -15,19 +15,19 @@ body:
 		a: [0.000, -2.500]
 		b: [0.000, 2.500]
 		offset: [0.000, 0.000]
-		mass: 30.000
+		mass: 1.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, flammable, furniture
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, flammable, furniture
 		mask: world
 	}
 }
 
 health:
 {
-	max: 3000.000
+	max: 3500.000
 }
 
 animated.renderer:

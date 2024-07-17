@@ -34,8 +34,8 @@
 		size: [2.750, 3.000]
 		offset: [0.000, -0.750]
 		
-		cooldown: 0.500
-		min_clearance: 0.800
+		cooldown: 1.000
+		min_clearance: 0.950
 		min_claim: 1.000
 		
 		rotation_max: 0.120

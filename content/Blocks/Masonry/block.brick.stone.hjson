@@ -40,8 +40,8 @@
 	resources:
 	[
 		{
-			material: scrap.rubble
-			quantity: 0.210
+			material: brick.stone
+			quantity: 0.125
 		}
 		null
 	]

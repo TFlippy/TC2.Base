@@ -1,12 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Chain Fence"
-	desc:
-		'''
-		Cheap fence made of woven metal wire used to keep intruders off your property.
-
-		Sadly, most of them usually just walk around it.
-		'''
+	name: "Chain-Link Fence"
 	
 	icon:
 	{

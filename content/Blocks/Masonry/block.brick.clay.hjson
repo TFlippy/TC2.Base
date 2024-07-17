@@ -39,7 +39,7 @@
 	resources:
 	[
 		{
-			material: "scrap.rubble"
+			material: "brick.clay"
 			quantity: 0.100
 		}
 		{

@@ -15,19 +15,19 @@ body:
 		a: [0.000, -2.500]
 		b: [0.000, 2.500]
 		offset: [0.000, 0.000]
-		mass: 200.000
+		mass: 1.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
 		material: metal_frame
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, furniture
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, furniture
 		mask: world
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 9800.000
 }
 
 animated.renderer:

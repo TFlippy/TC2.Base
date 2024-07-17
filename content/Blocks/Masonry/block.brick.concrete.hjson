@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: scrap.concrete
-			quantity: 1.360
+			material: brick.concrete
+			quantity: 0.150
 		}
 		null
 	]
