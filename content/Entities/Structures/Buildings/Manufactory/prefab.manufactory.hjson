@@ -31,7 +31,12 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "manufactory"
+		texture: atlas.construction.00
+		mask: "null"
+		fps: 0.000
+		count: 0
+		size: [56, 48]
+		frame: [3, 0]
 	}
 	z: -300.000
 }

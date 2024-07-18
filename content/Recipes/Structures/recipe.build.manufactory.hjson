@@ -8,19 +8,20 @@
 	
 	icon:
 	{
-		texture: "manufactory"
+		texture: atlas.construction.00
 		size: [56, 48]
+		frame: [4, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: buildings
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	dismantle_work: 10.000
@@ -32,18 +33,22 @@
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
 		size: [7.000, 6.000]
-		offset: [0.000, -1.500]
+		offset: [0.000, -2.000]
 		
-		rect_foundation: [-3.500, 0.500, 3.500, 1.500]
+		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-3.000, -4.500, 3.000, 0.000]
+		tileflags_clearance: solid
 		
 		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.750
+		min_support: 0.750
+		min_clearance: 1.000
 		min_claim: 1.000
 		
-		rotation_max: 0.200
+		rotation_max: 0.100
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,64 +56,13 @@
 		}
 	}
 	
-	construction:
-	{
-		prefab: "construction.7x5"
-		
-		requirements:
-		[
-			{
-				type: resource
-				material: "wood"
-				amount: 5.000
-			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-		]
-	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: "wood"
-			amount: 700.000
-		}
-		{
-			type: resource
-			material: "stone"
-			amount: 500.000
-		}
-		{
-			type: resource
-			material: "steel.ingot"
-			amount: 35.000
-		}
-		{
-			type: resource
-			material: "machine_parts"
-			amount: 25.000
-		}
-	]
+	requirements: []
 	
 	products:
 	[
 		{
 			type: prefab
-			prefab: "manufactory"
+			prefab: manufactory
 			amount: 1.000
 		}
 	]
