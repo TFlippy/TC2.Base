@@ -1885,7 +1885,7 @@ namespace TC2.Base.Components
 					else
 					{
 						total_count_clearance = total_count_support;
-						clear_count = total_count_clearance - blocked_count - support_count;
+						clear_count = total_count_clearance - blocked_count;
 					}
 				}
 				#endregion

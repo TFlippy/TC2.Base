@@ -20,7 +20,7 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: blueprintable
 	tags: buildings
 	
 	color_button: "0xffaeb59a"
@@ -39,6 +39,9 @@
 		
 		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
 		tileflags_foundation: solid
+		
+		rect_clearance: [-2.500, -4.000, 2.500, 0.000]
+		tileflags_clearance: solid
 		
 		cooldown: 1.000
 		min_support: 0.250

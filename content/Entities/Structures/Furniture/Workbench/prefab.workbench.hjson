@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.900
+	inventory_weight_multiplier: 0.800
 	
 	@shape.polygon:
 	{
@@ -58,6 +58,15 @@ holdable:
 	stress_multiplier: 0.150
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 4.000
+	offset: [0.000, 0.650]
+	flags: disable_parent_facing
+	tags: large, fixed
 }
 
 norotate:

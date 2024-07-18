@@ -16,7 +16,7 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: architecture
 	
 	color_button: "0xffaeb59a"
@@ -28,11 +28,13 @@
 	placement:
 	{
 		type: line
-		flags: allow_placement_over_buildings, require_terrain
+		flags: allow_placement_over_buildings, require_terrain, terrain_is_support
 		
 		size: [0.500, 0.500]
 		
 		cooldown: 0.300
+		min_support: 0.150
+		min_clearance: 0.500
 		min_claim: 1.000
 		
 		length_min: 1.000
