@@ -36,7 +36,7 @@ animated.renderer:
 		fps: 0.000
 		count: 0
 		size: [56, 48]
-		frame: [3, 0]
+		frame: [5, 0]
 	}
 	z: -300.000
 }
