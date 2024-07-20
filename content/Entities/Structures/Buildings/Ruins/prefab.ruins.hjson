@@ -64,7 +64,9 @@ minimap.marker:
 
 interactable:
 {
-	window_size: [600.000, 422.000]
+	flags: none
+	window_size: [496.000, 422.000]
+	window_size_misc: [172.000, 0.000]
 }
 
 faction:

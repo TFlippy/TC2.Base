@@ -1,9 +1,10 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.0"
 	name: "Drained Water (Clean)"
 	desc:
 		'''
 		TODO: Desc
+		- Requires to be near a body of water
 		'''
 	
 	icon:
@@ -13,9 +14,9 @@
 		frame: [2, 0]
 	}
 	
-	min: 5
-	max: 50
-	step: 5
+	min: 10
+	max: 100
+	step: 10
 	
 	type: workshop
 	flags: none

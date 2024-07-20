@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.0"
 	name: "Kneading"
 	name_short: "Kneading"
 	desc:
@@ -36,13 +36,20 @@
 	
 	skills_min:
 	{
-	
+		
 	}
 	
 	skills_mult:
 	{
-	
+		strength: 0.550
+		dexterity: 0.150
+		endurance: 0.600
 	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
 	
 	sounds: []
 }

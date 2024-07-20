@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.0"
 	name: "Blending"
 	name_short: "Blending"
 	desc:
@@ -16,7 +16,7 @@
 	
 	flags: manual, machine, automated, simple, wip
 	cooldown: 2.000
-	multiplier: 1.000
+	multiplier: 2.000
 	color: "0xff719240"
 	
 	tools_required: none
@@ -44,6 +44,11 @@
 		dexterity: 0.180
 		endurance: 0.600
 	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
 	
 	sounds:
 	[

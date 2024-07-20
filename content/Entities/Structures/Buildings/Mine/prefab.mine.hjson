@@ -2,8 +2,6 @@ $name: "Mine"
 $desc:
 	'''
 	A place where miners spend the rest of their lives chipping away rock.
-	
-	Periodically produces shipments containing various ores.
 	'''
 $tags: []
 
@@ -131,11 +129,11 @@ dormitory:
 	species: "human"
 	flags: no_kit_selection, no_kit_requirements, region_only
 	asset_flags: recycle
-	max_kits: 2
-	kit_default: "default.mine"
+	max_kits: 3
+	// kit_default: "default.mine"
 
-	characters_capacity: 3
-	characters_initial_count: 0
+	characters_capacity: 5
+	characters_initial_count: 1
 
 	repopulate_interval: 300.000
 	repopulate_interval_extra: 400.000
@@ -144,9 +142,9 @@ dormitory:
 	
 	character_flags_filter: 
 	{
-		require: laborer, miner
-		include: slave, construction, unskilled, laborer, engineer, poor, miner, lower_class, lower_middle_class, middle_class
-		exclude: farmer, social, hunter, culinary, upper_middle_class, upper_class, elite_class
+		require: miner
+		include: unskilled, laborer, technician, poor, miner, strong, lower_class, lower_middle_class, middle_class
+		exclude: farmer, upper_middle_class, upper_class, elite_class
 		weight: 2.000
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.0"
 	name: "Recruit a Scout"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	step: 1
 	
 	type: workshop
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, wip, disabled
 	tags: headquarters
 	
 	color_button: "0xffaeb59a"

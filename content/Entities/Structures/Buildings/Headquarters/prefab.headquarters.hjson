@@ -49,7 +49,10 @@ building:
 
 nameable:
 {
+	tags: homely, fancy, market
+	type: location
 	flags: randomize
+	max_length: 24
 }
 
 spawn:
@@ -61,10 +64,16 @@ storage:
 {
 	@inventory16:
 	{
-		name: "Storage"
-		stack_size_multiplier: 10.000
 		type: storage
 		flags: standalone, ignore_mass, public, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			exclude: large, heavy, smelly
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -92,7 +101,8 @@ claimer:
 
 interactable:
 {
-	window_size: [624.000, 448.000]
+	flags: none
+	window_size: [624.000, 536.000]
 	window_size_misc: [218.000, 0.000]
 }
 
@@ -128,7 +138,6 @@ armory:
 		{
 			require: ammo
 			include: granular, small
-			exclude: large
 		}
 		
 		offset: [0.000, 0.000]
@@ -142,28 +151,23 @@ shipment:
 
 dormitory:
 {
-	species: "human"
+	species: human
 	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
-	asset_flags: recycle
-	// kit_default: "null"
+	kit_default: "null"
 	characters_capacity: 6
 	characters_initial_count: 0
 	repopulate_interval: 120.000
 	repopulate_interval_extra: 180.000
 	repopulate_num: 1
 	repopulate_num_extra: 2
-	repopulate_max: 4
-	kit_filter: 
+	repopulate_max: 6
+	move_radius: 8.000
+	asset_flags: recycle
+	character_flags_filter:
 	{
-		require: none
-		include: none
-		exclude: none
-	}
-	character_flags_filter: 
-	{
-		require: none
-		include: bureaucrat, construction, scientist, educated, military, medical, artisan, professional, armed, law, social, commerce, technician, engineer, chemist, soldier, sedentary, politician, lower_middle_class, middle_class, upper_middle_class
-		exclude: slave, criminal, unskilled, lowlife, elite_class
+		require: sedentary
+		include: bureaucrat, construction, educated, military, nobility, professional, civillian, law, social, commerce, engineer, soldier, artist, sedentary, politician, middle_class, upper_middle_class, upper_class
+		exclude: slave, unskilled, lowlife, illiterate, lower_class, elite_class
 		weight: 1.000
 	}
 }

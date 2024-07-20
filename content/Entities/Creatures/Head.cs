@@ -82,7 +82,7 @@ namespace TC2.Base.Components
 
 			IStatusEffect.ScheduleDraw(new()
 			{
-				icon = "ui_icon_effect.alcohol",
+				icon = new Sprite("ui_icons_widget", 16, 16, 5, 2),
 				value = $"Air\n{air_current_norm:P0}",
 				text_color = color,
 				name = $"Air\n{air_current_norm:P0}"
