@@ -53,7 +53,7 @@
 		{
 			type: resource
 			material: mud
-			amount: 0.068
+			amount: 0.024
 		}
 	]
 	

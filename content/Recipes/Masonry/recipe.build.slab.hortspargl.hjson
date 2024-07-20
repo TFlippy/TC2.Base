@@ -53,7 +53,7 @@
 		{
 			type: resource
 			material: mortar
-			amount: 0.040
+			amount: 0.010
 		}
 	]
 	
