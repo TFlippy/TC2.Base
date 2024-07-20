@@ -1,16 +1,13 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Methamphetamine"
-	desc: ""
 	
 	icon:
 	{
-		texture: "resource.meth"
+		texture: resource.meth
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -18,29 +15,31 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery, kitchen
+	tags: kitchen
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "sugar"
+			material: sugar
 			amount: 15.000
 		}
 		{
 			type: resource
-			material: "mushroom.red"
+			material: mushroom.red
 			amount: 30.000
 		}
 		{
 			type: resource
-			material: "hydrochloric_acid"
+			material: hydrochloric_acid
 			amount: 35.000
 		}
 		{
 			type: resource
-			material: "onion.juice"
+			material: onion.juice
 			amount: 20.000
 		}
 		{
@@ -55,19 +54,19 @@
 	[
 		{
 			type: resource
-			material: "meth"
+			material: meth
 			amount: 13.000
 			amount_extra: 23.000
 		}
 		{
 			type: resource
-			material: "paxilon"
+			material: paxilon
 			amount: 0.000
 			amount_extra: 2.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 15.000
 			amount_extra: 23.000
 		}

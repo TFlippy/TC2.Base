@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Handsawn Iron Billet"
 	desc:
 		'''
@@ -28,7 +28,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier
-	tags: forge, workbench, manufactory
+	tags: forge, workbench
 	
 	color_button: "0xff818b48"
 	rank: -17.500

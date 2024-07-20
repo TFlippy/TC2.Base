@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Bomb"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "bomb.ball"
+		texture: bomb.ball
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 2
 	max: 16
@@ -19,24 +17,26 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: munitions
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "gunpowder"
+			material: gunpowder
 			amount: 2.500
 		}
 		{
 			type: resource
-			material: "iron.ingot"
+			material: iron.ingot
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 0.500
 		}
 		{
@@ -51,7 +51,7 @@
 	[
 		{
 			type: prefab
-			prefab: "bomb.ball"
+			prefab: bomb.ball
 			amount: 1.000
 		}
 	]

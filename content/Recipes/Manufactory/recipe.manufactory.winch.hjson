@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Winch"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "winch"
+		texture: winch
 		size: [16, 16]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -20,19 +18,21 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 8.000
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 5.000
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: prefab
-			prefab: "winch"
+			prefab: winch
 			amount: 1.000
 		}
 	]

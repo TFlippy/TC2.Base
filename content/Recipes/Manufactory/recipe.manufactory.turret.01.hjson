@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Turret (Coaxial)"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "turret.01.fg"
+		texture: turret.01.fg
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -19,19 +17,21 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 35.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 8.000
 		}
 		{
@@ -52,7 +52,7 @@
 	[
 		{
 			type: prefab
-			prefab: "turret.01"
+			prefab: turret.01
 			amount: 1.000
 		}
 	]

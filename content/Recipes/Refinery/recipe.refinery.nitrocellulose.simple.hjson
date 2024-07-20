@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Simple Nitrocellulose Production"
 	desc:
 		'''
@@ -10,12 +10,10 @@
 	
 	icon:
 	{
-		texture: "resource.nitrocellulose"
+		texture: resource.nitrocellulose
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -23,29 +21,31 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 20.000
 		}
 		{
 			type: resource
-			material: "saltpeter"
+			material: saltpeter
 			amount: 50.000
 		}
 		{
 			type: resource
-			material: "sulfur"
+			material: sulfur
 			amount: 30.000
 		}
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 200.000
 		}
 		{
@@ -60,19 +60,19 @@
 	[
 		{
 			type: resource
-			material: "nitrocellulose"
+			material: nitrocellulose
 			amount: 30.000
 			amount_extra: 60.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 30.000
 			amount_extra: 80.500
 		}
 		{
 			type: resource
-			material: "water.toxic"
+			material: water.toxic
 			amount: 50.000
 			amount_extra: 80.000
 		}

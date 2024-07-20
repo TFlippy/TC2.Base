@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Shotgun Shell (High-Explosive)"
 	desc:
 		'''
@@ -8,19 +8,17 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.grenade"
+		texture: resource.ammo_sg.grenade
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 		frame: [4, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 10
 	max: 100
@@ -28,19 +26,21 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: munitions
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "copper.ingot"
+			material: copper.ingot
 			amount: 0.020
 		}
 		{
 			type: resource
-			material: "nitroglycerine"
+			material: nitroglycerine
 			amount: 4.000
 		}
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: resource
-			material: "ammo_sg.grenade"
+			material: ammo_sg.grenade
 			amount: 1.000
 		}
 	]

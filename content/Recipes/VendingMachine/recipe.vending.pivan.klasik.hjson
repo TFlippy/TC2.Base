@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Pivan Klasik"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "beer"
+		texture: beer
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -19,14 +17,16 @@
 	
 	type: buy
 	flags: disabled, wip
-	tags: vending_machine
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 8.990
 		}
 	]
@@ -35,7 +35,7 @@
 	[
 		{
 			type: prefab
-			prefab: "bp.pivan.klasik"
+			prefab: bp.pivan.klasik
 			amount: 1.000
 		}
 	]

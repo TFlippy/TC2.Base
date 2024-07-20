@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Universal Brown Sauce"
 	desc:
 		'''
@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "resource.sauce"
+		texture: resource.sauce
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -21,24 +19,26 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery, kitchen
+	tags: kitchen
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 250.000
 		}
 		{
 			type: resource
-			material: "flour"
+			material: flour
 			amount: 15.000
 		}
 		{
 			type: resource
-			material: "mushroom.brown"
+			material: mushroom.brown
 			amount: 2.941176
 		}
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "sauce"
+			material: sauce
 			amount: 40.000
 			amount_extra: 10.000
 		}

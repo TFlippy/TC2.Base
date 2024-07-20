@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Derringer"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "derringer"
+		texture: derringer
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 100
@@ -19,19 +17,21 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: gunsmith
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 3.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 1.000
 		}
 		{
@@ -58,7 +58,7 @@
 	[
 		{
 			type: prefab
-			prefab: "derringer"
+			prefab: derringer
 			amount: 1.000
 		}
 	]

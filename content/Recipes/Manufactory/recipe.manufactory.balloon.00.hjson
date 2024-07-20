@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Balloon"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "balloon.00.icon"
+		texture: balloon.00.icon
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -19,29 +17,31 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: -550.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 70.000
 		}
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 60.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 10.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 17.000
 		}
 		{
@@ -68,7 +68,7 @@
 	[
 		{
 			type: prefab
-			prefab: "balloon.00"
+			prefab: balloon.00
 			amount: 1.000
 		}
 	]

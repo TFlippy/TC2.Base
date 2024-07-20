@@ -13,18 +13,19 @@ body:
 	{
 		points:
 		[
-			[-2.250, -0.750]
-			[1.375, -0.250]
-			[1.500, 2.500]
-			[-2.500, 2.500]
+			[-1.250, -0.250]
+			[1.250, -0.375]
+			[1.375, 1.000]
+			[-1.375, 1.000]
 		]
+		
 		mass: 350.000
 		radius: 0.500
 		friction: 0.950
-		elasticity: 0.500
+		
 		material: concrete
+		
 		layer: entity, building, ignore_melee
-		mask: world
 	}
 }
 
@@ -49,24 +50,32 @@ transform:
 
 interactable:
 {
-	window_size: [624.000, 504.000]
+	flags: none
+	window_size: [624.000, 510.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 shop:
 {
-	name: "Workbench"
-	tags: workbench
+	name: "Casting Basin"
 	
-	work_tools: hammer, saw, bucket, tongs, knife
-	work_equipment: table, rack
-	work_environment: workshop, mobile
+	tags: simple, crude, manual, casting, forming, shaping, basic
+	tags_require: none
+	tags_exclude: furnace, automated
 	
+	work_tools: hammer, pliers, bucket, file, spatula, tongs
+	work_machines: none
+	work_equipment: cauldron, dishes, table, rack, crucible, bed
+	work_environment: workshop, stationary
+	
+	flags: none
 	menu_columns: 4
+	blueprints_capacity: 8
 }
 
 workshop:
 {
-	orders_capacity: 2
+	orders_capacity: 1
 
 	@inventory8:
 	{

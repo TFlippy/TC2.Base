@@ -1,0 +1,81 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Casting Basin"
+	
+	icon:
+	{
+		texture: casting_basin.00
+		size: [32, 24]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: no_amount_multiplier, blueprintable
+	tags: architecture
+	
+	color_button: "0xffaeb59a"
+	rank: -555.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support
+		
+		size: [4.000, 3.000]
+		offset: [0.000, -0.500]
+		
+		rect_foundation: [-1.750, 0.500, 1.750, 1.500]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.750, -1.750, 1.750, 0.500]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.700
+		min_clearance: 0.950
+		min_claim: 1.000
+		
+		rotation_max: 0.050
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 80.000
+		}
+		{
+			type: resource
+			material: sand
+			amount: 150.000
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 12.000
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: casting_basin.00
+			amount: 1.000
+		}
+	]
+}

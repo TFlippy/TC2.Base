@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Limelight"
 	desc:
 		'''
@@ -10,12 +10,10 @@
 	
 	icon:
 	{
-		texture: "resource.limelight"
+		texture: resource.limelight
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 5
 	max: 50
@@ -23,24 +21,26 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: -540.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "lime"
+			material: lime
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "recondite.ingot"
+			material: recondite.ingot
 			amount: 0.100
 		}
 		{
 			type: resource
-			material: "pellet.heat"
+			material: pellet.heat
 			amount: 0.200
 		}
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: resource
-			material: "limelight"
+			material: limelight
 			amount: 1.000
 		}
 	]

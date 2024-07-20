@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Wheel (Metal, Medium)"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "wheel.metal.00.md"
+		texture: wheel.metal.00.md
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 8
@@ -19,14 +17,16 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: -150.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 8.000
 		}
 		{
@@ -47,7 +47,7 @@
 	[
 		{
 			type: prefab
-			prefab: "wheel.metal.00.md"
+			prefab: wheel.metal.00.md
 			amount: 1.000
 		}
 	]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Auto Shotgun"
 	desc:
 		'''
@@ -9,10 +9,8 @@
 	
 	icon:
 	{
-		texture: "auto_shotgun"
+		texture: auto_shotgun
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 80
@@ -20,24 +18,26 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: gunsmith
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 5.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 3.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 8.000
 		}
 		{
@@ -64,7 +64,7 @@
 	[
 		{
 			type: prefab
-			prefab: "auto_shotgun"
+			prefab: auto_shotgun
 			amount: 1.000
 		}
 	]

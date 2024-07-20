@@ -2,15 +2,15 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.100
+	buoyancy: 0.0500
 
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.950
+		elasticity: 0.200
 		material: concrete
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world

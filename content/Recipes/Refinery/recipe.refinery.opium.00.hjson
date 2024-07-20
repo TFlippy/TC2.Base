@@ -1,16 +1,13 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Opium Processing"
-	desc: ""
 	
 	icon:
 	{
-		texture: "resource.opium"
+		texture: resource.opium
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -18,24 +15,26 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery, kitchen
+	tags: kitchen
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "opium"
+			material: opium
 			amount: 100.000
 		}
 		{
 			type: resource
-			material: "sulfuric_acid"
+			material: sulfuric_acid
 			amount: 25.000
 		}
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 125.000
 		}
 		{
@@ -50,25 +49,25 @@
 	[
 		{
 			type: resource
-			material: "opium"
+			material: opium
 			amount: 15.000
 			amount_extra: 45.000
 		}
 		{
 			type: resource
-			material: "morphine"
+			material: morphine
 			amount: 15.000
 			amount_extra: 40.000
 		}
 		{
 			type: resource
-			material: "codeine"
+			material: codeine
 			amount: 0.000
 			amount_extra: 15.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 35.000
 			amount_extra: 65.000
 		}

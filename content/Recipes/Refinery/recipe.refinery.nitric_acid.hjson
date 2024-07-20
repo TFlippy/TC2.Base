@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Nitric Acid (Saltpeter)"
 	desc:
 		'''
@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "resource.nitric_acid"
+		texture: resource.nitric_acid
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -21,19 +19,21 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "saltpeter"
+			material: saltpeter
 			amount: 25.000
 		}
 		{
 			type: resource
-			material: "sulfuric_acid"
+			material: sulfuric_acid
 			amount: 25.000
 		}
 		{
@@ -48,13 +48,13 @@
 	[
 		{
 			type: resource
-			material: "nitric_acid"
+			material: nitric_acid
 			amount: 25.000
 			amount_extra: 5.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 20.000
 			amount_extra: 15.000
 		}

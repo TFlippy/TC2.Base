@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Motor (Servus)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: forge, workbench, scrapyard, manufactory
+	tags: forge, workbench, scrapyard
 	
 	color_button: "0xffaeb59a"
 	rank: -8.000

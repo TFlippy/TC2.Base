@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Revolver"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "revolver"
+		texture: revolver
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 100
@@ -19,24 +17,26 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: gunsmith
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 2.500
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 2.000
 		}
 		{
@@ -63,7 +63,7 @@
 	[
 		{
 			type: prefab
-			prefab: "revolver"
+			prefab: revolver
 			amount: 1.000
 		}
 	]

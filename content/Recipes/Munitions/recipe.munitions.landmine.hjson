@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Land Mine"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "landmine"
+		texture: landmine
 		size: [8, 8]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 20
@@ -20,24 +18,26 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: munitions
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 2.000
 		}
 		{
 			type: resource
-			material: "nitroglycerine"
+			material: nitroglycerine
 			amount: 10.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 1.000
 		}
 		{
@@ -52,7 +52,7 @@
 	[
 		{
 			type: prefab
-			prefab: "landmine"
+			prefab: landmine
 			amount: 1.000
 		}
 	]

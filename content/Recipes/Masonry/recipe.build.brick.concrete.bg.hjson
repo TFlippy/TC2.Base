@@ -48,7 +48,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 0.150
+			amount: 0.075
 		}
 		{
 			type: resource

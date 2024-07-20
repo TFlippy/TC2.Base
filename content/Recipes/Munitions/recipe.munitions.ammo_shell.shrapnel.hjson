@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Artillery Shell (Shrapnel)"
 	desc:
 		'''
@@ -8,19 +8,17 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_hw.shrapnel"
+		texture: resource.ammo_hw.shrapnel
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 		frame: [7, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 20
@@ -28,24 +26,26 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: munitions
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 12.000
 		}
 		{
 			type: resource
-			material: "gunpowder"
+			material: gunpowder
 			amount: 20.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 3.000
 		}
 		{
@@ -66,7 +66,7 @@
 	[
 		{
 			type: resource
-			material: "ammo_hw.shrapnel"
+			material: ammo_hw.shrapnel
 			amount: 1.000
 		}
 	]

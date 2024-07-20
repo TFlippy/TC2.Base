@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Beer"
 	desc:
 		'''
@@ -17,7 +17,7 @@
 	
 	type: crafter
 	flags: blueprintable, hidden, wip
-	tags: refinery, fermenter, kitchen
+	tags: fermenter, kitchen
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

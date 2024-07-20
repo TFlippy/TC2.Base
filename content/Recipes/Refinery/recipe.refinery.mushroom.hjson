@@ -1,10 +1,14 @@
-{
+﻿{
+	$version: "0.1.61.1"
 	name: "Mushroom Scrap Fermentation"
-	desc: "Ferment some mushroom scraps into a smelly mush."
+	desc:
+		'''
+		Ferment some mushroom scraps into a smelly mush.
+		'''
 	
 	icon:
 	{
-		texture: "resource.mushroom"
+		texture: resource.mushroom
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -13,58 +17,61 @@
 	max: 500
 	step: 50
 	
-	flags: none
 	type: crafter
-	tags: refinery
+	flags: none
+	tags: none
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
 	
 	requirements:
 	[
 		{
-			type: "resource"
-			material: "mushroom"
+			type: resource
+			material: mushroom
 			amount: 1.000
 		}
 		{
-			type: "resource"
-			material: "water"
+			type: resource
+			material: water
 			amount: 0.800
 		}
 		{
-			type: "resource"
-			material: "sugar"
+			type: resource
+			material: sugar
 			amount: 0.040
 		}
 		{
-			type: "work"
-			work: "refining"
+			type: work
+			work: refining
 			amount: 35.000
-			difficulty: 6.000
+			difficulty: 6
 		}
 	]
 	
 	products:
 	[
 		{
-			type: "resource"
-			material: "peat"
+			type: resource
+			material: peat
 			amount: 0.280
 			amount_extra: 0.300
 		}
 		{
-			type: "resource"
-			material: "soil.rich"
+			type: resource
+			material: "null"
 			amount: 0.006
 			amount_extra: 0.260
 		}
 		{
-			type: "resource"
-			material: "alcohol"
+			type: resource
+			material: alcohol
 			amount: 0.200
 			amount_extra: 0.500
 		}
 		{
-			type: "resource"
-			material: "water.dirty"
+			type: resource
+			material: water.dirty
 			amount: 0.400
 			amount_extra: 0.200
 		}

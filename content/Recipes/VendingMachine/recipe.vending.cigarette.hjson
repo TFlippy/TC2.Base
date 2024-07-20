@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Pack of Cigarettes"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "cigarette"
+		texture: cigarette
 		size: [16, 16]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -20,14 +18,16 @@
 	
 	type: buy
 	flags: disabled, wip
-	tags: vending_machine
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 29.990
 		}
 	]
@@ -36,7 +36,7 @@
 	[
 		{
 			type: prefab
-			prefab: "cigarette"
+			prefab: cigarette
 			amount: 1.000
 		}
 	]

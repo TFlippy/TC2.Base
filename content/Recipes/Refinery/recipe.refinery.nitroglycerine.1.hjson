@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Nitroglycerine (Sugar)"
 	desc:
 		'''
@@ -8,19 +8,17 @@
 	
 	icon:
 	{
-		texture: "resource.nitroglycerine"
+		texture: resource.nitroglycerine
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.sugar"
+		texture: resource.sugar
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	icon_extra_offset: [-2.000, -7.000]
 	
 	min: 1
@@ -29,29 +27,31 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: refinery
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "nitric_acid"
+			material: nitric_acid
 			amount: 25.000
 		}
 		{
 			type: resource
-			material: "sulfuric_acid"
+			material: sulfuric_acid
 			amount: 25.000
 		}
 		{
 			type: resource
-			material: "sugar"
+			material: sugar
 			amount: 10.000
 		}
 		{
 			type: resource
-			material: "water"
+			material: water
 			amount: 25.000
 		}
 		{
@@ -66,13 +66,13 @@
 	[
 		{
 			type: resource
-			material: "nitroglycerine"
+			material: nitroglycerine
 			amount: 15.000
 			amount_extra: 35.000
 		}
 		{
 			type: resource
-			material: "sludge"
+			material: sludge
 			amount: 2.000
 			amount_extra: 6.000
 		}

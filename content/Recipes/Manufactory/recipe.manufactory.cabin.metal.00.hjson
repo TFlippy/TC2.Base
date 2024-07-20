@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Cabin (Metal)"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "cabin.metal.icon.00"
+		texture: cabin.metal.icon.00
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -19,24 +17,26 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manufactory
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 15.000
 		}
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 40.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 8.000
 		}
 		{
@@ -57,7 +57,7 @@
 	[
 		{
 			type: prefab
-			prefab: "cabin.metal.00"
+			prefab: cabin.metal.00
 			amount: 1.000
 		}
 	]

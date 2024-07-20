@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Shotgun Shell (Slug, High-Velocity)"
 	desc:
 		'''
@@ -13,19 +13,17 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_sg.slug.hv"
+		texture: resource.ammo_sg.slug.hv
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 4
 	max: 24
@@ -33,14 +31,16 @@
 	
 	type: buy
 	flags: disabled, wip
-	tags: vending_machine
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 8.790
 		}
 	]
@@ -49,7 +49,7 @@
 	[
 		{
 			type: resource
-			material: "ammo_sg.slug.hv"
+			material: ammo_sg.slug.hv
 			amount: 1.000
 		}
 	]

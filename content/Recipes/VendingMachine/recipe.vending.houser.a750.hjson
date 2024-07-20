@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Houser A-750"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "machine_pistol"
+		texture: machine_pistol
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 1
@@ -19,14 +17,16 @@
 	
 	type: buy
 	flags: disabled, wip
-	tags: vending_machine
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: -10.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 219.990
 		}
 	]
@@ -35,7 +35,7 @@
 	[
 		{
 			type: prefab
-			prefab: "bp.houser.a750"
+			prefab: bp.houser.a750
 			amount: 1.000
 		}
 	]

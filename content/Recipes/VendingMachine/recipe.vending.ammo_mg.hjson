@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Machine Gun Ammo (Standard)"
 	desc:
 		'''
@@ -12,18 +12,16 @@
 	
 	icon:
 	{
-		texture: "resource.ammo_mg"
+		texture: resource.ammo_mg
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 10
 	max: 50
@@ -31,14 +29,16 @@
 	
 	type: buy
 	flags: disabled, wip
-	tags: vending_machine
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "money"
+			material: money
 			amount: 5.490
 		}
 	]
@@ -47,7 +47,7 @@
 	[
 		{
 			type: resource
-			material: "ammo_mg"
+			material: ammo_mg
 			amount: 1.000
 		}
 	]

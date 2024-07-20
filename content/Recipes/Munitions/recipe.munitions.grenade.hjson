@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Grenade"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "grenade"
+		texture: grenade
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 2
 	max: 50
@@ -19,29 +17,31 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: munitions
+	tags: none
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 0.500
 		}
 		{
 			type: resource
-			material: "gunpowder"
+			material: gunpowder
 			amount: 2.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 1.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 0.500
 		}
 		{
@@ -56,7 +56,7 @@
 	[
 		{
 			type: prefab
-			prefab: "grenade"
+			prefab: grenade
 			amount: 1.000
 		}
 	]
