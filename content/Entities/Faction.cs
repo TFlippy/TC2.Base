@@ -104,9 +104,9 @@ namespace TC2.Base.Components
 
 																		using (row.Column(2))
 																		{
-																			if (faction_data.leader_player_id == member_player_data.steam_id)
+																			if (faction_data.IsLeader(h_player_member))
 																			{
-																				GUI.TextShaded("Leader");
+																				GUI.TextShaded("Leader"u8);
 																			}
 																		}
 
