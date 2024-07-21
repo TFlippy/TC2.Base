@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Scrapyard"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "scrapyard"
+		texture: scrapyard
 		size: [56, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: buildings
+	tags: buildings, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 205.000
 	
 	dismantle_work: 15.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.100
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.7x5"
+		prefab: construction.7x5
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -82,12 +82,12 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 800.000
 		}
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 600.000
 		}
 	]
@@ -96,7 +96,7 @@
 	[
 		{
 			type: prefab
-			prefab: "scrapyard"
+			prefab: scrapyard
 			amount: 1.000
 		}
 	]

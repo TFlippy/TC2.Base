@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Barracks"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "barracks.00"
+		texture: barracks.00
 		size: [48, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: buildings
+	tags: buildings, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	dismantle_work: 10.000
@@ -42,7 +42,7 @@
 		rotation_max: 0.200
 		rotation_step: 0.19635
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,13 +52,13 @@
 	
 	construction:
 	{
-		prefab: "construction.6x4"
+		prefab: construction.6x4
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -83,17 +83,17 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 250.000
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 20.000
 		}
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 950.000
 		}
 	]
@@ -102,7 +102,7 @@
 	[
 		{
 			type: prefab
-			prefab: "barracks.00"
+			prefab: barracks.00
 			amount: 1.000
 		}
 	]

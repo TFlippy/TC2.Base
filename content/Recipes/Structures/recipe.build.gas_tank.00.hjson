@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "TODO"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "chest"
+		texture: chest
 		size: [16, 14]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: construction
+	tags: construction, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -109.000
 	
 	dismantle_work: 5.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.300
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -55,7 +55,7 @@
 	[
 		{
 			type: prefab
-			prefab: "chest"
+			prefab: chest
 			amount: 1.000
 		}
 	]

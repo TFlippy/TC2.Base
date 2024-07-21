@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "TODO"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "checkpoint.00"
+		texture: checkpoint.00
 	}
-	
-	color_button: "0xff7f9a6a"
 	
 	min: 0
 	max: 0
@@ -19,7 +17,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: construction
+	tags: construction, wrench
+	
+	color_button: "0xff7f9a6a"
 	rank: -109.000
 	
 	dismantle_work: 5.000
@@ -42,7 +42,7 @@
 		
 		rotation_max: 0.100
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,13 +52,13 @@
 	
 	construction:
 	{
-		prefab: "construction.6x6"
+		prefab: construction.6x6
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -85,7 +85,7 @@
 	[
 		{
 			type: prefab
-			prefab: "checkpoint.00"
+			prefab: checkpoint.00
 			amount: 1.000
 		}
 	]

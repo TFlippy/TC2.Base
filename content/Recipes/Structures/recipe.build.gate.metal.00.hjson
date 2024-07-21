@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Gate (Metal)"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "gate.metal.base"
+		texture: gate.metal.base
 		size: [24, 96]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: mechanisms
+	tags: mechanisms, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -20.000
 	
 	dismantle_work: 60.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.100
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.2x12"
+		prefab: construction.2x12
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 50.000
 			}
 			null
@@ -82,12 +82,12 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 150.000
 		}
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 50.000
 		}
 	]
@@ -96,7 +96,7 @@
 	[
 		{
 			type: prefab
-			prefab: "gate.metal"
+			prefab: gate.metal
 			amount: 1.000
 		}
 	]

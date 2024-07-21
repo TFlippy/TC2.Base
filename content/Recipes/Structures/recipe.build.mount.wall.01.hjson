@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Mount (Wall)"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "mount.wall.01"
+		texture: mount.wall.01
 		size: [16, 16]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: mechanisms
+	tags: mechanisms, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -334.000
 	
 	dismantle_work: 15.000
@@ -39,7 +39,7 @@
 		min_clearance: 0.950
 		min_claim: 1.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,12 +51,12 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 20.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 8.000
 		}
 	]
@@ -65,7 +65,7 @@
 	[
 		{
 			type: prefab
-			prefab: "mount.wall.01"
+			prefab: mount.wall.01
 			amount: 1.000
 		}
 	]

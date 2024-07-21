@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Shaft"
 	desc:
 		'''
@@ -9,11 +9,9 @@
 	
 	icon:
 	{
-		texture: "shaft"
+		texture: shaft
 		size: [16, 16]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,7 +19,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: mechanisms
+	tags: mechanisms, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	dismantle_work: 3.000
@@ -39,7 +39,7 @@
 		min_clearance: 0.500
 		min_claim: 1.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,7 +51,7 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 5.000
 		}
 	]
@@ -60,7 +60,7 @@
 	[
 		{
 			type: prefab
-			prefab: "shaft"
+			prefab: shaft
 			amount: 1.000
 		}
 	]

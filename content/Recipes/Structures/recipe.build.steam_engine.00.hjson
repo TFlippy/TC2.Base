@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Steam Engine (Zimrman)"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "steam_engine"
+		texture: steam_engine
 		size: [64, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: industry
+	tags: industry, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 108.000
 	
 	dismantle_work: 20.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.100
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.8x5"
+		prefab: construction.8x5
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -82,22 +82,22 @@
 	[
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 450.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 55.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 80.000
 		}
 		{
 			type: resource
-			material: "copper.plate"
+			material: copper.plate
 			amount: 185.000
 		}
 	]
@@ -106,7 +106,7 @@
 	[
 		{
 			type: prefab
-			prefab: "steam_engine"
+			prefab: steam_engine
 			amount: 1.000
 		}
 	]

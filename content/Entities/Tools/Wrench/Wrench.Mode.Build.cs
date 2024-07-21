@@ -105,9 +105,15 @@ namespace TC2.Base.Components
 												}
 												break;
 
-												case Wrench.Mode.Build.Category.Construction:
+												case Wrench.Mode.Build.Category.Furniture:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Construction;
+													button_tags_filter = Crafting.Recipe.Tags.Furniture;
+												}
+												break;
+
+												case Wrench.Mode.Build.Category.Management:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Management;
 												}
 												break;
 
@@ -123,9 +129,9 @@ namespace TC2.Base.Components
 												}
 												break;
 
-												case Wrench.Mode.Build.Category.Mechanisms:
+												case Wrench.Mode.Build.Category.Infrastructure:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Mechanisms;
+													button_tags_filter = Crafting.Recipe.Tags.Infrastructure;
 												}
 												break;
 
@@ -793,10 +799,12 @@ namespace TC2.Base.Components
 				public enum Category: uint
 				{
 					Architecture = 0,
-					Construction,
+					Furniture,
+					Management,
+					Infrastructure,
 					Industry,
 					Buildings,
-					Mechanisms,
+					//Mechanisms,
 					Misc,
 					//Factions,
 					//Logistics

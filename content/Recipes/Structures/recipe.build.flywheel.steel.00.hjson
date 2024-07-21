@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Flywheel (Steel) [WIP]"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "flywheel.steel.00"
+		texture: flywheel.steel.00
 		size: [32, 32]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: mechanisms
+	tags: mechanisms, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 20.000
 	
 	dismantle_work: 30.000
@@ -39,7 +39,7 @@
 		min_clearance: 0.500
 		min_claim: 1.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,7 +51,7 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 250.000
 		}
 	]
@@ -60,7 +60,7 @@
 	[
 		{
 			type: prefab
-			prefab: "flywheel.steel.00"
+			prefab: flywheel.steel.00
 			amount: 1.000
 		}
 	]

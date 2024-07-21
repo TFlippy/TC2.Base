@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Burner"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "burner.01"
+		texture: burner.01
 		size: [32, 48]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: industry
+	tags: industry, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 1.000
 	
 	dismantle_work: 15.000
@@ -43,7 +43,7 @@
 		
 		rotation_max: 0.150
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -53,13 +53,13 @@
 	
 	construction:
 	{
-		prefab: "construction.4x6"
+		prefab: construction.4x6
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -86,7 +86,7 @@
 	[
 		{
 			type: prefab
-			prefab: "burner.01"
+			prefab: burner.01
 			amount: 1.000
 		}
 	]

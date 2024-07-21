@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Pipe Junction"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: architecture
+	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -7.000

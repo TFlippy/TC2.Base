@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Zapper"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "zapper.00"
+		texture: zapper.00
 	}
-	
-	color_button: "0xffa11209"
 	
 	min: 0
 	max: 0
@@ -19,7 +17,9 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: construction
+	tags: construction, wrench
+	
+	color_button: "0xffa11209"
 	rank: -109.000
 	
 	dismantle_work: 5.000
@@ -40,7 +40,7 @@
 		
 		rotation_max: 10.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -54,7 +54,7 @@
 	[
 		{
 			type: prefab
-			prefab: "zapper.00"
+			prefab: zapper.00
 			amount: 1.000
 		}
 	]

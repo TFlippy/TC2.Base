@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: wip
-	tags: architecture
+	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -96.000

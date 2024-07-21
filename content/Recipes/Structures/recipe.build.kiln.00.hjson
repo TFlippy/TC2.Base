@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Kiln (Small)"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "kiln.00"
+		texture: kiln.00
 		size: [18, 24]
 	}
-	
-	color_button: "0xffad6913"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: industry
+	tags: industry, wrench
+	
+	color_button: "0xffad6913"
 	rank: -232.000
 	
 	dismantle_work: 10.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.3x4"
+		prefab: construction.3x4
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 10.000
 			}
 			null
@@ -82,7 +82,7 @@
 	[
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 280.000
 		}
 	]
@@ -91,7 +91,7 @@
 	[
 		{
 			type: prefab
-			prefab: "kiln.00"
+			prefab: kiln.00
 			amount: 1.000
 		}
 	]

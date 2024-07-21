@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Radio Tower"
 	desc:
 		'''
@@ -8,10 +8,8 @@
 	
 	icon:
 	{
-		texture: "radio_tower.00"
+		texture: radio_tower.00
 	}
-	
-	color_button: "0xff6a7a9a"
 	
 	min: 0
 	max: 0
@@ -19,7 +17,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: construction
+	tags: construction, wrench
+	
+	color_button: "0xff6a7a9a"
 	rank: -109.000
 	
 	dismantle_work: 5.000
@@ -40,7 +40,7 @@
 		
 		rotation_max: 0.050
 		
-		sound: "burner.bang.00"
+		sound: burner.bang.00
 		
 		mappings_replace:
 		{
@@ -54,7 +54,7 @@
 	[
 		{
 			type: prefab
-			prefab: "radio_tower.00"
+			prefab: radio_tower.00
 			amount: 1.000
 		}
 	]

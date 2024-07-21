@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Metal Beam"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "beams.metal.00"
+		texture: beams.metal.00
 		size: [128, 8]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: misc
+	tags: misc, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -62.000
 	
 	dismantle_work: 10.000
@@ -41,7 +41,7 @@
 		length_max: 16.000
 		length_step: 0.500
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -53,7 +53,7 @@
 	[
 		{
 			type: resource
-			material: "steel.billet"
+			material: steel.billet
 			amount: 0.150
 		}
 	]
@@ -62,7 +62,7 @@
 	[
 		{
 			type: prefab
-			prefab: "beam.metal.00"
+			prefab: beam.metal.00
 			amount: 0.000
 		}
 	]

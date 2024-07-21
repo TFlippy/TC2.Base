@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Groundwater Pump"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "pump"
+		texture: pump
 		size: [32, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: industry
+	tags: industry, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -80.000
 	
 	dismantle_work: 10.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.4x5"
+		prefab: construction.4x5
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -84,7 +84,7 @@
 	[
 		{
 			type: prefab
-			prefab: "pump"
+			prefab: pump
 			amount: 1.000
 		}
 	]

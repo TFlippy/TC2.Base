@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Storage"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "storage"
+		texture: storage
 		size: [48, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: buildings
+	tags: buildings, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -3.000
 	
 	dismantle_work: 10.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.6x4"
+		prefab: construction.6x4
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -82,12 +82,12 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 150.000
 		}
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 500.000
 		}
 		{
@@ -108,7 +108,7 @@
 	[
 		{
 			type: prefab
-			prefab: "storage"
+			prefab: storage
 			amount: 1.000
 		}
 	]

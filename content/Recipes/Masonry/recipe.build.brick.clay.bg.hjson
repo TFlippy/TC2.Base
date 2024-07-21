@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Clay Bricks (Back)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: wip
-	tags: architecture
+	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -95.000

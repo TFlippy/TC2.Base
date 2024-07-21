@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Company Office"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "office.company.00"
+		texture: office.company.00
 		size: [48, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: buildings
+	tags: buildings, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 237.000
 	
 	dismantle_work: 10.000
@@ -42,7 +42,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -52,13 +52,13 @@
 	
 	construction:
 	{
-		prefab: "construction.6x5"
+		prefab: construction.6x5
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 15.000
 			}
 			null
@@ -83,17 +83,17 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 400.000
 		}
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 350.000
 		}
 		{
 			type: resource
-			material: "paper"
+			material: paper
 			amount: 20.000
 		}
 	]
@@ -102,7 +102,7 @@
 	[
 		{
 			type: prefab
-			prefab: "office.company.00"
+			prefab: office.company.00
 			amount: 1.000
 		}
 	]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Emplacement (Heavy)"
 	desc:
 		'''
@@ -11,11 +11,9 @@
 	
 	icon:
 	{
-		texture: "mount.heavy"
+		texture: mount.heavy
 		size: [48, 48]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -23,7 +21,9 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: mechanisms
+	tags: mechanisms, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: -40.000
 	
 	dismantle_work: 15.000
@@ -44,7 +44,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -54,13 +54,13 @@
 	
 	construction:
 	{
-		prefab: "construction.6x6"
+		prefab: construction.6x6
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 5.000
 			}
 			null
@@ -85,17 +85,17 @@
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 75.000
 		}
 		{
 			type: resource
-			material: "machine_parts"
+			material: machine_parts
 			amount: 45.000
 		}
 		{
 			type: resource
-			material: "cement"
+			material: cement
 			amount: 850.000
 		}
 	]
@@ -104,7 +104,7 @@
 	[
 		{
 			type: prefab
-			prefab: "mount.heavy"
+			prefab: mount.heavy
 			amount: 1.000
 		}
 	]

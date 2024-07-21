@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Giant Door (Wood)"
 	desc:
 		'''
@@ -8,12 +8,10 @@
 	
 	icon:
 	{
-		texture: "door.wood.01"
-		mask: "missing"
+		texture: door.wood.01
+		mask: missing
 		size: [24, 40]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -21,7 +19,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: architecture
+	tags: architecture, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 143.000
 	
 	dismantle_work: 15.000
@@ -42,7 +42,7 @@
 		
 		rotation_max: 0.400
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -54,7 +54,7 @@
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 70.000
 		}
 	]
@@ -63,7 +63,7 @@
 	[
 		{
 			type: prefab
-			prefab: "door.wood.01"
+			prefab: door.wood.01
 			amount: 1.000
 		}
 	]

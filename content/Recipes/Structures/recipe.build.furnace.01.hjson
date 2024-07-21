@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Furnace (Large)"
 	desc:
 		'''
@@ -8,11 +8,9 @@
 	
 	icon:
 	{
-		texture: "furnace.01"
+		texture: furnace.01
 		size: [32, 64]
 	}
-	
-	color_button: "0xffad6913"
 	
 	min: 0
 	max: 0
@@ -20,7 +18,9 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: industry
+	tags: industry, wrench
+	
+	color_button: "0xffad6913"
 	rank: 154.000
 	
 	dismantle_work: 10.000
@@ -41,7 +41,7 @@
 		
 		rotation_max: 0.200
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -51,13 +51,13 @@
 	
 	construction:
 	{
-		prefab: "construction.5x8"
+		prefab: construction.5x8
 		
 		requirements:
 		[
 			{
 				type: resource
-				material: "wood"
+				material: wood
 				amount: 10.000
 			}
 			null
@@ -82,17 +82,17 @@
 	[
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 2750.000
 		}
 		{
 			type: resource
-			material: "cement"
+			material: cement
 			amount: 1200.000
 		}
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 150.000
 		}
 	]
@@ -101,7 +101,7 @@
 	[
 		{
 			type: prefab
-			prefab: "furnace.01"
+			prefab: furnace.01
 			amount: 1.000
 		}
 	]
