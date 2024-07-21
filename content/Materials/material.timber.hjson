@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Timber"
 	description:
 		'''
@@ -38,58 +38,127 @@
 		saw:
 		{
 			h_material: sawdust
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge, pickup
+			spawn_flags_waste: none
 			
 			ratio: 0.030
 			ratio_extra: 0.050
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
 			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
 			chance: 0.820
 		}
 		axe:
 		{
 			h_material: woodchips
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge, pickup
+			spawn_flags_waste: none
 			
 			ratio: 0.070
 			ratio_extra: 0.050
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
 			yield: 0.950
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
 			chance: 0.600
 		}
 		explosion:
 		{
 			h_material: woodchips
+			h_material_waste: "null"
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
+			spawn_flags_waste: none
 			
 			ratio: 0.130
 			ratio_extra: 0.640
+			
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
 			yield: 0.760
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
 			chance: 1.000
 		}
 		fire:
 		{
 			h_material: charcoal
+			h_material_waste: scrap.charred
 			
 			type: undefined
 			flags: none
 			spawn_flags: merge
+			spawn_flags_waste: none
 			
 			ratio: 0.030
-			ratio_extra: 0.640
-			yield: 0.000
+			ratio_extra: 0.040
 			
-			chance: 1.000
+			ratio_waste: 0.050
+			ratio_waste_extra: 0.350
+			
+			yield: 0.060
+			yield_extra: 0.230
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.100
+		}
+		phlogiston:
+		{
+			h_material: graphite
+			h_material_waste: scrap.charred
+			
+			type: undefined
+			flags: none
+			spawn_flags: merge
+			spawn_flags_waste: none
+			
+			ratio: 0.010
+			ratio_extra: 0.070
+			
+			ratio_waste: 0.050
+			ratio_waste_extra: 0.230
+			
+			yield: 0.050
+			yield_extra: 0.140
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.140
 		}
 	}
 	

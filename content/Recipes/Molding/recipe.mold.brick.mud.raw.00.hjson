@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Mud Bricks"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.brick.mud.raw
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [1.000, 0.000]
+	
+	min: 20
+	max: 200
+	step: 20
+	
+	type: workshop
+	flags: none
+	tags: simple, drying, manual, forming, shaping
+	
+	color_button: "0xffaeb59a"
+	rank: -156.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: mud
+			amount: 0.875
+			group: 0
+		}
+		{
+			type: resource
+			material: soil
+			amount: 0.250
+			group: 0
+		}
+		{
+			type: work
+			work: mashing
+			amount: 3.600
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: work
+			work: drying
+			amount: 1150.000
+			difficulty: 6
+			group: 0
+			flags: no_scaling
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: brick.mud.raw
+			amount: 1.000
+			group: 0
+		}
+	]
+}

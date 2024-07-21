@@ -1,0 +1,57 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Assembling"
+	name_short: "Assembling"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [8, 0]
+	}
+	
+	tags: manual, machine, tools, technical, construction, industrial, wip
+	cooldown: 0.350
+	multiplier: 1.000
+	color: "0xffffa200"
+	
+	tools_required: screwdriver, wrench
+	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, calculator, stapler, towel, tongs, pick, crowbar, knife
+	
+	machinery_required: none
+	machinery_optional: heater
+	
+	equipment_required: table
+	equipment_optional: anvil, table, chair, vise
+	
+	character_traits:
+	{
+		include: construction, military, artisan, laborer, technician, engineer, miner, soldier, insane, naval, thief
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		construction: 0.750
+		scavenging: 0.600
+		dexterity: 0.500
+	}
+	
+	sounds:
+	[
+		work_assembly_00
+		work_assembly_01
+		work_assembly_02
+		work_assembly_03
+		work_assembly_04
+	]
+}

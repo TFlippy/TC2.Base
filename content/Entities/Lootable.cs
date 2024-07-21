@@ -10,7 +10,8 @@ namespace TC2.Base.Components
 		{
 			None = 0,
 
-			No_Damage = 1 << 0
+			No_Damage = 1 << 0,
+			No_Offset = 1 << 1,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]

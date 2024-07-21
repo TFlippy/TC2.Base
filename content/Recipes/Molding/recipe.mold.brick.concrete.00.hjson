@@ -1,0 +1,87 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Concrete Slabs"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.brick.concrete
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, 1.000]
+	
+	min: 20
+	max: 200
+	step: 20
+	
+	type: workshop
+	flags: none
+	tags: simple, drying, manual, forming, shaping
+	
+	color_button: "0xffaeb59a"
+	rank: -156.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: water
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: cement
+			amount: 0.200
+			group: 0
+		}
+		{
+			type: resource
+			material: sand
+			amount: 0.400
+			group: 0
+		}
+		{
+			type: resource
+			material: gravel
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: work
+			work: blending
+			amount: 4.000
+			difficulty: 3
+			group: 0
+		}
+		{
+			type: work
+			work: pouring
+			amount: 2.200
+			difficulty: 3
+			group: 0
+		}
+		{
+			type: work
+			work: cement.curing
+			amount: 1950.000
+			difficulty: 7
+			group: 0
+			flags: no_scaling
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 1.000
+			group: 0
+		}
+	]
+}

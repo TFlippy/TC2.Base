@@ -14,7 +14,7 @@
 		frame: [20, 0]
 	}
 	
-	flags: machine, automated, ambient, simple, chemical, wip
+	tags: machine, automated, ambient, simple, chemical, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xff818c11"

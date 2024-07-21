@@ -14,7 +14,7 @@
 		frame: [24, 0]
 	}
 	
-	flags: manual, skilled, science, ambient, dangerous, advanced, chemical, arcane
+	tags: manual, skilled, science, ambient, dangerous, advanced, chemical, arcane
 	cooldown: 2.000
 	multiplier: 0.150
 	color: "0x8f14d081"

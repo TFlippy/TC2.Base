@@ -1,0 +1,47 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Curing (Cement)"
+	name_short: "Curing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [19, 0]
+	}
+	
+	tags: ambient, simple, passive, chemical, wip
+	cooldown: 1.000
+	multiplier: 1.000
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	character_traits:
+	{
+
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sounds: []
+}

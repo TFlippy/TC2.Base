@@ -14,7 +14,7 @@
 		frame: [27, 0]
 	}
 	
-	flags: skilled, social, ambient, politics, bureaucracy, wip
+	tags: skilled, social, ambient, politics, bureaucracy, wip
 	cooldown: 3.000
 	multiplier: 1.000
 	color: "0x8f005ec2"

@@ -14,7 +14,7 @@
 		frame: [26, 0]
 	}
 	
-	flags: manual, machine, automated, simple, chemical, wip
+	tags: manual, machine, automated, simple, chemical, wip
 	cooldown: 0.500
 	multiplier: 1.000
 	color: "0xffaeb59a"

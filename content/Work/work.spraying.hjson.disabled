@@ -14,7 +14,7 @@
 		frame: [39, 0]
 	}
 	
-	flags: manual, machine, tools, simple, industrial, wip
+	tags: manual, machine, tools, simple, industrial, wip
 	cooldown: 0.300
 	color: "0xffaeb59a"
 	

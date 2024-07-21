@@ -14,7 +14,7 @@
 		frame: [30, 0]
 	}
 	
-	flags: skilled, social, politics, leisure, wip
+	tags: skilled, social, politics, leisure, wip
 	cooldown: 1.500
 	multiplier: 1.000
 	color: "0x8f005ec2"

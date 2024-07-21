@@ -14,7 +14,7 @@
 		frame: [8, 0]
 	}
 	
-	flags: manual, machine, tools, technical, construction, industrial, wip
+	tags: manual, machine, tools, technical, construction, industrial, wip
 	cooldown: 1.280
 	multiplier: 0.750
 	color: "0xffffa200"

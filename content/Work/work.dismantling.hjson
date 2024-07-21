@@ -14,7 +14,7 @@
 		frame: [9, 0]
 	}
 	
-	flags: manual, skilled, tools, science, dangerous, technical, careful, industrial, wip
+	tags: manual, skilled, tools, science, dangerous, technical, careful, industrial, wip
 	cooldown: 1.150
 	multiplier: 1.000
 	color: "0xffffa200"

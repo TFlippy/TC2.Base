@@ -1,0 +1,108 @@
+$name: "Wooden Form"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.450
+	fall_damage_multiplier: 0.650
+
+	@shape.line:
+	{
+		a: [-1.275, 0.000]
+		b: [1.275, 0.000]
+		
+		offset: [0.000, 0.050]
+		
+		mass: 18.000
+		radius: 0.450
+		friction: 0.850
+		elasticity: 0.410
+		
+		material: wood
+		
+		layer: entity, solid, building, ignore_melee, ignore_bullet
+	}
+}
+
+health:
+{
+	max: 4500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "form.wood.00"
+		size: [32, 8]
+		frame: [0, 0]
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+	stress_multiplier: 0.250
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+norotate:
+{
+	bias: 0.000
+	multiplier: 1.800
+	mass_multiplier: 4.000
+}
+
+shop:
+{
+	name: "Wooden Form"
+	
+	tags: simple, drying, manual, forming, shaping
+	tags_require: forming, shaping
+	tags_exclude: automated
+	
+	work_tools: none
+	work_machines: none
+	work_equipment: none
+	work_environment: none
+	
+	flags: none
+	menu_columns: 4
+	blueprints_capacity: 8
+}
+
+crafter:
+{
+	equipment: rack
+	environment: contaminated, ugly
+}
+
+crafter.state:
+{
+	// @inventory4:
+	// {
+	// 	stack_size_multiplier: 2.000
+	// 	type: input
+	// 	flags: standalone, no_auto_pickup
+	// 	offset: [0.000, -0.125]
+	// }
+}
+
+interactable:
+{
+	flags: none
+	window_size: [584.000, 480.000]
+	window_size_misc: [120.000, 0.000]
+}

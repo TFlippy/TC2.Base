@@ -14,7 +14,7 @@
 		frame: [5, 0]
 	}
 	
-	flags: skilled, science, advanced, technical, careful, industrial, bureaucracy, wip
+	tags: skilled, science, advanced, technical, careful, industrial, bureaucracy, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0x8f14d081"

@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Clay Bricks"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.brick.clay.raw
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [1.000, 0.000]
+	
+	min: 20
+	max: 200
+	step: 20
+	
+	type: workshop
+	flags: none
+	tags: simple, drying, manual, forming, shaping
+	
+	color_button: "0xffaeb59a"
+	rank: -156.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: clay
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: water
+			amount: 0.750
+			group: 0
+		}
+		{
+			type: work
+			work: mashing
+			amount: 2.500
+			difficulty: 6
+			group: 0
+		}
+		{
+			type: work
+			work: drying
+			amount: 720.000
+			difficulty: 5
+			group: 0
+			flags: no_scaling
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: brick.clay.raw
+			amount: 1.000
+			group: 0
+		}
+	]
+}

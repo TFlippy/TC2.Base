@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: architecture, wrench
+	tags: infrastructure, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -7.000
