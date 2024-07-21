@@ -54,15 +54,19 @@
 		{
 			type: work
 			work: blending
-			amount: 4.000
+			amount: 10.000
 			difficulty: 3
+			snapping: 5.000
+			falloff: 0.885
 			group: 0
 		}
 		{
 			type: work
 			work: pouring
-			amount: 2.200
+			amount: 15.000
 			difficulty: 3
+			snapping: 5.000
+			falloff: 0.700
 			group: 0
 		}
 		{

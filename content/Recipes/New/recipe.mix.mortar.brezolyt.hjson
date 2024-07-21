@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Brezolyt Mortar"
 	desc:
 		'''
@@ -48,28 +48,37 @@
 			type: resource
 			material: brezolyt
 			amount: 25.000
+			group: 0
 		}
 		{
 			type: work
 			work: shattering
 			amount: 150.000
 			difficulty: 3
+			snapping: 5.000
+			falloff: 0.800
+			group: 0
 		}
 		{
 			type: resource
 			material: soil
 			amount: 6.000
+			group: 0
 		}
 		{
 			type: resource
 			material: water
 			amount: 60.000
+			group: 0
 		}
 		{
 			type: work
 			work: blending
 			amount: 400.000
 			difficulty: 6
+			snapping: 5.000
+			falloff: 0.390
+			group: 0
 		}
 	]
 	
@@ -80,18 +89,21 @@
 			material: mortar
 			amount: 9.122
 			amount_extra: 4.990
+			group: 0
 		}
 		{
 			type: resource
 			material: clay
 			amount: 1.068
 			amount_extra: 2.372
+			group: 0
 		}
 		{
 			type: resource
 			material: water.dirty
 			amount: 24.478
 			amount_extra: 8.372
+			group: 0
 		}
 	]
 }

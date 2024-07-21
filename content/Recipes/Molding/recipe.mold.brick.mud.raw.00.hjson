@@ -42,8 +42,10 @@
 		{
 			type: work
 			work: mashing
-			amount: 3.600
+			amount: 5.000
 			difficulty: 4
+			snapping: 5.000
+			falloff: 0.970
 			group: 0
 		}
 		{

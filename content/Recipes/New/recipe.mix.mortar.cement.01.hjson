@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -48,28 +48,37 @@
 			type: resource
 			material: cement
 			amount: 2.700
+			group: 0
 		}
 		{
 			type: resource
 			material: sand
 			amount: 9.400
+			group: 0
 		}
 		{
 			type: work
 			work: mixing
 			amount: 150.000
 			difficulty: 5
+			snapping: 5.000
+			falloff: 0.700
+			group: 0
 		}
 		{
 			type: resource
 			material: water
 			amount: 50.000
+			group: 0
 		}
 		{
 			type: work
 			work: blending
 			amount: 320.000
 			difficulty: 5
+			snapping: 5.000
+			falloff: 0.600
+			group: 0
 		}
 	]
 	
@@ -80,6 +89,7 @@
 			material: mortar
 			amount: 16.178
 			amount_extra: 1.572
+			group: 0
 		}
 	]
 }

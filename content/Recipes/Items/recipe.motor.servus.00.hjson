@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: forge, workbench, scrapyard
+	tags: workbench
 	
 	color_button: "0xffaeb59a"
 	rank: -8.000
@@ -30,22 +30,26 @@
 			type: resource
 			material: steel.frames
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 200.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -55,14 +59,15 @@
 			type: prefab
 			prefab: motor.servus.00
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.machine
 			amount: 0.650
 			amount_extra: 1.210
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

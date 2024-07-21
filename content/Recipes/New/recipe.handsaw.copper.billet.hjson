@@ -31,7 +31,7 @@
 	tags: forge, workbench
 	
 	color_button: "0xff818b48"
-	rank: -17.400
+	rank: -17.300
 	
 	requirements:
 	[
@@ -39,12 +39,14 @@
 			type: resource
 			material: copper.billet
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: sawing
 			amount: 2000.000
 			difficulty: 11
+			group: 0
 		}
 	]
 	
@@ -55,14 +57,15 @@
 			material: copper.ingot
 			amount: 28.000
 			amount_extra: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.powder
 			amount: 27.780
 			amount_extra: 11.260
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "TODO: Name"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	step: 1
 	
 	type: workshop
-	flags: disabled, wip
+	flags: hidden, disabled, wip
 	tags: workbench
 	
 	color_button: "0xffe28426"
@@ -30,12 +30,14 @@
 			type: resource
 			material: steel.plate
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: work
 			work: sawing
 			amount: 400.000
 			difficulty: 21
+			group: 0
 		}
 	]
 	
@@ -46,12 +48,14 @@
 			material: steel.frames
 			amount: 1.000
 			amount_extra: 0.500
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.steel
 			amount: 0.100
 			amount_extra: 0.060
+			group: 0
 		}
 	]
 }

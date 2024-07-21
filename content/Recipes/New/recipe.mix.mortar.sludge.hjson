@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Evil Mortar"
 	desc:
 		'''
@@ -47,27 +47,34 @@
 			type: resource
 			material: mortar
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: resource
 			material: sludge
 			amount: 30.000
+			group: 0
 		}
 		{
 			type: resource
 			material: ash
 			amount: 5.000
+			group: 0
 		}
 		{
 			type: resource
 			material: water
 			amount: 15.000
+			group: 0
 		}
 		{
 			type: work
 			work: blending
 			amount: 350.000
 			difficulty: 7
+			snapping: 5.000
+			falloff: 0.800
+			group: 0
 		}
 	]
 	
@@ -78,12 +85,14 @@
 			material: mortar
 			amount: 13.878
 			amount_extra: 7.572
+			group: 0
 		}
 		{
 			type: resource
 			material: water.toxic
 			amount: 12.391
 			amount_extra: 2.112
+			group: 0
 		}
 	]
 }

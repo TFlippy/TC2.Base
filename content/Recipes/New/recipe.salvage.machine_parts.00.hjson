@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Refurbished Machine Parts"
 	desc:
 		'''
@@ -35,7 +35,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, scrapyard
+	tags: workbench
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -46,23 +46,31 @@
 			type: resource
 			material: scrap.machine
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.steel
 			amount: 7.000
+			group: 0
 		}
 		{
 			type: work
 			work: scavenging
 			amount: 450.000
 			difficulty: 9
+			snapping: 5.000
+			falloff: 0.450
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 300.000
 			difficulty: 4
+			snapping: 5.000
+			falloff: 0.870
+			group: 0
 		}
 	]
 	
@@ -73,12 +81,14 @@
 			material: machine_parts
 			amount: 18.160
 			amount_extra: 7.140
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.copper
 			amount: 1.940
 			amount_extra: 1.440
+			group: 0
 			flags: byproduct, residue
 		}
 		{
@@ -86,6 +96,7 @@
 			material: scrap.steel
 			amount: 0.160
 			amount_extra: 0.480
+			group: 0
 			flags: byproduct, residue
 		}
 		{
@@ -93,8 +104,8 @@
 			material: scrap.ferrous
 			amount: 4.560
 			amount_extra: 1.880
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }
