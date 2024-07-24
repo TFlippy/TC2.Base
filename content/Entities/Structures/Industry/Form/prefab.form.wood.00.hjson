@@ -17,7 +17,7 @@ body:
 		
 		offset: [0.000, 0.050]
 		
-		mass: 18.000
+		mass: 25.000
 		radius: 0.450
 		friction: 0.850
 		elasticity: 0.410
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 4500.000
+	max: 6500.000
 }
 
 animated.renderer:
@@ -61,8 +61,9 @@ holdable:
 norotate:
 {
 	bias: 0.000
+	speed: 3.500
 	multiplier: 1.800
-	mass_multiplier: 4.000
+	mass_multiplier: 2.000
 }
 
 shop:

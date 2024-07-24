@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Wooden Form"
+	tips: []
 	
 	icon:
 	{
@@ -23,13 +24,21 @@
 		{
 			type: resource
 			material: wood
-			amount: 30.000
+			amount: 40.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
-			work: woodworking
-			amount: 170.000
-			difficulty: 6
+			work: carpentry
+			amount: 450.000
+			difficulty: 8
+			group: 0
 		}
 	]
 	
@@ -39,14 +48,23 @@
 			type: prefab
 			prefab: form.wood.00
 			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: scrap.steel
+			amount: 0.289
+			amount_extra: 0.314
+			group: 1
+			flags: waste, residue
 		}
 		{
 			type: resource
 			material: woodchips
-			amount: 4.140
+			amount: 22.140
 			amount_extra: 2.760
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

@@ -55,18 +55,21 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 65.000
+			material: timber
+			amount: 5.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: limelight
-			amount: 4.000
+			amount: 5.000
+			group: 0
 		}
 	]
 	
@@ -76,6 +79,7 @@
 			type: prefab
 			prefab: lamp_post.wood
 			amount: 1.000
+			group: 0
 		}
 	]
 }
