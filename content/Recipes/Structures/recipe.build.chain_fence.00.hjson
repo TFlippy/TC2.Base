@@ -25,7 +25,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
 		size: [5.000, 4.000]
 		offset: [0.000, -1.000]
@@ -57,6 +57,7 @@
 			type: resource
 			material: steel.frames
 			amount: 14.000
+			group: 0
 		}
 	]
 	
@@ -66,6 +67,7 @@
 			type: prefab
 			prefab: chain_fence.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

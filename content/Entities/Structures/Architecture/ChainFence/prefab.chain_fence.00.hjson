@@ -13,12 +13,16 @@ body:
 	
 	@shape.box:
 	{
-		size: [4.500, 3.000]
+		size: [4.000, 3.000]
+		
 		mass: 35.000
+		radius: 0.500
 		friction: 0.850
 		elasticity: 0.100
+		
 		material: wire
-		layer: entity, decoration, background, no_overlapped_placement, ignore_melee, ignore_bullet
+		
+		layer: entity, decoration, background, building, no_overlapped_placement, ignore_melee, ignore_bullet
 	}
 }
 
@@ -33,7 +37,7 @@ animated.renderer:
 	{
 		texture: "chain_fence.00"
 	}
-	z: -350.000
+	z: -1100.000
 }
 
 transform:

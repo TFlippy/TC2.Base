@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
-	name: "Carpentry"
-	name_short: "Carpentry"
+	name: "Construction"
+	name_short: "Construction"
 	desc:
 		'''
 		TODO: Desc
@@ -11,27 +11,26 @@
 	{
 		texture: ui.icons.work.00
 		size: [16, 16]
-		frame: [16, 0]
+		frame: [4, 0]
 	}
 	
-	tags: manual, skilled, tools, construction, wip
+	tags: manual, skilled, tools, construction, industrial, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xff719240"
 	
-	tools_required: hammer, saw
-	tools_optional: none
+	tools_required: hammer, saw, file, knife
+	tools_optional: pencil, ruler, hammer, saw, drill, screwdriver, tweezers, axe, file, chisel, knife
 	
 	machinery_required: none
-	machinery_optional: none
+	machinery_optional: lathe
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: table, chair, vise
 	
 	character_traits:
 	{
-		include: construction, artisan, farmer, professional, laborer, hunter, culinary, entertainer, artist, outdoor
-		exclude: clumsy, huge
+		include: slave, construction, artisan, farmer, laborer, poor, hunter, culinary, insane, nomad, entertainer, outdoor, strong
 		weight: 1.000
 	}
 	
@@ -42,9 +41,10 @@
 	
 	skills_mult:
 	{
-		carpentry: 1.400
-		construction: 0.900
-		strength: 0.300
+		blades: 0.400
+		carpentry: 0.500
+		construction: 0.300
+		strength: 0.350
 	}
 	
 	sound_volume: 0.500

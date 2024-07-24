@@ -585,7 +585,7 @@ namespace TC2.Base.Components
 																			var construction = recipe.construction.Value;
 																			var construction_prefab = construction.prefab.GetPrefab();
 
-																			GUI.DrawRenderer(in transform, in renderer, Color32BGRA.White.WithAlphaMult(0.60f));
+																			GUI.DrawRenderer(in transform, in renderer, color_dummy_fg);
 
 																			if (construction_prefab != null)
 																			{
