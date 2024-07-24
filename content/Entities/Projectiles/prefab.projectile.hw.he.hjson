@@ -2,23 +2,35 @@ $tags: []
 
 projectile:
 {
-	damage_base: 350.000
-	damage_bonus: 100.000
-	damage_type: bullet_ac
+	damage_base: 750.000
+	damage_bonus: 1000.000
+	damage_type: bullet_hw
 	flags: no_miss
 
 	lifetime: 20.000
-	ignore_time: 0.040
-	size: 0.150
+	ignore_time: 0.000
+	size: 0.350
 	ricochet_count: 0
-	damp: 0.988
+	damp: 0.992
+
+	tracer_length: 1.700
 
 	@sound.emitter:
 	{
 		file: "shell_whistle"
-		volume: 1.000
+		volume: 0.500
 		pitch: 1.000
 	}
+}
+
+projectile.renderer:
+{	
+	color_a: "0x40ff0000"
+	color_b: "0xffff0000"
+
+	intensity: 2.000
+	thickness_a: 0.450
+	thickness_b: 0.200
 }
 
 transform:
@@ -40,8 +52,8 @@ explosive:
 {
 	radius: 6.000
 	power: 8.000
-	damage_entity: 45000.000
-	damage_terrain: 160000.000
+	damage_entity: 16000.000
+	damage_terrain: 78000.000
 	smoke_amount: 1.200
 	smoke_velocity_multiplier: 2.500
 	smoke_lifetime_multiplier: 0.800

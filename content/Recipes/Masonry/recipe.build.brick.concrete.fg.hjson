@@ -62,7 +62,7 @@
 		{
 			type: block
 			block: brick.concrete
-			tile_flags: solid, become_background_on_break
+			tile_flags: solid, non_empty, become_background_on_break
 		}
 	]
 }

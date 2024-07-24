@@ -1359,13 +1359,13 @@ namespace TC2.Base.Components
 														}
 													}
 
-													var order = new Workshop.Order();
-													order.amount_multiplier = 1.00f;
-													order.flags |= Workshop.Order.Flags.InProgress;
-													order.recipe = build.recipe;
+													var order_tmp = new Workshop.Order();
+													order_tmp.amount_multiplier = 1.00f;
+													order_tmp.flags |= Workshop.Order.Flags.InProgress;
+													order_tmp.recipe = build.recipe;
 
-													var shipment = new Shipment.Data();
-													shipment.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
+													var shipment_tmp = new Shipment.Data();
+													shipment_tmp.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
 
 													var work_count = 0;
 													var item_count = 0;
@@ -1380,13 +1380,13 @@ namespace TC2.Base.Components
 														{
 															case Crafting.Requirement.Type.Work:
 															{
-																order.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.difficulty, requirement.amount * Constants.Construction.work_requirement_multiplier, 0.00f);
+																order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.difficulty, requirement.amount * Constants.Construction.work_requirement_multiplier, 0.00f);
 															}
 															break;
 
 															case Crafting.Requirement.Type.Resource:
 															{
-																shipment.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
+																shipment_tmp.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
 															}
 															break;
 														}
@@ -1395,24 +1395,30 @@ namespace TC2.Base.Components
 													region.SpawnPrefab(prefab: construction.prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
-														if (!dismantlable.IsNull())
+														if (dismantlable.IsNotNull())
 														{
 															dismantlable = dismantlable_tmp;
 														}
 
 														ref var construction = ref ent.GetComponent<Construction.Data>();
-														if (!construction.IsNull())
+														if (construction.IsNotNull())
 														{
 															construction.prefab = h_prefab;
-															construction.order = order;
+															//construction.order = order;
 															construction.stage = Construction.Stage.Materials;
 															construction.quantity = quantity;
+
+															ref var order = ref ent.GetOrAddPair<Construction.Data, Workshop.Order>(sync: true, ignore_mask: true, sync_if_added: true);
+															if (order.IsNotNull())
+															{
+																order = order_tmp;
+															}
 														}
 
-														ref var shipment_new = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
-														if (!shipment_new.IsNull())
+														ref var shipment = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
+														if (shipment.IsNotNull())
 														{
-															shipment_new = shipment;
+															shipment = shipment_tmp;
 														}
 													});
 

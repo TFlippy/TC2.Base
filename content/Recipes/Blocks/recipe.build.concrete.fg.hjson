@@ -74,7 +74,7 @@
 	[
 		{
 			type: block
-			block: concrete
+			block: concrete.steel
 			tile_flags: solid, become_background_on_break
 		}
 	]

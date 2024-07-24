@@ -14,11 +14,11 @@ body:
 	{
 		a: [-0.700, 0.000]
 		b: [0.700, -0.125]
-		mass: 30.000
+		mass: 42.000
 		radius: 0.375
-		friction: 0.400
-		elasticity: 0.450
-		material: metal
+		friction: 0.380
+		elasticity: 0.650
+		material: metal_solid
 		layer: entity, solid, ignore_bullet
 		mask: world, essence
 	}
@@ -28,38 +28,40 @@ gun:
 {
 	muzzle_offset: [1.250, -0.125]
 	receiver_offset: [-0.500, -0.125]
-
-	sound_shoot: "slugthrower.shoot"
-	sound_reload: "machine_gun_reload"
-	sound_empty: "gun_empty"
+	flash_size: 0.000
+	
+	shake_amount: 0.350
+	
+	sound_volume: 0.500
+	sound_size: 0.500
+	sound_dist_multiplier: 1.250
 	sound_pitch: 0.810
-	sound_volume: 1.000
-	sound_dist_multiplier: 2.000
+	
+	sound_shoot: slugthrower.shoot
+	sound_reload: machine_gun_reload
+	sound_empty: gun_empty
+	sound_jam: gun.jam.01
+	
+	damage_multiplier: 3.000
 	velocity_multiplier: 200.000
 	jitter_multiplier: 10.000
-	damage_multiplier: 3.000
-	recoil_multiplier: 1.450
+	recoil_multiplier: 1.000
 	reload_interval: 2.500
-	cycle_interval: 0.070
-	smoke_size: 1.000
-	smoke_amount: 1
-	flash_size: 0.000
-	failure_rate: 0.000
-	max_ammo: 150.000
-	projectile_count: 1
-	flags: automatic, full_reload, cycle_on_shoot
+	cycle_interval: 0.080
+	stability: 4850.000
+	
 	ammo_filter: ammo_musket
+	max_ammo: 150.000
+	
 	action: motor
 	type: machinegun
 	feed: funnel
+	
+	flags: automatic, full_reload, cycle_on_shoot
 	heuristic_range: 25.000
 
-	shake_amount: 0.350
-	stability: 2850.000
-	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
@@ -126,10 +128,10 @@ packable:
 
 arcaneaccelerator:
 {
-	h_essence: "motion"
-	sound: "gun.accelerator.arcane.02"
-	sound_volume_mult: 0.500
-	sound_pitch: 1.810
+	h_essence: motion
+	sound: gun.accelerator.arcane.01
+	sound_volume_mult: 0.300
+	sound_pitch: 1.120
 	offset: [0.750, -0.250]
 
 	@light:

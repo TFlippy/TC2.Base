@@ -59,7 +59,7 @@
 		{
 			type: block
 			block: framework
-			tile_flags: solid, non_empty, become_background_on_break, transparent
+			tile_flags: solid, non_empty, become_background_on_break
 		}
 	]
 }
