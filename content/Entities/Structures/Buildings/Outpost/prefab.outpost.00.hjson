@@ -8,7 +8,7 @@ body:
 	@shape.box:
 	{
 		size: [4.000, 4.000]
-		mass: 190.000
+		mass: 360.000
 		radius: 0.500
 		material: wood
 		layer: entity, building, dormitory, flammable, ignore_bullet
