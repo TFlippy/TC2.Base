@@ -112,5 +112,5 @@ workshop:
 interactable:
 {
 	flags: none
-	window_size: [512.000, 392.000]
+	window_size: [512.000, 464.000]
 }

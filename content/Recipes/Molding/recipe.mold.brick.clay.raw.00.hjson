@@ -43,16 +43,16 @@
 		{
 			type: work
 			work: mashing
-			amount: 8.000
-			difficulty: 6
+			amount: 7.000
+			difficulty: 5
 			snapping: 5.000
-			falloff: 0.850
+			falloff: 0.810
 			group: 0
 		}
 		{
 			type: work
 			work: drying
-			amount: 720.000
+			amount: 780.000
 			difficulty: 5
 			group: 0
 			flags: no_scaling, sequential, crafter_only

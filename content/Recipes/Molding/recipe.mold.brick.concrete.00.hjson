@@ -73,10 +73,10 @@
 		{
 			type: work
 			work: cement.curing
-			amount: 1950.000
+			amount: 1750.000
 			difficulty: 7
 			group: 0
-			flags: no_scaling
+			flags: no_scaling, sequential, crafter_only
 		}
 	]
 	
