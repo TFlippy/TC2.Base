@@ -800,14 +800,10 @@ namespace TC2.Base.Components
 				{
 					Architecture = 0,
 					Furniture,
-					//Management,
-					//Infrastructure,
 					Industry,
 					Buildings,
 					Machinery,
-					Misc,
-					//Factions,
-					//Logistics
+					Misc
 				}
 
 				public partial struct ConfigureRPC: Net.IRPC<Wrench.Mode.Build.Data>
