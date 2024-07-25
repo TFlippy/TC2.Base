@@ -27,7 +27,7 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: kitchen
+	tags: chemistry
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

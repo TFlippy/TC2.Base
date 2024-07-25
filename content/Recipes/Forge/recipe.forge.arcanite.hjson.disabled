@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: forge, kitchen
+	tags: forge, cooking
 	rank: 0.000
 	
 	requirements:

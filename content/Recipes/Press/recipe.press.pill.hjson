@@ -19,7 +19,7 @@
 	
 	type: crafter
 	flags: blueprintable, hidden, disabled, wip
-	tags: press, kitchen
+	tags: press
 	rank: 0.000
 	
 	requirements:

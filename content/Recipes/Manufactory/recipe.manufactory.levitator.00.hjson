@@ -5,6 +5,7 @@
 		'''
 		Powerful ARC-MT levitator used for propulsion.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: -541.000
@@ -28,28 +29,33 @@
 			type: resource
 			material: steel.ingot
 			amount: 5.000
+			group: 0
 		}
 		{
 			type: resource
 			material: smirglum.ingot
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 550.000
 			difficulty: 14
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 450.000
 			difficulty: 7
+			group: 0
 		}
 	]
 	
@@ -59,6 +65,7 @@
 			type: prefab
 			prefab: levitator.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

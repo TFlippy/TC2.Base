@@ -5,6 +5,7 @@
 		'''
 		Can be used to spy on kingdoms far, far away.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,23 +29,27 @@
 			type: resource
 			material: steel.ingot
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: glass
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 150.000
 			difficulty: 6
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 200.000
 			difficulty: 12
+			group: 0
 		}
 	]
 	
@@ -54,6 +59,7 @@
 			type: prefab
 			prefab: binoculars
 			amount: 1.000
+			group: 0
 		}
 	]
 }

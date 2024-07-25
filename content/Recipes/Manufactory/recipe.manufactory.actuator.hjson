@@ -5,6 +5,7 @@
 		'''
 		Advanced essence-infused actuators used to bring machines to motion.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: -540.000
@@ -30,27 +31,32 @@
 			type: resource
 			material: pellet.motion
 			amount: 0.400
+			group: 0
 		}
 		{
 			type: resource
 			material: smirglum.ingot
 			amount: 0.400
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: lubricant
 			amount: 0.400
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 115.000
 			difficulty: 13
+			group: 0
 		}
 	]
 	
@@ -60,6 +66,7 @@
 			type: resource
 			material: actuator
 			amount: 1.000
+			group: 0
 		}
 	]
 }

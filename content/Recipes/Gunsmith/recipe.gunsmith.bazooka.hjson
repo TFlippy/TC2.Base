@@ -6,6 +6,7 @@
 		Portable rocket launcher.
 		Good for blowing up stuff from distance.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: weapon, gun, assembling, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,34 +30,40 @@
 			type: resource
 			material: wood
 			amount: 5.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 9.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 400.000
 			difficulty: 4
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 150.000
 			difficulty: 3
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 150.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -66,6 +73,7 @@
 			type: prefab
 			prefab: bazooka
 			amount: 1.000
+			group: 0
 		}
 	]
 }

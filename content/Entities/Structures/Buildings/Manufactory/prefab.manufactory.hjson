@@ -87,16 +87,19 @@ claimable:
 
 laboratory:
 {
-
+	filter_tags:
+	{
+		include: weapon, gun, assembling, machining, metalworking, automated, engineering, manufacturing, construction, industry, mechanisms, heavy_industry
+	}
 }
 
 shop:
 {
 	name: "Manufactory"
 	
-	tags: lathe, workbench, metalworking, manual, advanced, forming, shaping, manufacturing
+	tags: workbench, salvaging, assembling, machining, munitions, metalworking, engineering, manufacturing, construction, industry
 	tags_require: none
-	tags_exclude: fermenter, crude, passive
+	tags_exclude: fermenter, crude, primitive, passive, dumb, wrench, overworld
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
 	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
@@ -104,7 +107,7 @@ shop:
 	work_environment: indoor, warm, workshop, stationary, clean, noisy
 	
 	flags: none
-	menu_columns: 7
+	menu_columns: 6
 	blueprints_capacity: 12
 }
 
@@ -125,23 +128,38 @@ personnel:
 	slots:
 	[
 		{
-			role: officer
-			tags: management, administrative, military, paperwork, sedentary
-			color: "0xff719240"
-			multiplier: 3.000
+			role: engineer
+			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			color: "0xffff8333"
+			multiplier: 1.000
 		}
 		{
-			role: clerk
-			tags: administrative, civil, paperwork, sedentary
-			color: "0x8f005ec2"
+			role: mechanic
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffff8333"
 			multiplier: 2.000
 		}
 		{
-			role: guard
-			tags: security, combat, military
-			color: "0xff719240"
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
 			multiplier: 1.000
 		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		null
+		null
+		null
 	]
 	characters_capacity: 5
 }

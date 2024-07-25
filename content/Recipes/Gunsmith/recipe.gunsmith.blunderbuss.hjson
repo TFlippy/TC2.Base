@@ -6,6 +6,7 @@
 		Caplock blunderbuss.
 		Has a huge spread, but is simple to make.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: weapon, gun, assembling, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,29 +30,34 @@
 			type: resource
 			material: wood
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 3.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 100.000
 			difficulty: 5
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 90.000
 			difficulty: 4
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 70.000
 			difficulty: 3
+			group: 0
 		}
 	]
 	
@@ -61,6 +67,7 @@
 			type: prefab
 			prefab: blunderbuss
 			amount: 1.000
+			group: 0
 		}
 	]
 }

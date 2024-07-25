@@ -5,6 +5,7 @@
 		'''
 		Small throwable explosive.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: weapon, dangerous, workbench, assembling, munitions, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,22 +29,26 @@
 			type: resource
 			material: gunpowder
 			amount: 2.500
+			group: 0
 		}
 		{
 			type: resource
 			material: iron.ingot
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: cloth
 			amount: 0.500
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 60.000
 			difficulty: 6
+			group: 0
 		}
 	]
 	
@@ -53,6 +58,7 @@
 			type: prefab
 			prefab: bomb.ball
 			amount: 1.000
+			group: 0
 		}
 	]
 }

@@ -36,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, medical, research, kitchen
+	tags: workbench, medical, research
 	
 	color_button: "0xff19e2b1"
 	rank: -17.000

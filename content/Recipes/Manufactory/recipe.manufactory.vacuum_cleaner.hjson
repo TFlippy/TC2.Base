@@ -5,6 +5,7 @@
 		'''
 		Handheld cleaning device.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,33 +29,39 @@
 			type: resource
 			material: copper.plate
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: resource
 			material: wood
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 7.000
+			group: 0
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 3.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 400.000
 			difficulty: 8
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 700.000
 			difficulty: 8
+			group: 0
 		}
 	]
 	
@@ -64,6 +71,7 @@
 			type: prefab
 			prefab: vacuum_cleaner
 			amount: 1.000
+			group: 0
 		}
 	]
 }

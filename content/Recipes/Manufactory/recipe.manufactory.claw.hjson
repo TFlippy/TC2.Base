@@ -5,6 +5,7 @@
 		'''
 		Can pick up objects - especially useful on a crane.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,23 +30,27 @@
 			type: resource
 			material: steel.ingot
 			amount: 13.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 7.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 800.000
 			difficulty: 10
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 500.000
 			difficulty: 7
+			group: 0
 		}
 	]
 	
@@ -55,6 +60,7 @@
 			type: prefab
 			prefab: claw
 			amount: 1.000
+			group: 0
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		A pile of gunpowder.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: dangerous, chemistry
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -30,22 +31,26 @@
 			type: resource
 			material: saltpeter
 			amount: 0.500
+			group: 0
 		}
 		{
 			type: resource
 			material: sulfur
 			amount: 0.300
+			group: 0
 		}
 		{
 			type: resource
 			material: charcoal
 			amount: 0.200
+			group: 0
 		}
 		{
 			type: work
 			work: mixing
 			amount: 10.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -56,6 +61,7 @@
 			material: gunpowder
 			amount: 1.000
 			amount_extra: 0.500
+			group: 0
 		}
 	]
 }

@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, simple, kitchen, manual, manufacturing, chemical
+	tags: weapon, dangerous, workbench, assembling, munitions, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

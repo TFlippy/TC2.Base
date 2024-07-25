@@ -6,6 +6,7 @@
 		Reliable bolt-action rifle.
 		Good for hunting and long-ranged combat.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: weapon, gun, assembling, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,34 +30,40 @@
 			type: resource
 			material: wood
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 250.000
 			difficulty: 8
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 110.000
 			difficulty: 5
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 130.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -66,6 +73,7 @@
 			type: prefab
 			prefab: rifle
 			amount: 1.000
+			group: 0
 		}
 	]
 }

@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, medical, research, manual, advanced, shaping, chemical
+	tags: dangerous, workbench, woodworking, medical, research, refining, manual, advanced, shaping, chemistry
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

@@ -1,11 +1,12 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Drained Water (Swampy)"
 	desc:
 		'''
 		TODO: Desc
 		- Requires to be near a body of water
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -20,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, manual
 	
 	color_button: "0xffaeb59a"
 	rank: -10.000
@@ -31,6 +32,7 @@
 			type: prefab
 			prefab: water.swamp
 			amount: 1.000
+			group: 0
 			flags: no_consume, no_scaling, hide_quantity
 		}
 		{
@@ -38,6 +40,7 @@
 			work: draining
 			amount: 22.000
 			difficulty: 10
+			group: 0
 		}
 	]
 	
@@ -47,6 +50,7 @@
 			type: resource
 			material: water.swamp
 			amount: 1.000
+			group: 0
 		}
 	]
 }
