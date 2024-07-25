@@ -111,12 +111,6 @@ namespace TC2.Base.Components
 												}
 												break;
 
-												case Wrench.Mode.Build.Category.Management:
-												{
-													button_tags_filter = Crafting.Recipe.Tags.Management;
-												}
-												break;
-
 												case Wrench.Mode.Build.Category.Industry:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Industry;
@@ -129,11 +123,11 @@ namespace TC2.Base.Components
 												}
 												break;
 
-												case Wrench.Mode.Build.Category.Infrastructure:
-												{
-													button_tags_filter = Crafting.Recipe.Tags.Infrastructure;
-												}
-												break;
+												//case Wrench.Mode.Build.Category.Infrastructure:
+												//{
+												//	button_tags_filter = Crafting.Recipe.Tags.Infrastructure;
+												//}
+												//break;
 
 												case Wrench.Mode.Build.Category.Misc:
 												{
@@ -800,8 +794,8 @@ namespace TC2.Base.Components
 				{
 					Architecture = 0,
 					Furniture,
-					Management,
-					Infrastructure,
+					//Management,
+					//Infrastructure,
 					Industry,
 					Buildings,
 					//Mechanisms,

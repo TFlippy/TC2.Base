@@ -17,7 +17,7 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, wip
 	tags: workbench, metalworking, manual, forming, shaping
 	
 	color_button: "0xffaeb59a"
@@ -28,27 +28,33 @@
 		{
 			type: resource
 			material: wood
-			amount: 1.000
+			amount: 2.000
 			group: 0
 		}
 		{
 			type: resource
-			material: steel.ingot
-			amount: 1.500
+			material: steel.plate
+			amount: 2.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
 			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 50.000
-			difficulty: 5
+			difficulty: 3
 			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 200.000
-			difficulty: 5
+			difficulty: 4
 			group: 0
 		}
 	]

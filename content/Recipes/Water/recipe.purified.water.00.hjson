@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Purified Water"
 	desc:
 		'''
 		Pour some hydrogen peroxide into impure freshwater to cure it of disease.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -28,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, refining, manual, chemistry
 	
 	color_button: "0xff80dc7e"
 	rank: -9.000
@@ -39,17 +40,20 @@
 			type: resource
 			material: water
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: hydrogen_peroxide
 			amount: 0.025
+			group: 0
 		}
 		{
 			type: work
 			work: blending
 			amount: 2.000
 			difficulty: 3
+			group: 0
 		}
 	]
 	
@@ -59,6 +63,7 @@
 			type: resource
 			material: water.clean
 			amount: 1.000
+			group: 0
 		}
 	]
 }

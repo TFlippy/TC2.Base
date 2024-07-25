@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, metalworking, manual
+	tags: workbench, metalworking, manual, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

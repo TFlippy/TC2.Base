@@ -29,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, crude, dumb
+	tags: workbench, crude, manual, dumb, chemistry
 	
 	color_button: "0xff6e3535"
 	rank: -9.000

@@ -88,13 +88,19 @@ interactable:
 shop:
 {
 	name: "Workbench"
+	
 	tags: workbench
+	tags_require: workbench, manual
+	tags_exclude: smelting, heating, fermenter, machining, wrench
 	
 	work_tools: hammer, saw, bucket, tongs, knife
+	work_machines: none
 	work_equipment: table, rack
 	work_environment: workshop, mobile
 	
+	flags: none
 	menu_columns: 4
+	blueprints_capacity: 6
 }
 
 workshop:

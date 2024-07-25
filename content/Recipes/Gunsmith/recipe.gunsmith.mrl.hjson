@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: weapon, gun, assembling, metalworking
+	tags: weapon, gun, assembling, machining, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

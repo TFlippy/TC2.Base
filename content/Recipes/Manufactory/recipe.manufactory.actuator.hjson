@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: assembling, metalworking, engineering, construction, mechanisms
+	tags: heating, assembling, machining, metalworking, engineering, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: -540.000
