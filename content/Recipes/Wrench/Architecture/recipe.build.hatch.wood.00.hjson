@@ -22,6 +22,7 @@
 	
 	color_button: "0xffaeb59a"
 	rank: -634.000
+	frame_size: [64.000, 48.000]
 	
 	dismantle_work: 7.000
 	dismantle_yield: 0.800

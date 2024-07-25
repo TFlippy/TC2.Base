@@ -197,15 +197,22 @@ namespace TC2.Base.Components
 										ref var recipe = ref d_recipe.GetData();
 										if (recipe.type == Crafting.Recipe.Type.Build && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden))
 										{
-											var size = (Vector2)recipe.icon.GetFrameSize();
+											//var size = (Vector2)recipe.icon.GetFrameSize();
+											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
+											size = size.ScaleToNearestMultiple(new Vector2(48, 48));
+
+											//var rank = recipe.rank;
+											//rank += d_recipe.id * 0.000001f;
+
 
 											var rank = recipe.rank;
-											rank += d_recipe.id * 0.000001f;
+											rank += d_recipe.id * 0.0001f;
+											rank -= (size.X * size.Y) * 0.001f;
 
-											if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 10000.00f;
-											rank += (size.X) * 1.00f;
+											if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 5000.00f;
+											//rank += (size.X) * 1.00f;
 											rank -= (size.Y) * 10.00f;
-											//rank -= size.Y * 0.10f;
+											////rank -= size.Y * 0.10f;
 
 											recipe_indices.Add((d_recipe.id, rank));
 										}
@@ -237,8 +244,11 @@ namespace TC2.Base.Components
 										{
 											if (!is_searching || recipe.name.Contains(search_filter, StringComparison.OrdinalIgnoreCase))
 											{
-												var frame_size = recipe.icon.GetFrameSize(scale);
-												frame_size += new Vector2(8, 8);
+												//var frame_size = recipe.icon.GetFrameSize(scale);
+												//frame_size += new Vector2(8, 8);
+
+												var frame_size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
+												//frame_size += new Vector2(2);
 												frame_size = frame_size.ScaleToNearestMultiple(new Vector2(48, 48));
 
 												using (var cell = grid.Push(frame_size, id: (uint)recipe_asset.GetHashCode()))

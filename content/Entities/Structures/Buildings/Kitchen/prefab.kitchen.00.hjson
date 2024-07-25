@@ -11,20 +11,23 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 6.000]
-		offset: [0.000, 0.000]
-		mass: 2000.000
-		friction: 0.500
-		elasticity: 0.500
+		size: [5.000, 5.000]
+		
+		mass: 480.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
 		material: wood
-		layer: entity, building, support, ignore_melee, storage, flammable
-		mask: world
+		miss_chance: 0.600
+		
+		layer: entity, building, flammable, ignore_melee, ignore_bullet
 	}
 }
 
 health:
 {
-	max: 17000.000
+	max: 38000.000
 }
 
 animated.renderer:
@@ -48,39 +51,63 @@ building:
 
 interactable:
 {
-	window_size: [900.000, 600.000]
+	flags: none
+	window_size: [764.000, 512.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 shop:
 {
 	name: "Kitchen"
-	tags: kitchen
+	
+	tags_filter:
+	{
+		require: workbench
+		include: cooking
+		exclude: wrench
+	}
+	
+	work_tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
+	work_machines: heater, stove
+	work_equipment: tap, cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	work_environment: workshop, stationary, cozy
+	
+	flags: none
+	menu_columns: 4
+	blueprints_capacity: 8
 }
 
 workshop:
 {
-	
+	orders_capacity: 4
 }
 
 storage:
 {
-	@inventory8:
+	@inventory16:
 	{
-		name: "Storage"
-		stack_size_multiplier: 2.000
-		type: storage
-		flags: allow_ducts, public, ignore_mass
+		type: workshop
+		flags: standalone, ignore_mass, public, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		offset: [0.000, 0.000]
 	}
 }
 
 laboratory:
 {
-	filter_tags: kitchen
+	filter_tags:
+	{
+		include: medical, cooking, chemistry
+	}
 }
 
 nameable:
 {
+	tags: homely, tool, food, female
+	type: consumable
 	flags: randomize
+	max_length: 20
 }
 
 faction:
