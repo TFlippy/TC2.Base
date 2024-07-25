@@ -31,7 +31,7 @@ animated.renderer:
 	{
 		texture: atlas.construction.00
 		size: [56, 40]
-		frame: [0, 5]
+		frame: [1, 2]
 	}
 	z: -300.000
 }
