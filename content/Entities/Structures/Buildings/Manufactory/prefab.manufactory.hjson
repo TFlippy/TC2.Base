@@ -97,9 +97,9 @@ shop:
 {
 	name: "Manufactory"
 	
-	tags: workbench, salvaging, assembling, machining, munitions, metalworking, engineering, manufacturing, construction, industry
+	tags: salvaging, assembling, machining, munitions, metalworking, engineering, manufacturing, construction, industry, mechanisms
 	tags_require: none
-	tags_exclude: fermenter, crude, primitive, passive, dumb, wrench, overworld
+	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
 	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
@@ -117,9 +117,11 @@ workshop:
 
 	@inventory16:
 	{
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, public, faction
 		stack_size_multiplier: 5.000
-		type: storage
-		flags: standalone, allow_ducts, public, ignore_mass, faction
+		
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -173,19 +175,19 @@ dormitory:
 {
 	species: human
 	flags: no_kit_selection, no_kit_requirements, region_only
-	characters_capacity: 4
-	characters_initial_count: 2
+	characters_capacity: 3
+	characters_initial_count: 1
 	repopulate_interval: 300.000
 	repopulate_interval_extra: 600.000
 	repopulate_num: 1
 	repopulate_num_extra: 2
-	repopulate_max: 4
+	repopulate_max: 3
 	move_radius: 12.000
 	asset_flags: recycle
 	character_flags_filter:
 	{
-		require: professional
-		include: construction, scientist, educated, artisan, professional, laborer, technician, engineer, insane, arcane, sedentary, middle_class, upper_middle_class, upper_class
+		require: engineer
+		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
 		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
 		weight: 1.000
 	}
