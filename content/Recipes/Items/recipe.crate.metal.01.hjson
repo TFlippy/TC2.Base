@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Crate (Metal, Medium)"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench
+	tags: workbench, simple, metalworking, manual, shaping, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: -5.100
@@ -26,17 +27,20 @@
 			type: resource
 			material: steel.frames
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.plate
 			amount: 32.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 735.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -46,14 +50,15 @@
 			type: prefab
 			prefab: crate.metal.01
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.steel
 			amount: 1.210
 			amount_extra: 0.080
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

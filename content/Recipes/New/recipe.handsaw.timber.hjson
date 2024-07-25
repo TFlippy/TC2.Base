@@ -5,6 +5,7 @@
 		'''
 		Cut raw timber into nicer, more usable planks using a handsaw.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -27,7 +28,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, manual
 	
 	color_button: "0xff818b48"
 	rank: -20.000

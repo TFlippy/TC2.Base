@@ -5,6 +5,7 @@
 		'''
 		Laboriously cut steel plates into shapes resembling frames only using a handsaw.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -28,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: forge, workbench
+	tags: workbench, simple, crude, metalworking, manual
 	
 	color_button: "0xff818b48"
 	rank: -18.000
@@ -39,12 +40,14 @@
 			type: resource
 			material: steel.plate
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: work
 			work: sawing
 			amount: 280.000
 			difficulty: 21
+			group: 0
 		}
 	]
 	
@@ -55,14 +58,15 @@
 			material: steel.frames
 			amount: 1.000
 			amount_extra: 0.500
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.powder
 			amount: 0.780
 			amount_extra: 0.260
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

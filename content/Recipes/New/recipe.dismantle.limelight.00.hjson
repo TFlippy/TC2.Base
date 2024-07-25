@@ -5,6 +5,7 @@
 		'''
 		Smash a limelight into spare parts.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, research, metalworking, manual, advanced
 	
 	color_button: "0xffac7534"
 	rank: -135.000

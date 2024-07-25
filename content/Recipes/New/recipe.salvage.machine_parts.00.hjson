@@ -5,6 +5,7 @@
 		'''
 		Combine two piles of spare parts into spare machine parts.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -35,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, metalworking, manual
 	
 	color_button: "0xffac7534"
 	rank: -140.000

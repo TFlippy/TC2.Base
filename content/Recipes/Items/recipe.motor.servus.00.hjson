@@ -5,6 +5,7 @@
 		'''
 		Inefficient but very cheap motor consisting of 2 magitronic actuators linked to a crankshaft.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: workbench
+	tags: workbench, manual, advanced, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: -8.000

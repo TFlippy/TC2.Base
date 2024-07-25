@@ -5,6 +5,7 @@
 		'''
 		Scrap a computer for parts.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, metalworking, manual, manufacturing
 	
 	color_button: "0xffac7534"
 	rank: -134.000

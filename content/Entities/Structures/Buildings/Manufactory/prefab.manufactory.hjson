@@ -25,6 +25,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: manufactory
+		mask: manufactory.mask
 	}
 	z: -300.000
 }
@@ -143,4 +144,31 @@ personnel:
 		}
 	]
 	characters_capacity: 5
+}
+
+spawn:
+{
+	flags: faction
+}
+
+dormitory:
+{
+	species: human
+	flags: no_kit_selection, no_kit_requirements, region_only
+	characters_capacity: 4
+	characters_initial_count: 2
+	repopulate_interval: 300.000
+	repopulate_interval_extra: 600.000
+	repopulate_num: 1
+	repopulate_num_extra: 2
+	repopulate_max: 4
+	move_radius: 12.000
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		require: professional
+		include: construction, scientist, educated, artisan, professional, laborer, technician, engineer, insane, arcane, sedentary, middle_class, upper_middle_class, upper_class
+		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+		weight: 1.000
+	}
 }

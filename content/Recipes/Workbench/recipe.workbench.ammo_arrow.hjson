@@ -1,19 +1,18 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Arrows"
 	desc:
 		'''
 		Ammunition for bows.
 		'''
+	tips: []
 	
 	icon:
 	{
-		texture: "resource.ammo_arrow"
+		texture: resource.ammo_arrow
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 4
 	max: 32
@@ -21,37 +20,44 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench
+	tags: workbench, simple, manual
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "stone"
+			material: stone
 			amount: 0.080
+			group: 0
 		}
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 0.125
+			group: 0
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 0.040
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 6.000
 			difficulty: 4
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 12.000
 			difficulty: 2
+			group: 0
 		}
 	]
 	
@@ -59,8 +65,9 @@
 	[
 		{
 			type: resource
-			material: "ammo_arrow"
+			material: ammo_arrow
 			amount: 1.000
+			group: 0
 		}
 	]
 }

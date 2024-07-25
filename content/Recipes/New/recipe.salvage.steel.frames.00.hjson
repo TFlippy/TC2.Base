@@ -5,6 +5,7 @@
 		'''
 		Search a pile of machine garbage for anything that could be used as steel frames.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -35,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, metalworking, manual
 	
 	color_button: "0xffac7534"
 	rank: -140.000

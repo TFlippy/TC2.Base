@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
 		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -35,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, tailoring, manual
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -46,23 +47,27 @@
 			type: resource
 			material: scrap.mixed
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: work
 			work: scavenging
 			amount: 230.000
 			difficulty: 4
+			group: 0
 		}
 		{
 			type: resource
 			material: water
 			amount: 30.000
+			group: 0
 		}
 		{
 			type: work
 			work: washing
 			amount: 360.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -73,34 +78,37 @@
 			material: cloth
 			amount: 0.647
 			amount_extra: 4.870
+			group: 0
 		}
 		{
 			type: resource
 			material: leather
 			amount: 0.413
 			amount_extra: 3.452
+			group: 0
 		}
 		{
 			type: resource
 			material: rubber
 			amount: 0.013
 			amount_extra: 1.452
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.mixed
 			amount: 4.540
 			amount_extra: 2.770
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 		{
 			type: resource
 			material: water.dirty
 			amount: 16.420
 			amount_extra: 3.950
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		Often used for mining and demolition.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: kitchen
+	tags: workbench, simple, kitchen, manual, manufacturing, chemical
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,22 +29,26 @@
 			type: resource
 			material: nitroglycerine
 			amount: 12.000
+			group: 0
 		}
 		{
 			type: resource
 			material: sand
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: resource
 			material: paper
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 100.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -53,6 +58,7 @@
 			type: prefab
 			prefab: dynamite
 			amount: 1.000
+			group: 0
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		Scrap magitronic actuators for spare parts.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: hidden, disabled, wip
-	tags: workbench
+	tags: workbench, simple, research, metalworking, manual, advanced
 	
 	color_button: "0xff769d49"
 	rank: -349.000

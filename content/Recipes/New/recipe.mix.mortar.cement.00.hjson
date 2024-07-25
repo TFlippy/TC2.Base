@@ -5,6 +5,7 @@
 		'''
 		Quality mortar mixed from lime, cement, sand and water. Efficient, but somewhat complex to make. 
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -37,7 +38,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple
 	
 	color_button: "0xffaeb59a"
 	rank: -156.000

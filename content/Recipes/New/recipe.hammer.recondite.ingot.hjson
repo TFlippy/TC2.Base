@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Hammered Recondite Plates"
 	desc:
 		'''
 		Keep hitting a recondite ingot with a hammer until it becomes a plate.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -28,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, crude, metalworking, manual, shaping
 	
 	color_button: "0xff818b48"
 	rank: -13.000
@@ -39,12 +40,14 @@
 			type: resource
 			material: recondite.ingot
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: hammering
 			amount: 260.000
 			difficulty: 15
+			group: 0
 		}
 	]
 	
@@ -54,6 +57,7 @@
 			type: resource
 			material: recondite.plate
 			amount: 4.000
+			group: 0
 		}
 	]
 }

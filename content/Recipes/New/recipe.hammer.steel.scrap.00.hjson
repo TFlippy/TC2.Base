@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: workshop
 	flags: hidden, disabled, wip
-	tags: workbench
+	tags: workbench, simple, crude, metalworking, manual, shaping
 	
 	color_button: "0xffe28426"
 	rank: 0.000

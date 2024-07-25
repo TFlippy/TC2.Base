@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Crate (Wood, Medium)"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench
+	tags: workbench, simple, manual, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -25,18 +26,21 @@
 			type: resource
 			material: wood
 			amount: 45.000
+			group: 0
 		}
 		{
 			type: work
 			work: sawing
 			amount: 150.000
 			difficulty: 3
+			group: 0
 		}
 		{
 			type: work
 			work: carpentry
 			amount: 200.000
 			difficulty: 6
+			group: 0
 		}
 	]
 	
@@ -46,14 +50,15 @@
 			type: prefab
 			prefab: crate.wood.01
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: sawdust
 			amount: 7.650
 			amount_extra: 8.980
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

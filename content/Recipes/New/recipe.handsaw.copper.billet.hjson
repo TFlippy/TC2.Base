@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -28,7 +29,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier
-	tags: forge, workbench
+	tags: workbench, simple, crude, metalworking, manual
 	
 	color_button: "0xff818b48"
 	rank: -17.300

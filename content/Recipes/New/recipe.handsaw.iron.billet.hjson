@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -28,7 +29,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier
-	tags: forge, workbench
+	tags: workbench, simple, crude, metalworking, manual
 	
 	color_button: "0xff818b48"
 	rank: -17.500
@@ -39,12 +40,14 @@
 			type: resource
 			material: iron.billet
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: sawing
 			amount: 2000.000
 			difficulty: 17
+			group: 0
 		}
 	]
 	
@@ -55,14 +58,15 @@
 			material: iron.ingot
 			amount: 28.000
 			amount_extra: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: iron.powder
 			amount: 27.780
 			amount_extra: 11.260
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Rucksack"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: workbench
+	tags: workbench, tailoring, manual
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
