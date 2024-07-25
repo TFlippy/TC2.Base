@@ -55,7 +55,7 @@
 			amount: 720.000
 			difficulty: 5
 			group: 0
-			flags: no_scaling
+			flags: no_scaling, sequential, crafter_only
 		}
 	]
 	

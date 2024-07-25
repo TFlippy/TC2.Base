@@ -14,7 +14,7 @@
 		frame: [29, 0]
 	}
 	
-	tags: skilled, social, ambient, dangerous, advanced, careful, politics, bureaucracy, wip
+	tags: skilled, social, dangerous, advanced, careful, politics, bureaucracy, wip
 	cooldown: 3.000
 	multiplier: 1.000
 	color: "0xff4e5570"

@@ -14,9 +14,9 @@
 		frame: [2, 0]
 	}
 	
-	min: 5
-	max: 50
-	step: 5
+	min: 10
+	max: 100
+	step: 10
 	
 	type: workshop
 	flags: none

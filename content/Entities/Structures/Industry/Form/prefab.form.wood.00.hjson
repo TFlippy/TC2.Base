@@ -70,40 +70,47 @@ shop:
 {
 	name: "Wooden Form"
 	
-	tags: drying, manual, forming, shaping
-	tags_require: simple, passive, forming, shaping
-	tags_exclude: gun, smelting, heating, fermenter, tailoring, metalworking, automated
+	tags_filter:
+	{
+		require: manual, forming
+		include: simple, crude, drying, forming, shaping
+		exclude: smelting, heating, workbench, salvaging, assembling, machining, metalworking, advanced
+	}
 	
 	work_tools: none
 	work_machines: none
 	work_equipment: none
-	work_environment: container, mobile, contaminated, ugly
+	work_environment: container, mobile, dirty, ugly
 	
 	flags: none
-	menu_columns: 4
+	menu_columns: 3
 	blueprints_capacity: 0
 }
 
-crafter:
-{
-	equipment: rack
-	environment: contaminated, ugly
-}
+// crafter:
+// {
+// 	equipment: rack
+// 	environment: contaminated, ugly
+// }
 
-crafter.state:
+// crafter.state:
+// {
+// 	@inventory4:
+// 	{
+// 		stack_size_multiplier: 1.000
+// 		type: input
+// 		flags: standalone, no_auto_pickup
+// 		offset: [0.000, -0.125]
+// 	}
+// }
+
+workshop:
 {
-	// @inventory4:
-	// {
-	// 	stack_size_multiplier: 2.000
-	// 	type: input
-	// 	flags: standalone, no_auto_pickup
-	// 	offset: [0.000, -0.125]
-	// }
+	orders_capacity: 1
 }
 
 interactable:
 {
 	flags: none
-	window_size: [584.000, 480.000]
-	window_size_misc: [120.000, 0.000]
+	window_size: [512.000, 392.000]
 }

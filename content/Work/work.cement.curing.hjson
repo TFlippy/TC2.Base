@@ -14,7 +14,8 @@
 		frame: [19, 0]
 	}
 	
-	tags: ambient, simple, passive, chemical, wip
+	flags: passive, ambient
+	tags: simple, chemical, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xffaeb59a"
