@@ -40,7 +40,7 @@
 		rect_clearance: [-3.000, -4.500, 3.000, 0.000]
 		tileflags_clearance: solid
 		
-		cooldown: 0.500
+		cooldown: 1.000
 		min_support: 0.750
 		min_clearance: 1.000
 		min_claim: 1.000

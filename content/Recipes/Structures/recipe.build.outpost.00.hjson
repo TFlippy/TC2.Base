@@ -8,6 +8,7 @@
 		- Provides a small storage
 		- Access to faction management
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -40,12 +41,12 @@
 		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-2.500, -4.000, 2.500, 0.000]
+		rect_clearance: [-2.000, -3.500, 2.000, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
-		min_support: 0.250
-		min_clearance: 0.800
+		min_support: 0.750
+		min_clearance: 1.000
 		min_claim: 1.000
 		
 		rotation_max: 0.200
@@ -70,21 +71,6 @@
 				amount: 15.000
 				group: 0
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
