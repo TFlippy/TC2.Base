@@ -117,6 +117,12 @@ namespace TC2.Base.Components
 												}
 												break;
 
+												case Wrench.Mode.Build.Category.Machinery:
+												{
+													button_tags_filter = Crafting.Recipe.Tags.Machinery;
+												}
+												break;
+
 												case Wrench.Mode.Build.Category.Buildings:
 												{
 													button_tags_filter = Crafting.Recipe.Tags.Buildings;
@@ -798,7 +804,7 @@ namespace TC2.Base.Components
 					//Infrastructure,
 					Industry,
 					Buildings,
-					//Mechanisms,
+					Machinery,
 					Misc,
 					//Factions,
 					//Logistics
