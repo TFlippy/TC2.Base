@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,10 +19,11 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: furniture, wrench
+	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
-	rank: -555.000
+	rank: -557.000
+	frame_size: [96.000, 96.000]
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

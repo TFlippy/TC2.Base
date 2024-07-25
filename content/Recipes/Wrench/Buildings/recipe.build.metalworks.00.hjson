@@ -14,7 +14,7 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: buildings, wrench
 	
 	color_button: "0xffaeb59a"

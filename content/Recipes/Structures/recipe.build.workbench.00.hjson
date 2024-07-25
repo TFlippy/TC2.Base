@@ -19,10 +19,11 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: woodworking, furniture, wrench
+	tags: woodworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
-	rank: -555.000
+	rank: -558.000
+	frame_size: [96.000, 96.000]
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

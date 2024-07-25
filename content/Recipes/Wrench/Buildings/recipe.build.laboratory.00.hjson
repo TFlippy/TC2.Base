@@ -105,6 +105,12 @@
 			group: 0
 		}
 		{
+			type: resource
+			material: machine_parts
+			amount: 25.000
+			group: 0
+		}
+		{
 			type: work
 			work: carpentry
 			amount: 1150.000

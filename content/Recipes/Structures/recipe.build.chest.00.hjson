@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Chest"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: build
 	flags: wip
-	tags: furniture, wrench
+	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -813.000
@@ -50,11 +51,13 @@
 			type: resource
 			material: wood
 			amount: 60.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.000
+			group: 0
 		}
 	]
 	
@@ -64,6 +67,7 @@
 			type: prefab
 			prefab: chest
 			amount: 1.000
+			group: 0
 		}
 	]
 }
