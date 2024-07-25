@@ -1,0 +1,94 @@
+$name: "Kitchen"
+$desc:
+	'''
+	Place for cooking food and drugs.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 6.000]
+		offset: [0.000, 0.000]
+		mass: 2000.000
+		friction: 0.500
+		elasticity: 0.500
+		material: wood
+		layer: entity, building, support, ignore_melee, storage, flammable
+		mask: world
+	}
+}
+
+health:
+{
+	max: 17000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "kitchen.00"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	window_size: [900.000, 600.000]
+}
+
+shop:
+{
+	name: "Kitchen"
+	tags: kitchen
+}
+
+workshop:
+{
+	
+}
+
+storage:
+{
+	@inventory8:
+	{
+		name: "Storage"
+		stack_size_multiplier: 2.000
+		type: storage
+		flags: allow_ducts, public, ignore_mass
+	}
+}
+
+laboratory:
+{
+	filter_tags: kitchen
+}
+
+nameable:
+{
+	flags: randomize
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}

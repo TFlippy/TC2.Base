@@ -1,0 +1,150 @@
+$name: "Sweatshop"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 5.000]
+		mass: 920.000
+		radius: 0.500
+		material: concrete
+		layer: entity, building, support, ignore_melee, storage
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: sweatshop.00
+		mask: sweatshop.00.mask
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	flags: none
+	window_size: [900.000, 600.000]
+	window_size_misc: [216.000, 0.000]
+}
+
+health:
+{
+	max: 26000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: tech, industrial, tool, factory
+	type: location
+	flags: randomize
+	max_length: 20
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+shop:
+{
+	name: "Sweatshop"
+	
+	tags: salvaging, assembling, machining, munitions, metalworking, engineering, manufacturing, construction, industry, mechanisms
+	tags_require: none
+	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
+	
+	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
+	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
+	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible
+	work_environment: indoor, warm, workshop, stationary, clean, noisy
+	
+	flags: none
+	menu_columns: 6
+	blueprints_capacity: 4
+}
+
+workshop:
+{
+	orders_capacity: 8
+
+	@inventory16:
+	{
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, public
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+personnel:
+{
+	slots:
+	[
+		{
+			role: engineer
+			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			role: mechanic
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffff8333"
+			multiplier: 2.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+	]
+	characters_capacity: 4
+}

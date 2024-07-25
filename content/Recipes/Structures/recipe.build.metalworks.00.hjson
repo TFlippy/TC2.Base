@@ -28,13 +28,13 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [7.000, 6.000]
+		size: [8.000, 6.000]
 		offset: [0.000, -2.000]
 		
-		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
+		rect_foundation: [-4.000, 0.000, 4.000, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.000, -4.500, 3.000, 0.000]
+		rect_clearance: [-3.500, -4.500, 3.500, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -54,14 +54,20 @@
 	
 	construction:
 	{
-		prefab: construction.7x6
+		prefab: construction.8x6
 		
 		requirements:
 		[
 			{
 				type: resource
 				material: wood
-				amount: 5.000
+				amount: 70.000
+				group: 0
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 60.000
 				group: 0
 			}
 		]
@@ -71,20 +77,47 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 350.000
-			group: 0
-		}
-		{
-			type: resource
-			material: stone
+			material: gravel
 			amount: 600.000
 			group: 0
 		}
 		{
+			type: work
+			work: masonry
+			amount: 1200.000
+			difficulty: 5
+			group: 0
+		}
+		{
 			type: resource
-			material: steel.ingot
-			amount: 40.000
+			material: wood
+			amount: 170.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 650.000
+			difficulty: 7
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 35.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 80.000
+			group: 0
+		}
+		{
+			type: work
+			work: assembling
+			amount: 850.000
+			difficulty: 6
 			group: 0
 		}
 	]
