@@ -31,12 +31,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: atlas.construction.00
-		mask: "null"
-		fps: 0.000
-		count: 0
-		size: [56, 48]
-		frame: [5, 0]
+		texture: manufactory
 	}
 	z: -300.000
 }
@@ -59,7 +54,7 @@ interactable:
 shop:
 {
 	name: "Manufactory"
-	tags: manufactory
+	tags: none
 
 	menu_columns: 7
 }
