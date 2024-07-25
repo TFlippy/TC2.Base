@@ -5,6 +5,7 @@
 		'''
 		A workshop fit for various metalworking-related tasks.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: buildings, wrench
 	
 	color_button: "0xffaeb59a"
@@ -59,6 +60,7 @@
 				type: resource
 				material: wood
 				amount: 5.000
+				group: 0
 			}
 			null
 			null
@@ -84,16 +86,19 @@
 			type: resource
 			material: wood
 			amount: 350.000
+			group: 0
 		}
 		{
 			type: resource
 			material: stone
 			amount: 600.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 40.000
+			group: 0
 		}
 	]
 	
@@ -103,6 +108,7 @@
 			type: prefab
 			prefab: forge
 			amount: 1.000
+			group: 0
 		}
 	]
 }

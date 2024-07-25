@@ -6,26 +6,32 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 6.000]
-		offset: [0.000, 0.000]
-		friction: 0.500
-		elasticity: 0.500
+		size: [5.000, 5.000]
+		
+		mass: 50.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
 		material: wood
-		layer: entity, building, ignore_melee, flammable
-		mask: world
+		miss_chance: 0.600
+		
+		layer: entity, building, construction, flammable, no_overlapped_placement, ignore_melee, ignore_bullet
 	}
 }
 
 health:
 {
-	max: 2000.000
+	max: 5000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "construction.6x6"
+		texture: atlas.construction.00
+		size: [48, 48]
+		frame: [3, 2]
 	}
 	z: -300.000
 }
@@ -55,7 +61,13 @@ construction:
 
 }
 
+building:
+{
+	
+}
+
 shipment:
 {
-	flags: keep_items
+	h_container: isb.042c
+	flags: keep_items, no_gui
 }

@@ -5,6 +5,7 @@
 		'''
 		A workshop used for producing vehicles and advanced equipment.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: disabled, wip
+	flags: wip
 	tags: buildings, wrench
 	
 	color_button: "0xffaeb59a"
@@ -55,6 +56,36 @@
 		
 		}
 	}
+
+	construction:
+	{
+		prefab: construction.7x6
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 5.000
+				group: 0
+			}
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+			null
+		]
+	}
 	
 	requirements: []
 	
@@ -64,6 +95,7 @@
 			type: prefab
 			prefab: manufactory
 			amount: 1.000
+			group: 0
 		}
 	]
 }
