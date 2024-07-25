@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Manufactory"
-	desc:
-		'''
-		A workshop used for producing vehicles and advanced equipment.
-		'''
 	tips: []
 	
 	icon:
@@ -64,13 +60,66 @@
 			{
 				type: resource
 				material: wood
-				amount: 5.000
+				amount: 60.000
+				group: 0
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 50.000
 				group: 0
 			}
 		]
 	}
 	
-	requirements: []
+	requirements:
+	[
+		{
+			type: resource
+			material: gravel
+			amount: 500.000
+			group: 0
+		}
+		{
+			type: work
+			work: masonry
+			amount: 650.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 230.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 70.000
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 40.000
+			group: 0
+		}
+		{
+			type: work
+			work: assembling
+			amount: 750.000
+			difficulty: 6
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 1150.000
+			difficulty: 7
+			group: 0
+		}
+	]
 	
 	products:
 	[

@@ -1,7 +1,7 @@
 $name: "Manufactory"
 $desc:
 	'''
-	Workshop used for production of advanced equipment and vehicles.
+	Workshop equipped with a wide selection of machine tools, allowing for construction of more advanced devices.
 	'''
 $tags: []
 
@@ -11,20 +11,13 @@ body:
 	
 	@shape.box:
 	{
-		size: [7.000, 6.000]
-		offset: [0.000, 0.000]
-		mass: 1000.000
-		friction: 0.500
-		elasticity: 0.500
-		material: stone
+		size: [6.000, 5.000]
+		mass: 920.000
+		radius: 0.500
+		material: concrete
 		layer: entity, building, support, ignore_melee, storage
 		mask: world
 	}
-}
-
-health:
-{
-	max: 27000.000
 }
 
 animated.renderer:
@@ -34,6 +27,28 @@ animated.renderer:
 		texture: manufactory
 	}
 	z: -300.000
+}
+
+interactable:
+{
+	flags: none
+	window_size: [900.000, 600.000]
+	window_size_misc: [216.000, 0.000]
+}
+
+health:
+{
+	max: 88000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
 }
 
 transform:
@@ -46,26 +61,86 @@ building:
 
 }
 
-interactable:
+nameable:
 {
-	window_size: [740.000, 500.000]
+	tags: tech, industrial, tool, factory
+	type: location
+	flags: randomize
+	max_length: 20
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+laboratory:
+{
+
 }
 
 shop:
 {
 	name: "Manufactory"
-	tags: none
-
+	
+	tags: lathe, workbench, metalworking, manual, advanced, forming, shaping, manufacturing
+	tags_require: none
+	tags_exclude: fermenter, crude, passive
+	
+	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
+	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
+	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible
+	work_environment: indoor, warm, workshop, stationary, clean, noisy
+	
+	flags: none
 	menu_columns: 7
+	blueprints_capacity: 12
 }
 
 workshop:
 {
-	@inventory8:
+	orders_capacity: 8
+
+	@inventory16:
 	{
-		name: "Storage"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 5.000
 		type: storage
 		flags: standalone, allow_ducts, public, ignore_mass, faction
 	}
+}
+
+personnel:
+{
+	slots:
+	[
+		{
+			role: officer
+			tags: management, administrative, military, paperwork, sedentary
+			color: "0xff719240"
+			multiplier: 3.000
+		}
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: guard
+			tags: security, combat, military
+			color: "0xff719240"
+			multiplier: 1.000
+		}
+	]
+	characters_capacity: 5
 }

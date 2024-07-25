@@ -11,12 +11,10 @@ body:
 	
 	@shape.box:
 	{
-		size: [7.000, 5.000]
-		offset: [0.000, 0.000]
-		mass: 760.000
-		friction: 0.500
-		elasticity: 0.500
-		material: wood
+		size: [6.000, 5.000]
+		mass: 680.000
+		radius: 0.500
+		material: concrete
 		layer: entity, building, support, ignore_melee
 		mask: world
 	}
@@ -24,7 +22,7 @@ body:
 
 health:
 {
-	max: 67000.000
+	max: 64000.000
 }
 
 animated.renderer:

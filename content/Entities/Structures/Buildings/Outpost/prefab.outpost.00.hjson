@@ -15,20 +15,6 @@ body:
 	}
 }
 
-health:
-{
-	max: 22500.000
-}
-
-// armor:
-// {
-// 	toughness: 150.000
-// 	protection: 0.950
-// 	coverage: 0.850
-// 	knockback_modifier: 0.600
-// 	material_type: fabric
-// }
-
 animated.renderer:
 {
 	sprite:
@@ -37,6 +23,18 @@ animated.renderer:
 		mask: "outpost.00.mask"
 	}
 	z: -300.000
+}
+
+interactable:
+{
+	flags: none
+	window_size: [568.000, 440.000]
+	window_size_misc: [216.000, 0.000]
+}
+
+health:
+{
+	max: 22500.000
 }
 
 faction.colorable:
@@ -66,6 +64,21 @@ nameable:
 	type: building
 }
 
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
 spawn:
 {
 	flags: faction
@@ -93,33 +106,12 @@ headquarters:
 	flags: enable_join, enable_leave, manage_members, manage_leader, manage_style, show_members
 }
 
-claimable:
-{
-	flags: no_menu
-}
-
 claimer:
 {
 	radius: 32.000
 	strength: 5.000
 	falloff: 2.500
 }
-
-interactable:
-{
-	flags: none
-	window_size: [568.000, 440.000]
-	window_size_misc: [216.000, 0.000]
-}
-
-// depot:
-// {
-// 	offset: [0.000, 0.000]
-// 	size: [4.000, 3.000]
-// 	flags: allow_deposit, allow_withdraw, allow_receive, allow_request, allow_local, allow_region, allow_world, local, region
-
-// 	shipping_fee_base: 20.000
-// }
 
 minimap.marker:
 {
@@ -181,16 +173,6 @@ dormitory:
 		exclude: sedentary, upper_middle_class, upper_class, elite_class
 		weight: 1.000
 	}
-}
-
-address:
-{
-	
-}
-
-entrance.linkable:
-{
-
 }
 
 personnel:
