@@ -1,0 +1,94 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Holistic Mud Bricks"
+	desc:
+		'''
+		Thoroughly-kneaded mud bricks with enhanced plasticity and faster drying time.
+		'''
+	tips: []
+	
+	icon:
+	{
+		texture: resource.brick.mud
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.shite
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [3.000, -10.000]
+	
+	icon_c:
+	{
+		texture: resource.woodchips
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-18.000, -11.000]
+	
+	min: 20
+	max: 200
+	step: 20
+	
+	type: workshop
+	flags: none
+	tags: simple, crude, drying, primitive, manual, passive, forming, shaping, dumb
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: mud
+			amount: 0.660
+			group: 0
+		}
+		{
+			type: resource
+			material: shite
+			amount: 0.340
+			group: 0
+		}
+		{
+			type: resource
+			material: woodchips
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: work
+			work: kneading
+			amount: 18.400
+			difficulty: 6
+			snapping: 5.000
+			falloff: 0.735
+			group: 0
+		}
+		{
+			type: work
+			work: drying
+			amount: 160.000
+			difficulty: 3
+			group: 0
+			flags: no_scaling, sequential, crafter_only
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: brick.mud
+			amount: 0.886
+			amount_extra: 0.113
+			group: 0
+		}
+	]
+}
