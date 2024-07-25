@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: assembling, metalworking, engineering, manufacturing, construction, mechanisms
+	tags: assembling, metalworking, engineering, construction, mechanisms
 	
 	color_button: "0xffaeb59a"
 	rank: -540.000

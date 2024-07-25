@@ -5,6 +5,7 @@
 		'''
 		Light metal turret with a coaxial attachment slot and a gunner seat.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,23 +29,27 @@
 			type: resource
 			material: steel.ingot
 			amount: 35.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 1000.000
 			difficulty: 10
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 700.000
 			difficulty: 8
+			group: 0
 		}
 	]
 	
@@ -54,6 +59,7 @@
 			type: prefab
 			prefab: turret.01
 			amount: 1.000
+			group: 0
 		}
 	]
 }

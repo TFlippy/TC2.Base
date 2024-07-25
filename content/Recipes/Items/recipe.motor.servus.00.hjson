@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: workbench, assembling, manual, manufacturing, construction, magitronics
+	tags: workbench, assembling, metalworking, manual, construction, magitronics
 	
 	color_button: "0xffaeb59a"
 	rank: -8.000

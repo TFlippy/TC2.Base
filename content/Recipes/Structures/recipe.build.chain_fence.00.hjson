@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Chain-Link Fence"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 46.000

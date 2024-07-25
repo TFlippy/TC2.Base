@@ -5,6 +5,7 @@
 		'''
 		Retrieves water from the ground.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: industry, wrench
+	tags: metalworking, industry, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -80.000
@@ -59,22 +60,8 @@
 				type: resource
 				material: wood
 				amount: 5.000
+				group: 0
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
@@ -86,6 +73,7 @@
 			type: prefab
 			prefab: pump
 			amount: 1.000
+			group: 0
 		}
 	]
 }

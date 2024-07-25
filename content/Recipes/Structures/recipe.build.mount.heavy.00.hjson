@@ -8,6 +8,7 @@
 		- High-torque, high-force attachment slot
 		- Comfortable seat
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -21,7 +22,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: mechanisms, wrench
+	tags: metalworking, mechanisms, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -40.000
@@ -62,22 +63,8 @@
 				type: resource
 				material: wood
 				amount: 5.000
+				group: 0
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
@@ -87,16 +74,19 @@
 			type: resource
 			material: steel.ingot
 			amount: 75.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 45.000
+			group: 0
 		}
 		{
 			type: resource
 			material: cement
 			amount: 850.000
+			group: 0
 		}
 	]
 	
@@ -106,6 +96,7 @@
 			type: prefab
 			prefab: mount.heavy
 			amount: 1.000
+			group: 0
 		}
 	]
 }

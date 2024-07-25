@@ -7,6 +7,7 @@
 
 		These tractors are mostly used for heavy-duty industrial equipment and transport.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: misc, wrench
+	tags: metalworking, wrench, misc
 	
 	color_button: "0xffaeb59a"
 	rank: 10.000
@@ -59,26 +60,14 @@
 				type: resource
 				material: wood
 				amount: 100.000
+				group: 0
 			}
 			{
 				type: resource
 				material: steel.ingot
 				amount: 10.000
+				group: 0
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
@@ -88,33 +77,39 @@
 			type: resource
 			material: steel.ingot
 			amount: 450.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.plate
 			amount: 400.000
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.plate
 			amount: 120.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 220.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 1800.000
 			difficulty: 10
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 2000.000
 			difficulty: 13
+			group: 0
 		}
 	]
 	
@@ -124,6 +119,7 @@
 			type: prefab
 			prefab: tractor.01
 			amount: 1.000
+			group: 0
 		}
 	]
 }

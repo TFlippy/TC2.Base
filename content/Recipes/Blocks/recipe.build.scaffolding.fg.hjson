@@ -6,6 +6,7 @@
 		Lightweight metal scaffolding.
 		Has a long placement range.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -20,7 +21,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -115.500
@@ -52,6 +53,7 @@
 			type: resource
 			material: steel.frames
 			amount: 0.03125
+			group: 0
 		}
 	]
 	
@@ -61,6 +63,7 @@
 			type: block
 			block: scaffolding
 			tile_flags: solid
+			group: 0
 		}
 	]
 }

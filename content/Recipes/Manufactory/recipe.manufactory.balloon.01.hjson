@@ -5,6 +5,7 @@
 		'''
 		An armored hot-air balloon.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: -601.000
@@ -28,33 +29,39 @@
 			type: resource
 			material: cloth
 			amount: 120.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 95.000
+			group: 0
 		}
 		{
 			type: resource
 			material: wood
 			amount: 180.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 45.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 3000.000
 			difficulty: 18
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 2000.000
 			difficulty: 20
+			group: 0
 		}
 	]
 	
@@ -64,6 +71,7 @@
 			type: prefab
 			prefab: balloon.01
 			amount: 1.000
+			group: 0
 		}
 	]
 }

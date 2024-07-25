@@ -6,6 +6,7 @@
 		A wall-mounted wheel that
 		can be connected with belts.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: mechanisms, wrench
+	tags: metalworking, mechanisms, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -53,6 +54,7 @@
 			type: resource
 			material: steel.ingot
 			amount: 5.000
+			group: 0
 		}
 	]
 	
@@ -62,6 +64,7 @@
 			type: prefab
 			prefab: shaft
 			amount: 1.000
+			group: 0
 		}
 	]
 }

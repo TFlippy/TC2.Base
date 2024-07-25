@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -27,7 +28,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -72.500
@@ -62,6 +63,7 @@
 			type: resource
 			material: smirgrafit.compacted
 			amount: 0.200
+			group: 0
 		}
 	]
 	
@@ -71,6 +73,7 @@
 			type: block
 			block: framework.smirgrafit
 			tile_flags: solid, non_empty
+			group: 0
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: mechanisms, wrench
+	tags: metalworking, mechanisms, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -345.000
@@ -59,22 +60,8 @@
 				type: resource
 				material: wood
 				amount: 5.000
+				group: 0
 			}
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
-			null
 		]
 	}
 	
@@ -84,16 +71,19 @@
 			type: resource
 			material: steel.ingot
 			amount: 40.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 5.000
+			group: 0
 		}
 		{
 			type: resource
 			material: stone
 			amount: 550.000
+			group: 0
 		}
 	]
 	
@@ -103,6 +93,7 @@
 			type: prefab
 			prefab: mount.static.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

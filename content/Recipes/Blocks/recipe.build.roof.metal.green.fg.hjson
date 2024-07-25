@@ -5,6 +5,7 @@
 		'''
 		Fancy and durable - a metal roof built to the Imperial standard, painted green for the grand Imperial look.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 6.000
@@ -51,6 +52,7 @@
 			type: resource
 			material: steel.plate
 			amount: 0.100
+			group: 0
 		}
 	]
 	
@@ -60,6 +62,7 @@
 			type: block
 			block: roof.metal.green
 			tile_flags: solid, no_replace
+			group: 0
 		}
 	]
 }

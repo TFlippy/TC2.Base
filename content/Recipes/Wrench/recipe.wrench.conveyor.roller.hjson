@@ -1,14 +1,12 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Conveyor (Roller)"
-	desc: ""
+	tips: []
 	
 	icon:
 	{
-		texture: "conveyor.roller"
+		texture: conveyor.roller
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 0
 	max: 0
@@ -16,7 +14,9 @@
 	
 	type: wrench
 	flags: disabled, wip
-	tags: conveyor
+	tags: metalworking, conveyor, wrench
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	dismantle_work: 10.000
@@ -25,6 +25,7 @@
 	placement:
 	{
 		type: line
+		flags: none
 		
 		size: [0.500, 0.500]
 		
@@ -35,7 +36,7 @@
 		length_min: 1.000
 		length_max: 10.000
 		
-		sound: "building_place"
+		sound: building_place
 		
 		mappings_replace:
 		{
@@ -47,8 +48,9 @@
 	[
 		{
 			type: resource
-			material: "steel.plate"
+			material: steel.plate
 			amount: 3.500
+			group: 0
 		}
 	]
 	
@@ -56,8 +58,9 @@
 	[
 		{
 			type: prefab
-			prefab: "conveyor.roller"
+			prefab: conveyor.roller
 			amount: 0.000
+			group: 0
 		}
 	]
 }

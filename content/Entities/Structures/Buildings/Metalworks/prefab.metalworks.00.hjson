@@ -1,7 +1,7 @@
 $name: "Metalworks"
 $desc:
 	'''
-	Workshop fit for various metalworking-related tasks.
+	TODO: Desc
 	'''
 $tags: []
 
@@ -12,29 +12,44 @@ body:
 	@shape.box:
 	{
 		size: [7.000, 5.000]
-		offset: [0.000, 0.000]
-		mass: 900.000
-		friction: 0.500
-		elasticity: 0.500
+		mass: 920.000
+		radius: 0.500
 		material: concrete
 		layer: entity, building, support, ignore_melee, storage
 		mask: world
 	}
 }
 
-health:
-{
-	max: 80000.000
-}
-
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "metalworks.00"
-		mask: "metalworks.00.mask"
+		texture: metalworks.00
+		mask: metalworks.00.mask
 	}
 	z: -300.000
+}
+
+interactable:
+{
+	flags: none
+	window_size: [900.000, 600.000]
+	window_size_misc: [216.000, 0.000]
+}
+
+health:
+{
+	max: 88000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
 }
 
 transform:
@@ -47,23 +62,134 @@ building:
 
 }
 
-interactable:
+nameable:
 {
-	window_size: [650.000, 400.000]
+	tags: dangerous, industrial, tool, factory
+	type: location
+	flags: randomize
+	max_length: 20
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+laboratory:
+{
+	filter_tags:
+	{
+		require: metalworking
+		include: smelting, lathe, press, refining, metalworking, casting, architecture, construction, buildings, mining, wrench
+	}
 }
 
 shop:
 {
 	name: "Metalworks"
+	
+	tags: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking, kiln
+	tags_require: manual
+	tags_exclude: woodworking, fermenter, passive, social, wrench
+	
+	work_tools: ruler, hammer, cutters, saw, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, axe, file, chisel, towel, spatula, tongs, pick, crowbar, knife
+	work_machines: smelter, heater, burner, incinerator, stove
+	work_equipment: tap, cauldron, oven, anvil, forge, glassware, barrel, table, chair, vise, rack, crucible
+	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy
+	
+	flags: none
+	menu_columns: 6
+	blueprints_capacity: 10
 }
 
 workshop:
 {
-	@inventory8:
+	orders_capacity: 4
+
+	@inventory16:
 	{
-		name: "Storage"
-		stack_size_multiplier: 2.000
-		type: storage
-		flags: standalone, allow_ducts, public, ignore_mass, faction
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, public, faction
+		stack_size_multiplier: 5.000
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+personnel:
+{
+	slots:
+	[
+		{
+			role: engineer
+			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			role: mechanic
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffff8333"
+			multiplier: 2.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		null
+		null
+		null
+	]
+	characters_capacity: 5
+}
+
+spawn:
+{
+	flags: faction
+}
+
+dormitory:
+{
+	species: human
+	flags: no_kit_selection, no_kit_requirements, region_only
+	characters_capacity: 3
+	characters_initial_count: 1
+	repopulate_interval: 300.000
+	repopulate_interval_extra: 600.000
+	repopulate_num: 1
+	repopulate_num_extra: 2
+	repopulate_max: 1
+	move_radius: 12.000
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		require: engineer
+		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
+		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+		weight: 1.000
 	}
 }

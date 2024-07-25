@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Lamp Post (Metal, Coaxial)"
+	tips: []
 	
 	icon:
 	{
@@ -14,7 +15,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -5.000
@@ -57,16 +58,19 @@
 			type: resource
 			material: steel.billet
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: limelight
 			amount: 4.000
+			group: 0
 		}
 	]
 	
@@ -76,6 +80,7 @@
 			type: prefab
 			prefab: lamp_post.metal.01
 			amount: 1.000
+			group: 0
 		}
 	]
 }

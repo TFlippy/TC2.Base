@@ -5,6 +5,7 @@
 		'''
 		Fancy metal lamp post to illuminate the streets.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -5.000
@@ -61,16 +62,19 @@
 			type: resource
 			material: steel.billet
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 12.000
+			group: 0
 		}
 		{
 			type: resource
 			material: limelight
 			amount: 6.000
+			group: 0
 		}
 	]
 	
@@ -80,6 +84,7 @@
 			type: prefab
 			prefab: lamp_post.metal.02
 			amount: 1.000
+			group: 0
 		}
 	]
 }

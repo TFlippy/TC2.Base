@@ -5,6 +5,7 @@
 		'''
 		Small blinking wall-attachable lamp.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: wip
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -426.000
@@ -55,16 +56,19 @@
 			type: resource
 			material: steel.frames
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: limelight
 			amount: 1.000
+			group: 0
 		}
 	]
 	
@@ -74,6 +78,7 @@
 			type: prefab
 			prefab: lamp.02
 			amount: 1.000
+			group: 0
 		}
 	]
 }

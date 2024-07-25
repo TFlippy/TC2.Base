@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: infrastructure, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -10.000
@@ -58,6 +59,7 @@
 			type: prefab
 			prefab: pipe.mount.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: construction, wrench
+	tags: metalworking, construction, wrench
 	
 	color_button: "0xff6a7a9a"
 	rank: -109.000
@@ -56,6 +57,7 @@
 			type: prefab
 			prefab: radio_tower.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

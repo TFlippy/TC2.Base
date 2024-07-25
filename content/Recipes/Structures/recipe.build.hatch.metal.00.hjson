@@ -5,6 +5,7 @@
 		'''
 		Sturdy metal hatch to keep the intruders out.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -631.000
@@ -53,11 +54,13 @@
 			type: resource
 			material: steel.frames
 			amount: 12.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.plate
 			amount: 10.000
+			group: 0
 		}
 	]
 	
@@ -67,6 +70,7 @@
 			type: prefab
 			prefab: hatch.metal
 			amount: 1.000
+			group: 0
 		}
 	]
 }

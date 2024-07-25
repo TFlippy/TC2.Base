@@ -5,6 +5,7 @@
 		'''
 		Metal framework for supporting structures.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -370.000
@@ -55,6 +56,7 @@
 			type: resource
 			material: steel.frames
 			amount: 2.000
+			group: 0
 		}
 	]
 	
@@ -64,6 +66,7 @@
 			type: prefab
 			prefab: truss.metal.00
 			amount: 0.000
+			group: 0
 		}
 	]
 }

@@ -5,6 +5,7 @@
 		'''
 		A sturdy metal door to keep the intruders out.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 147.000
@@ -56,6 +57,7 @@
 			type: resource
 			material: steel.ingot
 			amount: 15.000
+			group: 0
 		}
 	]
 	
@@ -65,6 +67,7 @@
 			type: prefab
 			prefab: door.metal.01
 			amount: 1.000
+			group: 0
 		}
 	]
 }

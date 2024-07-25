@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: construction, wrench
+	tags: metalworking, construction, wrench
 	
 	color_button: "0xffa11209"
 	rank: -109.000
@@ -56,6 +57,7 @@
 			type: prefab
 			prefab: zapper.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

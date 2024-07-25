@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: mechanisms, wrench
+	tags: metalworking, mechanisms, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 20.000
@@ -53,6 +54,7 @@
 			type: resource
 			material: steel.ingot
 			amount: 250.000
+			group: 0
 		}
 	]
 	
@@ -62,6 +64,7 @@
 			type: prefab
 			prefab: flywheel.steel.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

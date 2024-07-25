@@ -5,6 +5,7 @@
 		'''
 		Advanced crane arm with a configurable articulated rotary joint.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: -350.000
@@ -28,28 +29,33 @@
 			type: resource
 			material: steel.ingot
 			amount: 25.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 15.000
+			group: 0
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 850.000
 			difficulty: 15
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 600.000
 			difficulty: 11
+			group: 0
 		}
 	]
 	
@@ -59,6 +65,7 @@
 			type: prefab
 			prefab: crane.arm.articulated
 			amount: 1.000
+			group: 0
 		}
 	]
 }

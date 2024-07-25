@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: metalworking, architecture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -110.500
@@ -51,6 +52,7 @@
 			type: resource
 			material: steel.plate
 			amount: 0.060
+			group: 0
 		}
 	]
 	
@@ -60,6 +62,7 @@
 			type: block
 			block: sheetmetal.00
 			tile_flags: solid, non_empty, become_background_on_break
+			group: 0
 		}
 	]
 }

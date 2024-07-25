@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: weapon, dangerous, workbench, munitions, metalworking, manufacturing
+	tags: weapon, dangerous, workbench, munitions, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
