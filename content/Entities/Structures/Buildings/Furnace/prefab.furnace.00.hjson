@@ -50,7 +50,7 @@ transform:
 shop:
 {
 	name: "Recipes"
-	tags: furnace, kiln
+	tags: smelting, kiln
 
 	menu_columns: 4
 }

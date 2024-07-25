@@ -98,10 +98,13 @@ shop:
 {
 	name: "Metalworks"
 	
-	tags: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking, kiln
-	tags_require: manual
-	tags_exclude: woodworking, fermenter, passive, social, wrench
-	
+	tags_filter:
+	{
+		require: manual
+		include: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking, kiln
+		exclude: woodworking, fermenter, passive, social, wrench
+	}
+
 	work_tools: ruler, hammer, cutters, saw, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, axe, file, chisel, towel, spatula, tongs, pick, crowbar, knife
 	work_machines: smelter, heater, burner, incinerator, stove
 	work_equipment: tap, cauldron, oven, anvil, forge, glassware, barrel, table, chair, vise, rack, crucible

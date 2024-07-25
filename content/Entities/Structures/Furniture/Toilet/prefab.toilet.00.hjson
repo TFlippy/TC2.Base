@@ -76,14 +76,21 @@ shop:
 {
 	name: "Toilet"
 	
-	tags: medical, kitchen
-	tags_exclude: press, refinery
+	tags_filter:
+	{
+		require: fermenter
+		include: crude
+		exclude: smelting, heating, metalworking, wrench
+	}
 	
 	work_tools: paper, bucket, towel
+	work_machines: none
 	work_equipment: tap, chair
 	work_environment: cold, container, waterproof, stationary, contaminated, cozy
 	
+	flags: none
 	menu_columns: 2
+	blueprints_capacity: 0
 }
 
 workshop:

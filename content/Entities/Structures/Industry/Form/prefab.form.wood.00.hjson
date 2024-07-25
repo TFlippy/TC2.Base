@@ -70,18 +70,18 @@ shop:
 {
 	name: "Wooden Form"
 	
-	tags: simple, drying, manual, forming, shaping
-	tags_require: forming, shaping
-	tags_exclude: automated
+	tags: drying, manual, forming, shaping
+	tags_require: simple, passive, forming, shaping
+	tags_exclude: gun, smelting, heating, fermenter, tailoring, metalworking, automated
 	
 	work_tools: none
 	work_machines: none
 	work_equipment: none
-	work_environment: none
+	work_environment: container, mobile, contaminated, ugly
 	
 	flags: none
 	menu_columns: 4
-	blueprints_capacity: 8
+	blueprints_capacity: 0
 }
 
 crafter:

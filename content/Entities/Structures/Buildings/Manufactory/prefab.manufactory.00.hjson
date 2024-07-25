@@ -97,10 +97,13 @@ shop:
 {
 	name: "Manufactory"
 	
-	tags: salvaging, assembling, machining, munitions, metalworking, engineering, construction, industry, mechanisms
-	tags_require: none
-	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
-	
+	tags_filter:
+	{
+		require: none
+		include: salvaging, assembling, machining, munitions, metalworking, engineering, construction, industry, mechanisms
+		exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, overworld, wrench
+	}
+
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
 	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
 	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible

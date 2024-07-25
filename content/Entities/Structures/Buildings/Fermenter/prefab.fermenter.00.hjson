@@ -67,8 +67,19 @@ norotate:
 
 shop:
 {
-	tags: fermenter
+	tags_filter:
+	{
+		include: fermenter
+	}
+	
+	work_tools: none
+	work_machines: none
+	work_equipment: none
+	work_environment: none
+	
+	flags: none
 	menu_columns: 4
+	blueprints_capacity: 0
 }
 
 crafter:

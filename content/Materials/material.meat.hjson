@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Mystery Meat"
 	description:
 		'''
@@ -94,8 +94,8 @@
 			yield_extra: 0.650
 			
 			h_sound: missing
-			sound_volume: 0.200
-			sound_pitch: 1.280
+			sound_volume: 0.260
+			sound_pitch: 0.440
 			
 			chance: 0.350
 		}
@@ -123,31 +123,6 @@
 			sound_pitch: 1.280
 			
 			chance: 0.150
-		}
-		heat:
-		{
-			h_material: graphite
-			h_material_waste: scrap.charred
-			
-			type: undefined
-			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: merge
-			
-			ratio: 0.110
-			ratio_extra: 0.315
-			
-			ratio_waste: 0.100
-			ratio_waste_extra: 0.600
-			
-			yield: 0.150
-			yield_extra: 0.650
-			
-			h_sound: missing
-			sound_volume: 0.200
-			sound_pitch: 1.280
-			
-			chance: 0.720
 		}
 	}
 	

@@ -89,10 +89,13 @@ shop:
 {
 	name: "Workbench"
 	
-	tags: workbench
-	tags_require: workbench, manual
-	tags_exclude: smelting, heating, fermenter, machining, wrench
-	
+	tags_filter:
+	{
+		require: workbench, manual
+		include: workbench
+		exclude: smelting, heating, fermenter, machining, wrench
+	}
+
 	work_tools: hammer, saw, bucket, tongs, knife
 	work_machines: none
 	work_equipment: table, rack

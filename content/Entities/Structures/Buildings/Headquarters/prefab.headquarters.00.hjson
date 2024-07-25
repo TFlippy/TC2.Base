@@ -178,10 +178,11 @@ shop:
 {
 	name: "Headquarters"
 	
-	tags: headquarters, research, tailoring
-	tags_require: none
-	tags_exclude: fermenter, furnace, metalworking
-	
+	tags_filter:
+	{
+		include: headquarters, research, tailoring
+	}
+
 	work_tools: pencil, paper, ruler, stapler, towel, knife
 	work_machines: none
 	work_equipment: table, chair, rack
