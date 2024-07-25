@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: none
-	tags: forge, workbench, woodworking, metalworking, forming, shaping
+	tags: workbench, woodworking, metalworking, manual, forming, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

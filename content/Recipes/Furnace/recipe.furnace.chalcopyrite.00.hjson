@@ -26,7 +26,7 @@
 	
 	type: crafter
 	flags: disabled, wip
-	tags: furnace, kiln
+	tags: smelting, kiln
 	rank: 0.000
 	
 	requirements:

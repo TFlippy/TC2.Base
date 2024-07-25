@@ -29,7 +29,7 @@
 	
 	type: crafter
 	flags: disabled, wip
-	tags: furnace
+	tags: smelting
 	rank: -23.000
 	
 	requirements:

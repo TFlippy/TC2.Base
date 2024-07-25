@@ -25,7 +25,7 @@
 	
 	type: crafter
 	flags: none
-	tags: furnace
+	tags: smelting
 	rank: -150.000
 	
 	requirements:
