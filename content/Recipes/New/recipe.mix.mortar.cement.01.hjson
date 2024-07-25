@@ -5,6 +5,7 @@
 		'''
 		Simpler mortar mixed from cement, sand and water, with the higher amount of cement making up for the lack of lime.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -37,7 +38,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, manual
 	
 	color_button: "0xffaeb59a"
 	rank: -159.000

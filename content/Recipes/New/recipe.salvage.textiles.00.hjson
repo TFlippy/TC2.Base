@@ -36,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, tailoring, manual
+	tags: workbench, salvaging, simple, tailoring, manual
 	
 	color_button: "0xffac7534"
 	rank: -140.000

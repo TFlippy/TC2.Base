@@ -27,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, metalworking, manual, manufacturing
+	tags: workbench, salvaging, metalworking, manual, advanced, engineering, manufacturing, magitronics
 	
 	color_button: "0xffac7534"
 	rank: -134.000

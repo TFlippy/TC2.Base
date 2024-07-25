@@ -5,6 +5,7 @@
 		'''
 		Dilute a perfectly decent mortar with some gross and truly terrible dross, then hope nobody finds out.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -36,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: dangerous, workbench, simple, crude, refining, manual, dumb
 	
 	color_button: "0xffaeb59a"
 	rank: -157.000

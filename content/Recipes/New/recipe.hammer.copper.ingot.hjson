@@ -29,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, crude, metalworking, manual, shaping
+	tags: workbench, simple, crude, metalworking, manual, shaping, dumb
 	
 	color_button: "0xff818b48"
 	rank: -16.000

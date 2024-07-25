@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -20,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: simple, drying, manual, forming, shaping
+	tags: simple, crude, drying, primitive, manual, passive, forming, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: -156.000

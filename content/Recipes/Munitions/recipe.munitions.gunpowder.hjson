@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: dangerous, chemistry
+	tags: dangerous, simple, refining, manual, chemistry
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

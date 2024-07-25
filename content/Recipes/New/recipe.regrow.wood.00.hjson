@@ -5,6 +5,7 @@
 		'''
 		Reform wooden debris into plank-shaped wooden debris using life essence pellets, some feedstock and a catalyst.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -36,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, medical, research
+	tags: dangerous, workbench, woodworking, simple, refining, manual, advanced, forming, shaping, science, essence
 	
 	color_button: "0xff19e2b1"
 	rank: -17.000

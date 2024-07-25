@@ -5,6 +5,7 @@
 		'''
 		Bag with various tools for treating injuries.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: workbench, medical, assembling, tailoring, manual
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,17 +29,20 @@
 			type: resource
 			material: cloth
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 150.000
 			difficulty: 8
+			group: 0
 		}
 	]
 	
@@ -48,6 +52,7 @@
 			type: prefab
 			prefab: medkit
 			amount: 1.000
+			group: 0
 		}
 	]
 }

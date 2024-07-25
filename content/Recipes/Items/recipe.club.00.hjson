@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: workbench, simple, crude, manual
+	tags: weapon, workbench, woodworking, simple, crude, primitive, manual, dumb
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

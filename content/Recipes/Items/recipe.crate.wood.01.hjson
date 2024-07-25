@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench, simple, manual, manufacturing
+	tags: workbench, woodworking, simple, manual, furniture
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

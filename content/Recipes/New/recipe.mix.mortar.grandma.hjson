@@ -5,6 +5,7 @@
 		'''
 		Traditional porridge recipe passed down from generation to generation, only for it to be used as a mortar substitute.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -36,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, crude, primitive, manual, dumb, cooking
 	
 	color_button: "0xffaeb59a"
 	rank: -158.000

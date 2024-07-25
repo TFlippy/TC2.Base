@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, manual
+	tags: workbench, simple, primitive, manual, dumb, gathering
 	
 	color_button: "0xffaeb59a"
 	rank: -10.000

@@ -38,7 +38,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple
+	tags: workbench, simple, manual
 	
 	color_button: "0xffaeb59a"
 	rank: -156.000

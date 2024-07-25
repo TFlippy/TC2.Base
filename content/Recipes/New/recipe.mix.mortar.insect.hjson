@@ -5,6 +5,7 @@
 		'''
 		While this slop barely even counts as mortar, at least it doesn't need water.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -36,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: dangerous, workbench, simple, primitive, manual, dumb
 	
 	color_button: "0xffaeb59a"
 	rank: -158.000

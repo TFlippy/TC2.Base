@@ -11,7 +11,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 5.000]
+		size: [7.000, 5.000]
 		mass: 920.000
 		radius: 0.500
 		material: concrete
@@ -33,7 +33,7 @@ animated.renderer:
 interactable:
 {
 	flags: none
-	window_size: [900.000, 600.000]
+	window_size: [724.000, 512.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -64,10 +64,10 @@ building:
 
 nameable:
 {
-	tags: tech, industrial, tool, factory
+	tags: lame, industrial, homely, tool, factory, food
 	type: location
 	flags: randomize
-	max_length: 20
+	max_length: 16
 }
 
 address:
@@ -89,14 +89,16 @@ shop:
 {
 	name: "Sweatshop"
 	
-	tags: salvaging, assembling, machining, munitions, metalworking, engineering, manufacturing, construction, industry, mechanisms
-	tags_require: none
-	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
+	tags: dangerous, workbench, salvaging, simple, crude, assembling, primitive, dumb
+	tags_require: manual
+	tags_exclude: research, machining, automated, passive, advanced, social, wrench
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
-	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
-	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible
-	work_environment: indoor, warm, workshop, stationary, clean, noisy
+	work_tools: hammer, saw, screwdriver, pliers, bucket, knife
+	work_machines: none
+	work_equipment: table
+	work_environment: workshop, stationary, contaminated, smelly, ugly
+	recipe_max_multiplier: 4.000
+	recipe_step_multiplier: 2.000
 	
 	flags: none
 	menu_columns: 6
@@ -122,29 +124,43 @@ personnel:
 	slots:
 	[
 		{
-			role: engineer
+			role: foreman
 			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
 			color: "0xffff8333"
-			multiplier: 1.000
+			multiplier: 3.000
 		}
 		{
-			role: mechanic
-			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
-			color: "0xffff8333"
+			type: undefined
+			role: guard
+			flags: none
+			tags: security, combat, military, dangerous
+			color: "0xff719240"
 			multiplier: 2.000
 		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
 	]
+	characters_capacity: 2
+}
+
+spawn:
+{
+	flags: faction
+}
+
+dormitory:
+{
+	species: human
+	flags: no_kit_selection, no_kit_requirements, region_only
 	characters_capacity: 4
+	repopulate_interval: 60.000
+	repopulate_interval_extra: 300.000
+	repopulate_num_extra: 2
+	repopulate_max: 1
+	move_radius: 12.000
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		require: laborer
+		include: slave, unskilled, laborer, civillian, poor, insane, alcoholic, nomad, illiterate, strong, dumb, lower_class
+		exclude: educated, professional, rich, middle_class, upper_middle_class, upper_class, elite_class
+	}
 }

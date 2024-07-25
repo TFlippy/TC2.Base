@@ -5,6 +5,7 @@
 		'''
 		A place where you can craft simple items.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: furniture, wrench
+	tags: woodworking, furniture, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -555.000

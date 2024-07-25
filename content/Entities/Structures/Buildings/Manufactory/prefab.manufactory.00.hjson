@@ -181,7 +181,7 @@ dormitory:
 	repopulate_interval_extra: 600.000
 	repopulate_num: 1
 	repopulate_num_extra: 2
-	repopulate_max: 3
+	repopulate_max: 1
 	move_radius: 12.000
 	asset_flags: recycle
 	character_flags_filter:

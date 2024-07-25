@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -37,7 +38,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench
+	tags: workbench, simple, manual
 	
 	color_button: "0xffaeb59a"
 	rank: -160.000

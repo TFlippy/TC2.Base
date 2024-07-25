@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.0"
+	$version: "0.1.61.1"
 	name: "Wrench"
 	desc:
 		'''
 		Used for various engineering-related tasks.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -17,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: forge
+	tags: forge, workbench, assembling, machining, metalworking, manual, forming, shaping, manufacturing
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,12 +29,14 @@
 			type: resource
 			material: steel.ingot
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 300.000
 			difficulty: 10
+			group: 0
 		}
 	]
 	
@@ -43,6 +46,7 @@
 			type: prefab
 			prefab: wrench
 			amount: 1.000
+			group: 0
 		}
 	]
 }
