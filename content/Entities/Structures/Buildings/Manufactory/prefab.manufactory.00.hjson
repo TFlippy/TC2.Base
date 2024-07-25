@@ -24,8 +24,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: manufactory
-		mask: manufactory.mask
+		texture: manufactory.00
+		mask: manufactory.00.mask
 	}
 	z: -300.000
 }

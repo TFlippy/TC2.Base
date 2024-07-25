@@ -28,8 +28,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "headquarters"
-		mask: "headquarters.mask"
+		texture: "headquarters.00"
+		mask: "headquarters.00.mask"
 	}
 	z: -300.000
 }

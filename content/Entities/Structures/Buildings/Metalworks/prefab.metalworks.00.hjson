@@ -1,4 +1,4 @@
-$name: "Forge"
+$name: "Metalworks"
 $desc:
 	'''
 	Workshop fit for various metalworking-related tasks.
@@ -16,7 +16,7 @@ body:
 		mass: 900.000
 		friction: 0.500
 		elasticity: 0.500
-		material: stone
+		material: concrete
 		layer: entity, building, support, ignore_melee, storage
 		mask: world
 	}
@@ -24,15 +24,15 @@ body:
 
 health:
 {
-	max: 20000.000
+	max: 80000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "forge"
-		mask: "forge.mask"
+		texture: "metalworks.00"
+		mask: "metalworks.00.mask"
 	}
 	z: -300.000
 }
@@ -54,8 +54,7 @@ interactable:
 
 shop:
 {
-	name: "Forge"
-	tags: forge
+	name: "Metalworks"
 }
 
 workshop:

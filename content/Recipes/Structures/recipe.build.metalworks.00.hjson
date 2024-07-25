@@ -1,11 +1,12 @@
 ﻿{
 	$version: "0.1.61.1"
-	name: "Manufactory"
+	name: "Metalworks"
 	tips: []
 	
 	icon:
 	{
-		texture: manufactory
+		texture: metalworks.00
+		size: [64, 48]
 	}
 	
 	min: 0
@@ -60,13 +61,7 @@
 			{
 				type: resource
 				material: wood
-				amount: 60.000
-				group: 0
-			}
-			{
-				type: resource
-				material: brick.concrete
-				amount: 50.000
+				amount: 5.000
 				group: 0
 			}
 		]
@@ -76,47 +71,20 @@
 	[
 		{
 			type: resource
-			material: gravel
-			amount: 500.000
-			group: 0
-		}
-		{
-			type: work
-			work: masonry
-			amount: 950.000
-			difficulty: 5
-			group: 0
-		}
-		{
-			type: resource
 			material: wood
-			amount: 230.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 1150.000
-			difficulty: 7
+			amount: 350.000
 			group: 0
 		}
 		{
 			type: resource
-			material: steel.frames
-			amount: 65.000
+			material: stone
+			amount: 600.000
 			group: 0
 		}
 		{
 			type: resource
-			material: machine_parts
-			amount: 80.000
-			group: 0
-		}
-		{
-			type: work
-			work: assembling
-			amount: 850.000
-			difficulty: 8
+			material: steel.ingot
+			amount: 40.000
 			group: 0
 		}
 	]
@@ -125,7 +93,7 @@
 	[
 		{
 			type: prefab
-			prefab: manufactory
+			prefab: metalworks.00
 			amount: 1.000
 			group: 0
 		}

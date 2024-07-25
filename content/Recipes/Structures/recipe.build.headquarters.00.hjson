@@ -1,15 +1,16 @@
 ﻿{
 	$version: "0.1.61.1"
-	name: "Blueprint Laboratory"
+	name: "Headquarters"
 	desc:
 		'''
-		A building where one can design item augment blueprints.
+		Faction's headquarters where one
+		can perform various administrative duties.
 		'''
 	tips: []
 	
 	icon:
 	{
-		texture: laboratory
+		texture: headquarters.00
 		size: [56, 48]
 	}
 	
@@ -24,13 +25,13 @@
 	color_button: "0xffaeb59a"
 	rank: 0.000
 	
-	dismantle_work: 8.000
+	dismantle_work: 50.000
 	dismantle_yield: 0.800
 	
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support
 		
 		size: [7.000, 6.000]
 		offset: [0.000, -2.000]
@@ -65,13 +66,7 @@
 			{
 				type: resource
 				material: wood
-				amount: 60.000
-				group: 0
-			}
-			{
-				type: resource
-				material: brick.concrete
-				amount: 50.000
+				amount: 5.000
 				group: 0
 			}
 		]
@@ -81,40 +76,26 @@
 	[
 		{
 			type: resource
-			material: gravel
+			material: wood
+			amount: 775.000
+			group: 0
+		}
+		{
+			type: resource
+			material: stone
 			amount: 400.000
 			group: 0
 		}
 		{
-			type: work
-			work: masonry
-			amount: 500.000
-			difficulty: 4
+			type: resource
+			material: cloth
+			amount: 15.000
 			group: 0
 		}
 		{
 			type: resource
-			material: wood
-			amount: 250.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 10.000
-			group: 0
-		}
-		{
-			type: resource
-			material: paper
-			amount: 50.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 1150.000
-			difficulty: 7
+			material: money
+			amount: 100.000
 			group: 0
 		}
 	]
@@ -123,7 +104,7 @@
 	[
 		{
 			type: prefab
-			prefab: laboratory
+			prefab: headquarters.00
 			amount: 1.000
 			group: 0
 		}

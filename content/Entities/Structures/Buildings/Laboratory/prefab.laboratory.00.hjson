@@ -29,10 +29,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "laboratory"
+		texture: "laboratory.00"
+		mask: laboratory.00.mask
 	}
 	z: -300.000
-	mask: laboratory.mask
 }
 
 transform:
