@@ -7,6 +7,7 @@
 		blunderbusses, and pistols.
 		Fires multiple projectiles.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -21,7 +22,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -32,17 +33,20 @@
 			type: resource
 			material: iron.ingot
 			amount: 0.050
+			group: 0
 		}
 		{
 			type: resource
 			material: gunpowder
 			amount: 0.600
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 8.000
 			difficulty: 2
+			group: 0
 		}
 	]
 	
@@ -52,6 +56,7 @@
 			type: resource
 			material: ammo_musket.shot
 			amount: 1.000
+			group: 0
 		}
 	]
 }

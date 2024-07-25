@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,22 +38,26 @@
 			type: resource
 			material: pellet.motion
 			amount: 0.500
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.ingot
 			amount: 0.060
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 0.350
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 85.000
 			difficulty: 12
+			group: 0
 		}
 	]
 	
@@ -62,6 +67,7 @@
 			type: resource
 			material: ammo_mg.emt
 			amount: 1.000
+			group: 0
 		}
 	]
 }

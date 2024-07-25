@@ -5,6 +5,7 @@
 		'''
 		Ammunition for machine guns and other heavy weapons.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -25,7 +26,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -36,22 +37,26 @@
 			type: resource
 			material: steel.ingot
 			amount: 0.160
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.ingot
 			amount: 0.050
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 0.500
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 50.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -61,6 +66,7 @@
 			type: resource
 			material: ammo_mg
 			amount: 1.000
+			group: 0
 		}
 	]
 }

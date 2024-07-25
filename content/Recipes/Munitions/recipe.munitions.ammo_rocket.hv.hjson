@@ -5,6 +5,7 @@
 		'''
 		Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,28 +38,33 @@
 			type: resource
 			material: steel.ingot
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 25.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 200.000
 			difficulty: 7
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 250.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -68,6 +74,7 @@
 			type: resource
 			material: ammo_rocket.hv
 			amount: 1.000
+			group: 0
 		}
 	]
 }

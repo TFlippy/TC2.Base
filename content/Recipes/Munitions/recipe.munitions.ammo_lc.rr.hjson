@@ -6,6 +6,7 @@
 		Ammunition for pistols, revolvers
 		and submachine guns. Less recoil and heat, cheaper but weaker.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -27,7 +28,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -38,22 +39,26 @@
 			type: resource
 			material: steel.ingot
 			amount: 0.010
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.ingot
 			amount: 0.015
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 0.010
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 8.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -63,6 +68,7 @@
 			type: resource
 			material: ammo_lc.rr
 			amount: 1.000
+			group: 0
 		}
 	]
 }

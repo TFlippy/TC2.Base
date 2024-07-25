@@ -5,6 +5,7 @@
 		'''
 		Ammunition for autocannons. (Anti-Air)
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,22 +38,26 @@
 			type: resource
 			material: steel.ingot
 			amount: 0.300
+			group: 0
 		}
 		{
 			type: resource
 			material: copper.ingot
 			amount: 0.200
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 80.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -62,6 +67,7 @@
 			type: resource
 			material: ammo_ac.aa
 			amount: 1.000
+			group: 0
 		}
 	]
 }

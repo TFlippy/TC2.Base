@@ -1,27 +1,26 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "High-Caliber Ammo (High-Velocity)"
 	desc:
 		'''
 		Ammunition for rifles
 		and other larger firearms.
 		'''
+	tips: []
 	
 	icon:
 	{
-		texture: "resource.ammo_hc.hv"
+		texture: resource.ammo_hc.hv
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "ui_icons_gunsmith.mini"
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 50
 	max: 50
@@ -29,31 +28,37 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, disabled, wip
-	tags: press
+	tags: press, munitions
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "steel.ingot"
+			material: steel.ingot
 			amount: 0.030
+			group: 0
 		}
 		{
 			type: resource
-			material: "copper.ingot"
+			material: copper.ingot
 			amount: 0.010
+			group: 0
 		}
 		{
 			type: resource
-			material: "nitrocellulose"
+			material: nitrocellulose
 			amount: 0.080
+			group: 0
 		}
 		{
 			type: work
-			work: pressing
+			work: "null"
 			amount: 0.200
 			difficulty: 1
+			group: 0
 		}
 	]
 	
@@ -61,8 +66,9 @@
 	[
 		{
 			type: resource
-			material: "ammo_hc.hv"
+			material: ammo_hc.hv
 			amount: 1.000
+			group: 0
 		}
 	]
 }

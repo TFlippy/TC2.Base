@@ -5,6 +5,7 @@
 		'''
 		Ammunition for shotguns. Fires a small low-powered grenade.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,17 +38,20 @@
 			type: resource
 			material: copper.ingot
 			amount: 0.020
+			group: 0
 		}
 		{
 			type: resource
 			material: nitroglycerine
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 16.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -57,6 +61,7 @@
 			type: resource
 			material: ammo_sg.grenade
 			amount: 1.000
+			group: 0
 		}
 	]
 }

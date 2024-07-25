@@ -5,6 +5,7 @@
 		'''
 		Ammunition for cannons.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,28 +38,33 @@
 			type: resource
 			material: steel.ingot
 			amount: 12.000
+			group: 0
 		}
 		{
 			type: resource
 			material: gunpowder
 			amount: 20.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 3.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 600.000
 			difficulty: 8
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 300.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -68,6 +74,7 @@
 			type: resource
 			material: ammo_hw.shrapnel
 			amount: 1.000
+			group: 0
 		}
 	]
 }

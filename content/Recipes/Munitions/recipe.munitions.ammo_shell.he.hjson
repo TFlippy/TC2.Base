@@ -5,6 +5,7 @@
 		'''
 		Ammunition for cannons. Greatly increased damage, but slightly lowered radius.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -37,33 +38,39 @@
 			type: resource
 			material: steel.ingot
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: resource
 			material: nitrocellulose
 			amount: 20.000
+			group: 0
 		}
 		{
 			type: resource
 			material: nitroglycerine
 			amount: 70.000
+			group: 0
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 3.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 400.000
 			difficulty: 8
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 350.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -73,6 +80,7 @@
 			type: resource
 			material: ammo_hw.he
 			amount: 1.000
+			group: 0
 		}
 	]
 }

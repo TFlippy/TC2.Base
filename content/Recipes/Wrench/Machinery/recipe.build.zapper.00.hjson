@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: metalworking, construction, wrench
+	tags: metalworking, machinery, wrench
 	
 	color_button: "0xffa11209"
 	rank: -109.000

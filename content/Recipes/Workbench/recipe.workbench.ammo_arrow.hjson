@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench, woodworking, simple, crude, primitive, manual
+	tags: workbench, woodworking, simple, crude, munitions, primitive, manual
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

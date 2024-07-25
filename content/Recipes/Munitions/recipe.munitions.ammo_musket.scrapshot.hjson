@@ -7,6 +7,7 @@
 		blunderbusses, and pistols.
 		Fires a lot of projectiles.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -21,7 +22,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: none
+	tags: munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -32,17 +33,20 @@
 			type: resource
 			material: gravel
 			amount: 0.100
+			group: 0
 		}
 		{
 			type: resource
 			material: gunpowder
 			amount: 0.600
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 2.000
 			difficulty: 2
+			group: 0
 		}
 	]
 	
@@ -52,6 +56,7 @@
 			type: resource
 			material: ammo_musket.scrapshot
 			amount: 1.000
+			group: 0
 		}
 	]
 }
