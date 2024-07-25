@@ -67,8 +67,14 @@
 		}
 		{
 			type: resource
+			material: soil
+			amount: 5.000
+			group: 0
+		}
+		{
+			type: resource
 			material: lime
-			amount: 4.000
+			amount: 2.000
 			group: 0
 		}
 		{
@@ -88,14 +94,21 @@
 			type: resource
 			material: mortar
 			amount: 3.618
-			amount_extra: 6.012
+			amount_extra: 4.711
 			group: 0
 		}
 		{
 			type: resource
 			material: sludge
-			amount: 3.684
-			amount_extra: 2.526
+			amount: 4.684
+			amount_extra: 4.226
+			group: 0
+		}
+		{
+			type: resource
+			material: tar
+			amount: 1.112
+			amount_extra: 1.344
 			group: 0
 		}
 	]

@@ -65,7 +65,7 @@
 		{
 			type: work
 			work: hammering
-			amount: 300.000
+			amount: 200.000
 			difficulty: 2
 			snapping: 5.000
 			falloff: 0.150
@@ -74,7 +74,7 @@
 		{
 			type: work
 			work: kneading
-			amount: 400.000
+			amount: 240.000
 			difficulty: 6
 			snapping: 5.000
 			falloff: 0.800
@@ -83,7 +83,7 @@
 		{
 			type: work
 			work: hammering
-			amount: 50.000
+			amount: 30.000
 			difficulty: 10
 			snapping: 5.000
 			falloff: 0.950

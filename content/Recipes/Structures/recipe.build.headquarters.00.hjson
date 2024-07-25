@@ -106,12 +106,6 @@
 			group: 0
 		}
 		{
-			type: resource
-			material: paper
-			amount: 40.000
-			group: 0
-		}
-		{
 			type: work
 			work: carpentry
 			amount: 1550.000

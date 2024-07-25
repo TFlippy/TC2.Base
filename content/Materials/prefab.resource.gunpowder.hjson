@@ -5,7 +5,7 @@ body:
 	flags: none
 	buoyancy: 0.150
 	damping: 0.968
-	fall_damage_multiplier: 0.200
+	fall_damage_multiplier: 0.000
 
 	@shape.circle:
 	{
@@ -53,7 +53,7 @@ norotate:
 
 health:
 {
-	max: 5000.000
+	max: 1950.000
 }
 
 explosive:
@@ -62,7 +62,7 @@ explosive:
 	power: 2.000
 	damage_entity: 11000.000
 	damage_terrain: 22000.000
-	health_threshold: 0.740
+	health_threshold: 0.680
 	damage_type: deflagration
 	damage_type_secondary: explosion
 	force_multiplier: 0.430

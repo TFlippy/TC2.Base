@@ -2,14 +2,14 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 2.000
+	fall_damage_multiplier: 8.000
 
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
+		friction: 0.850
 		elasticity: 0.400
 		material: metal
 		layer: entity, solid, resource, flammable
@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 500.000
+	max: 2500.000
 }
 
 explosive:
@@ -68,6 +68,6 @@ explosive:
 	force_multiplier: 1.500
 	volume: 3.000
 	pitch: 3.300
-	health_threshold: 0.990
+	health_threshold: 0.700
 	flags: any_damage, explode_when_primed
 }
