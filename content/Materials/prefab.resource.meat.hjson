@@ -2,13 +2,15 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.600
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.600]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.950
+		elasticity: 0.080
 		material: flesh
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world

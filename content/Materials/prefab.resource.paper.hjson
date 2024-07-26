@@ -2,12 +2,14 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.500
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
+		friction: 0.850
 		elasticity: 0.300
 		material: paper
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
@@ -51,4 +53,22 @@ despawn:
 	interval: 14.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.100
+}
+
+health:
+{
+	max: 1000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+wettable:
+{
+	flags: damage_if_wet
+	absorption: 0.450
+	damage_multiplier: 400.000
+	damage_interval: 1.000
 }
