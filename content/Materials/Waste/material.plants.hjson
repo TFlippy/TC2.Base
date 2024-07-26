@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Plant Trimmings"
 	description:
 		'''
@@ -81,8 +81,8 @@
 			
 			type: undefined
 			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: merge
+			spawn_flags: merge, no_offset
+			spawn_flags_waste: merge, no_offset
 			
 			ratio: 0.010
 			ratio_extra: 0.075

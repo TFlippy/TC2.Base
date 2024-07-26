@@ -83,8 +83,8 @@
 			
 			type: undefined
 			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: merge
+			spawn_flags: merge, no_offset
+			spawn_flags_waste: merge, no_offset
 			
 			ratio: 0.720
 			ratio_extra: 0.460

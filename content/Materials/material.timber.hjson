@@ -43,7 +43,7 @@
 			type: undefined
 			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
+			spawn_flags_waste: merge
 			
 			ratio: 0.030
 			ratio_extra: 0.050
@@ -68,7 +68,7 @@
 			type: undefined
 			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
+			spawn_flags_waste: merge
 			
 			ratio: 0.070
 			ratio_extra: 0.050
@@ -93,7 +93,7 @@
 			type: undefined
 			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: none
+			spawn_flags_waste: merge
 			
 			ratio: 0.130
 			ratio_extra: 0.640
@@ -117,8 +117,8 @@
 			
 			type: undefined
 			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: none
+			spawn_flags: merge, no_offset
+			spawn_flags_waste: merge, no_offset
 			
 			ratio: 0.030
 			ratio_extra: 0.040
@@ -142,8 +142,8 @@
 			
 			type: undefined
 			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: none
+			spawn_flags: merge, no_offset
+			spawn_flags_waste: merge, no_offset
 			
 			ratio: 0.010
 			ratio_extra: 0.070

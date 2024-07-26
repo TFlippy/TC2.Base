@@ -42,8 +42,8 @@
 			
 			type: undefined
 			flags: none
-			spawn_flags: merge
-			spawn_flags_waste: merge
+			spawn_flags: merge, no_offset
+			spawn_flags_waste: merge, no_offset
 			
 			ratio: 0.120
 			ratio_extra: 0.660
@@ -61,7 +61,7 @@
 			chance: 0.082
 		}
 	}
-
+	
 	// Component materials.
 	composition: []
 }

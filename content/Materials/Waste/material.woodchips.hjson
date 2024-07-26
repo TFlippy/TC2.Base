@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Woodchips"
 	description:
 		'''
@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.woodchips"
+		texture: resource.woodchips
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: wood_powder
@@ -23,9 +18,20 @@
 	flags: soft, granular, organic, intermediate, small, raw, powder, fuel, flammable, waste, flexible, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.145
 	quantity_max: 500.000
-	prefab: "resource.woodchips"
+	prefab: resource.woodchips
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
+	
+	// Component materials.
+	composition: []
 }

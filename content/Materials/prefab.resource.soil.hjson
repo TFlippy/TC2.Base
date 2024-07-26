@@ -2,11 +2,11 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.900
+	buoyancy: 0.200
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
+		// offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
@@ -26,6 +26,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	z: -85.000
+	offset: [0.000, -0.250]
 }
 
 transform:
