@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.1"
-	name: "Clay Bricks"
+	name: "Simple Clay Bricks"
 	desc:
 		'''
-		TODO: Desc
+		Clay mixed with water shaped into brick-shaped clay bricks. Simple, but takes a while to dry.
 		'''
 	tips: []
 	
@@ -37,7 +37,7 @@
 		{
 			type: resource
 			material: water
-			amount: 0.750
+			amount: 1.000
 			group: 0
 		}
 		{
@@ -52,7 +52,7 @@
 		{
 			type: work
 			work: drying
-			amount: 780.000
+			amount: 840.000
 			difficulty: 5
 			group: 0
 			flags: no_scaling, sequential, crafter_only
@@ -64,7 +64,8 @@
 		{
 			type: resource
 			material: brick.clay.raw
-			amount: 1.000
+			amount: 0.924
+			amount_extra: 0.063
 			group: 0
 		}
 	]

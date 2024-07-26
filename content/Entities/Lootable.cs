@@ -12,20 +12,21 @@ namespace TC2.Base.Components
 
 			No_Damage = 1 << 0,
 			No_Offset = 1 << 1,
+			No_Mass_Conversion = 1 << 2,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
 		public struct Data: IComponent
 		{
-			public IMaterial.Handle h_material;
+			//public IMaterial.Handle h_material;
 			public Breakable.Flags flags;
 
-			public IMaterial.Conversion.Type conversion_type;
-			public IMaterial.Conversion.Flags conversion_flags;
+			//public IMaterial.Conversion.Type conversion_type;
+			//public IMaterial.Conversion.Flags conversion_flags;
 			public Resource.SpawnFlags spawn_flags;
-			public Material.Type material_type;
+			//public Material.Type material_type;
 
-			public Material.Flags material_flags;
+			//public Material.Flags material_flags;
 
 			public Data()
 			{
@@ -33,6 +34,7 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[Shitcode]
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnDamage(ref Region.Data region, ISystem.Info info, Entity entity, ref Health.DamageEvent data, ref XorRandom random,
 		[Source.Owned] in Health.Data health, [Source.Owned] ref Resource.Data resource, [Source.Owned] ref Breakable.Data breakable, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
@@ -57,6 +59,9 @@ namespace TC2.Base.Components
 					ref var material_conv = ref conv.h_material.GetData();
 					if (material_conv.IsNotNull())
 					{
+						var has_no_offset = breakable.flags.HasAny(Breakable.Flags.No_Offset) | conv.spawn_flags.HasAny(Resource.SpawnFlags.No_Offset);
+						var has_no_mass_conversion = breakable.flags.HasAny(Breakable.Flags.No_Mass_Conversion) | conv.flags.HasAny(IMaterial.Conversion.Flags.No_Mass_Conversion);
+
 						var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
 						var amount_rem = amount;
 
@@ -89,14 +94,14 @@ namespace TC2.Base.Components
 							var spawn_flags_conv = spawn_flags | conv.spawn_flags;
 							Resource.Spawn(region: ref region,
 							material: conv.h_material,
-							world_position: data.world_position,
-							amount: Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
+							world_position: has_no_offset ? body.GetPosition() : data.world_position,
+							amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
 							max_distance: 4.00f,
 							flags: spawn_flags_conv,
 							ent_target: ent_attacker,
 							ent_owner: ent_owner,
 							angular_velocity: body.GetAngularVelocity(),
-							velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+							velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + random.NextUnitVector2Range(0, 4));
 						}
 
 						ref var material_waste = ref conv.h_material_waste.GetData();
@@ -105,14 +110,14 @@ namespace TC2.Base.Components
 							var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
 							Resource.Spawn(region: ref region,
 							material: conv.h_material_waste,
-							world_position: data.world_position,
-							amount: Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
+							world_position: has_no_offset ? body.GetPosition() : data.world_position,
+							amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
 							max_distance: 4.00f,
 							flags: spawn_flags_conv,
 							ent_target: ent_attacker,
 							ent_owner: ent_owner,
 							angular_velocity: body.GetAngularVelocity(),
-							velocity: body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+							velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + random.NextUnitVector2Range(0, 4));
 						}
 
 						if (conv.h_sound.id != 0)

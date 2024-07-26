@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.100
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
@@ -23,6 +25,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	z: -86.000
 }
 
 transform:

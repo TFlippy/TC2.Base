@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.1"
-	name: "Concrete Slabs"
+	name: "Standard Concrete Slabs"
 	desc:
 		'''
-		TODO: Desc
+		ISO-certified general-purpose concrete masonry unit formulation carefully designed and certified by ISO.
 		'''
 	tips: []
 	
