@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.450
 		elasticity: 0.500
-		material: metal_sheet
+		material: scrap
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -46,4 +46,22 @@ holdable:
 norotate:
 {
 
+}
+
+health:
+{
+	max: 38000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
 }

@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: dumb
 	// kg
-	mass_per_unit: 0.230
+	mass_per_unit: 0.460
 	quantity_max: 500.000
 	prefab: resource.copper.chunk
 	

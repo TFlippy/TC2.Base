@@ -1,29 +1,29 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Malformed Smirgrafit"
+	name: "Polysmirglat Plate"
 	description:
 		'''
-		Nice job breaking it, hero.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: resource.smirgrafit.chunk
+		texture: resource.polysmirglat.plate
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	type: cermet
+	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, metal, heavy, ingot, waste, solid, processed
+	flags: hard, magnetic, metal, intermediate, heavy, small, plate, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: dumb
+	hints: none
 	// kg
-	mass_per_unit: 1.520
-	quantity_max: 500.000
-	prefab: resource.smirgrafit.chunk
+	mass_per_unit: 15.200
+	quantity_max: 64.000
+	prefab: resource.polysmirglat.plate
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -31,7 +31,4 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
-	
-	// Component materials.
-	composition: []
 }

@@ -76,7 +76,7 @@
 	{
 		phlogiston:
 		{
-			h_material: graphite
+			h_material: tar
 			h_material_waste: ash
 			
 			type: undefined

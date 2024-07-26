@@ -53,3 +53,21 @@ despawn:
 	threshold_delete: 0.010
 	threshold_despawning: 1.000
 }
+
+health:
+{
+	max: 7500.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
+}
