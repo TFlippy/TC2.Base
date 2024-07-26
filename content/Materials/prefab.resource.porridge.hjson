@@ -1,0 +1,57 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.600
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.950
+		elasticity: 0.000
+		material: slime
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.porridge"
+		count: 4
+		size: [16, 16]
+	}
+	z: -86.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "porridge"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+	sleep_count_max: 7
+	interval: 25.000
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
+}
