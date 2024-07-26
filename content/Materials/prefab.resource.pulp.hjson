@@ -1,0 +1,59 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.600
+
+	@shape.line:
+	{
+		a: [-0.625, 0.000]
+		b: [0.625, 0.000]
+		radius: 0.400
+		friction: 0.950
+		elasticity: 0.000
+		
+		material: slime
+		
+		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.pulp"
+		count: 4
+		size: [16, 16]
+	}
+	z: -86.500
+	offset: [0.000, -0.625]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "pulp"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+despawn:
+{
+	sleep_count_max: 17
+	interval: 15.000
+	threshold_delete: 0.040
+	threshold_despawning: 1.000
+}
