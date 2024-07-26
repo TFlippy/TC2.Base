@@ -122,10 +122,7 @@
 		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.340
-		volatiles: 
-		[
-			wood_gas
-		]
+		volatiles: ["wood_gas"]
 	}
 	
 	// Component materials.

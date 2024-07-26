@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: stone
-			quantity: 0.050
+			material: gravel
+			quantity: 0.080
 		}
 		null
 	]
