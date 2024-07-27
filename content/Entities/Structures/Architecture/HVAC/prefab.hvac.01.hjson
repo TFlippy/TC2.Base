@@ -44,20 +44,21 @@ transform:
 
 }
 
-sound_emitter:
+interactable:
 {
-	file: "hvac.loop.00"
-	channel_type: world
 	flags: none
-	volume: 3.000
-	pitch: 1.700
-	size: 0.500
-	size_max_modifier: 0.430
-	spread: 90.000
-	mix_3d: 1.000
-	doppler: 1.000
+	window_size: [120.000, 96.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+sound.emitter:
+{
+	file: hvac.loop.00
+	volume: 1.100
+	pitch: 1.580
+	size: 3.000
+	size_max_modifier: 0.420
 	priority: 0.300
-	offset: [0.000, 0.000]
 }
 
 vibrate:
@@ -96,4 +97,24 @@ harvestable:
 			chance: 0.678
 		}
 	]
+}
+
+hvac:
+{
+	produce_interval: 5.000
+	amount: 0.167
+	amount_extra: 0.582
+
+	@inventory1:
+	{
+		type: output
+		flags: standalone, ignore_mass, no_auto_pickup, no_drop
+		stack_size_multiplier: 0.500
+		
+		filter:
+		{
+			require: liquid
+			exclude: gas, viscous, fuel
+		}
+	}
 }
