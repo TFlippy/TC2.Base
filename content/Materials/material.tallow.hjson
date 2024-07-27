@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.1"
 	name: "Tallow"
 	description:
 		'''
@@ -8,26 +8,29 @@
 	
 	icon:
 	{
-		texture: "resource.tallow"
+		texture: resource.tallow
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: wax
 	// Flags defining properties of the raw material.
-	flags: soft, malleable, sticky, food, organic, raw, flammable
+	flags: soft, malleable, sticky, food, granular, organic, raw, flammable, smelly
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 0.230
 	quantity_max: 100.000
-	prefab: "resource.tallow"
+	prefab: resource.tallow
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -67,4 +70,7 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	// Component materials.
+	composition: []
 }

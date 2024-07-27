@@ -14,6 +14,7 @@
 		frame: [2, 0]
 	}
 	
+	flags: none
 	tags: wip
 	cooldown: 1.500
 	multiplier: 1.000
@@ -40,7 +41,7 @@
 	
 	skills_mult:
 	{
-	
+		dexterity: 1.140
 	}
 	
 	sound_volume: 0.500

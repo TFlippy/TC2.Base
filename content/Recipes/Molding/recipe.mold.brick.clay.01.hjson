@@ -20,7 +20,7 @@
 	step: 20
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: simple, crude, drying, primitive, manual, passive, forming, shaping
 	
 	color_button: "0xffaeb59a"

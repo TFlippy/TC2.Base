@@ -158,8 +158,8 @@ dormitory:
 	kit_default: "null"
 	characters_capacity: 6
 	characters_initial_count: 0
-	repopulate_interval: 120.000
-	repopulate_interval_extra: 180.000
+	repopulate_interval: 300.000
+	repopulate_interval_extra: 600.000
 	repopulate_num: 1
 	repopulate_num_extra: 2
 	repopulate_max: 6

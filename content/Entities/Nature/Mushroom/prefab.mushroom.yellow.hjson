@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 7000.000
+	max: 37000.000
 }
 
 animated.renderer:
@@ -58,7 +58,6 @@ harvestable:
 		{
 			material: "mushroom"
 			quantity: 850.000
-			flags: no_autopickup
 		}
 		{
 			material: "mushroom.yellow"

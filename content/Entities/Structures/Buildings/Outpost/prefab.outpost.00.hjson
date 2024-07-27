@@ -153,9 +153,9 @@ dormitory:
 	asset_flags: recycle
 	kit_default: "default.outpost"
 	characters_capacity: 3
-	characters_initial_count: 0
+	characters_initial_count: 1
 	repopulate_interval: 180.000
-	repopulate_interval_extra: 120.000
+	repopulate_interval_extra: 300.000
 	repopulate_num: 1
 	repopulate_num_extra: 1
 	repopulate_max: 3
