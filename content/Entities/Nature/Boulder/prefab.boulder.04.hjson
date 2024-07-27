@@ -52,9 +52,8 @@ harvestable:
 	resources:
 	[
 		{
-			material: "stone"
+			material: "gravel"
 			quantity: 8350.000
-			flags: no_autopickup
 		}
 	]
 }

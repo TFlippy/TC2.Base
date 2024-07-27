@@ -60,7 +60,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "stone"
+			material: "gravel"
 			quantity: 1850.000
 		}
 		{
