@@ -759,7 +759,7 @@ namespace TC2.Base.Components
 					dist_max: out var dist_max,
 					draw_gui: true,
 					do_hit: false,
-					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
+					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter | Melee.Flags.Use_RMB) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
 
 				var gui = new BlockGUI()
 				{
@@ -954,7 +954,7 @@ namespace TC2.Base.Components
 					dist_max: out var dist_max,
 					draw_gui: false,
 					do_hit: true,
-					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
+					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter | Melee.Flags.Use_RMB) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
 			}
 		}
 	}
