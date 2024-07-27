@@ -55,7 +55,7 @@
 		{
 			type: resource
 			material: mortar
-			amount: 0.005
+			amount: 0.006
 			group: 0
 		}
 	]

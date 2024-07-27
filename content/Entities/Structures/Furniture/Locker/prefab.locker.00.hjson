@@ -36,6 +36,7 @@ animated.renderer:
 		texture: "locker.00"
 	}
 	z: -90.000
+	offset: [-0.375, 0.000]
 }
 
 transform:

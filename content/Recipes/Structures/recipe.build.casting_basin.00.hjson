@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Casting Basin"
 	tips: []
 	
@@ -59,6 +59,12 @@
 			type: resource
 			material: brick.concrete
 			amount: 80.000
+			group: 0
+		}
+		{
+			type: resource
+			material: gravel
+			amount: 230.000
 			group: 0
 		}
 		{

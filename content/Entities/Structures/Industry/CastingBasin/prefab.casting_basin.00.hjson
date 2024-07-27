@@ -1,7 +1,7 @@
 $name: "Casting Basin"
 $desc:
 	'''
-	Large concrete basin used for forming molten metal, concrete and clays into various basic shapes.
+	Large concrete basin filled with sand used for casting molten metal.
 	'''
 $tags: []
 
@@ -19,7 +19,7 @@ body:
 			[-1.375, 1.000]
 		]
 		
-		mass: 350.000
+		mass: 550.000
 		radius: 0.500
 		friction: 0.950
 		
@@ -59,9 +59,11 @@ shop:
 {
 	name: "Casting Basin"
 	
-	tags: simple, crude, manual, casting, forming, shaping
-	tags_require: none
-	tags_exclude: automated
+	tags_filter:
+	{
+		require: casting
+		include: metalworking
+	}
 	
 	work_tools: hammer, pliers, bucket, file, spatula, tongs
 	work_machines: none

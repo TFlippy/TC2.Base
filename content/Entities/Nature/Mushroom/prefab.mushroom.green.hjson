@@ -10,7 +10,7 @@ body:
 	{
 		a: [0.125, -0.375]
 		b: [0.250, -2.375]
-		mass: 92.000
+		mass: 120.000
 		radius: 1.000
 		friction: 0.400
 		elasticity: 0.400
@@ -27,7 +27,7 @@ transform:
 
 health:
 {
-	max: 2000.000
+	max: 8500.000
 }
 
 animated.renderer:
@@ -62,12 +62,12 @@ harvestable:
 	[
 		{
 			material: "mushroom"
-			quantity: 250.000
+			quantity: 280.000
 			flags: no_autopickup
 		}
 		{
 			material: "mushroom.green"
-			quantity: 95.000
+			quantity: 178.000
 		}
 	]
 }

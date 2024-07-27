@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Betoniter"
 	description:
 		'''
@@ -38,16 +38,12 @@
 		sledgehammer:
 		{
 			h_material: cement
-			h_material_waste: gravel
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: merge
-			
 			ratio: 0.070
 			ratio_extra: 0.600
 			
+			h_material_waste: gravel
+			spawn_flags_waste: merge
 			ratio_waste: 0.400
 			ratio_waste_extra: 0.500
 			
@@ -59,6 +55,10 @@
 			sound_pitch: 0.850
 			
 			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

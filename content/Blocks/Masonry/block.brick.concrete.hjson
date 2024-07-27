@@ -35,7 +35,7 @@
 	[
 		{
 			material: brick.concrete
-			quantity: 0.150
+			quantity: 0.075
 		}
 		null
 	]

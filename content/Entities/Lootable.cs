@@ -24,6 +24,7 @@ namespace TC2.Base.Components
 			//public IMaterial.Conversion.Type conversion_type;
 			//public IMaterial.Conversion.Flags conversion_flags;
 			public Resource.SpawnFlags spawn_flags;
+			public float merge_radius = 4.00f;
 			//public Material.Type material_type;
 
 			//public Material.Flags material_flags;
@@ -98,12 +99,12 @@ namespace TC2.Base.Components
 						material: conv.h_material,
 						world_position: has_no_offset ? body.GetPosition() : data.world_position,
 						amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
-						max_distance: 2.00f,
+						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
 						ent_target: ent_attacker,
 						ent_owner: ent_owner,
 						angular_velocity: body.GetAngularVelocity(),
-						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
 					}
 
 					ref var material_waste = ref conv.h_material_waste.GetData();
@@ -114,12 +115,12 @@ namespace TC2.Base.Components
 						material: conv.h_material_waste,
 						world_position: has_no_offset ? body.GetPosition() : data.world_position,
 						amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
-						max_distance: 2.00f,
+						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
 						ent_target: ent_attacker,
 						ent_owner: ent_owner,
 						angular_velocity: body.GetAngularVelocity(),
-						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + random.NextUnitVector2Range(0, 4));
+						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
 					}
 					//var amount_taken = amount - amount_rem;
 					//}
