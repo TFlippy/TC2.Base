@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Clay Bricks (Back)"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
@@ -49,11 +50,13 @@
 			type: resource
 			material: brick.clay
 			amount: 0.100
+			group: 0
 		}
 		{
 			type: resource
 			material: mortar
 			amount: 0.004
+			group: 0
 		}
 	]
 	
@@ -63,6 +66,7 @@
 			type: block
 			block: brick.clay
 			tile_flags: none
+			group: 0
 		}
 	]
 }

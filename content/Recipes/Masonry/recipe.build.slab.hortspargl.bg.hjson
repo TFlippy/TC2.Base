@@ -1,16 +1,17 @@
 ﻿{
-	$version: "0.1.61.1"
-	name: "Brezolyt Masonry"
+	$version: "0.1.61.2"
+	name: "Hortspargl Masonry (Back)"
 	desc:
 		'''
-		Not exactly durable masonry, but a very lightweight one.
+		Sturdy Hortspargl masonry with a nice metallic luster.
 		'''
+	tips: []
 	
 	icon:
 	{
 		texture: block_icons
 		size: [16, 16]
-		frame: [16, 0]
+		frame: [17, 1]
 	}
 	
 	min: 0
@@ -18,11 +19,11 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: architecture, wrench
 	
 	color_button: "0xffaeb59a"
-	rank: -81.500
+	rank: -82.000
 	
 	placement:
 	{
@@ -47,13 +48,15 @@
 	[
 		{
 			type: resource
-			material: brezolyt
-			amount: 0.600
+			material: hortspargl
+			amount: 0.300
+			group: 0
 		}
 		{
 			type: resource
 			material: mortar
-			amount: 0.010
+			amount: 0.005
+			group: 0
 		}
 	]
 	
@@ -61,8 +64,9 @@
 	[
 		{
 			type: block
-			block: slab.brezolyt
-			tile_flags: solid, become_background_on_break
+			block: slab.hortspargl
+			tile_flags: none
+			group: 0
 		}
 	]
 }
