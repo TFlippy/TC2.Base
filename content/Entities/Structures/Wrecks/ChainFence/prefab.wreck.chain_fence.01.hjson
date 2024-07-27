@@ -22,7 +22,7 @@ body:
 		friction: 0.850
 		elasticity: 0.100
 		material: wire
-		layer: entity, ignore_melee, decoration
+		layer: entity, ignore_melee, background
 		mask: world
 	}
 }

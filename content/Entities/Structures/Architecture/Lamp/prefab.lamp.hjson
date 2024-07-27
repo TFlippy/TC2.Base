@@ -14,7 +14,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: chalk
-		layer: entity, no_overlapped_placement, ignore_melee, decoration, furniture
+		layer: entity, no_overlapped_placement, ignore_melee, background, furniture
 		mask: world
 	}
 }

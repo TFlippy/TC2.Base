@@ -56,7 +56,7 @@ melee:
 	category: blunt
 	hit_require: destructible, organic
 	hit_mask: destructible, organic
-	hit_exclude: world, static, ignore_melee, decoration, tree, climbable
+	hit_exclude: world, static, ignore_melee, background, tree, climbable
 }
 
 melee.state:

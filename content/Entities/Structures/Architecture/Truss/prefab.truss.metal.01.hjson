@@ -20,7 +20,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: metal_frame
-		layer: entity, climbable, building, support, ignore_melee, decoration
+		layer: entity, climbable, building, support, ignore_melee, background
 		mask: world
 	}
 }

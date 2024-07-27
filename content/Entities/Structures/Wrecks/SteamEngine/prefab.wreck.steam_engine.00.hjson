@@ -24,7 +24,7 @@ body:
 		elasticity: 0.500
 		mass: 1260.000
 		material: wreck
-		layer: entity, building, decoration
+		layer: entity, building, background
 		mask: world
 	}
 }

@@ -17,7 +17,7 @@ body:
 		friction: 0.950
 		elasticity: 0.200
 		material: stone
-		layer: entity, solid, decoration, furniture
+		layer: entity, solid, background, furniture
 		mask: world
 	}
 }

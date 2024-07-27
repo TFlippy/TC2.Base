@@ -582,7 +582,7 @@ faction:
 			flags: no_handle, no_material_filter
 			hit_mask: creature, organic
 			hit_require: destructible
-			hit_exclude: world, decoration, tree, essence, water, gas, ignore_melee
+			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
 		}
 
 		melee.state:

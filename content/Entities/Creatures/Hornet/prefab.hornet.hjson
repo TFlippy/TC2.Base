@@ -221,7 +221,7 @@ melee:
 	category: pointed
 	flags: no_handle
 	hit_mask: destructible
-	hit_exclude: decoration, tree, ignore_melee, world
+	hit_exclude: background, tree, ignore_melee, world
 }
 
 melee.state:

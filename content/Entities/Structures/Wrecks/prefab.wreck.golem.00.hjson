@@ -18,7 +18,7 @@ body:
 		friction: 0.850
 		elasticity: 0.100
 		material: metal
-		layer: entity, decoration
+		layer: entity, background
 		mask: world, essence
 	}
 }

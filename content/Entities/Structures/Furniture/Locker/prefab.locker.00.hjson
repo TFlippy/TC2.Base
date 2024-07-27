@@ -20,7 +20,7 @@ body:
 		
 		material: metal_sheet
 		
-		layer: entity, solid, decoration, furniture
+		layer: entity, solid, background, furniture
 	}
 }
 

@@ -16,7 +16,7 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, building, support, ignore_melee, no_overlapped_placement, flammable, decoration
+		layer: entity, building, support, ignore_melee, no_overlapped_placement, flammable, background
 		mask: world
 	}
 }

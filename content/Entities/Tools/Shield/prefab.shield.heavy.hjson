@@ -116,7 +116,7 @@ melee:
 	flags: no_handle
 	attack_type: thrust
 	hit_mask: item, creature
-	hit_exclude: decoration, tree, ignore_melee, climbable, furniture
+	hit_exclude: background, tree, ignore_melee, climbable, furniture
 }
 
 melee.state:

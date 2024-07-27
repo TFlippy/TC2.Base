@@ -18,7 +18,7 @@ body:
 		friction: 0.850
 		elasticity: 0.400
 		material: metal_sheet
-		layer: entity, solid, decoration, furniture, ignore_bullet
+		layer: entity, solid, background, furniture, ignore_bullet
 		mask: world
 	}
 }

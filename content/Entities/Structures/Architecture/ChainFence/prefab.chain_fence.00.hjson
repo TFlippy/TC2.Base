@@ -22,7 +22,7 @@ body:
 		
 		material: wire
 		
-		layer: entity, decoration, background, building, no_overlapped_placement, ignore_melee, ignore_bullet
+		layer: entity, background, building, no_overlapped_placement, ignore_melee, ignore_bullet
 	}
 }
 
