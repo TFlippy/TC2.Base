@@ -3,7 +3,7 @@
 	name: "Chalcopyrite"
 	desc:
 		'''
-		Common mineral, mixture of copper and iron.
+		Common sulfide mineral containing copper and iron.
 		'''
 	
 	material_type: stone_metallic

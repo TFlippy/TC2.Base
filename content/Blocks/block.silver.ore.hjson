@@ -1,12 +1,12 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Silver"
+	name: "Native Silver"
 	desc:
 		'''
-		A precious metal.
+		TODO: Desc
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	

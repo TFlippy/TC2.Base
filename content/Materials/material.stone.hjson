@@ -1,9 +1,10 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Stone"
+	name: "[OBSOLETE] Stone"
 	description:
 		'''
-		A pile of rocks, commonly used in construction.
+		Pile of rocks, commonly used in construction.
+		- Will be removed! -
 		'''
 	
 	icon:

@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Copper"
+	name: "Native Copper"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, ore, uncommon, mineral
 	
 	max_health: 30000.000
 	

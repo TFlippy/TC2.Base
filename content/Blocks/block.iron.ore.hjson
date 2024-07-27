@@ -1,22 +1,22 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Iron"
+	name: "Native Iron"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, ore, rare, mineral
 	
-	max_health: 50000.000
+	max_health: 68000.000
 	
-	smoothing: 0.150
-	mass: 1.000
-	friction: 0.900
-	elasticity: 0.300
-	stability: 0.500
+	smoothing: 0.110
+	mass: 3.000
+	friction: 0.500
+	elasticity: 0.400
+	stability: 4.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	collision_layer: none
@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: iron.gravel
-			quantity: 1.300
+			material: iron.chunk
+			quantity: 0.800
 		}
 		null
 	]

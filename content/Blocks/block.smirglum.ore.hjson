@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Smirglum"
+	name: "Native Smirglum"
 	desc:
 		'''
-		A very heavy mineral.
+		TODO: Desc
 		'''
 	
 	icon:
@@ -11,16 +11,16 @@
 		texture: "missing"
 	}
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
-	max_health: 68000.000
+	max_health: 128000.000
 	
 	smoothing: 0.110
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.300
+	mass: 8.000
+	friction: 0.600
+	elasticity: 0.500
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
