@@ -32,6 +32,7 @@ namespace TC2.Base.Components
 			Use_RMB = 1 << 1,
 			Sync_Hit_Event = 1 << 2,
 			No_Material_Filter = 1 << 3,
+			Invert_RMB_Material_Filter = 1 << 4,
 		}
 
 		[IEvent.Data]
@@ -528,7 +529,10 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: come up with a better name
-		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, in Melee.Data melee, ref Melee.State melee_state, out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit)
+		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, 
+		Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, 
+		in Melee.Data melee, ref Melee.State melee_state, 
+		out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit, bool disable_hit_filter = false)
 		{
 			var penetration = melee.penetration;
 			var index_max = -1;
@@ -537,8 +541,21 @@ namespace TC2.Base.Components
 			dist_max = -1.00f;
 			hit_results = Melee.HitResults.None;
 
+			var has_material_filter = melee.flags.HasNone(Melee.Flags.No_Material_Filter);
+			var layers_exclude = melee.hit_exclude;
+
+			if (disable_hit_filter)
+			{
+				has_material_filter = false;
+				layers_exclude = default;
+			}
+			else
+			{
+				layers_exclude.RemoveFlag(Physics.Layer.Ignore_Melee);
+			}
+
 			Span<LinecastResult> results = FixedArray.CreateSpan16<LinecastResult>(out var buffer); // LinecastResult[16];
-			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: melee.hit_exclude & ~(Physics.Layer.Ignore_Melee)))
+			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: layers_exclude))
 			{
 				results.SortByDistance();
 
@@ -552,7 +569,7 @@ namespace TC2.Base.Components
 						if (result.mask.HasNone(Physics.Layer.Solid))
 						{
 							if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
-							if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
+							if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
 						dist_max = Maths.Max(dist_max, result.alpha.Clamp01() * melee.max_distance);
@@ -586,7 +603,7 @@ namespace TC2.Base.Components
 							if (result.mask.HasNone(Physics.Layer.Solid))
 							{
 								if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
-								if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (!melee.flags.HasAny(Melee.Flags.No_Material_Filter) && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
+								if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 							}
 
 							var closest_result = result.GetClosestPoint(pos_target, true);
@@ -691,7 +708,7 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void OnGUI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Parent] in Player.Data player,
+		//[Source.Parent] in Player.Data player,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
@@ -722,7 +739,27 @@ namespace TC2.Base.Components
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
 				var len = Vector2.Distance(pos, pos_target);
 
-				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: true, do_hit: false);
+				//var override_has_material_filter = default(bool?);
+				//if (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && (control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter))) override_has_material_filter = false;
+
+				Melee.IterateHit(region: ref region,
+					random: ref random,
+					ent_melee: entity,
+					ent_parent: parent,
+					pos: pos,
+					pos_target: pos_target,
+					dir: dir,
+					len: len,
+					h_faction: faction.id,
+					melee: in melee,
+					melee_state: ref melee_state,
+					pos_hit: out var pos_hit,
+					modifier: out var modifier,
+					hit_results: out var hit_results,
+					dist_max: out var dist_max,
+					draw_gui: true,
+					do_hit: false,
+					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
 
 				var gui = new BlockGUI()
 				{
@@ -897,7 +934,27 @@ namespace TC2.Base.Components
 				Sound.Play(melee.sound_swing, transform.position, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 #endif
 
-				Melee.IterateHit(region: ref region, random: ref random, ent_melee: entity, ent_parent: parent, pos: pos, pos_target: pos_target, dir: dir, len: len, h_faction: faction.id, melee: in melee, melee_state: ref melee_state, pos_hit: out var pos_hit, modifier: out var modifier, hit_results: out var hit_results, dist_max: out var dist_max, draw_gui: false, do_hit: true);
+				//var override_has_material_filter = default(bool?);
+				//if (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && (control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter))) override_has_material_filter = false;
+
+				Melee.IterateHit(region: ref region,
+					random: ref random,
+					ent_melee: entity,
+					ent_parent: parent,
+					pos: pos,
+					pos_target: pos_target,
+					dir: dir,
+					len: len,
+					h_faction: faction.id,
+					melee: in melee,
+					melee_state: ref melee_state,
+					pos_hit: out var pos_hit,
+					modifier: out var modifier,
+					hit_results: out var hit_results,
+					dist_max: out var dist_max,
+					draw_gui: false,
+					do_hit: true,
+					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
 			}
 		}
 	}
