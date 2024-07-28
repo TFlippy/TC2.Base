@@ -86,6 +86,7 @@ storage:
 
 interactable:
 {
+	priority: 2.000
 	window_size: [168.000, 200.000]
 	window_size_min: [192.000, 144.000]
 	window_size_misc: [120.000, 0.000]

@@ -50,6 +50,7 @@ transform:
 interactable:
 {
 	flags: none
+	priority: 1.800
 	window_size: [216.000, 184.000]
 	window_size_min: [192.000, 144.000]
 	window_size_misc: [0.000, 0.000]

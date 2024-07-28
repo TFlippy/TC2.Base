@@ -42,6 +42,7 @@ transform:
 
 interactable:
 {
+	priority: 1.800
 	window_size: [224.000, 192.000]
 }
 

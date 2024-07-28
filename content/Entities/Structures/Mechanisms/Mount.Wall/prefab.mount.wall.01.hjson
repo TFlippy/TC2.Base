@@ -43,6 +43,7 @@ transform:
 interactable:
 {
 	flags: centered_inventory
+	priority: 1.800
 	window_size: [168.000, 168.000]
 	window_size_min: [192.000, 144.000]
 	window_size_misc: [0.000, 0.000]

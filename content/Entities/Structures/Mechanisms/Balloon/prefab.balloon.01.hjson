@@ -123,6 +123,7 @@ storage:
 
 interactable:
 {
+	priority: 2.000
 	window_size: [224.000, 256.000]
 	window_size_misc: [216.000, 0.000]
 	flags: centered_inventory

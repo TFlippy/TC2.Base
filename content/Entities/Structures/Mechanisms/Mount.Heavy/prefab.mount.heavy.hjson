@@ -79,6 +79,7 @@ transform:
 
 interactable:
 {
+	priority: 1.800
 	window_size: [200.000, 240.000]
 	window_offset: [0.000, 192.000]
 	window_size_misc: [120.000, 0.000]

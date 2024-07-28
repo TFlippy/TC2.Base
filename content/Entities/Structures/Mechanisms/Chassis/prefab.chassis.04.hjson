@@ -142,6 +142,7 @@ norotate:
 
 interactable:
 {
+	priority: 1.500
 	window_size: [504.000, 328.000]
 	window_offset: [0.000, -200.000]
 }

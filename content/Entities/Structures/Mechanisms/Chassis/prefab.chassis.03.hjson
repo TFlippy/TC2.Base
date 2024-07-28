@@ -117,6 +117,7 @@ norotate:
 
 interactable:
 {
+	priority: 1.500
 	flags: centered_inventory
 	window_size: [336.000, 232.000]
 	window_size_min: [192.000, 144.000]
