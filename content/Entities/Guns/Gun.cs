@@ -498,6 +498,7 @@
 			}
 		}
 
+		[Shitcode] // WIP shitcode
 		public static void DrawCrosshair(ref Region.Data region, ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir_a, Vector2 dir_b, float radius, float ammo_count, float ammo_count_max)
 		{
 			var dist = Vector2.Distance(position_a, position_b);
@@ -507,10 +508,17 @@
 			//var dir_smooth = Maths.Slerp(dir_a, dir_b, 0.90f);
 
 			var position_actual = position_a + (dir_b * dist);
+			var is_los = region.IsInLineOfSight(position_a, position_actual, out var position_actual_los, out var hit_normal, radius: 0.00f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Hover);
+
+			var dist_los = Vector2.Distance(position_a, position_actual_los);
+
+
 			//var position_actual_smooth = Maths.Slerp(position_b, position_actual, 0.5f);
 
+			var cpos_muzzle = region.WorldToCanvas(position_a);
 			var cpos_cursor = region.WorldToCanvas(position_b);
 			var cpos_target = region.WorldToCanvas(position_actual);
+			var cpos_target_los = region.WorldToCanvas(position_actual_los);
 
 			//GUI.DrawArc(region.WorldToCanvas(position_a), )
 
@@ -526,12 +534,30 @@
 			{
 				color = 0xffffff00;
 			}
+			else
+			{
+				//if (!is_los)
+				//{
+				//	color = 0x80808080;
+				//}
+			}
 
 			var color_circle = color.WithAlphaMult(0.30f);
 			var color_crosshair = color;
 
-			var color_line_a = Color32BGRA.Yellow;
-			var color_line_b = Color32BGRA.Orange;
+			//var color_line_a = Color32BGRA.Yellow;
+			//var color_line_b = Color32BGRA.Orange;
+
+			var color_line = Color32BGRA.Orange;
+
+			if (!is_los)
+			{
+				//color_line = Color32BGRA.Gray;
+				//color_crosshair = Color32BGRA.Gray;
+			}
+
+			var color_line_a = color_line;
+			var color_line_b = color_line;
 
 			//var line_thickness_ammo = 2.00f;
 			var line_thickness_ammo = Maths.Clamp(16.00f / gun.max_ammo, 2, 8);
@@ -544,16 +570,66 @@
 			var angle_c = angle_a + Maths.DeltaAngle(angle_b, angle_a);
 
 			//GUI.DrawArc(region.WorldToCanvas(position_a), dir_a, dir_b, radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color.WithAlpha(50));
-			GUI.DrawArc(region.WorldToCanvas(position_a), Maths.Min(angle_a, angle_c), Maths.Max(angle_a, angle_c), radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color.WithAlpha(50));
+			GUI.DrawArc(region.WorldToCanvas(position_a), Maths.Min(angle_a, angle_c), Maths.Max(angle_a, angle_c), radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color_line.WithAlpha(50));
 
 			//GUI.DrawTextCentered($"{angle_a}; {angle_b}", cpos_target);
 
 			//GUI.DrawCircle(cpos_target + new Vector2(0.50f), radius, color_circle);
 
-			GUI.DrawLine2(cpos_target - (dir_b * ((dist * 0.75f) - 0.25f).Clamp0X() * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(25), color_line_b.WithAlpha(200), thickness_a: 1.00f, thickness_b: Maths.Clamp(radius * 0.50f, 1.00f, 3.00f));
+			//GUI.DrawLine2(cpos_target - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, 6.00f) * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(150), color_line_b.WithAlpha(250), thickness_a: 1.00f, thickness_b: 1.00f);
+
+			//GUI.DrawLine2(a: cpos_target - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, 6.00f) * region.GetWorldToCanvasScale()),
+			//	b: cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()),
+			//	color_a: color_line_a.WithAlpha(50),
+			//	color_b: color_line_b.WithAlpha(250),
+			//	thickness_a: 1.00f,
+			//	thickness_b: 1.00f);
+
+			GUI.DrawLine2(a: cpos_muzzle,
+			b: cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()),
+			color_a: color_line_a.WithAlpha(30),
+			color_b: color_line_b.WithAlpha(50),
+			thickness_a: 1.00f,
+			thickness_b: 1.00f);
+
+
+
+			if (is_los)
+			{
+				//GUI.DrawLine2(cpos_target - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, 6.00f) * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(150), color_line_b.WithAlpha(250), thickness_a: 1.00f, thickness_b: 1.00f);
+
+				//GUI.DrawLine2(cpos_target - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, 6.00f) * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(150), color_line_b.WithAlpha(250), thickness_a: 1.00f, thickness_b: 1.00f);
+				//GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
+			}
+			else
+			{
+				//GUI.DrawLine2(cpos_target_los - (dir_b * ((dist_los * 0.35f) - 0.25f).Clamp0X() * region.GetWorldToCanvasScale()), cpos_target_los + (dir_b * Maths.Clamp(dist_los * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(150), color_line_b.WithAlpha(240), thickness_a: 1.00f, thickness_b: 1.00f);
+
+				GUI.DrawLine2(
+					a: cpos_target_los,
+					b: cpos_target_los + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()),
+					color_a: Color32BGRA.Gray.WithAlpha(250),
+					color_b: Color32BGRA.Gray.WithAlpha(50),
+					thickness_a: 1.00f,
+					thickness_b: 1.00f);
+
+				GUI.DrawLine2(
+					a: cpos_target_los - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, dist_los) * region.GetWorldToCanvasScale()),
+					b: cpos_target_los,
+					color_a: Color32BGRA.Gray.WithAlpha(50),
+					color_b: Color32BGRA.Gray.WithAlpha(250),
+					thickness_a: 1.00f,
+					thickness_b: 1.00f);
+
+				//GUI.DrawLine2(cpos_target - (dir_b * Maths.Clamp((dist * 0.35f) - 0.25f, 3.00f, 6.00f) * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(50), color_line_b.WithAlpha(150), thickness_a: 1.00f, thickness_b: 1.00f);
+				//GUI.DrawLine2(cpos_target_los, cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(50), color_line_b.WithAlpha(150), thickness_a: 1.00f, thickness_b: 1.00f);
+
+				//GUI.DrawLine2(cpos_target_los - (dir_b * ((dist_los * 0.35f) - 0.25f).Clamp0X() * region.GetWorldToCanvasScale()), cpos_target_los, color_line_a.WithAlpha(150), color_line_b.WithAlpha(240), thickness_a: 1.00f, thickness_b: 1.00f);
+				GUI.DrawCircleFilled(a: cpos_target_los + new Vector2(0.50f), radius: 4.00f, color: Color32BGRA.Gray, segments: 4);
+			}
 
 			GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
-			GUI.DrawCircleFilled(cpos_cursor + new Vector2(0.50f), 3.00f, color, segments: 4);
+			GUI.DrawCircleFilled(cpos_cursor + new Vector2(0.50f), 3.00f, color_line, segments: 4);
 
 
 			//GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);

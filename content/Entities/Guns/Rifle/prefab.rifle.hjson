@@ -29,33 +29,35 @@ gun:
 {
 	muzzle_offset: [1.250, -0.0625]
 	receiver_offset: [-0.500, -0.125]
-
+	
 	eject_direction: [-4.800, -5.400]
 	eject_angular_velocity: 10.000
-
-	sound_shoot: "rifle_shoot"
-	sound_cycle: "rifle_cycle"
-	sound_reload: "rifle_reload"
+	
+	shake_amount: 0.390
+	sound_size: 3.000
+	sound_dist_multiplier: 2.500
+	
+	sound_shoot: rifle_shoot
+	sound_cycle: rifle_cycle
+	sound_reload: rifle_reload
+	
+	damage_multiplier: 5.000
 	velocity_multiplier: 800.000
 	jitter_multiplier: 0.040
-	damage_multiplier: 5.000
-	recoil_multiplier: 1.450
+	recoil_multiplier: 1.250
 	reload_interval: 0.600
 	cycle_interval: 0.500
+	stability: 1400.000
 	failure_rate: 0.001
-	max_ammo: 5.000
-	projectile_count: 1
-	flags: none
+	
 	ammo_filter: ammo_hc
+	max_ammo: 5.000
+	
 	action: bolt
 	type: rifle
 	feed: clip
-
 	heuristic_range: 50.000
 
-	shake_amount: 0.370
-	stability: 1100.000
-	
 	@inventory1:
 	{
 		name: "Ammo"
@@ -81,7 +83,7 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.500, 0.000]
+	offset: [-0.625, 0.125]
 	radius: 4.000
 	flags: storable
 

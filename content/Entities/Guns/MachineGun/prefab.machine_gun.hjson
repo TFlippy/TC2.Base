@@ -17,7 +17,7 @@ body:
 		mass: 45.000
 		radius: 0.350
 		friction: 0.900
-		elasticity: 0.250
+		elasticity: 0.550
 		material: metal
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
@@ -87,9 +87,9 @@ holdable:
 	radius: 8.000
 	flags: storable, full_rotate
 
-	force_multiplier: 1.000
+	force_multiplier: 0.500
 	torque_multiplier: 2.000
-	stress_multiplier: 0.800
+	stress_multiplier: 4.500
 }
 
 attachment:
