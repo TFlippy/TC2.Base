@@ -461,7 +461,9 @@
 
 			public void Draw()
 			{
-				var dir_a = (this.world_position_target - this.transform.GetInterpolatedPosition()).GetNormalized();
+				var pos_muzzle = this.transform.LocalToWorldInterpolated(this.gun.muzzle_offset);
+
+				var dir_a = (this.world_position_target - pos_muzzle).GetNormalized();
 				var dir_b = this.transform.GetInterpolatedDirection();
 
 				ref var region = ref Client.GetRegion();
@@ -482,20 +484,35 @@
 
 				//GUI.DrawCrosshair(this.transform.GetInterpolatedPosition(), this.world_position_target, this.transform.GetInterpolatedDirection(), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 
-				var pos_a = this.transform.GetInterpolatedPosition();
+				var pos_a = pos_muzzle;
 				var pos_b = this.world_position_target;
 
-				var dist = Vector2.Distance(pos_a, pos_b);
+				//var dist = Vector2.Distance(pos_a, pos_b);
+
+				//GUI.DrawArc(region.WorldToCanvas(pos_a), dir_a, dir_b, radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: GUI.font_color_red.WithAlpha(50));
 
 				//Gun.DrawTrajectory(ref region, gun_state.resource_ammo.material, in gun, in transform);
-				Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				//Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0.00f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				//Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Maths.Slerp(dir_a, dir_b, 0.75f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, dir_a, dir_b, this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 			}
 		}
 
-		public static void DrawCrosshair(ref Region.Data region, ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir, float radius, float ammo_count, float ammo_count_max)
+		public static void DrawCrosshair(ref Region.Data region, ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir_a, Vector2 dir_b, float radius, float ammo_count, float ammo_count_max)
 		{
 			var dist = Vector2.Distance(position_a, position_b);
-			var cpos_target = region.WorldToCanvas(position_a + (dir * dist));
+			//var dist = Maths.ProjectedDistance(position_a, dir_b, position_b);
+			//var dist_offset = Vector2.Distance(position_b, position_a + (dir * dist));
+
+			//var dir_smooth = Maths.Slerp(dir_a, dir_b, 0.90f);
+
+			var position_actual = position_a + (dir_b * dist);
+			//var position_actual_smooth = Maths.Slerp(position_b, position_actual, 0.5f);
+
+			var cpos_cursor = region.WorldToCanvas(position_b);
+			var cpos_target = region.WorldToCanvas(position_actual);
+
+			//GUI.DrawArc(region.WorldToCanvas(position_a), )
 
 			//if (!GUI.IsHovered) GUI.SetCursor(App.CursorType.Hidden, 100);
 
@@ -519,11 +536,22 @@
 			var r_inner = 3.00f;
 
 
+			var angle_a = dir_a.GetAngleRadians();
+			var angle_b = dir_b.GetAngleRadians();
+			var angle_c = angle_a + Maths.DeltaAngle(angle_b, angle_a);
+
+			//GUI.DrawArc(region.WorldToCanvas(position_a), dir_a, dir_b, radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color.WithAlpha(50));
+			GUI.DrawArc(region.WorldToCanvas(position_a), Maths.Min(angle_a, angle_c), Maths.Max(angle_a, angle_c), radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color.WithAlpha(50));
+
+			//GUI.DrawTextCentered($"{angle_a}; {angle_b}", cpos_target);
 
 			//GUI.DrawCircle(cpos_target + new Vector2(0.50f), radius, color_circle);
 			GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
+			GUI.DrawCircleFilled(cpos_cursor + new Vector2(0.50f), 3.00f, color, segments: 4);
 			//GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
 			//GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
+
+
 
 			GUI.DrawLine(cpos_target + new Vector2(+line_length, 0), cpos_target + new Vector2(+r_outer, 0), color_line, 1.00f);
 			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(-r_outer, 0), color_line, 1.00f);
@@ -607,7 +635,8 @@
 			var gui = new HoldGUI()
 			{
 				transform = transform,
-				world_position_target = control.mouse.position,
+				//world_position_target = control.mouse.position, // control.mouse.GetInterpolatedPosition(),
+				world_position_target = control.mouse.GetInterpolatedPosition(),
 				gun_state = state,
 				inventory = inventory,
 				gun = gun
@@ -626,7 +655,8 @@
 				var gui = new HoldGUI()
 				{
 					transform = transform,
-					world_position_target = control.mouse.position,
+					//world_position_target = control.mouse.position, //control.mouse.GetInterpolatedPosition(),
+					world_position_target = control.mouse.GetInterpolatedPosition(),
 					gun_state = state,
 					inventory = inventory,
 					gun = gun
@@ -1297,32 +1327,32 @@
 						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
 						{
 #if CLIENT
-//							ref var material = ref inventory_magazine.resource.material.GetData();
-//							if (material.IsNotNull())
-//							{
-//								ref var ammo = ref material.ammo.GetRefOrNull();
-//								if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0) 
-//								{
-//									Particle.Spawn(ref region, new Particle.Data()
-//									{
-//										texture = ammo.sprite_casing.texture,
-//										pos = transform.LocalToWorld(gun.receiver_offset),
-//										lifetime = random.NextFloatRange(1.10f, 1.30f),
-//										fps = 0,
-//										frame_count = 1,
-//										frame_count_total = 8,
-//										frame_offset = (byte)ammo.sprite_casing.frame.X,
-//										scale = random.NextFloatRange(0.85f, 1.00f),
-//										angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
-//										vel = transform.LocalToWorldDirection(gun.eject_direction) * random.NextFloatRange(1.00f, 1.50f),
-//										force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),
-//										growth = -random.NextFloatRange(0.75f, 0.90f),
-//										drag = random.NextFloatRange(0.008f, 0.012f),
-//										color_a = ColorBGRA.White,
-//										color_b = ColorBGRA.White,
-//									});
-//								}
-//							}
+							//							ref var material = ref inventory_magazine.resource.material.GetData();
+							//							if (material.IsNotNull())
+							//							{
+							//								ref var ammo = ref material.ammo.GetRefOrNull();
+							//								if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0) 
+							//								{
+							//									Particle.Spawn(ref region, new Particle.Data()
+							//									{
+							//										texture = ammo.sprite_casing.texture,
+							//										pos = transform.LocalToWorld(gun.receiver_offset),
+							//										lifetime = random.NextFloatRange(1.10f, 1.30f),
+							//										fps = 0,
+							//										frame_count = 1,
+							//										frame_count_total = 8,
+							//										frame_offset = (byte)ammo.sprite_casing.frame.X,
+							//										scale = random.NextFloatRange(0.85f, 1.00f),
+							//										angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
+							//										vel = transform.LocalToWorldDirection(gun.eject_direction) * random.NextFloatRange(1.00f, 1.50f),
+							//										force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),
+							//										growth = -random.NextFloatRange(0.75f, 0.90f),
+							//										drag = random.NextFloatRange(0.008f, 0.012f),
+							//										color_a = ColorBGRA.White,
+							//										color_b = ColorBGRA.White,
+							//									});
+							//								}
+							//							}
 
 							//Sound.Play(ref region, gun.sound_cycle, transform.position, volume: 0.50f);
 #endif
