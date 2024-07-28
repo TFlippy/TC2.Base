@@ -13,7 +13,7 @@ body:
 	{
 		size: [7.000, 3.000]
 		offset: [0.000, 0.000]
-		mass: 270.000
+		mass: 280.000
 		radius: 0.000
 		friction: 0.500
 		elasticity: 0.500
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 10000.000
 }
 
 animated.renderer:
@@ -48,19 +48,19 @@ harvestable:
 	[
 		{
 			material: "scrap.mixed"
-			quantity: 95.000
+			quantity: 110.000
 		}
 		{
-			material: "steel.ingot"
-			quantity: 24.000
+			material: "steel.frames"
+			quantity: 30.000
 		}
 		{
 			material: "paper"
-			quantity: 40.000
+			quantity: 80.000
 		}
 		{
 			material: "wood"
-			quantity: 50.000
+			quantity: 70.000
 		}
 	]
 }

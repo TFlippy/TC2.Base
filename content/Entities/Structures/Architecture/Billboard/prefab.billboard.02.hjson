@@ -13,11 +13,11 @@ body:
 	{
 		size: [5.500, 3.000]
 		offset: [0.000, -0.375]
-		mass: 25.000
+		mass: 235.000
 		radius: 0.000
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: metal_frame
 		layer: entity, building, support, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 11000.000
 }
 
 animated.renderer:
@@ -51,7 +51,7 @@ harvestable:
 			quantity: 90.000
 		}
 		{
-			material: "steel.ingot"
+			material: "steel.frames"
 			quantity: 20.000
 		}
 		{
