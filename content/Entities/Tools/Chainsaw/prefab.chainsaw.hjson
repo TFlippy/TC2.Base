@@ -32,14 +32,6 @@ chainsaw:
 	max_distance: 2.000
 	speed: 9.000
 	radius: 1.000
-	
-	@inventory4:
-	{
-		name: "Chainsaw"
-		stack_size_multiplier: 2.000
-		type: storage
-		flags: hidden, allow_ducts
-	}
 }
 
 control:

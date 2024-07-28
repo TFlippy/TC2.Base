@@ -105,11 +105,11 @@ namespace TC2.Base.Components
 												}
 												break;
 
-												case Wrench.Mode.Build.Category.Furniture:
-												{
-													button_tags_filter = Crafting.Recipe.Tags.Furniture;
-												}
-												break;
+												//case Wrench.Mode.Build.Category.Furniture:
+												//{
+												//	button_tags_filter = Crafting.Recipe.Tags.Furniture;
+												//}
+												//break;
 
 												case Wrench.Mode.Build.Category.Industry:
 												{
@@ -809,7 +809,7 @@ namespace TC2.Base.Components
 				public enum Category: uint
 				{
 					Architecture = 0,
-					Furniture,
+					//Furniture,
 					Industry,
 					Buildings,
 					Machinery,
