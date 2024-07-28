@@ -528,7 +528,10 @@
 			}
 
 			var color_circle = color.WithAlphaMult(0.30f);
-			var color_line = color;
+			var color_crosshair = color;
+
+			var color_line_a = Color32BGRA.Yellow;
+			var color_line_b = Color32BGRA.Orange;
 
 			//var line_thickness_ammo = 2.00f;
 			var line_thickness_ammo = Maths.Clamp(16.00f / gun.max_ammo, 2, 8);
@@ -546,18 +549,23 @@
 			//GUI.DrawTextCentered($"{angle_a}; {angle_b}", cpos_target);
 
 			//GUI.DrawCircle(cpos_target + new Vector2(0.50f), radius, color_circle);
+
+			GUI.DrawLine2(cpos_target - (dir_b * ((dist * 0.75f) - 0.25f).Clamp0X() * region.GetWorldToCanvasScale()), cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(25), color_line_b.WithAlpha(200), thickness_a: 1.00f, thickness_b: Maths.Clamp(radius * 0.50f, 1.00f, 3.00f));
+
 			GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
 			GUI.DrawCircleFilled(cpos_cursor + new Vector2(0.50f), 3.00f, color, segments: 4);
+
+
 			//GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(+line_length, 0), color_line, 1.00f);
 			//GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, +line_length), color_line, 1.00f);
 
 
 
-			GUI.DrawLine(cpos_target + new Vector2(+line_length, 0), cpos_target + new Vector2(+r_outer, 0), color_line, 1.00f);
-			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(-r_outer, 0), color_line, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(+line_length, 0), cpos_target + new Vector2(+r_outer, 0), color_crosshair, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(-line_length, 0), cpos_target + new Vector2(-r_outer, 0), color_crosshair, 1.00f);
 
-			GUI.DrawLine(cpos_target + new Vector2(0, +line_length), cpos_target + new Vector2(0, +r_outer), color_line, 1.00f);
-			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, -r_outer), color_line, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(0, +line_length), cpos_target + new Vector2(0, +r_outer), color_crosshair, 1.00f);
+			GUI.DrawLine(cpos_target + new Vector2(0, -line_length), cpos_target + new Vector2(0, -r_outer), color_crosshair, 1.00f);
 
 			if (ammo_count_max > Resource.epsilon)
 			{
