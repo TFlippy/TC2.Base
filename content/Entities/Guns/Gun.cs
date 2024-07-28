@@ -43,6 +43,12 @@
 
 			[Name("Reset Bursts")]
 			Reset_Bursts = 1 << 9,
+
+			[Name("Eject on Shoot")]
+			Eject_On_Shoot = 1 << 10,
+
+			[Name("Eject from Muzzle")]
+			Eject_From_Muzzle = 1 << 11,
 		}
 
 		public enum Type: byte
@@ -1344,7 +1350,7 @@
 #endif
 			}
 
-			if (gun_state.stage == Stage.Reloading || (gun.action != Action.Revolver && gun_state.hints.HasAny(Hints.Cycled)))
+			if (gun_state.stage == Stage.Reloading || gun.flags.HasAny(Gun.Flags.Eject_On_Shoot) || (gun.action != Action.Revolver && gun_state.hints.HasAny(Hints.Cycled)))
 			{
 				if (gun_state.eject_rem > 0 && gun_state.hints.TryRemoveFlag(Hints.Eject_Pending))
 				{
@@ -1355,7 +1361,7 @@
 						ref var ammo = ref material.ammo.GetRefOrNull();
 						if (ammo.IsNotNull() && ammo.sprite_casing.texture.id != 0)
 						{
-							var pos_eject = transform.LocalToWorld(gun.receiver_offset);
+							var pos_eject = transform.LocalToWorld(gun.flags.HasAny(Flags.Eject_From_Muzzle) ? gun.muzzle_offset : gun.receiver_offset);
 							var dir_eject = transform.LocalToWorldDirection(gun.eject_direction);
 
 							var casing_count = (uint)gun_state.eject_rem; // gun_state.resource_ammo.quantity
@@ -1371,6 +1377,7 @@
 									frame_count_total = 32,
 									frame_offset = (byte)ammo.sprite_casing.frame.X,
 									scale = ammo.casing_scale,
+									rotation = transform.rotation,
 									angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,
 									vel = (dir_eject * random.NextFloatRange(1.00f, 1.50f)) + random.NextUnitVector2Range(0.20f, 1.20f),
 									force = new Vector2(0, random.NextFloatRange(25.00f, 30.00f)),

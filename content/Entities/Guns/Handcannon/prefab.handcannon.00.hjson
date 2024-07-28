@@ -30,37 +30,45 @@ gun:
 	muzzle_offset: [0.875, -0.1875]
 	receiver_offset: [0.000, -0.125]
 	
-	eject_direction: [5.000, 0.000]
+	eject_direction: [22.000, -4.000]
+	eject_angular_velocity: 12.000
+	flash_size: 1.200
 	
-	smoke_size: 3.000
+	smoke_size: 4.000
 	smoke_amount: 3.000
 	
 	shake_amount: 0.500
+	shake_radius: 20.000
 	
 	sound_volume: 1.630
-	sound_dist_multiplier: 1.280
+	sound_size: 1.650
+	sound_dist_multiplier: 1.320
 	sound_pitch: 1.160
 	
 	sound_shoot: handcannon.shoot.00
 	sound_cycle: musket_cycle
 	sound_reload: musket_reload
+	sound_jam: scrap.hit.hard.00
 	
-	damage_multiplier: 5.000
-	velocity_multiplier: 250.000
-	jitter_multiplier: 2.300
-	recoil_multiplier: 1.400
-	reload_interval: 2.000
-	cycle_interval: 0.700
-	stability: 1450.000
+	damage_multiplier: 2.700
+	velocity_multiplier: 170.000
+	jitter_multiplier: 3.150
+	recoil_multiplier: 1.550
+	reload_interval: 2.400
+	cycle_interval: 0.500
+	stability: 1650.000
+	failure_rate: 0.120
 	
-	ammo_filter: ammo_musket
+	ammo_filter: ammo_mg, ammo_sg, ammo_musket
 	max_ammo: 1.000
 	
 	action: manual
-	type: rifle
+	type: shotgun
 	feed: breech
-	heuristic_range: 20.000
 	
+	flags: cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 20.000
+
 	@inventory1:
 	{
 		stack_size_multiplier: 1.000
