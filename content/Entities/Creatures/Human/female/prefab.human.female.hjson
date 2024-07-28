@@ -171,6 +171,7 @@ facing:
 
 interactable:
 {
+	priority: -4.000
 	window_size: [192.000, 216.000]
 }
 

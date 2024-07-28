@@ -129,6 +129,7 @@ crafter.state:
 interactable:
 {
 	flags: none
+	priority: 1.300
 	window_size: [584.000, 480.000]
 	window_size_misc: [120.000, 0.000]
 }

@@ -172,6 +172,7 @@ facing:
 interactable:
 {
 	flags: none
+	priority: -4.000
 	window_size: [192.000, 296.000]
 	window_size_misc: [120.000, 0.000]
 }

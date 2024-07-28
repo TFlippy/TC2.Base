@@ -104,6 +104,7 @@ claimer:
 interactable:
 {
 	flags: none
+	priority: 1.500
 	window_size: [624.000, 536.000]
 	window_size_misc: [218.000, 0.000]
 }

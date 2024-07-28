@@ -55,6 +55,7 @@ storage:
 
 interactable:
 {
+	priority: 1.000
 	window_size: [96.000, 96.000]
 }
 

@@ -69,6 +69,7 @@ minimap.marker:
 
 interactable:
 {
+	priority: 0.400
 	window_size: [600.000, 422.000]
 }
 

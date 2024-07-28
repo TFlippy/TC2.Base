@@ -28,6 +28,7 @@ animated.renderer:
 interactable:
 {
 	flags: none
+	priority: 2.750
 	window_size: [568.000, 440.000]
 	window_size_misc: [216.000, 0.000]
 }
