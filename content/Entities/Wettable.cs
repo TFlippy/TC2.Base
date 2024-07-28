@@ -64,7 +64,6 @@ namespace TC2.Base.Components
 
 			var ent_water = Entity.None;
 
-
 			if (body.HasArbiters())
 			{
 				foreach (var arbiter in body.GetArbiters())
@@ -72,15 +71,9 @@ namespace TC2.Base.Components
 					var layer = arbiter.GetLayer();
 					if (layer.HasAny(Physics.Layer.Water))
 					{
-
-						//wettable.wetness += info.DeltaTime * wettable.absorption;
-						//wettable.flags.AddFlag(Wettable.Flags.In_Water);
-
 						ent_water = arbiter.GetEntity();
 						is_in_water = true;
 						wettable.t_last_water = time;
-
-
 
 #if SERVER
 						if (time >= wettable.t_next_damage)
