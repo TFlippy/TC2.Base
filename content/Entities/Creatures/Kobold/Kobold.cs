@@ -39,6 +39,7 @@ namespace TC2.Base.Components
 		{
 			"kobold.scream.00",
 			"kobold.scream.01",
+			"kobold.bleh.00"
 		};
 
 		public static Sound.Handle[] snd_bleh =

@@ -161,7 +161,7 @@ facing:
 
 interactable:
 {
-	priority: -3.000
+	priority: -0.100
 	window_size: [288.000, 244.000]
 }
 
@@ -348,7 +348,6 @@ commandable:
 		$tags: 
 		[
 			"male"
-			"kobold"
 		]
 		
 		body:
@@ -550,7 +549,6 @@ commandable:
 		$tags: 
 		[
 			"male"
-			"kobold"
 		]
 		
 		transform:

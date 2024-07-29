@@ -1,7 +1,7 @@
 $name: "Badger Plushie"
 $desc: 
 	'''
-	Badger plush toy made from a genuine badger.
+	Badger plush toy made of a genuine badger.
 	'''
 $tags: []
 
@@ -40,10 +40,10 @@ transform:
 
 }
 
-interactable:
-{
+// interactable:
+// {
 
-}
+// }
 
 health:
 {
