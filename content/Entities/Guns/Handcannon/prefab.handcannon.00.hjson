@@ -53,7 +53,7 @@ gun:
 	damage_multiplier: 2.700
 	velocity_multiplier: 170.000
 	jitter_multiplier: 3.150
-	recoil_multiplier: 1.550
+	recoil_multiplier: 1.650
 	reload_interval: 2.400
 	cycle_interval: 0.500
 	stability: 1650.000
@@ -93,8 +93,9 @@ gun.state:
 
 holdable:
 {
-	force_multiplier: 1.300
+	force_multiplier: 0.900
 	torque_multiplier: 1.100
+	stress_multiplier: 0.500
 	offset: [-0.125, -0.125]
 	radius: 4.000
 	hints: weapon, gun, inaccurate

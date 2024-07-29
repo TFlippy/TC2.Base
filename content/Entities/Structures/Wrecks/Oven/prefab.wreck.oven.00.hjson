@@ -23,7 +23,7 @@ body:
 		elasticity: 0.500
 		mass: 150.000
 		material: wreck
-		layer: entity, background, furniture
+		layer: entity, background, furniture, ignore_bullet, ignore_melee
 		mask: world
 	}
 }

@@ -514,7 +514,7 @@
 			//var dir_smooth = Maths.Slerp(dir_a, dir_b, 0.90f);
 
 			var position_actual = position_a + (dir_b * dist);
-			var is_los = region.IsInLineOfSight(position_a, position_actual, out var position_actual_los, out var hit_normal, radius: 0.00f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Hover);
+			var is_los = region.IsInLineOfSight(position_a, position_actual, out var position_actual_los, out var hit_normal, radius: 0.00f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Creature | Physics.Layer.Background | Physics.Layer.Item | Physics.Layer.Organic | Physics.Layer.Ignore_Hover);
 
 			var dist_los = Vector2.Distance(position_a, position_actual_los);
 

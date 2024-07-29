@@ -146,7 +146,7 @@
 					if (oc_body.IsValid())
 					{
 						ref var body_holder = ref oc_body.data;
-						var result = body_holder.GetClosestPoint(data.world_position, true);
+						var result = body_holder.GetClosestPoint(data.world_position, allow_inside: true);
 
 						var impulse_mult = 1.00f;
 						if (result.material_type == Material.Type.Flesh || result.material_type == Material.Type.Insect)
