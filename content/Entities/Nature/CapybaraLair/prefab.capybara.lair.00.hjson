@@ -57,12 +57,12 @@ spawner:
 	group_size: 1
 	group_size_extra: 0
 	interval: 60.000
-	interval_extra: 60.000
+	interval_extra: 300.000
 	interval_count_modifier: 30.000
 	ai_stance: defensive
-	ai_type: defend
+	ai_type: idle
 	flags: none
-	max_count: 8
+	max_count: 3
 	filter_tag: "capybara"
 }
 

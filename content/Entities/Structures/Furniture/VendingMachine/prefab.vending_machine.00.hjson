@@ -57,20 +57,20 @@ transform:
 
 }
 
-shop:
-{
-	name: "Vending Machine"
-	tags: vending_machine
+// shop:
+// {
+// 	name: "Vending Machine"
+// 	tags: vending_machine
 
-	@light:
-	{
-		color: [0.600, 1.000, 0.900, 1.400]
-		offset: [0.500, 0.000]
-		scale: [28.000, 28.000]
-		intensity: 1.000
-		texture: "light.circle.00"
-	}
-}
+// 	@light:
+// 	{
+// 		color: [0.600, 1.000, 0.900, 1.400]
+// 		offset: [0.500, 0.000]
+// 		scale: [28.000, 28.000]
+// 		intensity: 1.000
+// 		texture: "light.circle.00"
+// 	}
+// }
 
 interactable:
 {

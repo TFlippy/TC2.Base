@@ -102,7 +102,7 @@ shop:
 	{
 		require: none
 		include: salvaging, assembling, machining, munitions, metalworking, engineering, construction, industry, mechanisms
-		exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, overworld, wrench
+		exclude: smelting, heating, press, fermenter, crude, medical, drying, primitive, automated, passive, dumb, social, vehicle, overworld, wrench
 	}
 
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
@@ -111,7 +111,7 @@ shop:
 	work_environment: indoor, warm, workshop, stationary, clean, noisy
 	
 	flags: none
-	menu_columns: 6
+	menu_columns: 10
 	blueprints_capacity: 12
 }
 

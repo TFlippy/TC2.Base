@@ -49,7 +49,7 @@ spawner:
 	interval_extra: 60.000
 	interval_count_modifier: 30.000
 	ai_stance: aggressive
-	ai_type: defend
+	ai_type: idle
 	max_count: 7
 	filter_tag: "badger"
 }
