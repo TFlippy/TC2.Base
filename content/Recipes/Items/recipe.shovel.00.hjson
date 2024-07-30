@@ -50,7 +50,7 @@
 		}
 		{
 			type: work
-			work: smithing
+			work: assembling
 			amount: 450.000
 			difficulty: 3
 			group: 0

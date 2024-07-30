@@ -92,11 +92,11 @@ shop:
 	
 	tags_filter:
 	{
-		require: workbench, manual
-		include: workbench
-		exclude: smelting, fermenting, machining, wrench
+		require: manual
+		include: workbench, manual, simple, gathering
+		exclude: wrench, passive, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
-
+	
 	work_tools: hammer, saw, bucket, tongs, knife
 	work_machines: none
 	work_equipment: table, rack

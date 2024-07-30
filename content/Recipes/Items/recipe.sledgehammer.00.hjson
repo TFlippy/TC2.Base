@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: workbench, manual, metalworking, forming, shaping
+	tags: workbench, manual, simple, tool, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 12.000
@@ -23,21 +23,8 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 1.000
-			group: 0
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 220.000
-			difficulty: 4
-			group: 0
-		}
-		{
-			type: resource
 			material: steel.ingot
-			amount: 3.000
+			amount: 2.000
 			group: 0
 		}
 		{
@@ -48,11 +35,30 @@
 		}
 		{
 			type: work
-			work: smithing
-			amount: 820.000
-			difficulty: 5
+			work: drilling
+			amount: 850.000
+			difficulty: 11
 			group: 0
 		}
+		{
+			type: resource
+			material: wood
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: glue
+			amount: 2.000
+			group: 0
+		}	
+		{
+			type: work
+			work: woodworking
+			amount: 220.000
+			difficulty: 4
+			group: 0
+		}	
 	]
 	
 	products:
@@ -65,7 +71,7 @@
 		}
 		{
 			type: resource
-			material: scrap.steel
+			material: steel.powder
 			amount: 0.780
 			amount_extra: 0.180
 			group: 1

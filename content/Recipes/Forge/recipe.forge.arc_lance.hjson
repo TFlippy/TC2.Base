@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Arc Lance"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, metalworking, manual
+	tags: workbench, manual, simple, magitronics, blacksmithing, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

@@ -102,10 +102,10 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking
-		exclude: woodworking, fermenting, passive, social, wrench
+		include: manual, blacksmithing, woodworking, assembling, metalworking, stoneworking, cooking, salvaging, casting, forming, shaping, smelting
+		exclude: wrench, passive, woodworking, social, gathering, fermenting
 	}
-
+	
 	work_tools: ruler, hammer, cutters, saw, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, axe, file, chisel, towel, spatula, tongs, pick, crowbar, knife
 	work_machines: smelter, heater, burner, incinerator, stove
 	work_equipment: tap, cauldron, oven, anvil, forge, glassware, barrel, table, chair, vise, rack, crucible

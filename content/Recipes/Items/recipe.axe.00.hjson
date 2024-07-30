@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: workbench, manual, metalworking
+	tags: workbench, manual, blacksmithing, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 17.000
