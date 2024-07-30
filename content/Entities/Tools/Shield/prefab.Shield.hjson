@@ -1,5 +1,8 @@
 $name: "Shield"
-$desc: "A large protective shield."
+$desc: 
+	'''
+	Large protective shield.
+	'''
 $tags: []
 
 body:
@@ -9,7 +12,7 @@ body:
 		a: [0.000, -0.500]
 		b: [0.000, 0.500]
 		offset: [0.050, 0.000]
-		mass: 6.000
+		mass: 4.500
 		radius: 0.300
 		friction: 0.400
 		elasticity: 0.450

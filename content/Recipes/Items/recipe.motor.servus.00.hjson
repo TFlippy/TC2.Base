@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Motor (Servus)"
-	desc:
-		'''
-		Inefficient but very cheap motor consisting of 2 magitronic actuators linked to a crankshaft.
-		'''
 	tips: []
 	
 	icon:

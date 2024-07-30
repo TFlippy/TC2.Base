@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Shield"
-	desc:
-		'''
-		Large protective shield.
-		'''
 	tips: []
 	
 	icon:
@@ -18,7 +14,7 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, wip
 	tags: workbench, metalworking, manual, shaping
 	
 	color_button: "0xffaeb59a"
@@ -29,14 +25,20 @@
 		{
 			type: resource
 			material: steel.ingot
-			amount: 6.000
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 0.250
 			group: 0
 		}
 		{
 			type: work
 			work: smithing
-			amount: 450.000
-			difficulty: 5
+			amount: 700.000
+			difficulty: 3
 			group: 0
 		}
 	]

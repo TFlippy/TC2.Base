@@ -13,11 +13,11 @@ body:
 	{
 		a: [0.000, 0.600]
 		b: [0.000, -0.600]
-		mass: 5.000
+		mass: 3.150
 		radius: 0.200
 		friction: 0.950
 		elasticity: 0.050
-		material: wood
+		material: tool
 		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}
@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 1000.000
+	max: 2200.000
 }
 
 melee:

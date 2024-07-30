@@ -1,7 +1,7 @@
 $name: "Axe"
 $desc:
 	'''
-	Basic woodcutting tool and weapon.
+	Good for chopping down trees and people.
 	'''
 $tags: []
 
@@ -22,7 +22,7 @@ body:
 		radius: 0.375
 		friction: 0.650
 		elasticity: 0.500
-		material: metal
+		material: metal_solid
 		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
 		mask: world
 	}
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 1000.000
+	max: 3800.000
 }
 
 melee:

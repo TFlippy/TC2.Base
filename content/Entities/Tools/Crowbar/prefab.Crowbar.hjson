@@ -1,7 +1,7 @@
 $name: "Crowbar"
 $desc: 
 	'''
-	Metal stick that looks like a crow.
+	Metal bar that looks like a crow.
 	'''
 $tags: []
 
@@ -13,11 +13,11 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 4.000
+		mass: 7.000
 		radius: 0.200
 		friction: 0.750
 		elasticity: 0.450
-		material: metal_pole
+		material: metal_solid
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -25,16 +25,17 @@ body:
 
 health:
 {
-	max: 3000.000
+	max: 5500.000
 }
 
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 180.000
-	damage_bonus: 200.000
+	damage_base: 280.000
+	damage_bonus: 400.000
 	cooldown: 0.800
 	max_distance: 1.350
+	stun_multiplier: 1.700
 	thickness: 0.900
 	hit_offset: [0.375, 0.000]
 	aoe: 0.500

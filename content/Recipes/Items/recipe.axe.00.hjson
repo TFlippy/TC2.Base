@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Axe"
-	desc:
-		'''
-		Good for chopping down trees and people.
-		'''
 	tips: []
 	
 	icon:
@@ -17,7 +13,7 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, wip
 	tags: heating, workbench, metalworking, manual
 	
 	color_button: "0xffaeb59a"
@@ -34,21 +30,27 @@
 		{
 			type: resource
 			material: steel.ingot
-			amount: 1.500
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 0.500
 			group: 0
 		}
 		{
 			type: work
 			work: woodworking
-			amount: 50.000
-			difficulty: 5
+			amount: 220.000
+			difficulty: 4
 			group: 0
 		}
 		{
 			type: work
 			work: smithing
-			amount: 250.000
-			difficulty: 5
+			amount: 600.000
+			difficulty: 6
 			group: 0
 		}
 	]

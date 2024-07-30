@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.61.1"
-	name: "Helmet"
-	desc:
-		'''
-		TODO: Desc
-		'''
+	$version: "0.1.61.2"
+	name: "Helmet (Standard)"
 	tips: []
 	
 	icon:
@@ -18,8 +14,8 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, metalworking, manual, shaping
+	flags: blueprintable, wip
+	tags: workbench, tailoring, metalworking, manual, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,20 +24,26 @@
 	[
 		{
 			type: resource
-			material: steel.ingot
+			material: steel.plate
 			amount: 2.000
 			group: 0
 		}
 		{
 			type: resource
+			material: steel.frames
+			amount: 0.200
+			group: 0
+		}
+		{
+			type: resource
 			material: leather
-			amount: 1.000
+			amount: 2.000
 			group: 0
 		}
 		{
 			type: work
 			work: smithing
-			amount: 350.000
+			amount: 550.000
 			difficulty: 7
 			group: 0
 		}
