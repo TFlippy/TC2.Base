@@ -112,13 +112,13 @@ shop:
 	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy
 	
 	flags: none
-	menu_columns: 8
+	menu_columns: 9
 	blueprints_capacity: 10
 }
 
 workshop:
 {
-	orders_capacity: 4
+	orders_capacity: 5
 
 	@inventory16:
 	{

@@ -65,17 +65,17 @@
 		}
 		{
 			type: resource
-			material: sawdust
-			amount: 0.133
-			amount_extra: 0.210
+			material: scrap.steel
+			amount: 0.780
+			amount_extra: 0.180
 			group: 1
 			flags: waste, residue
 		}
 		{
 			type: resource
-			material: scrap.steel
-			amount: 0.780
-			amount_extra: 0.180
+			material: sawdust
+			amount: 0.133
+			amount_extra: 0.210
 			group: 1
 			flags: waste, residue
 		}

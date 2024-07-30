@@ -7,6 +7,7 @@
 	{
 		texture: shovel
 	}
+	icon_offset: [-5.000, 0.000]
 	
 	min: 1
 	max: 10
@@ -17,7 +18,8 @@
 	tags: workbench, manual, metalworking, forming, shaping
 	
 	color_button: "0xffaeb59a"
-	rank: 20.000
+	rank: 18.000
+	frame_size: [32.000, 32.000]
 	
 	requirements:
 	[
