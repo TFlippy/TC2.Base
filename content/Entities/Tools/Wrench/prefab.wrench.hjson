@@ -1,8 +1,7 @@
 $name: "Wrench"
 $desc:
 	'''
-	Universal building tool.
-	It's also bloody heavy.
+	Universal building tool. It's also bloody heavy.
 	'''
 $tags: []
 
@@ -14,7 +13,7 @@ body:
 	{
 		a: [-0.125, 0.500]
 		b: [0.000, -0.625]
-		mass: 10.000
+		mass: 12.000
 		radius: 0.375
 		friction: 0.750
 		elasticity: 0.350
@@ -26,7 +25,7 @@ body:
 
 health:
 {
-	max: 5000.000
+	max: 7000.000
 }
 
 holdable:

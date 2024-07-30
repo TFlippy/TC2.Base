@@ -1,3 +1,8 @@
+$name: "Longsword"
+$desc:
+	'''
+	TODO: Desc
+	'''
 $tags: []
 
 control:
@@ -13,7 +18,7 @@ body:
 	{
 		a: [0.000, 0.900]
 		b: [0.000, -0.900]
-		mass: 8.000
+		mass: 8.280
 		radius: 0.330
 		friction: 0.750
 		elasticity: 0.450

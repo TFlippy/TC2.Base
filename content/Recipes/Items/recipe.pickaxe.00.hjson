@@ -28,12 +28,6 @@
 			group: 0
 		}
 		{
-			type: resource
-			material: steel.frames
-			amount: 2.000
-			group: 0
-		}
-		{
 			type: work
 			work: woodworking
 			amount: 220.000
@@ -41,10 +35,16 @@
 			group: 0
 		}
 		{
+			type: resource
+			material: steel.frames
+			amount: 2.000
+			group: 0
+		}
+		{
 			type: work
 			work: smithing
-			amount: 550.000
-			difficulty: 6
+			amount: 650.000
+			difficulty: 8
 			group: 0
 		}
 	]

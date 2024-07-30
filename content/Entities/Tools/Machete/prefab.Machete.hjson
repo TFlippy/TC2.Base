@@ -1,3 +1,8 @@
+$name: "Machete"
+$desc:
+	'''
+	TODO: Desc
+	'''
 $tags: []
 
 control:
@@ -13,11 +18,11 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 5.000
+		mass: 4.070
 		radius: 0.250
 		friction: 0.750
 		elasticity: 0.450
-		material: metal
+		material: metal_solid
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -31,8 +36,8 @@ health:
 melee:
 {
 	sound_swing: "tool_swing_00"
-	damage_base: 250.000
-	damage_bonus: 200.000
+	damage_base: 350.000
+	damage_bonus: 300.000
 	cooldown: 1.100
 	max_distance: 1.300
 	thickness: 0.750
@@ -40,8 +45,8 @@ melee:
 	aoe: 0.800
 	knockback: 200.000
 	yield: 0.980
-	penetration_falloff: 0.500
-	penetration: 1
+	penetration_falloff: 0.700
+	penetration: 2
 	damage_type: slash
 	attack_type: swing
 	category: bladed

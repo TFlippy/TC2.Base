@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Shovel"
 	tips: []
 	
@@ -24,13 +24,20 @@
 		{
 			type: resource
 			material: wood
-			amount: 2.000
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: work
+			work: woodworking
+			amount: 250.000
+			difficulty: 5
 			group: 0
 		}
 		{
 			type: resource
 			material: steel.plate
-			amount: 3.000
+			amount: 2.000
 			group: 0
 		}
 		{
@@ -41,16 +48,9 @@
 		}
 		{
 			type: work
-			work: woodworking
-			amount: 120.000
-			difficulty: 4
-			group: 0
-		}
-		{
-			type: work
 			work: smithing
-			amount: 200.000
-			difficulty: 4
+			amount: 450.000
+			difficulty: 3
 			group: 0
 		}
 	]
@@ -66,8 +66,8 @@
 		{
 			type: resource
 			material: scrap.steel
-			amount: 1.840
-			amount_extra: 0.180
+			amount: 0.710
+			amount_extra: 0.080
 			group: 1
 			flags: waste, residue
 		}

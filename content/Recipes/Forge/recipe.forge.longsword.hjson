@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Longsword"
-	desc:
-		'''
-		Bladed melee weapon with a long reach.
-		'''
 	tips: []
 	
 	icon:
@@ -17,8 +13,8 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: heating, workbench, metalworking, manual
+	flags: blueprintable
+	tags: weapon, heating, workbench, metalworking, manual, forming, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -28,27 +24,27 @@
 		{
 			type: resource
 			material: wood
-			amount: 1.500
+			amount: 1.000
+			group: 0
+		}
+{
+			type: work
+			work: woodworking
+			amount: 330.000
+			difficulty: 6
 			group: 0
 		}
 		{
 			type: resource
 			material: steel.ingot
-			amount: 3.000
-			group: 0
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 50.000
-			difficulty: 5
+			amount: 2.000
 			group: 0
 		}
 		{
 			type: work
 			work: smithing
-			amount: 500.000
-			difficulty: 8
+			amount: 710.000
+			difficulty: 6
 			group: 0
 		}
 	]
@@ -60,6 +56,14 @@
 			prefab: longsword
 			amount: 1.000
 			group: 0
+		}
+		{
+			type: resource
+			material: sawdust
+			amount: 1.388
+			amount_extra: 0.589
+			group: 1
+			flags: waste, residue
 		}
 	]
 }
