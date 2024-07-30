@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: weapon, gun, heating, assembling, metalworking, shaping
+	tags: weapon, gun, assembling, metalworking, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

@@ -90,7 +90,7 @@ laboratory:
 {
 	filter_tags:
 	{
-		include: weapon, gun, assembling, machining, metalworking, automated, engineering, construction, industry, mechanisms
+		include: weapon, gun, assembling, machining, metalworking, automated, engineering, industry
 	}
 }
 
@@ -98,7 +98,7 @@ shop:
 {
 	name: "Biolab"
 	
-	tags: salvaging, assembling, machining, munitions, metalworking, engineering, construction, industry, mechanisms
+	tags: salvaging, assembling, machining, munitions, metalworking, engineering, industry
 	tags_require: none
 	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
 	

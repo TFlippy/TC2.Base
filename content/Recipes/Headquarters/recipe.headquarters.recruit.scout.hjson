@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, wip, disabled
-	tags: headquarters
+	tags: social
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

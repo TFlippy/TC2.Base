@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
-					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Construction;
+					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Wrench;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;
 					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
@@ -135,11 +135,11 @@ namespace TC2.Base.Components
 												//}
 												//break;
 
-												case Wrench.Mode.Build.Category.Misc:
-												{
-													button_tags_filter = Crafting.Recipe.Tags.Misc;
-												}
-												break;
+												//case Wrench.Mode.Build.Category.Misc:
+												//{
+												//	button_tags_filter = Crafting.Recipe.Tags.Misc;
+												//}
+												//break;
 											}
 
 											if (GUI.DrawIconButton("build.category"u8, ui_icons_builder_categories.WithFrame((uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
@@ -812,8 +812,8 @@ namespace TC2.Base.Components
 					//Furniture,
 					Industry,
 					Buildings,
-					Machinery,
-					Misc
+					Machinery
+					//Misc
 				}
 
 				public partial struct ConfigureRPC: Net.IRPC<Wrench.Mode.Build.Data>

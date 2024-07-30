@@ -74,7 +74,7 @@ shop:
 	{
 		require: manual, forming
 		include: simple, crude, drying, forming, shaping
-		exclude: smelting, heating, workbench, salvaging, assembling, machining, metalworking, advanced
+		exclude: smelting, workbench, salvaging, assembling, machining, metalworking, advanced
 	}
 	
 	work_tools: none

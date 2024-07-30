@@ -91,7 +91,7 @@ laboratory:
 	filter_tags:
 	{
 		require: metalworking
-		include: smelting, press, refining, metalworking, casting, architecture, construction, buildings, mining, wrench
+		include: smelting, press, refining, metalworking, casting, architecture, buildings, mining, wrench
 	}
 }
 
@@ -102,7 +102,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking, kiln
+		include: smelting, salvaging, metalworking, manual, casting, forming, shaping, cooking
 		exclude: woodworking, fermenter, passive, social, wrench
 	}
 

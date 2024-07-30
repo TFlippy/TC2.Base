@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: heating, workbench, metalworking, manual
+	tags: workbench, metalworking, manual
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

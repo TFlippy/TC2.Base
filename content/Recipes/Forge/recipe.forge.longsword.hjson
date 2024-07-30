@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: weapon, heating, workbench, metalworking, manual, forming, shaping
+	tags: weapon, workbench, metalworking, manual, forming, shaping
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

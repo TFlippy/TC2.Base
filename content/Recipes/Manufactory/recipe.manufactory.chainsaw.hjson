@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: heating, assembling, metalworking, engineering, construction, mechanisms
+	tags: assembling, metalworking, engineering
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

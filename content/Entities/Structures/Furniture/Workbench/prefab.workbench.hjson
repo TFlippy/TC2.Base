@@ -94,7 +94,7 @@ shop:
 	{
 		require: workbench, manual
 		include: workbench
-		exclude: smelting, heating, fermenter, machining, wrench
+		exclude: smelting, fermenter, machining, wrench
 	}
 
 	work_tools: hammer, saw, bucket, tongs, knife

@@ -90,7 +90,7 @@ laboratory:
 {
 	filter_tags:
 	{
-		include: weapon, gun, assembling, machining, metalworking, automated, engineering, construction, industry, mechanisms
+		include: weapon, gun, assembling, machining, metalworking, automated, engineering, industry
 	}
 }
 
@@ -101,8 +101,8 @@ shop:
 	tags_filter:
 	{
 		require: none
-		include: salvaging, assembling, machining, munitions, metalworking, engineering, construction, industry, mechanisms
-		exclude: smelting, heating, press, fermenter, crude, medical, drying, primitive, automated, passive, dumb, social, vehicle, overworld, wrench
+		include: salvaging, assembling, machining, munitions, metalworking, engineering, industry
+		exclude: smelting, press, fermenter, crude, medical, drying, primitive, automated, passive, dumb, social, vehicle, overworld, wrench
 	}
 
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife

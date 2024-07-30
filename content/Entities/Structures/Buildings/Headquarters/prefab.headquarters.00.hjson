@@ -181,7 +181,7 @@ shop:
 	
 	tags_filter:
 	{
-		include: headquarters, research, tailoring
+		include: social, research, tailoring
 	}
 
 	work_tools: pencil, paper, ruler, stapler, towel, knife
