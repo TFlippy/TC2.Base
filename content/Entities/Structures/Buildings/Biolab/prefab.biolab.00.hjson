@@ -100,7 +100,7 @@ shop:
 	
 	tags: salvaging, assembling, machining, munitions, metalworking, engineering, industry
 	tags_require: none
-	tags_exclude: fermenter, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
+	tags_exclude: fermenting, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
 	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer

@@ -69,7 +69,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: fermenter
+		include: fermenting
 	}
 	
 	work_tools: none

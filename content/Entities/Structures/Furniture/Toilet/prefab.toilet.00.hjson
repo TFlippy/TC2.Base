@@ -78,7 +78,7 @@ interactable:
 	
 // 	tags_filter:
 // 	{
-// 		require: fermenter
+// 		require: fermenting
 // 		include: crude
 // 		exclude: smelting, metalworking, wrench
 // 	}

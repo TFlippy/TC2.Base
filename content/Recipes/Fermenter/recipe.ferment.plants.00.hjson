@@ -36,7 +36,7 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, wip
-	tags: fermenter
+	tags: fermenting
 	
 	color_button: "0xffaeb59a"
 	rank: -50.000

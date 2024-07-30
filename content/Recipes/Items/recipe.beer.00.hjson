@@ -17,7 +17,7 @@
 	
 	type: crafter
 	flags: blueprintable, hidden, wip
-	tags: fermenter, cooking
+	tags: fermenting, cooking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
