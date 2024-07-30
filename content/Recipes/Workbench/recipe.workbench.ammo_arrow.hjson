@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Arrows"
 	desc:
 		'''
-		Ammunition for bows.
+		Ammunition for bows and crossbows.
 		'''
 	tips: []
 	
@@ -14,13 +14,13 @@
 		frame: [3, 0]
 	}
 	
-	min: 4
-	max: 32
-	step: 4
+	min: 8
+	max: 64
+	step: 8
 	
 	type: workshop
-	flags: disabled, wip
-	tags: workbench, woodworking, simple, crude, munitions, primitive, manual
+	flags: wip
+	tags: workbench, manual, crude, primitive, simple, munitions, woodworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,34 +29,38 @@
 	[
 		{
 			type: resource
-			material: stone
-			amount: 0.080
+			material: scrap.steel
+			amount: 0.010
 			group: 0
 		}
 		{
 			type: resource
 			material: wood
-			amount: 0.125
+			amount: 0.03125
 			group: 0
 		}
 		{
 			type: resource
 			material: cloth
-			amount: 0.040
+			amount: 0.025
 			group: 0
 		}
 		{
 			type: work
 			work: woodworking
-			amount: 6.000
-			difficulty: 4
+			amount: 23.000
+			difficulty: 5
+			snapping: 5.000
+			falloff: 0.900
 			group: 0
 		}
 		{
 			type: work
 			work: assembling
-			amount: 12.000
-			difficulty: 2
+			amount: 13.000
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.850
 			group: 0
 		}
 	]
@@ -68,6 +72,14 @@
 			material: ammo_arrow
 			amount: 1.000
 			group: 0
+		}
+		{
+			type: resource
+			material: sawdust
+			amount: 0.017
+			amount_extra: 0.005
+			group: 1
+			flags: waste, residue
 		}
 	]
 }

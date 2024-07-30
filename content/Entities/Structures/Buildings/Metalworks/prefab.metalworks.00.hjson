@@ -103,7 +103,7 @@ shop:
 	{
 		require: manual
 		include: manual, blacksmithing, woodworking, assembling, metalworking, stoneworking, cooking, salvaging, casting, forming, shaping, smelting
-		exclude: wrench, passive, woodworking, social, gathering, fermenting
+		exclude: wrench, passive, woodworking, social, gathering, fermenting, large
 	}
 	
 	work_tools: ruler, hammer, cutters, saw, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, axe, file, chisel, towel, spatula, tongs, pick, crowbar, knife
