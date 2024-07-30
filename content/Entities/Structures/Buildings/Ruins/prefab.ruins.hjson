@@ -77,17 +77,17 @@ interactable:
 dormitory:
 {
 	species: human
-	flags: no_kit_selection, no_kit_requirements
+	flags: no_kit_selection, no_kit_requirements, region_only
 	characters_capacity: 4
-	characters_initial_count: 2
-	repopulate_interval: 300.000
+	characters_initial_count: 1
+	repopulate_interval: 150.000
 	repopulate_interval_extra: 600.000
-	repopulate_num_extra: 1
+	repopulate_num_extra: 0
 	repopulate_max: 2
 	character_flags_filter:
 	{
 		require: none
-		include: criminal, farmer, armed, lowlife, poor, hunter, soldier, insane, alcoholic, nomad, brawler, outdoor, strong, junkie, evil, thief, murderer, terrorist, dumb, clumsy, lower_class, lower_middle_class, middle_class
+		include: criminal, farmer, armed, lowlife, poor, hunter, soldier, insane, alcoholic, nomad, brawler, outdoor, strong, junkie, evil, thief, murderer, terrorist, dumb, clumsy, lower_class, lower_middle_class
 		exclude: nobility, rich, sedentary, upper_middle_class, upper_class, elite_class
 		weight: 1.000
 	}

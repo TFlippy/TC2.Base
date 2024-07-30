@@ -82,7 +82,7 @@ interactable:
 {
 	flags: none
 	priority: 5.000
-	window_size: [624.000, 510.000]
+	window_size: [896.000, 622.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -104,8 +104,8 @@ shop:
 	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 4
-	blueprints_capacity: 6
+	menu_columns: 6
+	blueprints_capacity: 4
 }
 
 workshop:
@@ -117,5 +117,15 @@ workshop:
 		stack_size_multiplier: 1.000
 		type: workshop
 		flags: standalone, public, vertical
+	}
+}
+
+laboratory:
+{
+	filter_tags:
+	{
+		require: manual
+		include: workbench, simple, gathering
+		exclude: wrench, passive, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
 	}
 }

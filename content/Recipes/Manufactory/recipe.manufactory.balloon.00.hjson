@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual
+	tags: manual, large, vehicle
 	
 	color_button: "0xffaeb59a"
 	rank: -550.000

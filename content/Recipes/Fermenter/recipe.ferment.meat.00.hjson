@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Farmented Plants"
+	name: "Fermented Meat"
 	desc:
 		'''
 		TODO: Desc
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: resource.plants
+		texture: resource.meat
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -16,7 +16,7 @@
 	
 	icon_extra:
 	{
-		texture: resource.compost
+		texture: resource.shite
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -35,7 +35,7 @@
 	step: 1
 	
 	type: crafter
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, disabled, wip
 	tags: fermenting
 	
 	color_button: "0xffaeb59a"
@@ -45,12 +45,12 @@
 	[
 		{
 			type: resource
-			material: plants
+			material: shite
 			amount: 25.000
 		}
 		{
 			type: resource
-			material: mushroom
+			material: mithril
 			amount: 10.000
 		}
 		{
@@ -65,21 +65,21 @@
 	[
 		{
 			type: resource
-			material: compost
+			material: meth
 			amount: 9.945
 			amount_extra: 1.71075
 			flags: residue
 		}
 		{
 			type: resource
-			material: rot
+			material: codeine
 			amount: 2.445
 			amount_extra: 1.5995
 			flags: waste
 		}
 		{
 			type: resource
-			material: alcohol
+			material: glass.powder
 			amount: 0.8085
 			amount_extra: 3.531
 			flags: byproduct
@@ -87,7 +87,7 @@
 		}
 		{
 			type: resource
-			material: biogas
+			material: paper
 			amount: 55.611
 			amount_extra: 12.7735
 			flags: byproduct, spawn

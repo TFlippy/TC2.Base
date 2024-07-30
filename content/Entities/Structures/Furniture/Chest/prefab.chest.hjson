@@ -47,7 +47,7 @@ faction:
 
 claimable:
 {
-	flags: no_menu
+	flags: allow_owner_unclaim
 }
 
 transform:
@@ -90,5 +90,5 @@ nameable:
 	tags: lame, industrial, homely, food
 	flags: randomize
 	type: consumable
-	max_length: 15
+	max_length: 10
 }
