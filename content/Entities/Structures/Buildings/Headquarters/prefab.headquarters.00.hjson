@@ -188,6 +188,7 @@ shop:
 	work_machines: none
 	work_equipment: table, chair, rack
 	work_environment: indoor, warm, office, stationary, fancy, cozy
+	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 4

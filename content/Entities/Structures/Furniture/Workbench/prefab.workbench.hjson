@@ -93,7 +93,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, manual, simple, gathering
+		include: workbench, simple, gathering
 		exclude: wrench, passive, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
 	}
 	
@@ -101,6 +101,7 @@ shop:
 	work_machines: none
 	work_equipment: table, rack
 	work_environment: workshop, mobile
+	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 4

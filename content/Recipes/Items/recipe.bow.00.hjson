@@ -1,18 +1,17 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Bow"
 	desc:
 		'''
 		Cheap primitive ranged weapon used to shoot arrows.
 		While outclassed by more modern fireams, it still remains a fairly formidable weapon.
 		'''
+	tips: []
 	
 	icon:
 	{
-		texture: "bow"
+		texture: bow
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 5
@@ -20,32 +19,38 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench
+	tags: workbench, manual
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 4.000
+			group: 0
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 170.000
 			difficulty: 6
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 80.000
 			difficulty: 3
+			group: 0
 		}
 	]
 	
@@ -53,8 +58,9 @@
 	[
 		{
 			type: prefab
-			prefab: "bow"
+			prefab: bow
 			amount: 1.000
+			group: 0
 		}
 	]
 }

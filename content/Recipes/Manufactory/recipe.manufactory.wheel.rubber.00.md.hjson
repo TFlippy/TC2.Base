@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: metalworking, vehicle
+	tags: manual, large, vehicle, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: -150.000

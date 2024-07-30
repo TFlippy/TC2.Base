@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Earmuffs"
 	desc:
 		'''
 		Protects your hearing from loud factories and cannons.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -18,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: manual
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -29,28 +30,33 @@
 			type: resource
 			material: steel.ingot
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
 			material: leather
 			amount: 6.000
+			group: 0
 		}
 		{
 			type: resource
 			material: mushroom
 			amount: 2.000
+			group: 0
 		}
 		{
 			type: work
 			work: smithing
 			amount: 100.000
 			difficulty: 6
+			group: 0
 		}
 		{
 			type: work
 			work: assembling
 			amount: 200.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -60,6 +66,7 @@
 			type: prefab
 			prefab: earmuffs.00
 			amount: 1.000
+			group: 0
 		}
 	]
 }

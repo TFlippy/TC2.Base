@@ -81,6 +81,7 @@ shop:
 	work_machines: none
 	work_equipment: none
 	work_environment: container, mobile, dirty, ugly
+	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 3

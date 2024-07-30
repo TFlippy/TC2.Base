@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Recovered Steel Frames"
 	desc:
 		'''
 		Search a pile of machine garbage for anything that could be used as steel frames.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -26,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: none
+	tags: manual
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -37,12 +38,14 @@
 			type: resource
 			material: scrap.machine
 			amount: 10.000
+			group: 0
 		}
 		{
 			type: work
 			work: scavenging
 			amount: 280.000
 			difficulty: 6
+			group: 0
 		}
 	]
 	
@@ -53,14 +56,15 @@
 			material: steel.frames
 			amount: 0.490
 			amount_extra: 1.870
+			group: 0
 		}
 		{
 			type: resource
 			material: scrap.metal
 			amount: 1.540
 			amount_extra: 1.970
-			flags: waste, residue
 			group: 1
+			flags: waste, residue
 		}
 	]
 }

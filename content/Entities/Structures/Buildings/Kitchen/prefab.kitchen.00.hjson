@@ -71,6 +71,7 @@ shop:
 	work_machines: heater, stove
 	work_equipment: tap, cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	work_environment: workshop, stationary, cozy
+	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 4

@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, dangerous, chemistry, refining
+	tags: workbench, manual, simple, dangerous, chemistry, refining
 	
 	color_button: "0xffcf392b"
 	rank: 90.000

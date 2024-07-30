@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Baton"
 	desc:
 		'''
@@ -7,13 +7,12 @@
 
 		Mostly non-lethal, has an increased disarm chance.
 		'''
+	tips: []
 	
 	icon:
 	{
-		texture: "baton"
+		texture: baton
 	}
-	
-	color_button: "0xffaeb59a"
 	
 	min: 1
 	max: 5
@@ -21,26 +20,31 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench
+	tags: workbench, manual
+	
+	color_button: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: "wood"
+			material: wood
 			amount: 8.000
+			group: 0
 		}
 		{
 			type: resource
-			material: "cloth"
+			material: cloth
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 140.000
 			difficulty: 6
+			group: 0
 		}
 	]
 	
@@ -48,8 +52,9 @@
 	[
 		{
 			type: prefab
-			prefab: "baton"
+			prefab: baton
 			amount: 1.000
+			group: 0
 		}
 	]
 }

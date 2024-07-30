@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Bomb"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: weapon, dangerous, workbench, munitions, metalworking
+	tags: workbench, manual, dangerous, weapon, munitions, metalworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

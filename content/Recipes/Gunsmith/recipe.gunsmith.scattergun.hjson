@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Scattergun"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: weapon, gun, assembling
+	tags: manual, weapon, gun, assembling
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

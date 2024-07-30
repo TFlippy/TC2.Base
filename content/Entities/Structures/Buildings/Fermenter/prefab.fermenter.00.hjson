@@ -76,6 +76,7 @@ shop:
 	work_machines: none
 	work_equipment: none
 	work_environment: none
+	recipe_type: crafter
 	
 	flags: none
 	menu_columns: 4
