@@ -1,0 +1,110 @@
+$name: "Borstel Tree"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -15.750]
+		b: [0.000, -0.250]
+		
+		mass: 13000.000
+		radius: 0.750
+		friction: 0.940
+		elasticity: 0.310
+		
+		material: tree
+		
+		layer: entity, solid, tree, flammable, ignore_bullet
+		mask: world, tree
+		exclude: held
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 100000.000
+}
+
+splittable:
+{
+	rect: [-0.750, -15.750, 0.750, -0.250]
+	split_health: 0.960
+	sprite_stub:
+	{
+		texture: tree.stubs.00
+		size: [16, 8]
+		frame: [1, 0]
+	}
+	sound_split: tree_snap_00
+}
+
+holdable:
+{
+	radius: 0.000
+	force_multiplier: 3.000
+	torque_multiplier: 2.000
+	flags: disable_parent_facing, disable_rotation, full_rotate
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tree.borstel.00"
+	}
+	offset: [0.000, -8.250]
+	z: -80.000
+}
+
+tree:
+{
+	// prefab_stump: "tree.pine.stump"
+	// health_cut: 0.940
+	// sprite_cut: "tree.pine.cut"
+	sound_cut: "tree_fall"
+	
+	@foliage.renderer:
+	{
+		offset: [0.000, -13.000]
+		z: 45.000
+		
+		sprite:
+		{
+			texture: "tree.borstel.00.foliage"
+			// mask: "tree.pine.00.foliage.mask"
+		}
+	}
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "timber"
+			quantity: 830.000
+			flags: no_autopickup
+		}
+		{
+			material: "plants"
+			quantity: 380.000
+			flags: no_autopickup
+		}
+		{
+			material: "resin"
+			quantity: 1120.000
+		}
+	]
+}
