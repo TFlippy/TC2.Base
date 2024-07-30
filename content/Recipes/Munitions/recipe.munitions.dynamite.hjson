@@ -1,27 +1,32 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Dynamite"
-	desc:
-		'''
-		Often used for mining and demolition.
-		'''
 	tips: []
 	
 	icon:
 	{
 		texture: dynamite
 	}
+	icon_offset: [2.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
 	
 	min: 1
-	max: 8
+	max: 20
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: weapon, dangerous, workbench, simple, munitions, manual, shaping
+	flags: blueprintable
+	tags: workbench, manual, simple, dangerous, small, weapon, munitions, assembling, chemistry
 	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	color_button: "0xffcf392b"
+	rank: 83.000
 	
 	requirements:
 	[
@@ -33,21 +38,28 @@
 		}
 		{
 			type: resource
-			material: sand
-			amount: 8.000
+			material: sawdust
+			amount: 6.000
+			group: 0
+		}
+		{
+			type: work
+			work: kneading
+			amount: 220.000
+			difficulty: 4
 			group: 0
 		}
 		{
 			type: resource
 			material: paper
-			amount: 2.000
+			amount: 3.000
 			group: 0
 		}
 		{
 			type: work
-			work: assembling
-			amount: 100.000
-			difficulty: 5
+			work: papercraft
+			amount: 250.000
+			difficulty: 4
 			group: 0
 		}
 	]

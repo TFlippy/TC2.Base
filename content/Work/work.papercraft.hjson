@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.61.2"
+	name: "Papercraft"
+	name_short: "Papercraft"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [18, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, careful, leisure
+	cooldown: 1.900
+	multiplier: 1.000
+	color: "0xff719240"
+	
+	tools_required: paper
+	tools_optional: paper, ruler, cutters, tweezers, magnifying_glass, calculator, stapler, knife
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: table
+	equipment_optional: chair
+	
+	filter_environment:
+	{
+		require: indoor
+		include: workshop, office, clean
+	}
+	
+	character_traits:
+	{
+		include: bureaucrat, medical, artisan, laborer, law, commerce, engineer, rich, entertainer, artist, sedentary, evil, politician, thief
+		exclude: feral, animal, clumsy, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		intellect: 0.250
+		dexterity: 0.700
+		blades: 0.100
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds:
+	[
+		work.paperwork.page.00
+		work.paperwork.page.01
+		work.paperwork.page.02
+	]
+}

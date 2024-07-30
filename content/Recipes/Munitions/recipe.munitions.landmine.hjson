@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.61.1"
-	name: "Land Mine"
-	desc:
-		'''
-		Small deployable explosive that detonates upon contact.
-		'''
+	$version: "0.1.61.2"
+	name: "Landmine"
 	tips: []
 	
 	icon:
@@ -12,30 +8,45 @@
 		texture: landmine
 		size: [8, 8]
 	}
+	icon_offset: [-4.000, 3.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
 	
 	min: 1
 	max: 20
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: weapon, dangerous, workbench, assembling, munitions, metalworking, manual
+	flags: blueprintable
+	tags: workbench, manual, dangerous, weapon, munitions, assembling, metalworking
 	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	color_button: "0xffcf392b"
+	rank: 85.000
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: steel.ingot
-			amount: 2.000
+			material: steel.frames
+			amount: 0.100
 			group: 0
 		}
 		{
 			type: resource
-			material: nitroglycerine
-			amount: 10.000
+			material: steel.plate
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: gunpowder
+			amount: 6.000
 			group: 0
 		}
 		{
@@ -47,8 +58,10 @@
 		{
 			type: work
 			work: assembling
-			amount: 150.000
-			difficulty: 8
+			amount: 680.000
+			difficulty: 7
+			snapping: 5.000
+			falloff: 0.510
 			group: 0
 		}
 	]
@@ -60,6 +73,14 @@
 			prefab: landmine
 			amount: 1.000
 			group: 0
+		}
+		{
+			type: resource
+			material: scrap.steel
+			amount: 0.237
+			amount_extra: 0.134
+			group: 1
+			flags: waste, residue
 		}
 	]
 }

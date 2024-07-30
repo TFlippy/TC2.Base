@@ -14,10 +14,10 @@
 	
 	type: workshop
 	flags: blueprintable
-	tags: workbench, metalworking, manual, forming, shaping
+	tags: workbench, manual, metalworking, forming, shaping
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: 20.000
 	
 	requirements:
 	[
