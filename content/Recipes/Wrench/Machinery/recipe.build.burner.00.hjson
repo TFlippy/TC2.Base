@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Burner"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: metalworking, industry, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -156.000

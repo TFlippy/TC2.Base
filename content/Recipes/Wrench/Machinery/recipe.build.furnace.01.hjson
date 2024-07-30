@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Furnace (Large)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: metalworking, industry, wrench
 	
 	color_button: "0xffad6913"
 	rank: 154.000

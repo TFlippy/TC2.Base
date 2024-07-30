@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Sawmill"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: industry, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -106.000

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Radio Tower"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: metalworking, buildings, wrench
 	
 	color_button: "0xff6a7a9a"
 	rank: -109.000

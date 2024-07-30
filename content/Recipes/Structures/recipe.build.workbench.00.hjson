@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Workbench"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: woodworking, architecture, wrench
+	tags: woodworking, industry, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -558.000

@@ -15,7 +15,7 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: architecture, wrench
+	tags: industry, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -555.000
