@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Brod"
 	name_short: "Brod"
 	desc:
@@ -9,7 +9,7 @@
 	
 	post_code: "BRD"
 	
-	h_governorate: "krumpelsuter"
+	h_governorate: krumpelsuter
 	size: 0.750
 	offset: [0.375, 1.625]
 	
@@ -17,7 +17,7 @@
 	color_fill: "0xff347f59"
 	border_scale: 0.150
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
@@ -42,7 +42,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -73,7 +73,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.276
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -102,7 +102,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Trphajzel"
 	name_short: "Trphajzel"
 	desc:
@@ -9,7 +9,7 @@
 	
 	post_code: "TPZ"
 	
-	h_governorate: "krumpelsuter"
+	h_governorate: krumpelsuter
 	size: 1.150
 	offset: [3.250, 0.250]
 	
@@ -17,7 +17,7 @@
 	color_fill: "0xffff8500"
 	border_scale: 0.150
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
@@ -50,7 +50,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -77,7 +77,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -102,7 +102,7 @@
 			color_border: "0xff8d8d6f"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -133,7 +133,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: -0.073
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -159,7 +159,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -183,7 +183,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.114
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -220,7 +220,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: -0.122
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -262,7 +262,7 @@
 			color_border: "0xff868472"
 			scale: 0.125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -280,7 +280,7 @@
 			color_border: "0xff73818c"
 			scale: 0.1875
 			z: -0.073
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -314,7 +314,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -333,7 +333,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -351,7 +351,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.01"
+			h_texture: worldmap.road.01
 			
 			points:
 			[
@@ -369,7 +369,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -389,7 +389,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -412,7 +412,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -428,7 +428,7 @@
 			color_border: "0xff7b7b6e"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -454,7 +454,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -478,7 +478,7 @@
 			color_border: "0xff73818c"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -498,7 +498,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -516,7 +516,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.024
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -541,7 +541,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -560,7 +560,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -579,7 +579,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -595,7 +595,7 @@
 			color_border: "0xffa3a183"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -613,7 +613,7 @@
 			color_border: "0xff73818c"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[
@@ -636,7 +636,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[
@@ -665,7 +665,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[

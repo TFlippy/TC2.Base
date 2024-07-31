@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Novokordelsk"
 	name_short: "Novokordelsk"
 	desc:
@@ -9,7 +9,7 @@
 	
 	post_code: "NKO"
 	
-	h_governorate: "kordelsk"
+	h_governorate: kordelsk
 	size: 3.000
 	offset: [-0.875, 0.750]
 	
@@ -17,7 +17,7 @@
 	color_fill: "0xff1c6d13"
 	border_scale: 0.250
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
@@ -67,7 +67,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -96,7 +96,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -121,7 +121,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -151,7 +151,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -173,7 +173,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -193,7 +193,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -213,7 +213,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -231,7 +231,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -251,7 +251,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -268,7 +268,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -284,7 +284,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -302,7 +302,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -320,7 +320,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -339,7 +339,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -358,7 +358,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -375,7 +375,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -394,7 +394,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -412,7 +412,7 @@
 			color_border: "0xff73818c"
 			scale: 0.3125
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -431,7 +431,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -450,7 +450,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[
@@ -466,7 +466,7 @@
 			color_border: "0xff73818c"
 			scale: 0.200
 			z: 0.000
-			h_texture: "worldmap.road.00"
+			h_texture: worldmap.road.00
 			
 			points:
 			[

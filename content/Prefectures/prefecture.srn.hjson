@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Samorepublik Nekordel"
 	name_short: "S.R.N."
 	desc:
@@ -9,7 +9,7 @@
 	
 	post_code: "SRN"
 	
-	h_governorate: "krumpelsuter"
+	h_governorate: krumpelsuter
 	size: 1.000
 	offset: [-0.750, 0.275]
 	
@@ -17,7 +17,7 @@
 	color_fill: "0xffa60d0d"
 	border_scale: 0.150
 	z: 0.250
-	h_texture_border: "worldmap.border.02"
+	h_texture_border: worldmap.border.02
 	
 	points:
 	[
@@ -42,7 +42,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[
@@ -65,7 +65,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -89,7 +89,7 @@
 			color_border: "0xff868472"
 			scale: 0.1875
 			z: 0.000
-			h_texture: "worldmap.road.02"
+			h_texture: worldmap.road.02
 			
 			points:
 			[
@@ -110,7 +110,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: 0.000
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[
@@ -130,7 +130,7 @@
 			color_border: "0xff868472"
 			scale: 0.250
 			z: -0.016
-			h_texture: "worldmap.railway.00"
+			h_texture: worldmap.railway.00
 			
 			points:
 			[

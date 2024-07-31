@@ -1,17 +1,20 @@
 ﻿{
-	$version: "0.1.60.4"
-	tag: "KBP"
+	$version: "0.1.61.2"
+	tag: "GKS-BP"
 	name: "Krumpelsuter-Borduspolicejz"
 	
 	color_a: "0xffba974a"
 	color_b: "0xff639417"
 	
-	kind: government
+	kind: organization
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
 	
 	scout_count: 0
 	
-	h_company: "krumpelsuter.guard"
+	h_company: krumpelsuter.guard
+	
+	players:
+	{
+	
+	}
 }
