@@ -7,7 +7,9 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.100
+	flags: none
+	buoyancy: 0.050
+	fall_damage_multiplier: 0.750
 
 	@shape.line:
 	{
@@ -16,10 +18,11 @@ body:
 		mass: 17.000
 		radius: 0.250
 		friction: 0.600
-		elasticity: 0.250
-		material: tool
-		layer: entity, solid, ignore_bullet, ignore_melee, item
-		mask: world
+		elasticity: 0.650
+		
+		material: metal_solid
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
 	}
 }
 
@@ -46,20 +49,20 @@ gun:
 	sound_pitch: 0.680
 	
 	sound_shoot: breechloader.long.shoot
-	sound_cycle: breechloader.long.cycle
-	sound_reload: breechloader.long.reload
+	sound_cycle: gun.cycle.00
+	sound_reload: grapple_gun.reload
 	sound_empty: missing
-	sound_eject: missing
-	sound_jam: gun.jam.00
+	sound_eject: press.smash.02
+	sound_jam: press.smash.02
 	
-	damage_multiplier: 3.800
-	velocity_multiplier: 390.000
-	jitter_multiplier: 6.000
+	damage_multiplier: 2.800
+	velocity_multiplier: 300.000
+	jitter_multiplier: 6.500
 	recoil_multiplier: 2.200
 	reload_interval: 2.500
-	cycle_interval: 0.100
-	stability: 6950.000
-	failure_rate: 0.059
+	cycle_interval: 0.350
+	stability: 6850.000
+	failure_rate: 0.099
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_musket
 	ammo_per_shot: 1.000
@@ -77,9 +80,14 @@ gun:
 	
 	@inventory1:
 	{
-		stack_size_multiplier: 1.000
 		type: ammo
-		flags: hidden, ignore_mass, no_auto_pickup
+		flags: hidden, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: ammo
+		}
 	}
 	
 	@light:
@@ -99,12 +107,12 @@ gun.state:
 
 holdable:
 {
-	force_multiplier: 2.300
+	force_multiplier: 2.200
 	torque_multiplier: 1.100
-	stress_multiplier: 0.850
+	stress_multiplier: 0.750
 	offset: [-0.500, 0.000]
 	radius: 4.000
-	hints: weapon, junk, gun, usable, inaccurate
+	hints: weapon, junk, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow
 	flags: storable
 }
 
@@ -140,4 +148,22 @@ aimable:
 packable:
 {
 
+}
+
+essencecontainer:
+{
+	h_essence: heat
+	available: 5.000
+	rate: 0.500
+	stability: 0.800
+	health_threshold: 0.150
+
+	@light:
+	{
+		color: [1.000, 0.46789, 0.000, 2.000]
+		offset: [-0.250, -0.125]
+		scale: [3.000, 3.000]
+		intensity: 1.000
+		texture: light.circle.04
+	}
 }

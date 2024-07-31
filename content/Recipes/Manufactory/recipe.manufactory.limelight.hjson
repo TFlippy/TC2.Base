@@ -21,11 +21,11 @@
 	step: 5
 	
 	type: workshop
-	flags: disabled, wip
+	flags: none
 	tags: manual, assembling, metalworking, engineering
 	
 	color_button: "0xffaeb59a"
-	rank: -540.000
+	rank: -130.000
 	
 	requirements:
 	[
@@ -37,8 +37,8 @@
 		}
 		{
 			type: resource
-			material: recondite.ingot
-			amount: 0.100
+			material: recondite.plate
+			amount: 0.200
 			group: 0
 		}
 		{
