@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.61.2"
 	color: "0xffb4667f"
 	
 	fog_scale_0: 1.024
@@ -25,7 +26,7 @@
 		"0xffd7b384"
 		"0xffa3824d"
 		"0xff412712"
-		"0xff171338"
+		"0xff100c2a"
 	]
 	
 	top:
@@ -42,7 +43,7 @@
 		"0xff7aa2a8"
 		"0xff57385f"
 		"0xff2f182e"
-		"0xff152335"
+		"0xff05051d"
 	]
 	
 	bottom:
@@ -59,7 +60,7 @@
 		"0xffd5641f"
 		"0xfff9a987"
 		"0xff7a423b"
-		"0xff291123"
+		"0xff3d222c"
 	]
 	
 	fog_fg:
@@ -76,7 +77,7 @@
 		"0x6edba773"
 		"0x19ffffff"
 		"0x36ffffff"
-		"0x65ffffff"
+		"0x51ffffff"
 	]
 	
 	fog_bg:
@@ -93,6 +94,6 @@
 		"0x15bc5b21"
 		"0x13895d0b"
 		"0x3b48325c"
-		"0x2835325c"
+		"0x2735325c"
 	]
 }

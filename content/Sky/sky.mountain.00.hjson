@@ -1,12 +1,15 @@
 ﻿{
+	$version: "0.1.61.2"
 	color: "0xffffffff"
 	
 	fog_scale_0: 1.140
 	fog_scale_1: 1.200
 	fog_scale_2: 2.000
 	fog_scale_3: 0.500
+	
 	fog_min: 0.000
 	fog_max: 1.000
+	
 	fog_speed: 5.000
 	
 	ambient:
@@ -74,7 +77,7 @@
 		"0xbcffffff"
 		"0xbcffffff"
 		"0xbcffffff"
-		"0xbcffffff"
+		"0xd6ffffff"
 	]
 	
 	fog_bg:
