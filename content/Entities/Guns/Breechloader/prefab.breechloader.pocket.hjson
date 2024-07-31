@@ -23,43 +23,67 @@ body:
 
 gun:
 {
-	muzzle_offset: [0.625, -0.1875]
-	receiver_offset: [-0.250, -0.125]
-
+	muzzle_offset: [0.375, 0.000]
+	receiver_offset: [-0.250, 0.000]
+	
+	particle_offset: [0.000, 0.000]
+	
+	eject_direction: [0.000, 0.000]
+	eject_angular_velocity: 0.100
+	particle_rotation: 0.000
+	flash_size: 1.000
+	
+	smoke_size: 4.000
+	smoke_amount: 4.000
+	
+	shake_amount: 0.300
+	shake_radius: 16.000
+	
+	sound_volume: 1.900
+	sound_size: 1.500
+	sound_dist_multiplier: 1.800
+	sound_pitch: 1.400
+	
 	sound_shoot: breechloader.pocket.shoot
 	sound_cycle: breechloader.pocket.cycle
 	sound_reload: breechloader.pocket.reload
+	sound_empty: missing
+	sound_eject: missing
+	sound_jam: metal.hit.sharp.03
+	
+	damage_multiplier: 2.100
 	velocity_multiplier: 190.000
-	jitter_multiplier: 5.000
-	damage_multiplier: 2.500
-	recoil_multiplier: 2.400
+	jitter_multiplier: 8.000
+	recoil_multiplier: 2.600
 	reload_interval: 1.900
-	cycle_interval: 0.100
+	cycle_interval: 0.500
+	stability: 1540.000
 	failure_rate: 0.041
+	
+	ammo_filter: ammo_lc, ammo_hc, ammo_sg, ammo_musket
+	ammo_per_shot: 1.000
 	max_ammo: 1.000
+	barrel_count: 1
 	projectile_count: 1
-	flags: cycle_on_shoot, eject_on_shoot, eject_from_muzzle
-	ammo_filter: ammo_lc, ammo_hc, ammo_musket
+	burst_count: 1
+	
 	action: manual
 	type: handgun
 	feed: breech
-
-	shake_amount: 0.300
 	
-	sound_volume: 1.700
-	sound_pitch: 1.200
-	
-	smoke_size: 4.000
-	smoke_amount: 6
-
-	heuristic_range: 12.000
-	stability: 1340.000
+	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 18.000
 
 	@inventory1:
 	{
-		stack_size_multiplier: 1.000
 		type: ammo
-		flags: hidden, ignore_mass, no_auto_pickup
+		flags: hidden, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: ammo
+		}
 	}
 	
 	@light:
@@ -79,13 +103,13 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.500, 0.000]
+	force_multiplier: 0.700
+	torque_multiplier: 0.200
+	stress_multiplier: 0.500
+	offset: [-0.250, 0.000]
 	radius: 4.000
+	hints: weapon, junk, gun, weak, usable, inaccurate, small
 	flags: storable
-	hints: gun, weak, inaccurate, small
-
-	force_multiplier: 1.200
-	torque_multiplier: 0.800
 }
 
 animated.renderer:
@@ -99,7 +123,7 @@ animated.renderer:
 
 health:
 {
-	max: 2100.000
+	max: 2800.000
 }
 
 transform:
@@ -120,4 +144,22 @@ aimable:
 packable:
 {
 
+}
+
+essencecontainer:
+{
+	h_essence: heat
+	available: 5.000
+	rate: 0.500
+	stability: 0.800
+	health_threshold: 0.150
+
+	@light:
+	{
+		color: [1.000, 0.46789, 0.000, 2.000]
+		offset: [-0.250, -0.125]
+		scale: [3.000, 3.000]
+		intensity: 1.000
+		texture: light.circle.04
+	}
 }

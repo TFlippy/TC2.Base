@@ -38,11 +38,11 @@ gun:
 	smoke_amount: 3.000
 	
 	shake_amount: 0.500
-	shake_radius: 20.000
+	shake_radius: 18.000
 	
 	sound_volume: 1.630
 	sound_size: 1.650
-	sound_dist_multiplier: 1.320
+	sound_dist_multiplier: 1.720
 	sound_pitch: 1.160
 	
 	sound_shoot: breechloader.short.shoot
@@ -50,14 +50,14 @@ gun:
 	sound_reload: breechloader.long.reload
 	sound_jam: scrap.hit.hard.00
 	
-	damage_multiplier: 2.700
+	damage_multiplier: 2.400
 	velocity_multiplier: 220.000
-	jitter_multiplier: 1.650
+	jitter_multiplier: 7.650
 	recoil_multiplier: 2.450
 	reload_interval: 2.400
 	cycle_interval: 0.500
-	stability: 2350.000
-	failure_rate: 0.123
+	stability: 2650.000
+	failure_rate: 0.163
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_musket
 	max_ammo: 1.000
@@ -66,14 +66,19 @@ gun:
 	type: shotgun
 	feed: breech
 	
-	flags: cycle_on_shoot, eject_on_shoot, eject_from_muzzle
-	heuristic_range: 32.000
+	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 28.000
 
 	@inventory1:
 	{
-		stack_size_multiplier: 1.000
 		type: ammo
-		flags: hidden, ignore_mass, no_auto_pickup
+		flags: hidden, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: ammo
+		}
 	}
 	
 	@light:
@@ -98,7 +103,7 @@ holdable:
 	stress_multiplier: 0.500
 	offset: [-0.125, -0.125]
 	radius: 4.000
-	hints: weapon, gun, inaccurate
+	hints: weapon, junk, gun, powerful, usable, inaccurate, industrial, arcane, slow
 	flags: storable
 }
 
@@ -112,7 +117,7 @@ animated.renderer:
 
 health:
 {
-	max: 3500.000
+	max: 4500.000
 }
 
 transform:
@@ -134,4 +139,22 @@ aimable:
 packable:
 {
 
+}
+
+essencecontainer:
+{
+	h_essence: heat
+	available: 5.000
+	rate: 0.500
+	stability: 0.800
+	health_threshold: 0.150
+
+	@light:
+	{
+		color: [1.000, 0.46789, 0.000, 2.000]
+		offset: [-0.250, -0.125]
+		scale: [3.000, 3.000]
+		intensity: 1.000
+		texture: light.circle.04
+	}
 }

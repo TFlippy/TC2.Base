@@ -41,7 +41,7 @@ gun:
 	smoke_amount: 6.000
 	
 	shake_amount: 0.600
-	shake_radius: 18.000
+	shake_radius: 20.000
 	
 	sound_volume: 1.830
 	sound_size: 1.650
@@ -58,11 +58,11 @@ gun:
 	damage_multiplier: 2.800
 	velocity_multiplier: 300.000
 	jitter_multiplier: 6.500
-	recoil_multiplier: 2.200
+	recoil_multiplier: 2.400
 	reload_interval: 2.500
-	cycle_interval: 0.350
-	stability: 6850.000
-	failure_rate: 0.099
+	cycle_interval: 0.500
+	stability: 6950.000
+	failure_rate: 0.111
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_musket
 	ammo_per_shot: 1.000
@@ -109,7 +109,7 @@ holdable:
 {
 	force_multiplier: 2.200
 	torque_multiplier: 1.100
-	stress_multiplier: 0.750
+	stress_multiplier: 0.650
 	offset: [-0.500, 0.000]
 	radius: 4.000
 	hints: weapon, junk, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow
