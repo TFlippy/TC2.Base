@@ -3,9 +3,8 @@
 	name: "Krakatite"
 	desc:
 		'''
-		Waxy, green-tinted nitrogen-rich rock with traces of sulfur.
-
-		Commonly found in swamps, bogs and mushroom forests.
+		Soft, yet dense sedimentary rock with a greasy luster.
+		Very rich in various organic compounds, sometimes bearing veins of niter and coal.
 		'''
 	
 	material_type: stone_dense

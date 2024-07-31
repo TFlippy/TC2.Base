@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Hortspargl"
 	desc:
 		'''
-		TODO: Desc
+		Dense obsidian-like igneous rock with a submetallic luster.
 		'''
 	
 	material_type: stone_dense

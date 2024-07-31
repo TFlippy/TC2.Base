@@ -3,7 +3,8 @@
 	name: "Betoniter"
 	desc:
 		'''
-		TODO: Desc
+		Hard argillaceous sedimentary rock with an earthy luster. 
+		Often found together with various alkaline minerals, can be used as a cement substitute when crushed into a fine powder.
 		'''
 	
 	material_type: concrete

@@ -1,9 +1,10 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.2"
 	name: "Kruskite"
 	desc:
 		'''
-		TODO: Desc
+		Brittle silicate metamorphic rock.
+		Commonly found bearing various sulfide minerals, in some cases as well native sulfur, silver and gold.
 		'''
 	
 	material_type: stone_porous
