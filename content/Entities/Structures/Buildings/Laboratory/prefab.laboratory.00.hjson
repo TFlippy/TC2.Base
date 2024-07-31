@@ -42,7 +42,7 @@ transform:
 
 laboratory:
 {
-
+	blueprints_capacity: 4
 }
 
 interactable:
@@ -54,7 +54,10 @@ interactable:
 
 nameable:
 {
+	tags: chemical, tech, dangerous, industrial, tool
 	flags: randomize
+	type: location
+	max_length: 16
 }
 
 faction:

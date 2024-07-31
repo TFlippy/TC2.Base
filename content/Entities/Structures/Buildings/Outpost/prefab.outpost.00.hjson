@@ -63,6 +63,7 @@ nameable:
 	tags: lame, homely, food
 	flags: randomize
 	type: building
+	max_length: 16
 }
 
 address:

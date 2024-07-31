@@ -21,7 +21,7 @@
 	
 	type: crafter
 	flags: no_amount_multiplier, wip
-	tags: press
+	tags: none
 	rank: 0.000
 	
 	requirements:

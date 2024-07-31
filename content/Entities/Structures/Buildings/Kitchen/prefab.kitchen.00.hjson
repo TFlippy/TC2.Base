@@ -97,6 +97,7 @@ storage:
 
 laboratory:
 {
+	blueprints_capacity: 2
 	filter_tags:
 	{
 		include: medical, cooking, chemistry
@@ -108,7 +109,7 @@ nameable:
 	tags: homely, tool, food, female
 	type: consumable
 	flags: randomize
-	max_length: 20
+	max_length: 16
 }
 
 faction:

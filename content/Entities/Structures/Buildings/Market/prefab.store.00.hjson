@@ -55,6 +55,7 @@ nameable:
 	tags: market
 	flags: randomize
 	type: building
+	max_length: 16
 }
 
 claimable:

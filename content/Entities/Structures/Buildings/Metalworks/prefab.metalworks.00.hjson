@@ -68,7 +68,7 @@ nameable:
 	tags: dangerous, industrial, tool, factory
 	type: location
 	flags: randomize
-	max_length: 20
+	max_length: 16
 }
 
 address:
@@ -88,6 +88,7 @@ claimable:
 
 laboratory:
 {
+	blueprints_capacity: 3
 	filter_tags:
 	{
 		require: metalworking

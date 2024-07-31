@@ -60,6 +60,20 @@ namespace TC2.Base.Components
 			Bidirectional = 1 << 3
 		}
 
+
+#if SERVER
+		[ISystem.Event<Map.ImportEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnImport(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Map.ImportEvent data,
+		[Source.Owned] ref Door.Data door)
+		{
+			//App.WriteLine($"import door {entity}");
+			ref var entry = ref data.entry;
+
+			door.flags.AddFlag(Door.Flags.Locked, door.flags.HasAny(Door.Flags.Lockable) && entry.faction != null);
+			//door.Sync(entity, true);
+		}
+#endif
+
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door)

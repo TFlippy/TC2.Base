@@ -40,7 +40,10 @@ transform:
 
 nameable:
 {
-	name: "Badger Den"
+	tags: lame, homely, food, dangerous
+	flags: no_rename, randomize
+	type: consumable
+	max_length: 16
 }
 
 spawner:

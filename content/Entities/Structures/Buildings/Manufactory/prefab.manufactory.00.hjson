@@ -68,7 +68,7 @@ nameable:
 	tags: tech, industrial, tool, factory
 	type: location
 	flags: randomize
-	max_length: 20
+	max_length: 16
 }
 
 address:
@@ -88,6 +88,7 @@ claimable:
 
 laboratory:
 {
+	blueprints_capacity: 4
 	filter_tags:
 	{
 		include: weapon, gun, assembling, machining, metalworking, automated, engineering, industry

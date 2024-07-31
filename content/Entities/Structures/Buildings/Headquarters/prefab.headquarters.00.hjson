@@ -54,7 +54,7 @@ nameable:
 	tags: homely, fancy, market
 	type: location
 	flags: randomize
-	max_length: 24
+	max_length: 16
 }
 
 spawn:

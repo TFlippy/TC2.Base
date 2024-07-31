@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, wrench, misc
+	tags: metalworking, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: -62.000

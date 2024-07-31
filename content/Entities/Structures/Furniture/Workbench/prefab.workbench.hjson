@@ -122,6 +122,7 @@ workshop:
 
 laboratory:
 {
+	blueprints_capacity: 1
 	filter_tags:
 	{
 		require: manual

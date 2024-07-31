@@ -49,7 +49,8 @@ nameable:
 {
 	tags: lame, homely, food
 	flags: no_rename, randomize
-	type: location
+	type: consumable
+	max_length: 16
 }
 
 spawner:

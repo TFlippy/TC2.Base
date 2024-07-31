@@ -51,7 +51,7 @@ interactable:
 nameable:
 {
 	tags: lame, dangerous, food
-	type: building
+	type: location
 	flags: no_rename, randomize
 }
 
