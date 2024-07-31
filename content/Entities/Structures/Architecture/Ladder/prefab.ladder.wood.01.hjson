@@ -56,7 +56,7 @@ resizable:
 		texture: "ladder.wood.cap"
 	}
 	
-	flags: mirror_cap_b
+	flags: mirror_cap_b, shape_cap_offset
 	
 	a: [0.000, -2.250]
 	b: [0.000, 2.250]

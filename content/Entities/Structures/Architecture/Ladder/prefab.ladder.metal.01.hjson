@@ -57,7 +57,7 @@ resizable:
 		size: [8, 24]
 	}
 	
-	flags: none
+	flags: shape_cap_offset
 	
 	a: [0.000, -2.500]
 	b: [0.000, 2.500]

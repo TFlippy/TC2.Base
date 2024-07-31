@@ -6,26 +6,23 @@ body:
 {
 	type: static
 	
-	@shape.polygon:
+	@shape.line:
 	{
-		points:
-		[
-			[-2.125, -0.875]
-			[1.375, -1.000]
-			[2.250, 2.000]
-			[-2.625, 2.000]
-		]
-		offset: [0.000, 0.000]
+		a: [-0.750, 0.375]
+		b: [0.375, 0.375]
+		
 		mass: 98.000
-		radius: 0.500
+		radius: 1.750
 		friction: 1.500
 		elasticity: 0.200
-		rigidity_dynamic: 0.500
 		rigidity_static: 0.250
+		rigidity_dynamic: 0.500
+		
 		material: bramble
-		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
+		
+		layer: entity, plant, flammable, barbed, no_overlapped_placement, ignore_bullet
 		mask: creature
-		exclude: tree, vehicle, wheel
+		exclude: vehicle, tree, wheel
 	}
 }
 
