@@ -11,7 +11,7 @@ body:
 	{
 		a: [-0.800, 0.000]
 		b: [0.800, -0.100]
-		mass: 5.000
+		mass: 33.000
 		radius: 0.375
 		friction: 0.600
 		elasticity: 0.250
@@ -25,38 +25,56 @@ gun:
 {
 	muzzle_offset: [1.250, -0.125]
 	receiver_offset: [-0.375, -0.125]
-
-	sound_shoot: "breechloader.heavy.shoot.00"
-	sound_cycle: "breechloader.heavy.cycle.00"
-	sound_reload: "breechloader.heavy.reload.00"
+	
+	particle_offset: [0.000, 0.000]
+	
+	eject_direction: [22.000, -4.000]
+	eject_angular_velocity: 12.000
+	flash_size: 1.200
+	
+	smoke_size: 6.000
+	smoke_amount: 5.000
+	
+	shake_amount: 0.800
+	shake_radius: 20.000
+	
+	sound_volume: 1.830
+	sound_size: 1.650
+	sound_dist_multiplier: 1.520
+	sound_pitch: 0.880
+	
+	sound_shoot: breechloader.heavy.shoot
+	sound_cycle: breechloader.heavy.cycle
+	sound_reload: breechloader.heavy.reload
+	sound_empty: missing
+	sound_eject: missing
+	sound_jam: gun.jam.00
+	
+	damage_multiplier: 3.100
 	velocity_multiplier: 250.000
 	jitter_multiplier: 8.000
-	damage_multiplier: 4.800
-	recoil_multiplier: 1.500
-	reload_interval: 3.000
-	cycle_interval: 0.500
-	failure_rate: 0.000
-	max_ammo: 2.000
-	projectile_count: 1
-	flags: none
-	ammo_filter: ammo_musket
-	action: manual
-	type: shotgun
-	feed: breech
-
-	heuristic_range: 16.000
-	stability: 3200.000
-
-	shake_amount: 0.500
-
-	sound_pitch: 1.100
+	recoil_multiplier: 2.200
+	reload_interval: 3.800
+	cycle_interval: 0.100
+	stability: 8200.000
+	failure_rate: 0.034
 	
-	smoke_size: 4.000
-	smoke_amount: 8
+	ammo_filter: ammo_mg, ammo_ac, ammo_sg, ammo_musket
+	ammo_per_shot: 2.000
+	max_ammo: 2.000
+	barrel_count: 1
+	projectile_count: 2
+	burst_count: 1
+	
+	action: manual
+	type: launcher
+	feed: breech
+	
+	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 20.000
 
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup

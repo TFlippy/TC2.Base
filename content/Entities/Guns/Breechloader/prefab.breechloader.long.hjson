@@ -13,7 +13,7 @@ body:
 	{
 		a: [-1.000, 0.125]
 		b: [1.000, -0.125]
-		mass: 5.000
+		mass: 17.000
 		radius: 0.250
 		friction: 0.600
 		elasticity: 0.250
@@ -25,42 +25,58 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.1875]
+	muzzle_offset: [1.250, -0.125]
 	receiver_offset: [-0.375, -0.125]
-
-	sound_shoot: "breechloader.long.shoot.00"
-	sound_cycle: "breechloader.long.cycle.00"
-	sound_reload: "breechloader.long.reload.00"
-	velocity_multiplier: 250.000
-	jitter_multiplier: 2.000
-	damage_multiplier: 5.000
-	recoil_multiplier: 1.300
-	reload_interval: 2.000
-	cycle_interval: 0.500
-	failure_rate: 0.000
-	max_ammo: 1.000
-	projectile_count: 1
-	flags: none
-	ammo_filter: ammo_musket
-	action: manual
-	type: rifle
-	feed: breech
-
-	heuristic_range: 20.000
-
-	shake_amount: 0.400
-
-	sound_volume: 1.900
-	sound_pitch: 1.000
 	
-	smoke_size: 4.000
-	smoke_amount: 8
-
-	stability: 2350.000
+	particle_offset: [0.000, 0.000]
+	
+	eject_direction: [22.000, -4.000]
+	eject_angular_velocity: 12.000
+	flash_size: 1.200
+	
+	smoke_size: 5.000
+	smoke_amount: 6.000
+	
+	shake_amount: 0.600
+	shake_radius: 18.000
+	
+	sound_volume: 1.830
+	sound_size: 1.650
+	sound_dist_multiplier: 1.520
+	sound_pitch: 0.680
+	
+	sound_shoot: breechloader.long.shoot
+	sound_cycle: breechloader.long.cycle
+	sound_reload: breechloader.long.reload
+	sound_empty: missing
+	sound_eject: missing
+	sound_jam: gun.jam.00
+	
+	damage_multiplier: 3.800
+	velocity_multiplier: 390.000
+	jitter_multiplier: 6.000
+	recoil_multiplier: 2.200
+	reload_interval: 2.500
+	cycle_interval: 0.100
+	stability: 6950.000
+	failure_rate: 0.059
+	
+	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_musket
+	ammo_per_shot: 1.000
+	max_ammo: 1.000
+	barrel_count: 1
+	projectile_count: 1
+	burst_count: 1
+	
+	action: manual
+	type: launcher
+	feed: breech
+	
+	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 30.000
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
@@ -83,13 +99,13 @@ gun.state:
 
 holdable:
 {
+	force_multiplier: 2.300
+	torque_multiplier: 1.100
+	stress_multiplier: 0.850
 	offset: [-0.500, 0.000]
 	radius: 4.000
+	hints: weapon, junk, gun, usable, inaccurate
 	flags: storable
-	hints: gun
-
-	force_multiplier: 1.300
-	torque_multiplier: 1.100
 }
 
 animated.renderer:
@@ -102,7 +118,7 @@ animated.renderer:
 
 health:
 {
-	max: 3500.000
+	max: 7500.000
 }
 
 transform:

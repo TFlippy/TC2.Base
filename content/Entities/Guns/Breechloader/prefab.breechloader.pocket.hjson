@@ -11,7 +11,7 @@ body:
 	{
 		a: [-0.400, 0.000]
 		b: [0.400, -0.200]
-		mass: 1.200
+		mass: 4.200
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.250
@@ -26,20 +26,20 @@ gun:
 	muzzle_offset: [0.625, -0.1875]
 	receiver_offset: [-0.250, -0.125]
 
-	sound_shoot: "breechloader.pocket.shoot.00"
-	sound_cycle: "breechloader.pocket.cycle.00"
-	sound_reload: "breechloader.pocket.reload.00"
+	sound_shoot: breechloader.pocket.shoot
+	sound_cycle: breechloader.pocket.cycle
+	sound_reload: breechloader.pocket.reload
 	velocity_multiplier: 190.000
 	jitter_multiplier: 5.000
 	damage_multiplier: 2.500
-	recoil_multiplier: 1.400
+	recoil_multiplier: 2.400
 	reload_interval: 1.900
 	cycle_interval: 0.100
-	failure_rate: 0.010
+	failure_rate: 0.011
 	max_ammo: 1.000
 	projectile_count: 1
-	flags: none
-	ammo_filter: ammo_musket
+	flags: cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	ammo_filter: ammo_lc, ammo_hc, ammo_musket
 	action: manual
 	type: handgun
 	feed: breech
@@ -53,11 +53,10 @@ gun:
 	smoke_amount: 6
 
 	heuristic_range: 12.000
-	stability: 640.000
+	stability: 1340.000
 
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup

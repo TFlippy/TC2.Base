@@ -45,18 +45,18 @@ gun:
 	sound_dist_multiplier: 1.320
 	sound_pitch: 1.160
 	
-	sound_shoot: breechloader.short.shoot.00
-	sound_cycle: breechloader.short.cycle.00
-	sound_reload: breechloader.short.reload.00
+	sound_shoot: breechloader.short.shoot
+	sound_cycle: breechloader.long.cycle
+	sound_reload: breechloader.long.reload
 	sound_jam: scrap.hit.hard.00
 	
 	damage_multiplier: 2.700
 	velocity_multiplier: 220.000
-	jitter_multiplier: 1.150
-	recoil_multiplier: 1.650
+	jitter_multiplier: 1.650
+	recoil_multiplier: 2.450
 	reload_interval: 2.400
 	cycle_interval: 0.500
-	stability: 1650.000
+	stability: 2350.000
 	failure_rate: 0.120
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_musket
