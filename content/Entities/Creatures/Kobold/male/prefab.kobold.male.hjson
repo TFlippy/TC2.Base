@@ -393,6 +393,18 @@ commandable:
 		{
 			tags: brain
 			h_species: "kobold"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: human.gore.stub
+					size: [16, 16]
+					frame: [2, 0]
+				}
+				offset: [-0.125, 0.375]
+				z: -33.000
+			}
 		}
 		
 		organic.state:
