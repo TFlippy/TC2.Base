@@ -1,7 +1,7 @@
-$name: "Derringer"
+$name: "Pocket Breechloader"
 $desc:
 	'''
-	Cheap caplock derringer pistol, very useful in tight spaces.
+	Pocket-sized hinged breechloader. 
 	'''
 $tags: []
 
@@ -15,7 +15,7 @@ body:
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.250
-		material: metal
+		material: tool
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -26,9 +26,9 @@ gun:
 	muzzle_offset: [0.625, -0.1875]
 	receiver_offset: [-0.250, -0.125]
 
-	sound_shoot: "derringer_shoot"
-	sound_cycle: "derringer_cycle"
-	sound_reload: "derringer_reload"
+	sound_shoot: "breechloader.pocket.shoot.00"
+	sound_cycle: "breechloader.pocket.cycle.00"
+	sound_reload: "breechloader.pocket.reload.00"
 	velocity_multiplier: 190.000
 	jitter_multiplier: 5.000
 	damage_multiplier: 2.500
@@ -53,7 +53,7 @@ gun:
 	smoke_amount: 6
 
 	heuristic_range: 12.000
-	stability: 210.000
+	stability: 640.000
 
 	@inventory1:
 	{
@@ -93,14 +93,14 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "derringer"
+		texture: "breechloader.pocket"
 	}
 	scale: [0.900, 0.900]
 }
 
 health:
 {
-	max: 1200.000
+	max: 2100.000
 }
 
 transform:

@@ -1,4 +1,4 @@
-$name: "Handcannon"
+$name: "Short Breechloader"
 $desc:
 	'''
 	TODO: Desc
@@ -19,7 +19,7 @@ body:
 		friction: 0.600
 		elasticity: 0.450
 		
-		material: metal
+		material: tool
 		
 		layer: entity, solid, item, ignore_melee, ignore_bullet
 	}
@@ -45,9 +45,9 @@ gun:
 	sound_dist_multiplier: 1.320
 	sound_pitch: 1.160
 	
-	sound_shoot: handcannon.shoot.00
-	sound_cycle: musket_cycle
-	sound_reload: musket_reload
+	sound_shoot: breechloader.short.shoot.00
+	sound_cycle: breechloader.short.cycle.00
+	sound_reload: breechloader.short.reload.00
 	sound_jam: scrap.hit.hard.00
 	
 	damage_multiplier: 2.700
@@ -106,7 +106,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "handcannon.00"
+		texture: "breechloader.short"
 	}
 }
 

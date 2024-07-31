@@ -1,24 +1,21 @@
-$name: "Musket"
-$desc:
+$name: "Heavy Breechloader"
+$desc: 
 	'''
-	Caplock musket.
-	Good for hunting and medium-range combat.
+	TODO: Desc
 	'''
 $tags: []
 
 body:
 {
-	buoyancy: 0.100
-
 	@shape.line:
 	{
-		a: [-1.000, 0.125]
-		b: [1.000, -0.125]
+		a: [-0.800, 0.000]
+		b: [0.800, -0.100]
 		mass: 5.000
-		radius: 0.250
+		radius: 0.375
 		friction: 0.600
 		elasticity: 0.250
-		material: metal
+		material: tool
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -26,39 +23,37 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.250, -0.1875]
+	muzzle_offset: [1.250, -0.125]
 	receiver_offset: [-0.375, -0.125]
 
-	sound_shoot: "musket_shoot"
-	sound_cycle: "musket_cycle"
-	sound_reload: "musket_reload"
+	sound_shoot: "breechloader.heavy.shoot.00"
+	sound_cycle: "breechloader.heavy.cycle.00"
+	sound_reload: "breechloader.heavy.reload.00"
 	velocity_multiplier: 250.000
-	jitter_multiplier: 2.000
-	damage_multiplier: 5.000
-	recoil_multiplier: 1.300
-	reload_interval: 2.000
+	jitter_multiplier: 8.000
+	damage_multiplier: 4.800
+	recoil_multiplier: 1.500
+	reload_interval: 3.000
 	cycle_interval: 0.500
 	failure_rate: 0.000
-	max_ammo: 1.000
+	max_ammo: 2.000
 	projectile_count: 1
 	flags: none
 	ammo_filter: ammo_musket
 	action: manual
-	type: rifle
+	type: shotgun
 	feed: breech
 
-	heuristic_range: 20.000
+	heuristic_range: 16.000
+	stability: 3200.000
 
-	shake_amount: 0.400
+	shake_amount: 0.500
 
-	sound_volume: 1.900
-	sound_pitch: 1.000
+	sound_pitch: 1.100
 	
 	smoke_size: 4.000
 	smoke_amount: 8
 
-	stability: 1150.000
-	
 	@inventory1:
 	{
 		name: "Ammo"
@@ -87,23 +82,23 @@ holdable:
 	offset: [-0.500, 0.000]
 	radius: 4.000
 	flags: storable
-	hints: gun
+	hints: gun, inaccurate
 
 	force_multiplier: 1.300
-	torque_multiplier: 1.100
+	torque_multiplier: 1.200
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "musket"
+		texture: "breechloader.heavy"
 	}
 }
 
 health:
 {
-	max: 3500.000
+	max: 6500.000
 }
 
 transform:
@@ -118,8 +113,8 @@ control:
 
 aimable:
 {
-	min: -0.750
-	max: 0.600
+	min: -0.800
+	max: 0.650
 }
 
 packable:
