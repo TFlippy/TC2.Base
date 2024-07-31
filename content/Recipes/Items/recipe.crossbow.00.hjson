@@ -17,7 +17,7 @@
 	tags: manual, simple, small, weapon, woodworking, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: -2.000
 	
 	requirements:
 	[
