@@ -1,61 +1,75 @@
 ﻿{
 	$version: "0.1.61.2"
-	name: "Musket"
-	desc:
-		'''
-		Caplock musket.
-		Good for hunting and medium-range combat.
-		'''
+	name: "Heavy Breechloader"
 	tips: []
 	
 	icon:
 	{
-		texture: musket
+		texture: breechloader.heavy
 	}
 	
-	min: 1
+	min: 2
 	max: 80
-	step: 1
+	step: 2
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: manual, weapon, gun, assembling, metalworking, shaping
+	flags: blueprintable, wip
+	tags: manual, simple, weapon, gun, assembling, metalworking, machining
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: -1.900
 	
 	requirements:
 	[
 		{
 			type: resource
 			material: wood
-			amount: 4.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 2.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 150.000
-			difficulty: 6
+			amount: 0.500
 			group: 0
 		}
 		{
 			type: work
 			work: woodworking
-			amount: 100.000
-			difficulty: 5
+			amount: 145.000
+			difficulty: 6
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.billet
+			amount: 0.500
+			group: 0
+		}
+		{
+			type: work
+			work: machining
+			amount: 525.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: work
+			work: drilling
+			amount: 620.000
+			difficulty: 9
+			group: 0
+		}
+		{
+			type: resource
+			material: pellet.heat
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 1.500
 			group: 0
 		}
 		{
 			type: work
 			work: assembling
-			amount: 60.000
+			amount: 210.000
 			difficulty: 4
 			group: 0
 		}
@@ -65,9 +79,41 @@
 	[
 		{
 			type: prefab
-			prefab: musket
+			prefab: breechloader.heavy
 			amount: 1.000
 			group: 0
+		}
+		{
+			type: resource
+			material: steel.ingot
+			amount: 2.000
+			amount_extra: 0.500
+			group: 1
+			flags: byproduct
+		}
+		{
+			type: resource
+			material: scrap.steel
+			amount: 4.753
+			amount_extra: 0.287
+			group: 1
+			flags: waste, residue
+		}
+		{
+			type: resource
+			material: steel.powder
+			amount: 56.580
+			amount_extra: 1.144
+			group: 1
+			flags: waste, residue
+		}
+		{
+			type: resource
+			material: sawdust
+			amount: 0.193
+			amount_extra: 0.128
+			group: 1
+			flags: waste, residue
 		}
 	]
 }

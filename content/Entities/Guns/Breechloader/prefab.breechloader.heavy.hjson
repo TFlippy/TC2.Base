@@ -74,7 +74,7 @@ gun:
 	burst_count: 1
 	
 	action: manual
-	type: launcher
+	type: cannon
 	feed: breech
 	
 	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle

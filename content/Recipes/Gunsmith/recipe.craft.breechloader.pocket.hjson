@@ -1,16 +1,11 @@
 ﻿{
 	$version: "0.1.61.2"
-	name: "Musket"
-	desc:
-		'''
-		Caplock musket.
-		Good for hunting and medium-range combat.
-		'''
+	name: "Pocket Breechloader"
 	tips: []
 	
 	icon:
 	{
-		texture: musket
+		texture: breechloader.pocket
 	}
 	
 	min: 1
@@ -18,45 +13,50 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: manual, weapon, gun, assembling, metalworking, shaping
+	flags: blueprintable, wip
+	tags: manual, simple, weapon, gun, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: -1.400
 	
 	requirements:
 	[
 		{
 			type: resource
 			material: wood
-			amount: 4.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 2.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 150.000
-			difficulty: 6
+			amount: 1.000
 			group: 0
 		}
 		{
 			type: work
 			work: woodworking
-			amount: 100.000
-			difficulty: 5
+			amount: 180.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 4.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
+			group: 0
+		}
+		{
+			type: resource
+			material: pellet.heat
+			amount: 0.500
 			group: 0
 		}
 		{
 			type: work
 			work: assembling
-			amount: 60.000
-			difficulty: 4
+			amount: 480.000
+			difficulty: 6
 			group: 0
 		}
 	]
@@ -65,9 +65,25 @@
 	[
 		{
 			type: prefab
-			prefab: musket
+			prefab: breechloader.pocket
 			amount: 1.000
 			group: 0
+		}
+		{
+			type: resource
+			material: scrap.machine
+			amount: 0.755
+			amount_extra: 0.244
+			group: 1
+			flags: waste, residue
+		}
+		{
+			type: resource
+			material: sawdust
+			amount: 2.933
+			amount_extra: 0.287
+			group: 1
+			flags: waste, residue
 		}
 	]
 }
