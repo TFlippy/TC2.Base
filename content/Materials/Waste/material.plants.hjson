@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Plant Trimmings"
 	description:
 		'''
@@ -77,16 +77,12 @@
 		phlogiston:
 		{
 			h_material: tar
-			h_material_waste: ash
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.010
 			ratio_extra: 0.075
 			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.050
 			ratio_waste_extra: 0.200
 			
@@ -98,6 +94,10 @@
 			sound_pitch: 1.280
 			
 			chance: 0.260
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	
