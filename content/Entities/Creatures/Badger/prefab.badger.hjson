@@ -216,10 +216,10 @@ badger:
 
 }
 
-interactable:
-{
-	window_size: [192.000, 232.000]
-}
+// interactable:
+// {
+// 	window_size: [192.000, 232.000]
+// }
 
 legs:
 {

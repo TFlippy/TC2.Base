@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Hatch (Metal)"
 	desc:
 		'''
@@ -18,10 +18,10 @@
 	
 	type: build
 	flags: blueprintable
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -631.000
+	rank: -1500.000
 	frame_size: [64.000, 48.000]
 	
 	dismantle_work: 20.000

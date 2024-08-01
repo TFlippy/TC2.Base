@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Truss (Metal)"
 	desc:
 		'''
@@ -18,10 +18,10 @@
 	
 	type: build
 	flags: none
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
-	rank: -370.000
+	rank: -1550.000
 	
 	dismantle_work: 20.000
 	dismantle_yield: 0.900
