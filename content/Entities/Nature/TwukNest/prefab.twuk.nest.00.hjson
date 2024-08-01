@@ -54,7 +54,6 @@ spawner:
 	interval_count_modifier: 300.000
 	ai_stance: aggressive
 	ai_type: attack
-	filter_tag: "twuk"
 	max_count: 3
 }
 

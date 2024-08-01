@@ -1,8 +1,7 @@
-$name: "Capybara Lair"
+$name: "Zabar Bore"
 $desc: 
 	'''
-	In academic literature, there are numerous claims that capybaras don't live in lairs.
-	Sadly, capybaras can't read.
+	TODO: Desc
 	'''
 $tags: []
 
@@ -47,17 +46,16 @@ nameable:
 
 spawner:
 {
-	prefab: "capybara"
+	prefab: "zabar"
 	interval: 60.000
 	interval_extra: 60.000
 	interval_count_modifier: 30.000
-	max_count: 8
-	filter_tag: "capybara"
+	max_count: 3
 }
 
 faction:
 {
-	id: "capybara"
+	id: "zabar"
 }
 
 claimer:
@@ -86,7 +84,7 @@ minimap.marker:
 
 dormitory:
 {
-	species: "badger"
+	species: "zabar"
 	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
 	asset_flags: recycle
 	characters_capacity: 4

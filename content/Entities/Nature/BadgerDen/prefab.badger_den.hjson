@@ -53,8 +53,7 @@ spawner:
 	interval_count_modifier: 30.000
 	ai_stance: aggressive
 	ai_type: idle
-	max_count: 7
-	filter_tag: "badger"
+	max_count: 3
 }
 
 faction:

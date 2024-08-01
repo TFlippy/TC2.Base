@@ -64,7 +64,6 @@ spawner:
 	ai_type: idle
 	flags: none
 	max_count: 3
-	filter_tag: "capybara"
 }
 
 faction:
