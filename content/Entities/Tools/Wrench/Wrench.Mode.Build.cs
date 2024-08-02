@@ -1008,7 +1008,7 @@ namespace TC2.Base.Components
 					{
 						Span<LinecastResult> results = FixedArray.CreateSpan32<LinecastResult>(out var buffer);
 						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
-						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static))
+						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
 							foreach (ref var result in results)
 							{
@@ -1068,7 +1068,7 @@ namespace TC2.Base.Components
 						//if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 
 						//if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
-						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static))
+						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
 							var physics_filter = placement.physics_filter;
 							var has_physics_filter = !physics_filter.IsEmpty();
@@ -1083,19 +1083,20 @@ namespace TC2.Base.Components
 								//	errors |= Errors.Obstructed;
 								//}
 
-								//if (has_physics_filter)
-								//{
-								//	if (physics_filter.exclude.HasAny(result_layer))
-								//	{
-								//		continue;
-								//	}
-								//}
+								if (has_physics_filter)
+								{
+									if (physics_filter.exclude.HasAny(result_layer))
+									{
+										errors |= Errors.Obstructed;
+										continue;
+									}
+								}
 
 								if (result_layer.HasAny(Physics.Layer.World))
 								{
 									if (!placement.rect_foundation.HasValue && placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
 									{
-										errors.SetFlag(Wrench.Mode.Build.Errors.NoTerrain, false);
+										errors.RemoveFlag(Wrench.Mode.Build.Errors.NoTerrain);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
 									}
 								}
@@ -1123,14 +1124,7 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									if (result_layer.HasAny(Physics.Layer.No_Overlapped_Placement))
-									{
-										//if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
-									}
-									else
-									{
-										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
-									}
+									if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 								}
 							}
 						}
