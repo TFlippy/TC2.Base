@@ -20,7 +20,7 @@ body:
 		elasticity: 0.500
 		material: metal_pole
 		layer: entity, building, support, ignore_melee
-		mask: world
+		mask: world, building
 	}
 }
 

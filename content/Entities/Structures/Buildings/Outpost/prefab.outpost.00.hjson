@@ -11,7 +11,8 @@ body:
 		mass: 360.000
 		radius: 0.500
 		material: wood
-		layer: entity, building, dormitory, flammable, ignore_bullet
+		layer: entity, building, dormitory, flammable, ignore_bullet, support
+		mask: world, building
 	}
 }
 

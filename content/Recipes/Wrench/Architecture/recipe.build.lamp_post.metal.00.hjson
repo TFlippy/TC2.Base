@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.1"
 	name: "Lamp Post (Metal, Pole)"
-	desc:
-		'''
-		Fancy metal lamp post to illuminate the streets.
-		'''
 	tips: []
 	
 	icon:

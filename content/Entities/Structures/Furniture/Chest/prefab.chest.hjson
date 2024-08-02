@@ -16,7 +16,7 @@ body:
 		radius: 0.250
 		material: wood
 		layer: entity, storage, furniture, flammable, ignore_melee, no_overlapped_placement
-		mask: world, furniture
+		mask: world, furniture, door
 	}
 }
 

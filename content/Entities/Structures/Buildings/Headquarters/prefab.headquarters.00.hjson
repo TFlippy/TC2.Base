@@ -16,6 +16,7 @@ body:
 		material: concrete
 		
 		layer: entity, building, support, dormitory, ignore_melee
+		mask: world, building
 	}
 }
 

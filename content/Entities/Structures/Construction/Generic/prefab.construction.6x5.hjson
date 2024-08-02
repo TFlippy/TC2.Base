@@ -6,7 +6,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [5.000, 4.000]
+		size: [4.500, 3.500]
 		
 		mass: 50.000
 		radius: 0.500
@@ -16,7 +16,8 @@ body:
 		material: wood
 		miss_chance: 0.600
 		
-		layer: entity, building, construction, flammable, ignore_melee, ignore_bullet, background
+		layer: entity, building, construction, flammable, ignore_melee, ignore_bullet, background, no_overlapped_placement
+		mask: world, building, construction
 	}
 }
 

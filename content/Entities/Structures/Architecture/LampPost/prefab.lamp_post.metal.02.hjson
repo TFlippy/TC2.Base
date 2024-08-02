@@ -1,5 +1,8 @@
 $name: "Lamp Post (Metal)"
-$desc: "A lamp on a metal post."
+$desc:
+	'''
+	Fancy metal lamp post to illuminate the streets.
+	'''
 $tags: []
 
 body:

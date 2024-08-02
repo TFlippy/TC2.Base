@@ -17,7 +17,7 @@ body:
 		elasticity: 0.500
 		material: wood
 		layer: entity, building, support, ignore_melee, no_overlapped_placement, flammable, background
-		mask: world
+		mask: world, building
 	}
 }
 

@@ -16,7 +16,7 @@ body:
 		radius: 0.500
 		material: concrete
 		layer: entity, building, support, ignore_melee, storage
-		mask: world
+		mask: world, building
 	}
 }
 

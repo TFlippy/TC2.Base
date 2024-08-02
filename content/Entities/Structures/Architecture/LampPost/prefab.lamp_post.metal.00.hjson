@@ -1,5 +1,8 @@
 $name: "Lamp Post (Metal)"
-$desc: "A lamp on a metal post."
+$desc: 
+	'''
+	Fancy metal lamp post to illuminate the streets.
+	'''
 $tags: []
 
 body:
@@ -17,7 +20,7 @@ body:
 		elasticity: 0.500
 		material: metal_pole
 		layer: entity, building, support, ignore_melee, no_overlapped_placement, background
-		mask: world
+		mask: world, building
 	}
 }
 
