@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Stamping Press"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: wrench, metalworking, machinery
 	
 	color_button: "0xffaeb59a"
 	rank: 5.000
@@ -30,7 +30,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_terrain, terrain_is_support
+		flags: require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [3.000, 6.000]
 		offset: [0.000, -2.000]

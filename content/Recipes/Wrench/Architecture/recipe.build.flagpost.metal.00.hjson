@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Flagpole (Metal)"
 	desc:
 		'''
@@ -21,7 +21,7 @@
 	
 	type: build
 	flags: none
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: 100.000
@@ -32,7 +32,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_claimed, require_terrain, terrain_is_support, no_solid_support
+		flags: require_claimed, require_terrain, terrain_is_support, no_solid_support, snap_to_collider
 		
 		size: [0.500, 10.000]
 		offset: [0.000, -4.000]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Chest"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: build
 	flags: wip
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -813.000
@@ -26,7 +26,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [2.000, 1.875]
 		

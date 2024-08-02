@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Giant Door (Metal)"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: 147.000
@@ -31,7 +31,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support, snap_to_collider
 		
 		size: [1.000, 5.000]
 		offset: [0.000, -1.500]

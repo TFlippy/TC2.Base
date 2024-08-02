@@ -31,7 +31,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [7.000, 6.000]
 		offset: [0.000, -2.000]

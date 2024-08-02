@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, buildings, wrench
+	tags: wrench, metalworking, buildings
 	
 	color_button: "0xff6a7a9a"
 	rank: -109.000
@@ -29,7 +29,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_terrain, terrain_is_support
+		flags: require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [3.000, 15.000]
 		offset: [0.000, -7.000]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Gate (Metal)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -20.000
@@ -30,7 +30,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_terrain, terrain_is_support
+		flags: require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [1.000, 12.000]
 		offset: [0.000, -5.000]

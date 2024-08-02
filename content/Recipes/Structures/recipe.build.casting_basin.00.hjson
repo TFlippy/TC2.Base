@@ -15,7 +15,7 @@
 	
 	type: build
 	flags: no_amount_multiplier, blueprintable
-	tags: industry, wrench
+	tags: wrench, industry
 	
 	color_button: "0xffaeb59a"
 	rank: -555.000
@@ -27,7 +27,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_terrain, terrain_is_support, snap_to_collider
 		
 		size: [4.000, 3.000]
 		offset: [0.000, -0.500]

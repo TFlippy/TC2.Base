@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Kitchen"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: buildings, wrench
+	tags: wrench, buildings
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -26,7 +26,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x
+		flags: allow_mirror_x, snap_to_collider
 		
 		size: [6.000, 6.000]
 		offset: [0.000, -2.000]

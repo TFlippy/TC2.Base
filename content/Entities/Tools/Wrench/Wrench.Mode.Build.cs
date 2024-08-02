@@ -341,11 +341,25 @@ namespace TC2.Base.Components
 
 												var h_faction = character.faction;
 
-												if (kb.GetKey(Keyboard.Key.LeftControl))
+												if (kb.GetKey(Keyboard.Key.LeftControl) || placement.flags.HasAny(Placement.Flags.Snap_To_Collider))
 												{
-													if (region.TryOverlapPoint(pos_raw, radius: 0.50f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement))
+													if (region.TryOverlapPoint(pos_raw, radius: 0.55f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement))
 													{
-														pos_raw = overlap_result.world_position_raw;
+														if (placement.flags.HasAny(Placement.Flags.Snap_Outside))
+														{
+															var normal_offset = Terrain.shape_thickness * 0.50f;														
+															normal_offset += (placement.size.X * 0.50f);
+															pos_raw = overlap_result.world_position_raw + overlap_result.normal_raw * normal_offset;
+														}
+														else
+														{
+															pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * overlap_result.GetShapeRadius());
+														}
+
+
+														//noprmal
+
+														//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * ((placement.size.X * 0.50f) + (Terrain.shape_thickness * 0.50f)));
 													}
 												}
 
@@ -411,7 +425,7 @@ namespace TC2.Base.Components
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
 												GUI.DrawChunkRect(ref region, pos_raw);
-												GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
+												//GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
 
 												switch (product.type)
 												{
@@ -624,7 +638,7 @@ namespace TC2.Base.Components
 																			ref var terrain = ref region.GetTerrain();
 
 																			var quad_world = transform.LocalToWorld(rect_foundation - placement.offset);
-																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f); 
+																			var quad_world_aabb = quad_world.GetAABB().SnapCeil(0.125f);
 																			//var quad_canvas = region.WorldToCanvas(quad_world);
 																			var quad_canvas_aabb = region.WorldToCanvas(quad_world_aabb);
 
@@ -1153,8 +1167,8 @@ namespace TC2.Base.Components
 
 					pos = Wrench.Mode.Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
 					//pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
-					pos_a = Wrench.Mode.Build.ConstrainPosition(in placement, pos_a_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
-					pos_b = Wrench.Mode.Build.ConstrainPosition(in placement, pos_b_raw ?? pos, pos_a_raw, pos_b_raw, snap: snap);
+					pos_a = pos_a_raw.HasValue ? Wrench.Mode.Build.ConstrainPosition(in placement, pos_a_raw.Value, pos_a_raw, pos_b_raw, snap: snap) : pos;
+					pos_b = pos_b_raw.HasValue ? Wrench.Mode.Build.ConstrainPosition(in placement, pos_b_raw.Value, pos_a_raw, pos_b_raw, snap: snap) : pos;
 					//pos += placement.offset;
 					//pos_a += placement.offset;
 					//pos_b += placement.offset;
@@ -1615,6 +1629,9 @@ namespace TC2.Base.Components
 					pos.Y = MathF.Round(pos.Y);
 					pos /= grid;
 					pos += offset;
+
+					//pos.X = (int)pos.X;
+					//pos.Y = (int)pos.Y;
 
 					return pos;
 				}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Lamp Post (Metal, Coaxial)"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: build
 	flags: blueprintable
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -5.000
@@ -26,7 +26,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support, snap_to_collider
 		
 		size: [1.000, 6.000]
 		offset: [0.000, -2.500]
