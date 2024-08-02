@@ -11,7 +11,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [7.000, 5.000]
+		size: [6.125, 4.125]
 		mass: 920.000
 		radius: 0.500
 		material: concrete
