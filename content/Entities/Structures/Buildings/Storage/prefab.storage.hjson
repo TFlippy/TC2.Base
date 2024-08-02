@@ -11,14 +11,16 @@ body:
 	
 	@shape.box:
 	{
-		size: [6.000, 4.000]
-		offset: [0.000, 0.000]
-		mass: 540.000
-		friction: 0.500
-		elasticity: 0.500
-		material: stone
+		size: [4.125, 3.125]
+		
+		mass: 50.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
+		material: concrete
 		layer: entity, building, storage, support, ignore_melee
-		mask: world
+		mask: world, building
 	}
 }
 
