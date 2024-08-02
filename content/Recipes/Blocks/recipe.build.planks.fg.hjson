@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Planks"
 	desc:
 		'''
 		Very cheap, but not particularly durable wooden boards.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -198.500
@@ -51,6 +52,7 @@
 			type: resource
 			material: wood
 			amount: 0.080
+			group: 0
 		}
 	]
 	
@@ -60,6 +62,7 @@
 			type: block
 			block: planks
 			tile_flags: solid, become_background_on_break
+			group: 0
 		}
 	]
 }

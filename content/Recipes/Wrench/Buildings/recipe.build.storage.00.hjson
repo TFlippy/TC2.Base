@@ -26,14 +26,20 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x
 		
-		size: [6.000, 4.000]
-		offset: [0.000, -1.000]
+		size: [6.000, 5.000]
+		offset: [0.000, -1.500]
 		
-		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.850
+		rect_foundation: [-3.000, 0.000, 3.000, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-2.625, -3.625, 2.625, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.750
+		min_clearance: 1.000
 		min_claim: 1.000
 		
 		rotation_max: 0.200
@@ -48,14 +54,20 @@
 	
 	construction:
 	{
-		prefab: construction.6x4
+		prefab: construction.6x5
 		
 		requirements:
 		[
 			{
 				type: resource
 				material: wood
-				amount: 5.000
+				amount: 35.000
+				group: 0
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 25.000
 				group: 0
 			}
 		]
@@ -65,28 +77,34 @@
 	[
 		{
 			type: resource
-			material: wood
-			amount: 150.000
-			group: 0
-		}
-		{
-			type: resource
-			material: "null"
-			amount: 500.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 400.000
-			difficulty: 4
+			material: gravel
+			amount: 200.000
 			group: 0
 		}
 		{
 			type: work
 			work: masonry
-			amount: 600.000
-			difficulty: 3
+			amount: 340.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 160.000
+			group: 0
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 20.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 850.000
+			difficulty: 6
 			group: 0
 		}
 	]

@@ -957,13 +957,13 @@ namespace TC2.Base.Components
 
 					if (tile_flags.HasAny(TileFlags.Solid) && placement.flags.HasNone(Placement.Flags.Ignore_Obstructed))
 					{
-						if (placement.type == Placement.Type.Line)
+						if (placement.type == Placement.Type.Line && (((pos_a ?? pos) - (pos_b ?? pos)).GetProduct() != 0.00f))
 						{
-							var radius = placement.size.GetMax() * 0.125f;
+							var radius = (placement.size.GetMax() * 0.50f);
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
 
 							Span<LinecastResult> hits = FixedArray.CreateSpan16<LinecastResult>(out var buffer);
-							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius + 0.25f)), (pos_b ?? pos) + (dir * (radius + 0.25f)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius)), (pos_b ?? pos) + (dir * (radius)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
 							{
 								errors |= Errors.Obstructed;
 							}
