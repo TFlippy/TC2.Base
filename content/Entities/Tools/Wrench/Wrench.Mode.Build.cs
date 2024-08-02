@@ -52,6 +52,7 @@ namespace TC2.Base.Components
 					[Region.Local] public static Vector2 pos_a_placeholder;
 					[Region.Local] public static float next_place_local;
 
+					[Region.Local] public static Vector2? normal_cached;
 					[Region.Local] public static Vector2? pos_a_raw;
 					[Region.Local] public static Vector2? pos_b_raw;
 
@@ -341,20 +342,53 @@ namespace TC2.Base.Components
 
 												var h_faction = character.faction;
 
-												if (kb.GetKey(Keyboard.Key.LeftControl) || placement.flags.HasAny(Placement.Flags.Snap_To_Collider))
+												//var rot_offset = 0.00f;
+												var normal_surface = normal_cached ?? new Vector2(0.00f, -1.00f);
+												var normal_distance = 0.00f;
+
+												if (kb.GetKey(Keyboard.Key.LeftControl) != placement.flags.HasAny(Placement.Flags.Snap_To_Collider))
 												{
-													if (region.TryOverlapPoint(pos_raw, radius: 0.55f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement))
+													if (region.TryOverlapPoint(pos_raw, radius: 0.50f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement, exclude: Physics.Layer.Dynamic))
 													{
-														if (placement.flags.HasAny(Placement.Flags.Snap_Outside))
+														//var normal_offset = 0.00f; // Terrain.shape_thickness * 0.50f;
+
+														if (!pos_a_raw.HasValue)
 														{
-															var normal_offset = Terrain.shape_thickness * 0.50f;														
-															normal_offset += (placement.size.X * 0.50f);
-															pos_raw = overlap_result.world_position_raw + overlap_result.normal_raw * normal_offset;
+															if (placement.flags.HasAny(Placement.Flags.Snap_Outside))
+															{
+																normal_distance += (placement.size.X * 0.50f);
+																//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * normal_offset);
+															}
+															else
+															{
+																//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * overlap_result.GetShapeRadius());
+															}
+
+															if (placement.flags.HasAny(Placement.Flags.Align_To_Collider))
+															{
+																normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
+
+
+																//rot_offset = overlap_result.normal_raw.GetPerpendicular(true).GetAngleRadians();
+																//normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
+															}
 														}
 														else
 														{
-															pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * overlap_result.GetShapeRadius());
+															if (!pos_a_raw.Value.IsInDistance(pos_raw, 1.00f))
+															{
+																pos_raw = overlap_result.world_position_raw;
+																normal_surface *= -0.00f;
+															}
+															else
+															{
+																pos_raw = pos_a_raw.Value; // + normal_surface;
+															}
 														}
+
+														pos_raw = overlap_result.world_position_raw + (normal_surface * normal_distance);
+
+
 
 
 														//noprmal
@@ -366,11 +400,17 @@ namespace TC2.Base.Components
 												if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
 												{
 													pos_a_raw = pos_raw;
+													normal_cached = normal_surface;
 												}
 												else if (pos_a_raw.HasValue && mouse.GetKeyDown(Mouse.Key.Left) && placement.type == Placement.Type.Line)
 												{
 													pos_b_raw = pos_raw;
 												}
+												
+												//if (pos_a_raw.HasValue && !pos_b_raw.HasValue && placement.type == Placement.Type.Line)
+												//{
+												//	pos_b_raw = pos_raw + normal_surface;
+												//}
 
 												//if (pos_a_raw.HasValue) // && control.mouse.GetKeyUp(Mouse.Key.Left))
 
@@ -387,12 +427,16 @@ namespace TC2.Base.Components
 													pos_a_raw: pos_a_raw,
 													pos_b_raw: pos_b_raw,
 													scale: scale,
+													normal: normal_surface,
+													normal_distance: normal_distance,
 													pos: out var pos,
 													pos_a: out var pos_a,
 													pos_b: out var pos_b,
 													pos_final: out var pos_final,
 													rot_final: out var rot_final,
 													bb: out var bb);
+
+												//rot_final += rot_offset;
 
 												var transform = new Transform.Data(pos_final, rot_final, scale);
 												var matrix = transform.GetMatrix3x2();
@@ -788,6 +832,7 @@ namespace TC2.Base.Components
 																	pos_raw = pos_raw,
 																	pos_a_raw = pos_a_raw,
 																	pos_b_raw = pos_b_raw,
+																	normal = normal_surface,
 																	flags = flags,
 																};
 																rpc.Send(ent_wrench);
@@ -804,6 +849,7 @@ namespace TC2.Base.Components
 																	//pos_a_raw = pos_b - ((pos_b - pos_a).GetNormalized() * placement.length_step);
 																	pos_a_raw = (pos_b - ((pos_b - pos_a).GetNormalized() * placement.size * 0.50f)).SnapFloor(0.125f);
 																	pos_b_raw = null;
+																	normal_cached = null;
 																}
 															}
 
@@ -814,6 +860,7 @@ namespace TC2.Base.Components
 														{
 															pos_a_raw = null;
 															pos_b_raw = null;
+															normal_cached = null;
 														}
 													}
 												}
@@ -1154,7 +1201,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				public static void GetPlacementInfo(ref Placement placement, Wrench.Mode.Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
+				public static void GetPlacementInfo(ref Placement placement, Wrench.Mode.Build.Flags flags, Vector2 pos_raw, Vector2? pos_a_raw, Vector2? pos_b_raw, Vector2 scale, Vector2 normal, float normal_distance, out Vector2 pos, out Vector2 pos_a, out Vector2 pos_b, out Vector2 pos_final, out float rot_final, out AABB bb)
 				{
 					var snap = new Vector2(0.125f);
 					if (placement.flags.HasNone(Placement.Flags.No_Snapping) && flags.HasAny(Wrench.Mode.Build.Flags.Snap))
@@ -1168,7 +1215,7 @@ namespace TC2.Base.Components
 					pos = Wrench.Mode.Build.ConstrainPosition(in placement, pos_raw, pos_a_raw, pos_b_raw, snap: snap);
 					//pos_a = Build.ConstrainPosition(in placement, pos_a_raw ?? pos + new Vector2(0, placement.length_step), pos_a_raw, pos_b_raw, snap: snap);
 					pos_a = pos_a_raw.HasValue ? Wrench.Mode.Build.ConstrainPosition(in placement, pos_a_raw.Value, pos_a_raw, pos_b_raw, snap: snap) : pos;
-					pos_b = pos_b_raw.HasValue ? Wrench.Mode.Build.ConstrainPosition(in placement, pos_b_raw.Value, pos_a_raw, pos_b_raw, snap: snap) : pos;
+					pos_b = pos_b_raw.HasValue ? Wrench.Mode.Build.ConstrainPosition(in placement, pos_b_raw.Value, pos_a_raw, pos_b_raw, snap: snap) : pos + (normal * normal_distance);
 					//pos += placement.offset;
 					//pos_a += placement.offset;
 					//pos_b += placement.offset;
@@ -1193,7 +1240,7 @@ namespace TC2.Base.Components
 								var dir = (pos_raw - (pos_a_raw ?? pos_raw)).GetNormalized(out var len);
 								if (placement.rotation_offset != 0.00f) dir = dir.RotateByRad(placement.rotation_offset);
 
-								dir = Vector2.Lerp(new Vector2(0, -1), dir, Maths.Clamp((len - 0.25f) * 2.00f, 0.00f, 1.00f));
+								dir = Vector2.Lerp(normal, dir, Maths.Clamp((len - 0.25f) * 2.00f, 0.00f, 1.00f));
 
 								var rot_max = Maths.Snap(MathF.Abs(placement.rotation_max), placement.rotation_step);
 								var rot = Maths.Clamp(Maths.Snap(dir.GetAngleRadians() + (MathF.PI * 0.50f), placement.rotation_step), -rot_max, +rot_max);
@@ -1222,6 +1269,7 @@ namespace TC2.Base.Components
 					public Vector2 pos_raw;
 					public Vector2? pos_a_raw;
 					public Vector2? pos_b_raw;
+					public Vector2? normal;
 
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
@@ -1253,6 +1301,8 @@ namespace TC2.Base.Components
 								if (recipe.placement.TryGetValue(out var placement))
 								{
 									var scale = new Vector2(1, 1);
+									var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
+
 									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(this.pos_raw.X < this.pos_origin.X);
 
 									var random = XorRandom.New(true);
@@ -1263,6 +1313,8 @@ namespace TC2.Base.Components
 										pos_a_raw: this.pos_a_raw,
 										pos_b_raw: this.pos_b_raw,
 										scale: scale,
+										normal: normal_surface,
+										normal_distance: normal_distance,
 										pos: out var pos,
 										pos_a: out var pos_a,
 										pos_b: out var pos_b,

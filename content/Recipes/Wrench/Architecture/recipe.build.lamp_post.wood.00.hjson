@@ -29,12 +29,12 @@
 		flags: allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support, snap_to_collider
 		
 		size: [1.000, 6.000]
-		offset: [0.000, -1.750]
+		offset: [0.000, -2.500]
 		
-		rect_foundation: [-0.500, 0.750, 0.500, 1.250]
+		rect_foundation: [-0.500, 0.250, 0.500, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -4.500, 0.250, 1.250]
+		rect_clearance: [-0.250, -5.000, 0.250, 0.750]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000

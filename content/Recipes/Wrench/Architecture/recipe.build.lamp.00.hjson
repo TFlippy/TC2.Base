@@ -30,10 +30,10 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support, snap_to_collider
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support, snap_to_collider, align_to_collider
 		
 		size: [0.500, 1.000]
-		offset: [0.000, -0.500]
+		offset: [0.000, -0.375]
 		
 		cooldown: 0.500
 		min_support: 0.500

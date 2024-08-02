@@ -35,12 +35,12 @@
 		flags: require_claimed, require_terrain, terrain_is_support, no_solid_support, snap_to_collider
 		
 		size: [0.500, 10.000]
-		offset: [0.000, -4.000]
+		offset: [0.000, -4.625]
 		
-		rect_foundation: [-0.750, 0.750, 0.750, 1.250]
+		rect_foundation: [-0.750, 0.250, 0.750, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -9.000, 0.250, 0.750]
+		rect_clearance: [-0.250, -9.375, 0.250, 0.375]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
