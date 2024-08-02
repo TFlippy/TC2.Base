@@ -341,6 +341,14 @@ namespace TC2.Base.Components
 
 												var h_faction = character.faction;
 
+												if (kb.GetKey(Keyboard.Key.LeftControl))
+												{
+													if (region.TryOverlapPoint(pos_raw, radius: 0.50f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement))
+													{
+														pos_raw = overlap_result.world_position_raw;
+													}
+												}
+
 												if (!pos_a_raw.HasValue && (mouse.GetKeyDown(Mouse.Key.Left) || (placement.type == Placement.Type.Simple && mouse.GetKeyDown(Mouse.Key.Right))))
 												{
 													pos_a_raw = pos_raw;
