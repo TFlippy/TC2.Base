@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Headquarters"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: buildings, wrench
+	tags: wrench, buildings
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -39,7 +39,7 @@
 		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.000, -4.500, 3.000, 0.000]
+		rect_clearance: [-3.125, -4.625, 3.125, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
