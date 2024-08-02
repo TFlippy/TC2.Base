@@ -1,4 +1,4 @@
-$name: "Blueprint Laboratory"
+$name: "Engineering Laboratory"
 $desc:
 	'''
 	Building used for designing custom item augment blueprints.
@@ -15,7 +15,7 @@ body:
 		mass: 680.000
 		radius: 0.500
 		material: concrete
-		layer: entity, building, support, ignore_melee
+		layer: entity, building, ignore_melee
 		mask: world
 	}
 }
@@ -29,8 +29,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "laboratory.00"
-		mask: laboratory.00.mask
+		texture: "lab.engineering.00"
+		mask: lab.engineering.00.mask
 	}
 	z: -300.000
 }

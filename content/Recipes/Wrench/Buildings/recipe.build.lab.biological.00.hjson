@@ -1,0 +1,127 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Biological Laboratory"
+	tips: []
+	
+	icon:
+	{
+		texture: lab.biological.00
+		size: [56, 72]
+	}
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: wip
+	tags: buildings, wrench
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	dismantle_work: 8.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support
+		
+		size: [7.000, 9.000]
+		offset: [0.000, -3.500]
+		
+		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-3.000, -7.500, 3.000, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.750
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		rotation_max: 0.100
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.7x9
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 60.000
+				group: 0
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 50.000
+				group: 0
+			}
+		]
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: gravel
+			amount: 400.000
+			group: 0
+		}
+		{
+			type: work
+			work: masonry
+			amount: 500.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 250.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 25.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 1150.000
+			difficulty: 7
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: lab.biological.00
+			amount: 1.000
+			group: 0
+		}
+	]
+}

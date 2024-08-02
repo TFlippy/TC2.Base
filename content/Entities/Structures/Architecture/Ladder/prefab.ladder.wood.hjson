@@ -20,8 +20,9 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: wood
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, flammable, furniture
-		mask: world
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, flammable, furniture, building
+		mask: world, support
+		exclude: door
 	}
 }
 

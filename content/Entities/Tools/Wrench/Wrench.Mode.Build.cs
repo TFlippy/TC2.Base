@@ -994,7 +994,10 @@ namespace TC2.Base.Components
 
 					//bb = bb.GetPaddedRect(bb_size_inner);
 
-					var mask = Physics.Layer.Building | Physics.Layer.Support | Physics.Layer.No_Overlapped_Placement | Physics.Layer.World;
+					//var mask = Physics.Layer.Building | Physics.Layer.Support | Physics.Layer.No_Overlapped_Placement | Physics.Layer.World;
+
+					var (layer, mask, exclude) = h_prefab.GetShapesFilter();
+
 
 					if (placement.flags.HasAny(Placement.Flags.Require_Terrain))
 					{
@@ -1004,7 +1007,8 @@ namespace TC2.Base.Components
 					if (placement.type == Placement.Type.Line)
 					{
 						Span<LinecastResult> results = FixedArray.CreateSpan32<LinecastResult>(out var buffer);
-						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static))
 						{
 							foreach (ref var result in results)
 							{
@@ -1062,12 +1066,32 @@ namespace TC2.Base.Components
 						//var ts = Timestamp.Now();
 						Span<ShapeOverlapResult> results = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
 						//if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
-						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+
+						//if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
+						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static))
 						{
+							var physics_filter = placement.physics_filter;
+							var has_physics_filter = !physics_filter.IsEmpty();
+
 							//App.WriteLine(results.Length);
 							foreach (ref var result in results)
 							{
-								if (result.layer.HasAny(Physics.Layer.World))
+								var result_layer = result.layer;
+
+								//if (has_physics_filter && !physics_filter.Evaluate(result.layer))
+								//{
+								//	errors |= Errors.Obstructed;
+								//}
+
+								//if (has_physics_filter)
+								//{
+								//	if (physics_filter.exclude.HasAny(result_layer))
+								//	{
+								//		continue;
+								//	}
+								//}
+
+								if (result_layer.HasAny(Physics.Layer.World))
 								{
 									if (!placement.rect_foundation.HasValue && placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
 									{
@@ -1077,18 +1101,18 @@ namespace TC2.Base.Components
 								}
 								else if (placement.flags.HasAny(Placement.Flags.Allow_Placement_Over_Buildings))
 								{
-									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
+									if (result_layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
 										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
-									else if (!placement.rect_foundation.HasValue && result.layer.HasAny(Physics.Layer.Support))
+									else if (!placement.rect_foundation.HasValue && result_layer.HasAny(Physics.Layer.Support))
 									{
 										skip_support = true;
 									}
-									else if (result.layer.HasAny(Physics.Layer.Building))
+									else if (result_layer.HasAny(Physics.Layer.Building))
 									{
 
 									}
@@ -1099,9 +1123,9 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
+									if (result_layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
-
+										//if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 									}
 									else
 									{

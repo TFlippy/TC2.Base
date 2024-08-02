@@ -13,9 +13,9 @@ body:
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: chalk
+		material: device
 		layer: entity, no_overlapped_placement, ignore_melee, background, furniture
-		mask: world
+		mask: world, support, no_overlapped_placement
 	}
 }
 

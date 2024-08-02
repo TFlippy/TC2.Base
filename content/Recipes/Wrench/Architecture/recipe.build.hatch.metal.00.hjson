@@ -30,13 +30,13 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
+		flags: allow_placement_over_buildings, require_terrain, no_solid_support
 		
 		size: [2.500, 0.750]
 		
 		cooldown: 0.500
-		min_support: 0.800
-		min_clearance: 0.710
+		min_support: 0.300
+		min_clearance: 0.750
 		min_claim: 1.000
 		
 		rotation_max: 6.283
@@ -53,14 +53,14 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 12.000
+			material: steel.plate
+			amount: 10.000
 			group: 0
 		}
 		{
 			type: resource
-			material: steel.plate
-			amount: 10.000
+			material: steel.frames
+			amount: 12.000
 			group: 0
 		}
 	]

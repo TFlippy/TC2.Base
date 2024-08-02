@@ -24,8 +24,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: biolab.00
-		mask: biolab.00.mask
+		texture: lab.biological.00
+		mask: lab.biological.00.mask
 	}
 	z: -300.000
 }

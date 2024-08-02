@@ -19,7 +19,7 @@ body:
 		rigidity_static: 0.050
 		material: wire
 		layer: entity, building, ignore_bullet, ignore_melee, no_overlapped_placement, barbed
-		mask: solid, creature
+		mask: solid, creature, no_overlapped_placement
 	}
 }
 

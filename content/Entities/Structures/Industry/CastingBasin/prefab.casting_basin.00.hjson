@@ -25,7 +25,7 @@ body:
 		
 		material: concrete
 		
-		layer: entity, building, ignore_melee
+		layer: entity, solid, building, ignore_melee
 	}
 }
 

@@ -1,0 +1,71 @@
+$name: "Chemical Laboratory"
+$desc:
+	'''
+	Building used for designing custom item augment blueprints.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 5.000]
+		mass: 680.000
+		radius: 0.500
+		material: concrete
+		layer: entity, building, support, ignore_melee
+		mask: world
+	}
+}
+
+health:
+{
+	max: 64000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "lab.chemical.00"
+		mask: lab.chemical.00.mask
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+laboratory:
+{
+	blueprints_capacity: 4
+}
+
+interactable:
+{
+	priority: 0.500
+	window_size: [900.000, 600.000]
+	window_size_misc: [144.000, 0.000]
+}
+
+nameable:
+{
+	tags: chemical, tech, dangerous, industrial, tool
+	flags: randomize
+	type: location
+	max_length: 16
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
