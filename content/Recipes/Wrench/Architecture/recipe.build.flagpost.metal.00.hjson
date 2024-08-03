@@ -57,8 +57,9 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
+		snapping_depth: 0.375
 		
 		mappings_replace:
 		{

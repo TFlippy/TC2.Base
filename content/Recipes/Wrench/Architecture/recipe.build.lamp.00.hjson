@@ -51,6 +51,7 @@
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, no_end_snap
 		snapping_radius: 0.500
+		snapping_depth: 0.125
 		
 		mappings_replace:
 		{

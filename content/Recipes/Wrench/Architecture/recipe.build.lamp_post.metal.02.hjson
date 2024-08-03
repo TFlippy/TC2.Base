@@ -31,10 +31,10 @@
 		size: [3.000, 6.000]
 		offset: [1.000, -2.500]
 		
-		rect_foundation: [0.500, -0.125, -0.500, 0.500]
+		rect_foundation: [0.500, 0.000, -0.375, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -5.000, 2.375, -0.125]
+		rect_clearance: [-0.375, -5.000, 2.375, -0.125]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -51,8 +51,9 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
+		snapping_depth: 0.500
 		
 		mappings_replace:
 		{
