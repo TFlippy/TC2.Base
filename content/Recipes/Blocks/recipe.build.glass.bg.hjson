@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Glass (Back)"
 	desc:
 		'''
 		Pretty and brittle.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -78.000
@@ -37,6 +38,13 @@
 		
 		sound: metal_place_01
 		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		
 		mappings_replace:
 		{
 		
@@ -49,6 +57,7 @@
 			type: resource
 			material: glass
 			amount: 0.050
+			group: 0
 		}
 	]
 	
@@ -58,6 +67,7 @@
 			type: block
 			block: glass
 			tile_flags: no_replace
+			group: 0
 		}
 	]
 }

@@ -71,7 +71,7 @@ claimable:
 interactable:
 {
 	flags: once
-	priority: 5.000
+	priority: 4.000
 }
 
 transform:

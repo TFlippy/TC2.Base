@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Cobblestone (Back)"
 	desc:
 		'''
 		Cheap, but difficult to build with precisely. Very useful as a filler.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -19,7 +20,7 @@
 	
 	type: build
 	flags: hidden, disabled
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -157.000
@@ -36,6 +37,13 @@
 		
 		sound: stone_place_0
 		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		
 		mappings_replace:
 		{
 		
@@ -46,8 +54,9 @@
 	[
 		{
 			type: resource
-			material: stone
+			material: "null"
 			amount: 0.050
+			group: 0
 		}
 	]
 	
@@ -57,6 +66,7 @@
 			type: block
 			block: cobblestone
 			tile_flags: none
+			group: 0
 		}
 	]
 }

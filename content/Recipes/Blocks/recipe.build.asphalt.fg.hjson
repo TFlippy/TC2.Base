@@ -42,7 +42,7 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface
+		snapping_flags: snap_to_surface, use_collider_radius
 		
 		mappings_replace:
 		{

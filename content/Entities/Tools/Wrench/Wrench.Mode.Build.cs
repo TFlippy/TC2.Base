@@ -353,16 +353,19 @@ namespace TC2.Base.Components
 
 												var placement_size_max = Maths.Max(placement.length_min, placement.size.GetMax());
 
+												var snapping_radius = placement.snapping_radius;
+												if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Radius)) snapping_radius += placement_size_max * 0.50f;
+
 												if ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty())
 												{
-													if (region.TryOverlapPoint(pos_raw, radius: placement.snapping_radius, out var overlap_result, mask: snapping_filter.include, require: snapping_filter.require, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
+													if (region.TryOverlapPoint(pos_raw, radius: snapping_radius, out var overlap_result, mask: snapping_filter.include, require: snapping_filter.require, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
 													{
 														//var normal_offset = 0.00f; // Terrain.shape_thickness * 0.50f;
 
 														pos_raw = overlap_result.world_position_raw;
 														var normal_tmp = overlap_result.normal_raw;
 
-														var is_at_base = pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, placement.snapping_radius + placement_size_max);
+														var is_at_base = pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius + placement_size_max);
 														if (is_at_base)
 														{
 															pos_raw = pos_a_raw.Value + (normal_surface * placement_size_max);
@@ -380,10 +383,25 @@ namespace TC2.Base.Components
 
 														if (!is_at_base)
 														{
-															if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+															if (overlap_result.layer.HasAny(Physics.Layer.World))
 															{
-																pos_raw += normal_tmp * overlap_result.GetShapeRadius();
+																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+																{
+																	pos_raw += normal_tmp * Terrain.shape_thickness;
+																}
 															}
+															else
+															{
+																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+																{
+																	pos_raw += normal_tmp * overlap_result.GetShapeRadius();
+																}
+															}
+
+															//if (product.type == Crafting.Product.Type.Block)
+															//{
+															//	pos_raw += normal_tmp * Terrain.shape_thickness * 0.50f;
+															//}
 
 															if (!pos_a_raw.HasValue) normal_distance += placement_size_max;
 														}

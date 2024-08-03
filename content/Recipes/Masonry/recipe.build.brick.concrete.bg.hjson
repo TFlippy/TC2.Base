@@ -30,7 +30,7 @@
 		type: rectangle
 		flags: continuous
 		
-		size: [1.250, 1.250]
+		size: [1.500, 1.500]
 		
 		cooldown: 0.220
 		min_support: 0.050
@@ -43,8 +43,7 @@
 			include: world
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface
-		snapping_radius: 0.000
+		snapping_flags: snap_to_surface, use_collider_radius
 		
 		mappings_replace:
 		{

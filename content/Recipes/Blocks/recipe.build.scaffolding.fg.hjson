@@ -43,12 +43,10 @@
 		
 		snapping_filter:
 		{
-			include: world
-			exclude: dynamic
+			include: world, building
+			exclude: no_overlapped_placement, dynamic
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
-		snapping_radius: 0.125
-		snapping_depth: -0.250
 		
 		mappings_replace:
 		{
