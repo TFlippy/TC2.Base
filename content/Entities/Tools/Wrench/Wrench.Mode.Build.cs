@@ -368,7 +368,9 @@ namespace TC2.Base.Components
 
 														var is_raw_collider = snapping_flags.HasAny(Placement.SnappingFlags.Use_Raw_Collider) || overlap_result.layer.HasAny(Physics.Layer.World) || shape_radius <= 0.00f;
 														pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
-														var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized(); 
+														var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized();
+
+														GUI.DrawCross(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), color: GUI.font_color_green.WithAlpha(150), radius: (region.GetWorldToCanvasScale() * 0.500f).Ceil(), thickness: (0.125f * region.GetWorldToCanvasScale()).Ceil());
 
 														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius * 2.00f);
 														if (is_at_base)
@@ -408,7 +410,7 @@ namespace TC2.Base.Components
 															//	pos_raw += normal_tmp * Terrain.shape_thickness * 0.50f;
 															//}
 
-															if (!pos_a_raw.HasValue) normal_distance += placement_size_max;
+															if (snapping_flags.HasAny(Placement.SnappingFlags.Align_To_Surface) && !pos_a_raw.HasValue) normal_distance += placement_size_max;
 															if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Offset)) pos_raw += normal_tmp * placement_size_max * 0.50f;
 														}
 
@@ -418,6 +420,7 @@ namespace TC2.Base.Components
 														//}
 
 														pos_raw += normal_tmp * placement.snapping_depth;
+
 													}
 												}
 

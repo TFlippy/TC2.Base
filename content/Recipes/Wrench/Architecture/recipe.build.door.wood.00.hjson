@@ -34,7 +34,7 @@
 		size: [0.500, 3.000]
 		offset: [0.000, -1.500]
 		
-		cooldown: 0.500
+		cooldown: 0.750
 		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
@@ -48,8 +48,9 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius
-		snapping_radius: 0.500
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.250
+		snapping_depth: 0.500
 		
 		mappings_replace:
 		{

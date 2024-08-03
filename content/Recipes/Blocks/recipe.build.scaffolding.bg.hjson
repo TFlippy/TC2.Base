@@ -32,6 +32,7 @@
 		flags: continuous
 		
 		size: [0.500, 0.500]
+		snap: [0.250, 0.250]
 		
 		cooldown: 0.500
 		min_support: 0.020
@@ -44,9 +45,9 @@
 		snapping_filter:
 		{
 			include: world, building
-			exclude: no_overlapped_placement, dynamic
+			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		snapping_flags: snap_to_surface, use_raw_collider
 		snapping_radius: 0.250
 		
 		mappings_replace:
