@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -82.500
@@ -37,6 +37,13 @@
 		min_claim: 1.000
 		
 		sound: stone_place_0
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
 		
 		mappings_replace:
 		{

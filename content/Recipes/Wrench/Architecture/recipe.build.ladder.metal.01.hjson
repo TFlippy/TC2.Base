@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Giant Ladder (Metal)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: 74.000
@@ -44,6 +44,14 @@
 		length_step: 0.625
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: building, construction, no_overlapped_placement, dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
+		snapping_depth: 0.500
 		
 		mappings_replace:
 		{

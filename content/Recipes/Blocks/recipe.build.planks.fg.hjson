@@ -40,6 +40,13 @@
 		
 		sound: wood_place_0
 		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface
+		
 		mappings_replace:
 		{
 		

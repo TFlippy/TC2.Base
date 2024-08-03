@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Giant Door (Wood)"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: woodworking, architecture, wrench
+	tags: wrench, woodworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: 143.000
@@ -44,6 +44,13 @@
 		rotation_max: 0.400
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
 		
 		mappings_replace:
 		{

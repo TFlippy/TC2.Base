@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, industry, wrench
+	tags: wrench, metalworking, industry
 	
 	color_button: "0xffaeb59a"
 	rank: 148.000
@@ -43,6 +43,14 @@
 		rotation_max: 0.100
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{

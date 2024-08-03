@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Sheetmetal"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	
 	type: build
 	flags: none
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -110.500
@@ -39,6 +39,13 @@
 		length_step: 0.125
 		
 		sound: metal.place.00
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface
 		
 		mappings_replace:
 		{

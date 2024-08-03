@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Framework (Concrete)"
 	desc:
 		'''
 		Reinforced concrete cast into steel framework.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -27,7 +28,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: architecture, wrench
+	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -74.500
@@ -44,6 +45,13 @@
 		min_claim: 1.000
 		
 		sound: stone_place_0
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface
 		
 		mappings_replace:
 		{
@@ -62,11 +70,13 @@
 			type: resource
 			material: gravel
 			amount: 0.200
+			group: 0
 		}
 		{
 			type: resource
 			material: cement
 			amount: 0.100
+			group: 0
 		}
 	]
 	
@@ -76,6 +86,7 @@
 			type: block
 			block: concrete.steel
 			tile_flags: solid, become_background_on_break
+			group: 0
 		}
 	]
 }

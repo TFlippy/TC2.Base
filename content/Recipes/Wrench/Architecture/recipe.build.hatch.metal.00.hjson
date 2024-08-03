@@ -30,7 +30,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings, require_terrain, no_solid_support
+		flags: allow_placement_over_buildings, require_terrain, terrain_is_support
 		
 		size: [2.500, 0.750]
 		
@@ -47,7 +47,7 @@
 		{
 			require: building
 			include: climbable
-			exclude: dynamic
+			exclude: construction, dynamic
 		}
 		snapping_flags: snap_to_surface, align_to_surface, align_parallel
 		

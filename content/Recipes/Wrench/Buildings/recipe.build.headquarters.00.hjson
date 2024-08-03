@@ -31,7 +31,7 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support, snap_to_collider
+		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support
 		
 		size: [7.000, 6.000]
 		offset: [0.000, -2.000]
@@ -50,6 +50,14 @@
 		rotation_max: 0.100
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{

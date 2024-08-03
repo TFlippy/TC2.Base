@@ -29,7 +29,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_terrain, terrain_is_support, snap_to_collider
+		flags: require_terrain, terrain_is_support
 		
 		size: [3.000, 15.000]
 		offset: [0.000, -7.000]
@@ -42,6 +42,14 @@
 		rotation_max: 0.050
 		
 		sound: burner.bang.00
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.2"
 	name: "Barbed Wire [WIP]"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: none
-	tags: metalworking, architecture, wrench
+	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -766.000
@@ -44,6 +44,14 @@
 		length_step: 0.250
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{
