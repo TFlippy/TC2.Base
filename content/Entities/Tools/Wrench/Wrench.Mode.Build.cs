@@ -373,7 +373,7 @@ namespace TC2.Base.Components
 														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius * 2.00f);
 														if (is_at_base)
 														{
-															pos_raw = pos_a_raw.Value + (normal_surface * placement_size_max);
+															pos_raw = pos_a_raw.Value + (normal_surface * Maths.Max(placement_size_max, placement.length_step));
 														}
 
 														if (snapping_flags.HasAny(Placement.SnappingFlags.Align_To_Surface))
@@ -383,7 +383,7 @@ namespace TC2.Base.Components
 																normal_tmp = normal_tmp.GetPerpendicular(normal_tmp.X.SignEquals((pos_raw.Y - pos_origin.Y)));
 															}
 
-															normal_surface = normal_tmp;
+															if (!pos_a_raw.HasValue) normal_surface = normal_tmp;
 														}
 
 														if (!is_at_base)

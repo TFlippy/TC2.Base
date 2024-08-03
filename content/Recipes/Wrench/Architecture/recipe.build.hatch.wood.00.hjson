@@ -49,7 +49,7 @@
 			include: climbable
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, align_parallel
+		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_raw_collider
 		
 		mappings_replace:
 		{
