@@ -73,6 +73,8 @@ namespace TC2.Base.Components
 						var search_filter = edit_name_filter.ToString();
 						var is_searching = !string.IsNullOrEmpty(search_filter);
 
+						Arm.HoverGUI.Hide();
+
 						ref var wrench_transform = ref ent_wrench.GetComponent<Transform.Data>();
 
 						{
