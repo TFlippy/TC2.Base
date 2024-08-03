@@ -340,60 +340,58 @@ namespace TC2.Base.Components
 												var pos_raw = mouse.position;
 												var pos_origin = wrench_transform.position;
 
+												var placement_flags = placement.flags;
+
+												var snapping_flags = placement.snapping_flags;
+												var snapping_filter = placement.snapping_filter;
+
 												var h_faction = character.faction;
 
 												//var rot_offset = 0.00f;
 												var normal_surface = normal_cached ?? new Vector2(0.00f, -1.00f);
 												var normal_distance = 0.00f;
 
-												if (kb.GetKey(Keyboard.Key.LeftControl) != placement.flags.HasAny(Placement.Flags.Snap_To_Collider))
+												var placement_size_max = Maths.Max(placement.length_min, placement.size.GetMax());
+
+												if ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty())
 												{
-													if (region.TryOverlapPoint(pos_raw, radius: 0.50f, out var overlap_result, mask: Physics.Layer.Building | Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.No_Overlapped_Placement, exclude: Physics.Layer.Dynamic))
+													if (region.TryOverlapPoint(pos_raw, radius: placement.snapping_radius, out var overlap_result, mask: snapping_filter.include, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
 													{
 														//var normal_offset = 0.00f; // Terrain.shape_thickness * 0.50f;
 
-														if (!pos_a_raw.HasValue)
+														pos_raw = overlap_result.world_position_raw;
+
+														var is_at_base = pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, placement.snapping_radius + placement_size_max);
+														if (is_at_base)
 														{
-															if (placement.flags.HasAny(Placement.Flags.Snap_Outside))
-															{
-																normal_distance += (placement.size.X * 0.50f);
-																//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * normal_offset);
-															}
-															else
-															{
-																//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * overlap_result.GetShapeRadius());
-															}
-
-															if (placement.flags.HasAny(Placement.Flags.Align_To_Collider))
-															{
-																normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
-
-
-																//rot_offset = overlap_result.normal_raw.GetPerpendicular(true).GetAngleRadians();
-																//normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
-															}
-														}
-														else
-														{
-															if (!pos_a_raw.Value.IsInDistance(pos_raw, 1.00f))
-															{
-																pos_raw = overlap_result.world_position_raw;
-																normal_surface *= -0.00f;
-															}
-															else
-															{
-																pos_raw = pos_a_raw.Value; // + normal_surface;
-															}
+															pos_raw = pos_a_raw.Value + (normal_surface * placement_size_max);
 														}
 
-														pos_raw = overlap_result.world_position_raw + (normal_surface * normal_distance);
+														if (snapping_flags.HasAny(Placement.SnappingFlags.Align_To_Surface))
+														{
+															normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
 
 
+															//rot_offset = overlap_result.normal_raw.GetPerpendicular(true).GetAngleRadians();
+															//normal_surface = overlap_result.normal_raw; //.GetPerpendicular(true).GetAngleRadians();
+														}
 
+														if (!is_at_base)
+														{
+															if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+															{
+																pos_raw += overlap_result.normal_raw * overlap_result.GetShapeRadius();
+															}
 
-														//noprmal
+															if (!pos_a_raw.HasValue) normal_distance += placement_size_max;
+														}
 
-														//pos_raw = overlap_result.world_position_raw + (overlap_result.normal_raw * ((placement.size.X * 0.50f) + (Terrain.shape_thickness * 0.50f)));
+														if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Placement_Offset))
+														{
+															pos_raw += placement.offset.RotateByDir(normal_surface);
+														}
+
+														pos_raw += normal_surface * placement.snapping_depth;
 													}
 												}
 
@@ -406,7 +404,7 @@ namespace TC2.Base.Components
 												{
 													pos_b_raw = pos_raw;
 												}
-												
+
 												//if (pos_a_raw.HasValue && !pos_b_raw.HasValue && placement.type == Placement.Type.Line)
 												//{
 												//	pos_b_raw = pos_raw + normal_surface;
@@ -1274,6 +1272,13 @@ namespace TC2.Base.Components
 #if SERVER
 					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
 					{
+						Assert.IsRealNumber(this.pos_origin);
+						Assert.IsRealNumber(this.pos_raw);
+
+						Assert.IsRealNumberOrNull(this.pos_a_raw);
+						Assert.IsRealNumberOrNull(this.pos_b_raw);
+						Assert.IsRealNumberOrNull(this.normal);
+
 						ref var region = ref entity.GetRegion();
 
 						var errors = Wrench.Mode.Build.Errors.None;

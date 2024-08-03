@@ -29,7 +29,7 @@
 	placement:
 	{
 		type: line
-		flags: allow_placement_over_buildings, require_terrain, terrain_is_support, snap_to_collider, align_to_collider
+		flags: allow_placement_over_buildings, require_terrain, terrain_is_support
 		
 		size: [0.500, 0.500]
 		
@@ -43,6 +43,15 @@
 		length_step: 0.250
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: no_overlapped_placement, dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
+		snapping_radius: 0.750
+		snapping_depth: -0.250
 		
 		mappings_replace:
 		{

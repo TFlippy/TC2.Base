@@ -17,7 +17,7 @@ body:
 		radius: 0.375
 		friction: 0.750
 		elasticity: 0.350
-		material: tool
+		material: metal_solid
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}
@@ -65,7 +65,7 @@ wrench:
 
 wrench.mode.build:
 {
-
+	placement_range: 5.000
 }
 
 wrench.mode.belts:
