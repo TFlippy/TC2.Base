@@ -34,7 +34,7 @@
 		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.125, -7.625, 3.125, 0.000]
+		rect_clearance: [-3.000, -7.500, 3.000, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
