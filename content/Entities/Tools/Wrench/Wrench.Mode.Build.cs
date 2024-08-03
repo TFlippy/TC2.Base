@@ -316,7 +316,7 @@ namespace TC2.Base.Components
 
 						if (!Editor.IsActive)
 						{
-							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1, -1)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
+							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(1.50f, 1.50f)), size: new(256, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
 								if (window_hud.show)
 								{
@@ -507,7 +507,7 @@ namespace TC2.Base.Components
 
 															//GUI.DrawCross(region.WorldToCanvas(pos_a), radius: 16, layer: GUI.Layer.Background, color: color_dummy_fg);
 															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
-															GUI.DrawCross(region.WorldToCanvas(pos_a), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 3.00f);
+															GUI.DrawCross(region.WorldToCanvas(pos_a.Snap(0.125f)), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
 
 															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), pixel_size: pixel_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 															switch (placement.type)
@@ -530,10 +530,14 @@ namespace TC2.Base.Components
 
 																case Placement.Type.Line:
 																{
+																	if (pos_a_raw.HasValue) GUI.DrawCross(region.WorldToCanvas(pos_b.Snap(0.125f)), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 2.00f);
+
 																	//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
 																	terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
 																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
+																
+																
 																}
 																break;
 															}
