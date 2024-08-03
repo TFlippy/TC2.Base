@@ -65,7 +65,7 @@ wrench:
 
 wrench.mode.build:
 {
-	placement_range: 5.000
+	placement_range: 6.000
 }
 
 wrench.mode.belts:

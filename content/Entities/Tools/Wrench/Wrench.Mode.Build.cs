@@ -370,7 +370,7 @@ namespace TC2.Base.Components
 														pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
 														var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized(); 
 
-														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius);
+														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius * 2.00f);
 														if (is_at_base)
 														{
 															pos_raw = pos_a_raw.Value + (normal_surface * placement_size_max);
@@ -397,10 +397,10 @@ namespace TC2.Base.Components
 															}
 															else
 															{
-																//if (!is_raw_collider && snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
-																//{
-																//	pos_raw += normal_surface * shape_radius;
-																//}
+																if (is_raw_collider && snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+																{
+																	pos_raw += normal_surface * shape_radius;
+																}
 															}
 
 															//if (product.type == Crafting.Product.Type.Block)
@@ -1055,7 +1055,8 @@ namespace TC2.Base.Components
 
 					if (tile_flags.HasAny(TileFlags.Solid) && placement.flags.HasNone(Placement.Flags.Ignore_Obstructed))
 					{
-						if (placement.type == Placement.Type.Line && (((pos_a ?? pos) - (pos_b ?? pos)).GetProduct() != 0.00f))
+						//if (placement.type == Placement.Type.Line && (((pos_a ?? pos) - (pos_b ?? pos)).GetProduct() != 0.00f))
+						if (placement.type == Placement.Type.Line && !(pos_a ?? pos).IsSameAxis(pos_b ?? pos))
 						{
 							var radius = (placement.size.GetMax() * 0.50f);
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
@@ -1108,13 +1109,30 @@ namespace TC2.Base.Components
 						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
+							var physics_filter = placement.physics_filter;
+							var has_physics_filter = !physics_filter.IsEmpty();
+
 							foreach (ref var result in results)
 							{
-								//App.WriteLine(result.alpha);
-								//if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && result.layer.HasAny(Physics.Layer.World) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
-								if (result.layer.HasAny(Physics.Layer.World))
+								var result_layer = result.layer;
+
+								//if (has_physics_filter && !physics_filter.Evaluate(result.layer))
+								//{
+								//	errors |= Errors.Obstructed;
+								//}
+
+								if (has_physics_filter)
 								{
-									if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
+									if (physics_filter.exclude.HasAny(result_layer))
+									{
+										errors |= Errors.Obstructed;
+										continue;
+									}
+								}
+
+								if (result_layer.HasAny(Physics.Layer.World))
+								{
+									if (!placement.rect_foundation.HasValue && placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support))
 									{
 										errors.RemoveFlag(Wrench.Mode.Build.Errors.NoTerrain);
 										if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
@@ -1122,18 +1140,18 @@ namespace TC2.Base.Components
 								}
 								else if (placement.flags.HasAny(Placement.Flags.Allow_Placement_Over_Buildings))
 								{
-									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
+									if (result_layer.HasAny(Physics.Layer.No_Overlapped_Placement))
 									{
 										skip_support = false;
 										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
 										break;
 									}
-									else if (result.layer.HasAny(Physics.Layer.Support))
+									else if (!placement.rect_foundation.HasValue && result_layer.HasAny(Physics.Layer.Support))
 									{
 										skip_support = true;
 									}
-									else if (result.layer.HasAny(Physics.Layer.Building))
+									else if (result_layer.HasAny(Physics.Layer.Building))
 									{
 
 									}
@@ -1144,15 +1162,52 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
-									{
-
-									}
-									else
-									{
-										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
-									}
+									if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 								}
+
+								//App.WriteLine(result.alpha);
+								//if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && result.layer.HasAny(Physics.Layer.World) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
+								//if (result.layer.HasAny(Physics.Layer.World))
+								//{
+								//	if (placement.flags.HasAny(Placement.Flags.Require_Terrain | Placement.Flags.Terrain_Is_Support) && (result.alpha <= 0.10f || result.alpha >= 0.90f))
+								//	{
+								//		errors.RemoveFlag(Wrench.Mode.Build.Errors.NoTerrain);
+								//		if (placement.flags.HasAny(Placement.Flags.Terrain_Is_Support)) skip_support = true;
+								//	}
+								//}
+								//else if (placement.flags.HasAny(Placement.Flags.Allow_Placement_Over_Buildings))
+								//{
+								//	if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
+								//	{
+								//		skip_support = false;
+								//		if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+
+								//		break;
+								//	}
+								//	else if (result.layer.HasAny(Physics.Layer.Support))
+								//	{
+								//		skip_support = true;
+								//	}
+								//	else if (result.layer.HasAny(Physics.Layer.Building))
+								//	{
+
+								//	}
+								//	else
+								//	{
+								//		if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+								//	}
+								//}
+								//else
+								//{
+								//	if (result.layer.HasAny(Physics.Layer.No_Overlapped_Placement))
+								//	{
+
+								//	}
+								//	else
+								//	{
+								//		if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
+								//	}
+								//}
 							}
 						}
 					}
