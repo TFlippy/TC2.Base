@@ -43,7 +43,7 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, add_size_to_snap_radius
+		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap
 		
 		mappings_replace:
 		{

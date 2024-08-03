@@ -356,16 +356,21 @@ namespace TC2.Base.Components
 												var snapping_radius = placement.snapping_radius;
 												if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Radius)) snapping_radius += placement_size_max * 0.50f;
 
-												if ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty())
+												var no_snap = snapping_flags.HasAny(pos_a_raw.HasValue ? Placement.SnappingFlags.No_End_Snap : Placement.SnappingFlags.No_Start_Snap);
+
+												if (!no_snap && ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty()))
 												{
 													if (region.TryOverlapPoint(pos_raw, radius: snapping_radius, out var overlap_result, mask: snapping_filter.include, require: snapping_filter.require, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
 													{
 														//var normal_offset = 0.00f; // Terrain.shape_thickness * 0.50f;
 
-														pos_raw = overlap_result.world_position_raw;
-														var normal_tmp = overlap_result.normal_raw;
+														var shape_radius = overlap_result.GetShapeRadius();
 
-														var is_at_base = pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius + placement_size_max);
+														var is_raw_collider = snapping_flags.HasAny(Placement.SnappingFlags.Use_Raw_Collider) || overlap_result.layer.HasAny(Physics.Layer.World) || shape_radius <= 0.00f;
+														pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
+														var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized(); 
+
+														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius);
 														if (is_at_base)
 														{
 															pos_raw = pos_a_raw.Value + (normal_surface * placement_size_max);
@@ -387,15 +392,15 @@ namespace TC2.Base.Components
 															{
 																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
 																{
-																	pos_raw += normal_tmp * Terrain.shape_thickness;
+																	pos_raw += normal_tmp * Terrain.shape_thickness * 0.50f;
 																}
 															}
 															else
 															{
-																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
-																{
-																	pos_raw += normal_tmp * overlap_result.GetShapeRadius();
-																}
+																//if (!is_raw_collider && snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
+																//{
+																//	pos_raw += normal_surface * shape_radius;
+																//}
 															}
 
 															//if (product.type == Crafting.Product.Type.Block)
@@ -404,6 +409,7 @@ namespace TC2.Base.Components
 															//}
 
 															if (!pos_a_raw.HasValue) normal_distance += placement_size_max;
+															if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Offset)) pos_raw += normal_tmp * placement_size_max * 0.50f;
 														}
 
 														//if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Placement_Offset))
@@ -423,6 +429,7 @@ namespace TC2.Base.Components
 												else if (pos_a_raw.HasValue && mouse.GetKeyDown(Mouse.Key.Left) && placement.type == Placement.Type.Line)
 												{
 													pos_b_raw = pos_raw;
+
 												}
 
 												//if (pos_a_raw.HasValue && !pos_b_raw.HasValue && placement.type == Placement.Type.Line)

@@ -6,7 +6,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [7.125, 7.125]
+		size: [7.000, 7.000]
 		
 		mass: 50.000
 		radius: 0.500
