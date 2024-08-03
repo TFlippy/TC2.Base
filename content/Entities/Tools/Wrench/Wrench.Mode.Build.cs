@@ -397,6 +397,7 @@ namespace TC2.Base.Components
 																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
 																{
 																	pos_raw += normal_tmp * Terrain.shape_thickness * 0.50f;
+																	if (snapping_flags.HasAny(Placement.SnappingFlags.Inset_Terrain)) pos_raw -= normal_tmp * placement_size_max * 0.50f;
 																}
 															}
 															else
@@ -499,7 +500,7 @@ namespace TC2.Base.Components
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
 												GUI.DrawChunkRect(ref region, pos_raw);
-												//GUI.DrawTerrainOutline(ref region, pos_raw, 2.00f);
+												//GUI.DrawTerrainOutline(ref region, pos_raw, radius: 2.00f, thickness: 1.00f, color: GUI.col_white);
 
 												switch (product.type)
 												{
@@ -1078,7 +1079,7 @@ namespace TC2.Base.Components
 							//if (region.TryOverlapBBAll(pos, bb.GetSize() - new Vector2(0.25f), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
 
 							Span<ShapeOverlapResult> hits = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
-							if (region.TryOverlapRectAll(bb, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							if (region.TryOverlapRectAll(bb.Pad(new Vector4(0.0625f)), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
 							{
 								errors |= Errors.Obstructed;
 							}
