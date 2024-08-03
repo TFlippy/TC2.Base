@@ -43,6 +43,14 @@
 		
 		sound: building_place
 		
+		snapping_filter:
+		{
+			require: building
+			include: climbable
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, align_parallel
+		
 		mappings_replace:
 		{
 		
