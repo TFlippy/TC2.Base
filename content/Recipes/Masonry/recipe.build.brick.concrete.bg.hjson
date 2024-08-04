@@ -28,7 +28,7 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: continuous, snap_axis
 		
 		size: [1.500, 1.500]
 		snap: [0.250, 0.250]

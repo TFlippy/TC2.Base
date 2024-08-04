@@ -31,8 +31,9 @@
 		flags: continuous
 		
 		size: [1.500, 1.500]
-
-		cooldown: 0.400
+		snap: [0.750, 0.750]
+		
+		cooldown: 0.750
 		min_support: 0.050
 		min_claim: 1.000
 		

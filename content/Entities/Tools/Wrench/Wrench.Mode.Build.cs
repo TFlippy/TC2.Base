@@ -538,7 +538,21 @@ namespace TC2.Base.Components
 
 															//GUI.DrawCross(region.WorldToCanvas(pos_a), radius: 16, layer: GUI.Layer.Background, color: color_dummy_fg);
 															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
-															GUI.DrawCross(region.WorldToCanvas(pos_a.Snap(0.125f)), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
+
+															var pos_a_centered = pos_a;
+															var pos_b_centered = pos_b;
+
+															if (placement.type == Placement.Type.Line)
+															{
+																var dir = (pos_a - pos_b).GetNormalized(out var len);
+																pos_a_centered -= dir * placement.size * 0.50f;
+																pos_b_centered += dir * placement.size * 0.50f;
+
+																pos_a_centered = pos_a_centered.Snap(0.125f);
+																pos_b_centered = pos_b_centered.Snap(0.125f);
+															}
+
+															GUI.DrawCross(region.WorldToCanvas(pos_a_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
 
 															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), pixel_size: pixel_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 															switch (placement.type)
@@ -561,7 +575,7 @@ namespace TC2.Base.Components
 
 																case Placement.Type.Line:
 																{
-																	if (pos_a_raw.HasValue) GUI.DrawCross(region.WorldToCanvas(pos_b.Snap(0.125f)), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 2.00f);
+																	if (pos_a_raw.HasValue) GUI.DrawCross(region.WorldToCanvas(pos_b_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 2.00f);
 
 																	//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
 																	terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
@@ -1319,6 +1333,13 @@ namespace TC2.Base.Components
 					{
 						case Placement.Type.Line:
 						{
+							var dir = (pos_a - pos_b).GetNormalized(out var len);
+							pos_a += dir * placement.size * 0.50f;
+							pos_b -= dir * placement.size * 0.50f;
+
+							pos_a = pos_a.Snap(0.125f);
+							pos_b = pos_b.Snap(0.125f);
+
 							pos_final = pos_a;
 						}
 						break;
@@ -2108,6 +2129,8 @@ namespace TC2.Base.Components
 					{
 						var pivot = Wrench.Mode.Build.GetSnappedPosition(pos_a.Value, null, new Vector2(0.125f));
 						pos = Wrench.Mode.Build.GetSnappedPosition(pos, pivot, snap ?? new Vector2(0.125f));
+
+						if (placement.flags.HasAny(Placement.Flags.Snap_Axis)) pos = pos.SnapAxis(pivot);
 					}
 					else
 					{

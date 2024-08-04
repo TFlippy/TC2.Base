@@ -32,11 +32,9 @@
 		
 		size: [1.000, 2.000]
 		
-		cooldown: 0.300
+		cooldown: 0.500
 		min_support: 0.022
 		min_claim: 1.000
-		length_max: 6.000
-		length_step: 0.125
 		
 		sound: metal.place.00
 		
@@ -45,7 +43,7 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap, inset_terrain
 		
 		mappings_replace:
 		{
