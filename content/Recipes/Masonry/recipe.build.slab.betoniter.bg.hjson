@@ -28,9 +28,10 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: continuous, snap_axis
 		
-		size: [1.250, 1.250]
+		size: [1.500, 1.500]
+		snap: [0.250, 0.250]
 		
 		cooldown: 0.400
 		min_support: 0.050
@@ -43,7 +44,7 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap, inset_terrain
 		
 		mappings_replace:
 		{

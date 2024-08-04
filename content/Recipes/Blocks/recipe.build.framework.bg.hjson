@@ -28,15 +28,18 @@
 	placement:
 	{
 		type: line
-		flags: continuous
+		flags: continuous, snap_axis
 		
-		size: [1.500, 1.500]
+		size: [1.250, 1.250]
+		snap: [0.625, 0.625]
 		
 		cooldown: 0.500
 		min_support: 0.022
 		min_claim: 1.000
-		length_max: 6.000
-		length_step: 0.125
+		
+		length_min: 0.625
+		length_max: 10.000
+		length_step: 0.625
 		
 		sound: metal.place.00
 		
@@ -45,8 +48,8 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
-		snapping_radius: 0.250
+		snapping_flags: snap_to_surface, use_raw_collider, inset_terrain
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{
