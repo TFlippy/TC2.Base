@@ -49,6 +49,7 @@
 		
 		physics_filter:
 		{
+			require: solid
 			include: furniture
 		}
 		

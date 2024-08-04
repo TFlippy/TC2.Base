@@ -45,6 +45,11 @@
 		
 		sound: building_place
 		
+		physics_filter:
+		{
+			include: door
+		}
+		
 		snapping_filter:
 		{
 			include: world
