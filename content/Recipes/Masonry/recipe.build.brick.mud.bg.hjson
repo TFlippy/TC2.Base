@@ -43,7 +43,6 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap, inset_terrain
 		
 		mappings_replace:
 		{

@@ -30,13 +30,13 @@
 		type: line
 		flags: continuous
 		
-		size: [0.500, 0.500]
+		size: [0.750, 0.750]
 		
 		cooldown: 0.500
-		min_support: 0.500
+		min_support: 0.300
 		min_claim: 1.000
-		length_max: 6.000
-		length_step: 0.125
+		length_max: 7.500
+		length_step: 0.750
 		
 		sound: metal.place.00
 		
@@ -45,7 +45,8 @@
 			include: world, building
 			exclude: dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, inset_terrain
+		snapping_depth: -0.250
 		
 		mappings_replace:
 		{
