@@ -53,7 +53,7 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.250
 		snapping_depth: 0.500
 		
