@@ -125,7 +125,7 @@ claimer:
 			interval: 15.000
 			interval_extra: 30.000
 			interval_count_modifier: 40.000
-			max_count: 10
+			max_count: 8
 			filter_tag: "hornet"
 			ai_stance: aggressive
 			ai_type: attack

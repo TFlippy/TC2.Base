@@ -1,5 +1,9 @@
 $name: "Badger Den"
-$desc: "A badger family resides in here."
+$desc: 
+	'''
+	A large badger family resides in here.
+	Despite its unassuming appearance, it's heavily fortified and may even need explosives in order to be fully sealed off.
+	'''
 $tags: []
 
 body:
@@ -21,7 +25,7 @@ body:
 
 health:
 {
-	max: 18000.000
+	max: 65000.000
 }
 
 animated.renderer:
@@ -48,11 +52,14 @@ nameable:
 
 spawner:
 {
-	interval: 60.000
-	interval_extra: 60.000
+	group_size: 1
+	group_size_extra: 2
+	interval: 120.000
+	interval_extra: 300.000
 	interval_count_modifier: 30.000
 	ai_stance: aggressive
 	ai_type: idle
+	flags: none
 	max_count: 3
 }
 
@@ -63,8 +70,8 @@ faction:
 
 claimer:
 {
-	radius: 12.000
-	strength: 1.300
+	radius: 16.000
+	strength: 3.500
 	falloff: 0.500
 }
 
@@ -88,10 +95,20 @@ minimap.marker:
 dormitory:
 {
 	species: "badger"
+
 	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
+
 	asset_flags: recycle
-	characters_capacity: 4
+	characters_capacity: 5
 	characters_initial_count: 2
+
+	repopulate_interval: 60.000
+	repopulate_interval_extra: 240.000
+
+	repopulate_num: 1
+	repopulate_num_extra: 1
+
+	repopulate_max: 5
 }
 
 harvestable:

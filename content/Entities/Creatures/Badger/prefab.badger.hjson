@@ -374,8 +374,8 @@ faction:
 			penetration: 1
 			damage_type: bite
 			category: pointed
-			flags: no_handle
-			hit_mask: organic, creature
+			flags: no_handle, no_material_filter
+			hit_mask: organic, creature, door
 			hit_require: destructible
 			hit_exclude: background, tree, ignore_melee, world, water, gas, essence
 		}

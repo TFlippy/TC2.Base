@@ -22,7 +22,7 @@ body:
 		friction: 0.900
 		elasticity: 0.400
 		material: metal_pole
-		layer: entity, solid, furniture
+		layer: entity, solid, furniture, ignore_bullet
 		mask: world
 	}
 }
