@@ -1,0 +1,85 @@
+﻿{
+	$version: "0.1.61.2"
+	name: "Door (Chain-Link)"
+	tips: []
+	
+	icon:
+	{
+		texture: door.fence.00
+		mask: door.fence.00.mask
+		size: [16, 24]
+	}
+	icon_offset: [8.000, 3.000]
+	
+	min: 0
+	max: 0
+	step: 0
+	
+	type: build
+	flags: wip
+	tags: wrench, metalworking, architecture
+	
+	color_button: "0xffaeb59a"
+	rank: -475.000
+	frame_size: [48.000, 64.000]
+	
+	dismantle_work: 50.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [0.500, 3.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.700
+		min_support: 0.700
+		min_clearance: 0.750
+		min_claim: 1.000
+		
+		rotation_max: 0.400
+		
+		sound: metal.place.00
+		
+		physics_filter:
+		{
+			include: door
+		}
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.250
+		snapping_depth: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.frames
+			amount: 6.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: door.fence.00
+			amount: 1.000
+			group: 0
+		}
+	]
+}

@@ -1,0 +1,87 @@
+$name: "Door (Chain-Link)"
+$desc:
+	'''
+	Chain-link fence, but it's actually a flimsy door.
+	Low-caliber projectiles may pass through, larger ones probably won't.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [0.500, 3.000]
+		offset: [0.000, 0.000]
+		mass: 14.000
+		friction: 0.950
+		elasticity: 0.800
+		material: wire
+		layer: entity, solid, building, door, no_overlapped_placement, ignore_bullet
+		mask: world, solid
+		miss_chance: 0.950
+	}
+}
+
+health:
+{
+	max: 3500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "door.fence.00"
+		mask: "door.fence.00.mask"
+		count: 5
+		size: [16, 24]
+	}
+	z: 100.000
+	offset: [0.500, 0.000]
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu, enable_wololo
+}
+
+interactable:
+{
+	flags: once
+	priority: 4.000
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [1.600, 3.000]
+	size_closed: [0.500, 3.000]
+	offset_open: [0.700, 0.000]
+	offset_closed: [0.000, 0.000]
+	direction: horizontal
+	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 5.000
+	fps_open: 7.000
+}
