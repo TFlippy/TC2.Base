@@ -43,6 +43,11 @@
 		
 		sound: metal.place.00
 		
+		physics_filter:
+		{
+			include: door
+		}
+		
 		snapping_filter:
 		{
 			include: world

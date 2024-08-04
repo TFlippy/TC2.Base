@@ -34,7 +34,10 @@
 		flags: allow_mirror_x, allow_placement_over_buildings
 		
 		size: [3.500, 2.750]
-		offset: [0.000, -0.750]
+		offset: [0.000, -1.500]
+		
+		rect_clearance: [-1.750, -2.750, 1.750, 0.000]
+		tileflags_clearance: solid
 		
 		cooldown: 1.000
 		min_clearance: 0.800
@@ -43,6 +46,21 @@
 		rotation_max: 0.120
 		
 		sound: building_place
+		
+		physics_filter:
+		{
+			require: solid
+			include: furniture
+		}
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 0.250
 		
 		mappings_replace:
 		{

@@ -1116,7 +1116,12 @@ namespace TC2.Base.Components
 					//var mask = Physics.Layer.Building | Physics.Layer.Support | Physics.Layer.No_Overlapped_Placement | Physics.Layer.World;
 
 					var (layer, mask, exclude) = h_prefab.GetShapesFilter();
+					var physics_filter = placement.physics_filter;
+					var has_physics_filter = !physics_filter.IsEmpty();
 
+					var require = physics_filter.require;
+					mask.AddFlag(physics_filter.include);
+					exclude.AddFlag(physics_filter.exclude);
 
 					if (placement.flags.HasAny(Placement.Flags.Require_Terrain))
 					{
@@ -1127,10 +1132,8 @@ namespace TC2.Base.Components
 					{
 						Span<LinecastResult> results = FixedArray.CreateSpan32<LinecastResult>(out var buffer);
 						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
-						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
+						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, require: require, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
-							var physics_filter = placement.physics_filter;
-							var has_physics_filter = !physics_filter.IsEmpty();
 
 							foreach (ref var result in results)
 							{
@@ -1141,14 +1144,14 @@ namespace TC2.Base.Components
 								//	errors |= Errors.Obstructed;
 								//}
 
-								if (has_physics_filter)
-								{
-									if (physics_filter.exclude.HasAny(result_layer))
-									{
-										errors |= Errors.Obstructed;
-										continue;
-									}
-								}
+								//if (has_physics_filter)
+								//{
+								//	if (physics_filter.exclude.HasAny(result_layer))
+								//	{
+								//		errors |= Errors.Obstructed;
+								//		continue;
+								//	}
+								//}
 
 								if (result_layer.HasAny(Physics.Layer.World))
 								{
@@ -1165,7 +1168,7 @@ namespace TC2.Base.Components
 										skip_support = false;
 										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
-										break;
+										//break;
 									}
 									else if (!placement.rect_foundation.HasValue && result_layer.HasAny(Physics.Layer.Support))
 									{
@@ -1241,11 +1244,8 @@ namespace TC2.Base.Components
 						//if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 
 						//if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
-						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, layer: layer, mask: mask, exclude: exclude, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
+						if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, layer: layer, mask: mask, exclude: exclude, require: require, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
-							var physics_filter = placement.physics_filter;
-							var has_physics_filter = !physics_filter.IsEmpty();
-
 							//App.WriteLine(results.Length);
 							foreach (ref var result in results)
 							{
@@ -1256,14 +1256,14 @@ namespace TC2.Base.Components
 								//	errors |= Errors.Obstructed;
 								//}
 
-								if (has_physics_filter)
-								{
-									if (physics_filter.exclude.HasAny(result_layer))
-									{
-										errors |= Errors.Obstructed;
-										continue;
-									}
-								}
+								//if (has_physics_filter)
+								//{
+								//	if (physics_filter.exclude.HasAny(result_layer))
+								//	{
+								//		errors |= Errors.Obstructed;
+								//		continue;
+								//	}
+								//}
 
 								if (result_layer.HasAny(Physics.Layer.World))
 								{
@@ -1280,7 +1280,7 @@ namespace TC2.Base.Components
 										skip_support = false;
 										if (placement.flags.HasNone(Placement.Flags.Ignore_Obstructed)) errors |= Errors.Obstructed;
 
-										break;
+										//break;
 									}
 									else if (!placement.rect_foundation.HasValue && result_layer.HasAny(Physics.Layer.Support))
 									{

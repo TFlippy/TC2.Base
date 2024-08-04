@@ -31,18 +31,35 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings
+		flags: allow_mirror_x, allow_placement_over_buildings, no_snapping
 		
 		size: [2.750, 3.000]
-		offset: [0.000, -0.750]
+		offset: [0.000, -1.500]
+		
+		rect_clearance: [-1.500, -3.250, 1.500, 0.000]
+		tileflags_clearance: solid
 		
 		cooldown: 1.000
-		min_clearance: 0.950
+		min_clearance: 0.990
 		min_claim: 1.000
 		
 		rotation_max: 0.120
 		
 		sound: building_place
+		
+		physics_filter:
+		{
+			include: furniture
+		}
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 0.250
 		
 		mappings_replace:
 		{

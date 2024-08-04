@@ -26,9 +26,16 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support
 		
 		size: [2.000, 1.875]
+		offset: [0.000, -0.750]
+		
+		rect_foundation: [-0.875, 0.250, 0.875, 0.750]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.000, -1.500, 1.000, 0.250]
+		tileflags_clearance: solid
 		
 		cooldown: 0.500
 		min_support: 0.200
@@ -39,11 +46,19 @@
 		
 		sound: building_place
 		
+		physics_filter:
+		{
+			include: furniture
+		}
+		
 		snapping_filter:
 		{
-			include: world, building
+			include: world
 			exclude: dynamic
 		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 0.375
 		
 		mappings_replace:
 		{
