@@ -13,14 +13,18 @@ body:
 	@shape.box:
 	{
 		size: [0.500, 3.000]
-		offset: [0.000, 0.000]
+		
 		mass: 14.000
+		radius: 0.200
 		friction: 0.950
 		elasticity: 0.800
+		rigidity_dynamic: 0.770
+		
 		material: wire
-		layer: entity, solid, building, door, no_overlapped_placement, ignore_bullet
+		miss_chance: 0.973
+		
+		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid
-		miss_chance: 0.950
 	}
 }
 

@@ -1550,7 +1550,7 @@
 			}
 			else if (gun_state.stage == Gun.Stage.Jammed)
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload))
+				if (info.WorldTime >= gun_state.next_cycle && (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload)))
 				{
 					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * Maths.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
@@ -1565,15 +1565,16 @@
 						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
 						gun_state.Sync(entity, true);
 
-						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
 					}
 					else
 					{
 						gun_state.stage = Gun.Stage.Jammed;
+						gun_state.next_cycle = info.WorldTime + gun.cycle_interval;
 						gun_state.Sync(entity, true);
 
-						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.10f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 1.10f);
+						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
 						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);
 					}
 #endif

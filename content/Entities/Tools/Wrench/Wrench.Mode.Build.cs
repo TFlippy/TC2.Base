@@ -360,7 +360,7 @@ namespace TC2.Base.Components
 
 												var no_snap = snapping_flags.HasAny(pos_a_raw.HasValue ? Placement.SnappingFlags.No_End_Snap : Placement.SnappingFlags.No_Start_Snap);
 
-												if (!no_snap && ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty()))
+												if (!no_snap && !kb.GetKey(Keyboard.Key.LeftShift) && ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty()))
 												{
 													if (region.TryOverlapPoint(pos_raw, radius: snapping_radius, out var overlap_result, mask: snapping_filter.include, require: snapping_filter.require, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
 													{
