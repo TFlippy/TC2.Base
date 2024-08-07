@@ -1468,7 +1468,25 @@ namespace TC2.Base.Components
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
 												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
 
-												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, mappings_replace: placement.mappings_replace);
+												var tile_meta = 0u;
+
+												// TODO: WIP/experimental, looks kinda ugly atm in most cases
+												if (placement.flags.HasAny(Placement.Flags.Align_Background))
+												{
+													var offset_top_left = ((pos_a + (placement.size * 0.50f)) * App.pixels_per_unit).Floor();
+													offset_top_left.X %= placement.size.X;
+													offset_top_left.Y %= placement.size.Y;
+
+													var tile_offset_x = ((uint)offset_top_left.X) & 0xf; // (((uint)(16 - offset_top_left.X)) & 0xf);
+													var tile_offset_y = ((uint)offset_top_left.Y) & 0xf; // (((uint)(16 - offset_top_left.Y)) & 0xf);
+
+													//App.WriteLine($"{tile_offset_x}; {tile_offset_y} {offset_top_left}");
+
+													tile_meta |= tile_offset_x;
+													tile_meta |= tile_offset_y << 4;
+												}
+
+												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, meta: (byte)tile_meta, mappings_replace: placement.mappings_replace);
 												switch (placement.type)
 												{
 													case Placement.Type.Rectangle:
@@ -1923,7 +1941,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 				#region SetTile
-				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
+				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, byte meta, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
 				{
 					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
@@ -1933,6 +1951,7 @@ namespace TC2.Base.Components
 						tile.Health = 255;
 						tile.BlockID = (byte)args.block.id;
 						tile.Flags |= args.tile_flags;
+						tile.Meta = args.meta;
 
 						args.count++;
 					}
