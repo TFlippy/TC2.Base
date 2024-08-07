@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, woodworking
+	tags: workbench, manual, simple, furniture, woodworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

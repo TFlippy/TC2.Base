@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Grandma's Traditional Mortar"
 	desc:
 		'''
@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, crude, primitive, manual, dumb, cooking
+	tags: workbench, manual, crude, primitive, simple, dumb, cooking, biology
 	
 	color_button: "0xffaeb59a"
 	rank: -158.000

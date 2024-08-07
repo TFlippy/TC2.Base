@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Slimy Mortar"
 	desc:
 		'''
@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, workbench, simple, primitive, manual, dumb
+	tags: workbench, manual, primitive, simple, dangerous, dumb, biology
 	
 	color_button: "0xffaeb59a"
 	rank: -158.000

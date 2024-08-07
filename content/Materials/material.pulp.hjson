@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Pulp"
 	description:
 		'''
@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.110
+	mass_per_unit: 0.220
 	quantity_max: 500.000
 	prefab: resource.pulp
 	

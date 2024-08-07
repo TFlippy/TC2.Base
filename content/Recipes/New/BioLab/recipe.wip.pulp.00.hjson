@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
-	name: "Filtered Toxic Water"
+	name: "Pulp"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.water.toxic
+		texture: resource.pulp
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, dangerous, chemistry, science, biology, refining
+	tags: manual, simple, organic, chemistry, biology, agriculture
 	
 	color_button: "0xffaeb59a"
 	rank: -157.000
@@ -43,7 +43,7 @@
 	[
 		{
 			type: resource
-			material: shite
+			material: pulp
 			amount: 1.000
 			group: 0
 		}

@@ -29,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, small, chemistry, refining
+	tags: workbench, manual, simple, small, chemistry, refining, biology, laboratory
 	
 	color_button: "0xff80dc7e"
 	rank: -9.000

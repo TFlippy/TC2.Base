@@ -35,7 +35,7 @@ interactable:
 {
 	flags: none
 	priority: 1.000
-	window_size: [660.000, 556.000]
+	window_size: [660.000, 660.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -92,8 +92,9 @@ laboratory:
 	augments_capacity: 10
 	filter_tags:
 	{
-		include: explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: salvaging, social, gathering
+		require: manual, chemistry
+		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
+		exclude: wrench, large, furniture, organic, blacksmithing, salvaging, social, agriculture
 	}
 }
 
@@ -103,8 +104,9 @@ shop:
 	
 	tags_filter:
 	{
-		include: explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: blacksmithing, salvaging, social, gathering
+		require: manual, chemistry
+		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
+		exclude: wrench, large, furniture, organic, blacksmithing, cooking, salvaging, social, gathering, agriculture
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, file, towel, spatula, tongs, pick, knife
@@ -125,7 +127,7 @@ workshop:
 	@inventory16:
 	{
 		type: workshop
-		flags: standalone, ignore_mass, faction
+		flags: standalone, allow_ducts, ignore_mass, faction
 		stack_size_multiplier: 2.000
 		
 		offset: [0.000, 0.000]

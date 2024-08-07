@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, dangerous, essence, woodworking, science, forming, shaping, refining
+	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping, refining
 	
 	color_button: "0xff19e2b1"
 	rank: -17.000

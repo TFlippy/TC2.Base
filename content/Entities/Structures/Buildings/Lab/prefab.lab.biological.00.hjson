@@ -35,7 +35,7 @@ interactable:
 {
 	flags: none
 	priority: 1.000
-	window_size: [900.000, 600.000]
+	window_size: [660.000, 660.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -89,10 +89,12 @@ claimable:
 
 laboratory:
 {
+	augments_capacity: 10
 	filter_tags:
 	{
-		include: automated, passive, advanced, cooking, medical, research, science, refining, fermenting
-		exclude: vehicle, machining, metalworking, engineering, machinery
+		require: manual, biology
+		include: laboratory, food, organic, cooking, chemistry, medical, research, science, biology, agriculture
+		exclude: wrench, large, vehicle, munitions, furniture, blacksmithing, machining, stoneworking, social, smelting
 	}
 }
 
@@ -102,31 +104,31 @@ shop:
 	
 	tags_filter:
 	{
-		require: manual
-		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
-		exclude: wrench, automated, passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
+		require: manual, biology
+		include: laboratory, food, organic, cooking, chemistry, medical, research, science, biology, agriculture
+		exclude: wrench, large, vehicle, munitions, furniture, blacksmithing, machining, stoneworking, social, smelting
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
-	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
-	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible
-	work_environment: indoor, warm, workshop, stationary, clean, noisy
+	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, syringe, towel, spatula, tongs, pick, knife
+	work_machines: heater, blender, sprayer, mixer
+	work_equipment: tap, cauldron, glassware, dishes, bottle, barrel, table, chair, rack
+	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, scary
 	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 10
-	blueprints_capacity: 12
+	menu_columns: 4
+	blueprints_capacity: 10
 }
 
 workshop:
 {
-	orders_capacity: 8
+	orders_capacity: 4
 
 	@inventory16:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, public, faction
-		stack_size_multiplier: 5.000
+		flags: standalone, allow_ducts, ignore_mass, faction
+		stack_size_multiplier: 3.000
 		
 		offset: [0.000, 0.000]
 	}
@@ -168,29 +170,29 @@ personnel:
 	characters_capacity: 4
 }
 
-spawn:
-{
-	flags: faction
-}
+// spawn:
+// {
+// 	flags: faction
+// }
 
-dormitory:
-{
-	species: human
-	flags: no_kit_selection, no_kit_requirements, region_only
-	characters_capacity: 3
-	characters_initial_count: 1
-	repopulate_interval: 300.000
-	repopulate_interval_extra: 600.000
-	repopulate_num: 1
-	repopulate_num_extra: 2
-	repopulate_max: 1
-	move_radius: 12.000
-	asset_flags: recycle
-	character_flags_filter:
-	{
-		require: engineer
-		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
-		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
-		weight: 1.000
-	}
-}
+// dormitory:
+// {
+// 	species: human
+// 	flags: no_kit_selection, no_kit_requirements, region_only
+// 	characters_capacity: 3
+// 	characters_initial_count: 1
+// 	repopulate_interval: 300.000
+// 	repopulate_interval_extra: 600.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 2
+// 	repopulate_max: 1
+// 	move_radius: 12.000
+// 	asset_flags: recycle
+// 	character_flags_filter:
+// 	{
+// 		require: engineer
+// 		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
+// 		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+// 		weight: 1.000
+// 	}
+// }

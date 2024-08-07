@@ -29,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, advanced, dangerous, explosive, chemistry, refining
+	tags: laboratory, manual, advanced, dangerous, explosive, chemistry, science, refining
 	
 	color_button: "0xffcf392b"
 	rank: 90.000
