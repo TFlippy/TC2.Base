@@ -66,8 +66,8 @@ building:
 
 nameable:
 {
-	tags: chemical, tech, dangerous, industrial, tool, factory
-	type: tool
+	tags: chemical, tech, tool
+	type: consumable
 	flags: randomize
 	max_length: 16
 }
@@ -89,10 +89,11 @@ claimable:
 
 laboratory:
 {
+	augments_capacity: 10
 	filter_tags:
 	{
 		include: explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: social, gathering, salvaging
+		exclude: salvaging, social, gathering
 	}
 }
 
@@ -103,13 +104,13 @@ shop:
 	tags_filter:
 	{
 		include: explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: social, gathering, salvaging, blacksmithing
+		exclude: blacksmithing, salvaging, social, gathering
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: none
-	work_environment: none
+	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, file, towel, spatula, tongs, pick, knife
+	work_machines: condenser, heater, blender, sprayer, stove, mixer
+	work_equipment: tap, cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	work_environment: indoor, workshop, stationary, clean, scary
 	recipe_type: workshop
 	
 	flags: none
@@ -119,13 +120,13 @@ shop:
 
 workshop:
 {
-	orders_capacity: 8
+	orders_capacity: 4
 
 	@inventory16:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, public, faction
-		stack_size_multiplier: 5.000
+		flags: standalone, ignore_mass, faction
+		stack_size_multiplier: 2.000
 		
 		offset: [0.000, 0.000]
 	}

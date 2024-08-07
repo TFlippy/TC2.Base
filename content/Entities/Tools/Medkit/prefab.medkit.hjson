@@ -1,7 +1,7 @@
 $name: "Medkit"
 $desc: 
 	'''
-	A bag with various tools for treating injuries.
+	Bag with various tools for treating injuries.
 	'''
 $tags: []
 
@@ -11,7 +11,7 @@ body:
 	{
 		size: [1.000, 0.700]
 		offset: [0.000, 0.200]
-		mass: 2.000
+		mass: 4.500
 		friction: 0.980
 		elasticity: 0.010
 		material: fabric
@@ -22,7 +22,7 @@ body:
 
 health:
 {
-	max: 500.000
+	max: 900.000
 }
 
 control:

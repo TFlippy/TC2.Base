@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
 	name: "Medkit"
-	desc:
-		'''
-		Bag with various tools for treating injuries.
-		'''
 	tips: []
 	
 	icon:
@@ -17,8 +13,8 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, manual, simple, small, tool, assembling, tailoring, medical
+	flags: blueprintable, wip
+	tags: workbench, manual, simple, small, tool, tailoring, chemistry, medical, science, biology
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -32,16 +28,29 @@
 			group: 0
 		}
 		{
+			type: work
+			work: tailoring
+			amount: 320.000
+			difficulty: 4
+			group: 0
+		}
+		{
 			type: resource
-			material: steel.ingot
-			amount: 2.000
+			material: steel.frames
+			amount: 0.500
 			group: 0
 		}
 		{
 			type: work
 			work: assembling
-			amount: 150.000
-			difficulty: 8
+			amount: 100.000
+			difficulty: 5
+			group: 0
+		}
+		{
+			type: resource
+			material: alcohol
+			amount: 4.000
 			group: 0
 		}
 	]
