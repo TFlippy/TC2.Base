@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
-	name: "Filtered Toxic Water"
+	name: "Filtered Sea Water"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.water.toxic
+		texture: resource.water.sea
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, dangerous, chemistry, science, refining
+	tags: manual, simple, chemistry, science, biology, refining
 	
 	color_button: "0xffaeb59a"
 	rank: -157.000

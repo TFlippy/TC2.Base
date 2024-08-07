@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
-	name: "Nitric Acid"
+	name: "Filtered Dirty Water"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.nitric_acid
+		texture: resource.water.dirty
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, refining
+	tags: manual, simple, chemistry, science, biology, refining
 	
 	color_button: "0xffaeb59a"
 	rank: -157.000
@@ -43,7 +43,7 @@
 	[
 		{
 			type: resource
-			material: nitric_acid
+			material: shite
 			amount: 1.000
 			group: 0
 		}

@@ -35,7 +35,7 @@ interactable:
 {
 	flags: none
 	priority: 1.000
-	window_size: [868.000, 600.000]
+	window_size: [660.000, 556.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -114,7 +114,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 6
+	menu_columns: 4
 	blueprints_capacity: 10
 }
 
@@ -168,29 +168,94 @@ personnel:
 	characters_capacity: 4
 }
 
-spawn:
-{
-	flags: faction
-}
+// spawn:
+// {
+// 	flags: faction
+// }
 
-dormitory:
+// dormitory:
+// {
+// 	species: human
+// 	flags: no_kit_selection, no_kit_requirements, region_only
+// 	characters_capacity: 3
+// 	characters_initial_count: 1
+// 	repopulate_interval: 300.000
+// 	repopulate_interval_extra: 600.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 2
+// 	repopulate_max: 1
+// 	move_radius: 12.000
+// 	asset_flags: recycle
+// 	character_flags_filter:
+// 	{
+// 		require: engineer
+// 		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
+// 		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+// 		weight: 1.000
+// 	}
+// }
+
+// animated.renderer|"exhaust":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [16, 16]
+// 		frame: [0, 1]
+// 	}
+// 	offset: [-0.250, -1.500]
+// 	z: -285.000
+// }
+
+// animated.renderer|"intake":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [8, 8]
+// 		frame: [0, 1]
+// 	}
+// 	z: -275.000
+// }
+
+// sound.emitter|"aux":
+// {
+// 	file: "burner.gas.loop.01"
+// 	volume: 0.300
+// 	pitch: 0.700
+// 	size: 1.000
+// 	size_max_modifier: 0.500
+// }
+
+// air.vent|"exhaust":
+// {
+// 	type: exhaust
+// 	offset: [0.250, -1.625]
+// 	rotation: -1.571
+// 	cross_section: 0.200
+// }
+
+// air.vent|"intake":
+// {
+// 	type: intake
+// 	offset: [-0.250, 0.500]
+// 	rotation: 1.571
+// 	cross_section: 0.200
+// }
+
+// air.container:
+// {
+// 	volume: 2.000
+// }
+
+refinery:
 {
-	species: human
-	flags: no_kit_selection, no_kit_requirements, region_only
-	characters_capacity: 3
-	characters_initial_count: 1
-	repopulate_interval: 300.000
-	repopulate_interval_extra: 600.000
-	repopulate_num: 1
-	repopulate_num_extra: 2
-	repopulate_max: 1
-	move_radius: 12.000
-	asset_flags: recycle
-	character_flags_filter:
+	@inventory4:
 	{
-		require: engineer
-		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
-		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
-		weight: 1.000
+		type: gas
+		flags: standalone, ignore_mass, faction
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
 	}
 }

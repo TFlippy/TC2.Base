@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
-	name: "Nitric Acid"
+	name: "Benzene"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.nitric_acid
+		texture: resource.benzene
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -43,7 +43,7 @@
 	[
 		{
 			type: resource
-			material: nitric_acid
+			material: benzene
 			amount: 1.000
 			group: 0
 		}
