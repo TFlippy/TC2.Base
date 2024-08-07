@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Dismantle Computer"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, salvaging, metalworking, manual, advanced, engineering, magitronics
+	tags: workbench, manual, magitronics, metalworking, engineering, salvaging
 	
 	color_button: "0xffac7534"
 	rank: -134.000

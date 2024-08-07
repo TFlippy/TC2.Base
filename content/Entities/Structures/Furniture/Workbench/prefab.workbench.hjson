@@ -94,7 +94,7 @@ shop:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: wrench, passive, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
+		exclude: wrench, passive, advanced, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
 	}
 	
 	work_tools: hammer, saw, bucket, tongs, knife

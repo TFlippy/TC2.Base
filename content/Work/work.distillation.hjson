@@ -1,0 +1,55 @@
+﻿{
+	$version: "0.1.61.1"
+	name: "Distillation"
+	name_short: "Distillation"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [12, 0]
+	}
+	
+	flags: none
+	tags: manual, skilled, machine, automated, science, dangerous, technical, chemical, careful, industrial, wip
+	cooldown: 1.000
+	multiplier: 1.000
+	color: "0x8f14d081"
+	
+	tools_required: none
+	tools_optional: syringe
+	
+	machinery_required: none
+	machinery_optional: centrifuge, condenser, heater
+	
+	equipment_required: none
+	equipment_optional: glassware, bottle
+	
+	character_traits:
+	{
+		include: construction, scientist, educated, medical, laborer, technician, engineer, chemist, culinary, arcane, junkie
+		exclude: dumb
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: []
+}

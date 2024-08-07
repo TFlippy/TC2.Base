@@ -27,7 +27,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, advanced, metalworking, salvaging, research
+	tags: workbench, manual, simple, metalworking, salvaging, research
 	
 	color_button: "0xffac7534"
 	rank: -131.000
