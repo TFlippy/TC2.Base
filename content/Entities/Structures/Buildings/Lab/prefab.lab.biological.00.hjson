@@ -34,7 +34,7 @@ animated.renderer:
 interactable:
 {
 	flags: none
-	priority: 0.750
+	priority: 1.000
 	window_size: [900.000, 600.000]
 	window_size_misc: [216.000, 0.000]
 }
@@ -66,8 +66,8 @@ building:
 
 nameable:
 {
-	tags: tech, industrial, tool, factory
-	type: location
+	tags: chemical, tech, dangerous, industrial, tool, factory
+	type: tool
 	flags: randomize
 	max_length: 16
 }
@@ -89,28 +89,32 @@ claimable:
 
 laboratory:
 {
-	blueprints_capacity: 4
 	filter_tags:
 	{
-		include: weapon, gun, assembling, machining, metalworking, automated, engineering, industry
+		include: automated, passive, advanced, cooking, medical, research, science, refining, fermenting
+		exclude: vehicle, machining, metalworking, engineering, machinery
 	}
 }
 
 shop:
 {
-	name: "Biolab"
+	name: "Biological Laboratory"
 	
-	tags: salvaging, assembling, machining, munitions, metalworking, engineering, industry
-	tags_require: none
-	tags_exclude: fermenting, crude, medical, primitive, automated, passive, dumb, social, wrench, overworld
+	tags_filter:
+	{
+		require: manual
+		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
+		exclude: wrench, automated, passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
+	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife
 	work_machines: lathe, grinder, heater, burner, compressor, stove, mixer
 	work_equipment: anvil, forge, dishes, barrel, table, chair, vise, rack, crucible
 	work_environment: indoor, warm, workshop, stationary, clean, noisy
+	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 6
+	menu_columns: 10
 	blueprints_capacity: 12
 }
 
@@ -156,17 +160,12 @@ personnel:
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
+		null
 		null
 		null
 		null
 	]
-	characters_capacity: 5
+	characters_capacity: 4
 }
 
 spawn:
@@ -184,7 +183,7 @@ dormitory:
 	repopulate_interval_extra: 600.000
 	repopulate_num: 1
 	repopulate_num_extra: 2
-	repopulate_max: 3
+	repopulate_max: 1
 	move_radius: 12.000
 	asset_flags: recycle
 	character_flags_filter:

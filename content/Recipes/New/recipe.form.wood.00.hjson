@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Wooden Form"
 	tips: []
 	
@@ -14,7 +14,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, workbench, woodworking, medical, research, refining, manual, advanced, shaping, chemistry
+	tags: workbench, manual, simple, woodworking
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

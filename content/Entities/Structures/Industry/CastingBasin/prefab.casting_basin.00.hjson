@@ -26,6 +26,7 @@ body:
 		material: concrete
 		
 		layer: entity, solid, building, ignore_melee
+		mask: building, world, construction, door
 	}
 }
 

@@ -12,10 +12,10 @@ body:
 	
 	@shape.box:
 	{
-		size: [0.500, 3.000]
+		size: [0.500, 2.750]
 		
 		mass: 14.000
-		radius: 0.200
+		radius: 0.250
 		friction: 0.950
 		elasticity: 0.800
 		rigidity_dynamic: 0.770
@@ -76,8 +76,8 @@ door:
 {
 	sound_open: "door_open"
 	sound_close: "door_close"
-	size_open: [1.600, 3.000]
-	size_closed: [0.500, 3.000]
+	size_open: [1.600, 2.750]
+	size_closed: [0.500, 2.750]
 	offset_open: [0.700, 0.000]
 	offset_closed: [0.000, 0.000]
 	direction: horizontal
