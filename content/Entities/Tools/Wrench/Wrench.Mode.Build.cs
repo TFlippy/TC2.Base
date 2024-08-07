@@ -467,6 +467,8 @@ namespace TC2.Base.Components
 													rot_final: out var rot_final,
 													bb: out var bb);
 
+												//region.DrawDebugDir(pos, normal_surface * 8, color: Color32BGRA.Yellow);
+
 												//rot_final += rot_offset;
 
 												var transform = new Transform.Data(pos_final, rot_final, scale);
@@ -1006,7 +1008,7 @@ namespace TC2.Base.Components
 							errors |= Wrench.Mode.Build.Errors.MinLength;
 						}
 
-						if (placement.length_max > Maths.epsilon && len > placement.length_max + placement.length_step)
+						if (placement.length_max > Maths.epsilon && len > (placement.length_max + placement.size.GetMax()) + 0.125f)
 						{
 							errors |= Wrench.Mode.Build.Errors.MaxLength;
 						}
@@ -1339,6 +1341,16 @@ namespace TC2.Base.Components
 
 							pos_a = pos_a.Snap(0.125f);
 							pos_b = pos_b.Snap(0.125f);
+
+							if (pos_a_raw.HasValue && placement.snapping_flags.HasAll(Placement.SnappingFlags.Align_To_Surface | Placement.SnappingFlags.Rotate_Line_Normal))
+							{
+								var cross = Maths.Cross(dir, normal);
+								if (cross < 0.00f)
+								{
+									(pos_a, pos_b) = (pos_b, pos_a);
+								}
+								//App.WriteLine($"{dir}; {normal}; {Maths.Cross(dir, normal)}");
+							}
 
 							pos_final = pos_a;
 						}

@@ -19,7 +19,7 @@ body:
 		rigidity_static: 0.050
 		material: wire
 		layer: entity, building, no_overlapped_placement, barbed
-		mask: solid, creature, no_overlapped_placement
+		mask: world, solid, creature, no_overlapped_placement
 		exclude: vehicle, gas, water, fire
 		miss_chance: 0.750
 	}

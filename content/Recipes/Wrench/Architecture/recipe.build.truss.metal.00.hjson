@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Truss (Metal)"
 	desc:
 		'''
@@ -33,14 +33,14 @@
 		
 		size: [0.500, 0.500]
 		
-		cooldown: 0.300
+		cooldown: 1.000
 		min_support: 0.150
 		min_clearance: 0.500
 		min_claim: 1.000
 		
-		length_min: 1.000
+		length_min: 0.500
 		length_max: 16.000
-		length_step: 0.250
+		length_step: 0.500
 		
 		sound: building_place
 		
@@ -49,9 +49,9 @@
 			include: world, building
 			exclude: no_overlapped_placement, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
-		snapping_radius: 0.500
-		snapping_depth: 0.125
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius
+		snapping_radius: 0.250
+		snapping_depth: 0.375
 		
 		mappings_replace:
 		{

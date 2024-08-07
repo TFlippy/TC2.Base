@@ -1231,7 +1231,7 @@
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
-								App.WriteLine(shockwave_radius);
+								//App.WriteLine(shockwave_radius);
 								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (Entity ent_explosion, ref Explosion.Data explosion) =>
 								{
 									explosion.power = 2.00f;

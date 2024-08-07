@@ -29,15 +29,17 @@
 	placement:
 	{
 		type: line
-		flags: continuous, allow_placement_over_buildings
+		flags: allow_placement_over_buildings, terrain_is_support
 		
 		size: [2.000, 2.000]
-		snap: [0.125, 0.125]
+		snap: [0.250, 0.250]
 		
 		cooldown: 0.500
-		min_support: 0.100
+		min_support: 0.300
 		min_clearance: 0.600
 		min_claim: 1.000
+		
+		length_min: 1.000
 		length_max: 8.000
 		
 		sound: building_place
@@ -47,7 +49,8 @@
 			include: world, building
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, rotate_line_normal
+		snapping_radius: 0.500
 		snapping_depth: 0.750
 		
 		mappings_replace:
