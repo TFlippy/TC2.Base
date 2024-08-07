@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Medkit"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, medical, assembling, tailoring, manual
+	tags: workbench, manual, simple, small, tool, assembling, tailoring, medical
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000

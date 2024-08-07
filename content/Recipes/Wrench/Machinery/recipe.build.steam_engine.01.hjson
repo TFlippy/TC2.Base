@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Steam Engine (Huprecht)"
 	desc:
 		'''
@@ -21,7 +21,7 @@
 	
 	type: build
 	flags: disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: wrench, large, metalworking, engineering, machinery
 	
 	color_button: "0xffaeb59a"
 	rank: -58.000
@@ -45,6 +45,12 @@
 		rotation_max: 0.350
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
 		
 		mappings_replace:
 		{
@@ -89,7 +95,7 @@
 		}
 		{
 			type: resource
-			material: stone
+			material: "null"
 			amount: 100.000
 			group: 0
 		}

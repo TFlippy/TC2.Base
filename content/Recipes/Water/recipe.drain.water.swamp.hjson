@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Drained Water (Swampy)"
 	desc:
 		'''
@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, primitive, manual, dumb, gathering
+	tags: workbench, manual, simple, gathering
 	
 	color_button: "0xffaeb59a"
 	rank: -10.000

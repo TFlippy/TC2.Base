@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Mount (Static, Rotary)"
 	desc:
 		'''
@@ -19,7 +19,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: metalworking, machinery, wrench
+	tags: wrench, large, metalworking, engineering, machinery
 	
 	color_button: "0xffaeb59a"
 	rank: -190.000
@@ -43,6 +43,12 @@
 		rotation_max: 0.200
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
 		
 		mappings_replace:
 		{

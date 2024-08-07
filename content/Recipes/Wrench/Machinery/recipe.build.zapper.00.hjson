@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Zapper"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: build
 	flags: blueprintable, disabled, wip
-	tags: wrench, metalworking, machinery
+	tags: wrench, large, metalworking, engineering, machinery
 	
 	color_button: "0xffa11209"
 	rank: -109.000
