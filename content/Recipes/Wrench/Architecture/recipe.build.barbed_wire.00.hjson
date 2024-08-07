@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Barbed Wire [WIP]"
 	desc:
 		'''
@@ -29,19 +29,16 @@
 	placement:
 	{
 		type: line
-		flags: allow_placement_over_buildings, terrain_is_support
+		flags: continuous, allow_placement_over_buildings
 		
-		size: [2.500, 2.500]
-		snap: [0.250, 0.250]
+		size: [2.000, 2.000]
+		snap: [0.125, 0.125]
 		
-		cooldown: 0.300
+		cooldown: 0.500
 		min_support: 0.100
 		min_clearance: 0.600
 		min_claim: 1.000
-		
-		length_min: 1.000
 		length_max: 8.000
-		length_step: 0.250
 		
 		sound: building_place
 		
@@ -50,8 +47,8 @@
 			include: world, building
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius
-		snapping_radius: 0.500
+		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius
+		snapping_depth: 0.750
 		
 		mappings_replace:
 		{

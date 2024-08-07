@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Chain-Link Fence"
 	tips: []
 	
@@ -29,17 +29,17 @@
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
 		size: [5.000, 4.000]
-		offset: [0.000, -1.000]
+		offset: [0.000, -2.000]
 		
-		rect_foundation: [-2.500, 0.750, 2.500, 1.500]
+		rect_foundation: [-2.500, 0.000, 2.500, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-2.375, -2.500, 2.375, 0.750]
+		rect_clearance: [-2.375, -3.750, 2.375, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
-		min_support: 0.750
-		min_clearance: 0.920
+		min_support: 0.700
+		min_clearance: 0.950
 		min_claim: 1.000
 		
 		rotation_max: 0.400
@@ -51,9 +51,9 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.500
+		snapping_depth: 0.375
 		
 		mappings_replace:
 		{

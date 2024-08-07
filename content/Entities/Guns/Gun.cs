@@ -1231,13 +1231,13 @@
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
-								//App.WriteLine(shockwave_radius);
+								App.WriteLine(shockwave_radius);
 								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (Entity ent_explosion, ref Explosion.Data explosion) =>
 								{
-									explosion.power = 3.00f;
+									explosion.power = 2.00f;
 									explosion.radius = shockwave_radius;
-									explosion.damage_entity = 100.00f * shockwave_radius;
-									explosion.damage_terrain = 50.00f * shockwave_radius;
+									explosion.damage_entity = 10.00f * shockwave_radius;
+									explosion.damage_terrain = 10.00f * shockwave_radius;
 									explosion.damage_type = Damage.Type.Shockwave;
 									explosion.damage_type_secondary = Damage.Type.Shockwave;
 									explosion.ent_owner = entity;
@@ -1250,9 +1250,9 @@
 									explosion.sparks_amount = 0.00f;
 									explosion.volume = 0.00f;
 									explosion.pitch = 0.00f;
-									explosion.stun_multiplier = 0.60f;
+									explosion.stun_multiplier = 1.40f;
 									explosion.shake_multiplier = shake_amount;
-									explosion.force_multiplier = 0.19f;
+									explosion.force_multiplier = 0.20f;
 									explosion.flags |= Explosion.Flags.No_Split;
 									explosion.ent_ignored = entity;
 

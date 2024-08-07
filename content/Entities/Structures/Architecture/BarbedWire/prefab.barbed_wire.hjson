@@ -10,22 +10,24 @@ body:
 	{
 		a: [-1.000, 0.000]
 		b: [1.000, 0.000]
-		offset: [0.000, 0.250]
+		offset: [0.000, 0.000]
 		mass: 25.000
-		radius: 1.000
-		friction: 0.200
-		elasticity: 0.200
+		radius: 1.250
+		friction: 0.950
+		elasticity: 0.750
 		rigidity_dynamic: 0.050
 		rigidity_static: 0.050
 		material: wire
-		layer: entity, building, ignore_bullet, ignore_melee, no_overlapped_placement, barbed
+		layer: entity, building, no_overlapped_placement, barbed
 		mask: solid, creature, no_overlapped_placement
+		exclude: vehicle, gas, water, fire
+		miss_chance: 0.750
 	}
 }
 
 health:
 {
-	max: 2000.000
+	max: 8000.000
 }
 
 animated.renderer:
@@ -54,7 +56,8 @@ resizable:
 		texture: "barbed_wire.cap"
 	}
 
-	flags: mirror_cap_b
+	cap_offset: 0.375
+	flags: mirror_cap_b, shape_cap_offset
 }
 
 barbedwire:

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Ladder (Metal)"
 	desc:
 		'''
@@ -52,7 +52,7 @@
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius
 		snapping_radius: 0.250
-		snapping_depth: 0.250
+		snapping_depth: 0.500
 		
 		mappings_replace:
 		{
