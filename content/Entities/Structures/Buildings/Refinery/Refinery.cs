@@ -1,5 +1,173 @@
 ﻿namespace TC2.Base.Components
 {
+	public static partial class Heater
+	{
+		[ITrait.Data(Net.SendType.Unreliable)]
+		public struct Data: ITrait
+		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Use_Misc = 1 << 0
+			}
+
+			public Heater.Data.Flags flags;
+
+			public Temperature temperature_target;
+			public Temperature temperature_current;
+
+			[Save.Ignore, Net.Ignore] public float t_next_update;
+
+			public Data()
+			{
+
+			}
+		}
+
+		//[IComponent.Data(Net.SendType.Unreliable)]
+		//public struct State: IComponent
+		//{
+		//	public Temperature temperature_target;
+		//	public Temperature temperature_current;
+
+		//	[Save.Ignore, Net.Ignore] public float t_next_update;
+		//}
+
+//		public struct ConfigureRPC: Net.IRPC<Heater.State>
+//		{
+//#if SERVER
+//			public void Invoke(ref NetConnection connection, Entity entity, ref Heater.State data)
+//			{
+//				//ref var region = ref entity.GetRegion();
+//				//if (region.GetWorldTime() >= data.t_next_edit)
+//				//{
+//				//	data.t_next_edit = region.GetWorldTime() + 0.10f;
+
+//				//	var sync = false;
+
+//				//	if (this.burner_modifier.TryGetValue(out var v_burner_modifier))
+//				//	{
+//				//		ref var burner_state = ref entity.GetComponent<Burner.State>();
+//				//		if (burner_state.IsNotNull())
+//				//		{
+//				//			if (burner_state.modifier_intake_target.TrySet(v_burner_modifier.Clamp01()))
+//				//			{
+//				//				burner_state.Sync(entity, true);
+//				//			}
+//				//		}
+//				//	}
+
+//				//	if (sync)
+//				//	{
+//				//		data.Sync(entity, true);
+//				//	}
+//				//}
+//			}
+//#endif
+//		}
+
+		public const float update_interval = 0.20f;
+		public const float update_interval_failed = 3.00f;
+
+		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
+
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned, Pair.Wildcard] ref Heater.Data heater, IComponent.Handle h_heater)
+		{
+			var time = info.WorldTime;
+			if (time >= heater.t_next_update)
+			{
+				heater.t_next_update = time + update_interval;
+				//App.WriteLine("a");
+			}
+		}
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateEssence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Heater.Data heater, IComponent.Handle h_heater)
+		{
+			var time = info.WorldTime;
+			if (time >= heater.t_next_update)
+			{
+				ref var essence_data = ref essence_container.h_essence.GetData();
+				if (essence_data.IsNotNull())
+				{
+					heater.temperature_target = essence_data.heat_emit * essence_container.rate * essence_container.available;
+				}
+				//App.WriteLine("a");
+
+				//heater.t_next_update = time + update_interval;
+			}
+
+			heater.temperature_current.m_value.MoveTowardsDamped(heater.temperature_target.m_value, 5.00f, 0.10f);
+		}
+
+#if CLIENT
+		public struct HeaterGUI: IGUICommand
+		{
+			public Entity ent_heater;
+
+			public Transform.Data transform;
+
+			public Heater.Data heater;
+			public IComponent.Handle h_heater;
+
+			public void Draw()
+			{
+				using (var window = GUI.Window.InteractionMisc("Heater"u8, this.ent_heater, size: new(24, 96 * 1)))
+				{
+					this.StoreCurrentWindowTypeID(order: -100);
+					if (window.show)
+					{
+						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+						{
+							GUI.DrawTemperatureRange(this.heater.temperature_current, this.heater.temperature_target, 2000, size: GUI.Rm);
+						}
+					}
+				}
+			}
+		}
+
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnGUI(Entity entity,
+		[Source.Owned, Pair.Wildcard] in Heater.Data heater, IComponent.Handle h_heater,
+		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform)
+		{
+			if (interactable.IsActive())
+			{
+				var gui = new HeaterGUI()
+				{
+					ent_heater = entity,
+
+					transform = transform,
+
+					heater = heater,
+					h_heater = h_heater
+				};
+				gui.Submit();
+			}
+		}
+#endif
+
+//#if CLIENT
+//		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+//		public static void UpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random,
+//		[Source.Owned] in Transform.Data transform,
+//		[Source.Owned] in Heater.Data heater, [Source.Owned] ref Heater.State heater_state,
+//		[Source.Owned, Pair.Component<Heater.State>, Optional(true)] ref Sound.Emitter sound_emitter,
+//		[Source.Owned, Pair.Component<Heater.State>, Optional(true)] ref Light.Data light)
+//		{
+
+//		}
+//#endif
+	}
+
+
 	public static partial class Refinery
 	{
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Refinery.State>]
@@ -153,6 +321,9 @@
 			public Entity ent_refinery;
 
 			public Transform.Data transform;
+
+			public Heater.Data heater;
+			public IComponent.Handle h_heater;
 
 			public Refinery.Data refinery;
 			public Refinery.State refinery_state;
@@ -322,9 +493,10 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global)]
-		public static void OnGUI(Entity entity, 
+		public static void OnGUI(Entity entity, IComponent.Handle h_heater, 
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, 
-		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform)
+		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
+		[Source.Owned, Pair.First, Optional] in Heater.Data heater)
 		{
 			if (interactable.IsActive())
 			{
@@ -333,6 +505,9 @@
 					ent_refinery = entity,
 
 					transform = transform,
+
+					heater = heater,
+					h_heater = h_heater,
 
 					refinery = refinery,
 					refinery_state = refinery_state,

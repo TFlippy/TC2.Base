@@ -469,7 +469,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSprite(ref XorRandom random,
 		[Source.Owned] in Levitator.Data levitator,
-		[Source.Owned, Pair.Of<Levitator.Data>] ref Animated.Renderer.Data renderer)
+		[Source.Owned, Pair.Component<Levitator.Data>] ref Animated.Renderer.Data renderer)
 		{
 			renderer.offset = Vector2.Lerp(renderer.offset, levitator.offset + random.NextUnitVector2Range(0.03f, 0.05f), 0.50f);
 		}
@@ -571,7 +571,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, Entity entity,
 		[Source.Owned] in Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref EssenceContainer.Data container,
-		[Source.Owned, Pair.Of<EssenceContainer.Data>] ref Sound.Emitter sound_emitter)
+		[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var dir = levitator_state.current_direction;
 			//var force_len = levitator_state.current_force * 0.001f * 0.10f;

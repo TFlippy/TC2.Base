@@ -252,12 +252,49 @@ personnel:
 
 refinery:
 {
-	@inventory4:
+	@inventory2:
 	{
 		type: gas
 		flags: standalone, ignore_mass, faction
 		stack_size_multiplier: 2.000
 		
 		offset: [0.000, 0.000]
+	}
+}
+
+essencecontainer:
+{
+	stability: 0.900
+	health_threshold: 0.500
+	flags: show_gui, allow_edit_rate
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass
+		stack_size_multiplier: 0.100
+		
+		filter:
+		{
+			require: small, pellet, solid
+			include: none
+			exclude: none
+		}
+
+		offset: [0.750, -0.375]
+	}
+
+	@light:
+	{
+		offset: [0.750, -0.375]
+		scale: [1.000, 5.000]
+		intensity: 2.000
+		texture: "light.box.03"
+		rotation: 0.000
+	}
+
+	@heater:
+	{
+
 	}
 }
