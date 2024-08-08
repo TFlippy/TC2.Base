@@ -82,8 +82,11 @@
 			if (time >= heater.t_next_update)
 			{
 				heater.t_next_update = time + update_interval;
-				//App.WriteLine("a");
+				//heater.temperature_target.m_value.MoveTowardsDamped(region.GetAmbientTemperature(transform.position), 10.00f, 0.10f);
+				Maths.Diffuse(ref heater.temperature_target.m_value, region.GetAmbientTemperature(transform.position), 5.00f, info.DeltaTime);
 			}
+
+			heater.temperature_current.m_value.MoveTowardsDamped(heater.temperature_target.m_value, 2.00f, 0.10f);
 		}
 
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -97,14 +100,12 @@
 				ref var essence_data = ref essence_container.h_essence.GetData();
 				if (essence_data.IsNotNull())
 				{
-					heater.temperature_target = essence_data.heat_emit * essence_container.rate * essence_container.available;
+					heater.temperature_target += (essence_data.heat_emit * essence_container.rate * essence_container.available) * info.DeltaTime;
 				}
 				//App.WriteLine("a");
 
 				//heater.t_next_update = time + update_interval;
 			}
-
-			heater.temperature_current.m_value.MoveTowardsDamped(heater.temperature_target.m_value, 5.00f, 0.10f);
 		}
 
 #if CLIENT
