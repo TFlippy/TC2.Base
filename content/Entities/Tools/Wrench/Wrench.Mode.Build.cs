@@ -1629,7 +1629,7 @@ namespace TC2.Base.Components
 														{
 															case Crafting.Requirement.Type.Work:
 															{
-																order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.difficulty, requirement.amount * Constants.Construction.work_requirement_multiplier, 0.00f);
+																order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.difficulty, (byte)i, requirement.amount * Constants.Construction.work_requirement_multiplier);
 															}
 															break;
 
