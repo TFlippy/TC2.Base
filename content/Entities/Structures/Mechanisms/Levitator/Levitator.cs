@@ -114,7 +114,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ref Region.Data region, ref XorRandom random, ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned] ref Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref EssenceContainer.Data container, [Source.Owned, Optional(true)] ref Overheat.Data overheat)
+		[Source.Owned] ref Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref EssenceContainer.Data container, [Source.Owned, Optional(true)] ref Overheat.State overheat_state)
 		{
 			ref readonly var kb = ref control.keyboard;
 			ref var essence_data = ref container.h_essence.GetData();
@@ -254,9 +254,9 @@ namespace TC2.Base.Components
 			{
 				//levitator.force_multiplier = essence_data.force_emit * container.available;
 
-				if (overheat.IsNotNull())
+				if (overheat_state.IsNotNull())
 				{
-					overheat.AddHeat(essence_data.heat_emit * container.available * container.rate, body.GetMass());
+					overheat_state.AddPower(container.GetEmittedEssenceAmount() * essence_data.heat_emit, info.DeltaTime);
 				}
 
 				if (info.WorldTime >= levitator_state.next_linecast)

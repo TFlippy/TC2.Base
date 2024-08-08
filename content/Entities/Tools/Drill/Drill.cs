@@ -88,12 +88,14 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer,
+		[Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Owned, Optional(true)] ref Overheat.State overheat_state,
+		[Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || overheat.flags.HasNone(Overheat.Flags.Overheated)))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat_state.IsNull() || overheat_state.flags.HasNone(Overheat.State.Flags.Overheated)))
 			{
 				if (info.WorldTime >= drill.next_hit)
 				{
@@ -110,10 +112,10 @@ namespace TC2.Base.Components
 
 					var modifier = 1.00f;
 
-					if (!overheat.IsNull())
-					{
-						overheat.heat_current += 4.00f;
-					}
+					//if (overheat_state.IsNull())
+					//{
+					//	overheat.temperature_current += 4.00f;
+					//}
 
 					Span<LinecastResult> results = stackalloc LinecastResult[16];
 					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
@@ -205,9 +207,9 @@ namespace TC2.Base.Components
 							modifier *= 0.70f;
 							penetration--;
 
-							if (!overheat.IsNull())
+							if (overheat_state.IsNotNull())
 							{
-								overheat.heat_current += heat;
+								overheat_state.AddEnergy(heat * 0.01f);
 							}
 						}
 					}

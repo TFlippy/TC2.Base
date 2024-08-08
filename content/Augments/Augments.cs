@@ -268,7 +268,7 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
 
-					data.capacity_extra += amount * 2.00f;
+					data.heat_capacity_extra += amount * 2.00f;
 
 					//data.cool_rate += (Maths.LerpInt(1, 200, modifier) * 10.00f) / (context.base_mass);
 
@@ -466,7 +466,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cool_rate *= 0.80f;
-					data.heat_critical += 500.00f;
+					data.temperature_critical += 500.00f;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

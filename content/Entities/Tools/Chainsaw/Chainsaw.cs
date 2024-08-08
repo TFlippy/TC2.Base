@@ -110,12 +110,14 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
-		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Parent, Optional] in Faction.Data faction)
+		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer,
+		[Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Owned, Optional(true)] ref Overheat.State overheat_state, 
+		[Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat.IsNull() || !overheat.flags.HasAll(Overheat.Flags.Overheated)))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat_state.IsNull() || overheat_state.flags.HasNone(Overheat.State.Flags.Overheated)))
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
 				{
@@ -169,9 +171,9 @@ namespace TC2.Base.Components
 							modifier *= 0.60f;
 							penetration--;
 
-							if (!overheat.IsNull())
+							if (overheat_state.IsNotNull())
 							{
-								overheat.heat_current += damage * 0.09f;
+								overheat_state.AddEnergy(damage * 0.0009f);
 							}
 						}
 

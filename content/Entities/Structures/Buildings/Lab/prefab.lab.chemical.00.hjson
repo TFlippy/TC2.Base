@@ -172,6 +172,25 @@ personnel:
 	characters_capacity: 4
 }
 
+overheat:
+{
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
 // spawn:
 // {
 // 	flags: faction
