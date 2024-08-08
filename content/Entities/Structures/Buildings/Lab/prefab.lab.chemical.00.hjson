@@ -11,13 +11,15 @@ body:
 	
 	@shape.box:
 	{
-		size: [3.250, 6.500]
-		offset: [0.000, 0.250]
+		size: [3.250, 5.750]
+		offset: [0.000, -0.125]
+		
 		mass: 680.000
 		radius: 0.500
+		
 		material: concrete
+		
 		layer: entity, building, support, ignore_melee
-		mask: world
 	}
 }
 

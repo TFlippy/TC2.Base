@@ -11,8 +11,8 @@ body:
 	
 	@shape.box:
 	{
-		size: [4.250, 3.500]
-		offset: [0.000, 0.250]
+		size: [4.250, 2.750]
+		offset: [0.000, -0.125]
 		
 		mass: 50.000
 		radius: 0.500
