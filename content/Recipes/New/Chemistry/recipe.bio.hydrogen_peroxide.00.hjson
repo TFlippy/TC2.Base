@@ -16,6 +16,14 @@
 		frame: [3, 0]
 	}
 	icon_offset: [-1.000, 1.000]
+
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
 	
 	min: 1
 	max: 5
@@ -25,7 +33,7 @@
 	flags: none
 	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xff80dc7e"
 	rank: -157.000
 	
 	requirements:

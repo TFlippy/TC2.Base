@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
-	name: "Filtered Sea Water"
+	name: "Boiled Sea Water"
 	desc:
 		'''
 		TODO: Desc
@@ -16,11 +16,11 @@
 	icon_offset: [-1.000, 1.000]
 	
 	min: 1
-	max: 10
+	max: 50
 	step: 1
 	
 	type: workshop
-	flags: none
+	flags: wip
 	tags: manual, simple, chemistry, science, biology, refining
 	
 	color_button: "0xffaeb59a"
@@ -29,12 +29,27 @@
 	requirements:
 	[
 		{
+			type: resource
+			material: water.sea
+			amount: 10.000
+			group: 0
+		}
+		{
 			type: work
-			work: blending
+			work: boiling
 			amount: 350.000
-			difficulty: 7
+			difficulty: 5
 			snapping: 5.000
 			falloff: 0.800
+			group: 0
+		}
+		{
+			type: work
+			work: condensation
+			amount: 220.000
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.400
 			group: 0
 		}
 	]
@@ -43,8 +58,16 @@
 	[
 		{
 			type: resource
-			material: shite
-			amount: 1.000
+			material: water.clean
+			amount: 9.410
+			amount_extra: 0.350
+			group: 0
+		}
+		{
+			type: resource
+			material: salt
+			amount: 0.088
+			amount_extra: 0.041
 			group: 0
 		}
 	]

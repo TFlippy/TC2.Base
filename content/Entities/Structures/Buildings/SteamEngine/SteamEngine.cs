@@ -373,7 +373,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity, [Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] in SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] in Axle.State wheel_state, [Source.Owned] in Burner.Data burner, [Source.Owned] in Burner.State burner_state,
 		[Source.Owned] in Interactable.Data interactable)

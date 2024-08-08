@@ -133,7 +133,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity,
 		[Source.Owned, Pair.Wildcard] in Heater.Data heater, IComponent.Handle h_heater,
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform)
@@ -492,7 +492,7 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global)]
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global)]
 		public static void OnGUI(Entity entity, IComponent.Handle h_heater, 
 		[Source.Owned] in Refinery.Data refinery, [Source.Owned] in Refinery.State refinery_state, 
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,

@@ -20,7 +20,7 @@
 	step: 1
 	
 	type: workshop
-	flags: none
+	flags: wip
 	tags: manual, simple, dangerous, chemistry, science, biology, refining
 	
 	color_button: "0xffaeb59a"

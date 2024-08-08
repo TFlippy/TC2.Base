@@ -1,0 +1,58 @@
+﻿{
+	$version: "0.1.61.3"
+	name: "Condensation"
+	name_short: "Condensation"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: passive, ambient
+	tags: ambient, simple, chemical, passive
+	cooldown: 1.000
+	multiplier: 1.000
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: condenser
+	
+	equipment_required: bottle
+	equipment_optional: glassware, dishes
+	
+	filter_environment:
+	{
+		include: cold
+	}
+	
+	character_traits:
+	{
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: []
+}

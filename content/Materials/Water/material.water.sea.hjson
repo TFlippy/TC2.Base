@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.3"
 	name: "Water (Sea)"
 	description:
 		'''
@@ -23,7 +23,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.102
+	mass_per_unit: 0.1072
 	quantity_max: 500.000
 	prefab: resource.water.sea
 	
