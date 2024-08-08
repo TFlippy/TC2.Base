@@ -59,7 +59,7 @@ packable:
 interactable:
 {
 	flags: once
-	priority: -1.900
+	priority: -8.000
 }
 
 consumable:

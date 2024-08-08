@@ -96,7 +96,7 @@ climber:
 		elasticity: 0.000
 		rigidity_dynamic: 0.000
 		rigidity_static: 0.000
-		layer: entity
+		layer: entity, ignore_hover, ignore_melee, ignore_bullet
 		mask: climbable
 		// flags: no_mass
 	}

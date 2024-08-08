@@ -2549,7 +2549,7 @@ namespace TC2.Base
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
 						data.reload_interval = 0.50f;
-						data.sound_reload = "musket_reload";
+						data.sound_reload = "breechloader.long.reload";
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_TG))
 					{
@@ -2559,7 +2559,7 @@ namespace TC2.Base
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
 						data.reload_interval = 0.50f;
-						data.sound_reload = "musket_reload";
+						data.sound_reload = "breechloader.long.reload";
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{

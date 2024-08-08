@@ -1084,7 +1084,7 @@ namespace TC2.Base.Components
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
 
 							Span<LinecastResult> hits = FixedArray.CreateSpan16<LinecastResult>(out var buffer);
-							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius)), (pos_b ?? pos) + (dir * (radius)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius)), (pos_b ?? pos) + (dir * (radius)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building, exclude: Physics.Layer.Ignore_Hover | Physics.Layer.Stored))
 							{
 								errors |= Errors.Obstructed;
 							}
@@ -1095,7 +1095,7 @@ namespace TC2.Base.Components
 							//if (region.TryOverlapBBAll(pos, bb.GetSize() - new Vector2(0.25f), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
 
 							Span<ShapeOverlapResult> hits = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
-							if (region.TryOverlapRectAll(bb.Pad(new Vector4(0.0625f)), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building))
+							if (region.TryOverlapRectAll(bb.Pad(new Vector4(0.0625f)), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building, exclude: Physics.Layer.Ignore_Hover | Physics.Layer.Stored))
 							{
 								errors |= Errors.Obstructed;
 							}
@@ -1123,7 +1123,7 @@ namespace TC2.Base.Components
 
 					var require = physics_filter.require;
 					mask.AddFlag(physics_filter.include);
-					exclude.AddFlag(physics_filter.exclude);
+					exclude.AddFlag(physics_filter.exclude | Physics.Layer.Stored);
 
 					if (placement.flags.HasAny(Placement.Flags.Require_Terrain))
 					{
@@ -1136,10 +1136,11 @@ namespace TC2.Base.Components
 						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, require: require, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
-
 							foreach (ref var result in results)
 							{
 								var result_layer = result.layer;
+								var result_material_type = result.material_type;
+								if (result_material_type == Material.Type.None) continue;
 
 								//if (has_physics_filter && !physics_filter.Evaluate(result.layer))
 								//{
@@ -1252,6 +1253,8 @@ namespace TC2.Base.Components
 							foreach (ref var result in results)
 							{
 								var result_layer = result.layer;
+								var result_material_type = result.material_type;
+								if (result_material_type == Material.Type.None) continue;
 
 								//if (has_physics_filter && !physics_filter.Evaluate(result.layer))
 								//{
