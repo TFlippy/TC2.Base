@@ -114,10 +114,10 @@ namespace TC2.Base.Components
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Chainsaw.Data chainsaw, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer,
-		[Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Owned, Optional(true)] ref Overheat.State overheat_state, 
+		[Source.Owned, Optional(true)] ref Heat.Data heat, [Source.Owned, Optional(true)] ref Heat.State heat_state, 
 		[Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat_state.IsNull() || overheat_state.flags.HasNone(Overheat.State.Flags.Overheated)))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (heat_state.IsNull() || heat_state.flags.HasNone(Heat.State.Flags.Overheated)))
 			{
 				if (info.WorldTime >= chainsaw.next_hit)
 				{
@@ -171,9 +171,9 @@ namespace TC2.Base.Components
 							modifier *= 0.60f;
 							penetration--;
 
-							if (overheat_state.IsNotNull())
+							if (heat_state.IsNotNull())
 							{
-								overheat_state.AddEnergy(damage * 0.0009f);
+								heat_state.AddEnergy(damage * 0.0009f);
 							}
 						}
 

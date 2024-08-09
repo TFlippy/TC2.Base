@@ -27,7 +27,7 @@
 			data: 1
 		}
 		{
-			identifier: "overheat.coolant"
+			identifier: "heat.coolant"
 			flags: none
 			modifier: 0.502513
 			data: 13726971667441254400
@@ -87,7 +87,7 @@
 			data: 0
 		}
 		{
-			identifier: "overheat.heat_resistant"
+			identifier: "heat.heat_resistant"
 			flags: none
 			modifier: 0.000
 			data: 0

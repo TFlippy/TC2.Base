@@ -124,7 +124,7 @@ air.container:
 	volume: 1.500
 }
 
-overheat:
+heat:
 {
 	heat_medium: 1200.000
 	heat_high: 2200.000

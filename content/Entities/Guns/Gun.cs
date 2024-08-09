@@ -987,7 +987,7 @@
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Body.Data body,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine,
-		[Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Owned, Optional(true)] ref Overheat.State overheat_state)
+		[Source.Owned, Optional(true)] ref Heat.Data heat, [Source.Owned, Optional(true)] ref Heat.State heat_state)
 		{
 			var time = info.WorldTime;
 			if (gun_state.stage == Gun.Stage.Fired)
@@ -1057,15 +1057,15 @@
 
 					var count = (ammo.count * gun.projectile_count) * (uint)Maths.Normalize(loaded_ammo.quantity, gun.ammo_per_shot);
 
-					if (overheat.IsNotNull() && overheat_state.IsNotNull())
+					if (heat.IsNotNull() && heat_state.IsNotNull())
 					{
-						if (overheat.temperature_critical > Maths.epsilon && ammo.heat > Maths.epsilon)
+						if (heat.temperature_critical > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
-							//var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(overheat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
-							var heat = ((gun.ammo_per_shot - amount) * Energy.J((double)ammo.heat)); // / Maths.Max(overheat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
-							overheat_state.AddEnergy(heat);
+							//var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							var heat_amount = ((gun.ammo_per_shot - amount) * Energy.J(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							heat_state.AddEnergy(heat_amount);
 
-							var heat_excess = Maths.Max(overheat_state.temperature_current - overheat.temperature_high, 0.00f);
+							var heat_excess = Maths.Max(heat_state.temperature_current - heat.temperature_high, 0.00f);
 							if (heat_excess > Maths.epsilon)
 							{
 								failure_rate = Maths.Clamp01(failure_rate + (heat_excess * 0.01f));
@@ -1075,7 +1075,7 @@
 								velocity_jitter *= 1.00f + Maths.Clamp01(heat_excess * 0.005f);
 							}
 
-							overheat_state.Sync(entity, true);
+							heat_state.Sync(entity, true);
 						}
 					}
 
@@ -1341,9 +1341,9 @@
 				}
 
 				var pitch_modifier = 1.00f;
-				if (overheat.IsNotNull() && overheat_state.IsNotNull())
+				if (heat.IsNotNull() && heat_state.IsNotNull())
 				{
-					pitch_modifier += Maths.InvLerp01(overheat.temperature_medium, overheat.temperature_high, overheat_state.temperature_current) * 0.08f;
+					pitch_modifier += Maths.InvLerp01(heat.temperature_medium, heat.temperature_high, heat_state.temperature_current) * 0.08f;
 				}
 				pitch_modifier *= random.NextFloatRange(0.98f, 1.02f);
 

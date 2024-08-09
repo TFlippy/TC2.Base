@@ -44,7 +44,7 @@
 			data: 1
 		}
 		{
-			identifier: "overheat.coolant"
+			identifier: "heat.coolant"
 			flags: none
 			modifier: 0.325
 			data: 4503599630558167040

@@ -138,7 +138,7 @@ packable:
 
 }
 
-overheat:
+heat:
 {
 	heat_medium: 350.000
 	heat_high: 700.000

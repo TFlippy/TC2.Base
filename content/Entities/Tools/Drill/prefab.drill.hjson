@@ -96,7 +96,7 @@ sound.emitter:
 	pitch: 1.000
 }
 
-overheat:
+heat:
 {
 	heat_medium: 450.000
 	heat_high: 600.000

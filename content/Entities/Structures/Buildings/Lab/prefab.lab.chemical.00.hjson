@@ -172,7 +172,7 @@ personnel:
 	characters_capacity: 4
 }
 
-overheat:
+heat:
 {
 	@light:
 	{
@@ -312,10 +312,5 @@ essencecontainer:
 		intensity: 2.000
 		texture: "light.box.03"
 		rotation: 0.000
-	}
-
-	@heater:
-	{
-
 	}
 }

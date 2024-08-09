@@ -216,20 +216,20 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Heat.Data>
 			(
-				identifier: "overheat.coolant",
+				identifier: "heat.coolant",
 				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases heat capacity.",
 
-				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					ref var offset = ref handle.GetData<Vector2>();
@@ -243,7 +243,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -263,7 +263,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
@@ -274,7 +274,7 @@ namespace TC2.Base
 
 				},
 
-				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
@@ -293,20 +293,20 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Heat.Data>
 			(
-				identifier: "overheat.radiator",
+				identifier: "heat.radiator",
 				category: "Heat Management",
 				name: "Radiator",
 				description: "Increases cooling rate.",
 
-				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -328,7 +328,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -340,7 +340,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -396,7 +396,7 @@ namespace TC2.Base
 					data.cool_rate += (amount / context.mass_new) * dist_modifier;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -451,25 +451,25 @@ namespace TC2.Base
 				}
 			));
 
-			definitions.Add(Augment.Definition.New<Overheat.Data>
+			definitions.Add(Augment.Definition.New<Heat.Data>
 			(
-				identifier: "overheat.heat_resistant",
+				identifier: "heat.heat_resistant",
 				category: "Heat Management",
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
-				can_add: static (ref Augment.Context context, in Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cool_rate *= 0.80f;
 					data.temperature_critical += 500.00f;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Overheat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var amount = 0.00f;
 

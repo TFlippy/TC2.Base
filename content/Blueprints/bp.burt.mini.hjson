@@ -15,7 +15,7 @@
 	augments:
 	[
 		{
-			identifier: "overheat.coolant"
+			identifier: "heat.coolant"
 			flags: none
 			modifier: 0.000
 			data: 13744986063787524096

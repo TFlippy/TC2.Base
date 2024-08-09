@@ -2831,10 +2831,10 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var overheat = ref context.GetComponent<Overheat.Data>();
-					if (!overheat.IsNull())
+					ref var heat = ref context.GetComponent<Heat.Data>();
+					if (!heat.IsNull())
 					{
-						overheat.cool_rate *= 1.30f;
+						heat.cool_rate *= 1.30f;
 					}
 
 					var barrel_count_inv = MathF.ReciprocalEstimate(Maths.Max(data.barrel_count - augments.GetCount(handle), 1));

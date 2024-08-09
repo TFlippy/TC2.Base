@@ -69,7 +69,7 @@
 			data: 9223372037913837568
 		}
 		{
-			identifier: "overheat.coolant"
+			identifier: "heat.coolant"
 			flags: none
 			modifier: 0.000
 			data: 13726971665265459200
@@ -87,7 +87,7 @@
 			data: 9223372036854775808
 		}
 		{
-			identifier: "overheat.radiator"
+			identifier: "heat.radiator"
 			flags: none
 			modifier: 0.000
 			data: 13690942870402367488

@@ -40,7 +40,7 @@
 			data: 1065688760
 		}
 		{
-			identifier: "overheat.coolant"
+			identifier: "heat.coolant"
 			data: 40
 		}
 	]

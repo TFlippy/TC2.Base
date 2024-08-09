@@ -33,7 +33,7 @@
 			data: 1
 		}
 		{
-			identifier: "overheat.radiator"
+			identifier: "heat.radiator"
 			flags: none
 			modifier: 0.166667
 			data: 13744986063798009856

@@ -92,10 +92,10 @@ namespace TC2.Base.Components
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body,
 		[Source.Owned] ref Sound.Emitter sound_emitter, [Source.Owned] ref Animated.Renderer.Data renderer,
-		[Source.Owned, Optional(true)] ref Overheat.Data overheat, [Source.Owned, Optional(true)] ref Overheat.State overheat_state,
+		[Source.Owned, Optional(true)] ref Heat.Data heat, [Source.Owned, Optional(true)] ref Heat.State heat_state,
 		[Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left) && (overheat_state.IsNull() || overheat_state.flags.HasNone(Overheat.State.Flags.Overheated)))
+			if (control.mouse.GetKey(Mouse.Key.Left) && (heat_state.IsNull() || heat_state.flags.HasNone(Heat.State.Flags.Overheated)))
 			{
 				if (info.WorldTime >= drill.next_hit)
 				{
@@ -112,9 +112,9 @@ namespace TC2.Base.Components
 
 					var modifier = 1.00f;
 
-					//if (overheat_state.IsNull())
+					//if (heat_state.IsNull())
 					//{
-					//	overheat.temperature_current += 4.00f;
+					//	heat.temperature_current += 4.00f;
 					//}
 
 					Span<LinecastResult> results = stackalloc LinecastResult[16];
@@ -150,26 +150,26 @@ namespace TC2.Base.Components
 							}
 
 							var material_type = hit.material_type;
-							var heat = drill.damage * 0.015f * modifier;
+							var heat_amount = drill.damage * 0.015f * modifier;
 
 							switch (material_type)
 							{
 								case Material.Type.Metal:
 								{
-									heat *= 3.00f;
+									heat_amount *= 3.00f;
 								}
 								break;
 
 								case Material.Type.Glass:
 								case Material.Type.Stone:
 								{
-									heat *= 1.20f;
+									heat_amount *= 1.20f;
 								}
 								break;
 
 								case Material.Type.Gravel:
 								{
-									heat *= 1.10f;
+									heat_amount *= 1.10f;
 								}
 								break;
 
@@ -178,14 +178,14 @@ namespace TC2.Base.Components
 								case Material.Type.Rubber:
 								case Material.Type.Wood:
 								{
-									heat *= 0.20f;
+									heat_amount *= 0.20f;
 								}
 								break;
 
 								case Material.Type.Flesh:
 								case Material.Type.Insect:
 								{
-									heat *= -0.70f;
+									heat_amount *= -0.70f;
 								}
 								break;
 							}
@@ -207,9 +207,9 @@ namespace TC2.Base.Components
 							modifier *= 0.70f;
 							penetration--;
 
-							if (overheat_state.IsNotNull())
+							if (heat_state.IsNotNull())
 							{
-								overheat_state.AddEnergy(heat * 0.01f);
+								heat_state.AddEnergy(heat_amount * 0.01f);
 							}
 						}
 					}

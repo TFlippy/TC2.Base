@@ -166,7 +166,7 @@ levitator.state:
 
 }
 
-overheat:
+heat:
 {
 	heat_medium: 450.000
 	heat_high: 700.000
