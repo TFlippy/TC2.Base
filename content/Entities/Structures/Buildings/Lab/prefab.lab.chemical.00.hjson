@@ -172,25 +172,6 @@ personnel:
 	characters_capacity: 4
 }
 
-heat:
-{
-	@light:
-	{
-		color: [1.000, 0.400, 0.100, 2.000]
-		offset: [0.000, 0.000]
-		scale: [16.000, 16.000]
-		intensity: 0.000
-		texture: "light.circle.00"
-	}
-	
-	@sound.emitter:
-	{
-		file: "overheat_loop"
-		volume: 1.000
-		pitch: 1.000
-	}
-}
-
 // spawn:
 // {
 // 	flags: faction
@@ -287,13 +268,14 @@ essencecontainer:
 {
 	stability: 0.900
 	health_threshold: 0.500
+	glow_modifier: 1.500
 	flags: show_gui, allow_edit_rate
 
 	@inventory1:
 	{
 		type: essence
 		flags: ignore_mass
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.050
 		
 		filter:
 		{
@@ -305,12 +287,41 @@ essencecontainer:
 		offset: [0.750, -0.375]
 	}
 
+	@sound.emitter:
+	{
+		volume: 0.500
+		pitch: 1.730
+		size: 0.350
+		size_max_modifier: 0.700
+		spread: 80.000
+	}
+
 	@light:
 	{
-		offset: [0.750, -0.375]
-		scale: [1.000, 5.000]
-		intensity: 2.000
-		texture: "light.box.03"
-		rotation: 0.000
+		offset: [0.000, 2.750]
+		scale: [17.000, 6.000]
+		texture: light.circle.00
+	}
+}
+
+heat:
+{
+	cool_rate: 11.500
+	heat_capacity_extra: 150.000
+	flags: exclude_body_mass
+
+	@light:
+	{
+		offset: [-0.125, 2.250]
+		scale: [13.000, 10.000]
+		intensity: 2.500
+		texture: light.circle.03
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
 	}
 }

@@ -101,6 +101,7 @@ essencecontainer:
 {
 	stability: 0.900
 	health_threshold: 0.500
+	glow_modifier: 5.000
 
 	@inventory1:
 	{
@@ -186,17 +187,16 @@ heat:
 	heat_medium: 450.000
 	heat_high: 700.000
 	heat_critical: 900.000
-	cool_rate: 50.000
+	cool_rate: 2.000
 	capacity_extra: 500.000
 	size: [3.000, 1.500]
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 2.000]
 		offset: [0.000, 0.000]
-		scale: [32.000, 16.000]
-		intensity: 0.000
-		texture: "light.circle.00"
+		scale: [40.000, 24.000]
+		intensity: 2.500
+		texture: light.circle.04
 	}
 	
 	@sound.emitter:

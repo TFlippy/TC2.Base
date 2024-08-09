@@ -12,6 +12,8 @@ namespace TC2.Base.Components
 			public enum Flags: uint
 			{
 				None = 0,
+
+				Exclude_Body_Mass = 1u << 0,
 			}
 
 			public Temperature temperature_medium = Temperature.Celsius(150.00f);
@@ -57,8 +59,9 @@ namespace TC2.Base.Components
 
 			public Heat.State.Flags flags;
 
+			[Save.Ignore] public Energy heat_capacity_inv = 1.00f;
+
 			[Net.Ignore, Save.Ignore] public Temperature temperature_ambient = Temperature.Ambient;
-			[Net.Ignore, Save.Ignore] public Energy heat_capacity_inv = 1.00f;
 
 			[Net.Ignore, Save.Ignore] public float t_next_ambient;
 			[Net.Ignore, Save.Ignore] public float t_next_steam;
@@ -82,21 +85,22 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Heat"u8, this.ent_heat, size: new(24, 96 * 1)))
+				using (var window = GUI.Window.InteractionMisc("Heat"u8, this.ent_heat, size: new(48, 96 * 1), min_width: 48))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
 					{
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+						using (GUI.Group.New(size: GUI.Rm))
 						{
-							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_critical, 2000, size: GUI.Rm);
+							GUI.SameLine(24);
+							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_critical, 2000, size: new(24, GUI.RmY));
 						}
 					}
 				}
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region, order: -100)]
 		public static void OnGUI(Entity entity,
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Heat.Data heat, [Source.Owned] in Heat.State heat_state)
@@ -138,7 +142,15 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] in Body.Data body)
 		{
-			heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass(), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value), 0.001f);
+			if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
+			{
+				heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value, 0.10f);
+			}
+			else
+			{
+				heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass().ClampMin(1.00f), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value), 0.10f);
+			}
+
 			heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
 
 #if SERVER
@@ -204,7 +216,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state, 
+		[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned, Pair.Component<Heat.Data>, Optional(true)] ref Light.Data light,
 		[Source.Owned, Pair.Component<Heat.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
 		{
@@ -212,7 +224,7 @@ namespace TC2.Base.Components
 
 			var time = info.WorldTime;
 			var temperature_current = heat_state.temperature_current;
-			
+
 			if (light.IsNotNull())
 			{
 				light.color = Temperature.GetGlowColor(temperature_current); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
