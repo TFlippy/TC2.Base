@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Boiling"
 	name_short: "Boiling"
 	desc:
@@ -14,9 +14,9 @@
 		frame: [11, 0]
 	}
 	
-	flags: none
-	tags: machine, automated, dangerous, chemical, industrial, wip
-	cooldown: 0.350
+	flags: passive
+	tags: automated, dangerous, simple, passive, wip
+	cooldown: 0.500
 	multiplier: 1.000
 	color: "0xffaeb59a"
 	

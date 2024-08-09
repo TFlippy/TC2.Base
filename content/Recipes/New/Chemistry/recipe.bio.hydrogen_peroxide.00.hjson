@@ -65,9 +65,10 @@
 		{
 			type: work
 			work: blending
-			amount: 575.000
+			amount: 275.000
 			difficulty: 4
 			group: 1
+			flags: conditional
 		}
 		{
 			type: temperature
@@ -78,17 +79,28 @@
 			flags: no_scaling
 		}
 		{
+			type: work
+			work: boiling
+			amount: 550.000
+			difficulty: 4
+			snapping: 5.000
+			falloff: 0.550
+			group: 2
+			flags: conditional
+		}
+		{
 			type: resource
 			material: water.clean
 			amount: 50.000
-			group: 2
+			group: 3
 		}
 		{
 			type: work
 			work: dousing
 			amount: 50.000
 			difficulty: 2
-			group: 2
+			group: 3
+			flags: conditional
 		}
 	]
 	
