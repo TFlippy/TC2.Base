@@ -67,6 +67,8 @@
 			work: blending
 			amount: 275.000
 			difficulty: 4
+			snapping: 5.000
+			falloff: 0.750
 			group: 1
 			flags: conditional
 		}
@@ -76,12 +78,12 @@
 			amount_min: 580.000
 			amount_max: 800.000
 			group: 2
-			flags: no_scaling
+			flags: no_scaling, always_evaluate, group_evaluate
 		}
 		{
 			type: work
 			work: boiling
-			amount: 550.000
+			amount: 250.000
 			difficulty: 4
 			snapping: 5.000
 			falloff: 0.550
