@@ -123,7 +123,7 @@ alarm:
 
 	@sound.emitter:
 	{
-		file: "buzzer.08"
+		file: "effect.buzzer.08"
 		channel_type: world
 		flags: none
 		volume: 1.000
