@@ -1,7 +1,7 @@
 $name: "Chemical Laboratory"
 $desc:
 	'''
-	Building used for designing custom item augment blueprints.
+	TODO: Desc
 	'''
 $tags: []
 
@@ -11,7 +11,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [3.250, 5.750]
+		size: [5.250, 4.750]
 		offset: [0.000, -0.125]
 		
 		mass: 680.000
@@ -37,7 +37,7 @@ interactable:
 {
 	flags: none
 	priority: 1.000
-	window_size: [660.000, 556.000]
+	window_size: [628.000, 556.000]
 	window_size_misc: [216.000, 0.000]
 }
 

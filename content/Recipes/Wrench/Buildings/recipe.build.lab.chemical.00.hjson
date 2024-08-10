@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Chemical Laboratory"
 	tips: []
 	
 	icon:
 	{
 		texture: lab.chemical.00
-		size: [40, 64]
+		size: [56, 56]
 	}
 	
 	min: 0
@@ -28,13 +28,13 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [5.000, 8.000]
-		offset: [0.000, -3.000]
+		size: [7.000, 7.000]
+		offset: [0.000, -2.500]
 		
-		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
+		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-2.125, -6.500, 2.125, 0.000]
+		rect_clearance: [-3.125, -5.500, 3.125, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -63,7 +63,7 @@
 	
 	construction:
 	{
-		prefab: construction.5x8
+		prefab: construction.7x7
 		
 		requirements:
 		[

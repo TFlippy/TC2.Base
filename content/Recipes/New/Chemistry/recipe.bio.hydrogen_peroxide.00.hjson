@@ -3,9 +3,9 @@
 	name: "Chitin-based Hydrogen Peroxide"
 	desc:
 		'''
-		Thoroughly mix chitin, saltpeter and Smoulus mushrooms with pure water, heat them up to 370°C and then douse them with cold water.
+		Thoroughly mix chitin, saltpeter and Smoulus mushrooms with pure water, heat them up to 370°C, boil them for a while and then douse them with cold water.
 
-		If produced in large quantities and not vented properly, resulting ammonia and hydrogen peroxide may react together violently. 
+		This releases a fair amount of ammonia and hydrogen gas, while leaving behind a variable amount of hydrogen peroxide, lubricant and some mushy pulp.
 		'''
 	tips: []
 	
@@ -26,7 +26,7 @@
 	icon_extra_offset: [-5.000, -6.000]
 	
 	min: 1
-	max: 5
+	max: 4
 	step: 1
 	
 	type: workshop
@@ -114,31 +114,42 @@
 	[
 		{
 			type: resource
-			material: ammonia
-			amount: 55.114
-			amount_extra: 31.410
+			material: hydrogen_peroxide
+			amount: 15.755
+			amount_extra: 14.410
 			group: 0
 		}
 		{
 			type: resource
-			material: hydrogen_peroxide
-			amount: 18.755
-			amount_extra: 11.410
-			group: 0
+			material: lubricant
+			amount: 5.5333
+			amount_extra: 2.137
+			group: 1
+			flags: byproduct
 		}
 		{
 			type: resource
 			material: pulp
-			amount: 17.456
+			amount: 10.456
 			amount_extra: 2.374
-			group: 0
+			group: 2
+			flags: waste, residue
 		}
 		{
 			type: resource
-			material: tar
-			amount: 4.3333
-			amount_extra: 1.137
-			group: 0
+			material: ammonia
+			amount: 75.114
+			amount_extra: 31.410
+			group: 3
+			flags: byproduct, spawn, hidden
+		}
+		{
+			type: resource
+			material: hydrogen
+			amount: 44.544
+			amount_extra: 24.610
+			group: 3
+			flags: byproduct, spawn, hidden
 		}
 	]
 }

@@ -99,10 +99,8 @@ storage:
 		
 		filter:
 		{
-			exclude: large, heavy
+			exclude: gas, large
 		}
-		
-		offset: [0.000, 0.000]
 	}
 }
 
@@ -133,15 +131,15 @@ armory:
 {
 	@inventory4:
 	{
-		stack_size_multiplier: 4.000
 		type: ammo
 		flags: ignore_mass, faction, vertical
-
+		stack_size_multiplier: 4.000
+		
 		filter:
 		{
 			require: ammo, solid
 			include: granular, small
-			exclude: large
+			exclude: gas, large
 		}
 	}
 }
