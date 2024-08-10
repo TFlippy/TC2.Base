@@ -14,9 +14,9 @@ body:
 		friction: 0.750
 		elasticity: 0.250
 		
-		material: concrete
+		material: building_wood
 		
-		layer: entity, building, support, dormitory, ignore_melee
+		layer: entity, building, support, dormitory, ignore_melee, ignore_bullet
 		mask: world, building
 	}
 }

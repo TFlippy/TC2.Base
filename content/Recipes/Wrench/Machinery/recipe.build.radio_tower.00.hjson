@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.61.3"
 	name: "Radio Tower"
-	desc:
-		'''
-		TODO: Desc
-		'''
 	tips: []
 	
 	icon:

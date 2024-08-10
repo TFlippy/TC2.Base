@@ -19,10 +19,10 @@ body:
 		friction: 0.750
 		elasticity: 0.250
 		
-		material: wood
-		miss_chance: 0.600
+		material: building_masonry
 		
-		layer: entity, building, flammable, ignore_melee, ignore_bullet
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world, building
 	}
 }
 

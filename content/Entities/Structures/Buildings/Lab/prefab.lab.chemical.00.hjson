@@ -17,9 +17,10 @@ body:
 		mass: 680.000
 		radius: 0.500
 		
-		material: concrete
+		material: building_reinforced
 		
 		layer: entity, building, support, ignore_melee
+		mask: world, building
 	}
 }
 
@@ -43,7 +44,7 @@ interactable:
 
 health:
 {
-	max: 88000.000
+	max: 92000.000
 }
 
 faction.colorable:
