@@ -46,10 +46,18 @@ storage:
 {
 	@inventory4:
 	{
-		name: "Inventory"
-		stack_size_multiplier: 4.000
 		type: storage
 		flags: public
+		stack_size_multiplier: 3.000
+		
+		filter:
+		{
+			require: none
+			include: granular, small, pellet, ingot, plate, solid, bottled, malleable
+			exclude: long, large, gas
+		}
+		
+		offset: [0.000, 0.000]
 	}
 }
 

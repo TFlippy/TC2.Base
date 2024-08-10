@@ -1,0 +1,81 @@
+﻿{
+	$prefab: "crate.metal.02"
+	$enabled: true
+	
+	storage:
+	{
+		@inventory16:
+		{
+			type: storage
+			flags: public, faction
+			stack_size_multiplier: 4.000
+			resources:
+			[
+				{
+					material: nitrocellulose
+					quantity: 500.000
+				}
+				{
+					material: sugar
+					quantity: 500.000
+				}
+				{
+					material: sulfur
+					quantity: 500.000
+				}
+				{
+					material: tar
+					quantity: 500.000
+				}
+				{
+					material: tallow
+					quantity: 400.000
+				}
+				{
+					material: phosphorus
+					quantity: 400.000
+				}
+				{
+					material: meth
+					quantity: 500.000
+				}
+				{
+					material: lime
+					quantity: 500.000
+				}
+				{
+					material: gunpowder
+					quantity: 500.000
+				}
+				{
+					material: graphite.powder
+					quantity: 500.000
+				}
+				{
+					material: codeine
+					quantity: 500.000
+				}
+				{
+					material: chitin
+					quantity: 400.000
+				}
+				{
+					material: arsenic
+					quantity: 400.000
+				}
+				{
+					material: ash
+					quantity: 500.000
+				}
+				{
+					material: charcoal
+					quantity: 500.000
+				}
+				{
+					material: tobacco
+					quantity: 500.000
+				}
+			]
+		}
+	}
+}

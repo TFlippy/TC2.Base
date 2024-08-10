@@ -1,3 +1,8 @@
+$name: "Workbench"
+$desc:
+	'''
+	Simple wooden workbench equipped with basic tools.
+	'''
 $tags: []
 
 body:

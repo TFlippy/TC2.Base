@@ -20,7 +20,7 @@
 	step: 1
 	
 	type: workshop
-	flags: wip
+	flags: disabled, wip
 	tags: manual, simple, food, organic, cooking, biology, agriculture
 	
 	color_button: "0xffaeb59a"

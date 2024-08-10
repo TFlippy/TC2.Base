@@ -67,8 +67,8 @@ storage:
 		filter:
 		{
 			require: none
-			include: granular, large, heavy, small, pellet, ingot, plate, solid
-			exclude: none
+			include: granular, large, heavy, small, pellet, ingot, plate, solid, bottled, malleable
+			exclude: gas
 		}
 		
 		offset: [0.000, 0.000]

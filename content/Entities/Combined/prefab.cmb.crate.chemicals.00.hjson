@@ -1,0 +1,78 @@
+﻿{
+	$prefab: "crate.metal.02"
+	$enabled: true
+	
+	storage:
+	{
+		@inventory16:
+		{
+			type: storage
+			flags: public, faction
+			stack_size_multiplier: 4.000
+			resources:
+			[
+				{
+					material: nitroglycerine
+					quantity: 500.000
+				}
+				{
+					material: hydrochloric_acid
+					quantity: 500.000
+				}
+				{
+					material: phlogiston
+					quantity: 400.000
+				}
+				{
+					material: benzene
+					quantity: 500.000
+				}
+				{
+					material: naphtha
+					quantity: 500.000
+				}
+				{
+					material: glue
+					quantity: 500.000
+				}
+				{
+					material: alcohol
+					quantity: 500.000
+				}
+				{
+					material: hydrogen_peroxide
+					quantity: 500.000
+				}
+				{
+					material: lubricant
+					quantity: 500.000
+				}
+				{
+					material: paxilon
+					quantity: 500.000
+				}
+				{
+					material: nitric_acid
+					quantity: 500.000
+				}
+				{
+					material: sulfuric_acid
+					quantity: 500.000
+				}
+				{
+					material: morphine
+					quantity: 500.000
+				}
+				{
+					material: water.clean
+					quantity: 2000.000
+				}
+				{
+					material: water
+					quantity: 2000.000
+				}
+				null
+			]
+		}
+	}
+}

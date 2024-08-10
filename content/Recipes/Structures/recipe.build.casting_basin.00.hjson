@@ -14,7 +14,7 @@
 	step: 0
 	
 	type: build
-	flags: no_amount_multiplier, blueprintable
+	flags: no_amount_multiplier, blueprintable, wip
 	tags: wrench, industry
 	
 	color_button: "0xffaeb59a"

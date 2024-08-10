@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Wall Lamp (Flat)"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	step: 0
 	
 	type: build
-	flags: wip
+	flags: none
 	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
