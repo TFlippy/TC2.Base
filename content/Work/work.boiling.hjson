@@ -16,7 +16,7 @@
 	
 	flags: passive
 	tags: automated, dangerous, simple, passive, wip
-	cooldown: 1.250
+	cooldown: 1.220
 	multiplier: 2.750
 	color: "0xffaeb59a"
 	
@@ -47,7 +47,7 @@
 	sounds: []
 	sounds_manual: []
 	sounds_machine: []
-	sounds_passive: ["effect.boiling.loop.01", "effect.boiling.loop.00"]
+	sounds_passive: ["effect.boiling.loop.01"]
 	
 	sounds_start: ["effect.flush.water.00"]
 	sounds_end: ["effect.inflate.00"]

@@ -106,7 +106,7 @@
 			amount: 80.000
 			difficulty: 3
 			group: 3
-			flags: conditional
+			flags: no_scaling, conditional
 		}
 	]
 	

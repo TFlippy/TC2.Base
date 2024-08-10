@@ -13,7 +13,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.375, 1.125]
+		size: [1.375, 1.000]
 		
 		mass: 31.000
 		radius: 0.250

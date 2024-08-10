@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.3"
 	name: "Mashing"
 	name_short: "Mashing"
 	desc:
@@ -14,6 +14,7 @@
 		frame: [1, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, simple, wip
 	cooldown: 2.000
 	multiplier: 1.000
@@ -44,5 +45,17 @@
 		clubs: 1.300
 	}
 	
-	sounds: []
+	sound_volume: 0.500
+	sound_pitch: 0.850
+	sound_size: 0.500
+	sound_dist: 0.800
+	
+	sounds: ["effect.plunger.00", "effect.smack.meaty.00", "effect.plunger.01", "effect.plunger.02", "effect.smack.meaty.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

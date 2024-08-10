@@ -42,7 +42,7 @@ gun:
 	sound_volume: 1.900
 	sound_size: 1.500
 	sound_dist_multiplier: 1.800
-	sound_pitch: 1.400
+	sound_pitch: 1.000
 	
 	sound_shoot: breechloader.pocket.shoot
 	sound_cycle: breechloader.pocket.cycle
@@ -54,7 +54,7 @@ gun:
 	damage_multiplier: 2.100
 	velocity_multiplier: 190.000
 	jitter_multiplier: 8.000
-	recoil_multiplier: 2.600
+	recoil_multiplier: 1.700
 	reload_interval: 1.900
 	cycle_interval: 0.500
 	stability: 1540.000
@@ -103,8 +103,8 @@ gun.state:
 
 holdable:
 {
-	force_multiplier: 0.700
-	torque_multiplier: 0.200
+	force_multiplier: 1.400
+	torque_multiplier: 0.600
 	stress_multiplier: 0.500
 	offset: [-0.250, 0.000]
 	radius: 4.000

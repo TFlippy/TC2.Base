@@ -51,7 +51,7 @@
 	sound_size: 0.450
 	sound_dist: 0.530
 	
-	sounds: ["effect.knead.slimy.00", "effect.splat.muddy.00", "effect.squish.slimy.00"]
+	sounds: ["effect.squish.slimy.00", "effect.squish.slimy.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

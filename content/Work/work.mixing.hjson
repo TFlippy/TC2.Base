@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Mixing"
 	name_short: "Mixing"
 	desc:
@@ -14,6 +14,7 @@
 		frame: [13, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, simple, wip
 	cooldown: 1.250
 	multiplier: 1.000
@@ -50,14 +51,12 @@
 	sound_size: 0.500
 	sound_dist: 0.500
 	
-	sounds:
-	[
-		work_mix_00
-		work_mix_01
-		work_mix_00
-		work_mix_01
-		work_mix_00
-		work_mix_00
-		work_mix_01
-	]
+	sounds: ["work_mix_00", "work_mix_01", "work_mix_00", "work_mix_01", "work_mix_00", "work_mix_00", "work_mix_01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

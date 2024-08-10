@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Investigation"
 	name_short: "Investigation"
 	desc:
@@ -54,4 +54,11 @@
 	sound_dist: 1.000
 	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: ["drunk.03", "effect.stupid.00", "kobold.bleh.00", "vo_hello", "snap", "glass_hit_sharp_00", "glass_hit_sharp_01", "metal.gib.lg.00", "vo_haha"]
 }

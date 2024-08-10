@@ -232,12 +232,12 @@ namespace TC2.Base.Components
 
 			if (sound_emitter.IsNotNull())
 			{
-				sound_emitter.offset = heat.offset;
+				//sound_emitter.offset = heat.offset;
 				sound_emitter.volume_mult = Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
 				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 			}
 
-			if (temperature_current >= 100.00f && time >= heat_state.t_next_steam)
+			if (temperature_current >= Temperature.Celsius(150.00f) && time >= heat_state.t_next_steam)
 			{
 				heat_state.t_next_steam = time + 0.04f;
 

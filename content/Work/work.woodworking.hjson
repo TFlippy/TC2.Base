@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Woodworking"
 	name_short: "Woodworking"
 	desc:
@@ -48,18 +48,17 @@
 		strength: 0.350
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 0.400
+	sound_pitch: 0.840
+	sound_size: 0.420
+	sound_dist: 0.590
 	
-	sounds:
-	[
-		work_woodworking_00
-		work_woodworking_01
-		work_woodworking_02
-		work_woodworking_03
-		work_woodworking_04
-		work_woodworking_05
-	]
+	sounds: ["structural.wood.stress.00", "axe_hit_wood_03", "work_woodworking_02", "wood_hit_axe_02", "work_woodworking_04", "work_woodworking_05"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

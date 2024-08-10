@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.3"
 	name: "Bending"
 	name_short: "Bending"
 	desc:
@@ -14,9 +14,10 @@
 		frame: [40, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, simple, industrial, wip
-	cooldown: 0.250
-	multiplier: 1.000
+	cooldown: 2.000
+	multiplier: 1.550
 	color: "0xffaeb59a"
 	
 	tools_required: none
@@ -44,5 +45,17 @@
 	
 	}
 	
-	sounds: []
+	sound_volume: 0.550
+	sound_pitch: 1.100
+	sound_size: 0.500
+	sound_dist: 0.800
+	
+	sounds: ["effect.spring.machine.00", "effect.spring.machine.01", "effect.spring.machine.02", "effect.spring.erupt.01", "effect.clang.metal.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

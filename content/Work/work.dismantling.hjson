@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.3"
 	name: "Dismantling"
 	name_short: "Dismantling"
 	desc:
@@ -14,6 +14,7 @@
 		frame: [9, 0]
 	}
 	
+	flags: none
 	tags: manual, skilled, tools, science, dangerous, technical, careful, industrial, wip
 	cooldown: 1.150
 	multiplier: 1.000
@@ -49,13 +50,17 @@
 		strength: 0.120
 	}
 	
-	sounds:
-	[
-		wrench.dismantle.00
-		wrench.dismantle.00
-		wrench.dismantle.00
-		burner.lid.clang.00
-		work_assembly_04
-		burner.lid.clang.01
-	]
+	sound_volume: 0.850
+	sound_pitch: 1.000
+	sound_size: 0.450
+	sound_dist: 0.950
+	
+	sounds: ["wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.erupt.01", "effect.use.machine.00", "effect.clang.metal.00", "effect.rattle.spring.00", "effect.tinker.components.00", "effect.spring.machine.00", "effect.spring.machine.01", "effect.tinker.machine.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: ["effect.clang.metal.00"]
+	sounds_fail: []
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Recruitment"
 	name_short: "Recruitment"
 	desc:
@@ -55,4 +55,11 @@
 	sound_dist: 1.000
 	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: ["drunk.03", "twuk.screech.03", "vo_die", "vo_idiot", "vo_kill"]
 }

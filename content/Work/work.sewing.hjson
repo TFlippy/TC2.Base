@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Sewing"
 	name_short: "Sewing"
 	desc:
@@ -16,7 +16,7 @@
 	
 	flags: none
 	tags: wip
-	cooldown: 1.500
+	cooldown: 0.900
 	multiplier: 1.000
 	color: "0xff719240"
 	
@@ -45,10 +45,17 @@
 		blades: 0.280
 	}
 	
-	sound_volume: 0.500
+	sound_volume: 0.900
 	sound_pitch: 1.000
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.600
 	
-	sounds: []
+	sounds: ["effect.cloth.slide.00", "effect.cloth.place.03", "effect.cloth.place.02", "effect.cloth.place.00", "effect.cloth.shuffle.00", "effect.tool.small.00", "effect.cloth.shuffle.02", "effect.cloth.place.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

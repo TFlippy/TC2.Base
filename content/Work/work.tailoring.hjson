@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.3"
 	name: "Tailoring"
 	name_short: "Tailoring"
 	desc:
@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: wip
-	cooldown: 1.500
-	multiplier: 1.000
+	cooldown: 0.850
+	multiplier: 0.900
 	color: "0xff719240"
 	
 	tools_required: none
@@ -44,10 +44,17 @@
 		dexterity: 1.140
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
+	sound_volume: 0.600
+	sound_pitch: 1.100
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.600
 	
-	sounds: []
+	sounds: ["effect.cloth.slide.00", "effect.cloth.place.03", "effect.cloth.place.02", "effect.cloth.place.00", "effect.cloth.shuffle.00", "effect.tool.small.00", "effect.cloth.shuffle.02", "effect.cloth.place.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: ["flesh_hit_slash_00", "snap", "flesh.hit.scratch.00", "syringe.inject.00"]
 }

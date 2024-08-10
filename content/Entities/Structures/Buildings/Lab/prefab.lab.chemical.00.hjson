@@ -141,27 +141,27 @@ personnel:
 	slots:
 	[
 		{
-			role: engineer
-			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
-			color: "0xffff8333"
-			multiplier: 1.000
-		}
-		{
-			role: mechanic
-			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
-			color: "0xffff8333"
+			role: chemist
+			tags: management, research, civil, industrial, production, dangerous, sedentary, technical, maintenance, operation
+			color: "0xff80dc7e"
 			multiplier: 2.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
+			role: chemist
+			tags: management, research, civil, industrial, production, dangerous, sedentary, technical, maintenance, operation
+			color: "0xff80dc7e"
+			multiplier: 2.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
+			role: assistant
+			tags: administrative, civil, industrial, logistics, production, dangerous, manual_labor, paperwork, sedentary, technical, maintenance, operation
+			color: "0xff91a6a4"
+			multiplier: 1.500
+		}
+		{
+			role: guard
+			tags: security, combat, military, dangerous
+			color: "0xff719240"
 			multiplier: 1.000
 		}
 		null
@@ -306,6 +306,8 @@ essencecontainer:
 
 heat:
 {
+	temperature_high: 620.000
+	temperature_critical: 1337.000
 	cool_rate: 11.500
 	heat_capacity_extra: 150.000
 	flags: exclude_body_mass
