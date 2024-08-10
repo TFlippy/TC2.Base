@@ -16,7 +16,7 @@
 	
 	flags: passive
 	tags: automated, dangerous, simple, passive, wip
-	cooldown: 0.850
+	cooldown: 1.700
 	multiplier: 2.200
 	color: "0xffaeb59a"
 	
@@ -29,12 +29,6 @@
 	equipment_required: none
 	equipment_optional: none
 	
-	character_traits:
-	{
-		include: insane, alcoholic, evil
-		weight: 1.000
-	}
-	
 	skills_min:
 	{
 	
@@ -45,10 +39,17 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 0.250
+	sound_pitch: 0.350
+	sound_size: 1.500
+	sound_dist: 0.800
 	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: ["effect.dump.steamy.00", "effect.dump.steamy.01"]
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

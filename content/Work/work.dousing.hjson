@@ -15,23 +15,23 @@
 	}
 	
 	flags: none
-	tags: machine, automated, dangerous, chemical, industrial, wip
-	cooldown: 1.300
-	multiplier: 1.000
+	tags: manual, dangerous, simple
+	cooldown: 2.000
+	multiplier: 1.350
 	color: "0xffaeb59a"
 	
-	tools_required: none
+	tools_required: bucket
 	tools_optional: none
 	
-	machinery_required: heater
+	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: cauldron, barrel
 	
 	character_traits:
 	{
-		include: insane, alcoholic, evil
+		include: slave, construction, farmer, laborer, culinary, insane, naval, brawler, strong, evil, dumb, clumsy, huge
 		weight: 1.000
 	}
 	
@@ -42,18 +42,22 @@
 	
 	skills_mult:
 	{
-	
+		endurance: 0.350
+		blacksmithing: 0.200
+		strength: 0.500
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 1.100
+	sound_pitch: 0.750
+	sound_size: 0.300
+	sound_dist: 0.750
 	
-	sounds:
-	[
-		sizzle.00
-		sizzle.01
-		sizzle.02
-	]
+	sounds: ["effect.sizzle.low.00", "effect.sizzle.water.00", "effect.sizzle.water.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

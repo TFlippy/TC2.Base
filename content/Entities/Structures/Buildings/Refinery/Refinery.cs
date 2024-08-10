@@ -503,25 +503,25 @@
 		[Source.Owned, Optional] in Heat.Data heat, [Source.Owned, Optional] in Heat.State heat_state)
 		//[Source.Owned, Pair.First, Optional] in Heater.Data heater)
 		{
-			if (interactable.IsActive())
-			{
-				var gui = new RefineryGUI()
-				{
-					ent_refinery = entity,
+			//if (interactable.IsActive())
+			//{
+			//	var gui = new RefineryGUI()
+			//	{
+			//		ent_refinery = entity,
 
-					transform = transform,
+			//		transform = transform,
 
-					heat = heat,
-					heat_state = heat_state,
+			//		heat = heat,
+			//		heat_state = heat_state,
 
-					//heater = heater,
-					//h_heater = h_heater,
+			//		//heater = heater,
+			//		//h_heater = h_heater,
 
-					refinery = refinery,
-					refinery_state = refinery_state,
-				};
-				gui.Submit();
-			}
+			//		refinery = refinery,
+			//		refinery_state = refinery_state,
+			//	};
+			//	gui.Submit();
+			//}
 		}
 #endif
 
