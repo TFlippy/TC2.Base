@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, dangerous, simple
-	cooldown: 2.000
-	multiplier: 1.350
+	cooldown: 3.000
+	multiplier: 2.000
 	color: "0xffaeb59a"
 	
 	tools_required: bucket
@@ -48,11 +48,11 @@
 	}
 	
 	sound_volume: 1.100
-	sound_pitch: 0.750
-	sound_size: 0.300
-	sound_dist: 0.750
+	sound_pitch: 0.900
+	sound_size: 0.850
+	sound_dist: 0.700
 	
-	sounds: ["effect.sizzle.low.00", "effect.sizzle.water.00", "effect.sizzle.water.01"]
+	sounds: ["effect.sizzle.fry.00", "effect.sizzle.sparky.00", "effect.sizzle.water.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

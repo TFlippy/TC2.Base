@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, machine, automated, simple, wip
-	cooldown: 1.500
-	multiplier: 2.000
+	cooldown: 1.650
+	multiplier: 1.290
 	color: "0xff719240"
 	
 	tools_required: none
@@ -46,12 +46,12 @@
 		endurance: 0.600
 	}
 	
-	sound_volume: 0.650
-	sound_pitch: 0.800
-	sound_size: 0.300
-	sound_dist: 0.400
+	sound_volume: 0.600
+	sound_pitch: 0.650
+	sound_size: 0.450
+	sound_dist: 0.530
 	
-	sounds: ["effect.knead.slimy.00", "effect.splat.muddy.00"]
+	sounds: ["effect.knead.slimy.00", "effect.splat.muddy.00", "effect.squish.slimy.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
