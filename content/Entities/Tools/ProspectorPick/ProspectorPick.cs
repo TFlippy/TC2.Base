@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 				var b = region.WorldToCanvas(this.prospector_pick_state.position);
 				var c = region.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
 
-				using (var window = GUI.Window.HUD("Prospector Pick"u8, position: a + new Vector2(0.00f, -2.00f), size: new(160, 0), pivot: new(0.50f, 1.00f)))
+				using (var window = GUI.Window.HUD("Prospector Pick"u8, position: a + new Vector2(0.00f, -2.00f), size: new(168, 0), pivot: new(0.50f, 1.00f)))
 				{
 					if (window.show)
 					{
@@ -89,7 +89,7 @@ namespace TC2.Base.Components
 									//else if (block.flags.HasAll(Block.Flags.Common)) color = GUI.font_color_default;
 									//else color = GUI.font_color_default.WithColorMult(0.50f);
 
-									GUI.LabelShaded($"{block.name}:", ratio, "{0:P0}", color_a: color, color_b: GUI.font_color_default);
+									GUI.LabelShaded(block.name, ratio, "P0", color_a: color, color_b: GUI.font_color_default);
 								}
 							}
 

@@ -188,8 +188,8 @@
 
 									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY - slider_h - 64)))
 									{
-										GUI.LabelShaded("Angular Velocity:"u8, this.axle_state.angular_velocity, "{0:0.00} rad/s");
-										GUI.LabelShaded("Torque:"u8, this.axle_state.net_torque, "{0:0.00} Nm/s");
+										GUI.LabelShaded("Angular Velocity:"u8, this.axle_state.angular_velocity, "0.00' rad/s'");
+										GUI.LabelShaded("Torque:"u8, this.axle_state.net_torque, "0.00' Nm/s'");
 									}
 
 									var ent_child = default(Entity);
