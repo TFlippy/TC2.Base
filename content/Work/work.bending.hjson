@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, machine, automated, simple, industrial, wip
 	cooldown: 2.000
-	multiplier: 1.550
+	multiplier: 2.450
 	color: "0xffaeb59a"
 	
 	tools_required: none
@@ -47,7 +47,7 @@
 	
 	sound_volume: 0.550
 	sound_pitch: 1.100
-	sound_size: 0.500
+	sound_size: 0.450
 	sound_dist: 0.800
 	
 	sounds: ["effect.spring.machine.00", "effect.spring.machine.01", "effect.spring.machine.02", "effect.spring.erupt.01", "effect.clang.metal.00"]

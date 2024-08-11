@@ -28,7 +28,7 @@
 	step: 5
 	
 	type: workshop
-	flags: disabled, wip
+	flags: wip
 	tags: manual, advanced, dangerous, explosive, chemistry, refining
 	
 	color_button: "0xffcf392b"

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Papercraft"
 	name_short: "Papercraft"
 	desc:
@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, simple, careful, leisure
 	cooldown: 1.900
-	multiplier: 1.000
+	multiplier: 2.000
 	color: "0xff719240"
 	
 	tools_required: paper
@@ -37,7 +37,7 @@
 	
 	character_traits:
 	{
-		include: bureaucrat, medical, artisan, laborer, law, commerce, engineer, rich, entertainer, artist, sedentary, evil, politician, thief
+		include: bureaucrat, scientist, criminal, educated, medical, nobility, artisan, professional, law, social, commerce, engineer, rich, soldier, insane, entertainer, illiterate, artist, sedentary, evil, politician, thief, upper_middle_class, upper_class, elite_class
 		exclude: feral, animal, clumsy, huge
 		weight: 1.000
 	}
@@ -49,8 +49,8 @@
 	
 	skills_mult:
 	{
-		intellect: 0.250
-		dexterity: 0.700
+		intellect: 0.650
+		dexterity: 1.000
 		blades: 0.100
 	}
 	
@@ -59,10 +59,12 @@
 	sound_size: 0.500
 	sound_dist: 1.000
 	
-	sounds:
-	[
-		work.paperwork.page.00
-		work.paperwork.page.01
-		work.paperwork.page.02
-	]
+	sounds: ["work.paperwork.page.00", "work.paperwork.page.01", "work.paperwork.page.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

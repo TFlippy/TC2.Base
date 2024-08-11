@@ -1,0 +1,59 @@
+﻿{
+	$version: "0.1.61.3"
+	name: "Nitrocellulose"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	icon:
+	{
+		texture: resource.nitrocellulose
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	min: 5
+	max: 100
+	step: 5
+	
+	type: workshop
+	flags: wip
+	tags: manual, advanced, dangerous, explosive, chemistry, refining
+	
+	color_button: "0xffcf392b"
+	rank: 90.000
+	
+	requirements:
+	[
+		{
+			type: work
+			work: blending
+			amount: 350.000
+			difficulty: 7
+			snapping: 5.000
+			falloff: 0.800
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: nitrocellulose
+			amount: 1.000
+			group: 0
+		}
+	]
+}

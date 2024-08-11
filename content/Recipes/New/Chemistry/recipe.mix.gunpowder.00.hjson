@@ -21,7 +21,7 @@
 		size: [8, 8]
 		frame: [3, 2]
 	}
-	icon_extra_offset: [-5.000, -6.000]
+	icon_extra_offset: [-6.000, -6.000]
 	
 	icon_c:
 	{
@@ -59,26 +59,28 @@
 		{
 			type: work
 			work: crushing
-			amount: 35.000
+			amount: 42.000
 			difficulty: 5
 			snapping: 5.000
 			falloff: 0.760
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: sulfur
 			amount: 0.220
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: mixing
 			amount: 40.000
-			difficulty: 4
+			difficulty: 7
 			snapping: 5.000
-			falloff: 0.520
-			group: 0
+			falloff: 0.550
+			group: 1
+			flags: conditional
 		}
 	]
 	

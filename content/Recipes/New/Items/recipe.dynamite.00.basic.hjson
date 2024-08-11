@@ -33,7 +33,7 @@
 		{
 			type: resource
 			material: nitroglycerine
-			amount: 12.000
+			amount: 8.000
 			group: 0
 		}
 		{
@@ -47,20 +47,26 @@
 			work: kneading
 			amount: 220.000
 			difficulty: 4
+			snapping: 5.000
+			falloff: 0.400
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: paper
 			amount: 3.000
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: papercraft
-			amount: 250.000
+			amount: 50.000
 			difficulty: 4
-			group: 0
+			snapping: 5.000
+			falloff: 0.800
+			group: 1
+			flags: conditional
 		}
 	]
 	
