@@ -52,12 +52,12 @@
 	sound_size: 0.500
 	sound_dist: 0.700
 	
-	sounds: ["effect.cloth.slide.00", "item.adjust.00", "work_mix_00", "work_mix_01"]
+	sounds: ["work_mix_00", "work_mix_01", "effect.cloth.slide.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
 	
-	sounds_start: []
+	sounds_start: ["effect.clunk.metal.00"]
 	sounds_end: []
 	sounds_fail: []
 }

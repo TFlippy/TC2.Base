@@ -343,6 +343,31 @@
 						{
 							using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 							{
+								//var key = 0b11011111_01011000_11101010_11110110u;
+
+								//var a = 150.954f;
+								//var a_offset = 7;
+
+								//var b = 1337u;
+								//var b_offset = 3;
+
+								//var c = -777.00f;
+								//var c_offset = 25;
+
+								//var d = 12324.2024f;
+								//var d_offset = 19;
+
+								//var root = 0ul;
+								////root = ((ulong)key)
+
+								//root ^= a.ToUInt32BitCast();
+								////root = BitOperations.RotateLeft(root, a_key);
+								
+								//GUI.Text(root.ToFormattedBinary(true));
+
+								//root = BitOperations.RotateRight(root, a_key);
+								
+
 								//GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
 								//using (var scrollbox = GUI.Scrollbox.New("recipes", size: GUI.Rm, padding: new(8, 8)))
@@ -503,25 +528,25 @@
 		[Source.Owned, Optional] in Heat.Data heat, [Source.Owned, Optional] in Heat.State heat_state)
 		//[Source.Owned, Pair.First, Optional] in Heater.Data heater)
 		{
-			//if (interactable.IsActive())
-			//{
-			//	var gui = new RefineryGUI()
-			//	{
-			//		ent_refinery = entity,
+			if (interactable.IsActive())
+			{
+				var gui = new RefineryGUI()
+				{
+					ent_refinery = entity,
 
-			//		transform = transform,
+					transform = transform,
 
-			//		heat = heat,
-			//		heat_state = heat_state,
+					heat = heat,
+					heat_state = heat_state,
 
-			//		//heater = heater,
-			//		//h_heater = h_heater,
+					//heater = heater,
+					//h_heater = h_heater,
 
-			//		refinery = refinery,
-			//		refinery_state = refinery_state,
-			//	};
-			//	gui.Submit();
-			//}
+					refinery = refinery,
+					refinery_state = refinery_state,
+				};
+				gui.Submit();
+			}
 		}
 #endif
 

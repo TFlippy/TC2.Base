@@ -10,10 +10,10 @@
 
 			public float deadzone = 5.00f;
 
-			[Statistics.Info("Zoom Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Zoom", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public float zoom_modifier = 0.50f;
 
-			[Statistics.Info("Shake Modifier", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
+			[Statistics.Info("Stability", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float shake_modifier = 1.00f;
 
 			[Statistics.Info("Zoom (Min)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
@@ -22,10 +22,10 @@
 			[Statistics.Info("Zoom (Max)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float zoom_max = 1.00f;
 
-			[Statistics.Info("Minimum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Distance (Min)", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float min_distance = 12.00f;
 
-			[Statistics.Info("Maximum Distance", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Distance (Max)", description: "TODO: Desc", format: "{0:0} meters", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float max_distance = 80.00f;
 
 			[Save.Ignore, Net.Ignore] public float current_modifier;

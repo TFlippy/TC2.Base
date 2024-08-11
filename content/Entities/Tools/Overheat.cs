@@ -19,10 +19,10 @@ namespace TC2.Base.Components
 			public Temperature temperature_medium = Temperature.Celsius(150.00f);
 			public Temperature temperature_high = Temperature.Celsius(525.00f);
 
-			[Statistics.Info("Maximum Temperature", description: "Maximum operating temperature.", format: "{0:0.##} K", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Temperature (Max)", description: "Maximum operating temperature.", format: "{0:0.##} K", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public Temperature temperature_critical = Temperature.Celsius(620.00f);
 
-			[Statistics.Info("Cooling Rate", description: "Cooling rate.", format: "{0:0.##} kW", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Dissipation", description: "Cooling rate.", format: "{0:0.##} kW", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public Power cool_rate = 1.00f;
 
 			[Statistics.Info("Heat Capacity (Extra)", description: "Extra heat capacity.", format: "{0:0.##} kJ", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]

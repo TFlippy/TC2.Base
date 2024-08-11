@@ -127,7 +127,7 @@ sticky:
 {
 	min_contact_count: 2
 	min_contact_distance: 0.400
-	max_force: 50000.000
+	max_force: 90000.000
 	flags: attach_on_collide
 	mask: world, solid
 	exclude: dynamic, essence, water
@@ -150,7 +150,7 @@ sticky:
 	joint.base:
 	{
 		offset_a: [0.000, -0.750]
-		max_force: 75000.000
+		max_force: 155000.000
 		max_torque: 30000.000
 		max_stress: 2.000
 		stress_threshold: 2.010

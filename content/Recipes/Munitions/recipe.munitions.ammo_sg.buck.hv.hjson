@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Shotgun Shell (Buckshot, High-Velocity)"
 	desc:
 		'''
@@ -31,7 +31,7 @@
 	tags: manual, munitions
 	
 	color_button: "0xffaeb59a"
-	rank: 0.000
+	rank: 100.000
 	
 	requirements:
 	[

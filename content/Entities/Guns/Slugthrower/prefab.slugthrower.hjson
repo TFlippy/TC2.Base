@@ -48,7 +48,7 @@ gun:
 	recoil_multiplier: 1.000
 	reload_interval: 2.500
 	cycle_interval: 0.080
-	stability: 4850.000
+	stability: 9850.000
 	
 	ammo_filter: ammo_musket
 	max_ammo: 150.000
