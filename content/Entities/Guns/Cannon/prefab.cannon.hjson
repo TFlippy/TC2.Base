@@ -7,20 +7,22 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 0.500
+	fall_damage_multiplier: 0.350
 	buoyancy: 0.080
 
 	@shape.line:
 	{
 		a: [-3.000, 0.125]
 		b: [3.250, -0.125]
-		mass: 750.000
+		mass: 1450.000
 		radius: 0.550
 		friction: 0.800
 		elasticity: 0.450
 		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
-		mask: world
+		layer: entity, solid, ignore_melee, item
+		mask: world, solid
+
+		miss_chance: 0.150
 	}
 }
 
@@ -37,11 +39,11 @@ gun:
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 220.000
 	jitter_multiplier: 0.350
-	damage_multiplier: 70.000
-	recoil_multiplier: 1.200
+	damage_multiplier: 38.000
+	recoil_multiplier: 1.700
 	reload_interval: 5.000
 	cycle_interval: 1.500
-	failure_rate: 0.000
+	failure_rate: 0.010
 	max_ammo: 1.000
 	sound_volume: 6.000
 	sound_size: 10.000
@@ -58,14 +60,13 @@ gun:
 	type: cannon
 	feed: breech
 
-	stability: 29000.000
+	stability: 49000.000
 
-	shake_amount: 0.900
+	shake_amount: 2.000
 	shake_radius: 100.000
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		filter_flags: ammo_hw
@@ -110,10 +111,10 @@ holdable:
 
 attachment:
 {
-	offset: [-1.875, 0.000]
-
-	force_multiplier: 8.000
+	force_multiplier: 6.000
 	torque_multiplier: 3.000
+	offset: [-1.875, 0.000]
+	tags: large, huge, weapon, rotary, long
 }
 
 animated.renderer:
@@ -126,15 +127,15 @@ animated.renderer:
 
 health:
 {
-	max: 150000.000
+	max: 220000.000
 }
 
 armor:
 {
-	toughness: 1500.000
-	protection: 0.900
+	toughness: 1150.000
+	protection: 0.990
 	
-	knockback_modifier: 1.300
+	knockback_modifier: 1.600
 	pain_modifier: 0.000
 
 	material_type: metal_solid
@@ -151,7 +152,7 @@ heat:
 	heat_medium: 350.000
 	heat_high: 600.000
 	heat_critical: 700.000
-	cool_rate: 40.000
+	cool_rate: 2.000
 	
 	@light:
 	{

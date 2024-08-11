@@ -15,13 +15,15 @@ body:
 	{
 		a: [-2.000, 0.000]
 		b: [1.875, -0.150]
-		mass: 260.000
+		mass: 360.000
 		radius: 0.500
 		friction: 0.800
 		elasticity: 0.250
 		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, ignore_melee, item
 		mask: world
+
+		miss_chance: 0.350
 	}
 }
 
@@ -38,7 +40,7 @@ gun:
 	sound_reload: "cannon_reload"
 	velocity_multiplier: 90.000
 	jitter_multiplier: 0.900
-	damage_multiplier: 25.000
+	damage_multiplier: 20.000
 	recoil_multiplier: 1.300
 	reload_interval: 3.000
 	cycle_interval: 1.500
@@ -55,17 +57,16 @@ gun:
 	ammo_filter: ammo_hw
 	action: manual
 	type: cannon
-	feed: single
+	feed: breech
 
 	heuristic_range: 60.000
 	stability: 16750.000
 
-	shake_amount: 1.700
+	shake_amount: 1.400
 	shake_radius: 40.000
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
@@ -112,7 +113,9 @@ attachment:
 	offset: [-1.375, 0.000]
 
 	force_multiplier: 6.000
-	torque_multiplier: 4.000
+	torque_multiplier: 3.000
+
+	tags: medium, large, weapon, rotary
 }
 
 animated.renderer:
@@ -125,7 +128,7 @@ animated.renderer:
 
 health:
 {
-	max: 75000.000
+	max: 95000.000
 }
 
 armor:
@@ -150,7 +153,7 @@ heat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 200.000
+	cool_rate: 1.000
 	
 	@light:
 	{
