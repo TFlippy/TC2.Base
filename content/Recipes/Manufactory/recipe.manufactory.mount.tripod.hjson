@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.3"
 	name: "Tripod"
 	desc:
 		'''
@@ -17,7 +17,7 @@
 	step: 1
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
+	flags: no_amount_multiplier, blueprintable, wip
 	tags: manual, assembling, metalworking, engineering
 	
 	color_button: "0xffaeb59a"
@@ -27,8 +27,8 @@
 	[
 		{
 			type: resource
-			material: steel.ingot
-			amount: 6.000
+			material: steel.frames
+			amount: 9.600
 			group: 0
 		}
 		{
@@ -39,7 +39,7 @@
 		}
 		{
 			type: work
-			work: smithing
+			work: tailoring
 			amount: 600.000
 			difficulty: 8
 			group: 0

@@ -8,24 +8,27 @@ $tags: []
 body:
 {
 	buoyancy: 0.100
+	fall_damage_multiplier: 0.250
 
-	@shape.polygon:	
+	@shape.polygon:
 	{
-		points: 
+		points:
 		[
 			[0.625, 0.125]
 			[-0.750, 0.125]
 			[-0.100, -0.750]
 			[0.100, -0.750]
 		]
-		offset: [0.000, 0.000]
+		
 		mass: 50.000
-		friction: 1.000
-		elasticity: 0.300
 		radius: 0.500
+		friction: 1.000
+		elasticity: 0.500
+		
 		material: metal_frame
-		layer: entity, solid, ignore_bullet
-		mask: world
+		miss_chance: 0.400
+		
+		layer: entity, solid
 	}
 }
 
@@ -45,7 +48,8 @@ holdable:
 	torque_multiplier: 1.500
 	stress_multiplier: 0.500
 	offset: [-0.500, 0.625]
-	flags: disable_control, full_rotate
+	priority: -2.000
+	flags: disable_control
 }
 
 animated.renderer:
@@ -71,7 +75,7 @@ faction:
 
 claimable:
 {
-	
+	flags: allow_owner_unclaim
 }
 
 transform:
@@ -81,10 +85,11 @@ transform:
 
 interactable:
 {
-	priority: 1.800
-	window_size: [96.000, 96.000]
+	flags: none
+	priority: -1.800
+	window_size: [128.000, 104.000]
+	window_size_misc: [72.000, 0.000]
 	window_offset: [0.000, 192.000]
-	window_size_misc: [120.000, 0.000]
 }
 
 mount:
@@ -96,9 +101,16 @@ storage:
 {
 	@inventory1:
 	{
-		stack_size_multiplier: 4.000
 		type: ammo
-		flags: standalone, allow_ducts
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			include: ammo_lc, ammo_hc, ammo_mg, ammo_ac, ammo_sg, ammo_rocket, ammo_musket
+		}
+		
+		offset: [-0.125, -0.750]
 	}
 }
 
@@ -125,14 +137,13 @@ vehicle:
 
 sticky:
 {
+	max_force: 100000.000
 	min_contact_count: 2
 	min_contact_distance: 0.400
-	max_force: 90000.000
 	flags: attach_on_collide
 	mask: world, solid
-	exclude: dynamic, essence, water
-
-	sound: "item.adjust.00"
+	exclude: background, tree, duct, pipe, door, conveyor, essence, water, gas, attached, dynamic
+	sound: duct_transport
 }
 
 +seat|instance:
@@ -150,71 +161,83 @@ sticky:
 	joint.base:
 	{
 		offset_a: [0.000, -0.750]
-		max_force: 155000.000
-		max_torque: 30000.000
-		max_stress: 2.000
-		stress_threshold: 2.010
-		flags: control_write, no_wrap, force_facing, attachment, allow_dragging, facing_reset_pos
+		max_force: 12000.000
+		max_torque: 12000.000
+		max_displacement: 0.450
+		displacement_stress_modifier: 0.500
+		displacement_force_modifier: 0.100
+		max_stress: 0.400
+		stress_damp: 0.950
 		material_type: metal
-		
+		flags: no_wrap, attachment, allow_dragging, control_write, facing_reset_pos, force_facing
+
 		@sound.emitter:
 		{
-			file: "crane_loop_b"
+			file: crane_loop_b
 			volume: 1.000
-			pitch: 1.000
+			pitch: 1.300
+			size: 0.700
+			size_max_modifier: 0.700
 		}
-		
+
 		@sound.mixer:
 		{
-			volume_modifier: 1.200
-			pitch_modifier: 0.250
-			volume_min: 0.000
-			pitch_min: 0.700
-			volume_lerp_a: 0.020
-			volume_lerp_b: 0.100
-			pitch_lerp_a: 0.040
-			pitch_lerp_b: 0.010
+			volume_modifier: 0.750
+			pitch_modifier: 0.500
+			volume_lerp_a: 0.100
+			volume_lerp_b: 0.800
 		}
-	}
-
-	joint.pivot:
-	{
-		max_bias: 8.000
-	}
-
-	joint.gear:
-	{
-		min: -1.400
-		max: 0.750
-		error_bias: 0.010
-		max_bias: 4.000
-		stress_mult: 0.100
-	}
-
-	joint.rotarylimit:
-	{
-		max_torque: 90000.000
-		min: -1.600
-		max: 0.950
-		max_bias: 10.000
-		error_bias: 0.001
-	}
-
-	joint_motor:
-	{
-		force: 100.000
-		speed: 0.000
-		error_bias: 0.000
 	}
 
 	attachment.slot:
 	{
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, hold, invert, cycle, loose
 		name: "Turret"
 		identifier: "turret"
+		tags_filter:
+		{
+			include: tiny, small, medium
+			exclude: cabin, wheel, mount, motor, platform, propulsion, harness
+		}
+		gui_size: [0.000, 100.000]
+	}
 
-		flags: keyboard_write, mouse_write
-		flags_editable: locked, hold, invert
+	// joint.pivot:
+	// {
+	// 	max_bias: 8.000
+	// }
 
-		gui_size: [0.000, 96.000]
+	joint.piston:
+	{
+		stiffness: 45000.000
+		damping: 800.000
+		axis_force: 400000.000
+		max_distance: 0.350
+	}
+
+	joint.gear:
+	{
+		min: -1.3018
+		max: 0.5046
+		error_bias: 0.010
+		max_bias: 4.000
+		stress_mult: 0.350
+	}
+
+	joint.rotarylimit:
+	{
+		max_torque: 100000.000
+		min: -1.3018
+		max: 0.5046
+		max_bias: 10.000
+		error_bias: 0.001
+	}
+
+	joint.motor:
+	{
+		force: 100.000
+		speed: 0.000
+		error_bias: 0.000
 	}
 }
