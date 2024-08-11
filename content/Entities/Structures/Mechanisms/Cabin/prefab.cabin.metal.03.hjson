@@ -27,6 +27,8 @@ body:
 		material: metal_frame
 		layer: entity, solid, vehicle
 		mask: world
+
+		miss_chance: 0.250
 	}
 }
 

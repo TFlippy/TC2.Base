@@ -17,6 +17,8 @@ body:
 		material: metal_solid
 		layer: entity, solid, building, no_overlapped_placement
 		mask: world, essence
+
+		miss_chance: 0.450
 	}
 }
 

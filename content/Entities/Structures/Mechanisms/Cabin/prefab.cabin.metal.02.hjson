@@ -27,6 +27,8 @@ body:
 		material: metal
 		layer: entity, solid
 		mask: world
+
+		miss_chance: 0.150
 	}
 }
 

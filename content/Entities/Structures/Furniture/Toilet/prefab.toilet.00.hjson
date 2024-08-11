@@ -26,7 +26,9 @@ body:
 		
 		material: metal_solid
 		
-		layer: entity, solid, vehicle, furniture, ignore_bullet
+		layer: entity, solid, vehicle, furniture
+
+		miss_chance: 0.650
 	}
 }
 

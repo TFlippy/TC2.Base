@@ -13,6 +13,7 @@ body:
 		elasticity: 0.500
 		material: metal
 		layer: entity, background, building, no_overlapped_placement, ignore_melee
+		miss_chance: 0.400
 	}
 }
 

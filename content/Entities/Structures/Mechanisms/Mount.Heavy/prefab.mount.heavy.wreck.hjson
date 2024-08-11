@@ -25,6 +25,8 @@ body:
 		material: wreck
 		layer: entity, solid, building, ignore_melee
 		mask: world
+
+		miss_chance: 0.550
 	}
 
 	@shape.circle:
@@ -37,6 +39,8 @@ body:
 		material: wreck
 		layer: entity, building, ignore_melee
 		mask: world
+
+		miss_chance: 0.750
 	}
 }
 

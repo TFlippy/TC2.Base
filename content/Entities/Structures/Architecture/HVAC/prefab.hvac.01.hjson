@@ -17,8 +17,10 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		material: machine
-		layer: entity, background
+		layer: entity, solid, background
 		mask: world
+
+		miss_chance: 0.650
 	}
 }
 

@@ -27,7 +27,8 @@ body:
 		
 		material: wood
 		
-		layer: entity, solid, harvestable, flammable, ignore_bullet
+		layer: entity, solid, harvestable, flammable
+		miss_chance: 0.350
 	}
 }
 

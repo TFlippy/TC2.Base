@@ -19,6 +19,8 @@ body:
 		material: metal_sheet
 		layer: entity, solid, item, shield
 		mask: world
+
+		miss_chance: 0.080
 	}
 }
 

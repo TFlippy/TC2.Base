@@ -15,16 +15,18 @@ body:
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.720
-		material: metal_sheet
+		material: metal
 		layer: entity, platform, solid, ignore_melee, furniture, background
 		mask: world, item
 		exclude: held, attached
+
+		miss_chance: 0.550
 	}
 }
 
 health:
 {
-	max: 4500.000
+	max: 8500.000
 }
 
 animated.renderer:

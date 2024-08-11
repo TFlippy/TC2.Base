@@ -18,6 +18,8 @@ body:
 		material: machine
 		layer: entity, solid
 		mask: world
+
+		miss_chance: 0.050
 	}
 
 	fall_damage_multiplier: 0.600

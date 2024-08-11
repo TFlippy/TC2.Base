@@ -27,6 +27,8 @@ body:
 		material: stone
 		layer: entity, solid, ignore_melee
 		mask: world
+
+		miss_chance: 0.180
 	}
 }
 

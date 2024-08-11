@@ -23,9 +23,11 @@ body:
 		mass: 300.000
 		friction: 0.750
 		elasticity: 0.450
-		material: metal
+		material: metal_frame
 		layer: entity, solid
 		mask: world
+
+		miss_chance: 0.250
 	}
 }
 
