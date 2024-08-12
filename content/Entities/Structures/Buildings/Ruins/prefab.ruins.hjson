@@ -95,7 +95,7 @@ dormitory:
 
 address:
 {
-	
+	flags: auto_generate
 }
 
 entrance.linkable:

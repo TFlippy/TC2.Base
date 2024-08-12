@@ -87,7 +87,7 @@ entrance.linkable:
 
 claimable:
 {
-	flags: no_menu
+	flags: allow_owner_unclaim
 }
 
 laboratory:

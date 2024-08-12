@@ -24,6 +24,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	scale: [0.900, 0.900]
+	offset: [0.000, 0.150]
 }
 
 transform:
