@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Grenade"
 	tips: []
 	
@@ -34,6 +34,7 @@
 			type: resource
 			material: steel.plate
 			amount: 0.500
+			snapping: 1.000
 			group: 0
 		}
 		{
@@ -48,6 +49,7 @@
 			type: resource
 			material: gunpowder
 			amount: 1.500
+			snapping: 1.000
 			group: 1
 		}
 		{
@@ -62,12 +64,14 @@
 			type: resource
 			material: machine_parts
 			amount: 0.500
+			snapping: 1.000
 			group: 2
 		}
 		{
 			type: resource
 			material: wood
 			amount: 0.500
+			snapping: 1.000
 			group: 2
 		}
 		{

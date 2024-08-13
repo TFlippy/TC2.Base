@@ -36,9 +36,12 @@
 		{
 			type: work
 			work: carpentry
-			amount: 450.000
-			difficulty: 8
+			amount: 950.000
+			difficulty: 5
+			snapping: 5.000
+			falloff: 0.650
 			group: 0
+			flags: conditional
 		}
 	]
 	

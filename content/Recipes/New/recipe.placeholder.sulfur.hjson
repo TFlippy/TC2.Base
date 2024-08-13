@@ -1,0 +1,81 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Tell Brown Coal to become useful"
+	desc:
+		'''
+		Convince a lump of crappy brown coal to disintegrate into sulfur and other useful stuff.
+		'''
+	tips: []
+	
+	icon:
+	{
+		texture: resource.brown_coal
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [7.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui.emotes.00
+		size: [16, 16]
+		frame: [15, 1]
+	}
+	icon_extra_offset: [-16.000, -3.000]
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	type: workshop
+	flags: wip
+	tags: workbench, workshop, manual, simple, small
+	
+	color_button: "0xffffc500"
+	rank: -157.000
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: brown_coal
+			amount: 10.000
+			group: 0
+		}
+		{
+			type: work
+			work: torture
+			amount: 300.000
+			difficulty: 5
+			snapping: 5.000
+			falloff: 0.750
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: sulfur
+			amount: 3.720
+			amount_extra: 5.280
+			group: 0
+		}
+		{
+			type: resource
+			material: charcoal
+			amount: 3.160
+			amount_extra: 3.520
+			group: 0
+		}
+		{
+			type: resource
+			material: graphite
+			amount: 1.170
+			amount_extra: 2.410
+			group: 0
+		}
+	]
+}

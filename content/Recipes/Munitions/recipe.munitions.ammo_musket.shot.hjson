@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Musket ammo (Shot)"
 	desc:
 		'''
@@ -17,12 +17,12 @@
 	}
 	
 	min: 10
-	max: 500
+	max: 100
 	step: 10
 	
 	type: workshop
-	flags: disabled, wip
-	tags: manual, munitions
+	flags: wip
+	tags: workshop, manual, simple, small, weapon, munitions
 	
 	color_button: "0xffaeb59a"
 	rank: 100.000
@@ -31,22 +31,34 @@
 	[
 		{
 			type: resource
-			material: iron.ingot
+			material: scrap.steel
 			amount: 0.050
+			snapping: 0.100
 			group: 0
 		}
 		{
 			type: resource
 			material: gunpowder
-			amount: 0.600
+			amount: 0.100
+			snapping: 0.500
+			group: 0
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 0.025
+			snapping: 1.000
 			group: 0
 		}
 		{
 			type: work
-			work: assembling
-			amount: 8.000
-			difficulty: 2
+			work: filling.powder
+			amount: 45.000
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.200
 			group: 0
+			flags: conditional
 		}
 	]
 	

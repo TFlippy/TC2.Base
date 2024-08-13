@@ -14,7 +14,7 @@ body:
 		size: [4.250, 2.750]
 		offset: [0.000, -0.125]
 		
-		mass: 50.000
+		mass: 580.000
 		radius: 0.500
 		friction: 0.750
 		elasticity: 0.250

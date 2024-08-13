@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Landmine"
 	tips: []
 	
@@ -34,13 +34,15 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.100
+			amount: 0.500
+			snapping: 1.000
 			group: 0
 		}
 		{
 			type: resource
 			material: steel.plate
-			amount: 1.000
+			amount: 0.500
+			snapping: 1.000
 			group: 0
 		}
 		{
@@ -61,8 +63,9 @@
 			amount: 680.000
 			difficulty: 7
 			snapping: 5.000
-			falloff: 0.510
+			falloff: 0.500
 			group: 0
+			flags: sequential
 		}
 	]
 	

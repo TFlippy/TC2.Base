@@ -20,7 +20,7 @@ body:
 			[0.100, -0.750]
 		]
 		
-		mass: 50.000
+		mass: 40.000
 		radius: 0.500
 		friction: 1.000
 		elasticity: 0.500
@@ -28,7 +28,7 @@ body:
 		material: metal_frame
 		miss_chance: 0.400
 		
-		layer: entity, solid
+		layer: entity, solid, item
 	}
 }
 

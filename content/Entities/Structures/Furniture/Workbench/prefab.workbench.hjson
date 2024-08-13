@@ -89,7 +89,7 @@ interactable:
 {
 	flags: none
 	priority: 2.000
-	window_size: [896.000, 622.000]
+	window_size: [688.000, 502.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -130,10 +130,11 @@ workshop:
 laboratory:
 {
 	blueprints_capacity: 1
+	augments_capacity: 9
 	filter_tags:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: wrench, passive, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
+		exclude: wrench, passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
 }

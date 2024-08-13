@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Torture"
 	name_short: "Torture"
 	desc:
@@ -14,9 +14,10 @@
 		frame: [37, 0]
 	}
 	
+	flags: none
 	tags: manual, tools, social, dangerous, leisure, wip
 	cooldown: 1.100
-	multiplier: 1.000
+	multiplier: 1.290
 	color: "0xff6e3535"
 	
 	tools_required: towel
@@ -44,24 +45,17 @@
 	
 	}
 	
-	sounds:
-	[
-		vo_idiot
-		flesh_hit_blunt_00
-		vo_die
-		flesh_hit_blunt_01
-		flesh_hit_blunt_00
-		vo_neutral
-		flesh_hit_blunt_00
-		metal.frame.hit.00
-		vo_look
-		flesh_hit_blunt_01
-		vo_haha
-		equip.00
-		zabar.tongue.return
-		zabar.tongue.return
-		zabar.tongue.return
-		flesh.hit.scratch.00
-		vo_rip
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["vo_idiot", "flesh_hit_blunt_00", "vo_die", "flesh_hit_blunt_01", "flesh_hit_blunt_00", "vo_neutral", "flesh_hit_blunt_00", "metal.frame.hit.00", "vo_look", "flesh_hit_blunt_01", "vo_haha", "equip.00", "zabar.tongue.return", "zabar.tongue.return", "zabar.tongue.return", "flesh.hit.scratch.00", "vo_rip"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }
