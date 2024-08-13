@@ -1,0 +1,180 @@
+$name: "Induction Heater"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.875, -4.500]
+			[0.500, -3.375]
+			[1.125, 7.125]
+			[-1.125, 7.125]
+		]
+		friction: 0.500
+		elasticity: 0.500
+		radius: 0.750
+		material: metal
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 11000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: heater.induction.00
+	}
+	z: -50.000
+}
+
+essencecontainer:
+{
+	stability: 0.900
+	health_threshold: 0.500
+
+	@inventory1:
+	{
+		offset: [-0.500, 2.250]
+		stack_size_multiplier: 0.500
+		filter_flags: essence
+		type: essence
+		flags: standalone, ignore_mass
+	}
+
+	@light:
+	{
+		offset: [-0.375, -2.875]
+		scale: [3.000, 7.000]
+		intensity: 2.000
+		texture: "light.box.01"
+		rotation: 0.000
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [504.000, 416.000]
+	window_size_misc: [168.000, 0.000]
+}
+
+vehicle:
+{
+	// inventory_type: ammo
+	// flags: include_misc_window
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+inductor:
+{
+
+}
+
+heat:
+{
+	heat_medium: 1200.000
+	heat_high: 2200.000
+	heat_critical: 4000.000
+	cool_rate: 50.000
+	capacity_extra: 500.000
+	size: [3.000, 1.500]
+	offset: [0.000, -1.625]
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 1.000]
+		offset: [0.000, -1.375]
+		scale: [12.000, 4.000]
+		intensity: 0.000
+		texture: "light.circle.02"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fire.loop.00"
+		volume: 1.000
+		pitch: 1.000
+		size: 1.400
+		size_max_modifier: 1.500
+	}
+}
+
++slot.crucible.00|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -1.125]
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		stress_threshold: 3.010
+		z: -10.000
+		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0001
+		max_bias: 0.350
+	}
+
+	attachment.slot:
+	{
+		radius: 1.000
+		flags: keyboard_write, mouse_write, brake
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
+		name:
+			'''
+			Device
+			Roof
+			'''
+		identifier: "device.00"
+		tags_filter:
+		{
+			require: none
+			include: small, medium, large, utility, fixed
+			exclude: cabin, wheel, mount, platform
+		}
+		cycle_interval: 0.000
+		cycle_offset: 0.000
+		rank: -1.000
+		rotation: 0.000
+		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
+		offset: [0.000, 0.000]
+		gui_size: [144.000, 120.000]
+	}
+}

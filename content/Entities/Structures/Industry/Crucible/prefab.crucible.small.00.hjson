@@ -1,0 +1,140 @@
+$name: "Crucible"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: dynamic
+	fall_damage_multiplier: 0.400
+	buoyancy: 0.010
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.375, -1.375]
+			[1.375, -1.375]
+			[1.000, 1.500]
+			[-1.000, 1.500]
+		]
+		mass: 4500.000
+		radius: 0.250
+		friction: 0.600
+		elasticity: 0.200
+		material: cermet
+		layer: entity, solid
+		mask: world, essence
+		exclude: attached, resource
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	priority: 1.500
+	window_size: [560.000, 472.000]
+}
+
+health:
+{
+	max: 8000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "crucible.small.00"
+	}
+	z: -75.000
+}
+
+holdable:
+{
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	stress_multiplier: 0.400
+
+	radius: 0.000
+	offset: [0.000, 0.000]
+	
+	flags: disable_parent_facing, disable_rotation
+}
+
+attachment:
+{
+	offset: [-0.0625, -0.4375]
+	flags: disable_parent_facing
+	force_multiplier: 10.000
+	torque_multiplier: 2.000
+	tags: small, rotary, fixed
+}
+
+heat:
+{
+	heat_medium: 1200.000
+	heat_high: 2200.000
+	heat_critical: 4000.000
+	cool_rate: 50.000
+	capacity_extra: 500.000
+	size: [3.000, 1.500]
+	offset: [0.000, -1.625]
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 1.000]
+		offset: [0.000, -1.375]
+		scale: [12.000, 4.000]
+		intensity: 0.000
+		texture: "light.circle.02"
+	}
+	
+	@sound.emitter:
+	{
+		file: "fire.loop.00"
+		volume: 1.000
+		pitch: 1.000
+		size: 1.400
+		size_max_modifier: 1.500
+	}
+}
+
+crucible:
+{
+
+}
+
+shop:
+{
+	name: "Crucible"
+	
+	tags_filter:
+	{
+		require: manual, forming
+		include: simple, crude, drying, forming, shaping
+		exclude: smelting, workbench, salvaging, assembling, machining, metalworking, advanced
+	}
+	
+	work_tools: none
+	work_machines: none
+	work_equipment: none
+	work_environment: container, mobile, dirty, ugly
+	recipe_type: workshop
+	
+	flags: none
+	menu_columns: 3
+	blueprints_capacity: 0
+}
+
+workshop:
+{
+	orders_capacity: 1
+}
