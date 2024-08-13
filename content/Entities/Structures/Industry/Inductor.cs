@@ -2,7 +2,7 @@
 {
 	public static partial class Inductor
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Inductor.State>]
 		public struct Data: IComponent
 		{
 			[Flags]
@@ -14,12 +14,26 @@
 			}
 
 			public Inductor.Data.Flags flags;
+
+			public IMaterial.Handle h_material_coil;
+			public float coil_length;
+			public float coil_thickness;
+
+			//public float frequency;
+
 			[Save.Ignore, Net.Ignore] public float t_next_update;
 
 			public Data()
 			{
 
 			}
+		}
+
+		[IComponent.Data(Net.SendType.Unreliable)]
+		public struct State: IComponent
+		{
+			public float frequency_current;
+			public float frequency_target;
 		}
 
 		//[IComponent.Data(Net.SendType.Unreliable)]

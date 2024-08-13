@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+
+}
+
+sky:
+{
+	handle: darkness.00
+
+	radius_min: 15000.000
+	radius_max: 20000.000
+
+	weight: 1000.000
+}

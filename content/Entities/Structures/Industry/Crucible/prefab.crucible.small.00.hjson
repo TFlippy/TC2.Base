@@ -9,25 +9,28 @@ body:
 {
 	type: dynamic
 	fall_damage_multiplier: 0.400
-	buoyancy: 0.010
+	buoyancy: 0.350
 	
 	@shape.polygon:
 	{
 		points:
 		[
-			[-1.375, -1.375]
-			[1.375, -1.375]
-			[1.000, 1.500]
-			[-1.000, 1.500]
+			[-0.375, -0.250]
+			[0.375, -0.250]
+			[0.250, 0.875]
+			[-0.250, 0.875]
 		]
-		mass: 4500.000
+		
+		mass: 35.000
 		radius: 0.250
-		friction: 0.600
-		elasticity: 0.200
+		friction: 0.500
+		elasticity: 0.400
+		
 		material: cermet
-		layer: entity, solid
+		
+		layer: entity, solid, item
 		mask: world, essence
-		exclude: attached, resource
+		exclude: resource, attached
 	}
 }
 
