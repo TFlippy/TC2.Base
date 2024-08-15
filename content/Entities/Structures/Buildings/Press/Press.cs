@@ -345,7 +345,7 @@
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,

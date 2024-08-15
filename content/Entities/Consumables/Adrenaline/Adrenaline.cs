@@ -148,7 +148,7 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Adrenaline.Effect adrenaline, [Source.Singleton] ref Head.Singleton head_global)
 		{
 			var modifier = MathF.Pow(adrenaline.modifier_current, 1.40f);

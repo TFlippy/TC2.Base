@@ -49,7 +49,7 @@
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void UpdateEffects(ISystem.Info info, Entity entity,
 		[Source.Parent<Equip.Data>] in Equipment.Data equipment, [Source.Owned] in Equipment.Slot.Data equipment_slot,
 		[Source.Parent<Equip.Data>] ref Earmuffs.Data earmuffs)

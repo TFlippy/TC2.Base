@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class OrganicExt
 	{
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -50,7 +50,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint([Source.Shared] in Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
@@ -103,7 +103,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.multiplier = 0.00f;
@@ -197,7 +197,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateJoint1A(ISystem.Info info, [Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))

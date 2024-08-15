@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 			landmine.Sync(entity);
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref LandMine.Data landmine, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional] in Faction.Data faction)

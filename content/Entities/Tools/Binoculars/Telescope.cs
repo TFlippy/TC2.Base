@@ -84,7 +84,7 @@
 		//#endif
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Parent] in Interactor.Data interactor,
 		[Source.Parent] in Player.Data player, [Source.Singleton] ref Camera.Singleton camera)

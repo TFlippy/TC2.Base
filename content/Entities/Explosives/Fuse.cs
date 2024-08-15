@@ -37,7 +37,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Player.Data player)
@@ -71,7 +71,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
 		{
 			fuse.time -= App.fixed_update_interval_s;
@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
 		public static void OnUpdateSoundLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.pitch_mult = 1.00f + ((2.00f - MathF.Min(2.00f, fuse.time)) * 0.50f);

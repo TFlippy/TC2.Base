@@ -64,7 +64,7 @@
 			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * ratio;
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAxle(ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Shared] ref Axle.Data axle, [Source.Shared] ref Axle.State axle_state,
@@ -86,7 +86,7 @@
 			//App.WriteLine($"{eps.ToFormattedBinary()} vs {eps2.ToFormattedBinary()}");
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateControls(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Track.Data track, [Source.Owned] ref Track.State track_state)
 		{

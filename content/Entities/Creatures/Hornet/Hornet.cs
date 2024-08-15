@@ -31,7 +31,7 @@
 		}
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void OnUpdateAnimation(ISystem.Info info, ref XorRandom random, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.fps = MathF.Round(hornet.fps * flyer.lift_modifier);

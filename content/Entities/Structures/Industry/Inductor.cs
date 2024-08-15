@@ -136,7 +136,7 @@
 					{
 						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{
-
+							GUI.TextShaded("Derpo"u8);
 						}
 					}
 				}
@@ -153,9 +153,7 @@
 				var gui = new InductorGUI()
 				{
 					ent_inductor = entity,
-
 					transform = transform,
-
 					inductor = inductor,
 				};
 				gui.Submit();
