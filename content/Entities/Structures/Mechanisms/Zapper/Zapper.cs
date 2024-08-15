@@ -367,7 +367,7 @@ namespace TC2.Base.Components
 		public static void UpdateEffects(ref Region.Data region, ref XorRandom random, ISystem.Info info, Entity entity,
 		[Source.Owned] ref Zapper.Data zapper, [Source.Owned] ref Zapper.State zapper_state,
 		[Source.Owned] ref Transform.Data transform,
-		[Source.Owned, Pair.Of<Zapper.Data>] ref Light.Data light, [Source.Owned, Pair.Of<Zapper.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
+		[Source.Owned, Pair.Component<Zapper.Data>] ref Light.Data light, [Source.Owned, Pair.Component<Zapper.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
 		{
 			if (!zapper_state.flags.HasAny(Zapper.State.Flags.Powered))
 			{

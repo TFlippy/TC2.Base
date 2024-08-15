@@ -56,7 +56,7 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned, Pair.Of<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
 		{
 			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
 			{
@@ -349,7 +349,7 @@
 		public static void OnUpdate(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
-		[Source.Owned, Pair.Of<Press.Data>] ref Animated.Renderer.Data renderer_slider)
+		[Source.Owned, Pair.Component<Press.Data>] ref Animated.Renderer.Data renderer_slider)
 		{
 			renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
 		}

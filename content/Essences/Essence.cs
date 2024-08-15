@@ -244,7 +244,7 @@ namespace TC2.Base.Components
 
 		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateInventory<T>(ISystem.Info info, Entity entity,
-		//[Source.Owned] ref T powered, [Source.Owned, Pair.Of<>] ref Inventory1.Data inventory) where T : unmanaged, IComponent, Essence.IPowered
+		//[Source.Owned] ref T powered, [Source.Owned, Pair.Component<>] ref Inventory1.Data inventory) where T : unmanaged, IComponent, Essence.IPowered
 		//{
 
 		//}

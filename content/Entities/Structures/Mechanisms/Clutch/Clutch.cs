@@ -89,7 +89,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void UpdateEffects(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Of<Clutch.Data>] ref Animated.Renderer.Data renderer)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Component<Clutch.Data>] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.X = (uint)(clutch.state + 1);
 		}

@@ -223,7 +223,7 @@
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateShape(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
-		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Of<Body.Data>] ref Shape.Circle circle)
+		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Body.Data>] ref Shape.Circle circle)
 		{
 			var density_linen = Density.kgm3(300.00f);
 			var circle_mass_old = circle.mass;

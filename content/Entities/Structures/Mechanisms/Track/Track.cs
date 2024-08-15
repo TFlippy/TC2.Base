@@ -39,7 +39,7 @@
 		[Source.Shared] in Transform.Data transform,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
 		[Source.Shared] in Resizable.Data resizable, [Source.Owned, Original] ref Joint.Distance joint_distance,
-		[Source.Shared, Pair.Of<Track.Data>] ref Animated.Renderer.Data renderer)
+		[Source.Shared, Pair.Component<Track.Data>] ref Animated.Renderer.Data renderer)
 		{
 			renderer.rotation = -(resizable.b - resizable.a).GetAngleRadiansFast();
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.40f);

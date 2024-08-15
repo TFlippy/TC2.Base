@@ -92,7 +92,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
-		public static void UpdateLight(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned, Pair.Of<Mithril.Data>] ref Light.Data light)
+		public static void UpdateLight(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Mithril.Data mithril, [Source.Owned, Pair.Component<Mithril.Data>] ref Light.Data light)
 		{
 			light.intensity = mithril.modifier;
 			light.offset = mithril.offset;

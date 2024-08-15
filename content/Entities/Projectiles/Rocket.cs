@@ -139,7 +139,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateLight(ISystem.Info info, Entity entity, [Source.Owned] in Rocket.Data rocket, [Source.Owned, Pair.Of<Rocket.Data>] ref Light.Data light)
+		public static void UpdateLight(ISystem.Info info, Entity entity, [Source.Owned] in Rocket.Data rocket, [Source.Owned, Pair.Component<Rocket.Data>] ref Light.Data light)
 		{
 			var modifier = Maths.Clamp(rocket.fuel_time * 1.50f, 0.00f, 1.00f);
 			light.intensity = modifier;

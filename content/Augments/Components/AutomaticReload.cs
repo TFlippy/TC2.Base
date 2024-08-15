@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f)]
 		public static void Update(ISystem.Info info, Entity entity, 
-		[Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref AutomaticReload.Data automatic_reload, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory_magazine)
+		[Source.Owned] ref Gun.State gun_state, [Source.Owned] ref Gun.Data gun, [Source.Owned] ref AutomaticReload.Data automatic_reload, [Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			if (info.WorldTime >= automatic_reload.next_reload && gun_state.stage != Gun.Stage.Reloading && inventory_magazine.resource.quantity < gun.ammo_per_shot)
 			{

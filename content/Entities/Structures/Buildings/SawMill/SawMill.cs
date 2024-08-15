@@ -123,7 +123,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateRenderer(ISystem.Info info, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] in SawMill.State sawmill_state,
-		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
+		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Component<SawMill.Data>] ref Animated.Renderer.Data renderer_saw)
 		{
 			renderer_saw.rotation = (renderer_saw.rotation - (axle_state.angular_velocity * info.DeltaTime * sawmill_state.gear_ratio)) % MathF.Tau;
 			renderer_saw.offset = sawmill.saw_offset;
@@ -132,7 +132,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSoundIdle(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.Data>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Component<SawMill.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 
@@ -143,7 +143,7 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSoundCutting(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in SawMill.Data sawmill, [Source.Owned] ref SawMill.State sawmill_state,
-		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Of<SawMill.State>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state, [Source.Owned, Pair.Component<SawMill.State>] ref Sound.Emitter sound_emitter)
 		{
 			var axle_speed = Maths.Max(MathF.Abs(axle_state.angular_velocity) - 2.00f, 0.00f);
 			var modifier = (info.WorldTime - sawmill_state.last_hit) < 0.25 ? Maths.Min(axle_speed * 0.08f, 1.00f) : 0.00f;

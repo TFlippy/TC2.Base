@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.Modified.Component<Split.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnSplit(ISystem.Info info, Entity entity, 
-		[Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Pair.Of<Tree.Data>] in Foliage.Renderer.Data renderer)
+		[Source.Owned] in Split.Data split, [Source.Owned] in Tree.Data tree, [Source.Owned, Pair.Component<Tree.Data>] in Foliage.Renderer.Data renderer)
 		{
 			if (split.rect_normalized.a.Y != 0.00f || split.rect_normalized.GetHeight() < 0.40f)
 			{

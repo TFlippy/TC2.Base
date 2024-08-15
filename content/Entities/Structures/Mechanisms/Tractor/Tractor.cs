@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 
 		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateSound(ISystem.Info info, [Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, 
-		//[Source.Owned, Pair.Of<Tractor.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Transform.Data transform)
+		//[Source.Owned, Pair.Component<Tractor.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Transform.Data transform)
 		//{
 		//	var ratio = 1.00f + (tractor.gear * tractor.gear_mod);
 

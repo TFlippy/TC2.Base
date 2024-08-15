@@ -719,7 +719,7 @@
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info,
-		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Interactor.Data interactor, [Source.Parent] in Player.Data player)
 		{
 			var gui = new HoldGUI()
@@ -737,7 +737,7 @@
 		// TODO: Shithack
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUIVehicle(ISystem.Info info,
-		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Of<Gun.Data>] ref Inventory1.Data inventory,
+		[Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory,
 		[Source.Parent] in Vehicle.Data vehicle)
 		{
 			if (vehicle.ent_seat_driver.IsValid() && vehicle.ent_seat_driver == Client.GetControlledEntity())
@@ -830,7 +830,7 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight1([Source.Owned] in Gun.State gun_state, [Source.Owned, Pair.Component<Gun.Data>] ref Light.Data light)
 		{
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
@@ -840,7 +840,7 @@
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void UpdateLight2([Source.Owned, Pair.Of<Gun.Data>] ref Light.Data light)
+		public static void UpdateLight2([Source.Owned, Pair.Component<Gun.Data>] ref Light.Data light)
 		{
 			light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.50f);
 		}

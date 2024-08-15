@@ -398,7 +398,7 @@ namespace TC2.Base.Components
 		public static void UpdateRenderer(ISystem.Info info, ref Region.Data region, ref XorRandom random, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
-		[Source.Owned, Pair.Of<SteamEngine.Data>] ref Animated.Renderer.Data renderer_piston)
+		[Source.Owned, Pair.Component<SteamEngine.Data>] ref Animated.Renderer.Data renderer_piston)
 		{
 			var speed = MathF.Abs(wheel_state.angular_velocity);
 			if (speed > 1.00f && info.WorldTime >= steam_engine_state.next_steam)
@@ -453,7 +453,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
-		[Source.Owned, Pair.Of<SteamEngine.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
+		[Source.Owned, Pair.Component<SteamEngine.Data>] ref Sound.Emitter sound_emitter, [Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state)
 		{
 			var speed = MathF.Abs(wheel_state.angular_velocity);
 
@@ -466,7 +466,7 @@ namespace TC2.Base.Components
 		//[Source.Owned] in Transform.Data transform,
 		//[Source.Owned] in SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state,
 		//[Source.Owned] in Axle.Data wheel, [Source.Owned] ref Axle.State wheel_state,
-		//[Source.Owned, Pair.Of<SteamEngine.State>] ref Sound.Emitter sound_emitter)
+		//[Source.Owned, Pair.Component<SteamEngine.State>] ref Sound.Emitter sound_emitter)
 		//{
 		//	return;
 

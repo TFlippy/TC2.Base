@@ -401,7 +401,7 @@ namespace TC2.Base.Components
 		//#endif
 
 		//[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region)]
-		//public static void UpdatePower(Entity entity, [Source.Owned, Pair.Of<Levitator.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Levitator.Data levitator)
+		//public static void UpdatePower(Entity entity, [Source.Owned, Pair.Component<Levitator.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Levitator.Data levitator)
 		//{
 		//	//App.WriteLine("inv");
 		//	Essence.IPowered.UpdateInventory(ref levitator, ref inventory);
@@ -423,7 +423,7 @@ namespace TC2.Base.Components
 		//public static void UpdateDebug(ISystem.Info info, Entity entity,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		//[Source.Owned] ref Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state,
-		//[Source.Owned, Pair.Of<Levitator.Data>] ref Sound.Emitter sound_emitter)
+		//[Source.Owned, Pair.Component<Levitator.Data>] ref Sound.Emitter sound_emitter)
 		//{
 		//	return;
 
@@ -478,7 +478,7 @@ namespace TC2.Base.Components
 		public static void UpdateEffects(ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data container,
 		[Source.Owned] in Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state)
-		//[Source.Owned, Pair.Of<Levitator.Data>] ref Light.Data light)
+		//[Source.Owned, Pair.Component<Levitator.Data>] ref Light.Data light)
 		{
 			ref var essence_data = ref container.h_essence.GetData();
 			if (essence_data.IsNotNull())

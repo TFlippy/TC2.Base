@@ -117,14 +117,14 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdateSoundLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
+		public static void OnUpdateSoundLit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.pitch_mult = 1.00f + ((2.00f - MathF.Min(2.00f, fuse.time)) * 0.50f);
 			sound_emitter.volume_mult = 1.00f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdateLightLit(ref Region.Data region, ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
+		public static void OnUpdateLightLit(ref Region.Data region, ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Light.Data light)
 		{
 			if (fuse.flags.HasAll(Fuse.Flags.Sparkle))
 			{
@@ -133,13 +133,13 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
-		public static void OnUpdateSoundUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Sound.Emitter sound_emitter)
+		public static void OnUpdateSoundUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Sound.Emitter sound_emitter)
 		{
 			sound_emitter.volume_mult = 0.00f;
 		}
 
 		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
-		public static void OnUpdateLightUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Of<Fuse.Data>] ref Light.Data light)
+		public static void OnUpdateLightUnlit([Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Light.Data light)
 		{
 			light.intensity = 0.00f;
 		}
