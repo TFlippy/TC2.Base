@@ -29,23 +29,15 @@
 		}
 		{
 			type: temperature
-			amount: 1430.000
-			amount_min: 1100.000
-			amount_max: 1700.000
+			amount: 1330.000
+			amount_min: 900.000
+			amount_max: 2000.000
 			group: 1
 			flags: no_scaling, always_evaluate, group_evaluate
 		}
 		{
 			type: work
-			work: heating
-			amount: 150.000
-			difficulty: 3
-			group: 1
-			flags: conditional
-		}
-		{
-			type: work
-			work: smithing
+			work: forging
 			amount: 450.000
 			difficulty: 5
 			group: 1
@@ -54,8 +46,8 @@
 		{
 			type: temperature
 			amount: 300.000
-			amount_min: 270.000
-			amount_max: 330.000
+			amount_min: 200.000
+			amount_max: 450.000
 			group: 2
 			flags: no_scaling, always_evaluate, group_evaluate
 		}
