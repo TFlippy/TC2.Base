@@ -14,6 +14,7 @@ namespace TC2.Base.Components
 				None = 0,
 
 				Exclude_Body_Mass = 1u << 0,
+				No_Smoke = 1u << 1,
 			}
 
 			public Temperature temperature_medium = Temperature.Celsius(150.00f);
@@ -34,6 +35,9 @@ namespace TC2.Base.Components
 
 			[Editor.Picker.Position(true)]
 			public Vector2 offset;
+
+			[Editor.Picker.Position(true)]
+			public Vector2 smoke_offset;
 
 			public Vector2 size = new Vector2(0.50f, 0.25f);
 
@@ -162,7 +166,7 @@ namespace TC2.Base.Components
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Body.Data body)
+		[Source.Owned] in Transform.Data transform)
 		{
 			var temperature_ambient = heat_state.temperature_ambient;
 			var temperature_current = heat_state.temperature_current;
@@ -171,7 +175,7 @@ namespace TC2.Base.Components
 			if (time >= heat_state.t_next_ambient)
 			{
 				heat_state.t_next_ambient = time + interval_ambient;
-				heat_state.temperature_ambient = temperature_ambient = region.GetAmbientTemperature(body.GetPosition());
+				heat_state.temperature_ambient = temperature_ambient = region.GetAmbientTemperature(transform.LocalToWorld(heat.offset));
 			}
 
 			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate, info.DeltaTime);
@@ -237,7 +241,7 @@ namespace TC2.Base.Components
 				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 			}
 
-			if (temperature_current >= Temperature.Celsius(150.00f) && time >= heat_state.t_next_steam)
+			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(150.00f) && time >= heat_state.t_next_steam)
 			{
 				heat_state.t_next_steam = time + 0.04f;
 
@@ -248,7 +252,7 @@ namespace TC2.Base.Components
 				{
 					texture = texture_smoke,
 					lifetime = random.NextFloatRange(0.50f, 1.00f),
-					pos = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloatRange(-heat.size.X, heat.size.X), random.NextFloatRange(-heat.size.Y, heat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
+					pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloatRange(-heat.size.X, heat.size.X), random.NextFloatRange(-heat.size.Y, heat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
 					vel = new Vector2(random.NextFloatRange(-intensity, intensity), random.NextFloatRange(0.00f, -intensity * 10)), // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
 					force = new Vector2(0.10f, -0.40f),
 					fps = random.NextByteRange(15, 20),

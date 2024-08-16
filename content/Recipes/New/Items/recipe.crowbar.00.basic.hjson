@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Crowbar"
 	tips: []
 	
@@ -28,17 +28,50 @@
 			group: 0
 		}
 		{
+			type: temperature
+			amount: 1430.000
+			amount_min: 1100.000
+			amount_max: 1700.000
+			group: 1
+			flags: no_scaling, always_evaluate, group_evaluate
+		}
+		{
+			type: work
+			work: heating
+			amount: 150.000
+			difficulty: 3
+			group: 1
+			flags: conditional
+		}
+		{
 			type: work
 			work: smithing
-			amount: 550.000
-			difficulty: 7
-			group: 0
+			amount: 450.000
+			difficulty: 5
+			group: 1
+			flags: conditional
+		}
+		{
+			type: temperature
+			amount: 300.000
+			amount_min: 270.000
+			amount_max: 330.000
+			group: 2
+			flags: no_scaling, always_evaluate, group_evaluate
 		}
 		{
 			type: resource
 			material: cloth
 			amount: 1.000
-			group: 0
+			group: 2
+		}
+		{
+			type: work
+			work: sewing
+			amount: 75.000
+			difficulty: 2
+			group: 2
+			flags: conditional
 		}
 	]
 	

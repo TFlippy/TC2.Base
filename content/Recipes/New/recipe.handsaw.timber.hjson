@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Handsawn Planks"
 	desc:
 		'''
@@ -28,10 +28,10 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, woodworking, simple, manual
+	tags: workbench, manual, simple, woodworking
 	
 	color_button: "0xff818b48"
-	rank: -20.000
+	rank: -3.000
 	
 	requirements:
 	[
