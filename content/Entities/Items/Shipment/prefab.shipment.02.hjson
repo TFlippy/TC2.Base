@@ -41,8 +41,9 @@ transform:
 
 interactable:
 {
+	flags: none
 	priority: 0.500
-	window_size: [192.000, 192.000]
+	window_size: [544.000, 368.000]
 }
 
 holdable:
