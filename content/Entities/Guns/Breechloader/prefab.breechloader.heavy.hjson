@@ -1,7 +1,7 @@
 $name: "Heavy Breechloader"
 $desc: 
 	'''
-	TODO: Desc
+	Powerful handheld cannon with an extremely thick barrel. 
 	'''
 $tags: []
 
@@ -34,8 +34,8 @@ gun:
 	
 	particle_offset: [0.000, 0.000]
 	
-	eject_direction: [22.000, -4.000]
-	eject_angular_velocity: 12.000
+	eject_direction: [22.000, -3.000]
+	eject_angular_velocity: 40.000
 	particle_rotation: 0.000
 	flash_size: 1.400
 	
@@ -55,16 +55,16 @@ gun:
 	sound_reload: grapple_gun.reload
 	sound_empty: missing
 	sound_eject: press.smash.02
-	sound_jam: press.smash.02
+	sound_jam: effect.clang.metal.00
 	
 	damage_multiplier: 2.600
-	velocity_multiplier: 230.000
+	velocity_multiplier: 210.000
 	jitter_multiplier: 10.000
 	recoil_multiplier: 2.200
 	reload_interval: 3.000
-	cycle_interval: 0.500
+	cycle_interval: 0.750
 	stability: 11800.000
-	failure_rate: 0.084
+	failure_rate: 0.094
 	
 	ammo_filter: ammo_mg, ammo_ac, ammo_sg, ammo_musket
 	ammo_per_shot: 2.000
@@ -78,7 +78,7 @@ gun:
 	feed: breech
 	
 	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
-	heuristic_range: 24.000
+	heuristic_range: 30.000
 
 	@inventory1:
 	{

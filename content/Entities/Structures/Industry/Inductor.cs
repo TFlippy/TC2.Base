@@ -16,8 +16,11 @@
 			public Inductor.Data.Flags flags;
 
 			public IMaterial.Handle h_material_coil;
+
 			public float coil_length;
 			public float coil_thickness;
+			public byte coil_turns;
+
 
 			//public float frequency;
 
@@ -34,7 +37,15 @@
 		{
 			public float frequency_current;
 			public float frequency_target;
+
+			public Volume coil_volume;
+			public Mass coil_mass;
+
+			public Power power_current;
+
 		}
+
+		// https://en.wikipedia.org/wiki/Inductance#Inductance_of_a_solenoid
 
 		//[IComponent.Data(Net.SendType.Unreliable)]
 		//public struct State: IComponent
@@ -83,21 +94,34 @@
 
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		//[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		//public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		//[Source.Owned] in Transform.Data transform,
-		//[Source.Owned, Pair.Wildcard] ref Inductor.Data inductor, IComponent.Handle h_inductor)
-		//{
-		//	var time = info.WorldTime;
-		//	if (time >= inductor.t_next_update)
-		//	{
-		//		inductor.t_next_update = time + update_interval;
-		//		//inductor.temperature_target.m_value.MoveTowardsDamped(region.GetAmbientTemperature(transform.position), 10.00f, 0.10f);
-		//		Maths.Diffuse(ref inductor.temperature_target.m_value, region.GetAmbientTemperature(transform.position), 5.00f, info.DeltaTime);
-		//	}
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Inductor.Data>] ref Shape.Line shape,
+		[Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] ref Inductor.Data inductor, [Source.Owned] ref Inductor.State inductor_state)
+		{
+			var time = info.WorldTime;
+			if (time >= inductor.t_next_update)
+			{
+				//inductor.t_next_update = time + update_interval;
 
-		//	inductor.temperature_current.m_value.MoveTowardsDamped(inductor.temperature_target.m_value, 2.00f, 0.10f);
-		//}
+				if (body.HasArbiters())
+				{
+					foreach (var arbiter in body.GetArbiters())
+					{
+						if (arbiter.HasShape(shape))
+						{
+							var ent_arbiter = arbiter.GetEntity();
+							ref var heat_state = ref ent_arbiter.GetComponent<Heat.State>();
+							if (heat_state.IsNotNull())
+							{
+								heat_state.AddPower(2000, info.DeltaTime);
+							}
+						}
+					}	
+				}
+			}
+		}
 
 		//[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateEssence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
@@ -129,14 +153,14 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Inductor"u8, this.ent_inductor, size: new(24, 96 * 1)))
+				using (var window = GUI.Window.Interaction("Inductor"u8, this.ent_inductor))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
 					{
 						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
 						{
-							GUI.TextShaded("Derpo"u8);
+							//GUI.TextShaded("Derpo"u8);
 						}
 					}
 				}

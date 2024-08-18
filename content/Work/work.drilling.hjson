@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Drilling"
 	name_short: "Drilling"
 	desc:
@@ -14,9 +14,10 @@
 		frame: [33, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, tools, dangerous, simple, technical, careful, construction, industrial, wip
-	cooldown: 0.200
-	multiplier: 1.000
+	cooldown: 1.800
+	multiplier: 5.000
 	color: "0xffaeb59a"
 	
 	tools_required: drill
@@ -41,8 +42,23 @@
 	
 	skills_mult:
 	{
-	
+		metallurgy: 0.150
+		scavenging: 0.050
+		engineering: 0.150
+		construction: 0.400
 	}
 	
-	sounds: []
+	sound_volume: 0.800
+	sound_pitch: 0.750
+	sound_size: 0.300
+	sound_dist: 0.600
+	
+	sounds: ["effect.lathe.grind.00", "effect.tinker.machine.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

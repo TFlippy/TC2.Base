@@ -1,7 +1,7 @@
 $name: "Long Breechloader"
 $desc:
 	'''
-	Hinged breechloader with a long, heavy barrel.
+	Hinged breechloader with a long, thick barrel.
 	'''
 $tags: []
 
@@ -33,8 +33,8 @@ gun:
 	
 	particle_offset: [0.000, 0.000]
 	
-	eject_direction: [22.000, -4.000]
-	eject_angular_velocity: 12.000
+	eject_direction: [40.000, -3.000]
+	eject_angular_velocity: 40.000
 	flash_size: 1.200
 	
 	smoke_size: 5.000

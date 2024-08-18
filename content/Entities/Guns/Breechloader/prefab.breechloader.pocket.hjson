@@ -28,8 +28,8 @@ gun:
 	
 	particle_offset: [0.000, 0.000]
 	
-	eject_direction: [0.000, 0.000]
-	eject_angular_velocity: 0.100
+	eject_direction: [30.000, -3.000]
+	eject_angular_velocity: 25.000
 	particle_rotation: 0.000
 	flash_size: 1.000
 	

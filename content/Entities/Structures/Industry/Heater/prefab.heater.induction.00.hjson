@@ -33,7 +33,7 @@ body:
 		]
 		radius: 0.375
 		
-		material: metal
+		material: machine
 		
 		layer: entity, building, solid
 		mask: item, building
@@ -48,7 +48,7 @@ transform:
 
 health:
 {
-	max: 11000.000
+	max: 18000.000
 }
 
 animated.renderer:
@@ -57,30 +57,47 @@ animated.renderer:
 	{
 		texture: heater.induction.00
 	}
-	z: -50.000
+	z: -60.000
 }
 
 essencecontainer:
 {
 	stability: 0.900
 	health_threshold: 0.500
+	glow_modifier: 1.800
+	flags: show_gui, allow_edit_rate
 
 	@inventory1:
 	{
-		offset: [-0.500, 2.250]
-		stack_size_multiplier: 0.500
-		filter_flags: essence
 		type: essence
-		flags: standalone, ignore_mass
+		flags: ignore_mass
+		stack_size_multiplier: 0.500
+		
+		filter:
+		{
+			require: small, pellet, solid
+			include: none
+			exclude: none
+		}
+		
+		offset: [1.750, 0.500]
 	}
+
+	// @sound.emitter:
+	// {
+	// 	volume: 0.500
+	// 	pitch: 1.730
+	// 	size: 0.350
+	// 	size_max_modifier: 0.700
+	// 	spread: 80.000
+	// 	offset: [1.625, -0.125]
+	// }
 
 	@light:
 	{
-		offset: [-0.375, -2.875]
-		scale: [3.000, 7.000]
-		intensity: 2.000
-		texture: "light.box.01"
-		rotation: 0.000
+		offset: [1.700, -0.250]
+		scale: [5.000, 8.000]
+		texture: light.circle.04
 	}
 }
 
@@ -107,6 +124,10 @@ control:
 
 inductor:
 {
+	h_material_coil: copper.ingot
+	coil_length: 6.000
+	coil_thickness: 0.200
+
 	@shape.line:
 	{
 		a: [0.125, -1.125]
@@ -115,7 +136,7 @@ inductor:
 		rigidity_static: 0.000
 		rigidity_dynamic: 0.000
 		
-		layer: entity, ignore_melee, ignore_hover, ignore_bullet
+		layer: entity, ignore_melee, ignore_bullet
 		mask: world, solid, item
 		flags: no_mass, no_body_overrides, no_inventory_mass
 	}
@@ -123,26 +144,27 @@ inductor:
 
 heat:
 {
-	heat_medium: 1200.000
-	heat_high: 2200.000
-	heat_critical: 4000.000
-	cool_rate: 50.000
-	capacity_extra: 500.000
-	size: [3.000, 1.500]
-	offset: [0.000, -1.625]
+	temperature_medium: 450.000
+	temperature_high: 750.000
+	temperature_critical: 1050.000
+	cool_rate: 35.000
+	heat_capacity_extra: 750.000
+	flags: exclude_body_mass
+	offset: [0.250, -0.125]
+	smoke_offset: [1.625, -0.250]
+	size: [0.125, 0.250]
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 1.000]
-		offset: [0.000, -1.375]
-		scale: [12.000, 4.000]
-		intensity: 0.000
-		texture: "light.circle.02"
+		offset: [0.250, -0.500]
+		scale: [25.000, 31.000]
+		intensity: 1.000
+		texture: light.circle.04
 	}
 	
 	@sound.emitter:
 	{
-		file: "fire.loop.00"
+		file: distillery.loop.00
 		volume: 1.000
 		pitch: 1.000
 		size: 1.400
@@ -150,56 +172,55 @@ heat:
 	}
 }
 
-+slot.crucible.00|instance:
-{
-	joint.base:
-	{
-		offset_a: [0.000, -1.125]
-		max_force: 100000.000
-		max_torque: 100000.000
-		max_stress: 3.000
-		stress_threshold: 3.010
-		z: -10.000
-		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
-		material_type: metal
-	}
+// +slot.crucible.00|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [0.000, -1.125]
+// 		max_force: 100000.000
+// 		max_torque: 100000.000
+// 		max_stress: 3.000
+// 		stress_threshold: 3.010
+// 		z: -10.000
+// 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+// 		material_type: metal
+// 	}
 
-	joint.pivot:
-	{
-		max_bias: 8.000
-	}
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 	}
 
-	joint.gear:
-	{
-		min: 0.000
-		max: 0.000
-		error_bias: 0.0001
-		max_bias: 0.350
-	}
+// 	joint.gear:
+// 	{
+// 		min: 0.000
+// 		max: 0.000
+// 		error_bias: 0.0001
+// 		max_bias: 0.350
+// 	}
 
-	attachment.slot:
-	{
-		radius: 1.000
-		flags: keyboard_write, mouse_write, brake
-		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
-		name:
-			'''
-			Device
-			Roof
-			'''
-		identifier: "device.00"
-		tags_filter:
-		{
-			require: none
-			include: small, medium, large, utility, fixed
-			exclude: cabin, wheel, mount, platform
-		}
-		cycle_interval: 0.000
-		cycle_offset: 0.000
-		rank: -1.000
-		rotation: 0.000
-		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
-		offset: [0.000, 0.000]
-		gui_size: [144.000, 120.000]
-	}
-}
+// 	attachment.slot:
+// 	{
+// 		radius: 1.000
+// 		flags: keyboard_write, mouse_write, brake
+// 		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset, rotation
+// 		name:
+// 			'''
+// 			Device
+// 			'''
+// 		identifier: "device.00"
+// 		tags_filter:
+// 		{
+// 			require: none
+// 			include: small, medium, large, utility, fixed
+// 			exclude: cabin, wheel, mount, platform
+// 		}
+// 		cycle_interval: 0.000
+// 		cycle_offset: 0.000
+// 		rank: -1.000
+// 		rotation: 0.000
+// 		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
+// 		offset: [0.000, 0.000]
+// 		gui_size: [144.000, 120.000]
+// 	}
+// }

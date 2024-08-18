@@ -1,7 +1,7 @@
 $name: "Short Breechloader"
 $desc:
 	'''
-	TODO: Desc
+	Shorter variant of the long hinged breechloader.
 	'''
 $tags: []
 
@@ -30,8 +30,8 @@ gun:
 	muzzle_offset: [0.875, -0.1875]
 	receiver_offset: [0.000, -0.125]
 	
-	eject_direction: [22.000, -4.000]
-	eject_angular_velocity: 12.000
+	eject_direction: [25.000, -3.000]
+	eject_angular_velocity: 30.000
 	flash_size: 1.200
 	
 	smoke_size: 4.000

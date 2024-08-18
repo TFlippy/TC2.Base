@@ -206,14 +206,15 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, [Source.Owned] ref Heat.Data heat, [Source.Owned] ref Body.Data body)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, 
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)
 		{
-			//var heat_excess = Maths.Max(heat.temperature_current - heat.temperature_critical, 0.00f);
-			//if (heat_excess > Maths.epsilon && random.NextBool(heat_excess * 0.01f))
-			//{
-			//	var damage = Maths.Lerp(heat_excess, health.GetMaxHealth(), 0.35f) * random.NextFloatRange(0.80f, 1.20f);
-			//	Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: entity, position: transform.position, velocity: random.NextUnitVector2Range(1, 1), normal: random.NextUnitVector2Range(1, 1), damage_integrity: damage, damage_durability: damage, damage_terrain: damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Fire, yield: 0.00f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
-			//}
+			var heat_excess = Maths.Max(heat_state.temperature_current - heat.temperature_critical, 0.00f);
+			if (heat_excess > Maths.epsilon && random.NextBool(heat_excess * 0.01f))
+			{
+				var damage = Maths.Lerp(heat_excess, health.GetMaxHealth(), 0.35f) * random.NextFloatRange(0.80f, 1.20f);
+				Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: entity, position: transform.position, velocity: random.NextUnitVector2Range(1, 1), normal: random.NextUnitVector2Range(1, 1), damage_integrity: damage, damage_durability: damage, damage_terrain: damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Phlogiston, yield: 0.90f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
+			}
 		}
 #endif
 
