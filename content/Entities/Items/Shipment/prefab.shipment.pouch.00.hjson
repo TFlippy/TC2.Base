@@ -24,12 +24,6 @@ body:
 	}
 }
 
-holdable:
-{
-	radius: 4.000
-	flags: storable
-}
-
 animated.renderer:
 {
 	sprite:
@@ -44,13 +38,31 @@ transform:
 
 }
 
+faction:
+{
+	
+}
+
+claimable:
+{
+	flags: allow_enemy_unclaim, allow_owner_unclaim
+}
+
 interactable:
 {
-	priority: -0.250
-	window_size: [192.000, 96.000]
+	flags: none
+	priority: 0.500
+	window_size: [544.000, 384.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 nameable:
 {
 	flags: no_rename
+}
+
+holdable:
+{
+	radius: 4.000
+	flags: storable
 }

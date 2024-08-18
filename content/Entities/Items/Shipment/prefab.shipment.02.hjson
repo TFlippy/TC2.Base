@@ -57,11 +57,16 @@ interactable:
 	window_size_misc: [72.000, 0.000]
 }
 
+norotate:
+{
+	bias: 0.050
+	speed: 1.000
+	multiplier: 4.000
+	mass_multiplier: 4.000
+}
+
 holdable:
 {
-	force_multiplier: 2.000
-	torque_multiplier: 0.500
-
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
@@ -73,12 +78,4 @@ attachment:
 	offset: [-0.500, 1.125]
 	flags: disable_parent_facing
 	tags: none
-}
-
-norotate:
-{
-	bias: 0.050
-	speed: 1.000
-	multiplier: 4.000
-	mass_multiplier: 4.000
 }

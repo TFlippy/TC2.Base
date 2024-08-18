@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Pocket Breechloader"
 	tips: []
 	
@@ -9,11 +9,11 @@
 	}
 	
 	min: 1
-	max: 80
+	max: 20
 	step: 1
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, packable
 	tags: manual, simple, weapon, gun, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
@@ -32,32 +32,34 @@
 			work: woodworking
 			amount: 180.000
 			difficulty: 4
-			group: 0
+			group: 1
+			flags: conditional
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 4.000
-			group: 0
+			group: 2
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.000
-			group: 0
+			group: 2
 		}
 		{
 			type: resource
 			material: pellet.heat
 			amount: 0.500
-			group: 0
+			group: 2
 		}
 		{
 			type: work
 			work: assembling
-			amount: 480.000
+			amount: 175.000
 			difficulty: 6
-			group: 0
+			group: 2
+			flags: conditional
 		}
 	]
 	

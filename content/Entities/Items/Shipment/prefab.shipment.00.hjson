@@ -24,12 +24,6 @@ body:
 	}
 }
 
-holdable:
-{
-	radius: 0.000
-	flags: disable_parent_facing
-}
-
 animated.renderer:
 {
 	sprite:
@@ -44,8 +38,26 @@ transform:
 
 }
 
+faction:
+{
+	
+}
+
+claimable:
+{
+	flags: allow_enemy_unclaim, allow_owner_unclaim
+}
+
 interactable:
 {
+	flags: none
 	priority: 0.500
-	window_size: [192.000, 192.000]
+	window_size: [544.000, 384.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
 }

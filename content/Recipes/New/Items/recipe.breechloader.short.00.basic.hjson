@@ -13,7 +13,7 @@
 	step: 1
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, packable
 	tags: manual, simple, weapon, gun, assembling, metalworking
 	
 	color_button: "0xffaeb59a"
