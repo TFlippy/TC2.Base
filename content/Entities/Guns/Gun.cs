@@ -363,7 +363,7 @@
 
 					if (prefab_projectile.root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
-						var vel = transform.GetDirection() * gun.velocity_multiplier * ammo.speed_mult; // * random_multiplier;
+						var vel = transform.GetDirection() * Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult); // * random_multiplier;
 
 						var pos_a = pos_w_offset;
 						var pos_b = pos_w_offset;
@@ -923,7 +923,7 @@
 								inventory_magazine.resource.material = resource.material;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
 								gun_state.hints.RemoveFlag(Gun.Hints.No_Ammo);
-								gun_state.muzzle_velocity = gun.velocity_multiplier * ammo.speed_mult;
+								gun_state.muzzle_velocity = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
 								gun_state.angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f) * ammo.spread_mult * 0.50f;
 								gun_state.resource_ammo = resource;
 
@@ -1020,7 +1020,7 @@
 					var angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f);
 
 					var recoil_mass = ammo.mass * gun.ammo_per_shot;
-					var recoil_speed = gun.velocity_multiplier * ammo.speed_mult;
+					var recoil_speed = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
 					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate * 20.00f);
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
@@ -1155,7 +1155,7 @@
 							//var random_multiplier = random.NextFloatRange(0.90f * velocity_jitter, 1.10f);
 							var random_multiplier = 1.00f + Maths.Clamp(random.NextFloat(velocity_jitter * step_current), -0.50f, 0.50f);
 
-							var vel = (dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * (ammo.speed_base + gun.velocity_multiplier) * (random.NextFloatExtra(ammo.speed_mult, -ammo.speed_jitter * step_current)) * random_multiplier);
+							var vel = dir.RotateByDeg(random.NextFloat(angle_jitter * 0.50f * ammo.spread_mult)) * Maths.Min(gun.velocity_max, (ammo.speed_base + gun.velocity_multiplier) * random.NextFloatExtra(ammo.speed_mult, -ammo.speed_jitter * step_current) * random_multiplier);
 							if (vel.LengthSquared() < vel_min_sq)
 							{
 								force_jammed = true;

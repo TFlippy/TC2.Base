@@ -13,8 +13,8 @@ body:
 		friction: 0.650
 		elasticity: 0.550
 		material: metal_solid
-		layer: entity, solid, resource, ignore_melee, billet
-		mask: world, billet
+		layer: entity, solid, resource, ignore_melee
+		mask: world
 		exclude: held
 	}
 }

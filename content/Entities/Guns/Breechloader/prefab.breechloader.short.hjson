@@ -50,10 +50,11 @@ gun:
 	sound_reload: breechloader.long.reload
 	sound_jam: scrap.hit.hard.00
 	
-	damage_multiplier: 2.400
-	velocity_multiplier: 220.000
+	damage_multiplier: 2.000
+	velocity_multiplier: 175.000
 	jitter_multiplier: 7.650
 	recoil_multiplier: 2.450
+	velocity_max: 195.000
 	reload_interval: 2.400
 	cycle_interval: 0.500
 	stability: 2650.000

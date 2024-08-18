@@ -57,10 +57,11 @@ gun:
 	sound_eject: press.smash.02
 	sound_jam: effect.clang.metal.00
 	
-	damage_multiplier: 2.600
+	damage_multiplier: 2.100
 	velocity_multiplier: 210.000
 	jitter_multiplier: 10.000
 	recoil_multiplier: 2.200
+	velocity_max: 330.000
 	reload_interval: 3.000
 	cycle_interval: 0.750
 	stability: 11800.000

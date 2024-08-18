@@ -55,10 +55,11 @@ gun:
 	sound_eject: press.smash.02
 	sound_jam: press.smash.02
 	
-	damage_multiplier: 2.800
-	velocity_multiplier: 300.000
+	damage_multiplier: 2.300
+	velocity_multiplier: 240.000
 	jitter_multiplier: 6.500
 	recoil_multiplier: 2.400
+	velocity_max: 250.000
 	reload_interval: 2.500
 	cycle_interval: 0.500
 	stability: 6950.000

@@ -141,6 +141,26 @@ namespace TC2.Base.Components
 
 		public const float interval_ambient = 0.23f;
 
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnAttach(ISystem.Info info, ref Region.Data region, 
+		Entity ent_transform, Entity ent_transform_parent,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
+		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, 
+		[Source.Parent] in Joint.Base joint_base)
+		{
+			App.WriteLine("add heat attached");
+		}
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f)]
+		public static void OnUpdateAttached(ISystem.Info info, ref Region.Data region,
+		Entity ent_transform, Entity ent_transform_parent,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
+		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
+		[Source.Parent] in Joint.Base joint_base)
+		{
+			App.WriteLine("update heat attached");
+		}
+
 		[ISystem.Modified.Component<Body.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnBodyModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
@@ -204,7 +224,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
+		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, 
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)

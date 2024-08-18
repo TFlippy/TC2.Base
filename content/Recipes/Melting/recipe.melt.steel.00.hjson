@@ -1,0 +1,121 @@
+﻿{
+	$version: "0.1.61.3"
+	name: "Melt Steel"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	icon:
+	{
+		texture: resource.hydrogen_peroxide
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	type: workshop
+	flags: none
+	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
+	
+	color_button: "0xff80dc7e"
+	rank: -157.000
+	
+	start_delay: 1.500
+	advance_delay: 2.000
+	complete_delay: 1.500
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: chitin
+			amount: 8.000
+			group: 1
+		}
+		{
+			type: resource
+			material: saltpeter
+			amount: 3.000
+			group: 1
+		}
+		{
+			type: resource
+			material: mushroom.blue
+			amount: 2.000
+			group: 1
+		}
+		{
+			type: resource
+			material: water.clean
+			amount: 10.000
+			group: 1
+		}
+		{
+			type: work
+			work: blending
+			amount: 295.000
+			difficulty: 4
+			snapping: 5.000
+			falloff: 0.750
+			group: 1
+			flags: conditional
+		}
+		{
+			type: temperature
+			amount: 642.720
+			amount_min: 580.000
+			amount_max: 800.000
+			group: 2
+			flags: no_scaling, always_evaluate, group_evaluate
+		}
+		{
+			type: work
+			work: boiling
+			amount: 250.000
+			difficulty: 4
+			snapping: 5.000
+			falloff: 0.550
+			group: 2
+			flags: conditional
+		}
+		{
+			type: resource
+			material: water.clean
+			amount: 50.000
+			group: 3
+		}
+		{
+			type: work
+			work: dousing
+			amount: 80.000
+			difficulty: 3
+			group: 3
+			flags: no_scaling, conditional
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: hydrogen_peroxide
+			amount: 15.755
+			amount_extra: 14.410
+			group: 0
+		}
+	]
+}

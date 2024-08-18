@@ -11,7 +11,7 @@ body:
 		friction: 0.650
 		elasticity: 0.550
 		material: wood
-		layer: entity, solid, ignore_melee, billet
+		layer: entity, solid, ignore_melee
 		mask: world
 	}
 }
