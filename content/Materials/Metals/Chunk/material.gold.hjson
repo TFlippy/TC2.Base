@@ -1,0 +1,48 @@
+﻿{
+	$version: "0.1.60.5"
+	name: "Gold"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: "resource.gold"
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: "missing"
+	}
+	
+	type: metal_solid
+	// Flags defining properties of the raw material.
+	flags: hard, metal, currency, intermediate, heavy, small, ingot, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	hints: none
+	// kg
+	mass_per_unit: 10.000
+	quantity_max: 64.000
+	prefab: "resource.gold"
+
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (for elements, use atomic mass)
+		molar_mass: 0.196967
+		// kg/m³
+		density: 19300.000
+		// kJ/(kg*K)
+		specific_heat: 0.1291
+		// kW/(m*K)
+		thermal_conductivity: 0.320
+		// K
+		melting_point: 1337.330
+		// K
+		boiling_point: 3129.000
+	}
+}

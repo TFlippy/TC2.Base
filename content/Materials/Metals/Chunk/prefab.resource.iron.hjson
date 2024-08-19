@@ -7,16 +7,15 @@ body:
 	@shape.line:
 	{
 		a: [-0.500, 0.125]
-		b: [0.375, 0.125]
+		b: [0.375, 0.000]
 		
 		offset: [0.000, 0.375]
-		radius: 0.480
+		radius: 0.490
 		friction: 0.300
 		elasticity: 0.440
 		
-		material: metal_solid
-		
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		material: metal_solid	
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
 	}
 }
 
@@ -24,7 +23,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper.chunk"
+		texture: "resource.iron"
 		count: 4
 		size: [16, 16]
 	}
@@ -38,7 +37,7 @@ transform:
 
 resource:
 {
-	material: "copper.chunk"
+	material: "iron"
 }
 
 holdable:
@@ -51,7 +50,7 @@ holdable:
 
 health:
 {
-	max: 42000.000
+	max: 50000.000
 }
 
 breakable:

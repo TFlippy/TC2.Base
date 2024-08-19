@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Malformed Smirglum"
+	name: "Smirglum"
 	description:
 		'''
-		Looks dead.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: resource.smirglum.chunk
+		texture: resource.smirglum
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,7 +23,7 @@
 	// kg
 	mass_per_unit: 0.400
 	quantity_max: 500.000
-	prefab: resource.smirglum.chunk
+	prefab: resource.smirglum
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

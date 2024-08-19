@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Malformed Steel"
+	name: "Steel"
 	description:
 		'''
-		Looks dead.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: resource.steel.chunk
+		texture: resource.steel
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,7 +23,7 @@
 	// kg
 	mass_per_unit: 0.400
 	quantity_max: 500.000
-	prefab: resource.steel.chunk
+	prefab: resource.steel
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -32,6 +32,23 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (for elements, use atomic mass)
+		molar_mass: 0.05497
+		// kg/m³
+		density: 7812.000
+		// kJ/(kg*K)
+		specific_heat: 0.490
+		// kW/(m*K)
+		thermal_conductivity: 0.043
+		// K
+		melting_point: 1644.000
+		// K
+		boiling_point: 3143.000
+	}
+
 	// Conversions into other materials.
 	conversions:
 	{

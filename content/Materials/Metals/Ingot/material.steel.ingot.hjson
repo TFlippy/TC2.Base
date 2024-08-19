@@ -95,7 +95,7 @@
 	{
 		bullet_ac:
 		{
-			h_material: steel.chunk
+			h_material: steel
 			h_material_waste: "null"
 			
 			type: undefined
@@ -146,7 +146,7 @@
 		sledgehammer:
 		{
 			h_material: steel.plate
-			h_material_waste: steel.chunk
+			h_material_waste: steel
 			
 			type: undefined
 			flags: none

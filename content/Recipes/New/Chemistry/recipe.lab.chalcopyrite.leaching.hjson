@@ -93,7 +93,7 @@
 		}
 		{
 			type: resource
-			material: copper.chunk
+			material: copper
 			amount: 9.410
 			amount_extra: 0.350
 			group: 0

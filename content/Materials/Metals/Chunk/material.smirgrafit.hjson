@@ -1,14 +1,14 @@
 ﻿{
 	$version: "0.1.60.7"
-	name: "Malformed Smirgrafit"
+	name: "Smirgrafit"
 	description:
 		'''
-		Nice job breaking it, hero.
+		TODO: Desc
 		'''
 	
 	icon:
 	{
-		texture: resource.smirgrafit.chunk
+		texture: resource.smirgrafit
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,7 +23,7 @@
 	// kg
 	mass_per_unit: 1.520
 	quantity_max: 500.000
-	prefab: resource.smirgrafit.chunk
+	prefab: resource.smirgrafit
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

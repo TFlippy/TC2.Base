@@ -87,7 +87,7 @@
 		}
 		phlogiston:
 		{
-			h_material: steel.chunk
+			h_material: steel
 			h_material_waste: "null"
 			
 			type: undefined

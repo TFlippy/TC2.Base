@@ -34,7 +34,7 @@
 	resources:
 	[
 		{
-			material: iron.chunk
+			material: iron
 			quantity: 0.800
 		}
 		null

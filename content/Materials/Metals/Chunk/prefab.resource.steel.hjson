@@ -15,8 +15,7 @@ body:
 		elasticity: 0.440
 		
 		material: metal_solid
-		
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
 	}
 }
 
@@ -24,7 +23,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.smirglum.chunk"
+		texture: "resource.steel"
 		count: 4
 		size: [16, 16]
 	}
@@ -38,7 +37,7 @@ transform:
 
 resource:
 {
-	material: "smirglum.chunk"
+	material: "steel"
 }
 
 holdable:
@@ -51,7 +50,7 @@ holdable:
 
 health:
 {
-	max: 140000.000
+	max: 80000.000
 }
 
 breakable:

@@ -78,7 +78,7 @@
 	{
 		phlogiston:
 		{
-			h_material: copper.chunk
+			h_material: copper
 			h_material_waste: "null"
 			
 			type: undefined

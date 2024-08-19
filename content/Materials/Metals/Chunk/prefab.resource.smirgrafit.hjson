@@ -14,9 +14,9 @@ body:
 		friction: 0.300
 		elasticity: 0.440
 		
-		material: metal_solid
-		
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		material: cermet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
+		mask: world, essence
 	}
 }
 
@@ -24,7 +24,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.iron.chunk"
+		texture: "resource.smirgrafit"
 		count: 4
 		size: [16, 16]
 	}
@@ -38,31 +38,13 @@ transform:
 
 resource:
 {
-	material: "iron.chunk"
+	material: "smirgrafit"
 }
 
 holdable:
 {
 	offset: [0.000, 0.750]
 	radius: 0.000
-	hints: dumb, wrecked
+	hints: advanced, dumb, wrecked
 	flags: disable_parent_facing, disable_rotation, disable_control
-}
-
-health:
-{
-	max: 50000.000
-}
-
-breakable:
-{
-	h_material: "null"
-	
-	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
-	
-	material_type: none
-	material_flags: none
 }

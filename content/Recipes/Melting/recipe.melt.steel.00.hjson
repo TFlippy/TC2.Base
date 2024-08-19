@@ -77,7 +77,7 @@
 	[
 		{
 			type: resource
-			material: steel.chunk
+			material: steel
 			amount: 3.505
 			amount_extra: 0.015
 			group: 0
