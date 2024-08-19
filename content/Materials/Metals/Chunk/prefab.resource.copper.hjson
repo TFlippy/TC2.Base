@@ -42,26 +42,49 @@ resource:
 
 holdable:
 {
+	force_multiplier: 0.250
+	torque_multiplier: 0.400
+	stress_multiplier: 0.500
 	offset: [0.000, 0.750]
 	radius: 0.000
-	hints: dumb, wrecked
+	hints: materials, dumb, crappy, slow
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 health:
 {
-	max: 42000.000
+	max: 50000.000
 }
 
 breakable:
 {
-	h_material: "null"
-	
 	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
+}
+
+heat:
+{
+	temperature_medium: 1000.000
+	temperature_high: 1800.000
+	temperature_critical: 4000.000
+	cool_rate: 0.750
+	offset: [0.000, 0.500]
+	smoke_offset: [0.000, -0.250]
+	size: [0.750, 0.375]
 	
-	material_type: none
-	material_flags: none
+	@light:
+	{
+		offset: [0.000, 0.500]
+		scale: [22.000, 14.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+	
+	@sound.emitter:
+	{
+		file: overheat_loop
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
+	}
 }

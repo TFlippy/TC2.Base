@@ -198,8 +198,8 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[ISystem.Modified.Component<Body.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnBodyModified(ISystem.Info info, Entity entity,
+		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
+		public static void OnModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] in Body.Data body)
 		{
