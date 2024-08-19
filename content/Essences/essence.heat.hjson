@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Heat"
 	desc:
 		'''
@@ -10,15 +10,26 @@
 	type_tmp: heat
 	
 	color_emit: [1.000, 0.577982, 0.000, 2.500]
-	force_emit: 850.000
-	heat_emit: 157.000
+	
+	force_emit: 650.000
+	heat_emit: 182.000
+	emit_force: 650.000
+	emit_power_thermal: 182.000
+	emit_power_kinetic: 1.300
+	emit_power_radiant: 11.330
+	emit_power_electric: 0.000
+	emit_power_magnetic: 0.000
 	
 	sound_emit_loop: essence.emit.heat.loop.00
+	sound_emit_pulsed_loop: missing
+	sound_emit_stress_loop: missing
+	sound_emit_oscillation_loop: missing
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.heat.00
 	sound_zap: essence.drain.zap.01
 	sound_blast: essence.blast.00
 	sound_impulse: essence.drain.zap.00
+	sound_impact: missing
 	
 	h_prefab_node: essence_node.heat
 	h_material_pellet: pellet.heat

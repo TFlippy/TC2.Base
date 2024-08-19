@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Failure"
 	desc:
 		'''
@@ -10,15 +10,26 @@
 	type_tmp: failure
 	
 	color_emit: [0.633028, 0.458, 0.371686, 0.994]
+	
 	force_emit: -550.000
 	heat_emit: -35.000
+	emit_force: -750.000
+	emit_power_thermal: 2.410
+	emit_power_kinetic: -1.900
+	emit_power_radiant: 0.650
+	emit_power_electric: -1.830
+	emit_power_magnetic: 6.250
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
+	sound_emit_pulsed_loop: missing
+	sound_emit_stress_loop: missing
+	sound_emit_oscillation_loop: missing
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.failure.01
 	sound_zap: essence.collapse.failure.00
 	sound_blast: essence.blast.00
 	sound_impulse: essence.drain.zap.00
+	sound_impact: missing
 	
 	h_prefab_node: essence_node.failure
 	h_material_pellet: pellet.failure

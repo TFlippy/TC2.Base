@@ -59,15 +59,56 @@ namespace TC2.Base.Components
 
 	public static partial class Essence
 	{
-		public enum EmitType: byte
+		public static class Emitter
 		{
-			Undefined,
+			public enum Type: byte
+			{
+				Undefined,
 
-			Impact,
-			Impulse,
-			Pulsed,
-			Stress,
-			Oscillation,
+				Impact,
+				Impulse,
+				Pulsed,
+				Stress,
+				Oscillation,
+			}
+
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+				Show_GUI = 1u << 0,
+				Allow_Edit_Rate = 1u << 1
+			}
+
+			[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+			public partial struct Data: IComponent
+			{
+				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
+				public IEssence.Handle h_essence;
+
+				[Statistics.Info("Amount", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+				public float available;
+
+				public float rate;
+
+				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+				public float stability = 1.00f;
+
+				public float health_threshold = 0.20f;
+				public float glow_modifier = 1.00f;
+
+				public EssenceContainer.Flags flags;
+				public Essence.Emitter.Type type;
+
+				[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_damage;
+				[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_collapse;
+
+				public Data()
+				{
+
+				}
+			}
 		}
 
 		//public interface IPowered: IComponent

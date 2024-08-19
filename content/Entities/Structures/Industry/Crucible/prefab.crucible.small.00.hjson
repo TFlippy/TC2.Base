@@ -28,7 +28,7 @@ body:
 		
 		material: cermet
 		
-		layer: entity, solid, item
+		layer: entity, solid, item, heatable, magnetic
 		mask: world, essence
 		exclude: resource, attached
 	}
