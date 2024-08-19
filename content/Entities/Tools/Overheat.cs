@@ -140,25 +140,62 @@ namespace TC2.Base.Components
 		}
 
 		public const float interval_ambient = 0.23f;
+		public static Sound.Handle h_sound_sizzle = "effect.sizzle.sparky.00";
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnAttach(ISystem.Info info, ref Region.Data region, 
-		Entity ent_transform, Entity ent_transform_parent,
-		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, 
-		[Source.Parent] in Joint.Base joint_base)
-		{
-			App.WriteLine("add heat attached");
-		}
-
-		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f)]
-		public static void OnUpdateAttached(ISystem.Info info, ref Region.Data region,
+		public static void OnAttach(ISystem.Info info, ref Region.Data region,
 		Entity ent_transform, Entity ent_transform_parent,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
 		[Source.Parent] in Joint.Base joint_base)
 		{
-			App.WriteLine("update heat attached");
+			//App.WriteLine("add heat attached");
+		}
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f)]
+		public static void OnUpdateAttached(ISystem.Info info, ref Region.Data region, ref XorRandom random,
+		Entity ent_body, Entity ent_body_parent, Entity ent_joint_base,
+		[Source.Owned] in Body.Data body, [Source.Parent] in Body.Data body_parent, [Source.Parent] in Joint.Base joint_base,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
+		{
+#if SERVER
+			// TODO: hardcoded
+			if (joint_base.material_type == Material.Type.Flesh)
+			{
+				var temperature_celsius = heat_state.temperature_current.Celsius();
+				if (temperature_celsius >= 50.00f && random.NextBool(temperature_celsius * 0.02f))
+				{
+					var damage = temperature_celsius * random.NextFloatRange(0.40f, 0.80f);
+					Damage.Hit(ent_attacker: ent_body,
+						ent_owner: ent_body,
+						ent_target: ent_body_parent,
+						position: body_parent.GetPosition(),
+						velocity: new Vector2(0.00f, -0.25f),
+						normal: new(0.00f, -1.00f),
+						damage_integrity: damage,
+						damage_durability: damage,
+						damage_terrain: damage,
+						target_material_type: body_parent.GetMaterial(),
+						damage_type: temperature_celsius >= 1337.00f ? Damage.Type.Phlogiston : Damage.Type.Heat,
+						yield: 0.90f,
+						xp_modifier: 0.00f,
+						impulse: 0.00f,
+						flags: Damage.Flags.No_Loot_Pickup);
+
+					if (random.NextBool(temperature_celsius * 0.01f))
+					{
+						Arm.Drop(ent_joint_base, direction: body_parent.Right.RotateByRad(random.NextFloat(0.10f)) * 3);
+						Sound.Play(region: ref region,
+							sound: h_sound_sizzle,
+							world_position: body.GetPosition(),
+							volume: 0.90f,
+							pitch: random.NextFloatExtra(1.60f, 0.30f),
+							size: 1.50f,
+							dist_multiplier: 1.10f);
+					}
+				}
+			}
+#endif
 		}
 
 		[ISystem.Modified.Component<Body.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -224,16 +261,43 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		[ISystem.Event<Crafting.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnSpawnEvent(ISystem.Info info, ref Region.Data region, ref XorRandom random, ref Crafting.SpawnEvent data,
+		Entity entity,
+		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
+		{
+			if (data.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
+			{
+				heat_state.temperature_current = data.temperature;
+				heat_state.Sync(entity, true);
+			}
+		}
+
 		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)
 		{
-			var heat_excess = Maths.Max(heat_state.temperature_current - heat.temperature_critical, 0.00f);
-			if (heat_excess > Maths.epsilon && random.NextBool(heat_excess * 0.01f))
+			var temperature_excess = Maths.Max(heat_state.temperature_current - heat.temperature_critical, 0.00f);
+			if (temperature_excess > Maths.epsilon && random.NextBool(temperature_excess * 0.01f))
 			{
-				var damage = Maths.Lerp(heat_excess, health.GetMaxHealth(), 0.35f) * random.NextFloatRange(0.80f, 1.20f);
-				Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: entity, position: transform.position, velocity: random.NextUnitVector2Range(1, 1), normal: random.NextUnitVector2Range(1, 1), damage_integrity: damage, damage_durability: damage, damage_terrain: damage, target_material_type: body.GetMaterial(), damage_type: Damage.Type.Phlogiston, yield: 0.90f, xp_modifier: 0.00f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
+				var damage = Maths.Lerp(temperature_excess, health.GetMaxHealth(), random.NextFloatExtra(0.10f, 0.20f)) * random.NextFloatRange(0.80f, 1.20f);
+				Damage.Hit(ent_attacker: entity,
+					ent_owner: entity,
+					ent_target: entity,
+					position: transform.position,
+					velocity: random.NextUnitVector2Range(1, 1),
+					normal: random.NextUnitVector2Range(1, 1),
+					damage_integrity: damage,
+					damage_durability: damage,
+					damage_terrain: damage,
+					target_material_type: body.GetMaterial(),
+					damage_type: Damage.Type.Heat,
+					yield: 0.90f,
+					xp_modifier: 0.00f,
+					impulse: 0.00f,
+					flags: Damage.Flags.No_Loot_Pickup);
 			}
 		}
 #endif
