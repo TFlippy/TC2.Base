@@ -3510,7 +3510,7 @@ namespace TC2.Base
 
 						context.mass_new += mass_added;
 
-						var force = essence_data.force_emit * pellet_count;
+						var force = essence_data.emit_force * pellet_count;
 						var dist_mult = 1.00f / (1.00f + (Vector2.DistanceSquared(offset, new Vector2(0.125f, 0.125f)) * 10.00f));
 
 						ref var recoil_compensator = ref context.GetOrAddComponent<RecoilCompensator.Data>();
@@ -3681,7 +3681,7 @@ namespace TC2.Base
 
 						context.mass_new += mass_added;
 
-						var force = essence_data.force_emit * pellet_count;
+						var force = essence_data.emit_force * pellet_count;
 						var dist_mult = 1.00f / (1.00f + (Vector2.DistanceSquared(offset, new Vector2(data.receiver_offset.X + 0.125f, data.receiver_offset.Y + 0.125f)) * 10.00f));
 
 						ref var arcane_accelerator = ref context.GetOrAddComponent<ArcaneAccelerator.Data>();

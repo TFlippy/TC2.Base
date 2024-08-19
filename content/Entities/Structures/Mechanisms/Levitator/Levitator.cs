@@ -178,7 +178,7 @@ namespace TC2.Base.Components
 
 
 							var node_amount = container.available * node_rate * node.ratio;
-							var force_local = node.dir * (node_amount * essence_data.force_emit) * levitator.efficiency;
+							var force_local = node.dir * (node_amount * essence_data.emit_force) * levitator.efficiency;
 
 							force_total += force_local;
 							body.AddForceLocal(-force_local, node.offset + levitator.offset);

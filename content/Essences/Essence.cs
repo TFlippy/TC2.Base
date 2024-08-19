@@ -13,40 +13,42 @@ namespace TC2.Base.Components
 		[Serializable]
 		public struct Data
 		{
-			[Save.Force]
-			public string name;
-			[Save.Force, Save.MultiLine]
-			public string desc;
+			[Save.Force] public string name;
+			[Save.Force, Save.MultiLine] public string desc;
 
-			[Save.Force, Save.NewLine]
-			public IEssence.Flags flags;
-			[Save.Force]
-			public Essence.Type type_tmp;
+			[Save.NewLine]
+			[Save.Force] public IEssence.Flags flags;
+			[Save.Force] public Essence.Type type_tmp;
 
-			[Save.Force, Save.NewLine]
-			public ColorBGRA color_emit = new ColorBGRA(1.00f, 1.00f, 1.00f, 1.00f);
-			[Save.Force]
-			public float force_emit;
-			[Save.Force]
-			public float heat_emit;
+			[Save.NewLine]
+			[Save.Force] public ColorBGRA color_emit = new ColorBGRA(1.00f, 1.00f, 1.00f, 1.00f);
 
-			[Save.Force, Save.NewLine]
-			public Sound.Handle sound_emit_loop;
-			[Save.Force]
-			public Sound.Handle sound_drain_loop;
-			[Save.Force]
-			public Sound.Handle sound_collapse;
-			[Save.Force]
-			public Sound.Handle sound_zap;
-			[Save.Force]
-			public Sound.Handle sound_blast;
-			[Save.Force]
-			public Sound.Handle sound_impulse;
+			[Save.NewLine]
+			[Save.Force, Obsolete] public float force_emit;
+			[Save.Force, Obsolete] public float heat_emit;
 
-			[Save.Force, Save.NewLine]
-			public Prefab.Handle h_prefab_node;
-			[Save.Force]
-			public IMaterial.Handle h_material_pellet;
+			[Save.Force] public float emit_force;
+			[Save.Force] public Power emit_power_thermal;
+			[Save.Force] public Power emit_power_kinetic;
+			[Save.Force] public Power emit_power_radiant;
+			[Save.Force] public Power emit_power_electric;
+			[Save.Force] public Power emit_power_magnetic;
+
+			[Save.NewLine]
+			[Save.Force] public Sound.Handle sound_emit_loop;
+			[Save.Force] public Sound.Handle sound_emit_pulsed_loop;
+			[Save.Force] public Sound.Handle sound_emit_stress_loop;
+			[Save.Force] public Sound.Handle sound_emit_oscillation_loop;
+			[Save.Force] public Sound.Handle sound_drain_loop;
+			[Save.Force] public Sound.Handle sound_collapse;
+			[Save.Force] public Sound.Handle sound_zap;
+			[Save.Force] public Sound.Handle sound_blast;
+			[Save.Force] public Sound.Handle sound_impulse;
+			[Save.Force] public Sound.Handle sound_impact;
+
+			[Save.NewLine]
+			[Save.Force] public Prefab.Handle h_prefab_node;
+			[Save.Force] public IMaterial.Handle h_material_pellet;
 
 			public Data()
 			{
@@ -57,6 +59,17 @@ namespace TC2.Base.Components
 
 	public static partial class Essence
 	{
+		public enum EmitType: byte
+		{
+			Undefined,
+
+			Impact,
+			Impulse,
+			Pulsed,
+			Stress,
+			Oscillation,
+		}
+
 		//public interface IPowered: IComponent
 		//{
 		//	public float EssenceAvailable { get; set; }

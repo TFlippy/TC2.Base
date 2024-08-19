@@ -81,7 +81,7 @@
 			amount: 3.505
 			amount_extra: 0.015
 			group: 0
-			flags: spawn, use_temperature
+			flags: spawn, use_temperature, spawn_event
 		}
 	]
 }

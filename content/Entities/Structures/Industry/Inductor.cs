@@ -107,15 +107,19 @@
 
 				if (body.HasArbiters())
 				{
+					var emitted_essence = essence_container.GetEmittedEssenceAmount();
+
 					foreach (var arbiter in body.GetArbiters())
 					{
 						if (arbiter.HasShape(shape))
 						{
 							var ent_arbiter = arbiter.GetEntity();
+
+							// TODO: this is slow
 							ref var heat_state = ref ent_arbiter.GetComponent<Heat.State>();
 							if (heat_state.IsNotNull())
 							{
-								heat_state.AddPower(2000, info.DeltaTime);
+								heat_state.AddPower(emitted_essence, info.DeltaTime);
 							}
 						}
 					}	
