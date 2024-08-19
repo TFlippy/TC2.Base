@@ -66,6 +66,7 @@ essencecontainer:
 	health_threshold: 0.500
 	glow_modifier: 1.800
 	flags: show_gui, allow_edit_rate
+	emit_type: oscillation
 
 	@inventory1:
 	{
@@ -85,12 +86,12 @@ essencecontainer:
 
 	@sound.emitter:
 	{
-		volume: 0.500
-		pitch: 100.000
-		size: 0.350
-		size_max_modifier: 0.700
-		spread: 80.000
-		offset: [1.625, -0.125]
+		volume: 0.600
+		pitch: 1.400
+		size: 2.000
+		size_max_modifier: 0.300
+		spread: 85.000
+		offset: [1.750, -0.125]
 	}
 
 	@light:
