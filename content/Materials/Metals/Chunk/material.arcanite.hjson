@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Arcanite"
 	description:
 		'''
@@ -8,24 +8,30 @@
 	
 	icon:
 	{
-		texture: "resource.arcanite"
+		texture: resource.arcanite
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, metal, intermediate, heavy, small, ingot, solid
+	flags: hard, magnetic, metal, intermediate, small, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	hints: none
+	display_flags: none
+	hints: materials, advanced, expensive, dumb, arcane, slow
 	// kg
-	mass_per_unit: 13.212
-	quantity_max: 64.000
-	prefab: "resource.arcanite"
+	mass_per_unit: 1.3212
+	quantity_max: 500.000
+	prefab: resource.arcanite
+	
+	color_dust: "0xffa48b5e"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
+	
+	// Component materials.
+	composition: []
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Silver"
 	description:
 		'''
@@ -8,26 +8,29 @@
 	
 	icon:
 	{
-		texture: "resource.silver"
+		texture: resource.silver
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, metal, currency, intermediate, small, ingot, solid
+	flags: hard, metal, intermediate, small, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	hints: none
+	display_flags: none
+	hints: materials, rare, expensive, fancy, dumb, slow
 	// kg
-	mass_per_unit: 5.320
-	quantity_max: 64.000
-	prefab: "resource.silver"
+	mass_per_unit: 0.68096
+	quantity_max: 500.000
+	prefab: resource.silver
+	
+	color_dust: "0xfff4fbf8"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
@@ -45,4 +48,7 @@
 		// K
 		boiling_point: 2435.000
 	}
+	
+	// Component materials.
+	composition: []
 }

@@ -6,13 +6,13 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.500, 0.125]
+		a: [-0.250, 0.000]
 		b: [0.375, 0.000]
 		
 		offset: [0.000, 0.375]
-		radius: 0.490
-		friction: 0.300
-		elasticity: 0.440
+		radius: 0.500
+		friction: 0.600
+		elasticity: 0.840
 		
 		material: cermet
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic

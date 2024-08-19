@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Smirgrafit"
 	description:
 		'''
@@ -15,17 +15,17 @@
 	
 	type: cermet
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, metal, heavy, ingot, waste, solid, processed
+	flags: hard, magnetic, metal, intermediate, small, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: dumb
+	hints: materials, heavy, advanced, powerful, dumb, slow
 	// kg
-	mass_per_unit: 1.520
+	mass_per_unit: 1.450
 	quantity_max: 500.000
 	prefab: resource.smirgrafit
 	
-	color_dust: "0xffffffff"
+	color_dust: "0xff403a39"
 	color_gib: "0xffffffff"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"

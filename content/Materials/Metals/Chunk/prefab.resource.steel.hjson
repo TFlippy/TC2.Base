@@ -7,10 +7,10 @@ body:
 	@shape.line:
 	{
 		a: [-0.500, 0.125]
-		b: [0.375, 0.000]
+		b: [0.375, 0.125]
 		
 		offset: [0.000, 0.375]
-		radius: 0.490
+		radius: 0.480
 		friction: 0.300
 		elasticity: 0.440
 		
