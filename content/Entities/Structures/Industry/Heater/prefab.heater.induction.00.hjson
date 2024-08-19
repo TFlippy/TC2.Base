@@ -83,15 +83,15 @@ essencecontainer:
 		offset: [1.750, 0.500]
 	}
 
-	// @sound.emitter:
-	// {
-	// 	volume: 0.500
-	// 	pitch: 1.730
-	// 	size: 0.350
-	// 	size_max_modifier: 0.700
-	// 	spread: 80.000
-	// 	offset: [1.625, -0.125]
-	// }
+	@sound.emitter:
+	{
+		volume: 0.500
+		pitch: 100.000
+		size: 0.350
+		size_max_modifier: 0.700
+		spread: 80.000
+		offset: [1.625, -0.125]
+	}
 
 	@light:
 	{

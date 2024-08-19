@@ -119,8 +119,9 @@ shop:
 	
 	tags_filter:
 	{
-		include: casting, forming, refining, smelting
-		exclude: wrench, workbench, workshop, advanced, assembling, machining, tailoring, metalworking, social, smelting, drying
+		require: heating
+		include: heating, casting, refining, smelting
+		exclude: wrench, assembling, machining, tailoring, social, drying
 	}
 	
 	work_tools: none

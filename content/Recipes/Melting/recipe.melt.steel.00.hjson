@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.61.3"
-	name: "Melt Steel"
+	$version: "0.1.61.4"
+	name: "Melt Steel Scrap"
 	desc:
 		'''
 		TODO: Desc
@@ -9,29 +9,36 @@
 	
 	icon:
 	{
-		texture: resource.hydrogen_peroxide
+		texture: resource.scrap.steel
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, 1.000]
+	icon_offset: [-1.000, -6.000]
 	
 	icon_extra:
 	{
 		texture: ui_icons_crafting.mini
-		size: [8, 8]
-		frame: [3, 2]
+		size: [16, 16]
+		frame: [3, 3]
 	}
-	icon_extra_offset: [-5.000, -6.000]
+	icon_extra_offset: [-2.000, -5.000]
 	
-	min: 1
-	max: 4
-	step: 1
+	icon_c:
+	{
+		texture: ui_icons_crafting.mini
+		frame: [6, 2]
+	}
+	icon_c_offset: [-3.000, -3.000]
+	
+	min: 5
+	max: 100
+	step: 5
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
+	tags: metalworking, heating, refining, smelting
 	
-	color_button: "0xff80dc7e"
+	color_button: "0xffff774a"
 	rank: -157.000
 	
 	start_delay: 1.500
@@ -42,69 +49,27 @@
 	[
 		{
 			type: resource
-			material: chitin
-			amount: 8.000
-			group: 1
-		}
-		{
-			type: resource
-			material: saltpeter
-			amount: 3.000
-			group: 1
-		}
-		{
-			type: resource
-			material: mushroom.blue
-			amount: 2.000
-			group: 1
-		}
-		{
-			type: resource
-			material: water.clean
-			amount: 10.000
-			group: 1
-		}
-		{
-			type: work
-			work: blending
-			amount: 295.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.750
-			group: 1
-			flags: conditional
+			material: scrap.steel
+			amount: 1.000
+			group: 0
 		}
 		{
 			type: temperature
-			amount: 642.720
-			amount_min: 580.000
-			amount_max: 800.000
-			group: 2
-			flags: no_scaling, always_evaluate, group_evaluate
+			amount: 2500.000
+			amount_min: 1644.000
+			amount_max: 3143.000
+			group: 1
+			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
-			work: boiling
-			amount: 250.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.550
-			group: 2
-			flags: conditional
-		}
-		{
-			type: resource
-			material: water.clean
-			amount: 50.000
-			group: 3
-		}
-		{
-			type: work
-			work: dousing
-			amount: 80.000
+			work: melting
+			amount: 85.000
 			difficulty: 3
-			group: 3
-			flags: no_scaling, conditional
+			snapping: 5.000
+			falloff: 0.800
+			group: 1
+			flags: conditional
 		}
 	]
 	
@@ -112,10 +77,11 @@
 	[
 		{
 			type: resource
-			material: hydrogen_peroxide
-			amount: 15.755
-			amount_extra: 14.410
+			material: steel.chunk
+			amount: 3.505
+			amount_extra: 0.015
 			group: 0
+			flags: spawn, use_temperature
 		}
 	]
 }
