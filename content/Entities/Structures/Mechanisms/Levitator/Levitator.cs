@@ -161,7 +161,7 @@ namespace TC2.Base.Components
 #endif
 
 					ref var node_rate = ref levitator_state.node_rates[i];
-					node_rate = Maths.Lerp(node_rate, kb.GetKey(key, false) ? 1.00f : 0.00f, levitator.lerp_rate);
+					node_rate = Maths.Lerp(node_rate, ((kb.GetKey(key, false) ? 1.00f : 0.00f) + (random.NextFloat01() * container.noise_current * 0.70f)).Clamp01(), levitator.lerp_rate);
 					rate_total += node_rate * node.ratio;
 
 					if (node_rate > 0.01f)
@@ -238,7 +238,9 @@ namespace TC2.Base.Components
 			levitator_state.current_offset = Vector2.Lerp(levitator_state.current_offset, offset, 0.20f);
 			levitator_state.current_force = Maths.Lerp(levitator_state.current_force, force_total_len, levitator.lerp_rate);
 			//levitator.force_multiplier = 0.00f;
-			container.rate = Maths.MoveTowards(container.rate, rate_total, levitator.lerp_rate);
+			//container.rate = Maths.MoveTowards(container.rate, rate_total, levitator.lerp_rate);
+			container.rate = rate_total.Clamp01();
+			//container.rate_speed = levitator.lerp_rate;
 
 			//container.rate = Maths.NormalizeClamp(levitator_state.current_force, force_total_len);
 
@@ -487,7 +489,7 @@ namespace TC2.Base.Components
 				var dir_w = transform.LocalToWorldDirection(levitator_state.current_direction).GetNormalized();
 
 				//var force_len = levitator_state.current_force * 0.001f * 0.10f;
-				var force_len = container.available * container.rate * 0.50f;
+				var force_len = container.available * container.rate_current * 0.50f;
 				if (force_len > 0.50f)
 				{
 					var modifier = Maths.Clamp(force_len * 0.05f, 0.30f, 1.00f);
@@ -575,7 +577,7 @@ namespace TC2.Base.Components
 		{
 			var dir = levitator_state.current_direction;
 			//var force_len = levitator_state.current_force * 0.001f * 0.10f;
-			var modifier = container.available * container.rate * 0.30f;
+			var modifier = container.available * container.rate_current * 0.30f;
 			//App.WriteLine(modifier);
 
 			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, Maths.Clamp(modifier * 0.08f, 0.00f, 1.50f), 0.02f, 0.05f);

@@ -22,7 +22,7 @@
 	
 	sound_emit_loop: essence.emit.motion.loop.00
 	sound_emit_pulsed_loop: missing
-	sound_emit_stress_loop: missing
+	sound_emit_stress_loop: essence.emit.motion.loop.00
 	sound_emit_oscillation_loop: missing
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.drain.zap.01

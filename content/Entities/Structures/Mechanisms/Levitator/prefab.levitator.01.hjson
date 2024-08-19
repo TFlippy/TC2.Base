@@ -99,9 +99,10 @@ attachment:
 
 essencecontainer:
 {
-	stability: 0.900
+	stability: 0.880
 	health_threshold: 0.500
-	glow_modifier: 5.000
+	glow_modifier: 3.000
+	emit_type: stress
 
 	@inventory1:
 	{
