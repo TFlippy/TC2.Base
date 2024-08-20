@@ -288,7 +288,6 @@ namespace TC2.Base.Components
 			var mass = body.GetMass().ClampMin(1.00f);
 			if (mass != heat_state.mass_cached) // && heat_state.flags.TryAddFlag(Heat.State.Flags.Cached))
 			{
-
 				if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
 				{
 					heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value * modifier, 0.10f);
@@ -481,7 +480,7 @@ namespace TC2.Base.Components
 					Shake.Emit(ref region, pos_spark, 0.10f, 0.25f * intensity_spark.Clamp01(), radius: 24.00f * intensity_spark);
 					if (random.NextBool(0.07f))
 					{
-						Sound.Play("effect.sizzle.sparky.00", pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f);
+						Sound.Play(h_sound_sizzle, pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f);
 					}
 
 					//for (var i = 0; i < 10; i++)

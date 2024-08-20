@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.60.7"
-	name: "Steel Powder"
+	$version: "0.1.61.4"
+	name: "Steel (Powder)"
 	description:
 		'''
 		High-purity steel powder.
@@ -32,23 +32,19 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
-
+	
 	// Conversions into other materials.
 	conversions:
 	{
 		phlogiston:
 		{
 			h_material: steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.620
 			ratio_extra: 0.460
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -60,6 +56,10 @@
 			sound_pitch: 0.440
 			
 			chance: 0.275
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

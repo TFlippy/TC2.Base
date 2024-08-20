@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.61.1"
-	name: "Steel Scrap"
+	$version: "0.1.61.4"
+	name: "Steel (Scrap)"
 	description:
 		'''
 		Mostly clean steel scrap.
@@ -70,23 +70,19 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
-
+	
 	// Conversions into other materials.
 	conversions:
 	{
 		phlogiston:
 		{
 			h_material: steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.910
 			ratio_extra: 0.060
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -98,6 +94,10 @@
 			sound_pitch: 0.440
 			
 			chance: 0.275
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

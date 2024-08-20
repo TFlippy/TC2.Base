@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Steel Scrap"
+	name: "Melt Mixed Steel Powder"
 	desc:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.scrap.steel
+		texture: resource.steel.powder
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -49,15 +49,14 @@
 	[
 		{
 			type: resource
-			material: scrap.steel
+			material: steel.powder
 			amount: 1.000
 			group: 0
 		}
 		{
 			type: temperature
-			amount: 2500.000
-			amount_min: 1644.000
-			amount_max: 3143.000
+			amount: 1744.000
+			amount_min: 1444.000
 			group: 1
 			flags: no_scaling, always_evaluate
 		}

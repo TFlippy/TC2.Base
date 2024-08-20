@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.60.5"
-	name: "Recondite Ingot"
+	name: "Recondite (Ingot)"
 	description:
 		'''
-		An alloy of smirglum and silver capable of interacting with the immaterial world.
+		Alloy of smirglum and silver.
 		'''
 	
 	icon:

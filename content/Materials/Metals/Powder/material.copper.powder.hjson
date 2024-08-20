@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.60.7"
-	name: "Copper Powder"
+	$version: "0.1.61.4"
+	name: "Copper (Powder)"
 	description:
 		'''
 		High-purity copper powder.
@@ -79,16 +79,12 @@
 		phlogiston:
 		{
 			h_material: copper
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.720
 			ratio_extra: 0.460
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -100,6 +96,10 @@
 			sound_pitch: 0.440
 			
 			chance: 0.395
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	
