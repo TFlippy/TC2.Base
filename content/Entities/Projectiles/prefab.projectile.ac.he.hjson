@@ -34,18 +34,19 @@ explosive:
 	damage_type: explosion
 	damage_type_secondary: shockwave
 
-	radius: 3.000
-	power: 4.500
+	radius: 4.000
+	power: 4.000
 	damage_entity: 8500.000
 	damage_terrain: 40000.000
 	sparks_amount: 2.500
+	stun_multiplier: 3.000
 	smoke_amount: 0.400
 	shake_multiplier: 0.180
 	smoke_velocity_multiplier: 1.900
 	smoke_lifetime_multiplier: 0.300
 	flash_duration_multiplier: 0.080
 	flash_intensity_multiplier: 1.500
-	force_multiplier: 1.400
+	force_multiplier: 1.500
 	flags: primed
 	pitch: 1.900
 }

@@ -21,9 +21,9 @@
 	emit_power_magnetic: 0.000
 	
 	sound_emit_loop: essence.emit.electricity.loop.00
-	sound_emit_pulsed_loop: essence.machine.loop.01
-	sound_emit_stress_loop: essence.emit.generic.loop.04
-	sound_emit_oscillation_loop: lamp_hum_loop_01
+	sound_emit_pulser_loop: essence.machine.loop.01
+	sound_emit_stressor_loop: essence.emit.generic.loop.04
+	sound_emit_oscillator_loop: lamp_hum_loop_01
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.electricity.00
 	sound_zap: zapper.zap.00

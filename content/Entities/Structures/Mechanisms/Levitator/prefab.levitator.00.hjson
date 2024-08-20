@@ -105,7 +105,7 @@ essencecontainer:
 	stability: 0.950
 	health_threshold: 0.750
 	glow_modifier: 3.000
-	emit_type: stress
+	emit_type: stressor
 
 	@inventory1:
 	{

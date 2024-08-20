@@ -23,9 +23,9 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			[Save.Force] public ColorBGRA color_emit = new ColorBGRA(1.00f, 1.00f, 1.00f, 1.00f);
 
-			[Save.NewLine]
-			[Save.Force, Obsolete] public float force_emit;
-			[Save.Force, Obsolete] public float heat_emit;
+			//[Save.NewLine]
+			//[Save.Force, Obsolete] public float force_emit;
+			//[Save.Force, Obsolete] public float heat_emit;
 
 			[Save.Force] public float emit_force;
 			[Save.Force] public Power emit_power_thermal;
@@ -36,9 +36,11 @@ namespace TC2.Base.Components
 
 			[Save.NewLine]
 			[Save.Force] public Sound.Handle sound_emit_loop;
-			[Save.Force] public Sound.Handle sound_emit_pulsed_loop;
-			[Save.Force] public Sound.Handle sound_emit_stress_loop;
-			[Save.Force] public Sound.Handle sound_emit_oscillation_loop;
+			[Save.Force] public Sound.Handle sound_emit_pulser_loop;
+			[Save.Force] public Sound.Handle sound_emit_stressor_loop;
+			[Save.Force] public Sound.Handle sound_emit_impactor_loop;
+			[Save.Force] public Sound.Handle sound_emit_cycler_loop;
+			[Save.Force] public Sound.Handle sound_emit_oscillator_loop;
 			[Save.Force] public Sound.Handle sound_drain_loop;
 			[Save.Force] public Sound.Handle sound_collapse;
 			[Save.Force] public Sound.Handle sound_zap;
@@ -65,44 +67,40 @@ namespace TC2.Base.Components
 			{
 				Undefined,
 
-				Impact,
-				Impulse,
-				Pulsed,
-				Stress,
-				Oscillation,
+				Impactor,
+				Cycler,
+				Pulser,
+				Stressor,
+				Oscillator,
 			}
 
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
 				None = 0,
 
-				Show_GUI = 1u << 0,
-				Allow_Edit_Rate = 1u << 1
+				Show_GUI = 1 << 0,
+				Allow_Edit_Rate = 1 << 1,
+				Allow_Edit_Frequency = 1 << 2
 			}
 
-			[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+			[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 			public partial struct Data: IComponent
 			{
-				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-				public IEssence.Handle h_essence;
-
-				[Statistics.Info("Amount", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-				public float available;
-
-				public float rate;
-
-				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-				public float stability = 1.00f;
-
-				public float health_threshold = 0.20f;
-				public float glow_modifier = 1.00f;
-
-				public EssenceContainer.Flags flags;
 				public Essence.Emitter.Type type;
+				public Essence.Emitter.Flags flags;
 
-				[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_damage;
-				[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_collapse;
+				public float frequency = 0.00f;
+
+				[Editor.Slider.Clamped(-float.Tau, +float.Tau, float.Pi / 16.00f)]
+				public float rotation;
+				[Editor.Picker.Position(true)]
+				public Vector2 offset;
+
+				public float rate_speed = 0.10f;
+				public float rate_max;
+				public float rate_target;
+				[Asset.Ignore] public float rate_current;
 
 				public Data()
 				{

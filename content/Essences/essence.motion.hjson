@@ -21,9 +21,9 @@
 	emit_power_magnetic: 1.870
 	
 	sound_emit_loop: essence.emit.motion.loop.00
-	sound_emit_pulsed_loop: missing
-	sound_emit_stress_loop: essence.emit.motion.loop.00
-	sound_emit_oscillation_loop: missing
+	sound_emit_pulser_loop: missing
+	sound_emit_stressor_loop: essence.emit.motion.loop.00
+	sound_emit_oscillator_loop: missing
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.drain.zap.01
 	sound_zap: essence.drain.zap.01

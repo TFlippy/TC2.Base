@@ -34,6 +34,7 @@ namespace TC2.Base.Components
 			public Energy heat_capacity_extra;
 
 			public float heat_capacity_mult = 1.00f;
+			public float cool_rate_mult = 1.00f;
 
 			public float smoke_size_mult = 1.00f;
 			public float smoke_speed_mult = 1.00f;
@@ -67,6 +68,7 @@ namespace TC2.Base.Components
 
 			public Temperature temperature_current = Temperature.Ambient;
 			public Energy heat_capacity = 1.00f;
+			public float modifier = 1.00f;
 
 			public Heat.State.Flags flags;
 
@@ -229,17 +231,24 @@ namespace TC2.Base.Components
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
 		public static void OnModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Body.Data body)
+		[Source.Owned] in Body.Data body, [Source.Owned, Optional] in Resource.Data resource)
 		{
+			var modifier = 1.00f;
+			if (resource.material.id != 0)
+			{
+				modifier = resource.GetQuantityNormalized();
+			}
+
 			if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
 			{
-				heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value, 0.10f);
+				heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value * modifier, 0.10f);
 			}
 			else
 			{
-				heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass().ClampMin(1.00f), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value), 0.10f);
+				heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass().ClampMin(1.00f), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value * modifier), 0.10f);
 			}
 
+			heat_state.modifier = modifier;
 			heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
 
 #if SERVER
@@ -263,7 +272,7 @@ namespace TC2.Base.Components
 				heat_state.temperature_ambient = temperature_ambient = region.GetAmbientTemperature(transform.LocalToWorld(heat.offset));
 			}
 
-			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate, info.DeltaTime);
+			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate * heat.cool_rate_mult * heat_state.modifier, info.DeltaTime);
 			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= heat.temperature_critical))
 			{
 				heat_state.flags.RemoveFlag(Heat.State.Flags.Overheated, temperature_current <= heat.temperature_medium);

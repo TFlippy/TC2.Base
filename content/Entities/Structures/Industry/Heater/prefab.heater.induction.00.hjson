@@ -66,7 +66,7 @@ essencecontainer:
 	health_threshold: 0.500
 	glow_modifier: 1.800
 	flags: show_gui, allow_edit_rate
-	emit_type: oscillation
+	emit_type: oscillator
 
 	@inventory1:
 	{
