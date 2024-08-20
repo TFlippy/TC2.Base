@@ -15,11 +15,14 @@ body:
 		b: [-1.500, 1.250]
 		radius: 0.750
 		
+		friction: 0.250
+		elasticity: 0.650
+
 		material: metal
 		
 		layer: entity, building, solid
-		mask: item, building
-		exclude: held
+		mask: item, building, resource
+		exclude: held, attached
 	}
 
 	@shape.polygon:
@@ -33,11 +36,14 @@ body:
 		]
 		radius: 0.375
 		
+		friction: 0.250
+		elasticity: 0.650
+
 		material: machine
 		
 		layer: entity, building, solid
-		mask: item, building
-		exclude: held
+		mask: item, building, resource
+		exclude: held, attached
 	}
 }
 

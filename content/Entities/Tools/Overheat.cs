@@ -59,11 +59,12 @@ namespace TC2.Base.Components
 		public partial struct State: IComponent
 		{
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
 				None = 0,
 
-				Overheated = 1 << 0
+				Overheated = 1 << 0,
+				[Save.Ignore, Asset.Ignore] Cached = 1 << 15,
 			}
 
 			public Temperature temperature_current = Temperature.Ambient;
@@ -76,6 +77,7 @@ namespace TC2.Base.Components
 
 			[Net.Ignore, Save.Ignore] public Temperature temperature_ambient = Temperature.Ambient;
 
+			[Net.Ignore, Save.Ignore] public float mass_cached;
 			[Net.Ignore, Save.Ignore] public float t_next_ambient;
 			[Net.Ignore, Save.Ignore] public float t_next_steam;
 
@@ -193,8 +195,13 @@ namespace TC2.Base.Components
 			if (heat.flags.HasNone(Heat.Data.Flags.No_Held_Damage) && joint_base.material_type == Material.Type.Flesh)
 			{
 				var temperature_celsius = heat_state.temperature_current.Celsius();
-				if (temperature_celsius >= 50.00f && random.NextBool(temperature_celsius * 0.02f))
+				if (temperature_celsius >= 50.00f && random.NextBool(temperature_celsius * 0.005f))
 				{
+					var damage_type = Damage.Type.Steam;
+					if (temperature_celsius >= 1337.00f) damage_type = Damage.Type.Phlogiston;
+					else if (temperature_celsius >= 550.00f) damage_type = Damage.Type.Fire;
+					else if (temperature_celsius >= 120.00f) damage_type = Damage.Type.Heat;
+
 					var damage = temperature_celsius * random.NextFloatRange(0.40f, 0.80f);
 					Damage.Hit(ent_attacker: ent_body,
 						ent_owner: ent_body,
@@ -206,13 +213,13 @@ namespace TC2.Base.Components
 						damage_durability: damage,
 						damage_terrain: damage,
 						target_material_type: body_parent.GetMaterial(),
-						damage_type: temperature_celsius >= 1337.00f ? Damage.Type.Phlogiston : Damage.Type.Heat,
+						damage_type: damage_type,
 						yield: 0.90f,
 						xp_modifier: 0.00f,
 						impulse: 0.00f,
 						flags: Damage.Flags.No_Loot_Pickup);
 
-					if (random.NextBool(temperature_celsius * 0.01f))
+					if (random.NextBool(temperature_celsius * 0.005f))
 					{
 						Arm.Drop(ent_joint_base, direction: body_parent.Right.RotateByRad(random.NextFloat(0.10f)) * 3);
 						Sound.Play(region: ref region,
@@ -228,40 +235,79 @@ namespace TC2.Base.Components
 #endif
 		}
 
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
 		public static void OnModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] in Body.Data body, [Source.Owned, Optional] in Resource.Data resource)
 		{
+#if SERVER
+			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
+
 			var modifier = 1.00f;
 			if (resource.material.id != 0)
 			{
 				modifier = resource.GetQuantityNormalized();
 			}
-
-			if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
-			{
-				heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value * modifier, 0.10f);
-			}
-			else
-			{
-				heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass().ClampMin(1.00f), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value * modifier), 0.10f);
-			}
-
 			heat_state.modifier = modifier;
-			heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
-
-#if SERVER
-			//heat.Sync(entity, true);
-			heat_state.Sync(entity, true);
 #endif
+			//#if SERVER
+			//			var modifier = 1.00f;
+			//			if (resource.material.id != 0)
+			//			{
+			//				modifier = resource.GetQuantityNormalized();
+			//			}
+
+			//			if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
+			//			{
+			//				heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value * modifier, 0.10f);
+			//			}
+			//			else
+			//			{
+			//				heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(body.GetMass().ClampMin(1.00f), heat.heat_capacity_mult, heat.heat_capacity_extra.m_value * modifier), 0.10f);
+			//			}
+
+			//			heat_state.modifier = modifier;
+			//			heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
+
+			//			App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}; {resource.quantity}");
+
+			//			//heat.Sync(entity, true);
+			//			heat_state.Sync(entity, true);
+			//#endif
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Transform.Data transform)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
 		{
+			var modifier = heat_state.modifier;
+
+#if SERVER
+			var mass = body.GetMass().ClampMin(1.00f);
+			if (mass != heat_state.mass_cached) // && heat_state.flags.TryAddFlag(Heat.State.Flags.Cached))
+			{
+
+				if (heat.flags.HasAny(Heat.Data.Flags.Exclude_Body_Mass))
+				{
+					heat_state.heat_capacity.m_value = Maths.Max(heat.heat_capacity_extra.m_value * modifier, 0.10f);
+				}
+				else
+				{
+					heat_state.heat_capacity.m_value = Maths.Max(Maths.FMA(mass, heat.heat_capacity_mult, heat.heat_capacity_extra.m_value * modifier), 0.10f);
+				}
+
+				heat_state.modifier = modifier;
+				heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
+
+				App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}");
+
+				heat_state.mass_cached = mass;
+				heat_state.Sync(entity, true);
+			}
+#endif
+
 			var temperature_ambient = heat_state.temperature_ambient;
 			var temperature_current = heat_state.temperature_current;
 
@@ -307,6 +353,9 @@ namespace TC2.Base.Components
 			if (data.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
 			{
 				heat_state.temperature_current = data.temperature;
+
+				heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
+
 				heat_state.Sync(entity, true);
 			}
 		}
@@ -371,13 +420,14 @@ namespace TC2.Base.Components
 				heat_state.t_next_steam = time + 0.04f;
 
 				//var dir = transform.GetDirection();
-				var intensity = Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 50.00f, 0.00f, 0.30f);
+				var intensity = Maths.Clamp(Maths.Max(temperature_current - Temperature.Celsius(50.00f), 0.00f) * 0.003f, 0.00f, 0.75f).Pow2();
+				var pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloat(heat.size.X), random.NextFloat(heat.size.Y)) * 0.50f));
 
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = texture_smoke,
 					lifetime = random.NextFloatExtra(0.50f, 0.50f),
-					pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloat(heat.size.X), random.NextFloat(heat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
+					pos = pos, // + (dir * random.NextFloatRange(0.00f, 1.00f))),
 					vel = new Vector2(random.NextFloat(intensity), random.NextFloat01() * -intensity * 4) * heat.smoke_speed_mult, // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
 					force = new Vector2(0.10f, -0.40f) * heat.smoke_speed_mult,
 					fps = random.NextByteRange(15, 20),
@@ -388,46 +438,116 @@ namespace TC2.Base.Components
 					rotation = random.NextFloat(float.Pi),
 					angular_velocity = random.NextFloatExtra(1.00f, 2.00f) * heat.smoke_speed_mult,
 					growth = random.NextFloatExtra(0.20f, 0.30f),
-					color_a = new Color32BGRA(0xc0ffffff).WithAlphaMult(intensity * 0.30f),
+					color_a = new Color32BGRA(0xffffffff).WithAlphaMult(intensity * 0.50f),
 					color_b = new Color32BGRA(0x00ffffff),
 				});
+
+				if (temperature_current >= 1450.00f)
+				{
+					var intensity_spark = Maths.InvLerp(1200, 2500, temperature_current).Clamp01();
+
+					var pos_spark = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloat(heat.size.X), 0.00f)));
+					var dir_up = transform.Up;
+
+					var glow_color = Temperature.GetGlowColor(temperature_current);
+					var glow_color_clamped = glow_color.WithAlpha(1.00f);
+
+					for (var i = 0; i < 2; i++)
+					{
+						var lit = random.NextBool(0.60f);
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = Welder.metal_spark_01,
+							lifetime = random.NextFloatRange(0.20f, 0.40f),
+							pos = pos_spark + random.NextVector2(0.50f),
+							vel = (dir_up.RotateByRad(random.NextFloat(2.00f)) * random.NextFloatExtra(1, 5) * 3 * intensity_spark) + new Vector2(random.NextFloat(75.00f * intensity), random.NextFloatExtra(2.00f, -15.00f)),
+							fps = 8,
+							frame_count = 4,
+							frame_offset = random.NextByteRange(0, 4),
+							frame_count_total = 4,
+							scale = random.NextFloatRange(0.70f, 1.10f) * intensity_spark * (lit ? 0.75f : 1.20f),
+							growth = -random.NextFloatRange(0.30f, 0.60f),
+							force = new Vector2(0, random.NextFloatRange(15, 80)),
+							drag = random.NextFloatRange(0.01f, 0.04f),
+							stretch = new Vector2(random.NextFloatRange(0.70f, 1.10f), 0.65f),
+							color_a = lit ? glow_color_clamped : glow_color,
+							color_b = (lit ? glow_color_clamped : glow_color).WithAlpha(0),
+							lit = lit ? 1.00f : 0.00f,
+							glow = lit ? 0.00f : 4.00f + (intensity_spark * 5.00f),
+							face_dir_ratio = 1.00f,
+						});
+					}
+
+					Shake.Emit(ref region, pos_spark, 0.10f, 0.25f * intensity_spark.Clamp01(), radius: 24.00f * intensity_spark);
+					if (random.NextBool(0.07f))
+					{
+						Sound.Play("effect.sizzle.sparky.00", pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f);
+					}
+
+					//for (var i = 0; i < 10; i++)
+					//{
+					//	var lit = random.NextBool(0.50f);
+
+					//	Particle.Spawn(ref region, new Particle.Data()
+					//	{
+					//		texture = Welder.metal_spark_01,
+					//		lifetime = random.NextFloatRange(0.60f, 1.80f) * (lit ? 1.00f : 0.50f),
+					//		pos = pos_spark + random.NextVector2(0.20f),
+					//		vel = (dir_up * random.NextFloatRange(0, 40)).RotateByRad(random.NextFloatRange(-1.00f, 1.00f)) + random.NextVector2(15),
+					//		fps = 0,
+					//		frame_count = 1,
+					//		frame_offset = random.NextByteRange(0, 4),
+					//		frame_count_total = 4,
+					//		scale = random.NextFloatRange(0.70f, 1.00f) * (lit ? 1.00f : 0.80f),
+					//		growth = -random.NextFloatRange(0.50f, 0.70f),
+					//		force = new Vector2(0.00f, random.NextFloatRange(-20, 40)),
+					//		drag = random.NextFloatRange(0.01f, 0.05f),
+					//		stretch = new Vector2(random.NextFloatRange(1.50f, 2.00f), 0.75f),
+					//		color_a = random.NextColor32Range(0xffffffff, 0xffffc0b0),
+					//		color_b = random.NextColor32Range(0xffffc0b0, 0xffffa090),
+					//		lit = lit ? 1.00f : 0.00f,
+					//		glow = lit ? 0.00f : 5.00f,
+					//		face_dir_ratio = 1.00f,
+					//	});
+					//}
+				}
+			}
 		}
-	}
 
-	//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-	//public static void UpdateSound(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] in Transform.Data transform,
-	//[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned, Pair.Component<Heat.Data>] ref Sound.Emitter sound_emitter)
-	//{
-	//	sound_emitter.offset = heat.offset;
-	//	sound_emitter.volume_mult = Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
-	//	sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
+		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void UpdateSound(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] in Transform.Data transform,
+		//[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned, Pair.Component<Heat.Data>] ref Sound.Emitter sound_emitter)
+		//{
+		//	sound_emitter.offset = heat.offset;
+		//	sound_emitter.volume_mult = Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
+		//	sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 
-	//	if (heat.temperature_current >= 100.00f && info.WorldTime >= heat.t_next_steam)
-	//	{
-	//		var dir = transform.GetDirection();
-	//		var intensity = Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 50.00f, 0.00f, 0.30f);
+		//	if (heat.temperature_current >= 100.00f && info.WorldTime >= heat.t_next_steam)
+		//	{
+		//		var dir = transform.GetDirection();
+		//		var intensity = Maths.Clamp(Maths.Max(heat.temperature_current - heat.temperature_medium, 0.00f) / 50.00f, 0.00f, 0.30f);
 
-	//		heat.t_next_steam = info.WorldTime + 0.04f;
-	//		Particle.Spawn(ref region, new Particle.Data()
-	//		{
-	//			texture = texture_smoke,
-	//			lifetime = random.NextFloatRange(0.50f, 1.00f),
-	//			pos = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloatRange(-heat.size.X, heat.size.X), random.NextFloatRange(-heat.size.Y, heat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
-	//			vel = new Vector2(random.NextFloatRange(-intensity, intensity), random.NextFloatRange(0.00f, -intensity * 10)), // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
-	//			force = new Vector2(0.10f, -0.40f),
-	//			fps = random.NextByteRange(15, 20),
-	//			frame_count = 64,
-	//			frame_count_total = 64,
-	//			frame_offset = random.NextByteRange(0, 64),
-	//			scale = random.NextFloatRange(0.30f, 0.50f),
-	//			rotation = random.NextFloat(10.00f),
-	//			angular_velocity = random.NextFloatRange(1.00f, 3.00f),
-	//			growth = 0.40f,
-	//			color_a = new Color32BGRA(0xc0ffffff).WithAlphaMult(intensity),
-	//			color_b = new Color32BGRA(0x00ffffff),
-	//		});
-	//	}
-	//}
+		//		heat.t_next_steam = info.WorldTime + 0.04f;
+		//		Particle.Spawn(ref region, new Particle.Data()
+		//		{
+		//			texture = texture_smoke,
+		//			lifetime = random.NextFloatRange(0.50f, 1.00f),
+		//			pos = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloatRange(-heat.size.X, heat.size.X), random.NextFloatRange(-heat.size.Y, heat.size.Y)) * 0.50f)), // + (dir * random.NextFloatRange(0.00f, 1.00f))),
+		//			vel = new Vector2(random.NextFloatRange(-intensity, intensity), random.NextFloatRange(0.00f, -intensity * 10)), // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
+		//			force = new Vector2(0.10f, -0.40f),
+		//			fps = random.NextByteRange(15, 20),
+		//			frame_count = 64,
+		//			frame_count_total = 64,
+		//			frame_offset = random.NextByteRange(0, 64),
+		//			scale = random.NextFloatRange(0.30f, 0.50f),
+		//			rotation = random.NextFloat(10.00f),
+		//			angular_velocity = random.NextFloatRange(1.00f, 3.00f),
+		//			growth = 0.40f,
+		//			color_a = new Color32BGRA(0xc0ffffff).WithAlphaMult(intensity),
+		//			color_b = new Color32BGRA(0x00ffffff),
+		//		});
+		//	}
+		//}
 #endif
-}
+	}
 }

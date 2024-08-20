@@ -135,12 +135,14 @@ namespace TC2.Base.Components
 					var amount_taken = amount - amount_rem;
 					resource.quantity -= amount_taken;
 					resource.Modified(entity, true);
+
+					data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 				}
 			}
 #endif
 
 			data.knockback *= 0.10f;
-			data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
+			//data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 		}
 	}
 

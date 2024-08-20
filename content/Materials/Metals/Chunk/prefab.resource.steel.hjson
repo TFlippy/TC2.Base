@@ -63,22 +63,22 @@ breakable:
 
 heat:
 {
-	temperature_medium: 1000.000
-	temperature_high: 1800.000
-	temperature_critical: 4000.000
-	cool_rate: 0.750
+	temperature_medium: 400.000
+	temperature_high: 1244.000
+	temperature_critical: 1744.000
+	cool_rate: 2.000
 	offset: [0.000, 0.500]
-	smoke_offset: [0.000, -0.250]
+	smoke_offset: [0.125, 0.250]
 	size: [0.750, 0.375]
 	
 	@light:
 	{
 		offset: [0.000, 0.500]
-		scale: [22.000, 14.000]
+		scale: [25.000, 22.000]
 		intensity: 1.500
 		texture: light.circle.04
 	}
-	
+
 	@sound.emitter:
 	{
 		file: overheat_loop
@@ -87,4 +87,13 @@ heat:
 		size_max_modifier: 0.600
 		offset: [0.000, 0.500]
 	}
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
 }

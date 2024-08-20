@@ -23,7 +23,7 @@ body:
 		
 		mass: 75.000
 		radius: 0.250
-		friction: 0.900
+		friction: 0.400
 		elasticity: 0.600
 		
 		material: cermet
@@ -82,11 +82,11 @@ attachment:
 
 heat:
 {
-	temperature_medium: 1000.000
+	temperature_medium: 400.000
 	temperature_high: 1800.000
 	temperature_critical: 4000.000
 	heat_capacity_mult: 0.750
-	cool_rate: 0.750
+	cool_rate: 2.000
 	smoke_offset: [0.000, -1.000]
 	size: [0.500, 0.500]
 	
@@ -94,17 +94,17 @@ heat:
 	{
 		offset: [0.000, 0.125]
 		scale: [19.000, 20.000]
-		intensity: 1.500
+		intensity: 1.000
 		texture: light.circle.04
 	}
 	
 	@sound.emitter:
 	{
-		file: burner.loop.00
+		file: overheat_loop
 		volume: 1.000
-		pitch: 2.000
-		size: 1.400
+		pitch: 0.680
 		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
 	}
 }
 
@@ -133,6 +133,8 @@ shop:
 	flags: none
 	menu_columns: 3
 	blueprints_capacity: 0
+	
+	offset_spawn: [0.000, 0.500]
 }
 
 workshop:
@@ -143,8 +145,8 @@ workshop:
 norotate:
 {
 	bias: 0.000
-	speed: 2.000
-	multiplier: 3.000
-	mass_multiplier: 3.000
+	speed: 2.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
 	flags: no_share
 }
