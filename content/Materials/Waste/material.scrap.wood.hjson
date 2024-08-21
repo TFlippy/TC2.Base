@@ -15,7 +15,7 @@
 	
 	type: wood
 	// Flags defining properties of the raw material.
-	flags: granular, small, raw, flammable, waste, flexible, solid
+	flags: scrap, granular, small, flammable, waste, flexible, solid, impure
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none

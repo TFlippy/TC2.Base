@@ -15,7 +15,7 @@
 	
 	type: scrap
 	// Flags defining properties of the raw material.
-	flags: granular, metal, raw, waste, flexible, solid
+	flags: scrap, granular, metal, waste, flexible, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
