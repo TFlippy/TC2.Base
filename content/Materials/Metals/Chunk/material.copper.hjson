@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, expensive, dumb, slow
 	// kg
-	mass_per_unit: 0.460
+	mass_per_unit: 0.8960
 	quantity_max: 500.000
 	prefab: resource.copper
 	

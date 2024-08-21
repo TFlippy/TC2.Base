@@ -3,7 +3,7 @@
 	name: "Smirglum"
 	description:
 		'''
-		TODO: Desc
+		Extremely dense metal with a unique property of being able to interact with essences.
 		'''
 	
 	icon:
@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, heavy, advanced, dumb, slow
 	// kg
-	mass_per_unit: 1.520
+	mass_per_unit: 2.9921
 	quantity_max: 500.000
 	prefab: resource.smirglum
 	
@@ -32,6 +32,23 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// Molar mass in kg/mol (for elements, use atomic mass)
+		molar_mass: 0.452
+		// kg/m³
+		density: 29921.200
+		// kJ/(kg*K)
+		specific_heat: 0.117
+		// kW/(m*K)
+		thermal_conductivity: 0.097127
+		// K
+		melting_point: 3245.000
+		// K
+		boiling_point: 4341.000
+	}
+
 	// Conversions into other materials.
 	conversions:
 	{

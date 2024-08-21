@@ -108,7 +108,7 @@ namespace TC2.Base.Components
 						using (GUI.Group.New(size: GUI.Rm))
 						{
 							GUI.SameLine(24);
-							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_critical, 2000, size: new(24, GUI.RmY));
+							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_critical, 2000, size: new(24, GUI.RmY), label_b: "Current"u8, label_a: "Max"u8);
 						}
 					}
 				}

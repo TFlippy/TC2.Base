@@ -13,7 +13,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -6.000]
+	icon_offset: [1.000, -7.000]
 	
 	icon_extra:
 	{
@@ -38,8 +38,8 @@
 	flags: none
 	tags: metalworking, heating, refining, smelting
 	
-	color_button: "0xffff774a"
-	rank: -157.000
+	color_button: "0xffffab37"
+	rank: -160.000
 	
 	start_delay: 1.500
 	advance_delay: 2.000

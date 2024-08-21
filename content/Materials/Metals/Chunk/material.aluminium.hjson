@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Gold"
+	name: "Aluminium"
 	description:
 		'''
 		TODO: Desc
@@ -8,7 +8,7 @@
 	
 	icon:
 	{
-		texture: resource.gold
+		texture: resource.aluminium
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,13 +19,13 @@
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: materials, rare, expensive, fancy, dumb, slow
+	hints: materials, expensive, dumb, slow
 	// kg
-	mass_per_unit: 1.930
+	mass_per_unit: 0.2699
 	quantity_max: 500.000
-	prefab: resource.gold
+	prefab: resource.aluminium
 	
-	color_dust: "0xffffd470"
+	color_dust: "0xffdf873d"
 	color_gib: "0xffffffff"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
@@ -36,17 +36,17 @@
 	substance:
 	{
 		// Molar mass in kg/mol (for elements, use atomic mass)
-		molar_mass: 0.196967
+		molar_mass: 0.02698
 		// kg/m³
-		density: 19300.000
+		density: 2699.000
 		// kJ/(kg*K)
-		specific_heat: 0.1291
+		specific_heat: 0.904
 		// kW/(m*K)
-		thermal_conductivity: 0.320
+		thermal_conductivity: 0.235
 		// K
-		melting_point: 1337.330
+		melting_point: 933.470
 		// K
-		boiling_point: 3129.000
+		boiling_point: 2792.000
 	}
 	
 	// Component materials.

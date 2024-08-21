@@ -139,6 +139,7 @@ shop:
 
 workshop:
 {
+	flags: hidden_if_no_orders
 	orders_capacity: 1
 }
 

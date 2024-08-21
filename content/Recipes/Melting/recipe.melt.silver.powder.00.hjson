@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Mixed Recondite Powder"
+	name: "Melt Silver Powder"
 	desc:
 		'''
 		TODO: Desc
@@ -9,11 +9,11 @@
 	
 	icon:
 	{
-		texture: resource.recondite.powder
+		texture: resource.silver.powder
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -6.000]
+	icon_offset: [1.000, -7.000]
 	
 	icon_extra:
 	{
@@ -38,8 +38,8 @@
 	flags: none
 	tags: metalworking, heating, refining, smelting
 	
-	color_button: "0xffde3979"
-	rank: -140.000
+	color_button: "0xffffab37"
+	rank: -160.000
 	
 	start_delay: 1.500
 	advance_delay: 2.000
@@ -49,7 +49,7 @@
 	[
 		{
 			type: resource
-			material: recondite.powder
+			material: silver.powder
 			amount: 1.000
 			group: 0
 		}
@@ -76,7 +76,7 @@
 	[
 		{
 			type: resource
-			material: recondite
+			material: silver
 			amount: 3.505
 			amount_extra: 0.015
 			group: 0

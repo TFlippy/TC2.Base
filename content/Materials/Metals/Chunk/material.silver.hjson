@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, rare, expensive, fancy, dumb, slow
 	// kg
-	mass_per_unit: 0.68096
+	mass_per_unit: 1.0490
 	quantity_max: 500.000
 	prefab: resource.silver
 	

@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, cheap, dumb, crappy, slow
 	// kg
-	mass_per_unit: 0.400
+	mass_per_unit: 0.7874
 	quantity_max: 500.000
 	prefab: resource.iron
 	

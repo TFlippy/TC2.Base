@@ -38,8 +38,8 @@
 	flags: none
 	tags: metalworking, heating, refining, smelting
 	
-	color_button: "0xffff774a"
-	rank: -157.000
+	color_button: "0xffde3979"
+	rank: -140.000
 	
 	start_delay: 1.500
 	advance_delay: 2.000
