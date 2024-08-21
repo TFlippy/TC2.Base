@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "[OBSOLETE] Smirglum Ingot"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 15.200
-	quantity_max: 64.000
+	quantity_max: 128.000
 	prefab: resource.smirglum.ingot
 	
 	color_dust: "0xffffffff"

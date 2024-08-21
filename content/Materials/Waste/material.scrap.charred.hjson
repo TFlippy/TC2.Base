@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Charred Remains"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	hints: materials, junk, cheap
 	// kg
 	mass_per_unit: 0.468
-	quantity_max: 500.000
+	quantity_max: 250.000
 	prefab: resource.scrap.charred
 	
 	color_dust: "0xffffffff"
@@ -31,7 +31,7 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
-		
+	
 	// Component materials.
 	composition: []
 }

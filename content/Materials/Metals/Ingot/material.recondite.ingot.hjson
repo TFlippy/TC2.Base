@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Recondite (Ingot)"
 	description:
 		'''
@@ -8,14 +8,9 @@
 	
 	icon:
 	{
-		texture: "resource.recondite.ingot"
+		texture: resource.recondite.ingot
 		size: [16, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: metal_solid
@@ -23,11 +18,19 @@
 	flags: hard, magnetic, metal, intermediate, heavy, small, ingot, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 12.304
-	quantity_max: 64.000
-	prefab: "resource.recondite.ingot"
+	quantity_max: 128.000
+	prefab: resource.recondite.ingot
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -67,4 +70,7 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	// Component materials.
+	composition: []
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Mixed Metal Scrap"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.940
-	quantity_max: 500.000
+	quantity_max: 250.000
 	prefab: resource.scrap.metal
 	
 	color_dust: "0xffffffff"

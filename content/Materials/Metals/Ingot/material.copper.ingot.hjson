@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Copper Ingot"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 4.600
-	quantity_max: 64.000
+	quantity_max: 128.000
 	prefab: resource.copper.ingot
 	
 	color_dust: "0xffffffff"
@@ -94,16 +94,12 @@
 		sledgehammer:
 		{
 			h_material: copper.plate
-			h_material_waste: scrap.copper
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: merge
-			
 			ratio: 0.290
 			ratio_extra: 0.760
 			
+			h_material_waste: scrap.copper
+			spawn_flags_waste: merge
 			ratio_waste: 0.750
 			ratio_waste_extra: 0.210
 			
@@ -115,6 +111,10 @@
 			sound_pitch: 1.190
 			
 			chance: 0.604
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Steel Ingot"
 	description:
 		'''
@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 4.000
-	quantity_max: 64.000
+	quantity_max: 128.000
 	prefab: resource.steel.ingot
 	
 	color_dust: "0xffffffff"
@@ -96,16 +96,12 @@
 		bullet_ac:
 		{
 			h_material: steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: none
-			
 			ratio: 0.310
 			ratio_extra: 0.670
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -117,20 +113,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.850
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		pickaxe:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.120
 			ratio_extra: 0.500
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -142,20 +138,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.540
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		sledgehammer:
 		{
 			h_material: steel.plate
-			h_material_waste: steel
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: merge
-			
 			ratio: 0.050
 			ratio_extra: 0.920
 			
+			h_material_waste: steel
+			spawn_flags_waste: merge
 			ratio_waste: 0.850
 			ratio_waste_extra: 0.110
 			
@@ -167,6 +163,10 @@
 			sound_pitch: 0.900
 			
 			chance: 0.450
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

@@ -1,0 +1,49 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.030
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.200
+		material: scrap
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.scrap.aluminium"
+		count: 4
+		size: [16, 16]
+	}
+	z: -68.900
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "scrap.aluminium"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
