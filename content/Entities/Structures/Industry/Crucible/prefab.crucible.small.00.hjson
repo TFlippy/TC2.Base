@@ -131,7 +131,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: hidden_if_order
-	menu_columns: 3
+	menu_columns: 4
 	blueprints_capacity: 0
 	
 	offset_spawn: [0.000, 0.500]

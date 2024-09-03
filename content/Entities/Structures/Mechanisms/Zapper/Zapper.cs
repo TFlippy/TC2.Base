@@ -109,7 +109,7 @@ namespace TC2.Base.Components
 				var spark_count = 10;
 
 				Sound.Play(ref region, Zapper.sounds_hit.GetRandom(ref random), data.pos_a, volume: 1.50f, pitch: random.NextFloatRange(0.80f, 1.15f), size: 1.00f);
-				Sound.Play(ref region, ArcLance.sound_hit_default, data.pos_b, volume: 1.20f, pitch: random.NextFloatRange(0.90f, 1.15f), size: 1.50f);
+				Sound.Play(ref region, Arcer.sound_hit_default, data.pos_b, volume: 1.20f, pitch: random.NextFloatRange(0.90f, 1.15f), size: 1.50f);
 				Shake.Emit(ref region, data.pos_b, 0.75f, 0.80f, 100.00f);
 #endif
 

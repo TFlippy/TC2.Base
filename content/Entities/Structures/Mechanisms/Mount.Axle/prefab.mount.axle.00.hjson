@@ -53,7 +53,7 @@ module.slots:
 {
 	slot_type: motor
 	offset: [0.000, 0.000]
-	z: 100.000
+	z: 40.000
 }
 
 axle:

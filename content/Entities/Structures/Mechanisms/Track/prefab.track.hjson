@@ -14,7 +14,7 @@ body:
 		radius: 1.000
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: metal_frame
 		layer: entity, ignore_melee
 		mask: none
 	}
@@ -97,9 +97,9 @@ axle:
 
 interactable:
 {
-	window_size: [224.000, 128.000]
-	// window_offset: [-134.000, -80.000]
-	// window_offset: [80.000, 80.000]
+	flags: none
+	window_size: [192.000, 200.000]
+	window_size_misc: [72.000, 0.000]
 	window_offset: [48.000, 128.000]
 }
 
@@ -108,21 +108,25 @@ control:
 
 }
 
-mount:
+vehicle:
 {
 
 }
 
+mount:
+{
+	flags: slider_vertical
+}
+
 +mount|instance:
 {
-	attachment.slot:	
+	attachment.slot:
 	{
+		flags: keyboard_write, mouse_write, loose
+		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim, loose, offset
 		name: "Mount"
-
-		flags: keyboard_write, mouse_write, manual_aim, use_center_of_gravity
-		flags_editable: use_center_of_gravity, locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, brake, offset, hold
-		gui_size: [0.000, 128.000]
 		offset_bounds: [0.000, -0.750, 0.000, 0.750]
+		gui_size: [0.000, 200.000]
 	}
 
 	joint.base:
@@ -212,11 +216,6 @@ mount:
 			pitch_lerp_b: 0.050
 		}
 	}
-}
-
-vehicle:
-{
-
 }
 
 // +seat|instance:

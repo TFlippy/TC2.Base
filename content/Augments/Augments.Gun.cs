@@ -3956,7 +3956,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<ArcLance.Data>() && !context.HasComponent<Melee.Data>();
+					return !augments.HasAugment(handle) && !context.HasComponent<Arcer.Data>() && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
@@ -4021,12 +4021,12 @@ namespace TC2.Base
 
 						}
 
-						ref var arc_lance = ref context.GetOrAddComponent<ArcLance.Data>();
-						if (!arc_lance.IsNull())
+						ref var arcer = ref context.GetOrAddComponent<Arcer.Data>();
+						if (!arcer.IsNull())
 						{
-							arc_lance.damage_integrity = 500.00f;
-							arc_lance.damage_durability = 1500.00f;
-							arc_lance.damage_terrain = 150.00f;
+							arcer.damage_integrity = 500.00f;
+							arcer.damage_durability = 1500.00f;
+							arcer.damage_terrain = 150.00f;
 						}
 					}
 				}

@@ -17,14 +17,14 @@ body:
 		radius: 0.250
 		friction: 0.850
 		elasticity: 0.450
-		material: metal_frame
+		material: device
 		layer: entity, solid, ignore_melee
 	}
 }
 
 health:
 {
-	max: 5000.000
+	max: 7000.000
 }
 
 animated.renderer:
@@ -70,7 +70,7 @@ actuator:
 	@sound.emitter:
 	{
 		file: "essence.device.loop.01"
-		volume: 2.000
+		volume: 1.000
 		pitch: 0.850
 		size_max_modifier: 0.450
 	}

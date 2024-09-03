@@ -95,12 +95,10 @@ holdable:
 
 attachment:
 {
-	offset: [-1.500, 0.100]
-
 	force_multiplier: 4.000
-	torque_multiplier: 1.000
-
+	offset: [-1.500, 0.100]
 	flags: mirror_rotate, full_rotate
+	tags: medium, weapon, rotary, long
 }
 
 animated.renderer:

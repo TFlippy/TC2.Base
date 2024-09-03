@@ -1,7 +1,7 @@
 $name: "Arc Lance"
 $desc: 
 	'''
-	A powerful spear-like weapon tipped with 2 electrodes connected to an ARC-EC pellet power source.
+	Powerful spear-like weapon tipped with 2 electrodes connected to an ARC-EC pellet power source.
 	'''
 $tags: []
 
@@ -62,8 +62,10 @@ melee.state:
 
 }
 
-arclance:
+arcer:
 {
+	h_material_electrode: smirgrafit
+
 	// @light:
 	// {
 	// 	color: [0.650, 0.800, 1.000, 1.500]

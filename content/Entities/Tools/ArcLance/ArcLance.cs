@@ -1,15 +1,43 @@
 ﻿namespace TC2.Base.Components
 {
-	public static partial class ArcLance
+	public static partial class Arcer
 	{
+		public enum Type: byte
+		{
+			Undefined,
+
+			Spike,
+			Fork,
+			Claw
+		}
+
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0u,
+
+			Insulated = 1u << 0
+		}
+
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Data: IComponent
 		{
-			public Sound.Handle sound_hit = ArcLance.sound_hit_default;
+			public Arcer.Flags flags;
+			public IMaterial.Handle h_material_electrode;
+			public Distance electrode_separation;
+
+			public Sound.Handle sound_hit = Arcer.sound_hit_default;
+
+			public Arcer.Type type;
 
 			public float damage_integrity = 400.00f;
 			public float damage_durability = 4000.00f;
 			public float damage_terrain = 200.00f;
+
+			public float charge;
+
+			[Editor.Picker.Position(true)]
+			public Vector2 offset;
 
 			public Data()
 			{
@@ -24,9 +52,18 @@
 		public static readonly Texture.Handle tex_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] ref Arcer.Data arcer)
+		{
+			var time = info.WorldTime;
+		}
+
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		ref Melee.HitEvent data, [Source.Owned] ref ArcLance.Data arc_lance)
+		ref Melee.HitEvent data, [Source.Owned] ref Arcer.Data arcer)
 		{
 #if CLIENT
 			var dir = data.direction;
@@ -122,14 +159,14 @@
 #endif
 
 #if SERVER
-			Sound.Play(ref region, arc_lance.sound_hit, data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
+			Sound.Play(ref region, arcer.sound_hit, data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
 			Shake.Emit(ref region, data.world_position, 0.50f, 0.80f, 20.00f);
 
 			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
 
 			Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: data.ent_target,
 				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,
-				damage_integrity: arc_lance.damage_integrity * multiplier, damage_durability: arc_lance.damage_durability * multiplier, damage_terrain: arc_lance.damage_terrain * multiplier,
+				damage_integrity: arcer.damage_integrity * multiplier, damage_durability: arcer.damage_durability * multiplier, damage_terrain: arcer.damage_terrain * multiplier,
 				target_material_type: data.target_material_type, damage_type: Damage.Type.Electricity,
 				yield: 0.95f, size: 1.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
 
@@ -161,7 +198,7 @@
 
 						Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: result.entity,
 							position: result.world_position, velocity: data.direction * 4.00f, normal: -data.direction,
-							damage_integrity: arc_lance.damage_integrity * multiplier * 0.25f, damage_durability: arc_lance.damage_durability * multiplier * 0.35f, damage_terrain: arc_lance.damage_terrain * multiplier * 0.25f,
+							damage_integrity: arcer.damage_integrity * multiplier * 0.25f, damage_durability: arcer.damage_durability * multiplier * 0.35f, damage_terrain: arcer.damage_terrain * multiplier * 0.25f,
 							target_material_type: result.material_type, damage_type: Damage.Type.Electricity, pain: 1.10f,
 							yield: 0.95f, size: 1.00f, impulse: 100.00f * impulse_mult, flags: Damage.Flags.No_Loot_Pickup);
 					}

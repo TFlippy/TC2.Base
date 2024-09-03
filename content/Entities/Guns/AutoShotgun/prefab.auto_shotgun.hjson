@@ -40,7 +40,7 @@ gun:
 	jitter_multiplier: 5.500
 	damage_multiplier: 2.500
 	recoil_multiplier: 1.200
-	reload_interval: 2.500
+	reload_interval: 2.650
 	cycle_interval: 0.300
 	failure_rate: 0.020
 	max_ammo: 6.000

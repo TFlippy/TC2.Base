@@ -1,0 +1,164 @@
+$name: "Arc Heater"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	// type: static
+
+	@shape.line:
+	{
+		a: [-1.125, 0.000]
+		b: [0.750, 0.000]
+		
+		mass: 180.000
+		radius: 0.625
+		friction: 0.750
+		elasticity: 0.350
+		
+		material: machine
+		miss_chance: 0.161
+		
+		layer: entity, solid, item, conductive, heatable, magnetic
+		mask: item, resource
+		exclude: held, attached
+	}
+
+	@shape.circle:
+	{
+		offset: [1.125, 0.000]
+		radius: 0.625
+		friction: 0.000
+		elasticity: 0.000
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
+		mask: heatable
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 37000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: heater.arc.00
+	}
+	z: 500.000
+}
+
+essencecontainer:
+{
+	stability: 0.900
+	health_threshold: 0.500
+	glow_modifier: 1.800
+	flags: show_gui, allow_edit_rate
+	emit_type: cycler
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass
+		stack_size_multiplier: 0.200
+		
+		filter:
+		{
+			require: small, pellet, solid
+		}
+		
+		offset: [0.000, -0.250]
+	}
+
+	@sound.emitter:
+	{
+		volume: 0.600
+		pitch: 1.000
+		size: 1.200
+		size_max_modifier: 0.300
+		spread: 85.000
+		offset: [0.000, -0.250]
+	}
+
+	@light:
+	{
+		offset: [0.000, -0.250]
+		scale: [8.000, 5.000]
+		texture: light.circle.04
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [72.000, 192.000]
+	window_size_misc: [120.000, 0.000]
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [-1.200, 0.100]
+	radius: 2.000
+
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	stress_multiplier: 0.500
+}
+
+attachment:
+{
+	offset: [-1.125, 0.000]
+	flags: mirror_rotate, full_rotate
+	tags: medium, tool, utility, rotary, long
+}
+
+arcer:
+{
+	h_material_electrode: smirgrafit
+}
+
+heat:
+{
+	temperature_medium: 450.000
+	temperature_high: 850.000
+	temperature_critical: 1350.000
+	cool_rate: 25.000
+	heat_capacity_extra: 750.000
+	flags: exclude_body_mass
+	offset: [0.250, -0.125]
+	smoke_offset: [0.250, -0.250]
+	size: [2.250, 2.625]
+
+	@light:
+	{
+		offset: [0.625, 0.000]
+		scale: [32.000, 30.000]
+		intensity: 2.000
+		texture: light.circle.04
+	}
+	
+	@sound.emitter:
+	{
+		file: distillery.loop.00
+		volume: 1.000
+		pitch: 1.000
+		size: 1.400
+		size_max_modifier: 1.500
+		offset: [0.625, 0.000]
+	}
+}
