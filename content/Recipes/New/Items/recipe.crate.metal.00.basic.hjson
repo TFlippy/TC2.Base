@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Crate (Metal, Small)"
 	tips: []
 	
@@ -39,7 +39,7 @@
 			work: assembling
 			amount: 190.000
 			difficulty: 6
-			group: 0
+			group: 1
 		}
 	]
 	

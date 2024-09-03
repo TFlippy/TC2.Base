@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Crate (Wood, Small)"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench, woodworking, simple, manual
+	tags: workbench, manual, simple, woodworking
 	
 	color_button: "0xffaeb59a"
 	rank: -3.000
@@ -33,14 +33,16 @@
 			work: sawing
 			amount: 75.000
 			difficulty: 3
-			group: 0
+			group: 1
+			flags: conditional
 		}
 		{
 			type: work
 			work: carpentry
 			amount: 120.000
 			difficulty: 4
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

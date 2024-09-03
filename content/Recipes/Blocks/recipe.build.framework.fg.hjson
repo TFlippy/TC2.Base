@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.2"
-	name: "Framework"
+	name: "Formwork (Empty)"
 	desc:
 		'''
-		Reinforced steel framework used as a form for other construction materials.
+		Reinforced steel formwork, acting as a base to be filled with other construction materials, such as concrete or smirgrafit.
 		'''
 	tips: []
 	

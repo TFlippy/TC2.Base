@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.2"
-	name: "Framework (Concrete)"
+	name: "Formwork (Cast Concrete)"
 	desc:
 		'''
-		Reinforced concrete cast into steel framework.
+		TODO: Desc
 		'''
 	tips: []
 	
