@@ -38,7 +38,7 @@
 ////		public struct ConfigureRPC: Net.IRPC<Heater.State>
 ////		{
 ////#if SERVER
-////			public void Invoke(ref NetConnection connection, Entity entity, ref Heater.State data)
+////			public void Invoke(Net.IRPC.Context rpc, ref Heater.State data)
 ////			{
 ////				//ref var region = ref entity.GetRegion();
 ////				//if (region.GetWorldTime() >= data.t_next_edit)
@@ -218,7 +218,7 @@
 		public struct ConfigureRPC: Net.IRPC<Refinery.State>
 		{
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Refinery.State data)
+			public void Invoke(Net.IRPC.Context rpc, ref Refinery.State data)
 			{
 				//ref var region = ref entity.GetRegion();
 				//if (region.GetWorldTime() >= data.t_next_edit)

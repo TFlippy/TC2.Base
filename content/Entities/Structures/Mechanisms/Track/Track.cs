@@ -123,15 +123,15 @@
 			public Track.Data.Flags? flags;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Track.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Track.Data data)
 			{
 				if (this.slider_ratio.HasValue)
 				{
-					ref var state = ref entity.GetComponent<Track.State>();
+					ref var state = ref rpc.entity.GetComponent<Track.State>();
 					if (!state.IsNull())
 					{
 						state.slider_ratio = Maths.Clamp01(this.slider_ratio.Value);
-						state.Sync(entity);
+						state.Sync(rpc.entity);
 					}
 				}
 
@@ -140,9 +140,9 @@
 					data.flags = this.flags.Value;
 				}
 
-				data.Sync(entity);
+				data.Sync(rpc.entity);
 
-				ref var body = ref entity.GetComponent<Body.Data>();
+				ref var body = ref rpc.entity.GetComponent<Body.Data>();
 				if (body.IsNotNull())
 				{
 					body.Activate();

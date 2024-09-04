@@ -82,7 +82,7 @@ namespace TC2.Base.Components
 			public Control.Bind? bind_activate;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Zapper.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Zapper.Data data)
 			{
 				var sync = false;
 
@@ -90,7 +90,7 @@ namespace TC2.Base.Components
 
 				if (sync)
 				{
-					data.Sync(entity, true);
+					data.Sync(rpc.entity, true);
 				}
 			}
 #endif

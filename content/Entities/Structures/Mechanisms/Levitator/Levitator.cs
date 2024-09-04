@@ -72,7 +72,7 @@ namespace TC2.Base.Components
 			public FixedArray4<Levitator.Node.Setting> settings;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Levitator.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Levitator.Data data)
 			{
 				var sync = false;
 
@@ -105,7 +105,7 @@ namespace TC2.Base.Components
 
 				if (sync)
 				{
-					data.Sync(entity);
+					data.Sync(rpc.entity);
 				}
 			}
 #endif

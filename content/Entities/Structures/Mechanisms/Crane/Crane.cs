@@ -50,12 +50,12 @@
 			public Crane.Flags flags;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Crane.Data crane)
+			public void Invoke(Net.IRPC.Context rpc, ref Crane.Data crane)
 			{
 				crane.length_a = this.length_a;
 				crane.length_b = this.length_b;
 				crane.flags = (crane.flags & ~crane.flags_editable) | (this.flags & crane.flags_editable);
-				crane.Sync(entity, true);
+				crane.Sync(rpc.entity, true);
 			}
 #endif
 		}

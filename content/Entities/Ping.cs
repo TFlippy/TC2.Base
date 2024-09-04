@@ -29,12 +29,12 @@ namespace TC2.Base.Components
 			public FixedString16 text;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Data data)
 			{
-				ref var region = ref connection.GetRegion();
-				ref var player = ref connection.GetPlayer();
+				ref var region = ref rpc.connection.GetRegion();
+				ref var player = ref rpc.connection.GetPlayer();
 
-				if (region.IsNotNull() && player.IsNotNull() && entity == connection.GetEntity())
+				if (region.IsNotNull() && player.IsNotNull() && rpc.entity == rpc.connection.GetEntity())
 				{
 					if (region.GetWorldTime() >= data.next_ping)
 					{
@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 						//Sound.Play(ref region, "ui.alert.bwoing.02", data.pos, volume: 1.00f, pitch: 1.00f, size: 0.10f);
 						Sound.PlayGUI(ref region, "ui.misc.02", volume: 1.20f, pitch: random.NextFloatRange(0.98f, 1.01f), h_faction: player.h_faction);
 
-						data.Sync(entity, true);
+						data.Sync(rpc.entity, true);
 					}
 				}
 			}

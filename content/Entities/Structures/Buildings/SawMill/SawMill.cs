@@ -41,18 +41,18 @@
 			public float slider_ratio;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref SawMill.State data)
+			public void Invoke(Net.IRPC.Context rpc, ref SawMill.State data)
 			{
 				data.gear_ratio = this.gear_ratio;
 				data.slider_ratio = this.slider_ratio;
 
-				ref var body = ref entity.GetComponent<Body.Data>();
+				ref var body = ref rpc.entity.GetComponent<Body.Data>();
 				if (body.IsNotNull())
 				{
 					body.Activate();
 				}
 
-				data.Sync(entity, true);
+				data.Sync(rpc.entity, true);
 			}
 #endif
 		}

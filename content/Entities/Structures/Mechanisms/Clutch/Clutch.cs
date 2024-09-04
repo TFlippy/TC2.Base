@@ -31,9 +31,9 @@ namespace TC2.Base.Components
 			public int state;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Clutch.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Clutch.Data data)
 			{
-				ref var region = ref entity.GetRegion();
+				ref var region = ref rpc.entity.GetRegion();
 				if (region.GetWorldTime() >= data.t_next_switch)
 				{
 					data.t_next_switch = region.GetWorldTime() + 0.30f;
@@ -42,7 +42,7 @@ namespace TC2.Base.Components
 
 					if (data.state.TrySet(this.state))
 					{
-						ref var transform = ref entity.GetComponent<Transform.Data>();
+						ref var transform = ref rpc.entity.GetComponent<Transform.Data>();
 						if (!transform.IsNull())
 						{
 							Sound.Play(ref region, this.state == 0 ? data.sound_disable : data.sound_enable, transform.position);
@@ -67,7 +67,7 @@ namespace TC2.Base.Components
 
 					if (sync)
 					{
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 				}
 			}

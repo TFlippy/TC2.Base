@@ -220,15 +220,15 @@
 					public IComponent.Handle h_component_dst;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Belts.Data data)
 					{
 						//App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
-						ref var region = ref entity.GetRegion();
+						ref var region = ref rpc.entity.GetRegion();
 
 						data.ent_src = this.ent_src;
 						data.ent_dst = this.ent_dst;
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -239,7 +239,7 @@
 					public Belt.Flags? flags;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Belts.Data data)
 					{
 						if (this.recipe.HasValue)
 						{
@@ -251,7 +251,7 @@
 							data.flags = this.flags.Value;
 						}
 
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -259,10 +259,10 @@
 				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Belts.Data>
 				{
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Belts.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Belts.Data data)
 					{
-						ref var region = ref entity.GetRegion();
-						ref var player = ref connection.GetPlayerData();
+						ref var region = ref rpc.entity.GetRegion();
+						ref var player = ref rpc.connection.GetPlayerData();
 						ref var recipe = ref data.selected_recipe.GetData();
 
 						if (!region.IsNull() && !player.IsNull() && !recipe.IsNull())
@@ -303,7 +303,7 @@
 								}
 							}
 
-							data.Sync(entity);
+							data.Sync(rpc.entity);
 						}
 					}
 #endif

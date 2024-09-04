@@ -32,7 +32,7 @@
 		public struct ConfigureRPC: Net.IRPC<Electrolyzer.Data>
 		{
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref Electrolyzer.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref Electrolyzer.Data data)
 			{
 				//ref var region = ref entity.GetRegion();
 				//if (region.GetWorldTime() >= data.t_next_edit)

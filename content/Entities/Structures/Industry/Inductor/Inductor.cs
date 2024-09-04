@@ -59,7 +59,7 @@
 		//		public struct ConfigureRPC: Net.IRPC<Inductor.State>
 		//		{
 		//#if SERVER
-		//			public void Invoke(ref NetConnection connection, Entity entity, ref Inductor.State data)
+		//			public void Invoke(Net.IRPC.Context rpc, ref Inductor.State data)
 		//			{
 		//				//ref var region = ref entity.GetRegion();
 		//				//if (region.GetWorldTime() >= data.t_next_edit)

@@ -35,7 +35,7 @@
 		//		public struct ConfigureRPC: Net.IRPC<Crucible.State>
 		//		{
 		//#if SERVER
-		//			public void Invoke(ref NetConnection connection, Entity entity, ref Crucible.State data)
+		//			public void Invoke(Net.IRPC.Context rpc, ref Crucible.State data)
 		//			{
 		//				//ref var region = ref entity.GetRegion();
 		//				//if (region.GetWorldTime() >= data.t_next_edit)

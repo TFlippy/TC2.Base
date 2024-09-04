@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 			public float? speed_target;
 
 #if SERVER
-			public void Invoke(ref NetConnection connection, Entity entity, ref SteamEngine.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref SteamEngine.Data data)
 			{
 				var sync = false;
 
@@ -113,7 +113,7 @@ namespace TC2.Base.Components
 
 				if (sync)
 				{
-					data.Sync(entity);
+					data.Sync(rpc.entity);
 				}
 			}
 #endif

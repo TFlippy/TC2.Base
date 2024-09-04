@@ -321,14 +321,14 @@ namespace TC2.Base.Components
 					public Entity ent_target;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Repair.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Repair.Data data)
 					{
-						ref var region = ref entity.GetRegion();
+						ref var region = ref rpc.entity.GetRegion();
 
 						data.flags.SetFlag(Flags.Active, false);
 						data.ref_repairable.Set(this.ent_target);
 						data.ref_health.Set(this.ent_target);
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -339,9 +339,9 @@ namespace TC2.Base.Components
 					public bool? active;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Repair.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Repair.Data data)
 					{
-						ref var region = ref entity.GetRegion();
+						ref var region = ref rpc.entity.GetRegion();
 
 						var sync = false;
 
@@ -358,7 +358,7 @@ namespace TC2.Base.Components
 
 						if (sync)
 						{
-							data.Sync(entity);
+							data.Sync(rpc.entity);
 						}
 					}
 #endif

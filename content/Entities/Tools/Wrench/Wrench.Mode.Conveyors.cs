@@ -455,11 +455,11 @@
 					public IComponent.Handle h_component_dst;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Conveyors.Data data)
 					{
 						//App.WriteLine($"{this.ent_src} == {data.ent_src}; {this.ent_dst} == {data.ent_dst}");
 
-						ref var region = ref entity.GetRegion();
+						ref var region = ref rpc.entity.GetRegion();
 
 						var info_src = new TargetInfo(this.ent_src, this.h_component_src, true);
 						var info_dst = new TargetInfo(this.ent_dst, this.h_component_dst, false);
@@ -470,7 +470,7 @@
 						data.inventory_id_src = info_src.inventory_id;
 						data.inventory_id_dst = info_dst.inventory_id;
 
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -489,14 +489,14 @@
 
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Conveyors.Data data)
 					{
 						if (this.recipe.HasValue)
 						{
 							data.selected_recipe = this.recipe.Value;
 						}
 
-						data.Sync(entity);
+						data.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -504,10 +504,10 @@
 				public struct ConfirmRPC: Net.IRPC<Wrench.Mode.Conveyors.Data>
 				{
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Conveyors.Data data)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Conveyors.Data data)
 					{
-						ref var region = ref entity.GetRegion();
-						ref var character = ref connection.GetCharacter();
+						ref var region = ref rpc.entity.GetRegion();
+						ref var character = ref rpc.connection.GetCharacter();
 						ref var recipe = ref data.selected_recipe.GetData();
 
 						if (!region.IsNull() && !character.IsNull() && !recipe.IsNull())
@@ -522,7 +522,7 @@
 								var pos_mid = info_src.pos; // (info_src.pos + info_dst.pos) * 0.50f;
 								var dir = (info_dst.pos - info_src.pos).GetNormalized(out var distance);
 
-								Crafting.Context.NewFromCharacter(ref region.AsCommon(), connection.GetCharacterHandle(), entity, out var context);
+								Crafting.Context.NewFromCharacter(ref region.AsCommon(), rpc.connection.GetCharacterHandle(), rpc.entity, out var context);
 
 								errors |= data.EvaluateNodePair<Wrench.Mode.Conveyors.Data, Wrench.Mode.Conveyors.TargetInfo, Conveyor.Data>(ref region, ref info_src, ref info_dst, ref recipe, out _, character.faction);
 								//if (!Crafting.Evaluate(entity, ref player, pos_mid, ref recipe.requirements, amount_multiplier: 1.00f + MathF.Ceiling(distance))) errors |= Build.Errors.RequirementsNotMet;
@@ -568,7 +568,7 @@
 								}
 							}
 
-							data.Sync(entity);
+							data.Sync(rpc.entity);
 						}
 					}
 #endif

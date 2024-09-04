@@ -941,10 +941,10 @@ namespace TC2.Base.Components
 					public IRecipe.Handle recipe;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Build.Data build)
 					{
 						build.recipe = this.recipe;
-						build.Sync(entity);
+						build.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -1398,7 +1398,7 @@ namespace TC2.Base.Components
 					public Vector2? normal;
 
 #if SERVER
-					public void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Mode.Build.Data build)
+					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Build.Data build)
 					{
 						Assert.IsRealNumber(this.pos_origin);
 						Assert.IsRealNumber(this.pos_raw);
@@ -1407,7 +1407,7 @@ namespace TC2.Base.Components
 						Assert.IsRealNumberOrNull(this.pos_b_raw);
 						Assert.IsRealNumberOrNull(this.normal);
 
-						ref var region = ref entity.GetRegion();
+						ref var region = ref rpc.entity.GetRegion();
 
 						var errors = Wrench.Mode.Build.Errors.None;
 
@@ -1418,14 +1418,14 @@ namespace TC2.Base.Components
 						var amount_multiplier = 1.00f;
 
 						//ref var player = ref connection.GetPlayerData();
-						ref var transform_entity = ref entity.GetComponent<Transform.Data>();
+						ref var transform_entity = ref rpc.entity.GetComponent<Transform.Data>();
 						ref var recipe = ref build.recipe.GetData();
-						ref var character_data = ref connection.GetCharacter(out var h_character);
+						ref var character_data = ref rpc.connection.GetCharacter(out var h_character);
 
 						if (recipe.IsNotNull() && transform_entity.IsNotNull() && character_data.IsNotNull())
 						{
 							//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
-							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, entity, out var context);
+							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, rpc.entity, out var context);
 							//var ent_character = connection.enti
 
 							if (recipe.type == Crafting.Recipe.Type.Build)
@@ -1458,7 +1458,7 @@ namespace TC2.Base.Components
 									var transform = new Transform.Data(pos_final, rot_final, scale);
 									var matrix = transform.GetMatrix3x2();
 
-									var ent_parent = entity.GetParent(Relation.Type.Child);
+									var ent_parent = rpc.entity.GetParent(Relation.Type.Child);
 									//var inventory = player.GetInventory();
 									var h_faction = character_data.faction;
 
@@ -1473,7 +1473,7 @@ namespace TC2.Base.Components
 
 											Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = placed_block_count;
-											Wrench.Mode.Build.Evaluate(region: ref region, entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
@@ -1570,7 +1570,7 @@ namespace TC2.Base.Components
 
 											Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											Wrench.Mode.Build.Evaluate(region: ref region,  entity: entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region,  entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1761,7 +1761,7 @@ namespace TC2.Base.Components
 									}
 									else
 									{
-										Notification.Push(ref connection, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
+										Notification.Push(ref rpc.connection, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
 									}
 
 									build.next_place = region.GetFixedTime() + placement.cooldown;

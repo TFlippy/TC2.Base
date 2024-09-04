@@ -616,12 +616,12 @@ namespace TC2.Base.Components
 			public ulong selected_component_id;
 
 #if SERVER
-			public readonly void Invoke(ref NetConnection connection, Entity entity, ref Wrench.Data data)
+			public readonly void Invoke(Net.IRPC.Context rpc, ref Wrench.Data data)
 			{
-				if (entity.HasComponent(this.selected_component_id))
+				if (rpc.entity.HasComponent(this.selected_component_id))
 				{
 					data.selected_component_id = this.selected_component_id;
-					data.Sync(entity);
+					data.Sync(rpc.entity);
 				}
 			}
 #endif
