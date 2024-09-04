@@ -153,11 +153,6 @@ spawn:
 
 dormitory:
 {
-	@spawn:
-	{
-		flags: faction
-	}
-
 	species: human
 	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
 	kit_default: default.outpost

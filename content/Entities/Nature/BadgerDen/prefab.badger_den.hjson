@@ -50,19 +50,6 @@ nameable:
 	max_length: 16
 }
 
-spawner:
-{
-	group_size: 1
-	group_size_extra: 2
-	interval: 120.000
-	interval_extra: 300.000
-	interval_count_modifier: 30.000
-	ai_stance: aggressive
-	ai_type: idle
-	flags: none
-	max_count: 3
-}
-
 faction:
 {
 	id: badger
@@ -75,11 +62,6 @@ claimer:
 	falloff: 0.500
 }
 
-spawn:
-{
-	flags: neutral_only, faction
-}
-
 minimap.marker:
 {
 	sprite:
@@ -90,6 +72,24 @@ minimap.marker:
 	}
 
 	flags: faction, spawner
+}
+
+spawn:
+{
+	flags: neutral_only, faction
+}
+
+spawner:
+{
+	group_size: 1
+	group_size_extra: 2
+	interval: 120.000
+	interval_extra: 300.000
+	interval_count_modifier: 30.000
+	ai_stance: aggressive
+	ai_type: idle
+	flags: none
+	max_count: 3
 }
 
 dormitory:
@@ -137,13 +137,3 @@ harvestable:
 		}
 	]
 }
-
-// faction.new:
-// {
-// 	tag: "BAD"
-// 	name: "Badgers"
-// 	color_a: "0xff0030ff"
-// 	color_b: "0xff080a52"
-
-// 	id: 201
-// }
