@@ -136,6 +136,7 @@ workshop:
 
 personnel:
 {
+	flags: store_characters
 	slots:
 	[
 		{
