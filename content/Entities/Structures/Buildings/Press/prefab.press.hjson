@@ -150,6 +150,7 @@ axle:
 
 interactable:
 {
+	flags: no_tab
 	window_size: [650.000, 450.000]
 	window_size_misc: [120.000, 0.000]
 }

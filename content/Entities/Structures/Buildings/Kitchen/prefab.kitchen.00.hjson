@@ -52,7 +52,7 @@ building:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	window_size: [764.000, 512.000]
 	window_size_misc: [120.000, 0.000]
 }

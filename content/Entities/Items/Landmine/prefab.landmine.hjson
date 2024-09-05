@@ -89,6 +89,6 @@ faction:
 
 interactable:
 {
+	flags: once, no_tab
 	priority: -1.500
-	flags: once
 }

@@ -244,7 +244,7 @@ facing:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: -2.000
 	window_size: [288.000, 244.000]
 	window_size_misc: [120.000, 0.000]

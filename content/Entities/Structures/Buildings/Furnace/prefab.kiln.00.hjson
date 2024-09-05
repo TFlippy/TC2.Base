@@ -133,5 +133,6 @@ crafter.state:
 
 interactable:
 {
+	flags: no_tab
 	window_size: [576.000, 480.000]
 }

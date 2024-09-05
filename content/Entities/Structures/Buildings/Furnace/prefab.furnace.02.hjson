@@ -97,6 +97,7 @@ attachment:
 
 interactable:
 {
+	flags: no_tab
 	window_size: [224.000, 128.000]
 	// window_offset: [-134.000, -80.000]
 	// window_offset: [80.000, 80.000]

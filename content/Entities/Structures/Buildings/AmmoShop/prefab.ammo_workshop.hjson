@@ -48,6 +48,7 @@ building:
 
 interactable:
 {
+	flags: no_tab
 	window_size: [700.000, 480.000]
 }
 

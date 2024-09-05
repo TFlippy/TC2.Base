@@ -69,7 +69,7 @@ minimap.marker:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	window_size: [496.000, 422.000]
 	window_size_misc: [172.000, 0.000]
 }

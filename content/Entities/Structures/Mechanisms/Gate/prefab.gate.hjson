@@ -73,7 +73,7 @@ faction:
 
 interactable:
 {
-
+	flags: no_tab
 }
 
 // rope.renderer:

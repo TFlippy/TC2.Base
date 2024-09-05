@@ -69,7 +69,7 @@ vehicle:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	window_size: [432.000, 400.000]
 	window_size_misc: [72.000, 0.000]
 }

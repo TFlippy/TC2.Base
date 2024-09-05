@@ -88,6 +88,7 @@ minimap.marker:
 
 interactable:
 {
+	flags: no_tab
 	priority: 0.500
 	window_size: [600.000, 402.000]
 	// window_size_misc: [216.000, 0.000]

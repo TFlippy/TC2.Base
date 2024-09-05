@@ -50,9 +50,9 @@ claimable:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 0.500
-	window_size: [544.000, 384.000]
+	window_size: [192.000, 96.000]
 	window_size_misc: [72.000, 0.000]
 }
 

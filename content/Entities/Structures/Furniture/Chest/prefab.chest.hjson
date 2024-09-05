@@ -78,7 +78,7 @@ storage:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 0.750
 	window_size: [192.000, 136.000]
 }

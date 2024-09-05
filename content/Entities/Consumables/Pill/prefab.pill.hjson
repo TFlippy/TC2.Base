@@ -53,7 +53,7 @@ packable:
 
 interactable:
 {
-	flags: once
+	flags: once, no_tab
 	priority: -5.000
 }
 

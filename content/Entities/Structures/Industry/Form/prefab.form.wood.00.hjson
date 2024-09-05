@@ -112,7 +112,7 @@ workshop:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 2.000
 	window_size: [560.000, 472.000]
 }
