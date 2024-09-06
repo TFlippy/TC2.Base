@@ -72,11 +72,11 @@ transform:
 // 	}
 // }
 
-interactable:
-{
-	flags: no_tab
-	window_size: [600.000, 400.000]
-}
+// interactable:
+// {
+// 	flags: no_tab
+// 	window_size: [600.000, 400.000]
+// }
 
 lamp:
 {

@@ -85,6 +85,7 @@ loot.container:
 
 interactable:
 {
+	flags: no_tab
 	window_size: [192.000, 96.000]
 }
 
