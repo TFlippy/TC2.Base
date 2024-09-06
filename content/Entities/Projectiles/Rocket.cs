@@ -1,6 +1,45 @@
 ﻿
 namespace TC2.Base.Components
 {
+	public static partial class ProjectileExt
+	{
+		[ISystem.Event<Projectile.ImpactEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
+		public static void OnImpact(ISystem.Info info, ref Region.Data region, ref Projectile.ImpactEvent ev,
+		[Source.Owned] ref Projectile.Data projectile, Entity ent_projectile)
+		{
+#if SERVER
+			ev.damage *= ev.hit_dot;
+			if (ev.damage > 0.00f && ev.flags.HasNone(Projectile.ImpactEvent.Flags.No_Damage))
+			{
+				//App.WriteLine($"hit {ev.hit_dot} {ev.damage_type} {ev.hit_material_type}");
+
+				Damage.Hit(ent_attacker: ent_projectile, ent_owner: projectile.ent_owner, ent_target: ev.ent_hit,
+					position: ev.hit_position, velocity: ev.hit_direction * ev.speed, normal: ev.hit_normal,
+					damage_integrity: ev.damage, damage_durability: ev.damage, damage_terrain: ev.damage * projectile.terrain_damage_mult,
+					armor_pierce: projectile.armor_pierce * ev.hit_dot,
+					target_material_type: ev.hit_material_type, damage_type: ev.damage_type,
+					yield: 0.80f, size: Maths.SnapCeil(Maths.Max(0.125f, projectile.size), 0.125f) * 4.00f * ev.hit_applied_ratio, impulse: ev.hit_impulse, stun: projectile.stun_multiplier * ev.hit_applied_ratio,
+					faction_id: projectile.faction_id, flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Drop);
+			}
+#endif
+
+			var ricochet_chance = (ev.ricochet_base + ev.ricochet_extra) * (1.00f - ev.hit_applied_ratio) * projectile.ricochet_chance_multiplier;
+			if (ev.flags.TryAddFlag(Projectile.ImpactEvent.Flags.Is_Ricochet, ev.random.NextFloat01() < ricochet_chance))
+			{
+				projectile.velocity = ev.ricochet_direction * ev.speed;
+
+				App.WriteLine("ricocheted");
+
+#if CLIENT
+				ref var random = ref info.GetRandom();
+				Sound.Play("ricochet.00", ev.hit_position, volume: random.NextFloatExtra(0.40f, 0.10f), pitch: random.NextFloatRange(0.70f, 1.60f), size: 0.10f, priority: 0.25f, dist_multiplier: random.NextFloatExtra(1.50f, 0.10f));
+#endif
+			}
+
+			App.WriteLine($"dot: {ev.hit_dot}; mat: {ev.hit_material_type}; chance: {ricochet_chance}; rc: {projectile.ricochet_count}; speed: {ev.speed}; flags: {ev.flags}");
+		}
+	}
+
 	public static partial class Rocket
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
