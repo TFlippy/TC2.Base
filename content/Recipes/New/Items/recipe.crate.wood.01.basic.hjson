@@ -27,13 +27,14 @@
 			material: wood
 			amount: 45.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: sawing
 			amount: 150.000
 			difficulty: 3
-			group: 1
+			group: 0
 			flags: conditional
 		}
 		{

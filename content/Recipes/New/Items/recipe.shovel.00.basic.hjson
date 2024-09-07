@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Shovel"
 	tips: []
 	
@@ -28,6 +28,7 @@
 			material: wood
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -35,25 +36,27 @@
 			amount: 250.000
 			difficulty: 5
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: steel.plate
 			amount: 2.000
-			group: 0
+			group: 1
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.000
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: assembling
 			amount: 450.000
 			difficulty: 3
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Medkit"
 	tips: []
 	
@@ -26,6 +26,7 @@
 			material: cloth
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -33,25 +34,27 @@
 			amount: 320.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 0.500
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: assembling
-			amount: 100.000
-			difficulty: 5
-			group: 0
+			amount: 75.000
+			difficulty: 3
+			group: 1
+			flags: conditional
 		}
 		{
 			type: resource
 			material: alcohol
 			amount: 4.000
-			group: 0
+			group: 2
 		}
 	]
 	

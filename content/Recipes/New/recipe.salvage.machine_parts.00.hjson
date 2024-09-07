@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Refurbished Machine Parts"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, salvaging, simple, metalworking, manual
+	tags: workbench, manual, simple, metalworking, salvaging
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -48,12 +48,14 @@
 			material: scrap.machine
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: scrap.steel
 			amount: 7.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -62,7 +64,7 @@
 			difficulty: 9
 			snapping: 5.000
 			falloff: 0.450
-			group: 0
+			group: 1
 		}
 		{
 			type: work
@@ -71,7 +73,7 @@
 			difficulty: 4
 			snapping: 5.000
 			falloff: 0.870
-			group: 0
+			group: 2
 		}
 	]
 	

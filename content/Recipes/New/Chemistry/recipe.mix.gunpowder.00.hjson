@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Traditional Gunpowder"
 	desc:
 		'''
@@ -49,12 +49,14 @@
 			material: saltpeter
 			amount: 0.600
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: charcoal
 			amount: 0.550
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

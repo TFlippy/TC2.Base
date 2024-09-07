@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Purified Water"
 	desc:
 		'''
@@ -29,7 +29,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, small, chemistry, refining, biology, laboratory
+	tags: workbench, laboratory, manual, simple, small, chemistry, biology, refining
 	
 	color_button: "0xff80dc7e"
 	rank: -9.000
@@ -41,19 +41,34 @@
 			material: water
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: hydrogen_peroxide
 			amount: 0.025
 			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: pouring
+			amount: 2.000
+			difficulty: 2
+			snapping: 10.000
+			falloff: 0.600
+			group: 0
+			flags: conditional
 		}
 		{
 			type: work
 			work: blending
-			amount: 2.000
+			amount: 7.000
 			difficulty: 3
-			group: 0
+			snapping: 5.000
+			falloff: 0.700
+			group: 1
+			flags: conditional
 		}
 	]
 	

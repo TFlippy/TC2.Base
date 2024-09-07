@@ -26,53 +26,55 @@
 			material: steel.ingot
 			amount: 3.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 3.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: drilling
 			amount: 850.000
 			difficulty: 9
-			group: 1
+			group: 0
 			flags: conditional
 		}
 		{
 			type: resource
 			material: wood
 			amount: 1.000
-			group: 2
+			group: 1
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 220.000
 			difficulty: 4
-			group: 2
+			group: 1
 			flags: conditional
 		}
 		{
 			type: resource
 			material: pellet.heat
 			amount: 1.000
-			group: 3
+			group: 2
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 4.000
-			group: 3
+			group: 2
 		}
 		{
 			type: work
 			work: assembling
 			amount: 230.000
 			difficulty: 5
-			group: 3
+			group: 2
 			flags: conditional
 		}
 	]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Filtered Dirty Water"
 	desc:
 		'''
@@ -33,6 +33,7 @@
 			material: water.dirty
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -41,6 +42,7 @@
 			snapping: 1.000
 			falloff: 0.640
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -49,6 +51,7 @@
 			snapping: 0.500
 			falloff: 0.400
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -58,6 +61,7 @@
 			snapping: 5.000
 			falloff: 0.500
 			group: 0
+			flags: conditional
 		}
 	]
 	

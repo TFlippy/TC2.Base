@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, salvaging, simple, tailoring, manual
+	tags: workbench, manual, simple, tailoring, salvaging
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -48,6 +48,7 @@
 			material: scrap.mixed
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -55,19 +56,21 @@
 			amount: 230.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: water
 			amount: 30.000
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: washing
 			amount: 360.000
 			difficulty: 5
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

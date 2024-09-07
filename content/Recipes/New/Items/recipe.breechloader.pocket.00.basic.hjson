@@ -26,39 +26,40 @@
 			material: wood
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: woodworking
 			amount: 180.000
 			difficulty: 4
-			group: 1
+			group: 0
 			flags: conditional
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 4.000
-			group: 2
+			group: 1
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.000
-			group: 2
+			group: 1
 		}
 		{
 			type: resource
 			material: pellet.heat
 			amount: 0.500
-			group: 2
+			group: 1
 		}
 		{
 			type: work
 			work: assembling
 			amount: 175.000
 			difficulty: 6
-			group: 2
+			group: 1
 			flags: conditional
 		}
 	]

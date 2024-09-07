@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Short Breechloader"
 	tips: []
 	
@@ -26,6 +26,7 @@
 			material: wood
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -33,38 +34,41 @@
 			amount: 220.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 2.000
-			group: 0
+			group: 1
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.000
-			group: 0
+			group: 1
 		}
 		{
 			type: work
 			work: drilling
 			amount: 550.000
 			difficulty: 9
-			group: 0
+			group: 1
+			flags: conditional
 		}
 		{
 			type: resource
 			material: pellet.heat
 			amount: 1.000
-			group: 0
+			group: 2
 		}
 		{
 			type: work
 			work: assembling
 			amount: 110.000
 			difficulty: 4
-			group: 0
+			group: 2
+			flags: conditional
 		}
 	]
 	

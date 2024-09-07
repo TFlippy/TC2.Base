@@ -40,6 +40,7 @@
 			material: timber
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -49,6 +50,7 @@
 			snapping: 5.000
 			falloff: 0.850
 			group: 0
+			flags: conditional
 		}
 	]
 	

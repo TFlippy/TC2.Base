@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Sledgehammer"
 	tips: []
 	
@@ -26,12 +26,14 @@
 			material: steel.ingot
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 1.500
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -39,26 +41,28 @@
 			amount: 850.000
 			difficulty: 11
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: wood
 			amount: 1.000
-			group: 0
+			group: 1
 		}
 		{
 			type: resource
 			material: glue
 			amount: 2.000
-			group: 0
-		}	
+			group: 1
+		}
 		{
 			type: work
 			work: woodworking
 			amount: 220.000
 			difficulty: 4
-			group: 0
-		}	
+			group: 1
+			flags: conditional
+		}
 	]
 	
 	products:
