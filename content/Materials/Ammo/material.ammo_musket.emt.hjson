@@ -46,18 +46,18 @@
 		heat: 10.000
 		velocity_min: 0.000
 		
-		speed_base: 5.000
-		speed_mult: 0.400
-		speed_jitter: 0.200
-		spin_base: 0.500
-		spin_mult: 1.500
-		spread_mult: 0.900
-		recoil_mult: 0.800
+		speed_base: 4.000
+		speed_mult: 0.350
+		speed_jitter: 0.050
+		spin_base: 0.100
+		spin_mult: 1.000
+		spread_mult: 1.000
+		recoil_mult: 1.500
 		
-		failure_base: 0.010
+		failure_base: 0.000
 		failure_mult: 0.300
 		
-		stability_base: 320.000
+		stability_base: 720.000
 		stability_mult: 0.900
 		
 		prefab: projectile.musket.emt

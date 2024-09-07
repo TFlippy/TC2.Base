@@ -12,9 +12,9 @@ namespace TC2.Base.Components
 		public static void OnImpact(ISystem.Info info, ref Region.Data region, ref XorRandom random, ref Projectile.ImpactEvent ev,
 		[Source.Owned] ref Projectile.Data projectile, Entity ent_projectile)
 		{
-			if (projectile.ricochet_count > 0)
+			if (projectile.ricochet_count > 0 && ev.flags.HasNone(Projectile.ImpactEvent.Flags.Is_Ricochet))
 			{
-				var ricochet_chance = (ev.ricochet_base + ev.ricochet_extra) * (1.00f - ev.hit_applied_ratio) * projectile.ricochet_chance_multiplier;
+				var ricochet_chance = (ev.ricochet_base + ev.ricochet_extra) * (1.00f - (ev.hit_applied_ratio * 0.95f)) * projectile.ricochet_chance_multiplier;
 				if (ev.flags.TryAddFlag(Projectile.ImpactEvent.Flags.Is_Ricochet, ev.random.NextFloat01() < ricochet_chance))
 				{
 
@@ -24,6 +24,13 @@ namespace TC2.Base.Components
 			if (ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_Ricochet))
 			{
 				ev.armor_pierce = 0.00f;
+			
+				projectile.ent_owner = default;
+				projectile.faction_id = default;
+
+#if CLIENT
+				if (ev.speed > 100.00f) Sound.Play(snd_ricochet.GetRandom(ref random), ev.hit_position, volume: random.NextFloatExtra(0.40f, 0.10f), pitch: random.NextFloatRange(0.70f, 1.60f), size: 0.10f, priority: 0.25f, dist_multiplier: random.NextFloatExtra(1.50f, 0.10f));
+#endif
 			}
 
 #if SERVER
@@ -31,28 +38,30 @@ namespace TC2.Base.Components
 			{
 				//App.WriteLine($"hit {ev.hit_dot} {ev.damage_type} {ev.hit_material_type}");
 
-				var impulse = projectile.mass * ev.speed * projectile.knockback_multiplier * ev.hit_applied_ratio;
+				var impulse = projectile.mass * ev.speed * projectile.knockback_multiplier * ev.hit_dot;
 
 				Damage.Hit(ent_attacker: ent_projectile, ent_owner: projectile.ent_owner, ent_target: ev.ent_hit,
 					position: ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_World) ? ev.hit_position_raw : ev.hit_position, velocity: ev.hit_direction * ev.speed, normal: ev.hit_normal,
 					damage_integrity: ev.damage, damage_durability: ev.damage, damage_terrain: ev.damage * projectile.terrain_damage_mult,
 					armor_pierce: ev.armor_pierce * ev.hit_dot,
 					target_material_type: ev.hit_material_type, damage_type: ev.damage_type,
-					yield: 0.80f, size: Maths.SnapCeil(Maths.Max(0.125f, projectile.size), 0.125f) * ev.hit_applied_ratio * random.NextFloatExtra(2.50f, 1.00f), impulse: impulse, stun: projectile.stun_multiplier * ev.hit_applied_ratio,
+					yield: 0.80f, size: Maths.SnapCeil(Maths.Max(0.125f, projectile.size), 0.125f) * random.NextFloatExtra(2.50f, 1.00f), impulse: impulse, stun: projectile.stun_multiplier * ev.hit_applied_ratio,
 					faction_id: projectile.faction_id, flags: Damage.Flags.No_Loot_Pickup);
 			}
 #endif
 
-			if (ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_Ricochet))
-			{
-				ev.speed *= Maths.Lerp((ev.random.NextFloat01() * (1.00f - ev.hit_applied_ratio)).Clamp01(), 1.00f, projectile.ricochet_velocity_ratio);
-				projectile.velocity = ev.ricochet_direction.RotateByRad(ev.random.NextFloat(0.30f)) * ev.speed;
+//			if (ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_Ricochet))
+//			{
+//				//ev.speed *= Maths.Lerp((ev.random.NextFloat01() * (1.00f - ev.hit_applied_ratio)).Clamp01(), 1.00f, projectile.ricochet_velocity_ratio);
+//				//projectile.velocity = ev.ricochet_direction.RotateByRad(ev.random.NextFloat(0.30f)) * ev.speed;
+//				//projectile.angular_velocity += ev.random.NextFloat(3);
+//				//projectile.angular_velocity *= ev.random.NextFloatExtra(1.10f, 0.20f);
 
-				//App.WriteLine("ricocheted");
-#if CLIENT
-				Sound.Play(snd_ricochet.GetRandom(ref random), ev.hit_position, volume: random.NextFloatExtra(0.40f, 0.10f), pitch: random.NextFloatRange(0.70f, 1.60f), size: 0.10f, priority: 0.25f, dist_multiplier: random.NextFloatExtra(1.50f, 0.10f));
-#endif
-			}
+//				//App.WriteLine("ricocheted");
+//#if CLIENT
+//				if (ev.speed > 100.00f) Sound.Play(snd_ricochet.GetRandom(ref random), ev.hit_position, volume: random.NextFloatExtra(0.40f, 0.10f), pitch: random.NextFloatRange(0.70f, 1.60f), size: 0.10f, priority: 0.25f, dist_multiplier: random.NextFloatExtra(1.50f, 0.10f));
+//#endif
+//			}
 
 			//App.WriteLine($"dot: {ev.hit_dot}; mat: {ev.hit_material_type}; chance: {ricochet_chance}; rc: {projectile.ricochet_count}; speed: {ev.speed}; flags: {ev.flags}");
 		}
