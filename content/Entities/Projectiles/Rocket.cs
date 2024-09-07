@@ -47,6 +47,7 @@ namespace TC2.Base.Components
 			{
 				ev.speed *= Maths.Lerp((ev.random.NextFloat01() * (1.00f - ev.hit_applied_ratio)).Clamp01(), 1.00f, projectile.ricochet_velocity_ratio);
 				projectile.velocity = ev.ricochet_direction.RotateByRad(ev.random.NextFloat(0.30f)) * ev.speed;
+
 				//App.WriteLine("ricocheted");
 #if CLIENT
 				Sound.Play(snd_ricochet.GetRandom(ref random), ev.hit_position, volume: random.NextFloatExtra(0.40f, 0.10f), pitch: random.NextFloatRange(0.70f, 1.60f), size: 0.10f, priority: 0.25f, dist_multiplier: random.NextFloatExtra(1.50f, 0.10f));
@@ -68,6 +69,7 @@ namespace TC2.Base.Components
 			public float force;
 			public float fuel_time = 1.00f;
 			public float smoke_amount = 1.00f;
+			public float delay;
 			public Vector2 velocity;
 
 			[Net.Ignore, Save.Ignore] public float smoke_accumulator = 0.00f;
@@ -78,44 +80,56 @@ namespace TC2.Base.Components
 			}
 		}
 
-
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateBody(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f)
+			if (rocket.delay <= 0.00f)
 			{
-				var dir = transform.GetDirection();
-				body.AddForce(dir * (rocket.force));
-			}
+				if (rocket.fuel_time > 0.00f)
+				{
+					var dir = transform.GetDirection();
+					body.AddForce(dir * (rocket.force));
+				}
 
-			rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+				rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+			}
+			else
+			{
+				rocket.delay -= info.DeltaTime;
+			}
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateProjectile(ISystem.Info info, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] ref Projectile.Data projectile, [Source.Owned] ref Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f)
+			if (rocket.delay <= 0.00f)
 			{
-				//var dir = projectile.velocity.GetNormalized(out var vel);
-				//if (projectile.rotation != 0.00f)
-				//{
-				//	dir = dir.RotateByRad(-projectile.rotation);
-				//}
+				if (rocket.fuel_time > 0.00f)
+				{
+					//var dir = projectile.velocity.GetNormalized(out var vel);
+					//if (projectile.rotation != 0.00f)
+					//{
+					//	dir = dir.RotateByRad(-projectile.rotation);
+					//}
 
-				var dir = transform.GetDirection();
-				var step = dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
+					var dir = transform.GetDirection();
+					var step = dir * ((rocket.force / rocket.mass) * App.fixed_update_interval_s);
 
-				projectile.velocity += step;
+					projectile.velocity += step;
+					rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+				}
 			}
-
-			rocket.fuel_time = Maths.Max(rocket.fuel_time - App.fixed_update_interval_s, 0.00f);
+			else
+			{
+				rocket.delay -= info.DeltaTime;
+			}
 		}
 
 #if CLIENT
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmokeBody(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f)
+			if (rocket.fuel_time > 0.00f && rocket.delay <= 0.00f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
 
@@ -153,7 +167,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSmokeProjectile(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f && projectile.elapsed >= 0.15f)
+			if (rocket.fuel_time > 0.00f && rocket.delay <= 0.00f && projectile.elapsed >= 0.15f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
 

@@ -435,7 +435,6 @@ namespace TC2.Base.Components
 												else if (pos_a_raw.HasValue && mouse.GetKeyDown(Mouse.Key.Left) && placement.type == Placement.Type.Line)
 												{
 													pos_b_raw = pos_raw;
-
 												}
 
 												//if (pos_a_raw.HasValue && !pos_b_raw.HasValue && placement.type == Placement.Type.Line)
@@ -951,6 +950,8 @@ namespace TC2.Base.Components
 
 				public static void Evaluate(ref Region.Data region, Entity entity, in Placement placement, ref Wrench.Mode.Build.Errors errors, ref bool skip_support, out float support, out float clearance, AABB bb, in Transform.Data transform, float placement_range, Vector2 pos, Vector2? pos_a = default, Vector2? pos_b = default, IFaction.Handle faction_id = default)
 				{
+					placement_range.ClampMaxRef(placement.max_range);
+
 					if (placement.min_claim > Maths.epsilon)
 					{
 						var claim_ratio = Claim.GetOverlapRatio(region: ref region,
@@ -1017,7 +1018,7 @@ namespace TC2.Base.Components
 					ref var transform_entity = ref entity.GetComponent<Transform.Data>();
 					if (transform_entity.IsNotNull())
 					{
-						var placement_range_sq = placement_range * placement_range;
+						var placement_range_sq = placement_range.Pow2(); // * placement_range;
 						var dist_sq = float.PositiveInfinity;
 
 						switch (placement.type)

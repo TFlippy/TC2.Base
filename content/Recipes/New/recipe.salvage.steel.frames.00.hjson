@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Recovered Steel Frames"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, salvaging, simple, metalworking, manual
+	tags: workbench, manual, simple, metalworking, salvaging
 	
 	color_button: "0xffac7534"
 	rank: -140.000
@@ -62,7 +62,8 @@
 			difficulty: 6
 			snapping: 5.000
 			falloff: 0.750
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

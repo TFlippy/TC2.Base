@@ -43,7 +43,7 @@ animated.renderer:
 		texture: "wreck.car"
 	}
 	offset: [-0.375, 0.000]
-	z: -50.000
+	z: -70.000
 }
 
 transform:

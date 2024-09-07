@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Casting Basin"
 	tips: []
 	
@@ -42,6 +42,7 @@
 		min_support: 0.700
 		min_clearance: 0.950
 		min_claim: 1.000
+		max_range: 2.500
 		
 		rotation_max: 0.050
 		
