@@ -32,6 +32,39 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// kg/mol (use atomic mass for elements)
+		molar_mass: 1.000
+		// kg/m³
+		density: 0.000
+		// kg/m³
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K at 1 bar
+		melting_point: 0.000
+		// K at 1 bar
+		boiling_point: 0.000
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
+		// kJ/(kg*K)
+		specific_heat: 0.000
+		// kW/(m*K)
+		thermal_conductivity: 0.000
+	}
+	
 	// Component materials.
 	composition: []
 }

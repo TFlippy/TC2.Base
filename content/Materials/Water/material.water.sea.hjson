@@ -34,56 +34,17 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: water, industrial
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 0.020
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
-	
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
 		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.018015
+		molar_mass: 0.000
 		// kg/m³
 		density: 1068.784
 		// kg/m³
-		density_liquid: 0.000
+		density_liquid: 1068.784
 		// kg/m³
-		density_solid: 0.000
+		density_solid: 911.896
 		
 		// K at 1 bar
 		melting_point: 270.317
@@ -101,9 +62,9 @@
 		triple_point_pressure: 0.000
 		
 		// kJ/(kg*K)
-		specific_heat: 4.184
+		specific_heat: 0.000
 		// kW/(m*K)
-		thermal_conductivity: 0.000598
+		thermal_conductivity: 0.000
 	}
 	
 	// Component materials.

@@ -37,8 +37,8 @@
 		}
 		{
 			type: temperature
-			amount: 773.150
-			amount_min: 372.850
+			amount: 375.747
+			amount_min: 375.747
 			falloff: 1.000
 			chance: 0.632
 			group: 1

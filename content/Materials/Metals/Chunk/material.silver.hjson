@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, rare, expensive, fancy, dumb, slow
 	// kg
-	mass_per_unit: 1.0490
+	mass_per_unit: 1.049
 	quantity_max: 500.000
 	prefab: resource.silver
 	
@@ -35,18 +35,34 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.107868
 		// kg/m³
 		density: 10490.000
+		// kg/m³
+		density_liquid: 9319.999
+		// kg/m³
+		density_solid: 0.000
+		
+		// K at 1 bar
+		melting_point: 1234.930
+		// K at 1 bar
+		boiling_point: 2435.000
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 0.235
 		// kW/(m*K)
 		thermal_conductivity: 0.430
-		// K
-		melting_point: 1234.930
-		// K
-		boiling_point: 2435.000
 	}
 	
 	// Component materials.

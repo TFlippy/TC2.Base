@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Steel Billet"
 	description:
 		'''
@@ -10,14 +10,9 @@
 	
 	icon:
 	{
-		texture: "resource.steel.billet"
+		texture: resource.steel.billet
 		size: [32, 16]
 		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: "missing"
 	}
 	
 	type: metal_solid
@@ -25,11 +20,19 @@
 	flags: magnetic, metal, intermediate, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: none
 	// kg
 	mass_per_unit: 128.000
 	quantity_max: 16.000
-	prefab: "resource.steel.billet"
+	prefab: resource.steel.billet
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -73,17 +76,36 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.05497
 		// kg/m³
 		density: 7812.000
+		// kg/m³
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 7812.000
+		
+		// K at 1 bar
+		melting_point: 1811.000
+		// K at 1 bar
+		boiling_point: 3143.000
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 490.000
 		// kW/(m*K)
 		thermal_conductivity: 43.000
-		// K
-		melting_point: 1811.000
-		// K
-		boiling_point: 3143.000
 	}
+	
+	// Component materials.
+	composition: []
 }

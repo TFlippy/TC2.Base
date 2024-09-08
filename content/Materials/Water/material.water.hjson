@@ -83,9 +83,9 @@
 		// kg/m³
 		density: 999.788
 		// kg/m³
-		density_liquid: 0.000
+		density_liquid: 999.788
 		// kg/m³
-		density_solid: 0.000
+		density_solid: 916.658
 		
 		// K at 1 bar
 		melting_point: 272.345
@@ -93,14 +93,14 @@
 		boiling_point: 373.730
 		
 		// K
-		critical_point_temperature: 0.000
+		critical_point_temperature: 647.096
 		// K
-		triple_point_temperature: 0.000
+		triple_point_temperature: 273.160
 		
 		// bar
-		critical_point_pressure: 0.000
+		critical_point_pressure: 220.640
 		// bar
-		triple_point_pressure: 0.000
+		triple_point_pressure: 0.611
 		
 		// kJ/(kg*K)
 		specific_heat: 4.184

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Graphite"
 	description:
 		'''
@@ -35,18 +35,34 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.012011
 		// kg/m³
 		density: 2230.000
+		// kg/m³
+		density_liquid: 2230.000
+		// kg/m³
+		density_solid: 2230.000
+		
+		// K at 1 bar
+		melting_point: 3970.150
+		// K at 1 bar
+		boiling_point: 4473.150
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 0.706
 		// kW/(m*K)
 		thermal_conductivity: 0.142
-		// K
-		melting_point: 3970.150
-		// K
-		boiling_point: 4473.150
 	}
 	
 	// Conversions into other materials.
@@ -55,16 +71,12 @@
 		sledgehammer:
 		{
 			h_material: graphite.powder
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: merge
-			
 			ratio: 0.210
 			ratio_extra: 0.455
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge
 			ratio_waste: 0.400
 			ratio_waste_extra: 0.500
 			
@@ -76,6 +88,10 @@
 			sound_pitch: 1.250
 			
 			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	
