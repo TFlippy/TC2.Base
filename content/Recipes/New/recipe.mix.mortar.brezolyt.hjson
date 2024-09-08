@@ -50,6 +50,7 @@
 			material: brezolyt
 			amount: 25.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

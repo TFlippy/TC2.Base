@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Drained Water (Clean)"
 	desc:
 		'''
@@ -33,7 +33,7 @@
 			prefab: water.clean
 			amount: 1.000
 			group: 0
-			flags: no_consume, no_scaling, hide_quantity
+			flags: no_consume, no_scaling, hide_quantity, prerequisite
 		}
 		{
 			type: work
@@ -41,6 +41,7 @@
 			amount: 10.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 	]
 	

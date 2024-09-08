@@ -48,12 +48,14 @@
 			material: scrap.machine
 			amount: 3.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: scrap.mixed
 			amount: 7.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

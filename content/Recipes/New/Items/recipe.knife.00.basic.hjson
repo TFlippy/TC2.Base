@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Knife"
 	tips: []
 	
@@ -26,12 +26,7 @@
 			material: wood
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 1.000
-			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -41,6 +36,14 @@
 			snapping: 5.000
 			falloff: 0.280
 			group: 0
+			flags: conditional
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
+			group: 1
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -49,7 +52,8 @@
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.460
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

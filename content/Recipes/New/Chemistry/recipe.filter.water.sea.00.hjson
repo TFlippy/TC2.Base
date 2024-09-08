@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Boiled Sea Water"
 	desc:
 		'''
@@ -33,6 +33,7 @@
 			material: water.sea
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -42,7 +43,7 @@
 			snapping: 5.000
 			falloff: 0.800
 			group: 0
-			flags: sequential
+			flags: conditional
 		}
 		{
 			type: work
@@ -52,6 +53,7 @@
 			snapping: 5.000
 			falloff: 0.400
 			group: 0
+			flags: conditional
 		}
 	]
 	

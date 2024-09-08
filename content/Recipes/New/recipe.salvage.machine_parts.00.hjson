@@ -64,7 +64,8 @@
 			difficulty: 9
 			snapping: 5.000
 			falloff: 0.450
-			group: 1
+			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -73,7 +74,7 @@
 			difficulty: 4
 			snapping: 5.000
 			falloff: 0.870
-			group: 2
+			group: 1
 		}
 	]
 	
