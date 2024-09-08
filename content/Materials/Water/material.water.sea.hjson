@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Water (Sea)"
 	description:
 		'''
@@ -71,6 +71,39 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
+	}
+	
+	// Properties of the material, see https://periodictable.com/index.html.
+	substance:
+	{
+		// kg/mol (use atomic mass for elements)
+		molar_mass: 0.018015
+		// kg/m³
+		density: 1068.784
+		// kg/m³
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K at 1 bar
+		melting_point: 270.317
+		// K at 1 bar
+		boiling_point: 375.747
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
+		// kJ/(kg*K)
+		specific_heat: 4.184
+		// kW/(m*K)
+		thermal_conductivity: 0.000598
 	}
 	
 	// Component materials.

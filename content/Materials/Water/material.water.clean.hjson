@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Water (Clean)"
 	description:
 		'''
@@ -76,18 +76,34 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.018015
 		// kg/m³
-		density: 997.000
+		density: 997.047
+		// kg/m³
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K at 1 bar
+		melting_point: 273.200
+		// K at 1 bar
+		boiling_point: 372.730
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 4.184
 		// kW/(m*K)
 		thermal_conductivity: 0.000598
-		// K
-		melting_point: 273.200
-		// K
-		boiling_point: 373.200
 	}
 	
 	// Component materials.

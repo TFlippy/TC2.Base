@@ -36,13 +36,22 @@
 			flags: prerequisite
 		}
 		{
+			type: temperature
+			amount: 773.150
+			amount_min: 372.850
+			falloff: 1.000
+			chance: 0.632
+			group: 1
+			flags: no_scaling
+		}
+		{
 			type: work
 			work: boiling
 			amount: 350.000
 			difficulty: 5
 			snapping: 5.000
 			falloff: 0.800
-			group: 0
+			group: 1
 			flags: conditional
 		}
 		{
@@ -52,7 +61,7 @@
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.400
-			group: 0
+			group: 2
 			flags: conditional
 		}
 	]
