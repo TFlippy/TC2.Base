@@ -15,7 +15,7 @@
 	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, metal, intermediate, small, solid, processed
+	flags: hard, metal, intermediate, small, solid, processed, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
@@ -35,18 +35,22 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
+		type: element
+		flags: none
+		tags: none
+		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.063546
-		// kg/m³
+		// kg/m³ (STP)
 		density: 8960.000
-		// kg/m³
+		// kg/m³ (STP)
 		density_liquid: 8002.000
 		// kg/m³
 		density_solid: 8960.000
 		
-		// K at 1 bar
+		// K (STP)
 		melting_point: 1357.770
-		// K at 1 bar
+		// K (STP)
 		boiling_point: 2835.000
 		
 		// K

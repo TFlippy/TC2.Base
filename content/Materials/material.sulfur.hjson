@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Sulfur"
 	description:
 		'''
@@ -15,7 +15,7 @@
 	
 	type: powder
 	// Flags defining properties of the raw material.
-	flags: granular, toxic, chemical, small, raw, powder, solid
+	flags: granular, toxic, chemical, small, raw, powder, solid, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
@@ -77,16 +77,12 @@
 		phlogiston:
 		{
 			h_material: sulfur_dioxide
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge
-			spawn_flags_waste: merge
-			
 			ratio: 0.050
 			ratio_extra: 0.415
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge
 			ratio_waste: 0.100
 			ratio_waste_extra: 0.400
 			
@@ -98,6 +94,10 @@
 			sound_pitch: 1.280
 			
 			chance: 0.310
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

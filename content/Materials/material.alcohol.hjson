@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Alcohol"
 	description:
 		'''
@@ -15,7 +15,7 @@
 	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: food, liquid, intermediate, chemical, bottled, manufactured, fuel, flammable, volatile
+	flags: food, liquid, intermediate, chemical, bottled, manufactured, fuel, flammable, volatile, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: flammable, volatile
 	display_flags: none
@@ -75,6 +75,7 @@
 	{
 		// TODO: Desc
 		type: liquid
+		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
 		energy_combustion: 29700.000
 		// Ratio of produced exhaust gas and leftover ashes.
@@ -83,6 +84,7 @@
 		flammability: 1.980
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.131
+		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 3300.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
@@ -117,6 +119,7 @@
 		sulfur_ratio: 0.001
 		// Percentage of water.
 		water_ratio: 0.076
+		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []
@@ -125,18 +128,38 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		type: molecule
+		flags: none
+		tags: none
+		
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.04408
-		// kg/m³
+		// kg/m³ (STP)
 		density: 785.300
+		// kg/m³ (STP)
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K (STP)
+		melting_point: 159.010
+		// K (STP)
+		boiling_point: 351.390
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 2.570
 		// kW/(m*K)
 		thermal_conductivity: 0.000167
-		// K
-		melting_point: 159.010
-		// K
-		boiling_point: 351.390
 	}
 	
 	// Component materials.

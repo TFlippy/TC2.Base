@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Benzene"
 	description:
 		'''
@@ -8,31 +8,35 @@
 	
 	icon:
 	{
-		texture: "resource.benzene"
+		texture: resource.benzene
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, toxic, intermediate, chemical, bottled, manufactured, fuel, flammable, volatile
+	flags: liquid, toxic, intermediate, chemical, bottled, manufactured, fuel, flammable, volatile, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
+	display_flags: none
 	hints: materials, dangerous, advanced, chemical, industrial
 	// kg
 	mass_per_unit: 0.200
 	quantity_max: 500.000
-	prefab: "resource.benzene"
+	prefab: resource.benzene
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	fuel:
 	{
 		// TODO: Desc
 		type: liquid
+		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
 		energy_combustion: 41800.000
 		// Ratio of produced exhaust gas and leftover ashes.
@@ -41,6 +45,7 @@
 		flammability: 0.760
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.336
+		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 3784.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
@@ -80,4 +85,7 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
+	
+	// Component materials.
+	composition: []
 }

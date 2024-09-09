@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Nitroglycerine"
 	description:
 		'''
@@ -15,7 +15,7 @@
 	
 	type: slime
 	// Flags defining properties of the raw material.
-	flags: sticky, liquid, explosive, intermediate, chemical, bottled, fragile, manufactured, flammable
+	flags: sticky, liquid, explosive, intermediate, chemical, bottled, fragile, manufactured, flammable, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: sticky, flammable
 	display_flags: none

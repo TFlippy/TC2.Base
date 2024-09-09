@@ -37,18 +37,22 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
+		type: solution
+		flags: none
+		tags: none
+		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.000
-		// kg/m³
+		// kg/m³ (STP)
 		density: 1068.784
-		// kg/m³
+		// kg/m³ (STP)
 		density_liquid: 1068.784
 		// kg/m³
 		density_solid: 911.896
 		
-		// K at 1 bar
+		// K (STP)
 		melting_point: 270.317
-		// K at 1 bar
+		// K (STP)
 		boiling_point: 375.747
 		
 		// K
@@ -64,7 +68,7 @@
 		// kJ/(kg*K)
 		specific_heat: 0.000
 		// kW/(m*K)
-		thermal_conductivity: 0.000
+		thermal_conductivity: 0.000606
 	}
 	
 	// Component materials.

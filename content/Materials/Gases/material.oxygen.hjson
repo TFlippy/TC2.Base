@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Oxygen"
 	description:
 		'''
@@ -14,7 +14,7 @@
 	
 	type: gas
 	// Flags defining properties of the raw material.
-	flags: gas, explosive, chemical, flammable
+	flags: gas, explosive, chemical, flammable, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
@@ -73,18 +73,38 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		type: element
+		flags: none
+		tags: none
+		
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.015999
-		// kg/m³
+		// kg/m³ (STP)
 		density: 1.429
+		// kg/m³ (STP)
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K (STP)
+		melting_point: 54.800
+		// K (STP)
+		boiling_point: 90.200
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 919.000
 		// kW/(m*K)
 		thermal_conductivity: 0.02658
-		// K
-		melting_point: 54.800
-		// K
-		boiling_point: 90.200
 	}
 	
 	// Component materials.

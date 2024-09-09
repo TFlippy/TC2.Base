@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.5"
+	$version: "0.1.61.4"
 	name: "Phlogiston"
 	description:
 		'''
@@ -8,26 +8,29 @@
 	
 	icon:
 	{
-		texture: "resource.phlogiston"
+		texture: resource.phlogiston
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: "missing"
-	}
-	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel, flammable, volatile
+	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel, flammable, volatile, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: toxic, corrosive, flammable, volatile
+	display_flags: none
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
 	// kg
 	mass_per_unit: 0.500
 	quantity_max: 100.000
-	prefab: "resource.phlogiston"
+	prefab: resource.phlogiston
+	
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
 	
 	commodity:
 	{
@@ -72,6 +75,7 @@
 	{
 		// TODO: Desc
 		type: liquid
+		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
 		energy_combustion: 21000.000
 		// Ratio of produced exhaust gas and leftover ashes.
@@ -80,6 +84,7 @@
 		flammability: 8.900
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 1.800
+		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 4300.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
@@ -129,6 +134,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 0.150
+		speed_jitter: 0.020
 		spin_base: 0.000
 		spin_mult: 1.000
 		spread_mult: 1.000
@@ -140,6 +146,10 @@
 		stability_base: 50.000
 		stability_mult: 1.000
 		
-		prefab: "projectile.phlogiston"
+		prefab: projectile.phlogiston
+		casing_scale: 1.000
 	}
+	
+	// Component materials.
+	composition: []
 }
