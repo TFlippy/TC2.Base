@@ -1,0 +1,40 @@
+﻿{
+	name: "Steel"
+	description:
+		'''
+		TODO: Desc
+		'''
+	type: alloy
+	atomic_number: 0
+	flags: none
+	tags: crytalline, metallic
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.05497
+	// kg/m³ (STP)
+	density: 7812.000
+	// kg/m³ (STP)
+	density_liquid: 6980.000
+	// kg/m³
+	density_solid: 7812.000
+	
+	// K (STP)
+	melting_point: 1644.000
+	// K (STP)
+	boiling_point: 3143.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// kJ/(kg*K)
+	specific_heat: 0.490
+	// kW/(m*K)
+	thermal_conductivity: 0.043
+}

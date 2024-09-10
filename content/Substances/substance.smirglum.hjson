@@ -1,0 +1,40 @@
+﻿{
+	name: "Smirglum"
+	description:
+		'''
+		Extremely dense metal with a unique property of being able to interact with essences.
+		'''
+	type: element
+	atomic_number: 158
+	flags: none
+	tags: crytalline, metallic
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.452
+	// kg/m³ (STP)
+	density: 29921.200
+	// kg/m³ (STP)
+	density_liquid: 0.000
+	// kg/m³
+	density_solid: 29921.200
+	
+	// K (STP)
+	melting_point: 3245.000
+	// K (STP)
+	boiling_point: 4341.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// kJ/(kg*K)
+	specific_heat: 0.117
+	// kW/(m*K)
+	thermal_conductivity: 0.097127
+}

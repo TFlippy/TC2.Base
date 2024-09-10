@@ -1,0 +1,40 @@
+﻿{
+	name: "Phosgene"
+	description:
+		'''
+		TODO: Desc
+		'''
+	type: molecule
+	atomic_number: 0
+	flags: none
+	tags: none
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.000
+	// kg/m³ (STP)
+	density: 0.000
+	// kg/m³ (STP)
+	density_liquid: 0.000
+	// kg/m³
+	density_solid: 0.000
+	
+	// K (STP)
+	melting_point: 0.000
+	// K (STP)
+	boiling_point: 0.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// kJ/(kg*K)
+	specific_heat: 0.000
+	// kW/(m*K)
+	thermal_conductivity: 0.000
+}

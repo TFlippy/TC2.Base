@@ -1,0 +1,40 @@
+﻿{
+	name: "Smirgrafit"
+	description:
+		'''
+		TODO: Desc
+		'''
+	type: composite
+	atomic_number: 0
+	flags: none
+	tags: carbide
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.386002
+	// kg/m³ (STP)
+	density: 25767.520
+	// kg/m³ (STP)
+	density_liquid: 334.500
+	// kg/m³
+	density_solid: 25767.520
+	
+	// K (STP)
+	melting_point: 3353.772
+	// K (STP)
+	boiling_point: 4360.823
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// kJ/(kg*K)
+	specific_heat: 0.20535
+	// kW/(m*K)
+	thermal_conductivity: 0.000
+}

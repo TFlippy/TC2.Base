@@ -52,7 +52,7 @@
 		// K (STP)
 		melting_point: 3353.772
 		// K (STP)
-		boiling_point: 0.000
+		boiling_point: 4360.823
 		
 		// K
 		critical_point_temperature: 0.000
@@ -65,7 +65,7 @@
 		triple_point_pressure: 0.000
 		
 		// kJ/(kg*K)
-		specific_heat: 0.000
+		specific_heat: 0.20535
 		// kW/(m*K)
 		thermal_conductivity: 0.000
 	}
