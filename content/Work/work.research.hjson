@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Research"
 	name_short: "Research"
 	desc:
@@ -14,7 +14,7 @@
 		frame: [5, 0]
 	}
 	
-	flags: none
+	flags: passive
 	tags: skilled, science, advanced, technical, careful, industrial, bureaucracy, wip
 	cooldown: 1.000
 	multiplier: 1.000

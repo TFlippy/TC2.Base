@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Calibration"
 	name_short: "Calibration"
 	desc:
@@ -28,6 +28,11 @@
 	
 	equipment_required: none
 	equipment_optional: table, chair, vise
+	
+	filter_environment:
+	{
+		exclude: ugly, scary, noisy
+	}
 	
 	character_traits:
 	{

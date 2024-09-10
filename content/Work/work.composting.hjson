@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Composting"
 	name_short: "Composting"
 	desc:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: passive, ambient
-	tags: simple, chemical, wip
+	tags: ambient, simple, passive, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xff818c11"
@@ -52,5 +52,17 @@
 	
 	}
 	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

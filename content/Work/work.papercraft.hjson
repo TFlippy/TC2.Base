@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Papercraft"
 	name_short: "Papercraft"
 	desc:
@@ -33,6 +33,7 @@
 	{
 		require: indoor
 		include: workshop, office, clean
+		exclude: noisy, wet
 	}
 	
 	character_traits:

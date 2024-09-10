@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Evaporation"
 	name_short: "Evaporation"
 	desc:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: passive, ambient
-	tags: machine, automated, science, simple, chemical, wip
+	tags: ambient, simple, passive, wip
 	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xffaeb59a"
@@ -51,4 +51,11 @@
 	sound_dist: 1.000
 	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

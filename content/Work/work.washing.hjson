@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Washing"
 	name_short: "Washing"
 	desc:
@@ -14,6 +14,7 @@
 		frame: [23, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, simple, chemical, wip
 	cooldown: 1.500
 	multiplier: 1.000
@@ -31,7 +32,7 @@
 	filter_environment:
 	{
 		include: warm, container, disinfected, sterile, clean
-		exclude: polluted, smelly
+		exclude: contaminated, polluted, smelly, dry
 	}
 	
 	character_traits:
@@ -53,10 +54,17 @@
 		endurance: 0.830
 	}
 	
-	sounds:
-	[
-		water.impact.soft.00
-		water.impact.soft.01
-		water.impact.soft.02
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

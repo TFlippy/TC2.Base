@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Soaking"
 	name_short: "Soaking"
 	desc:
@@ -14,6 +14,7 @@
 		frame: [26, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, automated, simple, chemical, wip
 	cooldown: 0.500
 	multiplier: 1.000
@@ -27,6 +28,11 @@
 	
 	equipment_required: none
 	equipment_optional: none
+	
+	filter_environment:
+	{
+		exclude: dry
+	}
 	
 	character_traits:
 	{
@@ -46,10 +52,17 @@
 		endurance: 0.600
 	}
 	
-	sounds:
-	[
-		water.impact.soft.00
-		water.impact.soft.01
-		water.impact.soft.02
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

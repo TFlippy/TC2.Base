@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Welding"
 	name_short: "Welding"
 	desc:
@@ -14,8 +14,9 @@
 		frame: [35, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, tools, dangerous, technical, chemical, construction, industrial, wip
-	cooldown: 0.200
+	cooldown: 0.500
 	multiplier: 1.000
 	color: "0xffffa200"
 	
@@ -45,5 +46,17 @@
 	
 	}
 	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

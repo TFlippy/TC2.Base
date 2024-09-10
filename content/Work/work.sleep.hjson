@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Sleep"
 	name_short: "Sleep"
 	desc:
@@ -16,7 +16,7 @@
 	
 	flags: passive
 	tags: manual, simple, leisure, wip
-	cooldown: 0.350
+	cooldown: 0.500
 	multiplier: 1.000
 	color: "0xff4e5570"
 	
@@ -28,6 +28,11 @@
 	
 	equipment_required: bed
 	equipment_optional: none
+	
+	filter_environment:
+	{
+		exclude: airtight, polluted, toxic, scary, noisy
+	}
 	
 	character_traits:
 	{
@@ -50,4 +55,11 @@
 	sound_dist: 1.000
 	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

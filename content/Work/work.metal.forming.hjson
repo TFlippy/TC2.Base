@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Assembling"
 	name_short: "Assembling"
 	desc:
@@ -14,8 +14,9 @@
 		frame: [8, 0]
 	}
 	
+	flags: none
 	tags: manual, machine, tools, technical, construction, industrial, wip
-	cooldown: 0.350
+	cooldown: 0.500
 	multiplier: 1.000
 	color: "0xffffa200"
 	
@@ -46,12 +47,17 @@
 		dexterity: 0.500
 	}
 	
-	sounds:
-	[
-		work_assembly_00
-		work_assembly_01
-		work_assembly_02
-		work_assembly_03
-		work_assembly_04
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }
