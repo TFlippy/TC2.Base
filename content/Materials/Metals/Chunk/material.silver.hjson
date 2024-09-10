@@ -46,7 +46,7 @@
 		// kg/m³ (STP)
 		density_liquid: 9319.999
 		// kg/m³
-		density_solid: 0.000
+		density_solid: 10490.000
 		
 		// K (STP)
 		melting_point: 1234.930

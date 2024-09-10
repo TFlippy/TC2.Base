@@ -76,18 +76,22 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
+		type: metal
+		flags: none
+		tags: none
+		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.05497
-		// kg/m³
+		// kg/m³ (STP)
 		density: 7812.000
-		// kg/m³
+		// kg/m³ (STP)
 		density_liquid: 0.000
 		// kg/m³
 		density_solid: 7812.000
 		
-		// K at 1 bar
+		// K (STP)
 		melting_point: 1811.000
-		// K at 1 bar
+		// K (STP)
 		boiling_point: 3143.000
 		
 		// K

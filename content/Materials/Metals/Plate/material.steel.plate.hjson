@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Steel Plate"
 	description:
 		'''
@@ -76,18 +76,38 @@
 	// Properties of the material, see https://periodictable.com/index.html.
 	substance:
 	{
-		// Molar mass in kg/mol (for elements, use atomic mass)
+		type: metal
+		flags: none
+		tags: none
+		
+		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.05497
-		// kg/m³
+		// kg/m³ (STP)
 		density: 7812.000
+		// kg/m³ (STP)
+		density_liquid: 0.000
+		// kg/m³
+		density_solid: 0.000
+		
+		// K (STP)
+		melting_point: 1811.000
+		// K (STP)
+		boiling_point: 3143.000
+		
+		// K
+		critical_point_temperature: 0.000
+		// K
+		triple_point_temperature: 0.000
+		
+		// bar
+		critical_point_pressure: 0.000
+		// bar
+		triple_point_pressure: 0.000
+		
 		// kJ/(kg*K)
 		specific_heat: 490.000
 		// kW/(m*K)
 		thermal_conductivity: 43.000
-		// K
-		melting_point: 1811.000
-		// K
-		boiling_point: 3143.000
 	}
 	
 	// Conversions into other materials.
@@ -96,16 +116,12 @@
 		bullet_ac:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.820
 			ratio_extra: 0.100
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -117,20 +133,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.920
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		pickaxe:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.120
 			ratio_extra: 0.200
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -142,20 +158,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.540
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		blunt:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.180
 			ratio_extra: 0.300
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -167,20 +183,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.250
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		club:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.200
 			ratio_extra: 0.500
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -192,20 +208,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.140
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		axe:
 		{
 			h_material: scrap.steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, pickup
-			spawn_flags_waste: none
-			
 			ratio: 0.220
 			ratio_extra: 0.400
 			
+			h_material_waste: "null"
+			spawn_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -217,20 +233,20 @@
 			sound_pitch: 0.000
 			
 			chance: 0.660
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		phlogiston:
 		{
 			h_material: steel
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.910
 			ratio_extra: 0.060
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -242,6 +258,10 @@
 			sound_pitch: 0.440
 			
 			chance: 0.575
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	
