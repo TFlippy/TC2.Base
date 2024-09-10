@@ -36,11 +36,12 @@
 	substance:
 	{
 		type: element
+		atomic_number: 79
 		flags: none
-		tags: none
+		tags: pure, crytalline, metallic
 		
 		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.196967
+		molar_mass: 0.197
 		// kg/m³ (STP)
 		density: 19300.000
 		// kg/m³ (STP)

@@ -36,8 +36,9 @@
 	substance:
 	{
 		type: element
+		atomic_number: 29
 		flags: none
-		tags: none
+		tags: pure, crytalline, metallic
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.063546

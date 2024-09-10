@@ -36,20 +36,21 @@
 	substance:
 	{
 		type: alloy
+		atomic_number: 0
 		flags: none
-		tags: none
+		tags: crytalline, metallic
 		
 		// kg/mol (use atomic mass for elements)
-		molar_mass: 1.000
+		molar_mass: 0.309455
 		// kg/m³ (STP)
-		density: 0.000
+		density: 21872.490
 		// kg/m³ (STP)
-		density_liquid: 0.000
+		density_liquid: 3860.492
 		// kg/m³
-		density_solid: 0.000
+		density_solid: 21872.490
 		
 		// K (STP)
-		melting_point: 0.000
+		melting_point: 2412.397
 		// K (STP)
 		boiling_point: 0.000
 		

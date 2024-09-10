@@ -77,15 +77,16 @@
 	substance:
 	{
 		type: mixture
+		atomic_number: 0
 		flags: none
-		tags: none
+		tags: hydride
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.018015
 		// kg/m³ (STP)
 		density: 1685.530
 		// kg/m³ (STP)
-		density_liquid: 0.000
+		density_liquid: 1685.530
 		// kg/m³
 		density_solid: 0.000
 		

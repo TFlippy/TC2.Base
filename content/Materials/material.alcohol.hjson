@@ -129,6 +129,7 @@
 	substance:
 	{
 		type: molecule
+		atomic_number: 0
 		flags: none
 		tags: none
 		
@@ -137,7 +138,7 @@
 		// kg/m³ (STP)
 		density: 785.300
 		// kg/m³ (STP)
-		density_liquid: 0.000
+		density_liquid: 785.300
 		// kg/m³
 		density_solid: 0.000
 		

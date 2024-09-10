@@ -36,8 +36,9 @@
 	substance:
 	{
 		type: alloy
+		atomic_number: 0
 		flags: none
-		tags: none
+		tags: crytalline, metallic
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.05497

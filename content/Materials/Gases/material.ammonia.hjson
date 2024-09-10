@@ -74,8 +74,9 @@
 	substance:
 	{
 		type: molecule
+		atomic_number: 0
 		flags: none
-		tags: none
+		tags: hydride
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.017031

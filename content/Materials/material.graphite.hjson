@@ -36,8 +36,9 @@
 	substance:
 	{
 		type: allotrope
+		atomic_number: 6
 		flags: none
-		tags: none
+		tags: pure
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.012011

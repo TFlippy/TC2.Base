@@ -74,8 +74,9 @@
 	substance:
 	{
 		type: element
-		flags: none
-		tags: none
+		atomic_number: 17
+		flags: diatomic
+		tags: pure
 		
 		// kg/mol (use atomic mass for elements)
 		molar_mass: 0.03545

@@ -36,22 +36,23 @@
 	substance:
 	{
 		type: molecule
+		atomic_number: 0
 		flags: none
-		tags: none
+		tags: oxide
 		
 		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.000
+		molar_mass: 0.101
 		// kg/m³ (STP)
-		density: 0.000
+		density: 3987.000
 		// kg/m³ (STP)
 		density_liquid: 0.000
 		// kg/m³
 		density_solid: 0.000
 		
 		// K (STP)
-		melting_point: 0.000
+		melting_point: 2345.000
 		// K (STP)
-		boiling_point: 0.000
+		boiling_point: 3250.000
 		
 		// K
 		critical_point_temperature: 0.000
