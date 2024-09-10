@@ -19,14 +19,14 @@
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: none
+	hints: materials, junk, heavy, construction, industrial, wrecked, slow
 	// kg
 	mass_per_unit: 2.130
 	quantity_max: 250.000
 	prefab: resource.scrap.smirgrafit
 	
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff403a39"
+	color_gib: "0xff403a39"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"

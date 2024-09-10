@@ -27,8 +27,8 @@
 	quantity_max: 1000.000
 	prefab: resource.smirglum.powder
 	
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff6c584b"
+	color_gib: "0xff6c584b"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"

@@ -27,8 +27,8 @@
 	quantity_max: 128.000
 	prefab: resource.iron.ingot
 	
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff62605e"
+	color_gib: "0xff62605e"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
@@ -71,43 +71,6 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
-	}
-	
-	// Properties of the material, see https://periodictable.com/index.html.
-	substance:
-	{
-		type: metal
-		flags: none
-		tags: none
-		
-		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.055845
-		// kg/m³ (STP)
-		density: 7874.000
-		// kg/m³ (STP)
-		density_liquid: 0.000
-		// kg/m³
-		density_solid: 0.000
-		
-		// K (STP)
-		melting_point: 1811.000
-		// K (STP)
-		boiling_point: 3134.000
-		
-		// K
-		critical_point_temperature: 0.000
-		// K
-		triple_point_temperature: 0.000
-		
-		// bar
-		critical_point_pressure: 0.000
-		// bar
-		triple_point_pressure: 0.000
-		
-		// kJ/(kg*K)
-		specific_heat: 0.449
-		// kW/(m*K)
-		thermal_conductivity: 0.079
 	}
 	
 	// Component materials.

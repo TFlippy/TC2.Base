@@ -26,8 +26,8 @@
 	quantity_max: 1000.000
 	prefab: resource.steel.powder
 	
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xffc0c6ac"
+	color_gib: "0xffc0c6ac"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
