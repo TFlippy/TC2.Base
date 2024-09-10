@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Paper"
 	description:
 		'''
@@ -77,16 +77,12 @@
 		phlogiston:
 		{
 			h_material: ash
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.050
 			ratio_extra: 0.085
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -98,20 +94,20 @@
 			sound_pitch: 1.280
 			
 			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		fire:
 		{
 			h_material: ash
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.050
 			ratio_extra: 0.085
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -123,20 +119,20 @@
 			sound_pitch: 1.280
 			
 			chance: 0.700
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 		wet:
 		{
 			h_material: pulp
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: no_mass_conversion
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.850
 			ratio_extra: 0.150
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -148,6 +144,10 @@
 			sound_pitch: 1.280
 			
 			chance: 0.700
+			type: undefined
+			flags: no_mass_conversion
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "HW-106.7mm/IN Ammo"
 	description:
 		'''
@@ -47,6 +47,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 1.000
+		speed_jitter: 0.020
 		spin_base: 0.040
 		spin_mult: 1.000
 		spread_mult: 1.450

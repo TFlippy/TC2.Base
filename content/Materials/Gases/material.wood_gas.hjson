@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Wood Gas"
 	description:
 		'''
@@ -35,6 +35,7 @@
 	{
 		// TODO: Desc
 		type: gas
+		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
 		energy_combustion: 6800.000
 		// Ratio of produced exhaust gas and leftover ashes.
@@ -43,6 +44,7 @@
 		flammability: 1.291
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 0.180
+		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 2480.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
@@ -77,6 +79,7 @@
 		sulfur_ratio: 0.028
 		// Percentage of water.
 		water_ratio: 0.318
+		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Rocket Ammo (Standard)"
 	description:
 		'''
@@ -46,6 +46,7 @@
 		
 		speed_base: 0.000
 		speed_mult: 1.000
+		speed_jitter: 0.020
 		spin_base: 0.100
 		spin_mult: 3.000
 		spread_mult: 3.500

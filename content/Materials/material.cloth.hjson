@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Cloth"
 	description:
 		'''
@@ -77,16 +77,12 @@
 		phlogiston:
 		{
 			h_material: ash
-			h_material_waste: "null"
-			
-			type: undefined
-			flags: none
 			spawn_flags: merge, no_offset
-			spawn_flags_waste: merge, no_offset
-			
 			ratio: 0.150
 			ratio_extra: 0.815
 			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
 			ratio_waste: 0.100
 			ratio_waste_extra: 0.400
 			
@@ -98,6 +94,10 @@
 			sound_pitch: 1.280
 			
 			chance: 0.650
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 		}
 	}
 	

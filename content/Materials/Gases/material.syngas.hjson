@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Syngas"
 	description:
 		'''
@@ -74,6 +74,7 @@
 	{
 		// TODO: Desc
 		type: gas
+		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
 		energy_combustion: 31000.000
 		// Ratio of produced exhaust gas and leftover ashes.
@@ -82,6 +83,7 @@
 		flammability: 11.000
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
 		decay_rate: 1.150
+		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 2950.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
@@ -116,6 +118,7 @@
 		sulfur_ratio: 0.000
 		// Percentage of water.
 		water_ratio: 0.000
+		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []
