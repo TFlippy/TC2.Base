@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Slimy Mortar"
 	desc:
 		'''
@@ -49,12 +49,14 @@
 			material: insect
 			amount: 18.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: plants
 			amount: 35.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -64,18 +66,19 @@
 			snapping: 5.000
 			falloff: 0.500
 			group: 0
+			flags: conditional
 		}
 		{
 			type: resource
 			material: soil
 			amount: 5.000
-			group: 0
+			group: 1
 		}
 		{
 			type: resource
 			material: lime
 			amount: 2.000
-			group: 0
+			group: 1
 		}
 		{
 			type: work
@@ -84,7 +87,8 @@
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.250
-			group: 0
+			group: 1
+			flags: conditional
 		}
 	]
 	

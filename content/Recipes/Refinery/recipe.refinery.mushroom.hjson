@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Mushroom Scrap Fermentation"
 	desc:
 		'''
 		Ferment some mushroom scraps into a smelly mush.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -30,22 +31,30 @@
 			type: resource
 			material: mushroom
 			amount: 1.000
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: water
 			amount: 0.800
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: sugar
 			amount: 0.040
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: refining
 			amount: 35.000
 			difficulty: 6
+			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -56,24 +65,28 @@
 			material: peat
 			amount: 0.280
 			amount_extra: 0.300
+			group: 0
 		}
 		{
 			type: resource
 			material: "null"
 			amount: 0.006
 			amount_extra: 0.260
+			group: 0
 		}
 		{
 			type: resource
 			material: alcohol
 			amount: 0.200
 			amount_extra: 0.500
+			group: 0
 		}
 		{
 			type: resource
 			material: water.dirty
 			amount: 0.400
 			amount_extra: 0.200
+			group: 0
 		}
 	]
 }

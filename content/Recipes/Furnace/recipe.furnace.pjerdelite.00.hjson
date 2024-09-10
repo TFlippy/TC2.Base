@@ -1,22 +1,21 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Pjerdelite Decomposition"
-	desc: ""
+	tips: []
 	
 	icon:
 	{
-		texture: "resource.pjerdelite"
+		texture: resource.pjerdelite
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.smirglum.gravel"
+		texture: resource.smirglum.gravel
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	
-	color_button: "0xfff34a29"
 	icon_extra_offset: [-2.000, -6.000]
 	
 	min: 100
@@ -24,8 +23,10 @@
 	step: 100
 	
 	type: crafter
-	flags: none
+	flags: disabled
 	tags: smelting
+	
+	color_button: "0xfff34a29"
 	rank: 0.000
 	
 	requirements:
@@ -33,22 +34,27 @@
 		{
 			type: temperature
 			amount: 2055.000
+			group: 0
+			flags: no_scaling
 		}
 		{
 			type: resource
-			material: "pjerdelite"
+			material: pjerdelite
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
-			material: "sand"
+			material: sand
 			amount: 0.400
+			group: 0
 		}
 		{
 			type: work
 			work: heating
 			amount: 20.000
 			difficulty: 11
+			group: 0
 		}
 	]
 	
@@ -56,21 +62,24 @@
 	[
 		{
 			type: resource
-			material: "smirglum.gravel"
+			material: smirglum.gravel
 			amount: 1.174
 			amount_extra: 0.570
+			group: 0
 		}
 		{
 			type: resource
-			material: "cement"
+			material: cement
 			amount: 2.058
 			amount_extra: 1.470
+			group: 0
 		}
 		{
 			type: resource
-			material: "slag"
+			material: slag
 			amount: 0.542
 			amount_extra: 0.770
+			group: 0
 		}
 	]
 }

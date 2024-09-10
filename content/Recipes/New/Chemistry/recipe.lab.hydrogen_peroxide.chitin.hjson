@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Chitin-based Hydrogen Peroxide"
 	desc:
 		'''
@@ -46,25 +46,29 @@
 			type: resource
 			material: chitin
 			amount: 8.000
-			group: 1
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: saltpeter
 			amount: 3.000
-			group: 1
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mushroom.blue
 			amount: 2.000
-			group: 1
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: water.clean
 			amount: 10.000
-			group: 1
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -82,7 +86,7 @@
 			amount_min: 580.000
 			amount_max: 800.000
 			group: 2
-			flags: no_scaling, always_evaluate, group_evaluate
+			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work

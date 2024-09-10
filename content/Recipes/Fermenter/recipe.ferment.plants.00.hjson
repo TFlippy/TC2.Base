@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Fermented Plants"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -47,17 +48,23 @@
 			type: resource
 			material: plants
 			amount: 25.000
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mushroom
 			amount: 10.000
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: fermenting
 			amount: 120.000
 			difficulty: 4
+			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -68,6 +75,7 @@
 			material: compost
 			amount: 9.945
 			amount_extra: 1.71075
+			group: 0
 			flags: residue
 		}
 		{
@@ -75,6 +83,7 @@
 			material: rot
 			amount: 2.445
 			amount_extra: 1.5995
+			group: 0
 			flags: waste
 		}
 		{
@@ -82,16 +91,16 @@
 			material: alcohol
 			amount: 0.8085
 			amount_extra: 3.531
-			flags: byproduct
 			group: 1
+			flags: byproduct
 		}
 		{
 			type: resource
 			material: biogas
 			amount: 55.611
 			amount_extra: 12.7735
-			flags: byproduct, spawn
 			group: 2
+			flags: byproduct, spawn
 		}
 	]
 }

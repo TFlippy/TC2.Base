@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Rucksack"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: workbench, tailoring, manual
+	tags: workbench, manual, tailoring
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -27,6 +27,7 @@
 			material: leather
 			amount: 6.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -34,6 +35,7 @@
 			amount: 220.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -41,6 +43,7 @@
 			amount: 320.000
 			difficulty: 7
 			group: 0
+			flags: conditional
 		}
 	]
 	

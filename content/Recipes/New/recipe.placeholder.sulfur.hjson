@@ -41,6 +41,7 @@
 			material: brown_coal
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

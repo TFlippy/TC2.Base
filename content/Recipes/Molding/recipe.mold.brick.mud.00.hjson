@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Crumbly Mud Bricks"
 	desc:
 		'''
@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: simple, crude, drying, primitive, manual, passive, forming, shaping
+	tags: manual, passive, crude, primitive, simple, forming, shaping, drying
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -49,12 +49,14 @@
 			material: mud
 			amount: 0.675
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: soil
 			amount: 0.450
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -63,15 +65,16 @@
 			difficulty: 7
 			snapping: 5.000
 			falloff: 0.970
-			group: 0
+			group: 1
+			flags: conditional
 		}
 		{
 			type: work
 			work: drying
 			amount: 385.000
 			difficulty: 3
-			group: 0
-			flags: no_scaling, sequential, crafter_only
+			group: 2
+			flags: no_scaling, crafter_only, conditional
 		}
 	]
 	

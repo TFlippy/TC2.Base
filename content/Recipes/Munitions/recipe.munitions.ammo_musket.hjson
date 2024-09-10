@@ -35,6 +35,7 @@
 			amount: 0.100
 			snapping: 0.500
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -42,6 +43,7 @@
 			amount: 0.150
 			snapping: 0.500
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -49,6 +51,7 @@
 			amount: 0.025
 			snapping: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Cement-lime Mortar"
 	desc:
 		'''
@@ -38,7 +38,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, simple, manual
+	tags: workbench, manual, simple
 	
 	color_button: "0xffaeb59a"
 	rank: -156.000
@@ -50,24 +50,28 @@
 			material: lime
 			amount: 1.300
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: cement
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: sand
 			amount: 12.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: water
 			amount: 50.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -77,6 +81,7 @@
 			snapping: 5.000
 			falloff: 0.600
 			group: 0
+			flags: conditional
 		}
 	]
 	

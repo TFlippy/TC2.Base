@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Backpack"
 	tips: []
 	
@@ -15,7 +15,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: workbench, tailoring, manual
+	tags: workbench, manual, tailoring
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -27,12 +27,14 @@
 			material: cloth
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: leather
 			amount: 5.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -40,6 +42,7 @@
 			amount: 350.000
 			difficulty: 5
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -47,6 +50,7 @@
 			amount: 420.000
 			difficulty: 7
 			group: 0
+			flags: conditional
 		}
 	]
 	

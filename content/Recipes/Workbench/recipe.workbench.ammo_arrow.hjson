@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Arrows"
 	desc:
 		'''
@@ -32,18 +32,21 @@
 			material: scrap.steel
 			amount: 0.010
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: wood
 			amount: 0.03125
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: cloth
 			amount: 0.025
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -53,6 +56,7 @@
 			snapping: 5.000
 			falloff: 0.900
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -62,6 +66,7 @@
 			snapping: 5.000
 			falloff: 0.850
 			group: 0
+			flags: conditional
 		}
 	]
 	

@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Resin-Based tar"
 	desc:
 		'''
 		Turn resin into tar.
 		'''
+	tips: []
 	
 	icon:
 	{
@@ -30,12 +31,16 @@
 			type: resource
 			material: resin
 			amount: 75.000
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
 			work: refining
 			amount: 1150.000
 			difficulty: 5
+			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -46,18 +51,21 @@
 			material: tar
 			amount: 27.000
 			amount_extra: 8.000
+			group: 0
 		}
 		{
 			type: resource
 			material: lubricant
 			amount: 7.000
 			amount_extra: 4.000
+			group: 0
 		}
 		{
 			type: resource
 			material: sludge
 			amount: 10.000
 			amount_extra: 5.000
+			group: 0
 		}
 	]
 }

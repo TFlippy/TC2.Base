@@ -1,22 +1,21 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Pjerdelite Iron"
-	desc: ""
+	tips: []
 	
 	icon:
 	{
-		texture: "resource.iron.ingot"
+		texture: resource.iron.ingot
 		size: [16, 16]
 		frame: [2, 0]
 	}
 	
 	icon_extra:
 	{
-		texture: "resource.pjerdelite"
+		texture: resource.pjerdelite
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	
-	color_button: "0xfff34a29"
 	icon_extra_offset: [-4.000, -6.000]
 	
 	min: 250
@@ -24,8 +23,10 @@
 	step: 250
 	
 	type: crafter
-	flags: none
+	flags: disabled
 	tags: smelting
+	
+	color_button: "0xfff34a29"
 	rank: -150.000
 	
 	requirements:
@@ -33,22 +34,27 @@
 		{
 			type: temperature
 			amount: 1811.000
+			group: 0
+			flags: no_scaling
 		}
 		{
 			type: resource
-			material: "pjerdelite"
+			material: pjerdelite
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: resource
-			material: "scrap.ferrous"
+			material: scrap.ferrous
 			amount: 1.000
+			group: 0
 		}
 		{
 			type: work
 			work: melting
 			amount: 25.000
 			difficulty: 5
+			group: 0
 		}
 	]
 	
@@ -56,21 +62,24 @@
 	[
 		{
 			type: resource
-			material: "iron.ingot"
+			material: iron.ingot
 			amount: 0.400
 			amount_extra: 0.200
+			group: 0
 		}
 		{
 			type: resource
-			material: "smirglum.ore"
+			material: "null"
 			amount: 0.245
 			amount_extra: 0.200
+			group: 0
 		}
 		{
 			type: resource
-			material: "slag.rich"
+			material: slag.rich
 			amount: 0.315
 			amount_extra: 0.220
+			group: 0
 		}
 	]
 }

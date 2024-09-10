@@ -35,12 +35,14 @@
 			material: nitroglycerine
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: sawdust
 			amount: 6.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

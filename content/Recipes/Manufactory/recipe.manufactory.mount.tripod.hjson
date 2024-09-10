@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Tripod"
 	tips: []
 	
@@ -26,12 +26,14 @@
 			material: steel.frames
 			amount: 15.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 12.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

@@ -52,6 +52,7 @@
 			material: steel.powder
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: temperature
