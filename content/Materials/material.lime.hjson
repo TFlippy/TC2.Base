@@ -109,6 +109,8 @@
 		thermal_conductivity: 0.000
 	}
 	
+	h_substance: quicklime
+	
 	// Component materials.
 	composition: []
 }

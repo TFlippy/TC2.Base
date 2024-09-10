@@ -163,6 +163,8 @@
 		thermal_conductivity: 0.000167
 	}
 	
+	h_substance: alcohol
+	
 	// Component materials.
 	composition: []
 }

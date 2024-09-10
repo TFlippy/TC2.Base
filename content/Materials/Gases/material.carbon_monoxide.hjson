@@ -69,6 +69,8 @@
 		thermal_conductivity: 0.000024
 	}
 	
+	h_substance: carbon_monoxide
+	
 	// Component materials.
 	composition: []
 }

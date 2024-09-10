@@ -162,6 +162,8 @@
 		thermal_conductivity: 0.1805
 	}
 	
+	h_substance: hydrogen
+	
 	// Component materials.
 	composition: []
 }

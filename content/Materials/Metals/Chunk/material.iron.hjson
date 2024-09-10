@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.079
 	}
 	
+	h_substance: iron
+	
 	// Conversions into other materials.
 	conversions:
 	{

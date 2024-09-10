@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.320
 	}
 	
+	h_substance: gold
+	
 	// Component materials.
 	composition: []
 }

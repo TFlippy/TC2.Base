@@ -108,6 +108,8 @@
 		thermal_conductivity: 0.000024
 	}
 	
+	h_substance: ammonia
+	
 	// Component materials.
 	composition: []
 }

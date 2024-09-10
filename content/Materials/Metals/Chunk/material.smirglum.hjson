@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.097127
 	}
 	
+	h_substance: smirglum
+	
 	// Conversions into other materials.
 	conversions:
 	{

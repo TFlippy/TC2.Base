@@ -113,6 +113,8 @@
 		thermal_conductivity: 0.000598
 	}
 	
+	h_substance: water
+	
 	// Component materials.
 	composition: []
 }

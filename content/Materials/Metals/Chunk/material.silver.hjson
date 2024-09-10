@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.430
 	}
 	
+	h_substance: silver
+	
 	// Component materials.
 	composition: []
 }

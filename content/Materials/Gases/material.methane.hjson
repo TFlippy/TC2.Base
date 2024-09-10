@@ -162,6 +162,8 @@
 		thermal_conductivity: 0.0344
 	}
 	
+	h_substance: methane
+	
 	// Component materials.
 	composition: []
 }

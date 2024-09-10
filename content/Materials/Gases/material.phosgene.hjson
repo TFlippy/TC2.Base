@@ -108,6 +108,8 @@
 		thermal_conductivity: 0.000
 	}
 	
+	h_substance: phosgene
+	
 	// Component materials.
 	composition: []
 }

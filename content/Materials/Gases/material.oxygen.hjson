@@ -108,6 +108,8 @@
 		thermal_conductivity: 0.02658
 	}
 	
+	h_substance: oxygen
+	
 	// Component materials.
 	composition: []
 }

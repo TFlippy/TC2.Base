@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.043
 	}
 	
+	h_substance: steel
+	
 	// Conversions into other materials.
 	conversions:
 	{

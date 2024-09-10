@@ -108,6 +108,8 @@
 		thermal_conductivity: 0.204
 	}
 	
+	h_substance: sulfur_dioxide
+	
 	// Component materials.
 	composition: []
 }

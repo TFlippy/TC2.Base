@@ -111,6 +111,8 @@
 		thermal_conductivity: 0.000
 	}
 	
+	h_substance: hydrogen_peroxide
+	
 	// Component materials.
 	composition: []
 }

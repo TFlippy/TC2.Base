@@ -124,6 +124,8 @@
 		thermal_conductivity: 0.000
 	}
 	
+	h_substance: naphtha
+	
 	// Component materials.
 	composition: []
 }

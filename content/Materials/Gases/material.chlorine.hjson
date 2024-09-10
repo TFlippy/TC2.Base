@@ -108,6 +108,8 @@
 		thermal_conductivity: 0.0089
 	}
 	
+	h_substance: chlorine
+	
 	// Component materials.
 	composition: []
 }

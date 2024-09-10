@@ -70,6 +70,8 @@
 		thermal_conductivity: 0.235
 	}
 	
+	h_substance: aluminium
+	
 	// Component materials.
 	composition: []
 }
