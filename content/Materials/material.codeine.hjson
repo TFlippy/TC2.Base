@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: codeine
+	purity: 0.893
 	
 	// Component materials.
 	composition: []

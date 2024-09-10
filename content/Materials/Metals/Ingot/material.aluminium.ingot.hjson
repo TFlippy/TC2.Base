@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: aluminium
+	purity: 0.963
 	
 	// Conversions into other materials.
 	conversions:

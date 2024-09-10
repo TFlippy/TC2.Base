@@ -71,6 +71,7 @@
 	}
 	
 	h_substance: oxygen
+	purity: 0.973
 	
 	// Component materials.
 	composition: []

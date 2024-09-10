@@ -71,6 +71,7 @@
 	}
 	
 	h_substance: chlorine
+	purity: 0.821
 	
 	// Component materials.
 	composition: []

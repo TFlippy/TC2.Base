@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: aluminium
+	purity: 0.991
 	
 	// Conversions into other materials.
 	conversions:

@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: silver
+	purity: 0.980
 	
 	// Component materials.
 	composition: []

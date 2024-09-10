@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: copper
+	purity: 0.852
 	
 	// Component materials.
 	composition: []

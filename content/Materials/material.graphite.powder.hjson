@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: graphite
+	purity: 0.986
 	
 	// Component materials.
 	composition: []

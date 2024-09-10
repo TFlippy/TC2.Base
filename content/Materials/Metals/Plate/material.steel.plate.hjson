@@ -74,6 +74,7 @@
 	}
 	
 	h_substance: steel
+	purity: 0.956
 	
 	// Conversions into other materials.
 	conversions:

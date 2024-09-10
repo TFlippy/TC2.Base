@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: paxilon
+	purity: 0.948
 	
 	// Component materials.
 	composition: []

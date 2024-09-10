@@ -71,6 +71,7 @@
 	}
 	
 	h_substance: sulfur_dioxide
+	purity: 0.889
 	
 	// Component materials.
 	composition: []

@@ -74,6 +74,7 @@
 	}
 	
 	h_substance: steel
+	purity: 0.978
 	
 	// Component materials.
 	composition: []

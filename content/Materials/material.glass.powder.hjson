@@ -32,6 +32,9 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	h_substance: glass
+	purity: 0.927
+	
 	// Component materials.
 	composition: []
 }

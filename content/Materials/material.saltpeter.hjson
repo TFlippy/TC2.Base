@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: saltpeter
+	purity: 0.788
 	
 	// Component materials.
 	composition: []

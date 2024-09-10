@@ -74,6 +74,7 @@
 	}
 	
 	h_substance: hydrogen_peroxide
+	purity: 0.647
 	
 	// Component materials.
 	composition: []

@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: morphine
+	purity: 0.804
 	
 	// Component materials.
 	composition: []

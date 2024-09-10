@@ -32,6 +32,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: carbon_monoxide
+	purity: 0.869
 	
 	// Component materials.
 	composition: []

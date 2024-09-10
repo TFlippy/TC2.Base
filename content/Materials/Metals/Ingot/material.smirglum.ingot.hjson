@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: smirglum
+	purity: 0.983
 	
 	// Component materials.
 	composition: []

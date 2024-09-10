@@ -125,6 +125,7 @@
 	}
 	
 	h_substance: methane
+	purity: 0.919
 	
 	// Component materials.
 	composition: []

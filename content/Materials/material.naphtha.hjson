@@ -87,6 +87,7 @@
 	}
 	
 	h_substance: naphtha
+	purity: 0.706
 	
 	// Component materials.
 	composition: []

@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: copper
+	purity: 0.979
 	
 	// Conversions into other materials.
 	conversions:

@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: sulfuric_acid
+	purity: 0.767
 	
 	// Component materials.
 	composition: []

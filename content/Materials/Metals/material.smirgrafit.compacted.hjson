@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: smirgrafit
+	purity: 0.975
 	
 	// Component materials.
 	composition: []

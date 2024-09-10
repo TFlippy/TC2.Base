@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: smirgrafit
+	purity: 0.949
 	
 	// Component materials.
 	composition: []

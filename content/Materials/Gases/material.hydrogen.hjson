@@ -125,6 +125,7 @@
 	}
 	
 	h_substance: hydrogen
+	purity: 0.973
 	
 	// Component materials.
 	composition: []

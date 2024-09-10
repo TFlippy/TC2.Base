@@ -71,6 +71,7 @@
 	}
 	
 	h_substance: ammonia
+	purity: 0.874
 	
 	// Component materials.
 	composition: []

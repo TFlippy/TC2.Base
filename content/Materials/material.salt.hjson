@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: salt
+	purity: 0.789
 	
 	// Component materials.
 	composition: []

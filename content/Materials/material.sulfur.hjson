@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: sulfur
+	purity: 0.962
 	
 	// Conversions into other materials.
 	conversions:

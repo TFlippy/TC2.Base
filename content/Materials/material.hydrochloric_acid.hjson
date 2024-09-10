@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: hydrochloric_acid
+	purity: 0.822
 	
 	// Component materials.
 	composition: []

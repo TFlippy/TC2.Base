@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: steel
+	purity: 0.953
 	
 	// Conversions into other materials.
 	conversions:

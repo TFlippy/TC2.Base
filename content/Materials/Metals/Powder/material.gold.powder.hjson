@@ -74,6 +74,7 @@
 	}
 	
 	h_substance: gold
+	purity: 0.998
 	
 	// Component materials.
 	composition: []

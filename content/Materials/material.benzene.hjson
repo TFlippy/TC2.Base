@@ -87,6 +87,7 @@
 	}
 	
 	h_substance: benzene
+	purity: 0.864
 	
 	// Component materials.
 	composition: []

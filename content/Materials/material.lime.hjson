@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: lime
+	purity: 0.811
 	
 	// Component materials.
 	composition: []

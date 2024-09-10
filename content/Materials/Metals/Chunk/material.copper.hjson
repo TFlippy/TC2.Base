@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: copper
+	purity: 0.979
 	
 	// Conversions into other materials.
 	conversions:

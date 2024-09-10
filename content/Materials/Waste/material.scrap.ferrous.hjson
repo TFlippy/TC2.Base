@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: iron
+	purity: 0.485
 	
 	// Component materials.
 	composition: []

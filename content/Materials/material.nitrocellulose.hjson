@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: nitrocellulose
+	purity: 0.883
 	
 	// Component materials.
 	composition: []

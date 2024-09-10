@@ -151,6 +151,7 @@
 	}
 	
 	h_substance: phlogiston
+	purity: 1.000
 	
 	// Component materials.
 	composition: []

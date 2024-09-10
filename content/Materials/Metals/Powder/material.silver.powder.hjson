@@ -74,6 +74,7 @@
 	}
 	
 	h_substance: silver
+	purity: 0.991
 	
 	// Component materials.
 	composition: []

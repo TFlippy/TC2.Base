@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: nitroglycerine
+	purity: 0.873
 	
 	// Component materials.
 	composition: []

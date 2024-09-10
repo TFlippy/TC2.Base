@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: nitric_acid
+	purity: 0.828
 	
 	// Component materials.
 	composition: []

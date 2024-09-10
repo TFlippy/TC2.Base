@@ -72,6 +72,7 @@
 	}
 	
 	h_substance: recondite
+	purity: 0.995
 	
 	// Component materials.
 	composition: []

@@ -126,6 +126,7 @@
 	}
 	
 	h_substance: alcohol
+	purity: 0.877
 	
 	// Component materials.
 	composition: []

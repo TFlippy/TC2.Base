@@ -71,6 +71,7 @@
 	}
 	
 	h_substance: phosgene
+	purity: 0.886
 	
 	// Component materials.
 	composition: []

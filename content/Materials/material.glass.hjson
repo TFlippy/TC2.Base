@@ -67,6 +67,9 @@
 		quantity_industry: 0.000
 	}
 	
+	h_substance: glass
+	purity: 0.982
+	
 	// Conversions into other materials.
 	conversions:
 	{
