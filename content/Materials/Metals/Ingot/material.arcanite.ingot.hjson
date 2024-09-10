@@ -71,6 +71,8 @@
 		quantity_industry: 0.000
 	}
 	
+	h_substance: arcanite
+	
 	// Component materials.
 	composition: []
 }

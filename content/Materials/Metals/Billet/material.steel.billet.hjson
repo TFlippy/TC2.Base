@@ -73,6 +73,8 @@
 		quantity_industry: 400.000
 	}
 	
+	h_substance: steel
+	
 	// Component materials.
 	composition: []
 }

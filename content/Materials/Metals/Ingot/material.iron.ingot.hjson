@@ -73,6 +73,8 @@
 		quantity_industry: 0.000
 	}
 	
+	h_substance: iron
+	
 	// Component materials.
 	composition: []
 }

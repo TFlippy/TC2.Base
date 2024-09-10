@@ -71,6 +71,8 @@
 		quantity_industry: 0.000
 	}
 	
+	h_substance: smirglum
+	
 	// Component materials.
 	composition: []
 }

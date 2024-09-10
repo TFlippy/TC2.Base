@@ -71,6 +71,8 @@
 		quantity_industry: 0.000
 	}
 	
+	h_substance: copper
+	
 	// Conversions into other materials.
 	conversions:
 	{

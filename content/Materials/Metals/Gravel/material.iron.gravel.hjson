@@ -33,6 +33,8 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	h_substance: "null"
+	
 	// Component materials.
 	composition: []
 }
