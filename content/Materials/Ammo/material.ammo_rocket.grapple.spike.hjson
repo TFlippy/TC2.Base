@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Grappling Gun Ammo"
 	description:
 		'''
@@ -52,7 +52,7 @@
 		stability_base: 50.000
 		stability_mult: 1.000
 		
-		prefab: ""
+		prefab: projectile.rp.grapple.spike
 		casing_scale: 1.000
 	}
 	

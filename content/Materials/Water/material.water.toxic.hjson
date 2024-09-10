@@ -17,7 +17,7 @@
 	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, toxic, chemical, bottled, raw
+	flags: liquid, toxic, chemical, bottled, corrosive, raw, waste, processed, impure, contaminated, acidic, smelly
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: toxic
 	display_flags: none
