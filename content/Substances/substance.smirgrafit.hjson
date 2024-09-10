@@ -1,10 +1,11 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Smirgrafit"
 	description:
 		'''
 		TODO: Desc
 		'''
-	type: composite
+	type: metal_matrix
 	atomic_number: 0
 	flags: none
 	tags: carbide

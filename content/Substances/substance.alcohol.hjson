@@ -1,10 +1,11 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Alcohol"
 	description:
 		'''
 		Industrial alcohol, used as a disinfectant and solvent.
 		'''
-	type: molecule
+	type: mixture
 	atomic_number: 0
 	flags: none
 	tags: none

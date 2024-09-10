@@ -1,11 +1,12 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Phosphorus"
 	description:
 		'''
 		TODO: Desc
 		'''
 	type: element
-	atomic_number: 0
+	atomic_number: 15
 	flags: none
 	tags: none
 	

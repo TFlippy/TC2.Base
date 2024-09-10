@@ -1,11 +1,12 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Sulfur"
 	description:
 		'''
 		Widely used in chemistry.
 		'''
 	type: element
-	atomic_number: 0
+	atomic_number: 16
 	flags: none
 	tags: none
 	

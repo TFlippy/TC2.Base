@@ -1,10 +1,11 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Lime"
 	description:
 		'''
 		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.
 		'''
-	type: molecule
+	type: mineral
 	atomic_number: 0
 	flags: none
 	tags: none

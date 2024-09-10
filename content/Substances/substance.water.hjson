@@ -1,5 +1,6 @@
 ﻿{
-	name: "Water (Raw)"
+	$version: "0.1.61.4"
+	name: "Water"
 	description:
 		'''
 		Water, raw freshwater.

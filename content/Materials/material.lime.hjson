@@ -71,7 +71,7 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: quicklime
+	h_substance: lime
 	
 	// Component materials.
 	composition: []
