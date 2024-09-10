@@ -70,44 +70,6 @@
 		quantity_industry: 0.000
 	}
 	
-	// Properties of the material, see https://periodictable.com/index.html.
-	substance:
-	{
-		type: element
-		atomic_number: 8
-		flags: diatomic
-		tags: pure
-		
-		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.015999
-		// kg/m³ (STP)
-		density: 1.429
-		// kg/m³ (STP)
-		density_liquid: 0.000
-		// kg/m³
-		density_solid: 0.000
-		
-		// K (STP)
-		melting_point: 54.800
-		// K (STP)
-		boiling_point: 90.200
-		
-		// K
-		critical_point_temperature: 0.000
-		// K
-		triple_point_temperature: 0.000
-		
-		// bar
-		critical_point_pressure: 0.000
-		// bar
-		triple_point_pressure: 0.000
-		
-		// kJ/(kg*K)
-		specific_heat: 919.000
-		// kW/(m*K)
-		thermal_conductivity: 0.02658
-	}
-	
 	h_substance: oxygen
 	
 	// Component materials.

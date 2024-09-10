@@ -70,44 +70,6 @@
 		quantity_industry: 0.000
 	}
 	
-	// Properties of the material, see https://periodictable.com/index.html.
-	substance:
-	{
-		type: element
-		atomic_number: 17
-		flags: diatomic
-		tags: pure
-		
-		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.03545
-		// kg/m³ (STP)
-		density: 3.214
-		// kg/m³ (STP)
-		density_liquid: 0.000
-		// kg/m³
-		density_solid: 0.000
-		
-		// K (STP)
-		melting_point: 171.600
-		// K (STP)
-		boiling_point: 239.110
-		
-		// K
-		critical_point_temperature: 0.000
-		// K
-		triple_point_temperature: 0.000
-		
-		// bar
-		critical_point_pressure: 0.000
-		// bar
-		triple_point_pressure: 0.000
-		
-		// kJ/(kg*K)
-		specific_heat: 478.200
-		// kW/(m*K)
-		thermal_conductivity: 0.0089
-	}
-	
 	h_substance: chlorine
 	
 	// Component materials.

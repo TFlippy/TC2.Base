@@ -32,44 +32,6 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
-	// Properties of the material, see https://periodictable.com/index.html.
-	substance:
-	{
-		type: element
-		atomic_number: 47
-		flags: none
-		tags: pure, crytalline, metallic
-		
-		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.107868
-		// kg/m³ (STP)
-		density: 10490.000
-		// kg/m³ (STP)
-		density_liquid: 9319.999
-		// kg/m³
-		density_solid: 10490.000
-		
-		// K (STP)
-		melting_point: 1234.930
-		// K (STP)
-		boiling_point: 2435.000
-		
-		// K
-		critical_point_temperature: 0.000
-		// K
-		triple_point_temperature: 0.000
-		
-		// bar
-		critical_point_pressure: 0.000
-		// bar
-		triple_point_pressure: 0.000
-		
-		// kJ/(kg*K)
-		specific_heat: 0.235
-		// kW/(m*K)
-		thermal_conductivity: 0.430
-	}
-	
 	h_substance: silver
 	
 	// Component materials.
