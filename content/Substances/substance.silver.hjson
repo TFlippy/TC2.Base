@@ -36,13 +36,13 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	forging_temperature_lower: 0.000
+	forging_temperature_lower: 617.465
 	// K
-	forging_temperature_upper: 0.000
+	forging_temperature_upper: 1111.437
 	// K
-	sintering_temperature_lower: 0.000
+	sintering_temperature_lower: 561.684
 	// K
-	sintering_temperature_upper: 0.000
+	sintering_temperature_upper: 898.307
 	
 	// kJ/mol
 	heat_of_fusion: 11.300

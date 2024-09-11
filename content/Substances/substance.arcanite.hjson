@@ -35,10 +35,21 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 1032.985
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 1859.373
+	// K
+	sintering_temperature_lower: 730.996
+	// K
+	sintering_temperature_upper: 1238.483
 	
+	// kJ/mol
+	heat_of_fusion: 0.000
+	// kJ/mol
+	heat_of_vaporization: 0.000
+	
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.124478
 	// kW/(m*K)
