@@ -8,7 +8,7 @@
 	type: mixture
 	atomic_number: 0
 	flags: none
-	tags: none
+	tags: liquid
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.04408
@@ -33,6 +33,11 @@
 	critical_point_pressure: 0.000
 	// bar
 	triple_point_pressure: 0.000
+	
+	// K
+	sintering_temperature_min: 0.000
+	// K
+	sintering_temperature_max: 0.000
 	
 	// kJ/(kg*K)
 	specific_heat: 2.570

@@ -1,4 +1,5 @@
 ﻿{
+	$version: "0.1.61.4"
 	name: "Morphine"
 	description:
 		'''
@@ -7,7 +8,7 @@
 	type: molecule
 	atomic_number: 0
 	flags: none
-	tags: none
+	tags: liquid
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.000
@@ -32,6 +33,11 @@
 	critical_point_pressure: 0.000
 	// bar
 	triple_point_pressure: 0.000
+	
+	// K
+	sintering_temperature_min: 0.000
+	// K
+	sintering_temperature_max: 0.000
 	
 	// kJ/(kg*K)
 	specific_heat: 0.000

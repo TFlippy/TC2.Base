@@ -12,7 +12,7 @@
 	type: molecule
 	atomic_number: 0
 	flags: none
-	tags: hydride
+	tags: hydride, liquid
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.018015
@@ -37,6 +37,11 @@
 	critical_point_pressure: 220.640
 	// bar
 	triple_point_pressure: 0.611
+	
+	// K
+	sintering_temperature_min: 0.000
+	// K
+	sintering_temperature_max: 0.000
 	
 	// kJ/(kg*K)
 	specific_heat: 4.184

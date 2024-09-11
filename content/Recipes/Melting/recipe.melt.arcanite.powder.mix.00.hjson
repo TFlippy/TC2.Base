@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Arcanite Powder"
+	name: "Alloy Arcanite"
 	desc:
 		'''
 		TODO: Desc
@@ -56,8 +56,7 @@
 		}
 		{
 			type: temperature
-			amount: 1744.000
-			amount_min: 1444.000
+			amount: 0.000
 			group: 1
 			flags: no_scaling, always_evaluate
 		}

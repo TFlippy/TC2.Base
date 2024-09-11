@@ -40,7 +40,7 @@
 		{
 			type: work
 			work: assembling
-			amount: 475.000
+			amount: 300.000
 			difficulty: 4
 			group: 1
 		}
