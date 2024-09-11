@@ -16,9 +16,9 @@
 	// kg/m³ (STP)
 	density: 5727.000
 	// kg/m³ (STP)
-	density_liquid: 0.000
+	density_liquid: 5727.000
 	// kg/m³
-	density_solid: 0.000
+	density_solid: 5727.000
 	
 	// K (STP)
 	melting_point: 1090.000
@@ -49,8 +49,6 @@
 	// kJ/mol
 	heat_of_vaporization: 32.400
 	
-	// kJ/(mol*K)
-	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.328
 	// kW/(m*K)

@@ -15,7 +15,7 @@
 	// kg/m³ (STP)
 	density: 25767.520
 	// kg/m³ (STP)
-	density_liquid: 334.500
+	density_liquid: 25767.520
 	// kg/m³
 	density_solid: 25767.520
 	
@@ -35,9 +35,18 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 0.000
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 980.000
+	// K
+	sintering_temperature_upper: 3353.000
+	
+	// kJ/mol
+	heat_of_fusion: 0.000
+	// kJ/mol
+	heat_of_vaporization: 0.000
 	
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.20535
