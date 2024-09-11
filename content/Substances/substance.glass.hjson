@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Salt"
+	name: "Glass"
 	description:
 		'''
 		Tasty.
@@ -22,7 +22,7 @@
 	// K (STP)
 	melting_point: 1270.000
 	// K (STP)
-	boiling_point: 0.000
+	boiling_point: 2000.000
 	
 	// K
 	critical_point_temperature: 0.000
@@ -40,7 +40,7 @@
 	sintering_temperature_max: 0.000
 	
 	// kJ/(kg*K)
-	specific_heat: 0.000
+	specific_heat_capacity: 0.000
 	// kW/(m*K)
 	thermal_conductivity: 0.000
 }

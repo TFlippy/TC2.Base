@@ -9,7 +9,7 @@
 	type: element
 	atomic_number: 8
 	flags: diatomic
-	tags: pure, gas
+	tags: pure, oxidizer, gas
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.015999
@@ -36,12 +36,23 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 0.000
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
 	
+	// kJ/mol
+	heat_of_fusion: 0.222
+	// kJ/mol
+	heat_of_vaporization: 3.410
+	
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
-	specific_heat: 919.000
+	specific_heat_capacity: 0.919
 	// kW/(m*K)
 	thermal_conductivity: 0.02658
 }

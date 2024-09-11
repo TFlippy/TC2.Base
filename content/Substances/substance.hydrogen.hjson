@@ -14,7 +14,7 @@
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.002016
 	// kg/m³ (STP)
-	density: 0.090
+	density: 0.08375
 	// kg/m³ (STP)
 	density_liquid: 0.000
 	// kg/m³
@@ -36,12 +36,23 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 0.000
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
 	
+	// kJ/mol
+	heat_of_fusion: 0.558
+	// kJ/mol
+	heat_of_vaporization: 0.452
+	
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
-	specific_heat: 14300.000
+	specific_heat_capacity: 1.430
 	// kW/(m*K)
-	thermal_conductivity: 0.1805
+	thermal_conductivity: 0.00018
 }

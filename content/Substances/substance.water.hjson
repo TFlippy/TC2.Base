@@ -13,7 +13,7 @@
 	type: molecule
 	atomic_number: 0
 	flags: none
-	tags: hydride, liquid
+	tags: hydride, inert, liquid
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.018015
@@ -40,12 +40,23 @@
 	triple_point_pressure: 0.611
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 0.000
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
 	
+	// kJ/mol
+	heat_of_fusion: 0.000
+	// kJ/mol
+	heat_of_vaporization: 0.000
+	
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
-	specific_heat: 4.184
+	specific_heat_capacity: 4.184
 	// kW/(m*K)
 	thermal_conductivity: 0.000598
 }

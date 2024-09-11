@@ -40,7 +40,7 @@
 	sintering_temperature_max: 0.000
 	
 	// kJ/(kg*K)
-	specific_heat: 0.000
+	specific_heat_capacity: 0.000
 	// kW/(m*K)
 	thermal_conductivity: 0.000
 }
