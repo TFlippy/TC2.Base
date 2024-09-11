@@ -26,6 +26,7 @@
 			material: steel.ingot
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: temperature

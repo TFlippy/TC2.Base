@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Chalcopyrite Roasting"
 	desc:
 		'''
@@ -33,12 +33,14 @@
 			material: chalcopyrite
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: water
 			amount: 25.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -78,7 +80,7 @@
 			snapping: 5.000
 			falloff: 0.400
 			group: 1
-			flags: sequential, conditional
+			flags: conditional
 		}
 	]
 	

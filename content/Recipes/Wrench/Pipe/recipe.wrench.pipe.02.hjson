@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Pipe"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	type: wrench
 	flags: disabled, wip
-	tags: metalworking, pipe, wrench
+	tags: wrench, metalworking, pipe
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -36,11 +36,18 @@
 		cooldown: 0.300
 		min_support: 0.050
 		min_claim: 0.900
+		max_range: 4.000
 		
 		length_min: 1.000
 		length_max: 30.000
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world, building
+			exclude: dynamic
+		}
 		
 		mappings_replace:
 		{
@@ -55,6 +62,7 @@
 			material: steel.plate
 			amount: 1.200
 			group: 0
+			flags: prerequisite
 		}
 	]
 	

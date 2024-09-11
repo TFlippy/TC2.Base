@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Earmuffs"
 	desc:
 		'''
@@ -31,18 +31,21 @@
 			material: steel.ingot
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: leather
 			amount: 6.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mushroom
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -50,6 +53,7 @@
 			amount: 100.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -57,6 +61,7 @@
 			amount: 200.000
 			difficulty: 5
 			group: 0
+			flags: conditional
 		}
 	]
 	

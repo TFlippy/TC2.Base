@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Clay Bricks"
 	desc:
 		'''
@@ -21,7 +21,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: simple, crude, drying, primitive, manual, passive, forming, shaping
+	tags: manual, passive, crude, primitive, simple, forming, shaping, drying
 	
 	color_button: "0xffaeb59a"
 	rank: 5.000
@@ -33,12 +33,14 @@
 			material: clay
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: water
 			amount: 0.750
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -48,6 +50,7 @@
 			snapping: 5.000
 			falloff: 0.810
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -55,7 +58,7 @@
 			amount: 780.000
 			difficulty: 5
 			group: 0
-			flags: no_scaling, sequential, crafter_only
+			flags: no_scaling, crafter_only, conditional
 		}
 	]
 	

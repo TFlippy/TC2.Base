@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Holistic Mud Bricks"
 	desc:
 		'''
@@ -37,7 +37,7 @@
 	
 	type: workshop
 	flags: none
-	tags: simple, crude, drying, primitive, manual, passive, forming, shaping, dumb
+	tags: manual, passive, crude, primitive, simple, dumb, forming, shaping, drying
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -49,18 +49,21 @@
 			material: mud
 			amount: 0.660
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: shite
 			amount: 0.340
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: woodchips
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -70,6 +73,7 @@
 			snapping: 5.000
 			falloff: 0.735
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -77,7 +81,7 @@
 			amount: 160.000
 			difficulty: 3
 			group: 0
-			flags: no_scaling, sequential, crafter_only
+			flags: no_scaling, crafter_only, conditional
 		}
 	]
 	

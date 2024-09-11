@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Dismantle Magitronic Actuators"
 	desc:
 		'''
@@ -39,6 +39,7 @@
 			material: actuator
 			amount: 1.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -46,6 +47,7 @@
 			amount: 45.000
 			difficulty: 12
 			group: 0
+			flags: conditional
 		}
 	]
 	

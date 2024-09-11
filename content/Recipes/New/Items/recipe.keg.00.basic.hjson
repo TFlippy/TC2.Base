@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Explosive Keg"
 	desc:
 		'''
@@ -30,12 +30,14 @@
 			material: gunpowder
 			amount: 150.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: wood
 			amount: 80.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -43,6 +45,7 @@
 			amount: 700.000
 			difficulty: 5
 			group: 0
+			flags: conditional
 		}
 	]
 	

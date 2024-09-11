@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.61.4"
 	name: "Recovered Steel Frames"
 	desc:
 		'''
@@ -39,6 +39,7 @@
 			material: scrap.machine
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
@@ -46,6 +47,7 @@
 			amount: 280.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 	]
 	
