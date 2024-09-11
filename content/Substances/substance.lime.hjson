@@ -5,6 +5,7 @@
 		'''
 		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.
 		'''
+	cas_number: "1305-78-8"
 	type: mineral
 	atomic_number: 0
 	flags: none

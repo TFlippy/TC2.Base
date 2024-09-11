@@ -5,6 +5,7 @@
 		'''
 		Widely used in chemistry.
 		'''
+	cas_number: "7704-34-9"
 	type: element
 	atomic_number: 16
 	flags: none

@@ -5,6 +5,7 @@
 		'''
 		A strong acid.
 		'''
+	cas_number: "7664-93-9"
 	type: molecule
 	atomic_number: 0
 	flags: none

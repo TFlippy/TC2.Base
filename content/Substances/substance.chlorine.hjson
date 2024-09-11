@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	cas_number: "7782-50-5"
 	type: element
 	atomic_number: 17
 	flags: diatomic

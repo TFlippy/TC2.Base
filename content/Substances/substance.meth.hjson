@@ -5,6 +5,7 @@
 		'''
 		A potent stimulant.
 		'''
+	cas_number: "537-46-2"
 	type: molecule
 	atomic_number: 0
 	flags: none

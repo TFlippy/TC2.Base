@@ -5,6 +5,7 @@
 		'''
 		Industrial alcohol, used as a disinfectant and solvent.
 		'''
+	cas_number: "64-17-5"
 	type: mixture
 	atomic_number: 0
 	flags: none

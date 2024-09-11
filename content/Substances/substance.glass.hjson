@@ -13,14 +13,14 @@
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.000
 	// kg/m³ (STP)
-	density: 0.000
+	density: 2530.000
 	// kg/m³ (STP)
 	density_liquid: 0.000
 	// kg/m³
 	density_solid: 0.000
 	
 	// K (STP)
-	melting_point: 0.000
+	melting_point: 1270.000
 	// K (STP)
 	boiling_point: 0.000
 	

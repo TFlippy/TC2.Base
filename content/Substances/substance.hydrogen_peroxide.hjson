@@ -7,6 +7,7 @@
 
 		Estimated concentration somewhere between 30% and 95%.
 		'''
+	cas_number: "7722-84-1"
 	type: molecule
 	atomic_number: 0
 	flags: none

@@ -5,6 +5,7 @@
 		'''
 		Commonly used for fertilizers and explosives.
 		'''
+	cas_number: "7757-79-1"
 	type: mineral
 	atomic_number: 0
 	flags: none

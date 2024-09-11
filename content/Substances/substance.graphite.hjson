@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	cas_number: "7782-42-5"
 	type: allotrope
 	atomic_number: 6
 	flags: none

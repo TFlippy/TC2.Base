@@ -5,6 +5,7 @@
 		'''
 		Low-quality liquid fuel produced from coal tar and peat.
 		'''
+	cas_number: "8030-30-6"
 	type: mixture
 	atomic_number: 0
 	flags: none

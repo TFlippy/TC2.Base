@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	cas_number: "7440-57-5"
 	type: element
 	atomic_number: 79
 	flags: none

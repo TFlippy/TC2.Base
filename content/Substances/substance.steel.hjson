@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	cas_number: "7439-89-6"
 	type: alloy
 	atomic_number: 0
 	flags: none

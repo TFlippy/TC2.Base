@@ -5,6 +5,7 @@
 		'''
 		Tasty.
 		'''
+	cas_number: "7647-14-5"
 	type: mineral
 	atomic_number: 0
 	flags: none

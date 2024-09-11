@@ -5,6 +5,7 @@
 		'''
 		TODO: Desc
 		'''
+	cas_number: "55-63-0"
 	type: molecule
 	atomic_number: 0
 	flags: none

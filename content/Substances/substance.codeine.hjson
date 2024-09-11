@@ -5,6 +5,7 @@
 		'''
 		A mild analgesic similar to morphine.
 		'''
+	cas_number: "76-57-3"
 	type: molecule
 	atomic_number: 0
 	flags: none

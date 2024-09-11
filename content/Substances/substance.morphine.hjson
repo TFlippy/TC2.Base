@@ -5,6 +5,7 @@
 		'''
 		A potent analgesic extracted from opium.
 		'''
+	cas_number: "57-27-2"
 	type: molecule
 	atomic_number: 0
 	flags: none

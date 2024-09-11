@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Hydrochloric Acid"
+	cas_number: "7647-01-0"
 	type: molecule
 	atomic_number: 0
 	flags: none

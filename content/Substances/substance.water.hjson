@@ -9,6 +9,7 @@
 
 		Then you die of dysentery.
 		'''
+	cas_number: "7732-18-5"
 	type: molecule
 	atomic_number: 0
 	flags: none
