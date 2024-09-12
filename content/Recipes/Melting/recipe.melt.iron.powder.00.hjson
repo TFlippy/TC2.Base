@@ -7,6 +7,47 @@
 		'''
 	tips: []
 	
+	requirements:
+	[
+		{
+			type: resource
+			material: iron.powder
+			amount: 1.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: temperature
+			amount: 1911.000
+			amount_min: 1765.725
+			amount_max: 2461.350
+			group: 1
+			flags: no_scaling, always_evaluate
+		}
+		{
+			type: work
+			work: melting
+			amount: 89.800
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.816102
+			group: 1
+			flags: conditional
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: iron
+			amount: 0.252918
+			amount_extra: 0.001082
+			group: 0
+			flags: spawn, use_temperature, spawn_event
+		}
+	]
+	
 	type: workshop
 	flags: none
 	tags: metalworking, heating, refining, smelting
@@ -41,47 +82,6 @@
 	max: 100
 	step: 5
 	falloff_amount_mult: 1.000
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: iron.powder
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: temperature
-			amount: 1744.000
-			amount_min: 1602.900
-			amount_max: 2373.550
-			group: 1
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: melting
-			amount: 98.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.856807
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: iron
-			amount: 0.254925
-			amount_extra: 0.001091
-			group: 0
-			flags: spawn, use_temperature, spawn_event
-		}
-	]
 	
 	start_delay: 1.500
 	advance_delay: 2.000
