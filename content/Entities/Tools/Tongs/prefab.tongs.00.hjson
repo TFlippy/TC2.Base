@@ -79,7 +79,7 @@ holdable:
 aimable:
 {
 	deadzone: 1.000
-	min: -0.850
+	min: -1.260
 	max: 0.100
 }
 
@@ -88,15 +88,19 @@ heat:
 	temperature_medium: 520.000
 	temperature_high: 700.000
 	temperature_critical: 1350.000
-	cool_rate: 0.250
+	cool_rate: 5.000
 	heat_capacity_extra: 30.000
-	heat_capacity_mult: 1.500
+	cool_rate_mult: 1.100
+	smoke_size_mult: 0.750
+	smoke_speed_mult: 0.800
+	smoke_offset: [0.250, -0.125]
+	size: [0.875, 0.125]
 
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
-		offset: [0.000, 0.000]
-		scale: [16.000, 16.000]
+		offset: [0.250, 0.000]
+		scale: [16.000, 4.000]
 		intensity: 2.000
 		texture: "light.circle.00"
 	}
@@ -114,29 +118,38 @@ heat:
 	joint.base:
 	{
 		offset_a: [1.125, -0.0625]
-		max_force: 50000.000
-		max_torque: 5000.000
+		max_force: 60000.000
+		max_torque: 25000.000
 		max_stress: 2.000
 		stress_threshold: 2.100
-		z: 40.000
+		z: 0.000
 		material_type: metal
 		flags: allow_dragging
 	}
 
 	joint.pivot:
 	{
-		error_bias: 0.010
-		max_bias: 5.000
+		error_bias: 0.001
+		max_bias: 12.000
 		stress_mult: 0.500
 	}
 
-	joint.gear:
+	joint.rotarylimit:
 	{
-		flags: none
+		max_torque: 30000.000
+		min: -0.500
+		max: 0.500
+		max_bias: 10.000
 		error_bias: 0.001
-		max_bias: 5.000
-		stress_mult: 0.300
 	}
+
+	// joint.gear:
+	// {
+	// 	flags: none
+	// 	error_bias: 0.001
+	// 	max_bias: 5.000
+	// 	stress_mult: 0.300
+	// }
 
 	grabber:
 	{
