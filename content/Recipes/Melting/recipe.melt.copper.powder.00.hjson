@@ -7,6 +7,10 @@
 		'''
 	tips: []
 	
+	type: workshop
+	flags: none
+	tags: metalworking, heating, refining, smelting
+	
 	icon:
 	{
 		texture: resource.copper.powder
@@ -30,20 +34,13 @@
 	}
 	icon_c_offset: [-3.000, -3.000]
 	
-	min: 5
-	max: 100
-	step: 5
-	
-	type: workshop
-	flags: none
-	tags: metalworking, heating, refining, smelting
-	
 	color_button: "0xffffab37"
 	rank: -160.000
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	min: 5
+	max: 100
+	step: 5
+	falloff_amount_mult: 1.000
 	
 	requirements:
 	[
@@ -67,8 +64,8 @@
 			work: melting
 			amount: 88.320
 			difficulty: 5
-			snapping: 3.000
-			falloff: 0.660
+			snapping: 5.000
+			falloff: 0.629414
 			group: 1
 			flags: conditional
 		}
@@ -85,4 +82,8 @@
 			flags: spawn, use_temperature, spawn_event
 		}
 	]
+	
+	start_delay: 1.500
+	advance_delay: 2.000
+	complete_delay: 1.500
 }
