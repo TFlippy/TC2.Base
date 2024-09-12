@@ -47,14 +47,14 @@
 	// kJ/mol
 	heat_of_fusion: 13.800
 	// kJ/mol
-	heat_of_vaporization: 0.000
+	heat_of_vaporization: 347.000
 	// kJ/(mol*K)
 	molar_heat_capacity: 0.026935
 	
 	// kJ/kg
 	specific_heat_of_fusion: 251.046
 	// kJ/kg
-	specific_heat_of_vaporization: 0.000
+	specific_heat_of_vaporization: 6312.534
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.490
 	// kW/(m*K)

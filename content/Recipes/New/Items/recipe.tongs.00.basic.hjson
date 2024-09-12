@@ -1,0 +1,90 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Tongs"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 1.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: temperature
+			amount: 1330.000
+			amount_min: 900.000
+			amount_max: 2000.000
+			group: 0
+			flags: no_scaling, always_evaluate
+		}
+		{
+			type: work
+			work: forging
+			amount: 450.000
+			difficulty: 5
+			group: 0
+			flags: conditional
+		}
+		{
+			type: temperature
+			amount: 300.000
+			amount_min: 200.000
+			amount_max: 450.000
+			group: 1
+			flags: no_scaling, always_evaluate
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 1.000
+			group: 1
+		}
+		{
+			type: work
+			work: sewing
+			amount: 75.000
+			difficulty: 2
+			group: 1
+			flags: conditional
+		}
+		{
+			type: work
+			work: sewing
+			amount: 75.000
+			difficulty: 2
+			group: 1
+			flags: conditional
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: tongs.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip, packable
+	tags: workbench, manual, blacksmithing, metalworking
+	
+	icon:
+	{
+		texture: tongs.00
+		size: [24, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 5
+	step: 1
+	falloff_amount_mult: 1.000
+}
