@@ -56,14 +56,16 @@
 		}
 		{
 			type: temperature
-			amount: 0.000
+			amount: 2165.970
+			amount_min: 2014.321
+			amount_max: 2807.651
 			group: 1
 			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
 			work: melting
-			amount: 85.000
+			amount: 82.27995
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.800
@@ -77,8 +79,8 @@
 		{
 			type: resource
 			material: arcanite
-			amount: 3.505
-			amount_extra: 0.015
+			amount: 0.498171
+			amount_extra: 0.002132
 			group: 0
 			flags: spawn, use_temperature, spawn_event
 		}

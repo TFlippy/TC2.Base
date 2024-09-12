@@ -56,17 +56,19 @@
 		}
 		{
 			type: temperature
-			amount: 0.000
+			amount: 1457.770
+			amount_min: 1323.826
+			amount_max: 2077.523
 			group: 1
 			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
 			work: melting
-			amount: 85.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.800
+			amount: 88.320
+			difficulty: 5
+			snapping: 3.000
+			falloff: 0.660
 			group: 1
 			flags: conditional
 		}
@@ -77,8 +79,8 @@
 		{
 			type: resource
 			material: copper
-			amount: 3.505
-			amount_extra: 0.015
+			amount: 0.2499
+			amount_extra: 0.0041
 			group: 0
 			flags: spawn, use_temperature, spawn_event
 		}

@@ -56,14 +56,16 @@
 		}
 		{
 			type: temperature
-			amount: 0.000
+			amount: 1334.930
+			amount_min: 1204.057
+			amount_max: 1829.962
 			group: 1
 			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
 			work: melting
-			amount: 85.000
+			amount: 62.510
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.800
@@ -77,8 +79,8 @@
 		{
 			type: resource
 			material: silver
-			amount: 3.505
-			amount_extra: 0.015
+			amount: 0.2522
+			amount_extra: 0.001081
 			group: 0
 			flags: spawn, use_temperature, spawn_event
 		}

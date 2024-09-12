@@ -63,9 +63,9 @@ breakable:
 
 heat:
 {
-	temperature_medium: 1000.000
-	temperature_high: 1800.000
-	temperature_critical: 4000.000
+	temperature_medium: 678.000
+	temperature_high: 1357.000
+	temperature_critical: 2135.000
 	cool_rate: 2.000
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]

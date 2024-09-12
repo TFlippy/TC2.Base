@@ -49,8 +49,6 @@
 	// kJ/mol
 	heat_of_vaporization: 300.000
 	
-	// kJ/(mol*K)
-	molar_heat_capacity: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.384
 	// kW/(m*K)

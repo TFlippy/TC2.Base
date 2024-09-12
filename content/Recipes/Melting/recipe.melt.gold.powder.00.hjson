@@ -56,14 +56,16 @@
 		}
 		{
 			type: temperature
-			amount: 0.000
+			amount: 1437.330
+			amount_min: 1303.897
+			amount_max: 2198.582
 			group: 1
 			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
 			work: melting
-			amount: 85.000
+			amount: 64.550
 			difficulty: 3
 			snapping: 5.000
 			falloff: 0.800
@@ -77,8 +79,8 @@
 		{
 			type: resource
 			material: gold
-			amount: 3.505
-			amount_extra: 0.015
+			amount: 0.257963
+			amount_extra: 0.001104
 			group: 0
 			flags: spawn, use_temperature, spawn_event
 		}
