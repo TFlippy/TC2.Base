@@ -1,0 +1,145 @@
+$name: "Tongs"
+$desc: 
+	'''
+	Tool used for picking up scary objects from safe distance.
+	'''
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 0.250
+	buoyancy: 0.050
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.000, -0.250]
+			[1.125, -0.375]
+			[1.125, 0.250]
+			[-1.000, 0.000]
+		]
+		
+		mass: 5.000
+		radius: 0.175
+		friction: 0.600
+		elasticity: 0.650
+		
+		material: metal_pole
+		
+		layer: entity, solid, ignore_bullet
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 6500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tongs.00"
+		size: [24, 16]
+		frame: [0, 0]
+	}
+	z: 20.000
+}
+
+claw:
+{
+	sound_attach: "claw.attach.00"
+	sound_detach: "claw.detach.00"
+	frame_attached: 1
+	frame_detached: 0
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	force_multiplier: 0.800
+	torque_multiplier: 0.800
+	stress_multiplier: 0.300
+	grip_min: 1.000
+	offset: [-0.875, -0.250]
+	hints: tools, long_range, small, construction, cheap, industrial
+	flags: full_rotate
+}
+
+aimable:
+{
+	deadzone: 1.000
+	min: -0.850
+	max: 0.100
+}
+
+heat:
+{
+	temperature_medium: 520.000
+	temperature_high: 700.000
+	temperature_critical: 1350.000
+	cool_rate: 0.250
+	heat_capacity_extra: 30.000
+	heat_capacity_mult: 1.500
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 2.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [1.125, -0.0625]
+		max_force: 50000.000
+		max_torque: 5000.000
+		max_stress: 2.000
+		stress_threshold: 2.100
+		z: 40.000
+		material_type: metal
+		flags: allow_dragging
+	}
+
+	joint.pivot:
+	{
+		error_bias: 0.010
+		max_bias: 5.000
+		stress_mult: 0.500
+	}
+
+	joint.gear:
+	{
+		flags: none
+		error_bias: 0.001
+		max_bias: 5.000
+		stress_mult: 0.300
+	}
+
+	grabber:
+	{
+		flags: can_attach
+	}
+}

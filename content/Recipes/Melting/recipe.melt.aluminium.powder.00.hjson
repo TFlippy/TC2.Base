@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Steel Scrap"
+	name: "Melt Aluminium Powder"
 	desc:
 		'''
 		TODO: Desc
@@ -13,11 +13,11 @@
 	
 	icon:
 	{
-		texture: resource.scrap.steel
+		texture: resource.aluminium.powder
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-4.000, -6.000]
+	icon_offset: [-1.000, -6.000]
 	
 	icon_extra:
 	{
@@ -34,8 +34,8 @@
 	}
 	icon_c_offset: [-3.000, -3.000]
 	
-	color_button: "0xffff5f28"
-	rank: -150.000
+	color_button: "0xffffab37"
+	rank: -160.000
 	
 	min: 5
 	max: 100
@@ -46,27 +46,26 @@
 	[
 		{
 			type: resource
-			material: scrap.steel
+			material: aluminium.powder
 			amount: 1.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: temperature
-			amount: 1744.000
-			amount_min: 1602.900
-			amount_max: 2373.550
-			falloff: 0.500
+			amount: 1033.470
+			amount_min: 910.1332
+			amount_max: 1824.809
 			group: 1
 			flags: no_scaling, always_evaluate
 		}
 		{
 			type: work
 			work: melting
-			amount: 400.000
-			difficulty: 5
+			amount: 62.376
+			difficulty: 3
 			snapping: 5.000
-			falloff: 0.86826
+			falloff: 0.70398
 			group: 1
 			flags: conditional
 		}
@@ -76,9 +75,9 @@
 	[
 		{
 			type: resource
-			material: steel
-			amount: 1.797224
-			amount_extra: 0.007691
+			material: aluminium
+			amount: 0.254561
+			amount_extra: 0.001089
 			group: 0
 			flags: spawn, use_temperature, spawn_event
 		}

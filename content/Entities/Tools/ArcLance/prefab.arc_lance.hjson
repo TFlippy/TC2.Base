@@ -25,7 +25,7 @@ body:
 
 health:
 {
-	max: 8000.000
+	max: 3100.000
 }
 
 aimable:
