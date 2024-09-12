@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Alloy Steel"
+	name: "Melt Iron Powder"
 	desc:
 		'''
 		TODO: Desc
@@ -8,7 +8,7 @@
 	tips: []
 	
 	type: workshop
-	flags: hidden, disabled
+	flags: none
 	tags: metalworking, heating, refining, smelting
 	
 	icon:
@@ -17,7 +17,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -9.000]
+	icon_offset: [-1.000, -6.000]
 	
 	icon_extra:
 	{
@@ -29,14 +29,13 @@
 	
 	icon_c:
 	{
-		texture: resource.graphite.powder
-		size: [16, 16]
-		frame: [2, 0]
+		texture: ui_icons_crafting.mini
+		frame: [6, 2]
 	}
-	icon_c_offset: [-12.000, -26.000]
+	icon_c_offset: [-3.000, -3.000]
 	
-	color_button: "0xffde3979"
-	rank: -140.000
+	color_button: "0xffffab37"
+	rank: -160.000
 	
 	min: 5
 	max: 100
@@ -47,7 +46,7 @@
 	[
 		{
 			type: resource
-			material: steel.powder
+			material: iron.powder
 			amount: 1.000
 			group: 0
 			flags: prerequisite
@@ -76,7 +75,7 @@
 	[
 		{
 			type: resource
-			material: steel
+			material: iron
 			amount: 0.254925
 			amount_extra: 0.001091
 			group: 0
