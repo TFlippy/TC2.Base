@@ -20,7 +20,7 @@ body:
 			[-1.000, 0.000]
 		]
 		
-		mass: 5.000
+		mass: 4.400
 		radius: 0.175
 		friction: 0.500
 		elasticity: 0.650
@@ -73,7 +73,7 @@ holdable:
 	grip_min: 1.000
 	offset: [-0.875, -0.250]
 	hints: tools, long_range, small, construction, cheap, industrial
-	flags: full_rotate
+	flags: storable, full_rotate
 }
 
 aimable:
