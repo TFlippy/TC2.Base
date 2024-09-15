@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.620
-	quantity_max: 100.000
+	quantity_max: 128.000
 	prefab: resource.mayo
 	
 	color_dust: "0xffffffff"
@@ -70,6 +70,9 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

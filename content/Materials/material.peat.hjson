@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.410
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.peat
 	
 	color_dust: "0xffffffff"
@@ -124,6 +124,9 @@
 		volatiles_ratio: 0.220
 		volatiles: ["methane"]
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

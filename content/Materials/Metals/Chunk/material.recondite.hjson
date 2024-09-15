@@ -22,7 +22,7 @@
 	hints: materials, rare, heavy, advanced, expensive, industrial, arcane, tech
 	// kg
 	mass_per_unit: 1.2304
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.recondite
 	
 	color_dust: "0xffd5cf97"

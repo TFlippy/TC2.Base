@@ -22,7 +22,7 @@
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 1.210
-	quantity_max: 250.000
+	quantity_max: 256.000
 	prefab: resource.scrap.copper
 	
 	color_dust: "0xffffffff"

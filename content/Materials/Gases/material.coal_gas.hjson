@@ -21,7 +21,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.010
-	quantity_max: 1000.000
+	quantity_max: 1024.000
 	prefab: resource.coal_gas
 	
 	color_dust: "0xffffffff"
@@ -84,6 +84,9 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

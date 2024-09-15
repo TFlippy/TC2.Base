@@ -15,7 +15,7 @@
 		frame: [3, 0]
 	}
 	
-	type: chalk
+	type: device
 	// Flags defining properties of the raw material.
 	flags: hard, magnetic, granular, essence, metal, intermediate, alkaline, small, corrosive, fragile, manufactured, device, solid
 	// Flags to remove if stored in a bottle/tank/can.
@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 1.150
-	quantity_max: 50.000
+	quantity_max: 64.000
 	prefab: resource.limelight
 	
 	color_dust: "0xffffffff"
@@ -72,6 +72,9 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.149
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.water.toxic
 	
 	color_dust: "0xffffffff"
@@ -73,43 +73,8 @@
 		quantity_industry: 0.000
 	}
 	
-	// Properties of the material, see https://periodictable.com/index.html.
-	substance:
-	{
-		type: mixture
-		atomic_number: 0
-		flags: none
-		tags: hydride
-		
-		// kg/mol (use atomic mass for elements)
-		molar_mass: 0.018015
-		// kg/m³ (STP)
-		density: 1685.530
-		// kg/m³ (STP)
-		density_liquid: 1685.530
-		// kg/m³
-		density_solid: 0.000
-		
-		// K (STP)
-		melting_point: 261.101
-		// K (STP)
-		boiling_point: 404.333
-		
-		// K
-		critical_point_temperature: 0.000
-		// K
-		triple_point_temperature: 0.000
-		
-		// bar
-		critical_point_pressure: 0.000
-		// bar
-		triple_point_pressure: 0.000
-		
-		// kJ/(kg*K)
-		specific_heat: 4.184
-		// kW/(m*K)
-		thermal_conductivity: 0.000598
-	}
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

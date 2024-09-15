@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.069
-	quantity_max: 1000.000
+	quantity_max: 1024.000
 	prefab: resource.aluminium.powder
 	
 	color_dust: "0xff929894"

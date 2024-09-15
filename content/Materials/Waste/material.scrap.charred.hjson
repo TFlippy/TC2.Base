@@ -22,7 +22,7 @@
 	hints: materials, junk, cheap
 	// kg
 	mass_per_unit: 0.468
-	quantity_max: 250.000
+	quantity_max: 256.000
 	prefab: resource.scrap.charred
 	
 	color_dust: "0xffffffff"
@@ -31,6 +31,9 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

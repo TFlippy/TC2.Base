@@ -23,7 +23,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.266
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.silver.gravel
 	
 	color_dust: "0xfff4fbf8"
@@ -34,6 +34,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

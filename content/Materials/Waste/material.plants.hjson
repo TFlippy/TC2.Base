@@ -22,7 +22,7 @@
 	hints: materials, junk, primitive, crappy
 	// kg
 	mass_per_unit: 0.184
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.plants
 	
 	color_dust: "0xffffffff"
@@ -70,6 +70,9 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Conversions into other materials.
 	conversions:

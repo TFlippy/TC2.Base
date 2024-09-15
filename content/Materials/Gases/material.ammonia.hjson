@@ -21,7 +21,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.010
-	quantity_max: 1000.000
+	quantity_max: 1024.000
 	prefab: resource.ammonia
 	
 	color_dust: "0xffffffff"

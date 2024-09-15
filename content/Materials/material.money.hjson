@@ -30,7 +30,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.015625
-	quantity_max: 4000.000
+	quantity_max: 4096.000
 	prefab: resource.money
 	
 	color_dust: "0xffffffff"
@@ -78,6 +78,9 @@
 		quantity_wholesale: 8000.000
 		quantity_industry: 15000.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

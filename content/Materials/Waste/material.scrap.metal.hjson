@@ -22,7 +22,7 @@
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.940
-	quantity_max: 250.000
+	quantity_max: 256.000
 	prefab: resource.scrap.metal
 	
 	color_dust: "0xffffffff"
@@ -70,6 +70,9 @@
 		quantity_wholesale: 500.000
 		quantity_industry: 8000.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

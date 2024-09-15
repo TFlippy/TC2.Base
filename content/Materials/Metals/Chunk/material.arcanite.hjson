@@ -22,7 +22,7 @@
 	hints: materials, rare, heavy, advanced, expensive, industrial, arcane, tech
 	// kg
 	mass_per_unit: 1.3212
-	quantity_max: 500.000
+	quantity_max: 512.000
 	prefab: resource.arcanite
 	
 	color_dust: "0xffa48b5e"
@@ -33,6 +33,7 @@
 	color_smoke: "0x00000000"
 	
 	h_substance: arcanite
+	purity: 0.000
 	
 	// Component materials.
 	composition: []
