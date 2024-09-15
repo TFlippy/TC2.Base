@@ -57,7 +57,7 @@
 		{
 			type: work
 			work: assembling
-			amount: 210.000
+			amount: 175.000
 			difficulty: 5
 			group: 1
 			flags: conditional

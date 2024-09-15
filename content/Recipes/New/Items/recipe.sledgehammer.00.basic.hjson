@@ -3,21 +3,7 @@
 	name: "Sledgehammer"
 	tips: []
 	
-	icon:
-	{
-		texture: sledgehammer
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, simple, tool, assembling, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: 12.000
+	stages: []
 	
 	requirements:
 	[
@@ -90,4 +76,20 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable
+	tags: workbench, manual, simple, tool, assembling, metalworking
+	
+	icon:
+	{
+		texture: sledgehammer
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 12.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

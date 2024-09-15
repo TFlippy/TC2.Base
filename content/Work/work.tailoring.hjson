@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, skilled, tools, careful, leisure, wip
 	cooldown: 0.850
-	multiplier: 0.900
+	multiplier: 0.700
 	color: "0xff719240"
 	
 	tools_required: none

@@ -48,9 +48,9 @@
 		construction: 0.400
 	}
 	
-	sound_volume: 0.800
-	sound_pitch: 0.750
-	sound_size: 0.300
+	sound_volume: 0.900
+	sound_pitch: 0.760
+	sound_size: 0.340
 	sound_dist: 0.600
 	
 	sounds: ["effect.lathe.grind.00", "effect.tinker.machine.00"]

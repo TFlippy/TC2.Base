@@ -52,7 +52,7 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: standalone
 	tags: metalworking, heating, refining, smelting
 	
 	icon:

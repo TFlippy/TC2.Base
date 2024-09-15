@@ -41,7 +41,7 @@
 		{
 			type: work
 			work: bending
-			amount: 195.000
+			amount: 85.000
 			difficulty: 14
 			group: 0
 			flags: conditional
@@ -78,7 +78,7 @@
 		{
 			type: work
 			work: assembling
-			amount: 100.000
+			amount: 60.000
 			difficulty: 9
 			group: 2
 			flags: conditional

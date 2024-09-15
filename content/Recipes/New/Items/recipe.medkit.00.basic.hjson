@@ -31,8 +31,8 @@
 		{
 			type: work
 			work: tailoring
-			amount: 320.000
-			difficulty: 4
+			amount: 135.000
+			difficulty: 5
 			group: 0
 			flags: conditional
 		}

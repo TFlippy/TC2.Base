@@ -7,6 +7,8 @@
 		'''
 	tips: []
 	
+	stages: []
+	
 	requirements:
 	[
 		{
@@ -28,7 +30,7 @@
 			type: work
 			work: melting
 			amount: 98.000
-			difficulty: 0
+			difficulty: 4
 			falloff: 0.856807
 			group: 1
 			flags: conditional
@@ -80,7 +82,6 @@
 	min: 5
 	max: 100
 	step: 5
-	falloff_amount_mult: 1.000
 	
 	start_delay: 1.500
 	advance_delay: 2.000
