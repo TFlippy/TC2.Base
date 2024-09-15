@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.030
+	buoyancy: 0.270
 
 	@shape.circle:
 	{
@@ -12,7 +12,7 @@ body:
 		friction: 0.850
 		elasticity: 0.200
 		material: scrap
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable
 		mask: world
 	}
 }
@@ -41,9 +41,55 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 norotate:
 {
+	bias: 0.001
+	speed: 2.500
+	multiplier: 4.500
+	mass_multiplier: 5.500
+	flags: no_share
+}
 
+health:
+{
+	max: 82000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 466.735
+	temperature_high: 933.470
+	temperature_critical: 2792.0000
+	cool_rate: 1.000
+	cool_rate_mult: 0.235
+	offset: [0.000, 0.500]
+	smoke_offset: [0.125, 0.250]
+	size: [0.750, 0.375]
+	
+	@light:
+	{
+		offset: [0.000, 0.500]
+		scale: [25.000, 22.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
+	}
 }

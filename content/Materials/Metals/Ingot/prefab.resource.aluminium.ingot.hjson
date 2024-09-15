@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.050
+	buoyancy: 0.200
 
 	@shape.circle:
 	{
@@ -41,27 +41,55 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 norotate:
 {
-
+	bias: 0.001
+	speed: 2.500
+	multiplier: 4.500
+	mass_multiplier: 5.500
+	flags: no_share
 }
 
 health:
 {
-	max: 62000.000
+	max: 82000.000
 }
 
 breakable:
 {
-	h_material: "null"
-	
 	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
+}
+
+heat:
+{
+	temperature_medium: 466.735
+	temperature_high: 933.470
+	temperature_critical: 2792.0000
+	cool_rate: 1.000
+	cool_rate_mult: 0.235
+	offset: [0.000, 0.500]
+	smoke_offset: [0.125, 0.250]
+	size: [0.750, 0.375]
 	
-	material_type: none
-	material_flags: none
+	@light:
+	{
+		offset: [0.000, 0.500]
+		scale: [25.000, 22.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
+	}
 }

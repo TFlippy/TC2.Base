@@ -8,7 +8,7 @@ $tags: []
 body:
 {
 	type: dynamic
-	fall_damage_multiplier: 0.800
+	fall_damage_multiplier: 1.200
 	buoyancy: 0.050
 	
 	@shape.polygon:
@@ -21,7 +21,7 @@ body:
 			[-0.250, 0.875]
 		]
 		
-		mass: 75.000
+		mass: 45.000
 		radius: 0.250
 		friction: 0.400
 		elasticity: 0.600
@@ -68,7 +68,7 @@ holdable:
 	offset: [0.000, 0.625]
 	priority: 0.500
 	hints: heavy, small, construction, storage, industrial, slow
-	flags: disable_control, full_rotate
+	flags: full_rotate
 }
 
 attachment:
@@ -112,6 +112,11 @@ crucible:
 {
 
 }
+
+// control:
+// {
+
+// }
 
 shop:
 {

@@ -72,6 +72,7 @@ holdable:
 	stress_multiplier: 0.300
 	grip_min: 1.000
 	offset: [-0.875, -0.250]
+	radius: 3.000
 	hints: tools, long_range, small, construction, cheap, industrial
 	flags: storable, full_rotate
 }
@@ -124,7 +125,7 @@ heat:
 		max_stress: 2.000
 		stress_threshold: 2.100
 		material_type: metal
-		flags: no_wrap, facing_reset_pos, force_facing
+		flags: no_wrap, facing_reset_pos, force_facing, control_read, control_write
 	}
 
 	joint.pivot:

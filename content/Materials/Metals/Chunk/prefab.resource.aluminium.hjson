@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.010
+	buoyancy: 0.250
 
 	@shape.line:
 	{
@@ -51,6 +51,15 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
+}
+
 health:
 {
 	max: 50000.000
@@ -63,10 +72,11 @@ breakable:
 
 heat:
 {
-	temperature_medium: 400.000
-	temperature_high: 1644.000
-	temperature_critical: 2044.000
+	temperature_medium: 466.735
+	temperature_high: 933.470
+	temperature_critical: 2792.0000
 	cool_rate: 1.000
+	cool_rate_mult: 0.235
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [0.750, 0.375]
@@ -87,13 +97,4 @@ heat:
 		size_max_modifier: 0.600
 		offset: [0.000, 0.500]
 	}
-}
-
-norotate:
-{
-	bias: 0.000
-	speed: 3.500
-	multiplier: 3.500
-	mass_multiplier: 3.500
-	flags: no_share
 }
