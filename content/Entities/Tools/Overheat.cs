@@ -349,6 +349,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 		{
+			App.WriteLine($"spawn {data.temperature} {data.product.flags}");
 			if (data.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
 			{
 				heat_state.temperature_current = data.temperature;
