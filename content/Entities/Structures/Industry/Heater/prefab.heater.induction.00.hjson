@@ -92,9 +92,9 @@ essencecontainer:
 
 	@sound.emitter:
 	{
-		volume: 0.600
+		volume: 0.350
 		pitch: 1.400
-		size: 2.000
+		size: 4.000
 		size_max_modifier: 0.300
 		spread: 85.000
 		offset: [1.750, -0.125]

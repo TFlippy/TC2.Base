@@ -3,23 +3,7 @@
 	name: "Shovel"
 	tips: []
 	
-	icon:
-	{
-		texture: shovel
-	}
-	icon_offset: [-5.000, 0.000]
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, metalworking, forming, shaping
-	
-	color_button: "0xffaeb59a"
-	rank: 18.000
-	frame_size: [32.000, 32.000]
+	stages: []
 	
 	requirements:
 	[
@@ -77,4 +61,22 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable
+	tags: workbench, manual, metalworking, forming, shaping
+	
+	icon:
+	{
+		texture: shovel
+	}
+	icon_offset: [-5.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: 18.000
+	frame_size: [32.000, 32.000]
+	
+	min: 1
+	max: 10
+	step: 1
 }
