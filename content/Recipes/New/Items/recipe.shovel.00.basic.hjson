@@ -6,9 +6,106 @@
 	stages:
 	[
 		{
-			name: "Handle"
+			name: "Head"
 			
 			group: 0
+			type: undefined
+			flags: none
+			
+			falloff_amount_mult: 1.000
+			
+			options:
+			[
+				{
+					name: "Hand-Cut Plate"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 3.000
+							group: 0
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 300.000
+							difficulty: 9
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.710
+							amount_extra: 0.080
+							group: 1
+							flags: waste, residue
+						}
+					]
+					
+					start_delay: 1.000
+					advance_delay: 0.500
+					complete_delay: 1.000
+					
+					h_sound_begin: missing
+					h_sound_complete: missing
+					h_sound_finalize: missing
+				}
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.500
+							group: 0
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: forging
+							amount: 350.000
+							difficulty: 5
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 1.000
+					advance_delay: 0.500
+					complete_delay: 1.000
+					
+					h_sound_begin: missing
+					h_sound_complete: missing
+					h_sound_finalize: missing
+				}
+			]
+		}
+		{
+			name: "Handle"
+			
+			group: 1
 			type: undefined
 			flags: none
 			
@@ -48,115 +145,6 @@
 							prefab: shovel
 							amount: 1.000
 							group: 0
-						}
-					]
-					
-					start_delay: 1.000
-					advance_delay: 0.500
-					complete_delay: 1.000
-					
-					h_sound_begin: missing
-					h_sound_complete: missing
-					h_sound_finalize: missing
-				}
-			]
-		}
-		{
-			name: "Head"
-			
-			group: 1
-			type: undefined
-			flags: none
-			
-			falloff_amount_mult: 1.000
-			
-			options:
-			[
-				{
-					name: "Hand-Cut Plate"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: steel.plate
-							amount: 2.000
-							group: 0
-						}
-						{
-							type: work
-							work: snipping.metal
-							amount: 350.000
-							difficulty: 4
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.steel
-							amount: 0.710
-							amount_extra: 0.080
-							group: 1
-							flags: waste, residue
-						}
-					]
-					
-					start_delay: 1.000
-					advance_delay: 0.500
-					complete_delay: 1.000
-					
-					h_sound_begin: missing
-					h_sound_complete: missing
-					h_sound_finalize: missing
-				}
-				{
-					name: "Forged"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: steel.ingot
-							amount: 1.000
-							group: 0
-						}
-						{
-							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: forging
-							amount: 450.000
-							difficulty: 5
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.steel
-							amount: 0.710
-							amount_extra: 0.080
-							group: 1
-							flags: waste, residue
 						}
 					]
 					
@@ -223,9 +211,23 @@
 	[
 		{
 			type: resource
+			material: steel.plate
+			amount: 2.000
+			group: 0
+		}
+		{
+			type: work
+			work: snipping.metal
+			amount: 350.000
+			difficulty: 4
+			group: 0
+			flags: conditional
+		}
+		{
+			type: resource
 			material: wood
 			amount: 1.000
-			group: 0
+			group: 1
 			flags: prerequisite
 		}
 		{
@@ -233,20 +235,6 @@
 			work: woodworking
 			amount: 250.000
 			difficulty: 5
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: steel.plate
-			amount: 2.000
-			group: 1
-		}
-		{
-			type: work
-			work: snipping.metal
-			amount: 350.000
-			difficulty: 4
 			group: 1
 			flags: conditional
 		}
@@ -273,14 +261,6 @@
 			prefab: shovel
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.710
-			amount_extra: 0.080
-			group: 1
-			flags: waste, residue
 		}
 	]
 	
