@@ -1,0 +1,64 @@
+﻿{
+	$version: "0.1.61.3"
+	name: "Wood Carving"
+	name_short: "Carving"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, skilled, machine, tools, construction, wip
+	cooldown: 1.000
+	multiplier: 1.250
+	color: "0xff719240"
+	
+	tools_required: hammer, saw, file, knife
+	tools_optional: pencil, ruler, hammer, saw, drill, screwdriver, tweezers, axe, file, chisel, knife
+	
+	machinery_required: none
+	machinery_optional: lathe
+	
+	equipment_required: none
+	equipment_optional: table, chair, vise
+	
+	character_traits:
+	{
+		include: slave, construction, artisan, farmer, laborer, poor, hunter, culinary, insane, nomad, entertainer, outdoor, strong
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		blades: 0.400
+		carpentry: 0.500
+		construction: 0.300
+		strength: 0.350
+	}
+	
+	sound_volume: 0.400
+	sound_pitch: 0.840
+	sound_size: 0.420
+	sound_dist: 0.590
+	
+	sounds: ["structural.wood.stress.00", "axe_hit_wood_03", "work_woodworking_02", "wood_hit_axe_02", "work_woodworking_04", "work_woodworking_05"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

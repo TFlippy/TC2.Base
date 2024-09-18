@@ -1,0 +1,65 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Gluing"
+	name_short: "Gluing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, construction, wip
+	cooldown: 0.900
+	multiplier: 1.000
+	color: "0xff719240"
+	
+	tools_required: none
+	tools_optional: knife
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: table, chair, vise
+	
+	character_traits:
+	{
+		include: bureaucrat, scientist, medical, nobility, artisan, laborer, civillian, law, commerce, technician, engineer, insane, entertainer, illiterate, sedentary, evil, politician
+		exclude: feral, pest, brawler, junkie, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.470
+		carpentry: 0.190
+		intellect: 0.290
+		construction: 0.310
+	}
+	
+	sound_volume: 0.900
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

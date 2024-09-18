@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Metal Cutting"
+	name_short: "Cutting"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [40, 0]
+	}
+	
+	flags: none
+	tags: manual, tools, simple, construction
+	cooldown: 2.000
+	multiplier: 0.650
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: vise
+	equipment_optional: none
+	
+	character_traits:
+	{
+		include: slave, laborer, insane, alcoholic, brawler, strong, evil
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 1.100
+		endurance: 0.250
+	}
+	
+	sound_volume: 0.550
+	sound_pitch: 1.100
+	sound_size: 0.750
+	sound_dist: 0.800
+	
+	sounds: ["effect.spring.machine.00", "effect.spring.machine.01", "effect.spring.machine.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: ["effect.clang.metal.00"]
+	sounds_end: ["effect.spring.erupt.00"]
+	sounds_fail: []
+}
