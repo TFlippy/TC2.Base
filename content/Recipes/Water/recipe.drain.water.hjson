@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Drained Water"
+	name: "Drain Water"
 	desc:
 		'''
 		TODO: Desc
@@ -21,42 +21,7 @@
 			options:
 			[
 				{
-					name: "Clean"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: prefab
-							prefab: water.clean
-							amount: 1.000
-							group: 0
-							flags: no_consume, no_scaling, hide_quantity, prerequisite
-						}
-						{
-							type: work
-							work: draining
-							amount: 10.000
-							difficulty: 4
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: water.clean
-							amount: 1.000
-							group: 0
-						}
-					]
-				}
-				{
-					name: "Fresh"
+					name: "Freshwater"
 					
 					type: undefined
 					flags: none
@@ -87,11 +52,48 @@
 							material: water
 							amount: 1.000
 							group: 0
+							flags: primary
 						}
 					]
 				}
 				{
-					name: "Dirty"
+					name: "Clearwater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: water.clean
+							amount: 1.000
+							group: 0
+							flags: no_consume, no_scaling, hide_quantity, prerequisite
+						}
+						{
+							type: work
+							work: draining
+							amount: 10.000
+							difficulty: 4
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.clean
+							amount: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+				}
+				{
+					name: "Wastewater"
 					
 					type: undefined
 					flags: none
@@ -122,11 +124,12 @@
 							material: water.dirty
 							amount: 1.000
 							group: 0
+							flags: primary
 						}
 					]
 				}
 				{
-					name: "Sea"
+					name: "Seawater"
 					
 					type: undefined
 					flags: none
@@ -157,11 +160,12 @@
 							material: water.sea
 							amount: 1.000
 							group: 0
+							flags: primary
 						}
 					]
 				}
 				{
-					name: "Swamp"
+					name: "Swampwater"
 					
 					type: undefined
 					flags: none
@@ -192,11 +196,12 @@
 							material: water.swamp
 							amount: 1.000
 							group: 0
+							flags: primary
 						}
 					]
 				}
 				{
-					name: "Toxic"
+					name: "Sludgewater"
 					
 					type: undefined
 					flags: none
@@ -227,41 +232,19 @@
 							material: water.toxic
 							amount: 1.000
 							group: 0
+							flags: primary
 						}
 					]
 				}
 			]
+			
+			products: []
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: prefab
-			prefab: water
-			amount: 1.000
-			group: 0
-			flags: no_consume, no_scaling, hide_quantity, prerequisite
-		}
-		{
-			type: work
-			work: draining
-			amount: 10.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-	]
+	requirements: []
 	
-	products:
-	[
-		{
-			type: resource
-			material: water
-			amount: 1.000
-			group: 0
-		}
-	]
+	products: []
 	
 	type: workshop
 	flags: none

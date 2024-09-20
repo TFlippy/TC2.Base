@@ -16,12 +16,12 @@
 	
 	flags: none
 	tags: manual, simple, construction, wip
-	cooldown: 0.900
+	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xff719240"
 	
 	tools_required: none
-	tools_optional: knife
+	tools_optional: none
 	
 	machinery_required: none
 	machinery_optional: none
@@ -49,12 +49,12 @@
 		construction: 0.310
 	}
 	
-	sound_volume: 0.900
-	sound_pitch: 1.000
+	sound_volume: 0.700
+	sound_pitch: 1.500
 	sound_size: 0.500
 	sound_dist: 0.600
 	
-	sounds: []
+	sounds: ["effect.spray.foam.00", "effect.smack.meaty.01", "effect.cloth.place.02", "effect.cloth.slide.00", "effect.smack.meaty.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

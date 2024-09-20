@@ -26,6 +26,7 @@
 							material: steel.plate
 							amount: 3.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -42,9 +43,9 @@
 						{
 							type: resource
 							material: scrap.steel
-							amount: 0.710
+							amount: 0.490
 							amount_extra: 0.080
-							group: 1
+							group: 0
 							flags: waste, residue
 						}
 					]
@@ -62,6 +63,7 @@
 							material: steel.ingot
 							amount: 0.500
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: temperature
@@ -84,6 +86,8 @@
 					products: []
 				}
 			]
+			
+			products: []
 		}
 		{
 			name: "Handle"
@@ -118,9 +122,21 @@
 						}
 					]
 					
-					products: []
+					products:
+					[
+						{
+							type: resource
+							material: woodchips
+							amount: 0.620
+							amount_extra: 0.340
+							group: 0
+							flags: waste, residue
+						}
+					]
 				}
 			]
+			
+			products: []
 		}
 		{
 			name: "Assembly"
@@ -143,6 +159,7 @@
 							material: glue
 							amount: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -154,15 +171,7 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: prefab
-							prefab: shovel
-							amount: 1.000
-							group: 0
-						}
-					]
+					products: []
 				}
 				{
 					name: "Bolted"
@@ -175,8 +184,9 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.200
+							amount: 0.250
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -191,26 +201,22 @@
 					products:
 					[
 						{
-							type: prefab
-							prefab: shovel
-							amount: 1.000
+							type: resource
+							material: scrap.steel
+							amount: 0.070
+							amount_extra: 0.044
 							group: 0
+							flags: waste, residue
 						}
 					]
 				}
 			]
+			
+			products: []
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 2.000
-			group: 0
-		}
-	]
+	requirements: []
 	
 	products:
 	[
@@ -219,6 +225,7 @@
 			prefab: shovel
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	

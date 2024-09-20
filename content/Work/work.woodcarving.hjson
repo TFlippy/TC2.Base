@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Wood Carving"
 	name_short: "Carving"
 	desc:
@@ -16,11 +16,11 @@
 	
 	flags: none
 	tags: manual, skilled, machine, tools, construction, wip
-	cooldown: 1.000
-	multiplier: 1.250
+	cooldown: 0.850
+	multiplier: 0.700
 	color: "0xff719240"
 	
-	tools_required: hammer, saw, file, knife
+	tools_required: saw, file, knife
 	tools_optional: pencil, ruler, hammer, saw, drill, screwdriver, tweezers, axe, file, chisel, knife
 	
 	machinery_required: none
@@ -48,12 +48,12 @@
 		strength: 0.350
 	}
 	
-	sound_volume: 0.400
-	sound_pitch: 0.840
+	sound_volume: 0.710
+	sound_pitch: 1.150
 	sound_size: 0.420
 	sound_dist: 0.590
 	
-	sounds: ["structural.wood.stress.00", "axe_hit_wood_03", "work_woodworking_02", "wood_hit_axe_02", "work_woodworking_04", "work_woodworking_05"]
+	sounds: ["wood_hit_axe_00", "axe_hit_wood_03", "walljump.01", "wood_hit_axe_02", "walljump.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
