@@ -8,23 +8,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.water.swamp
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	
-	min: 10
-	max: 100
-	step: 10
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, gathering
-	
-	color_button: "0xffaeb59a"
-	rank: -10.000
+	stages: []
 	
 	requirements:
 	[
@@ -54,4 +38,22 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: hidden, disabled
+	tags: workbench, manual, simple, gathering
+	
+	icon:
+	{
+		texture: resource.water.swamp
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -10.000
+	
+	min: 10
+	max: 100
+	step: 10
 }
