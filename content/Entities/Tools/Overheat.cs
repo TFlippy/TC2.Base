@@ -300,7 +300,7 @@ namespace TC2.Base.Components
 				heat_state.modifier = modifier;
 				heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
 
-				App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}");
+				//App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}");
 
 				heat_state.mass_cached = mass;
 				heat_state.Sync(entity, true);
@@ -349,7 +349,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 		{
-			App.WriteLine($"spawn {data.temperature} {data.product.flags}");
+			//App.WriteLine($"spawn {data.temperature} {data.product.flags}");
 			if (data.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
 			{
 				heat_state.temperature_current = data.temperature;

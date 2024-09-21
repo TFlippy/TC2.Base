@@ -103,3 +103,23 @@ packable:
 {
 
 }
+
+heat:
+{
+	temperature_medium: 500.000
+	temperature_high: 900.000
+	temperature_critical: 1550.000
+	cool_rate: 0.175
+	heat_capacity_extra: 15.000
+	offset: [0.000, -0.500]
+	smoke_offset: [0.000, -0.500]
+	size: [0.375, 0.500]
+
+	@light:
+	{
+		offset: [0.000, -0.375]
+		scale: [14.000, 16.000]
+		intensity: 2.000
+		texture: light.circle.00
+	}
+}
