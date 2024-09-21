@@ -91,6 +91,7 @@ heat:
 	temperature_critical: 1350.000
 	cool_rate: 5.000
 	heat_capacity_extra: 30.000
+	heat_damage_mult: 0.200
 	cool_rate_mult: 1.100
 	smoke_size_mult: 0.750
 	smoke_speed_mult: 0.800

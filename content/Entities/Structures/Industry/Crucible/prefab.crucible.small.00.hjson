@@ -92,6 +92,7 @@ heat:
 	temperature_high: 1800.000
 	temperature_critical: 3234.000
 	heat_capacity_mult: 1.500
+	heat_damage_mult: 0.100
 	cool_rate: 2.000
 	offset: [0.000, -0.375]
 	smoke_offset: [0.000, -1.000]

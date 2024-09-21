@@ -102,8 +102,9 @@ heat:
 	temperature_medium: 400.000
 	temperature_high: 900.000
 	temperature_ignite: 650.000
-	temperature_critical: 1350.000
+	temperature_critical: 1250.000
 	cool_rate: 0.100
+	heat_damage_mult: 0.350
 	offset: [0.750, 0.000]
 	smoke_offset: [0.750, 0.000]
 	flags: no_held_damage

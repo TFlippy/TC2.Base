@@ -34,6 +34,7 @@ namespace TC2.Base.Components
 			public Energy heat_capacity_extra;
 
 			public float heat_capacity_mult = 1.00f;
+			public float heat_damage_mult = 1.00f;
 			public float cool_rate_mult = 1.00f;
 
 			public float smoke_size_mult = 1.00f;
@@ -370,7 +371,7 @@ namespace TC2.Base.Components
 				var temperature_excess = Maths.Max(heat_state.temperature_current - heat.temperature_critical, 0.00f);
 				if (temperature_excess > Maths.epsilon && random.NextBool(temperature_excess * 0.01f))
 				{
-					var damage = Maths.Lerp(temperature_excess, health.GetMaxHealth(), random.NextFloatExtra(0.10f, 0.20f)) * random.NextFloatRange(0.80f, 1.20f);
+					var damage = Maths.Lerp(temperature_excess, health.GetMaxHealth(), random.NextFloatExtra(0.10f, 0.20f)) * random.NextFloatRange(0.80f, 1.20f) * heat.heat_damage_mult;
 					Damage.Hit(ent_attacker: entity,
 						ent_owner: entity,
 						ent_target: entity,

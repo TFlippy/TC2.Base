@@ -11,10 +11,12 @@
 			type: undefined
 			flags: none
 			
+			ratio: 0.000
+			
 			options:
 			[
 				{
-					name: "Hand-Cut Plate"
+					name: "Hand-Cut Plates"
 					
 					type: undefined
 					flags: none
@@ -31,8 +33,8 @@
 						{
 							type: work
 							work: snipping.metal
-							amount: 300.000
-							difficulty: 9
+							amount: 220.000
+							difficulty: 11
 							group: 0
 							flags: conditional
 						}
@@ -85,6 +87,43 @@
 					
 					products: []
 				}
+				{
+					name: "Die-Cut Plates"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die_cutting.metal
+							amount: 50.000
+							difficulty: 11
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.100
+							amount_extra: 0.020
+							group: 0
+							flags: waste, residue
+						}
+					]
+				}
 			]
 			
 			products: []
@@ -94,6 +133,8 @@
 			
 			type: undefined
 			flags: none
+			
+			ratio: 0.000
 			
 			options:
 			[
@@ -144,6 +185,8 @@
 			type: undefined
 			flags: none
 			
+			ratio: 0.000
+			
 			options:
 			[
 				{
@@ -184,14 +227,21 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.250
+							amount: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: assembling
-							amount: 100.000
+							amount: 150.000
 							difficulty: 4
 							group: 0
 							flags: conditional
@@ -202,9 +252,9 @@
 					[
 						{
 							type: resource
-							material: scrap.steel
-							amount: 0.070
-							amount_extra: 0.044
+							material: scrap.machine
+							amount: 0.212
+							amount_extra: 0.064
 							group: 0
 							flags: waste, residue
 						}
@@ -230,8 +280,8 @@
 	]
 	
 	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, metalworking, forming, shaping
+	flags: blueprintable, packable
+	tags: workbench, manual, simple, tool, assembling, metalworking
 	
 	icon:
 	{

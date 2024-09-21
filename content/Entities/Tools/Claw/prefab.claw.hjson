@@ -83,6 +83,36 @@ attachment:
 	tags: medium, tool, utility, rotary, coaxial
 }
 
+heat:
+{
+	temperature_medium: 520.000
+	temperature_high: 700.000
+	temperature_critical: 1350.000
+	cool_rate: 1.000
+	heat_capacity_extra: 30.000
+	heat_damage_mult: 0.250
+	cool_rate_mult: 1.100
+	smoke_size_mult: 0.750
+	smoke_speed_mult: 0.800
+	smoke_offset: [0.000, 0.000]
+	size: [3.500, 2.500]
+
+	@light:
+	{
+		offset: [-0.125, 0.000]
+		scale: [26.000, 34.000]
+		intensity: 2.000
+		texture: light.circle.00
+	}
+	
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
 // norotate:
 // {
 // 	rotation: -1.571
