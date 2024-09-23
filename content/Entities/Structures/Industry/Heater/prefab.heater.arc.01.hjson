@@ -1,7 +1,7 @@
-$name: "Arc Heater"
+$name: "Mono-Electrode Arcer"
 $desc:
 	'''
-	TODO: Desc
+	Handheld single-electrode arcer.
 	'''
 $tags: []
 
@@ -64,7 +64,7 @@ essencecontainer:
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass
+		flags: none
 		stack_size_multiplier: 0.100
 		
 		filter:
@@ -157,7 +157,7 @@ electrode:
 
 shape.circle|"idx_00":
 {
-	offset: [1.250, 0.000]
+	offset: [1.500, 0.000]
 	
 	mass: 5.000
 	radius: 0.250

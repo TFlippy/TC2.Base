@@ -1,7 +1,7 @@
-$name: "Arc Heater"
+$name: "Dual-Electrode Arcer"
 $desc:
 	'''
-	TODO: Desc
+	Industrial dual-electrode arcer.
 	'''
 $tags: []
 
@@ -65,7 +65,7 @@ essencecontainer:
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass
+		flags: none
 		stack_size_multiplier: 0.500
 		
 		filter:
