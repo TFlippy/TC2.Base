@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.243
-	quantity_max: 256.000
+	quantity_max: 100.000
 	prefab: resource.rot
 	
 	color_dust: "0xffffffff"

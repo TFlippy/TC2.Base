@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.100
-	quantity_max: 64.000
+	quantity_max: 50.000
 	prefab: resource.canister.basic
 	
 	color_dust: "0xffffffff"

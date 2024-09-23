@@ -22,7 +22,7 @@
 	hints: materials, junk, advanced, construction, expensive
 	// kg
 	mass_per_unit: 1.550
-	quantity_max: 256.000
+	quantity_max: 500.000
 	prefab: resource.scrap.arcane
 	
 	color_dust: "0xffffffff"

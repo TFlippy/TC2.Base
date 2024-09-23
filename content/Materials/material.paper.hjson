@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.020
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.paper
 	
 	color_dust: "0xffffffff"

@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.670
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.mud
 	
 	color_dust: "0xffffffff"

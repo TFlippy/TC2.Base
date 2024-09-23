@@ -23,7 +23,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.880
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.kruskite
 	
 	color_dust: "0xffffffff"

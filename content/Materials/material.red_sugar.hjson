@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.200
-	quantity_max: 128.000
+	quantity_max: 100.000
 	prefab: resource.red_sugar
 	
 	color_dust: "0xffffffff"

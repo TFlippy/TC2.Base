@@ -22,7 +22,7 @@
 	hints: materials, heavy, advanced, powerful, construction, industrial, slow
 	// kg
 	mass_per_unit: 2.9921
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.smirglum
 	
 	color_dust: "0xff6c584b"

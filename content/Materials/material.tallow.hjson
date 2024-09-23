@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.230
-	quantity_max: 128.000
+	quantity_max: 100.000
 	prefab: resource.tallow
 	
 	color_dust: "0xffffffff"

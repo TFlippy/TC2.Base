@@ -22,7 +22,7 @@
 	hints: materials, junk, primitive, crappy
 	// kg
 	mass_per_unit: 0.184
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.plants
 	
 	color_dust: "0xffffffff"

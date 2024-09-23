@@ -23,7 +23,7 @@
 	hints: materials, junk, construction, cheap
 	// kg
 	mass_per_unit: 0.930
-	quantity_max: 256.000
+	quantity_max: 500.000
 	prefab: resource.scrap.machine
 	
 	color_dust: "0xffffffff"

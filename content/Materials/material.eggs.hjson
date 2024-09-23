@@ -22,7 +22,7 @@
 	hints: food, weak
 	// kg
 	mass_per_unit: 0.400
-	quantity_max: 128.000
+	quantity_max: 100.000
 	prefab: resource.eggs
 	
 	color_dust: "0xffffffff"

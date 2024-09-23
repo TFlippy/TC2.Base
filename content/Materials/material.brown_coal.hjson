@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.480
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.brown_coal
 	
 	color_dust: "0xffffffff"

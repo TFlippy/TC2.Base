@@ -22,7 +22,7 @@
 	hints: junk, primitive, weak, cheap, dumb, crappy, fast
 	// kg
 	mass_per_unit: 0.213
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.shite
 	
 	color_dust: "0xffffffff"

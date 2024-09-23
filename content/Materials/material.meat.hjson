@@ -22,7 +22,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.400
-	quantity_max: 256.000
+	quantity_max: 250.000
 	prefab: resource.meat
 	
 	color_dust: "0xffffffff"

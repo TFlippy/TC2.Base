@@ -22,7 +22,7 @@
 	hints: materials, rare, heavy, healing, expensive, fancy, civilian
 	// kg
 	mass_per_unit: 1.049
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.silver
 	
 	color_dust: "0xfff4fbf8"

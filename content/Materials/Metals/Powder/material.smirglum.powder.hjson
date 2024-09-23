@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.760
-	quantity_max: 1024.000
+	quantity_max: 1000.000
 	prefab: resource.smirglum.powder
 	
 	color_dust: "0xff6c584b"

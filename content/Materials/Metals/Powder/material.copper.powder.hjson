@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.230
-	quantity_max: 1024.000
+	quantity_max: 1000.000
 	prefab: resource.copper.powder
 	
 	color_dust: "0xffdf873d"

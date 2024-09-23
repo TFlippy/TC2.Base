@@ -22,7 +22,7 @@
 	hints: armor, materials, heavy, advanced, powerful, construction, military, industrial, slow
 	// kg
 	mass_per_unit: 1.450
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.smirgrafit
 	
 	color_dust: "0xff403a39"

@@ -22,7 +22,7 @@
 	hints: materials, rare, heavy, expensive, fancy, civilian
 	// kg
 	mass_per_unit: 1.930
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.gold
 	
 	color_dust: "0xffffd470"

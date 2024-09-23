@@ -22,7 +22,7 @@
 	hints: materials, construction, civilian, military, industrial
 	// kg
 	mass_per_unit: 0.7812
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.steel
 	
 	color_dust: "0xffc0c6ac"

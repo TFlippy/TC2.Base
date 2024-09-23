@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.100
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.water.clean
 	
 	color_dust: "0xffffffff"

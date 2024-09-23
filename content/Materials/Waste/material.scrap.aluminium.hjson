@@ -22,7 +22,7 @@
 	hints: materials, junk, construction, industrial, wrecked
 	// kg
 	mass_per_unit: 0.4871
-	quantity_max: 256.000
+	quantity_max: 500.000
 	prefab: resource.scrap.aluminium
 	
 	color_dust: "0xff929894"

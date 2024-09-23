@@ -24,7 +24,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 0.200
-	quantity_max: 1024.000
+	quantity_max: 1000.000
 	prefab: resource.iron.powder
 	
 	color_dust: "0xff62605e"

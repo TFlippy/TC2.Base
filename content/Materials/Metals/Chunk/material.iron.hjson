@@ -22,7 +22,7 @@
 	hints: materials, construction, cheap, dumb, industrial
 	// kg
 	mass_per_unit: 0.7874
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.iron
 	
 	color_dust: "0xff62605e"

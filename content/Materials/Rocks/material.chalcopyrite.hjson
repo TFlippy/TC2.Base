@@ -23,7 +23,7 @@
 	hints: none
 	// kg
 	mass_per_unit: 1.650
-	quantity_max: 512.000
+	quantity_max: 500.000
 	prefab: resource.chalcopyrite
 	
 	color_dust: "0xffffffff"
