@@ -1,4 +1,4 @@
-﻿namespace TC2.Base.Components
+namespace TC2.Base.Components
 {
 	public static partial class Electrode
 	{
@@ -120,6 +120,7 @@
 			public Entity ent_target;
 
 			public Energy energy_discharged;
+			public float modifier;
 			public float radius;
 		}
 
@@ -300,26 +301,27 @@
 
 		public const float sync_interval = 0.50f;
 
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
-		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state,
+		[Source.Owned, Pair.Component<Electrode.Data>, Optional(true)] ref Light.Data light, 
+		[Source.Owned, Pair.Component<Electrode.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
 		{
-			// https://www.desmos.com/calculator/1fedzprrld
-			static float CalculateModifier(float energy_mj, float i, float j, float k)
+#if CLIENT
+			var discharge_modifier = CalculateModifier(electrode_state.charge.MJ(), 2.95f, 0.05f, 0.06f);
+
+			if (sound_emitter.IsNotNull())
 			{
-				return Maths.Clamp01((Maths.Pow(i, energy_mj * j) * k) - k);
+				sound_emitter.volume_mult.LerpFMARef(discharge_modifier * 1.70f, 0.02f);
+				sound_emitter.pitch_mult.LerpFMARef(Maths.Lerp01Fast(0.40f, 2.75f, discharge_modifier * 2.10f), 0.05f);
 			}
 
-			electrode_state.charge *= 0.999f;
-			var time = info.WorldTime;
-
-#if CLIENT
-			if (electrode_state.charge.MJ() > 0.50f)
+			if (electrode_state.charge.MJ() > 0.50f && random.NextBool(discharge_modifier * 4.00f))
 			{
-				var discharge_modifier = CalculateModifier(electrode_state.charge.MJ(), 2.95f, 0.05f, 0.06f);
+				//var discharge_modifier = CalculateModifier(electrode_state.charge.MJ(), 2.95f, 0.05f, 0.06f);
 				var pos = transform.LocalToWorld(random.NextBool(0.50f) ? electrode.offset_a : electrode.offset_b);
-
+				Shake.Emit(ref region, pos, 0.37f * discharge_modifier, 1.20f * discharge_modifier, 60.00f * discharge_modifier);
 
 				var dir = transform.GetDirection();
 				for (var i = 0; i < 2; i++)
@@ -359,7 +361,7 @@
 						drag = random.NextFloatRange(0.01f, 0.20f),
 						angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
 						stretch = new Vector2(random.NextFloatRange(0.50f, 0.70f), 0.05f),
-						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff).WithAlphaMult(discharge_modifier * 1.50f),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff).WithAlphaMult((discharge_modifier * 1.50f).Clamp01()),
 						color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
 						lit = 1.00f,
 						face_dir_ratio = 1.00f
@@ -367,6 +369,22 @@
 				}
 			}
 #endif
+
+		}
+
+		// https://www.desmos.com/calculator/1fedzprrld
+		public static float CalculateModifier(float energy_mj, float i, float j, float k)
+		{
+			return Maths.Clamp01((Maths.Pow(i, energy_mj * j) * k) - k);
+		}
+
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
+		{
+			electrode_state.charge *= 0.999f;
+			var time = info.WorldTime;
 
 #if SERVER
 			if (electrode_state.flags.HasAny(Electrode.State.Flags.Active))
@@ -401,6 +419,7 @@
 						radius = radius,
 						pos = pos,
 						pos_target = pos + (transform.GetDirection() * radius) + random.NextUnitVector2(radius * 0.25f),
+						modifier = discharge_modifier
 					};
 
 					entity.TriggerEventDeferred(ev, sync: true);

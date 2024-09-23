@@ -132,8 +132,20 @@ electrode:
 	offset_a: [1.375, -0.500]
 	offset_b: [1.375, 0.500]
 	capacity: 25000.000
+	discharge_chance_mult: 0.350
 	h_sound_on: arcane_infuser.on.00
 	h_sound_off: arcane_infuser.off.00
+
+	@sound.emitter:
+	{
+		file: levitator.loop.01
+		volume: 1.600
+		pitch: 0.540
+		size: 1.400
+		size_max_modifier: 0.750
+		spread: 85.000
+		offset: [0.000, -0.250]
+	}
 }
 
 shape.circle|"idx_00":
