@@ -6,163 +6,98 @@
 	stages:
 	[
 		{
+			name: "Arms"
 			
-			group: 0
 			type: undefined
 			flags: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.950
 			
-			requirements:
+			options:
 			[
 				{
-					type: resource
-					material: steel.ingot
-					amount: 1.500
-					group: 0
-					flags: prerequisite
-				}
-				{
-					type: temperature
-					amount: 1315.200
-					amount_min: 822.000
-					amount_max: 1578.240
-					falloff: 0.500
-					group: 0
-					flags: no_scaling, always_evaluate
-				}
-				{
-					type: work
-					work: smithing
-					amount: 275.000
-					difficulty: 5
-					group: 0
-					flags: conditional
+					name: "Forged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 1.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							falloff: 0.500
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 475.000
+							difficulty: 6
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
 				}
 			]
 			
 			products: []
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
 		}
 		{
+			name: "Assembly"
 			
-			group: 1
 			type: undefined
 			flags: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.050
 			
-			requirements:
+			options:
 			[
 				{
-					type: temperature
-					amount: 300.000
-					amount_min: 290.000
-					amount_max: 350.000
-					falloff: 0.850
-					group: 1
-					flags: no_scaling, always_evaluate
-				}
-				{
-					type: resource
-					material: machine_parts
-					amount: 1.000
-					group: 1
-				}
-				{
-					type: work
-					work: assembling
-					amount: 115.000
-					difficulty: 3
-					group: 1
-					flags: conditional
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: assembling
+							amount: 180.000
+							difficulty: 5
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
 				}
 			]
 			
-			products:
-			[
-				{
-					type: prefab
-					prefab: tongs.00
-					amount: 1.000
-					group: 0
-				}
-				{
-					type: resource
-					material: scrap.steel
-					amount: 1.120
-					amount_extra: 0.190
-					group: 0
-				}
-			]
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
+			products: []
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.ingot
-			amount: 1.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: temperature
-			amount: 1315.200
-			amount_min: 822.000
-			amount_max: 1578.240
-			falloff: 0.500
-			group: 0
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: smithing
-			amount: 275.000
-			difficulty: 5
-			group: 0
-			flags: conditional
-		}
-		{
-			type: temperature
-			amount: 300.000
-			amount_min: 290.000
-			amount_max: 350.000
-			falloff: 0.850
-			group: 1
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: assembling
-			amount: 115.000
-			difficulty: 3
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
 	products:
 	[
@@ -170,13 +105,6 @@
 			type: prefab
 			prefab: tongs.00
 			amount: 1.000
-			group: 0
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 1.120
-			amount_extra: 0.190
 			group: 0
 		}
 	]

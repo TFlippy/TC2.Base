@@ -72,14 +72,15 @@
 							amount: 1315.200
 							amount_min: 822.000
 							amount_max: 1578.240
+							falloff: 0.500
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
-							work: forging
-							amount: 350.000
-							difficulty: 5
+							work: smithing
+							amount: 250.000
+							difficulty: 4
 							group: 0
 							flags: conditional
 						}
@@ -108,7 +109,7 @@
 							amount: 50.000
 							difficulty: 11
 							group: 0
-							flags: conditional
+							flags: crafter_only, conditional
 						}
 					]
 					
@@ -208,7 +209,7 @@
 							type: work
 							work: gluing
 							amount: 100.000
-							difficulty: 3
+							difficulty: 2
 							group: 0
 							flags: conditional
 						}
@@ -241,8 +242,8 @@
 						{
 							type: work
 							work: assembling
-							amount: 150.000
-							difficulty: 4
+							amount: 130.000
+							difficulty: 8
 							group: 0
 							flags: conditional
 						}

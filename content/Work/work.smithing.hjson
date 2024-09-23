@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Smithing"
-	name_short: "Smithing"
+	name: "Forging"
+	name_short: "Forging"
 	desc:
 		'''
 		TODO: Desc
@@ -11,14 +11,14 @@
 	{
 		texture: ui.icons.work.00
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [11, 0]
 	}
 	
 	flags: none
-	tags: manual, skilled, machine, tools, dangerous, construction, industrial, wip
+	tags: manual, skilled, tools, dangerous, industrial, wip
 	cooldown: 1.000
 	multiplier: 1.500
-	color: "0xffffa200"
+	color: "0xffef3500"
 	
 	tools_required: hammer, tongs
 	tools_optional: none

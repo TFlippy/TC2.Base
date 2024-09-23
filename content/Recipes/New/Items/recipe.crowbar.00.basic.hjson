@@ -24,7 +24,7 @@
 		}
 		{
 			type: work
-			work: forging
+			work: smithing
 			amount: 450.000
 			difficulty: 5
 			group: 1
