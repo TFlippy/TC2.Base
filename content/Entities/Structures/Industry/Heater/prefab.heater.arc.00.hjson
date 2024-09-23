@@ -9,33 +9,26 @@ body:
 {
 	// type: static
 
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [-1.125, 0.000]
-		b: [0.750, 0.000]
+		points:
+		[
+			[-1.375, -0.250]
+			[1.000, -0.375]
+			[1.000, 0.375]
+			[-1.375, 0.250]
+		]
 		
-		mass: 180.000
-		radius: 0.625
-		friction: 0.750
-		elasticity: 0.350
+		mass: 240.000
+		radius: 0.375
+		friction: 0.850
+		elasticity: 0.450
 		
 		material: machine
 		miss_chance: 0.161
 		
 		layer: entity, solid, item, conductive, heatable, magnetic
-		mask: item, resource
 		exclude: held, attached
-	}
-
-	@shape.circle:
-	{
-		offset: [1.125, 0.000]
-		radius: 0.625
-		friction: 0.000
-		elasticity: 0.000
-		rigidity_static: 0.000
-		rigidity_dynamic: 0.000
-		mask: heatable
 	}
 }
 
@@ -46,7 +39,7 @@ transform:
 
 health:
 {
-	max: 37000.000
+	max: 48000.000
 }
 
 animated.renderer:
@@ -127,9 +120,71 @@ attachment:
 	tags: medium, tool, utility, rotary, long
 }
 
-arcer:
+electrode:
 {
 	h_material_electrode: smirgrafit
+	electrode_separation: 0.750
+	damage_integrity: 1000.000
+	damage_terrain: 500.000
+	offset: [1.500, 0.000]
+
+	// @shape.line:
+	// {
+	// 	a: [1.375, -0.500]
+	// 	b: [1.375, 0.500]
+	// 	friction: 0.900
+	// 	elasticity: 0.000
+	// 	radius: 0.125
+	// 	rigidity_static: 0.100
+	// 	rigidity_dynamic: 0.100
+		
+	// 	miss_chance: 1.000
+		
+	// 	layer: solid, conductive, heatable, magnetic, ignore_bullet
+	// 	mask: solid
+	// 	exclude: world
+	// 	flags: no_mass, no_body_overrides, no_inventory_mass
+	// }
+}
+
+shape.circle|"idx_00":
+{
+	offset: [1.375, -0.500]
+	
+	mass: 5.000
+	radius: 0.250
+	friction: 1.000
+	elasticity: 0.000
+	rigidity_static: 0.000
+	rigidity_dynamic: 0.000
+	
+	material: none
+	miss_chance: 1.000
+	
+	layer: solid, conductive, heatable, magnetic, ignore_bullet
+	mask: solid, gas, water
+	exclude: world
+	flags: no_mass, no_body_overrides, no_inventory_mass
+}
+
+shape.circle|"idx_01":
+{
+	offset: [1.375, 0.500]
+	
+	mass: 5.000
+	radius: 0.250
+	friction: 1.000
+	elasticity: 0.000
+	rigidity_static: 0.000
+	rigidity_dynamic: 0.000
+	
+	material: none
+	miss_chance: 1.000
+	
+	layer: solid, conductive, heatable, magnetic, ignore_bullet
+	mask: solid, gas, water
+	exclude: world
+	flags: no_mass, no_body_overrides, no_inventory_mass
 }
 
 heat:

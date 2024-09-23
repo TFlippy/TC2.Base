@@ -11,82 +11,86 @@
 	[
 		{
 			
-			group: 0
 			type: undefined
 			flags: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.000
 			
-			requirements:
+			options:
 			[
 				{
-					type: resource
-					material: smirglum.powder
-					amount: 1.000
-					group: 0
-					flags: prerequisite
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products: []
 				}
 			]
 			
 			products: []
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
 		}
 		{
 			
-			group: 1
 			type: undefined
 			flags: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.000
 			
-			requirements:
+			options:
 			[
 				{
-					type: temperature
-					amount: 3345.000
-					amount_min: 3163.875
-					amount_max: 3793.200
-					group: 1
-					flags: no_scaling, always_evaluate
-				}
-				{
-					type: work
-					work: melting
-					amount: 73.720
-					difficulty: 3
-					snapping: 5.000
-					falloff: 0.795927
-					group: 1
-					flags: conditional
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 3345.000
+							amount_min: 3163.875
+							amount_max: 3793.200
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 73.720
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.795927
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: smirglum
+							amount: 0.25292
+							amount_extra: 0.001082
+							group: 0
+							flags: spawn, use_temperature, spawn_event
+						}
+					]
 				}
 			]
 			
-			products:
-			[
-				{
-					type: resource
-					material: smirglum
-					amount: 0.25292
-					amount_extra: 0.001082
-					group: 0
-					flags: spawn, use_temperature, spawn_event
-				}
-			]
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
+			products: []
 		}
 	]
 	
