@@ -1,0 +1,207 @@
+$name: "Arc Heater"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	// type: static
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.125, -0.250]
+			[1.000, -0.125]
+			[0.250, 0.250]
+			[-1.000, 0.125]
+		]
+		
+		mass: 65.000
+		radius: 0.250
+		friction: 0.780
+		elasticity: 0.650
+		
+		material: machine
+		miss_chance: 0.192
+		
+		layer: entity, solid, item, conductive, heatable, magnetic
+		exclude: held, attached
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 28000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: heater.arc.01
+	}
+	z: -60.000
+}
+
+essencecontainer:
+{
+	rate: 1.000
+	rate_speed: 0.250
+	stability: 0.850
+	health_threshold: 0.500
+	glow_modifier: 3.000
+	flags: show_gui, allow_edit_rate
+	emit_type: stressor
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass
+		stack_size_multiplier: 0.100
+		
+		filter:
+		{
+			require: small, pellet, solid
+		}
+		
+		offset: [0.000, -0.250]
+	}
+
+	@sound.emitter:
+	{
+		file: essence.emit.generic.loop.04
+		volume: 0.700
+		pitch: 0.950
+		size: 0.900
+		size_max_modifier: 0.350
+		spread: 85.000
+		offset: [0.000, -0.250]
+	}
+
+	@light:
+	{
+		offset: [0.000, -0.250]
+		scale: [8.000, 5.000]
+		texture: light.circle.04
+	}
+}
+
+interactable:
+{
+	flags: none
+	window_size: [72.000, 192.000]
+	window_size_misc: [120.000, 0.000]
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+	deadzone: 0.400
+	min: -2.000
+	max: 2.000
+}
+
+holdable:
+{
+	force_multiplier: 0.750
+	torque_multiplier: 1.150
+	stress_multiplier: 0.500
+	offset: [-0.375, 0.000]
+	radius: 3.000
+	hints: tools, dangerous, heavy, short_range, advanced, machine, destructive, construction, device, industrial, arcane, tech, slow, unstable
+	flags: full_rotate
+}
+
+attachment:
+{
+	offset: [-1.125, 0.000]
+	flags: mirror_rotate
+	tags: small, tool, utility, rotary, long
+}
+
+electrode:
+{
+	flags: insulated, continuous
+	h_substance_electrode_a: smirgrafit
+	type: single
+	offset_a: [1.250, -0.125]
+	offset_b: [1.250, 0.125]
+	capacity: 2500.000
+	discharge_chance_mult: 0.500
+	h_sound_on: arcane_infuser.on.00
+	h_sound_off: arcane_infuser.off.00
+
+	@sound.emitter:
+	{
+		file: levitator.loop.01
+		volume: 1.600
+		pitch: 0.840
+		size: 0.400
+		size_max_modifier: 0.750
+		spread: 85.000
+		offset: [0.000, -0.250]
+	}
+}
+
+shape.circle|"idx_00":
+{
+	offset: [1.250, 0.000]
+	
+	mass: 5.000
+	radius: 0.250
+	friction: 1.000
+	elasticity: 0.000
+	rigidity_static: 0.000
+	rigidity_dynamic: 0.000
+	miss_chance: 1.000
+	
+	layer: solid, conductive, heatable, magnetic, ignore_bullet
+	mask: solid, water, gas
+	exclude: world
+	flags: no_mass, no_body_overrides, no_inventory_mass
+}
+
+heat:
+{
+	temperature_medium: 650.000
+	temperature_high: 1250.000
+	temperature_critical: 1650.000
+	cool_rate: 10.000
+	heat_capacity_extra: 15.000
+	cool_rate_mult: 1.400
+	smoke_size_mult: 0.850
+	flags: no_held_damage
+	offset: [1.000, -0.125]
+	smoke_offset: [0.875, -0.125]
+	size: [2.250, 1.500]
+
+	@light:
+	{
+		offset: [0.625, 0.000]
+		scale: [32.000, 30.000]
+		intensity: 2.000
+		texture: light.circle.04
+	}
+	
+	@sound.emitter:
+	{
+		file: distillery.loop.00
+		volume: 1.000
+		pitch: 1.000
+		size: 1.400
+		size_max_modifier: 1.500
+		offset: [0.625, 0.000]
+	}
+}
