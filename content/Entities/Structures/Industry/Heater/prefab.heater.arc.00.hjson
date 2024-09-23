@@ -53,7 +53,7 @@ animated.renderer:
 
 essencecontainer:
 {
-	stability: 0.900
+	stability: 0.820
 	health_threshold: 0.500
 	glow_modifier: 1.800
 	flags: show_gui, allow_edit_rate
@@ -63,7 +63,7 @@ essencecontainer:
 	{
 		type: essence
 		flags: ignore_mass
-		stack_size_multiplier: 0.200
+		stack_size_multiplier: 0.500
 		
 		filter:
 		{
@@ -122,29 +122,16 @@ attachment:
 
 electrode:
 {
-	h_material_electrode: smirgrafit
+	flags: continuous
+	h_substance_electrode_a: smirgrafit
+	h_substance_electrode_b: smirgrafit
 	electrode_separation: 0.750
-	damage_integrity: 1000.000
-	damage_terrain: 500.000
-	offset: [1.500, 0.000]
-
-	// @shape.line:
-	// {
-	// 	a: [1.375, -0.500]
-	// 	b: [1.375, 0.500]
-	// 	friction: 0.900
-	// 	elasticity: 0.000
-	// 	radius: 0.125
-	// 	rigidity_static: 0.100
-	// 	rigidity_dynamic: 0.100
-		
-	// 	miss_chance: 1.000
-		
-	// 	layer: solid, conductive, heatable, magnetic, ignore_bullet
-	// 	mask: solid
-	// 	exclude: world
-	// 	flags: no_mass, no_body_overrides, no_inventory_mass
-	// }
+	type: dual
+	offset_a: [1.375, -0.500]
+	offset_b: [1.375, 0.500]
+	capacity: 5000.000
+	h_sound_on: arcane_infuser.on.00
+	h_sound_off: arcane_infuser.off.00
 }
 
 shape.circle|"idx_00":
@@ -189,12 +176,11 @@ shape.circle|"idx_01":
 
 heat:
 {
-	temperature_medium: 450.000
-	temperature_high: 850.000
-	temperature_critical: 1350.000
-	cool_rate: 25.000
-	heat_capacity_extra: 750.000
-	flags: exclude_body_mass
+	temperature_medium: 650.000
+	temperature_high: 1650.000
+	temperature_critical: 1950.000
+	cool_rate: 10.000
+	heat_capacity_extra: 50.000
 	offset: [0.250, -0.125]
 	smoke_offset: [0.250, -0.250]
 	size: [2.250, 2.625]

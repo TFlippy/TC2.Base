@@ -31,15 +31,19 @@
 			public Distance electrode_separation;
 			public Electrode.Type type;
 
-			public float damage_integrity = 400.00f;
-			public float damage_durability = 4000.00f;
-			public float damage_terrain = 200.00f;
-
 			[Editor.Picker.Position(true)]
 			public Vector2 offset_a;
 
 			[Editor.Picker.Position(true)]
 			public Vector2 offset_b;
+
+			public Energy capacity;
+			public Power discharge_rate = Power.kW(5000.00f);
+
+			public Sound.Handle h_sound_on;
+			public Sound.Handle h_sound_off;
+
+			public Mouse.Key key_activate = Mouse.Key.Left;
 
 			public Data()
 			{
@@ -58,8 +62,11 @@
 				Active = 1 << 0,
 			}
 
-			public float charge;
+			public Energy charge;
 			public Electrode.State.Flags flags;
+
+			[Save.Ignore, Net.Ignore] public float t_next_update;
+			[Save.Ignore, Net.Ignore] public float t_next_sync;
 
 			public State()
 			{
@@ -74,14 +81,66 @@
 		public static readonly Texture.Handle tex_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle tex_spark = "metal_spark.01";
 
+		public static readonly Sound.Handle[] sounds_zap =
+		{
+			"essence.discharge.01"
+		};
+
+		public static readonly Sound.Handle[] sounds_arc =
+		{
+			"effect.zap.00"
+		};
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateControls(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
+		{
+#if SERVER
+			if (electrode_state.flags.TrySetFlag(Electrode.State.Flags.Active, control.mouse.GetKey(electrode.key_activate)))
+			{
+				electrode_state.Sync(entity, true);
+
+				Sound.Play(ref region, electrode_state.flags.HasAny(State.Flags.Active) ? electrode.h_sound_on : electrode.h_sound_off, transform.position, volume: 0.50f, pitch: 1.00f);
+			}
+#endif
+		}
+
+		public const float sync_interval = 0.50f;
+
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
+		{
+			electrode_state.charge *= 0.999f;
+
+#if SERVER
+			if (electrode_state.flags.HasAny(Electrode.State.Flags.Active))
+			{
+				var dt = info.DeltaTime;
+				var power = essence_container.GetElectricPower();
+				if (electrode_state.charge.m_value.TryAddTowards(electrode.capacity.m_value, power.m_value * dt))
+				{
+					var time = info.WorldTime;
+					if (time >= electrode_state.t_next_update || electrode_state.charge >= electrode.capacity)
+					{
+						electrode_state.t_next_update = time + sync_interval;
+						electrode_state.Sync(entity, true);
+					}
+				}
+			}
+#endif
+		}
+
+		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateContacts(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state,
 		[Source.Owned, Pair.Index(0)] ref Shape.Circle shape_electrode_a,
 		[Source.Owned, Pair.Index(1)] ref Shape.Circle shape_electrode_b)
 		{
-			var time = info.WorldTime;
+			if (electrode_state.charge < 10.00f) return;
 
 			if (body.HasArbiters())
 			{
@@ -103,7 +162,7 @@
 
 #if CLIENT
 
-							Sound.Play("essence.discharge.01", pos, volume: random.NextFloatExtra(1.40f, 0.50f), pitch: random.NextFloatExtra(0.90f, 1.75f), dist_multiplier: 1.25f);
+							Sound.Play(sounds_zap.GetRandom(ref random), pos, volume: random.NextFloatExtra(1.40f, 0.50f), pitch: random.NextFloatExtra(0.90f, 1.75f), dist_multiplier: 1.25f);
 							Shake.Emit(ref region, pos, 0.37f, 0.60f, 24.00f);
 
 							for (var i = 0; i < 12; i++)
@@ -136,10 +195,10 @@
 									pos = pos + random.NextVector2(0.10f),
 									vel = dir.RotateByRad(random.NextFloatRange(-2.00f, 2.00f)) * random.NextFloatRange(10.00f, 40.00f),
 									force = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(0, 200),
-									scale = random.NextFloatRange(2.00f, 30.00f),
+									scale = random.NextFloatRange(5.00f, 30.00f),
 									rotation = random.NextFloatRange(-3.50f, 3.50f),
 									angular_velocity = random.NextFloat(0.50f),
-									growth = random.NextFloatRange(10.00f, 200.00f),
+									growth = random.NextFloatRange(100.00f, 200.00f),
 									drag = random.NextFloatRange(0.07f, 0.25f),
 									color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
 									color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
@@ -197,20 +256,24 @@
 #endif
 
 #if SERVER
+							var discharged_amount = electrode_state.charge.m_value.MultDiff(0.11f);
+
 							ref var heat_state = ref ent_arbiter.GetComponent<Heat.State>();
 							if (heat_state.IsNotNull())
 							{
-								heat_state.AddEnergy(1450.00f);
+								heat_state.AddEnergy(discharged_amount);
 								heat_state.Sync(ent_arbiter, true);
 							}
 
-							var damage = random.NextFloatExtra(450, 550);
+							var damage = discharged_amount * random.NextFloatExtra(0.90f, 0.10f); // random.NextFloatExtra(450, 550);
 
 							Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_arbiter,
-							position: pos, velocity: dir * 8.00f, normal: -dir,
+							position: pos, velocity: -dir * 8.00f, normal: dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 							target_material_type: arbiter.GetMaterial(), damage_type: Damage.Type.Electricity,
-							yield: 0.95f, size: 1.50f, impulse: -50.00f, flags: Damage.Flags.No_Loot_Pickup);
+							yield: 0.95f, size: 1.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
+
+							electrode_state.Sync(entity, true);
 #endif
 						}
 
@@ -225,7 +288,7 @@
 
 #if CLIENT
 
-								if (state == Body.Arbiter.State.Begin || random.NextBool(0.40f)) Sound.Play("effect.zap.00", pos, volume: random.NextFloatExtra(0.50f, 1.00f), pitch: random.NextFloatExtra(0.70f, 1.75f), dist_multiplier: 0.75f);
+								if (state == Body.Arbiter.State.Begin || random.NextBool(0.40f)) Sound.Play(sounds_arc.GetRandom(ref random), pos, volume: random.NextFloatExtra(0.50f, 1.00f), pitch: random.NextFloatExtra(0.70f, 1.75f), dist_multiplier: 0.75f);
 								//Shake.Emit(ref region, pos, 0.37f, 0.60f, 24.00f);
 
 								for (var i = 0; i < 6; i++)
@@ -235,7 +298,7 @@
 										texture = tex_blank,
 										lifetime = random.NextFloatRange(0.10f, 1.00f),
 										pos = pos + random.NextUnitVector2Range(0.10f, 0.20f),
-										vel = dir.RotateByRad(random.NextFloatRange(-2.50f, 2.50f)) * random.NextFloatRange(0, 80),
+										vel = dir.RotateByRad(random.NextFloatRange(-1.50f, 1.50f)) * random.NextFloatRange(0, 40),
 										fps = 0,
 										scale = random.NextFloatRange(0.50f, 1.50f),
 										growth = -random.NextFloatRange(1.60f, 4.00f),
@@ -269,29 +332,32 @@
 									});
 								}
 
-								// for (var i = 0; i < 1; i++)
-								// {
-								// 	Particle.Spawn(ref region, new Particle.Data()
-								// 	{
-								// 		texture = tex_smoke,
-								// 		lifetime = random.NextFloatRange(2.00f, 3.00f),
-								// 		pos = pos + random.NextVector2(0.50f),
-								// 		vel = random.NextUnitVector2Range(0.20f * i, 0.50f * i) + random.NextVector2(3.00f),
-								// 		fps = random.NextByteRange(5, 10),
-								// 		frame_count = 64,
-								// 		frame_count_total = 64,
-								// 		frame_offset = random.NextByteRange(0, 64),
-								// 		//scale = random.NextFloatRange(1.50f, 2.50f),
-								// 		scale = random.NextFloatRange(0.30f, 0.40f),
-								// 		rotation = random.NextFloat(10.00f),
-								// 		angular_velocity = random.NextFloat(2.00f),
-								// 		growth = random.NextFloatRange(0.15f, 0.25f),
-								// 		drag = random.NextFloatRange(0.02f, 0.04f),
-								// 		force = new Vector2(0.00f, random.NextFloatRange(0, -2)),
-								// 		color_a = random.NextColor32Range(0x80ffffff, 0xa0ffffff),
-								// 		color_b = random.NextColor32Range(0x00ffffff, 0x00808080)
-								// 	});
-								// }
+								if (random.NextBool(0.40f))
+								{
+									for (var i = 0; i < 1; i++)
+									{
+										Particle.Spawn(ref region, new Particle.Data()
+										{
+											texture = tex_smoke,
+											lifetime = random.NextFloatRange(1.00f, 1.50f),
+											pos = pos + random.NextVector2(0.80f),
+											vel = random.NextUnitVector2Range(0.20f * i, 0.50f * i) + random.NextVector2(8.00f),
+											fps = random.NextByteRange(5, 10),
+											frame_count = 64,
+											frame_count_total = 64,
+											frame_offset = random.NextByteRange(0, 64),
+											//scale = random.NextFloatRange(1.50f, 2.50f),
+											scale = random.NextFloatRange(0.40f, 0.60f),
+											rotation = random.NextFloat(10.00f),
+											angular_velocity = random.NextFloat(2.80f),
+											growth = random.NextFloatRange(0.15f, 0.25f),
+											drag = random.NextFloatRange(0.01f, 0.03f),
+											force = new Vector2(0.00f, random.NextFloatRange(0, -3)),
+											color_a = random.NextColor32Range(0x70ffffff, 0xc0ffffff),
+											color_b = random.NextColor32Range(0x00ffffff, 0x00808080)
+										});
+									}
+								}
 
 								for (var i = 0; i < 3; i++)
 								{
@@ -300,7 +366,7 @@
 										texture = tex_spark,
 										lifetime = random.NextFloatRange(1.00f, 2.00f),
 										pos = pos + random.NextVector2(0.20f),
-										vel = (dir * random.NextFloatRange(0, 40)).RotateByRad(random.NextFloatRange(-1.15f, 1.15f)) + random.NextVector2(15),
+										vel = (dir * random.NextFloatRange(0, 20)).RotateByRad(random.NextFloatRange(-1.15f, 1.15f)) + random.NextVector2(15),
 										fps = 0,
 										frame_count = 1,
 										frame_offset = random.NextByteRange(0, 4),
@@ -319,29 +385,30 @@
 
 #endif
 
+#if SERVER
+								var discharged_amount = electrode_state.charge.m_value.MultDiff(0.65f);
+
 								ref var heat_state = ref ent_arbiter.GetComponent<Heat.State>();
 								if (heat_state.IsNotNull())
 								{
-#if SERVER
 									//heat_state.AddPower(20000.00f, info.DeltaTime);
 
-									heat_state.AddEnergy(2450.00f);
+									heat_state.AddEnergy(discharged_amount);
 									heat_state.Sync(ent_arbiter, true);
-#endif
 								}
 								else
 								{
-#if SERVER
-
-									var damage = random.NextFloatExtra(250, 750);
+									var damage = discharged_amount * random.NextFloatExtra(0.80f, 0.20f);
 
 									Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_arbiter,
 									position: pos, velocity: dir * 8.00f, normal: -dir,
 									damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 									target_material_type: arbiter.GetMaterial(), damage_type: Damage.Type.Electricity,
-									yield: 0.95f, size: 1.50f, impulse: -150.00f, flags: Damage.Flags.No_Loot_Pickup);
-#endif
+									yield: 0.95f, size: 1.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
 								}
+
+								electrode_state.Sync(entity, true);
+#endif
 							}
 						}
 					}
