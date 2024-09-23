@@ -1,0 +1,87 @@
+$tags: []
+
+body:
+{
+	type: dynamic
+
+	@shape.circle:
+	{
+		radius: 1.900
+		friction: 0.380
+		elasticity: 0.480
+		rigidity_static: 0.780
+		rigidity_dynamic: 0.260
+		
+		material: gas
+		miss_chance: 0.390
+		
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover, ignore_bullet, conductive
+		mask: world, gas
+		exclude: decoration, background, barbed
+	}
+
+	gravity: -0.003
+	damping: 0.820
+	mass_multiplier: 200.000
+	fall_damage_multiplier: 0.000
+}
+
+transform:
+{
+
+}
+
+gas:
+{
+	radius: 3.500
+	size: 2.200
+	lifetime: 1.850
+	speed: 0.750
+	interval: 0.300
+	color_a: "0x285cc9f1"
+	color_b: "0x00b5e9ff"
+}
+
+resource:
+{
+	material: "ozone"
+}
+
+health:
+{
+	max: 100.000
+}
+
+explosive:
+{
+	damage_type: fire
+	damage_type_secondary: deflagration
+
+	radius: 8.500
+	power: 1.700
+	damage_entity: 5000.000
+	damage_terrain: 4500.000
+	smoke_amount: 3.000
+	smoke_color: "0xdce6e6e6"
+	smoke_lifetime_multiplier: 0.500
+	smoke_velocity_multiplier: 7.500
+	flash_duration_multiplier: 1.800
+	flash_intensity_multiplier: 0.500
+	force_multiplier: 0.200
+	shake_multiplier: 0.080
+	fire_amount: 0.200
+	sparks_amount: 0.500
+	volume: 1.000
+	pitch: 0.400
+	health_threshold: 0.999
+	flags: explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 0
+	interval: 1.800
+	threshold_delete: 0.010
+	threshold_despawning: 1.500
+}

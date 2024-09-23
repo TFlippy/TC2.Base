@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Ozone"
+	description:
+		'''
+		TODO: Desc
+		'''
+	cas_number: "10028-15-6"
+	type: allotrope
+	atomic_number: 8
+	flags: none
+	tags: pure, oxidizer, gas
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.015999
+	// kg/m³ (STP)
+	density: 1.429
+	// kg/m³ (STP)
+	density_liquid: 0.000
+	// kg/m³
+	density_solid: 0.000
+	
+	// K (STP)
+	melting_point: 54.800
+	// K (STP)
+	boiling_point: 90.200
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// K
+	forging_temperature_lower: 0.000
+	// K
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
+	
+	// kJ/mol
+	heat_of_fusion: 0.222
+	// kJ/mol
+	heat_of_vaporization: 3.410
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.014703
+	
+	// kJ/kg
+	specific_heat_of_fusion: 13.87587
+	// kJ/kg
+	specific_heat_of_vaporization: 213.1383
+	// kJ/(kg*K)
+	specific_heat_capacity: 0.919
+	// kW/(m*K)
+	thermal_conductivity: 0.02658
+}

@@ -38,7 +38,11 @@
 			public Vector2 offset_b;
 
 			public Energy capacity;
-			public Power discharge_rate = Power.kW(5000.00f);
+			//public Power discharge_rate = Power.kW(5000.00f);
+
+			//public Chance chance_discharge = new Chance(10);
+
+			public float discharge_chance_mult = 1.00f;
 
 			public Sound.Handle h_sound_on;
 			public Sound.Handle h_sound_off;
@@ -66,6 +70,7 @@
 			public Electrode.State.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float t_next_update;
+			[Save.Ignore, Net.Ignore] public float t_next_discharge;
 			[Save.Ignore, Net.Ignore] public float t_next_sync;
 
 			public State()
@@ -106,6 +111,193 @@
 #endif
 		}
 
+		[IEvent.Data]
+		public partial struct DischargeEvent: IEvent
+		{
+			public Vector2 pos;
+			public Vector2 pos_target;
+
+			public Entity ent_target;
+
+			public Energy energy_discharged;
+			public float radius;
+		}
+
+		public static Texture.Handle tex_light_box = "light.box.00";
+
+		[ISystem.Event<Electrode.DischargeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnDischarge(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, ref Electrode.DischargeEvent ev,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
+		{
+#if CLIENT
+			Sound.Play("essence.discharge.01", ev.pos, volume: random.NextFloatRange(1.20f, 1.80f), pitch: random.NextFloatRange(0.80f, 1.50f), size: 4.00f, dist_multiplier: 1.35f);
+			Shake.Emit(ref region, ev.pos, 0.50f, 0.65f, 40.00f);
+
+			var dir = (ev.pos_target - ev.pos).GetNormalized(out var dist);
+
+			for (var i = 0; i < 15; i++)
+			{
+				Particle.Spawn(ref region, new Particle.Data()
+				{
+					texture = tex_blank,
+					lifetime = random.NextFloatRange(0.10f, 0.80f),
+					pos = ev.pos + random.NextUnitVector2Range(0.00f, 0.50f),
+					vel = random.NextUnitVector2Range(2.00f, 10.00f) + (region.GetGravity() * random.NextFloatRange(0, 1)),
+					fps = 0,
+					scale = random.NextFloatRange(0.40f, 1.00f),
+					growth = -random.NextFloatRange(0.50f, 1.00f),
+					force = random.NextUnitVector2Range(0, 10) + region.GetGravity(),
+					drag = random.NextFloatRange(0.00f, 0.20f),
+					angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
+					stretch = new Vector2(random.NextFloatRange(0.50f, 1.50f), 0.05f),
+					color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+					color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
+					lit = 1.00f,
+					face_dir_ratio = 1.00f
+				});
+			}
+
+			for (var i = 0; i < 1; i++)
+			{
+				Particle.Spawn(ref region, new Particle.Data()
+				{
+					texture = tex_light,
+					lifetime = random.NextFloatRange(0.05f, 0.10f),
+					pos = ev.pos,
+					vel = dir.RotateByRad(random.NextFloatRange(-2.00f, 2.00f)) * random.NextFloatRange(10.00f, 40.00f),
+					force = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(0, 200),
+					scale = random.NextFloatRange(15.00f, 30.00f),
+					rotation = random.NextFloatRange(-3.50f, 3.50f),
+					angular_velocity = random.NextFloat(0.50f),
+					growth = random.NextFloatRange(100.00f, 200.00f),
+					drag = random.NextFloatRange(0.07f, 0.25f),
+					color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+					color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
+					glow = random.NextFloatRange(4.00f, 8.00f),
+				});
+			}
+
+			var spark_count = 10;
+			var step = dist / spark_count;
+
+			if (Camera.IsVisible(Camera.CullType.Rect2x, ev.pos))
+			{
+				for (var i = 0; i < spark_count; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_light_box,
+						lifetime = random.NextFloatRange(0.05f, 0.20f),
+						pos = ev.pos + (dir * step * i) + random.NextUnitVector2Range(0.00f, 0.10f),
+						vel = (dir + random.NextUnitVector2Range(0.00f, 0.50f)) * (i * step * 4),
+						fps = 0,
+						scale = random.NextFloatRange(0.50f, 2.00f),
+						growth = random.NextFloatRange(0.50f, 6.00f),
+						force = random.NextUnitVector2Range(0, 20) + (dir * random.NextFloatRange(10, 40)),
+						drag = 0.05f,
+						stretch = new Vector2(random.NextFloatRange(0.50f, 2.00f), random.NextFloatRange(0.10f, 0.30f)),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+						color_b = random.NextColor32Range(0xffc89eff, 0xff2080ff),
+						glow = random.NextFloatRange(30.00f, 60.00f),
+						//lit = random.NextFloatRange(0.00f, 1.00f),
+						face_dir_ratio = random.NextFloatRange(0.50f, 1.00f)
+					});
+				}
+
+				for (var i = 0; i < 40; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_blank,
+						lifetime = random.NextFloatRange(0.10f, 0.50f),
+						pos = ev.pos_target,
+						vel = dir.RotateByRad(random.NextFloatRange(-0.50f, 0.50f)) * random.NextFloatRange(-5, 20),
+						fps = 0,
+						scale = random.NextFloatRange(0.80f, 1.90f),
+						growth = -random.NextFloatRange(0.50f, 1.00f),
+						force = random.NextUnitVector2Range(0, 40),
+						drag = random.NextFloatRange(0.00f, 0.40f),
+						angular_velocity = random.NextFloatRange(-0.50f, 0.50f),
+						stretch = new Vector2(random.NextFloatRange(0.50f, 1.50f), 0.05f),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+						color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
+						lit = 1.00f,
+						face_dir_ratio = 1.00f
+					});
+				}
+
+				for (var i = 0; i < 4; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_light,
+						lifetime = random.NextFloatRange(0.05f, 0.10f),
+						pos = Vector2.Lerp(ev.pos, ev.pos_target, i * 0.25f),
+						vel = dir.RotateByRad(random.NextFloatRange(-2.00f, 2.00f)) * random.NextFloatRange(10.00f, 40.00f),
+						force = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(0, 200),
+						scale = random.NextFloatRange(15.00f, 30.00f),
+						rotation = random.NextFloatRange(-3.50f, 3.50f),
+						angular_velocity = random.NextFloat(0.50f),
+						growth = random.NextFloatRange(100.00f, 200.00f),
+						drag = random.NextFloatRange(0.07f, 0.25f),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+						color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
+						glow = random.NextFloatRange(4.00f, 8.00f),
+					});
+				}
+
+				for (var i = 0; i < 4; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_smoke,
+						lifetime = random.NextFloatRange(3.00f, 5.00f),
+						pos = ev.pos + random.NextVector2(1.00f),
+						vel = random.NextUnitVector2Range(0.50f * i, 1.50f * i) + random.NextVector2(5.00f),
+						fps = random.NextByteRange(5, 10),
+						frame_count = 64,
+						frame_count_total = 64,
+						frame_offset = random.NextByteRange(0, 64),
+						//scale = random.NextFloatRange(1.50f, 2.50f),
+						scale = random.NextFloatRange(0.50f, 0.80f),
+						rotation = random.NextFloat(10.00f),
+						angular_velocity = random.NextFloat(1.00f),
+						growth = random.NextFloatRange(0.15f, 0.20f),
+						drag = random.NextFloatRange(0.02f, 0.04f),
+						force = new Vector2(0.00f, random.NextFloatRange(0, -2)),
+						color_a = random.NextColor32Range(0x80ffffff, 0xa0ffffff),
+						color_b = random.NextColor32Range(0x00ffffff, 0x00808080)
+					});
+				}
+
+				for (var i = 0; i < 5; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_spark,
+						lifetime = random.NextFloatRange(1.00f, 2.00f),
+						pos = ev.pos,
+						vel = (dir * random.NextFloatRange(0, 20)).RotateByRad(random.NextFloatRange(-2.00f, 2.00f)) + random.NextVector2(15),
+						fps = 0,
+						frame_count = 1,
+						frame_offset = random.NextByteRange(0, 4),
+						frame_count_total = 4,
+						scale = random.NextFloatRange(0.20f, 0.60f),
+						growth = -random.NextFloatRange(0.60f, 1.00f),
+						force = new Vector2(0.00f, random.NextFloatRange(10, 40)),
+						drag = random.NextFloatRange(0.01f, 0.10f),
+						stretch = new Vector2(random.NextFloatRange(1.00f, 2.00f), 0.75f),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+						color_b = random.NextColor32Range(0xffffc0b0, 0xffffa090),
+						lit = 1.00f,
+						face_dir_ratio = 1.00f,
+					});
+				}
+			}
+#endif
+		}
+
 		public const float sync_interval = 0.50f;
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -113,7 +305,68 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
 		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
 		{
+			// https://www.desmos.com/calculator/1fedzprrld
+			static float CalculateModifier(float energy_mj, float i, float j, float k)
+			{
+				return Maths.Clamp01((Maths.Pow(i, energy_mj * j) * k) - k);
+			}
+
 			electrode_state.charge *= 0.999f;
+			var time = info.WorldTime;
+
+#if CLIENT
+			if (electrode_state.charge.MJ() > 0.50f)
+			{
+				var discharge_modifier = CalculateModifier(electrode_state.charge.MJ(), 2.95f, 0.05f, 0.06f);
+				var pos = transform.LocalToWorld(random.NextBool(0.50f) ? electrode.offset_a : electrode.offset_b);
+
+
+				var dir = transform.GetDirection();
+				for (var i = 0; i < 2; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = Light.tex_light_fire_00,
+						lifetime = random.NextFloatRange(0.01f, 0.11f),
+						pos = pos + random.NextUnitVector2(0.07f),
+						vel = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(0, 10),
+						force = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(50, 100),
+						scale = random.NextFloatRange(0.10f, 1.20f),
+						//rotation = random.NextFloatRange(-0.50f, 0.50f),
+						//angular_velocity = random.NextFloat(0.50f),
+						face_dir_ratio = 1.00f,
+						stretch = new Vector2(random.NextFloatRange(0.50f, 0.70f), 0.85f),
+						growth = random.NextFloatRange(100.00f, 500.00f),
+						drag = random.NextFloatRange(0.01f, 0.15f),
+						color_a = random.NextColor32Range(0xffcfafff, 0x88c89eff),
+						color_b = random.NextColor32Range(0x00c89eff, 0x007fcfff),
+						glow = random.NextFloatRange(4.00f, 8.00f) * Maths.Mulpo(discharge_modifier, 0.75f),
+					});
+				}
+
+				for (var i = 0; i < 2; i++)
+				{
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = tex_blank,
+						lifetime = random.NextFloatRange(0.01f, 0.07f),
+						pos = pos + random.NextUnitVector2Range(0.10f, 0.30f),
+						vel = random.NextUnitVector2Range(2.00f, 10.00f) + (region.GetGravity() * random.NextFloatRange(0.10f, 0.30f)),
+						fps = 0,
+						scale = random.NextFloatRange(0.40f, 1.50f),
+						growth = -random.NextFloatRange(0.20f, 1.00f),
+						force = random.NextUnitVector2Range(0, 15),
+						drag = random.NextFloatRange(0.01f, 0.20f),
+						angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
+						stretch = new Vector2(random.NextFloatRange(0.50f, 0.70f), 0.05f),
+						color_a = random.NextColor32Range(0xffffffff, 0xffc89eff).WithAlphaMult(discharge_modifier * 1.50f),
+						color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
+						lit = 1.00f,
+						face_dir_ratio = 1.00f
+					});
+				}
+			}
+#endif
 
 #if SERVER
 			if (electrode_state.flags.HasAny(Electrode.State.Flags.Active))
@@ -122,13 +375,39 @@
 				var power = essence_container.GetElectricPower();
 				if (electrode_state.charge.m_value.TryAddTowards(electrode.capacity.m_value, power.m_value * dt))
 				{
-					var time = info.WorldTime;
-					if (time >= electrode_state.t_next_update || electrode_state.charge >= electrode.capacity)
+					if (time >= electrode_state.t_next_sync || electrode_state.charge >= electrode.capacity)
 					{
-						electrode_state.t_next_update = time + sync_interval;
+						electrode_state.t_next_sync = time + sync_interval;
 						electrode_state.Sync(entity, true);
 					}
 				}
+			}
+
+			if (time >= electrode_state.t_next_discharge)
+			{
+				var discharge_modifier = CalculateModifier(electrode_state.charge.MJ(), 2.95f, 0.05f, 0.06f); // electrode_state.charge.m_value.Cbrt(); //.MJ() * 0.10f;
+				var chance = discharge_modifier * electrode.discharge_chance_mult;
+				App.WriteLine(discharge_modifier);
+
+				if (random.NextBool(chance))
+				{
+					var energy_discharged = electrode_state.charge.m_value.MultSub(random.NextFloatExtra(0.70f, 0.25f));
+					var radius = 16.00f * discharge_modifier * random.NextFloatExtra(0.50f, 0.35f);
+					var pos = transform.LocalToWorld(random.NextBool(0.50f) ? electrode.offset_a : electrode.offset_b);
+
+					var ev = new Electrode.DischargeEvent
+					{
+						energy_discharged = energy_discharged,
+						radius = radius,
+						pos = pos,
+						pos_target = pos + (transform.GetDirection() * radius) + random.NextUnitVector2(radius * 0.25f),
+					};
+
+					entity.TriggerEventDeferred(ev, sync: true);
+					electrode_state.Sync(entity, true);
+				}
+
+				electrode_state.t_next_discharge = time + random.NextFloatExtra(0.50f, 1.50f);
 			}
 #endif
 		}
@@ -157,30 +436,26 @@
 
 						if (state == Body.Arbiter.State.Begin)
 						{
-							var discharged_amount = electrode_state.charge.m_value.MultDiff(0.60f);
+							var discharged_amount = electrode_state.charge.m_value.MultDiff(0.35f);
 							var modifier = 0.50f + (discharged_amount * 0.001f);
 
 							var dir = arbiter.GetNormal();
 							App.WriteLine(modifier);
 
-							
+
 
 #if CLIENT
 
 							var h_sound_zap = sounds_zap.GetRandom(ref random);
-							
+
 							if (modifier > 25.00f) h_sound_zap = "essence.blast.00";
-							else if (modifier > 12.50f) h_sound_zap = "essence.discharge.02";
-							else if (modifier > 4.25f) h_sound_zap = "essence.collapse.electricity.01";
-							else if (modifier > 1.45f) h_sound_zap = "essence.discharge.05";
-							else if (modifier > 0.15f) h_sound_zap = "zapper.zap.02";
-							else
-							{
+							else if (modifier > 15.50f) h_sound_zap = "essence.discharge.02";
+							else if (modifier > 7.25f) h_sound_zap = "essence.collapse.electricity.01";
+							else if (modifier > 2.25f) h_sound_zap = "essence.discharge.05";
+							else h_sound_zap = "zapper.zap.01";
 
-							}
-
-							//Sound.Play(sounds_zap.GetRandom(ref random), pos, volume: random.NextFloatExtra(1.40f, 0.50f) * modifier, pitch: random.NextFloatExtra(0.90f, 1.75f) / Maths.Clamp(0.50f + (modifier * 0.15f), 0.95f, 1.85f), dist_multiplier: 1.25f * modifier);
-							Sound.Play(h_sound_zap, pos, volume: random.NextFloatExtra(1.50f, 0.30f) * Maths.Mulpo(modifier, 0.080f), pitch: random.NextFloatExtra(0.90f, 1.75f) * Maths.Lerp01(1.10f, 0.60f, Maths.Mulpo(modifier, 0.10f)), dist_multiplier: 1.25f * Maths.Mulpo(modifier, 0.070f));
+							//Sound.Play(sounds_zap.GetRandom(ref random), pos, volume: random.NextFloatExtra(1.40f, 0.50f) * modifier, pitch: random.NextFloatExtra(0.90f, 1.15f) / Maths.Clamp(0.50f + (modifier * 0.15f), 1.00f, 2.15f), dist_multiplier: 1.25f * modifier);
+							Sound.Play(h_sound_zap, pos, volume: random.NextFloatExtra(1.50f, 0.30f) * Maths.Mulpo(modifier, 0.080f), pitch: random.NextFloatExtra(0.90f, 1.75f) * Maths.Lerp01(1.10f, 0.60f, Maths.Mulpo(modifier, 0.10f)), dist_multiplier: 1.25f * Maths.Mulpo(modifier, 0.070f), priority: 0.50f);
 							Shake.Emit(ref region, pos, 0.37f * modifier, 0.60f * modifier, 24.00f * modifier);
 
 							{
@@ -305,7 +580,7 @@
 
 							Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: entity,
 							position: pos, velocity: dir * 4.00f, normal: -dir,
-							damage_integrity: damage * 0.100f, damage_durability: damage * 0.10f, damage_terrain: damage * 0.10f,
+							damage_integrity: damage * 0.020f, damage_durability: damage * 0.020f, damage_terrain: damage * 0.020f,
 							target_material_type: body.GetMaterial(), damage_type: Damage.Type.Electricity,
 							yield: 0.95f, size: 1.10f, impulse: 100.00f * modifier, flags: Damage.Flags.No_Loot_Pickup);
 
@@ -326,7 +601,7 @@
 
 #if CLIENT
 
-								if (state == Body.Arbiter.State.Begin || random.NextBool(0.40f)) Sound.Play(sounds_arc.GetRandom(ref random), pos, volume: random.NextFloatExtra(0.50f, 1.00f), pitch: random.NextFloatExtra(0.70f, 1.75f), dist_multiplier: 0.75f);
+								if (state == Body.Arbiter.State.Begin || random.NextBool(0.40f)) Sound.Play(sounds_arc.GetRandom(ref random), pos, volume: random.NextFloatExtra(0.50f, 1.00f), pitch: random.NextFloatExtra(0.70f, 1.75f), dist_multiplier: 0.75f, priority: 0.10f);
 								//Shake.Emit(ref region, pos, 0.37f, 0.60f, 24.00f);
 
 								for (var i = 0; i < 6; i++)
@@ -404,7 +679,7 @@
 										texture = tex_spark,
 										lifetime = random.NextFloatRange(1.00f, 2.00f) * Maths.Mulpo(modifier, 0.15f),
 										pos = pos + random.NextVector2(0.20f),
-										vel = (dir * random.NextFloatRange(0, 20)).RotateByRad(random.NextFloatRange(-1.15f, 1.15f)) + random.NextVector2(15),
+										vel = (dir * random.NextFloatRange(0, 20)).RotateByRad(random.NextFloatRange(-1.15f, 1.15f)) + random.NextVector2(15) + new Vector2(0, -random.NextFloatExtra(0.00f, 30.00f)),
 										fps = 0,
 										frame_count = 1,
 										frame_offset = random.NextByteRange(0, 4),
@@ -414,7 +689,7 @@
 										force = new Vector2(0.00f, random.NextFloatRange(20, 80)),
 										drag = random.NextFloatRange(0.01f, 0.10f),
 										stretch = new Vector2(random.NextFloatRange(1.00f, 2.00f), 0.75f),
-										color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
+										color_a = random.NextColor32Range(0xffffddbb, 0xffc89eff),
 										color_b = random.NextColor32Range(0xffffc0b0, 0xffffa090),
 										lit = 1.00f,
 										face_dir_ratio = 1.00f,
