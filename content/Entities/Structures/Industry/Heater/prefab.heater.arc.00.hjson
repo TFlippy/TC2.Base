@@ -53,11 +53,14 @@ animated.renderer:
 
 essencecontainer:
 {
+	h_essence: electricity
+	available: 500.000
+	rate: 0.000
 	stability: 0.820
 	health_threshold: 0.500
-	glow_modifier: 1.800
+	glow_modifier: 1.350
 	flags: show_gui, allow_edit_rate
-	emit_type: cycler
+	emit_type: stressor
 
 	@inventory1:
 	{
@@ -75,10 +78,11 @@ essencecontainer:
 
 	@sound.emitter:
 	{
-		volume: 0.600
-		pitch: 1.000
-		size: 1.200
-		size_max_modifier: 0.300
+		file: essence.emit.generic.loop.04
+		volume: 0.700
+		pitch: 0.950
+		size: 0.900
+		size_max_modifier: 0.350
 		spread: 85.000
 		offset: [0.000, -0.250]
 	}
@@ -105,12 +109,10 @@ control:
 
 holdable:
 {
-	offset: [-1.200, 0.100]
-	radius: 2.000
-
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
 	stress_multiplier: 0.500
+	offset: [-1.125, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 attachment:
@@ -129,7 +131,7 @@ electrode:
 	type: dual
 	offset_a: [1.375, -0.500]
 	offset_b: [1.375, 0.500]
-	capacity: 5000.000
+	capacity: 25000.000
 	h_sound_on: arcane_infuser.on.00
 	h_sound_off: arcane_infuser.off.00
 }

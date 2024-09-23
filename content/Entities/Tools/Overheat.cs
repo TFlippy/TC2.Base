@@ -220,7 +220,7 @@ namespace TC2.Base.Components
 						impulse: 0.00f,
 						flags: Damage.Flags.No_Loot_Pickup);
 
-					if (random.NextBool(temperature_celsius * 0.005f))
+					if (temperature_celsius >= 110.00f && random.NextBool(temperature_celsius * 0.005f))
 					{
 						Arm.Drop(ent_joint_base, direction: body_parent.Right.RotateByRad(random.NextFloat(0.10f)) * 3);
 						Sound.Play(region: ref region,
