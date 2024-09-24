@@ -10,26 +10,25 @@
 	type_tmp: failure
 	
 	color_emit: [0.633028, 0.458, 0.371686, 0.994]
-	
-	force_emit: -550.000
-	heat_emit: -35.000
 	emit_force: -750.000
-	emit_power_thermal: 2.410
-	emit_power_kinetic: -1.900
+	emit_power_thermal: 4.960
+	emit_power_kinetic: -6.790
 	emit_power_radiant: 0.650
-	emit_power_electric: -1.830
-	emit_power_magnetic: 6.250
+	emit_power_electric: -28.350
+	emit_power_magnetic: 18.760
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
-	sound_emit_pulsed_loop: missing
-	sound_emit_stress_loop: missing
-	sound_emit_oscillation_loop: missing
+	sound_emit_pulser_loop: essence.emit.generic.loop.13
+	sound_emit_stressor_loop: arcane_attractor.loop.00
+	sound_emit_impactor_loop: shaft.loop.overload.00
+	sound_emit_cycler_loop: mount.turn.loop.02
+	sound_emit_oscillator_loop: essence.emit.generic.loop.08
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.failure.01
 	sound_zap: essence.collapse.failure.00
 	sound_blast: essence.blast.00
-	sound_impulse: essence.drain.zap.00
-	sound_impact: missing
+	sound_impulse: effect.stupid.00
+	sound_impact: snap
 	
 	h_prefab_node: essence_node.failure
 	h_material_pellet: pellet.failure

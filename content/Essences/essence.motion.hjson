@@ -10,26 +10,25 @@
 	type_tmp: motion
 	
 	color_emit: [0.000, 1.000, 0.800, 1.500]
-	
-	force_emit: 1100.000
-	heat_emit: 45.000
 	emit_force: 1100.000
-	emit_power_thermal: 45.000
+	emit_power_thermal: 32.010
 	emit_power_kinetic: 9.020
-	emit_power_radiant: 0.510
-	emit_power_electric: 0.000
-	emit_power_magnetic: 1.870
+	emit_power_radiant: 0.570
+	emit_power_electric: 0.180
+	emit_power_magnetic: 12.200
 	
 	sound_emit_loop: essence.emit.motion.loop.00
-	sound_emit_pulser_loop: missing
+	sound_emit_pulser_loop: levitator.loop.00
 	sound_emit_stressor_loop: essence.emit.motion.loop.00
-	sound_emit_oscillator_loop: missing
+	sound_emit_impactor_loop: levitator.loop.02
+	sound_emit_cycler_loop: levitator.loop.01
+	sound_emit_oscillator_loop: levitator.loop.00
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.drain.zap.01
 	sound_zap: essence.drain.zap.01
 	sound_blast: essence.blast.00
 	sound_impulse: essence.drain.zap.00
-	sound_impact: missing
+	sound_impact: gun.accelerator.arcane.02
 	
 	h_prefab_node: essence_node.motion
 	h_material_pellet: pellet.motion
