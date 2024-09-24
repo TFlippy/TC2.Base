@@ -23,6 +23,7 @@
 	sound_emit_impactor_loop: welder.loop.00
 	sound_emit_cycler_loop: welder.loop.00
 	sound_emit_oscillator_loop: essence.emit.generic.loop.04
+	sound_emit_ambient_loop: essence.drain.loop.01
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.radiance.00
 	sound_zap: explosion.poof.00

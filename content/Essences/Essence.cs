@@ -41,6 +41,7 @@ namespace TC2.Base.Components
 			[Save.Force] public Sound.Handle sound_emit_impactor_loop;
 			[Save.Force] public Sound.Handle sound_emit_cycler_loop;
 			[Save.Force] public Sound.Handle sound_emit_oscillator_loop;
+			[Save.Force] public Sound.Handle sound_emit_ambient_loop;
 			[Save.Force] public Sound.Handle sound_drain_loop;
 			[Save.Force] public Sound.Handle sound_collapse;
 			[Save.Force] public Sound.Handle sound_zap;
@@ -72,6 +73,7 @@ namespace TC2.Base.Components
 				Pulser,
 				Stressor,
 				Oscillator,
+				Ambient
 			}
 
 			[Flags]
