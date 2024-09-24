@@ -78,6 +78,7 @@ essencecontainer:
 	@sound.emitter:
 	{
 		file: essence.emit.generic.loop.04
+		flags: start_muted
 		volume: 0.700
 		pitch: 0.950
 		size: 0.900
@@ -146,6 +147,7 @@ electrode:
 	@sound.emitter:
 	{
 		file: levitator.loop.01
+		flags: start_muted
 		volume: 1.600
 		pitch: 0.840
 		size: 0.400
@@ -198,6 +200,7 @@ heat:
 	@sound.emitter:
 	{
 		file: distillery.loop.00
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 		size: 1.400

@@ -3,6 +3,7 @@ $tags: []
 body:
 {
 	buoyancy: 0.020
+	fall_damage_multiplier: 50.000
 
 	@shape.circle:
 	{

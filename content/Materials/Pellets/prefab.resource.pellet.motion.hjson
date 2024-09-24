@@ -3,6 +3,7 @@ $tags: []
 body:
 {
 	buoyancy: 0.020
+	fall_damage_multiplier: 50.000
 
 	@shape.circle:
 	{
@@ -56,13 +57,13 @@ essencecontainer:
 	rate_speed: 0.900
 	stability: 0.850
 	health_threshold: 0.900
-	glow_modifier: 5.000
+	glow_modifier: 2.500
 	emit_type: ambient
 
 	@light:
 	{
 		offset: [0.000, 0.250]
-		scale: [32.000, 28.000]
+		scale: [38.000, 36.000]
 		texture: light.circle.04
 	}
 
