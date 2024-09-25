@@ -31,6 +31,6 @@
 	sound_impulse: essence.hit.bullet.01
 	sound_impact: essence.hit.bullet.02
 	
-	h_prefab_node: ""
+	h_prefab_node: essence_node.cognition
 	h_material_pellet: pellet.cognition
 }

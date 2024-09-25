@@ -111,7 +111,7 @@ essencecontainer:
 interactable:
 {
 	flags: no_tab
-	window_size: [320.000, 264.000]
+	window_size: [200.000, 224.000]
 	window_size_misc: [168.000, 0.000]
 }
 

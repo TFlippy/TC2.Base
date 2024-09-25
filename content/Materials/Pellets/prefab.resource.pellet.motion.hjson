@@ -10,8 +10,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.850
-		elasticity: 0.500
+		friction: 0.040
+		elasticity: 1.299
 		material: metal_solid
 		layer: entity, solid, resource, conductive, magnetic, heatable
 		mask: world, essence
@@ -58,6 +58,7 @@ essencecontainer:
 	stability: 0.850
 	health_threshold: 0.900
 	glow_modifier: 2.500
+	heat_modifier: 0.100
 	emit_type: ambient
 
 	@light:
@@ -86,8 +87,8 @@ heat:
 	temperature_critical: 1438.483
 	heat_damage_mult: 0.350
 	heat_capacity_extra: 10.000
-	cool_rate_mult: 10.000
-	cool_rate: 10.000
+	cool_rate_mult: 2.000
+	cool_rate: 3.000
 	smoke_speed_mult: 0.700
 	flags: no_ignite
 	offset: [0.000, 0.250]
@@ -119,4 +120,10 @@ norotate:
 	multiplier: 3.500
 	mass_multiplier: 3.500
 	flags: no_share
+}
+
+vibrate:
+{
+	rotation_mult: 0.040
+	position_mult: [0.040, 0.040]
 }

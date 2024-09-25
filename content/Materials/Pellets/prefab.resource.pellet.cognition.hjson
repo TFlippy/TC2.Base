@@ -58,6 +58,7 @@ essencecontainer:
 	stability: 0.980
 	health_threshold: 0.900
 	glow_modifier: 5.000
+	heat_modifier: 0.110
 	emit_type: ambient
 
 	@light:
@@ -86,8 +87,8 @@ heat:
 	temperature_critical: 1438.483
 	heat_damage_mult: 0.350
 	heat_capacity_extra: 10.000
-	cool_rate_mult: 10.000
-	cool_rate: 10.000
+	cool_rate_mult: 2.000
+	cool_rate: 3.000
 	smoke_speed_mult: 0.700
 	flags: no_ignite
 	offset: [0.000, 0.250]
