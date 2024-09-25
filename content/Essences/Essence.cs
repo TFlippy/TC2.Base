@@ -68,18 +68,23 @@ namespace TC2.Base.Components
 			{
 				Undefined,
 
-				[Name("Impactor", desc: "Simple discrete emitter activated by kinetic impulses, such as from recoil or impacts.")]
+				[Name("Ambient", desc: "Passive emitter activated by surrounding environment.")]
+				Ambient,
+				[Name("Impactor", desc: "Simple discrete emitter activated by kinetic impulses.")]
 				Impactor,
-				[Name("Cycler", desc: "Reciprocating emitter consisting of a pair of pellets activating eachother.")]
+				[Name("Cycler", desc: "Reciprocating emitter activated by a pair of pellets interacting with eachother.")]
 				Cycler,
-				[Name("Pulser", desc: "Tuneable discrete emitter activated by electrical pulses.")]
+				[Name("Pulser", desc: "Adjustable discrete emitter activated by short electrical pulses.")]
 				Pulser,
-				[Name("Stressor", desc: "Tuneable continuous emitter activated by compressive force.")]
+				[Name("Stressor", desc: "Adjustable continuous emitter activated by compressive force.")]
 				Stressor,
-				[Name("Oscillator", desc: "High-frequency emitter activated by alternating electrical current.")]
+				[Name("Oscillator", desc: "Variable-frequency emitter activated by alternating electrical current.")]
 				Oscillator,
-				[Name("Ambient", desc: "Passive emmission by surrounding environment.")]
-				Ambient
+				[Name("Fragmenter", desc: "Powerful single-use emitter activated by shattering the pellet.")]
+				Fragmenter,
+				[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
+				Projector,
+
 			}
 
 			[Flags]
