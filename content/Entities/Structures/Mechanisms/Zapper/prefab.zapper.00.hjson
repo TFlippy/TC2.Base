@@ -108,7 +108,7 @@ interactable:
 	window_size: [200.000, 192.000]
 }
 
-essencecontainer:
+essence.container:
 {
 	h_essence: "electricity"
 	rate: 1.000

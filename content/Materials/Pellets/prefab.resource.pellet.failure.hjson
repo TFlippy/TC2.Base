@@ -50,7 +50,7 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
-essencecontainer:
+essence.container:
 {
 	rate: 0.050
 	rate_speed: 0.100

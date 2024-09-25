@@ -115,7 +115,7 @@ interactable:
 	window_offset: [0.000, 96.000]
 }
 
-essencecontainer:
+essence.container:
 {
 	h_essence: "electricity"
 	rate: 1.000

@@ -97,7 +97,7 @@ attachment:
 // 	item_hints: armor, tools, vehicle, heavy, explosive, advanced, powerful, machine, destructive, device, expensive, arcane, tech, propulsion, unstable
 // }
 
-essencecontainer:
+essence.container:
 {
 	stability: 0.880
 	health_threshold: 0.500

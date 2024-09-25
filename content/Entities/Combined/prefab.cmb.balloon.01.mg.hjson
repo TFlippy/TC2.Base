@@ -113,7 +113,7 @@ burner.state:
 			]
 		}
 
-		essencecontainer:
+		essence.container:
 		{
 			@inventory1:
 			{

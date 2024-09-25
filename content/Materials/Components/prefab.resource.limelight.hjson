@@ -61,7 +61,7 @@ norotate:
 // 	max: 3500.000
 // }
 
-// essencecontainer:
+// essence.container:
 // {
 // 	stability: 1.000
 // 	health_threshold: 0.200

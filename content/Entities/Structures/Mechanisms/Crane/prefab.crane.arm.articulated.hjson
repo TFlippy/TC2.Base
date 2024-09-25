@@ -117,7 +117,7 @@ attachment:
 	torque_multiplier: 4.000
 }
 
-essencecontainer:
+essence.container:
 {
 	h_essence: motion
 	available: 10.000

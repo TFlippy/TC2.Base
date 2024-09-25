@@ -114,7 +114,7 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ref Region.Data region, ref XorRandom random, ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned] ref Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref EssenceContainer.Data container)
+		[Source.Owned] ref Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref Essence.Container.Data container)
 		{
 			ref readonly var kb = ref control.keyboard;
 			ref var essence_data = ref container.h_essence.GetData();
@@ -478,7 +478,7 @@ namespace TC2.Base.Components
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateEffects(ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data container,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data container,
 		[Source.Owned] in Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state)
 		//[Source.Owned, Pair.Component<Levitator.Data>] ref Light.Data light)
 		{
@@ -572,8 +572,8 @@ namespace TC2.Base.Components
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSound(ISystem.Info info, Entity entity,
-		[Source.Owned] in Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref EssenceContainer.Data container,
-		[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Sound.Emitter sound_emitter)
+		[Source.Owned] in Levitator.Data levitator, [Source.Owned] ref Levitator.State levitator_state, [Source.Owned] ref Essence.Container.Data container,
+		[Source.Owned, Pair.Component<Essence.Container.Data>] ref Sound.Emitter sound_emitter)
 		{
 			var dir = levitator_state.current_direction;
 			//var force_len = levitator_state.current_force * 0.001f * 0.10f;

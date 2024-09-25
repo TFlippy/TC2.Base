@@ -78,8 +78,8 @@
 
 		//[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateEssence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
-		//[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Crucible.Data crucible, IComponent.Handle h_crucible)
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
+		//[Source.Owned, Pair.Component<Essence.Container.Data>] ref Crucible.Data crucible, IComponent.Handle h_crucible)
 		//{
 		//	var time = info.WorldTime;
 		//	if (time >= crucible.t_next_update)

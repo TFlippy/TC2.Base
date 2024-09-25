@@ -144,7 +144,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<EssenceContainer.Data>();
+					return !augments.HasAugment(handle) && !context.HasComponent<Essence.Container.Data>();
 				},
 
 #if CLIENT
@@ -173,7 +173,7 @@ namespace TC2.Base
 					{
 						var amount = Maths.LerpInt(1, 20, modifier);
 
-						ref var essence_container = ref context.GetOrAddComponent<EssenceContainer.Data>();
+						ref var essence_container = ref context.GetOrAddComponent<Essence.Container.Data>();
 						if (essence_container.IsNotNull())
 						{
 							essence_container.h_essence = h_essence;

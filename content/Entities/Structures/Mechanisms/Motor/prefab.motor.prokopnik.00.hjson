@@ -118,7 +118,7 @@ arcaneengine.state:
 
 }
 
-essencecontainer:
+essence.container:
 {
 	stability: 0.900
 	health_threshold: 0.500

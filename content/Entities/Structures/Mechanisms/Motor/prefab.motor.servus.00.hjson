@@ -135,7 +135,7 @@ harvestable:
 	]
 }
 
-essencecontainer:
+essence.container:
 {
 	h_essence: "motion"
 	available: 40.000

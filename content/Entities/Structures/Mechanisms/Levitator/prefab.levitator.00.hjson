@@ -100,7 +100,7 @@ aimable:
 
 }
 
-essencecontainer:
+essence.container:
 {
 	stability: 0.950
 	health_threshold: 0.750

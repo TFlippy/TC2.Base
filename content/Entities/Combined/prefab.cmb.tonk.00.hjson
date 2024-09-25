@@ -14,7 +14,7 @@
 		{
 			$prefab: "motor.prokopnik.00"
 			
-			essencecontainer:
+			essence.container:
 			{
 				h_essence: "motion"
 

@@ -59,7 +59,7 @@ $prefab: "tank.00"
 	{
 		$prefab: "motor.prokopnik.00"
 
-		essencecontainer:
+		essence.container:
 		{
 			@inventory1:
 			{

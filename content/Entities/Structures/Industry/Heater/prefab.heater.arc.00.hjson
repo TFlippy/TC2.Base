@@ -51,7 +51,7 @@ animated.renderer:
 	z: -60.000
 }
 
-essencecontainer:
+essence.container:
 {
 	rate: 0.000
 	stability: 0.900

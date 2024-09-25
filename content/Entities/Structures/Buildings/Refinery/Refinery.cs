@@ -91,8 +91,8 @@
 
 //		//[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 //		//public static void UpdateEssence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-//		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
-//		//[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Heater.Data heater, IComponent.Handle h_heater)
+//		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
+//		//[Source.Owned, Pair.Component<Essence.Container.Data>] ref Heater.Data heater, IComponent.Handle h_heater)
 //		//{
 //		//	var time = info.WorldTime;
 //		//	if (time >= heater.t_next_update)

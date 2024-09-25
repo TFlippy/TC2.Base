@@ -151,7 +151,7 @@ packable:
 
 }
 
-essencecontainer:
+essence.container:
 {
 	h_essence: heat
 	available: 5.000

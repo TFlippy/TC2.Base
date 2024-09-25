@@ -380,7 +380,7 @@ namespace TC2.Base.Components
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
 		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
 		{
 			electrode_state.charge *= 0.999f;
@@ -830,7 +830,7 @@ namespace TC2.Base.Components
 		//[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
-		//[Source.Owned] ref EssenceContainer.Data essence_container,
+		//[Source.Owned] ref Essence.Container.Data essence_container,
 		//[Source.Owned] ref Arcer.Data arcer, [Source.Owned, Pair.Component<Arcer.Data>] ref Shape.Line shape)
 		//{
 		//	var time = info.WorldTime;

@@ -51,7 +51,7 @@ animated.renderer:
 	z: -60.000
 }
 
-essencecontainer:
+essence.container:
 {
 	rate: 1.000
 	rate_speed: 0.250

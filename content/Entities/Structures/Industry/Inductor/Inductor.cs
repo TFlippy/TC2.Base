@@ -97,7 +97,7 @@
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Inductor.Data>] ref Shape.Line shape,
-		[Source.Owned] ref EssenceContainer.Data essence_container,
+		[Source.Owned] ref Essence.Container.Data essence_container,
 		[Source.Owned] ref Inductor.Data inductor, [Source.Owned] ref Inductor.State inductor_state)
 		{
 			var time = info.WorldTime;
@@ -129,8 +129,8 @@
 
 		//[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateEssence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref EssenceContainer.Data essence_container,
-		//[Source.Owned, Pair.Component<EssenceContainer.Data>] ref Inductor.Data inductor, IComponent.Handle h_inductor)
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
+		//[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inductor.Data inductor, IComponent.Handle h_inductor)
 		//{
 		//	var time = info.WorldTime;
 		//	if (time >= inductor.t_next_update)
