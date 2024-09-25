@@ -19,10 +19,10 @@
 	
 	sound_emit_loop: essence.emit.electricity.loop.00
 	sound_emit_pulser_loop: turbo_fountain.loop.00
-	sound_emit_stressor_loop: arcane_attractor.loop.01
+	sound_emit_stressor_loop: arcane_infuser.loop.00
 	sound_emit_impactor_loop: essence.emit.electricity.loop.00
 	sound_emit_cycler_loop: arcane_infuser.loop.01
-	sound_emit_oscillator_loop: arcane_attractor.loop.01
+	sound_emit_oscillator_loop: lamp_hum_loop_01
 	sound_emit_ambient_loop: essence.ambient.00
 	sound_drain_loop: essence.drain.loop.00
 	sound_collapse: essence.collapse.electricity.00

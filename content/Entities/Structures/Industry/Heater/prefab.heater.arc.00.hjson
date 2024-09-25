@@ -53,12 +53,11 @@ animated.renderer:
 
 essencecontainer:
 {
-	h_essence: electricity
-	available: 500.000
 	rate: 0.000
-	stability: 0.820
+	stability: 0.900
 	health_threshold: 0.500
 	glow_modifier: 1.350
+	heat_modifier: 1.500
 	flags: show_gui, allow_edit_rate
 	emit_type: stressor
 
@@ -78,13 +77,13 @@ essencecontainer:
 
 	@sound.emitter:
 	{
-		file: essence.emit.generic.loop.04
 		flags: start_muted
-		volume: 0.700
-		pitch: 0.950
-		size: 0.900
-		size_max_modifier: 0.350
+		volume: 0.450
+		pitch: 2.000
+		size: 0.600
+		size_max_modifier: 0.500
 		spread: 85.000
+		doppler: 1.300
 		offset: [0.000, -0.250]
 	}
 
