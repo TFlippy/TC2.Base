@@ -8,7 +8,7 @@
 	type: element
 	atomic_number: 158
 	flags: none
-	tags: metallic, refractory, metal, solid
+	tags: pure, metallic, refractory, metal, solid
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.452
@@ -35,11 +35,11 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	forging_temperature_lower: 1622.500
+	forging_temperature_lower: 2522.500
 	// K
 	forging_temperature_upper: 2920.500
 	// K
-	sintering_temperature_lower: 1164.705
+	sintering_temperature_lower: 1744.705
 	// K
 	sintering_temperature_upper: 2904.853
 	
@@ -48,14 +48,14 @@
 	// kJ/mol
 	heat_of_vaporization: 1337.000
 	// kJ/(mol*K)
-	molar_heat_capacity: 0.043844
+	molar_heat_capacity: 0.057404
 	
 	// kJ/kg
 	specific_heat_of_fusion: 92.92036
 	// kJ/kg
 	specific_heat_of_vaporization: 2957.965
 	// kJ/(kg*K)
-	specific_heat_capacity: 0.097
+	specific_heat_capacity: 0.127
 	// kW/(m*K)
 	thermal_conductivity: 0.097127
 }

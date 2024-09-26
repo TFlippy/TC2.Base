@@ -1,15 +1,10 @@
 ﻿{
-	$version: "0.1.60.4"
-	name: "Clay Bricks"
+	$version: "0.1.61.4"
+	name: "Plaster"
 	desc:
 		'''
 		Clay bricks of varying sizes.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: concrete
 	tile_flags: non_empty
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.brick"
-	pattern: "pattern.plaster.00"
+	texture: missing
+	pattern: pattern.plaster.00
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.rubble"
+			material: scrap.rubble
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,7 +45,6 @@
 		{
 			color: "0xff413e3a"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

@@ -9,7 +9,7 @@
 	type: allotrope
 	atomic_number: 8
 	flags: none
-	tags: pure, oxidizer, gas
+	tags: unstable, pure, oxidizer, gas
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.015999
