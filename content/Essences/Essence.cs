@@ -62,7 +62,6 @@ namespace TC2.Base.Components
 
 	public static partial class Essence
 	{
-
 		public static Power GetThermalPower(this Essence.Container.Data container)
 		{
 			ref var essence_data = ref container.h_essence.GetData();
@@ -242,7 +241,7 @@ namespace TC2.Base.Components
 					sound_emitter.file = h_sound;
 
 #if CLIENT
-				if (refresh) sound_emitter.Refresh();
+					if (refresh) sound_emitter.Refresh();
 #endif
 				}
 
@@ -448,114 +447,113 @@ namespace TC2.Base.Components
 			}
 
 #if CLIENT
-		public partial struct Essence.ContainerGUI: IGUICommand
-		{
-			public Entity ent_interactable;
-			public Entity ent_essence_container;
-
-			public Inventory1.Data inventory;
-			public Essence.Container.Data essence_container;
-
-			public void Draw()
+			public partial struct ContainerGUI: IGUICommand
 			{
-				using (var window = GUI.Window.InteractionMisc("Essence"u8, this.ent_interactable, size: new Vector2(0, 48), min_width: 96, min_height: 48))
+				public Entity ent_interactable;
+				public Entity ent_essence_container;
+
+				public Inventory1.Data inventory;
+				public Essence.Container.Data essence_container;
+
+				public void Draw()
 				{
-					//App.WriteLine(this.ent_interactable);
-
-					this.StoreCurrentWindowTypeID(100);
-					//using (var embed_modules = GUI.Embed.New("motor.embed"u8, size: GUI.GetRemainingSpace()))
+					using (var window = GUI.Window.InteractionMisc("Essence"u8, this.ent_interactable, size: new Vector2(0, 48), min_width: 96, min_height: 48))
 					{
-						if (window.show)
+						//App.WriteLine(this.ent_interactable);
+
+						this.StoreCurrentWindowTypeID(100);
+						//using (var embed_modules = GUI.Embed.New("motor.embed"u8, size: GUI.GetRemainingSpace()))
 						{
-							//GUI.DrawRect(GUI.GetAvailableRect(), layer: GUI.Layer.Foreground);
-
-							//GUI.DrawInventoryDock(Inventory.Type.Essence, new Vector2(GUI.RmY));
-							GUI.DrawInventory(this.inventory.GetHandle());
-
-							GUI.SameLine();
-
-							using (var group = GUI.Group.New(size: GUI.Rm))
+							if (window.show)
 							{
-								if (this.essence_container.flags.HasAny(Essence.Container.Flags.Allow_Edit_Rate))
+								//GUI.DrawRect(GUI.GetAvailableRect(), layer: GUI.Layer.Foreground);
+
+								//GUI.DrawInventoryDock(Inventory.Type.Essence, new Vector2(GUI.RmY));
+								GUI.DrawInventory(this.inventory.GetHandle());
+
+								GUI.SameLine();
+
+								using (var group = GUI.Group.New(size: GUI.Rm))
 								{
-									if (GUI.SliderFloat("Rate"u8, ref this.essence_container.rate, 0.00f, 1.00f, snap: 0.001f, size: new Vector2(GUI.RmX, 24)))
+									if (this.essence_container.flags.HasAny(Essence.Container.Flags.Allow_Edit_Rate))
 									{
-										var rpc = new Essence.Container.ConfigureRPC()
+										if (GUI.SliderFloat("Rate"u8, ref this.essence_container.rate, 0.00f, 1.00f, snap: 0.001f, size: new Vector2(GUI.RmX, 24)))
 										{
-											rate_target = this.essence_container.rate
-										};
-										rpc.Send(this.ent_essence_container);
-									}
-
-									//GUI.NewLine(0);
-
-									var essence_color = Color32BGRA.Neutral;
-
-									ref var essence_data = ref this.essence_container.h_essence.GetData();
-									if (essence_data.IsNotNull())
-									{
-										essence_color = essence_data.color_emit;
-									}
-
-									//GUI.Text($"{essence_color}");
-
-									GUI.DrawHorizontalGauge(this.essence_container.GetEmittedEssenceAmount(), 100 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
-									//if (essence_data.IsNotNull())
-									{
-										GUI.DrawHoverTooltip(in this, draw: static (x) =>
-										{
-											var max_width = 192.00f;
-											var h_essence = x.arg.essence_container.h_essence;
-											ref var essence_data = ref h_essence.GetData();
-											if (essence_data.IsNotNull())
+											var rpc = new Essence.Container.ConfigureRPC()
 											{
-												//GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width, font_a: GUI.Font.Superstar, font_b: GUI.Font.Superstar, size_a: 20.00f, size_b: 20.00f);
-												//GUI.SeparatorThick(spacing: 6);
+												rate_target = this.essence_container.rate
+											};
+											rpc.Send(this.ent_essence_container);
+										}
 
-												var emitted_amount = x.arg.essence_container.GetEmittedEssenceAmount();
+										//GUI.NewLine(0);
 
-												GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width);
-												GUI.NewLine(4);
+										var essence_color = Color32BGRA.Neutral;
 
-												GUI.LabelShaded("Amount:"u8, emitted_amount, format: "0.00' Ef'", width: max_width);
-												GUI.LabelShaded("Thermal:"u8, essence_data.emit_power_thermal * emitted_amount, format: "0.00' kW'", width: max_width);
-												GUI.LabelShaded("Electric:"u8, essence_data.emit_power_electric * emitted_amount, format: "0.00' kW'", width: max_width);
-												GUI.LabelShaded("Force:"u8, essence_data.emit_force * emitted_amount * 0.001f, format: "0.00' kN'", width: max_width);
-											}
-										});
+										ref var essence_data = ref this.essence_container.h_essence.GetData();
+										if (essence_data.IsNotNull())
+										{
+											essence_color = essence_data.color_emit;
+										}
+
+										//GUI.Text($"{essence_color}");
+
+										GUI.DrawHorizontalGauge(this.essence_container.GetEmittedEssenceAmount(), 100 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
+										//if (essence_data.IsNotNull())
+										{
+											GUI.DrawHoverTooltip(in this, draw: static (x) =>
+											{
+												var max_width = 192.00f;
+												var h_essence = x.arg.essence_container.h_essence;
+												ref var essence_data = ref h_essence.GetData();
+												if (essence_data.IsNotNull())
+												{
+													//GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width, font_a: GUI.Font.Superstar, font_b: GUI.Font.Superstar, size_a: 20.00f, size_b: 20.00f);
+													//GUI.SeparatorThick(spacing: 6);
+
+													var emitted_amount = x.arg.essence_container.GetEmittedEssenceAmount();
+
+													GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width);
+													GUI.NewLine(4);
+
+													GUI.LabelShaded("Amount:"u8, emitted_amount, format: "0.00' Ef'", width: max_width);
+													GUI.LabelShaded("Thermal:"u8, essence_data.emit_power_thermal * emitted_amount, format: "0.00' kW'", width: max_width);
+													GUI.LabelShaded("Electric:"u8, essence_data.emit_power_electric * emitted_amount, format: "0.00' kW'", width: max_width);
+													GUI.LabelShaded("Force:"u8, essence_data.emit_force * emitted_amount * 0.001f, format: "0.00' kN'", width: max_width);
+												}
+											});
+										}
+										GUI.FocusableAsset(this.essence_container.h_essence);
 									}
-									GUI.FocusableAsset(this.essence_container.h_essence);
 								}
 							}
 						}
 					}
 				}
 			}
-		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(ISystem.Info info, ref Region.Data region,
-		Entity ent_interactable, Entity ent_essence_container,
-		 [Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory,
-		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Essence.Container.Data essence_container)
-		{
-			if (interactable.IsActive() && essence_container.flags.HasAny(Essence.Container.Flags.Show_GUI))
+			[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnGUI(ISystem.Info info, ref Region.Data region,
+			Entity ent_interactable, Entity ent_essence_container,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory,
+			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Essence.Container.Data essence_container)
 			{
-				//App.WriteLine(ent_interactable);
-
-				var gui = new Essence.ContainerGUI()
+				if (interactable.IsActive() && essence_container.flags.HasAny(Essence.Container.Flags.Show_GUI))
 				{
-					ent_interactable = ent_interactable,
-					ent_essence_container = ent_essence_container,
-					inventory = inventory,
-					essence_container = essence_container,
-				};
-				gui.Submit();
+					//App.WriteLine(ent_interactable);
+
+					var gui = new ContainerGUI()
+					{
+						ent_interactable = ent_interactable,
+						ent_essence_container = ent_essence_container,
+						inventory = inventory,
+						essence_container = essence_container,
+					};
+					gui.Submit();
+				}
 			}
-		}
 #endif
 		}
-
 
 		public static class Emitter
 		{
