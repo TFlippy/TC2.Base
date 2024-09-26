@@ -10,15 +10,17 @@
 	stages:
 	[
 		{
+			name: "Powder"
 			
 			type: undefined
 			flags: none
 			
-			ratio: 0.000
+			ratio: 1.000
 			
 			options:
 			[
 				{
+					name: "Smirglum"
 					
 					type: undefined
 					flags: none
@@ -32,47 +34,22 @@
 							group: 0
 							flags: prerequisite
 						}
-					]
-					
-					products: []
-				}
-			]
-			
-			products: []
-		}
-		{
-			
-			type: undefined
-			flags: none
-			
-			ratio: 0.000
-			
-			options:
-			[
-				{
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
 						{
 							type: temperature
 							amount: 3345.000
 							amount_min: 3163.875
 							amount_max: 3793.200
-							group: 1
+							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: melting
-							amount: 73.720
-							difficulty: 3
-							snapping: 5.000
+							amount: 96.520
+							difficulty: 5
 							falloff: 0.795927
-							group: 1
-							flags: conditional
+							group: 0
+							flags: crafter_only, conditional
 						}
 					]
 					
@@ -81,8 +58,8 @@
 						{
 							type: resource
 							material: smirglum
-							amount: 0.25292
-							amount_extra: 0.001082
+							amount: 0.2449
+							amount_extra: 0.0041
 							group: 0
 							flags: spawn, use_temperature, spawn_event
 						}
