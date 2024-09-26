@@ -7,47 +7,73 @@
 		'''
 	tips: []
 	
-	stages: []
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.powder
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: temperature
-			amount: 1744.000
-			amount_min: 1602.900
-			amount_max: 2373.550
-			group: 1
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: melting
-			amount: 98.000
-			difficulty: 4
-			falloff: 0.856807
-			group: 1
-			flags: conditional
+			name: "Powder"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Steel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1744.000
+							amount_min: 1602.900
+							amount_max: 2373.550
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 98.000
+							difficulty: 5
+							falloff: 0.856807
+							group: 0
+							flags: crafter_only, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel
+							amount: 0.2299
+							amount_extra: 0.0241
+							group: 0
+							flags: spawn, use_temperature, spawn_event
+						}
+					]
+				}
+			]
+			
+			products: []
 		}
 	]
 	
-	products:
-	[
-		{
-			type: resource
-			material: steel
-			amount: 0.254925
-			amount_extra: 0.001091
-			group: 0
-			flags: spawn, use_temperature, spawn_event
-		}
-	]
+	requirements: []
+	
+	products: []
 	
 	type: workshop
 	flags: none
@@ -86,4 +112,8 @@
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
+	
+	h_sound_begin: burner.bang.00
+	h_sound_complete: burner.groan.01
+	h_sound_finalize: burner.bang.01
 }

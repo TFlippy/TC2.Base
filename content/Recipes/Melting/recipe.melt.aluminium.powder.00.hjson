@@ -112,4 +112,8 @@
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
+	
+	h_sound_begin: burner.bang.00
+	h_sound_complete: burner.groan.01
+	h_sound_finalize: burner.bang.01
 }

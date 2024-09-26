@@ -71,46 +71,9 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: silver.powder
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: temperature
-			amount: 1334.930
-			amount_min: 1204.057
-			amount_max: 1829.962
-			group: 1
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: melting
-			amount: 62.510
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.61847
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
-	products:
-	[
-		{
-			type: resource
-			material: silver
-			amount: 0.2522
-			amount_extra: 0.001081
-			group: 0
-			flags: spawn, use_temperature, spawn_event
-		}
-	]
+	products: []
 	
 	type: workshop
 	flags: none
@@ -149,4 +112,8 @@
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
+	
+	h_sound_begin: burner.bang.00
+	h_sound_complete: burner.groan.01
+	h_sound_finalize: burner.bang.01
 }

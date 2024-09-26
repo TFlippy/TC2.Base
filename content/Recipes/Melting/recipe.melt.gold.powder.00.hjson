@@ -71,46 +71,9 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: gold.powder
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: temperature
-			amount: 1437.330
-			amount_min: 1303.897
-			amount_max: 2198.582
-			group: 1
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: melting
-			amount: 64.550
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.661998
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
-	products:
-	[
-		{
-			type: resource
-			material: gold
-			amount: 0.257963
-			amount_extra: 0.001104
-			group: 0
-			flags: spawn, use_temperature, spawn_event
-		}
-	]
+	products: []
 	
 	type: workshop
 	flags: none
@@ -149,4 +112,8 @@
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
+	
+	h_sound_begin: burner.bang.00
+	h_sound_complete: burner.groan.01
+	h_sound_finalize: burner.bang.01
 }
