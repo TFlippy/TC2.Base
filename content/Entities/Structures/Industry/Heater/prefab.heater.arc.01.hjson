@@ -25,7 +25,7 @@ body:
 		elasticity: 0.650
 		
 		material: machine
-		miss_chance: 0.192
+		miss_chance: 0.292
 		
 		layer: entity, solid, item, conductive, heatable, magnetic
 		exclude: held, attached
@@ -54,10 +54,12 @@ animated.renderer:
 essence.container:
 {
 	rate: 1.000
-	rate_speed: 0.250
-	stability: 0.850
+	rate_speed: 0.200
+	stability: 0.820
 	health_threshold: 0.500
-	glow_modifier: 3.000
+	glow_modifier: 4.000
+	heat_modifier: 1.700
+	frequency: 0.000
 	flags: show_gui, allow_edit_rate
 	emit_type: stressor
 
@@ -81,9 +83,10 @@ essence.container:
 		flags: start_muted
 		volume: 0.700
 		pitch: 0.950
-		size: 0.900
+		size: 0.600
 		size_max_modifier: 0.350
 		spread: 85.000
+		doppler: 1.300
 		offset: [0.000, -0.250]
 	}
 
@@ -129,7 +132,7 @@ attachment:
 {
 	offset: [-1.125, 0.000]
 	flags: mirror_rotate
-	tags: small, tool, utility, rotary, long
+	tags: small, tool, utility, rotary
 }
 
 electrode:
@@ -139,8 +142,8 @@ electrode:
 	type: single
 	offset_a: [1.250, -0.125]
 	offset_b: [1.250, 0.125]
-	capacity: 2500.000
-	discharge_chance_mult: 0.500
+	capacity: 2250.000
+	discharge_chance_mult: 0.340
 	h_sound_on: arcane_infuser.on.00
 	h_sound_off: arcane_infuser.off.00
 

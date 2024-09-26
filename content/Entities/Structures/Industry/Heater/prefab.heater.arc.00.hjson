@@ -53,11 +53,13 @@ animated.renderer:
 
 essence.container:
 {
-	rate: 0.000
+	rate: 1.000
+	rate_speed: 0.100
 	stability: 0.900
 	health_threshold: 0.500
 	glow_modifier: 1.350
 	heat_modifier: 1.500
+	frequency: 0.000
 	flags: show_gui, allow_edit_rate
 	emit_type: stressor
 
@@ -107,6 +109,11 @@ control:
 
 }
 
+aimable:
+{
+	deadzone: 0.400
+}
+
 holdable:
 {
 	stress_multiplier: 0.500
@@ -119,7 +126,7 @@ attachment:
 {
 	offset: [-1.125, 0.000]
 	flags: mirror_rotate, full_rotate
-	tags: medium, tool, utility, rotary, long
+	tags: medium, tool, utility, rotary
 }
 
 electrode:
@@ -131,8 +138,8 @@ electrode:
 	type: dual
 	offset_a: [1.375, -0.500]
 	offset_b: [1.375, 0.500]
-	capacity: 25000.000
-	discharge_chance_mult: 0.350
+	capacity: 20000.000
+	discharge_chance_mult: 0.550
 	h_sound_on: arcane_infuser.on.00
 	h_sound_off: arcane_infuser.off.00
 

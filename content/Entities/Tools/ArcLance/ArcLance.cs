@@ -459,7 +459,7 @@ namespace TC2.Base.Components
 							var modifier = 0.50f + (discharged_amount * 0.001f);
 
 							var dir = arbiter.GetNormal();
-							App.WriteLine(modifier);
+							//App.WriteLine(modifier);
 
 #if CLIENT
 							var h_sound_zap = sounds_zap.GetRandom(ref random);
@@ -608,6 +608,20 @@ namespace TC2.Base.Components
 						{
 							//App.WriteLine($"touch {state}");
 
+#if CLIENT
+							Particle.Spawn(ref region, new Particle.Data()
+							{
+								texture = Light.tex_light_circle_04,
+								lifetime = random.NextFloatExtra(0.20f, 0.35f),
+								pos = arbiter.GetContactsPosition() - (arbiter.GetNormal() * 0.35f),
+								scale = random.NextFloatRange(1.40f, 1.70f),
+								growth = random.NextFloatRange(7.90f, 18.50f),
+								color_a = new Vector4(1.00f, 0.70f, 0.40f, 10.00f),
+								color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+								glow = 1.20f
+							});
+#endif
+
 							if (state == Body.Arbiter.State.Begin || random.NextBool(0.40f))
 							{
 								var discharged_amount = electrode_state.charge.m_value.MultDiff(0.65f);
@@ -623,6 +637,20 @@ namespace TC2.Base.Components
 									Sound.Play(sounds_arc.GetRandom(ref random), pos, volume: random.NextFloatExtra(0.40f, 0.30f) * Maths.Mulpo(modifier, 0.080f), pitch: random.NextFloatExtra(0.70f, 1.45f) * Maths.Lerp01(1.10f, 0.50f, Maths.Mulpo(modifier, 0.10f)), dist_multiplier: 0.55f * Maths.Mulpo(modifier, 0.070f), priority: 0.10f);
 								}
 								//Shake.Emit(ref region, pos, 0.37f, 0.60f, 24.00f);
+
+								//{   
+								//	Particle.Spawn(ref region, new Particle.Data()
+								//	{
+								//		texture = Light.tex_light_circle_04,
+								//		lifetime = random.NextFloatExtra(1.50f, 0.65f),
+								//		pos = arbiter.GetContactsPosition() - (arbiter.GetNormal() * 0.35f),
+								//		scale = random.NextFloatRange(1.40f, 1.70f),
+								//		growth = random.NextFloatRange(3.90f, 4.50f),
+								//		color_a = new Vector4(1.00f, 0.70f, 0.40f, 10.00f),
+								//		color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+								//		glow = 1.20f
+								//	});
+								//}
 
 								{
 									var count = (int)(random.NextFloatExtra(0.25f, 1.00f) * Maths.Mulpo(modifier, 0.75f));

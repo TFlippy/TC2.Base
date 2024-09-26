@@ -10,23 +10,23 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
-		[Serializable]
-		public struct Data
+		public struct Data: IName, IDescription
 		{
 			[Save.Force] public string name;
 			[Save.Force, Save.MultiLine] public string desc;
 
 			[Save.NewLine]
 			[Save.Force] public IEssence.Flags flags;
-			[Save.Force] public Essence.Type type_tmp;
+			[Obsolete] public Essence.Type type_tmp;
 
 			[Save.NewLine]
-			[Save.Force] public ColorBGRA color_emit = new ColorBGRA(1.00f, 1.00f, 1.00f, 1.00f);
+			[Save.Force] public ColorBGRA color_emit;
 
 			//[Save.NewLine]
 			//[Save.Force, Obsolete] public float force_emit;
 			//[Save.Force, Obsolete] public float heat_emit;
 
+			[Save.NewLine]
 			[Save.Force] public float emit_force;
 			[Save.Force] public Power emit_power_thermal;
 			[Save.Force] public Power emit_power_kinetic;
@@ -35,28 +35,42 @@ namespace TC2.Base.Components
 			[Save.Force] public Power emit_power_magnetic;
 
 			[Save.NewLine]
-			[Save.Force] public Sound.Handle sound_emit_loop;
+			[Obsolete] public Sound.Handle sound_emit_loop;
+			[Obsolete] public Sound.Handle sound_drain_loop;
+
+			[Save.NewLine]
 			[Save.Force] public Sound.Handle sound_emit_pulser_loop;
 			[Save.Force] public Sound.Handle sound_emit_stressor_loop;
 			[Save.Force] public Sound.Handle sound_emit_impactor_loop;
 			[Save.Force] public Sound.Handle sound_emit_cycler_loop;
 			[Save.Force] public Sound.Handle sound_emit_oscillator_loop;
 			[Save.Force] public Sound.Handle sound_emit_ambient_loop;
-			[Save.Force] public Sound.Handle sound_drain_loop;
+			[Save.Force] public Sound.Handle sound_emit_projector_loop;
+
+			[Save.NewLine]
 			[Save.Force] public Sound.Handle sound_collapse;
 			[Save.Force] public Sound.Handle sound_zap;
 			[Save.Force] public Sound.Handle sound_blast;
 			[Save.Force] public Sound.Handle sound_impulse;
 			[Save.Force] public Sound.Handle sound_impact;
+			[Save.Force] public Sound.Handle sound_shatter;
 
 			[Save.NewLine]
 			[Save.Force] public Prefab.Handle h_prefab_node;
 			[Save.Force] public IMaterial.Handle h_material_pellet;
 
+			[Save.NewLine]
+			[Save.Force] public IEvent.Info on_collapse;
+			[Save.Force] public IEvent.Info on_failure;
+
 			public Data()
 			{
 
 			}
+
+			readonly ReadOnlySpan<char> IName.GetName() => this.name;
+			readonly ReadOnlySpan<char> IName.GetShortName() => this.name;
+			readonly ReadOnlySpan<char> IDescription.GetDescription() => this.desc;
 		}
 	}
 
@@ -191,32 +205,53 @@ namespace TC2.Base.Components
 				heat_state.AddPower(container.GetThermalPower() * container.heat_modifier, info.DeltaTime);
 			}
 
-			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: -100)]
+			[ISystem.Modified.Component<Resource.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -200)]
 			public static void OnResourceModified(Entity entity,
 			[Source.Owned] ref Resource.Data resource, [Source.Owned] ref Essence.Container.Data container)
 			{
-				container.h_essence = resource.GetEssenceType();
 				container.available = resource.quantity * Essence.essence_per_pellet;
-				App.WriteLine($"OnResourceModified essence container {container.h_essence}");
+#if SERVER
+				var sync = false;
+				sync |= container.h_essence.TrySet(resource.GetEssenceType());
+				//App.WriteLine($"OnResourceModified essence container {container.h_essence}");
+
+				if (sync)
+				{
+					container.Modified(entity, true);
+				}
+#endif
 			}
 
-			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: -100), HasComponent<Resource.Data>(Source.Modifier.Owned, false)]
+			[ISystem.Modified.Pair<Essence.Container.Data, Inventory1.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -100), HasComponent<Resource.Data>(Source.Modifier.Owned, false)]
 			public static void OnInventoryModified(Entity entity,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Essence.Container.Data container)
 			{
-				container.h_essence = inventory.resource.GetEssenceType();
 				container.available = inventory.resource.quantity * Essence.essence_per_pellet;
-				App.WriteLine($"OnInventoryModified essence container {container.h_essence}");
+#if SERVER
+				var sync = false;
+				sync |= container.h_essence.TrySet(inventory.resource.GetEssenceType());
+				//App.WriteLine($"OnInventoryModified essence container {container.h_essence}");
+
+				if (sync)
+				{
+					container.Modified(entity, true);
+				}
+#endif
 			}
 
-			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: -10)]
+			//public static int[] test = new int[]
+			//{
+			//	[0] = 7, 4, 4, 4
+			//};
+
+			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
 			public static void OnModified(Entity entity,
 			[Source.Owned] ref Essence.Container.Data container,
 			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Sound.Emitter sound_emitter,
 			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Light.Data light)
 			{
 				ref var essence_data = ref container.h_essence.GetData();
-				App.WriteLine($"OnModified essence container {container.h_essence}");
+				//App.WriteLine($"OnModified essence container {container.h_essence}");
 
 				if (sound_emitter.IsNotNull())
 				{
@@ -225,13 +260,15 @@ namespace TC2.Base.Components
 					{
 						h_sound = container.emit_type switch
 						{
-							Essence.Emitter.Type.Undefined => essence_data.sound_emit_loop,
+							Essence.Emitter.Type.Undefined => essence_data.sound_emit_ambient_loop,
+							Essence.Emitter.Type.Ambient => essence_data.sound_emit_ambient_loop,
 							Essence.Emitter.Type.Impactor => essence_data.sound_emit_impactor_loop,
 							Essence.Emitter.Type.Cycler => essence_data.sound_emit_cycler_loop,
 							Essence.Emitter.Type.Pulser => essence_data.sound_emit_pulser_loop,
 							Essence.Emitter.Type.Stressor => essence_data.sound_emit_stressor_loop,
 							Essence.Emitter.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
-							Essence.Emitter.Type.Ambient => essence_data.sound_emit_ambient_loop,
+							Essence.Emitter.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
+							Essence.Emitter.Type.Projector => essence_data.sound_emit_projector_loop,
 							_ => essence_data.sound_emit_loop
 						};
 						//entity.MarkModified<Essence.Container.Data, Sound.Emitter>();
@@ -323,23 +360,20 @@ namespace TC2.Base.Components
 			[Source.Owned] in Health.Data health, [Source.Owned] ref Essence.Container.Data container, [Source.Owned] in Transform.Data transform)
 			{
 				var health_norm = health.GetHealthNormalized();
-				if (health_norm <= container.health_threshold && info.WorldTime >= container.t_next_collapse)
+				if (health_norm <= 0.00f || (health_norm <= container.health_threshold && (info.WorldTime >= container.t_next_collapse)))
 				{
-					var modifier = container.stability <= 0.00f ? 1.00f : MathF.Pow(Maths.Clamp01(Maths.Max(1.00f - (health_norm * container.stability), Maths.Lerp01(0.50f, container.rate_current * 0.30f, container.stability))), 1.50f);
+					var modifier = (container.stability * health_norm) <= 0.00f ? 1.00f : MathF.Pow(Maths.Clamp01(Maths.Max(1.00f - (health_norm * container.stability), Maths.Lerp01(0.50f, container.rate_current * 0.30f, container.stability))), 1.50f);
 					//App.WriteLine($"modifier: {modifier}");
 
-					if (modifier >= 0.25f)
+					if (modifier >= 0.25f && (health_norm <= 0.00f || random.NextBool(modifier * 0.50f)))
 					{
-						if (random.NextBool(modifier * 0.50f))
-						{
-							container.t_next_collapse = info.WorldTime + random.NextFloatRange(0.50f, 1.00f);
-							var full_collapse = (1.00f - health_norm) >= container.stability;
+						container.t_next_collapse = info.WorldTime + random.NextFloatRange(0.50f, 1.00f);
+						var full_collapse = modifier >= 1.00f; // (1.00f - health_norm) >= container.stability;
 
-							Essence.SpawnCollapsingNode(ref region, container.h_essence, container.available * Maths.Max(container.rate_current, modifier * modifier) * modifier, transform.position, full_collapse: full_collapse);
-							if (full_collapse)
-							{
-								entity.Delete();
-							}
+						Essence.SpawnCollapsingNode(ref region, container.h_essence, container.available * Maths.Max(container.rate_current, modifier * modifier) * modifier, transform.position, full_collapse: full_collapse);
+						if (full_collapse)
+						{
+							entity.Delete();
 						}
 					}
 				}
