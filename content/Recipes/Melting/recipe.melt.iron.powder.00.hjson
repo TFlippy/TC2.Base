@@ -7,6 +7,70 @@
 		'''
 	tips: []
 	
+	stages:
+	[
+		{
+			name: "Powder"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Iron"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: iron.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1911.000
+							amount_min: 1765.725
+							amount_max: 2461.350
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 89.800
+							difficulty: 5
+							falloff: 0.816102
+							group: 0
+							flags: crafter_only, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: iron
+							amount: 0.2299
+							amount_extra: 0.0241
+							group: 0
+							flags: spawn, use_temperature, spawn_event
+						}
+					]
+				}
+			]
+			
+			products: []
+		}
+	]
+	
 	requirements:
 	[
 		{
@@ -81,7 +145,6 @@
 	min: 5
 	max: 100
 	step: 5
-	falloff_amount_mult: 1.000
 	
 	start_delay: 1.500
 	advance_delay: 2.000
