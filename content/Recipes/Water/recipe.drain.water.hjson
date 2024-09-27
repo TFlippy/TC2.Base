@@ -16,6 +16,7 @@
 			type: undefined
 			flags: none
 			
+			ratio: 0.000
 			falloff_amount_mult: 0.000
 			
 			options:

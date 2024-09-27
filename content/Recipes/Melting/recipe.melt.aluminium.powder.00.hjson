@@ -102,8 +102,8 @@
 	}
 	icon_c_offset: [-3.000, -3.000]
 	
-	color_button: "0xffffab37"
-	rank: -160.000
+	color_button: "0xfffff391"
+	rank: -164.000
 	
 	min: 5
 	max: 100

@@ -3,7 +3,125 @@
 	name: "Sledgehammer"
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			
+			type: undefined
+			flags: none
+			
+			ratio: 0.000
+			
+			options:
+			[
+				{
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 1.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 850.000
+							difficulty: 11
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: prefab
+							prefab: sledgehammer
+							amount: 1.000
+							group: 0
+						}
+					]
+				}
+			]
+			
+			products: []
+		}
+		{
+			
+			type: undefined
+			flags: none
+			
+			ratio: 0.000
+			
+			options:
+			[
+				{
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 1.000
+							group: 1
+						}
+						{
+							type: resource
+							material: glue
+							amount: 2.000
+							group: 1
+						}
+						{
+							type: work
+							work: woodworking
+							amount: 220.000
+							difficulty: 4
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.powder
+							amount: 0.780
+							amount_extra: 0.180
+							group: 1
+							flags: waste, residue
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 0.133
+							amount_extra: 0.210
+							group: 1
+							flags: waste, residue
+						}
+					]
+				}
+			]
+			
+			products: []
+		}
+	]
 	
 	requirements:
 	[

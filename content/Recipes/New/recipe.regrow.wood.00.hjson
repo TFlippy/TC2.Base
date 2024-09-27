@@ -7,40 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.plants
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [-7.000, 0.000]
-	
-	icon_extra:
-	{
-		texture: resource.pellet.life
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [-3.000, -7.000]
-	
-	icon_c:
-	{
-		texture: resource.wood
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-2.000, -13.000]
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping, refining
-	
-	color_button: "0xff19e2b1"
-	rank: -17.000
+	stages: []
 	
 	requirements:
 	[
@@ -113,7 +80,42 @@
 			amount: 0.010
 			amount_extra: 12.223
 			group: 1
-			flags: byproduct, waste
+			flags: waste, byproduct
 		}
 	]
+	
+	type: workshop
+	flags: none
+	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping, refining
+	
+	icon:
+	{
+		texture: resource.plants
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-7.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.pellet.life
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-3.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.wood
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-2.000, -13.000]
+	
+	color_button: "0xff19e2b1"
+	rank: -17.000
+	
+	min: 1
+	max: 5
+	step: 1
 }
