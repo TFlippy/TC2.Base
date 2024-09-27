@@ -1,4 +1,4 @@
-$name: "Crucible"
+$name: "Smirgrafit Form"
 $desc:
 	'''
 	TODO: Desc
@@ -7,30 +7,27 @@ $tags: []
 
 body:
 {
-	type: dynamic
-	fall_damage_multiplier: 1.200
-	buoyancy: 0.050
-	
+	buoyancy: 0.150
+	fall_damage_multiplier: 1.250
+
 	@shape.polygon:
 	{
 		points:
 		[
-			[-0.375, -0.250]
-			[0.375, -0.250]
-			[0.250, 0.875]
-			[-0.250, 0.875]
+			[-1.250, -0.250]
+			[1.375, -0.250]
+			[1.250, 0.000]
+			[-0.500, 0.375]
 		]
 		
-		mass: 45.000
-		radius: 0.250
-		friction: 0.400
-		elasticity: 0.600
+		mass: 225.000
+		radius: 0.350
+		friction: 0.750
+		elasticity: 0.670
 		
 		material: cermet
 		
-		layer: entity, solid, item, heatable, magnetic
-		mask: world, essence
-		exclude: resource, attached
+		layer: entity, solid, building, ignore_melee
 	}
 }
 
@@ -54,42 +51,37 @@ interactable:
 
 health:
 {
-	max: 15000.000
+	max: 110000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "crucible.small.00"
+		texture: "form.smirgrafit.00"
+		size: [32, 16]
+		frame: [0, 0]
 	}
-	z: -75.000
+	z: 100.000
 }
 
 holdable:
 {
-	force_multiplier: 0.750
-	torque_multiplier: 0.500
-	offset: [0.000, 0.625]
-	priority: 0.500
-	hints: heavy, small, construction, storage, industrial, slow
-	flags: full_rotate
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+	stress_multiplier: 0.250
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation
 }
 
 attachment:
 {
-	offset: [0.000, 0.625]
-	flags: disable_parent_facing
 	force_multiplier: 2.000
-	torque_multiplier: 1.000
-	tags: small, rotary, fixed
+	torque_multiplier: 1.500
+	offset: [-0.250, 0.375]
+	flags: mirror_rotate
+	tags: medium, platform, rotary, fixed
 }
-
-// shipment:
-// {
-// 	flags: keep_items, use_misc, staging
-// 	mass: 1.000
-// }
 
 heat:
 {
@@ -121,20 +113,15 @@ heat:
 	}
 }
 
-crucible:
-{
-
-}
-
 shop:
 {
-	name: "Crucible"
+	name: "Casting Basin"
 	
 	tags_filter:
 	{
-		require: heating
+		require: casting
 		include: heating, casting, refining, smelting
-		exclude: wrench, assembling, machining, tailoring, social, drying
+		exclude: wrench, assembling, machining, tailoring, social
 	}
 	
 	work_tools: none
@@ -154,13 +141,4 @@ workshop:
 {
 	flags: hidden_if_no_orders, add_order_mass
 	orders_capacity: 1
-}
-
-norotate:
-{
-	bias: 0.000
-	speed: 2.500
-	multiplier: 3.500
-	mass_multiplier: 3.500
-	flags: no_share
 }

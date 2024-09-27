@@ -297,6 +297,10 @@ namespace TC2.Base.Components
 				}
 			}
 #endif
+
+#if SERVER
+			//region.SpawnResource("ozone", ev.pos_target, random.NextFloatExtra(10, 150), 1.50f, Resource.SpawnFlags.No_Offset | Resource.SpawnFlags.Merge);
+#endif
 		}
 
 		public const float sync_interval = 0.50f;

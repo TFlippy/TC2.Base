@@ -139,7 +139,7 @@ electrode:
 	offset_a: [1.375, -0.500]
 	offset_b: [1.375, 0.500]
 	capacity: 20000.000
-	discharge_chance_mult: 0.550
+	discharge_chance_mult: 1.150
 	h_sound_on: arcane_infuser.on.00
 	h_sound_off: arcane_infuser.off.00
 

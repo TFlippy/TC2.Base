@@ -15,7 +15,7 @@ body:
 		material: gas
 		miss_chance: 0.390
 		
-		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover, ignore_bullet, conductive
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover, ignore_bullet, conductive, heatable
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
@@ -49,33 +49,33 @@ resource:
 
 health:
 {
-	max: 100.000
+	max: 100000.000
 }
 
-explosive:
-{
-	damage_type: fire
-	damage_type_secondary: deflagration
+// explosive:
+// {
+// 	damage_type: fire
+// 	damage_type_secondary: deflagration
 
-	radius: 8.500
-	power: 1.700
-	damage_entity: 5000.000
-	damage_terrain: 4500.000
-	smoke_amount: 3.000
-	smoke_color: "0xdce6e6e6"
-	smoke_lifetime_multiplier: 0.500
-	smoke_velocity_multiplier: 7.500
-	flash_duration_multiplier: 1.800
-	flash_intensity_multiplier: 0.500
-	force_multiplier: 0.200
-	shake_multiplier: 0.080
-	fire_amount: 0.200
-	sparks_amount: 0.500
-	volume: 1.000
-	pitch: 0.400
-	health_threshold: 0.999
-	flags: explode_when_primed
-}
+// 	radius: 8.500
+// 	power: 1.700
+// 	damage_entity: 5000.000
+// 	damage_terrain: 4500.000
+// 	smoke_amount: 3.000
+// 	smoke_color: "0xdce6e6e6"
+// 	smoke_lifetime_multiplier: 0.500
+// 	smoke_velocity_multiplier: 7.500
+// 	flash_duration_multiplier: 1.800
+// 	flash_intensity_multiplier: 0.500
+// 	force_multiplier: 0.200
+// 	shake_multiplier: 0.080
+// 	fire_amount: 0.200
+// 	sparks_amount: 0.500
+// 	volume: 1.000
+// 	pitch: 0.400
+// 	health_threshold: 0.999
+// 	flags: explode_when_primed
+// }
 
 despawn:
 {
@@ -84,4 +84,23 @@ despawn:
 	interval: 1.800
 	threshold_delete: 0.010
 	threshold_despawning: 1.500
+}
+
+heat:
+{
+	temperature_medium: 1000.000
+	temperature_high: 1800.000
+	temperature_critical: 5000.000
+	flags: no_smoke, no_self_damage, no_ignite
+	cool_rate: 1.000
+	offset: [0.000, 0.000]
+	size: [0.750, 0.750]
+	
+	@light:
+	{
+		offset: [0.000, 0.000]
+		scale: [24.000, 24.000]
+		intensity: 1.500
+		texture: light.circle.01
+	}
 }

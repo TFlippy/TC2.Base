@@ -1,0 +1,119 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Melt Copper Powder"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Powder"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Copper"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 88.320
+							difficulty: 5
+							falloff: 0.629414
+							group: 0
+							flags: crafter_only, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper
+							amount: 0.2499
+							amount_extra: 0.0041
+							group: 0
+							flags: spawn, use_temperature, spawn_event
+						}
+					]
+				}
+			]
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: none
+	tags: metalworking, heating, refining, smelting
+	
+	icon:
+	{
+		texture: resource.copper.powder
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, -6.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [3, 3]
+	}
+	icon_extra_offset: [-2.000, -5.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_crafting.mini
+		frame: [6, 2]
+	}
+	icon_c_offset: [-3.000, -3.000]
+	
+	color_button: "0xfffff391"
+	rank: -167.000
+	
+	min: 5
+	max: 100
+	step: 5
+	
+	start_delay: 1.500
+	advance_delay: 2.000
+	complete_delay: 1.500
+	
+	h_sound_begin: burner.bang.00
+	h_sound_complete: burner.groan.01
+	h_sound_finalize: burner.bang.01
+}
