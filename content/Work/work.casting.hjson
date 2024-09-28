@@ -1,0 +1,60 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Casting"
+	name_short: "Casting"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [26, 0]
+	}
+	
+	flags: none
+	tags: dangerous, simple, industrial, passive
+	cooldown: 0.500
+	multiplier: 1.000
+	color: "0xffeb6232"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	character_traits:
+	{
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.940
+	sound_pitch: 0.840
+	sound_size: 0.930
+	sound_dist: 0.850
+	
+	sounds: ["effect.dump.steamy.00", "effect.dump.steamy.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

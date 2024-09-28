@@ -14,10 +14,10 @@ body:
 	{
 		points:
 		[
-			[-1.250, -0.250]
-			[1.375, -0.250]
-			[1.250, 0.000]
-			[-0.500, 0.375]
+			[-0.625, -0.375]
+			[1.000, -0.375]
+			[0.625, 0.125]
+			[-0.375, 0.250]
 		]
 		
 		mass: 225.000
@@ -45,13 +45,13 @@ interactable:
 {
 	flags: none
 	priority: 1.500
-	window_size: [560.000, 472.000]
+	window_size: [576.000, 496.000]
 	window_size_misc: [72.000, 0.000]
 }
 
 health:
 {
-	max: 110000.000
+	max: 45000.000
 }
 
 animated.renderer:
@@ -59,7 +59,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "form.smirgrafit.00"
-		size: [32, 16]
+		size: [24, 16]
 		frame: [0, 0]
 	}
 	z: 100.000
@@ -78,7 +78,7 @@ attachment:
 {
 	force_multiplier: 2.000
 	torque_multiplier: 1.500
-	offset: [-0.250, 0.375]
+	offset: [-0.250, 0.250]
 	flags: mirror_rotate
 	tags: medium, platform, rotary, fixed
 }

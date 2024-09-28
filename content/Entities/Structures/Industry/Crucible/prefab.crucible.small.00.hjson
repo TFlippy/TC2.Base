@@ -54,7 +54,7 @@ interactable:
 
 health:
 {
-	max: 15000.000
+	max: 22000.000
 }
 
 animated.renderer:
