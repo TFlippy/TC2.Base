@@ -57,6 +57,17 @@
 	specific_heat_of_vaporization: 6312.534
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.490
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.043
+	
+	form_to_material:
+	{
+		powder: steel.powder
+		billet: steel.billet
+		ingot: steel.ingot
+		plate: steel.plate
+		chunk: steel
+		raw: steel
+	}
 }

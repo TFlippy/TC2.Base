@@ -57,6 +57,16 @@
 	specific_heat_of_vaporization: 1675.127
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.1291
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.320
+	
+	form_to_material:
+	{
+		powder: gold.powder
+		ingot: gold.ingot
+		chunk: gold
+		gravel: gold.gravel
+		raw: gold
+	}
 }

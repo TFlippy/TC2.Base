@@ -57,6 +57,17 @@
 	specific_heat_of_vaporization: 6213.627
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.449
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.079
+	
+	form_to_material:
+	{
+		powder: iron.powder
+		billet: iron.billet
+		ingot: iron.ingot
+		chunk: iron
+		gravel: iron.gravel
+		raw: iron
+	}
 }

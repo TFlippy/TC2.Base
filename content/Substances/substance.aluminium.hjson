@@ -57,6 +57,15 @@
 	specific_heat_of_vaporization: 10859.900
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.904
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.235
+	
+	form_to_material:
+	{
+		powder: aluminium.powder
+		ingot: aluminium.ingot
+		chunk: aluminium
+		raw: aluminium
+	}
 }

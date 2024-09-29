@@ -58,4 +58,13 @@
 	specific_heat_capacity: 0.124478
 	// kW/(m*K)
 	thermal_conductivity: 0.000
+
+	form_to_material:
+	{
+		ingot: arcanite.ingot
+		powder: arcanite.powder
+		plate: arcanite.plate
+		chunk: arcanite
+		raw: arcanite
+	}
 }

@@ -56,6 +56,16 @@
 	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.165877
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.000
+	
+	form_to_material:
+	{
+		ingot: recondite.ingot
+		powder: recondite.powder
+		plate: recondite.plate
+		chunk: recondite
+		raw: recondite
+	}
 }

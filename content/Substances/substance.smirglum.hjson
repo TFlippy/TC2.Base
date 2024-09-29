@@ -56,6 +56,16 @@
 	specific_heat_of_vaporization: 2957.965
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.127
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.097127
+	
+	form_to_material:
+	{
+		powder: smirglum.powder
+		ingot: smirglum.ingot
+		chunk: smirglum
+		gravel: smirglum.gravel
+		raw: smirglum
+	}
 }

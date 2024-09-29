@@ -57,6 +57,16 @@
 	specific_heat_of_vaporization: 2364.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.235
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.430
+	
+	form_to_material:
+	{
+		powder: silver.powder
+		ingot: silver.ingot
+		chunk: silver
+		gravel: silver.gravel
+		raw: silver
+	}
 }
