@@ -361,6 +361,22 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[ISystem.Event<Resource.MergeEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 10)]
+		public static void OnMergeResource(ISystem.Info info, ref Region.Data region, Entity ent_resource, ref Resource.MergeEvent ev,
+		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
+		{
+			var amount_rem = Maths.Min(resource.GetMaxQuantity() - resource.quantity, ev.resource.quantity);
+			if (amount_rem > 0)
+			{
+				var mass_per_unit = resource.GetMassPerUnit();
+				var temperature_new = Temperature.Merge(heat_state.temperature_current, ev.temperature, resource.quantity * mass_per_unit, amount_rem * mass_per_unit);
+				App.WriteLine($"OnMergeResource(): add temperature: {ev.temperature} to {heat_state.temperature_current} => {temperature_new}; amount_rem: {amount_rem}");
+
+				heat_state.temperature_current = temperature_new;
+				heat_state.Sync(ent_resource, true);
+			}
+		}
+
 		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health,
