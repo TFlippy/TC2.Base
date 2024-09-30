@@ -55,15 +55,6 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
-norotate:
-{
-	bias: 0.000
-	speed: 3.500
-	multiplier: 3.500
-	mass_multiplier: 3.500
-	flags: no_share
-}
-
 health:
 {
 	max: 50000.000
@@ -76,31 +67,45 @@ breakable:
 
 heat:
 {
-	temperature_medium: 466.735
-	temperature_high: 933.470
-	temperature_breakdown: 2792.0000
-	cool_rate: 1.000
-	cool_rate_mult: 0.235
+	temperature_medium: 382.674
+	temperature_high: 2141.514
+	temperature_operating: 586.8019
+	temperature_melt: 933.470
+	temperature_breakdown: 2792.000
+	cool_rate: 2.000
+	smoke_speed_mult: 0.750
+	flags: meltable, formless
+	fire_flags: no_radius_ignite, no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
-	size: [0.750, 0.375]
-	
+	size: [2.000, 1.000]
+
 	@light:
 	{
-		offset: [0.000, 0.500]
-		scale: [25.000, 22.000]
-		intensity: 1.500
-		texture: light.circle.04
+		offset: [0.125, 0.500]
+		scale: [16.000, 12.000]
+		intensity: 2.500
+		texture: light.circle.02
 	}
 
 	@sound.emitter:
 	{
-		file: overheat_loop
+		file: burner.loop.00
 		flags: start_muted
-		volume: 1.000
+		volume: 1.500
 		pitch: 0.680
-		size_max_modifier: 0.600
+		size: 5.500
+		size_max_modifier: 0.900
 		priority: 0.100
 		offset: [0.000, 0.500]
 	}
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 1.500
+	flags: no_share
 }

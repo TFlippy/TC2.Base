@@ -85,16 +85,16 @@ attachment:
 
 heat:
 {
-	temperature_medium: 520.000
-	temperature_high: 700.000
-	temperature_breakdown: 1350.000
-	cool_rate: 1.000
+	temperature_medium: 440.9637
+	temperature_high: 1479.600
+	temperature_operating: 1034.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
 	heat_capacity_extra: 30.000
 	heat_damage_mult: 0.250
 	cool_rate_mult: 1.100
 	smoke_size_mult: 0.750
 	smoke_speed_mult: 0.800
-	smoke_offset: [0.000, 0.000]
 	size: [3.500, 2.500]
 
 	@light:

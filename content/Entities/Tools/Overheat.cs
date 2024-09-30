@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 
 				if (heat.flags.HasAny(Data.Flags.Meltable))
 				{
-					heat.temperature_high = Maths.Lerp(substance_data.melting_point, substance_data.boiling_point, 0.75f);
+					heat.temperature_high = Maths.Lerp(substance_data.melting_point, substance_data.boiling_point, 0.65f);
 				}
 
 				Maths.MinMax(ref heat.temperature_operating, ref heat.temperature_high);
@@ -386,8 +386,11 @@ namespace TC2.Base.Components
 				heat_state.t_next_properties = time + interval_properties;
 
 				is_body_dirty |= body.override_shape_layer.TrySetFlag(Physics.Layer.Hot, temperature_current >= Temperature.Celsius(100.00f));
-				is_body_dirty |= body.override_shape_layer.TrySetFlag(Physics.Layer.Liquid, temperature_current >= heat.temperature_melt);
-				is_body_dirty |= body.override_shape_mask.TrySetFlag(Physics.Layer.Liquid | Physics.Layer.Platform | Physics.Layer.Bulk, temperature_current >= heat.temperature_melt);
+				if (heat.temperature_melt != 0.00f)
+				{
+					is_body_dirty |= body.override_shape_layer.TrySetFlag(Physics.Layer.Liquid, temperature_current >= heat.temperature_melt);
+					is_body_dirty |= body.override_shape_mask.TrySetFlag(Physics.Layer.Liquid | Physics.Layer.Platform | Physics.Layer.Bulk | Physics.Layer.Item | Physics.Layer.Wheel | Physics.Layer.Creature, temperature_current >= heat.temperature_melt);
+				}
 			}
 
 			if (is_body_dirty)
