@@ -66,7 +66,7 @@ heat:
 	temperature_medium: 678.000
 	temperature_high: 1357.000
 	temperature_critical: 2135.000
-	cool_rate: 2.000
+	cool_rate: 1.000
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [0.750, 0.375]
@@ -75,7 +75,7 @@ heat:
 	{
 		offset: [0.125, 0.750]
 		scale: [22.000, 22.000]
-		intensity: 1.500
+		intensity: 2.500
 		texture: light.circle.04
 	}
 	

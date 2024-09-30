@@ -136,6 +136,10 @@ namespace TC2.Base.Components
 			}
 		}
 #endif
+		//public static void EqualizeTemperature(ref Temperature temperature_a, ref Temperature temperature_b, Mass mass, Energy specific_heat)
+		//{
+
+		//}
 
 		public static void AddEnergy(ref this Heat.State heat_state, Energy energy)
 		{
@@ -345,24 +349,30 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Crafting.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnSpawnEvent(ISystem.Info info, ref Region.Data region, ref XorRandom random, ref Crafting.SpawnEvent data,
-		Entity entity,
+		public static void OnSpawnEvent(ISystem.Info info, ref Region.Data region, Entity entity, ref Crafting.SpawnEvent ev,
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 		{
 			//App.WriteLine($"spawn {data.temperature} {data.product.flags}");
-			if (data.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
+			if (ev.product.flags.HasAny(Crafting.Product.Flags.Use_Temperature))
 			{
-				heat_state.temperature_current = data.temperature;
-
+				heat_state.temperature_current = ev.temperature;
 				heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
-
 				heat_state.Sync(entity, true);
 			}
 		}
 
+		[ISystem.Event<Resource.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 5)]
+		public static void OnSpawnResource(ISystem.Info info, ref Region.Data region, Entity entity, ref Resource.SpawnEvent ev,
+		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
+		{
+			heat_state.temperature_current = ev.temperature;
+			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
+			heat_state.Sync(entity, true);
+		}
+
 		[ISystem.Event<Resource.MergeEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 10)]
-		public static void OnMergeResource(ISystem.Info info, ref Region.Data region, Entity ent_resource, ref Resource.MergeEvent ev,
+		public static void OnMergeResource(ISystem.Info info, ref Region.Data region, Entity entity, ref Resource.MergeEvent ev,
 		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
 		{
 			var amount_rem = Maths.Min(resource.GetMaxQuantity() - resource.quantity, ev.resource.quantity);
@@ -373,7 +383,7 @@ namespace TC2.Base.Components
 				App.WriteLine($"OnMergeResource(): add temperature: {ev.temperature} to {heat_state.temperature_current} => {temperature_new}; amount_rem: {amount_rem}");
 
 				heat_state.temperature_current = temperature_new;
-				heat_state.Sync(ent_resource, true);
+				heat_state.Sync(entity, true);
 			}
 		}
 
