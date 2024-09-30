@@ -66,12 +66,15 @@ breakable:
 
 heat:
 {
-	temperature_medium: 678.000
-	temperature_high: 1357.000
-	temperature_breakdown: 2135.000
+	temperature_medium: 414.4965
+	temperature_high: 1221.993
+	temperature_operating: 788.3445
+	temperature_melt: 1357.770
+	temperature_breakdown: 2835.000
 	cool_rate: 2.000
-	offset: [0.000, 0.500]
 	smoke_speed_mult: 0.750
+	fire_flags: no_radius_ignite, no_self_damage
+	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [2.000, 1.000]
 

@@ -21,7 +21,10 @@ namespace TC2.Base.Components
 
 				No_Self_Damage = 1u << 6,
 				No_Held_Damage = 1u << 7,
-				No_Convection_Damage = 1u << 8
+				No_Convection_Damage = 1u << 8,
+
+				Meltable = 1u << 10,
+				Formless = 1u << 11,
 			}
 
 			public Temperature temperature_medium = Temperature.Celsius(150.00f);
@@ -83,9 +86,12 @@ namespace TC2.Base.Components
 
 			[Asset.Ignore, Save.Ignore] public float overheat_ratio_current;
 			[Asset.Ignore, Save.Ignore] public Energy heat_capacity_inv = 1.00f;
+
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public Temperature temperature_ambient = Temperature.Ambient;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float mass_cached;
+
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_ambient;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_properties;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_effect;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_convection;
 
@@ -100,7 +106,30 @@ namespace TC2.Base.Components
 			ref var substance_data = ref h_substance.GetData();
 			if (substance_data.IsNotNull())
 			{
+				heat.temperature_ignite = 0.00f;
+				
+				heat.temperature_operating = Maths.Lerp(substance_data.sintering_temperature_lower, substance_data.sintering_temperature_upper, 0.50f);
+				heat.temperature_medium = Temperature.Celsius(Maths.Lerp(80.00f, substance_data.sintering_temperature_lower.Celsius(), 0.25f));
+				heat.temperature_high = Maths.Lerp(substance_data.forging_temperature_lower, substance_data.melting_point, 0.80f);
 				heat.temperature_melt = substance_data.melting_point;
+				heat.temperature_breakdown = substance_data.boiling_point;
+
+				if (heat.flags.HasAny(Data.Flags.Meltable))
+				{
+					heat.temperature_high = Maths.Lerp(substance_data.melting_point, substance_data.boiling_point, 0.75f);
+				}
+
+				Maths.MinMax(ref heat.temperature_operating, ref heat.temperature_high);
+				Maths.MinMax(ref heat.temperature_medium, ref heat.temperature_high);
+				if (heat.flags.HasAny(Data.Flags.Meltable))
+				{
+					//Maths.MinMax(ref heat.temperature_melt, ref heat.temperature_high);
+				}
+				else
+				{
+					//Maths.MinMax(ref heat.temperature_high, ref heat.temperature_melt);
+				}
+				Maths.MinMax(ref heat.temperature_high, ref heat.temperature_breakdown);
 			}
 		}
 
@@ -193,6 +222,8 @@ namespace TC2.Base.Components
 		}
 
 		public const float interval_ambient = 0.23f;
+		public const float interval_properties = 0.77f;
+
 		public static Sound.Handle h_sound_sizzle = "effect.sizzle.sparky.00";
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -307,6 +338,7 @@ namespace TC2.Base.Components
 			var modifier = heat_state.modifier;
 
 #if SERVER
+			var is_body_dirty = false;
 			var mass = body.GetMass().ClampMin(1.00f);
 			if (mass != heat_state.mass_cached) // && heat_state.flags.TryAddFlag(Heat.State.Flags.Cached))
 			{
@@ -340,19 +372,29 @@ namespace TC2.Base.Components
 			}
 
 			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate * heat.cool_rate_mult * heat_state.modifier, info.DeltaTime);
-			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= Maths.Lerp(heat.temperature_high, heat.temperature_operating, 0.20f)))
+
+			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= heat.temperature_operating))
 			{
-				//if (heat.flags.HasAny(Data.Flags. )
-
-#if SERVER
-				if (body.override_shape_layer.TrySetFlag(Physics.Layer.Liquid, temperature_current >= heat.temperature_high))
-				{
-					body.MarkDirty();
-				}
-#endif
-
+				//if (heat.flags.HasAny(Data.Flags. )				
 				heat_state.flags.RemoveFlag(Heat.State.Flags.Overheated, temperature_current <= heat.temperature_medium);
 			}
+
+
+#if SERVER
+			if (time >= heat_state.t_next_properties)
+			{
+				heat_state.t_next_properties = time + interval_properties;
+
+				is_body_dirty |= body.override_shape_layer.TrySetFlag(Physics.Layer.Hot, temperature_current >= Temperature.Celsius(100.00f));
+				is_body_dirty |= body.override_shape_layer.TrySetFlag(Physics.Layer.Liquid, temperature_current >= heat.temperature_melt);
+				is_body_dirty |= body.override_shape_mask.TrySetFlag(Physics.Layer.Liquid | Physics.Layer.Platform | Physics.Layer.Bulk, temperature_current >= heat.temperature_melt);
+			}
+
+			if (is_body_dirty)
+			{
+				body.MarkDirty();
+			}
+#endif
 
 			heat_state.temperature_current = temperature_current;
 
@@ -429,9 +471,9 @@ namespace TC2.Base.Components
 				} 
 			}
 
-			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage) && temperature_current > heat.temperature_operating)
+			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage) && temperature_current > heat.temperature_high)
 			{
-				var modifier = Maths.InvLerp(heat.temperature_operating, heat.temperature_breakdown, temperature_current).Pow2();
+				var modifier = Maths.InvLerp(heat.temperature_high, heat.temperature_breakdown, temperature_current).Pow2();
 				if (random.NextBool(modifier))
 				{
 					var damage = modifier * health.GetMaxHealth() * random.NextFloatExtra(0.35f, 0.65f) * heat.heat_damage_mult;
