@@ -11,7 +11,7 @@ body:
 		
 		offset: [0.000, 0.375]
 		radius: 0.480
-		friction: 0.300
+		friction: 0.900
 		elasticity: 0.440
 		
 		material: metal_solid
@@ -66,19 +66,19 @@ heat:
 	temperature_medium: 678.000
 	temperature_high: 1357.000
 	temperature_critical: 2135.000
-	cool_rate: 1.000
+	cool_rate: 2.000
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [0.750, 0.375]
-	
+
 	@light:
 	{
-		offset: [0.125, 0.750]
-		scale: [22.000, 22.000]
+		offset: [0.125, 0.500]
+		scale: [36.000, 21.000]
 		intensity: 2.500
 		texture: light.circle.04
 	}
-	
+
 	@sound.emitter:
 	{
 		file: overheat_loop

@@ -381,9 +381,10 @@ namespace TC2.Base.Components
 			{
 				var mass_per_unit = resource.GetMassPerUnit();
 				var temperature_new = Temperature.Merge(heat_state.temperature_current, ev.temperature, resource.quantity * mass_per_unit, amount_rem * mass_per_unit);
-				App.WriteLine($"OnMergeResource(): add temperature: {ev.temperature} to {heat_state.temperature_current} => {temperature_new}; amount_rem: {amount_rem}");
+				//App.WriteLine($"OnMergeResource(): add temperature: {ev.temperature} to {heat_state.temperature_current} => {temperature_new}; amount_rem: {amount_rem}");
 
 				heat_state.temperature_current = temperature_new;
+				heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
 				heat_state.Sync(entity, true);
 			}
 		}
@@ -509,7 +510,7 @@ namespace TC2.Base.Components
 					Shake.Emit(ref region, pos_spark, 0.10f, 0.25f * intensity_spark.Clamp01(), radius: 24.00f * intensity_spark);
 					if (random.NextBool(0.07f))
 					{
-						Sound.Play(h_sound_sizzle, pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f, priority: 0.10f);
+						//Sound.Play(h_sound_sizzle, pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f, priority: 0.10f);
 					}
 
 					//for (var i = 0; i < 10; i++)
