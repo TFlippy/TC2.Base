@@ -82,9 +82,11 @@ heat:
 	@sound.emitter:
 	{
 		file: overheat_loop
+		flags: start_muted
 		volume: 1.000
 		pitch: 0.680
 		size_max_modifier: 0.600
+		priority: 0.100
 		offset: [0.000, 0.500]
 	}
 }

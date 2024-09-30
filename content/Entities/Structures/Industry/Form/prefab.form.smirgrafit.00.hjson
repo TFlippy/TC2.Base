@@ -58,11 +58,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "form.smirgrafit.00"
+		texture: form.smirgrafit.00
 		size: [24, 16]
-		frame: [0, 0]
 	}
-	z: 100.000
+	z: -50.000
 }
 
 holdable:
@@ -79,7 +78,6 @@ attachment:
 	force_multiplier: 2.000
 	torque_multiplier: 1.500
 	offset: [-0.250, 0.250]
-	flags: mirror_rotate
 	tags: medium, platform, rotary, fixed
 }
 
@@ -106,9 +104,11 @@ heat:
 	@sound.emitter:
 	{
 		file: overheat_loop
+		flags: start_muted
 		volume: 1.000
 		pitch: 0.680
 		size_max_modifier: 0.600
+		priority: 0.100
 		offset: [0.000, 0.500]
 	}
 }
@@ -141,4 +141,9 @@ workshop:
 {
 	flags: hidden_if_no_orders, add_order_mass
 	orders_capacity: 1
+}
+
+fillable:
+{
+	
 }

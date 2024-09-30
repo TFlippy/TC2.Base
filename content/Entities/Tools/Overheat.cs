@@ -233,6 +233,7 @@ namespace TC2.Base.Components
 							volume: 0.90f,
 							pitch: random.NextFloatExtra(1.60f, 0.30f),
 							size: 1.50f,
+							priority: 0.25f,
 							dist_multiplier: 1.10f);
 					}
 				}
@@ -508,7 +509,7 @@ namespace TC2.Base.Components
 					Shake.Emit(ref region, pos_spark, 0.10f, 0.25f * intensity_spark.Clamp01(), radius: 24.00f * intensity_spark);
 					if (random.NextBool(0.07f))
 					{
-						Sound.Play(h_sound_sizzle, pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f);
+						Sound.Play(h_sound_sizzle, pos_spark, volume: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, pitch: random.NextFloatExtra(0.30f, 0.50f) * intensity_spark, size: 1.00f, dist_multiplier: 0.50f, priority: 0.10f);
 					}
 
 					//for (var i = 0; i < 10; i++)
