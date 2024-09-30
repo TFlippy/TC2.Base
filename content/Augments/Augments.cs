@@ -466,7 +466,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cool_rate *= 0.80f;
-					data.temperature_critical += 500.00f;
+					data.temperature_operating += 500.00f;
 				},
 
 				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

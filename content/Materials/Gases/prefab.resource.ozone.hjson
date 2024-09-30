@@ -90,7 +90,7 @@ heat:
 {
 	temperature_medium: 1000.000
 	temperature_high: 1800.000
-	temperature_critical: 5000.000
+	temperature_breakdown: 5000.000
 	flags: no_smoke, no_self_damage, no_ignite
 	cool_rate: 1.000
 	offset: [0.000, 0.000]

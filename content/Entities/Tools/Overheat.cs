@@ -15,17 +15,22 @@ namespace TC2.Base.Components
 
 				Exclude_Body_Mass = 1u << 0,
 				No_Smoke = 1u << 1,
-				No_Self_Damage = 1u << 2,
-				No_Held_Damage = 1u << 3,
-				No_Ignite = 1u << 4,
+				No_Sparks = 1u << 2,
+
+				[Obsolete] No_Ignite = 1u << 4,
+
+				No_Self_Damage = 1u << 6,
+				No_Held_Damage = 1u << 7,
+				No_Convection_Damage = 1u << 8
 			}
 
 			public Temperature temperature_medium = Temperature.Celsius(150.00f);
 			public Temperature temperature_high = Temperature.Celsius(525.00f);
-			public Temperature temperature_ignite = Temperature.Celsius(1500.00f);
-
+			public Temperature temperature_ignite;
 			[Statistics.Info("Temperature (Max)", description: "Maximum operating temperature.", format: "{0:0.##} K", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public Temperature temperature_critical = Temperature.Celsius(620.00f);
+			public Temperature temperature_operating = Temperature.Celsius(620.00f);
+			public Temperature temperature_melt;
+			public Temperature temperature_breakdown = Temperature.Celsius(2000.00f);
 
 			[Statistics.Info("Dissipation", description: "Cooling rate.", format: "{0:0.##} kW", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public Power cool_rate = 1.00f;
@@ -39,8 +44,10 @@ namespace TC2.Base.Components
 
 			public float smoke_size_mult = 1.00f;
 			public float smoke_speed_mult = 1.00f;
+			public float smoke_rise_mult = 1.00f;
 
 			public Heat.Data.Flags flags;
+			public Fire.Flags fire_flags = Fire.Flags.No_Radius_Ignite;
 
 			[Editor.Picker.Position(true)]
 			public Vector2 offset;
@@ -65,26 +72,35 @@ namespace TC2.Base.Components
 				None = 0,
 
 				Overheated = 1 << 0,
+				Melting = 1 << 1,
 				[Save.Ignore, Asset.Ignore] Cached = 1 << 15,
 			}
 
 			public Temperature temperature_current = Temperature.Ambient;
 			public Energy heat_capacity = 1.00f;
 			public float modifier = 1.00f;
-
 			public Heat.State.Flags flags;
 
-			[Save.Ignore] public Energy heat_capacity_inv = 1.00f;
-
-			[Net.Ignore, Save.Ignore] public Temperature temperature_ambient = Temperature.Ambient;
-
-			[Net.Ignore, Save.Ignore] public float mass_cached;
-			[Net.Ignore, Save.Ignore] public float t_next_ambient;
-			[Net.Ignore, Save.Ignore] public float t_next_steam;
+			[Asset.Ignore, Save.Ignore] public float overheat_ratio_current;
+			[Asset.Ignore, Save.Ignore] public Energy heat_capacity_inv = 1.00f;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public Temperature temperature_ambient = Temperature.Ambient;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float mass_cached;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_ambient;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_effect;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_convection;
 
 			public State()
 			{
 
+			}
+		}
+
+		public static void SetupFromSubstance(ref this Heat.Data heat, ISubstance.Handle h_substance)
+		{
+			ref var substance_data = ref h_substance.GetData();
+			if (substance_data.IsNotNull())
+			{
+				heat.temperature_melt = substance_data.melting_point;
 			}
 		}
 
@@ -109,7 +125,7 @@ namespace TC2.Base.Components
 						using (GUI.Group.New(size: GUI.Rm))
 						{
 							GUI.SameLine(24);
-							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_critical, 2000, size: new(24, GUI.RmY), label_b: "Current"u8, label_a: "Max"u8);
+							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_operating, 2000, size: new(24, GUI.RmY), label_b: "Current"u8, label_a: "Max"u8);
 						}
 					}
 				}
@@ -324,7 +340,7 @@ namespace TC2.Base.Components
 			}
 
 			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate * heat.cool_rate_mult * heat_state.modifier, info.DeltaTime);
-			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= Maths.Lerp(heat.temperature_high, heat.temperature_critical, 0.20f)))
+			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= Maths.Lerp(heat.temperature_high, heat.temperature_operating, 0.20f)))
 			{
 				//if (heat.flags.HasAny(Data.Flags. )
 
@@ -403,12 +419,22 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)
 		{
-			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage))
+			var temperature_current = heat_state.temperature_current;
+			if (heat.temperature_ignite != 0.00f && temperature_current > heat.temperature_ignite)
 			{
-				var temperature_excess = Maths.Max(heat_state.temperature_current - heat.temperature_critical, 0.00f);
-				if (temperature_excess > Maths.epsilon && random.NextBool(temperature_excess * 0.01f))
+				var excess = Maths.Max(0.00f, temperature_current - heat.temperature_ignite);
+				if (random.NextBool(excess * 0.01f))
 				{
-					var damage = Maths.Lerp(temperature_excess, health.GetMaxHealth(), random.NextFloatExtra(0.10f, 0.20f)) * random.NextFloatRange(0.80f, 1.20f) * heat.heat_damage_mult;
+					Fire.Ignite(entity, temperature_current * 0.009f, heat.fire_flags);
+				} 
+			}
+
+			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage) && temperature_current > heat.temperature_operating)
+			{
+				var modifier = Maths.InvLerp(heat.temperature_operating, heat.temperature_breakdown, temperature_current).Pow2();
+				if (random.NextBool(modifier))
+				{
+					var damage = modifier * health.GetMaxHealth() * random.NextFloatExtra(0.35f, 0.65f) * heat.heat_damage_mult;
 					Damage.Hit(ent_attacker: entity,
 						ent_owner: entity,
 						ent_target: entity,
@@ -443,7 +469,9 @@ namespace TC2.Base.Components
 
 			if (light.IsNotNull())
 			{
-				light.color = Temperature.GetGlowColor(temperature_current); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
+				light.color.LerpRef(Temperature.GetGlowColor(temperature_current), 0.07f); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
+				light.size_modifier = heat_state.modifier;
+				light.jitter *= 0.97f;
 			}
 
 			if (sound_emitter.IsNotNull())
@@ -453,9 +481,9 @@ namespace TC2.Base.Components
 				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
 			}
 
-			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(75.00f) && time >= heat_state.t_next_steam)
+			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(75.00f) && time >= heat_state.t_next_effect)
 			{
-				heat_state.t_next_steam = time + 0.04f;
+				heat_state.t_next_effect = time + 0.04f;
 
 				//var dir = transform.GetDirection();
 				var intensity = Maths.Clamp(Maths.Max(temperature_current - Temperature.Celsius(50.00f), 0.00f) * 0.003f, 0.00f, 0.75f).Pow2();
@@ -483,6 +511,11 @@ namespace TC2.Base.Components
 				if (temperature_current >= 1450.00f)
 				{
 					var intensity_spark = Maths.InvLerp(1200, 2500, temperature_current).Clamp01();
+
+					if (light.IsNotNull())
+					{
+						light.jitter = random.NextUnitVector2(intensity_spark);
+					}
 
 					var pos_spark = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloat(heat.size.X), 0.00f)));
 					var dir_up = transform.Up;

@@ -87,7 +87,7 @@ heat:
 {
 	temperature_medium: 520.000
 	temperature_high: 700.000
-	temperature_critical: 1350.000
+	temperature_breakdown: 1350.000
 	cool_rate: 1.000
 	heat_capacity_extra: 30.000
 	heat_damage_mult: 0.250

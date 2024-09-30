@@ -60,7 +60,7 @@ heat:
 {
 	temperature_medium: 466.735
 	temperature_high: 933.470
-	temperature_critical: 2792.0000
+	temperature_breakdown: 2792.0000
 	cool_rate: 1.000
 	cool_rate_mult: 0.235
 	offset: [0.000, 0.500]

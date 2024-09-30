@@ -1060,7 +1060,7 @@
 
 					if (heat.IsNotNull() && heat_state.IsNotNull())
 					{
-						if (heat.temperature_critical > Maths.epsilon && ammo.heat > Maths.epsilon)
+						if (heat.temperature_operating > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
 							//var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							var heat_amount = ((gun.ammo_per_shot - amount) * Energy.J(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);

@@ -309,7 +309,7 @@ essence.container:
 heat:
 {
 	temperature_high: 620.000
-	temperature_critical: 1337.000
+	temperature_operating: 1337.000
 	cool_rate: 11.500
 	heat_capacity_extra: 150.000
 	flags: exclude_body_mass

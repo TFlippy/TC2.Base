@@ -65,7 +65,7 @@ heat:
 {
 	temperature_medium: 1000.000
 	temperature_high: 1800.000
-	temperature_critical: 4000.000
+	temperature_breakdown: 4000.000
 	cool_rate: 2.000
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]

@@ -11,9 +11,9 @@ body:
 		
 		offset: [0.000, 0.375]
 		radius: 0.480
-		friction: 0.900
-		elasticity: 0.440
-		rigidity_dynamic: 0.800
+		friction: 0.600
+		elasticity: 0.350
+		rigidity_dynamic: 0.700
 		
 		material: metal_solid
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, bulk
@@ -68,27 +68,29 @@ heat:
 {
 	temperature_medium: 678.000
 	temperature_high: 1357.000
-	temperature_critical: 2135.000
+	temperature_breakdown: 2135.000
 	cool_rate: 2.000
 	offset: [0.000, 0.500]
+	smoke_speed_mult: 0.750
 	smoke_offset: [0.125, 0.250]
-	size: [0.750, 0.375]
+	size: [2.000, 1.000]
 
 	@light:
 	{
 		offset: [0.125, 0.500]
-		scale: [36.000, 21.000]
+		scale: [16.000, 12.000]
 		intensity: 2.500
-		texture: light.circle.04
+		texture: light.circle.02
 	}
 
 	@sound.emitter:
 	{
-		file: overheat_loop
+		file: burner.loop.00
 		flags: start_muted
-		volume: 1.000
+		volume: 1.500
 		pitch: 0.680
-		size_max_modifier: 0.600
+		size: 5.500
+		size_max_modifier: 0.900
 		priority: 0.100
 		offset: [0.000, 0.500]
 	}
@@ -99,6 +101,6 @@ norotate:
 	bias: 0.000
 	speed: 3.500
 	multiplier: 3.500
-	mass_multiplier: 3.500
+	mass_multiplier: 1.500
 	flags: no_share
 }

@@ -249,7 +249,7 @@ heat:
 {
 	temperature_medium: 750.000
 	temperature_high: 1000.000
-	temperature_critical: 1750.000
+	temperature_breakdown: 1750.000
 	cool_rate: 13.000
 	heat_capacity_extra: 80.000
 	flags: exclude_body_mass, no_smoke

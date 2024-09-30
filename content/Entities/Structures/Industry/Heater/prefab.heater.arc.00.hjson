@@ -200,7 +200,7 @@ heat:
 {
 	temperature_medium: 650.000
 	temperature_high: 1650.000
-	temperature_critical: 1950.000
+	temperature_operating: 1950.000
 	cool_rate: 10.000
 	heat_capacity_extra: 50.000
 	offset: [0.250, -0.125]

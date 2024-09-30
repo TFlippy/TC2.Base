@@ -156,7 +156,7 @@ heat:
 {
 	temperature_medium: 450.000
 	temperature_high: 850.000
-	temperature_critical: 1350.000
+	temperature_operating: 1350.000
 	cool_rate: 25.000
 	heat_capacity_extra: 750.000
 	flags: exclude_body_mass
