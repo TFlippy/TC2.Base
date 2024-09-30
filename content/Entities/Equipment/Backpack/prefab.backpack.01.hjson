@@ -22,7 +22,7 @@ body:
 		
 		material: fabric
 		
-		layer: entity, solid, item, storage, equipment, flammable
+		layer: entity, solid, item, storage, flammable
 	}
 }
 

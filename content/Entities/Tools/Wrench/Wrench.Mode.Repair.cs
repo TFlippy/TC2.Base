@@ -97,7 +97,7 @@ namespace TC2.Base.Components
 							return mask;
 						}
 					}
-					public Physics.Layer LayerRequire => Physics.Layer.Repairable | Physics.Layer.Destructible;
+					public Physics.Layer LayerRequire => Physics.Layer.Destructible;
 					public Physics.Layer LayerExclude => Physics.Layer.Harvestable;
 
 					public Color32BGRA ColorOk => Color32BGRA.Orange;

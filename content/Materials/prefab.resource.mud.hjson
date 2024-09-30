@@ -12,8 +12,8 @@ body:
 		friction: 0.950
 		elasticity: 0.100
 		material: mud
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
+		mask: world, bulk
 	}
 }
 

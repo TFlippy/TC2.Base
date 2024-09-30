@@ -12,8 +12,8 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: stone_dense
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
+		mask: world, bulk
 	}
 }
 

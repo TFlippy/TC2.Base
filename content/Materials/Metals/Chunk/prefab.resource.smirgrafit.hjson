@@ -15,8 +15,8 @@ body:
 		elasticity: 0.840
 		
 		material: cermet
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
-		mask: world, essence
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic, bulk
+		mask: world, essence, bulk
 	}
 }
 

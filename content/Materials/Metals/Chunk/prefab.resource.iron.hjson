@@ -15,7 +15,8 @@ body:
 		elasticity: 0.440
 		
 		material: metal_solid
-		layer: entity, solid, resource, conductive, heatable, magnetic, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, conductive, heatable, magnetic, ignore_melee, ignore_bullet, bulk
+		mask: world, bulk
 	}
 }
 
