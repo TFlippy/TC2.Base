@@ -14,6 +14,7 @@ body:
 		material: soil
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
 		mask: world, bulk
+		exclude: held, stored
 	}
 }
 

@@ -245,7 +245,7 @@ namespace TC2.Base.Components
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
 		public static void OnModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Body.Data body, [Source.Owned, Optional] in Resource.Data resource)
+		[Source.Owned] ref Body.Data body, [Source.Owned, Optional] in Resource.Data resource)
 		{
 #if SERVER
 			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
@@ -286,7 +286,7 @@ namespace TC2.Base.Components
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
 			var modifier = heat_state.modifier;
 
@@ -324,8 +324,17 @@ namespace TC2.Base.Components
 			}
 
 			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate * heat.cool_rate_mult * heat_state.modifier, info.DeltaTime);
-			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= heat.temperature_critical))
+			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= Maths.Lerp(heat.temperature_high, heat.temperature_critical, 0.20f)))
 			{
+				//if (heat.flags.HasAny(Data.Flags. )
+
+#if SERVER
+				if (body.override_shape_layer.TrySetFlag(Physics.Layer.Liquid, temperature_current >= heat.temperature_high))
+				{
+					body.MarkDirty();
+				}
+#endif
+
 				heat_state.flags.RemoveFlag(Heat.State.Flags.Overheated, temperature_current <= heat.temperature_medium);
 			}
 

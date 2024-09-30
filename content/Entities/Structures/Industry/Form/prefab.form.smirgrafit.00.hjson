@@ -27,7 +27,8 @@ body:
 		
 		material: cermet
 		
-		layer: entity, solid, building, ignore_melee
+		layer: entity, solid, building, ignore_melee, platform
+		mask: world, liquid
 	}
 }
 

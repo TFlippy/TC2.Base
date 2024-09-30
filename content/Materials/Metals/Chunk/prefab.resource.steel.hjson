@@ -11,12 +11,14 @@ body:
 		
 		offset: [0.000, 0.375]
 		radius: 0.480
-		friction: 0.300
-		elasticity: 0.440
+		friction: 0.600
+		elasticity: 0.640
+		rigidity_dynamic: 0.800
 		
 		material: metal_solid
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic, bulk
 		mask: world, bulk
+		exclude: held, stored
 	}
 }
 
