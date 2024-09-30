@@ -70,6 +70,7 @@ heat:
 	temperature_high: 2317.969
 	temperature_operating: 788.3445
 	temperature_melt: 1357.770
+	temperature_ignite: 1277.770
 	temperature_breakdown: 2835.000
 	cool_rate: 2.000
 	smoke_speed_mult: 0.750
@@ -82,9 +83,9 @@ heat:
 	@light:
 	{
 		offset: [0.125, 0.500]
-		scale: [16.000, 12.000]
-		intensity: 2.500
-		texture: light.circle.02
+		scale: [50.000, 40.000]
+		intensity: 2.000
+		texture: light.circle.00
 	}
 
 	@sound.emitter:

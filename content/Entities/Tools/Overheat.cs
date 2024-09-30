@@ -515,7 +515,7 @@ namespace TC2.Base.Components
 			if (light.IsNotNull())
 			{
 				light.color.LerpRef(Temperature.GetGlowColor(temperature_current), 0.07f); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
-				light.size_modifier = heat_state.modifier;
+				light.size_modifier = heat_state.modifier * (1.00f + (temperature_current.m_value * 0.0012f).Pow2());
 				light.jitter *= 0.97f;
 			}
 
@@ -533,6 +533,12 @@ namespace TC2.Base.Components
 				//var dir = transform.GetDirection();
 				var intensity = Maths.Clamp(Maths.Max(temperature_current - Temperature.Celsius(50.00f), 0.00f) * 0.003f, 0.00f, 0.75f).Pow2();
 				var pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloat(heat.size.X), random.NextFloat(heat.size.Y)) * 0.50f));
+
+				if (light.IsNotNull())
+				{
+					light.jitter = random.NextUnitVector2(intensity);
+					//light.size_modifier *= intensity;
+				}
 
 				Particle.Spawn(ref region, new Particle.Data()
 				{
@@ -557,11 +563,7 @@ namespace TC2.Base.Components
 				{
 					var intensity_spark = Maths.InvLerp(1200, 2500, temperature_current).Clamp01();
 
-					if (light.IsNotNull())
-					{
-						light.jitter = random.NextUnitVector2(intensity_spark);
-					}
-
+			
 					var pos_spark = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloat(heat.size.X), 0.00f)));
 					var dir_up = transform.Up;
 
