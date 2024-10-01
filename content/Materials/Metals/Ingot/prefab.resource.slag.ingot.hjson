@@ -1,0 +1,49 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.050
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.300
+		material: metal_solid
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.slag.ingot"
+		count: 4
+		size: [16, 16]
+	}
+	z: -77.300
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "slag.ingot"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
