@@ -15,7 +15,7 @@
 	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, bottled, corrosive, manufactured, primary
+	flags: liquid, bottled, corrosive, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: corrosive
 	display_flags: none

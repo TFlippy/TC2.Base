@@ -44,6 +44,9 @@
 	// K
 	sintering_temperature_upper: 702.3579
 	
+	// K
+	autoignition_temperature: 0.000
+	
 	// kJ/mol
 	heat_of_fusion: 10.700
 	// kJ/mol
@@ -67,5 +70,7 @@
 		ingot: aluminium.ingot
 		chunk: aluminium
 		raw: aluminium
+		scrap: scrap.aluminium
+		slag: alumina
 	}
 }

@@ -17,7 +17,7 @@
 	
 	type: liquid
 	// Flags defining properties of the raw material.
-	flags: liquid, toxic, chemical, bottled, corrosive, manufactured, flammable, processed, primary
+	flags: liquid, toxic, chemical, bottled, corrosive, flammable, processed, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: corrosive, flammable
 	display_flags: none

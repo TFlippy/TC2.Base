@@ -17,7 +17,7 @@
 	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, long, metal, intermediate, large, heavy, solid
+	flags: hard, long, metal, large, heavy, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none

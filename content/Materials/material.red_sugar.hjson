@@ -15,7 +15,7 @@
 	
 	type: resin
 	// Flags defining properties of the raw material.
-	flags: hard, sticky, food, granular, organic, intermediate, chemical, small, fragile, raw, solid
+	flags: hard, sticky, food, granular, organic, chemical, small, fragile, raw, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none

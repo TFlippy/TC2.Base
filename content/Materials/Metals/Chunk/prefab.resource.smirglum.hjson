@@ -66,15 +66,17 @@ breakable:
 
 heat:
 {
-	temperature_medium: 701.0387
-	temperature_high: 3957.400
-	temperature_operating: 2324.779
-	temperature_melt: 3245.000
-	temperature_breakdown: 4341.000
+	temperature_medium: 509.8625
+	temperature_high: 4008.355
+	temperature_ignite: 2240.000
+	temperature_operating: 2166.500
+	temperature_melt: 3353.772
+	temperature_breakdown: 4360.823
 	cool_rate: 2.000
+	cool_rate_mult: 10.000
 	smoke_speed_mult: 0.750
 	flags: meltable, formless
-	fire_flags: no_radius_ignite, no_self_damage, always_contact_ignite
+	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [2.000, 1.000]
@@ -82,18 +84,18 @@ heat:
 	@light:
 	{
 		offset: [0.125, 0.500]
-		scale: [16.000, 12.000]
-		intensity: 2.500
-		texture: light.circle.02
+		scale: [50.000, 40.000]
+		intensity: 2.000
+		texture: light.circle.00
 	}
 
 	@sound.emitter:
 	{
 		file: burner.loop.00
 		flags: start_muted
-		volume: 1.500
-		pitch: 0.680
-		size: 5.500
+		volume: 1.000
+		pitch: 0.880
+		size: 1.000
 		size_max_modifier: 0.900
 		priority: 0.100
 		offset: [0.000, 0.500]

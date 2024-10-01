@@ -44,6 +44,9 @@
 	// K
 	sintering_temperature_upper: 1472.752
 	
+	// K
+	autoignition_temperature: 1461.000
+	
 	// kJ/mol
 	heat_of_fusion: 13.800
 	// kJ/mol
@@ -69,5 +72,6 @@
 		chunk: iron
 		gravel: iron.gravel
 		raw: iron
+		scrap: scrap.ferrous
 	}
 }

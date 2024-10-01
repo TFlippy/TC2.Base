@@ -15,7 +15,7 @@
 	
 	type: slime
 	// Flags defining properties of the raw material.
-	flags: sticky, liquid, explosive, intermediate, chemical, bottled, fragile, manufactured, flammable, primary
+	flags: sticky, liquid, explosive, chemical, bottled, fragile, flammable, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: sticky, flammable
 	display_flags: none

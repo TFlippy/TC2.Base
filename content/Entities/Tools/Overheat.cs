@@ -575,15 +575,15 @@ namespace TC2.Base.Components
 			if (light.IsNotNull())
 			{
 				light.color.LerpRef(Temperature.GetGlowColor(temperature_current), 0.07f); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
-				light.size_modifier = heat_state.modifier * (1.00f + (temperature_current.m_value * 0.0012f).Pow2());
+				light.size_modifier.LerpFMARef(Maths.Max(0.20f, heat_state.modifier * ((temperature_current.m_value * 0.0006f).Pow2())), 0.02f);
 				light.jitter *= 0.97f;
 			}
 
 			if (sound_emitter.IsNotNull())
 			{
 				//sound_emitter.offset = heat.offset;
-				sound_emitter.volume_mult = Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 0.95f, heat.temperature_high * 1.15f, temperature_current).Pow2(), 0.00f, 0.40f);
-				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.InvLerp01(heat.temperature_high * 0.80f, heat.temperature_medium * 0.95f, temperature_current), 0.00f, 0.80f);
+				sound_emitter.volume_mult = Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 1.15f, heat.temperature_high * 1.15f, temperature_current).Pow2(), 0.00f, 0.40f);
+				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 0.95f, heat.temperature_high * 0.80f, temperature_current).Pow2(), 0.05f, 0.75f);
 			}
 
 			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(75.00f) && time >= heat_state.t_next_effect)
@@ -596,7 +596,7 @@ namespace TC2.Base.Components
 
 				if (light.IsNotNull())
 				{
-					light.jitter = random.NextUnitVector2(intensity);
+					light.jitter = random.NextUnitVector2(intensity * 0.10f);
 					//light.size_modifier *= intensity;
 				}
 

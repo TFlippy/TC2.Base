@@ -15,7 +15,7 @@
 	
 	type: machine
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, metal, intermediate, large, heavy, fragile, manufactured, device, solid
+	flags: hard, magnetic, metal, large, heavy, fragile, device, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: hide_fraction
@@ -70,6 +70,9 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

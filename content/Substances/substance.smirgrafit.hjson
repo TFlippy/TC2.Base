@@ -43,6 +43,9 @@
 	// K
 	sintering_temperature_upper: 3353.000
 	
+	// K
+	autoignition_temperature: 0.000
+	
 	// kJ/mol
 	heat_of_fusion: 0.000
 	// kJ/mol
@@ -56,6 +59,17 @@
 	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.20535
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.000
+	
+	form_to_material:
+	{
+		chunk: smirgrafit
+		scrap: scrap.smirgrafit
+		packaged: smirgrafit.compacted
+		powder: smirgrafit.powder
+		raw: smirgrafit
+		blob: smirgrafit
+	}
 }

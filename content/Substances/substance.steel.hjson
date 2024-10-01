@@ -44,6 +44,9 @@
 	// K
 	sintering_temperature_upper: 1364.202
 	
+	// K
+	autoignition_temperature: 1894.000
+	
 	// kJ/mol
 	heat_of_fusion: 13.800
 	// kJ/mol
@@ -69,5 +72,6 @@
 		plate: steel.plate
 		chunk: steel
 		raw: steel
+		scrap: scrap.steel
 	}
 }

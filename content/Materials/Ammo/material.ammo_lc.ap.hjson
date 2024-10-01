@@ -22,7 +22,7 @@
 	
 	type: ammo
 	// Flags defining properties of the raw material.
-	flags: ammo, ammo_lc, magnetic, granular, small, manufactured, solid
+	flags: ammo, ammo_lc, magnetic, granular, small, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
@@ -65,10 +65,14 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
+			mask: missing
 			size: [8, 8]
 		}
 		casing_scale: 0.900
 	}
+	
+	h_substance: "null"
+	purity: 0.000
 	
 	// Component materials.
 	composition: []

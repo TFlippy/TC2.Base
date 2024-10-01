@@ -44,6 +44,9 @@
 	// K
 	sintering_temperature_upper: 0.000
 	
+	// K
+	autoignition_temperature: 0.000
+	
 	// kJ/mol
 	heat_of_fusion: 0.222
 	// kJ/mol
@@ -57,6 +60,12 @@
 	specific_heat_of_vaporization: 213.1383
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.919
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.02658
+	
+	form_to_material:
+	{
+		gas: oxygen
+	}
 }

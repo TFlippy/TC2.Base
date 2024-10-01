@@ -35,12 +35,36 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	sintering_temperature_min: 0.000
+	forging_temperature_lower: 0.000
 	// K
-	sintering_temperature_max: 0.000
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
 	
+	// K
+	autoignition_temperature: 0.000
+	
+	// kJ/mol
+	heat_of_fusion: 0.000
+	// kJ/mol
+	heat_of_vaporization: 0.000
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
+	
+	// kJ/kg
+	specific_heat_of_fusion: 0.000
+	// kJ/kg
+	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.000
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.000
+	
+	form_to_material:
+	{
+		liquid: paxilon
+	}
 }

@@ -51,12 +51,13 @@
 						var mass_req = (Mass)(amount_req * material_data.mass_per_unit);
 						var mass_add = (Mass)Maths.Min(mass_req, ev.mass);
 
+						App.WriteLine($"{mass_add}/{mass_req}/{ev.mass}");
+
 						var resource_tmp = new Resource.Data(h_material, fillable.amount);
 						if (Resource.TryAddHeatedMass(ref resource_tmp, ref heat_state.temperature_current, h_substance, ref mass_add, ref ev.temperature, out var amount_added))
 						{
 							fillable.amount += amount_added;
-							ev.mass -= mass_add;
-
+							ev.mass -= amount_added * material_data.mass_per_unit;
 							fillable.Sync(ent_fillable, true);
 						}
 					}
