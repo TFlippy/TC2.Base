@@ -470,7 +470,7 @@ namespace TC2.Base.Components
 				var excess = Maths.Max(0.00f, temperature_current - heat.temperature_ignite);
 				if (random.NextBool(excess * 0.01f))
 				{
-					Fire.Ignite(entity, temperature_current * 0.009f, heat.fire_flags);
+					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags);
 				} 
 			}
 
@@ -522,8 +522,8 @@ namespace TC2.Base.Components
 			if (sound_emitter.IsNotNull())
 			{
 				//sound_emitter.offset = heat.offset;
-				sound_emitter.volume_mult = Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.20f);
-				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.Max(temperature_current - heat.temperature_medium, 0.00f) / 4000.00f, 0.00f, 0.40f);
+				sound_emitter.volume_mult = Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 0.95f, heat.temperature_high * 1.15f, temperature_current).Pow2(), 0.00f, 0.40f);
+				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.InvLerp01(heat.temperature_high * 0.80f, heat.temperature_medium * 0.95f, temperature_current), 0.00f, 0.80f);
 			}
 
 			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(75.00f) && time >= heat_state.t_next_effect)
@@ -543,9 +543,9 @@ namespace TC2.Base.Components
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = texture_smoke,
-					lifetime = random.NextFloatExtra(0.50f, 0.50f),
+					lifetime = random.NextFloatExtra(0.50f, 0.80f),
 					pos = pos, // + (dir * random.NextFloatRange(0.00f, 1.00f))),
-					vel = new Vector2(random.NextFloat(intensity), random.NextFloat01() * -intensity * 4) * heat.smoke_speed_mult, // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
+					vel = (new Vector2(random.NextFloat(intensity), random.NextFloat01() * -intensity * 4) * heat.smoke_speed_mult) + new Vector2(random.NextFloat01(3), -random.NextFloat01(2)), // (-dir * random.NextFloatRange(3.00f, 6.00f) * intensity) + new Vector2(0, -2),
 					force = new Vector2(0.10f, -0.40f) * heat.smoke_speed_mult,
 					fps = random.NextByteRange(15, 20),
 					frame_count = 64,
@@ -562,8 +562,7 @@ namespace TC2.Base.Components
 				if (temperature_current >= 1450.00f)
 				{
 					var intensity_spark = Maths.InvLerp(1200, 2500, temperature_current).Clamp01();
-
-			
+	
 					var pos_spark = transform.LocalToWorld(heat.offset + (new Vector2(random.NextFloat(heat.size.X), 0.00f)));
 					var dir_up = transform.Up;
 

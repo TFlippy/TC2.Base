@@ -22,7 +22,7 @@
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
 	// kg
 	mass_per_unit: 0.500
-	quantity_max: 128.000
+	quantity_max: 100.000
 	prefab: resource.phlogiston
 	
 	color_dust: "0xffffffff"
@@ -147,7 +147,6 @@
 		stability_mult: 1.000
 		
 		prefab: projectile.phlogiston
-		casing_scale: 1.000
 	}
 	
 	h_substance: phlogiston
