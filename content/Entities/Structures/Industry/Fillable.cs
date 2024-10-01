@@ -36,6 +36,32 @@
 		[Source.Owned] ref Fillable.Data fillable)
 		{
 			App.WriteLine("fillable: on contact blob");
+
+			var h_substance = ev.blob.h_substance;
+			ref var substance_data = ref h_substance.GetData();
+			if (substance_data.IsNotNull())
+			{
+				ref var material_data = ref substance_data.GetMaterial(fillable.form_type, out var material_asset);
+				if (material_data.IsNotNull())
+				{
+					var h_material = material_asset.GetHandle();
+					var amount_req = fillable.capacity - fillable.amount;
+					if (amount_req > 0.00f)
+					{
+						var mass_req = (Mass)(amount_req * material_data.mass_per_unit);
+						var mass_add = (Mass)Maths.Min(mass_req, ev.mass);
+
+						var resource_tmp = new Resource.Data(h_material, fillable.amount);
+						if (Resource.TryAddHeatedMass(ref resource_tmp, ref heat_state.temperature_current, h_substance, ref mass_add, ref ev.temperature, out var amount_added))
+						{
+							fillable.amount += amount_added;
+							ev.mass -= mass_add;
+
+							fillable.Sync(ent_fillable, true);
+						}
+					}
+				}
+			}
 		}
 #endif
 

@@ -146,5 +146,7 @@ workshop:
 
 fillable:
 {
-	
+	flags: use_misc
+	form_type: ingot
+	capacity: 4.000
 }

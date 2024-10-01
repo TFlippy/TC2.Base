@@ -419,6 +419,66 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		[ChatCommand.Region("heat", "", creative: true)]
+		public static void HeatCommand(ref ChatCommand.Context context, float energy)
+		{
+			ref var region = ref context.GetRegion();
+			Assert.NotNull(ref region);
+
+			var ent_target = context.GetTargetEntity();
+			if (!ent_target.IsAlive())
+			{
+				var pos = context.GetTargetPosition();
+				App.WriteLine(pos);
+
+				if (region.TryOverlapPoint(pos, 0.50f, out var result, mask: Physics.Layer.Heatable, exclude: Physics.Layer.World))
+				{
+					ent_target = result.entity;
+				}
+			}
+
+			ref var heat = ref ent_target.GetComponent<Heat.Data>();
+			ref var heat_state = ref ent_target.GetComponent<Heat.State>();
+			if (heat.IsNotNull() && heat_state.IsNotNull())
+			{
+				heat_state.AddEnergy(energy);
+				heat_state.Sync(ent_target);
+			}
+		}
+
+		[ChatCommand.Region("temperature", "", creative: true)]
+		public static void TemperatureCommand(ref ChatCommand.Context context, float temperature)
+		{
+			ref var region = ref context.GetRegion();
+			Assert.NotNull(ref region);
+
+			var ent_target = context.GetTargetEntity();
+
+			App.WriteLine(ent_target);
+			App.WriteLine(ent_target.IsAlive());
+
+			if (!ent_target.IsAlive())
+			{
+				var pos = context.GetTargetPosition();
+				App.WriteLine(pos);
+
+				if (region.TryOverlapPoint(pos, 0.50f, out var result, mask: Physics.Layer.Heatable, exclude: Physics.Layer.World))
+				{
+					ent_target = result.entity;
+				}
+			}
+
+			ref var heat = ref ent_target.GetComponent<Heat.Data>();
+			ref var heat_state = ref ent_target.GetComponent<Heat.State>();
+			if (heat.IsNotNull() && heat_state.IsNotNull())
+			{
+				heat_state.temperature_current = temperature;
+				heat_state.Sync(ent_target);
+			}
+		}
+#endif
+
+#if SERVER
 		[ISystem.Event<Crafting.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnSpawnEvent(ISystem.Info info, ref Region.Data region, Entity entity, ref Crafting.SpawnEvent ev,
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
