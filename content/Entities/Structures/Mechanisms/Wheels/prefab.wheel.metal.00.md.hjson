@@ -51,10 +51,11 @@ armor:
 
 holdable:
 {
-	offset: [0.000, 0.000]
+	force_multiplier: 0.100
+	torque_multiplier: 0.200
+	stress_multiplier: 0.200
 	radius: 0.000
-	flags: disable_parent_facing
-	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
 attachment:
