@@ -13,15 +13,15 @@
 		frame: [3, 0]
 	}
 	
-	type: metal_solid
+	type: stone_metallic
 	// Flags defining properties of the raw material.
-	flags: hard, magnetic, metal, small, ingot, solid
+	flags: hard, magnetic, metal, small, ingot, waste, solid, impure, contaminated
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: none
+	hints: materials, junk, construction, cheap, dumb, industrial, wrecked, crappy, slow
 	// kg
-	mass_per_unit: 4.000
+	mass_per_unit: 4.220
 	quantity_max: 128.000
 	prefab: resource.slag.ingot
 	

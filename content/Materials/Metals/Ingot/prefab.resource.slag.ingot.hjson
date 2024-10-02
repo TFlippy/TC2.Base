@@ -7,13 +7,13 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
-		mass: 1.000
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.300
-		material: metal_solid
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
-		mask: world
+		
+		material: stone_metallic
+		
+		layer: entity, solid, resource, rubble, bulk, heatable, magnetic, ignore_melee, ignore_bullet
 	}
 }
 

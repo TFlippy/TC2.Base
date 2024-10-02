@@ -27,6 +27,26 @@
 			}
 		}
 
+		//[IComponent.Data(Net.SendType.Unreliable)]
+		//public struct State: IComponent
+		//{
+		//	[Flags]
+		//	public enum Flags: uint
+		//	{
+		//		None = 0,
+		//	}
+
+		//	public Volume capacity;
+		//	public Volume amount;
+
+		//	[Save.Ignore, Net.Ignore] public float t_next_update;
+
+		//	public State()
+		//	{
+
+		//	}
+		//}
+
 #if SERVER
 		[ISystem.Event<Blob.ContactEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
 		public static void OnContactBlob(ISystem.Info info, ref Region.Data region, Entity ent_fillable, ref Blob.ContactEvent ev,

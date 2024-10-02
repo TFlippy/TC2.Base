@@ -13,7 +13,7 @@
 		frame: [3, 0]
 	}
 	
-	type: rubble
+	type: stone_metallic
 	// Flags defining properties of the raw material.
 	flags: hard, granular, raw, powder, waste, solid
 	// Flags to remove if stored in a bottle/tank/can.
@@ -71,7 +71,7 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: "null"
+	h_substance: slag
 	purity: 0.000
 	
 	// Component materials.
