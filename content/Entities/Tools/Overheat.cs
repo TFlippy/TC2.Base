@@ -111,7 +111,8 @@ namespace TC2.Base.Components
 				heat.temperature_operating = Maths.Lerp(substance_data.sintering_temperature_lower, substance_data.sintering_temperature_upper, 0.50f);
 				heat.temperature_medium = Temperature.Celsius(Maths.Lerp(80.00f, substance_data.sintering_temperature_lower.Celsius(), 0.25f));
 				heat.temperature_high = Maths.Lerp(substance_data.forging_temperature_lower, substance_data.melting_point, 0.80f);
-				heat.temperature_melt = substance_data.melting_point;
+				if (substance_data.melting_point != 0.00f) heat.temperature_melt = substance_data.melting_point;
+				if (substance_data.autoignition_temperature != 0.00f) heat.temperature_ignite = substance_data.autoignition_temperature;
 				heat.temperature_breakdown = substance_data.boiling_point;
 
 				if (heat.flags.HasAny(Data.Flags.Meltable))
@@ -582,8 +583,8 @@ namespace TC2.Base.Components
 			if (sound_emitter.IsNotNull())
 			{
 				//sound_emitter.offset = heat.offset;
-				sound_emitter.volume_mult = Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 1.15f, heat.temperature_high * 1.15f, temperature_current).Pow2(), 0.00f, 0.40f);
-				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.InvLerp01(heat.temperature_medium * 0.95f, heat.temperature_high * 0.80f, temperature_current).Pow2(), 0.05f, 0.75f);
+				sound_emitter.volume_mult = Maths.Clamp(Maths.InvLerp(heat.temperature_medium * 0.95f, heat.temperature_high * 1.45f, temperature_current).Mul(0.85f).ClampMin(0.00f).Pow2(), 0.00f, 0.40f);
+				sound_emitter.pitch_mult = 0.50f + Maths.Clamp(Maths.InvLerp(heat.temperature_medium * 1.25f, heat.temperature_high * 1.60f, temperature_current).Mul(0.75f).ClampMin(0.00f).Pow2(), 0.05f, 0.50f);
 			}
 
 			if (heat.flags.HasNone(Heat.Data.Flags.No_Smoke) && temperature_current >= Temperature.Celsius(75.00f) && time >= heat_state.t_next_effect)

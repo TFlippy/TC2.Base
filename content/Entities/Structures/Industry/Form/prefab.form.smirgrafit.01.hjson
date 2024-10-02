@@ -28,7 +28,7 @@ body:
 		material: cermet
 		
 		layer: entity, solid, building, platform, ignore_melee
-		mask: world, liquid
+		mask: world, bulk, liquid
 	}
 }
 
@@ -86,13 +86,14 @@ heat:
 {
 	temperature_medium: 509.8625
 	temperature_high: 2683.018
+	temperature_ignite: 1795.000
 	temperature_operating: 2166.500
 	temperature_melt: 3353.772
 	temperature_breakdown: 4360.823
-	cool_rate: 4.000
-	heat_capacity_mult: 0.750
+	cool_rate: 3.500
+	heat_capacity_mult: 1.250
 	heat_damage_mult: 0.250
-	cool_rate_mult: 1.700
+	cool_rate_mult: 1.500
 	smoke_size_mult: 1.350
 	smoke_speed_mult: 0.600
 	smoke_rise_mult: 1.200
@@ -156,5 +157,8 @@ fillable:
 {
 	flags: use_misc
 	form_type: ingot
+	max_tilt: 1.280
 	capacity: 128.000
+	h_sound_dump: hatch.open.00
+	offset_drop: [-0.250, -1.250]
 }

@@ -65,3 +65,40 @@ breakable:
 	material_type: none
 	material_flags: none
 }
+
+heat:
+{
+	temperature_medium: 414.4965
+	temperature_high: 2317.969
+	temperature_ignite: 1697.770
+	temperature_operating: 788.3445
+	temperature_melt: 1357.770
+	temperature_breakdown: 2835.000
+	cool_rate: 2.500
+	smoke_speed_mult: 0.750
+	flags: meltable
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.125]
+	smoke_offset: [0.000, 0.125]
+	size: [2.000, 2.000]
+
+	@light:
+	{
+		offset: [-0.125, 0.125]
+		scale: [20.000, 20.000]
+		intensity: 2.000
+		texture: light.circle.02
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.100
+		pitch: 0.680
+		size: 3.500
+		size_max_modifier: 0.850
+		priority: 0.100
+		offset: [-0.250, 0.250]
+	}
+}

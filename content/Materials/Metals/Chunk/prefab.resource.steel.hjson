@@ -68,6 +68,7 @@ heat:
 {
 	temperature_medium: 440.9637
 	temperature_high: 2618.350
+	temperature_ignite: 1894.000
 	temperature_operating: 1034.303
 	temperature_melt: 1644.000
 	temperature_breakdown: 3143.000
