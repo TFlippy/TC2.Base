@@ -259,11 +259,11 @@ npc:
 
 npc.emotions:
 {
-	hostility: 0.600
+	hostility: 1.100
 	courage: 0.500
 	cruelty: 1.600
-	irritability: 0.800
-	apathy: 0.800
+	irritability: 1.100
+	apathy: 1.400
 }
 
 npc.emotions.state:

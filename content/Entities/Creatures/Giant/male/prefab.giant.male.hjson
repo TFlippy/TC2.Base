@@ -152,19 +152,19 @@ npc:
 {
 	pain_modifier: 0.150
 	min_consciousness: 0.300
-	avoid_distance: [1.000, 0.000]
-	idle_distance: [3.000, 1.000]
+	avoid_distance: [2.500, 1.000]
+	idle_distance: [3.000, 1.500]
 
 	wander_interval: 15.000
 	wander_interval_extra: 20.000
-	wander_radius: 16.000
+	wander_radius: 32.000
 }
 
 ai:
 {
 	stance: defensive
 
-	courage: 1600.000
+	courage: 4600.000
 }
 
 ai.movement:
@@ -174,7 +174,8 @@ ai.movement:
 
 ai.behavior:
 {
-	combat_flags: attack_when_hit, cover, defend, chase, charge
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, chase
 }
 
 ai.search:
@@ -184,11 +185,11 @@ ai.search:
 
 npc.emotions:
 {
-	hostility: 0.600
-	courage: 2.200
+	hostility: 0.800
+	courage: 5.200
 	cruelty: 1.100
-	irritability: 0.500
-	apathy: 1.900
+	irritability: 1.200
+	apathy: 1.100
 }
 
 npc.emotions.state:
@@ -198,11 +199,15 @@ npc.emotions.state:
 
 ai.gunner:
 {
-	attack_distance: 30.000
+	aim_min_dot: 0.990
+	aim_speed_mult: 1.700
+	aim_time_mult: 1.000
+
+	attack_distance: 40.000
 	cover_distance_offset: 12.000
 
-	attack_cooldown: 3.000
-	attack_burst_time: 5.000
+	attack_cooldown: 0.750
+	attack_burst_time: 4.000
 }
 
 ai.gunner.state:

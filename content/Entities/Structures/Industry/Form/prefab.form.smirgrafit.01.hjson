@@ -158,7 +158,7 @@ fillable:
 	flags: use_misc
 	form_type: ingot
 	max_tilt: 1.280
-	capacity: 128.000
+	capacity: 48.000
 	h_sound_dump: hatch.open.00
 	offset_drop: [-0.250, -1.250]
 }
