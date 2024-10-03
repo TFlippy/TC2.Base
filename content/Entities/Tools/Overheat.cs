@@ -101,6 +101,18 @@ namespace TC2.Base.Components
 			}
 		}
 
+
+		[IEvent.Data]
+		public partial struct MeltEvent(): IEvent, IEvent<Crafting.ConfiguredRecipe>
+		{
+			public Temperature temperature;
+
+			void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe data)
+			{
+
+			}
+		}
+
 		public static void SetupFromSubstance(ref this Heat.Data heat, ISubstance.Handle h_substance)
 		{
 			ref var substance_data = ref h_substance.GetData();

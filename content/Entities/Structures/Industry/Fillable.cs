@@ -139,7 +139,14 @@
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] ref Fillable.Data fillable)
 		{
+			App.WriteLine("on modify fillable event");
 
+			fillable.form_type = ev.form_type;
+			fillable.h_substance_mold = ev.h_substance_mold;
+			fillable.capacity = ev.capacity;
+			fillable.amount = 0.00f;
+
+			fillable.Sync(entity);
 		}
 #endif
 

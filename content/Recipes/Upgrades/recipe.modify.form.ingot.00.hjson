@@ -33,7 +33,7 @@
 						{
 							type: work
 							work: carving
-							amount: 850.000
+							amount: 150.000
 							difficulty: 5
 							group: 0
 							flags: conditional
@@ -48,7 +48,7 @@
 						{
 							type: work
 							work: sintering
-							amount: 100.000
+							amount: 50.000
 							difficulty: 3
 							group: 1
 							flags: conditional
@@ -73,6 +73,25 @@
 							flags: residue
 						}
 					]
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					h_sound_begin: effect.dump.steamy.00
+					h_sound_complete: effect.liquid.dispense.00
+					h_sound_finalize: smirgrafit.spark.00
+					
+					on_advance:
+					{
+						handle: "fire.ignite"
+						data:
+						{
+							intensity: 15.000
+							damage: 1000.000
+							temperature: 2200.000
+							flags: no_self_damage, always_contact_ignite
+							damage_type: phlogiston
+						}
+					}
 				}
 			]
 			
