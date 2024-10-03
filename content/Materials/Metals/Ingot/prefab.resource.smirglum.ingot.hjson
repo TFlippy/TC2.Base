@@ -50,6 +50,11 @@ norotate:
 
 }
 
+health:
+{
+	max: 700000.000
+}
+
 breakable:
 {
 	flags: no_damage

@@ -1,0 +1,136 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Modify: Ingot Form"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Material"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Smirgrafit"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirgrafit.compacted
+							amount: 32.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: carving
+							amount: 850.000
+							difficulty: 5
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 1.000
+							group: 1
+							flags: no_scaling, prerequisite
+						}
+						{
+							type: work
+							work: sintering
+							amount: 100.000
+							difficulty: 3
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: smirgrafit
+							amount: 0.000
+							group: 0
+							flags: parameter
+						}
+						{
+							type: resource
+							material: smirgrafit.powder
+							amount: 12.480
+							amount_extra: 3.000
+							group: 0
+							flags: residue
+						}
+					]
+				}
+			]
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: no_amount_multiplier, upgrade, retrofit, standalone, auto_complete
+	tags: casting
+	
+	icon:
+	{
+		texture: form.smirgrafit.00
+		size: [24, 16]
+	}
+	icon_offset: [-24.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_arrow.white
+		size: [16, 16]
+		frame: [20, 3]
+	}
+	icon_extra_offset: [-40.000, -8.000]
+	icon_extra_scale: 0.750
+	
+	icon_c:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+		frame: [1, 3]
+	}
+	icon_c_offset: [-8.000, -10.000]
+	
+	color_button: "0xff4eadea"
+	rank: -167.000
+	frame_size: [48.000, 24.000]
+	
+	min: 1
+	max: 1
+	step: 1
+	advance_delay: 1.000
+	
+	on_complete:
+	{
+		handle: "fillable.modify"
+		data:
+		{
+			form_type: ingot
+			flags: none
+			h_substance_mold: "null"
+			quality: 1.000
+			capacity: 32.000
+		}
+	}
+}

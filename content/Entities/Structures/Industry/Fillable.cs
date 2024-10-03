@@ -20,6 +20,8 @@
 			public float max_tilt = 1.00f;
 
 			public ISubstance.Handle h_substance_fill;
+			public ISubstance.Handle h_substance_mold;
+
 			public float capacity;
 			public float amount;
 
@@ -59,6 +61,88 @@
 		//	}
 		//}
 
+		[IEvent.Data]
+		public struct ModifyEvent: IEvent, IEvent<Crafting.ConfiguredRecipe>, IDrawable<Crafting.ConfiguredRecipe>
+		{
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+			}
+
+			public Material.Form form_type;
+			public ModifyEvent.Flags flags;
+
+			public ISubstance.Handle h_substance_mold;
+			public float quality;
+			public float capacity;
+
+			public ModifyEvent()
+			{
+
+			}
+
+			void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe arg)
+			{
+				ref var prd_substance = ref arg.products.GetFirstOrNull((x) => x.type == Crafting.Product.Type.Substance && x.flags.HasAny(Crafting.Product.Flags.Parameter));
+				if (prd_substance.IsNotNull())
+				{
+					this.h_substance_mold = prd_substance.h_substance;
+				}
+			}
+
+#if CLIENT
+			void IDrawable<Crafting.ConfiguredRecipe>.OnDraw(ref Crafting.ConfiguredRecipe arg, GUI.Group group)
+			{
+				GUI.NewLine(3);
+
+				using (var group_row = GUI.Group.New(size: new(GUI.RmX, 64), padding: new(8, 4)))
+				{
+					group_row.DrawBackground(GUI.tex_panel);
+
+					//GUI.TitleCentered("Form Type:"u8, pivot: new(0, 0), offset: new(4, 0));
+					GUI.Title("Casting Mold Shape"u8);
+
+					GUI.NewLine(2);
+
+					GUI.LabelShaded("Shape:", this.form_type, width: 112);
+					GUI.SameLine();
+					GUI.TextShaded(", "u8);
+					GUI.SameLine();
+					GUI.TextShaded(this.capacity, format: "0'x'");
+					
+					// GUI.SameLine(32);
+					// GUI.LabelShaded("Capacity:", this.capacity, format: "0'x'", width: 96);
+					GUI.LabelShaded("Material:", this.h_substance_mold.GetName().OrDefault("<none>"), width: 140);
+
+					//GUI.TextShaded("Mold Shape: "u8);
+					//GUI.SameLine();
+					//GUI.TextShaded(this.form_type);
+					//GUI.SameLine();
+					//GUI.TextShaded(", "u8);
+					//GUI.SameLine();
+					//GUI.TextShaded(this.capacity, format: "0'x'");
+
+					//GUI.LabelShaded("- ", this.form_type, width: 108);
+
+					//GUI.TextShaded(","u8);
+					//GUI.LabelShaded("", this.form_type, font_a: GUI.Font.Superstar, size_a: 16, width: 128);
+				}
+			}
+#endif
+		}
+
+#if SERVER
+		[ISystem.Event<Fillable.ModifyEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 10)]
+		public static void OnModifyEvent(ISystem.Info info, ref Region.Data region, Entity entity, ref Fillable.ModifyEvent ev, ref XorRandom random,
+		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
+		[Source.Owned] ref Fillable.Data fillable)
+		{
+
+		}
+#endif
+
 		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateTilt(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
@@ -77,7 +161,7 @@
 
 			fillable.tilt_ratio = tilt_ratio;
 
-			#if SERVER
+#if SERVER
 			if (time >= fillable.t_next_update)
 			{
 				fillable.t_next_update = time + random.NextFloatExtra(0.30f, 0.85f);
@@ -107,7 +191,7 @@
 					} 
 				}
 			}
-			#endif
+#endif
 
 #if CLIENT
 			if (Fillable.Data.draw_debug)
@@ -115,7 +199,7 @@
 				region.DrawDebugArc(pos, -Maths.half_pi - fillable.max_tilt, -Maths.half_pi + fillable.max_tilt, 2, color: Color32BGRA.Orange);
 				region.DrawDebugDir(pos, Maths.RadToDir(rot_up), color: Color32BGRA.Yellow);
 
-				region.DrawDebugText(pos, $"{tilt_delta:0.00}", color:  Color32BGRA.White);
+				region.DrawDebugText(pos, $"{tilt_delta:0.00}", color: Color32BGRA.White);
 			}
 #endif
 		}

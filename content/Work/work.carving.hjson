@@ -1,0 +1,55 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Carving"
+	name_short: "Carving"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, skilled, machine, tools, construction, wip
+	cooldown: 0.850
+	multiplier: 0.700
+	color: "0xff719240"
+	
+	tools_required: saw, file, knife
+	tools_optional: pencil, ruler, hammer, saw, drill, screwdriver, tweezers, axe, file, chisel, knife
+	
+	machinery_required: none
+	machinery_optional: lathe
+	
+	equipment_required: none
+	equipment_optional: table, chair, vise
+	
+	character_traits:
+	{
+		include: slave, construction, artisan, farmer, laborer, poor, hunter, culinary, insane, nomad, entertainer, outdoor, strong
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		blades: 0.400
+		carpentry: 0.500
+		construction: 0.300
+		strength: 0.350
+	}
+	
+	sound_volume: 0.710
+	sound_pitch: 1.150
+	sound_size: 0.420
+	sound_dist: 0.590
+}
