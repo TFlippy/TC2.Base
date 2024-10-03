@@ -28,7 +28,7 @@ body:
 		material: cermet
 		
 		layer: entity, solid, building, platform, ignore_melee
-		mask: world, bulk, liquid
+		mask: world, liquid
 	}
 }
 
@@ -62,7 +62,7 @@ animated.renderer:
 		texture: form.smirgrafit.01
 		size: [32, 16]
 	}
-	z: -65.000
+	z: 65.000
 }
 
 holdable:

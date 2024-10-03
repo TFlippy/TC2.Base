@@ -62,7 +62,7 @@ animated.renderer:
 		texture: form.smirgrafit.00
 		size: [24, 16]
 	}
-	z: -65.000
+	z: 65.000
 }
 
 holdable:
@@ -148,5 +148,8 @@ fillable:
 {
 	flags: use_misc
 	form_type: ingot
-	capacity: 64.000
+	max_tilt: 1.280
+	capacity: 16.000
+	h_sound_dump: hatch.open.00
+	offset_drop: [-0.250, -1.250]
 }

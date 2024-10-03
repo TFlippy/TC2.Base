@@ -80,7 +80,7 @@
 			#if SERVER
 			if (time >= fillable.t_next_update)
 			{
-				fillable.t_next_update = time + random.NextFloatExtra(0.10f, 0.25f);
+				fillable.t_next_update = time + random.NextFloatExtra(0.30f, 0.85f);
 				if (fillable.tilt_ratio >= 1.00f)
 				{
 					if (fillable.amount > 0.00f && fillable.h_substance_fill != default)
@@ -91,9 +91,9 @@
 							ref var material_data = ref substance_data.GetMaterial(fillable.form_type, out var material_asset);
 							if (material_data.IsNotNull())
 							{
-								fillable.amount.SubTowards(0.00f, Maths.Ceil(fillable.amount * random.NextFloatExtra(0.10f, 0.15f)), out var amount_spawn);
-								region.SpawnResource(material_asset, pos, amount_spawn, max_distance: 1.50f, flags: Resource.SpawnFlags.Merge, angular_velocity: random.NextFloat(1.20f), velocity: Maths.RadToDir(rot_up) * random.NextFloatExtra(1.00f, 6.50f), temperature: heat_state.temperature_current, rotation: rot);
-								Sound.Play(ref region, fillable.h_sound_dump, pos, volume: random.NextFloatExtra(0.35f, 0.15f), pitch: random.NextFloatExtra(0.70f, 0.35f), size: 1.00f, dist_multiplier: 0.80f);
+								fillable.amount.SubTowards(0.00f, Maths.Ceil(fillable.amount * random.NextFloatExtra(0.20f, 0.45f)), out var amount_spawn);
+								region.SpawnResource(material_asset, pos, amount_spawn, max_distance: 1.30f, flags: Resource.SpawnFlags.Merge, angular_velocity: random.NextFloat(1.20f), velocity: Maths.RadToDir(rot_up) * random.NextFloatExtra(1.00f, 6.50f), temperature: heat_state.temperature_current, rotation: rot);
+								Sound.Play(ref region, fillable.h_sound_dump, pos, volume: random.NextFloatExtra(0.45f, 0.25f), pitch: random.NextFloatExtra(0.35f, 0.38f), size: 1.00f, dist_multiplier: 0.80f);
 
 								if (fillable.amount <= 0.01f)
 								{

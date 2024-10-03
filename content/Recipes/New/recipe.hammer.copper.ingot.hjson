@@ -56,7 +56,7 @@
 	{
 		texture: resource.copper.ingot
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [4, 0]
 	}
 	icon_offset: [-2.000, -1.000]
 	
