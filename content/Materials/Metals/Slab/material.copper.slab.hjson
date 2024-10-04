@@ -11,10 +11,10 @@
 	
 	type: metal_solid
 	// Flags defining properties of the raw material.
-	flags: hard, long, metal, large, heavy, solid
+	flags: hard, long, metal, large, heavy, ingot, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: none
 	// kg
 	mass_per_unit: 440.000
@@ -27,6 +27,54 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders:
+	[
+		{
+			offset: [0.000, 0.575]
+			radius: 0.3125
+			values:
+			[
+				[-1.375, 0.000]
+				[1.375, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.375]
+			radius: 0.500
+			values:
+			[
+				[-1.250, 0.000]
+				[1.250, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.250]
+			radius: 0.625
+			values:
+			[
+				[-1.125, 0.000]
+				[1.125, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.000]
+			radius: 0.875
+			values:
+			[
+				[-0.900, 0.000]
+				[0.900, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+	]
 	
 	h_substance: copper
 	purity: 0.975

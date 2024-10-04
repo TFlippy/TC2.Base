@@ -83,14 +83,14 @@ attachment:
 
 heat:
 {
-	temperature_medium: 509.8625
-	temperature_high: 2683.018
-	temperature_ignite: 1795.000
-	temperature_operating: 2166.500
-	temperature_melt: 3353.772
-	temperature_breakdown: 4360.823
-	cool_rate: 3.500
-	heat_capacity_mult: 1.250
+	temperature_medium: 440.9637
+	temperature_high: 1479.600
+	temperature_ignite: 1894.000
+	temperature_operating: 1034.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	cool_rate: 2.500
+	heat_capacity_mult: 1.550
 	heat_damage_mult: 0.250
 	cool_rate_mult: 1.500
 	smoke_size_mult: 1.350
@@ -98,13 +98,13 @@ heat:
 	smoke_rise_mult: 1.200
 	flags: no_held_damage
 	fire_flags: no_radius_ignite, no_self_damage
-	offset: [-0.125, -0.250]
-	smoke_offset: [0.000, -0.875]
+	offset: [-0.125, 0.250]
+	smoke_offset: [-0.125, 0.125]
 	size: [2.500, 0.125]
-	
+
 	@light:
 	{
-		offset: [-0.125, -0.375]
+		offset: [0.000, 0.250]
 		scale: [80.000, 40.000]
 		intensity: 1.000
 		texture: light.circle.04

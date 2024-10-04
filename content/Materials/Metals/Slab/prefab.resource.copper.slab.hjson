@@ -50,7 +50,61 @@ holdable:
 	flags: disable_parent_facing, disable_rotation
 }
 
-norotate:
+health:
 {
-	mass_multiplier: 25.000
+	max: 62000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 414.4965
+	temperature_high: 2317.969
+	temperature_ignite: 1697.770
+	temperature_operating: 788.3445
+	temperature_melt: 1357.770
+	temperature_breakdown: 2835.000
+	cool_rate: 2.100
+	smoke_speed_mult: 0.750
+	flags: meltable
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.125]
+	smoke_offset: [0.000, 0.125]
+	size: [2.000, 2.000]
+
+	@light:
+	{
+		offset: [-0.375, 0.500]
+		scale: [75.000, 65.000]
+		intensity: 2.000
+		texture: light.circle.02
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size: 2.500
+		size_max_modifier: 0.650
+		priority: 0.100
+		offset: [-0.250, 0.250]
+	}
+}
+
+despawn:
+{
+	sleep_count_max: 74
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.200
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
 }

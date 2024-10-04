@@ -85,17 +85,16 @@ heat:
 	temperature_operating: 2166.500
 	temperature_melt: 3353.772
 	temperature_breakdown: 4360.823
-	cool_rate: 3.500
+	cool_rate: 2.200
 	heat_capacity_mult: 1.250
-	heat_damage_mult: 0.250
+	heat_damage_mult: 0.200
 	cool_rate_mult: 1.500
 	smoke_size_mult: 1.350
 	smoke_speed_mult: 0.600
 	smoke_rise_mult: 1.200
-	flags: no_held_damage
-	fire_flags: no_radius_ignite, no_self_damage
+	fire_flags: no_self_damage, always_contact_ignite
 	offset: [-0.125, -0.250]
-	smoke_offset: [0.000, -0.875]
+	smoke_offset: [-0.125, -0.500]
 	size: [2.500, 0.125]
 	
 	@light:
@@ -114,7 +113,7 @@ heat:
 		pitch: 0.680
 		size_max_modifier: 0.600
 		priority: 0.100
-		offset: [0.000, 0.500]
+		offset: [0.000, -0.375]
 	}
 }
 
@@ -151,9 +150,9 @@ workshop:
 fillable:
 {
 	flags: use_misc
-	form_type: ingot
+	form_type: slab
 	max_tilt: 1.280
-	capacity: 48.000
+	capacity: 1.000
 	h_sound_dump: hatch.open.00
 	offset_drop: [-0.250, -1.250]
 }
