@@ -270,14 +270,32 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Fillable"u8, this.ent_fillable, size: new(24, 96 * 1)))
+				using (var window = GUI.Window.InteractionMisc("Fillable"u8, this.ent_fillable, size: new(48, 48*4)))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
 					{
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+						using (GUI.Group.New(size: GUI.Rm))
 						{
+							var color_fill = Color32BGRA.Neutral;
 
+							ref var substance_fill_data = ref this.fillable.h_substance_fill.GetData();
+							if (substance_fill_data.IsNotNull())
+							{
+								color_fill = substance_fill_data.color_gui;
+							}
+
+							GUI.DrawVerticalGauge(this.fillable.amount, this.fillable.capacity, size: GUI.Rm, color: color_fill);
+							GUI.DrawHoverTooltip(in this.fillable, static (x) =>
+							{
+								GUI.Title("Casting Mould"u8);
+								//GUI.TextShaded(x.arg.h_substance_fill.GetName().OrDefault("<none>"));
+								GUI.LabelShaded("Capacity:"u8, x.arg.capacity, format: $"0'x {x.arg.form_type}'", width: 128);
+
+
+								
+								GUI.LabelShaded("Fill:"u8, x.arg.h_substance_fill.GetName().OrDefault("<none>"));
+							});
 						}
 					}
 				}

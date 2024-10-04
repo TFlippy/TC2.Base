@@ -45,7 +45,7 @@ interactable:
 {
 	flags: none
 	priority: 1.500
-	window_size: [224.000, 144.000]
+	window_size: [192.000, 114.000]
 	window_size_misc: [72.000, 0.000]
 }
 
@@ -140,7 +140,7 @@ vehicle:
 	joint.pivot:
 	{
 		error_bias: 0.000
-		max_bias: 20.000
+		max_bias: 10.000
 	}
 
 	joint.gear:
@@ -158,6 +158,6 @@ vehicle:
 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
 		name: "Form"
 		identifier: "form"
-		gui_size: [168.000, 96.000]
+		gui_size: [0.000, 112.000]
 	}
 }

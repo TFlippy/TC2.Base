@@ -41,7 +41,7 @@ interactable:
 {
 	flags: none
 	priority: 1.500
-	window_size: [576.000, 496.000]
+	window_size: [488.000, 464.000]
 	window_size_misc: [72.000, 0.000]
 }
 
@@ -74,7 +74,7 @@ attachment:
 	force_multiplier: 2.000
 	torque_multiplier: 1.500
 	offset: [0.000, 0.500]
-	tags: medium, platform, fixed
+	tags: medium, tool, platform, utility, fixed
 }
 
 heat:
@@ -136,7 +136,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: hidden_if_order
-	menu_columns: 4
+	menu_columns: 2
 	blueprints_capacity: 0
 	
 	offset_spawn: [0.000, 0.500]

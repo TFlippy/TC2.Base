@@ -125,6 +125,7 @@ mount:
 		flags: keyboard_write, mouse_write, loose
 		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim, loose, offset
 		name: "Mount"
+		radius: 2.000
 		offset_bounds: [0.000, -0.750, 0.000, 0.750]
 		gui_size: [0.000, 200.000]
 	}
