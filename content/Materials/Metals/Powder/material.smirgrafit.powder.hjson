@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.688
+	mass_per_unit: 0.5241
 	quantity_max: 1000.000
 	prefab: resource.smirgrafit.powder
 	
@@ -31,6 +31,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	commodity:
 	{

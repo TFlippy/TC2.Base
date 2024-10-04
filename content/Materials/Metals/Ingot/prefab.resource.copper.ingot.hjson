@@ -55,15 +55,7 @@ health:
 
 breakable:
 {
-	h_material: "null"
-	
 	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
-	
-	material_type: none
-	material_flags: none
 }
 
 heat:
@@ -75,6 +67,8 @@ heat:
 	temperature_melt: 1357.770
 	temperature_breakdown: 2835.000
 	cool_rate: 2.500
+	cool_rate_mult: 1.500
+	heat_damage_mult: 0.200
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite

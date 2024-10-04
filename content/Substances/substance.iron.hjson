@@ -83,5 +83,6 @@
 		gravel: iron.gravel
 		raw: iron
 		scrap: scrap.ferrous
+		slab: iron.slab
 	}
 }

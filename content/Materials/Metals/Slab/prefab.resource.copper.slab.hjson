@@ -52,7 +52,7 @@ holdable:
 
 health:
 {
-	max: 62000.000
+	max: 112000.000
 }
 
 breakable:
@@ -70,6 +70,7 @@ heat:
 	temperature_breakdown: 2835.000
 	cool_rate: 5.000
 	cool_rate_mult: 2.000
+	heat_damage_mult: 0.200
 	
 	smoke_speed_mult: 0.750
 	flags: meltable

@@ -83,5 +83,6 @@
 		chunk: steel
 		raw: steel
 		scrap: scrap.steel
+		slab: steel.slab
 	}
 }

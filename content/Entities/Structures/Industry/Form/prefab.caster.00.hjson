@@ -1,7 +1,7 @@
-$name: "Caster"
+$name: "Caster Platform"
 $desc:
 	'''
-	TODO: Desc
+	Insulated rotary platform with a mount for metal-casting forms.
 	'''
 $tags: []
 
@@ -22,12 +22,12 @@ body:
 		
 		mass: 120.000
 		radius: 0.500
-		friction: 0.750
+		friction: 0.820
 		elasticity: 0.670
 		
 		material: machine
 		
-		layer: entity, solid, building, platform, ignore_melee
+		layer: entity, solid, building, ignore_melee
 	}
 }
 
@@ -51,7 +51,7 @@ interactable:
 
 health:
 {
-	max: 45000.000
+	max: 55000.000
 }
 
 animated.renderer:

@@ -82,5 +82,6 @@
 		raw: aluminium
 		scrap: scrap.aluminium
 		slag: alumina
+		slab: aluminium.slab
 	}
 }

@@ -1,4 +1,4 @@
-$name: "Smirgrafit Basin"
+$name: "Smirgrafit Form"
 $desc:
 	'''
 	TODO: Desc
@@ -7,15 +7,15 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.150
-	fall_damage_multiplier: 1.250
+	buoyancy: 0.180
+	fall_damage_multiplier: 1.350
 
 	@shape.line:
 	{
 		a: [-1.500, 0.000]
 		b: [1.500, 0.000]
 		
-		mass: 220.000
+		mass: 265.000
 		radius: 0.500
 		friction: 0.750
 		elasticity: 0.670
@@ -47,7 +47,7 @@ interactable:
 
 health:
 {
-	max: 95000.000
+	max: 91000.000
 }
 
 animated.renderer:
@@ -56,7 +56,7 @@ animated.renderer:
 	{
 		texture: form.smirgrafit.00
 		size: [32, 8]
-		frame: [0, 0]
+		frame: [1, 0]
 	}
 	z: -65.000
 }
@@ -86,10 +86,10 @@ heat:
 	temperature_operating: 2166.500
 	temperature_melt: 3353.772
 	temperature_breakdown: 4360.823
-	cool_rate: 1.200
-	heat_capacity_mult: 0.850
-	heat_damage_mult: 0.200
-	cool_rate_mult: 1.350
+	cool_rate: 1.450
+	heat_capacity_mult: 0.750
+	heat_damage_mult: 0.250
+	cool_rate_mult: 1.400
 	smoke_size_mult: 1.350
 	smoke_speed_mult: 0.600
 	smoke_rise_mult: 1.200
@@ -151,9 +151,9 @@ workshop:
 fillable:
 {
 	flags: use_misc
-	form_type: slab
-	max_tilt: 1.280
-	capacity: 1.000
+	form_type: ingot
+	max_tilt: 1.480
+	capacity: 32.000
 	h_sound_dump: hatch.open.00
 	offset_drop: [-0.250, -1.250]
 }

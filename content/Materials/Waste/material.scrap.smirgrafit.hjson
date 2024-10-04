@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: materials, junk, heavy, construction, industrial, wrecked, slow
 	// kg
-	mass_per_unit: 2.130
+	mass_per_unit: 1.9141
 	quantity_max: 500.000
 	prefab: resource.scrap.smirgrafit
 	
@@ -31,6 +31,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	h_substance: smirgrafit
 	purity: 0.651

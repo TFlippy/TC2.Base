@@ -16,7 +16,7 @@ body:
 		
 		layer: entity, solid, resource, bulk, conductive, heatable, ignore_melee
 		mask: world, bulk
-		exclude: held
+		// exclude: held
 	}
 }
 
@@ -64,7 +64,7 @@ heat:
 {
 	temperature_medium: 701.0387
 	temperature_high: 3957.400
-	temperature_ignite: 3395.000
+	temperature_ignite: 1995.000
 	temperature_operating: 2324.779
 	temperature_melt: 3245.000
 	temperature_breakdown: 4341.000
@@ -79,10 +79,10 @@ heat:
 
 	@light:
 	{
-		offset: [-0.375, 0.500]
-		scale: [75.000, 65.000]
-		intensity: 2.000
-		texture: light.circle.02
+		offset: [-0.125, 0.125]
+		scale: [95.000, 65.000]
+		intensity: 1.750
+		texture: light.circle.04
 	}
 
 	@sound.emitter:
