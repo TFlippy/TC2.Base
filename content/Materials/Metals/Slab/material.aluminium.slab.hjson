@@ -17,12 +17,12 @@
 	display_flags: sprite_stack_linear
 	hints: none
 	// kg
-	mass_per_unit: 440.000
+	mass_per_unit: 189.2787
 	quantity_max: 4.000
 	prefab: resource.aluminium.slab
 	
-	color_dust: "0xffdf873d"
-	color_gib: "0xffdf873d"
+	color_dust: "0xff929894"
+	color_gib: "0xff929894"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
@@ -64,7 +64,6 @@
 			]
 		}
 		{
-			offset: [0.000, 0.000]
 			radius: 0.875
 			values:
 			[
@@ -77,7 +76,7 @@
 	]
 	
 	h_substance: aluminium
-	purity: 0.975
+	purity: 0.963
 	
 	// Component materials.
 	composition: []
