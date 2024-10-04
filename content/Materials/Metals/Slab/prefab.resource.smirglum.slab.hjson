@@ -24,7 +24,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper.slab"
+		texture: "resource.smirglum.slab"
 		count: 4
 		size: [32, 16]
 	}
@@ -38,7 +38,7 @@ transform:
 
 resource:
 {
-	material: "copper.slab"
+	material: "smirglum.slab"
 }
 
 holdable:
@@ -62,15 +62,14 @@ breakable:
 
 heat:
 {
-	temperature_medium: 414.4965
-	temperature_high: 2317.969
-	temperature_ignite: 1697.770
-	temperature_operating: 788.3445
-	temperature_melt: 1357.770
-	temperature_breakdown: 2835.000
+	temperature_medium: 701.0387
+	temperature_high: 3957.400
+	temperature_ignite: 3395.000
+	temperature_operating: 2324.779
+	temperature_melt: 3245.000
+	temperature_breakdown: 4341.000
 	cool_rate: 5.000
 	cool_rate_mult: 2.000
-	
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite

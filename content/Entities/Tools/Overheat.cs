@@ -588,7 +588,7 @@ namespace TC2.Base.Components
 			if (light.IsNotNull())
 			{
 				light.color.LerpRef(Temperature.GetGlowColor(temperature_current), 0.07f); // = Maths.Max(heat.temperature_current - 150.00f, 0.00f) / 250.00f;
-				light.size_modifier.LerpFMARef(Maths.Max(0.20f, heat_state.modifier * ((temperature_current.m_value * 0.0006f).Pow2())), 0.02f);
+				light.size_modifier.LerpFMARef(Maths.Max(heat_state.modifier * ((temperature_current.m_value * 0.0006f).Pow2()), 0.750f), 0.02f);
 				light.jitter *= 0.97f;
 			}
 

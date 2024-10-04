@@ -24,7 +24,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper.slab"
+		texture: "resource.slag.slab"
 		count: 4
 		size: [32, 16]
 	}
@@ -38,7 +38,7 @@ transform:
 
 resource:
 {
-	material: "copper.slab"
+	material: "slag.slab"
 }
 
 holdable:

@@ -24,7 +24,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.copper.slab"
+		texture: "resource.iron.slab"
 		count: 4
 		size: [32, 16]
 	}
@@ -38,7 +38,7 @@ transform:
 
 resource:
 {
-	material: "copper.slab"
+	material: "iron.slab"
 }
 
 holdable:
@@ -62,15 +62,14 @@ breakable:
 
 heat:
 {
-	temperature_medium: 414.4965
-	temperature_high: 2317.969
-	temperature_ignite: 1697.770
-	temperature_operating: 788.3445
-	temperature_melt: 1357.770
-	temperature_breakdown: 2835.000
+	temperature_medium: 448.4887
+	temperature_high: 2670.950
+	temperature_ignite: 1461.000
+	temperature_operating: 1103.628
+	temperature_melt: 1811.000
+	temperature_breakdown: 3134.000
 	cool_rate: 5.000
 	cool_rate_mult: 2.000
-	
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite
