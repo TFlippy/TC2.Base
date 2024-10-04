@@ -1,4 +1,4 @@
-$name: "Smirgrafit Form"
+$name: "Caster"
 $desc:
 	'''
 	TODO: Desc
@@ -8,22 +8,26 @@ $tags: []
 body:
 {
 	buoyancy: 0.150
-	fall_damage_multiplier: 1.250
+	fall_damage_multiplier: 0.850
 
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [-1.500, 0.000]
-		b: [1.500, 0.000]
+		points:
+		[
+			[-1.375, 0.250]
+			[1.375, 0.250]
+			[1.000, 0.500]
+			[-1.375, 0.500]
+		]
 		
-		mass: 150.000
+		mass: 120.000
 		radius: 0.500
 		friction: 0.750
 		elasticity: 0.670
 		
-		material: cermet
+		material: machine
 		
 		layer: entity, solid, building, platform, ignore_melee
-		mask: world, bulk, liquid
 	}
 }
 
@@ -41,21 +45,21 @@ interactable:
 {
 	flags: none
 	priority: 1.500
-	window_size: [576.000, 496.000]
+	window_size: [224.000, 144.000]
 	window_size_misc: [72.000, 0.000]
 }
 
 health:
 {
-	max: 95000.000
+	max: 45000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: form.smirgrafit.00
-		size: [32, 8]
+		texture: caster.00
+		size: [32, 16]
 	}
 	z: -65.000
 }
@@ -73,8 +77,8 @@ attachment:
 {
 	force_multiplier: 2.000
 	torque_multiplier: 1.500
-	offset: [0.000, 0.500]
-	tags: medium, platform, fixed
+	offset: [-1.125, 0.125]
+	tags: medium, platform, rotary, fixed
 }
 
 heat:
@@ -118,42 +122,42 @@ heat:
 	}
 }
 
-shop:
+vehicle:
 {
-	name: "Casting Basin"
-	
-	tags_filter:
+
+}
+
++mount|instance:
+{
+	joint.base:
 	{
-		require: casting
-		include: heating, casting, refining, smelting
-		exclude: wrench, assembling, machining, tailoring, social
+		max_force: 10000000.000
+		max_torque: 20000000.000
+		material_type: metal
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, facing_reset_rot, facing_reset_pos, force_facing, use_proxy_body
 	}
-	
-	work_tools: none
-	work_machines: none
-	work_equipment: crucible
-	work_environment: container, waterproof, mobile, dirty, ugly, scary
-	recipe_type: workshop
-	
-	flags: hidden_if_order
-	menu_columns: 4
-	blueprints_capacity: 0
-	
-	offset_spawn: [0.000, 0.500]
-}
 
-workshop:
-{
-	flags: hidden_if_no_orders, add_order_mass
-	orders_capacity: 1
-}
+	joint.pivot:
+	{
+		error_bias: 0.000
+		max_bias: 20.000
+	}
 
-fillable:
-{
-	flags: use_misc
-	form_type: ingot
-	max_tilt: 1.280
-	capacity: 48.000
-	h_sound_dump: hatch.open.00
-	offset_drop: [-0.250, -1.250]
+	joint.gear:
+	{
+		error_bias: 0.000
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		radius: 2.000
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+		name: "Form"
+		identifier: "form"
+		gui_size: [168.000, 96.000]
+	}
 }
