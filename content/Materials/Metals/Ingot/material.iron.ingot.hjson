@@ -12,7 +12,7 @@
 	{
 		texture: resource.iron.ingot
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [7, 0]
 	}
 	
 	type: metal_solid

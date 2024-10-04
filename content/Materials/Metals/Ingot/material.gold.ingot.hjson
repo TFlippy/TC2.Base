@@ -10,7 +10,7 @@
 	{
 		texture: resource.gold.ingot
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [7, 0]
 	}
 	
 	type: metal_solid
@@ -31,6 +31,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	commodity:
 	{

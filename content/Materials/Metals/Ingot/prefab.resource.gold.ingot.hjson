@@ -22,7 +22,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "resource.gold.ingot"
-		count: 4
+		count: 8
 		size: [16, 16]
 	}
 	z: -76.000

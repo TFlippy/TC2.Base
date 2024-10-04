@@ -251,7 +251,7 @@ namespace TC2.Base.Components
 
 		public static readonly Temperature temperature_holdable_max = Temperature.Celsius(110.00f);
 
-		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnUpdateAttached(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		Entity ent_body, Entity ent_body_parent, Entity ent_joint_base,
 		[Source.Owned] in Body.Data body, [Source.Parent] in Body.Data body_parent, [Source.Parent] in Joint.Base joint_base,
@@ -345,7 +345,7 @@ namespace TC2.Base.Components
 			//#endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body)
@@ -534,7 +534,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f)]
+		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)
