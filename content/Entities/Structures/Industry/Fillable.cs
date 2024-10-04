@@ -11,7 +11,7 @@
 				None = 0,
 
 				Use_Misc = 1 << 0,
-
+				Reusable = 1 << 1,
 			}
 
 			public Fillable.Data.Flags flags;

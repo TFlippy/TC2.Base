@@ -153,7 +153,7 @@
 	products: []
 	
 	type: workshop
-	flags: standalone
+	flags: hidden, disabled, standalone
 	tags: dangerous, metalworking, heating, casting, forming, shaping
 	
 	icon:

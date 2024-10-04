@@ -1,0 +1,81 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Copper Slab"
+	description:
+		'''
+		Standard 256x8x8 cm copper slab.
+
+		Used for large-scale construction and further metal processing.
+		'''
+	
+	icon:
+	{
+		texture: resource.copper.slab
+		size: [32, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_solid
+	// Flags defining properties of the raw material.
+	flags: hard, long, metal, large, heavy, solid
+	// Flags to remove if stored in a bottle/tank/can.
+	flags_bottle_rem: none
+	display_flags: none
+	hints: none
+	// kg
+	mass_per_unit: 147.200
+	quantity_max: 16.000
+	prefab: resource.copper.slab
+	
+	color_dust: "0xffdf873d"
+	color_gib: "0xffdf873d"
+	color_spark: "0x00000000"
+	color_flame: "0x00000000"
+	color_liquid: "0x00000000"
+	color_smoke: "0x00000000"
+	
+	commodity:
+	{
+		availability: 1.000
+		rarity: 1.000
+		scalability: 1.000
+		reusability: 1.000
+		longevity: 1.000
+		complexity: 1.000
+		tech: 1.000
+		liquidity: 1.000
+		demand: 1.000
+		
+		flags: marketable
+		categories: metals, refined, industrial
+		
+		industries_produce: manufacturing, high_tech, metallurgy
+		industries_consume: manufacturing, high_tech, metallurgy, arcane, construction, engineering, weapons, experimental
+		industries_buy: none
+		industries_sell: none
+		
+		buildings_produce: foundry, refinery, metalworks
+		buildings_consume: factory, power_plant, foundry, manufactory, refinery, university, metalworks, phlogiston, essenceworks
+		buildings_buy: none
+		buildings_sell: none
+		
+		categories_produce: industrial, wasteland, urban, magitech, advanced, innovative, mechanized
+		categories_consume: industrial, wasteland, urban, magitech, wealthy, advanced, innovative, modern, mechanized
+		categories_buy: none
+		categories_sell: none
+		
+		market_price: 4120.000
+		market_price_min: 0.000
+		market_price_max: 0.000
+		
+		quantity_retail: 0.000
+		quantity_wholesale: 0.000
+		quantity_industry: 0.000
+	}
+	
+	h_substance: copper
+	purity: 0.975
+	
+	// Component materials.
+	composition: []
+}

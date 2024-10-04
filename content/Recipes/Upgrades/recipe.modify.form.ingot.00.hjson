@@ -1,6 +1,10 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Modify: Ingot Form"
+	name: "Convert to: Cast Ingot Mould"
+	desc:
+		'''
+		Change the casting basin's pattern to ingots.
+		'''
 	tips: []
 	
 	stages:
@@ -92,6 +96,58 @@
 							damage_type: phlogiston
 						}
 					}
+				}
+				{
+					name: "Clay"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: clay
+							amount: 20.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sand
+							amount: 3.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 350.000
+							difficulty: 5
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 500.000
+							difficulty: 3
+							group: 1
+							flags: no_scaling, crafter_only, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: clay
+							amount: 0.000
+							group: 0
+							flags: parameter
+						}
+					]
+					advance_delay: 1.000
 				}
 			]
 			
