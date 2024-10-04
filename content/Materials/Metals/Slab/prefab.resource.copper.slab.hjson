@@ -68,10 +68,10 @@ heat:
 	temperature_operating: 788.3445
 	temperature_melt: 1357.770
 	temperature_breakdown: 2835.000
-	cool_rate: 5.000
-	cool_rate_mult: 2.000
+	cool_rate: 7.000
+	cool_rate_mult: 3.800
 	heat_damage_mult: 0.200
-	
+	heat_capacity_mult: 0.750
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite
@@ -81,10 +81,10 @@ heat:
 
 	@light:
 	{
-		offset: [-0.375, 0.500]
-		scale: [75.000, 65.000]
-		intensity: 2.000
-		texture: light.circle.02
+		offset: [-0.125, 0.125]
+		scale: [95.000, 65.000]
+		intensity: 1.750
+		texture: light.circle.04
 	}
 
 	@sound.emitter:

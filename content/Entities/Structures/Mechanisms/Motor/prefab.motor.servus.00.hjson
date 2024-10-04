@@ -70,8 +70,9 @@ actuator:
 	@sound.emitter:
 	{
 		file: "essence.device.loop.01"
-		volume: 1.000
+		volume: 0.850
 		pitch: 0.850
+		size: 2.000
 		size_max_modifier: 0.370
 	}
 

@@ -67,11 +67,11 @@ transform:
 
 holdable:
 {
-	force_multiplier: 0.800
-	torque_multiplier: 0.800
+	force_multiplier: 1.100
+	torque_multiplier: 1.100
 	stress_multiplier: 0.300
 	grip_min: 1.000
-	offset: [-0.875, -0.250]
+	offset: [-1.000, -0.250]
 	radius: 3.000
 	hints: tools, long_range, small, construction, cheap, industrial
 	flags: storable, full_rotate
@@ -102,7 +102,6 @@ heat:
 
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 2.000]
 		offset: [0.750, 0.000]
 		scale: [10.000, 7.000]
 		intensity: 2.000
@@ -112,6 +111,7 @@ heat:
 	@sound.emitter:
 	{
 		file: "overheat_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 	}
@@ -122,7 +122,7 @@ heat:
 	joint.base:
 	{
 		offset_a: [1.125, -0.0625]
-		max_force: 60000.000
+		max_force: 80000.000
 		max_torque: 25000.000
 		max_stress: 2.000
 		stress_threshold: 2.100
@@ -133,7 +133,7 @@ heat:
 	joint.pivot:
 	{
 		error_bias: 0.001
-		max_bias: 8.000
+		max_bias: 10.000
 		stress_mult: 0.500
 	}
 

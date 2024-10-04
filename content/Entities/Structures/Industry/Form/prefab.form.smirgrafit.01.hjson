@@ -87,7 +87,7 @@ heat:
 	temperature_melt: 3353.772
 	temperature_breakdown: 4360.823
 	cool_rate: 1.450
-	heat_capacity_mult: 0.750
+	heat_capacity_mult: 1.450
 	heat_damage_mult: 0.250
 	cool_rate_mult: 1.400
 	smoke_size_mult: 1.350
@@ -152,8 +152,8 @@ fillable:
 {
 	flags: use_misc
 	form_type: ingot
-	max_tilt: 1.480
+	max_tilt: 1.280
 	capacity: 32.000
 	h_sound_dump: hatch.open.00
-	offset_drop: [-0.250, -1.250]
+	offset_drop: [-0.250, -1.000]
 }

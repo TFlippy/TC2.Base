@@ -62,7 +62,7 @@
 		//}
 
 		[IEvent.Data]
-		public struct ModifyEvent: IEvent, IEvent<Crafting.ConfiguredRecipe>, IDrawable<Crafting.ConfiguredRecipe>
+		public struct ModifyEvent(): IEvent, IEvent<Crafting.ConfiguredRecipe>, IDrawable<Crafting.ConfiguredRecipe>
 		{
 			[Flags]
 			public enum Flags: byte
@@ -76,11 +76,6 @@
 			public ISubstance.Handle h_substance_mold;
 			public float quality;
 			public float capacity;
-
-			public ModifyEvent()
-			{
-
-			}
 
 			void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe arg)
 			{

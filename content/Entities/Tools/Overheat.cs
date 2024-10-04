@@ -249,6 +249,8 @@ namespace TC2.Base.Components
 			//App.WriteLine("add heat attached");
 		}
 
+		public static readonly Temperature temperature_holdable_max = Temperature.Celsius(110.00f);
+
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.273f)]
 		public static void OnUpdateAttached(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		Entity ent_body, Entity ent_body_parent, Entity ent_joint_base,
@@ -284,7 +286,7 @@ namespace TC2.Base.Components
 						impulse: 0.00f,
 						flags: Damage.Flags.No_Loot_Pickup);
 
-					if (temperature_celsius >= 110.00f && random.NextBool(temperature_celsius * 0.005f))
+					if (temperature_celsius >= temperature_holdable_max && random.NextBool(temperature_celsius * 0.005f))
 					{
 						Arm.Drop(ent_joint_base, direction: body_parent.Right.RotateByRad(random.NextFloat(0.10f)) * 3);
 						Sound.Play(region: ref region,
@@ -569,6 +571,18 @@ namespace TC2.Base.Components
 						impulse: 0.00f,
 						flags: Damage.Flags.No_Loot_Pickup);
 				}
+			}
+		}
+#endif
+
+#if CLIENT
+		[ISystem.Event<Interactor.HoverEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnHover(ref Region.Data region, ISystem.Info info, Entity ent_heatable, [Source.Owned] ref Interactor.HoverEvent ev,
+		[Source.Owned] in Heat.State heat_state)
+		{
+			if (heat_state.temperature_current >= temperature_holdable_max)
+			{
+				GUI.Title("! HOT !"u8, color: GUI.font_color_red_b.WithAlphaMult(ev.alpha));
 			}
 		}
 #endif
