@@ -10,6 +10,16 @@
 	flags: none
 	tags: pure, metallic, refractory, metal, solid
 	
+	color_gui: "0xff6c584b"
+	color_dust: "0xff6c584b"
+	color_gib: "0xff6c584b"
+	color_smoke: "0x00000000"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.452
 	// kg/m³ (STP)
@@ -42,6 +52,9 @@
 	sintering_temperature_lower: 1744.705
 	// K
 	sintering_temperature_upper: 2904.853
+	
+	// K
+	autoignition_temperature: 3395.000
 	
 	// kJ/mol
 	heat_of_fusion: 42.000

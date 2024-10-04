@@ -11,6 +11,16 @@
 	flags: none
 	tags: pure, metallic, metal, solid
 	
+	color_gui: "0xff929894"
+	color_dust: "0xff929894"
+	color_gib: "0xff929894"
+	color_smoke: "0x00000000"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.02698
 	// kg/m³ (STP)
@@ -45,7 +55,7 @@
 	sintering_temperature_upper: 702.3579
 	
 	// K
-	autoignition_temperature: 0.000
+	autoignition_temperature: 1083.470
 	
 	// kJ/mol
 	heat_of_fusion: 10.700
