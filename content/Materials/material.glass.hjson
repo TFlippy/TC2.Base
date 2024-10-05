@@ -146,6 +146,81 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
+		impact:
+		{
+			h_material: glass.powder
+			spawn_flags: merge
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge
+			ratio_waste: 0.450
+			ratio_waste_extra: 0.430
+			
+			yield: 0.710
+			yield_extra: 0.190
+			
+			h_sound: glass_hit_sharp_01
+			sound_volume: 1.170
+			sound_pitch: 0.880
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		crush:
+		{
+			h_material: glass.powder
+			spawn_flags: merge
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge
+			ratio_waste: 0.450
+			ratio_waste_extra: 0.430
+			
+			yield: 0.710
+			yield_extra: 0.190
+			
+			h_sound: glass_hit_sharp_01
+			sound_volume: 1.170
+			sound_pitch: 0.880
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		club:
+		{
+			h_material: glass.powder
+			spawn_flags: merge
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge
+			ratio_waste: 0.450
+			ratio_waste_extra: 0.430
+			
+			yield: 0.710
+			yield_extra: 0.190
+			
+			h_sound: glass_hit_sharp_01
+			sound_volume: 1.170
+			sound_pitch: 0.880
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
 	}
 	
 	// Component materials.
