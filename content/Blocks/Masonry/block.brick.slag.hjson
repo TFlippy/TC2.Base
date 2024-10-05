@@ -11,7 +11,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 75500.000
+	max_health: 71500.000
 	
 	smoothing: 0.180
 	mass: 11.400
@@ -36,7 +36,7 @@
 	[
 		{
 			material: slag
-			quantity: 0.410
+			quantity: 0.378
 		}
 		null
 	]

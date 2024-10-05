@@ -18,10 +18,10 @@
 	flags: hard, magnetic, metal, small, ingot, waste, solid, impure, contaminated
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: none
+	display_flags: no_random_facing
 	hints: materials, junk, construction, cheap, dumb, industrial, wrecked, crappy, slow
 	// kg
-	mass_per_unit: 4.220
+	mass_per_unit: 3.930
 	quantity_max: 128.000
 	prefab: resource.slag.ingot
 	

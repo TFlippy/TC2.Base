@@ -18,7 +18,7 @@
 	flags: metal, small, ingot, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: none
+	display_flags: no_random_facing
 	hints: none
 	// kg
 	mass_per_unit: 1.382

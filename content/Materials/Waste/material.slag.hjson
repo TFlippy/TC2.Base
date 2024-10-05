@@ -9,6 +9,7 @@
 	icon:
 	{
 		texture: resource.slag
+		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,6 +32,26 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders:
+	[
+		{
+			offset: [0.000, 0.500]
+			radius: 0.500
+		}
+		{
+			offset: [0.000, 0.500]
+			radius: 0.500
+		}
+		{
+			offset: [0.000, 0.375]
+			radius: 0.600
+		}
+		{
+			offset: [-0.125, 0.250]
+			radius: 0.720
+		}
+	]
 	
 	commodity:
 	{
