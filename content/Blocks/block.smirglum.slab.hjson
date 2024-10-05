@@ -1,21 +1,16 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.61.4"
 	name: "Smirglum Slabs"
 	desc:
 		'''
 		Phlogiston-welded slabs of solid smirglum. Extremely durable.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: metal_solid
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 350000.000
+	max_health: 450000.000
 	
 	smoothing: 0.150
 	mass: 9.400
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: essence
 	
-	texture: "terrain.smirglum.slab"
-	pattern: "pattern.smirglum.slab"
+	texture: terrain.smirglum.slab
+	pattern: pattern.smirglum.slab
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.125
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.heavy"
+			material: scrap.heavy
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,12 +45,10 @@
 		{
 			color: "0xff4e3636"
 			tile_flags: solid, non_empty, become_background_on_break, no_replace
-			meta: 0
 		}
 		{
 			color: "0xff261b1b"
 			tile_flags: non_empty, no_replace
-			meta: 0
 		}
 	]
 }

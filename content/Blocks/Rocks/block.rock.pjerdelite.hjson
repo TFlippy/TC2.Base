@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Pjerdelite"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 71500.000
+	max_health: 108500.000
 	
 	smoothing: 0.160
 	mass: 11.000
@@ -45,7 +45,6 @@
 		{
 			color: "0xff7c5642"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

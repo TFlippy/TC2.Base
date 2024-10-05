@@ -1,21 +1,16 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.61.4"
 	name: "Smirglum Slabs"
 	desc:
 		'''
 		Phlogiston-welded slabs of solid smirglum. Extremely durable and overgrown.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: metal_solid
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 250000.000
+	max_health: 440000.000
 	
 	smoothing: 0.150
 	mass: 7.600
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: essence
 	
-	texture: "terrain.smirglum.slab.moss"
-	pattern: "pattern.smirglum.slab.moss"
+	texture: terrain.smirglum.slab.moss
+	pattern: pattern.smirglum.slab.moss
 	
 	texture_scale: 1.500
 	texture_overshoot: -0.125
@@ -39,12 +34,10 @@
 	resources:
 	[
 		{
-			material: "scrap.heavy"
+			material: scrap.heavy
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,12 +45,10 @@
 		{
 			color: "0xff4e4836"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 		{
 			color: "0xff26231b"
 			tile_flags: non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

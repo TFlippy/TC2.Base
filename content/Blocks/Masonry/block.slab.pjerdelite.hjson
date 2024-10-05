@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Pjerdelite Slabs"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 40000.000
+	max_health: 93000.000
 	
 	smoothing: 0.160
 	mass: 1.400

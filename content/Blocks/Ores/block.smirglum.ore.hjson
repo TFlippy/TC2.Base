@@ -1,21 +1,16 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Native Smirglum"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: metal_solid
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
-	max_health: 128000.000
+	max_health: 138000.000
 	
 	smoothing: 0.110
 	mass: 8.000
@@ -27,8 +22,8 @@
 	collision_layer: none
 	collision_mask: essence
 	
-	texture: "terrain.smirglum.ore"
-	pattern: "pattern.stone"
+	texture: terrain.smirglum.ore
+	pattern: pattern.stone
 	
 	texture_scale: 1.650
 	texture_overshoot: -0.950
@@ -42,9 +37,7 @@
 			material: "null"
 			quantity: 1.800
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,7 +45,6 @@
 		{
 			color: "0xff504343"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

@@ -1,0 +1,55 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Slag Bricks"
+	desc:
+		'''
+		Big dumb slag bricks. 
+		Very strong. Much heavy.
+		'''
+	
+	material_type: stone_metallic
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 75500.000
+	
+	smoothing: 0.180
+	mass: 11.400
+	friction: 0.890
+	elasticity: 0.340
+	stability: 1.480
+	strength_tensile: 2.700
+	strength_compressive: 9.700
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.brick.slag
+	pattern: pattern.brick.slag
+	
+	texture_scale: 1.070
+	texture_overshoot: -0.400
+	texture_offset: 0.000
+	color_preview: "0xff776157"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: slag
+			quantity: 0.410
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff776157"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff4b3d38"
+			tile_flags: non_empty
+		}
+	]
+}
