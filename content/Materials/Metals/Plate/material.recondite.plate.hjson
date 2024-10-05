@@ -18,7 +18,7 @@
 	flags: magnetic, metal, small, plate, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: none
+	display_flags: no_random_facing
 	hints: none
 	// kg
 	mass_per_unit: 3.076
@@ -31,6 +31,54 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders:
+	[
+		{
+			offset: [0.000, 0.800]
+			radius: 0.200
+			values:
+			[
+				[-0.800, 0.000]
+				[0.800, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.550]
+			radius: 0.425
+			values:
+			[
+				[-0.600, 0.000]
+				[0.600, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.300]
+			radius: 0.675
+			values:
+			[
+				[-0.350, 0.000]
+				[0.350, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.050]
+			radius: 0.925
+			values:
+			[
+				[-0.125, 0.000]
+				[0.0625, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+	]
 	
 	commodity:
 	{

@@ -4,13 +4,19 @@ body:
 {
 	@shape.line:
 	{
-		offset: [0.000, 0.250]
+		a: [-0.125, 0.000]
+		b: [0.0625, 0.000]
+		
+		offset: [0.000, 0.050]
+		
 		mass: 1.000
-		radius: 0.750
+		radius: 0.925
 		friction: 0.650
 		elasticity: 0.500
+		
 		material: metal_sheet
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		
+		layer: entity, solid, resource, conductive, ignore_melee, ignore_bullet
 		mask: world
 	}
 }

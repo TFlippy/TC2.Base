@@ -18,7 +18,7 @@
 	flags: hard, organic, small, raw, fuel, flammable, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: none
+	display_flags: no_random_facing
 	hints: none
 	// kg
 	mass_per_unit: 0.675
@@ -31,6 +31,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	commodity:
 	{
