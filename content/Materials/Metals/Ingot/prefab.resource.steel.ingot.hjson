@@ -14,7 +14,7 @@ body:
 			[-0.875, 0.875]
 		]
 
-		mass: 10.000
+		mass: 0.010
 		radius: 0.125
 		friction: 0.650
 		elasticity: 0.300
@@ -108,4 +108,18 @@ heat:
 		priority: 0.100
 		offset: [-0.250, 0.250]
 	}
+}
+
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
 }
