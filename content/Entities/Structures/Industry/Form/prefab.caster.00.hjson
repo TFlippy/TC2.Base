@@ -28,6 +28,7 @@ body:
 		material: machine
 		
 		layer: entity, solid, building, ignore_melee
+		exclude: liquid
 	}
 }
 

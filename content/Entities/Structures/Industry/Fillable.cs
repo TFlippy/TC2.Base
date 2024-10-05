@@ -134,7 +134,7 @@
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] ref Fillable.Data fillable)
 		{
-			App.WriteLine("on modify fillable event");
+			// App.WriteLine("on modify fillable event");
 
 			fillable.form_type = ev.form_type;
 			fillable.h_substance_mold = ev.h_substance_mold;
@@ -231,7 +231,7 @@
 						var mass_req = (Mass)(amount_req * material_data.mass_per_unit);
 						var mass_add = (Mass)Maths.Min(mass_req, ev.mass);
 
-						App.WriteLine($"{mass_add}/{mass_req}/{ev.mass}");
+						// App.WriteLine($"{mass_add}/{mass_req}/{ev.mass}");
 
 						if (fillable.h_substance_fill == default || fillable.amount < 0.01f) fillable.h_substance_fill = h_substance;
 
@@ -286,10 +286,8 @@
 								GUI.Title("Casting Mould"u8);
 								//GUI.TextShaded(x.arg.h_substance_fill.GetName().OrDefault("<none>"));
 								GUI.LabelShaded("Capacity:"u8, x.arg.capacity, format: $"0'x {x.arg.form_type}'", width: 128);
-
-
-								
-								GUI.LabelShaded("Fill:"u8, x.arg.h_substance_fill.GetName().OrDefault("<none>"));
+							
+								GUI.LabelShaded("Fill:"u8, (x.arg.h_substance_fill != default ? $"{x.arg.h_substance_fill.GetName()} {Maths.Normalize01(x.arg.amount, x.arg.capacity):P0}" : "<none>"));
 							});
 						}
 					}
