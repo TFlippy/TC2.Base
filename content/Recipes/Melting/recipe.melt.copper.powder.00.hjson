@@ -45,9 +45,9 @@
 						{
 							type: work
 							work: melting
-							amount: 88.320
+							amount: 77.000
 							difficulty: 5
-							falloff: 0.629414
+							falloff: 0.4494
 							group: 0
 							flags: crafter_only, conditional
 						}
@@ -58,9 +58,9 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2299
+							amount: 1.2299
 							group: 0
-							flags: primary, parameter, spawn_event
+							flags: primary, parameter
 						}
 					]
 				}
@@ -117,13 +117,15 @@
 		handle: "blob.pour"
 		data:
 		{
-			ent_parent: "00000000-0000-0000-0000-000000000000"
 			h_prefab: blob.melt
 			h_substance: "null"
 			temperature: 0.000
 			mass: 0.000
 			rate: 0.000
 			flags: none
+			flags_add: unlimited
+			flags_rem: none
+			offset: [0.000, 0.000]
 		}
 	}
 	

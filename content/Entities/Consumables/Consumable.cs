@@ -56,7 +56,7 @@ namespace TC2.Base.Components
 		}
 
 		[IEvent.Data]
-		public partial struct ConsumeEvent: IEvent
+		public partial struct ConsumeEvent(): IEvent
 		{
 			public Entity ent_organic;
 			public Entity ent_holder;
@@ -65,11 +65,6 @@ namespace TC2.Base.Components
 			public Vector2 world_position;
 
 			public float amount_modifier = 1.00f;
-
-			public ConsumeEvent()
-			{
-
-			}
 		}
 
 		public static uint GetFrame(int uses, int uses_max, uint frame_count)

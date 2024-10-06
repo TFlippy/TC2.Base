@@ -86,14 +86,9 @@ namespace TC2.Base.Components
 		}
 
 		[IEvent.Data]
-		public partial struct ExplodeEvent: IEvent
+		public partial struct ExplodeEvent(): IEvent
 		{
 			public float power = 0.00f;
-
-			public ExplodeEvent()
-			{
-
-			}
 		}
 
 		public struct ConfigureRPC: Net.IRPC<SteamEngine.Data>

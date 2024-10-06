@@ -3,7 +3,7 @@
 	public static partial class Crucible
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -14,14 +14,11 @@
 			}
 
 			public Crucible.Data.Flags flags;
+			public float flow_rate = 10.00f;
+
 			[Editor.Picker.Position(true, true)] public Vector2 offset;
 
 			[Save.Ignore, Net.Ignore] public float t_next_update;
-
-			public Data()
-			{
-
-			}
 		}
 
 		//[IComponent.Data(Net.SendType.Unreliable)]
@@ -70,8 +67,8 @@
 
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state, 
+		[Source.Owned] ref Transform.Data transform,
+		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, 
 		[Source.Owned] ref Crucible.Data crucible)
 		{
 
@@ -80,12 +77,15 @@
 #if SERVER
 		[ISystem.Event<Blob.PourEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]
 		public static void OnPourEvent(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_crucible, [Source.Owned] ref Blob.PourEvent ev,
-		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, 
+		[Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform, 
 		[Source.Owned] ref Crucible.Data crucible)
 		{
 			App.WriteLine($"OnPourEvent {ent_crucible}; {ev.h_substance}; {ev.h_prefab}; {ev.mass}");
 
-			region.SpawnPrefab(ev.h_prefab, ev: ev, position: transform.LocalToWorld(crucible.offset), rotation: transform.rotation, ent_parent: ent_crucible);
+			ev.rate = crucible.flow_rate;
+			ev.offset = crucible.offset;
+
+			region.SpawnPrefab(ev.h_prefab, ev: ev, position: transform.LocalToWorld(crucible.offset), rotation: transform.rotation);
 		}
 #endif
 

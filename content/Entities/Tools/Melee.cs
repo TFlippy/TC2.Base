@@ -36,7 +36,7 @@ namespace TC2.Base.Components
 		}
 
 		[IEvent.Data]
-		public partial struct HitEvent: IEvent
+		public partial struct HitEvent(): IEvent
 		{
 			public Entity ent_attacker;
 			public Entity ent_target;

@@ -3,7 +3,7 @@
 	public static partial class Fillable
 	{
 		[IComponent.Data(Net.SendType.Reliable)]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -32,11 +32,6 @@
 
 			public float tilt_ratio;
 			[Save.Ignore, Net.Ignore] public float t_next_update;
-
-			public Data()
-			{
-
-			}
 
 			public static bool draw_debug = false;
 		}
@@ -147,7 +142,7 @@
 
 		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateTilt(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] ref Fillable.Data fillable)
 		{

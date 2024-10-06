@@ -112,7 +112,7 @@ namespace TC2.Base.Components
 		}
 
 		[IEvent.Data]
-		public partial struct DischargeEvent: IEvent
+		public partial struct DischargeEvent(): IEvent
 		{
 			public Vector2 pos;
 			public Vector2 pos_target;
