@@ -9,7 +9,7 @@ body:
 {
 	type: dynamic
 	fall_damage_multiplier: 1.200
-	buoyancy: 0.050
+	buoyancy: 0.350
 	
 	@shape.polygon:
 	{
@@ -21,7 +21,7 @@ body:
 			[-0.250, 0.875]
 		]
 		
-		mass: 45.000
+		mass: 65.000
 		radius: 0.250
 		friction: 0.400
 		elasticity: 0.600
@@ -44,17 +44,17 @@ control:
 
 }
 
+health:
+{
+	max: 22000.000
+}
+
 interactable:
 {
 	flags: none
 	priority: 1.500
 	window_size: [560.000, 472.000]
 	window_size_misc: [72.000, 0.000]
-}
-
-health:
-{
-	max: 22000.000
 }
 
 animated.renderer:
@@ -96,9 +96,10 @@ heat:
 	temperature_medium: 600.000
 	temperature_high: 1800.000
 	temperature_operating: 3234.000
-	heat_capacity_mult: 2.500
+	heat_capacity_mult: 1.200
 	heat_damage_mult: 0.250
-	cool_rate: 2.000
+	cool_rate: 1.500
+	cool_rate_mult: 0.500
 	offset: [0.000, -0.375]
 	smoke_offset: [0.000, -1.000]
 	size: [0.500, 0.125]

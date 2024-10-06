@@ -9,26 +9,38 @@ body:
 {
 	type: dynamic
 	fall_damage_multiplier: 0.400
-	buoyancy: 0.010
+	buoyancy: 0.410
 	
 	@shape.polygon:
 	{
 		points:
 		[
-			[-1.375, -1.375]
-			[1.375, -1.375]
-			[1.000, 1.500]
-			[-1.000, 1.500]
+			[-1.000, -1.000]
+			[1.000, -1.000]
+			[0.750, 1.250]
+			[-0.750, 1.250]
 		]
-		mass: 4500.000
-		radius: 0.250
+		
+		mass: 2400.000
+		radius: 0.500
 		friction: 0.600
-		elasticity: 0.200
+		
 		material: cermet
-		layer: entity, solid
-		mask: world, essence
-		exclude: attached, resource
+		
+		layer: entity, solid, item, heatable, magnetic
+		mask: world, bulk, essence
+		exclude: liquid, held, attached
 	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
 }
 
 health:
@@ -48,6 +60,14 @@ armor:
 	flags: no_damage_type_conversion
 }
 
+interactable:
+{
+	flags: none
+	priority: 1.500
+	window_size: [560.000, 472.000]
+	window_size_misc: [72.000, 0.000]
+}
+
 animated.renderer:
 {
 	sprite:
@@ -55,22 +75,6 @@ animated.renderer:
 		texture: "crucible.large.00"
 	}
 	z: -75.000
-}
-
-transform:
-{
-
-}
-
-storage:
-{
-	@inventory4:
-	{
-		stack_size_multiplier: 4.000
-		flags: ignore_mass
-		type: input
-		filter_type: none
-	}
 }
 
 holdable:
@@ -87,38 +91,90 @@ holdable:
 
 attachment:
 {
-	offset: [-0.0625, -0.4375]
-	flags: disable_parent_facing
 	force_multiplier: 10.000
 	torque_multiplier: 2.000
+	offset: [0.000, -0.500]
+	flags: disable_parent_facing
 	tags: large, rotary, fixed
 }
 
 heat:
 {
-	heat_medium: 1200.000
-	heat_high: 2200.000
-	heat_critical: 4000.000
-	cool_rate: 50.000
-	capacity_extra: 500.000
-	size: [3.000, 1.500]
-	offset: [0.000, -1.625]
+	temperature_medium: 509.8625
+	temperature_high: 2683.018
+	temperature_ignite: 2956.502
+	temperature_operating: 3266.500
+	temperature_melt: 3353.772
+	temperature_breakdown: 4360.823
+	cool_rate: 2.000
+	heat_capacity_mult: 2.500
+	heat_damage_mult: 0.100
+	smoke_size_mult: 1.200
+	smoke_speed_mult: 0.700
+	smoke_rise_mult: 1.400
+	offset: [0.000, -1.500]
+	smoke_offset: [0.000, -1.875]
+	size: [4.250, 8.000]
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 1.000]
-		offset: [0.000, -1.375]
-		scale: [12.000, 4.000]
-		intensity: 0.000
-		texture: "light.circle.02"
+		offset: [0.000, -0.875]
+		scale: [60.000, 55.000]
+		intensity: 2.000
+		texture: light.circle.04
 	}
-	
+
 	@sound.emitter:
 	{
-		file: "fire.loop.00"
-		volume: 1.000
-		pitch: 1.000
-		size: 1.400
-		size_max_modifier: 1.500
+		file: burner.burn.solid.loop.00
+		volume: 1.600
+		pitch: 1.250
+		size: 10.000
+		size_max_modifier: 0.700
+		offset: [0.000, 0.500]
 	}
+}
+
+crucible:
+{
+	offset: [0.000, 0.875]
+}
+
+shop:
+{
+	name: "Crucible"
+	
+	tags_filter:
+	{
+		require: heating
+		include: heating, casting, refining, smelting
+		exclude: wrench, assembling, machining, tailoring, social, drying
+	}
+	
+	work_tools: none
+	work_machines: none
+	work_equipment: crucible
+	work_environment: container, waterproof, mobile, dirty, ugly, scary
+	recipe_type: workshop
+	
+	flags: hidden_if_order
+	menu_columns: 4
+	blueprints_capacity: 0
+	
+	offset_spawn: [0.000, 0.500]
+}
+
+workshop:
+{
+	flags: hidden_if_no_orders, add_order_mass
+	orders_capacity: 1
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 2.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
 }
