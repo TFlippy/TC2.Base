@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "[OBSOLETE] Smirglum Ingot"
+	name: "Smirglum Ingot"
 	description:
 		'''
-		-- Obsolete --
+		TODO: Desc
 		'''
 	
 	icon:
@@ -164,7 +164,7 @@
 	}
 	
 	h_substance: smirglum
-	purity: 0.983
+	purity: 0.996
 	
 	// Component materials.
 	composition: []
