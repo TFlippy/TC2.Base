@@ -89,9 +89,9 @@ heat:
 	@light:
 	{
 		offset: [0.000, 0.375]
-		scale: [48.000, 40.000]
-		intensity: 2.000
-		texture: light.circle.02
+		scale: [48.000, 48.000]
+		intensity: 1.000
+		texture: light.circle.00
 	}
 
 	@sound.emitter:

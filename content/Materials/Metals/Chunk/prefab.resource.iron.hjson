@@ -83,7 +83,7 @@ heat:
 	{
 		offset: [0.125, 0.500]
 		scale: [16.000, 12.000]
-		intensity: 2.500
+		intensity: 1.000
 		texture: light.circle.02
 	}
 
