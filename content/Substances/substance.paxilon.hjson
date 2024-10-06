@@ -10,6 +10,14 @@
 	flags: none
 	tags: liquid
 	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [12, 1]
+	}
+	
+	color_icon: "0xffffffff"
 	color_gui: "0xff00ffea"
 	color_dust: "0xffffffff"
 	color_gib: "0xff00ffea"

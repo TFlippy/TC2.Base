@@ -11,6 +11,14 @@
 	flags: none
 	tags: pure, metallic, metal, solid
 	
+	icon:
+	{
+		texture: resource.iron.ingot
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	color_icon: "0xffffffff"
 	color_gui: "0xff62605e"
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"

@@ -11,6 +11,14 @@
 	flags: none
 	tags: inert, pure, metallic, noble, metal, solid
 	
+	icon:
+	{
+		texture: resource.gold.ingot
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_icon: "0xffffffff"
 	color_gui: "0xffffd470"
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"

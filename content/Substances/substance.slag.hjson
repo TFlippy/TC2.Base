@@ -10,7 +10,15 @@
 	flags: none
 	tags: oxide, carbide, sulfide, metallic, solid
 	
-	color_gui: "0xffffffff"
+	icon:
+	{
+		texture: resource.slag
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_icon: "0xffffffff"
+	color_gui: "0xff7d4e4e"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_smoke: "0x00000000"
