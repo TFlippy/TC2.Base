@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Copper Gravel"
+	name: "Copper (Gravel)"
 	description:
 		'''
 		Medium-purity copper gravel.
@@ -32,6 +32,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	h_substance: "null"
 	purity: 0.000

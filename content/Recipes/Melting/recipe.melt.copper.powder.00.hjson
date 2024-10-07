@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Copper Powder"
+	name: "Melt Copper"
 	desc:
 		'''
 		TODO: Desc
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Powder"
+			name: "Material"
 			
 			type: undefined
 			flags: none
@@ -20,7 +20,99 @@
 			options:
 			[
 				{
-					name: "Copper"
+					name: "Scrap"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 61.000
+							amount_min: 200.000
+							difficulty: 5
+							falloff: 0.4494
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 0.2289
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Chunks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 61.000
+							amount_min: 200.000
+							difficulty: 5
+							falloff: 0.4494
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 0.2289
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Powder"
 					
 					type: undefined
 					flags: none
@@ -30,6 +122,98 @@
 						{
 							type: resource
 							material: copper.powder
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 61.000
+							amount_min: 200.000
+							difficulty: 5
+							falloff: 0.4494
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 0.2289
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 61.000
+							amount_min: 200.000
+							difficulty: 5
+							falloff: 0.4494
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 0.2289
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.ingot
 							amount: 1.000
 							group: 0
 							flags: prerequisite
@@ -81,11 +265,11 @@
 	
 	icon:
 	{
-		texture: resource.copper.powder
+		texture: resource.copper
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -6.000]
+	icon_offset: [-2.000, -6.000]
 	
 	icon_extra:
 	{
@@ -93,7 +277,8 @@
 		size: [16, 16]
 		frame: [3, 3]
 	}
-	icon_extra_offset: [-2.000, -5.000]
+	icon_extra_offset: [-3.000, -6.000]
+	icon_extra_scale: 1.125
 	
 	icon_c:
 	{
