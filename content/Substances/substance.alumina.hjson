@@ -21,12 +21,12 @@
 	
 	color_icon: "0xffffffff"
 	color_gui: "0xffcad4cd"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
-	color_smoke: "0x00000000"
+	color_dust: "0xffcad4cd"
+	color_gib: "0xffcad4cd"
+	color_smoke: "0xffcad4cd"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [1.000, 1.000, 1.000, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	

@@ -22,10 +22,10 @@
 	color_gui: "0xff929894"
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_smoke: "0x00000000"
+	color_smoke: "0xff929894"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.572549, 0.596078, 0.580392, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	

@@ -8,7 +8,7 @@
 	type: molecule
 	atomic_number: 0
 	flags: none
-	tags: liquid
+	tags: ionic, liquid
 	
 	icon:
 	{
@@ -19,9 +19,9 @@
 	
 	color_icon: "0xffffffff"
 	color_gui: "0xff00ffea"
-	color_dust: "0xffffffff"
+	color_dust: "0xff00ffea"
 	color_gib: "0xff00ffea"
-	color_smoke: "0x00000000"
+	color_smoke: "0xff00ffea"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.000, 0.000, 0.000, 0.000]

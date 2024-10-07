@@ -9,7 +9,7 @@
 	type: element
 	atomic_number: 8
 	flags: diatomic
-	tags: pure, oxidizer, gas
+	tags: unstable, pure, oxidizer, gas
 	
 	icon:
 	{
@@ -20,9 +20,9 @@
 	
 	color_icon: "0xffa3c6ff"
 	color_gui: "0xffa3c6ff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
-	color_smoke: "0x00000000"
+	color_dust: "0xffa3c6ff"
+	color_gib: "0xffa3c6ff"
+	color_smoke: "0xffa3c6ff"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.000, 0.000, 0.000, 0.000]

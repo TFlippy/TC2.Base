@@ -8,11 +8,9 @@ body:
 	@shape.circle:
 	{
 		mass: 75.000
-		radius: 0.750
-		friction: 0.500
-		elasticity: 0.500
-		material: metal
-		layer: entity, background, building, no_overlapped_placement, ignore_melee
+		radius: 0.850
+		material: metal_solid
+		layer: entity, background, building, conductive, magnetic, no_overlapped_placement, ignore_melee, ignore_bullet
 	}
 }
 
@@ -23,7 +21,7 @@ control:
 
 health:
 {
-	max: 21000.000
+	max: 35000.000
 }
 
 animated.renderer:
@@ -59,14 +57,13 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.000]
 		max_force: 1000000.000
 		max_torque: 1000000.000
 		max_stress: 3.000
 		stress_threshold: 3.010
 		z: -50.000
-		flags: attachment, allow_dragging
 		material_type: metal
+		flags: attachment, allow_dragging
 	}
 
 	joint.pivot:
@@ -74,22 +71,10 @@ vehicle:
 		max_bias: 8.000
 	}
 
-	joint_gear:
+	joint.gear:
 	{
-		rotation: 0.000
-		ratio: 1.000
-		min: 0.000
-		max: 0.000
-		step: 10.000
 		error_bias: 0.010
 		max_bias: 3.000
-		max_bias_bounce: 2.000
-		max_torque: 0.000
-		bounce: 1.000
-		j_mult_a: 1.000
-		j_mult_b: 1.000
-		modifier: 1.000
-		stress_mult: 1.000
 	}
 
 	joint.motor:
@@ -103,12 +88,11 @@ vehicle:
 
 	attachment.slot:
 	{
-		radius: 1.000
+		radius: 2.000
 		flags: brake, offset
 		flags_editable: use_center_of_gravity, locked, disabled, brake, loose, offset, rotation
 		name: "Mount"
 		identifier: "mount"
-		offset: [0.000, 0.000]
 		offset_bounds: [0.000, -0.250, 0.000, 1.000]
 		gui_size: [0.000, 168.000]
 	}

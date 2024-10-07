@@ -20,9 +20,9 @@
 	
 	color_icon: "0xff44ccff"
 	color_gui: "0xff44ccff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
-	color_smoke: "0x00000000"
+	color_dust: "0xff44ccff"
+	color_gib: "0xff44ccff"
+	color_smoke: "0xff44ccff"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.000, 0.000, 0.000, 0.000]

@@ -15,12 +15,12 @@
 	
 	color_icon: "0xffffffff"
 	color_gui: "0xffd8b386"
-	color_dust: "0xffffffff"
+	color_dust: "0xffd8b386"
 	color_gib: "0xffd8b386"
-	color_smoke: "0x00000000"
+	color_smoke: "0xffd8b386"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.44931, 0.600917, 0.55919, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	

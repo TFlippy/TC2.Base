@@ -118,35 +118,35 @@ heat:
 	}
 }
 
-shop:
-{
-	name: "Casting Basin"
+// shop:
+// {
+// 	name: "Casting Basin"
 	
-	tags_filter:
-	{
-		require: casting
-		include: heating, casting, refining, smelting
-		exclude: wrench, assembling, machining, tailoring, social
-	}
+// 	tags_filter:
+// 	{
+// 		require: casting
+// 		include: heating, casting, refining, smelting
+// 		exclude: wrench, assembling, machining, tailoring, social
+// 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: crucible
-	work_environment: container, waterproof, mobile, dirty, ugly, scary
-	recipe_type: workshop
+// 	work_tools: none
+// 	work_machines: none
+// 	work_equipment: crucible
+// 	work_environment: container, waterproof, mobile, dirty, ugly, scary
+// 	recipe_type: workshop
 	
-	flags: hidden_if_order
-	menu_columns: 2
-	blueprints_capacity: 0
+// 	flags: hidden_if_order
+// 	menu_columns: 2
+// 	blueprints_capacity: 0
 	
-	offset_spawn: [0.000, 0.500]
-}
+// 	offset_spawn: [0.000, 0.500]
+// }
 
-workshop:
-{
-	flags: hidden_if_no_orders, add_order_mass
-	orders_capacity: 1
-}
+// workshop:
+// {
+// 	flags: hidden_if_no_orders, add_order_mass
+// 	orders_capacity: 1
+// }
 
 fillable:
 {
