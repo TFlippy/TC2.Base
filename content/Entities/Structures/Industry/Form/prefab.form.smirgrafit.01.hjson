@@ -23,7 +23,7 @@ body:
 		material: cermet
 		
 		layer: entity, solid, platform
-		mask: world, bulk, liquid
+		mask: world, bulk, liquid, platform
 	}
 }
 

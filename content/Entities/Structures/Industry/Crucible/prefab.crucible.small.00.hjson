@@ -124,6 +124,7 @@ heat:
 
 crucible:
 {
+	flow_rate: 8.000
 	offset: [0.000, 0.875]
 }
 

@@ -39,7 +39,7 @@ transform:
 
 health:
 {
-	max: 75000.000
+	max: 85000.000
 }
 
 animated.renderer:
@@ -48,7 +48,7 @@ animated.renderer:
 	{
 		texture: heater.arc.00
 	}
-	z: -60.000
+	z: -140.000
 }
 
 essence.container:

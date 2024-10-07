@@ -586,7 +586,7 @@ namespace TC2.Base.Components
 							ref var heat_state = ref ent_arbiter.GetComponent<Heat.State>();
 							if (heat_state.IsNotNull())
 							{
-								heat_state.AddEnergy(discharged_amount);
+								heat_state.AddEnergy(discharged_amount * 1.30f);
 								heat_state.Sync(ent_arbiter, true);
 							}
 
@@ -764,7 +764,7 @@ namespace TC2.Base.Components
 								{
 									//heat_state.AddPower(20000.00f, info.DeltaTime);
 
-									heat_state.AddEnergy(discharged_amount);
+									heat_state.AddEnergy(discharged_amount * 1.35f);
 									heat_state.Sync(ent_arbiter, true);
 								}
 								else

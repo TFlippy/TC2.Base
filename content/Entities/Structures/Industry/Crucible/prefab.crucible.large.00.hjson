@@ -1,7 +1,7 @@
 $name: "Crucible"
 $desc:
 	'''
-	Massive smirgrafit-lined crucible for holding and pouring molten metal.
+	Industrial smirgrafit-lined crucible for holding and pouring molten metal.
 	'''
 $tags: []
 
@@ -45,7 +45,7 @@ control:
 
 health:
 {
-	max: 390000.000
+	max: 850000.000
 }
 
 armor:
@@ -63,7 +63,7 @@ armor:
 interactable:
 {
 	flags: none
-	priority: 1.500
+	priority: 4.000
 	window_size: [560.000, 472.000]
 	window_size_misc: [72.000, 0.000]
 }
@@ -93,34 +93,37 @@ attachment:
 {
 	force_multiplier: 10.000
 	torque_multiplier: 2.000
-	offset: [0.000, -0.500]
-	flags: disable_parent_facing
-	tags: large, rotary, fixed
+	offset: [0.000, -0.375]
+	flags: disable_parent_facing, disable_facing_use_rotation
+	tags: large, utility, rotary, fixed
 }
 
 heat:
 {
 	temperature_medium: 509.8625
 	temperature_high: 2683.018
-	temperature_ignite: 2956.502
+	temperature_ignite: 1956.502
 	temperature_operating: 3266.500
 	temperature_melt: 3353.772
 	temperature_breakdown: 4360.823
-	cool_rate: 2.000
-	heat_capacity_mult: 2.500
+	cool_rate: 10.000
+	heat_capacity_mult: 1.200
 	heat_damage_mult: 0.100
+	cool_rate_mult: 0.500
 	smoke_size_mult: 1.200
 	smoke_speed_mult: 0.700
 	smoke_rise_mult: 1.400
+	flags: no_held_damage
+	fire_flags: always_contact_ignite
 	offset: [0.000, -1.500]
 	smoke_offset: [0.000, -1.875]
 	size: [4.250, 8.000]
 	
 	@light:
 	{
-		offset: [0.000, -0.875]
+		offset: [0.000, -1.250]
 		scale: [60.000, 55.000]
-		intensity: 2.000
+		intensity: 1.250
 		texture: light.circle.04
 	}
 
@@ -137,7 +140,8 @@ heat:
 
 crucible:
 {
-	offset: [0.000, 0.875]
+	flow_rate: 25.000
+	offset: [0.000, 1.500]
 }
 
 shop:

@@ -48,7 +48,7 @@ animated.renderer:
 	{
 		texture: heater.arc.01
 	}
-	z: -60.000
+	z: -140.000
 }
 
 essence.container:

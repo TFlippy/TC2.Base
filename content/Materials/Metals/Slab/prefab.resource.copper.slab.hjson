@@ -11,7 +11,8 @@ body:
 		radius: 0.850
 		friction: 0.850
 		elasticity: 0.350
-		
+		mass: 0.010
+
 		material: metal_solid
 		
 		layer: entity, solid, resource, bulk, conductive, heatable, ignore_melee

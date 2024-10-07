@@ -59,7 +59,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2249
+							amount: 0.2289
 							group: 0
 							flags: primary, parameter
 						}
@@ -77,7 +77,7 @@
 	
 	type: workshop
 	flags: none
-	tags: metalworking, heating, casting, forming
+	tags: dangerous, metalworking, heating, casting, refining, smelting
 	
 	icon:
 	{
@@ -105,13 +105,12 @@
 	color_button: "0xfffff391"
 	rank: -167.000
 	
-	min: 25
-	max: 200
-	step: 25
+	min: 20
+	max: 4000
+	step: 20
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	start_delay: 0.500
+	advance_delay: 1.000
 	
 	on_complete:
 	{
@@ -122,7 +121,7 @@
 		}
 	}
 	
-	h_sound_begin: burner.bang.00
-	h_sound_complete: burner.groan.01
-	h_sound_finalize: burner.bang.01
+	h_sound_begin: burner.groan.00
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
 }
