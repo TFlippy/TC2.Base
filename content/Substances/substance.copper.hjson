@@ -13,9 +13,9 @@
 	
 	icon:
 	{
-		texture: resource.copper.ingot
+		texture: resource.copper
 		size: [16, 16]
-		frame: [4, 0]
+		frame: [3, 0]
 	}
 	
 	color_icon: "0xffffffff"

@@ -12,9 +12,9 @@
 	
 	icon:
 	{
-		texture: ui_icons_widget
+		texture: resource.paxilon
 		size: [16, 16]
-		frame: [12, 1]
+		frame: [3, 0]
 	}
 	
 	color_icon: "0xffffffff"

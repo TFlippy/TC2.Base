@@ -148,6 +148,8 @@ heat:
 
 	grabber:
 	{
-		
+		offset: [0.625, 0.000]
+		flags: can_attach
+		radius: 1.500
 	}
 }

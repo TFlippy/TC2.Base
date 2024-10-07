@@ -22,7 +22,7 @@ body:
 		
 		material: cermet
 		
-		layer: entity, solid, building, platform, ignore_melee
+		layer: entity, solid, platform
 		mask: world, bulk, liquid
 	}
 }
@@ -63,8 +63,8 @@ animated.renderer:
 
 holdable:
 {
-	force_multiplier: 0.100
-	torque_multiplier: 0.100
+	force_multiplier: 0.800
+	torque_multiplier: 0.800
 	stress_multiplier: 0.250
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation

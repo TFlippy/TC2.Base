@@ -24,7 +24,7 @@ body:
 		
 		material: wood
 		
-		layer: entity, solid, building, ignore_melee, ignore_bullet
+		layer: entity, solid, ignore_melee, ignore_bullet
 	}
 }
 
