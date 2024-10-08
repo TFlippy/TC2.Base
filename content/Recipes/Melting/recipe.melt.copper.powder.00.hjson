@@ -48,6 +48,7 @@
 							amount: 163.000
 							amount_min: 200.000
 							difficulty: 5
+							snapping: 5.000
 							falloff: 0.6426
 							group: 0
 							flags: conditional, add_amount_min
@@ -59,7 +60,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.123962
+							amount: 1.000
 							amount_extra: 0.042817
 							group: 0
 							flags: primary, parameter, use_temperature
@@ -88,7 +89,7 @@
 						{
 							type: resource
 							material: copper
-							amount: 1.000
+							amount: 4.000
 							group: 0
 							flags: prerequisite
 						}
@@ -103,10 +104,11 @@
 						{
 							type: work
 							work: melting
-							amount: 61.000
+							amount: 344.064
 							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.4494
+							snapping: 5.000
+							falloff: 0.631773
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -117,7 +119,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.896
+							amount: 1.000
 							group: 0
 							flags: primary, parameter
 						}
@@ -134,7 +136,8 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 5.000
+							amount: 4.347826
+							snapping: 5.000
 							group: 0
 							flags: prerequisite
 						}
@@ -149,9 +152,10 @@
 						{
 							type: work
 							work: melting
-							amount: 61.000
+							amount: 54.000
 							amount_min: 200.000
 							difficulty: 5
+							snapping: 5.000
 							falloff: 0.4494
 							group: 0
 							flags: conditional, add_amount_min
@@ -163,7 +167,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.150
+							amount: 1.000
 							group: 0
 							flags: primary, parameter
 						}
@@ -198,6 +202,7 @@
 							amount: 61.000
 							amount_min: 200.000
 							difficulty: 5
+							snapping: 5.000
 							falloff: 0.4494
 							group: 0
 							flags: conditional, add_amount_min
@@ -209,7 +214,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.148
+							amount: 1.000
 							group: 0
 							flags: primary, parameter
 						}
@@ -227,6 +232,7 @@
 							type: resource
 							material: copper.ingot
 							amount: 1.000
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -244,6 +250,7 @@
 							amount: 61.000
 							amount_min: 200.000
 							difficulty: 5
+							snapping: 5.000
 							falloff: 0.4494
 							group: 0
 							flags: conditional, add_amount_min
@@ -255,7 +262,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 4.600
+							amount: 1.000
 							group: 0
 							flags: primary, parameter
 						}
@@ -303,7 +310,7 @@
 	rank: -167.000
 	
 	min: 1
-	max: 5000
+	max: 500
 	step: 1
 	
 	start_delay: 0.500
