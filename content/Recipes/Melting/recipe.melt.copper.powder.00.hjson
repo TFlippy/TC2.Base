@@ -30,7 +30,8 @@
 						{
 							type: resource
 							material: scrap.copper
-							amount: 1.000
+							amount: 0.897552
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -45,7 +46,7 @@
 						{
 							type: work
 							work: melting
-							amount: 163.000
+							amount: 147.000
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -89,7 +90,8 @@
 						{
 							type: resource
 							material: copper
-							amount: 4.000
+							amount: 1.116071
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -104,7 +106,7 @@
 						{
 							type: work
 							work: melting
-							amount: 344.064
+							amount: 96.000
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -136,8 +138,56 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 4.347826
+							amount: 3.780718
 							snapping: 5.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 47.000
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.4494
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.87108
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -174,53 +224,6 @@
 					]
 				}
 				{
-					name: "Plates"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: copper.plate
-							amount: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: temperature
-							amount: 1457.770
-							amount_min: 1323.826
-							amount_max: 2077.523
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: melting
-							amount: 61.000
-							amount_min: 200.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.4494
-							group: 0
-							flags: conditional, add_amount_min
-						}
-					]
-					
-					products:
-					[
-						{
-							type: substance
-							h_substance: copper
-							amount: 1.000
-							group: 0
-							flags: primary, parameter
-						}
-					]
-				}
-				{
 					name: "Ingots"
 					
 					type: undefined
@@ -231,7 +234,7 @@
 						{
 							type: resource
 							material: copper.ingot
-							amount: 1.000
+							amount: 0.217391
 							snapping: 1.000
 							group: 0
 							flags: prerequisite
@@ -247,7 +250,7 @@
 						{
 							type: work
 							work: melting
-							amount: 61.000
+							amount: 14.000
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
