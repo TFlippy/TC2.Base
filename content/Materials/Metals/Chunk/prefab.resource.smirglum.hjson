@@ -66,12 +66,12 @@ breakable:
 
 heat:
 {
-	temperature_medium: 509.8625
-	temperature_high: 4008.355
-	temperature_ignite: 2240.000
-	temperature_operating: 2166.500
-	temperature_melt: 3353.772
-	temperature_breakdown: 4360.823
+	temperature_medium: 701.0087
+	temperature_high: 4932.498
+	temperature_ignite: 1715.560
+	temperature_operating: 2424.719
+	temperature_melt: 3245.280
+	temperature_breakdown: 5841.000
 	cool_rate: 2.000
 	cool_rate_mult: 10.000
 	smoke_speed_mult: 0.750
@@ -80,6 +80,7 @@ heat:
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [2.000, 1.000]
+	flame_tint: "0xb0953044"
 
 	@light:
 	{

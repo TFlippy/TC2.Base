@@ -28,7 +28,7 @@
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.43578, 0.327651, 0.301848, 1.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [1.000, 0.520663, 0.220183, 0.882]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)

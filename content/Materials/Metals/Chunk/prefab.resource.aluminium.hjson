@@ -69,6 +69,7 @@ heat:
 {
 	temperature_medium: 382.674
 	temperature_high: 2141.514
+	temperature_ignite: 1083.470
 	temperature_operating: 586.8019
 	temperature_melt: 933.470
 	temperature_breakdown: 2792.000
@@ -79,6 +80,7 @@ heat:
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [2.000, 1.000]
+	flame_tint: "0xef6a9dd4"
 
 	@light:
 	{

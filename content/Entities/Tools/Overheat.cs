@@ -60,6 +60,8 @@ namespace TC2.Base.Components
 
 			public Vector2 size = new Vector2(0.50f, 0.25f);
 
+			public Color32BGRA flame_tint;
+
 			public Data()
 			{
 
@@ -126,6 +128,7 @@ namespace TC2.Base.Components
 				if (substance_data.melting_point != 0.00f) heat.temperature_melt = substance_data.melting_point;
 				if (substance_data.autoignition_temperature != 0.00f) heat.temperature_ignite = substance_data.autoignition_temperature;
 				heat.temperature_breakdown = substance_data.boiling_point;
+				if (substance_data.color_flame != default) heat.flame_tint = substance_data.color_flame;
 
 				if (heat.flags.HasAny(Data.Flags.Meltable))
 				{
@@ -545,7 +548,7 @@ namespace TC2.Base.Components
 				var excess = Maths.Max(0.00f, temperature_current - heat.temperature_ignite);
 				if (random.NextBool(excess * 0.01f))
 				{
-					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags, temperature: temperature_current);
+					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags, temperature: temperature_current, tint: heat.flame_tint.OrNullable());
 				} 
 			}
 
