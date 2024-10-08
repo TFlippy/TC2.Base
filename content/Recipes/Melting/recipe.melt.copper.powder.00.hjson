@@ -46,11 +46,11 @@
 						{
 							type: work
 							work: melting
-							amount: 147.000
+							amount: 98.74982
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.6426
+							falloff: 0.652647
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -106,7 +106,7 @@
 						{
 							type: work
 							work: melting
-							amount: 96.000
+							amount: 116.7988
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -138,7 +138,7 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 3.780718
+							amount: 4.347826
 							snapping: 5.000
 							group: 0
 							flags: prerequisite
@@ -154,11 +154,11 @@
 						{
 							type: work
 							work: melting
-							amount: 47.000
+							amount: 71.37164
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.4494
+							falloff: 0.629414
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -202,11 +202,11 @@
 						{
 							type: work
 							work: melting
-							amount: 54.000
+							amount: 110.2514
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.4494
+							falloff: 0.631458
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -250,11 +250,11 @@
 						{
 							type: work
 							work: melting
-							amount: 14.000
+							amount: 119.5815
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.4494
+							falloff: 0.631773
 							group: 0
 							flags: conditional, add_amount_min
 						}
