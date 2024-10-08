@@ -5,6 +5,8 @@
 		'''
 		TODO: Desc
 		'''
+	
+	formula: "Al"
 	cas_number: "7429-90-5"
 	type: element
 	atomic_number: 13

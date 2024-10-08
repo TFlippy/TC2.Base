@@ -5,10 +5,12 @@
 		'''
 		Extremely dense metal with a unique property of being able to interact with essences.
 		'''
+	
+	formula: "Su"
 	type: element
 	atomic_number: 158
 	flags: none
-	tags: pure, metallic, refractory, metal, solid
+	tags: oxide, unstable, pure, metallic, refractory, metal, solid
 	
 	icon:
 	{
@@ -23,10 +25,10 @@
 	color_gib: "0xff6c584b"
 	color_smoke: "0xff6c584b"
 	
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.591743, 0.280133, 0.241583, 1.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.582569, 0.189736, 0.265419, 1.000]
+	color_molten: [0.591743, 0.280133, 0.241583, 1.357]
+	color_flame: [0.582569, 0.189736, 0.265419, 1.337]
+	color_spark: [0.853211, 0.270053, 0.382404, 1.337]
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.452
@@ -38,9 +40,9 @@
 	density_solid: 29921.200
 	
 	// K (STP)
-	melting_point: 3245.000
+	melting_point: 3245.280
 	// K (STP)
-	boiling_point: 4341.000
+	boiling_point: 5841.000
 	
 	// K
 	critical_point_temperature: 0.000
@@ -57,12 +59,12 @@
 	// K
 	forging_temperature_upper: 2920.500
 	// K
-	sintering_temperature_lower: 1744.705
+	sintering_temperature_lower: 1744.585
 	// K
-	sintering_temperature_upper: 2904.853
+	sintering_temperature_upper: 3104.853
 	
 	// K
-	autoignition_temperature: 3395.000
+	autoignition_temperature: 1715.560
 	
 	// kJ/mol
 	heat_of_fusion: 42.000

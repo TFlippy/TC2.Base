@@ -5,6 +5,8 @@
 		'''
 		TODO: Desc
 		'''
+	
+	formula: "Cl"
 	cas_number: "7782-50-5"
 	type: element
 	atomic_number: 17

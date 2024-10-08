@@ -5,6 +5,8 @@
 		'''
 		TODO: Desc
 		'''
+	
+	formula: "H"
 	cas_number: "1333-74-0"
 	type: element
 	atomic_number: 1

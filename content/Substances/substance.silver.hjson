@@ -5,6 +5,8 @@
 		'''
 		TODO: Desc
 		'''
+	
+	formula: "Ag"
 	cas_number: "7440-22-4"
 	type: element
 	atomic_number: 47

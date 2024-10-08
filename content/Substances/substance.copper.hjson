@@ -5,6 +5,8 @@
 		'''
 		TODO: Desc
 		'''
+	
+	formula: "Cu"
 	cas_number: "7440-50-8"
 	type: element
 	atomic_number: 29
