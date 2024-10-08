@@ -77,7 +77,7 @@
 	
 	type: workshop
 	flags: none
-	tags: metalworking, heating, casting, forming
+	tags: dangerous, metalworking, heating, melting
 	
 	icon:
 	{

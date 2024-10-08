@@ -150,8 +150,8 @@ shop:
 	
 	tags_filter:
 	{
-		require: heating
-		include: heating, casting, refining, smelting
+		require: heating, melting
+		include: metalworking, heating, smelting, melting
 		exclude: wrench, assembling, machining, tailoring, social, drying
 	}
 	
@@ -161,11 +161,13 @@ shop:
 	work_environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
-	flags: hidden_if_order
+	flags: hidden_if_order, complete_on_rmb
 	menu_columns: 4
 	blueprints_capacity: 0
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
 	
-	offset_spawn: [0.000, 0.500]
+	offset_spawn: [0.000, 1.375]
 }
 
 workshop:

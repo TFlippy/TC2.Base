@@ -545,7 +545,7 @@ namespace TC2.Base.Components
 				var excess = Maths.Max(0.00f, temperature_current - heat.temperature_ignite);
 				if (random.NextBool(excess * 0.01f))
 				{
-					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags);
+					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags, temperature: temperature_current);
 				} 
 			}
 

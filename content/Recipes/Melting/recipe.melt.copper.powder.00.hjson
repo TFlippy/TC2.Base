@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Copper"
+	name: "Melt: Copper"
 	desc:
 		'''
 		TODO: Desc
@@ -45,10 +45,10 @@
 						{
 							type: work
 							work: melting
-							amount: 61.000
+							amount: 163.000
 							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.4494
+							falloff: 0.6426
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -59,11 +59,23 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2289
+							amount: 1.123962
+							amount_extra: 0.042817
 							group: 0
-							flags: primary, parameter
+							flags: primary, parameter, use_temperature
+						}
+						{
+							type: substance
+							h_substance: slag
+							amount: 0.031731
+							amount_extra: 0.01149
+							group: 0
+							flags: waste, residue, parameter, use_temperature
 						}
 					]
+					
+					yield_mult: 0.9744
+					purity_mult: 0.9441
 				}
 				{
 					name: "Chunks"
@@ -105,7 +117,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2289
+							amount: 0.896
 							group: 0
 							flags: primary, parameter
 						}
@@ -122,7 +134,7 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 1.000
+							amount: 5.000
 							group: 0
 							flags: prerequisite
 						}
@@ -151,7 +163,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2289
+							amount: 1.150
 							group: 0
 							flags: primary, parameter
 						}
@@ -197,7 +209,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2289
+							amount: 1.148
 							group: 0
 							flags: primary, parameter
 						}
@@ -243,7 +255,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 0.2289
+							amount: 4.600
 							group: 0
 							flags: primary, parameter
 						}
@@ -261,7 +273,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, metalworking, heating, casting, refining, smelting
+	tags: dangerous, metalworking, heating, melting
 	
 	icon:
 	{
@@ -290,9 +302,9 @@
 	color_button: "0xfffff391"
 	rank: -167.000
 	
-	min: 20
-	max: 4000
-	step: 20
+	min: 1
+	max: 5000
+	step: 1
 	
 	start_delay: 0.500
 	advance_delay: 1.000
@@ -306,7 +318,7 @@
 		}
 	}
 	
-	h_sound_begin: burner.groan.00
+	h_sound_begin: burner.bang.01
 	h_sound_complete: effect.sizzle.low.00
 	h_sound_finalize: burner.groan.01
 }

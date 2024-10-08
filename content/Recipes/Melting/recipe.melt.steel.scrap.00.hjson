@@ -53,7 +53,7 @@
 	
 	type: workshop
 	flags: standalone
-	tags: metalworking, heating, refining, smelting
+	tags: dangerous, metalworking, heating, melting
 	
 	icon:
 	{

@@ -7,41 +7,7 @@
 		'''
 	tips: []
 	
-	type: workshop
-	flags: hidden, disabled
-	tags: metalworking, heating, refining, smelting
-	
-	icon:
-	{
-		texture: resource.iron.powder
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-1.000, -9.000]
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-		frame: [3, 3]
-	}
-	icon_extra_offset: [-2.000, -5.000]
-	
-	icon_c:
-	{
-		texture: resource.graphite.powder
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_c_offset: [-12.000, -26.000]
-	
-	color_button: "0xffde3979"
-	rank: -140.000
-	
-	min: 5
-	max: 100
-	step: 5
-	falloff_amount_mult: 1.000
+	stages: []
 	
 	requirements:
 	[
@@ -83,6 +49,41 @@
 			flags: spawn, use_temperature, spawn_event
 		}
 	]
+	
+	type: workshop
+	flags: hidden, disabled
+	tags: dangerous, metalworking, heating, melting
+	
+	icon:
+	{
+		texture: resource.iron.powder
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, -9.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [3, 3]
+	}
+	icon_extra_offset: [-2.000, -5.000]
+	
+	icon_c:
+	{
+		texture: resource.graphite.powder
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-12.000, -26.000]
+	
+	color_button: "0xffde3979"
+	rank: -140.000
+	
+	min: 5
+	max: 100
+	step: 5
 	
 	start_delay: 1.500
 	advance_delay: 2.000

@@ -1,4 +1,4 @@
-$name: "Crucible"
+$name: "Compactor"
 $desc:
 	'''
 	TODO: Desc
@@ -7,9 +7,7 @@ $tags: []
 
 body:
 {
-	type: dynamic
-	fall_damage_multiplier: 1.200
-	buoyancy: 0.350
+	type: static
 	
 	@shape.polygon:
 	{
@@ -21,16 +19,15 @@ body:
 			[-0.250, 0.875]
 		]
 		
-		mass: 65.000
-		radius: 0.250
-		friction: 0.400
+		mass: 200.000
+		radius: 0.500
+		friction: 0.700
 		elasticity: 0.600
 		
-		material: cermet
+		material: metal_solid
 		
-		layer: entity, solid, item, heatable, magnetic
-		mask: world, essence, bulk
-		exclude: held, attached, liquid
+		layer: entity, solid, building
+		mask: world
 	}
 }
 
@@ -46,13 +43,13 @@ control:
 
 health:
 {
-	max: 22000.000
+	max: 35000.000
 }
 
 interactable:
 {
 	flags: none
-	priority: 1.500
+	priority: 1.100
 	window_size: [560.000, 472.000]
 	window_size_misc: [72.000, 0.000]
 }
@@ -61,35 +58,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crucible.small.00"
+		texture: "compactor.00"
 	}
 	z: -75.000
 }
-
-holdable:
-{
-	force_multiplier: 0.750
-	torque_multiplier: 0.500
-	offset: [0.000, 0.625]
-	priority: 0.500
-	hints: heavy, small, construction, storage, industrial, slow
-	flags: full_rotate
-}
-
-attachment:
-{
-	offset: [0.000, 0.625]
-	flags: disable_parent_facing
-	force_multiplier: 2.000
-	torque_multiplier: 1.000
-	tags: small, rotary, fixed
-}
-
-// shipment:
-// {
-// 	flags: keep_items, use_misc, staging
-// 	mass: 1.000
-// }
 
 heat:
 {
@@ -122,7 +94,7 @@ heat:
 	}
 }
 
-crucible:
+compactor:
 {
 	flow_rate: 8.000
 	offset: [0.000, 0.875]
@@ -130,26 +102,24 @@ crucible:
 
 shop:
 {
-	name: "Crucible"
+	name: "Compactor"
 	
 	tags_filter:
 	{
-		require: heating, melting
-		include: metalworking, heating, smelting, melting
+		require: heating
+		include: heating, casting, refining, smelting
 		exclude: wrench, assembling, machining, tailoring, social, drying
 	}
 	
 	work_tools: none
 	work_machines: none
-	work_equipment: crucible
+	work_equipment: compactor
 	work_environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
-	flags: hidden_if_order, complete_on_rmb
+	flags: hidden_if_order
 	menu_columns: 4
 	blueprints_capacity: 0
-	amount_multiplier: 1.000
-	step_multiplier: 1.000
 	
 	offset_spawn: [0.000, 0.500]
 }
@@ -158,13 +128,4 @@ workshop:
 {
 	flags: hidden_if_no_orders, add_order_mass
 	orders_capacity: 1
-}
-
-norotate:
-{
-	bias: 0.000
-	speed: 2.500
-	multiplier: 3.500
-	mass_multiplier: 3.500
-	flags: no_share
 }
