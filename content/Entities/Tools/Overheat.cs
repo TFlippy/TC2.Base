@@ -372,7 +372,7 @@ namespace TC2.Base.Components
 				heat_state.modifier = modifier;
 				heat_state.heat_capacity_inv.m_value = 1.00f / heat_state.heat_capacity.m_value;
 
-				App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}");
+				//App.WriteLine($"modified {heat_state.modifier}; {heat_state.heat_capacity}; {heat_state.heat_capacity_inv}");
 
 				heat_state.mass_cached = mass;
 				heat_state.Sync(entity, true);

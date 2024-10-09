@@ -69,15 +69,16 @@ heat:
 	temperature_melt: 933.470
 	temperature_breakdown: 2792.000
 	cool_rate: 5.000
-	cool_rate_mult: 2.700
-	heat_damage_mult: 0.200
 	heat_capacity_mult: 0.750
+	heat_damage_mult: 0.200
+	cool_rate_mult: 2.700
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.125]
 	smoke_offset: [0.000, 0.125]
 	size: [5.000, 2.000]
+	flame_tint: "0xef6a9dd4"
 
 	@light:
 	{
