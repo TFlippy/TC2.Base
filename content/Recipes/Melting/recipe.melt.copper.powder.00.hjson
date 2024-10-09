@@ -50,7 +50,7 @@
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.652647
+							falloff: 0.84948
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -106,11 +106,11 @@
 						{
 							type: work
 							work: melting
-							amount: 116.7988
+							amount: 91.98151
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.631773
+							falloff: 0.840435
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -158,7 +158,7 @@
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.629414
+							falloff: 0.839413
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -202,11 +202,11 @@
 						{
 							type: work
 							work: melting
-							amount: 110.2514
+							amount: 99.116
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.631458
+							falloff: 0.840298
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -250,11 +250,11 @@
 						{
 							type: work
 							work: melting
-							amount: 119.5815
+							amount: 83.66058
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.631773
+							falloff: 0.840435
 							group: 0
 							flags: conditional, add_amount_min
 						}

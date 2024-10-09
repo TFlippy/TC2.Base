@@ -20,7 +20,7 @@ body:
 			[-1.000, 0.000]
 		]
 		
-		mass: 4.400
+		mass: 4.200
 		radius: 0.175
 		friction: 0.500
 		elasticity: 0.650
