@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Aluminium Powder"
+	name: "Melt: Aluminium"
 	desc:
 		'''
 		TODO: Desc
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Powder"
+			name: "Material"
 			
 			type: undefined
 			flags: none
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Aluminium"
+					name: "Scrap"
 					
 					type: undefined
 					flags: none
@@ -29,8 +29,9 @@
 					[
 						{
 							type: resource
-							material: aluminium.powder
-							amount: 1.000
+							material: scrap.aluminium
+							amount: 2.2296
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -45,23 +46,180 @@
 						{
 							type: work
 							work: melting
-							amount: 62.376
+							amount: 402.0395
+							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.70398
+							snapping: 5.000
+							falloff: 0.877851
 							group: 0
-							flags: crafter_only, conditional
+							flags: conditional, add_amount_min
 						}
 					]
 					
 					products:
 					[
 						{
+							type: substance
+							h_substance: aluminium
+							amount: 1.000
+							amount_extra: 0.042817
+							group: 0
+							flags: primary, parameter, use_temperature
+						}
+						{
+							type: substance
+							h_substance: slag
+							amount: 0.031731
+							amount_extra: 0.01149
+							group: 0
+							flags: waste, residue, parameter, use_temperature
+						}
+					]
+					
+					yield_mult: 0.9744
+					purity_mult: 0.9441
+				}
+				{
+					name: "Chunks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
 							type: resource
 							material: aluminium
-							amount: 0.2449
-							amount_extra: 0.0041
+							amount: 3.705076
+							snapping: 1.000
 							group: 0
-							flags: spawn, use_temperature, spawn_event
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1033.470
+							amount_min: 910.1332
+							amount_max: 1824.809
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 416.5674
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.876983
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: aluminium
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Powder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: aluminium.powder
+							amount: 14.49275
+							snapping: 5.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1033.470
+							amount_min: 910.1332
+							amount_max: 1824.809
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 291.5619
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.871725
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: aluminium
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: aluminium.ingot
+							amount: 0.723589
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1033.470
+							amount_min: 910.1332
+							amount_max: 1824.809
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 383.0921
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.87326
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: aluminium
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
 						}
 					]
 				}
@@ -105,15 +263,23 @@
 	color_button: "0xfffff391"
 	rank: -164.000
 	
-	min: 25
-	max: 200
-	step: 25
+	min: 1
+	max: 500
+	step: 1
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	start_delay: 0.500
+	advance_delay: 1.000
 	
-	h_sound_begin: burner.bang.00
-	h_sound_complete: burner.groan.01
-	h_sound_finalize: burner.bang.01
+	on_complete:
+	{
+		handle: "blob.pour"
+		data:
+		{
+			h_prefab: blob.melt
+		}
+	}
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
 }

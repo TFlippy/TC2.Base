@@ -46,7 +46,7 @@
 						{
 							type: work
 							work: melting
-							amount: 98.74982
+							amount: 98.74454
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -106,7 +106,7 @@
 						{
 							type: work
 							work: melting
-							amount: 91.98151
+							amount: 91.97912
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -154,7 +154,7 @@
 						{
 							type: work
 							work: melting
-							amount: 71.37164
+							amount: 71.37206
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -202,7 +202,7 @@
 						{
 							type: work
 							work: melting
-							amount: 99.116
+							amount: 99.11374
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -250,7 +250,7 @@
 						{
 							type: work
 							work: melting
-							amount: 83.66058
+							amount: 83.65712
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000

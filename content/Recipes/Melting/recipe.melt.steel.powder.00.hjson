@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Steel Powder"
+	name: "Melt: Steel"
 	desc:
 		'''
 		TODO: Desc
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Powder"
+			name: "Material"
 			
 			type: undefined
 			flags: none
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Steel"
+					name: "Scrap"
 					
 					type: undefined
 					flags: none
@@ -29,8 +29,9 @@
 					[
 						{
 							type: resource
-							material: steel.powder
-							amount: 1.000
+							material: scrap.steel
+							amount: 0.77024
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -45,23 +46,228 @@
 						{
 							type: work
 							work: melting
-							amount: 98.000
+							amount: 136.4282
+							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.856807
+							snapping: 5.000
+							falloff: 0.942913
 							group: 0
-							flags: crafter_only, conditional
+							flags: conditional, add_amount_min
 						}
 					]
 					
 					products:
 					[
 						{
+							type: substance
+							h_substance: steel
+							amount: 1.000
+							amount_extra: 0.042817
+							group: 0
+							flags: primary, parameter, use_temperature
+						}
+						{
+							type: substance
+							h_substance: slag
+							amount: 0.031731
+							amount_extra: 0.01149
+							group: 0
+							flags: waste, residue, parameter, use_temperature
+						}
+					]
+					
+					yield_mult: 0.9744
+					purity_mult: 0.9441
+				}
+				{
+					name: "Chunks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
 							type: resource
 							material: steel
-							amount: 0.2299
-							amount_extra: 0.0241
+							amount: 1.280082
+							snapping: 1.000
 							group: 0
-							flags: spawn, use_temperature, spawn_event
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1744.000
+							amount_min: 1602.900
+							amount_max: 2373.550
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 142.9304
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.937896
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: steel
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Powder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.powder
+							amount: 5.000
+							snapping: 5.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1744.000
+							amount_min: 1602.900
+							amount_max: 2373.550
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 110.9081
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.93795
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: steel
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1744.000
+							amount_min: 1602.900
+							amount_max: 2373.550
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 152.3229
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.938086
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: steel
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.250
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1744.000
+							amount_min: 1602.900
+							amount_max: 2373.550
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 129.9986
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.937545
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: steel
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
 						}
 					]
 				}
@@ -105,15 +311,23 @@
 	color_button: "0xfffff391"
 	rank: -162.000
 	
-	min: 25
-	max: 200
-	step: 25
+	min: 1
+	max: 500
+	step: 1
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	start_delay: 0.500
+	advance_delay: 1.000
 	
-	h_sound_begin: burner.bang.00
-	h_sound_complete: burner.groan.01
-	h_sound_finalize: burner.bang.01
+	on_complete:
+	{
+		handle: "blob.pour"
+		data:
+		{
+			h_prefab: blob.melt
+		}
+	}
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
 }

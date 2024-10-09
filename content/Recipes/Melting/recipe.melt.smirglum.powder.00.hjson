@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Smirglum Powder"
+	name: "Melt: Smirglum"
 	desc:
 		'''
 		TODO: Desc
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Powder"
+			name: "Material"
 			
 			type: undefined
 			flags: none
@@ -20,7 +20,115 @@
 			options:
 			[
 				{
-					name: "Smirglum"
+					name: "Scrap"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.heavy
+							amount: 0.509877
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 3345.280
+							amount_min: 3164.085
+							amount_max: 4468.354
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 17.02982
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 1.000
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: smirglum
+							amount: 1.000
+							amount_extra: 0.042817
+							group: 0
+							flags: primary, parameter, use_temperature
+						}
+						{
+							type: substance
+							h_substance: slag
+							amount: 0.031731
+							amount_extra: 0.01149
+							group: 0
+							flags: waste, residue, parameter, use_temperature
+						}
+					]
+					
+					yield_mult: 0.9744
+					purity_mult: 0.9441
+				}
+				{
+					name: "Chunks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum
+							amount: 0.334213
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 3345.280
+							amount_min: 3164.085
+							amount_max: 4468.354
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 13.71165
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.912324
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: smirglum
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Powder"
 					
 					type: undefined
 					flags: none
@@ -30,38 +138,88 @@
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 1.000
+							amount: 1.315789
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 3345.000
-							amount_min: 3163.875
-							amount_max: 3793.200
+							amount: 3345.280
+							amount_min: 3164.085
+							amount_max: 4468.354
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: melting
-							amount: 96.520
+							amount: 9.402465
+							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.795927
+							snapping: 5.000
+							falloff: 0.911568
 							group: 0
-							flags: crafter_only, conditional
+							flags: conditional, add_amount_min
 						}
 					]
 					
 					products:
 					[
 						{
-							type: resource
-							material: smirglum
-							amount: 0.2449
-							amount_extra: 0.0041
+							type: substance
+							h_substance: smirglum
+							amount: 1.000
 							group: 0
-							flags: spawn, use_temperature, spawn_event
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.ingot
+							amount: 0.065789
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 3345.280
+							amount_min: 3164.085
+							amount_max: 4468.354
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 12.25906
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.911306
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: smirglum
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
 						}
 					]
 				}
@@ -105,15 +263,23 @@
 	color_button: "0xfffff391"
 	rank: -161.000
 	
-	min: 25
-	max: 200
-	step: 25
+	min: 1
+	max: 500
+	step: 1
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	start_delay: 0.500
+	advance_delay: 1.000
 	
-	h_sound_begin: burner.bang.00
-	h_sound_complete: burner.groan.01
-	h_sound_finalize: burner.bang.01
+	on_complete:
+	{
+		handle: "blob.pour"
+		data:
+		{
+			h_prefab: blob.melt
+		}
+	}
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
 }

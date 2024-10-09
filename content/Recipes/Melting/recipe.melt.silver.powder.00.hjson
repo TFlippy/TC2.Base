@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Melt Silver Powder"
+	name: "Melt: Silver"
 	desc:
 		'''
 		TODO: Desc
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Powder"
+			name: "Material"
 			
 			type: undefined
 			flags: none
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Silver"
+					name: "Chunks"
 					
 					type: undefined
 					flags: none
@@ -29,8 +29,9 @@
 					[
 						{
 							type: resource
-							material: silver.powder
-							amount: 1.000
+							material: silver
+							amount: 0.953289
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -45,23 +46,120 @@
 						{
 							type: work
 							work: melting
-							amount: 62.510
+							amount: 29.000
+							amount_min: 200.000
 							difficulty: 5
-							falloff: 0.61847
+							snapping: 5.000
+							falloff: 0.835444
 							group: 0
-							flags: crafter_only, conditional
+							flags: conditional, add_amount_min
 						}
 					]
 					
 					products:
 					[
 						{
-							type: resource
-							material: silver
-							amount: 0.2449
-							amount_extra: 0.0041
+							type: substance
+							h_substance: silver
+							amount: 1.000
 							group: 0
-							flags: spawn, use_temperature, spawn_event
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Powder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: silver.powder
+							amount: 3.759398
+							snapping: 5.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1334.930
+							amount_min: 1204.057
+							amount_max: 1829.962
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 22.000
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.83467
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: silver
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: silver.ingot
+							amount: 0.18797
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1334.930
+							amount_min: 1204.057
+							amount_max: 1829.962
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 26.000
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.835232
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: silver
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
 						}
 					]
 				}
@@ -105,15 +203,23 @@
 	color_button: "0xfffff391"
 	rank: -166.000
 	
-	min: 25
-	max: 200
-	step: 25
+	min: 1
+	max: 500
+	step: 1
 	
-	start_delay: 1.500
-	advance_delay: 2.000
-	complete_delay: 1.500
+	start_delay: 0.500
+	advance_delay: 1.000
 	
-	h_sound_begin: burner.bang.00
-	h_sound_complete: burner.groan.01
-	h_sound_finalize: burner.bang.01
+	on_complete:
+	{
+		handle: "blob.pour"
+		data:
+		{
+			h_prefab: blob.melt
+		}
+	}
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
 }

@@ -91,5 +91,6 @@
 		gravel: smirglum.gravel
 		raw: smirglum
 		slab: smirglum.slab
+		scrap: scrap.heavy
 	}
 }

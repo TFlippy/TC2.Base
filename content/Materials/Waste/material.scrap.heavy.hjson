@@ -32,6 +32,8 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	colliders: []
+	
 	commodity:
 	{
 		availability: 1.400
@@ -71,7 +73,7 @@
 		quantity_industry: 8000.000
 	}
 	
-	h_substance: "null"
+	h_substance: smirglum
 	purity: 0.000
 	
 	// Component materials.
