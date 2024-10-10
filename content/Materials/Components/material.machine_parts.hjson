@@ -32,6 +32,8 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	colliders: []
+	
 	commodity:
 	{
 		availability: 1.000
@@ -74,6 +76,191 @@
 	h_substance: "null"
 	purity: 0.000
 	
-	// Component materials.
-	composition: []
+	residues:
+	{
+		assembling:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.930
+			yield_extra: 0.070
+		}
+		bending:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.920
+			yield_extra: 0.070
+		}
+		calibration:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.960
+			yield_extra: 0.030
+		}
+		carpentry:
+		{
+			h_material_result: scrap.mixed
+			flags: none
+			
+			yield: 0.410
+			yield_extra: 0.310
+		}
+		construction:
+		{
+			h_material_result: scrap.mixed
+			flags: none
+			
+			yield: 0.490
+			yield_extra: 0.230
+		}
+		die_cutting.metal:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.920
+			yield_extra: 0.070
+		}
+		dismantling:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.870
+			yield_extra: 0.120
+		}
+		cutting:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.790
+			yield_extra: 0.240
+		}
+		drilling:
+		{
+			h_material_result: scrap.metal
+			flags: none
+			
+			yield: 0.770
+			yield_extra: 0.200
+		}
+		woodcarving:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.920
+			yield_extra: 0.060
+		}
+		woodworking:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.930
+			yield_extra: 0.050
+		}
+		snipping.metal:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.890
+			yield_extra: 0.110
+		}
+		slicing:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.930
+			yield_extra: 0.050
+		}
+		scavenging:
+		{
+			h_material_result: scrap.mixed
+			flags: none
+			
+			yield: 0.750
+			yield_extra: 0.190
+		}
+		smithing:
+		{
+			h_material_result: scrap.metal
+			flags: none
+			
+			yield: 0.840
+			yield_extra: 0.140
+		}
+		hammering:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.940
+			yield_extra: 0.050
+		}
+		grinding:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.940
+			yield_extra: 0.050
+		}
+		heating:
+		{
+			h_material_result: scrap.metal
+			flags: none
+			
+			yield: 0.770
+			yield_extra: 0.220
+		}
+		metal.forming:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 1.000
+			yield_extra: 0.000
+		}
+		sawing:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.720
+			yield_extra: 0.220
+		}
+		casting:
+		{
+			h_material_result: scrap.metal
+			flags: none
+			
+			yield: 0.520
+			yield_extra: 0.460
+		}
+		machining:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.650
+			yield_extra: 0.280
+		}
+		gluing:
+		{
+			h_material_result: scrap.mixed
+			flags: none
+			
+			yield: 0.380
+			yield_extra: 0.380
+		}
+	}
 }

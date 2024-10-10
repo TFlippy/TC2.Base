@@ -15,7 +15,7 @@
 	
 	type: wood
 	// Flags defining properties of the raw material.
-	flags: hard, organic, small, raw, fuel, flammable, solid
+	flags: hard, organic, small, raw, fuel, flammable, flexible, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: no_random_facing
@@ -25,8 +25,8 @@
 	quantity_max: 500.000
 	prefab: resource.wood
 	
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xffe3a97c"
+	color_gib: "0xff855030"
 	color_spark: "0x00000000"
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
@@ -128,8 +128,81 @@
 	}
 	
 	h_substance: "null"
-	purity: 0.000
+	purity: 0.753
 	
-	// Component materials.
-	composition: []
+	residues:
+	{
+		woodcarving:
+		{
+			h_material_result: woodchips
+			flags: none
+			
+			yield: 0.6558
+			yield_extra: 0.2242
+		}
+		carpentry:
+		{
+			h_material_result: scrap.wood
+			flags: none
+			
+			yield: 0.820
+			yield_extra: 0.120
+		}
+		construction:
+		{
+			h_material_result: scrap.wood
+			flags: none
+			
+			yield: 0.820
+			yield_extra: 0.120
+		}
+		cutting:
+		{
+			h_material_result: sawdust
+			flags: none
+			
+			yield: 0.720
+			yield_extra: 0.210
+		}
+		drilling:
+		{
+			h_material_result: sawdust
+			flags: none
+			
+			yield: 0.890
+			yield_extra: 0.070
+		}
+		woodworking:
+		{
+			h_material_result: woodchips
+			flags: none
+			
+			yield: 0.880
+			yield_extra: 0.070
+		}
+		sawing:
+		{
+			h_material_result: sawdust
+			flags: none
+			
+			yield: 0.850
+			yield_extra: 0.070
+		}
+		machining:
+		{
+			h_material_result: sawdust
+			flags: none
+			
+			yield: 0.770
+			yield_extra: 0.210
+		}
+		chiseling:
+		{
+			h_material_result: woodchips
+			flags: none
+			
+			yield: 0.840
+			yield_extra: 0.170
+		}
+	}
 }

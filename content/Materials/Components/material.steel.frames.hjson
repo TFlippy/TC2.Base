@@ -175,5 +175,29 @@
 			yield: 0.940
 			yield_extra: 0.040
 		}
+		assembling:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.380
+			yield_extra: 0.430
+		}
+		dismantling:
+		{
+			h_material_result: scrap.machine
+			flags: none
+			
+			yield: 0.390
+			yield_extra: 0.500
+		}
+		construction:
+		{
+			h_material_result: scrap.metal
+			flags: none
+			
+			yield: 0.630
+			yield_extra: 0.270
+		}
 	}
 }
