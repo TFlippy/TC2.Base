@@ -32,6 +32,8 @@
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
 	
+	colliders: []
+	
 	h_substance: steel
 	purity: 0.953
 	
@@ -115,6 +117,63 @@
 		}
 	}
 	
-	// Component materials.
-	composition: []
+	residues:
+	{
+		snipping.metal:
+		{
+			h_material_result: scrap.steel
+			flags: none
+			
+			yield: 0.859649
+			yield_extra: 0.140351
+		}
+		carving:
+		{
+			h_material_result: steel.powder
+			flags: none
+			
+			yield: 1.000
+			yield_extra: 0.000
+		}
+		cutting:
+		{
+			h_material_result: scrap.steel
+			flags: none
+			
+			yield: 0.970
+			yield_extra: 0.030
+		}
+		drilling:
+		{
+			h_material_result: steel.powder
+			flags: none
+			
+			yield: 0.940
+			yield_extra: 0.050
+		}
+		smithing:
+		{
+			h_material_result: scrap.ferrous
+			flags: none
+			
+			yield: 0.950
+			yield_extra: 0.030
+		}
+		machining:
+		{
+			h_material_result: iron.powder
+			flags: none
+			
+			yield: 0.870
+			yield_extra: 0.110
+		}
+		sawing:
+		{
+			h_material_result: steel.powder
+			flags: none
+			
+			yield: 0.940
+			yield_extra: 0.040
+		}
+	}
 }
