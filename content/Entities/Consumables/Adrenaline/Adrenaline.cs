@@ -159,7 +159,7 @@ namespace TC2.Base.Components
 			camera.damp_modifier *= 1.00f + (modifier * 2.00f);
 			camera.zoom_modifier *= Maths.Lerp01(1.00f, 0.60f, (modifier * 3.50f).Clamp0X());
 
-			Drunk.Color.W = Maths.Max(Drunk.Color.W, Maths.Clamp(Maths.Max(modifier, adrenaline.modifier_withdrawal) * 3.70f, 0.00f, 0.55f));
+			Drunk.Color.a = Maths.Max(Drunk.Color.a, Maths.Clamp(Maths.Max(modifier, adrenaline.modifier_withdrawal) * 3.70f, 0.00f, 0.55f));
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = 10000.00f;

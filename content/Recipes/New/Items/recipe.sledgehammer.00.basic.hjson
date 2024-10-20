@@ -6,6 +6,7 @@
 	stages:
 	[
 		{
+			name: "Head"
 			
 			type: undefined
 			flags: none
@@ -15,6 +16,7 @@
 			options:
 			[
 				{
+					name: "Drilled"
 					
 					type: undefined
 					flags: none
@@ -25,13 +27,17 @@
 							type: resource
 							material: steel.ingot
 							amount: 2.000
+							snapping: 1.000
+							loss: 0.153
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.500
+							amount: 1.420
+							snapping: 1.000
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -40,26 +46,21 @@
 							work: drilling
 							amount: 850.000
 							difficulty: 11
+							snapping: 5.000
+							falloff: 0.910
 							group: 0
 							flags: conditional
 						}
 					]
 					
-					products:
-					[
-						{
-							type: prefab
-							prefab: sledgehammer
-							amount: 1.000
-							group: 0
-						}
-					]
+					products: []
 				}
 			]
 			
 			products: []
 		}
 		{
+			name: "Handle"
 			
 			type: undefined
 			flags: none
@@ -69,6 +70,7 @@
 			options:
 			[
 				{
+					name: "Hand-Carved"
 					
 					type: undefined
 					flags: none
@@ -78,44 +80,68 @@
 						{
 							type: resource
 							material: wood
-							amount: 1.000
-							group: 1
-						}
-						{
-							type: resource
-							material: glue
-							amount: 2.000
-							group: 1
+							amount: 0.970
+							snapping: 1.000
+							loss: 0.102
+							group: 0
 						}
 						{
 							type: work
-							work: woodworking
+							work: woodcarving
 							amount: 220.000
 							difficulty: 4
-							group: 1
+							snapping: 5.000
+							falloff: 0.994
+							group: 0
 							flags: conditional
 						}
 					]
 					
-					products:
+					products: []
+				}
+			]
+			
+			products: []
+		}
+		{
+			name: "Assembly"
+			
+			type: undefined
+			flags: none
+			
+			ratio: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
 					[
 						{
 							type: resource
-							material: steel.powder
-							amount: 0.780
-							amount_extra: 0.180
-							group: 1
-							flags: waste, residue
+							material: glue
+							amount: 1.840
+							snapping: 1.000
+							loss: 0.078
+							group: 0
 						}
 						{
-							type: resource
-							material: sawdust
-							amount: 0.133
-							amount_extra: 0.210
-							group: 1
-							flags: waste, residue
+							type: work
+							work: gluing
+							amount: 75.000
+							difficulty: 2
+							snapping: 5.000
+							falloff: 0.980
+							group: 0
+							flags: conditional
 						}
 					]
+					
+					products: []
 				}
 			]
 			
@@ -123,51 +149,7 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.ingot
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 1.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: drilling
-			amount: 850.000
-			difficulty: 11
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: resource
-			material: glue
-			amount: 2.000
-			group: 1
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 220.000
-			difficulty: 4
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
 	products:
 	[
@@ -176,22 +158,7 @@
 			prefab: sledgehammer
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: steel.powder
-			amount: 0.780
-			amount_extra: 0.180
-			group: 1
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 0.133
-			amount_extra: 0.210
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
 	

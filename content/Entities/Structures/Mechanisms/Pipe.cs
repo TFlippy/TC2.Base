@@ -1616,11 +1616,11 @@ namespace TC2.Base.Components
 			var dust_ratio = prt.dust.m_value * mass_total_inv;
 
 			var color = ColorBGRA.White.WithAlphaMult(0.30f);
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.655f, 0.443f, 0.306f), (no2_ratio * 2.80f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.40f, 0.755f, 0.790f, 0.26f), (so2_ratio * 3.80f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(0.80f, 0.98f, 0.98f, 0.98f), (h2o_ratio * 10.00f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(1.20f, 0.255f, 0.242f, 0.24f), (soot_ratio * 1.50f).Clamp01());
-			color = ColorBGRA.Lerp(color, new ColorBGRA(6.40f, 0.655f, 0.683f, 0.616f), (ash_ratio * 3.40f).Clamp01());
+			color = ColorBGRA.Lerp(color, ColorBGRA.ARGB(0.40f, 0.655f, 0.443f, 0.306f), (no2_ratio * 2.80f).Clamp01());
+			color = ColorBGRA.Lerp(color, ColorBGRA.ARGB(0.40f, 0.755f, 0.790f, 0.26f), (so2_ratio * 3.80f).Clamp01());
+			color = ColorBGRA.Lerp(color, ColorBGRA.ARGB(0.80f, 0.98f, 0.98f, 0.98f), (h2o_ratio * 10.00f).Clamp01());
+			color = ColorBGRA.Lerp(color, ColorBGRA.ARGB(1.20f, 0.255f, 0.242f, 0.24f), (soot_ratio * 1.50f).Clamp01());
+			color = ColorBGRA.Lerp(color, ColorBGRA.ARGB(6.40f, 0.655f, 0.683f, 0.616f), (ash_ratio * 3.40f).Clamp01());
 			color = ColorBGRA.Lerp(color, 0xff837462, dust_ratio);
 			color.a = Maths.Clamp01(color.a);
 			//color = ColorBGRA.Lerp(color, new ColorBGRA(0.20f * ash_ratio, 0.755f, 0.743f, 0.746f), ash_ratio);

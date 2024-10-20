@@ -620,8 +620,8 @@ namespace TC2.Base.Components
 								pos = arbiter.GetContactsPosition() - (arbiter.GetNormal() * 0.35f),
 								scale = random.NextFloatRange(1.40f, 1.70f),
 								growth = random.NextFloatRange(7.90f, 18.50f),
-								color_a = new Vector4(1.00f, 0.70f, 0.40f, 10.00f),
-								color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+								color_a = ColorBGRA.RGBA(1.00f, 0.70f, 0.40f, 10.00f),
+								color_b = ColorBGRA.RGBA(0.20f, 0.00f, 0.00f, 0.00f),
 								glow = 1.20f
 							});
 #endif

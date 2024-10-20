@@ -350,7 +350,7 @@ namespace TC2.Base.Components
 
 			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.07f, modifier * modifier);
 
-			Drunk.Color.W.Min(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
+			Drunk.Color.a.ClampMinRef(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(Maths.Max(modifier * 1.80f, 0.00f), 0.50f));

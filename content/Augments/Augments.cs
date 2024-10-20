@@ -83,7 +83,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
-					light.color = new Vector4(0.600f, 1.000f, 0.400f, 1.250f);
+					light.color = ColorBGRA.RGBA(0.600f, 1.000f, 0.400f, 1.250f);
 					light.scale = new Vector2(32.000f, 32.000f);
 					light.intensity = 1.000f;
 					light.texture = "light.circle.00";
@@ -903,7 +903,7 @@ namespace TC2.Base
 							{
 								case 0:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.45f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.75f, 0.10f, 1.45f);
 									light.offset = offset + new Vector2(2.250f * scale.X, 0.000f);
 									light.scale = new(16 * scale.X, 12);
 									light.intensity = 1.00f;
@@ -913,7 +913,7 @@ namespace TC2.Base
 
 								case 1:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.75f, 0.10f, 1.25f);
 									light.offset = offset + new Vector2(-0.375f * scale.X, -0.125f * scale.Y);
 									light.scale = new(20, 20);
 									light.intensity = 1.00f;
@@ -923,7 +923,7 @@ namespace TC2.Base
 
 								case 2:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.45f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.75f, 0.10f, 1.45f);
 									light.offset = offset + new Vector2(-0.50f * scale.X, -0.35f * scale.Y);
 									light.scale = new(24, 20);
 									light.intensity = 1.00f;
@@ -933,7 +933,7 @@ namespace TC2.Base
 
 								case 3:
 								{
-									light.color = new Vector4(1.00f, 0.25f, 0.00f, 2.00f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.25f, 0.00f, 2.00f);
 									light.offset = offset + new Vector2(-0.375f * scale.X, -0.050f * scale.Y);
 									light.scale = new(16, 16);
 									light.intensity = 1.00f;
@@ -943,7 +943,7 @@ namespace TC2.Base
 
 								case 4:
 								{
-									light.color = new Vector4(1.00f, 0.60f, 0.05f, 1.50f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.60f, 0.05f, 1.50f);
 									light.offset = offset + new Vector2(-0.425f * scale.X, -0.25f * scale.Y);
 									light.scale = new(24, 20);
 									light.intensity = 1.00f;
@@ -953,7 +953,7 @@ namespace TC2.Base
 
 								case 5:
 								{
-									light.color = new Vector4(1.00f, 0.95f, 0.30f, 1.75f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.95f, 0.30f, 1.75f);
 									light.offset = offset + new Vector2(7.00f * scale.X, 0.25f * scale.Y);
 									light.scale = new(32 * scale.X, 24);
 									light.intensity = 1.00f;
@@ -963,7 +963,7 @@ namespace TC2.Base
 
 								case 6:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.50f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.75f, 0.10f, 1.50f);
 									light.offset = offset + new Vector2(3.250f * scale.X, 0.000f);
 									light.scale = new(13 * scale.X, 8);
 									light.intensity = 1.000f;
@@ -973,7 +973,7 @@ namespace TC2.Base
 
 								case 7:
 								{
-									light.color = new Vector4(1.00f, 0.75f, 0.10f, 1.25f);
+									light.color = ColorBGRA.RGBA(1.00f, 0.75f, 0.10f, 1.25f);
 									light.offset = offset + new Vector2(4.00f * scale.X, 0.00f);
 									light.scale = new(20 * scale.X, 16);
 									light.intensity = 1.00f;

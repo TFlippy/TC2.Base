@@ -23,7 +23,7 @@ body:
 		radius: 0.500
 		mass: 210.000
 		friction: 0.770
-		elasticity: 0.680
+		elasticity: 0.510
 		material: metal_frame
 		layer: entity, solid, vehicle
 		mask: world

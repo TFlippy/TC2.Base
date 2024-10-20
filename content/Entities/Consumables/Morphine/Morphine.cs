@@ -99,7 +99,7 @@ namespace TC2.Base.Components
 
 			camera.damp_modifier /= 1.00f + (modifier * 1.40f);
 
-			Drunk.Color.W = Maths.Max(Drunk.Color.W, Maths.Clamp(modifier * 1.25f, 0.00f, 0.95f));
+			Drunk.Color.a = Maths.Max(Drunk.Color.a, Maths.Clamp(modifier * 1.25f, 0.00f, 0.95f));
 		}
 #endif
 	}
