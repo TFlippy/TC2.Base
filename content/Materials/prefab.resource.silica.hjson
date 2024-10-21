@@ -7,10 +7,10 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.950
+		elasticity: 0.050
 		material: powder
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -19,10 +19,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.flour"
+		texture: "resource.silica"
 		count: 4
 		size: [16, 16]
 	}
+	z: -67.500
 }
 
 transform:
@@ -32,7 +33,7 @@ transform:
 
 resource:
 {
-	material: "flour"
+	material: "silica"
 }
 
 holdable:
@@ -47,5 +48,8 @@ norotate:
 
 despawn:
 {
-
+	sleep_count_max: 19
+	interval: 25.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.150
 }

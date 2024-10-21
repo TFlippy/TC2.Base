@@ -16,7 +16,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			//public IMaterial.Handle h_material;
 			public Breakable.Flags flags;
@@ -28,11 +28,6 @@ namespace TC2.Base.Components
 			//public Material.Type material_type;
 
 			//public Material.Flags material_flags;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[Shitcode]
@@ -164,18 +159,13 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 512)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float merge_radius = 2.00f;
 			public float spawn_radius = 0.00f;
 
 			[Save.TrimEmpty]
 			public FixedArray8<Lootable.Item> items;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if SERVER

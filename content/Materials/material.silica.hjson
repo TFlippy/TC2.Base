@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Alumina"
+	name: "Silica"
 	description:
 		'''
 		TODO: Desc
@@ -8,22 +8,22 @@
 	
 	icon:
 	{
-		texture: resource.alumina
+		texture: resource.silica
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	type: powder
 	// Flags defining properties of the raw material.
-	flags: granular, small, raw, powder, solid, impure, primary
+	flags: granular, small, raw, powder, solid, primary
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: materials, junk, mining, cheap
+	hints: materials, mining, cheap
 	// kg
 	mass_per_unit: 0.1303
 	quantity_max: 1000.000
-	prefab: resource.alumina
+	prefab: resource.silica
 	
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
@@ -34,6 +34,6 @@
 	
 	colliders: []
 	
-	h_substance: alumina
-	purity: 0.795
+	h_substance: silica
+	purity: 0.855
 }

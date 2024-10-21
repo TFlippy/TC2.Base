@@ -23,6 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	z: -67.500
 }
 
 transform:
@@ -47,8 +48,12 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 17
-	interval: 24.000
+	sleep_count_max: 22
+	flags: none
+	amount_ratio: 0.010
+	amount_ratio_extra: 0.030
+	interval: 9.000
+	interval_extra: 18.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.350
 }

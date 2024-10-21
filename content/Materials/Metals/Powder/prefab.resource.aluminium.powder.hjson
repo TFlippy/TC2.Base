@@ -5,7 +5,6 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
-		mass: 1.000
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.050
@@ -38,12 +37,23 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	force_multiplier: 0.600
+	torque_multiplier: 0.600
+	stress_multiplier: 0.050
+	grip_min: 4.000
+	offset: [0.000, 0.500]
+	radius: 1.000
+	hints: materials, weak, industrial, fast
+	flags: disable_parent_facing, disable_pickup_offset, disable_rotation, disable_control, full_rotate
 }
 
 norotate:
 {
-
+	bias: 0.150
+	speed: 2.000
+	multiplier: 3.000
+	mass_multiplier: 50.000
+	flags: no_share
 }
 
 health:
@@ -58,15 +68,23 @@ breakable:
 
 heat:
 {
-	temperature_medium: 466.735
-	temperature_high: 933.470
-	temperature_breakdown: 2792.0000
-	cool_rate: 1.000
-	cool_rate_mult: 0.235
+	temperature_medium: 382.674
+	temperature_high: 2141.514
+	temperature_ignite: 1083.470
+	temperature_operating: 586.8019
+	temperature_melt: 933.470
+	temperature_breakdown: 2792.000
+	cool_rate: 2.000
+	heat_damage_mult: 0.600
+	cool_rate_mult: 2.200
+	smoke_speed_mult: 0.750
+	flags: meltable, formless
+	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
-	size: [0.750, 0.375]
-	
+	size: [2.000, 1.000]
+	flame_tint: "0xef6a9dd4"
+
 	@light:
 	{
 		offset: [0.000, 0.500]
@@ -85,4 +103,19 @@ heat:
 		priority: 0.100
 		offset: [0.000, 0.500]
 	}
+}
+
+despawn:
+{
+	sleep_count_max: 0
+	interval: 0.000
+	interval_extra: 1.500
+	threshold_delete: 0.010
+	threshold_despawning: 1.500
+
+	product_ratio: 1.549
+	h_material_product: alumina
+
+	amount_ratio: 0.004
+	amount_ratio_extra: 0.009
 }

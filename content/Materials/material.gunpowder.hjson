@@ -21,8 +21,8 @@
 	display_flags: none
 	hints: none
 	// kg
-	mass_per_unit: 0.460
-	quantity_max: 500.000
+	mass_per_unit: 0.230
+	quantity_max: 1000.000
 	prefab: resource.gunpowder
 	
 	color_dust: "0xffffffff"
@@ -31,6 +31,8 @@
 	color_flame: "0x00000000"
 	color_liquid: "0x00000000"
 	color_smoke: "0x00000000"
+	
+	colliders: []
 	
 	commodity:
 	{
@@ -73,7 +75,4 @@
 	
 	h_substance: "null"
 	purity: 0.000
-	
-	// Component materials.
-	composition: []
 }

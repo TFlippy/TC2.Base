@@ -10,7 +10,7 @@ body:
 		friction: 0.950
 		elasticity: 0.050
 		material: powder
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
 }
@@ -23,7 +23,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	z: -67.500
+	z: -61.500
 }
 
 transform:
@@ -48,8 +48,12 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 7
-	interval: 12.000
-	threshold_delete: 0.050
-	threshold_despawning: 1.000
+	sleep_count_max: 19
+	flags: none
+	amount_ratio: 0.004
+	amount_ratio_extra: 0.030
+	interval: 5.000
+	interval_extra: 15.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.550
 }

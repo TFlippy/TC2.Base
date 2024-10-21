@@ -865,7 +865,7 @@ namespace TC2.Base.Components
 		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable, [Source.Owned, Optional] in Aimable.Data aimable)
 		{
 			holdable.hints.AddFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable);
-			holdable.grip_min = aimable.deadzone;
+			//holdable.grip_min = aimable.deadzone;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]

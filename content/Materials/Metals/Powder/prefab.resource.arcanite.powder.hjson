@@ -5,7 +5,6 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
-		mass: 1.000
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.050
@@ -45,5 +44,62 @@ holdable:
 
 norotate:
 {
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 1.500
+	flags: no_share
+}
 
+health:
+{
+	max: 36000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 466.735
+	temperature_high: 933.470
+	temperature_breakdown: 2792.0000
+	cool_rate: 1.000
+	cool_rate_mult: 0.235
+	offset: [0.000, 0.500]
+	smoke_offset: [0.125, 0.250]
+	size: [0.750, 0.375]
+	
+	@light:
+	{
+		offset: [0.000, 0.500]
+		scale: [25.000, 22.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		priority: 0.100
+		offset: [0.000, 0.500]
+	}
+}
+
+despawn:
+{
+	sleep_count_max: 40
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.450
+
+	amount_ratio: 0.005
+	amount_ratio_extra: 0.012
 }
