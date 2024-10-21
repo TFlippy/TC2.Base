@@ -85,5 +85,7 @@
 	form_to_material:
 	{
 		gas: ozone
+		raw: ozone
+		blob: ozone
 	}
 }

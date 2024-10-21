@@ -6,7 +6,7 @@
 		TODO: Desc
 		'''
 	cas_number: "7631-86-9"
-	type: molecule
+	type: allotrope
 	atomic_number: 0
 	flags: none
 	tags: oxide, inert, refractory, solid
@@ -20,10 +20,10 @@
 	}
 	
 	color_icon: "0xffffffff"
-	color_gui: "0xffcad4cd"
-	color_dust: "0xffcad4cd"
-	color_gib: "0xffcad4cd"
-	color_smoke: "0xffcad4cd"
+	color_gui: "0xffd0c0b6"
+	color_dust: "0xffd0c0b6"
+	color_gib: "0xffd0c0b6"
+	color_smoke: "0xffd0c0b6"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [1.000, 1.000, 1.000, 1.000]
@@ -31,18 +31,18 @@
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)
-	molar_mass: 0.101
+	molar_mass: 60.080
 	// kg/m³ (STP)
-	density: 3987.000
+	density: 2196.000
 	// kg/m³ (STP)
-	density_liquid: 3987.000
+	density_liquid: 0.000
 	// kg/m³
-	density_solid: 3987.000
+	density_solid: 0.000
 	
 	// K (STP)
-	melting_point: 2345.000
+	melting_point: 1986.000
 	// K (STP)
-	boiling_point: 3250.000
+	boiling_point: 3220.000
 	
 	// K
 	critical_point_temperature: 0.000
@@ -59,32 +59,34 @@
 	// K
 	forging_temperature_upper: 0.000
 	// K
-	sintering_temperature_lower: 0.000
+	sintering_temperature_lower: 1230.000
 	// K
-	sintering_temperature_upper: 0.000
+	sintering_temperature_upper: 1830.000
 	
 	// K
-	autoignition_temperature: 2451.000
+	autoignition_temperature: 0.000
 	
 	// kJ/mol
 	heat_of_fusion: 0.000
 	// kJ/mol
 	heat_of_vaporization: 0.000
 	// kJ/(mol*K)
-	molar_heat_capacity: 0.000
+	molar_heat_capacity: 42.6568
 	
 	// kJ/kg
 	specific_heat_of_fusion: 0.000
 	// kJ/kg
 	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
-	specific_heat_capacity: 0.000
+	specific_heat_capacity: 0.710
 	
 	// kW/(m*K)
-	thermal_conductivity: 0.000
+	thermal_conductivity: 0.0014
 	
 	form_to_material:
 	{
 		powder: silica
+		raw: silica
+		gravel: silica
 	}
 }

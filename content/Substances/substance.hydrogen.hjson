@@ -28,7 +28,7 @@
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.619266, 0.706596, 1.000, 0.949]
+	color_flame: [0.619, 0.707, 1.000, 0.949]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)
@@ -87,5 +87,7 @@
 	form_to_material:
 	{
 		gas: hydrogen
+		raw: hydrogen
+		blob: hydrogen
 	}
 }

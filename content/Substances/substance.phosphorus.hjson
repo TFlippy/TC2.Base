@@ -15,9 +15,10 @@
 	
 	icon:
 	{
-		texture: ui_icons_widget
+		texture: resource.phosphorus
+		count: 4
 		size: [16, 16]
-		frame: [12, 1]
+		frame: [3, 0]
 	}
 	
 	color_icon: "0xffffffff"
@@ -28,7 +29,7 @@
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_molten: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.40994, 0.876147, 0.645182, 0.835]
+	color_flame: [0.410, 0.876, 0.645, 0.835]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)

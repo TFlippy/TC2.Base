@@ -25,10 +25,10 @@
 	color_gib: "0xff6c584b"
 	color_smoke: "0xff6c584b"
 	
-	color_liquid: [0.582569, 0.189736, 0.265419, 1.000]
-	color_molten: [0.591743, 0.280133, 0.241583, 1.357]
-	color_flame: [0.582569, 0.189736, 0.265419, 0.690]
-	color_spark: [0.853211, 0.270053, 0.382404, 1.337]
+	color_liquid: [0.583, 0.190, 0.265, 1.000]
+	color_molten: [0.592, 0.280, 0.242, 1.357]
+	color_flame: [0.583, 0.190, 0.265, 0.690]
+	color_spark: [0.853, 0.270, 0.382, 1.337]
 	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.452

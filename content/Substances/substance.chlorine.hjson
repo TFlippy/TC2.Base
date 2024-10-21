@@ -87,5 +87,7 @@
 	form_to_material:
 	{
 		gas: chlorine
+		raw: chlorine
+		blob: chlorine
 	}
 }

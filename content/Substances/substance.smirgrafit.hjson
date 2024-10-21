@@ -24,8 +24,8 @@
 	color_smoke: "0xff403a39"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.25098, 0.227451, 0.223529, 1.000]
-	color_flame: [1.000, 0.638077, 0.013761, 0.827]
+	color_molten: [0.251, 0.227, 0.224, 1.000]
+	color_flame: [1.000, 0.638, 0.014, 0.827]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)

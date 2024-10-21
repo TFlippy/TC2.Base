@@ -35,6 +35,6 @@
 	
 	colliders: []
 	
-	h_substance: silica
+	h_substance: sand
 	purity: 0.000
 }

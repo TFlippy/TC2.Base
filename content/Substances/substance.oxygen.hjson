@@ -87,5 +87,7 @@
 	form_to_material:
 	{
 		gas: oxygen
+		raw: oxygen
+		blob: oxygen
 	}
 }
