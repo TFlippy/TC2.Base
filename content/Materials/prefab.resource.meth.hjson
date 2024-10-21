@@ -69,8 +69,12 @@ meth.effect:
 
 despawn:
 {
-	sleep_count_max: 7
-	interval: 12.000
-	threshold_delete: 0.030
-	threshold_despawning: 0.480
+	sleep_count_max: 19
+	flags: none
+	amount_ratio: 0.004
+	amount_ratio_extra: 0.030
+	interval: 5.000
+	interval_extra: 15.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.550
 }

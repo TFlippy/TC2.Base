@@ -21,21 +21,21 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.760
+	bulk_density: 0.000
+	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.smirglum.gravel
 	
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
-	h_substance: "null"
+	colliders: []
+	
+	h_substance: smirglum
 	purity: 0.000
-	
-	// Component materials.
-	composition: []
 }
