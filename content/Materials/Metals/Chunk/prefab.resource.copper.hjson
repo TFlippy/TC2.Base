@@ -16,7 +16,7 @@ body:
 		rigidity_dynamic: 0.700
 		
 		material: metal_solid
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, bulk
+		layer: entity, solid, resource, conductive, heatable, bulk
 		mask: world, bulk
 		exclude: held, stored
 	}

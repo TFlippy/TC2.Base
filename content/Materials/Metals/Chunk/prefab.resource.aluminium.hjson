@@ -16,8 +16,7 @@ body:
 		rigidity_dynamic: 0.800
 		
 		material: metal_solid
-		
-		layer: entity, solid, resource, bulk, conductive, heatable, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, conductive, heatable, bulk
 		mask: world, bulk
 		exclude: held, stored
 	}
@@ -76,7 +75,7 @@ heat:
 	cool_rate: 2.000
 	smoke_speed_mult: 0.750
 	flags: meltable, formless
-	fire_flags: no_radius_ignite, no_self_damage, always_contact_ignite
+	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
 	smoke_offset: [0.125, 0.250]
 	size: [2.000, 1.000]
@@ -85,18 +84,18 @@ heat:
 	@light:
 	{
 		offset: [0.125, 0.500]
-		scale: [16.000, 12.000]
+		scale: [50.000, 40.000]
 		intensity: 1.000
-		texture: light.circle.02
+		texture: light.circle.00
 	}
 
 	@sound.emitter:
 	{
 		file: burner.loop.00
 		flags: start_muted
-		volume: 1.500
-		pitch: 0.680
-		size: 5.500
+		volume: 1.000
+		pitch: 0.880
+		size: 1.000
 		size_max_modifier: 0.900
 		priority: 0.100
 		offset: [0.000, 0.500]
@@ -110,4 +109,18 @@ norotate:
 	multiplier: 3.500
 	mass_multiplier: 1.500
 	flags: no_share
+}
+
+despawn:
+{
+	flags: no_despawn
+
+	sleep_count_max: 74
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.200
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
 }

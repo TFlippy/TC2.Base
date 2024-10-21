@@ -16,7 +16,7 @@ body:
 		rigidity_dynamic: 0.800
 		
 		material: metal_solid
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic, bulk
+		layer: entity, solid, resource, conductive, heatable, magnetic, bulk
 		mask: world, essence, bulk
 		exclude: held, stored
 	}
@@ -110,4 +110,18 @@ norotate:
 	multiplier: 3.500
 	mass_multiplier: 1.500
 	flags: no_share
+}
+
+despawn:
+{
+	flags: no_despawn
+
+	sleep_count_max: 74
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.200
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
 }
