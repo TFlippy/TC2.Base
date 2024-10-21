@@ -113,6 +113,8 @@ norotate:
 
 despawn:
 {
+	flags: no_despawn
+
 	sleep_count_max: 74
 	interval: 9.000
 	interval_extra: 14.000

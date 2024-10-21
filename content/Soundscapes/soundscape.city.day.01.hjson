@@ -13,14 +13,33 @@
 			
 			mix:
 			{
-				front_left: 0.500
-				front_right: 0.500
-				center: 0.150
-				lfe: 0.100
-				side_left: 0.200
-				side_right: 0.200
-				back_left: 0.350
-				back_right: 0.350
+				front_left: 0.700
+				front_right: 0.700
+				center: 0.130
+				lfe: 0.050
+				side_left: 0.050
+				side_right: 0.050
+				back_left: 0.600
+				back_right: 0.600
+			}
+		}
+		{
+			sound: amb.wasteland.day.loop.00
+			volume: 0.320
+			pitch: 0.910
+			
+			daytime_range: [0.700, 0.100]
+			
+			mix:
+			{
+				front_left: 0.150
+				front_right: 0.150
+				center: 0.600
+				lfe: 0.050
+				side_left: 0.050
+				side_right: 0.050
+				back_left: 0.600
+				back_right: 0.600
 			}
 		}
 	]
@@ -46,6 +65,18 @@
 			sounds:
 			[
 				amb.urban.train.00
+			]
+		}
+		{
+			time_minmax: [30.000, 80.000]
+			volume_minmax: [0.120, 0.160]
+			pitch_minmax: [0.750, 0.850]
+			
+			sounds:
+			[
+				amb.industry.metal.deep.00
+				amb.industry.metal.deep.01
+				geyser.pipeline.d.01
 			]
 		}
 	]

@@ -150,7 +150,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public static readonly Sound.Handle sound_jam_default = "gun.jam.00";
 
@@ -250,15 +250,10 @@
 			public Gun.Flags flags;
 
 			public float heuristic_range = 30.00f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public Gun.Hints hints;
 
@@ -277,11 +272,6 @@
 			[Save.Ignore, Net.Ignore] public float muzzle_velocity;
 			[Save.Ignore, Net.Ignore] public float next_cycle;
 			[Save.Ignore, Net.Ignore] public float next_reload;
-
-			public State()
-			{
-
-			}
 		}
 
 		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)
@@ -479,6 +469,8 @@
 				{
 					if (window.show)
 					{
+						GUI.DisableChat();
+
 						if (this.gun_state.stage == Gun.Stage.Reloading)
 						{
 							GUI.TitleCentered("Reloading"u8, pivot: new(0.50f, 0.00f));

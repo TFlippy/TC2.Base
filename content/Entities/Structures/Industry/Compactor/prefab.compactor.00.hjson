@@ -113,7 +113,7 @@ shop:
 	
 	work_tools: none
 	work_machines: none
-	work_equipment: compactor
+	work_equipment: none
 	work_environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
