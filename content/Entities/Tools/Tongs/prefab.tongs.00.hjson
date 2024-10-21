@@ -85,6 +85,42 @@ aimable:
 	offset: [1.000, 0.000]
 }
 
+// melee:
+// {
+// 	sound_volume: 0.700
+// 	sound_size: 0.600
+// 	sound_pitch: 1.200
+// 	hit_offset: [1.000, -0.0625]
+// 	swing_rotation: 0.000
+// 	attack_type: thrust
+// 	damage_base: 50.000
+// 	damage_bonus: 90.000
+// 	primary_damage_multiplier: 0.400
+// 	secondary_damage_multiplier: 0.550
+// 	terrain_damage_multiplier: 0.300
+// 	pain_multiplier: 1.650
+// 	stun_multiplier: 1.260
+// 	disarm_chance: 0.290
+// 	cooldown: 0.900
+// 	max_distance: 2.000
+// 	aoe: 0.250
+// 	thickness: 0.400
+// 	knockback: 750.000
+// 	yield: 0.950
+// 	penetration_falloff: 0.500
+// 	penetration: 1
+// 	damage_type: blunt
+// 	category: pointed
+// 	flags: use_rmb, no_material_filter
+// 	hit_mask: world, destructible
+// 	hit_exclude: background, tree, furniture, climbable, ignore_melee
+// }
+
+// melee.state:
+// {
+
+// }
+
 heat:
 {
 	temperature_medium: 520.000

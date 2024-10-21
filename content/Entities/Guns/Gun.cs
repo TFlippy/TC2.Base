@@ -1175,40 +1175,43 @@
 
 							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
-								ref var projectile = ref ent.GetComponent<Projectile.Data>();
-								if (projectile.IsNotNull())
+								if (ent.TryGetRecord(out var record))
 								{
-									projectile.damage_base *= args.damage_mult;
-									projectile.damage_bonus *= args.damage_mult;
-									projectile.velocity = args.vel;
-									projectile.angular_velocity = args.ang_vel;
-									projectile.ent_owner = args.ent_owner;
-									projectile.faction_id = args.faction_id;
-									projectile.damp *= args.drag_jitter; 
-									projectile.Sync(ent, true);
-								}
-
-								ref var explosive = ref ent.GetComponent<Explosive.Data>();
-								if (explosive.IsNotNull())
-								{
-									explosive.ent_owner = args.ent_owner;
-									explosive.Sync(ent, true);
-								}
-
-								if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
-								{
-									ent.AddRelation(args.ent_gun, Relation.Type.Child);
-								}
-
-								if (args.gun_flags.HasAny(Gun.Flags.Rope_Projectiles))
-								{
-									var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
-									if (ent_child.IsAlive())
+									ref var projectile = ref ent.GetComponent<Projectile.Data>();
+									if (projectile.IsNotNull())
 									{
-										ent_child.RemoveRelation(entity, Relation.Type.Rope);
-										ent_child.Delete();
+										projectile.damage_base *= args.damage_mult;
+										projectile.damage_bonus *= args.damage_mult;
+										projectile.velocity = args.vel;
+										projectile.angular_velocity = args.ang_vel;
+										projectile.ent_owner = args.ent_owner;
+										projectile.faction_id = args.faction_id;
+										projectile.damp *= args.drag_jitter;
+										projectile.Sync(ent, true);
 									}
-									ent.AddRelation(args.ent_gun, Relation.Type.Rope);
+
+									ref var explosive = ref ent.GetComponent<Explosive.Data>();
+									if (explosive.IsNotNull())
+									{
+										explosive.ent_owner = args.ent_owner;
+										explosive.Sync(ent, true);
+									}
+
+									if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
+									{
+										ent.AddRelation(args.ent_gun, Relation.Type.Child);
+									}
+
+									if (args.gun_flags.HasAny(Gun.Flags.Rope_Projectiles))
+									{
+										var ent_child = args.ent_gun.GetChild(Relation.Type.Rope);
+										if (ent_child.IsAlive())
+										{
+											ent_child.RemoveRelation(entity, Relation.Type.Rope);
+											ent_child.Delete();
+										}
+										ent.AddRelation(args.ent_gun, Relation.Type.Rope);
+									}
 								}
 							});
 

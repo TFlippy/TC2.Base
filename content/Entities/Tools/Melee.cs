@@ -48,7 +48,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Melee.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public static Sound.Handle sound_swing_default = "tool_swing_00";
 
@@ -128,15 +128,10 @@ namespace TC2.Base.Components
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_require;
 			public Physics.Layer hit_exclude;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
@@ -529,6 +524,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: come up with a better name
+		[Shitcode]
 		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, 
 		Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, 
 		in Melee.Data melee, ref Melee.State melee_state, 
