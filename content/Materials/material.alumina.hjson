@@ -20,17 +20,18 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, junk, mining, cheap
-	// kg
 	mass_per_unit: 0.1303
+	bulk_density_ratio: 0.680
+	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.alumina
 	
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	

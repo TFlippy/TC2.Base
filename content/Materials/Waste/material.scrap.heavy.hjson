@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: none
 	mass_per_unit: 2.130
-	bulk_density: 0.000
+	bulk_density_ratio: 0.316
 	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.scrap.heavy

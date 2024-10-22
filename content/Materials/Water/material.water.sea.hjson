@@ -23,7 +23,7 @@
 	display_flags: none
 	hints: none
 	mass_per_unit: 0.1072
-	bulk_density: 0.000
+	bulk_density_ratio: 1.000
 	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.water.sea

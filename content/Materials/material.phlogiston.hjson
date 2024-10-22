@@ -20,17 +20,20 @@
 	flags_bottle_rem: toxic, corrosive, flammable, volatile
 	display_flags: none
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
-	// kg
 	mass_per_unit: 0.500
+	bulk_density_ratio: 0.9453
+	stack_volume: 0.000
 	quantity_max: 100.000
 	prefab: resource.phlogiston
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	commodity:
 	{
@@ -151,7 +154,4 @@
 	
 	h_substance: phlogiston
 	purity: 1.000
-	
-	// Component materials.
-	composition: []
 }

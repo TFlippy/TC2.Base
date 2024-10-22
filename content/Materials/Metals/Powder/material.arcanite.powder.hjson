@@ -20,17 +20,20 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.661
+	bulk_density_ratio: 0.673
+	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.arcanite.powder
 	
 	color_dust: "0xffa48b5e"
 	color_gib: "0xffa48b5e"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	commodity:
 	{
@@ -73,7 +76,4 @@
 	
 	h_substance: arcanite
 	purity: 0.000
-	
-	// Component materials.
-	composition: []
 }

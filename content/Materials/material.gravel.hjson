@@ -20,21 +20,21 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.910
+	bulk_density_ratio: 0.135
+	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.gravel
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	h_substance: "null"
 	purity: 0.000
-	
-	// Component materials.
-	composition: []
 }

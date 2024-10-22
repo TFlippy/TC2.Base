@@ -22,17 +22,20 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.266
+	bulk_density_ratio: 0.713
+	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.silver.powder
 	
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	commodity:
 	{
@@ -75,7 +78,4 @@
 	
 	h_substance: silver
 	purity: 0.991
-	
-	// Component materials.
-	composition: []
 }

@@ -22,17 +22,18 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	// kg
 	mass_per_unit: 1.000
+	bulk_density_ratio: 0.9733
+	stack_volume: 0.000
 	quantity_max: 256.000
 	prefab: resource.steel.plate
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[

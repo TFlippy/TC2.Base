@@ -20,17 +20,18 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: materials, junk, construction, cheap, dumb, industrial, wrecked, crappy, slow
-	// kg
 	mass_per_unit: 3.930
+	bulk_density_ratio: 0.943
+	stack_volume: 0.000
 	quantity_max: 128.000
 	prefab: resource.slag.ingot
 	
 	color_dust: "0xff5b4436"
 	color_gib: "0xff5b4436"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[
@@ -126,7 +127,4 @@
 	
 	h_substance: slag
 	purity: 0.050
-	
-	// Component materials.
-	composition: []
 }

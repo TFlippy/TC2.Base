@@ -21,17 +21,18 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.5241
+	bulk_density_ratio: 0.614
+	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.smirgrafit.powder
 	
 	color_dust: "0xff403a39"
 	color_gib: "0xff403a39"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -76,7 +77,4 @@
 	
 	h_substance: smirgrafit
 	purity: 0.988
-	
-	// Component materials.
-	composition: []
 }

@@ -19,21 +19,57 @@
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
-	hints: materials, mining, cheap
-	// kg
+	hints: materials, chemical, mining, construction, cheap, industrial
 	mass_per_unit: 0.1303
+	bulk_density: 0.000
+	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.silica
 	
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
 	h_substance: silica
-	purity: 0.855
+	purity: 0.783
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: glass.powder
+			spawn_flags: merge
+			ratio: 0.730
+			ratio_extra: 0.110
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			ratio_waste: 1.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.890
+			yield_extra: 0.070
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.250
+			velocity_mult: 0.430
+		}
+	}
+	
+	residues:
+	{
+	
+	}
 }
