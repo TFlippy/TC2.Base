@@ -40,17 +40,7 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.steel
-							amount: 0.490
-							amount_extra: 0.080
-							group: 0
-							flags: waste, residue
-						}
-					]
+					products: []
 				}
 				{
 					name: "Forged"
@@ -64,6 +54,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 0.500
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -72,7 +63,6 @@
 							amount: 1315.200
 							amount_min: 822.000
 							amount_max: 1578.240
-							falloff: 0.500
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
@@ -113,17 +103,7 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.steel
-							amount: 0.100
-							amount_extra: 0.020
-							group: 0
-							flags: waste, residue
-						}
-					]
+					products: []
 				}
 			]
 			
@@ -164,17 +144,7 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: woodchips
-							amount: 0.620
-							amount_extra: 0.340
-							group: 0
-							flags: waste, residue
-						}
-					]
+					products: []
 				}
 			]
 			
@@ -249,17 +219,7 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.212
-							amount_extra: 0.064
-							group: 0
-							flags: waste, residue
-						}
-					]
+					products: []
 				}
 			]
 			

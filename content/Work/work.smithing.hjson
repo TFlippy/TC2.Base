@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Forging"
-	name_short: "Forging"
+	name: "Smithing"
+	name_short: "Smithing"
 	desc:
 		'''
 		TODO: Desc

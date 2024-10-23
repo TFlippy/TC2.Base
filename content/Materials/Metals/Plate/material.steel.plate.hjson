@@ -24,7 +24,11 @@
 	hints: none
 	mass_per_unit: 1.000
 	bulk_density_ratio: 0.9733
-	stack_volume: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 256.000
 	prefab: resource.steel.plate
 	
@@ -123,7 +127,7 @@
 	}
 	
 	h_substance: steel
-	purity: 0.956
+	purity: 0.985
 	
 	// Conversions into other materials.
 	conversions:

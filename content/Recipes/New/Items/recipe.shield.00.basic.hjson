@@ -35,7 +35,6 @@
 							amount: 1315.200
 							amount_min: 822.000
 							amount_max: 1578.240
-							falloff: 0.500
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
