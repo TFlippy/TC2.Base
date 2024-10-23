@@ -22,14 +22,14 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 4.000
+	mass_per_unit: 12.12422
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
-	porosity: 0.000
-	volume_per_unit: 0.000
-	quantity_max: 128.000
+	porosity: 0.030
+	volume_per_unit: 0.0016
+	quantity_max: 100.000
 	prefab: resource.steel.ingot
 	
 	color_dust: "0xffc0c6ac"

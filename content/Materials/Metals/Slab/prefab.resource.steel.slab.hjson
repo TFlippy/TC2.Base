@@ -26,7 +26,7 @@ animated.renderer:
 	{
 		texture: "resource.steel.slab"
 		count: 4
-		size: [32, 16]
+		size: [32, 24]
 	}
 	z: -80.000
 }
