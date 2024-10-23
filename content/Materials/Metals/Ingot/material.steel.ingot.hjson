@@ -22,17 +22,22 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	// kg
 	mass_per_unit: 4.000
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 128.000
 	prefab: resource.steel.ingot
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[
@@ -255,56 +260,49 @@
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.820
-			yield_extra: 0.110
+			yield: [0.820, 0.110]
 		}
 		cutting:
 		{
 			h_material_result: scrap.steel
 			flags: none
 			
-			yield: 0.940
-			yield_extra: 0.040
+			yield: [0.940, 0.040]
 		}
 		drilling:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.920
-			yield_extra: 0.050
+			yield: [0.920, 0.050]
 		}
 		smithing:
 		{
 			h_material_result: steel
 			flags: none
 			
-			yield: 0.960
-			yield_extra: 0.030
+			yield: [0.960, 0.030]
 		}
 		machining:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.910
-			yield_extra: 0.080
+			yield: [0.910, 0.080]
 		}
 		sawing:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.960
-			yield_extra: 0.030
+			yield: [0.960, 0.030]
 		}
 		grinding:
 		{
 			h_material_result: iron.powder
 			flags: none
 			
-			yield: 0.870
-			yield_extra: 0.090
+			yield: [0.870, 0.090]
 		}
 	}
 }

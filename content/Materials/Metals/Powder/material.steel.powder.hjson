@@ -76,16 +76,14 @@
 			h_material_result: iron.powder
 			flags: none
 			
-			yield: 0.930
-			yield_extra: 0.060
+			yield: [0.930, 0.060]
 		}
 		melting:
 		{
 			h_material_result: iron.powder
 			flags: none
 			
-			yield: 0.910
-			yield_extra: 0.090
+			yield: [0.910, 0.090]
 		}
 	}
 }

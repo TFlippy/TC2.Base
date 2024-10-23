@@ -287,56 +287,49 @@
 			h_material_result: scrap.steel
 			flags: none
 			
-			yield: 0.859649
-			yield_extra: 0.140351
+			yield: [0.859649, 0.140351]
 		}
 		carving:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 1.000
-			yield_extra: 0.000
+			yield: [1.000, 0.000]
 		}
 		cutting:
 		{
 			h_material_result: scrap.steel
 			flags: none
 			
-			yield: 0.970
-			yield_extra: 0.030
+			yield: [0.970, 0.030]
 		}
 		drilling:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.940
-			yield_extra: 0.050
+			yield: [0.940, 0.050]
 		}
 		smithing:
 		{
 			h_material_result: scrap.ferrous
 			flags: none
 			
-			yield: 0.950
-			yield_extra: 0.030
+			yield: [0.950, 0.030]
 		}
 		machining:
 		{
 			h_material_result: iron.powder
 			flags: none
 			
-			yield: 0.870
-			yield_extra: 0.110
+			yield: [0.870, 0.110]
 		}
 		sawing:
 		{
 			h_material_result: steel.powder
 			flags: none
 			
-			yield: 0.940
-			yield_extra: 0.040
+			yield: [0.940, 0.040]
 		}
 	}
 }
