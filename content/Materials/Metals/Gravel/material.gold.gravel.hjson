@@ -22,7 +22,9 @@
 	display_flags: none
 	hints: none
 	mass_per_unit: 0.500
-	bulk_density_ratio: 0.147
+	bulk_density_ratio: 0.4379
+	void_ratio: 0.4609
+	compressibility: 0.000
 	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.gold.gravel

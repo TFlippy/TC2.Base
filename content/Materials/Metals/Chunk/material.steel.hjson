@@ -20,17 +20,22 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, construction, civilian, military, industrial
-	// kg
 	mass_per_unit: 0.7812
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
 	prefab: resource.steel
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -76,6 +81,7 @@
 			
 			yield: 0.820
 			yield_extra: 0.110
+			test: [0.000, 0.000]
 		}
 		cutting:
 		{
@@ -84,6 +90,7 @@
 			
 			yield: 0.940
 			yield_extra: 0.040
+			test: [0.000, 0.000]
 		}
 		drilling:
 		{
@@ -92,6 +99,7 @@
 			
 			yield: 0.920
 			yield_extra: 0.050
+			test: [0.000, 0.000]
 		}
 		smithing:
 		{
@@ -100,6 +108,7 @@
 			
 			yield: 0.960
 			yield_extra: 0.030
+			test: [0.000, 0.000]
 		}
 		machining:
 		{
@@ -108,6 +117,7 @@
 			
 			yield: 0.910
 			yield_extra: 0.080
+			test: [0.000, 0.000]
 		}
 		sawing:
 		{
@@ -116,6 +126,7 @@
 			
 			yield: 0.960
 			yield_extra: 0.030
+			test: [0.000, 0.000]
 		}
 		grinding:
 		{
@@ -124,6 +135,7 @@
 			
 			yield: 0.870
 			yield_extra: 0.090
+			test: [0.900, 5.000]
 		}
 	}
 }

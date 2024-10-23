@@ -22,7 +22,9 @@
 	display_flags: none
 	hints: none
 	mass_per_unit: 1.100
-	bulk_density_ratio: 0.167
+	bulk_density_ratio: 0.3919
+	void_ratio: 0.4609
+	compressibility: 0.000
 	stack_volume: 0.000
 	quantity_max: 500.000
 	prefab: resource.iron.gravel

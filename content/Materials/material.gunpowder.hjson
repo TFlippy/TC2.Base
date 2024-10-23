@@ -21,7 +21,9 @@
 	display_flags: none
 	hints: none
 	mass_per_unit: 0.230
-	bulk_density_ratio: 0.479
+	bulk_density_ratio: 0.6994
+	void_ratio: 0.000
+	compressibility: 0.000
 	stack_volume: 0.000
 	quantity_max: 1000.000
 	prefab: resource.gunpowder
