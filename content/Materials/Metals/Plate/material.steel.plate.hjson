@@ -22,13 +22,13 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 3.906
+	mass_per_unit: 2.3436
 	bulk_density_ratio: 0.9733
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
 	porosity: 0.000
-	volume_per_unit: 0.0005
+	volume_per_unit: 0.0003
 	quantity_max: 250.000
 	prefab: resource.steel.plate
 	

@@ -5,7 +5,7 @@
 	icon:
 	{
 		texture: resource.steel.slab
-		size: [32, 24]
+		size: [32, 16]
 		frame: [3, 0]
 	}
 	
@@ -16,14 +16,14 @@
 	flags_bottle_rem: none
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	mass_per_unit: 1326.087
+	mass_per_unit: 1091.180
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
 	porosity: 0.030
-	volume_per_unit: 0.175
-	quantity_max: 5.000
+	volume_per_unit: 0.144
+	quantity_max: 4.000
 	prefab: resource.steel.slab
 	
 	color_dust: "0xffc0c6ac"

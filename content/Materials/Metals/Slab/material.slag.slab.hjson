@@ -16,17 +16,22 @@
 	flags_bottle_rem: none
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	// kg
-	mass_per_unit: 515.5713
+	mass_per_unit: 419.7383
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.030
+	volume_per_unit: 0.144
 	quantity_max: 4.000
 	prefab: resource.slag.slab
 	
 	color_dust: "0xff5b4436"
 	color_gib: "0xff5b4436"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[
@@ -77,7 +82,4 @@
 	
 	h_substance: slag
 	purity: 0.050
-	
-	// Component materials.
-	composition: []
 }

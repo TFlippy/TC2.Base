@@ -31,11 +31,11 @@
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.111
 	// kg/m³ (STP)
-	density: 3005.000
+	density: 6678.000
 	// kg/m³ (STP)
-	density_liquid: 3005.000
+	density_liquid: 6678.000
 	// kg/m³
-	density_solid: 3005.000
+	density_solid: 6678.000
 	
 	// K (STP)
 	melting_point: 1481.160
