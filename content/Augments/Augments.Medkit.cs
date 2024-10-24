@@ -22,7 +22,7 @@ namespace TC2.Base
 				{
 					data.pain += 250.00f;
 					data.power *= 2.50f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("alcohol", 5));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("alcohol", 5));
 				}
 			));
 
@@ -41,7 +41,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("morphine", 5));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("morphine", 5));
 				}
 			));
 
@@ -61,7 +61,7 @@ namespace TC2.Base
 				{
 					data.aoe *= 1.50f;
 					data.max_distance += 0.50f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("cloth", 8));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 8));
 				}
 			));
 
@@ -97,7 +97,7 @@ namespace TC2.Base
 					}
 
 					var total_amount = 0.25f + ingot_amount;
-					context.requirements_new.Add(Crafting.Requirement.Resource("silver.ingot", total_amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("silver.ingot", total_amount));
 				}
 			));
 
@@ -187,7 +187,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Add(Crafting.Requirement.Resource("red_sugar", 10));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 10));
 				}
 			));
 		}

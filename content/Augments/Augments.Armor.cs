@@ -55,7 +55,7 @@
 					}
 
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", total_amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", total_amount));
 
 					data.max += total_amount * 1000.00f;
 
@@ -105,7 +105,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("chitin", 10.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("chitin", 10.00f));
 				}
 			));
 
@@ -142,7 +142,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Add(Crafting.Requirement.Resource("smirglum.ingot", 0.50f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", 0.50f));
 				}
 			));
 		}

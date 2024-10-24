@@ -130,7 +130,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Add(Crafting.Requirement.Resource("soil", amount_total));				
+					context.requirements_new.Merge(Crafting.Requirement.Resource("soil", amount_total));				
 				}
 			));
 
@@ -181,7 +181,7 @@ namespace TC2.Base
 							essence_container.available = amount * Essence.essence_per_pellet;
 						}
 
-						context.requirements_new.Add(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount));
 					}
 				}
 			));
@@ -223,7 +223,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Add(Crafting.Requirement.Resource("sulfur", amount_total));				
+					context.requirements_new.Merge(Crafting.Requirement.Resource("sulfur", amount_total));				
 				}
 			));
 		}
