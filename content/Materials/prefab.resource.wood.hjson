@@ -38,17 +38,54 @@ resource:
 
 holdable:
 {
-	force_multiplier: 1.800
-	torque_multiplier: 0.700
-	offset: [0.000, 0.750]
+	offset: [0.000, 0.500]
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
 norotate:
 {
-
+	mass_multiplier: 25.000
 }
 
-// despawn:
-// {
+health:
+{
+	max: 10000.000
+}
 
-// }
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 340.9637
+	temperature_high: 408.350
+	temperature_ignite: 450.000
+	temperature_operating: 320.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	cool_rate: 2.500
+	smoke_speed_mult: 0.750
+	flags: none
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.125]
+	smoke_offset: [0.000, 0.125]
+	size: [2.000, 2.000]
+}
+
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

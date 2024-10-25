@@ -1,15 +1,89 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Wood"
-	type: aggregate
+	type: organic
 	atomic_number: 0
 	flags: none
-	tags: none
+	tags: impure, amorphous, solid
 	
 	icon:
 	{
 		texture: resource.wood
 		size: [20, 16]
 		frame: [6, 0]
+	}
+	
+	color_icon: "0xffffffff"
+	color_gui: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_smoke: "0x00000000"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.000
+	// kg/m³ (STP)
+	density: 750.000
+	// kg/m³ (STP)
+	density_liquid: 0.000
+	// kg/m³
+	density_solid: 750.000
+	
+	// K (STP)
+	melting_point: 0.000
+	// K (STP)
+	boiling_point: 0.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// K
+	forging_temperature_lower: 0.000
+	// K
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
+	
+	// K
+	autoignition_temperature: 411.150
+	
+	// kJ/mol
+	heat_of_fusion: 0.000
+	// kJ/mol
+	heat_of_vaporization: 0.000
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.000
+	
+	// kJ/kg
+	specific_heat_of_fusion: 0.000
+	// kJ/kg
+	specific_heat_of_vaporization: 0.000
+	// kJ/(kg*K)
+	specific_heat_capacity: 1.960
+	
+	// kW/(m*K)
+	thermal_conductivity: 0.0024
+	
+	form_to_material:
+	{
+		plank: wood
+		powder: sawdust
+		scrap: scrap.wood
+		gravel: woodchips
+		raw: timber
+		gas: wood_gas
 	}
 }

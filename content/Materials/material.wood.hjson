@@ -19,7 +19,7 @@
 	flags: hard, organic, small, raw, fuel, flammable, flexible, solid
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	mass_per_unit: 0.675
 	bulk_density_ratio: 0.000
@@ -223,7 +223,7 @@
 		volatiles: ["wood_gas"]
 	}
 	
-	h_substance: "null"
+	h_substance: wood
 	purity: 0.753
 	
 	residues:
