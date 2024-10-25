@@ -12,6 +12,7 @@
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 10.000
 			
 			options:
 			[
@@ -26,36 +27,33 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 2.000
+							amount: 1.000
 							snapping: 1.000
-							loss: 0.153
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: steel.frames
-							amount: 1.420
-							snapping: 1.000
-							loss: 0.024
+							falloff: 1.000
+							loss: 0.176
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: drilling
-							amount: 850.000
+							amount: 800.000
 							difficulty: 11
-							snapping: 5.000
-							falloff: 0.910
+							snapping: 40.000
+							falloff: 0.952
 							group: 0
 							flags: conditional
 						}
 					]
 					
 					products: []
+					
+					start_delay: 0.500
+					complete_delay: 0.500
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}
@@ -66,6 +64,7 @@
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 0.600
 			
 			options:
 			[
@@ -100,6 +99,8 @@
 					products: []
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}
@@ -142,6 +143,38 @@
 					]
 					
 					products: []
+				}
+				{
+					name: "Doweled"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: doweling
+							amount: 450.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.985
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.500
+					group: 0
 				}
 			]
 			

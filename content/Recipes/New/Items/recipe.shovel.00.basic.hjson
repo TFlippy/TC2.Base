@@ -12,6 +12,7 @@
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 2.100
 			
 			options:
 			[
@@ -26,7 +27,8 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 3.000
+							amount: 1.000
+							loss: 0.106
 							group: 0
 							flags: prerequisite
 						}
@@ -54,6 +56,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 0.500
+							snapping: 1.000
 							loss: 0.078
 							group: 0
 							flags: prerequisite
@@ -89,7 +92,8 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 2.000
+							amount: 1.000
+							loss: 0.106
 							group: 0
 							flags: prerequisite
 						}
@@ -107,6 +111,8 @@
 				}
 			]
 			
+			requirements: []
+			
 			products: []
 		}
 		{
@@ -116,6 +122,7 @@
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 0.500
 			
 			options:
 			[
@@ -131,6 +138,8 @@
 							type: resource
 							material: wood
 							amount: 1.000
+							snapping: 1.000
+							loss: 0.259
 							group: 0
 							flags: prerequisite
 						}
@@ -147,6 +156,8 @@
 					products: []
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}
@@ -222,6 +233,8 @@
 					products: []
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}
