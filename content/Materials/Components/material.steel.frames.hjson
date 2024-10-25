@@ -22,7 +22,11 @@
 	hints: none
 	mass_per_unit: 2.500
 	bulk_density_ratio: 0.106
-	stack_volume: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 256.000
 	prefab: resource.steel.frames
 	
@@ -124,6 +128,7 @@
 		{
 			h_material_result: scrap.steel
 			flags: none
+			flags_product: none
 			
 			yield: [0.859649, 0.140351]
 		}
@@ -131,6 +136,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [1.000, 0.000]
 		}
@@ -138,6 +144,7 @@
 		{
 			h_material_result: scrap.steel
 			flags: none
+			flags_product: none
 			
 			yield: [0.970, 0.030]
 		}
@@ -145,6 +152,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.050]
 		}
@@ -152,6 +160,7 @@
 		{
 			h_material_result: scrap.ferrous
 			flags: none
+			flags_product: none
 			
 			yield: [0.950, 0.030]
 		}
@@ -159,6 +168,7 @@
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.870, 0.110]
 		}
@@ -166,6 +176,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.040]
 		}
@@ -173,6 +184,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: waste, byproduct, residue
 			
 			yield: [0.380, 0.430]
 		}
@@ -180,6 +192,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.390, 0.500]
 		}
@@ -187,6 +200,7 @@
 		{
 			h_material_result: scrap.metal
 			flags: none
+			flags_product: none
 			
 			yield: [0.630, 0.270]
 		}

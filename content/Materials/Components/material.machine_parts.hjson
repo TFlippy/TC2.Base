@@ -20,17 +20,22 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
 	mass_per_unit: 0.2575
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 250.000
 	prefab: resource.machine_parts
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -82,6 +87,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: waste
 			
 			yield: [0.930, 0.070]
 		}
@@ -89,6 +95,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.920, 0.070]
 		}
@@ -96,6 +103,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.960, 0.030]
 		}
@@ -103,6 +111,7 @@
 		{
 			h_material_result: scrap.mixed
 			flags: none
+			flags_product: none
 			
 			yield: [0.410, 0.310]
 		}
@@ -110,6 +119,7 @@
 		{
 			h_material_result: scrap.mixed
 			flags: none
+			flags_product: none
 			
 			yield: [0.490, 0.230]
 		}
@@ -117,6 +127,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.920, 0.070]
 		}
@@ -124,6 +135,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.870, 0.120]
 		}
@@ -131,6 +143,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.790, 0.240]
 		}
@@ -138,6 +151,7 @@
 		{
 			h_material_result: scrap.metal
 			flags: none
+			flags_product: none
 			
 			yield: [0.770, 0.200]
 		}
@@ -145,6 +159,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.920, 0.060]
 		}
@@ -152,6 +167,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.930, 0.050]
 		}
@@ -159,6 +175,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.890, 0.110]
 		}
@@ -166,6 +183,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.930, 0.050]
 		}
@@ -173,6 +191,7 @@
 		{
 			h_material_result: scrap.mixed
 			flags: none
+			flags_product: none
 			
 			yield: [0.750, 0.190]
 		}
@@ -180,6 +199,7 @@
 		{
 			h_material_result: scrap.metal
 			flags: none
+			flags_product: none
 			
 			yield: [0.840, 0.140]
 		}
@@ -187,6 +207,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.050]
 		}
@@ -194,6 +215,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.050]
 		}
@@ -201,6 +223,7 @@
 		{
 			h_material_result: scrap.metal
 			flags: none
+			flags_product: none
 			
 			yield: [0.770, 0.220]
 		}
@@ -208,13 +231,15 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
-			yield: [1.000,  0.000]
+			yield: [1.000, 0.000]
 		}
 		sawing:
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.720, 0.220]
 		}
@@ -222,6 +247,7 @@
 		{
 			h_material_result: scrap.metal
 			flags: none
+			flags_product: none
 			
 			yield: [0.520, 0.460]
 		}
@@ -229,6 +255,7 @@
 		{
 			h_material_result: scrap.machine
 			flags: none
+			flags_product: none
 			
 			yield: [0.650, 0.280]
 		}
@@ -236,6 +263,7 @@
 		{
 			h_material_result: scrap.mixed
 			flags: none
+			flags_product: none
 			
 			yield: [0.380, 0.380]
 		}

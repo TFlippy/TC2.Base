@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Steel"
+	name: "Steel (Chunk)"
 	description:
 		'''
 		TODO: Desc
@@ -20,14 +20,14 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, construction, civilian, military, industrial
-	mass_per_unit: 0.7812
+	mass_per_unit: 12.12422
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
-	porosity: 0.000
-	volume_per_unit: 0.000
-	quantity_max: 500.000
+	porosity: 0.030
+	volume_per_unit: 0.0016
+	quantity_max: 50.000
 	prefab: resource.steel
 	
 	color_dust: "0xffc0c6ac"
@@ -78,6 +78,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.820, 0.110]
 		}
@@ -85,6 +86,7 @@
 		{
 			h_material_result: scrap.steel
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.040]
 		}
@@ -92,6 +94,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.920, 0.050]
 		}
@@ -99,6 +102,7 @@
 		{
 			h_material_result: steel
 			flags: none
+			flags_product: none
 			
 			yield: [0.960, 0.030]
 		}
@@ -106,6 +110,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.910, 0.080]
 		}
@@ -113,6 +118,7 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.960, 0.030]
 		}
@@ -120,6 +126,7 @@
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: none
 			
 			yield: [0.738, 0.084]
 		}
