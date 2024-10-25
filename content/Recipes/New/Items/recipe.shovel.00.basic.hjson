@@ -56,7 +56,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 0.18176
-							snapping: 1.000
+							snapping: 0.2500
 							loss: 0.047
 							group: 0
 							flags: prerequisite

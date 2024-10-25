@@ -8,10 +8,10 @@
 		{
 			name: "Head"
 			
-			type: undefined
+			type: part
 			flags: none
 			
-			ratio: 0.000
+			ratio: 0.917431
 			mass_base: 10.000
 			
 			options:
@@ -60,10 +60,10 @@
 		{
 			name: "Handle"
 			
-			type: undefined
+			type: part
 			flags: none
 			
-			ratio: 0.000
+			ratio: 0.082569
 			mass_base: 0.900
 			
 			options:
@@ -107,10 +107,11 @@
 		{
 			name: "Assembly"
 			
-			type: undefined
+			type: assembly
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -190,7 +191,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable
+	flags: blueprintable, item
 	tags: workbench, manual, simple, tool, assembling, metalworking
 	
 	icon:
