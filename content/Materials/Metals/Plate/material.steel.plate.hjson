@@ -350,5 +350,13 @@
 			
 			yield: [0.972, 0.028]
 		}
+		bending:
+		{
+			h_material_result: scrap.steel
+			flags: none
+			flags_product: residue
+			
+			yield: [0.9546, 0.0454]
+		}
 	}
 }

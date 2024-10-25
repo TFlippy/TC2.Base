@@ -259,50 +259,57 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.820, 0.110]
+			yield: [0.818, 0.169]
 		}
 		cutting:
 		{
-			h_material_result: scrap.steel
+			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.940, 0.040]
+			yield: [0.903, 0.090]
 		}
 		drilling:
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.920, 0.050]
+			yield: [0.919, 0.031]
 		}
 		smithing:
 		{
 			h_material_result: steel
 			flags: none
+			flags_product: residue
 			
-			yield: [0.960, 0.030]
+			yield: [0.983, 0.012]
 		}
 		machining:
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.910, 0.080]
+			yield: [0.918, 0.082]
 		}
 		sawing:
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.960, 0.030]
+			yield: [0.918, 0.055]
 		}
 		grinding:
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.870, 0.090]
+			yield: [0.645, 0.309]
 		}
 	}
 }

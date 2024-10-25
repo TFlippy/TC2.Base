@@ -3,8 +3,7 @@
 	name: "Steel (Powder)"
 	description:
 		'''
-		High-purity steel powder.
-		- Faster to melt
+		Fine-grained steel powder-swarf.
 		'''
 	
 	icon:
@@ -16,14 +15,18 @@
 	
 	type: powder
 	// Flags defining properties of the raw material.
-	flags: magnetic, granular, metal, powder, solid, processed
+	flags: magnetic, granular, metal, small, powder, solid, processed
 	// Flags to remove if stored in a bottle/tank/can.
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
 	mass_per_unit: 0.200
 	bulk_density_ratio: 0.7111
-	stack_volume: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 1000.000
 	prefab: resource.steel.powder
 	
@@ -75,6 +78,7 @@
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: waste
 			
 			yield: [0.930, 0.060]
 		}
@@ -82,6 +86,7 @@
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: residue
 			
 			yield: [0.910, 0.090]
 		}

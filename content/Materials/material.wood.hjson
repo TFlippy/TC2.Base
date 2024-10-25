@@ -20,17 +20,22 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	// kg
 	mass_per_unit: 0.675
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
 	prefab: resource.wood
 	
 	color_dust: "0xffe3a97c"
 	color_gib: "0xff855030"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -136,6 +141,7 @@
 		{
 			h_material_result: woodchips
 			flags: none
+			flags_product: waste
 			
 			yield: [0.6558, 0.2242]
 		}
@@ -143,6 +149,7 @@
 		{
 			h_material_result: scrap.wood
 			flags: none
+			flags_product: waste
 			
 			yield: [0.820, 0.120]
 		}
@@ -150,6 +157,7 @@
 		{
 			h_material_result: scrap.wood
 			flags: none
+			flags_product: waste
 			
 			yield: [0.820, 0.120]
 		}
@@ -157,13 +165,15 @@
 		{
 			h_material_result: sawdust
 			flags: none
+			flags_product: waste
 			
-			yield: [0.720, 0.210]
+			yield: [0.720, 0.212]
 		}
 		drilling:
 		{
 			h_material_result: sawdust
 			flags: none
+			flags_product: waste
 			
 			yield: [0.890, 0.070]
 		}
@@ -171,13 +181,15 @@
 		{
 			h_material_result: woodchips
 			flags: none
+			flags_product: waste
 			
-			yield: [0.880,  0.070]
+			yield: [0.880, 0.070]
 		}
 		sawing:
 		{
 			h_material_result: sawdust
 			flags: none
+			flags_product: waste
 			
 			yield: [0.850, 0.070]
 		}
@@ -185,15 +197,17 @@
 		{
 			h_material_result: sawdust
 			flags: none
+			flags_product: waste
 			
-			yield: [0.770, 0.210]
+			yield: [0.712, 0.261]
 		}
 		chiseling:
 		{
 			h_material_result: woodchips
 			flags: none
+			flags_product: waste
 			
-			yield: [0.840, 0.170]
+			yield: [0.733, 0.214]
 		}
 	}
 }

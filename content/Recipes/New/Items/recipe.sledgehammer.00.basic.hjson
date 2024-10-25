@@ -125,10 +125,12 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.840
-							snapping: 1.000
-							loss: 0.078
+							amount: 1.860
+							snapping: 0.010
+							falloff: 0.970
+							loss: 0.043
 							group: 0
+							flags: no_residue
 						}
 						{
 							type: work
@@ -168,15 +170,7 @@
 				}
 			]
 			
-			requirements:
-			[
-				{
-					type: resource
-					material: steel.frames
-					amount: 0.500
-					group: 0
-				}
-			]
+			requirements: []
 			
 			products: []
 		}
