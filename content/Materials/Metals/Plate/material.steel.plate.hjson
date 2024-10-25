@@ -290,27 +290,31 @@
 		{
 			h_material_result: scrap.steel
 			flags: none
+			flags_product: waste
 			
-			yield: [0.859649, 0.140351]
+			yield: [0.859649, 0.1384]
 		}
 		carving:
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [1.000, 0.000]
+			yield: [0.919, 0.042]
 		}
 		cutting:
 		{
 			h_material_result: scrap.steel
 			flags: none
+			flags_product: waste
 			
-			yield: [0.970, 0.030]
+			yield: [0.986, 0.014]
 		}
 		drilling:
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
 			yield: [0.940, 0.050]
 		}
@@ -318,6 +322,7 @@
 		{
 			h_material_result: scrap.ferrous
 			flags: none
+			flags_product: waste
 			
 			yield: [0.950, 0.030]
 		}
@@ -325,6 +330,7 @@
 		{
 			h_material_result: iron.powder
 			flags: none
+			flags_product: waste
 			
 			yield: [0.870, 0.110]
 		}
@@ -332,8 +338,17 @@
 		{
 			h_material_result: steel.powder
 			flags: none
+			flags_product: waste
 			
-			yield: [0.940, 0.040]
+			yield: [0.952, 0.033]
+		}
+		die_cutting.metal:
+		{
+			h_material_result: scrap.steel
+			flags: none
+			flags_product: waste
+			
+			yield: [0.972, 0.028]
 		}
 	}
 }

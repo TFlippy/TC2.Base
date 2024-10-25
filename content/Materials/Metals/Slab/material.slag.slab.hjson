@@ -16,7 +16,7 @@
 	flags_bottle_rem: none
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	mass_per_unit: 419.7383
+	mass_per_unit: 932.7829
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000

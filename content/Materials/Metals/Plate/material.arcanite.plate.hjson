@@ -20,10 +20,14 @@
 	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 3.303
+	mass_per_unit: 7.007039
 	bulk_density_ratio: 0.9959
-	stack_volume: 0.000
-	quantity_max: 256.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.0003
+	quantity_max: 250.000
 	prefab: resource.arcanite.plate
 	
 	color_dust: "0xffa48b5e"
