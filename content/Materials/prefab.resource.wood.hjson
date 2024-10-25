@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	@shape.circle:
+	@shape.polygon:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000

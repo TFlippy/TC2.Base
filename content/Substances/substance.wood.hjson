@@ -1,0 +1,15 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Wood"
+	type: aggregate
+	atomic_number: 0
+	flags: none
+	tags: none
+	
+	icon:
+	{
+		texture: resource.wood
+		size: [20, 16]
+		frame: [6, 0]
+	}
+}
