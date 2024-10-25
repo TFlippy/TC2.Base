@@ -64,7 +64,7 @@
 			flags: none
 			
 			ratio: 0.000
-			mass_base: 0.600
+			mass_base: 0.900
 			
 			options:
 			[
@@ -79,9 +79,9 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.970
+							amount: 0.459162
 							snapping: 1.000
-							loss: 0.102
+							loss: 0.082
 							group: 0
 						}
 						{

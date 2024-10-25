@@ -21,14 +21,14 @@
 	flags_bottle_rem: none
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	mass_per_unit: 0.675
+	mass_per_unit: 2.136
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
-	porosity: 0.000
-	volume_per_unit: 0.000
-	quantity_max: 500.000
+	porosity: 0.110
+	volume_per_unit: 0.0032
+	quantity_max: 250.000
 	prefab: resource.wood
 	
 	color_dust: "0xffe3a97c"
@@ -234,7 +234,7 @@
 			flags: none
 			flags_product: waste
 			
-			yield: [0.6558, 0.2242]
+			yield: [0.6558, 0.2572]
 		}
 		carpentry:
 		{
