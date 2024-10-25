@@ -9,8 +9,8 @@
 	icon:
 	{
 		texture: resource.wood
-		size: [16, 16]
-		frame: [3, 0]
+		size: [20, 16]
+		frame: [7, 0]
 	}
 	
 	type: wood
