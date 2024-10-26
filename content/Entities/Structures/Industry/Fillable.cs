@@ -22,8 +22,13 @@
 			public ISubstance.Handle h_substance_fill;
 			public ISubstance.Handle h_substance_mold;
 
-			public float capacity;
-			public float amount;
+			public Volume volume_capacity;
+			public Volume volume_current;
+
+			public Mass mass_current;
+
+			[Obsolete] public float capacity;
+			[Obsolete] public float amount;
 
 			public Sound.Handle h_sound_dump;
 			public Sound.Handle h_sound_fill;

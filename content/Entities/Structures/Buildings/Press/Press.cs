@@ -254,7 +254,7 @@
 								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 								{
 									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
-									CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
+									//CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 
 									//ref var recipe = ref this.crafter.GetCurrentRecipe();
 									//if (!recipe.IsNull())

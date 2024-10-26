@@ -50,77 +50,77 @@
 #endif
 
 #if SERVER
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global, interval: 1.13f)]
-		public static void Update(ISystem.Info.Common info, ref Region.Data.Common region, Entity entity,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Fermenter.Data fermenter, [Source.Owned] ref Fermenter.State fermenter_state, 
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
-		{
-			if (crafter.h_recipe != 0)
-			{
-				if (fermenter_state.h_recipe_cached.TrySet(crafter.h_recipe))
-				{
-					ref var recipe = ref crafter.GetCurrentRecipe();
-					if (recipe.IsNotNull())
-					{
-						//var load = 0.00f;
+		//[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region | ISystem.Scope.Global, interval: 1.13f)]
+		//public static void Update(ISystem.Info.Common info, ref Region.Data.Common region, Entity entity,
+		//[Source.Owned] in Transform.Data transform,
+		//[Source.Owned] ref Fermenter.Data fermenter, [Source.Owned] ref Fermenter.State fermenter_state, 
+		//[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		//{
+		//	if (crafter.h_recipe != 0)
+		//	{
+		//		if (fermenter_state.h_recipe_cached.TrySet(crafter.h_recipe))
+		//		{
+		//			ref var recipe = ref crafter.GetCurrentRecipe();
+		//			if (recipe.IsNotNull())
+		//			{
+		//				//var load = 0.00f;
 
-						//foreach (ref var requirement in recipe.requirements.AsSpan())
-						//{
-						//	if (requirement.type == Crafting.Requirement.Type.Work && requirement.work == crafter.h_work) // && requirement.work == Work.Type.Fermentering)
-						//	{
-						//		crafter_state.current_work_type
-						//		//load += requirement.difficulty;
-						//	}
-						//}
-					}
-				}
+		//				//foreach (ref var requirement in recipe.requirements.AsSpan())
+		//				//{
+		//				//	if (requirement.type == Crafting.Requirement.Type.Work && requirement.work == crafter.h_work) // && requirement.work == Work.Type.Fermentering)
+		//				//	{
+		//				//		crafter_state.current_work_type
+		//				//		//load += requirement.difficulty;
+		//				//	}
+		//				//}
+		//			}
+		//		}
 
-				ref var work_data = ref crafter_state.current_work_type.GetData();
-				if (work_data.IsNotNull())
-				{
-					var ratio_env = crafter.environment.GetRatio(work_data.filter_environment.include);
+		//		ref var work_data = ref crafter_state.current_work_type.GetData();
+		//		if (work_data.IsNotNull())
+		//		{
+		//			var ratio_env = crafter.environment.GetRatio(work_data.filter_environment.include);
 
-					var amount_base = fermenter.work_amount_base;
-					var amount = amount_base * ratio_env;
+		//			var amount_base = fermenter.work_amount_base;
+		//			var amount = amount_base * ratio_env;
 
-					crafter_state.work += amount * info.DeltaTime;
+		//			crafter_state.work += amount * info.DeltaTime;
 
-					//App.WriteLine(ratio_env);
-					//App.WriteLine("work");
-				}
-			}
+		//			//App.WriteLine(ratio_env);
+		//			//App.WriteLine("work");
+		//		}
+		//	}
 
-			//switch (crafter_state.current_work_type)
-			//{
-			//	case Work.Type.Fermentering:
-			//	{
-			//		fermenter.load_multiplier = crafter_state.current_work_difficulty;
+		//	//switch (crafter_state.current_work_type)
+		//	//{
+		//	//	case Work.Type.Fermentering:
+		//	//	{
+		//	//		fermenter.load_multiplier = crafter_state.current_work_difficulty;
 
-			//		fermenter_state.flags.SetFlag(Fermenter.State.Flags.Success, false);
+		//	//		fermenter_state.flags.SetFlag(Fermenter.State.Flags.Success, false);
 
-			//		if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
-			//		{
-			//			if (MathF.Abs(axle_state.angular_velocity) >= 1.00f)
-			//			{
-			//				crafter_state.work += 1.00f;
-			//				fermenter_state.flags.SetFlag(Fermenter.State.Flags.Success, true);
-			//			}
-			//			else
-			//			{
-			//				crafter_state.work = 0.00f;
-			//			}
+		//	//		if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
+		//	//		{
+		//	//			if (MathF.Abs(axle_state.angular_velocity) >= 1.00f)
+		//	//			{
+		//	//				crafter_state.work += 1.00f;
+		//	//				fermenter_state.flags.SetFlag(Fermenter.State.Flags.Success, true);
+		//	//			}
+		//	//			else
+		//	//			{
+		//	//				crafter_state.work = 0.00f;
+		//	//			}
 
-			//			fermenter_state.flags.SetFlag(Fermenter.State.Flags.Smashed, true);
+		//	//			fermenter_state.flags.SetFlag(Fermenter.State.Flags.Smashed, true);
 
-			//			axle_state.Sync(entity, true);
-			//			//crafter_state.Sync(entity);
-			//			fermenter_state.Sync(entity, true);
-			//		}
-			//	}
-			//	break;
-			//}
-		}
+		//	//			axle_state.Sync(entity, true);
+		//	//			//crafter_state.Sync(entity);
+		//	//			fermenter_state.Sync(entity, true);
+		//	//		}
+		//	//	}
+		//	//	break;
+		//	//}
+		//}
 #endif
 
 #if CLIENT
@@ -155,7 +155,7 @@
 								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
 								{
 									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
-									CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
+									//CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 
 									//ref var recipe = ref this.crafter.GetCurrentRecipe();
 									//if (!recipe.IsNull())

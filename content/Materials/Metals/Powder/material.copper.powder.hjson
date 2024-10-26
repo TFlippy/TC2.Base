@@ -24,7 +24,7 @@
 	hints: none
 	mass_per_unit: 0.896
 	bulk_density_ratio: 0.798
-	void_ratio: 0.1175
+	void_ratio: 0.103
 	packing_ratio: 0.000
 	compressibility: 0.000
 	porosity: 0.000

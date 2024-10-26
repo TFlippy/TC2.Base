@@ -327,7 +327,7 @@ namespace TC2.Base.Components
 		public static partial class Container
 		{
 			[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
-			public struct Data: IComponent, ITrait
+			public struct Data(): IComponent, ITrait
 			{
 #if DEBUG
 				public static bool dev_purge = false;
@@ -381,11 +381,6 @@ namespace TC2.Base.Components
 				[Save.Ignore, Net.Ignore] public Area vent_area_total_cached;
 				[Save.Ignore, Net.Ignore] public float vent_y_top_cached;
 				[Save.Ignore, Net.Ignore] public float vent_y_bottom_cached;
-
-				public Data()
-				{
-
-				}
 
 				public void Clear()
 				{

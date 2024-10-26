@@ -160,6 +160,14 @@ workshop:
 	orders_capacity: 1
 }
 
+crafter:
+{
+	equipment: cauldron, barrel, crucible
+	volume_max: 0.008
+
+	offset_spawn: [0.000, 0.500]
+}
+
 norotate:
 {
 	bias: 0.000

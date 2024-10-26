@@ -32,16 +32,15 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 4.347826
-							snapping: 5.000
+							amount: 1.000
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: volume
-							amount: 0.121
-							amount_min: 0.050
-							amount_max: 0.151
+							amount: 0.002
+							amount_max: 0.010
 							group: 0
 							flags: no_scaling, prerequisite
 						}
@@ -56,7 +55,7 @@
 						{
 							type: work
 							work: melting
-							amount: 71.37206
+							amount: 63.94938
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -71,7 +70,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.000
+							amount: 0.896
 							group: 0
 							flags: primary, parameter
 						}
@@ -122,7 +121,7 @@
 	rank: -167.600
 	
 	min: 1
-	max: 500
+	max: 100
 	step: 1
 	
 	start_delay: 0.500
