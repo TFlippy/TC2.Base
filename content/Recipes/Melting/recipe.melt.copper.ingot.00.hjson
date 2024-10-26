@@ -1,0 +1,136 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Melt: Copper (Ingot)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Fill"
+			
+			type: payload
+			flags: none
+			
+			ratio: 1.000
+			mass_base: 0.000
+			volume_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ingots"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.ingot
+							amount: 0.217391
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1457.770
+							amount_min: 1323.826
+							amount_max: 2077.523
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 83.65712
+							amount_min: 200.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.840435
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: substance
+							h_substance: copper
+							amount: 1.000
+							group: 0
+							flags: primary, parameter
+						}
+					]
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: none
+	tags: dangerous, metalworking, heating, melting
+	
+	icon:
+	{
+		texture: resource.copper.ingot
+		count: 8
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, -7.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [3, 3]
+	}
+	icon_extra_offset: [-4.000, -6.000]
+	icon_extra_scale: 1.125
+	
+	icon_c:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [5, 3]
+	}
+	icon_c_offset: [-14.000, -5.000]
+	
+	color_button: "0xfffff391"
+	rank: -167.800
+	
+	min: 1
+	max: 500
+	step: 1
+	
+	start_delay: 0.500
+	advance_delay: 1.000
+	
+	on_complete:
+	{
+		handle: "blob.pour"
+		data:
+		{
+			h_prefab: blob.melt
+		}
+	}
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: effect.sizzle.low.00
+	h_sound_finalize: burner.groan.01
+}
