@@ -79,15 +79,7 @@
 					flags: none
 					
 					requirements:
-					[
-						{
-							type: resource
-							material: steel.frames
-							amount: 0.137838
-							snapping: 0.100
-							loss: 0.129
-							group: 0
-						}
+					[				
 						{
 							type: work
 							work: bending
@@ -118,7 +110,17 @@
 				}
 			]
 			
-			requirements: []
+			requirements: 
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.137838
+					snapping: 0.100
+					loss: 0.129
+					group: 0
+				}
+			]
 			
 			products: []
 		}

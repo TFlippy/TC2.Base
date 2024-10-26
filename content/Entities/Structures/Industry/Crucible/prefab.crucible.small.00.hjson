@@ -51,9 +51,9 @@ health:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 1.500
-	window_size: [560.000, 472.000]
+	window_size: [616.000, 496.000]
 	window_size_misc: [72.000, 0.000]
 }
 
@@ -146,7 +146,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: hidden_if_order, complete_on_rmb
-	menu_columns: 4
+	menu_columns: 5
 	blueprints_capacity: 0
 	amount_multiplier: 1.000
 	step_multiplier: 1.000
