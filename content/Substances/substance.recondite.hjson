@@ -12,12 +12,12 @@
 	
 	icon:
 	{
-		texture: resource.recondite.ingot
+		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [4, 0]
+		frame: [14, 1]
 	}
 	
-	color_icon: "0xffffffff"
+	color_icon: "0xffd5cf97"
 	color_gui: "0xffd5cf97"
 	color_dust: "0xffd5cf97"
 	color_gib: "0xffd5cf97"

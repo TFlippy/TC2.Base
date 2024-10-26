@@ -38,6 +38,14 @@
 							flags: prerequisite
 						}
 						{
+							type: volume
+							amount: 0.121
+							amount_min: 0.050
+							amount_max: 0.151
+							group: 0
+							flags: no_scaling, prerequisite
+						}
+						{
 							type: temperature
 							amount: 1457.770
 							amount_min: 1323.826

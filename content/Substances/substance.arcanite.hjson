@@ -12,19 +12,19 @@
 	
 	icon:
 	{
-		texture: resource.arcanite.ingot
+		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [14, 1]
 	}
 	
-	color_icon: "0xffffffff"
+	color_icon: "0xffa48b5e"
 	color_gui: "0xffa48b5e"
 	color_dust: "0xffa48b5e"
 	color_gib: "0xffa48b5e"
 	color_smoke: "0xffa48b5e"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [1.000, 0.582611, 0.215596, 1.000]
+	color_molten: [1.000, 0.583, 0.216, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	

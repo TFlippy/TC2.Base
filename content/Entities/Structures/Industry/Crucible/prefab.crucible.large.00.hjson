@@ -162,7 +162,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: hidden_if_order, complete_on_rmb
-	menu_columns: 4
+	menu_columns: 5
 	blueprints_capacity: 0
 	amount_multiplier: 1.000
 	step_multiplier: 1.000
