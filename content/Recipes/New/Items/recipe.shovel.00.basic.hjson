@@ -8,10 +8,10 @@
 		{
 			name: "Head"
 			
-			type: undefined
+			type: part
 			flags: none
 			
-			ratio: 0.000
+			ratio: 0.807692
 			mass_base: 2.100
 			
 			options:
@@ -56,7 +56,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 0.18176
-							snapping: 0.2500
+							snapping: 0.250
 							loss: 0.047
 							group: 0
 							flags: prerequisite
@@ -105,7 +105,7 @@
 							amount: 50.000
 							difficulty: 11
 							group: 0
-							flags: crafter_only, conditional
+							flags: conditional
 						}
 					]
 					
@@ -120,10 +120,10 @@
 		{
 			name: "Handle"
 			
-			type: undefined
+			type: part
 			flags: none
 			
-			ratio: 0.000
+			ratio: 0.192308
 			mass_base: 0.500
 			
 			options:
@@ -168,10 +168,11 @@
 		{
 			name: "Assembly"
 			
-			type: undefined
+			type: assembly
 			flags: none
 			
 			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -266,7 +267,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, packable
+	flags: blueprintable, packable, item
 	tags: workbench, manual, simple, tool, assembling, metalworking
 	
 	icon:

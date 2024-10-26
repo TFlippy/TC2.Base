@@ -210,6 +210,7 @@ essence.container:
 	stability: 0.950
 	health_threshold: 0.100
 	glow_modifier: 1.800
+	emit_type: stressor
 	flags: show_gui, allow_edit_rate
 
 	@inventory1:
@@ -252,6 +253,8 @@ heat:
 	temperature_breakdown: 1750.000
 	cool_rate: 13.000
 	heat_capacity_extra: 80.000
+	heat_capacity_mult: 3.000
+	heat_damage_mult: 0.200
 	flags: exclude_body_mass, no_smoke
 	offset: [-2.125, 0.250]
 	smoke_offset: [-2.250, -2.375]
