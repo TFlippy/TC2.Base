@@ -22,9 +22,13 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.200
+	mass_per_unit: 0.686613
 	bulk_density_ratio: 0.695
-	stack_volume: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.128
+	volume_per_unit: 0.0001
 	quantity_max: 1000.000
 	prefab: resource.iron.powder
 	

@@ -20,21 +20,25 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, advanced, weak, expensive, civilian, military, fast
-	// kg
-	mass_per_unit: 0.2699
-	quantity_max: 500.000
+	mass_per_unit: 4.3184
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.0016
+	quantity_max: 50.000
 	prefab: resource.aluminium
 	
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	h_substance: aluminium
 	purity: 0.897
-	
-	// Component materials.
-	composition: []
 }

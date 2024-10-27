@@ -20,13 +20,13 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.200
+	mass_per_unit: 0.681206
 	bulk_density_ratio: 0.7111
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
-	porosity: 0.000
-	volume_per_unit: 0.000
+	porosity: 0.128
+	volume_per_unit: 0.0001
 	quantity_max: 1000.000
 	prefab: resource.steel.powder
 	
@@ -77,6 +77,7 @@
 		heating:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -85,6 +86,7 @@
 		melting:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			

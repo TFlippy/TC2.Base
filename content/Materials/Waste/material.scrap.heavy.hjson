@@ -13,7 +13,7 @@
 		frame: [3, 0]
 	}
 	
-	type: metal
+	type: metal_solid
 	// Flags defining properties of the raw material.
 	flags: scrap, hard, magnetic, granular, metal, heavy, waste, solid, processed, impure
 	// Flags to remove if stored in a bottle/tank/can.
@@ -23,8 +23,10 @@
 	mass_per_unit: 2.130
 	bulk_density_ratio: 0.267
 	void_ratio: 0.000
+	packing_ratio: 0.000
 	compressibility: 0.000
-	stack_volume: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
 	prefab: resource.scrap.heavy
 	

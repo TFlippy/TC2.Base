@@ -80,4 +80,17 @@
 	
 	h_substance: copper
 	purity: 0.852
+	
+	residues:
+	{
+		melting:
+		{
+			h_material: "null"
+			h_substance: slag
+			flags: none
+			flags_product: pollutant, waste, spawn, use_temperature
+			
+			yield: [0.676, 0.254]
+		}
+	}
 }

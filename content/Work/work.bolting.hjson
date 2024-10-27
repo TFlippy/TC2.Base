@@ -1,0 +1,65 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Bolting"
+	name_short: "Bolting"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [8, 0]
+	}
+	
+	flags: none
+	tags: manual, skilled, tools, advanced, technical, careful, construction, industrial, wip
+	cooldown: 1.070
+	multiplier: 0.690
+	color: "0x8f14d081"
+	
+	tools_required: none
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	character_traits:
+	{
+		include: construction, military, artisan, laborer, technician, engineer, arcane
+		exclude: insane, dumb
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		construction: 0.980
+		engineering: 0.840
+		intellect: 0.260
+		strength: 0.130
+	}
+	
+	sound_volume: 0.640
+	sound_pitch: 1.190
+	sound_size: 0.350
+	sound_dist: 0.410
+	
+	sounds: ["rivet_gun.shoot.00", "rivet_gun.shoot.01", "effect.tinker.machine.00", "rivet_gun.shoot.00", "effect.spring.machine.00", "effect.smack.metal.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: ["scrap.gib.lg.00", "scrap.hit.hard.02", "metal.snap.medium.00", "metal.snap.medium.01", "metal.gib.lg.00", "metal.gib.lg.01", "glass_hit_sharp_00"]
+}

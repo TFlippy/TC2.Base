@@ -20,21 +20,25 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, rare, heavy, healing, expensive, fancy, civilian
-	// kg
-	mass_per_unit: 1.049
-	quantity_max: 500.000
+	mass_per_unit: 16.784
+	bulk_density_ratio: 0.000
+	void_ratio: 0.000
+	packing_ratio: 0.000
+	compressibility: 0.000
+	porosity: 0.000
+	volume_per_unit: 0.0016
+	quantity_max: 50.000
 	prefab: resource.silver
 	
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	h_substance: silver
 	purity: 0.980
-	
-	// Component materials.
-	composition: []
 }
