@@ -45,11 +45,13 @@
 		{
 			h_material: scrap.ferrous
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.220
 			ratio_extra: 0.710
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -70,11 +72,13 @@
 		{
 			h_material: steel.powder
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.010
 			ratio_extra: 0.070
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -95,11 +99,13 @@
 		{
 			h_material: steel
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.910
 			ratio_extra: 0.060
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -116,6 +122,33 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
+		sledgehammer:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.steel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.510
+			ratio_waste_extra: 0.440
+			
+			yield: 0.610
+			yield_extra: 0.320
+			
+			h_sound: scrap.hit.hard.02
+			sound_volume: 0.500
+			sound_pitch: 0.900
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 0.640
+		}
 	}
 	
 	residues:
@@ -125,7 +158,7 @@
 			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.859649, 0.140351]
 		}
@@ -134,7 +167,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.783, 0.098]
 		}
@@ -143,7 +176,7 @@
 			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.970, 0.030]
 		}
@@ -152,7 +185,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.940, 0.050]
 		}
@@ -161,7 +194,7 @@
 			h_material: scrap.ferrous
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.950, 0.030]
 		}
@@ -170,7 +203,7 @@
 			h_material: iron.powder
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.870, 0.110]
 		}
@@ -179,7 +212,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.940, 0.040]
 		}
@@ -188,7 +221,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: waste, byproduct, residue
+			flags_product: byproduct, residue
 			
 			yield: [0.380, 0.430]
 		}
@@ -197,7 +230,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.390, 0.500]
 		}
@@ -206,7 +239,7 @@
 			h_material: scrap.metal
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.630, 0.270]
 		}
@@ -215,7 +248,7 @@
 			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.9716, 0.0284]
 		}
@@ -224,7 +257,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.881, 0.112]
 		}

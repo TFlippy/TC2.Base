@@ -87,7 +87,7 @@
 		{
 			h_material: scrap.machine
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
 			yield: [0.930, 0.070]
 		}

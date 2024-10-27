@@ -10,10 +10,11 @@
 			
 			type: part
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.800
 			mass_base: 0.384
-			volume_base: 0.000
 			
 			options:
 			[
@@ -59,10 +60,11 @@
 			
 			type: part
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.200
 			mass_base: 0.096
-			volume_base: 0.000
 			
 			options:
 			[
@@ -108,10 +110,11 @@
 			
 			type: assembly
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
-			volume_base: 0.000
 			
 			options:
 			[
