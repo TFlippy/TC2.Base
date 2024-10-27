@@ -132,7 +132,8 @@
 	{
 		snipping.metal:
 		{
-			h_material_result: scrap.copper
+			h_material: scrap.copper
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -140,7 +141,8 @@
 		}
 		carving:
 		{
-			h_material_result: copper.powder
+			h_material: copper.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -148,7 +150,8 @@
 		}
 		cutting:
 		{
-			h_material_result: scrap.copper
+			h_material: scrap.copper
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -156,7 +159,8 @@
 		}
 		drilling:
 		{
-			h_material_result: copper.powder
+			h_material: copper.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -164,7 +168,8 @@
 		}
 		smithing:
 		{
-			h_material_result: scrap.copper
+			h_material: scrap.copper
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -172,7 +177,8 @@
 		}
 		machining:
 		{
-			h_material_result: copper.powder
+			h_material: copper.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -180,7 +186,8 @@
 		}
 		sawing:
 		{
-			h_material_result: copper.powder
+			h_material: copper.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -188,7 +195,8 @@
 		}
 		die_cutting.metal:
 		{
-			h_material_result: scrap.copper
+			h_material: scrap.copper
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -196,11 +204,21 @@
 		}
 		bending:
 		{
-			h_material_result: scrap.copper
+			h_material: scrap.copper
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
 			yield: [0.9546, 0.0454]
+		}
+		melting:
+		{
+			h_material: scrap.copper
+			h_substance: "null"
+			flags: none
+			flags_product: pollutant, waste, use_temperature
+			
+			yield: [0.574, 0.223]
 		}
 	}
 }

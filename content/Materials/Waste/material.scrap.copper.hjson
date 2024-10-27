@@ -20,17 +20,22 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, junk, construction, cheap
-	// kg
 	mass_per_unit: 1.210
+	bulk_density_ratio: 0.799
+	void_ratio: 0.152
+	packing_ratio: 0.816
+	compressibility: 0.8042
+	porosity: 0.081
+	volume_per_unit: 0.00043
 	quantity_max: 500.000
 	prefab: resource.scrap.copper
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -75,7 +80,4 @@
 	
 	h_substance: copper
 	purity: 0.852
-	
-	// Component materials.
-	composition: []
 }

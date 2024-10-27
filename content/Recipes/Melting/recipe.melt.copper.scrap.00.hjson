@@ -32,10 +32,19 @@
 						{
 							type: resource
 							material: scrap.copper
-							amount: 1.000
+							amount: 0.980
 							snapping: 1.000
+							loss: 0.039
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: volume
+							amount: 0.500
+							amount_min: 0.050
+							amount_max: 0.850
+							group: 0
+							flags: no_scaling, prerequisite
 						}
 						{
 							type: temperature
@@ -48,7 +57,7 @@
 						{
 							type: work
 							work: melting
-							amount: 98.74454
+							amount: 107.8151
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
@@ -63,23 +72,12 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.000
-							amount_extra: 0.042817
+							amount: 1.1318
+							amount_extra: 0.0641
 							group: 0
-							flags: primary, parameter, use_temperature
-						}
-						{
-							type: substance
-							h_substance: slag
-							amount: 0.031731
-							amount_extra: 0.01149
-							group: 0
-							flags: waste, residue, parameter, use_temperature
+							flags: primary, parameter
 						}
 					]
-					
-					yield_mult: 0.9744
-					purity_mult: 0.9441
 				}
 			]
 			
@@ -126,7 +124,7 @@
 	rank: -167.500
 	
 	min: 1
-	max: 500
+	max: 20
 	step: 1
 	
 	start_delay: 0.500

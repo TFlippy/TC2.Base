@@ -85,7 +85,7 @@
 	{
 		assembling:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: waste
 			
@@ -93,7 +93,7 @@
 		}
 		bending:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -101,7 +101,7 @@
 		}
 		calibration:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -109,7 +109,7 @@
 		}
 		carpentry:
 		{
-			h_material_result: scrap.mixed
+			h_material: scrap.mixed
 			flags: none
 			flags_product: none
 			
@@ -117,7 +117,7 @@
 		}
 		construction:
 		{
-			h_material_result: scrap.mixed
+			h_material: scrap.mixed
 			flags: none
 			flags_product: none
 			
@@ -125,7 +125,7 @@
 		}
 		die_cutting.metal:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -133,7 +133,7 @@
 		}
 		dismantling:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -141,7 +141,7 @@
 		}
 		cutting:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -149,7 +149,7 @@
 		}
 		drilling:
 		{
-			h_material_result: scrap.metal
+			h_material: scrap.metal
 			flags: none
 			flags_product: none
 			
@@ -157,7 +157,7 @@
 		}
 		woodcarving:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -165,7 +165,7 @@
 		}
 		woodworking:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -173,7 +173,7 @@
 		}
 		snipping.metal:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -181,7 +181,7 @@
 		}
 		slicing:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -189,7 +189,7 @@
 		}
 		scavenging:
 		{
-			h_material_result: scrap.mixed
+			h_material: scrap.mixed
 			flags: none
 			flags_product: none
 			
@@ -197,7 +197,7 @@
 		}
 		smithing:
 		{
-			h_material_result: scrap.metal
+			h_material: scrap.metal
 			flags: none
 			flags_product: none
 			
@@ -205,7 +205,7 @@
 		}
 		hammering:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -213,7 +213,7 @@
 		}
 		grinding:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -221,7 +221,7 @@
 		}
 		heating:
 		{
-			h_material_result: scrap.metal
+			h_material: scrap.metal
 			flags: none
 			flags_product: none
 			
@@ -229,7 +229,7 @@
 		}
 		metal.forming:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -237,7 +237,7 @@
 		}
 		sawing:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -245,7 +245,7 @@
 		}
 		casting:
 		{
-			h_material_result: scrap.metal
+			h_material: scrap.metal
 			flags: none
 			flags_product: none
 			
@@ -253,7 +253,7 @@
 		}
 		machining:
 		{
-			h_material_result: scrap.machine
+			h_material: scrap.machine
 			flags: none
 			flags_product: none
 			
@@ -261,7 +261,7 @@
 		}
 		gluing:
 		{
-			h_material_result: scrap.mixed
+			h_material: scrap.mixed
 			flags: none
 			flags_product: none
 			

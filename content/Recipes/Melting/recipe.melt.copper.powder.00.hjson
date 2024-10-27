@@ -50,7 +50,7 @@
 							amount: 1457.770
 							amount_min: 1323.826
 							amount_max: 2077.523
-							group: 1
+							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
@@ -61,7 +61,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.839413
-							group: 1
+							group: 0
 							flags: conditional, add_amount_min
 						}
 					]

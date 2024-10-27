@@ -288,7 +288,7 @@
 	{
 		snipping.metal:
 		{
-			h_material_result: scrap.steel
+			h_material: scrap.steel
 			flags: none
 			flags_product: waste
 			
@@ -296,7 +296,7 @@
 		}
 		carving:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: waste
 			
@@ -304,7 +304,7 @@
 		}
 		cutting:
 		{
-			h_material_result: scrap.steel
+			h_material: scrap.steel
 			flags: none
 			flags_product: waste
 			
@@ -312,7 +312,7 @@
 		}
 		drilling:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: waste
 			
@@ -320,7 +320,7 @@
 		}
 		smithing:
 		{
-			h_material_result: scrap.ferrous
+			h_material: scrap.ferrous
 			flags: none
 			flags_product: waste
 			
@@ -328,7 +328,7 @@
 		}
 		machining:
 		{
-			h_material_result: iron.powder
+			h_material: iron.powder
 			flags: none
 			flags_product: waste
 			
@@ -336,7 +336,7 @@
 		}
 		sawing:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: waste
 			
@@ -344,7 +344,7 @@
 		}
 		die_cutting.metal:
 		{
-			h_material_result: scrap.steel
+			h_material: scrap.steel
 			flags: none
 			flags_product: waste
 			
@@ -352,7 +352,7 @@
 		}
 		bending:
 		{
-			h_material_result: scrap.steel
+			h_material: scrap.steel
 			flags: none
 			flags_product: residue
 			

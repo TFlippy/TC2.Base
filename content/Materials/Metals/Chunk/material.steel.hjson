@@ -76,7 +76,7 @@
 	{
 		carving:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: none
 			
@@ -84,7 +84,7 @@
 		}
 		cutting:
 		{
-			h_material_result: scrap.steel
+			h_material: scrap.steel
 			flags: none
 			flags_product: none
 			
@@ -92,7 +92,7 @@
 		}
 		drilling:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: none
 			
@@ -100,7 +100,7 @@
 		}
 		smithing:
 		{
-			h_material_result: steel
+			h_material: steel
 			flags: none
 			flags_product: none
 			
@@ -108,7 +108,7 @@
 		}
 		machining:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: none
 			
@@ -116,7 +116,7 @@
 		}
 		sawing:
 		{
-			h_material_result: steel.powder
+			h_material: steel.powder
 			flags: none
 			flags_product: none
 			
@@ -124,7 +124,7 @@
 		}
 		grinding:
 		{
-			h_material_result: iron.powder
+			h_material: iron.powder
 			flags: none
 			flags_product: none
 			

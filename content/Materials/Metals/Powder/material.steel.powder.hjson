@@ -76,7 +76,7 @@
 	{
 		heating:
 		{
-			h_material_result: iron.powder
+			h_material: iron.powder
 			flags: none
 			flags_product: waste
 			
@@ -84,7 +84,7 @@
 		}
 		melting:
 		{
-			h_material_result: iron.powder
+			h_material: iron.powder
 			flags: none
 			flags_product: residue
 			

@@ -213,63 +213,63 @@
 	{
 		woodcarving:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			
 			yield: [0.6558, 0.2242]
 		}
 		carpentry:
 		{
-			h_material_result: scrap.wood
+			h_material: scrap.wood
 			flags: none
 			
 			yield: [0.820, 0.120]
 		}
 		construction:
 		{
-			h_material_result: scrap.wood
+			h_material: scrap.wood
 			flags: none
 			
 			yield: [0.820, 0.120]
 		}
 		cutting:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			
 			yield: [0.720, 0.210]
 		}
 		drilling:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			
 			yield: [0.890, 0.070]
 		}
 		woodworking:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			
 			yield: [0.880, 0.070]
 		}
 		sawing:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			
 			yield: [0.850, 0.070]
 		}
 		machining:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			
 			yield: [0.770, 0.210]
 		}
 		chiseling:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			
 			yield: [0.840, 0.130]

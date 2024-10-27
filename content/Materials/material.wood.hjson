@@ -230,7 +230,7 @@
 	{
 		woodcarving:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			flags_product: waste
 			
@@ -238,7 +238,7 @@
 		}
 		carpentry:
 		{
-			h_material_result: scrap.wood
+			h_material: scrap.wood
 			flags: none
 			flags_product: waste
 			
@@ -246,7 +246,7 @@
 		}
 		construction:
 		{
-			h_material_result: scrap.wood
+			h_material: scrap.wood
 			flags: none
 			flags_product: waste
 			
@@ -254,7 +254,7 @@
 		}
 		cutting:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			flags_product: waste
 			
@@ -262,7 +262,7 @@
 		}
 		drilling:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			flags_product: waste
 			
@@ -270,7 +270,7 @@
 		}
 		woodworking:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			flags_product: waste
 			
@@ -278,7 +278,7 @@
 		}
 		sawing:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			flags_product: waste
 			
@@ -286,7 +286,7 @@
 		}
 		machining:
 		{
-			h_material_result: sawdust
+			h_material: sawdust
 			flags: none
 			flags_product: waste
 			
@@ -294,7 +294,7 @@
 		}
 		chiseling:
 		{
-			h_material_result: woodchips
+			h_material: woodchips
 			flags: none
 			flags_product: waste
 			
