@@ -1,0 +1,70 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Filing"
+	name_short: "Filing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, tools, simple, construction
+	cooldown: 0.850
+	multiplier: 1.100
+	color: "0xff719240"
+	
+	tools_required: file
+	tools_optional: none
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: table, chair, vise
+	
+	filter_environment:
+	{
+		include: workshop, stationary, illuminated, dry
+	}
+	
+	character_traits:
+	{
+		include: construction, criminal, nobility, artisan, laborer, technician, insane, thief
+		exclude: huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		blades: 0.450
+		dexterity: 0.350
+		construction: 0.320
+		strength: 0.100
+	}
+	
+	sound_volume: 0.710
+	sound_pitch: 1.150
+	sound_size: 0.420
+	sound_dist: 0.590
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

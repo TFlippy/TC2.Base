@@ -56,7 +56,7 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 0.18176
+							amount: 0.187382
 							snapping: 0.250
 							loss: 0.047
 							group: 0

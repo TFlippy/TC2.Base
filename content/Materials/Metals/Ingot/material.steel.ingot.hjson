@@ -16,28 +16,27 @@
 	}
 	
 	type: metal_solid
-	// Flags defining properties of the raw material.
 	flags: hard, magnetic, metal, small, ingot, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 12.12422
-	bulk_density_ratio: 0.000
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.030
+	purity: 0.976
+	mass_per_unit: 11.7605
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
+	form_type: ingot
 	prefab: resource.steel.ingot
+	h_substance: steel
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
 	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [1.000, 0.521, 0.220, 0.882]
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.753, 0.776, 0.675, 1.000]
 	
 	colliders:
 	[
@@ -170,9 +169,6 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: steel
-	purity: 0.976
-	
 	// Conversions into other materials.
 	conversions:
 	{
@@ -258,6 +254,7 @@
 		carving:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -266,6 +263,7 @@
 		cutting:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -274,6 +272,7 @@
 		drilling:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -282,6 +281,7 @@
 		smithing:
 		{
 			h_material: steel
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -290,6 +290,7 @@
 		machining:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -298,6 +299,7 @@
 		sawing:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -306,6 +308,7 @@
 		grinding:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			

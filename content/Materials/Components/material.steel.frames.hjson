@@ -14,21 +14,20 @@
 	}
 	
 	type: metal_frame
-	// Flags defining properties of the raw material.
 	flags: hard, magnetic, granular, metal, small, flexible, solid, processed
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 2.500
-	bulk_density_ratio: 0.106
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.000
+	purity: 0.953
+	mass_per_unit: 2.500
 	volume_per_unit: 0.000
 	quantity_max: 256.000
+	form_type: undefined
 	prefab: resource.steel.frames
+	h_substance: steel
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
@@ -38,9 +37,6 @@
 	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
-	
-	h_substance: steel
-	purity: 0.953
 	
 	// Conversions into other materials.
 	conversions:
@@ -127,6 +123,7 @@
 		snipping.metal:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -135,14 +132,16 @@
 		carving:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
-			yield: [1.000, 0.000]
+			yield: [0.783, 0.098]
 		}
 		cutting:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -151,6 +150,7 @@
 		drilling:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -159,6 +159,7 @@
 		smithing:
 		{
 			h_material: scrap.ferrous
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -167,6 +168,7 @@
 		machining:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -175,6 +177,7 @@
 		sawing:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -183,6 +186,7 @@
 		assembling:
 		{
 			h_material: scrap.machine
+			h_substance: "null"
 			flags: none
 			flags_product: waste, byproduct, residue
 			
@@ -191,6 +195,7 @@
 		dismantling:
 		{
 			h_material: scrap.machine
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -199,6 +204,7 @@
 		construction:
 		{
 			h_material: scrap.metal
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
@@ -207,10 +213,20 @@
 		bending:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: waste
 			
 			yield: [0.9716, 0.0284]
+		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.881, 0.112]
 		}
 	}
 }

@@ -13,6 +13,7 @@
 			
 			ratio: 0.917431
 			mass_base: 10.000
+			volume_base: 0.000
 			
 			options:
 			[
@@ -30,7 +31,7 @@
 							amount: 1.000
 							snapping: 1.000
 							falloff: 1.000
-							loss: 0.176
+							loss: 0.149
 							group: 0
 							flags: prerequisite
 						}
@@ -65,6 +66,7 @@
 			
 			ratio: 0.082569
 			mass_base: 0.900
+			volume_base: 0.000
 			
 			options:
 			[
@@ -112,6 +114,7 @@
 			
 			ratio: 0.000
 			mass_base: 0.000
+			volume_base: 0.000
 			
 			options:
 			[
