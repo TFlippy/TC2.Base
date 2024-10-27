@@ -193,7 +193,7 @@ namespace TC2.Base.Components
 			camera.zoom_modifier *= 1.00f - (Maths.Perlin(info.WorldTime * 0.15f, 0.00f, 4.00f) * 0.30f * modifier);
 			camera.rotation = Maths.Lerp(camera.rotation, rot, 0.50f);
 
-			Drunk.Color.a.ClampMinRef(Maths.Clamp(modifier * 3.00f, 0.00f, 0.95f));
+			Drunk.Color.a = Drunk.Color.a.ClampMin(Maths.Clamp(modifier * 3.00f, 0.00f, 0.95f));
 			//App.WriteLine(Drunk.Color.W);
 
 			ref var low_pass = ref Audio.LowPass;

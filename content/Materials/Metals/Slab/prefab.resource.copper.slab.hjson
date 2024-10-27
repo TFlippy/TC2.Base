@@ -11,7 +11,7 @@ body:
 		radius: 0.850
 		friction: 0.850
 		elasticity: 0.350
-		mass: 0.010
+		mass: 1.000
 
 		material: metal_solid
 		
