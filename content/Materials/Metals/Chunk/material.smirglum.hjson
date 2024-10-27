@@ -21,12 +21,12 @@
 	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, heavy, advanced, powerful, construction, industrial, slow
-	mass_per_unit: 47.87392
+	mass_per_unit: 44.71423
 	bulk_density_ratio: 0.000
 	void_ratio: 0.000
 	packing_ratio: 0.000
 	compressibility: 0.000
-	porosity: 0.000
+	porosity: 0.066
 	volume_per_unit: 0.0016
 	quantity_max: 50.000
 	prefab: resource.smirglum
