@@ -160,11 +160,16 @@ workshop:
 	orders_capacity: 1
 }
 
+fillable:
+{
+	flags: use_misc, reusable
+	volume_capacity: 0.008
+	capacity: 1.000
+}
+
 crafter:
 {
 	equipment: cauldron, barrel, crucible
-	volume_max: 0.008
-
 	offset_spawn: [0.000, 0.500]
 }
 

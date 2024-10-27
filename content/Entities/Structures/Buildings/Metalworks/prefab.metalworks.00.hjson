@@ -275,3 +275,19 @@ heat:
 		pitch: 1.000
 	}
 }
+
+fillable:
+{
+	flags: use_misc, reusable
+	volume_capacity: 0.004
+	capacity: 1.000
+}
+
+crafter:
+{
+	tools: pencil, paper, ruler, hammer, saw, screwdriver, wrench, pliers, bucket, file, tongs, knife
+	machinery: heater, burner, stove
+	equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
+	environment: workshop, stationary, dirty, noisy
+	volume_max: 0.010
+}

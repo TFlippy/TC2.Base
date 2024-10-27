@@ -32,28 +32,37 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.87108
+							amount: 1.000
 							snapping: 1.000
+							loss: 0.024
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: volume
+							amount: 0.500
+							amount_min: 0.050
+							amount_max: 0.850
+							group: 0
+							flags: no_scaling, prerequisite
 						}
 						{
 							type: temperature
 							amount: 1457.770
 							amount_min: 1323.826
 							amount_max: 2077.523
-							group: 0
+							group: 1
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: melting
-							amount: 99.11374
+							amount: 266.4178
 							amount_min: 200.000
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.840298
-							group: 0
+							group: 1
 							flags: conditional, add_amount_min
 						}
 					]
@@ -63,7 +72,7 @@
 						{
 							type: substance
 							h_substance: copper
-							amount: 1.000
+							amount: 2.688
 							group: 0
 							flags: primary, parameter
 						}
@@ -114,7 +123,7 @@
 	rank: -167.700
 	
 	min: 1
-	max: 500
+	max: 50
 	step: 1
 	
 	start_delay: 0.500

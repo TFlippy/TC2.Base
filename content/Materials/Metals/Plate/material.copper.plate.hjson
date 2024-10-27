@@ -24,8 +24,8 @@
 	mass_per_unit: 2.688
 	bulk_density_ratio: 0.9871
 	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	packing_ratio: 0.9308
+	compressibility: 0.0543
 	porosity: 0.000
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
@@ -127,4 +127,80 @@
 	
 	h_substance: copper
 	purity: 0.981
+	
+	residues:
+	{
+		snipping.metal:
+		{
+			h_material_result: scrap.copper
+			flags: none
+			flags_product: waste
+			
+			yield: [0.8656, 0.1344]
+		}
+		carving:
+		{
+			h_material_result: copper.powder
+			flags: none
+			flags_product: waste
+			
+			yield: [0.919, 0.042]
+		}
+		cutting:
+		{
+			h_material_result: scrap.copper
+			flags: none
+			flags_product: waste
+			
+			yield: [0.986, 0.014]
+		}
+		drilling:
+		{
+			h_material_result: copper.powder
+			flags: none
+			flags_product: waste
+			
+			yield: [0.940, 0.050]
+		}
+		smithing:
+		{
+			h_material_result: scrap.copper
+			flags: none
+			flags_product: waste
+			
+			yield: [0.950, 0.030]
+		}
+		machining:
+		{
+			h_material_result: copper.powder
+			flags: none
+			flags_product: waste
+			
+			yield: [0.870, 0.110]
+		}
+		sawing:
+		{
+			h_material_result: copper.powder
+			flags: none
+			flags_product: waste
+			
+			yield: [0.952, 0.033]
+		}
+		die_cutting.metal:
+		{
+			h_material_result: scrap.copper
+			flags: none
+			flags_product: waste
+			
+			yield: [0.972, 0.028]
+		}
+		bending:
+		{
+			h_material_result: scrap.copper
+			flags: none
+			flags_product: residue
+			
+			yield: [0.9546, 0.0454]
+		}
+	}
 }

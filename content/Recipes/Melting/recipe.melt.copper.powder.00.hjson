@@ -39,8 +39,9 @@
 						}
 						{
 							type: volume
-							amount: 0.002
-							amount_max: 0.010
+							amount: 0.500
+							amount_min: 0.050
+							amount_max: 0.850
 							group: 0
 							flags: no_scaling, prerequisite
 						}
@@ -49,7 +50,7 @@
 							amount: 1457.770
 							amount_min: 1323.826
 							amount_max: 2077.523
-							group: 0
+							group: 1
 							flags: no_scaling, always_evaluate
 						}
 						{
@@ -60,7 +61,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.839413
-							group: 0
+							group: 1
 							flags: conditional, add_amount_min
 						}
 					]
