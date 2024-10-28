@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Copper (Plate)"
-	name_short: "Copper (Pt.)"
+	name: "Copper Plate"
+	name_short: "Cop. Plate"
 	description:
 		'''
 		Copper formed into a plate.

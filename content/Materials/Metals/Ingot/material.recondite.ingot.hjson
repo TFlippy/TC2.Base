@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Recondite (Ingot)"
-	name_short: "Recondite (Ig.)"
+	name: "Recondite Ingot"
+	name_short: "Rec. Ingot"
 	description:
 		'''
 		Alloy of smirglum and silver.

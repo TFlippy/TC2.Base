@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Steel (Powder)"
-	name_short: "St. (Pw.)"
+	name: "Steel Powder"
+	name_short: "St. Powder"
 	description:
 		'''
 		Fine-grained steel powder-swarf.

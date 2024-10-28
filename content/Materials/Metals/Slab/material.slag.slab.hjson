@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Slag Slab"
-	name_short: "Slag (Sb.)"
+	name_short: "Slag Slab"
 	
 	icon:
 	{

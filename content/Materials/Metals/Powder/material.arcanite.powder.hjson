@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Arcanite (Powder)"
-	name_short: "Arcanite (Pw.)"
+	name: "Arcanite Powder"
+	name_short: "Arc. Powder"
 	description:
 		'''
 		A powdered mixture of smirglum and gold capable of interacting with the immaterial world.

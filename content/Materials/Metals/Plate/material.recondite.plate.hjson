@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Recondite Plate"
-	name_short: "Recondite (Pt.)"
+	name_short: "Rec. Plate"
 	description:
 		'''
 		Recondite formed into a plate.

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Steel (Ingot)"
-	name_short: "St. (Ig.)"
+	name: "Steel Ingot"
+	name_short: "St. Ingot"
 	description:
 		'''
 		Standard 16x8x4 cm steel ingot.

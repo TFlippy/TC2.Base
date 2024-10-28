@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Smirglum (Powder)"
-	name_short: "Smirglum (Pw.)"
+	name: "Smirglum Powder"
+	name_short: "Sg. Powder"
 	description:
 		'''
 		High-purity smirglum powder.

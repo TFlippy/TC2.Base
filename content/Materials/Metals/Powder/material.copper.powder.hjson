@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Copper (Powder)"
-	name_short: "Copper (Pw.)"
+	name: "Copper Powder"
+	name_short: "Cop. Powder"
 	description:
 		'''
 		High-purity copper powder.

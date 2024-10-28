@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Arcanite Plate"
-	name_short: "Arcanite (Pt.)"
+	name_short: "Arc. Plate"
 	description:
 		'''
 		Arcanite formed into a plate.

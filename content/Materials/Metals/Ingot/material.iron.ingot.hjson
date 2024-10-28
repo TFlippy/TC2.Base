@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Iron Ingot"
-	name_short: "Iron (Ig.)"
+	name_short: "Irn. Ingot"
 	description:
 		'''
 		Solid iron ingot.

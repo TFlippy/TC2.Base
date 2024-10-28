@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel Plate"
-	name_short: "St. (Pt.)"
+	name_short: "St. Plate"
 	description:
 		'''
 		Standard 16x16x0.5 cm steel plate.

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Gold (Powder)"
-	name_short: "Gold (Pw.)"
+	name: "Gold Powder"
+	name_short: "G. Powder"
 	description:
 		'''
 		High-purity gold powder.

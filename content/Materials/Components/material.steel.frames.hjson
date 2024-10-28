@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel Frames"
-	name_short: "St. (Fr.)"
+	name_short: "St. Frames"
 	description:
 		'''
 		Various structural steel components - frames, braces, grids, grates, struts.

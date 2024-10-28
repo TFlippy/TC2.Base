@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Aluminium Ingot"
-	name_short: "Al. (Ig.)"
+	name_short: "Al. Ingot"
 	description:
 		'''
 		TODO: Desc

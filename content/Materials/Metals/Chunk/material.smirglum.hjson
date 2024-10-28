@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Smirglum"
-	name_short: "Smirglum (Ch.)"
+	name: "Smirglum Chunk"
+	name_short: "Sg. Chunk"
 	description:
 		'''
 		Extremely dense metal with a unique property of being able to interact with essences.

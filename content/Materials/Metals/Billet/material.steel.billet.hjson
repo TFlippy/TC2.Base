@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel Billet"
-	name_short: "St. (Bt.)"
+	name_short: "St. Billet"
 	description:
 		'''
 		Standard 256x8x8 cm steel billet.

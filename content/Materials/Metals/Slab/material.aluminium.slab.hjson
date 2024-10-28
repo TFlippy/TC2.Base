@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Aluminium Slab"
-	name_short: "Al (Sb.)"
+	name_short: "Al Slab"
 	
 	icon:
 	{

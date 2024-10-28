@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Copper (Ingot)"
-	name_short: "Copper (Ig.)"
+	name: "Copper Ingot"
+	name_short: "Cop. Ingot"
 	description:
 		'''
 		TODO: Desc

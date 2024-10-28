@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Recondite (Powder)"
-	name_short: "Recondite (Pw.)"
+	name: "Recondite Powder"
+	name_short: "Rec. Powder"
 	description:
 		'''
 		A powdered mixture of smirglum and silver capable of interacting with the immaterial world.

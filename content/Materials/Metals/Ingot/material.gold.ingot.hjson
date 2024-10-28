@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Gold Ingot"
-	name_short: "Gold (Ig.)"
+	name_short: "G. Ingot"
 	description:
 		'''
 		We're rich!

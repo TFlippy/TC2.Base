@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Silver (Powder)"
-	name_short: "Silver (Pw.)"
+	name: "Silver Powder"
+	name_short: "Sv. Powder"
 	description:
 		'''
 		High-purity silver powder.

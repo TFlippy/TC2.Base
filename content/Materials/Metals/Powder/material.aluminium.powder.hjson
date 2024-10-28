@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Aluminium (Powder)"
-	name_short: "Al. (Pw.)"
+	name: "Aluminium Powder"
+	name_short: "Al. Powder"
 	description:
 		'''
 		High-purity aluminium powder.
