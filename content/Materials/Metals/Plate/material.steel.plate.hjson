@@ -28,7 +28,7 @@
 	mass_per_unit: 2.3436
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
-	form_type: undefined
+	form_type: plate
 	prefab: resource.steel.plate
 	h_substance: steel
 	

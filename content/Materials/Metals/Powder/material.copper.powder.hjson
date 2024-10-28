@@ -25,10 +25,10 @@
 	density_ratio: 0.000
 	porosity: 0.128
 	purity: 0.994
-	mass_per_unit: 0.781312
+	mass_per_unit: 0.681304
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
-	form_type: undefined
+	form_type: powder
 	prefab: resource.copper.powder
 	h_substance: copper
 	

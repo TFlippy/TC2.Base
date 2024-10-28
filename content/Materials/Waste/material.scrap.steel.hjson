@@ -21,12 +21,12 @@
 	bulk_density_ratio_min: 0.000
 	bulk_density_ratio_max: 0.000
 	density_ratio: 0.000
-	porosity: 0.000
+	porosity: 0.270
 	purity: 0.788
-	mass_per_unit: 1.410
-	volume_per_unit: 0.000
-	quantity_max: 500.000
-	form_type: undefined
+	mass_per_unit: 1.790096
+	volume_per_unit: 0.00043
+	quantity_max: 250.000
+	form_type: scrap
 	prefab: resource.scrap.steel
 	h_substance: steel
 	

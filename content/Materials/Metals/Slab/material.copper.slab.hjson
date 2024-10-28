@@ -19,10 +19,10 @@
 	density_ratio: 0.000
 	porosity: 0.030
 	purity: 0.979
-	mass_per_unit: 1251.533
+	mass_per_unit: 1213.987
 	volume_per_unit: 0.144
 	quantity_max: 4.000
-	form_type: undefined
+	form_type: slab
 	prefab: resource.copper.slab
 	h_substance: copper
 	

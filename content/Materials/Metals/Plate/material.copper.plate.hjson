@@ -27,7 +27,7 @@
 	mass_per_unit: 2.688
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
-	form_type: undefined
+	form_type: plate
 	prefab: resource.copper.plate
 	h_substance: copper
 	

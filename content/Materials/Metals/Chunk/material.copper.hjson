@@ -23,10 +23,10 @@
 	density_ratio: 0.000
 	porosity: 0.066
 	purity: 0.979
-	mass_per_unit: 13.38982
+	mass_per_unit: 12.50609
 	volume_per_unit: 0.0016
 	quantity_max: 50.000
-	form_type: undefined
+	form_type: chunk
 	prefab: resource.copper
 	h_substance: copper
 	

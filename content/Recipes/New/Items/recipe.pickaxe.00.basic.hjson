@@ -30,6 +30,7 @@
 							type: resource
 							material: steel.frames
 							amount: 2.000
+							snapping: 1.000
 							group: 1
 						}
 						{
@@ -71,7 +72,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Hand-Carved"
 					
 					type: undefined
 					flags: none
@@ -81,7 +82,9 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.187266
+							amount: 0.210365
+							snapping: 1.000
+							loss: 0.110
 							group: 0
 							flags: prerequisite
 						}

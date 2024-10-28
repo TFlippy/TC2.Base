@@ -3,21 +3,104 @@
 	name: "Prospector Pick"
 	tips: []
 	
-	icon:
-	{
-		texture: prospector_pick
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, wip
-	tags: workbench, manual, blacksmithing, assembling, machining, metalworking, forming, shaping
-	
-	color_button: "0xffaeb59a"
-	rank: 16.000
+	stages:
+	[
+		{
+			name: "Head"
+			
+			type: part
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.888889
+			mass_base: 2.800
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 1.120
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: work
+							work: smithing
+							amount: 480.000
+							difficulty: 7
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "Handle"
+			
+			type: part
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.095238
+			mass_base: 0.300
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.140449
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodworking
+							amount: 220.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
 	requirements:
 	[
@@ -59,6 +142,23 @@
 			prefab: prospector_pick
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, wip, item
+	tags: workbench, manual, blacksmithing, assembling, machining, metalworking, forming, shaping
+	
+	icon:
+	{
+		texture: prospector_pick
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 16.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

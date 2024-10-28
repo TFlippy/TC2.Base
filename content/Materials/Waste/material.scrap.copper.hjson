@@ -21,12 +21,12 @@
 	bulk_density_ratio_min: 0.000
 	bulk_density_ratio_max: 0.000
 	density_ratio: 0.000
-	porosity: 0.081
+	porosity: 0.270
 	purity: 0.852
-	mass_per_unit: 1.210
+	mass_per_unit: 2.053157
 	volume_per_unit: 0.00043
-	quantity_max: 500.000
-	form_type: undefined
+	quantity_max: 250.000
+	form_type: scrap
 	prefab: resource.scrap.copper
 	h_substance: copper
 	
