@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Arcanite Pellets (Empty)"
+	name_short: "Pellet"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.

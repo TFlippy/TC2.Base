@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Hydrochloric Acid"
+	name_short: "HCl"
 	description:
 		'''
 		A strong acid.
@@ -14,17 +15,20 @@
 	}
 	
 	type: liquid
-	// Flags defining properties of the raw material.
 	flags: liquid, bottled, corrosive, primary
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: corrosive
 	display_flags: none
 	hints: none
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.822
 	mass_per_unit: 0.100
-	bulk_density_ratio: 1.000
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.hydrochloric_acid
+	h_substance: hydrochloric_acid
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -73,7 +77,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: hydrochloric_acid
-	purity: 0.822
 }

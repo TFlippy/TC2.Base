@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Nitroglycerine"
+	name_short: "TNG"
 	description:
 		'''
 		TODO: Desc

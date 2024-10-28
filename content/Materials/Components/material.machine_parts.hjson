@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Machine Parts"
-	name_short: "Mch. Parts"
+	name_short: "M. Parts"
 	description:
 		'''
 		Pile of small machine parts and fasteners - gears, hinges, bolts, springs, screws.

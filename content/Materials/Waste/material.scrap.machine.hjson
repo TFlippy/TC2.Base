@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Machine Scrap"
-	name_short: "Mch. Scrap"
+	name_short: "M. Scrap"
 	description:
 		'''
 		Heap of non-functional remains of formerly functional machinery.
