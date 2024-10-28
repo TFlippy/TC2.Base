@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Arcanite (Powder)"
+	name_short: "Arcanite (Pw.)"
 	description:
 		'''
 		A powdered mixture of smirglum and gold capable of interacting with the immaterial world.
@@ -14,21 +15,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: magnetic, granular, metal, powder, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 2.036713
-	bulk_density_ratio: 0.673
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.128
+	purity: 0.000
+	mass_per_unit: 2.036713
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	form_type: undefined
 	prefab: resource.arcanite.powder
+	h_substance: arcanite
 	
 	color_dust: "0xffa48b5e"
 	color_gib: "0xffa48b5e"
@@ -77,7 +77,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: arcanite
-	purity: 0.000
 }

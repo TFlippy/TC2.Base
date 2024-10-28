@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Copper (Powder)"
+	name_short: "Copper (Pw.)"
 	description:
 		'''
 		High-purity copper powder.
@@ -16,21 +17,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: granular, metal, powder, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.781312
-	bulk_density_ratio: 0.798
-	void_ratio: 0.103
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.128
+	purity: 0.994
+	mass_per_unit: 0.781312
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	form_type: undefined
 	prefab: resource.copper.powder
+	h_substance: copper
 	
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
@@ -80,9 +80,6 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: copper
-	purity: 0.994
-	
 	// Conversions into other materials.
 	conversions:
 	{
@@ -90,11 +87,13 @@
 		{
 			h_material: copper
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.720
 			ratio_extra: 0.460
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			

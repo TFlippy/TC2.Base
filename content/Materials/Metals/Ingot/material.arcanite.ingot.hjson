@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Arcanite (Ingot)"
+	name_short: "Arcanite (Ig.)"
 	description:
 		'''
 		Alloy of smirglum and gold.
@@ -14,21 +15,20 @@
 	}
 	
 	type: metal_solid
-	// Flags defining properties of the raw material.
 	flags: hard, magnetic, metal, heavy, small, ingot, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 36.24975
-	bulk_density_ratio: 0.000
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.030
+	purity: 0.000
+	mass_per_unit: 36.24975
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
+	form_type: undefined
 	prefab: resource.arcanite.ingot
+	h_substance: arcanite
 	
 	color_dust: "0xffa48b5e"
 	color_gib: "0xffa48b5e"
@@ -167,7 +167,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: arcanite
-	purity: 0.000
 }

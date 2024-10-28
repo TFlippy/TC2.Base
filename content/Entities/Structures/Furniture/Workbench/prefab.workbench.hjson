@@ -67,14 +67,14 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
-attachment:
-{
-	force_multiplier: 1.000
-	torque_multiplier: 4.000
-	offset: [0.000, 0.650]
-	flags: disable_parent_facing
-	tags: large, fixed
-}
+// attachment:
+// {
+// 	force_multiplier: 1.000
+// 	torque_multiplier: 4.000
+// 	offset: [0.000, 0.650]
+// 	flags: disable_parent_facing
+// 	tags: large, fixed
+// }
 
 norotate:
 {
@@ -87,9 +87,9 @@ norotate:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 2.000
-	window_size: [688.000, 502.000]
+	window_size: [680.000, 534.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -111,7 +111,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 6
+	menu_columns: 5
 	blueprints_capacity: 4
 }
 

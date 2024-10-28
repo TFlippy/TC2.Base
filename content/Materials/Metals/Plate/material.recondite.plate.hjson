@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Recondite Plate"
+	name_short: "Recondite (Pt.)"
 	description:
 		'''
 		Recondite formed into a plate.
@@ -14,21 +15,20 @@
 	}
 	
 	type: metal_sheet
-	// Flags defining properties of the raw material.
 	flags: magnetic, metal, small, plate, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 6.561746
-	bulk_density_ratio: 0.9825
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.000
+	purity: 0.985
+	mass_per_unit: 6.561746
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
+	form_type: undefined
 	prefab: resource.recondite.plate
+	h_substance: recondite
 	
 	color_dust: "0xffd5cf97"
 	color_gib: "0xffd5cf97"
@@ -123,7 +123,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: recondite
-	purity: 0.985
 }

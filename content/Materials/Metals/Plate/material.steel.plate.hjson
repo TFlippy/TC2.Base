@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel Plate"
+	name_short: "St. (Pt.)"
 	description:
 		'''
 		Standard 16x16x0.5 cm steel plate.
@@ -16,21 +17,20 @@
 	}
 	
 	type: metal_sheet
-	// Flags defining properties of the raw material.
 	flags: magnetic, metal, small, plate, flexible, solid, processed
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 2.3436
-	bulk_density_ratio: 0.9733
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.000
+	purity: 0.985
+	mass_per_unit: 2.3436
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
+	form_type: undefined
 	prefab: resource.steel.plate
+	h_substance: steel
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
@@ -126,9 +126,6 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: steel
-	purity: 0.985
-	
 	// Conversions into other materials.
 	conversions:
 	{
@@ -136,11 +133,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.820
 			ratio_extra: 0.100
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -161,11 +160,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.120
 			ratio_extra: 0.200
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -186,11 +187,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.180
 			ratio_extra: 0.300
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -211,11 +214,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.200
 			ratio_extra: 0.500
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -236,11 +241,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.220
 			ratio_extra: 0.400
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -261,11 +268,13 @@
 		{
 			h_material: steel
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.910
 			ratio_extra: 0.060
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -289,6 +298,7 @@
 		snipping.metal:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -297,6 +307,7 @@
 		carving:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -305,6 +316,7 @@
 		cutting:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -313,6 +325,7 @@
 		drilling:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -321,6 +334,7 @@
 		smithing:
 		{
 			h_material: scrap.ferrous
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -329,6 +343,7 @@
 		machining:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -337,6 +352,7 @@
 		sawing:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -345,6 +361,7 @@
 		die_cutting.metal:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			
@@ -353,6 +370,7 @@
 		bending:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
 			flags_product: residue
 			

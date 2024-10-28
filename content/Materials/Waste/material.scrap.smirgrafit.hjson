@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Smirgrafit Scrap"
+	name_short: "Sg. Scrap"
 	description:
 		'''
 		TODO: Desc
@@ -14,17 +15,20 @@
 	}
 	
 	type: stone_metallic
-	// Flags defining properties of the raw material.
 	flags: scrap, hard, magnetic, granular, metal, heavy, waste, solid, processed, impure
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, junk, heavy, construction, industrial, wrecked, slow
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.651
 	mass_per_unit: 1.9141
-	bulk_density_ratio: 0.626
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.scrap.smirgrafit
+	h_substance: smirgrafit
 	
 	color_dust: "0xff403a39"
 	color_gib: "0xff403a39"
@@ -34,7 +38,4 @@
 	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
-	
-	h_substance: smirgrafit
-	purity: 0.651
 }

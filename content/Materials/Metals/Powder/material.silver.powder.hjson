@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Silver (Powder)"
+	name_short: "Silver (Pw.)"
 	description:
 		'''
 		High-purity silver powder.
@@ -16,21 +17,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: granular, metal, powder, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.914728
-	bulk_density_ratio: 0.713
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.128
+	purity: 0.991
+	mass_per_unit: 0.914728
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	form_type: undefined
 	prefab: resource.silver.powder
+	h_substance: silver
 	
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
@@ -79,7 +79,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: silver
-	purity: 0.991
 }

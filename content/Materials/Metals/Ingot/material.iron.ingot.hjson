@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Iron Ingot"
+	name_short: "Iron (Ig.)"
 	description:
 		'''
 		Solid iron ingot.
@@ -16,21 +17,20 @@
 	}
 	
 	type: metal_solid
-	// Flags defining properties of the raw material.
 	flags: hard, magnetic, metal, small, ingot, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 12.22045
-	bulk_density_ratio: 0.000
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.030
+	purity: 0.901
+	mass_per_unit: 12.22045
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
+	form_type: undefined
 	prefab: resource.iron.ingot
+	h_substance: iron
 	
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
@@ -169,7 +169,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: iron
-	purity: 0.901
 }

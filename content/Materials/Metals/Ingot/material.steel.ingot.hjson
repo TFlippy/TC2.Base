@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel (Ingot)"
+	name_short: "St. (Ig.)"
 	description:
 		'''
 		Standard 16x8x4 cm steel ingot.
@@ -176,11 +177,13 @@
 		{
 			h_material: steel
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.310
 			ratio_extra: 0.670
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -201,11 +204,13 @@
 		{
 			h_material: scrap.steel
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.120
 			ratio_extra: 0.500
 			
 			h_material_waste: "null"
 			spawn_flags_waste: none
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -226,11 +231,13 @@
 		{
 			h_material: steel.plate
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.050
 			ratio_extra: 0.920
 			
 			h_material_waste: steel
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.850
 			ratio_waste_extra: 0.110
 			

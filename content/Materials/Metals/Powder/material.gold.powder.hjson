@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Gold (Powder)"
+	name_short: "Gold (Pw.)"
 	description:
 		'''
 		High-purity gold powder.
@@ -16,21 +17,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: granular, metal, powder, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 1.68296
-	bulk_density_ratio: 0.783
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.128
+	purity: 0.998
+	mass_per_unit: 1.68296
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	form_type: undefined
 	prefab: resource.gold.powder
+	h_substance: gold
 	
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"
@@ -79,7 +79,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: gold
-	purity: 0.998
 }

@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Steel Slab"
+	name_short: "St. Slab"
 	
 	icon:
 	{
@@ -10,21 +11,20 @@
 	}
 	
 	type: metal_solid
-	// Flags defining properties of the raw material.
 	flags: hard, long, metal, large, heavy, ingot, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	mass_per_unit: 1091.180
-	bulk_density_ratio: 0.000
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.030
+	purity: 0.976
+	mass_per_unit: 1091.180
 	volume_per_unit: 0.144
 	quantity_max: 4.000
+	form_type: undefined
 	prefab: resource.steel.slab
+	h_substance: steel
 	
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
@@ -80,57 +80,68 @@
 		}
 	]
 	
-	h_substance: steel
-	purity: 0.976
-	
 	residues:
 	{
 		carving:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.820, 0.110]
 		}
 		cutting:
 		{
 			h_material: scrap.steel
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.940, 0.040]
 		}
 		drilling:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.920, 0.050]
 		}
 		smithing:
 		{
 			h_material: steel
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.960, 0.030]
 		}
 		machining:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.910, 0.080]
 		}
 		sawing:
 		{
 			h_material: steel.powder
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.960, 0.030]
 		}
 		grinding:
 		{
 			h_material: iron.powder
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.870, 0.090]
 		}

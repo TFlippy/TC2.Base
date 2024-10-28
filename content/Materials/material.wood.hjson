@@ -260,9 +260,9 @@
 			ratio: 0.070
 			ratio_extra: 0.050
 			
-			h_material_waste: "null"
+			h_material_waste: scrap.wood
 			spawn_flags_waste: merge
-			product_flags_waste: none
+			product_flags_waste: waste
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			

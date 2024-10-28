@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Aluminium (Scrap)"
+	name: "Aluminium Scrap"
+	name_short: "Al. Scrap"
 	description:
 		'''
 		Mostly clean aluminium scrap.
@@ -14,26 +15,29 @@
 	}
 	
 	type: scrap
-	// Flags defining properties of the raw material.
 	flags: scrap, granular, metal, small, waste, flexible, solid, processed
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, junk, construction, industrial, wrecked
-	// kg
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.882
 	mass_per_unit: 0.4871
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.scrap.aluminium
+	h_substance: aluminium
 	
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
-	h_substance: aluminium
-	purity: 0.882
+	colliders: []
 	
 	// Conversions into other materials.
 	conversions:
@@ -42,11 +46,13 @@
 		{
 			h_material: aluminium
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.910
 			ratio_extra: 0.060
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -64,7 +70,4 @@
 			velocity_mult: 1.000
 		}
 	}
-	
-	// Component materials.
-	composition: []
 }

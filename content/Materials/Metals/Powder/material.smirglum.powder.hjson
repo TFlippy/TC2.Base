@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Smirglum (Powder)"
+	name_short: "Smirglum (Pw.)"
 	description:
 		'''
 		High-purity smirglum powder.
@@ -16,21 +17,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: magnetic, granular, metal, heavy, small, powder, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	mass_per_unit: 2.609129
-	bulk_density_ratio: 0.926
-	void_ratio: 0.000
-	packing_ratio: 0.000
-	compressibility: 0.000
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.128
+	purity: 0.989
+	mass_per_unit: 2.609129
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	form_type: undefined
 	prefab: resource.smirglum.powder
+	h_substance: smirglum
 	
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
@@ -79,7 +79,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: smirglum
-	purity: 0.989
 }

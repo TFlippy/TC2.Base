@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Copper (Plate)"
+	name_short: "Copper (Pt.)"
 	description:
 		'''
 		Copper formed into a plate.
@@ -15,21 +16,20 @@
 	}
 	
 	type: metal_sheet
-	// Flags defining properties of the raw material.
 	flags: metal, small, plate, flexible, solid, processed
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	mass_per_unit: 2.688
-	bulk_density_ratio: 0.9871
-	void_ratio: 0.000
-	packing_ratio: 0.9308
-	compressibility: 0.0543
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
 	porosity: 0.000
+	purity: 0.981
+	mass_per_unit: 2.688
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
+	form_type: undefined
 	prefab: resource.copper.plate
+	h_substance: copper
 	
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
@@ -124,9 +124,6 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: copper
-	purity: 0.981
 	
 	residues:
 	{

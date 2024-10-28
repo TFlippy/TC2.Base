@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Copper (Ingot)"
+	name_short: "Copper (Ig.)"
 	description:
 		'''
 		TODO: Desc
@@ -175,11 +176,13 @@
 		{
 			h_material: copper.plate
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.290
 			ratio_extra: 0.760
 			
 			h_material_waste: scrap.copper
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.750
 			ratio_waste_extra: 0.210
 			
