@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Graphite"
+	name_short: "Graphite"
 	description:
 		'''
 		TODO: Desc
@@ -14,26 +15,29 @@
 	}
 	
 	type: coal
-	// Flags defining properties of the raw material.
 	flags: hard, granular, mineral, small, raw, flammable, solid, primary
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.962
 	mass_per_unit: 0.310
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.graphite
+	h_substance: graphite
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
-	h_substance: graphite
-	purity: 0.962
+	colliders: []
 	
 	// Conversions into other materials.
 	conversions:
@@ -42,11 +46,13 @@
 		{
 			h_material: graphite.powder
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.210
 			ratio_extra: 0.455
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.400
 			ratio_waste_extra: 0.500
 			
@@ -64,7 +70,4 @@
 			velocity_mult: 1.000
 		}
 	}
-	
-	// Component materials.
-	composition: []
 }

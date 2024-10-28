@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Universal Brown Sauce"
+	name_short: "Sauce"
 	description:
 		'''
 		Key ingredient of the Imperial cuisine.
@@ -14,17 +15,20 @@
 	}
 	
 	type: slime
-	// Flags defining properties of the raw material.
 	flags: sticky, food, liquid, organic, bottled
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: sticky
 	display_flags: none
 	hints: none
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.000
 	mass_per_unit: 0.500
-	bulk_density: 0.000
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 100.000
+	form_type: undefined
 	prefab: resource.sauce
+	h_substance: "null"
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -73,7 +77,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: "null"
-	purity: 0.000
 }

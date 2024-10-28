@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Timber"
+	name_short: "Timber"
 	description:
 		'''
 		Raw unprocessed wood.
@@ -14,23 +15,27 @@
 	}
 	
 	type: tree
-	// Flags defining properties of the raw material.
 	flags: hard, long, organic, large, raw, fuel, flammable, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: no_random_facing
 	hints: none
-	// kg
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.000
 	mass_per_unit: 6.940
+	volume_per_unit: 0.000
 	quantity_max: 128.000
+	form_type: undefined
 	prefab: resource.timber
+	h_substance: "null"
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[
@@ -76,9 +81,6 @@
 		}
 	]
 	
-	h_substance: "null"
-	purity: 0.000
-	
 	// Conversions into other materials.
 	conversions:
 	{
@@ -86,11 +88,13 @@
 		{
 			h_material: sawdust
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.030
 			ratio_extra: 0.050
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -111,11 +115,13 @@
 		{
 			h_material: woodchips
 			spawn_flags: merge, pickup
+			product_flags: none
 			ratio: 0.070
 			ratio_extra: 0.050
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -136,11 +142,13 @@
 		{
 			h_material: woodchips
 			spawn_flags: merge
+			product_flags: none
 			ratio: 0.130
 			ratio_extra: 0.640
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
+			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -161,11 +169,13 @@
 		{
 			h_material: charcoal
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.030
 			ratio_extra: 0.040
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.050
 			ratio_waste_extra: 0.350
 			
@@ -186,11 +196,13 @@
 		{
 			h_material: graphite
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.010
 			ratio_extra: 0.070
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.050
 			ratio_waste_extra: 0.230
 			
@@ -214,63 +226,81 @@
 		woodcarving:
 		{
 			h_material: woodchips
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.6558, 0.2242]
 		}
 		carpentry:
 		{
 			h_material: scrap.wood
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.820, 0.120]
 		}
 		construction:
 		{
 			h_material: scrap.wood
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.820, 0.120]
 		}
 		cutting:
 		{
 			h_material: sawdust
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.720, 0.210]
 		}
 		drilling:
 		{
 			h_material: sawdust
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.890, 0.070]
 		}
 		woodworking:
 		{
 			h_material: woodchips
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.880, 0.070]
 		}
 		sawing:
 		{
 			h_material: sawdust
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.850, 0.070]
 		}
 		machining:
 		{
 			h_material: sawdust
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.770, 0.210]
 		}
 		chiseling:
 		{
 			h_material: woodchips
+			h_substance: "null"
 			flags: none
+			flags_product: none
 			
 			yield: [0.840, 0.130]
 		}

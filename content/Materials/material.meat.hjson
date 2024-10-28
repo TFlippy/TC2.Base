@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Mystery Meat"
+	name_short: "Meat"
 	description:
 		'''
 		It is a mystery.
@@ -14,17 +15,20 @@
 	}
 	
 	type: flesh
-	// Flags defining properties of the raw material.
 	flags: soft, malleable, sticky, food, granular, organic, small, raw, flexible, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.000
 	mass_per_unit: 0.400
-	bulk_density_ratio: 0.8715
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 250.000
+	form_type: undefined
 	prefab: resource.meat
+	h_substance: "null"
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -74,9 +78,6 @@
 		quantity_industry: 0.000
 	}
 	
-	h_substance: "null"
-	purity: 0.000
-	
 	// Conversions into other materials.
 	conversions:
 	{
@@ -84,11 +85,13 @@
 		{
 			h_material: scrap.charred
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.110
 			ratio_extra: 0.215
 			
 			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.100
 			ratio_waste_extra: 0.400
 			
@@ -109,11 +112,13 @@
 		{
 			h_material: scrap.charred
 			spawn_flags: merge, no_offset
+			product_flags: none
 			ratio: 0.310
 			ratio_extra: 0.315
 			
 			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
 			ratio_waste: 0.110
 			ratio_waste_extra: 0.100
 			

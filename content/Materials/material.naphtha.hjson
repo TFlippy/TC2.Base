@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Naphtha"
+	name_short: "Naphtha"
 	description:
 		'''
 		Low-quality liquid fuel produced from coal tar and peat.
@@ -14,17 +15,20 @@
 	}
 	
 	type: liquid
-	// Flags defining properties of the raw material.
 	flags: liquid, toxic, chemical, bottled, fuel, flammable, volatile, primary
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: toxic, flammable
 	display_flags: none
 	hints: materials, chemical
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.706
 	mass_per_unit: 0.200
-	bulk_density_ratio: 1.000
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.naphtha
+	h_substance: naphtha
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -88,7 +92,4 @@
 		volatiles_ratio: 0.000
 		volatiles: []
 	}
-	
-	h_substance: naphtha
-	purity: 0.706
 }

@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Sejrus Mushrooms"
+	name_short: "Sejrus"
 	description:
 		'''
 		A heap of yellow mushroom bits.
@@ -14,23 +15,29 @@
 	}
 	
 	type: mushroom
-	// Flags defining properties of the raw material.
 	flags: soft, toxic, organic, small, corrosive, raw, flammable, solid
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
-	// kg
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.000
 	mass_per_unit: 0.370
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: undefined
 	prefab: resource.mushroom.yellow
+	h_substance: "null"
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: "0x00000000"
-	color_flame: "0x00000000"
-	color_liquid: "0x00000000"
-	color_smoke: "0x00000000"
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_smoke: [0.000, 0.000, 0.000, 0.000]
+	
+	colliders: []
 	
 	commodity:
 	{
@@ -70,10 +77,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: "null"
-	purity: 0.000
-	
-	// Component materials.
-	composition: []
 }

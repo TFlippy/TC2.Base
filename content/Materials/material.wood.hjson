@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Planks"
+	name_short: "Planks"
 	description:
 		'''
 		Planks used for construction.
