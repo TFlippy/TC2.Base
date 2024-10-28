@@ -23,10 +23,10 @@
 	density_ratio: 0.000
 	porosity: 0.030
 	purity: 0.963
-	mass_per_unit: 4.188848
+	mass_per_unit: 4.063182
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
-	form_type: undefined
+	form_type: ingot
 	prefab: resource.aluminium.ingot
 	h_substance: aluminium
 	

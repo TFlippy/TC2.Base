@@ -29,7 +29,7 @@
 						{
 							type: resource
 							material: scrap.heavy
-							amount: 0.201631
+							amount: 3.95498
 							snapping: 1.000
 							falloff: 0.970
 							loss: 0.122
@@ -39,18 +39,18 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.000
+							amount: 7.680
 							snapping: 1.000
-							falloff: 0.990
-							loss: 0.212
+							falloff: 0.940
+							loss: 0.337
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: dismantling
-							amount: 220.000
-							difficulty: 4
+							work: gluing
+							amount: 650.000
+							difficulty: 7
 							snapping: 10.000
 							falloff: 0.940
 							group: 0
@@ -64,14 +64,14 @@
 					name: "Forged"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.17179
+							amount: 3.310526
 							snapping: 0.100
 							loss: 0.106
 							group: 0
@@ -95,14 +95,14 @@
 					name: "Machined"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.17179
+							amount: 3.310526
 							snapping: 0.100
 							loss: 0.106
 							group: 0
@@ -152,7 +152,7 @@
 						{
 							type: resource
 							material: scrap.mixed
-							amount: 0.311214
+							amount: 2.943
 							snapping: 0.500
 							falloff: 0.970
 							loss: 0.325
@@ -162,7 +162,7 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 1.667864
+							amount: 1.740
 							snapping: 1.000
 							falloff: 0.960
 							loss: 0.380
@@ -171,11 +171,11 @@
 						}
 						{
 							type: work
-							work: bending
-							amount: 250.000
-							difficulty: 3
+							work: scavenging
+							amount: 500.000
+							difficulty: 5
 							snapping: 10.000
-							falloff: 0.950
+							falloff: 0.980
 							group: 0
 							flags: conditional
 						}
@@ -185,7 +185,7 @@
 							amount: 350.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.990
+							falloff: 0.960
 							group: 0
 							flags: conditional
 						}
@@ -204,7 +204,7 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.17179
+							amount: 1.342105
 							snapping: 0.100
 							loss: 0.106
 							group: 0
@@ -305,7 +305,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 0.730
+							amount: 2.116183
 							snapping: 1.000
 							loss: 0.055
 							group: 0
@@ -336,7 +336,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 0.730
+							amount: 2.116183
 							snapping: 1.000
 							loss: 0.055
 							group: 0

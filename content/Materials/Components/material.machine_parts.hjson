@@ -112,7 +112,7 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.410, 0.310]
 		}
@@ -121,7 +121,7 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.490, 0.230]
 		}
@@ -202,7 +202,7 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.750, 0.190]
 		}
@@ -283,7 +283,7 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.380, 0.380]
 		}

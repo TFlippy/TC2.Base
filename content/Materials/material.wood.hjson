@@ -27,7 +27,7 @@
 	mass_per_unit: 2.136
 	volume_per_unit: 0.0032
 	quantity_max: 250.000
-	form_type: undefined
+	form_type: plank
 	prefab: resource.wood
 	h_substance: wood
 	

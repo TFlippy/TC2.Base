@@ -312,6 +312,15 @@
 			
 			yield: [0.918, 0.055]
 		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.918, 0.081]
+		}
 		grinding:
 		{
 			h_material: iron.powder
