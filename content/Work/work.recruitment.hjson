@@ -18,7 +18,7 @@
 	tags: skilled, social, politics, bureaucracy, wip
 	cooldown: 3.000
 	multiplier: 1.000
-	color: "0x8f005ec2"
+	color: "0xff005ec2"
 	
 	tools_required: none
 	tools_optional: pencil, paper, radio, telephone, towel

@@ -18,7 +18,7 @@
 	tags: manual, skilled, tools, advanced, technical, careful, construction, industrial, wip
 	cooldown: 1.070
 	multiplier: 0.690
-	color: "0x8f14d081"
+	color: "0xffffa200"
 	
 	tools_required: none
 	tools_optional: none

@@ -18,7 +18,7 @@
 	tags: manual, simple, technical, industrial, leisure, wip
 	cooldown: 1.100
 	multiplier: 1.000
-	color: "0xffffa200"
+	color: "0xff6e3535"
 	
 	tools_required: hammer, crowbar
 	tools_optional: hammer, cutters, drill, screwdriver, wrench, tweezers, magnifying_glass, calculator, towel, tongs, pick, crowbar

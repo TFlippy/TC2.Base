@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.61.4"
 	name: "Arcane Biosynthesis"
 	name_short: "Biosynthesis"
 	desc:
@@ -18,7 +18,7 @@
 	tags: manual, skilled, science, dangerous, advanced, chemical, arcane
 	cooldown: 2.000
 	multiplier: 0.150
-	color: "0x8f14d081"
+	color: "0xff14d081"
 	
 	tools_required: tongs
 	tools_optional: towel
@@ -61,8 +61,12 @@
 	sound_size: 0.850
 	sound_dist: 1.200
 	
-	sounds:
-	[
-		essence.field.generic.loop.00
-	]
+	sounds: ["essence.field.generic.loop.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

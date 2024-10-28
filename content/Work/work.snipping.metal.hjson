@@ -18,7 +18,7 @@
 	tags: manual, tools, simple, construction
 	cooldown: 1.000
 	multiplier: 1.200
-	color: "0xffaeb59a"
+	color: "0xffffa200"
 	
 	tools_required: none
 	tools_optional: none

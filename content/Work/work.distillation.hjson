@@ -18,7 +18,7 @@
 	tags: manual, skilled, machine, automated, science, dangerous, technical, chemical, careful, industrial, wip
 	cooldown: 1.000
 	multiplier: 1.000
-	color: "0x8f14d081"
+	color: "0xff14d081"
 	
 	tools_required: none
 	tools_optional: syringe

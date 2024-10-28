@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, tools, dangerous, simple, technical, careful, construction, industrial, wip
 	cooldown: 1.800
 	multiplier: 5.000
-	color: "0xffaeb59a"
+	color: "0xffffa200"
 	
 	tools_required: drill
 	tools_optional: none

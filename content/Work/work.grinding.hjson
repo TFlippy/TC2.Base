@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, dangerous, simple, industrial, wip
 	cooldown: 0.500
 	multiplier: 1.000
-	color: "0xffaeb59a"
+	color: "0xffffa200"
 	
 	tools_required: none
 	tools_optional: none

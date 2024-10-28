@@ -18,7 +18,7 @@
 	tags: dangerous, simple, industrial, passive
 	cooldown: 0.500
 	multiplier: 1.000
-	color: "0xffeb6232"
+	color: "0xffef3500"
 	
 	tools_required: none
 	tools_optional: none
