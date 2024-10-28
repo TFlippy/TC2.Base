@@ -3,53 +3,368 @@
 	name: "Wrench"
 	tips: []
 	
-	icon:
-	{
-		texture: wrench
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, tool, assembling, metalworking, engineering
-	
-	color_button: "0xffaeb59a"
-	rank: 11.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.frames
-			amount: 5.000
-			group: 0
-			flags: prerequisite
+			name: "Head"
+			
+			type: part
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.616667
+			mass_base: 7.400
+			
+			options:
+			[
+				{
+					name: "Salvaged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.heavy
+							amount: 0.201631
+							snapping: 1.000
+							falloff: 0.970
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 1.000
+							snapping: 1.000
+							falloff: 0.990
+							loss: 0.212
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 220.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.940
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.17179
+							snapping: 0.100
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 220.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.940
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Machined"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.17179
+							snapping: 0.100
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 220.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.940
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: machine_parts
-			amount: 3.000
-			group: 0
-			flags: prerequisite
+			name: "Linkage"
+			
+			type: part
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.250
+			mass_base: 3.000
+			
+			options:
+			[
+				{
+					name: "Makeshift"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.311214
+							snapping: 0.500
+							falloff: 0.970
+							loss: 0.325
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.667864
+							snapping: 1.000
+							falloff: 0.960
+							loss: 0.380
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 250.000
+							difficulty: 3
+							snapping: 10.000
+							falloff: 0.950
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 350.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.990
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Machined"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.17179
+							snapping: 0.100
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 220.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.940
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: assembling
-			amount: 780.000
-			difficulty: 6
-			group: 0
-			flags: conditional
+			name: "Handle"
+			
+			type: part
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.0625
+			mass_base: 0.750
+			
+			options:
+			[
+				{
+					name: "Filed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.083395
+							snapping: 0.400
+							falloff: 0.960
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 450.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.970
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: cloth
-			amount: 1.000
-			group: 1
+			name: "Assembly"
+			
+			type: assembly
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.200
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.730
+							snapping: 1.000
+							loss: 0.055
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 93.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.945
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Welded"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.730
+							snapping: 1.000
+							loss: 0.055
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 93.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.945
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -58,22 +373,23 @@
 			prefab: wrench
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.820
-			amount_extra: 0.140
-			group: 1
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: scrap.machine
-			amount: 0.188
-			amount_extra: 0.089
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: workbench, manual, tool, assembling, metalworking, engineering
+	
+	icon:
+	{
+		texture: wrench
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 11.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

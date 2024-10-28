@@ -129,57 +129,19 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.000
+							amount: 0.730
+							snapping: 1.000
+							loss: 0.055
 							group: 0
 							flags: no_residue, prerequisite
 						}
 						{
 							type: work
 							work: gluing
-							amount: 100.000
-							difficulty: 2
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products: []
-				}
-				{
-					name: "Bolted"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: steel.frames
-							amount: 0.137
-							snapping: 0.100
-							falloff: 0.930
-							loss: 0.169
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: machine_parts
-							amount: 0.550
-							snapping: 1.000
-							falloff: 0.640
-							loss: 0.196
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: bolting
-							amount: 350.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.780
+							amount: 93.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.945
 							group: 0
 							flags: conditional
 						}
@@ -204,6 +166,7 @@
 			prefab: knife
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
