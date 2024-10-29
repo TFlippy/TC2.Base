@@ -78,6 +78,38 @@
 		quantity_industry: 4000.000
 	}
 	
+	// Conversions into other materials.
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.machine
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.890
+			ratio_waste_extra: 0.050
+			
+			yield: 0.710
+			yield_extra: 0.270
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
 	residues:
 	{
 		assembling:

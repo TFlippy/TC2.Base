@@ -8,10 +8,13 @@
 		{
 			name: "Arms"
 			
-			type: undefined
+			type: part
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.950
+			mass_base: 3.990
 			
 			options:
 			[
@@ -26,8 +29,10 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 0.948
-							snapping: 1.000
+							amount: 0.369719
+							snapping: 0.400
+							falloff: 0.980
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -45,6 +50,7 @@
 							work: smithing
 							amount: 475.000
 							difficulty: 6
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -54,15 +60,20 @@
 				}
 			]
 			
+			requirements: []
+			
 			products: []
 		}
 		{
 			name: "Assembly"
 			
-			type: undefined
+			type: assembly
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.050
+			mass_base: 0.210
 			
 			options:
 			[
@@ -77,15 +88,17 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 1.186
+							amount: 0.815534
 							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
 							work: assembling
 							amount: 180.000
 							difficulty: 5
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -94,6 +107,8 @@
 					products: []
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}
@@ -108,11 +123,12 @@
 			prefab: tongs.00
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, packable
+	flags: blueprintable, wip, packable, item
 	tags: workbench, manual, blacksmithing, metalworking
 	
 	icon:

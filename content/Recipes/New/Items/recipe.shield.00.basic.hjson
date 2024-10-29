@@ -10,6 +10,8 @@
 			
 			type: part
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.911111
 			mass_base: 4.100
@@ -29,7 +31,7 @@
 							material: steel.ingot
 							amount: 0.353411
 							snapping: 0.250
-							loss: 0.047
+							loss: 0.012
 							group: 0
 							flags: prerequisite
 						}
@@ -66,6 +68,8 @@
 			
 			type: part
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.088889
 			mass_base: 0.400
@@ -79,28 +83,31 @@
 					flags: none
 					
 					requirements:
-					[				
+					[
 						{
 							type: work
 							work: bending
 							amount: 150.000
 							difficulty: 8
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 						{
 							type: resource
 							material: machine_parts
-							amount: 0.473824
+							amount: 1.895294
 							snapping: 0.100
 							loss: 0.180
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work
 							work: assembling
 							amount: 100.000
 							difficulty: 4
+							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
@@ -110,7 +117,7 @@
 				}
 			]
 			
-			requirements: 
+			requirements:
 			[
 				{
 					type: resource

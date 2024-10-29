@@ -111,6 +111,79 @@
 			
 			products: []
 		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.860
+							snapping: 0.010
+							falloff: 0.970
+							loss: 0.043
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 75.000
+							difficulty: 2
+							snapping: 5.000
+							falloff: 0.980
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Doweled"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: work
+							work: doweling
+							amount: 450.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.985
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
 	]
 	
 	requirements: []
