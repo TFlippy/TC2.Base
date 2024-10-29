@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Woodchips"
-	name_short: "Woodchips"
+	name_short: "Wd. Chips"
 	description:
 		'''
 		Small bits of wood.

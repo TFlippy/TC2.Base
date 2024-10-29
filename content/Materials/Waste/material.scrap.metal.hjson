@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Mixed Metal Scrap"
-	name_short: "Met. Scrap"
+	name_short: "Metal Scrap"
 	description:
 		'''
 		TODO: Desc

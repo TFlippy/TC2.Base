@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Magitronic Actuators"
-	name_short: "Mag. Actuators"
+	name_short: "Actuators"
 	description:
 		'''
 		Advanced essence-infused actuators used in robotics and mechanics.

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Copper (Gravel)"
-	name_short: "Copper Grv."
+	name_short: "Cop Gravel"
 	description:
 		'''
 		Medium-purity copper gravel.

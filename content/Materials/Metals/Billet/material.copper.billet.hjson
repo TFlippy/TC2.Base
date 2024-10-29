@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Copper (Billet)"
-	name_short: "Copper Bil."
+	name_short: "Cop Bilet."
 	description:
 		'''
 		Standard 256x8x8 cm copper billet.
@@ -28,6 +28,7 @@
 	mass_per_unit: 147.200
 	volume_per_unit: 0.000
 	quantity_max: 16.000
+	form_type: undefined
 	prefab: resource.copper.billet
 	h_substance: copper
 	

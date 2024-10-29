@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Arrow"
-	name_short: "Arrow"
+	name: "Arrows"
+	name_short: "Arrows"
 	description:
 		'''
 		Ammunition for bows.

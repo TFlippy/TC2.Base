@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Debris"
-	name_short: "Debris"
+	name: "Rubble"
+	name_short: "Rubble"
 	description:
 		'''
 		Masonry's final form. 

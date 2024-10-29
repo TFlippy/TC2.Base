@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Wooden Debris"
-	name_short: "W. Debris"
+	name_short: "Wd. Debris"
 	description:
 		'''
 		Remains of something that used to be made of wood.

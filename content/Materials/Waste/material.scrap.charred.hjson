@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Charred Remains"
-	name_short: "Chr. Remains"
+	name_short: "Char"
 	description:
 		'''
 		It's so far gone that you can't tell whether these are charred bones or charred sticks.

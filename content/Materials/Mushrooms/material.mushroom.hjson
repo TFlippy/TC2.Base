@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Mushroom Scraps"
-	name_short: "Mushrooms"
+	name_short: "Shrooms"
 	description:
 		'''
 		A heap of mixed mushroom bits, doesn't seem edible.
