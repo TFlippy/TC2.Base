@@ -87,7 +87,6 @@
 	form_to_material:
 	{
 		powder: copper.powder
-		billet: copper.billet
 		ingot: copper.ingot
 		plate: copper.plate
 		chunk: copper

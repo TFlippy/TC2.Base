@@ -87,7 +87,6 @@
 	form_to_material:
 	{
 		powder: iron.powder
-		billet: iron.billet
 		ingot: iron.ingot
 		chunk: iron
 		gravel: iron.gravel

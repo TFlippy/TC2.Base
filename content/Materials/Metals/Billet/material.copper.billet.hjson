@@ -28,7 +28,6 @@
 	mass_per_unit: 147.200
 	volume_per_unit: 0.000
 	quantity_max: 16.000
-	form_type: billet
 	prefab: resource.copper.billet
 	h_substance: copper
 	

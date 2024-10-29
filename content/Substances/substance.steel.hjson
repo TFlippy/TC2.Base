@@ -85,7 +85,6 @@
 	form_to_material:
 	{
 		powder: steel.powder
-		billet: steel.billet
 		ingot: steel.ingot
 		plate: steel.plate
 		chunk: steel

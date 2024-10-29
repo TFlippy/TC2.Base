@@ -1,0 +1,64 @@
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		mass: 1.000
+		radius: 0.250
+		friction: 0.650
+		elasticity: 0.500
+		material: metal_pole
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.steel.rod"
+		count: 4
+		size: [16, 16]
+	}
+	z: -71.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "steel.rod"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 22000.000
+}
+
+breakable:
+{
+	h_material: "null"
+	
+	flags: no_damage
+	conversion_type: undefined
+	conversion_flags: none
+	spawn_flags: none
+	
+	material_type: none
+	material_flags: none
+}
