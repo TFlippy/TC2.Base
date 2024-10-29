@@ -21,7 +21,7 @@ body:
 		material: metal_pole
 		miss_chance: 0.153
 		
-		layer: entity, solid, resource, conductive, heatable, magnetic, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, conductive, heatable, ignore_melee, ignore_bullet
 	}
 }
 
@@ -29,7 +29,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.steel.rod"
+		texture: "resource.copper.rod"
 		count: 4
 		size: [16, 16]
 	}
@@ -43,7 +43,7 @@ transform:
 
 resource:
 {
-	material: "steel.rod"
+	material: "copper.rod"
 }
 
 holdable:
@@ -74,12 +74,12 @@ breakable:
 
 heat:
 {
-	temperature_medium: 440.9637
-	temperature_high: 2618.350
-	temperature_ignite: 1894.000
-	temperature_operating: 1034.303
-	temperature_melt: 1644.000
-	temperature_breakdown: 3143.000
+	temperature_medium: 414.4965
+	temperature_high: 2317.969
+	temperature_ignite: 1297.770
+	temperature_operating: 788.3445
+	temperature_melt: 1357.770
+	temperature_breakdown: 2835.000
 	cool_rate: 2.500
 	smoke_speed_mult: 0.750
 	flags: meltable
@@ -87,7 +87,7 @@ heat:
 	offset: [0.000, 0.125]
 	smoke_offset: [0.000, 0.125]
 	size: [2.000, 2.000]
-	flame_tint: "0xe1ff8538"
+	flame_tint: "0x7631955e"
 
 	@light:
 	{

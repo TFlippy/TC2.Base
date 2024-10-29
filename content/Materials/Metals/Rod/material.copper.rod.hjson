@@ -1,0 +1,268 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Copper Rod"
+	name_short: "Cop. Rod"
+	description:
+		'''
+		Standard 4x4x60 cm copper rod.
+		'''
+	
+	icon:
+	{
+		texture: resource.copper.rod
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_pole
+	flags: long, metal, small, flexible, solid, processed
+	display_flags: sprite_stack_linear, no_random_facing
+	hints: materials, construction
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.9069
+	porosity: 0.004
+	purity: 0.985
+	mass_per_unit: 6.701743
+	volume_per_unit: 0.000754
+	quantity_max: 100.000
+	form_type: rod
+	prefab: resource.copper.rod
+	h_substance: copper
+	
+	color_dust: "0xffdf873d"
+	color_gib: "0xffdf873d"
+	color_spark: [0.666, 0.775, 0.366, 1.000]
+	color_flame: [0.192, 0.583, 0.368, 0.463]
+	color_liquid: [0.908, 0.542, 0.254, 1.000]
+	color_smoke: [0.675, 0.671, 0.455, 1.000]
+	
+	colliders:
+	[
+		{
+			radius: 0.250
+			count: 4
+			values:
+			[
+				[-0.125, 0.500]
+				[0.375, 0.500]
+				[0.625, 0.750]
+				[-0.625, 0.750]
+			]
+		}
+		{
+			radius: 0.250
+			count: 4
+			values:
+			[
+				[-0.500, 0.375]
+				[0.500, 0.375]
+				[0.750, 0.750]
+				[-0.750, 0.750]
+			]
+		}
+		{
+			radius: 0.375
+			count: 4
+			values:
+			[
+				[-0.375, 0.000]
+				[0.250, 0.000]
+				[0.625, 0.625]
+				[-0.625, 0.625]
+			]
+		}
+		{
+			radius: 0.375
+			count: 4
+			values:
+			[
+				[-0.500, -0.375]
+				[0.375, -0.500]
+				[0.625, 0.625]
+				[-0.625, 0.625]
+			]
+		}
+	]
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		blunt:
+		{
+			h_material: scrap.copper
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.180
+			ratio_extra: 0.300
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.250
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		club:
+		{
+			h_material: scrap.copper
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.200
+			ratio_extra: 0.500
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.140
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		axe:
+		{
+			h_material: scrap.copper
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.220
+			ratio_extra: 0.400
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.660
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: copper
+			spawn_flags: merge, no_offset
+			product_flags: none
+			ratio: 0.910
+			ratio_extra: 0.060
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.950
+			yield_extra: 0.070
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.575
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		carving:
+		{
+			h_material: copper.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.919, 0.042]
+		}
+		cutting:
+		{
+			h_material: copper.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.986, 0.014]
+		}
+		drilling:
+		{
+			h_material: copper.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.940, 0.050]
+		}
+		smithing:
+		{
+			h_material: scrap.copper
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.950, 0.030]
+		}
+		machining:
+		{
+			h_material: iron.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.260, 0.510]
+		}
+		sawing:
+		{
+			h_material: copper.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
+		}
+		bending:
+		{
+			h_material: scrap.copper
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.9546, 0.0454]
+		}
+	}
+}
