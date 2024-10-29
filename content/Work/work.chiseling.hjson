@@ -18,7 +18,7 @@
 	tags: manual, tools, simple, careful, construction, wip
 	cooldown: 0.500
 	multiplier: 1.000
-	color: "0xff719240"
+	color: "0xffaeb59a"
 	
 	tools_required: hammer, chisel
 	tools_optional: none

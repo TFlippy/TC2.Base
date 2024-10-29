@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, tools, simple, wip
 	cooldown: 0.900
 	multiplier: 1.000
-	color: "0xff719240"
+	color: "0xffdd4f60"
 	
 	tools_required: none
 	tools_optional: none

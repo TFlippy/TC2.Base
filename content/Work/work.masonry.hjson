@@ -18,7 +18,7 @@
 	tags: manual, tools, simple, construction, wip
 	cooldown: 0.880
 	multiplier: 1.250
-	color: "0xffffa200"
+	color: "0xff719240"
 	
 	tools_required: hammer
 	tools_optional: none

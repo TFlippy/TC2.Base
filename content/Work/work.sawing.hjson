@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, tools, dangerous, simple, industrial, wip
 	cooldown: 0.600
 	multiplier: 1.200
-	color: "0xffffa200"
+	color: "0xff719240"
 	
 	tools_required: saw
 	tools_optional: pencil, ruler, towel

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Kneading"
 	name_short: "Kneading"
 	desc:
@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, simple, wip
 	cooldown: 1.500
 	multiplier: 1.000
-	color: "0xffffa200"
+	color: "0xff719240"
 	
 	tools_required: none
 	tools_optional: none

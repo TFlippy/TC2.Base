@@ -18,7 +18,7 @@
 	tags: manual, simple, careful, leisure
 	cooldown: 1.900
 	multiplier: 2.000
-	color: "0xff719240"
+	color: "0xffdd4f60"
 	
 	tools_required: paper
 	tools_optional: paper, ruler, cutters, tweezers, magnifying_glass, calculator, stapler, knife

@@ -18,7 +18,7 @@
 	tags: manual, machine, tools, dangerous, technical, chemical, construction, industrial, wip
 	cooldown: 0.500
 	multiplier: 1.000
-	color: "0xffffa200"
+	color: "0xffff6200"
 	
 	tools_required: none
 	tools_optional: none

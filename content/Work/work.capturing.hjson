@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Capturing"
 	name_short: "Capturing"
 	desc:
@@ -14,10 +14,11 @@
 		frame: [17, 0]
 	}
 	
+	flags: none
 	tags: social, dangerous, simple, politics, wip
 	cooldown: 0.800
 	multiplier: 1.000
-	color: "0xff6e3535"
+	color: "0xffa94535"
 	
 	tools_required: none
 	tools_optional: none
@@ -48,5 +49,17 @@
 		law: 0.750
 	}
 	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

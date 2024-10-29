@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.61.4"
 	name: "Dousing"
 	name_short: "Dousing"
 	desc:
@@ -18,7 +18,7 @@
 	tags: manual, dangerous, simple
 	cooldown: 3.000
 	multiplier: 2.000
-	color: "0xffaeb59a"
+	color: "0xff5469ff"
 	
 	tools_required: bucket
 	tools_optional: none

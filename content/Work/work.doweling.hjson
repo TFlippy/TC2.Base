@@ -18,7 +18,7 @@
 	tags: manual, tools, construction, industrial, wip
 	cooldown: 1.000
 	multiplier: 1.000
-	color: "0xffffa200"
+	color: "0xff719240"
 	
 	tools_required: hammer
 	tools_optional: towel

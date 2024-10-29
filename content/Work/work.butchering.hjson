@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Butchering"
 	name_short: "Butchering"
 	desc:
@@ -14,10 +14,11 @@
 		frame: [3, 0]
 	}
 	
+	flags: none
 	tags: manual, tools, dangerous, simple, wip
 	cooldown: 2.000
 	multiplier: 1.000
-	color: "0xff6e3535"
+	color: "0xffa94535"
 	
 	tools_required: cleaver
 	tools_optional: cutters, saw, cleaver, bucket, axe, towel, tongs, crowbar, knife
@@ -44,5 +45,17 @@
 	
 	}
 	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

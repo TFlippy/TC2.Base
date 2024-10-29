@@ -18,7 +18,7 @@
 	tags: ambient, simple, passive, wip
 	cooldown: 1.000
 	multiplier: 1.000
-	color: "0xffaeb59a"
+	color: "0xff5469ff"
 	
 	tools_required: none
 	tools_optional: none

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.61.4"
 	name: "Cooking"
 	name_short: "Cooking"
 	desc:
@@ -14,10 +14,11 @@
 		frame: [2, 0]
 	}
 	
+	flags: none
 	tags: manual, skilled, tools, careful, leisure, wip
 	cooldown: 0.500
 	multiplier: 1.000
-	color: "0xff719240"
+	color: "0xffdd4f60"
 	
 	tools_required: spatula, knife
 	tools_optional: hammer, saw, cleaver, bucket, calculator, towel, spatula
@@ -44,5 +45,17 @@
 	
 	}
 	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
 	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

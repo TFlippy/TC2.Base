@@ -28,9 +28,9 @@
 					[
 						{
 							type: resource
-							material: steel.ingot
-							amount: 0.369719
-							snapping: 0.400
+							material: steel.frames
+							amount: 1.739232
+							snapping: 0.250
 							falloff: 0.980
 							loss: 0.082
 							group: 0
