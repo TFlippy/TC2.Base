@@ -19,7 +19,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Forged"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -30,9 +30,27 @@
 							type: resource
 							material: steel.ingot
 							amount: 0.603716
-							snapping: 1.000
+							snapping: 0.250
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 350.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.980
+							group: 0
+							flags: conditional
 						}
 					]
 					
@@ -98,7 +116,7 @@
 		{
 			name: "Grip"
 			
-			type: part
+			type: processing
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
@@ -109,7 +127,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Wrapped"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -117,12 +135,14 @@
 					requirements:
 					[
 						{
-							type: resource
-							material: cloth
-							amount: 0.277778
-							snapping: 1.000
+							type: work
+							work: wrapping.cloth
+							amount: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.990
 							group: 0
-							flags: prerequisite
+							flags: conditional
 						}
 					]
 					
@@ -130,7 +150,17 @@
 				}
 			]
 			
-			requirements: []
+			requirements:
+			[
+				{
+					type: resource
+					material: cloth
+					amount: 0.277778
+					snapping: 0.100
+					group: 0
+					flags: prerequisite
+				}
+			]
 			
 			products: []
 		}

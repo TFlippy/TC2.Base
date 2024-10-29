@@ -1,0 +1,63 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Wrapping (Cloth)"
+	name_short: "Wrapping"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, wip
+	cooldown: 0.900
+	multiplier: 1.000
+	color: "0xffdd4f60"
+	
+	tools_required: none
+	tools_optional: cutters
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: table, chair
+	
+	character_traits:
+	{
+		include: slave, medical, laborer, hunter, culinary, nomad, entertainer, artist, brawler, outdoor, junkie
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.650
+		blades: 0.150
+		medicine: 0.500
+	}
+	
+	sound_volume: 0.750
+	sound_pitch: 1.000
+	sound_size: 0.350
+	sound_dist: 0.350
+	
+	sounds: ["effect.cloth.shuffle.00", "effect.cloth.place.01", "effect.cloth.shuffle.01", "effect.cloth.slide.00", "effect.cloth.shuffle.02", "effect.cloth.slide.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
