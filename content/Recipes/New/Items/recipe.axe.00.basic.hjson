@@ -13,13 +13,13 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.880
-			mass_base: 4.400
+			ratio: 0.902439
+			mass_base: 3.700
 			
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Forged"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -29,16 +29,9 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 0.338188
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: steel.frames
-							amount: 0.169094
+							amount: 0.318821
 							snapping: 0.500
+							loss: 0.012
 							group: 0
 							flags: prerequisite
 						}
@@ -53,9 +46,10 @@
 						{
 							type: work
 							work: smithing
-							amount: 600.000
+							amount: 500.000
 							difficulty: 6
 							snapping: 5.000
+							falloff: 0.970
 							group: 0
 							flags: conditional
 						}
@@ -75,15 +69,15 @@
 			type: part
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: axe
 			
-			ratio: 0.100
-			mass_base: 0.500
+			ratio: 0.097561
+			mass_base: 0.400
 			
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Hand-Carved"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -93,7 +87,7 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.234082
+							amount: 0.187266
 							snapping: 1.000
 							group: 0
 							flags: prerequisite
@@ -104,6 +98,37 @@
 							amount: 220.000
 							difficulty: 4
 							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.732622
+							snapping: 1.000
+							loss: 0.027
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.805
 							group: 0
 							flags: conditional
 						}

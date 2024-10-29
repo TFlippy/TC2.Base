@@ -13,19 +13,19 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 7.000
+		mass: 5.600
 		radius: 0.200
 		friction: 0.750
 		elasticity: 0.450
 		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, ignore_bullet, item
 		mask: world
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 8500.000
 }
 
 melee:
