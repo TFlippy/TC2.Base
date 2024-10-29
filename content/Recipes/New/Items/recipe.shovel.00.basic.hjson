@@ -14,7 +14,7 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 0.807692
-			mass_base: 2.100
+			mass_base: 2.099999
 			
 			options:
 			[

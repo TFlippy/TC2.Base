@@ -163,7 +163,7 @@
 					products: []
 				}
 				{
-					name: "Doweled"
+					name: "Staked"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -172,7 +172,7 @@
 					[
 						{
 							type: work
-							work: doweling
+							work: hammering
 							amount: 450.000
 							difficulty: 6
 							snapping: 20.000

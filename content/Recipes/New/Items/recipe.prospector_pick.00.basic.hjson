@@ -119,8 +119,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
+			ratio: 0.063492
+			mass_base: 0.200
 			
 			options:
 			[
@@ -135,7 +135,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.860
+							amount: 2.090164
 							snapping: 0.010
 							falloff: 0.970
 							loss: 0.043
@@ -157,7 +157,7 @@
 					products: []
 				}
 				{
-					name: "Doweled"
+					name: "Staked"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -166,7 +166,7 @@
 					[
 						{
 							type: work
-							work: doweling
+							work: hammering
 							amount: 450.000
 							difficulty: 6
 							snapping: 20.000
