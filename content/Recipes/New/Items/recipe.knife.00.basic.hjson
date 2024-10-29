@@ -61,7 +61,7 @@
 			type: part
 			flags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: axe
 			
 			ratio: 0.200
 			mass_base: 0.096

@@ -3,54 +3,197 @@
 	name: "Machete"
 	tips: []
 	
-	icon:
-	{
-		texture: machete
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, weapon, blacksmithing, metalworking, forming, shaping
-	
-	color_button: "0xffaeb59a"
-	rank: 21.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 0
-			flags: prerequisite
+			name: "Head"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.95122
+			mass_base: 3.900
+			
+			options:
+			[
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.331619
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 430.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: woodworking
-			amount: 390.000
-			difficulty: 6
-			group: 0
-			flags: conditional
+			name: "Grip"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.04878
+			mass_base: 0.200
+			
+			options:
+			[
+				{
+					name: "Hand-Carved"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.093633
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 135.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.970
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.366311
+							snapping: 1.000
+							loss: 0.027
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.805
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: steel.ingot
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: smithing
-			amount: 430.000
-			difficulty: 7
-			group: 1
-			flags: conditional
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.840
+							snapping: 0.500
+							loss: 0.933
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 150.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -59,14 +202,23 @@
 			prefab: machete
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 2.698
-			amount_extra: 0.289
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: workbench, manual, weapon, blacksmithing, metalworking, forming, shaping
+	
+	icon:
+	{
+		texture: machete
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 21.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

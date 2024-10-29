@@ -94,7 +94,7 @@
 						}
 						{
 							type: work
-							work: woodworking
+							work: woodcarving
 							amount: 220.000
 							difficulty: 4
 							snapping: 5.000
@@ -198,7 +198,7 @@
 						{
 							type: work
 							work: hammering
-							amount: 450.000
+							amount: 200.000
 							difficulty: 6
 							snapping: 20.000
 							falloff: 0.985

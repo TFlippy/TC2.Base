@@ -18,7 +18,7 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 4.070
+		mass: 4.100
 		radius: 0.250
 		friction: 0.750
 		elasticity: 0.450
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 2500.000
+	max: 4300.000
 }
 
 melee:

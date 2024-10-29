@@ -13,8 +13,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.84127
-			mass_base: 2.650
+			ratio: 0.857143
+			mass_base: 2.700
 			
 			options:
 			[
@@ -31,7 +31,7 @@
 							material: steel.frames
 							amount: 1.217568
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.114
 							group: 0
 							flags: prerequisite
 						}
@@ -71,8 +71,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.095238
-			mass_base: 0.300
+			ratio: 0.142857
+			mass_base: 0.450
 			
 			options:
 			[
@@ -87,9 +87,9 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.157774
+							amount: 0.233807
 							snapping: 1.000
-							loss: 0.110
+							loss: 0.098
 							group: 0
 							flags: prerequisite
 						}
@@ -99,6 +99,37 @@
 							amount: 220.000
 							difficulty: 4
 							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.8242
+							snapping: 1.000
+							loss: 0.027
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.805
 							group: 0
 							flags: conditional
 						}
@@ -120,8 +151,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.063492
-			mass_base: 0.200
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -168,7 +199,7 @@
 						{
 							type: work
 							work: hammering
-							amount: 450.000
+							amount: 200.000
 							difficulty: 6
 							snapping: 20.000
 							falloff: 0.985
