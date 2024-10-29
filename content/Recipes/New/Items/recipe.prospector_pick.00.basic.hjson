@@ -19,7 +19,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Forged"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -49,6 +49,7 @@
 							amount: 480.000
 							difficulty: 7
 							snapping: 5.000
+							falloff: 0.950
 							group: 0
 							flags: conditional
 						}

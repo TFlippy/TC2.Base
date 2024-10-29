@@ -15,7 +15,7 @@
 	}
 	
 	flags: none
-	tags: manual, simple, construction, wip
+	tags: manual, simple, careful, leisure, wip
 	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xffdd4f60"

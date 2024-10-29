@@ -51,7 +51,7 @@ health:
 
 interactable:
 {
-	flags: no_tab
+	flags: none
 	priority: 1.500
 	window_size: [616.000, 496.000]
 	window_size_misc: [72.000, 0.000]

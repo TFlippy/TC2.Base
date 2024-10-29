@@ -55,7 +55,7 @@ transform:
 
 interactable:
 {
-	flags: no_tab
+	flags: none
 	window_size: [200.000, 192.000]
 	window_size_misc: [72.000, 0.000]
 }
