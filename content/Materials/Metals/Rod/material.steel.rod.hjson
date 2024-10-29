@@ -197,6 +197,33 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
+		sledgehammer:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.steel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 1.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.800
+			yield_extra: 0.120
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
 	}
 	
 	residues:
@@ -263,6 +290,15 @@
 			flags_product: residue
 			
 			yield: [0.9546, 0.0454]
+		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
 		}
 	}
 }

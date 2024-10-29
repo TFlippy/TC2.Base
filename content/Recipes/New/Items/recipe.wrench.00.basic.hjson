@@ -13,7 +13,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.616667
+			ratio: 0.629787
 			mass_base: 7.400
 			
 			options:
@@ -136,8 +136,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.250
-			mass_base: 3.000
+			ratio: 0.289362
+			mass_base: 3.400
 			
 			options:
 			[
@@ -152,28 +152,28 @@
 						{
 							type: resource
 							material: scrap.mixed
-							amount: 2.943
-							snapping: 0.500
+							amount: 1.983405
+							snapping: 1.000
 							falloff: 0.970
-							loss: 0.325
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: machine_parts
-							amount: 1.740
-							snapping: 1.000
-							falloff: 0.960
-							loss: 0.380
+							amount: 3.948555
+							snapping: 0.500
+							falloff: 0.950
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: scavenging
-							amount: 500.000
-							difficulty: 5
+							amount: 400.000
+							difficulty: 6
 							snapping: 10.000
 							falloff: 0.980
 							group: 0
@@ -197,16 +197,16 @@
 					name: "Machined"
 					
 					type: undefined
-					flags: none
+					flags: disabled, wip, incomplete
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.342105
+							amount: 1.504
 							snapping: 0.100
-							loss: 0.106
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -238,13 +238,13 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.0625
+			ratio: 0.06383
 			mass_base: 0.750
 			
 			options:
 			[
 				{
-					name: "Filed"
+					name: "Sawed"
 					
 					type: undefined
 					flags: none
@@ -253,9 +253,9 @@
 					[
 						{
 							type: resource
-							material: steel.ingot
-							amount: 0.083395
-							snapping: 0.400
+							material: steel.rod
+							amount: 0.167851
+							snapping: 1.000
 							falloff: 0.960
 							loss: 0.235
 							group: 0
@@ -263,11 +263,11 @@
 						}
 						{
 							type: work
-							work: filing
+							work: sawing
 							amount: 450.000
-							difficulty: 5
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.970
+							falloff: 0.920
 							group: 0
 							flags: conditional
 						}
@@ -289,7 +289,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
+			ratio: 0.017021
 			mass_base: 0.200
 			
 			options:
@@ -329,7 +329,7 @@
 					name: "Welded"
 					
 					type: undefined
-					flags: none
+					flags: disabled, wip, incomplete
 					
 					requirements:
 					[
