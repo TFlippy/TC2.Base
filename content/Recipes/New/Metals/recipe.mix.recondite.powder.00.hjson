@@ -11,11 +11,15 @@
 	[
 		{
 			
-			group: 0
 			type: undefined
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options: []
 			
 			requirements:
 			[
@@ -36,22 +40,18 @@
 			]
 			
 			products: []
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
 		}
 		{
 			
-			group: 1
 			type: undefined
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
 			
-			falloff_amount_mult: 1.000
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options: []
 			
 			requirements:
 			[
@@ -76,14 +76,6 @@
 					group: 0
 				}
 			]
-			
-			start_delay: 1.000
-			advance_delay: 0.500
-			complete_delay: 1.000
-			
-			h_sound_begin: missing
-			h_sound_complete: missing
-			h_sound_finalize: missing
 		}
 	]
 	
@@ -126,7 +118,7 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: hidden, disabled
 	tags: workbench, manual, simple, metalworking
 	
 	icon:

@@ -169,7 +169,12 @@ namespace TC2.Base.Components
 					{
 						using (GUI.Group.New(size: GUI.Rm))
 						{
-							GUI.SameLine(24);
+							//GUI.SameLine(24);
+							using (var group_left = GUI.Group.New(size: new(GUI.RmX * 0.50f, GUI.RmY)))
+							{
+								group_left.DrawBackground(GUI.tex_slot_filled);
+							}
+							GUI.SameLine();
 							GUI.DrawTemperatureRange(this.heat_state.temperature_current, this.heat.temperature_operating, 2000, size: new(24, GUI.RmY), label_b: "Current"u8, label_a: "Max"u8);
 						}
 					}

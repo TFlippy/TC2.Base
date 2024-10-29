@@ -13,8 +13,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.888889
-			mass_base: 2.800
+			ratio: 0.84127
+			mass_base: 2.650
 			
 			options:
 			[
@@ -29,9 +29,19 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.120
-							snapping: 1.000
-							group: 1
+							amount: 1.217568
+							snapping: 0.500
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
@@ -39,7 +49,7 @@
 							amount: 480.000
 							difficulty: 7
 							snapping: 5.000
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]

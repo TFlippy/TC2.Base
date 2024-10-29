@@ -120,17 +120,17 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Crucible"u8, this.ent_crucible, size: new(24, 96 * 1)))
-				{
-					this.StoreCurrentWindowTypeID(order: -100);
-					if (window.show)
-					{
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
-						{
+				//using (var window = GUI.Window.InteractionMisc("Crucible"u8, this.ent_crucible, size: new(24, 96 * 1)))
+				//{
+				//	this.StoreCurrentWindowTypeID(order: -100);
+				//	if (window.show)
+				//	{
+				//		using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+				//		{
 
-						}
-					}
-				}
+				//		}
+				//	}
+				//}
 			}
 		}
 

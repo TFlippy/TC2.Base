@@ -38,7 +38,8 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [668.000, 504.000]
+	window_size: [692.000, 592.000]
+	window_size_min: [192.000, 168.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -175,6 +176,61 @@ personnel:
 		null
 	]
 	characters_capacity: 5
+}
+
+heat:
+{
+	temperature_medium: 750.000
+	temperature_high: 1000.000
+	temperature_breakdown: 1750.000
+	cool_rate: 13.000
+	heat_capacity_extra: 80.000
+	heat_capacity_mult: 3.000
+	heat_damage_mult: 0.200
+	flags: exclude_body_mass, no_smoke
+	offset: [-2.125, 0.250]
+	smoke_offset: [-2.250, -2.375]
+	size: [0.250, 0.250]
+
+	@light:
+	{
+		offset: [-2.125, 0.250]
+		scale: [3.000, 6.000]
+		intensity: 2.500
+		texture: light.box.02
+	}
+		
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
+fillable:
+{
+	flags: use_misc, reusable
+	volume_capacity: 0.004
+	capacity: 1.000
+}
+
+crafter:
+{
+	tools: pencil, paper, ruler, hammer, saw, screwdriver, wrench, pliers, bucket, file, tongs, knife
+	machinery: heater, burner, stove
+	equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
+	environment: workshop, stationary, dirty, noisy
+	volume_max: 0.010
+
+	@inventory8:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, public, vertical
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 // spawn:

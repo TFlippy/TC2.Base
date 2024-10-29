@@ -265,7 +265,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Fillable"u8, this.ent_fillable, size: new(48, 48*4)))
+				using (var window = GUI.Window.InteractionMisc("Fillable"u8, this.ent_fillable, size: new(48, 48 * 4), min_width: 48, min_height: 48))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
@@ -297,7 +297,7 @@
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region, order: 350)]
 		public static void OnGUI(Entity entity,
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Fillable.Data fillable)
