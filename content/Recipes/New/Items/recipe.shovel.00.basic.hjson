@@ -91,7 +91,7 @@
 					name: "Cast"
 					
 					type: undefined
-					flags: none
+					flags: disabled, wip, incomplete
 					
 					requirements:
 					[
@@ -127,7 +127,7 @@
 					name: "Die-Cut Plates"
 					
 					type: undefined
-					flags: none
+					flags: disabled, wip, incomplete
 					
 					requirements:
 					[
@@ -195,6 +195,37 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.970
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.912282
+							snapping: 1.000
+							loss: 0.027
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.805
 							group: 0
 							flags: conditional
 						}
