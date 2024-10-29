@@ -16,9 +16,9 @@
 	}
 	
 	type: metal_pole
-	flags: magnetic, metal, small, flexible, solid, processed
-	display_flags: no_random_facing
-	hints: none
+	flags: long, magnetic, metal, small, flexible, solid, processed
+	display_flags: sprite_stack_linear, no_random_facing
+	hints: materials, construction
 	bulk_density_ratio_min: 0.000
 	bulk_density_ratio_max: 0.000
 	density_ratio: 0.9069
@@ -89,60 +89,6 @@
 	// Conversions into other materials.
 	conversions:
 	{
-		bullet_ac:
-		{
-			h_material: scrap.steel
-			spawn_flags: merge, pickup
-			product_flags: none
-			ratio: 0.820
-			ratio_extra: 0.100
-			
-			h_material_waste: "null"
-			spawn_flags_waste: none
-			product_flags_waste: none
-			ratio_waste: 0.000
-			ratio_waste_extra: 0.000
-			
-			yield: 0.910
-			yield_extra: 0.000
-			
-			h_sound: missing
-			sound_volume: 0.000
-			sound_pitch: 0.000
-			
-			chance: 0.920
-			type: undefined
-			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.000
-		}
-		pickaxe:
-		{
-			h_material: scrap.steel
-			spawn_flags: merge, pickup
-			product_flags: none
-			ratio: 0.120
-			ratio_extra: 0.200
-			
-			h_material_waste: "null"
-			spawn_flags_waste: none
-			product_flags_waste: none
-			ratio_waste: 0.000
-			ratio_waste_extra: 0.000
-			
-			yield: 0.988
-			yield_extra: 0.000
-			
-			h_sound: missing
-			sound_volume: 0.000
-			sound_pitch: 0.000
-			
-			chance: 0.540
-			type: undefined
-			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.000
-		}
 		blunt:
 		{
 			h_material: scrap.steel
@@ -255,15 +201,6 @@
 	
 	residues:
 	{
-		snipping.metal:
-		{
-			h_material: scrap.steel
-			h_substance: "null"
-			flags: none
-			flags_product: residue
-			
-			yield: [0.859649, 0.1384]
-		}
 		carving:
 		{
 			h_material: steel.powder
@@ -275,7 +212,7 @@
 		}
 		cutting:
 		{
-			h_material: scrap.steel
+			h_material: steel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -293,7 +230,7 @@
 		}
 		smithing:
 		{
-			h_material: scrap.ferrous
+			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -307,7 +244,7 @@
 			flags: none
 			flags_product: residue
 			
-			yield: [0.870, 0.110]
+			yield: [0.260, 0.510]
 		}
 		sawing:
 		{
@@ -316,16 +253,7 @@
 			flags: none
 			flags_product: residue
 			
-			yield: [0.952, 0.033]
-		}
-		die_cutting.metal:
-		{
-			h_material: scrap.steel
-			h_substance: "null"
-			flags: none
-			flags_product: residue
-			
-			yield: [0.972, 0.028]
+			yield: [0.962, 0.033]
 		}
 		bending:
 		{

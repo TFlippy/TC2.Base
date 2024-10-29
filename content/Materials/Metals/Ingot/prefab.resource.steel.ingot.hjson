@@ -53,10 +53,10 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
-norotate:
-{
+// norotate:
+// {
 
-}
+// }
 
 health:
 {
@@ -65,15 +65,7 @@ health:
 
 breakable:
 {
-	h_material: "null"
-	
 	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
-	
-	material_type: none
-	material_flags: none
 }
 
 heat:

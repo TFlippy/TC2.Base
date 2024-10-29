@@ -28,7 +28,7 @@
 	mass_per_unit: 12.22045
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
-	form_type: undefined
+	form_type: ingot
 	prefab: resource.iron.ingot
 	h_substance: iron
 	
