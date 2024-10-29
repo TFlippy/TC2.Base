@@ -2,6 +2,11 @@
 	$version: "0.1.61.4"
 	name: "Smirglum Slab"
 	name_short: "Sg. Slab"
+	description:
+		'''
+		Standard 120x60x20 cm steel slab.
+		Used in large-scale metal processing.
+		'''
 	
 	icon:
 	{
@@ -22,7 +27,7 @@
 	mass_per_unit: 4179.393
 	volume_per_unit: 0.144
 	quantity_max: 4.000
-	form_type: undefined
+	form_type: slab
 	prefab: resource.smirglum.slab
 	h_substance: smirglum
 	

@@ -2,6 +2,11 @@
 	$version: "0.1.61.4"
 	name: "Copper Slab"
 	name_short: "Cop. Slab"
+	description:
+		'''
+		Standard 120x60x20 cm steel slab.
+		Used in large-scale metal processing.
+		'''
 	
 	icon:
 	{

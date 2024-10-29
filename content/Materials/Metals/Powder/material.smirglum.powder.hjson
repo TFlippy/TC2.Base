@@ -4,9 +4,7 @@
 	name_short: "Sg. Powder"
 	description:
 		'''
-		High-purity smirglum powder.
-		- Faster to melt
-		- Can be mixed into alloy powders
+		Standard fine-grained steel powder.
 		'''
 	
 	icon:
@@ -28,7 +26,7 @@
 	mass_per_unit: 2.609129
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
-	form_type: undefined
+	form_type: powder
 	prefab: resource.smirglum.powder
 	h_substance: smirglum
 	

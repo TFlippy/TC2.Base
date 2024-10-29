@@ -4,7 +4,8 @@
 	name_short: "Rec. Plate"
 	description:
 		'''
-		Recondite formed into a plate.
+		Standard 20x60x0.25 cm steel plate.
+		Used for metal stamping, tubes and containers.
 		'''
 	
 	icon:
@@ -26,7 +27,7 @@
 	mass_per_unit: 6.561746
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
-	form_type: undefined
+	form_type: plate
 	prefab: resource.recondite.plate
 	h_substance: recondite
 	

@@ -28,7 +28,7 @@
 	mass_per_unit: 0.100
 	volume_per_unit: 0.000
 	quantity_max: 500.000
-	form_type: undefined
+	form_type: packaged
 	prefab: resource.hydrogen_peroxide
 	h_substance: hydrogen_peroxide
 	

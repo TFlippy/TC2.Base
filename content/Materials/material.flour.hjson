@@ -26,7 +26,7 @@
 	mass_per_unit: 0.200
 	volume_per_unit: 0.000
 	quantity_max: 500.000
-	form_type: undefined
+	form_type: powder
 	prefab: resource.flour
 	h_substance: "null"
 	

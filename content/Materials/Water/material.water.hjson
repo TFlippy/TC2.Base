@@ -18,17 +18,20 @@
 	}
 	
 	type: liquid
-	// Flags defining properties of the raw material.
 	flags: food, liquid, chemical, bottled, raw, primary
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: none
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.992
 	mass_per_unit: 0.100
-	bulk_density_ratio: 1.000
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 500.000
+	form_type: packaged
 	prefab: resource.water
+	h_substance: water
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -77,7 +80,4 @@
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
 	}
-	
-	h_substance: water
-	purity: 0.992
 }

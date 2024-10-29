@@ -14,19 +14,20 @@
 	}
 	
 	type: powder
-	// Flags defining properties of the raw material.
 	flags: granular, powder, waste, solid, processed
-	// Flags to remove if stored in a bottle/tank/can.
-	flags_bottle_rem: none
 	display_flags: none
 	hints: materials, dangerous, junk, small, crappy
+	bulk_density_ratio_min: 0.000
+	bulk_density_ratio_max: 0.000
+	density_ratio: 0.000
+	porosity: 0.000
+	purity: 0.927
 	mass_per_unit: 0.200
-	bulk_density_ratio: 0.898
-	void_ratio: 0.000
-	compressibility: 0.000
-	stack_volume: 0.000
+	volume_per_unit: 0.000
 	quantity_max: 1000.000
+	form_type: powder
 	prefab: resource.glass.powder
+	h_substance: glass
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
@@ -36,7 +37,4 @@
 	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
-	
-	h_substance: glass
-	purity: 0.927
 }

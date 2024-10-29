@@ -27,7 +27,7 @@
 	mass_per_unit: 0.830
 	volume_per_unit: 0.000
 	quantity_max: 500.000
-	form_type: undefined
+	form_type: chunk
 	prefab: resource.slag
 	h_substance: slag
 	

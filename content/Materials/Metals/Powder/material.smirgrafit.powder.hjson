@@ -4,7 +4,7 @@
 	name_short: "Sgft. Powder"
 	description:
 		'''
-		Mixture of smirglum, graphite and aluminium powders.
+		Standard mixture of smirglum, graphite and aluminium powders.
 		Fuses together into a durable refractory ceramic-like material when exposed to a high-temperature oxidizing flame.
 		'''
 	
@@ -27,7 +27,7 @@
 	mass_per_unit: 2.246928
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
-	form_type: undefined
+	form_type: powder
 	prefab: resource.smirgrafit.powder
 	h_substance: smirgrafit
 	

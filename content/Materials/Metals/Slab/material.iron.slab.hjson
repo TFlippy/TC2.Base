@@ -2,6 +2,11 @@
 	$version: "0.1.61.4"
 	name: "Iron Slab"
 	name_short: "Irn. Slab"
+	description:
+		'''
+		Standard 120x60x20 cm steel slab.
+		Used in large-scale metal processing.
+		'''
 	
 	icon:
 	{
@@ -22,7 +27,7 @@
 	mass_per_unit: 1099.840
 	volume_per_unit: 0.144
 	quantity_max: 4.000
-	form_type: undefined
+	form_type: slab
 	prefab: resource.iron.slab
 	h_substance: iron
 	
