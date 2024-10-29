@@ -1,0 +1,104 @@
+$tags: []
+
+body:
+{
+	flags: none
+	buoyancy: 0.540
+	fall_damage_multiplier: 0.350
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.500, -0.375]
+			[0.375, -0.500]
+			[0.625, 0.625]
+			[-0.625, 0.625]
+		]
+		radius: 0.375		
+		miss_chance: 0.153
+		
+		friction: 0.650
+		elasticity: 0.500
+		material: wood
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.wood.rod"
+		count: 4
+		size: [16, 16]
+	}
+	z: -71.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "wood.rod"
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+norotate:
+{
+	bias: 0.150
+	speed: 2.500
+	mass_multiplier: 10.000
+	flags: no_share
+}
+
+health:
+{
+	max: 7500.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 340.9637
+	temperature_high: 408.350
+	temperature_ignite: 450.000
+	temperature_operating: 320.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	cool_rate: 2.500
+	smoke_speed_mult: 0.750
+	flags: none
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.125]
+	smoke_offset: [0.000, 0.125]
+	size: [2.000, 2.000]
+}
+
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

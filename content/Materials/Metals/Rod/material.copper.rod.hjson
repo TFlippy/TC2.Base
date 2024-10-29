@@ -16,7 +16,7 @@
 	}
 	
 	type: metal_pole
-	flags: long, metal, small, flexible, solid, processed
+	flags: hard, long, metal, small, flexible, solid, processed
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: materials, construction
 	bulk_density_ratio_min: 0.000
@@ -239,7 +239,7 @@
 		}
 		machining:
 		{
-			h_material: iron.powder
+			h_material: copper.powder
 			h_substance: "null"
 			flags: none
 			flags_product: residue
