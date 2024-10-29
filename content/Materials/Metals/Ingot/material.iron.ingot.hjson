@@ -4,9 +4,7 @@
 	name_short: "Irn. Ingot"
 	description:
 		'''
-		Solid iron ingot.
-
-		Most often processed further into steel, but can be used on its own (such as in cheap tools or flywheels).
+		Standard 10x10x8 cm iron ingot.
 		'''
 	
 	icon:

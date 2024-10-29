@@ -2,12 +2,6 @@
 	$version: "0.1.61.4"
 	name: "Steel Billet"
 	name_short: "St. Billet"
-	description:
-		'''
-		Standard 256x8x8 cm steel billet.
-
-		Used for large-scale construction and further metal processing.
-		'''
 	
 	icon:
 	{
