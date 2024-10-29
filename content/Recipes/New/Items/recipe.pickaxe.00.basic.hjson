@@ -13,8 +13,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.925926
-			mass_base: 5.000
+			ratio: 0.916667
+			mass_base: 4.950
 			
 			options:
 			[
@@ -22,16 +22,26 @@
 					name: "<TODO>"
 					
 					type: undefined
-					flags: none
+					flags: wip, incomplete
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: steel.frames
-							amount: 2.000
-							snapping: 1.000
-							group: 1
+							amount: 2.13038
+							snapping: 0.500
+							loss: 0.071
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
@@ -39,7 +49,7 @@
 							amount: 650.000
 							difficulty: 8
 							snapping: 25.000
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]
@@ -67,7 +77,7 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 0.074074
-			mass_base: 0.400
+			mass_base: 0.450
 			
 			options:
 			[
@@ -82,7 +92,7 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.210365
+							amount: 0.23666
 							snapping: 1.000
 							loss: 0.110
 							group: 0
@@ -115,38 +125,7 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 220.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 2.000
-			group: 1
-		}
-		{
-			type: work
-			work: smithing
-			amount: 650.000
-			difficulty: 8
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
 	products:
 	[

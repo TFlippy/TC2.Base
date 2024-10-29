@@ -172,7 +172,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, metalworking
+	tags: workbench, manual, weapon, tool, metalworking
 	
 	icon:
 	{

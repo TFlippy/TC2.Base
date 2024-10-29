@@ -87,6 +87,7 @@
 							snapping: 1.000
 							loss: 0.082
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -137,7 +138,7 @@
 							falloff: 0.970
 							loss: 0.043
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work

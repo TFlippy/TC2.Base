@@ -30,6 +30,7 @@
 							type: resource
 							material: steel.plate
 							amount: 1.000
+							snapping: 1.000
 							loss: 0.106
 							group: 0
 							flags: prerequisite
@@ -39,6 +40,7 @@
 							work: snipping.metal
 							amount: 220.000
 							difficulty: 11
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -142,6 +144,7 @@
 							work: die_cutting.metal
 							amount: 50.000
 							difficulty: 11
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -230,6 +233,7 @@
 							type: resource
 							material: glue
 							amount: 1.000
+							snapping: 0.500
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -238,6 +242,7 @@
 							work: gluing
 							amount: 100.000
 							difficulty: 2
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}

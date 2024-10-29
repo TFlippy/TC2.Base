@@ -22,7 +22,7 @@
 					name: "<TODO>"
 					
 					type: undefined
-					flags: none
+					flags: wip, incomplete
 					
 					requirements:
 					[
@@ -76,24 +76,25 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Hand-Carved"
 					
 					type: undefined
-					flags: none
+					flags: wip, incomplete
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: wood
-							amount: 0.140449
+							amount: 0.157774
 							snapping: 1.000
+							loss: 0.110
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: woodworking
+							work: woodcarving
 							amount: 220.000
 							difficulty: 4
 							snapping: 5.000
@@ -112,38 +113,7 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 220.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: smithing
-			amount: 480.000
-			difficulty: 7
-			group: 1
-			flags: conditional
-		}
-	]
+	requirements: []
 	
 	products:
 	[
@@ -158,7 +128,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, item
-	tags: workbench, manual, blacksmithing, assembling, machining, metalworking, forming, shaping
+	tags: workbench, manual, tool, blacksmithing, assembling, machining, metalworking, forming, shaping
 	
 	icon:
 	{
