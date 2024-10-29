@@ -3,81 +3,237 @@
 	name: "Long Breechloader"
 	tips: []
 	
-	icon:
-	{
-		texture: breechloader.long
-	}
-	
-	min: 1
-	max: 80
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, packable
-	tags: manual, simple, weapon, gun, assembling, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: -1.700
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.ingot
-			amount: 3.000
-			group: 0
-			flags: prerequisite
+			name: "Barrel"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			ratio: 0.858824
+			mass_base: 14.600
+			
+			options:
+			[
+				{
+					name: "Drilled"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 1.4981
+							snapping: 1.000
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.5845
+							snapping: 0.500
+							loss: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 850.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.980
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: steel.frames
-			amount: 3.000
-			group: 0
-			flags: prerequisite
+			name: "Stock"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.041176
+			mass_base: 0.700
+			
+			options:
+			[
+				{
+					name: "Carved"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					discard_damage_type_override: axe
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.359844
+							snapping: 1.000
+							loss: 0.098
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 650.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.935
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: drilling
-			amount: 850.000
-			difficulty: 9
-			group: 0
-			flags: conditional
+			name: "Firing Mechanism"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.079412
+			mass_base: 1.350
+			
+			options:
+			[
+				{
+					name: "Basic"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.heat
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.6548
+							snapping: 0.200
+							loss: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 230.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 220.000
-			difficulty: 4
-			group: 1
-			flags: conditional
-		}
-		{
-			type: resource
-			material: pellet.heat
-			amount: 1.000
-			group: 2
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 4.000
-			group: 2
-		}
-		{
-			type: work
-			work: assembling
-			amount: 230.000
-			difficulty: 5
-			group: 2
-			flags: conditional
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.020588
+			mass_base: 0.350
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.472006
+							snapping: 0.500
+							falloff: 0.950
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 300.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.080
+					snapping: 0.100
+					group: 0
+				}
+			]
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -86,30 +242,23 @@
 			prefab: breechloader.long
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.machine
-			amount: 0.753
-			amount_extra: 0.187
-			group: 1
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: steel.powder
-			amount: 16.580
-			amount_extra: 1.144
-			group: 1
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 1.133
-			amount_extra: 0.248
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, packable, item
+	tags: workshop, manual, simple, weapon, gun, assembling, metalworking
+	
+	icon:
+	{
+		texture: breechloader.long
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -1.700
+	
+	min: 1
+	max: 4
+	step: 1
 }
