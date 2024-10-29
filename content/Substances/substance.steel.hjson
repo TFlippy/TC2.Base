@@ -91,5 +91,6 @@
 		raw: steel
 		scrap: scrap.steel
 		slab: steel.slab
+		rod: steel.rod
 	}
 }
