@@ -3,48 +3,172 @@
 	name: "Crate (Metal, Medium)"
 	tips: []
 	
-	icon:
-	{
-		texture: crate.metal.01
-	}
-	icon_offset: [6.000, 0.000]
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable
-	tags: workbench, manual, simple, assembling, metalworking, shaping
-	
-	color_button: "0xffaeb59a"
-	rank: -5.100
-	frame_size: [40.000, 40.000]
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.frames
-			amount: 10.000
-			group: 0
-			flags: prerequisite
+			name: "Framework"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.363636
+			mass_base: 20.000
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 7.984754
+							snapping: 0.500
+							loss: 0.039
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.193901
+							snapping: 0.500
+							loss: 0.039
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 250.000
+							amount_min: 100.000
+							difficulty: 5
+							snapping: 5.000
+							loss: 0.216
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: steel.plate
-			amount: 32.000
-			group: 0
-			flags: prerequisite
+			name: "Sheathing"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.600
+			mass_base: 33.000
+			
+			options:
+			[
+				{
+					name: "Plated"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 14.79875
+							snapping: 1.000
+							loss: 0.051
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: assembling
-			amount: 300.000
-			difficulty: 4
-			group: 1
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.036364
+			mass_base: 2.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 5.000
+							snapping: 0.500
+							falloff: 0.950
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 110.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.600
+					snapping: 0.100
+					loss: 0.122
+					group: 0
+					flags: locked
+				}
+			]
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -53,14 +177,25 @@
 			prefab: crate.metal.01
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 1.210
-			amount_extra: 0.080
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item
+	tags: workbench, manual, simple, assembling, metalworking, shaping
+	
+	icon:
+	{
+		texture: crate.metal.01
+	}
+	icon_offset: [6.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -5.100
+	frame_size: [40.000, 40.000]
+	
+	min: 1
+	max: 1
+	step: 1
 }

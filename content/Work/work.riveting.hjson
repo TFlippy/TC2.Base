@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Bolting"
-	name_short: "Bolting"
+	name: "Riveting"
+	name_short: "Riveting"
 	desc:
 		'''
 		TODO: Desc
@@ -15,7 +15,7 @@
 	}
 	
 	flags: none
-	tags: manual, tools, simple, technical, careful, construction, wip
+	tags: manual, skilled, tools, advanced, technical, arcane, careful, construction, industrial, wip
 	cooldown: 1.070
 	multiplier: 0.690
 	color: "0xffffa200"
@@ -31,8 +31,8 @@
 	
 	character_traits:
 	{
-		include: construction, artisan, laborer, technician, engineer, miner
-		exclude: clumsy, huge
+		include: construction, military, artisan, laborer, technician, engineer, arcane
+		exclude: insane, dumb
 		weight: 1.000
 	}
 	
@@ -43,10 +43,10 @@
 	
 	skills_mult:
 	{
-		construction: 0.490
-		engineering: 0.250
-		scavenging: 0.310
-		dexterity: 0.250
+		construction: 0.980
+		engineering: 0.840
+		intellect: 0.260
+		strength: 0.130
 	}
 	
 	sound_volume: 0.640
@@ -54,7 +54,7 @@
 	sound_size: 0.350
 	sound_dist: 0.410
 	
-	sounds: ["effect.boink.metal.00", "item.adjust.02", "item.rattle.01", "wrench.dismantle.00", "effect.tinker.components.00", "effect.rattle.spring.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.machine.00", "effect.tinker.machine.00", "wrench.dismantle.00", "item.adjust.00"]
+	sounds: ["rivet_gun.shoot.00", "rivet_gun.shoot.01", "effect.tinker.machine.00", "rivet_gun.shoot.00", "effect.spring.machine.00", "effect.smack.metal.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

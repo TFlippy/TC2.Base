@@ -3,47 +3,172 @@
 	name: "Crate (Metal, Small)"
 	tips: []
 	
-	icon:
-	{
-		texture: crate.metal.00
-	}
-	icon_offset: [0.000, 5.000]
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable
-	tags: workbench, manual, simple, assembling, metalworking, shaping
-	
-	color_button: "0xffaeb59a"
-	rank: -5.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.frames
-			amount: 8.000
-			group: 0
-			flags: prerequisite
+			name: "Framework"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.564516
+			mass_base: 17.500
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 6.98666
+							snapping: 0.500
+							loss: 0.039
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 2.794664
+							snapping: 0.500
+							loss: 0.039
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 250.000
+							amount_min: 100.000
+							difficulty: 5
+							snapping: 5.000
+							loss: 0.216
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: steel.plate
-			amount: 12.000
-			group: 0
-			flags: prerequisite
+			name: "Sheathing"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.387097
+			mass_base: 12.000
+			
+			options:
+			[
+				{
+					name: "Plated"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 5.381364
+							snapping: 1.000
+							loss: 0.051
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: assembling
-			amount: 225.000
-			difficulty: 6
-			group: 1
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.048387
+			mass_base: 1.500
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 5.000
+							snapping: 0.500
+							falloff: 0.950
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 110.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.448628
+					snapping: 0.100
+					loss: 0.122
+					group: 0
+					flags: locked
+				}
+			]
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -52,14 +177,24 @@
 			prefab: crate.metal.00
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.580
-			amount_extra: 0.070
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item
+	tags: workbench, manual, simple, assembling, metalworking, shaping
+	
+	icon:
+	{
+		texture: crate.metal.00
+	}
+	icon_offset: [0.000, 5.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -5.000
+	
+	min: 1
+	max: 1
+	step: 1
 }

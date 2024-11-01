@@ -3,56 +3,231 @@
 	name: "Motor (Servus)"
 	tips: []
 	
-	icon:
-	{
-		texture: motor.servus.00
-		size: [24, 16]
-		frame: [2, 0]
-	}
-	
-	min: 1
-	max: 4
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, magitronics, assembling, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.frames
-			amount: 10.000
-			group: 0
-			flags: prerequisite
+			name: "Framework"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 10.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 4.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 650.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: machine_parts
-			amount: 4.000
-			group: 0
-			flags: prerequisite
+			name: "Actuators"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Single"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite, locked
+						}
+						{
+							type: work
+							work: calibration
+							amount: 450.000
+							amount_min: 350.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.750
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Dual"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 2.000
+							snapping: 2.000
+							group: 0
+							flags: prerequisite, locked
+						}
+						{
+							type: work
+							work: calibration
+							amount: 450.000
+							amount_min: 350.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.750
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Triple"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 3.000
+							snapping: 3.000
+							group: 0
+							flags: prerequisite, locked
+						}
+						{
+							type: work
+							work: calibration
+							amount: 450.000
+							amount_min: 350.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.750
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: resource
-			material: actuator
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: assembling
-			amount: 650.000
-			difficulty: 5
-			group: 0
-			flags: conditional
+			name: "Crankshaft"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 10.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 4.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 650.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -61,14 +236,25 @@
 			prefab: motor.servus.00
 			amount: 1.000
 			group: 0
-		}
-		{
-			type: resource
-			material: scrap.machine
-			amount: 0.650
-			amount_extra: 1.210
-			group: 1
-			flags: waste, residue
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, wip, item
+	tags: workbench, manual, magitronics, assembling, metalworking
+	
+	icon:
+	{
+		texture: motor.servus.00
+		size: [24, 16]
+		frame: [2, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 4
+	step: 1
 }
