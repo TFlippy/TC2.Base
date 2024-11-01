@@ -30,7 +30,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 1.4981
-							snapping: 1.000
+							snapping: 0.500
 							loss: 0.235
 							group: 0
 							flags: prerequisite
@@ -138,14 +138,6 @@
 					[
 						{
 							type: resource
-							material: pellet.heat
-							amount: 1.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
 							material: machine_parts
 							amount: 3.6548
 							snapping: 0.200
@@ -156,9 +148,11 @@
 						{
 							type: work
 							work: assembling
-							amount: 230.000
+							amount: 300.000
+							amount_min: 100.000
 							difficulty: 5
 							snapping: 5.000
+							falloff: 0.970
 							group: 0
 							flags: conditional
 						}
@@ -168,7 +162,17 @@
 				}
 			]
 			
-			requirements: []
+			requirements:
+			[
+				{
+					type: resource
+					material: pellet.heat
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_residue, prerequisite
+				}
+			]
 			
 			products: []
 		}
@@ -247,7 +251,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, packable, item
+	flags: blueprintable, item
 	tags: workshop, manual, simple, weapon, gun, assembling, metalworking
 	
 	icon:
