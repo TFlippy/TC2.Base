@@ -9,7 +9,8 @@
 	flags: none
 	type_tmp: heat
 	
-	color_emit: [1.000, 0.577982, 0.000, 2.500]
+	color_emit: [1.000, 0.578, 0.000, 2.500]
+	
 	emit_force: 650.000
 	emit_power_thermal: 182.000
 	emit_power_kinetic: 2.760
@@ -18,18 +19,22 @@
 	emit_power_magnetic: 0.560
 	
 	sound_emit_loop: essence.emit.heat.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
 	sound_emit_pulser_loop: essence.emit.heat.loop.00
 	sound_emit_stressor_loop: propeller.idle.loop.00
 	sound_emit_impactor_loop: tank.engine.loop.01
 	sound_emit_cycler_loop: tank.engine.loop.00
 	sound_emit_oscillator_loop: essence.emit.heat.loop.00
-	sound_emit_ambient_loop: burner.loop.03
-	sound_drain_loop: essence.drain.loop.00
+	sound_emit_ambient_loop: propeller.idle.loop.00
+	sound_emit_projector_loop: missing
+	
 	sound_collapse: essence.collapse.heat.00
 	sound_zap: essence.drain.zap.01
 	sound_blast: essence.blast.00
 	sound_impulse: explosion.03
 	sound_impact: explosion.gas.00
+	sound_shatter: missing
 	
 	h_prefab_node: essence_node.heat
 	h_material_pellet: pellet.heat

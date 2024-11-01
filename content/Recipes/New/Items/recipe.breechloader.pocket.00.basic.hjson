@@ -47,11 +47,11 @@
 						{
 							type: work
 							work: drilling
-							amount: 375.000
-							amount_min: 100.000
-							difficulty: 7
+							amount: 225.000
+							amount_min: 50.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.980
+							falloff: 0.890
 							group: 0
 							flags: conditional
 						}
