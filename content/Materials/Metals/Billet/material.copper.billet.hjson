@@ -1,12 +1,10 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Copper (Billet)"
+	name: "Copper Billet"
 	name_short: "Cop Bilet."
 	description:
 		'''
-		Standard 256x8x8 cm copper billet.
-
-		Used for large-scale construction and further metal processing.
+		[OBSOLETE]
 		'''
 	
 	icon:

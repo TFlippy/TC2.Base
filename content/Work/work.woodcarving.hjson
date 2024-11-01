@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, skilled, machine, tools, construction, wip
 	cooldown: 0.850
-	multiplier: 1.100
+	multiplier: 1.200
 	color: "0xff719240"
 	
 	tools_required: saw, file, knife
@@ -43,8 +43,8 @@
 	skills_mult:
 	{
 		blades: 0.400
-		carpentry: 0.500
-		construction: 0.300
+		carpentry: 0.700
+		construction: 0.450
 		strength: 0.350
 	}
 	

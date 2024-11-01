@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, tools, simple, technical, careful, construction, wip
 	cooldown: 1.070
-	multiplier: 0.690
+	multiplier: 1.100
 	color: "0xffffa200"
 	
 	tools_required: none
@@ -49,12 +49,12 @@
 		dexterity: 0.250
 	}
 	
-	sound_volume: 0.640
-	sound_pitch: 1.190
-	sound_size: 0.350
-	sound_dist: 0.410
+	sound_volume: 0.850
+	sound_pitch: 1.200
+	sound_size: 0.600
+	sound_dist: 0.650
 	
-	sounds: ["effect.boink.metal.00", "item.adjust.02", "item.rattle.01", "wrench.dismantle.00", "effect.tinker.components.00", "effect.rattle.spring.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.machine.00", "effect.tinker.machine.00", "wrench.dismantle.00", "item.adjust.00"]
+	sounds: ["effect.boink.metal.00", "item.adjust.02", "wrench.dismantle.00", "effect.tinker.components.00", "effect.rattle.spring.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.machine.00", "effect.tinker.machine.00", "wrench.dismantle.00", "item.adjust.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

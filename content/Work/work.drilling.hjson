@@ -53,12 +53,12 @@
 	sound_size: 0.340
 	sound_dist: 0.600
 	
-	sounds: ["effect.lathe.grind.00", "effect.tinker.machine.00"]
+	sounds: ["effect.use.machine.00", "effect.lathe.grind.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
 	
-	sounds_start: []
+	sounds_start: ["effect.lathe.00"]
 	sounds_end: []
 	sounds_fail: []
 }

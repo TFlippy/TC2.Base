@@ -2,6 +2,10 @@
 	$version: "0.1.61.4"
 	name: "Steel Billet"
 	name_short: "St. Billet"
+	description:
+		'''
+		[OBSOLETE]
+		'''
 	
 	icon:
 	{

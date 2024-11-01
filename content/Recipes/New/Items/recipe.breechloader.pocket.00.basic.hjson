@@ -254,7 +254,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, packable, item
+	flags: blueprintable, item
 	tags: manual, simple, weapon, gun, assembling, metalworking
 	
 	icon:
