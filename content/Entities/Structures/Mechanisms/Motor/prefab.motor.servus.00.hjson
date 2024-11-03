@@ -3,22 +3,27 @@ $desc:
 	'''
 	Servus-type magitronic radial engine.
 	
-	Despite their unreliability and inefficiency, the very simple construction and low cost makes up for it.
+	Despite their loudness, unreliability and inefficiency, the very simple construction and low cost makes up for it.
 	'''
 $tags: []
 
 body:
 {
+	buoyancy: 0.580
+	fall_damage_multiplier: 0.640
+
 	@shape.box:
 	{
-		size: [0.875, 1.125]
+		size: [0.875, 1.250]
 		offset: [0.000, 0.000]
 		mass: 40.000
 		radius: 0.250
 		friction: 0.850
 		elasticity: 0.450
-		material: device
-		layer: entity, solid, ignore_melee
+		material: machine
+		miss_chance: 0.114
+		layer: entity, solid, item
+		mask: world, essence
 	}
 }
 
@@ -70,6 +75,7 @@ actuator:
 	@sound.emitter:
 	{
 		file: "essence.device.loop.01"
+		flags: start_muted
 		volume: 0.850
 		pitch: 0.850
 		size: 2.000
@@ -93,8 +99,8 @@ module:
 norotate:
 {
 	bias: 0.000
-	multiplier: 1.500
-	mass_multiplier: 4.000
+	multiplier: 2.500
+	mass_multiplier: 5.000
 }
 
 holdable:
@@ -141,8 +147,8 @@ essence.container:
 	h_essence: "motion"
 	available: 40.000
 	rate: 0.000
-	stability: 0.950
-	health_threshold: 0.000
+	stability: 0.750
+	health_threshold: 0.800
 	emit_type: cycler
 }
 
@@ -150,4 +156,5 @@ vibrate:
 {
 	rotation_mult: 0.030
 	position_mult: [0.040, 0.010]
+	flags: shared
 }

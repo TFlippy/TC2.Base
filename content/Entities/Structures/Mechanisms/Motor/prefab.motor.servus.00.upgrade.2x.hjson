@@ -21,16 +21,24 @@ animated.renderer:
 motor:
 {
 	vibration: 0.500
-	interval: 0.250
 }
 
 actuator:
 {
 	load_base: 300.000
-	force_modifier: 0.250
-	torque_modifier: 0.040
-	acceleration_modifier: 15.000
-	brake_modifier: 10.000
+	force_modifier: 0.280
+	torque_modifier: 0.052
+	acceleration_modifier: 16.000
+	brake_modifier: 12.000
+	speed_max: 22.000
+
+	@sound.emitter:
+	{
+		volume: 0.850
+		pitch: 0.850
+		size: 1.900
+		size_max_modifier: 0.380
+	}
 }
 
 harvestable:
@@ -52,6 +60,7 @@ essence.container:
 
 vibrate:
 {
+	frequency: 60.000
 	rotation_mult: 0.030
 	position_mult: [0.040, 0.010]
 }

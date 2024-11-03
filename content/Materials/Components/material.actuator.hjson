@@ -17,7 +17,7 @@
 	}
 	
 	type: device
-	flags: hard, magnetic, granular, essence, metal, small, device, solid
+	flags: hard, magnetic, granular, essence, metal, small, fragile, device, solid
 	display_flags: none
 	hints: none
 	bulk_density_ratio_min: 0.000
@@ -25,7 +25,7 @@
 	density_ratio: 0.000
 	porosity: 0.000
 	purity: 0.000
-	mass_per_unit: 8.650
+	mass_per_unit: 8.000
 	volume_per_unit: 0.000
 	quantity_max: 50.000
 	form_type: undefined

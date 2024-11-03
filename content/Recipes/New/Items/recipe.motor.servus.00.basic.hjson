@@ -268,7 +268,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, wip, item
+	flags: no_amount_multiplier, wip, item
 	tags: workbench, manual, magitronics, assembling, metalworking
 	
 	icon:
