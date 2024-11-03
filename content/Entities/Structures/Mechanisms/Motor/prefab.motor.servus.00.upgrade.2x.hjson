@@ -1,0 +1,57 @@
+$name: "[Upgrade] Double-Servus"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+health:
+{
+	max: 9000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		frame: [2, 0]
+	}
+}
+
+motor:
+{
+	vibration: 0.500
+	interval: 0.250
+}
+
+actuator:
+{
+	load_base: 300.000
+	force_modifier: 0.250
+	torque_modifier: 0.040
+	acceleration_modifier: 15.000
+	brake_modifier: 10.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "actuator"
+			flags: no_conversion, drop_on_break
+			quantity: 2.000
+		}
+	]
+}
+
+essence.container:
+{
+	available: 40.000
+}
+
+vibrate:
+{
+	rotation_mult: 0.030
+	position_mult: [0.040, 0.010]
+}

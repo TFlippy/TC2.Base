@@ -1,0 +1,57 @@
+$name: "[Upgrade] Triple-Servus"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+health:
+{
+	max: 11000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		frame: [3, 0]
+	}
+}
+
+motor:
+{
+	vibration: 0.380
+	interval: 0.200
+}
+
+actuator:
+{
+	load_base: 500.000
+	force_modifier: 0.350
+	torque_modifier: 0.060
+	acceleration_modifier: 12.000
+	brake_modifier: 18.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "actuator"
+			flags: no_conversion, drop_on_break
+			quantity: 3.000
+		}
+	]
+}
+
+essence.container:
+{
+	available: 60.000
+}
+
+vibrate:
+{
+	rotation_mult: 0.025
+	position_mult: [0.028, 0.014]
+}

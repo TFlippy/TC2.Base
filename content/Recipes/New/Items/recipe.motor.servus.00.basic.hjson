@@ -101,10 +101,19 @@
 						}
 					]
 					
-					products: []
+					products:
+					[
+						{
+							type: prefab
+							prefab: motor.servus.00.upgrade.1x
+							amount: 1.000
+							group: 0
+							flags: primary, apply
+						}
+					]
 				}
 				{
-					name: "Dual"
+					name: "Double"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -132,7 +141,16 @@
 						}
 					]
 					
-					products: []
+					products:
+					[
+						{
+							type: prefab
+							prefab: motor.servus.00.upgrade.2x
+							amount: 1.000
+							group: 0
+							flags: primary, apply
+						}
+					]
 				}
 				{
 					name: "Triple"
@@ -163,7 +181,16 @@
 						}
 					]
 					
-					products: []
+					products:
+					[
+						{
+							type: prefab
+							prefab: motor.servus.00.upgrade.3x
+							amount: 1.000
+							group: 0
+							flags: primary, apply
+						}
+					]
 				}
 			]
 			
@@ -236,12 +263,12 @@
 			prefab: motor.servus.00
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, spawn
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, item
+	flags: no_amount_multiplier, blueprintable, wip, item
 	tags: workbench, manual, magitronics, assembling, metalworking
 	
 	icon:
@@ -255,6 +282,6 @@
 	rank: 0.000
 	
 	min: 1
-	max: 4
+	max: 1
 	step: 1
 }

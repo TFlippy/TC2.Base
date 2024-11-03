@@ -1,0 +1,57 @@
+$name: "[Upgrade] Single-Servus"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+health:
+{
+	max: 7000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		frame: [1, 0]
+	}
+}
+
+motor:
+{
+	vibration: 0.650
+	interval: 0.300
+}
+
+actuator:
+{
+	load_base: 150.000
+	force_modifier: 0.170
+	torque_modifier: 0.030
+	acceleration_modifier: 13.000
+	brake_modifier: 4.000
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: "actuator"
+			flags: no_conversion, drop_on_break
+			quantity: 1.000
+		}
+	]
+}
+
+essence.container:
+{
+	available: 20.000
+}
+
+vibrate:
+{
+	rotation_mult: 0.010
+	position_mult: [0.020, 0.070]
+}

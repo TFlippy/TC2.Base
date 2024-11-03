@@ -1,7 +1,7 @@
 $name: "Motor (Servus)"
 $desc:
 	'''
-	Servus-type magitronic piston engine.
+	Servus-type magitronic radial engine.
 	
 	Despite their unreliability and inefficiency, the very simple construction and low cost makes up for it.
 	'''
@@ -12,7 +12,7 @@ body:
 	@shape.box:
 	{
 		size: [0.875, 1.125]
-		offset: [0.000, 0.250]
+		offset: [0.000, 0.000]
 		mass: 40.000
 		radius: 0.250
 		friction: 0.850
@@ -110,19 +110,19 @@ attachment:
 	tags: small, medium, motor, fixed
 }
 
-upgradable:
-{	
-	filter_flags:
-	{
-		require: upgrade
-		exclude: overworld
-	}
+// upgradable:
+// {	
+// 	filter_flags:
+// 	{
+// 		require: upgrade
+// 		exclude: overworld
+// 	}
 	
-	filter_tags:
-	{
-		exclude: overworld
-	}
-}
+// 	filter_tags:
+// 	{
+// 		exclude: overworld
+// 	}
+// }
 
 harvestable:
 {
@@ -143,6 +143,7 @@ essence.container:
 	rate: 0.000
 	stability: 0.950
 	health_threshold: 0.000
+	emit_type: cycler
 }
 
 vibrate:
