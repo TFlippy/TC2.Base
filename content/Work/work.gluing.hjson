@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, simple, careful, leisure, wip
 	cooldown: 1.100
-	multiplier: 1.100
+	multiplier: 1.600
 	color: "0xffdd4f60"
 	
 	tools_required: none

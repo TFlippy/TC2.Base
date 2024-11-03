@@ -225,7 +225,7 @@ crafter:
 	@inventory8:
 	{
 		type: waste
-		flags: standalone, allow_ducts, ignore_mass, public, vertical
+		flags: standalone, allow_ducts, ignore_mass, vertical
 		stack_size_multiplier: 4.000
 		
 		offset: [0.000, 0.000]

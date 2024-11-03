@@ -185,6 +185,15 @@ crafter:
 	equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
 	environment: workshop, stationary, dirty, noisy
 	volume_max: 0.010
+
+	@inventory8:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 // spawn:
