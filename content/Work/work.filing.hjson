@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, tools, simple, construction
-	cooldown: 0.850
-	multiplier: 1.100
+	cooldown: 0.970
+	multiplier: 1.150
 	color: "0xffffa200"
 	
 	tools_required: file
@@ -54,12 +54,12 @@
 		strength: 0.100
 	}
 	
-	sound_volume: 0.710
-	sound_pitch: 1.150
+	sound_volume: 0.600
+	sound_pitch: 0.820
 	sound_size: 0.420
-	sound_dist: 0.590
+	sound_dist: 0.570
 	
-	sounds: []
+	sounds: ["work_mix_00", "work_mix_01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

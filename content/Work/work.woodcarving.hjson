@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, skilled, machine, tools, construction, wip
 	cooldown: 0.850
-	multiplier: 1.200
+	multiplier: 1.300
 	color: "0xff719240"
 	
 	tools_required: file, knife
