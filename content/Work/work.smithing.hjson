@@ -21,7 +21,7 @@
 	color: "0xffff6200"
 	
 	tools_required: hammer, tongs
-	tools_optional: none
+	tools_optional: bucket
 	
 	machinery_required: none
 	machinery_optional: none
