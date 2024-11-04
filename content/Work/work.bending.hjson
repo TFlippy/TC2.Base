@@ -20,14 +20,14 @@
 	multiplier: 0.650
 	color: "0xffa94535"
 	
-	tools_required: none
+	tools_required: hammer
 	tools_optional: hammer, pliers, towel, tongs
 	
 	machinery_required: none
-	machinery_optional: none
+	machinery_optional: bender
 	
-	equipment_required: vise
-	equipment_optional: none
+	equipment_required: none
+	equipment_optional: anvil, table, vise
 	
 	character_traits:
 	{

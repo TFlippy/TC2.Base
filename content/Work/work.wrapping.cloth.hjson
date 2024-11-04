@@ -20,8 +20,8 @@
 	multiplier: 1.000
 	color: "0xffdd4f60"
 	
-	tools_required: none
-	tools_optional: cutters, towel
+	tools_required: knife
+	tools_optional: cutters, towel, knife
 	
 	machinery_required: none
 	machinery_optional: none

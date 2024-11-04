@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, machine, automated, tools, simple, wip
-	cooldown: 2.000
-	multiplier: 1.000
+	cooldown: 1.750
+	multiplier: 1.350
 	color: "0xffffa200"
 	
 	tools_required: none
@@ -42,14 +42,16 @@
 	skills_mult:
 	{
 		blades: 1.400
+		dexterity: 0.500
+		strength: 0.300
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.000
+	sound_pitch: 0.900
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.500
 	
-	sounds: []
+	sounds: ["walljump.01", "effect.cloth.slide.00", "effect.cloth.place.02"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

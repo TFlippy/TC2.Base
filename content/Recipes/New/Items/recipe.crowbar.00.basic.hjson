@@ -47,6 +47,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, towel, tongs
+					}
+					filter_machinery:
+					{
+						include: bender
+					}
+					filter_equipment:
+					{
+						include: anvil, table, vise
+					}
 				}
 				{
 					name: "Forged"
@@ -85,6 +98,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: bucket
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+					}
 				}
 			]
 			
@@ -126,6 +148,18 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 			
@@ -177,6 +211,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: knife
+						include: cutters, towel, knife
+					}
+					filter_equipment:
+					{
+						include: table, chair
+					}
 				}
 			]
 			
@@ -211,7 +254,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, packable, item
-	tags: workbench, manual, blacksmithing, metalworking
+	tags: workbench, manual, metalworking
 	
 	icon:
 	{
