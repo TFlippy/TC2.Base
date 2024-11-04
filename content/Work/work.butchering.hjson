@@ -20,7 +20,7 @@
 	multiplier: 1.000
 	color: "0xffa94535"
 	
-	tools_required: cleaver
+	tools_required: cleaver, knife
 	tools_optional: cutters, saw, cleaver, bucket, axe, towel, tongs, crowbar, knife
 	
 	machinery_required: none

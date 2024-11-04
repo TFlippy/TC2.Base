@@ -20,7 +20,7 @@
 	multiplier: 0.700
 	color: "0xff719240"
 	
-	tools_required: saw, file, knife
+	tools_required: hammer, file, chisel, knife
 	tools_optional: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
 	
 	machinery_required: none
@@ -52,4 +52,13 @@
 	sound_pitch: 1.150
 	sound_size: 0.420
 	sound_dist: 0.590
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

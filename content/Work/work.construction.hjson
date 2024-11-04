@@ -20,7 +20,7 @@
 	multiplier: 1.000
 	color: "0xffffa200"
 	
-	tools_required: hammer, saw, file, knife
+	tools_required: ruler, hammer, saw, hand_drill, screwdriver
 	tools_optional: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
 	
 	machinery_required: none

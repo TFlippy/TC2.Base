@@ -21,7 +21,7 @@
 	color: "0xff14d081"
 	
 	tools_required: none
-	tools_optional: syringe
+	tools_optional: bucket, paintbrush, syringe
 	
 	machinery_required: none
 	machinery_optional: centrifuge, condenser, heater

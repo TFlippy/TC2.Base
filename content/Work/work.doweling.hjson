@@ -20,8 +20,8 @@
 	multiplier: 1.000
 	color: "0xff719240"
 	
-	tools_required: hammer
-	tools_optional: towel
+	tools_required: none
+	tools_optional: hammer, towel
 	
 	machinery_required: none
 	machinery_optional: none

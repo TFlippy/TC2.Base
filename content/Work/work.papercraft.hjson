@@ -20,7 +20,7 @@
 	multiplier: 2.000
 	color: "0xffdd4f60"
 	
-	tools_required: paper
+	tools_required: none
 	tools_optional: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 	
 	machinery_required: none

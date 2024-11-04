@@ -21,7 +21,7 @@
 	color: "0xffdd4f60"
 	
 	tools_required: none
-	tools_optional: cutters
+	tools_optional: cutters, towel
 	
 	machinery_required: none
 	machinery_optional: none

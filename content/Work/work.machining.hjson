@@ -20,7 +20,7 @@
 	multiplier: 1.000
 	color: "0xffff6200"
 	
-	tools_required: hammer, file
+	tools_required: none
 	tools_optional: ruler, tweezers, magnifying_glass, file, chisel, tongs, crowbar
 	
 	machinery_required: lathe
