@@ -52,6 +52,10 @@
 					
 					start_delay: 0.500
 					complete_delay: 0.500
+					filter_tools:
+					{
+						require: hand_drill
+					}
 				}
 			]
 			
@@ -102,6 +106,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+					filter_machinery:
+					{
+						include: lathe, mill, sander, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 			]
 			
@@ -153,6 +170,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 				{
 					name: "Staked"
@@ -175,6 +205,14 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hammer
+					}
+					filter_equipment:
+					{
+						require: table
+					}
 				}
 			]
 			

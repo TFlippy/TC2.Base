@@ -59,6 +59,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 				{
 					name: "Forged"
@@ -90,6 +103,18 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 				{
 					name: "Machined"
@@ -121,6 +146,18 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 			
@@ -192,6 +229,20 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
 				}
 				{
 					name: "Machined"
@@ -223,6 +274,18 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 			
@@ -274,6 +337,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_machinery:
+					{
+						include: lathe, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair
+					}
 				}
 			]
 			
@@ -324,6 +400,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 				{
 					name: "Welded"
@@ -355,6 +444,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 			]
 			

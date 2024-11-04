@@ -111,8 +111,8 @@ shop:
 		exclude: wrench, automated, passive, large, engineering, chemistry, social, science, gathering, fermenting
 	}
 	
-	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, crowbar, knife, sandpaper
-	work_machines: heater, burner
+	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+	work_machines: grinder, heater, burner, bender
 	work_equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould
 	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy, reinforced
 	recipe_type: workshop

@@ -110,7 +110,7 @@ shop:
 		exclude: wrench, automated, passive, large, vehicle, blacksmithing, cooking, research, social, science, gathering, biology, casting, refining, smelting, fermenting, overworld
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, stapler, file, chisel, towel, crowbar, knife, sandpaper
+	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, paintbrush, file, towel, crowbar, knife, sandpaper, needle, pins
 	work_machines: lathe, grinder, mill, bender, sander, planer
 	work_equipment: table, chair, vise, rack
 	work_environment: indoor, warm, workshop, stationary, cozy, noisy, dry, reinforced

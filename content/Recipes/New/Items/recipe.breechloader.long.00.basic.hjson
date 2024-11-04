@@ -57,6 +57,10 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hand_drill
+					}
 				}
 			]
 			
@@ -108,6 +112,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+					filter_machinery:
+					{
+						include: lathe, mill, sander, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 			]
 			
@@ -159,6 +176,20 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
 				}
 			]
 			
@@ -219,6 +250,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 			]
 			

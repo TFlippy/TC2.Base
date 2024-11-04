@@ -58,6 +58,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: wrench
+						include: hammer, screwdriver, pliers, crowbar
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise, rack
+					}
 				}
 			]
 			
@@ -148,6 +157,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 			]
 			

@@ -56,6 +56,27 @@
 							flags: conditional, add_amount_min
 						}
 						{
+							type: resource
+							material: glue
+							amount: 0.850
+							snapping: 0.500
+							falloff: 0.910
+							loss: 0.086
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 200.000
+							amount_min: 175.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.830
+							group: 1
+							flags: conditional, add_amount_min
+						}
+						{
 							type: work
 							work: sewing
 							amount: 350.000
@@ -63,7 +84,7 @@
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.950
-							group: 0
+							group: 2
 							flags: conditional, add_amount_min
 						}
 					]
@@ -71,7 +92,17 @@
 					products: []
 					filter_tools:
 					{
-						include: pencil, paper, ruler, cutters, saw, knife
+						require: knife, needle
+						include: cutters, saw, tweezers, paintbrush, stapler, file, knife, needle, pins
+					}
+					filter_equipment:
+					{
+						require: table
+						include: table, chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
 					}
 				}
 			]
@@ -135,7 +166,12 @@
 					products: []
 					filter_tools:
 					{
-						include: pencil, paper, ruler, cutters
+						require: knife, needle
+						include: cutters, tweezers, stapler, knife, needle, pins
+					}
+					filter_equipment:
+					{
+						include: table, chair
 					}
 				}
 			]

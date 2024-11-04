@@ -104,7 +104,7 @@ shop:
 		exclude: wrench, passive, advanced, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
 	
-	work_tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, knife, sandpaper
+	work_tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper, needle, pins
 	work_machines: none
 	work_equipment: table, rack
 	work_environment: workshop, mobile

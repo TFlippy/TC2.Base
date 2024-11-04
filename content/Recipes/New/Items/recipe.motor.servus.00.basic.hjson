@@ -11,7 +11,7 @@
 			type: part
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -30,6 +30,7 @@
 							type: resource
 							material: steel.frames
 							amount: 10.000
+							snapping: 0.500
 							group: 0
 							flags: prerequisite
 						}
@@ -37,6 +38,7 @@
 							type: resource
 							material: machine_parts
 							amount: 4.000
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -52,6 +54,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: wrench
+						include: hammer, screwdriver, pliers, crowbar
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise, rack
+					}
 				}
 			]
 			
@@ -111,6 +122,19 @@
 							flags: primary, apply
 						}
 					]
+					filter_tools:
+					{
+						require: ruler, screwdriver, tweezers
+						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						exclude: ugly, scary, noisy
+					}
 				}
 				{
 					name: "Double"
@@ -151,6 +175,19 @@
 							flags: primary, apply
 						}
 					]
+					filter_tools:
+					{
+						require: ruler, screwdriver, tweezers
+						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						exclude: ugly, scary, noisy
+					}
 				}
 				{
 					name: "Triple"
@@ -191,6 +228,19 @@
 							flags: primary, apply
 						}
 					]
+					filter_tools:
+					{
+						require: ruler, screwdriver, tweezers
+						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						exclude: ugly, scary, noisy
+					}
 				}
 			]
 			
@@ -204,7 +254,7 @@
 			type: part
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -223,6 +273,7 @@
 							type: resource
 							material: steel.frames
 							amount: 10.000
+							snapping: 0.500
 							group: 0
 							flags: prerequisite
 						}
@@ -230,6 +281,7 @@
 							type: resource
 							material: machine_parts
 							amount: 4.000
+							snapping: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -245,6 +297,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: wrench
+						include: hammer, screwdriver, pliers, crowbar
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise, rack
+					}
 				}
 			]
 			

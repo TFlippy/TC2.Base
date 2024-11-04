@@ -20,14 +20,14 @@
 	multiplier: 1.000
 	color: "0xffdd4f60"
 	
-	tools_required: none
-	tools_optional: pencil, paper, ruler, cutters
+	tools_required: knife, needle
+	tools_optional: cutters, tweezers, stapler, knife, needle, pins
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: table, chair
 	
 	character_traits:
 	{
