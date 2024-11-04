@@ -27,7 +27,7 @@
 	machinery_optional: none
 	
 	equipment_required: table
-	equipment_optional: glassware, dishes, bottle, chair
+	equipment_optional: dishes, bottle, chair
 	
 	filter_environment:
 	{

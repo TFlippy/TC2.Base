@@ -21,7 +21,7 @@
 	color: "0xff4e5570"
 	
 	tools_required: none
-	tools_optional: pencil, paper, radio, telephone, magnifying_glass, crowbar
+	tools_optional: pencil, paper, magnifying_glass, crowbar
 	
 	machinery_required: none
 	machinery_optional: none

@@ -21,13 +21,13 @@
 	color: "0xff719240"
 	
 	tools_required: saw
-	tools_optional: pencil, ruler, towel
+	tools_optional: pencil, ruler, pliers, axe, towel, knife
 	
 	machinery_required: none
-	machinery_optional: none
+	machinery_optional: lathe, planer
 	
 	equipment_required: none
-	equipment_optional: table, chair, vise
+	equipment_optional: table, chair
 	
 	character_traits:
 	{

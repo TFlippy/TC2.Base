@@ -27,7 +27,7 @@
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: glassware, dishes, table, chair
+	equipment_optional: dishes, table, chair
 	
 	character_traits:
 	{

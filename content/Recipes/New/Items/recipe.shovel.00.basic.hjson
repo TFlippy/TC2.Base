@@ -47,6 +47,12 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: cutters
+						include: pliers, knife
+						weight: 1.000
+					}
 				}
 				{
 					name: "Forged"
@@ -86,6 +92,14 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hammer, tongs
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+					}
 				}
 				{
 					name: "Cast"
@@ -151,6 +165,11 @@
 					]
 					
 					products: []
+					filter_machinery:
+					{
+						require: metal_press
+						weight: 1.000
+					}
 				}
 			]
 			
@@ -201,6 +220,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: saw, file, knife
+						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 				{
 					name: "Sawed"
@@ -232,6 +264,15 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, towel
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 			]
 			
@@ -280,6 +321,10 @@
 					]
 					
 					products: []
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 				{
 					name: "Bolted"

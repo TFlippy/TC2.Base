@@ -111,15 +111,19 @@ shop:
 		exclude: wrench, automated, passive, large, engineering, chemistry, social, science, gathering, fermenting
 	}
 	
-	work_tools: ruler, hammer, cutters, saw, screwdriver, wrench, pliers, tweezers, bucket, paintbrush, axe, file, chisel, towel, spatula, tongs, pick, crowbar, knife
-	work_machines: smelter, heater, burner, incinerator, stove
-	work_equipment: tap, cauldron, oven, anvil, forge, glassware, barrel, table, chair, vise, rack, crucible
-	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy
+	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, crowbar, knife, sandpaper
+	work_machines: heater, burner
+	work_equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould
+	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy, reinforced
 	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 6
 	blueprints_capacity: 10
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
+	
+	offset_spawn: [0.000, 0.000]
 }
 
 workshop:

@@ -21,7 +21,7 @@
 	color: "0xff4e5570"
 	
 	tools_required: magnifying_glass
-	tools_optional: pencil, paper, radio, telephone, magnifying_glass, calculator, towel
+	tools_optional: pencil, paper, magnifying_glass, towel
 	
 	machinery_required: none
 	machinery_optional: none

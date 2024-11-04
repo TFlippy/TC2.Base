@@ -27,7 +27,7 @@
 	machinery_optional: centrifuge, condenser, heater
 	
 	equipment_required: none
-	equipment_optional: glassware, bottle
+	equipment_optional: lab_glassware, bottle
 	
 	filter_environment:
 	{

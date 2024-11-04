@@ -70,7 +70,7 @@ shop:
 	
 	work_tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
 	work_machines: heater, stove
-	work_equipment: tap, cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	work_equipment: tap, cauldron, oven, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	work_environment: workshop, stationary, cozy
 	recipe_type: workshop
 	

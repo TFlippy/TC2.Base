@@ -21,7 +21,7 @@
 	color: "0xff882ec2"
 	
 	tools_required: none
-	tools_optional: pencil, paper, radio, telephone, towel
+	tools_optional: pencil, paper, towel
 	
 	machinery_required: none
 	machinery_optional: none

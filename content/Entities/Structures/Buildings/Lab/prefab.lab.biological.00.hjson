@@ -111,9 +111,9 @@ shop:
 		exclude: wrench, large, vehicle, munitions, furniture, blacksmithing, machining, stoneworking, social, smelting
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, saw, drill, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, syringe, towel, spatula, tongs, pick, knife
+	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, syringe, towel, spatula, tongs, pick, knife
 	work_machines: heater, blender, sprayer, mixer
-	work_equipment: tap, cauldron, glassware, dishes, bottle, barrel, table, chair, rack
+	work_equipment: tap, cauldron, lab_glassware, dishes, bottle, barrel, table, chair, rack
 	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, scary
 	recipe_type: workshop
 	

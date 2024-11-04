@@ -114,7 +114,7 @@ shop:
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, file, towel, spatula, tongs, pick, knife
 	work_machines: condenser, heater, blender, sprayer, stove, mixer
-	work_equipment: tap, cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	work_equipment: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	work_environment: indoor, workshop, stationary, clean, scary
 	recipe_type: workshop
 	

@@ -26,8 +26,13 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
+	equipment_required: casting_mould
 	equipment_optional: none
+	
+	filter_environment:
+	{
+		include: container, dry, fireproof
+	}
 	
 	character_traits:
 	{

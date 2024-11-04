@@ -101,10 +101,10 @@ shop:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: wrench, passive, advanced, vehicle, blacksmithing, machining, casting, smelting, fermenting, large
+		exclude: wrench, passive, advanced, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
 	
-	work_tools: hammer, saw, bucket, tongs, knife
+	work_tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, knife, sandpaper
 	work_machines: none
 	work_equipment: table, rack
 	work_environment: workshop, mobile
@@ -113,6 +113,10 @@ shop:
 	flags: none
 	menu_columns: 5
 	blueprints_capacity: 4
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
+	
+	offset_spawn: [0.000, 0.000]
 }
 
 workshop:

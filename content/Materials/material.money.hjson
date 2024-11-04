@@ -17,9 +17,9 @@
 	
 	icon_extra:
 	{
-		texture: ui_icon_sell
-		count: 1
+		texture: ui_icons_crafting.mini
 		size: [16, 16]
+		frame: [5, 0]
 	}
 	
 	type: coin

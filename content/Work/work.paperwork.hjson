@@ -21,13 +21,13 @@
 	color: "0xff882ec2"
 	
 	tools_required: pencil, paper, stapler
-	tools_optional: pencil, paper, ruler, cutters, radio, tweezers, magnifying_glass, calculator, stapler, knife
+	tools_optional: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: table, chair
-	equipment_optional: glassware, table, chair, rack
+	equipment_optional: table, chair, rack
 	
 	filter_environment:
 	{

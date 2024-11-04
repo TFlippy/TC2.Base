@@ -21,7 +21,7 @@
 	color: "0xffffa200"
 	
 	tools_required: screwdriver, wrench
-	tools_optional: pencil, ruler, hammer, cutters, saw, drill, screwdriver, wrench, calculator, stapler, towel, tongs, pick, crowbar, knife
+	tools_optional: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 	
 	machinery_required: none
 	machinery_optional: heater

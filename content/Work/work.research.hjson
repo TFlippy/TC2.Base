@@ -21,7 +21,7 @@
 	color: "0xff14d081"
 	
 	tools_required: pencil, paper
-	tools_optional: pencil, paper, ruler, radio, telephone, tweezers, magnifying_glass, calculator, syringe, towel
+	tools_optional: pencil, paper, ruler, tweezers, magnifying_glass, syringe, towel
 	
 	machinery_required: none
 	machinery_optional: none

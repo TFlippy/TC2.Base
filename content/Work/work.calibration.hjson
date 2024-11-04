@@ -21,7 +21,7 @@
 	color: "0xff14d081"
 	
 	tools_required: ruler, screwdriver, tweezers
-	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, calculator, syringe, file, towel, pick
+	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 	
 	machinery_required: none
 	machinery_optional: none

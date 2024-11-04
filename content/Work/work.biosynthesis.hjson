@@ -27,7 +27,7 @@
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: anvil, glassware, table, chair, vise
+	equipment_optional: anvil, lab_glassware, table, chair, vise
 	
 	filter_environment:
 	{

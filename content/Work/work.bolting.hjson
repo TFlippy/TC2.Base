@@ -20,14 +20,14 @@
 	multiplier: 1.100
 	color: "0xffffa200"
 	
-	tools_required: none
-	tools_optional: none
+	tools_required: screwdriver
+	tools_optional: hammer, wrench, pliers, crowbar
 	
 	machinery_required: none
 	machinery_optional: none
 	
 	equipment_required: none
-	equipment_optional: none
+	equipment_optional: table, chair, vise, rack
 	
 	character_traits:
 	{

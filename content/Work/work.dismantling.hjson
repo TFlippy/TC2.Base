@@ -21,7 +21,7 @@
 	color: "0xffffa200"
 	
 	tools_required: screwdriver
-	tools_optional: cutters, drill, wrench, tweezers, magnifying_glass, knife
+	tools_optional: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 	
 	machinery_required: none
 	machinery_optional: none

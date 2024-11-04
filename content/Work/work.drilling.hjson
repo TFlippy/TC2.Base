@@ -20,7 +20,7 @@
 	multiplier: 5.000
 	color: "0xffff6200"
 	
-	tools_required: drill
+	tools_required: hand_drill
 	tools_optional: none
 	
 	machinery_required: none

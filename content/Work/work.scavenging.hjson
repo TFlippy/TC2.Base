@@ -21,7 +21,7 @@
 	color: "0xffa94535"
 	
 	tools_required: hammer, crowbar
-	tools_optional: hammer, cutters, drill, screwdriver, wrench, tweezers, magnifying_glass, calculator, towel, tongs, pick, crowbar
+	tools_optional: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
 	
 	machinery_required: none
 	machinery_optional: none

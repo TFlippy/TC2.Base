@@ -21,7 +21,7 @@
 	color: "0xffff6200"
 	
 	tools_required: hammer, file
-	tools_optional: ruler, tweezers, magnifying_glass, calculator, file, chisel, tongs, crowbar
+	tools_optional: ruler, tweezers, magnifying_glass, file, chisel, tongs, crowbar
 	
 	machinery_required: lathe
 	machinery_optional: grinder, heater

@@ -21,13 +21,13 @@
 	color: "0xffdd4f60"
 	
 	tools_required: spatula, knife
-	tools_optional: hammer, saw, cleaver, bucket, calculator, towel, spatula
+	tools_optional: hammer, saw, cleaver, bucket, towel, spatula
 	
 	machinery_required: heater
 	machinery_optional: grinder, heater
 	
 	equipment_required: dishes
-	equipment_optional: cauldron, oven, glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	equipment_optional: cauldron, oven, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	
 	character_traits:
 	{

@@ -27,7 +27,7 @@
 	machinery_optional: condenser
 	
 	equipment_required: bottle
-	equipment_optional: glassware, dishes
+	equipment_optional: lab_glassware, dishes
 	
 	filter_environment:
 	{

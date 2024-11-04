@@ -20,7 +20,7 @@
 	color: "0xff4e5570"
 	
 	tools_required: none
-	tools_optional: pencil, paper, telephone, magnifying_glass, towel
+	tools_optional: pencil, paper, magnifying_glass, towel
 	
 	machinery_required: none
 	machinery_optional: none
