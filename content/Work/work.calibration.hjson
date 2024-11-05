@@ -20,18 +20,19 @@
 	multiplier: 1.250
 	color: "0xff14d081"
 	
-	tools_required: ruler, screwdriver, tweezers
+	tools_required: ruler, screwdriver
 	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 	
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
+	equipment_required: table
 	equipment_optional: table, chair, vise
 	
 	filter_environment:
 	{
-		exclude: ugly, scary, noisy
+		include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+		exclude: scary
 	}
 	
 	character_traits:
