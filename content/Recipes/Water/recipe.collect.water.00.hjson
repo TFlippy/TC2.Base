@@ -1,23 +1,27 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Drain Water"
+	name: "Collect Water"
 	desc:
 		'''
-		TODO: Desc
-		- Requires to be near a body of water
+		Drain some water from a nearby lake, spring or puddle.
 		'''
-	tips: []
+	tips:
+	[
+		"Requires to be near a body of water"
+	]
 	
 	stages:
 	[
 		{
-			name: "Source"
+			name: "Water Source"
 			
-			type: undefined
+			type: payload
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: punch
 			
 			ratio: 0.000
-			falloff_amount_mult: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -238,6 +242,8 @@
 					]
 				}
 			]
+			
+			requirements: []
 			
 			products: []
 		}

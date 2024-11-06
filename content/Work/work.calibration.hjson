@@ -31,7 +31,7 @@
 	
 	filter_environment:
 	{
-		include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+		include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
 		exclude: scary
 	}
 	

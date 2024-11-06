@@ -1,7 +1,12 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Motor (Servus)"
-	tips: []
+	tips:
+	[
+		"Simple construction"
+		"Unreliable, cheap"
+		"Very loud"
+	]
 	
 	stages:
 	[
@@ -134,7 +139,7 @@
 					}
 					filter_environment:
 					{
-						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
 						exclude: scary
 					}
 				}
@@ -189,7 +194,7 @@
 					}
 					filter_environment:
 					{
-						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
 						exclude: scary
 					}
 				}
@@ -244,7 +249,7 @@
 					}
 					filter_environment:
 					{
-						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
 						exclude: scary
 					}
 				}
