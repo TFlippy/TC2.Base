@@ -36,6 +36,21 @@ health:
 	max: 7500.000
 }
 
+// faction.colorable:
+// {
+
+// }
+
+// faction:
+// {
+
+// }
+
+// claimable:
+// {
+// 	flags: allow_owner_unclaim
+// }
+
 animated.renderer:
 {
 	sprite:

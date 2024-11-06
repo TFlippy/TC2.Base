@@ -86,6 +86,7 @@
 	}
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: -2.000
 	
 	min: 1

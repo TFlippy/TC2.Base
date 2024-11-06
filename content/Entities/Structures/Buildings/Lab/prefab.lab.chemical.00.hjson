@@ -109,11 +109,11 @@ shop:
 	{
 		require: manual, chemistry
 		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: wrench, large, furniture, organic, blacksmithing, cooking, salvaging, social, gathering, agriculture
+		exclude: wrench, large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, file, towel, spatula, tongs, pick, knife
-	work_machines: condenser, heater, blender, sprayer, stove, mixer
+	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, spanner, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, stapler, towel, spatula, tongs, pick, knife
+	work_machines: centrifuge, heater, blender, mixer, vacuum_pump
 	work_equipment: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	work_environment: indoor, workshop, stationary, clean, scary
 	recipe_type: workshop
@@ -121,16 +121,34 @@ shop:
 	flags: none
 	menu_columns: 4
 	blueprints_capacity: 10
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
+	
+	offset_spawn: [0.000, 0.000]
+}
+
+crafter:
+{
+	volume_max: 0.010
+
+	@inventory8:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 workshop:
 {
 	orders_capacity: 4
 
-	@inventory16:
+	@inventory8:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, faction
+		flags: standalone, allow_ducts, ignore_mass, faction, vertical
 		stack_size_multiplier: 2.000
 		
 		offset: [0.000, 0.000]
@@ -329,5 +347,111 @@ heat:
 		file: "overheat_loop"
 		volume: 1.000
 		pitch: 1.000
+	}
+}
+
+animated.renderer|"exhaust":
+{
+	sprite:
+	{
+		texture: "burner.parts.00"
+		size: [16, 16]
+		frame: [0, 1]
+	}
+	offset: [-0.125, -3.500]
+	z: -285.000
+}
+
+animated.renderer|"intake":
+{
+	sprite:
+	{
+		texture: "burner.parts.00"
+		size: [8, 8]
+		frame: [0, 1]
+	}
+	z: -275.000
+}
+
+air.vent|"exhaust":
+{
+	type: exhaust
+	offset: [0.375, -3.500]
+	rotation: -1.571
+	cross_section: 0.100
+}
+
+air.vent|"intake":
+{
+	type: intake
+	offset: [2.000, -0.875]
+	rotation: 1.571
+	cross_section: 0.150
+}
+
+air.container:
+{
+	volume: 0.400
+}
+
+burner:
+{
+	flags: none
+	type: liquid
+	area_fuel: 0.800
+	area_aux: 0.007854
+	pressure_max: 8.000
+	temperature_max: 2200.000
+	insulation: 0.450
+
+	// @inventory1:
+	// {
+	// 	stack_size_multiplier: 0.500
+	// 	type: fuel
+	// 	flags: allow_ducts, ignore_mass
+	// 	offset: [-0.250, 1.125]
+	// 	filter:
+	// 	{
+	// 		require: fuel, flammable, solid
+	// 		include: granular, small, powder, volatile
+	// 		exclude: long, gas, large, bottled
+	// 	}
+	// }
+
+	@sound.emitter:
+	{
+		file: refinery.loop.04
+		volume: 1.000
+		pitch: 0.500
+		size: 0.700
+		size_max_modifier: 0.600
+	}
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 2.000]
+		offset: [-0.250, 0.750]
+		scale: [14.000, 13.000]
+		intensity: 0.000
+		texture: "light.circle.04"
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+
+	@inventory1:
+	{
+		stack_size_multiplier: 0.500
+		type: input
+		flags: allow_ducts, ignore_mass
+		offset: [-0.250, 1.125]
+		filter:
+		{
+			require: fuel, flammable
+			include: liquid, gas
+			exclude: sticky, viscous, solid
+		}
 	}
 }

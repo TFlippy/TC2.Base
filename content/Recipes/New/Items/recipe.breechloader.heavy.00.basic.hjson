@@ -47,11 +47,11 @@
 						{
 							type: work
 							work: drilling
-							amount: 900.000
+							amount: 750.000
 							amount_min: 250.000
 							difficulty: 11
 							snapping: 5.000
-							falloff: 0.985
+							falloff: 0.965
 							group: 0
 							flags: conditional
 						}
@@ -69,6 +69,23 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: hand_drill, file
+						include: screwdriver
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 			
@@ -110,17 +127,30 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 650.000
+							amount: 450.000
 							amount_min: 100.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.935
+							falloff: 0.915
 							group: 0
 							flags: conditional
 						}
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+					filter_machinery:
+					{
+						include: lathe, mill, sander, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 			]
 			
@@ -171,6 +201,20 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
 				}
 			]
 			
@@ -231,6 +275,19 @@
 					]
 					
 					products: []
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 			]
 			
@@ -272,6 +329,7 @@
 	}
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: -1.900
 	
 	min: 1

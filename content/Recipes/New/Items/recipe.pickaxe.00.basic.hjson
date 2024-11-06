@@ -56,10 +56,6 @@
 					
 					products: []
 					
-					start_delay: 0.000
-					advance_delay: 0.000
-					complete_delay: 0.000
-					
 					yield_mult: 0.000
 				}
 			]
@@ -110,10 +106,6 @@
 					]
 					
 					products: []
-					
-					start_delay: 0.000
-					advance_delay: 0.000
-					complete_delay: 0.000
 					
 					yield_mult: 0.000
 				}
@@ -252,6 +244,7 @@
 	}
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: 13.000
 	
 	min: 1

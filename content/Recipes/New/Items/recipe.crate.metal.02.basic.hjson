@@ -214,6 +214,7 @@
 	icon_offset: [1.000, 0.000]
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: -5.200
 	
 	min: 1

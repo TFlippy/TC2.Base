@@ -431,6 +431,7 @@
 	icon_offset: [-5.000, 0.000]
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: 18.000
 	frame_size: [32.000, 32.000]
 	

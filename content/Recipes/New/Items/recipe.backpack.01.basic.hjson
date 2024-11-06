@@ -1,51 +1,194 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Rucksack"
-	tips: []
+	tips:
+	[
+		"Requires more leather compared to backpack"
+		"Lower weight and capacity"
+		"Simpler to craft"
+		"More durable"
+	]
 	
-	icon:
-	{
-		texture: backpack.01
-		size: [16, 16]
-	}
-	
-	min: 1
-	max: 4
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, wip
-	tags: workbench, manual, tailoring
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: leather
-			amount: 6.000
-			group: 0
-			flags: prerequisite
+			name: "Body"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.750
+			mass_base: 1.200
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 0.3726
+							snapping: 0.500
+							loss: 0.031
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 3.3641
+							snapping: 0.500
+							loss: 0.031
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: slicing
+							amount: 175.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.880
+							group: 0
+							flags: conditional, add_amount_min
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.305836
+							snapping: 0.500
+							falloff: 0.910
+							loss: 0.031
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 180.000
+							amount_min: 125.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.830
+							group: 1
+							flags: conditional, add_amount_min
+						}
+						{
+							type: work
+							work: sewing
+							amount: 250.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.900
+							group: 2
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products: []
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, saw, tweezers, paintbrush, stapler, file, knife, needle, pins
+					}
+					filter_equipment:
+					{
+						require: table
+						include: table, chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 		{
-			type: work
-			work: sewing
-			amount: 220.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: tailoring
-			amount: 320.000
-			difficulty: 7
-			group: 0
-			flags: conditional
+			name: "Straps"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.250
+			mass_base: 0.400
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: leather
+							amount: 0.949364
+							snapping: 0.500
+							loss: 0.055
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.048496
+							snapping: 0.100
+							loss: 0.082
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 250.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products: []
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, tweezers, stapler, knife, needle, pins
+					}
+					filter_equipment:
+					{
+						include: table, chair
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -54,6 +197,25 @@
 			prefab: backpack.01
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, wip, item
+	tags: workbench, manual, tailoring
+	
+	icon:
+	{
+		texture: backpack.01
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	button_name: "Craft"
+	rank: 0.000
+	
+	min: 1
+	max: 4
+	step: 1
 }

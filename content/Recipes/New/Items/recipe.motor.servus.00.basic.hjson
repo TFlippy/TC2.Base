@@ -124,16 +124,18 @@
 					]
 					filter_tools:
 					{
-						require: ruler, screwdriver, tweezers
+						require: ruler, screwdriver
 						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 					}
 					filter_equipment:
 					{
+						require: table
 						include: table, chair, vise
 					}
 					filter_environment:
 					{
-						exclude: ugly, scary, noisy
+						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
 					}
 				}
 				{
@@ -177,16 +179,18 @@
 					]
 					filter_tools:
 					{
-						require: ruler, screwdriver, tweezers
+						require: ruler, screwdriver
 						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 					}
 					filter_equipment:
 					{
+						require: table
 						include: table, chair, vise
 					}
 					filter_environment:
 					{
-						exclude: ugly, scary, noisy
+						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
 					}
 				}
 				{
@@ -230,16 +234,18 @@
 					]
 					filter_tools:
 					{
-						require: ruler, screwdriver, tweezers
+						require: ruler, screwdriver
 						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 					}
 					filter_equipment:
 					{
+						require: table
 						include: table, chair, vise
 					}
 					filter_environment:
 					{
-						exclude: ugly, scary, noisy
+						include: office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
 					}
 				}
 			]
@@ -340,6 +346,7 @@
 	}
 	
 	color_button: "0xffaeb59a"
+	button_name: "Craft"
 	rank: 0.000
 	
 	min: 1
