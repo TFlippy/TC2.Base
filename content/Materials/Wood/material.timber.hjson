@@ -10,25 +10,26 @@
 	icon:
 	{
 		texture: resource.timber
+		count: 4
 		size: [24, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
 	
 	type: tree
-	flags: hard, long, organic, large, raw, fuel, flammable, solid
-	display_flags: no_random_facing
+	flags: hard, long, organic, large, raw, fuel, flammable, solid, impure, primary
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	bulk_density_ratio_min: 0.000
 	bulk_density_ratio_max: 0.000
 	density_ratio: 0.000
 	porosity: 0.000
 	purity: 0.000
-	mass_per_unit: 6.940
+	mass_per_unit: 8.372
 	volume_per_unit: 0.000
-	quantity_max: 128.000
+	quantity_max: 100.000
 	form_type: raw
 	prefab: resource.timber
-	h_substance: "null"
+	h_substance: wood
 	
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

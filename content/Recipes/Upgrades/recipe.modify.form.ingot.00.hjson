@@ -203,7 +203,7 @@
 		{
 			form_type: ingot
 			flags: none
-			h_substance_mold: "null"
+			h_substance_mould: "null"
 			quality: 1.000
 			capacity: 32.000
 		}

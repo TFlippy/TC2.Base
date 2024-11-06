@@ -20,7 +20,7 @@
 			public float max_tilt = 1.00f;
 
 			public ISubstance.Handle h_substance_fill;
-			public ISubstance.Handle h_substance_mold;
+			public ISubstance.Handle h_substance_mould;
 
 			public Volume volume_capacity;
 			public Volume volume_current;
@@ -73,7 +73,7 @@
 			public Material.Form? form_type;
 			public ModifyEvent.Flags? flags;
 
-			public ISubstance.Handle? h_substance_mold;
+			public ISubstance.Handle? h_substance_mould;
 			public float? quality;
 			public float? capacity;
 
@@ -82,7 +82,7 @@
 				ref var prd_substance = ref arg.products.GetFirstOrNull((x) => x.type == Crafting.Product.Type.Substance && x.flags.HasAny(Crafting.Product.Flags.Parameter));
 				if (prd_substance.IsNotNull())
 				{
-					this.h_substance_mold = prd_substance.h_substance;
+					this.h_substance_mould = prd_substance.h_substance;
 				}
 			}
 
@@ -96,7 +96,7 @@
 					group_row.DrawBackground(GUI.tex_panel);
 
 					//GUI.TitleCentered("Form Type:"u8, pivot: new(0, 0), offset: new(4, 0));
-					GUI.Title("Casting Mold Shape"u8);
+					GUI.Title("Casting Mould Shape"u8);
 
 					GUI.NewLine(2);
 
@@ -108,9 +108,9 @@
 					
 					// GUI.SameLine(32);
 					// GUI.LabelShaded("Capacity:", this.capacity, format: "0'x'", width: 96);
-					GUI.LabelShaded("Material:"u8, this.h_substance_mold.GetName().OrDefault("<none>"), width: 140);
+					GUI.LabelShaded("Material:"u8, this.h_substance_mould.GetName().OrDefault("<none>"), width: 140);
 
-					//GUI.TextShaded("Mold Shape: "u8);
+					//GUI.TextShaded("Mould Shape: "u8);
 					//GUI.SameLine();
 					//GUI.TextShaded(this.form_type);
 					//GUI.SameLine();
@@ -137,7 +137,7 @@
 			// App.WriteLine("on modify fillable event");
 
 			fillable.form_type.SetIfHasValue(ev.form_type);
-			fillable.h_substance_mold.SetIfHasValue(ev.h_substance_mold);
+			fillable.h_substance_mould.SetIfHasValue(ev.h_substance_mould);
 			fillable.capacity.SetIfHasValue(ev.capacity);
 			fillable.amount.SetIfHasValue(0.00f);
 

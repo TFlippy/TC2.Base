@@ -1,11 +1,78 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Handsawn Planks"
+	name: "Manual Timber Processing"
 	desc:
 		'''
-		Cut raw timber into nicer, more usable planks using a handsaw.
+		Process raw timber into nicer, more usable form.
 		'''
 	tips: []
+	
+	stages:
+	[
+		{
+			name: "Preparation"
+			
+			type: processing
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					
+					type: undefined
+					flags: none
+					
+					requirements: []
+					
+					products: []
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: timber
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: prerequisite
+				}
+			]
+			
+			products: []
+		}
+		{
+			name: "Cutting"
+			
+			type: payload
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 6.940
+			
+			options: []
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: none
+	tags: workbench, manual, simple, woodworking
 	
 	icon:
 	{
@@ -22,54 +89,10 @@
 	}
 	icon_extra_offset: [0.250, -5.000]
 	
-	min: 4
-	max: 100
-	step: 4
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, woodworking
-	
 	color_button: "0xff818b48"
 	rank: -3.000
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: timber
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: sawing
-			amount: 175.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.850
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 7.220
-			amount_extra: 0.900
-			group: 0
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 5.100
-			amount_extra: 2.460
-			group: 1
-			flags: waste, residue
-		}
-	]
+	min: 1
+	max: 100
+	step: 1
 }
