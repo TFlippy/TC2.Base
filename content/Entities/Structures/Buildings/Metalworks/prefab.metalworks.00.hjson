@@ -253,6 +253,7 @@ essence.container:
 
 	@sound.emitter:
 	{
+		flags: start_muted
 		volume: 0.500
 		pitch: 1.730
 		size: 0.350
@@ -292,6 +293,7 @@ heat:
 		
 	@sound.emitter:
 	{
+		flags: start_muted
 		file: "overheat_loop"
 		volume: 1.000
 		pitch: 1.000

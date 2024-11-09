@@ -1,0 +1,188 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Manual Timber Processing"
+	desc:
+		'''
+		Process raw timber into nicer, more usable form.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Preparation"
+			
+			type: preparation
+			flags: subtractive
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Hewn"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: axe
+					
+					requirements: []
+					
+					products: []
+					
+					purity_mult: 0.990
+					quality_mult: 0.930
+				}
+				{
+					name: "Sawn"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: work
+							work: sawing
+							amount: 300.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.880
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products: []
+					
+					purity_mult: 0.985
+					quality_mult: 0.995
+					loss_mult: 1.288
+				}
+				{
+					name: "Split"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: axe
+					
+					requirements: []
+					
+					products: []
+					
+					purity_mult: 0.830
+					quality_mult: 0.780
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: timber
+					amount: 1.000
+					snapping: 1.000
+					loss: 0.024
+					group: 0
+					flags: prerequisite
+				}
+			]
+			
+			products: []
+		}
+		{
+			name: "Cutting"
+			
+			type: processing
+			flags: subtractive
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Planks"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: sawing
+							amount: 300.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.880
+							group: 0
+							flags: conditional, add_amount_min
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 3.4691
+							amount_extra: 0.3162
+							group: 0
+							flags: primary
+						}
+					]
+					
+					purity_mult: 0.959
+					quality_mult: 0.987
+					loss_mult: 1.021
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: wip
+	tags: workbench, manual, simple, woodworking
+	
+	icon:
+	{
+		texture: resource.timber
+		count: 4
+		size: [24, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-16.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.sawdust
+		count: 4
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-40.000, -7.000]
+	
+	color_button: "0xff818b48"
+	rank: -3.000
+	
+	min: 1
+	max: 100
+	step: 1
+}

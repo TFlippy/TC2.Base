@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Concrete Slabs"
-	name_short: "Conc. Slabs"
+	name_short: "Cnc. Slabs"
 	description:
 		'''
 		TODO: Desc
@@ -30,6 +30,7 @@
 	prefab: resource.brick.concrete
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Gold Powder"
-	name_short: "G. Powder"
+	name_short: "Gd. Powder"
 	description:
 		'''
 		Standard fine-grained gold powder.
@@ -30,6 +30,7 @@
 	prefab: resource.gold.powder
 	h_substance: gold
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

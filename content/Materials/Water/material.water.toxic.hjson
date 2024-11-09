@@ -1,9 +1,10 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Water (Toxic)"
+	name: "Toxwater"
+	name_short: "T. Water"
 	description:
 		'''
-		Water, toxic sludgewater.
+		Water, cursed toxwater.
 
 		You don't want it.
 		'''
@@ -31,6 +32,7 @@
 	prefab: resource.water.toxic
 	h_substance: water
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

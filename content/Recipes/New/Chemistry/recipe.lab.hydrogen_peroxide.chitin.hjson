@@ -9,6 +9,255 @@
 		'''
 	tips: []
 	
+	stages:
+	[
+		{
+			name: "<TODO:00>"
+			
+			type: undefined
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: chitin
+							amount: 8.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: saltpeter
+							amount: 3.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.blue
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: water.clean
+							amount: 10.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "<TODO:01>"
+			
+			type: undefined
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water.clean
+							amount: 50.000
+							group: 0
+						}
+						{
+							type: work
+							work: dousing
+							amount: 80.000
+							difficulty: 3
+							snapping: 5.000
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "<TODO:02>"
+			
+			type: undefined
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: blending
+							amount: 295.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.750
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "<TODO:03>"
+			
+			type: undefined
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 642.720
+							amount_min: 580.000
+							amount_max: 800.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: boiling
+							amount: 250.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.550
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
+	requirements: []
+	
+	products:
+	[
+		{
+			type: resource
+			material: hydrogen_peroxide
+			amount: 15.755
+			amount_extra: 14.410
+			group: 0
+			flags: primary
+		}
+		{
+			type: resource
+			material: lubricant
+			amount: 5.5333
+			amount_extra: 2.137
+			group: 1
+			flags: secondary, byproduct
+		}
+		{
+			type: resource
+			material: ammonia
+			amount: 75.114
+			amount_extra: 31.410
+			group: 2
+			flags: byproduct, residue, spawn
+		}
+		{
+			type: resource
+			material: hydrogen
+			amount: 44.544
+			amount_extra: 24.610
+			group: 2
+			flags: byproduct, residue, spawn
+		}
+		{
+			type: resource
+			material: pulp
+			amount: 10.456
+			amount_extra: 2.374
+			group: 2
+			flags: waste
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
+	
 	icon:
 	{
 		texture: resource.hydrogen_peroxide
@@ -25,135 +274,14 @@
 	}
 	icon_extra_offset: [-5.000, -6.000]
 	
+	color_button: "0xff80dc7e"
+	rank: -157.000
+	
 	min: 1
 	max: 4
 	step: 1
 	
-	type: workshop
-	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
-	
-	color_button: "0xff80dc7e"
-	rank: -157.000
-	
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: chitin
-			amount: 8.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: saltpeter
-			amount: 3.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: mushroom.blue
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: water.clean
-			amount: 10.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: blending
-			amount: 295.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.750
-			group: 1
-			flags: conditional
-		}
-		{
-			type: temperature
-			amount: 642.720
-			amount_min: 580.000
-			amount_max: 800.000
-			group: 2
-			flags: no_scaling, always_evaluate
-		}
-		{
-			type: work
-			work: boiling
-			amount: 250.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.550
-			group: 2
-			flags: conditional
-		}
-		{
-			type: resource
-			material: water.clean
-			amount: 50.000
-			group: 3
-		}
-		{
-			type: work
-			work: dousing
-			amount: 80.000
-			difficulty: 3
-			group: 3
-			flags: no_scaling, conditional
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: hydrogen_peroxide
-			amount: 15.755
-			amount_extra: 14.410
-			group: 0
-		}
-		{
-			type: resource
-			material: lubricant
-			amount: 5.5333
-			amount_extra: 2.137
-			group: 1
-			flags: byproduct
-		}
-		{
-			type: resource
-			material: pulp
-			amount: 10.456
-			amount_extra: 2.374
-			group: 2
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: ammonia
-			amount: 75.114
-			amount_extra: 31.410
-			group: 3
-			flags: byproduct, spawn, hidden
-		}
-		{
-			type: resource
-			material: hydrogen
-			amount: 44.544
-			amount_extra: 24.610
-			group: 3
-			flags: byproduct, spawn, hidden
-		}
-	]
 }

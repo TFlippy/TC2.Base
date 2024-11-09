@@ -11,6 +11,24 @@
 	flags: none
 	tags: hydride, gas
 	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [12, 1]
+	}
+	
+	color_icon: "0xffffffff"
+	color_gui: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_smoke: "0x00000000"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.000, 0.000, 0.000, 0.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.017031
 	// kg/m³ (STP)
@@ -44,6 +62,9 @@
 	// K
 	sintering_temperature_upper: 0.000
 	
+	// K
+	autoignition_temperature: 0.000
+	
 	// kJ/mol
 	heat_of_fusion: 0.000
 	// kJ/mol
@@ -57,6 +78,7 @@
 	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 2.190
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.000024
 }

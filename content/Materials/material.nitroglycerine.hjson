@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Nitroglycerine"
-	name_short: "TNG"
+	name_short: "NitroGl."
 	description:
 		'''
 		TODO: Desc
@@ -30,6 +30,7 @@
 	prefab: resource.nitroglycerine
 	h_substance: nitroglycerine
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

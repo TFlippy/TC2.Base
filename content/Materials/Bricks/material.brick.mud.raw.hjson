@@ -30,6 +30,7 @@
 	prefab: resource.brick.mud.raw
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

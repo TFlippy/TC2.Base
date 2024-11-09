@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Hydrogen"
-	name_short: "H2"
+	name_short: "Hydrogen"
 	description:
 		'''
 		TODO: Desc
@@ -9,8 +9,10 @@
 	
 	icon:
 	{
+		texture: ui_icons_widget
+		count: 1
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [14, 2]
 	}
 	
 	type: gas
@@ -29,6 +31,7 @@
 	prefab: resource.hydrogen
 	h_substance: hydrogen
 	
+	color_icon: "0xaa8a7aff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

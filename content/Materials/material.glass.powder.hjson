@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Glass (Powder)"
+	name_short: "Glass P."
 	description:
 		'''
 		This is not meth.
@@ -29,6 +30,7 @@
 	prefab: resource.glass.powder
 	h_substance: glass
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

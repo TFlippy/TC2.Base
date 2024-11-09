@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Wooden Debris"
-	name_short: "Wd. Debris"
+	name_short: "Wood Db."
 	description:
 		'''
 		Remains of something that used to be made of wood.
@@ -30,6 +30,7 @@
 	prefab: resource.scrap.wood
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

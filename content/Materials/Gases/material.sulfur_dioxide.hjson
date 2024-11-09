@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Sulfur Dioxide"
-	name_short: "SO2"
+	name_short: "S. Dioxide"
 	description:
 		'''
 		TODO: Desc
@@ -29,6 +29,7 @@
 	prefab: resource.sulfur_dioxide
 	h_substance: sulfur_dioxide
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

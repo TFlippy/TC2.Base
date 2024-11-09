@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Saltpeter"
+	name: "Potassium Nitrate"
 	name_short: "Saltpeter"
 	description:
 		'''
@@ -30,6 +30,7 @@
 	prefab: resource.saltpeter
 	h_substance: saltpeter
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

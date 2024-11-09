@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Gold Ingot"
-	name_short: "G. Ingot"
+	name_short: "Gd. Ingot"
 	description:
 		'''
 		Standard 20x10x8 cm gold ingot.
@@ -30,6 +30,7 @@
 	prefab: resource.gold.ingot
 	h_substance: gold
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

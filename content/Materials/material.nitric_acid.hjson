@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Nitric Acid"
-	name_short: "HNO3"
+	name_short: "N. Acid"
 	description:
 		'''
 		A strong acid.
@@ -30,6 +30,7 @@
 	prefab: resource.nitric_acid
 	h_substance: nitric_acid
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

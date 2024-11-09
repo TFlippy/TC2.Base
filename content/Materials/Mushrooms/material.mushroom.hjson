@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Mushroom Scraps"
-	name_short: "Shrooms"
+	name_short: "Mushrooms"
 	description:
 		'''
 		A heap of mixed mushroom bits, doesn't seem edible.
@@ -30,6 +30,7 @@
 	prefab: resource.mushroom
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

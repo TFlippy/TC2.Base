@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Sejrus Mushrooms"
-	name_short: "Sejrus"
+	name_short: "Sejrus M."
 	description:
 		'''
 		A heap of yellow mushroom bits.
@@ -30,6 +30,7 @@
 	prefab: resource.mushroom.yellow
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

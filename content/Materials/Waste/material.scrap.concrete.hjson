@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Concrete Debris"
-	name_short: "Conc. Debris"
+	name_short: "Cnc. Debris"
 	description:
 		'''
 		TODO: Desc
@@ -30,6 +30,7 @@
 	prefab: resource.scrap.concrete
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

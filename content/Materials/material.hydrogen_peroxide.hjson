@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Hydrogen Peroxide"
-	name_short: "H2O2"
+	name_short: "H. Peroxide"
 	description:
 		'''
 		Strong oxidizer and disinfectant.
@@ -32,6 +32,7 @@
 	prefab: resource.hydrogen_peroxide
 	h_substance: hydrogen_peroxide
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Mouchus Mushrooms"
-	name_short: "Mouchus"
+	name_short: "Mouchus M."
 	description:
 		'''
 		A heap of red mushroom bits, may be poisonous.
@@ -30,6 +30,7 @@
 	prefab: resource.mushroom.red
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

@@ -24,7 +24,7 @@
 	density_ratio: 0.000
 	porosity: 0.000
 	purity: 0.000
-	mass_per_unit: 8.372
+	mass_per_unit: 8.437
 	volume_per_unit: 0.000
 	quantity_max: 100.000
 	form_type: raw
@@ -89,13 +89,13 @@
 		{
 			h_material: sawdust
 			spawn_flags: merge, pickup
-			product_flags: none
+			product_flags: residue
 			ratio: 0.030
 			ratio_extra: 0.050
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
-			product_flags_waste: none
+			product_flags_waste: waste
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -116,13 +116,13 @@
 		{
 			h_material: woodchips
 			spawn_flags: merge, pickup
-			product_flags: none
+			product_flags: residue
 			ratio: 0.070
 			ratio_extra: 0.050
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge
-			product_flags_waste: none
+			product_flags_waste: waste
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
 			
@@ -283,7 +283,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.850, 0.070]
 		}

@@ -1,9 +1,10 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Water (Swampy)"
+	name: "Blackwater"
+	name_short: "B. Water"
 	description:
 		'''
-		Water, filty swampwater.
+		Water, filthy swampwater.
 
 		Anytime you want it, day or night, free of charge and it tastes just like shite.
 		'''
@@ -31,6 +32,7 @@
 	prefab: resource.water.swamp
 	h_substance: water
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

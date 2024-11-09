@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Smoulus Mushrooms"
-	name_short: "Smoulus"
+	name_short: "Smoulus M."
 	description:
 		'''
 		A heap of rare glowing blue mushroom caps, feels slimy to touch.
@@ -30,6 +30,7 @@
 	prefab: resource.mushroom.blue
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

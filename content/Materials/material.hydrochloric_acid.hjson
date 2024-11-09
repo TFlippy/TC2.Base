@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Hydrochloric Acid"
-	name_short: "HCl"
+	name_short: "HCl. Acid"
 	description:
 		'''
 		A strong acid.
@@ -30,6 +30,7 @@
 	prefab: resource.hydrochloric_acid
 	h_substance: hydrochloric_acid
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

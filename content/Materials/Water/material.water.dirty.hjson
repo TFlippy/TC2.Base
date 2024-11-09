@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Water (Dirty)"
+	name: "Wastewater"
+	name_short: "W. Water"
 	description:
 		'''
 		Water, dirty wastewater.
@@ -31,6 +32,7 @@
 	prefab: resource.water.dirty
 	h_substance: water
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

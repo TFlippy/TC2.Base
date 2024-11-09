@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Gustus Mushrooms"
-	name_short: "Gustus"
+	name_short: "Gustus M."
 	description:
 		'''
 		A heap of brown mushroom bits, looks tasty!
@@ -30,6 +30,7 @@
 	prefab: resource.mushroom.brown
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

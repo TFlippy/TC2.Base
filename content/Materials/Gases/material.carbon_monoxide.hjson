@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Carbon Monoxide"
-	name_short: "CO"
+	name_short: "C. Monoxide"
 	description:
 		'''
 		TODO: Desc
@@ -29,6 +29,7 @@
 	prefab: resource.carbon_monoxide
 	h_substance: carbon_monoxide
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

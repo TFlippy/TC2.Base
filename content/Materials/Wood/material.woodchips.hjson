@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Woodchips"
-	name_short: "Wd. Chips"
+	name_short: "Wood Ch."
 	description:
 		'''
 		Small bits of wood.
@@ -30,6 +30,7 @@
 	prefab: resource.woodchips
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]

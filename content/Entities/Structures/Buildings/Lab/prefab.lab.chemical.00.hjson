@@ -38,7 +38,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [668.000, 504.000]
+	window_size: [740.000, 600.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -309,6 +309,7 @@ essence.container:
 
 	@sound.emitter:
 	{
+		flags: start_muted
 		volume: 0.500
 		pitch: 1.730
 		size: 0.350
@@ -344,6 +345,7 @@ heat:
 	
 	@sound.emitter:
 	{
+		flags: start_muted
 		file: "overheat_loop"
 		volume: 1.000
 		pitch: 1.000
@@ -420,6 +422,7 @@ burner:
 
 	@sound.emitter:
 	{
+		flags: start_muted
 		file: refinery.loop.04
 		volume: 1.000
 		pitch: 0.500
