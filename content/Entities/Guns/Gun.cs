@@ -818,7 +818,7 @@
 				break;
 			}
 
-			renderer.sprite.frame.Y = frame;
+			renderer.sprite.frame.y = frame;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -1372,7 +1372,7 @@
 									fps = 0,
 									frame_count = 1,
 									frame_count_total = 32,
-									frame_offset = (byte)ammo.sprite_casing.frame.X,
+									frame_offset = (byte)ammo.sprite_casing.frame.x,
 									scale = ammo.casing_scale,
 									rotation = transform.rotation,
 									angular_velocity = random.NextFloatRange(-1.00f, 1.00f) * gun.eject_angular_velocity,

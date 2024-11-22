@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 		public static void OnDraw(ref Region.Data region, ref XorRandom random, ISystem.Info info, Entity entity, [Source.Parent] ref Smoker.Data smoker, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Head.Data head)
 		{
 			var sprite = smoker.sprite;
-			sprite.frame.X = smoker.count - 1;
+			sprite.frame.x = smoker.count - 1;
 
 			var lerp = Maths.NormalizeClamp(smoker.count - 1, 4.00f);
 

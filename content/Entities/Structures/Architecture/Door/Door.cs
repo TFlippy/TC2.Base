@@ -78,7 +78,7 @@ namespace TC2.Base.Components
 				if (door.animation_progress <= 1.00f)
 				{
 					door.animation_progress = Maths.MoveTowards(door.animation_progress, 1.00f, App.fixed_update_interval_s * door.fps_close);
-					renderer.sprite.frame.X = (uint)Maths.Lerp(door.frame_closed, door.frame_open, door.animation_progress);
+					renderer.sprite.frame.x = (uint)Maths.Lerp(door.frame_closed, door.frame_open, door.animation_progress);
 				}
 			}
 			else
@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 				if (door.animation_progress >= 0.00f)
 				{
 					door.animation_progress = Maths.MoveTowards(door.animation_progress, 0.00f, App.fixed_update_interval_s * door.fps_close);
-					renderer.sprite.frame.X = (uint)Maths.Lerp(door.frame_closed, door.frame_open, door.animation_progress);
+					renderer.sprite.frame.x = (uint)Maths.Lerp(door.frame_closed, door.frame_open, door.animation_progress);
 				}
 			}
 		}

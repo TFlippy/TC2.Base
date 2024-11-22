@@ -91,7 +91,7 @@ namespace TC2.Base.Components
 		public static void UpdateEffects(ISystem.Info info, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch, [Source.Owned, Pair.Component<Clutch.Data>] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.frame.X = (uint)(clutch.state + 1);
+			renderer.sprite.frame.x = (uint)(clutch.state + 1);
 		}
 
 		public partial struct ClutchGUI: IGUICommand

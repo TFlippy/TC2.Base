@@ -38,7 +38,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref LandMine.Data landmine, [Source.Owned] ref Animated.Renderer.Data renderer,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
-			renderer.sprite.frame.Y = landmine.flags.HasAny(LandMine.Flags.Armed) ? landmine.frame_armed : landmine.frame_default;
+			renderer.sprite.frame.y = landmine.flags.HasAny(LandMine.Flags.Armed) ? landmine.frame_armed : landmine.frame_default;
 		}
 #endif
 

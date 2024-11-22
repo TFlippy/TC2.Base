@@ -13,8 +13,8 @@ namespace TC2.Base.Components
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			public uint2 frame_sitting;
-			public uint2 frames_jump;
+			public Vec2u32 frame_sitting;
+			public Vec2u32 frames_jump;
 
 			public byte frame_air = 0;
 
@@ -91,7 +91,7 @@ namespace TC2.Base.Components
 			walking:
 			{
 				renderer.sprite.fps = MathF.Round(legs.fps * (0.30f + ((0.70f * organic_state.efficiency) * (runner_state.flags.HasAll(Runner.State.Flags.Crouching) ? runner.crouch_speed_modifier : 1.00f))));
-				renderer.sprite.frame.X = 1;
+				renderer.sprite.frame.x = 1;
 				renderer.sprite.count = legs.frame_count;
 
 				var offset = runner_state.flags.HasAll(Runner.State.Flags.Grounded) ? new Vector2(-bob_amplitude.X * (MathF.Sin(info.WorldTime * bob_speed)), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f)) : Vector2.Zero;
@@ -119,7 +119,7 @@ namespace TC2.Base.Components
 				var t = 1.00f - Maths.NormalizeClamp(info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time)), runner.max_air_time);
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.X, legs.frames_jump.Y, t));
+				renderer.sprite.frame.x = (uint)MathF.Floor(Maths.Lerp(legs.frames_jump.x, legs.frames_jump.y, t));
 				renderer.sprite.count = 0;
 
 				return;
@@ -151,7 +151,7 @@ namespace TC2.Base.Components
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = 0;
+				renderer.sprite.frame.x = 0;
 				renderer.sprite.count = 0;
 
 				return;
@@ -167,7 +167,7 @@ namespace TC2.Base.Components
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = 0;
+				renderer.sprite.frame.x = 0;
 				renderer.sprite.count = 0;
 
 				return;
@@ -177,7 +177,7 @@ namespace TC2.Base.Components
 			{
 				renderer.sprite.fps = 0;
 				//renderer.sprite.frame.X = (uint)(legs.frame_air + Maths.Clamp(runner_state.air_time * legs.fps, 0, 2));
-				renderer.sprite.frame.X = (uint)(legs.frame_air);
+				renderer.sprite.frame.x = (uint)(legs.frame_air);
 				renderer.sprite.count = 0;
 
 				return;

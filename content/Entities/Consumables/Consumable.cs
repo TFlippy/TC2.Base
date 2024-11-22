@@ -78,7 +78,7 @@ namespace TC2.Base.Components
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Sprite_Frames))
 			{
 				var x = GetFrame(consumable.uses, consumable.uses_max, renderer.sprite.count);
-				renderer.sprite.frame.X = x;
+				renderer.sprite.frame.x = x;
 			}
 		}
 

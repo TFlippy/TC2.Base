@@ -123,7 +123,7 @@
 				}
 
 				renderer.sprite.fps = (byte)MathF.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
-				renderer.sprite.frame.X = 1;
+				renderer.sprite.frame.x = 1;
 				renderer.sprite.count = torso.frame_count;
 				renderer.offset = offset;
 
@@ -141,7 +141,7 @@
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = 0;
+				renderer.sprite.frame.x = 0;
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
@@ -160,7 +160,7 @@
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.X, torso.frames_air.Y, t));
+				renderer.sprite.frame.x = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.X, torso.frames_air.Y, t));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
@@ -177,7 +177,7 @@
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.X = 2;
+				renderer.sprite.frame.x = 2;
 				renderer.sprite.count = 0;
 				renderer.offset = offset;
 

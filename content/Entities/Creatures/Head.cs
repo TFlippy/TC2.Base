@@ -155,13 +155,13 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.frame.X = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
+			renderer.sprite.frame.x = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
 		}
 
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnDeath(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.frame.X = head.frame_dead;
+			renderer.sprite.frame.x = head.frame_dead;
 
 			//#if SERVER
 			//			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
