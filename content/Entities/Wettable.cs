@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Wettable.Flags flags;
 
@@ -26,11 +26,6 @@ namespace TC2.Base.Components
 			
 			[Net.Ignore, Save.Ignore] public float t_last_water;
 			[Net.Ignore, Save.Ignore] public float t_next_damage;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]

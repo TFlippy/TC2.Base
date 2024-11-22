@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Zapper
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Zapper.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -23,15 +23,10 @@ namespace TC2.Base.Components
 
 			public Sound.Handle sound_on = Zapper.sound_on_default;
 			public Sound.Handle sound_off = Zapper.sound_off_default;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -44,11 +39,6 @@ namespace TC2.Base.Components
 			public float charge_current;
 			public Zapper.State.Flags flags;
 			[Save.Ignore, Net.Ignore] public float next_hit;
-
-			public State()
-			{
-
-			}
 		}
 
 		[IEvent.Data]

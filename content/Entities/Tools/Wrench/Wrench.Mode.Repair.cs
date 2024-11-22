@@ -63,11 +63,19 @@ namespace TC2.Base.Components
 					public static string Name { get; } = "Repair";
 
 					public Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.None;
+					[Shitcode]
 					public Physics.Layer LayerMask
 					{
 						get
 						{
 							var mask = Physics.Layer.None;
+							var filter = this.filter;
+
+							//filter.RemapFlag(ref mask, Repair.Filter.Buildings, Physics.Layer.Building);
+							//filter.RemapFlag(ref mask, Repair.Filter.Buildings, Physics.Layer.Belt);
+							//filter.RemapFlag(ref mask, Repair.Filter.Buildings, Physics.Layer.Conveyor);
+							//filter.RemapFlag(ref mask, Repair.Filter.Buildings, Physics.Layer.Climbable);
+							//filter.RemapFlag(ref mask, Repair.Filter.Buildings, Physics.Layer.Door);
 
 							if (this.filter.HasAny(Repair.Filter.Buildings))
 							{

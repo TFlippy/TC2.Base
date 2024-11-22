@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Electrode.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Electrode.Flags flags;
 
@@ -48,15 +48,10 @@ namespace TC2.Base.Components
 			public Sound.Handle h_sound_off;
 
 			public Mouse.Key key_activate = Mouse.Key.Left;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: byte
@@ -72,11 +67,6 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float t_next_update;
 			[Save.Ignore, Net.Ignore] public float t_next_discharge;
 			[Save.Ignore, Net.Ignore] public float t_next_sync;
-
-			public State()
-			{
-
-			}
 		}
 
 		public static readonly Sound.Handle sound_hit_default = "arcane_infuser.fizzle.00";

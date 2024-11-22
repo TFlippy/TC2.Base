@@ -72,7 +72,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float mass = 1.00f;
 			public float force;
@@ -81,12 +81,7 @@ namespace TC2.Base.Components
 			public float delay;
 			public Vector2 velocity;
 
-			[Net.Ignore, Save.Ignore] public float smoke_accumulator = 0.00f;
-
-			public Data()
-			{
-
-			}
+			[Net.Ignore, Save.Ignore, Asset.Ignore] public float smoke_accumulator = 0.00f;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]

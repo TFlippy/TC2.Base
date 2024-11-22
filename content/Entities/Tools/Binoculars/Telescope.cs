@@ -3,7 +3,7 @@
 	public static class Telescope
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float speed = 2.00f;
@@ -30,11 +30,6 @@
 
 			[Save.Ignore, Net.Ignore] public float current_modifier;
 			public Vector2 offset;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if CLIENT

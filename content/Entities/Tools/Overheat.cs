@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
 		[IComponent.Data(Net.SendType.Reliable, name: "Heatable", region_only: true, sync_table_capacity: 256), IComponent.With<Heat.State>()]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -61,15 +61,10 @@ namespace TC2.Base.Components
 			public Vector2 size = new Vector2(0.50f, 0.25f);
 
 			public Color32BGRA flame_tint;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: ushort
@@ -96,11 +91,6 @@ namespace TC2.Base.Components
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_properties;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_effect;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float t_next_convection;
-
-			public State()
-			{
-
-			}
 		}
 
 

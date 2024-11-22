@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnRemove(ISystem.Info info, ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Data prefab_on_remove)
 		{
-			if (prefab_on_remove.count > 0 && prefab_on_remove.prefab.id != 0)
+			if (prefab_on_remove.prefab.id != 0)
 			{
 				for (var i = 0; i < prefab_on_remove.count; i++)
 				{

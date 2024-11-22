@@ -172,7 +172,7 @@
 	public static partial class Refinery
 	{
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Refinery.State>]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -186,15 +186,10 @@
 
 			//public Vector2 smoke_offset;
 			//public float tank_volume = 1.00f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct State: IComponent
+		public struct State(): IComponent
 		{
 			//public float amount;
 			//public float mass;

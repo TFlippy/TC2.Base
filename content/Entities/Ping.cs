@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable), IComponent.AddTo<Player.Data>()]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Save.Ignore] public Entity ent_target;
 			[Save.Ignore] public Vector2 pos;

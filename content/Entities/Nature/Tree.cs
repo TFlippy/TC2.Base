@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			//public Prefab.Handle prefab_stump;
 			//public float health_cut = 0.80f;
@@ -21,11 +21,6 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_cut = Tree.sound_tree_cut_default;
 
 			public Tree.Flags flags;
-
-			public Data()
-			{
-
-			}
 		}
 
 		public static readonly Sound.Handle sound_tree_cut_default = "tree_fall";

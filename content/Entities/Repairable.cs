@@ -10,15 +10,10 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Repairable.Flags flags;
 			public float cost_multiplier = 1.00f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		// [ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region)]

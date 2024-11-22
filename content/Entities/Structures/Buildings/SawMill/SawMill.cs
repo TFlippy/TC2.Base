@@ -3,7 +3,7 @@
 	public static partial class SawMill
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<SawMill.State>]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Editor.Picker.Position(relative: true)] public Vector2 saw_offset;
 
@@ -11,15 +11,10 @@
 			public float saw_radius = 1.00f;
 			public float max_torque = 1000.00f;
 			public float efficiency = 0.80f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public struct State: IComponent
+		public struct State(): IComponent
 		{
 			public float gear_ratio = 1.00f;
 			public float slider_ratio;
@@ -28,11 +23,6 @@
 			[Net.Ignore, Save.Ignore] public float current_modifier;
 			[Net.Ignore, Save.Ignore] public float current_load;
 			[Net.Ignore, Save.Ignore] public float last_hit;
-
-			public State()
-			{
-
-			}
 		}
 
 		public struct ConfigureRPC: Net.IRPC<SawMill.State>

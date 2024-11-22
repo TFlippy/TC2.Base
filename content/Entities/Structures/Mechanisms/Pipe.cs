@@ -1648,7 +1648,7 @@ namespace TC2.Base.Components
 			}
 
 			[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
-			public struct Data: IComponent, ITrait
+			public struct Data(): IComponent, ITrait
 			{
 				[Flags]
 				public enum Flags: ushort
@@ -1700,11 +1700,6 @@ namespace TC2.Base.Components
 
 				[Save.Ignore, Net.Ignore] public float t_next_smoke;
 
-				public Data()
-				{
-
-				}
-
 				public void Clear()
 				{
 					this.blob = default;
@@ -1719,8 +1714,8 @@ namespace TC2.Base.Components
 
 	public static partial class Pipe
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public struct Data: IComponent, ILink
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Pipe.State>]
+		public struct Data(): IComponent, ILink
 		{
 			public readonly Entity EntityA => this.a.entity;
 			public readonly Entity EntityB => this.b.entity;
@@ -1734,11 +1729,6 @@ namespace TC2.Base.Components
 
 			public EntRef<Air.Vent.Data> a;
 			public EntRef<Air.Vent.Data> b;
-
-			public Data()
-			{
-
-			}
 
 			public void PrintNetwork()
 			{
@@ -1781,7 +1771,7 @@ namespace TC2.Base.Components
 		//}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public struct State: IComponent
+		public struct State(): IComponent
 		{
 			public float velocity;
 			public Volume flow_rate;

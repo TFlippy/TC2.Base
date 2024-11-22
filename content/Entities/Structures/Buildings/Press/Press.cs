@@ -24,7 +24,7 @@
 		};
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Press.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Vector2 slider_offset;
 			public float slider_length;
@@ -36,7 +36,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint

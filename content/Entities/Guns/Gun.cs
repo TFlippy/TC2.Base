@@ -137,7 +137,7 @@
 			[Net.Ignore] Eject_Pending = 1 << 15,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.Data>]
+		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
 		public partial struct Animation: IComponent
 		{
 			public byte frame_ready;

@@ -6,7 +6,7 @@ namespace TC2.Base.Components
 	public static partial class Tractor
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			//[Statistics.Info("Max Speed", description: "", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float speed = 10.00f;
@@ -22,15 +22,10 @@ namespace TC2.Base.Components
 
 			//[Editor.Picker.Position(relative: true)]
 			//public Vector2 smoke_offset;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public float target_wheel_speed;
 
@@ -38,11 +33,6 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float current_motor_force;
 			[Save.Ignore, Net.Ignore] public float current_wheel_torque_load;
 			[Save.Ignore, Net.Ignore] public float t_next_sync;
-
-			public State()
-			{
-
-			}
 		}
 
 		public static readonly Sound.Handle[] clutch_sounds = new Sound.Handle[]

@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Biter
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Biter.State>()]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Sound.Handle sound;
 
@@ -26,15 +26,10 @@ namespace TC2.Base.Components
 
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_exclude;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_attack;
 		}

@@ -2,8 +2,8 @@
 {
 	public static partial class Track
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Track.State>]
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -15,22 +15,12 @@
 
 			public float speed = 0.01f;
 			public Track.Data.Flags flags;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public float slider_ratio;
-
-			public State()
-			{
-
-			}
 		}
 
 #if CLIENT

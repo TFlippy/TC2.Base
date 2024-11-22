@@ -8,8 +8,8 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Sprite sprite_burst_default = new Sprite("steam_engine.burst.00", 32, 24, 1, 0);
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<SteamEngine.State>]
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -58,14 +58,10 @@ namespace TC2.Base.Components
 			public float pitch_multiplier = 1.00f;
 
 			//public float max_acceleration = 1.00f;
-
-			public Data()
-			{
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true), Asset.Ignore]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public float speed_current;
 			public float force_current;

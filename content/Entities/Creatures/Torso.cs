@@ -11,7 +11,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			public float crouch_offset_modifier = 0.50f;
 
@@ -25,11 +25,6 @@
 			[Save.Ignore, Net.Ignore] public Vector2 offset;
 			[Save.Ignore, Net.Ignore] public float lerp;
 			[Save.Ignore, Net.Ignore] public float air_time;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Arm.Data>(Source.Modifier.Owned, true)]

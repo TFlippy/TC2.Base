@@ -62,7 +62,7 @@
 	public static partial class Balloon
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Balloon.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			//public float release_max = 1.00f;
 			//public float release_rate = 1.00f;
@@ -78,15 +78,10 @@
 			public Height envelope_height_bottom;
 			public Width envelope_thickness = Units.mm(0.40f);
 			public Power envelope_thermal_conductivity = Power.W(0.021f); // kW/m*K
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public Temperature current_temperature_air = Region.ambient_temperature;
 			[Asset.Ignore] public float speed_current;
@@ -104,11 +99,6 @@
 
 			[Net.Ignore, Save.Ignore] public float altitude;
 			[Net.Ignore, Save.Ignore] public float buoyant_force;
-
-			public State()
-			{
-
-			}
 		}
 
 #if CLIENT

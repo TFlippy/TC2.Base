@@ -3,8 +3,8 @@ namespace TC2.Base.Components
 {
 	public static partial class Runner
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent, IOverridable
+		[IComponent.Data(Net.SendType.Unreliable, region_only: true), IComponent.With<Runner.State>]
+		public partial struct Data(): IComponent, IOverridable
 		{
 			public static bool draw_debug = false;
 
@@ -37,15 +37,10 @@ namespace TC2.Base.Components
 			public float jump_decay = 0.50f;
 			public float crouch_speed_modifier = 0.50f;
 			public float air_brake_modifier = 0.10f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -84,11 +79,6 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
 			[Save.Ignore, Net.Ignore] public Vector2 last_force;
 			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force;
-
-			public State()
-			{
-
-			}
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true), HasTag("initialized", true, Source.Modifier.Owned)]
