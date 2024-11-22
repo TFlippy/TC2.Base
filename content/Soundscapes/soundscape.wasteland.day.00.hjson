@@ -1,10 +1,11 @@
 ﻿{
+	$version: "0.1.61.4"
 	color: "0xffffdaa8"
 	
 	sounds_looped:
 	[
 		{
-			sound: "amb.wasteland.day.loop.00"
+			sound: amb.wasteland.day.loop.00
 			volume: 0.600
 			pitch: 1.000
 			
@@ -12,12 +13,6 @@
 			
 			mix:
 			{
-				front_left: 0.000
-				front_right: 0.000
-				center: 0.000
-				lfe: 0.000
-				side_left: 0.000
-				side_right: 0.000
 				back_left: 1.000
 				back_right: 1.000
 			}
@@ -33,11 +28,11 @@
 			
 			sounds:
 			[
-				"amb.industry.metal.groan.00"
-				"amb.industry.metal.groan.01"
-				"amb.industry.metal.groan.02"
-				"amb.industry.metal.groan.03"
-				"amb.industry.metal.groan.04"
+				amb.industry.metal.groan.00
+				amb.industry.metal.groan.01
+				amb.industry.metal.groan.02
+				amb.industry.metal.groan.03
+				amb.industry.metal.groan.04
 			]
 		}
 		{
@@ -47,8 +42,8 @@
 			
 			sounds:
 			[
-				"amb.industry.metal.deep.00"
-				"amb.industry.metal.deep.01"
+				amb.industry.metal.deep.00
+				amb.industry.metal.deep.01
 			]
 		}
 		{
@@ -58,8 +53,8 @@
 			
 			sounds:
 			[
-				"amb.ship.horn.00"
-				"amb.ship.horn.01"
+				amb.ship.horn.00
+				amb.ship.horn.01
 			]
 		}
 	]

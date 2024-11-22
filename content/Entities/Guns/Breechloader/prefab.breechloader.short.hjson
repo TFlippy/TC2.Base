@@ -48,7 +48,7 @@ gun:
 	sound_shoot: breechloader.short.shoot
 	sound_cycle: breechloader.long.cycle
 	sound_reload: breechloader.long.reload
-	sound_jam: scrap.hit.hard.00
+	sound_jam: effect.clang.metal.00
 	
 	damage_multiplier: 2.000
 	velocity_multiplier: 175.000

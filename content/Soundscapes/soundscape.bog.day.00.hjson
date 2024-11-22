@@ -1,10 +1,11 @@
 ﻿{
+	$version: "0.1.61.4"
 	color: "0xffdbd421"
 	
 	sounds_looped:
 	[
 		{
-			sound: "amb.bog.day.loop.00"
+			sound: amb.bog.day.loop.00
 			volume: 0.050
 			pitch: 0.900
 			
@@ -15,7 +16,6 @@
 				front_left: 0.800
 				front_right: 0.800
 				center: 0.200
-				lfe: 0.000
 				side_left: 0.700
 				side_right: 0.700
 				back_left: 1.000
