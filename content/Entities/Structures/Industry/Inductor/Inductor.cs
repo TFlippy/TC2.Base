@@ -3,7 +3,7 @@
 	public static partial class Inductor
 	{
 		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Inductor.State>]
-		public struct Data: IComponent
+		public struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -25,15 +25,10 @@
 			//public float frequency;
 
 			[Save.Ignore, Net.Ignore] public float t_next_update;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable)]
-		public struct State: IComponent
+		public struct State(): IComponent
 		{
 			public float frequency_current;
 			public float frequency_target;
@@ -42,7 +37,6 @@
 			public Mass coil_mass;
 
 			public Power power_current;
-
 		}
 
 		// https://en.wikipedia.org/wiki/Inductance#Inductance_of_a_solenoid

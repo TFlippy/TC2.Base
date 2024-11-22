@@ -14,7 +14,7 @@
 		{
 			name: "<TODO:00>"
 			
-			type: undefined
+			type: payload
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none

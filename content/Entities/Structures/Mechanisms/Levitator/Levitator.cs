@@ -19,8 +19,8 @@ namespace TC2.Base.Components
 			public Keyboard.Key key;
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Levitator.State>]
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -43,15 +43,10 @@ namespace TC2.Base.Components
 			public float particle_size = 1.00f;
 
 			[Editor.Picker.Position(true)] public Vector2 offset;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			public FixedArray4<float> node_rates;
 
@@ -59,11 +54,6 @@ namespace TC2.Base.Components
 			[Asset.Ignore] public Vector2 current_offset;
 			[Asset.Ignore] public float current_force;
 			[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_linecast;
-
-			public State()
-			{
-
-			}
 		}
 
 		public struct EditRPC: Net.IRPC<Levitator.Data>

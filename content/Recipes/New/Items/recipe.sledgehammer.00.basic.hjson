@@ -52,9 +52,19 @@
 					
 					start_delay: 0.500
 					complete_delay: 0.500
+					
 					filter_tools:
 					{
 						require: hand_drill
+						include: screwdriver
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, vise
 					}
 				}
 			]
@@ -106,6 +116,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -170,6 +181,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -205,6 +217,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hammer

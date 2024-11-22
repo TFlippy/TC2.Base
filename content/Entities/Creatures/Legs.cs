@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Legs
 	{
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float sound_interval_multiplier = 1.00f;
 			public float sound_volume = 0.25f;
@@ -19,11 +19,6 @@ namespace TC2.Base.Components
 			public byte frame_air = 0;
 
 			[Net.Ignore, Save.Ignore] public float next_step;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]

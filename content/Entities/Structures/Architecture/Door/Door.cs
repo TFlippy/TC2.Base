@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Door
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public static readonly Sound.Handle default_sound_lock = "door_lock";
 			public static readonly Sound.Handle default_sound_unlock = "door_unlock";
@@ -36,11 +36,6 @@ namespace TC2.Base.Components
 
 			[Asset.Ignore] public float animation_progress;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float last_use_time;
-
-			public Data()
-			{
-
-			}
 		}
 
 		public enum Direction: uint
