@@ -15,7 +15,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Radius", description: "Size of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float radius = 2.00f;
@@ -58,12 +58,6 @@ namespace TC2.Base.Components
 			public Explosive.Flags flags;
 
 			[Net.Ignore] public Entity ent_owner;
-
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]

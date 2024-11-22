@@ -1549,7 +1549,7 @@
 			{
 				if (info.WorldTime >= gun_state.next_cycle && (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload)))
 				{
-					body.AddImpulse(transform.GetDirection().RotateByDeg(90.00f + random.NextFloatRange(-20.00f, 20.00f)) * Maths.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
+					body.AddImpulse(transform.Down.RotateByDeg(random.NextFloatRange(-20.00f, 20.00f)) * Maths.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
 #if SERVER
 					if (random.NextBool(Maths.Max(0.10f, 1.00f - (0.40f + (gun.failure_rate * 5.00f)))))

@@ -3,7 +3,7 @@
 	public static partial class Fermenter
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Fermenter.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -15,14 +15,10 @@
 			public float work_level_base = 4.00f;
 
 			public Fermenter.Data.Flags flags;
-
-			public Data()
-			{
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -32,10 +28,6 @@
 
 			public IRecipe.Handle h_recipe_cached;
 			public Fermenter.State.Flags flags;
-
-			public State()
-			{
-			}
 		}
 
 #if CLIENT

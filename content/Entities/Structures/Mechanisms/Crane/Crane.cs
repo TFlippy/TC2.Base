@@ -14,22 +14,17 @@
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Crane.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float length_a = 8.00f;
 			public float length_b = 8.00f;
 
 			public Crane.Flags flags = Crane.Flags.None;
 			public Crane.Flags flags_editable = Crane.Flags.None;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		public partial struct State(): IComponent
 		{
 			[Asset.Ignore] public float angle_a;
 			[Asset.Ignore] public float angle_b;
