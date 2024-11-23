@@ -22,6 +22,7 @@ body:
 		mass: 20000.000
 		radius: 0.750
 		friction: 0.600
+		miss_chance: 0.204
 		
 		material: stone
 		
