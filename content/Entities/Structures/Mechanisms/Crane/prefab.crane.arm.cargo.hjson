@@ -128,6 +128,37 @@ vehicle:
 
 }
 
+heat:
+{
+	temperature_medium: 440.9637
+	temperature_high: 1479.600
+	temperature_ignite: 1894.000
+	temperature_operating: 1034.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	heat_capacity_extra: 30.000
+	heat_damage_mult: 0.250
+	cool_rate_mult: 1.100
+	smoke_size_mult: 0.750
+	smoke_speed_mult: 0.800
+	size: [8.000, 1.000]
+	flame_tint: "0xe1ff8538"
+
+	@light:
+	{
+		scale: [110.000, 48.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+		
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
 +mount|instance:
 {
 	joint.base:
