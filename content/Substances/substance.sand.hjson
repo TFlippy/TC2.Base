@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.61.4"
 	name: "Sand"
-	type: mixture
+	type: aggregate
 	atomic_number: 0
 	flags: none
-	tags: oxide, mineral, solid
+	tags: oxide, impure, inert, mineral, amorphous, solid
 	
 	icon:
 	{
