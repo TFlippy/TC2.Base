@@ -22,11 +22,11 @@
 	
 	color_icon: "0xffdf873d"
 	color_gui: "0xffdf873d"
-	color_dust: "0xffdf873d"
-	color_gib: "0xffdf873d"
+	color_dust: "0xfff6892e"
+	color_gib: "0xfff6892e"
 	color_smoke: "0xffacab74"
 	
-	color_liquid: [0.908, 0.542, 0.254, 1.000]
+	color_liquid: [1.000, 0.457, 0.000, 1.000]
 	color_molten: [1.000, 0.457, 0.000, 1.000]
 	color_flame: [0.192, 0.583, 0.368, 0.463]
 	color_spark: [0.666, 0.775, 0.366, 1.000]
