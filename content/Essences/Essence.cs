@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
-		public struct Data: IName, IDescription
+		public struct Data(): IName, IDescription
 		{
 			[Save.Force] public string name;
 			[Save.Force, Save.MultiLine] public string desc;
@@ -62,11 +62,6 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			[Save.Force] public IEvent.Info on_collapse;
 			[Save.Force] public IEvent.Info on_failure;
-
-			public Data()
-			{
-
-			}
 
 			readonly ReadOnlySpan<char> IName.GetName() => this.name;
 			readonly ReadOnlySpan<char> IName.GetShortName() => this.name;
@@ -146,7 +141,7 @@ namespace TC2.Base.Components
 			}
 
 			[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-			public partial struct Data: IComponent
+			public partial struct Data(): IComponent
 			{
 				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 				public IEssence.Handle h_essence;
@@ -173,11 +168,6 @@ namespace TC2.Base.Components
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_noise;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_damage;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_collapse;
-
-				public Data()
-				{
-
-				}
 			}
 
 			[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -611,7 +601,8 @@ namespace TC2.Base.Components
 				Fragmenter,
 				[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
 				Projector,
-
+				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
+				Explosive,
 			}
 
 			[Flags]
@@ -625,7 +616,7 @@ namespace TC2.Base.Components
 			}
 
 			[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-			public partial struct Data: IComponent
+			public partial struct Data(): IComponent
 			{
 				public Essence.Emitter.Type type;
 				public Essence.Emitter.Flags flags;
@@ -641,11 +632,6 @@ namespace TC2.Base.Components
 				public float rate_max;
 				public float rate_target;
 				[Asset.Ignore] public float rate_current;
-
-				public Data()
-				{
-
-				}
 			}
 		}
 
@@ -719,8 +705,8 @@ namespace TC2.Base.Components
 			Failure
 		}
 
-		public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
-		public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
+		[Obsolete] public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
+		[Obsolete] public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
 
 		public const float essence_per_pellet = 10.00f;
 		//public const float force_per_motion_essence = 2000.00f;
