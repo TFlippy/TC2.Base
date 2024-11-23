@@ -68,7 +68,7 @@
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] ref Transform.Data transform,
-		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, 
+		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
 		[Source.Owned] ref Crucible.Data crucible)
 		{
 
@@ -100,7 +100,7 @@
 		//		ref var essence_data = ref essence_container.h_essence.GetData();
 		//		if (essence_data.IsNotNull())
 		//		{
-		//			crucible.temperature_target += (essence_data.heat_emit * essence_container.rate * essence_container.available) * info.DeltaTime;
+		//			crucible.temperature_target += (essence_data.crafter_emit * essence_container.rate * essence_container.available) * info.DeltaTime;
 		//		}
 		//		//App.WriteLine("a");
 
@@ -114,8 +114,8 @@
 			public Entity ent_crucible;
 
 			public Transform.Data transform;
-			public Heat.Data heat;
-			public Heat.State heat_state;
+			public Crafter.Data crafter;
+			public Crafter.State crafter_state;
 			public Crucible.Data crucible;
 
 			public void Draw()
@@ -137,7 +137,8 @@
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity entity,
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
-		[Source.Owned] in Heat.Data heat, [Source.Owned] in Heat.State heat_state, [Source.Owned] in Crucible.Data crucible)
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state, 
+		[Source.Owned] in Crucible.Data crucible)
 		{
 			if (interactable.IsActive())
 			{
@@ -146,8 +147,8 @@
 					ent_crucible = entity,
 
 					transform = transform,
-					heat = heat,
-					heat_state = heat_state,
+					crafter = crafter,
+					crafter_state = crafter_state,
 					crucible = crucible
 				};
 				gui.Submit();
