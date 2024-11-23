@@ -16,7 +16,7 @@
 	
 	type: bramble
 	flags: ammo, ammo_arrow, soft, small, flammable, flexible, solid
-	display_flags: none
+	display_flags: hide_fraction
 	hints: none
 	bulk_density_ratio_min: 0.000
 	bulk_density_ratio_max: 0.000
@@ -30,6 +30,7 @@
 	prefab: resource.ammo_arrow
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	color_spark: [0.000, 0.000, 0.000, 0.000]
