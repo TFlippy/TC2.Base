@@ -22,6 +22,7 @@ body:
 		layer: entity, solid, vehicle
 		mask: world, liquid, bulk
 		exclude: item, vehicle, attached
+		miss_chance: 0.413
 	}
 }
 
@@ -56,11 +57,11 @@ damage.effects:
 	threshold_wreck: 0.550
 }
 
-cover:
-{
-	threshold: 0.300
-	flags: none
-}
+// cover:
+// {
+// 	threshold: 0.300
+// 	flags: none
+// }
 
 // armor:
 // {

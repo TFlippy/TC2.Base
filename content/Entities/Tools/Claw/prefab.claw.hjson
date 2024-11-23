@@ -26,6 +26,7 @@ body:
 		layer: entity, solid, ignore_bullet, item
 		mask: world
 		exclude: item, vehicle
+		miss_chance: 0.671
 	}
 }
 
