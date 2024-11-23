@@ -617,7 +617,7 @@ namespace TC2.Base.Components
 
 				//var dir = transform.GetDirection();
 				var intensity = Maths.Clamp(Maths.Max(temperature_current - Temperature.Celsius(50.00f), 0.00f) * 0.003f, 0.00f, 0.75f).Pow2();
-				var pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloat(heat.size.X), random.NextFloat(heat.size.Y)) * 0.50f));
+				var pos = transform.LocalToWorld(heat.smoke_offset + (new Vector2(random.NextFloat(heat.size.X), random.NextFloat(heat.size.Y)) * 0.85f));
 
 				if (light.IsNotNull())
 				{

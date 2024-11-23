@@ -15,6 +15,24 @@
 	flags: none
 	tags: hydride, inert, liquid
 	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [12, 1]
+	}
+	
+	color_icon: "0xe22b3431"
+	color_gui: "0xe22b3431"
+	color_dust: "0xe22b3431"
+	color_gib: "0xe22b3431"
+	color_smoke: "0x66ffffff"
+	
+	color_liquid: [0.169, 0.204, 0.192, 0.886]
+	color_molten: [0.169, 0.204, 0.192, 0.886]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.018015
 	// kg/m³ (STP)
@@ -48,6 +66,9 @@
 	// K
 	sintering_temperature_upper: 0.000
 	
+	// K
+	autoignition_temperature: 0.000
+	
 	// kJ/mol
 	heat_of_fusion: 0.000
 	// kJ/mol
@@ -61,6 +82,7 @@
 	specific_heat_of_vaporization: 0.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 4.184
+	
 	// kW/(m*K)
 	thermal_conductivity: 0.000598
 }

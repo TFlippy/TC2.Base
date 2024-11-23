@@ -43,11 +43,11 @@ animated.renderer:
 	
 	@light:
 	{
-		color: [0.600, 1.000, 0.400, 1.000]
+		color: [0.600, 1.000, 0.400, 2.000]
 		offset: [0.220, -2.500]
 		scale: [16.000, 20.000]
 		intensity: 1.000
-		texture: "light.circle.00"
+		texture: light.circle.04
 	}
 }
 
