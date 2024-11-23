@@ -81,6 +81,7 @@ interactable:
 {
 	window_size: [182.000, 240.000]
 	// window_offset: [0.000, 192.000]
+	priority: 3.000
 }
 
 storage:

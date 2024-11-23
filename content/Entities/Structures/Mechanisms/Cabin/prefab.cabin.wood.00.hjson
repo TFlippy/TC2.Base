@@ -86,6 +86,7 @@ interactable:
 {
 	window_size: [336.000, 336.000]
 	// window_offset: [0.000, 192.000]
+	priority: 3.000
 }
 
 control:
