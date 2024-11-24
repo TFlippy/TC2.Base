@@ -24,7 +24,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: explosion
 			
-			ratio: 0.000
+			ratio: 1.000
 			mass_base: 10.980
 			
 			options:
@@ -48,16 +48,26 @@
 						{
 							type: work
 							work: filling.powder
-							amount: 175.000
-							amount_min: 50.000
+							amount: 125.000
+							amount_min: 25.000
 							difficulty: 4
-							snapping: 25.000
+							snapping: 5.000
 							falloff: 0.910
 							group: 0
+							flags: conditional
 						}
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_equipment:
+					{
+						include: dishes, table, chair
+					}
 				}
 			]
 			
@@ -68,7 +78,7 @@
 		{
 			name: "Explosive"
 			
-			type: preparation
+			type: processing
 			flags: no_residue
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: explosion
@@ -96,12 +106,12 @@
 						}
 						{
 							type: work
-							work: calibration
-							amount: 1.000
-							amount_min: 75.000
-							difficulty: 0
+							work: sealing
+							amount: 180.000
+							difficulty: 16
 							snapping: 1.000
 							group: 1
+							flags: no_scaling, conditional
 						}
 					]
 					
@@ -115,6 +125,8 @@
 							flags: parameter, hidden
 						}
 					]
+					advance_delay: 3.000
+					h_sound_complete: effect.bell.ring.01
 					
 					on_advance:
 					{
@@ -122,6 +134,8 @@
 						data:
 						{
 							pressure: 0.320
+							h_sound: explosion.rumble.00
+							sound_pitch: 0.900
 						}
 					}
 				}
@@ -147,7 +161,7 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: no_amount_multiplier, wip
 	tags: dangerous, explosive, compaction, metalworking, forming
 	
 	icon:
@@ -170,6 +184,6 @@
 	rank: -3.000
 	
 	min: 1
-	max: 10
+	max: 1
 	step: 1
 }

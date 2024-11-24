@@ -47,6 +47,15 @@
 
 			public Resource.Data resource_explosive;
 
+			public Sound.Handle h_sound;
+			public float sound_volume = 1.00f;
+			public float sound_pitch = 1.00f;
+			public float sound_size = 4.00f;
+			public float sound_dist_modifier = 1.00f;
+
+			public float shake_radius = 32.00f;
+			public float shake_power = 0.75f;
+
 			public Compactor.DetonateEvent.Flags flags;
 
 			//void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe arg)
@@ -67,7 +76,7 @@
 				ref var req_explosive = ref arg.requirements.GetFirstOrNull((x) => x.type == Crafting.Requirement.Type.Resource && x.flags.HasAny(Crafting.Requirement.Flags.Argument));
 				if (req_explosive.IsNotNull())
 				{
-					this.resource_explosive = new(req_explosive.material, req_explosive.GetRequirementAmount(arg.amount_multiplier).GetSum());
+					this.resource_explosive = new(req_explosive.material, req_explosive.GetRequirementAmount(arg.amount_multiplier).amount);
 				}
 
 				//App.WriteLine($"Bind {this.ent_parent}; {this.h_substance}; {this.h_prefab}; {this.mass}");
@@ -102,7 +111,10 @@
 
 			App.WriteLine($"Compactor OnDetonateEvent");
 
+			var pos = transform.LocalToWorld(crafter.spawn_offset);
 
+			Shake.Emit(region: ref region, world_position: pos, trauma: ev.shake_power, max: 1.00f, radius: ev.shake_radius);
+			Sound.Play(region: ref region, sound: ev.h_sound, world_position: pos, volume: ev.sound_volume, pitch: ev.sound_pitch, size: ev.sound_size, priority: 0.75f, dist_multiplier: ev.sound_dist_modifier);
 		}
 #endif
 
