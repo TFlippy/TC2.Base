@@ -1,37 +1,151 @@
 ﻿{
-	$version: "0.1.61.4"
-	name: "Explosive Forming: Compacted Smirgrafit"
+	$version: "0.1.62.0"
+	name:
+		'''
+		Explosive Forming: 
+		Compacted Smirgrafit
+		'''
 	desc:
 		'''
 		TODO: Desc
 		'''
-	tips: []
-
+	tips:
+	[
+		"Dangerous"
+	]
+	
+	stages:
+	[
+		{
+			name: "Material"
+			
+			type: payload
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: explosion
+			
+			ratio: 0.000
+			mass_base: 10.980
+			
+			options:
+			[
+				{
+					name: "Powder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirgrafit.powder
+							amount: 4.886672
+							snapping: 1.000
+							group: 0
+							flags: prerequisite, add_amount_min
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 175.000
+							amount_min: 50.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.910
+							group: 0
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "Explosive"
+			
+			type: preparation
+			flags: no_residue
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: explosion
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: no_residue, prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: pressure
+							group: 100
+						}
+					]
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
 	requirements: []
 	
-	products: []
+	products:
+	[
+		{
+			type: resource
+			material: smirgrafit.compacted
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
 	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, simple, metalworking
+	tags: dangerous, explosive, compaction, metalworking, forming
 	
 	icon:
 	{
-		texture: resource.ammo_lc
+		texture: resource.smirgrafit.compacted
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, 0.000]
 	
 	icon_extra:
 	{
 		texture: ui_icons_crafting.mini
-		size: [16, 16]
+		size: [8, 8]
+		frame: [3, 2]
 	}
-	icon_extra_offset: [0.000, -6.000]
+	icon_extra_offset: [-5.000, -6.000]
 	
-	color_button: "0xff818b48"
+	color_button: "0xffcf392b"
 	rank: -3.000
 	
 	min: 1
