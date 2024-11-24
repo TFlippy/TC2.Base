@@ -19,14 +19,15 @@ body:
 			[-0.625, 0.875]
 		]
 		
-		mass: 200.000
+		mass: 275.000
 		radius: 0.250
 		friction: 0.700
 		elasticity: 0.600
 		
 		material: metal_solid
+		miss_chance: 0.153
 		
-		layer: entity, solid, building
+		layer: entity, solid, item, crate, crafter, conductive, magnetic
 	}
 }
 
@@ -49,7 +50,7 @@ interactable:
 {
 	flags: none
 	priority: 1.100
-	window_size: [560.000, 472.000]
+	window_size: [696.000, 472.000]
 	window_size_misc: [72.000, 0.000]
 }
 
@@ -144,13 +145,39 @@ compactor:
 	offset: [0.000, 0.875]
 }
 
+norotate:
+{
+	bias: 0.000
+	speed: 2.000
+	multiplier: 4.000
+	mass_multiplier: 5.000
+	flags: no_share
+}
+
+holdable:
+{
+	force_multiplier: 0.100
+	torque_multiplier: 0.100
+	stress_multiplier: 0.250
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation
+}
+
+attachment:
+{
+	force_multiplier: 10.000
+	torque_multiplier: 15.000
+	offset: [0.000, 0.625]
+	tags: medium, tool, platform, utility, fixed
+}
+
 shop:
 {
 	name: "Compactor"
 	
 	tags_filter:
 	{
-		include: forming, shaping
+		include: compaction, forming, shaping
 		exclude: workbench, filtering, assembling, machining, tailoring, gathering, refining, smelting, fermenting, melting
 	}
 	

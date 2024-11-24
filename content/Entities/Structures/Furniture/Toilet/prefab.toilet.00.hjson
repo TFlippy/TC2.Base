@@ -82,7 +82,7 @@ interactable:
 // 	{
 // 		require: fermenting
 // 		include: crude
-// 		exclude: smelting, metalworking, wrench
+// 		exclude: smelting, metalworking
 // 	}
 	
 // 	work_tools: paper, bucket, towel

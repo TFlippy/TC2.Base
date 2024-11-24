@@ -65,7 +65,6 @@ shop:
 	{
 		require: workbench
 		include: cooking
-		exclude: wrench
 	}
 	
 	work_tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife

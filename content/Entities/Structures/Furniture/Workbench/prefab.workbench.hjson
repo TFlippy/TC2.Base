@@ -116,7 +116,7 @@ shop:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: wrench, passive, advanced, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
+		exclude: passive, advanced, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
 	
 	work_tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper, needle, pins
@@ -154,6 +154,6 @@ laboratory:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: wrench, passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
+		exclude: passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
 	}
 }

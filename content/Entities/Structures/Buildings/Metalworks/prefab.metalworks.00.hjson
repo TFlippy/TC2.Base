@@ -96,7 +96,7 @@ laboratory:
 	filter_tags:
 	{
 		require: metalworking
-		include: smelting, refining, metalworking, casting, architecture, buildings, wrench
+		include: smelting, refining, metalworking, casting, architecture, buildings
 	}
 }
 
@@ -108,7 +108,7 @@ shop:
 	{
 		require: manual, metalworking
 		include: workbench, blacksmithing, woodworking, assembling, metalworking, stoneworking, cooking, salvaging, casting, forming, shaping, smelting
-		exclude: wrench, automated, passive, large, engineering, chemistry, social, science, gathering, fermenting
+		exclude: passive, large, engineering, chemistry, social, science, gathering, fermenting
 	}
 	
 	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper

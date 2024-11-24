@@ -94,7 +94,6 @@ laboratory:
 	filter_tags:
 	{
 		include: advanced, dangerous, chemistry, medical, research, science, refining, smelting
-		exclude: wrench
 	}
 }
 
@@ -106,7 +105,7 @@ shop:
 	{
 		require: manual
 		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
-		exclude: automated, passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
+		exclude: passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, bucket, paintbrush, stapler, file, chisel, towel, tongs, crowbar, knife

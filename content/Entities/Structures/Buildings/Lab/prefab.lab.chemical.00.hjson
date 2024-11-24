@@ -97,7 +97,7 @@ laboratory:
 	{
 		require: manual, chemistry
 		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: wrench, large, furniture, organic, blacksmithing, salvaging, social, agriculture
+		exclude: large, furniture, organic, blacksmithing, salvaging, social, agriculture
 	}
 }
 
@@ -109,7 +109,7 @@ shop:
 	{
 		require: manual, chemistry
 		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
-		exclude: wrench, large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
+		exclude: large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, spanner, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, stapler, towel, spatula, tongs, pick, knife
