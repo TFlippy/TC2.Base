@@ -49,12 +49,12 @@
 							type: work
 							work: filling.powder
 							amount: 125.000
-							amount_min: 25.000
+							amount_min: 175.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.910
+							falloff: 0.850
 							group: 0
-							flags: conditional
+							flags: conditional, add_amount_min
 						}
 					]
 					
@@ -125,8 +125,11 @@
 							flags: parameter, hidden
 						}
 					]
-					advance_delay: 3.000
-					h_sound_complete: effect.bell.ring.01
+					
+					start_delay: 0.500
+					advance_delay: 1.000
+					complete_delay: 10.000
+					h_sound_complete: fuse_loop
 					
 					on_advance:
 					{
@@ -135,9 +138,55 @@
 						{
 							pressure: 0.320
 							h_sound: explosion.rumble.00
+							sound_volume: 1.450
 							sound_pitch: 0.900
+							sound_dist_modifier: 1.750
+							shake_radius: 64.000
 						}
 					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+		{
+			name: "Venting"
+			
+			type: cleaning
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: club
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 320.000
+							amount_min: 280.000
+							amount_max: 355.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+					]
+					
+					products: []
+					
+					start_delay: 1.800
+					advance_delay: 3.500
+					complete_delay: 4.000
 				}
 			]
 			
@@ -161,7 +210,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, wip
+	flags: wip
 	tags: dangerous, explosive, compaction, metalworking, forming
 	
 	icon:
@@ -184,6 +233,6 @@
 	rank: -3.000
 	
 	min: 1
-	max: 1
+	max: 8
 	step: 1
 }
