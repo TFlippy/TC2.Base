@@ -1,4 +1,4 @@
-$name: "Compactor"
+$name: "Hydraulic Compactor"
 $desc:
 	'''
 	TODO: Desc
@@ -173,7 +173,7 @@ attachment:
 
 shop:
 {
-	name: "Compactor"
+	name: "Hydraulic Compactor"
 	
 	tags_filter:
 	{

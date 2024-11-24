@@ -89,20 +89,41 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 1.000
+							amount: 5.000
 							snapping: 1.000
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_residue, argument, prerequisite
+						}
+						{
+							type: work
+							work: calibration
+							amount: 1.000
+							amount_min: 75.000
+							difficulty: 0
+							snapping: 1.000
+							group: 1
 						}
 					]
 					
 					products:
 					[
 						{
-							type: pressure
-							group: 100
+							type: resource
+							material: gunpowder
+							amount: 1.000
+							group: 0
+							flags: parameter, hidden
 						}
 					]
+					
+					on_advance:
+					{
+						handle: "compactor.detonate"
+						data:
+						{
+							pressure: 0.320
+						}
+					}
 				}
 			]
 			

@@ -14,6 +14,30 @@ namespace TC2.Base.Components
 			No_Self_Damage = 1 << 3
 		}
 
+		[IEvent.Data]
+		public struct ExplodeEvent(): IEvent, IEvent<Crafting.ConfiguredRecipe>, IDrawable<Crafting.ConfiguredRecipe>
+		{
+			[Flags]
+			public enum Flags: uint
+			{
+				None = 0,
+
+			}
+
+
+			void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe arg)
+			{
+
+			}
+
+#if CLIENT
+			void IDrawable<Crafting.ConfiguredRecipe>.OnDraw(ref Crafting.ConfiguredRecipe arg, GUI.Group group)
+			{
+
+			}
+#endif
+		}
+
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct Data(): IComponent
 		{
