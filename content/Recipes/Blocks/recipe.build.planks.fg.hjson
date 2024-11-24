@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Planks"
 	desc:
 		'''
@@ -7,20 +7,38 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 0.080
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: planks
+			tile_flags: solid, become_background_on_break
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: architecture
+	
 	icon:
 	{
 		texture: block_icons
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -198.500
@@ -42,7 +60,6 @@
 		
 		snapping_filter:
 		{
-			include: world, building
 			exclude: no_overlapped_placement, dynamic
 		}
 		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider
@@ -52,24 +69,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 0.080
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: block
-			block: planks
-			tile_flags: solid, become_background_on_break
-			group: 0
-		}
-	]
 }

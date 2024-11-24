@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Gate (Wood)"
 	desc:
 		'''
@@ -7,19 +7,49 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 120.000
+			group: 0
+		}
+		{
+			type: resource
+			material: "null"
+			amount: 55.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.ingot
+			amount: 10.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: gate
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: woodworking, architecture
+	
 	icon:
 	{
 		texture: gate.base
 		size: [24, 96]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, woodworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -15.000
@@ -77,36 +107,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 120.000
-			group: 0
-		}
-		{
-			type: resource
-			material: "null"
-			amount: 55.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 10.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: gate
-			amount: 1.000
-			group: 0
-		}
-	]
 }

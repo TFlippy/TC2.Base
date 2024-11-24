@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "TODO"
 	desc:
 		'''
@@ -7,19 +7,29 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: chest
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
 	icon:
 	{
 		texture: chest
 		size: [16, 14]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
 	
 	color_button: "0xffaeb59a"
 	rank: -109.000
@@ -44,27 +54,9 @@
 		
 		sound: building_place
 		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
 		mappings_replace:
 		{
 		
 		}
 	}
-	
-	requirements: []
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: chest
-			amount: 1.000
-			group: 0
-		}
-	]
 }

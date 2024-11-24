@@ -1,21 +1,51 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Lamp Post (Wood)"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: timber
+			amount: 5.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 4.000
+			group: 0
+		}
+		{
+			type: resource
+			material: limelight
+			amount: 5.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: lamp_post.wood
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: blueprintable
+	tags: woodworking, architecture
 	
 	icon:
 	{
 		texture: lamp_post.wood
 		size: [8, 48]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: blueprintable
-	tags: wrench, woodworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -6.000
@@ -60,36 +90,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: timber
-			amount: 5.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 4.000
-			group: 0
-		}
-		{
-			type: resource
-			material: limelight
-			amount: 5.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: lamp_post.wood
-			amount: 1.000
-			group: 0
-		}
-	]
 }

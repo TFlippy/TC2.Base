@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Hand Crank"
 	desc:
 		'''
@@ -7,51 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: crank.base
-		size: [16, 16]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -5.000
-	
-	dismantle_work: 3.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: simple
-		flags: allow_placement_over_buildings
-		
-		size: [2.500, 2.500]
-		
-		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 1.000
-		min_claim: 1.000
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -78,4 +34,40 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: crank.base
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -5.000
+	
+	dismantle_work: 3.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings
+		
+		size: [2.500, 2.500]
+		
+		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

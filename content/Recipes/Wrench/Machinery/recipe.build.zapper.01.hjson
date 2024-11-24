@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Zapper"
 	desc:
 		'''
@@ -7,18 +7,28 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: zapper.01
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: blueprintable, disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
 	icon:
 	{
 		texture: zapper.01
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: blueprintable, disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
 	
 	color_button: "0xffa11209"
 	rank: -109.000
@@ -43,27 +53,9 @@
 		
 		sound: building_place
 		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
 		mappings_replace:
 		{
 		
 		}
 	}
-	
-	requirements: []
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: zapper.01
-			amount: 1.000
-			group: 0
-		}
-	]
 }

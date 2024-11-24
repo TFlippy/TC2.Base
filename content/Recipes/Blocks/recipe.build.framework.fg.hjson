@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -7,20 +7,38 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.frames
+			amount: 0.100
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: framework
+			tile_flags: solid, non_empty, become_background_on_break
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: metalworking, architecture
+	
 	icon:
 	{
 		texture: block_icons
 		size: [16, 16]
 		frame: [14, 0]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -75.500
@@ -42,7 +60,6 @@
 		
 		snapping_filter:
 		{
-			include: world, building
 			exclude: no_overlapped_placement, dynamic
 		}
 		snapping_flags: snap_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
@@ -54,24 +71,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.frames
-			amount: 0.100
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: block
-			block: framework
-			tile_flags: solid, non_empty, become_background_on_break
-			group: 0
-		}
-	]
 }

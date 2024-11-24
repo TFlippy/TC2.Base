@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
-					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.Wrench;
+					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.None;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;
 					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;

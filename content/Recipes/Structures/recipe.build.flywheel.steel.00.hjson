@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.62.0"
 	name: "Flywheel (Steel) [WIP]"
 	desc:
 		'''
@@ -7,19 +7,37 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 250.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: flywheel.steel.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: metalworking
+	
 	icon:
 	{
 		texture: flywheel.steel.00
 		size: [32, 32]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: metalworking, wrench
 	
 	color_button: "0xffaeb59a"
 	rank: 20.000
@@ -47,24 +65,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.ingot
-			amount: 250.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: flywheel.steel.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

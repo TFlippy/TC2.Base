@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Workbench"
 	desc:
 		'''
@@ -7,19 +7,43 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 80.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: workbench
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: no_amount_multiplier, blueprintable
+	tags: woodworking, industry
+	
 	icon:
 	{
 		texture: workbench
 		size: [32, 24]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: no_amount_multiplier, blueprintable
-	tags: wrench, woodworking, industry
 	
 	color_button: "0xffaeb59a"
 	rank: -558.000
@@ -57,7 +81,6 @@
 		snapping_filter:
 		{
 			include: world
-			exclude: dynamic
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
@@ -68,30 +91,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 80.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 10.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: workbench
-			amount: 1.000
-			group: 0
-		}
-	]
 }

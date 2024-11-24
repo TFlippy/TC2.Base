@@ -1,20 +1,30 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Radio Tower"
 	tips: []
+	
+	stages: []
+	
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: radio_tower.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, buildings
 	
 	icon:
 	{
 		texture: radio_tower.00
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, buildings
 	
 	color_button: "0xff6a7a9a"
 	rank: -109.000
@@ -52,16 +62,4 @@
 		
 		}
 	}
-	
-	requirements: []
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: radio_tower.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

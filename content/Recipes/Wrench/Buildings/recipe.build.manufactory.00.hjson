@@ -1,20 +1,77 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Manufactory"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: gravel
+			amount: 500.000
+			group: 0
+		}
+		{
+			type: work
+			work: masonry
+			amount: 950.000
+			difficulty: 5
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 230.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 1150.000
+			difficulty: 7
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 65.000
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 80.000
+			group: 0
+		}
+		{
+			type: work
+			work: assembling
+			amount: 850.000
+			difficulty: 8
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: manufactory.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: buildings
 	
 	icon:
 	{
 		texture: manufactory.00
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, buildings
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -80,63 +137,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: gravel
-			amount: 500.000
-			group: 0
-		}
-		{
-			type: work
-			work: masonry
-			amount: 950.000
-			difficulty: 5
-			group: 0
-		}
-		{
-			type: resource
-			material: wood
-			amount: 230.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 1150.000
-			difficulty: 7
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 65.000
-			group: 0
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 80.000
-			group: 0
-		}
-		{
-			type: work
-			work: assembling
-			amount: 850.000
-			difficulty: 8
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: manufactory.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Hatch (Wood)"
 	desc:
 		'''
@@ -7,18 +7,42 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 20.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 2.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: hatch.wood
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: blueprintable
+	tags: woodworking, architecture
+	
 	icon:
 	{
 		texture: hatch.wood.icon
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: blueprintable
-	tags: wrench, woodworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -1501.000
@@ -61,30 +85,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 20.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 2.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: hatch.wood
-			amount: 1.000
-			group: 0
-		}
-	]
 }

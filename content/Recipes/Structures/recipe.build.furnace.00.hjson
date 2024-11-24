@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Furnace (Small)"
 	desc:
 		'''
@@ -7,19 +7,43 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "null"
+			amount: 950.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.ingot
+			amount: 35.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: furnace.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: metalworking, industry
+	
 	icon:
 	{
 		texture: furnace.00
 		size: [32, 48]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: metalworking, industry, wrench
 	
 	color_button: "0xffad6913"
 	rank: -33.000
@@ -64,30 +88,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: stone
-			amount: 950.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 35.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: furnace.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

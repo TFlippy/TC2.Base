@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Planks (Back)"
 	desc:
 		'''
@@ -7,52 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: block_icons
-		size: [16, 16]
-		frame: [3, 1]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, architecture
-	
-	color_button: "0xffaeb59a"
-	rank: -198.000
-	
-	placement:
-	{
-		type: line
-		flags: continuous
-		
-		size: [1.000, 1.000]
-		
-		cooldown: 0.400
-		min_support: 0.035
-		min_claim: 1.000
-		length_max: 8.000
-		length_step: 0.500
-		
-		sound: wood_place_0
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
-		snapping_radius: 0.250
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -73,4 +28,41 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: none
+	tags: architecture
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+		frame: [3, 1]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -198.000
+	
+	placement:
+	{
+		type: line
+		flags: continuous
+		
+		size: [1.000, 1.000]
+		
+		cooldown: 0.400
+		min_support: 0.035
+		min_claim: 1.000
+		length_max: 8.000
+		length_step: 0.500
+		
+		sound: wood_place_0
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.250
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

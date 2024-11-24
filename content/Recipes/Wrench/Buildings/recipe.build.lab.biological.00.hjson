@@ -1,21 +1,71 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Biological Laboratory"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: gravel
+			amount: 400.000
+			group: 0
+		}
+		{
+			type: work
+			work: masonry
+			amount: 500.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 250.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+			group: 0
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 25.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 1150.000
+			difficulty: 7
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: lab.biological.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: buildings
 	
 	icon:
 	{
 		texture: lab.biological.00
 		size: [56, 72]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, buildings
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -81,56 +131,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: gravel
-			amount: 400.000
-			group: 0
-		}
-		{
-			type: work
-			work: masonry
-			amount: 500.000
-			difficulty: 4
-			group: 0
-		}
-		{
-			type: resource
-			material: wood
-			amount: 250.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 10.000
-			group: 0
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 25.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 1150.000
-			difficulty: 7
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: lab.biological.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

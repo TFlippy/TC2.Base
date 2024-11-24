@@ -1,21 +1,39 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Chain-Link Fence"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.frames
+			amount: 14.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: chain_fence.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: metalworking, architecture
 	
 	icon:
 	{
 		texture: chain_fence.00
 		size: [40, 32]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, metalworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: 65.000
@@ -60,24 +78,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.frames
-			amount: 14.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: chain_fence.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }

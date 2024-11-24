@@ -1,21 +1,45 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Chest"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 60.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: chest
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: architecture
 	
 	icon:
 	{
 		texture: chest
 		size: [16, 14]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -813.000
@@ -55,7 +79,6 @@
 		snapping_filter:
 		{
 			include: world
-			exclude: dynamic
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
@@ -66,30 +89,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 60.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 1.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: chest
-			amount: 1.000
-			group: 0
-		}
-	]
 }

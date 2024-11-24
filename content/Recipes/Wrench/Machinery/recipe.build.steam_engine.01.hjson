@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Steam Engine (Huprecht)"
 	desc:
 		'''
@@ -9,69 +9,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: steam_engine.01
-		size: [32, 40]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -58.000
-	
-	dismantle_work: 15.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: simple
-		flags: require_terrain, terrain_is_support
-		
-		size: [3.000, 5.000]
-		offset: [0.000, -1.500]
-		
-		cooldown: 0.500
-		min_support: 0.120
-		min_clearance: 0.850
-		min_claim: 1.000
-		
-		rotation_max: 0.350
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
-	
-	construction:
-	{
-		prefab: construction.4x5
-		
-		requirements:
-		[
-			{
-				type: resource
-				material: wood
-				amount: 5.000
-				group: 0
-			}
-		]
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -110,4 +48,58 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: steam_engine.01
+		size: [32, 40]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -58.000
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: require_terrain, terrain_is_support
+		
+		size: [3.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		cooldown: 0.500
+		min_support: 0.120
+		min_clearance: 0.850
+		min_claim: 1.000
+		
+		rotation_max: 0.350
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.4x5
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 5.000
+				group: 0
+			}
+		]
+	}
 }

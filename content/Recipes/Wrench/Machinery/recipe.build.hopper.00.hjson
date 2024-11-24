@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Hopper"
 	desc:
 		'''
@@ -7,54 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: hopper
-		size: [32, 24]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -358.000
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: simple
-		flags: require_terrain, terrain_is_support
-		
-		size: [4.000, 3.000]
-		offset: [0.000, -1.000]
-		
-		cooldown: 0.500
-		min_support: 0.100
-		min_clearance: 0.750
-		min_claim: 1.000
-		
-		rotation_max: 7.000
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -87,4 +40,43 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: hopper
+		size: [32, 24]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -358.000
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: require_terrain, terrain_is_support
+		
+		size: [4.000, 3.000]
+		offset: [0.000, -1.000]
+		
+		cooldown: 0.500
+		min_support: 0.100
+		min_clearance: 0.750
+		min_claim: 1.000
+		
+		rotation_max: 7.000
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Crane Arm (Wood)"
 	desc:
 		'''
@@ -7,53 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: crane.arm.basic
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -68.000
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: line
-		flags: allow_placement_over_buildings, place_line_rotated
-		
-		size: [0.500, 0.500]
-		
-		cooldown: 0.500
-		min_clearance: 1.000
-		min_claim: 1.000
-		
-		length_min: 2.000
-		length_max: 10.000
-		length_step: 0.500
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -86,4 +40,42 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: crane.arm.basic
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -68.000
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: line
+		flags: allow_placement_over_buildings, place_line_rotated
+		
+		size: [0.500, 0.500]
+		
+		cooldown: 0.500
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		length_min: 2.000
+		length_max: 10.000
+		length_step: 0.500
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

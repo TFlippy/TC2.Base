@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Stone Slabs"
 	desc:
 		'''
@@ -7,48 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: block_icons
-		size: [16, 16]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: hidden, disabled, wip
-	tags: wrench, architecture
-	
-	color_button: "0xffaeb59a"
-	rank: -92.500
-	
-	placement:
-	{
-		type: rectangle
-		flags: continuous
-		
-		size: [1.500, 1.000]
-		
-		cooldown: 0.400
-		min_support: 0.050
-		min_claim: 1.000
-		
-		sound: stone_place_0
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -75,4 +34,37 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: hidden, disabled, wip
+	tags: architecture
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -92.500
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.500, 1.000]
+		
+		cooldown: 0.400
+		min_support: 0.050
+		min_claim: 1.000
+		
+		sound: stone_place_0
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Furnace (Large)"
 	desc:
 		'''
@@ -7,19 +7,49 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "null"
+			amount: 2750.000
+			group: 0
+		}
+		{
+			type: resource
+			material: cement
+			amount: 1200.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.ingot
+			amount: 150.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: furnace.01
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: metalworking, industry
+	
 	icon:
 	{
 		texture: furnace.01
 		size: [32, 64]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: metalworking, industry, wrench
 	
 	color_button: "0xffad6913"
 	rank: 154.000
@@ -64,36 +94,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: stone
-			amount: 2750.000
-			group: 0
-		}
-		{
-			type: resource
-			material: cement
-			amount: 1200.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 150.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: furnace.01
-			amount: 1.000
-			group: 0
-		}
-	]
 }

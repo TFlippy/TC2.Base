@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Belt (Chain)"
 	desc:
 		'''
@@ -9,53 +9,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: belt.chain
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: wrench
-	flags: disabled, wip
-	tags: wrench, belt
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.900
-	
-	placement:
-	{
-		type: line
-		flags: none
-		
-		size: [0.500, 0.500]
-		
-		cooldown: 0.300
-		min_support: 0.050
-		min_claim: 0.900
-		max_range: 4.000
-		
-		length_min: 1.000
-		length_max: 10.000
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -84,4 +38,41 @@
 			group: 0
 		}
 	]
+	
+	type: wrench
+	flags: disabled, wip
+	tags: belt
+	
+	icon:
+	{
+		texture: belt.chain
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.900
+	
+	placement:
+	{
+		type: line
+		flags: none
+		
+		size: [0.500, 0.500]
+		
+		cooldown: 0.300
+		min_support: 0.050
+		min_claim: 0.900
+		
+		length_min: 1.000
+		length_max: 10.000
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

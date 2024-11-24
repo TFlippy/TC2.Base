@@ -1,0 +1,40 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Dismantle: LC Ammo"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+
+	requirements: []
+	
+	products: []
+	
+	type: workshop
+	flags: wip
+	tags: workbench, manual, simple, metalworking
+	
+	icon:
+	{
+		texture: resource.ammo_lc
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	color_button: "0xff818b48"
+	rank: -3.000
+	
+	min: 1
+	max: 10
+	step: 1
+}

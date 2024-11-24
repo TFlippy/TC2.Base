@@ -1,7 +1,39 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Door (Wood)"
 	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 17.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 2.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: door.wood
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: woodworking, architecture
 	
 	icon:
 	{
@@ -10,14 +42,6 @@
 		size: [16, 24]
 	}
 	icon_offset: [8.000, 3.000]
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, woodworking, architecture
 	
 	color_button: "0xffaeb59a"
 	rank: -476.000
@@ -62,30 +86,4 @@
 		
 		}
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 17.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 2.000
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: door.wood
-			amount: 1.000
-			group: 0
-		}
-	]
 }

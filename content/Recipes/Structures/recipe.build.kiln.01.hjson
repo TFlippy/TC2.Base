@@ -1,24 +1,55 @@
 ﻿{
-	$version: "0.1.61.1"
+	$version: "0.1.62.0"
 	name: "Kiln (Large)"
 	desc:
 		'''
 		TODO: Desc
 		'''
+	tips: []
+	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: "null"
+			amount: 600.000
+			group: 0
+		}
+		{
+			type: resource
+			material: copper.ingot
+			amount: 13.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 4.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: kiln.01
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: disabled, wip
+	tags: industry
 	
 	icon:
 	{
 		texture: kiln.01
 		size: [24, 48]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: disabled, wip
-	tags: industry, wrench
 	
 	color_button: "0xffad6913"
 	rank: -29.000
@@ -59,6 +90,7 @@
 				type: resource
 				material: wood
 				amount: 10.000
+				group: 0
 			}
 			null
 			null
@@ -77,32 +109,4 @@
 			null
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: stone
-			amount: 600.000
-		}
-		{
-			type: resource
-			material: copper.ingot
-			amount: 13.000
-		}
-		{
-			type: resource
-			material: steel.plate
-			amount: 4.000
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: kiln.01
-			amount: 1.000
-		}
-	]
 }

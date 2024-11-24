@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Pjerdelite Masonry (Back)"
 	desc:
 		'''
@@ -7,50 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: block_icons
-		size: [16, 16]
-		frame: [20, 1]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, architecture
-	
-	color_button: "0xffaeb59a"
-	rank: -81.000
-	
-	placement:
-	{
-		type: rectangle
-		flags: continuous, snap_axis
-		
-		size: [1.500, 1.500]
-		snap: [0.250, 0.250]
-		
-		cooldown: 0.650
-		min_support: 0.050
-		min_claim: 1.000
-		
-		sound: stone_place_0
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap, inset_terrain
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -77,4 +34,39 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: none
+	tags: architecture
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+		frame: [20, 1]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -81.000
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous, snap_axis
+		
+		size: [1.500, 1.500]
+		snap: [0.250, 0.250]
+		
+		cooldown: 0.650
+		min_support: 0.050
+		min_claim: 1.000
+		
+		sound: stone_place_0
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap, inset_terrain
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Mount (Wall)"
 	desc:
 		'''
@@ -7,52 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: mount.wall.01
-		size: [16, 16]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -334.000
-	
-	dismantle_work: 15.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: circle
-		flags: allow_placement_over_buildings, no_solid_support
-		
-		size: [2.000, 2.000]
-		radius: 1.000
-		
-		cooldown: 0.500
-		min_support: 0.850
-		min_clearance: 0.950
-		min_claim: 1.000
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -79,4 +34,41 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: mount.wall.01
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -334.000
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: circle
+		flags: allow_placement_over_buildings, no_solid_support
+		
+		size: [2.000, 2.000]
+		radius: 1.000
+		
+		cooldown: 0.500
+		min_support: 0.850
+		min_clearance: 0.950
+		min_claim: 1.000
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

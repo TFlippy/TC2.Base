@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Mount (Static, Wide)"
 	desc:
 		'''
@@ -7,69 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: mount.static.01
-		size: [48, 16]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: blueprintable, disabled, wip
-	tags: wrench, large, metalworking, engineering, machinery
-	
-	color_button: "0xffaeb59a"
-	rank: -432.000
-	
-	dismantle_work: 15.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
-		
-		size: [6.000, 3.000]
-		offset: [0.000, -1.000]
-		
-		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.900
-		min_claim: 1.000
-		
-		rotation_max: 0.200
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: dynamic
-		}
-		
-		mappings_replace:
-		{
-		
-		}
-	}
-	
-	construction:
-	{
-		prefab: construction.6x4
-		
-		requirements:
-		[
-			{
-				type: resource
-				material: wood
-				amount: 5.000
-				group: 0
-			}
-		]
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -102,4 +40,58 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: blueprintable, disabled, wip
+	tags: large, metalworking, engineering, machinery
+	
+	icon:
+	{
+		texture: mount.static.01
+		size: [48, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -432.000
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support
+		
+		size: [6.000, 3.000]
+		offset: [0.000, -1.000]
+		
+		cooldown: 0.500
+		min_support: 0.200
+		min_clearance: 0.900
+		min_claim: 1.000
+		
+		rotation_max: 0.200
+		
+		sound: building_place
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.6x4
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 5.000
+				group: 0
+			}
+		]
+	}
 }

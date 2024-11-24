@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "Wall Lamp (Flat)"
 	desc:
 		'''
@@ -7,57 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: lamp.01
-		size: [8, 8]
-	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, metalworking, architecture
-	
-	color_button: "0xffaeb59a"
-	rank: -425.000
-	
-	dismantle_work: 3.000
-	dismantle_yield: 0.800
-	
-	placement:
-	{
-		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
-		
-		size: [1.000, 1.000]
-		offset: [0.000, -0.125]
-		
-		cooldown: 0.500
-		min_support: 0.500
-		min_clearance: 0.250
-		min_claim: 1.000
-		
-		rotation_max: 6.283
-		
-		sound: building_place
-		
-		snapping_filter:
-		{
-			include: world, building
-			exclude: construction, dynamic
-		}
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
-		snapping_radius: 0.500
-		snapping_depth: 0.250
-		
-		mappings_replace:
-		{
-		
-		}
-	}
+	stages: []
 	
 	requirements:
 	[
@@ -84,4 +34,51 @@
 			group: 0
 		}
 	]
+	
+	type: build
+	flags: none
+	tags: metalworking, architecture
+	
+	icon:
+	{
+		texture: lamp.01
+		size: [8, 8]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -425.000
+	
+	dismantle_work: 3.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
+		
+		size: [1.000, 1.000]
+		offset: [0.000, -0.125]
+		
+		cooldown: 0.500
+		min_support: 0.500
+		min_clearance: 0.250
+		min_claim: 1.000
+		
+		rotation_max: 6.283
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius
+		snapping_radius: 0.500
+		snapping_depth: 0.250
+		
+		mappings_replace:
+		{
+		
+		}
+	}
 }

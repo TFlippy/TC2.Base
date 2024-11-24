@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Headquarters"
 	desc:
 		'''
@@ -8,19 +8,63 @@
 		'''
 	tips: []
 	
+	stages: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: gravel
+			amount: 400.000
+			group: 0
+		}
+		{
+			type: work
+			work: masonry
+			amount: 500.000
+			difficulty: 4
+			group: 0
+		}
+		{
+			type: resource
+			material: wood
+			amount: 440.000
+			group: 0
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 40.000
+			group: 0
+		}
+		{
+			type: work
+			work: carpentry
+			amount: 1550.000
+			difficulty: 8
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: headquarters.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: build
+	flags: none
+	tags: buildings
+	
 	icon:
 	{
 		texture: headquarters.00
 		size: [56, 48]
 	}
-	
-	min: 0
-	max: 0
-	step: 0
-	
-	type: build
-	flags: none
-	tags: wrench, buildings
 	
 	color_button: "0xffaeb59a"
 	rank: 0.000
@@ -86,50 +130,4 @@
 			}
 		]
 	}
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: gravel
-			amount: 400.000
-			group: 0
-		}
-		{
-			type: work
-			work: masonry
-			amount: 500.000
-			difficulty: 4
-			group: 0
-		}
-		{
-			type: resource
-			material: wood
-			amount: 440.000
-			group: 0
-		}
-		{
-			type: resource
-			material: cloth
-			amount: 40.000
-			group: 0
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 1550.000
-			difficulty: 8
-			group: 0
-		}
-	]
-	
-	products:
-	[
-		{
-			type: prefab
-			prefab: headquarters.00
-			amount: 1.000
-			group: 0
-		}
-	]
 }
