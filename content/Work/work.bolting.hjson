@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Bolting"
 	name_short: "Bolting"
 	desc:
@@ -54,7 +54,7 @@
 	sound_size: 0.600
 	sound_dist: 0.650
 	
-	sounds: ["effect.boink.metal.00", "item.adjust.02", "wrench.dismantle.00", "effect.tinker.components.00", "effect.rattle.spring.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.machine.00", "effect.tinker.machine.00", "wrench.dismantle.00", "item.adjust.00"]
+	sounds: ["effect.boink.metal.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.tinker.components.00", "effect.rattle.spring.00", "item.adjust.02", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.machine.00", "effect.tinker.machine.00", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "item.adjust.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

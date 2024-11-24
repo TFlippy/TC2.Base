@@ -114,6 +114,7 @@ attachment:
 	force_multiplier: 6.000
 	torque_multiplier: 3.000
 	offset: [-1.875, 0.000]
+	flags: full_rotate
 	tags: large, huge, weapon, rotary, long
 }
 

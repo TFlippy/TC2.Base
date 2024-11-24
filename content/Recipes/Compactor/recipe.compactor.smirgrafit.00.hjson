@@ -115,17 +115,6 @@
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: gunpowder
-							amount: 1.000
-							group: 0
-							flags: parameter, hidden
-						}
-					]
-					
 					start_delay: 0.500
 					advance_delay: 1.000
 					complete_delay: 10.000
