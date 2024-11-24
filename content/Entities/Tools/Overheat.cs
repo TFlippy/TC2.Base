@@ -19,6 +19,7 @@ namespace TC2.Base.Components
 
 				[Obsolete] No_Ignite = 1u << 4,
 
+				No_GUI = 1u << 5,
 				No_Self_Damage = 1u << 6,
 				No_Held_Damage = 1u << 7,
 				No_Convection_Damage = 1u << 8,
@@ -177,7 +178,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Heat.Data heat, [Source.Owned] in Heat.State heat_state)
 		{
-			if (interactable.IsActive())
+			if (heat.flags.HasNone(Data.Flags.No_GUI) && interactable.IsActive())
 			{
 				var gui = new HeatGUI()
 				{
