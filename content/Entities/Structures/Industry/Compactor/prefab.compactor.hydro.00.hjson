@@ -1,0 +1,195 @@
+$name: "Compactor"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: dynamic
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.625, -0.625]
+			[0.500, -0.625]
+			[0.500, 0.875]
+			[-0.625, 0.875]
+		]
+		
+		mass: 200.000
+		radius: 0.250
+		friction: 0.700
+		elasticity: 0.600
+		
+		material: metal_solid
+		
+		layer: entity, solid, building
+	}
+}
+
+transform:
+{
+
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 95000.000
+}
+
+interactable:
+{
+	flags: none
+	priority: 1.100
+	window_size: [560.000, 472.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "compactor.hydro.00"
+	}
+	z: -75.000
+}
+
+heat:
+{
+	temperature_medium: 600.000
+	temperature_high: 1800.000
+	temperature_operating: 3234.000
+	heat_capacity_mult: 1.200
+	heat_damage_mult: 0.250
+	cool_rate: 1.500
+	cool_rate_mult: 0.500
+	offset: [0.000, -0.375]
+	smoke_offset: [0.000, -1.000]
+	size: [0.500, 0.125]
+	flags: no_gui
+	
+	@light:
+	{
+		offset: [0.000, 0.125]
+		scale: [19.000, 20.000]
+		intensity: 1.000
+		texture: light.circle.04
+	}
+	
+	@sound.emitter:
+	{
+		file: overheat_loop
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
+	}
+}
+
+animated.renderer|"exhaust":
+{
+	sprite:
+	{
+		texture: burner.parts.00
+		size: [16, 16]
+		frame: [0, 1]
+	}
+	offset: [-0.750, -0.750]
+	z: -285.000
+}
+
+// animated.renderer|"intake":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [8, 8]
+// 		frame: [0, 1]
+// 	}
+// 	z: -275.000
+// }
+
+air.vent|"exhaust":
+{
+	offset: [-0.125, -0.750]
+	rotation: -1.571
+	cross_section: 0.100
+	type: exhaust
+}
+
+air.vent|"intake":
+{
+	type: intake
+	offset: [2.000, -0.875]
+	rotation: 1.571
+	cross_section: 0.100
+}
+
+air.container:
+{
+	volume: 0.300
+}
+
+compactor:
+{
+	flow_rate: 8.000
+	offset: [0.000, 0.875]
+}
+
+shop:
+{
+	name: "Compactor"
+	
+	tags_filter:
+	{
+		include: forming, shaping
+		exclude: workbench, filtering, assembling, machining, tailoring, gathering, refining, smelting, fermenting, melting
+	}
+	
+	work_tools: none
+	work_machines: none
+	work_equipment: none
+	work_environment: container, waterproof, mobile, dirty, ugly, scary
+	recipe_type: workshop
+	
+	flags: hidden_if_order
+	menu_columns: 4
+	blueprints_capacity: 0
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
+	
+	offset_spawn: [0.000, -0.750]
+}
+
+workshop:
+{
+	flags: hidden_if_no_orders, add_order_mass
+	orders_capacity: 1
+}
+
+crafter:
+{
+	tools: bucket, spatula, tongs
+	machinery: metal_press, compressor
+	equipment: cauldron, oven, pressure_cooker, barrel, crucible, casting_mould
+	environment: machine, container, airtight, waterproof, scary, noisy, reinforced
+	temperature_max: 1200.000
+	pressure_max: 500.000
+
+	@inventory4:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
+	}
+}
