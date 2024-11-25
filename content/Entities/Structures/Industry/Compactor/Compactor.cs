@@ -105,16 +105,38 @@
 		[Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Health.Data health,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		[Source.Owned, Optional(true)] ref Air.Container.Data air_container,
 		[Source.Owned] ref Compactor.Data compactor)
 		{
 			//var record = ent.GetRecord();
 
-			App.WriteLine($"Compactor OnDetonateEvent");
+			App.WriteLine($"Compactor OnDetonateEvent {ev.resource_explosive.material.GetIdentifier()} {ev.resource_explosive.quantity:0.00}");
+			
+			ref var material_explosive = ref ev.resource_explosive.GetMaterial();
+			if (material_explosive.IsNotNull())
+			{
+				var pos = transform.LocalToWorld(crafter.spawn_offset);
+				var purity = material_explosive.purity;
+				var explosive_mass = ev.resource_explosive.GetMassNormalized();
 
-			var pos = transform.LocalToWorld(crafter.spawn_offset);
+				var (gas_mass, particulates_mass) = explosive_mass.Split(purity);
 
-			Shake.Emit(region: ref region, world_position: pos, trauma: ev.shake_power, max: 1.00f, radius: ev.shake_radius);
-			Sound.Play(region: ref region, sound: ev.h_sound, world_position: pos, volume: ev.sound_volume, pitch: ev.sound_pitch, size: ev.sound_size, priority: 0.75f, dist_multiplier: ev.sound_dist_modifier);
+				Shake.Emit(region: ref region, world_position: pos, trauma: ev.shake_power, max: 1.00f, radius: ev.shake_radius);
+				Sound.Play(region: ref region, sound: ev.h_sound, world_position: pos, volume: ev.sound_volume, pitch: ev.sound_pitch, size: ev.sound_size, priority: 0.75f, dist_multiplier: ev.sound_dist_modifier);
+
+				// TODO: use material's fuel properties
+				if (air_container.IsNotNull())
+				{
+					var tmp = gas_mass;
+					var blob = new Air.Blob(Air.Composition.FromMass((tmp.SplitRef(0.15f), 0.00f, tmp.SplitRef(0.75f), tmp.SplitRef(0.15f), 0.00f, tmp.SplitRef(0.50f), tmp.SplitRef(0.50f), tmp)), 750.00f);
+					air_container.AddBlob(in blob);
+
+					var (mass_soot, mass_ash) = particulates_mass.Split(random.NextFloat01(purity));
+					air_container.particulates += new Air.Particulates(mass_ash, mass_soot, 0.00f, 0.00f);
+
+					air_container.Sync(entity);
+				}
+			}
 		}
 #endif
 

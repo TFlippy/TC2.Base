@@ -67,8 +67,8 @@ namespace TC2.Base.Components
 					var waste_ratio = random.NextFloatExtra(conv.ratio_waste, conv.ratio_waste_extra).Clamp01();
 
 					//App.WriteLine($"amount: {amount}; conv_ratio: {conv_ratio}");
-					var amount_converted = amount_rem.Split(conv_ratio);
-					var amount_wasted = amount_rem.Split(waste_ratio);
+					var amount_converted = amount_rem.SplitRef(conv_ratio);
+					var amount_wasted = amount_rem.SplitRef(waste_ratio);
 
 
 					//amount_taken.Split(data.yield * conv.yield, out var amount_wasted, out var amount_converted);

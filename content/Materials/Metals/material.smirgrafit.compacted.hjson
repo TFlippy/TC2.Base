@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
-	name: "Smirgrafit Blocks"
-	name_short: "Sgft. Blocks"
+	$version: "0.1.62.0"
+	name: "Compacted Smirgrafit"
+	name_short: "C. Smirgrafit"
 	description:
 		'''
 		Mixture of smirglum, graphite and aluminium powders compacted into dense blocks, which can be carved into various shapes.
@@ -15,28 +15,21 @@
 		frame: [3, 0]
 	}
 	
-	type: coal
-	flags: magnetic, granular, metal, raw, powder, solid
-	display_flags: none
+	type: powder
+	flags: hard, malleable, magnetic, metal, fragile, flammable, solid, processed
+	display_flags: sprite_stack_linear
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
-	porosity: 0.000
+	porosity: 0.0117
 	purity: 0.975
-	mass_per_unit: 2.196
-	volume_per_unit: 0.000
-	quantity_max: 500.000
+	mass_per_unit: 10.980
+	quantity_max: 100.000
 	form_type: brick
 	prefab: resource.smirgrafit.compacted
 	h_substance: smirgrafit
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xff403a39"
 	color_gib: "0xff403a39"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	

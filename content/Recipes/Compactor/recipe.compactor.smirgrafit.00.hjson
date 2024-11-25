@@ -49,10 +49,10 @@
 							type: work
 							work: filling.powder
 							amount: 125.000
-							amount_min: 175.000
+							amount_min: 75.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.850
+							falloff: 0.830
 							group: 0
 							flags: conditional, add_amount_min
 						}
@@ -114,6 +114,8 @@
 							flags: no_scaling, conditional
 						}
 					]
+					
+					products: []
 					
 					start_delay: 0.500
 					advance_delay: 1.000
