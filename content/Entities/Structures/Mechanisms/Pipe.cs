@@ -162,7 +162,7 @@ namespace TC2.Base.Components
 
 			public static Air.Composition FromMass((float n2, float o2, float co2, float h2o, float h2, float co, float so2, float no2) masses)
 			{
-				return (masses.ToVec8f() * Phys.air_molar_mass_mult).As<Air.Composition>();
+				return (masses.ToVec8f() * Phys.air_molar_mass_mult_inv).As<Air.Composition>();
 			}
 
 			public readonly Mass GetMass()
@@ -515,7 +515,6 @@ namespace TC2.Base.Components
 		//		vent_b.pos_y_connected = vent_a.pos_y;
 		//	}
 		//}
-
 
 		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 800)]
 		public static void System_TransferVentContainers(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
@@ -1665,6 +1664,85 @@ namespace TC2.Base.Components
 				//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 			}
 
+			public struct ConfigureRPC: Net.IRPC<Air.Vent.Data>
+			{
+				public float? ratio;
+				
+	#if SERVER
+				public void Invoke(Net.IRPC.Context rpc, ref Air.Vent.Data data)
+				{
+					var sync = false;
+
+					if (data.modifier.TrySet(this.ratio, 0.00f, 1.00f))
+					{
+						sync = true;
+					}
+
+					if (sync)
+					{
+						data.Sync(rpc.entity, rpc.h_component);
+					}
+				}
+	#endif
+			}
+
+#if CLIENT
+			public struct VentGUI: IGUICommand
+			{
+				public Entity ent_vent;
+				public IComponent.Handle h_vent;
+
+				public Transform.Data transform;
+				public Air.Vent.Data vent;
+
+				public void Draw()
+				{
+					using (var window = GUI.Window.InteractionMisc(vent.type.ToStringUtf8(), this.ent_vent, size: new(24, 96), min_width: 24, min_height: 64))
+					{
+						this.StoreCurrentWindowTypeID(order: -100);
+						if (window.show)
+						{
+							using (GUI.Group.New(size: GUI.Rm))
+							{
+								var rpc = new Air.Vent.ConfigureRPC();
+								var dirty = false;
+
+								if (GUI.SliderFloat(vent.type.ToStringUtf8(), in this.vent.modifier, ref rpc.ratio, 0.00f, 1.00f, size: GUI.Rm, vertical: true, color_frame: GUI.col_input)) // , color_frame: 0xffd8a198
+								{
+									dirty = true;
+								}
+
+								if (dirty)
+								{
+									rpc.Send(this.ent_vent, this.h_vent);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void System_OnVentGUI(ISystem.Info info, ref Region.Data region, Entity ent_vent, ref XorRandom random,
+			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform, 
+			[Source.Owned] in Air.Container.Data container,
+			[Source.Owned, Pair.Wildcard] in Vent.Data vent, IComponent.Handle h_vent)
+			{
+				if (interactable.IsActive() && vent.flags.HasNone(Data.Flags.No_GUI))
+				{
+					var gui = new VentGUI()
+					{
+						ent_vent = ent_vent,
+						h_vent = h_vent,
+
+						transform = transform,
+						vent = vent,
+					};
+					gui.Submit();
+				}
+			}
+#endif
+
 			[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
 			public struct Data(): IComponent, ITrait
 			{
@@ -1674,6 +1752,7 @@ namespace TC2.Base.Components
 					None = 0,
 
 					Has_Pipe = 1 << 0,
+					No_GUI = 1 << 1
 
 					//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 				}

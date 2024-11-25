@@ -128,8 +128,13 @@
 				if (air_container.IsNotNull())
 				{
 					var tmp = gas_mass;
+					App.WriteLine(tmp);
+
 					var blob = new Air.Blob(Air.Composition.FromMass((tmp.SplitRef(0.15f), 0.00f, tmp.SplitRef(0.75f), tmp.SplitRef(0.15f), 0.00f, tmp.SplitRef(0.50f), tmp.SplitRef(0.50f), tmp)), 750.00f);
 					air_container.AddBlob(in blob);
+
+					App.WriteLine(Vec8f.From(blob.air));
+					App.WriteLine(Phys.air_molar_mass_mult);
 
 					var (mass_soot, mass_ash) = particulates_mass.Split(random.NextFloat01(purity));
 					air_container.particulates += new Air.Particulates(mass_ash, mass_soot, 0.00f, 0.00f);
@@ -152,17 +157,17 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Compactor"u8, this.ent_compactor, size: new(24, 96 * 1)))
-				{
-					this.StoreCurrentWindowTypeID(order: -100);
-					if (window.show)
-					{
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
-						{
+				//using (var window = GUI.Window.InteractionMisc("Compactor"u8, this.ent_compactor, size: new(48, 96 * 1)))
+				//{
+				//	this.StoreCurrentWindowTypeID(order: -100);
+				//	if (window.show)
+				//	{
+				//		using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+				//		{
 
-						}
-					}
-				}
+				//		}
+				//	}
+				//}
 			}
 		}
 
