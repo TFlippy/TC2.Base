@@ -111,12 +111,16 @@ namespace TC2.Base.Components
 			//	moles_o2:  Phys.air_o2_ratio
 			//);
 
-			// more common gases - operating with lower half of vector registers is faster
+
+
+			// !! >>> DO NOT CHANGE ORDER <<< !!
+			// more common gases - operating with lower half of 256-bit vector registers is faster
 			public Amount moles_n2;
 			public Amount moles_o2;
 			public Amount moles_co2;
 			public Amount moles_h2o;
 
+			// !! >>> DO NOT CHANGE ORDER <<< !!
 			// less common gases
 			public Amount moles_h2;
 			public Amount moles_co;
@@ -156,23 +160,28 @@ namespace TC2.Base.Components
 #endif
 			}
 
+			public static Air.Composition FromMass((float n2, float o2, float co2, float h2o, float h2, float co, float so2, float no2) masses)
+			{
+				return (masses.ToVec8f() * Phys.air_molar_mass_mult).As<Air.Composition>();
+			}
+
 			public readonly Mass GetMass()
 			{
 #if USE_SIMD
 				var ymm0 = Vec8f.From(this);
-				var ymm1 = new Vec8f
-				(
-					Phys.n2_molar_mass,
-					Phys.o2_molar_mass,
-					Phys.co2_molar_mass,
-					Phys.h2o_molar_mass,
+				//var ymm1 = new Vec8f
+				//(
+				//	Phys.n2_molar_mass,
+				//	Phys.o2_molar_mass,
+				//	Phys.co2_molar_mass,
+				//	Phys.h2o_molar_mass,
 
-					Phys.h2_molar_mass,
-					Phys.co_molar_mass,
-					Phys.so2_molar_mass,
-					Phys.no2_molar_mass
-				);
-				ymm0 *= ymm1;
+				//	Phys.h2_molar_mass,
+				//	Phys.co_molar_mass,
+				//	Phys.so2_molar_mass,
+				//	Phys.no2_molar_mass
+				//);
+				ymm0 *= Phys.air_molar_mass_mult; // ymm1;
 				return ymm0.Sum2();
 #else
 				var mass_total =
@@ -192,19 +201,19 @@ namespace TC2.Base.Components
 			{
 #if USE_SIMD
 				var ymm0 = Vec8f.From(this);
-				var ymm1 = new Vec8f
-				(
-					Phys.n2_molar_heat_capacity,
-					Phys.o2_molar_heat_capacity,
-					Phys.co2_molar_heat_capacity,
-					Phys.h2o_molar_heat_capacity,
+				//var ymm1 = new Vec8f
+				//(
+				//	Phys.n2_molar_heat_capacity,
+				//	Phys.o2_molar_heat_capacity,
+				//	Phys.co2_molar_heat_capacity,
+				//	Phys.h2o_molar_heat_capacity,
 
-					Phys.h2_molar_heat_capacity,
-					Phys.co_molar_heat_capacity,
-					Phys.so2_molar_heat_capacity,
-					Phys.no2_molar_heat_capacity
-				);
-				ymm0 *= ymm1;
+				//	Phys.h2_molar_heat_capacity,
+				//	Phys.co_molar_heat_capacity,
+				//	Phys.so2_molar_heat_capacity,
+				//	Phys.no2_molar_heat_capacity
+				//);
+				ymm0 *= Phys.air_molar_heat_capacity_mult; // ymm1;
 				return ymm0.Sum2();
 #else
 				var heat_capacity =
@@ -396,6 +405,15 @@ namespace TC2.Base.Components
 				//	return pressure;
 				//}
 			}
+		}
+
+		public static void AddBlob(ref this Air.Container.Data container, in Air.Blob blob)
+		{
+			var air_tmp = container.air + blob.air;
+			var temperature = Maths.AvgWeighted(container.temperature, blob.temperature, container.air.GetTotalMoles(), blob.moles_total);
+
+			container.air = air_tmp;
+			container.temperature = temperature;
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
