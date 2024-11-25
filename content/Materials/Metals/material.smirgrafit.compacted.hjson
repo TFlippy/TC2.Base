@@ -5,6 +5,7 @@
 	description:
 		'''
 		Mixture of smirglum, graphite and aluminium powders compacted into dense blocks, which can be carved into various shapes.
+
 		Fuses together into a durable refractory ceramic-like material when exposed to a high-temperature oxidizing flame.
 		'''
 	
@@ -19,9 +20,9 @@
 	flags: hard, malleable, magnetic, metal, fragile, flammable, solid, processed
 	display_flags: sprite_stack_linear
 	hints: none
-	porosity: 0.0117
-	purity: 0.975
-	mass_per_unit: 10.980
+	porosity: 0.0071
+	purity: 0.984
+	mass_per_unit: 9.571
 	quantity_max: 100.000
 	form_type: brick
 	prefab: resource.smirgrafit.compacted

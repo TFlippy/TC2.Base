@@ -68,3 +68,17 @@ explosive:
 	health_threshold: 0.950
 	flags: explode_when_primed
 }
+
+despawn:
+{
+	sleep_count_max: 11
+
+	interval: 13.000
+	interval_extra: 18.000
+
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
+
+	amount_ratio: 0.005
+	amount_ratio_extra: 0.020
+}

@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name:
-		'''
-		Explosive Forming: 
-		Compacted Smirgrafit
-		'''
+	name: "Explosive Smirgrafit Compaction"
 	desc:
 		'''
 		TODO: Desc
@@ -99,7 +95,7 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 5.000
+							amount: 4.000
 							snapping: 1.000
 							group: 0
 							flags: no_residue, argument, prerequisite
@@ -118,9 +114,9 @@
 					products: []
 					
 					start_delay: 0.500
-					advance_delay: 1.000
-					complete_delay: 10.000
-					h_sound_complete: fuse_loop
+					advance_delay: 3.000
+					complete_delay: 5.500
+					h_sound_complete: effect.timer.loop.02
 					
 					on_advance:
 					{
@@ -164,10 +160,10 @@
 					requirements:
 					[
 						{
-							type: temperature
-							amount: 320.000
-							amount_min: 280.000
-							amount_max: 355.000
+							type: pressure
+							amount: 1.000
+							amount_min: 0.950
+							amount_max: 1.100
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
@@ -175,9 +171,11 @@
 					
 					products: []
 					
-					start_delay: 1.800
-					advance_delay: 3.500
-					complete_delay: 4.000
+					start_delay: 1.000
+					complete_delay: 0.250
+					
+					h_sound_begin: burner.groan.01
+					h_sound_complete: effect.steam.sharp.00
 				}
 			]
 			
@@ -226,4 +224,6 @@
 	min: 1
 	max: 8
 	step: 1
+	
+	start_delay: 0.500
 }
