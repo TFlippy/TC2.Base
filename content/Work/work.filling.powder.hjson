@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, machine, automated, simple, wip
 	cooldown: 1.000
-	multiplier: 1.000
+	multiplier: 1.150
 	color: "0xff5469ff"
 	
 	tools_required: none
@@ -42,9 +42,10 @@
 	
 	skills_mult:
 	{
-		dexterity: 0.500
-		geology: 0.200
-		endurance: 0.300
+		dexterity: 0.330
+		geology: 0.120
+		endurance: 0.240
+		strength: 0.330
 	}
 	
 	sound_volume: 0.550
@@ -52,7 +53,7 @@
 	sound_size: 0.500
 	sound_dist: 0.700
 	
-	sounds: ["work_mix_00", "work_mix_01", "effect.cloth.slide.00"]
+	sounds: ["effect.cloth.slide.00", "gravel_hit_sharp_02", "effect.cloth.place.02", "gravel_hit_sharp_00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

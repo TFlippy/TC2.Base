@@ -122,16 +122,16 @@ air.vent|"exhaust":
 {
 	offset: [-0.125, -0.750]
 	rotation: -1.571
-	cross_section: 0.100
+	cross_section: 0.035
 	type: exhaust
 }
 
 air.vent|"intake":
 {
+	offset: [-1.000, -0.750]
+	rotation: 3.140
+	cross_section: 0.020
 	type: intake
-	offset: [2.000, -0.875]
-	rotation: 1.571
-	cross_section: 0.100
 }
 
 air.container:

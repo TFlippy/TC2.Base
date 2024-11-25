@@ -48,11 +48,11 @@
 						{
 							type: work
 							work: filling.powder
-							amount: 125.000
-							amount_min: 75.000
-							difficulty: 4
+							amount: 50.000
+							amount_min: 175.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.830
+							falloff: 0.770
 							group: 0
 							flags: conditional, add_amount_min
 						}
