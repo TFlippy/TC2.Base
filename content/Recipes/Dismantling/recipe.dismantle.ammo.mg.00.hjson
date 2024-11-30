@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Dismantle: LC Ammo"
+	name: "Dismantle: MG Ammo"
 	desc:
 		'''
 		TODO: Desc
@@ -214,12 +214,12 @@
 	
 	icon:
 	{
-		texture: resource.ammo_lc
+		texture: resource.ammo_mg
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -4.000]
+	icon_offset: [-1.000, -2.000]
 	
 	icon_extra:
 	{
