@@ -56,7 +56,7 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
@@ -94,7 +94,7 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
@@ -132,14 +132,14 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 						{
 							type: resource
 							material: scrap.heavy
 							amount: 0.010
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
@@ -228,8 +228,8 @@
 	}
 	icon_extra_offset: [3.000, -7.000]
 	
-	color_button: "0xff818b48"
-	rank: -3.000
+	color_button: "0xffac7534"
+	rank: -55.900
 	
 	min: 1
 	max: 10

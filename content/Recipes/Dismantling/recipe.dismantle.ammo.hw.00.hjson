@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "LC-9.4mm"
+					name: "HW-106.7mm"
 					
 					type: undefined
 					flags: none
@@ -56,12 +56,12 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
 				{
-					name: "LC-9.4mm/HV"
+					name: "HW-106.7mm/HV"
 					
 					type: undefined
 					flags: none
@@ -94,12 +94,126 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
 				{
-					name: "LC-9.4mm/AP"
+					name: "HW-106.7mm/HE"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_lc.hv
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+					]
+				}
+				{
+					name: "HW-106.7mm/SM"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_lc.hv
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+					]
+				}
+				{
+					name: "HW-106.7mm/SP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_lc.hv
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+					]
+				}
+				{
+					name: "HW-106.7mm/AP"
 					
 					type: undefined
 					flags: none
@@ -132,14 +246,14 @@
 							amount: 0.030
 							amount_extra: 0.020
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 						{
 							type: resource
 							material: scrap.heavy
 							amount: 0.010
 							group: 0
-							flags: secondary, byproduct, residue
+							flags: waste
 						}
 					]
 				}
@@ -228,8 +342,8 @@
 	}
 	icon_extra_offset: [3.000, -7.000]
 	
-	color_button: "0xff818b48"
-	rank: -3.000
+	color_button: "0xffac7534"
+	rank: -55.20001
 	
 	min: 1
 	max: 10
