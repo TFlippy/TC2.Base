@@ -13,7 +13,7 @@ body:
 	@shape.box:
 	{
 		size: [1.375, 2.000]
-		mass: 85.000
+		mass: 84.000
 		radius: 0.480
 		friction: 0.750
 		elasticity: 0.410

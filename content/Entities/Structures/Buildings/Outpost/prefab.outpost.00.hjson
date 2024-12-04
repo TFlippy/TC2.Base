@@ -83,7 +83,7 @@ entrance.linkable:
 
 claimable:
 {
-	flags: no_menu
+	flags: enable_wololo
 }
 
 storage:

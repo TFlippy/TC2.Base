@@ -209,7 +209,7 @@ crafter:
 	equipment: cauldron, oven, pressure_cooker, barrel, crucible, casting_mould
 	environment: machine, container, airtight, waterproof, scary, noisy, reinforced
 	temperature_max: 1200.000
-	pressure_max: 500.000
+	pressure_max: 1000.000
 
 	@inventory4:
 	{

@@ -14,7 +14,8 @@
 		{
 			type: resource
 			material: wood
-			amount: 20.000
+			amount: 7.500
+			snapping: 0.500
 			group: 0
 		}
 		{

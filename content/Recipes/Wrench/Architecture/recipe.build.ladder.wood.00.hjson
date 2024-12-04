@@ -14,7 +14,7 @@
 		{
 			type: resource
 			material: wood
-			amount: 5.000
+			amount: 1.500
 			group: 0
 		}
 	]
