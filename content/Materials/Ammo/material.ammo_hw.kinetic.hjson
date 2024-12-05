@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "HW-106.7mm/KC Ammo"
+	name: "HW-106.7mm/AP Ammo"
 	description:
 		'''
 		HW-caliber 106.7mm ammunition.

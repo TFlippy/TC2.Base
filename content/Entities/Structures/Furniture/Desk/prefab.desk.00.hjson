@@ -15,7 +15,7 @@ body:
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.720
-		material: metal
+		material: metal_sheet
 		layer: entity, platform, solid, ignore_melee, furniture, background
 		mask: world, item
 		exclude: held, attached
