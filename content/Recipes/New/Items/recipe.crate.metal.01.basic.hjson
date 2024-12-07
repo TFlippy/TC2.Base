@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Crate (Metal, Medium)"
 	tips: []
 	
@@ -58,6 +58,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: wrench
@@ -157,6 +158,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -205,7 +207,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item
-	tags: workbench, manual, simple, assembling, metalworking, shaping
+	tags: workbench, manual, simple, carpentry, assembling, metalworking, shaping
 	
 	icon:
 	{

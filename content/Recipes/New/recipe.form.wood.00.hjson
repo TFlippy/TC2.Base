@@ -1,23 +1,9 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Wooden Form"
 	tips: []
 	
-	icon:
-	{
-		texture: form.wood.00
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, furniture, woodworking
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -72,4 +58,20 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: none
+	tags: workbench, manual, simple, furniture, carpentry, woodworking
+	
+	icon:
+	{
+		texture: form.wood.00
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

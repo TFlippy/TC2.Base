@@ -198,3 +198,45 @@ personnel:
 	]
 	characters_capacity: 3
 }
+
+
+
+shop:
+{
+	name: "Outpost"
+	
+	tags_filter:
+	{
+		require: manual
+		include: workbench, workshop, manual, simple, tool, munitions, food, salvaging, medical, research, social, science
+		exclude: passive, advanced, dangerous, large, explosive, essence, gun, vehicle, furniture, compaction, blacksmithing, machining, engineering, heating, casting, forming, shaping, refining, smelting, fermenting, melting, industry, overworld
+	}
+	
+	work_tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
+	work_machines: none
+	work_equipment: table, chair, bed
+	work_environment: indoor, workshop, office, stationary
+	recipe_type: workshop
+	
+	flags: none
+	menu_columns: 6
+	blueprints_capacity: 4
+	amount_multiplier: 1.000
+	step_multiplier: 1.000
+	
+	offset_spawn: [0.000, 0.000]
+}
+
+workshop:
+{
+	orders_capacity: 2
+}
+
+crafter:
+{
+	flags: no_gui
+	tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
+	equipment: table, chair, bed
+	environment: indoor, workshop, office, stationary
+	temperature_max: 493.150
+}
