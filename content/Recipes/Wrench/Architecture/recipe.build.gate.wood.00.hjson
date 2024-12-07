@@ -41,9 +41,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: disabled, wip
-	tags: woodworking, architecture
+	tags: none
 	
 	icon:
 	{

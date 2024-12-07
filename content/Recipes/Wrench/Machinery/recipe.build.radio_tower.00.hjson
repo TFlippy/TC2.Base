@@ -17,9 +17,9 @@
 		}
 	]
 	
-	type: build
+	type: buildings
 	flags: disabled, wip
-	tags: large, metalworking, engineering, buildings
+	tags: none
 	
 	icon:
 	{

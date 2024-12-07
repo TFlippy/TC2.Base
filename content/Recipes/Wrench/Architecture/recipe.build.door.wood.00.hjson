@@ -32,9 +32,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: none
-	tags: woodworking, architecture
+	tags: none
 	
 	icon:
 	{

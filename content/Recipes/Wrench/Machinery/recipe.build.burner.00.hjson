@@ -21,9 +21,9 @@
 		}
 	]
 	
-	type: build
+	type: industry
 	flags: blueprintable, disabled, wip
-	tags: metalworking, industry
+	tags: none
 	
 	icon:
 	{

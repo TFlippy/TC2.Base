@@ -65,9 +65,9 @@
 		}
 	]
 	
-	type: build
+	type: buildings
 	flags: none
-	tags: buildings
+	tags: none
 	
 	icon:
 	{

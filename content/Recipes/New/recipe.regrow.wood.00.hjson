@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Healed Planks"
 	desc:
 		'''
@@ -86,7 +86,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping, refining
+	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping
 	
 	icon:
 	{

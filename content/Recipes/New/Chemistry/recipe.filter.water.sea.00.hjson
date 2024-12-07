@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Boiled Sea Water"
 	desc:
 		'''
@@ -7,24 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.water.sea
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-1.000, 1.000]
-	
-	min: 1
-	max: 50
-	step: 1
-	
-	type: workshop
-	flags: wip
-	tags: manual, simple, chemistry, science, biology, refining
-	
-	color_button: "0xffaeb59a"
-	rank: -157.000
+	stages: []
 	
 	requirements:
 	[
@@ -40,7 +23,6 @@
 			amount: 375.747
 			amount_min: 375.747
 			falloff: 1.000
-			chance: 0.632
 			group: 1
 			flags: no_scaling
 		}
@@ -83,4 +65,23 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: wip
+	tags: manual, simple, chemistry, science, biology
+	
+	icon:
+	{
+		texture: resource.water.sea
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, 1.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -157.000
+	
+	min: 1
+	max: 50
+	step: 1
 }

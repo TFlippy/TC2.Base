@@ -29,9 +29,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: hidden, disabled
-	tags: architecture
+	tags: none
 	
 	icon:
 	{

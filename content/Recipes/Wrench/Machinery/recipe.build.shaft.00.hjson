@@ -30,9 +30,9 @@
 		}
 	]
 	
-	type: build
+	type: machinery
 	flags: disabled, wip
-	tags: large, metalworking, engineering, machinery
+	tags: none
 	
 	icon:
 	{

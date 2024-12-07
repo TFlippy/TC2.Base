@@ -44,9 +44,9 @@
 		}
 	]
 	
-	type: build
+	type: machinery
 	flags: blueprintable, disabled, wip
-	tags: large, metalworking, engineering, machinery
+	tags: none
 	
 	icon:
 	{

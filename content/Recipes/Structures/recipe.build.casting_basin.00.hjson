@@ -43,9 +43,9 @@
 		}
 	]
 	
-	type: build
+	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
-	tags: industry
+	tags: none
 	
 	icon:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Crowbar"
 	tips: []
 	
@@ -47,6 +47,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hammer
@@ -98,6 +99,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -148,6 +150,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file
@@ -211,6 +214,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: knife
@@ -254,7 +258,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, packable, item
-	tags: workbench, manual, metalworking
+	tags: workbench, manual, tool, metalworking
 	
 	icon:
 	{

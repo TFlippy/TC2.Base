@@ -35,9 +35,9 @@
 		}
 	]
 	
-	type: build
+	type: industry
 	flags: disabled, wip
-	tags: metalworking, industry
+	tags: none
 	
 	icon:
 	{

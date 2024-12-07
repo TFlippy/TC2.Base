@@ -37,9 +37,9 @@
 		}
 	]
 	
-	type: wrench
+	type: conveyor
 	flags: disabled, wip
-	tags: metalworking, conveyor
+	tags: none
 	
 	icon:
 	{

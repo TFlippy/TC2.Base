@@ -37,9 +37,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: blueprintable
-	tags: metalworking, architecture
+	tags: none
 	
 	icon:
 	{

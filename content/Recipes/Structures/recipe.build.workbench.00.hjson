@@ -36,9 +36,9 @@
 		}
 	]
 	
-	type: build
+	type: industry
 	flags: no_amount_multiplier, blueprintable
-	tags: woodworking, industry
+	tags: none
 	
 	icon:
 	{

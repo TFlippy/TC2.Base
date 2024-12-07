@@ -29,9 +29,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: disabled, wip
-	tags: metalworking, architecture
+	tags: none
 	
 	icon:
 	{

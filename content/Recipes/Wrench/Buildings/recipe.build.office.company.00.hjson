@@ -41,9 +41,9 @@
 		}
 	]
 	
-	type: build
+	type: buildings
 	flags: disabled, wip
-	tags: buildings
+	tags: none
 	
 	icon:
 	{

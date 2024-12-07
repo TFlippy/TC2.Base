@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Filtered Dirty Water"
 	desc:
 		'''
@@ -7,24 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.water.dirty
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-1.000, 1.000]
-	
-	min: 1
-	max: 50
-	step: 1
-	
-	type: workshop
-	flags: none
-	tags: manual, simple, chemistry, science, biology, refining
-	
-	color_button: "0xffaeb59a"
-	rank: -157.000
+	stages: []
 	
 	requirements:
 	[
@@ -89,4 +72,23 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: none
+	tags: manual, simple, chemistry, science, biology
+	
+	icon:
+	{
+		texture: resource.water.dirty
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, 1.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -157.000
+	
+	min: 1
+	max: 50
+	step: 1
 }

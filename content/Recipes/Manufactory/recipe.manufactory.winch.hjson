@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Winch"
 	desc:
 		'''
@@ -7,22 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: winch
-		size: [16, 16]
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -67,4 +52,21 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: workshop, manual, metalworking
+	
+	icon:
+	{
+		texture: winch
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
 }

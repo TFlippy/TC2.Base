@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Alloy Arcanite"
 	desc:
 		'''
@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, metalworking, heating, melting
+	tags: dangerous, blending, metalworking, heating, melting
 	
 	icon:
 	{

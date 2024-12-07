@@ -32,9 +32,9 @@
 		}
 	]
 	
-	type: wrench
+	type: belt
 	flags: disabled, wip
-	tags: belt
+	tags: none
 	
 	icon:
 	{

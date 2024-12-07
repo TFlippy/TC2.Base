@@ -35,9 +35,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: disabled, wip
-	tags: architecture
+	tags: none
 	
 	icon:
 	{

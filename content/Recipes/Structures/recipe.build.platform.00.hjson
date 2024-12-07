@@ -41,9 +41,9 @@
 		}
 	]
 	
-	type: build
+	type: machinery
 	flags: disabled, wip
-	tags: metalworking
+	tags: none
 	
 	icon:
 	{

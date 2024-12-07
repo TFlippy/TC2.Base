@@ -21,9 +21,9 @@
 		}
 	]
 	
-	type: build
+	type: industry
 	flags: disabled, wip
-	tags: industry
+	tags: none
 	
 	icon:
 	{

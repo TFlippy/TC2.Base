@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Purified Water"
 	desc:
 		'''
@@ -7,32 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.water
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-5.000, 0.000]
-	
-	icon_extra:
-	{
-		texture: resource.hydrogen_peroxide
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [2.000, -5.000]
-	
-	min: 20
-	max: 250
-	step: 5
-	
-	type: workshop
-	flags: none
-	tags: workbench, laboratory, manual, simple, small, chemistry, biology, refining
-	
-	color_button: "0xff80dc7e"
-	rank: -9.000
+	stages: []
 	
 	requirements:
 	[
@@ -81,4 +56,31 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: none
+	tags: workbench, laboratory, manual, simple, small, chemistry, biology
+	
+	icon:
+	{
+		texture: resource.water
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-5.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.hydrogen_peroxide
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [2.000, -5.000]
+	
+	color_button: "0xff80dc7e"
+	rank: -9.000
+	
+	min: 20
+	max: 250
+	step: 5
 }

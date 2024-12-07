@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Chitin-based Hydrogen Peroxide"
 	desc:
 		'''
@@ -256,7 +256,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, biology, refining
+	tags: manual, simple, advanced, dangerous, chemistry, science, biology
 	
 	icon:
 	{

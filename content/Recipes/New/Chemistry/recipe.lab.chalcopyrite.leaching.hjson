@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Chalcopyrite Roasting"
 	desc:
 		'''
@@ -7,24 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.chalcopyrite
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [1.000, 1.000]
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: disabled, wip
-	tags: laboratory, manual, chemistry, science, refining
-	
-	color_button: "0xffffd300"
-	rank: -60.000
+	stages: []
 	
 	requirements:
 	[
@@ -115,4 +98,23 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: disabled, wip
+	tags: laboratory, manual, chemistry, science
+	
+	icon:
+	{
+		texture: resource.chalcopyrite
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [1.000, 1.000]
+	
+	color_button: "0xffffd300"
+	rank: -60.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

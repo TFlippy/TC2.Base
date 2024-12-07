@@ -59,9 +59,9 @@
 		}
 	]
 	
-	type: build
+	type: buildings
 	flags: blueprintable
-	tags: buildings
+	tags: none
 	
 	icon:
 	{

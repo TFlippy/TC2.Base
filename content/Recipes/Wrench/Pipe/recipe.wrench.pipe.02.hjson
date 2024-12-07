@@ -30,9 +30,9 @@
 		}
 	]
 	
-	type: wrench
+	type: pipe
 	flags: disabled, wip
-	tags: metalworking, pipe
+	tags: none
 	
 	icon:
 	{

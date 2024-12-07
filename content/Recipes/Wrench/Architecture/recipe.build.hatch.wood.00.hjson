@@ -36,9 +36,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: blueprintable
-	tags: woodworking, architecture
+	tags: none
 	
 	icon:
 	{

@@ -37,9 +37,9 @@
 		}
 	]
 	
-	type: build
+	type: architecture
 	flags: none
-	tags: metalworking, architecture
+	tags: none
 	
 	icon:
 	{
