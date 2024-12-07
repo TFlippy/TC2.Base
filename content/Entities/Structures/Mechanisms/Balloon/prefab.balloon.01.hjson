@@ -141,6 +141,7 @@ sound.emitter|"aux":
 air.vent|"exhaust":
 {
 	type: output
+	flags: no_gui
 	offset: [0.000, -4.500]
 	rotation: -1.571
 	cross_section: 2.000
@@ -149,6 +150,7 @@ air.vent|"exhaust":
 air.vent|"intake":
 {
 	type: input
+	flags: no_gui
 	offset: [-0.125, 0.625]
 	rotation: 1.571
 	cross_section: 2.000

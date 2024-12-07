@@ -570,17 +570,17 @@ faction:
 			stun_multiplier: 0.100
 			disarm_chance: 0.450
 			cooldown: 0.260
-			max_distance: 0.800
+			max_distance: 1.500
 			aoe: 1.250
 			thickness: 1.250
 			knockback: -2650.000
 			yield: 0.800
 			penetration_falloff: 0.800
 			penetration: 3
-			damage_type: scratch
+			damage_type: slash
 			category: misc
 			flags: no_handle, no_material_filter
-			hit_mask: creature, organic
+			hit_mask: item, creature, vehicle, door, organic, wheel, shield, held, attached
 			hit_require: destructible
 			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
 		}
