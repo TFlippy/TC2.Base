@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Long Breechloader"
 	tips: []
 	
@@ -57,9 +57,19 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hand_drill
+						include: screwdriver
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, vise
 					}
 				}
 			]
@@ -112,6 +122,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -176,6 +187,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -231,7 +243,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.472006
+							amount: 1.467376
 							snapping: 0.500
 							falloff: 0.950
 							group: 0
@@ -250,6 +262,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file

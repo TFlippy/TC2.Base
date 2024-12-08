@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Heavy Breechloader"
 	tips: []
 	
@@ -69,6 +69,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hand_drill, file
@@ -138,6 +139,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -201,6 +203,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -256,7 +259,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 7.943635
+							amount: 7.783897
 							snapping: 0.500
 							falloff: 0.950
 							group: 0
@@ -275,6 +278,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -321,7 +325,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, simple, weapon, gun, assembling, machining, metalworking
+	tags: manual, simple, weapon, gun, assembling, metalworking
 	
 	icon:
 	{

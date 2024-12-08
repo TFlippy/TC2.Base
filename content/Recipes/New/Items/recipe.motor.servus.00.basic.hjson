@@ -315,8 +315,8 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
-						include: hammer, screwdriver, wrench, spanner, pliers, towel, crowbar
+						require: screwdriver
+						include: screwdriver, wrench, spanner, pliers, towel
 					}
 					filter_equipment:
 					{

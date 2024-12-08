@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Tongs"
 	tips: []
 	
@@ -57,6 +57,16 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: bucket
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+					}
 				}
 			]
 			
@@ -105,6 +115,21 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
 				}
 			]
 			

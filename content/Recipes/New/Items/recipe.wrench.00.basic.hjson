@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Wrench"
 	tips: []
 	
@@ -59,6 +59,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -103,6 +104,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file
@@ -146,6 +148,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file
@@ -192,7 +195,7 @@
 							amount: 1.983405
 							snapping: 1.000
 							falloff: 0.970
-							loss: 0.094
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -202,7 +205,7 @@
 							amount: 3.948555
 							snapping: 0.500
 							falloff: 0.950
-							loss: 0.094
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
@@ -229,6 +232,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hammer, screwdriver, wrench
@@ -274,6 +278,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file
@@ -337,6 +342,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: saw
@@ -400,6 +406,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -444,6 +451,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file

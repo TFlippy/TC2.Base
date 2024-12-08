@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Axe"
 	tips: []
 	
@@ -56,6 +56,16 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: bucket
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+					}
 				}
 			]
 			
@@ -89,6 +99,7 @@
 							material: wood
 							amount: 0.187266
 							snapping: 1.000
+							loss: 0.110
 							group: 0
 							flags: prerequisite
 						}
@@ -104,6 +115,20 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+					filter_machinery:
+					{
+						include: lathe, mill, sander, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
 				}
 				{
 					name: "Sawed"
@@ -135,6 +160,20 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_machinery:
+					{
+						include: lathe, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair
+					}
 				}
 			]
 			
@@ -186,6 +225,20 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_equipment:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 				{
 					name: "Staked"
@@ -208,6 +261,15 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+					filter_equipment:
+					{
+						require: table
+					}
 				}
 			]
 			

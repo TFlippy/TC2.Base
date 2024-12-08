@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Pocket Breechloader"
 	tips: []
 	
@@ -58,9 +58,19 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: hand_drill
+						include: screwdriver
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, vise
 					}
 				}
 			]
@@ -114,6 +124,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -177,6 +188,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -253,6 +265,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file

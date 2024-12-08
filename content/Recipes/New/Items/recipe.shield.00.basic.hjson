@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Shield"
 	tips: []
 	
@@ -56,6 +56,16 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: bucket
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+					}
 				}
 			]
 			
@@ -96,7 +106,7 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 1.895294
+							amount: 1.074754
 							snapping: 0.100
 							loss: 0.180
 							group: 1
@@ -114,6 +124,21 @@
 					]
 					
 					products: []
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater, bender
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
 				}
 			]
 			

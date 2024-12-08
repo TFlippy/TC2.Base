@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Pickaxe"
 	tips: []
 	
@@ -293,7 +293,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, item
-	tags: workbench, manual, tool, blacksmithing, assembling, metalworking, forming, shaping
+	tags: workbench, manual, tool, blacksmithing, assembling, metalworking, shaping, forming
 	
 	icon:
 	{

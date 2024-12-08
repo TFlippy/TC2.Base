@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Knife"
 	tips: []
 	
@@ -48,6 +48,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file
@@ -111,6 +112,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -155,6 +157,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: saw
@@ -218,6 +221,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						include: paintbrush, file

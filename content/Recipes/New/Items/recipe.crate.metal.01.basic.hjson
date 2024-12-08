@@ -61,8 +61,8 @@
 					
 					filter_tools:
 					{
-						require: wrench
-						include: hammer, screwdriver, pliers, crowbar
+						require: screwdriver
+						include: screwdriver, wrench, spanner, pliers, towel
 					}
 					filter_equipment:
 					{
@@ -139,7 +139,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 5.000
+							amount: 4.499209
 							snapping: 0.500
 							falloff: 0.950
 							group: 0
@@ -207,7 +207,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item
-	tags: workbench, manual, simple, carpentry, assembling, metalworking, shaping
+	tags: workbench, manual, simple, assembling, metalworking, carpentry, shaping
 	
 	icon:
 	{
