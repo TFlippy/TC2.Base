@@ -95,7 +95,7 @@ laboratory:
 	blueprints_capacity: 4
 	filter_tags:
 	{
-		include: weapon, gun, assembling, machining, metalworking, engineering, industry
+		include: weapon, gun, assembling, machining, metalworking, engineering
 	}
 }
 
@@ -107,7 +107,7 @@ shop:
 	{
 		require: manual
 		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
-		exclude: passive, large, vehicle, blacksmithing, cooking, research, social, science, gathering, biology, casting, refining, smelting, fermenting, overworld
+		exclude: passive, large, vehicle, blacksmithing, cooking, research, social, science, gathering, biology, casting, smelting, fermenting, overworld
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, paintbrush, file, towel, crowbar, knife, sandpaper, needle, pins

@@ -96,7 +96,7 @@ laboratory:
 	filter_tags:
 	{
 		require: metalworking
-		include: smelting, refining, metalworking, casting, architecture, buildings
+		include: smelting, metalworking, casting
 	}
 }
 

@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
-					public readonly Crafting.Recipe.Tags RecipeTags => Crafting.Recipe.Tags.None;
+					public readonly Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Undefined;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;
 					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
@@ -46,7 +46,7 @@ namespace TC2.Base.Components
 					public static readonly Wrench.Mode.Build.Category[] category_values = Enum.GetValues<Wrench.Mode.Build.Category>();
 					public static FixedString64 edit_name_filter;
 
-					public static Crafting.Recipe.Tags edit_tags_filter = Crafting.Recipe.Tags.Architecture;
+					public static Crafting.Recipe.Type edit_type_filter = Crafting.Recipe.Type.Architecture;
 					public static List<(uint index, float rank)> recipe_indices = new(64);
 
 					[Region.Local] public static Vector2 pos_a_placeholder;
@@ -98,13 +98,13 @@ namespace TC2.Base.Components
 									{
 										using (GUI.ID<Wrench.Mode.Build.Category>.Push(i + 1))
 										{
-											var button_tags_filter = Crafting.Recipe.Tags.None;
+											var button_type_filter = Crafting.Recipe.Type.Undefined; //.None;
 
 											switch ((Wrench.Mode.Build.Category)i)
 											{
 												case Wrench.Mode.Build.Category.Architecture:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Architecture;
+													button_type_filter = Crafting.Recipe.Type.Architecture;
 												}
 												break;
 
@@ -116,19 +116,19 @@ namespace TC2.Base.Components
 
 												case Wrench.Mode.Build.Category.Industry:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Industry;
+													button_type_filter = Crafting.Recipe.Type.Industry;
 												}
 												break;
 
 												case Wrench.Mode.Build.Category.Machinery:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Machinery;
+													button_type_filter = Crafting.Recipe.Type.Machinery;
 												}
 												break;
 
 												case Wrench.Mode.Build.Category.Buildings:
 												{
-													button_tags_filter = Crafting.Recipe.Tags.Buildings;
+													button_type_filter = Crafting.Recipe.Type.Buildings;
 												}
 												break;
 
@@ -145,9 +145,9 @@ namespace TC2.Base.Components
 												//break;
 											}
 
-											if (GUI.DrawIconButton("build.category"u8, ui_icons_builder_categories.WithFrame((uint)i, 0), new(40, 40), color: !is_searching && edit_tags_filter == button_tags_filter ? GUI.col_button_highlight : GUI.col_button))
+											if (GUI.DrawIconButton("build.category"u8, ui_icons_builder_categories.WithFrame((uint)i, 0), new(40, 40), color: !is_searching && edit_type_filter == button_type_filter ? GUI.col_button_highlight : GUI.col_button))
 											{
-												edit_tags_filter = button_tags_filter;
+												edit_type_filter = button_type_filter;
 											}
 
 											if (GUI.IsItemHovered())
@@ -198,7 +198,7 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == Crafting.Recipe.Type.Build && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden))
+										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden))
 										{
 											//var size = (Vector2)recipe.icon.GetFrameSize();
 											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
@@ -243,7 +243,7 @@ namespace TC2.Base.Components
 										var h_recipe = (IRecipe.Handle)pair.index;
 
 										ref var recipe = ref h_recipe.GetData(out var recipe_asset);
-										if (recipe.IsNotNull() && (is_searching || recipe.tags.HasAny(edit_tags_filter)))
+										if (recipe.IsNotNull() && (is_searching || recipe.type == edit_type_filter))
 										{
 											if (!is_searching || recipe.name.Contains(search_filter, StringComparison.OrdinalIgnoreCase))
 											{
@@ -334,7 +334,7 @@ namespace TC2.Base.Components
 										//Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
 										Crafting.Context.NewFromCurrentCharacter(ent_wrench, out var context);
 
-										if (recipe.type == Crafting.Recipe.Type.Build)
+										if (recipe.type != Crafting.Recipe.Type.Undefined)
 										{
 											ref var product = ref recipe.products[0];
 											if (recipe.placement.TryGetValue(out var placement))
@@ -1429,7 +1429,7 @@ namespace TC2.Base.Components
 							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, rpc.entity, out var context);
 							//var ent_character = connection.enti
 
-							if (recipe.type == Crafting.Recipe.Type.Build)
+							if (recipe.type == Crafting.Recipe.Type.Architecture || recipe.type == Crafting.Recipe.Type.Industry || recipe.type == Crafting.Recipe.Type.Buildings || recipe.type == Crafting.Recipe.Type.Machinery)
 							{
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))

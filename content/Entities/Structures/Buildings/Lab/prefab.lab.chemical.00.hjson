@@ -96,7 +96,7 @@ laboratory:
 	filter_tags:
 	{
 		require: manual, chemistry
-		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
+		include: laboratory, explosive, food, chemistry, medical, research, science, smelting
 		exclude: large, furniture, organic, blacksmithing, salvaging, social, agriculture
 	}
 }
@@ -108,7 +108,7 @@ shop:
 	tags_filter:
 	{
 		require: manual, chemistry
-		include: laboratory, explosive, food, chemistry, medical, research, science, refining, smelting
+		include: laboratory, explosive, food, chemistry, medical, research, science, smelting
 		exclude: large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
 	}
 	

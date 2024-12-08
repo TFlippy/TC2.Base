@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 		{
 			public static abstract Sprite Icon { get; }
 			public static abstract string Name { get; }
-			public Crafting.Recipe.Tags RecipeTags { get; }
+			public Crafting.Recipe.Type RecipeType { get; }
 
 			public Color32BGRA ColorOk { get; }
 			public Color32BGRA ColorError { get; }
@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 
 			public bool IsRecipeValid(ref Region.Data region, ref IRecipe.Data recipe)
 			{
-				return !recipe.IsNull() && recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAny(this.RecipeTags) && recipe.placement.HasValue;
+				return recipe.IsNotNull() && recipe.type == this.RecipeType && recipe.placement.HasValue;
 			}
 
 #if CLIENT
@@ -491,7 +491,7 @@ namespace TC2.Base.Components
 							ref var recipe = ref d_recipe.GetData();
 							if (recipe.IsNotNull())
 							{
-								if (recipe.type == Crafting.Recipe.Type.Wrench && recipe.tags.HasAll(this.RecipeTags))
+								if (recipe.type == this.RecipeType)
 								{
 									using (GUI.ID.Push(d_recipe.id))
 									{
