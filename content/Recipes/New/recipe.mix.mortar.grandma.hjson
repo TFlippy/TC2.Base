@@ -84,7 +84,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, crude, primitive, simple, dumb, blending, cooking, biology
+	tags: workbench, manual, crude, primitive, simple, dumb, cooking, biology, blending, messy
 	
 	icon:
 	{

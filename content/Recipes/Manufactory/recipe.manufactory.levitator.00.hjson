@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "ARC-MT Levitator (Single)"
 	desc:
 		'''
@@ -7,21 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: levitator.00
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, assembling, metalworking, engineering
-	
-	color_button: "0xffaeb59a"
-	rank: -541.000
+	stages: []
 	
 	requirements:
 	[
@@ -68,4 +54,20 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: manual, advanced, assembling, metalworking, engineering
+	
+	icon:
+	{
+		texture: levitator.00
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -541.000
+	
+	min: 1
+	max: 1
+	step: 1
 }

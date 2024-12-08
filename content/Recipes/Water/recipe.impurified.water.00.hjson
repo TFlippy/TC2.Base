@@ -54,7 +54,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, crude, dumb, chemistry, biology
+	tags: workbench, manual, crude, simple, dumb, chemistry, biology
 	
 	icon:
 	{

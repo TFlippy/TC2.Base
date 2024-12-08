@@ -34,7 +34,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 2.750
-	window_size: [568.000, 440.000]
+	window_size: [644.000, 528.000]
 	window_size_misc: [216.000, 0.000]
 }
 
@@ -199,8 +199,6 @@ personnel:
 	characters_capacity: 3
 }
 
-
-
 shop:
 {
 	name: "Outpost"
@@ -208,8 +206,8 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, workshop, manual, simple, tool, munitions, food, salvaging, medical, research, social, science
-		exclude: passive, advanced, dangerous, large, explosive, essence, gun, vehicle, furniture, compaction, blacksmithing, machining, engineering, heating, casting, forming, shaping, smelting, fermenting, melting, overworld
+		include: workbench, workshop, manual, simple, food, tool, munitions, salvaging, medical, research, social, science
+		exclude: passive, advanced, dangerous, large, explosive, essence, weapon, gun, tool, vehicle, furniture, raw, compaction, blacksmithing, machining, stoneworking, forestry, shaping, smelting, drying, fermenting, melting, heating, casting, forming, messy, overworld
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
@@ -219,7 +217,7 @@ shop:
 	recipe_type: workshop
 	
 	flags: none
-	menu_columns: 6
+	menu_columns: 4
 	blueprints_capacity: 4
 	amount_multiplier: 1.000
 	step_multiplier: 1.000

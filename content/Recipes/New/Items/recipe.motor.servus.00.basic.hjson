@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Motor (Servus)"
 	tips:
 	[
@@ -59,6 +59,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: wrench
@@ -127,6 +128,7 @@
 							flags: primary, apply
 						}
 					]
+					
 					filter_tools:
 					{
 						require: ruler, screwdriver
@@ -182,6 +184,7 @@
 							flags: primary, apply
 						}
 					]
+					
 					filter_tools:
 					{
 						require: ruler, screwdriver
@@ -237,6 +240,7 @@
 							flags: primary, apply
 						}
 					]
+					
 					filter_tools:
 					{
 						require: ruler, screwdriver
@@ -308,6 +312,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: wrench
@@ -341,7 +346,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, wip, item
-	tags: workbench, manual, magitronics, assembling, metalworking
+	tags: workbench, manual, magitronics, machinery, assembling, metalworking, engineering
 	
 	icon:
 	{

@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, blending, metalworking, heating, melting
+	tags: dangerous, metalworking, blending, melting, heating, messy
 	
 	icon:
 	{

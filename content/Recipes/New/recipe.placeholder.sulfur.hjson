@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Tell Brown Coal to become useful"
 	desc:
 		'''
@@ -7,32 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.brown_coal
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [7.000, 2.000]
-	
-	icon_extra:
-	{
-		texture: ui.emotes.00
-		size: [16, 16]
-		frame: [15, 1]
-	}
-	icon_extra_offset: [-16.000, -3.000]
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	type: workshop
-	flags: wip
-	tags: workbench, workshop, manual, simple, small
-	
-	color_button: "0xffffc500"
-	rank: -157.000
+	stages: []
 	
 	requirements:
 	[
@@ -79,4 +54,31 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: hidden, disabled, wip
+	tags: workbench, workshop, manual, simple, small
+	
+	icon:
+	{
+		texture: resource.brown_coal
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [7.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui.emotes.00
+		size: [16, 16]
+		frame: [15, 1]
+	}
+	icon_extra_offset: [-16.000, -3.000]
+	
+	color_button: "0xffffc500"
+	rank: -157.000
+	
+	min: 1
+	max: 10
+	step: 1
 }

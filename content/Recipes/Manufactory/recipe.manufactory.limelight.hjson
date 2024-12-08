@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Limelight"
 	desc:
 		'''
@@ -9,23 +9,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.limelight
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	min: 5
-	max: 50
-	step: 5
-	
-	type: workshop
-	flags: none
-	tags: manual, assembling, metalworking, engineering
-	
-	color_button: "0xffaeb59a"
-	rank: -130.000
+	stages: []
 	
 	requirements:
 	[
@@ -69,4 +53,22 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: none
+	tags: manual, simple, assembling, metalworking, engineering
+	
+	icon:
+	{
+		texture: resource.limelight
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -130.000
+	
+	min: 5
+	max: 50
+	step: 5
 }

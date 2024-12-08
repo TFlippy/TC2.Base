@@ -1,23 +1,9 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Tripod"
 	tips: []
 	
-	icon:
-	{
-		texture: mount.tripod
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable
-	tags: manual, assembling, metalworking, engineering
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -73,7 +59,23 @@
 			amount: 1.300
 			amount_extra: 1.250
 			group: 0
-			flags: byproduct, waste
+			flags: waste, byproduct
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable
+	tags: workbench, workshop, manual, assembling, metalworking, engineering
+	
+	icon:
+	{
+		texture: mount.tripod
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
 }

@@ -101,7 +101,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: laboratory, manual, chemistry, science
+	tags: laboratory, manual, raw, chemistry, science, smelting, heating, messy
 	
 	icon:
 	{

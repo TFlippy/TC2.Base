@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Melt: Copper (Ingot)"
 	desc:
 		'''
@@ -14,10 +14,11 @@
 			
 			type: payload
 			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
 			
 			ratio: 1.000
 			mass_base: 0.000
-			volume_base: 0.000
 			
 			options:
 			[
@@ -91,7 +92,7 @@
 	
 	type: workshop
 	flags: none
-	tags: dangerous, metalworking, heating, melting
+	tags: dangerous, metalworking, melting, heating, messy
 	
 	icon:
 	{

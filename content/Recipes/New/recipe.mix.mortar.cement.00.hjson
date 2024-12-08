@@ -64,7 +64,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, blending
+	tags: workbench, manual, simple, blending, messy
 	
 	icon:
 	{

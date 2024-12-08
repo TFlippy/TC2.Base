@@ -256,7 +256,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, biology
+	tags: manual, simple, advanced, dangerous, chemistry, science, biology, messy
 	
 	icon:
 	{

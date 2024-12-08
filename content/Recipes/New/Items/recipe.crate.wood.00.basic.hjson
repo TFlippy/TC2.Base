@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench, manual, simple, carpentry, woodworking
+	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry
 	
 	icon:
 	{

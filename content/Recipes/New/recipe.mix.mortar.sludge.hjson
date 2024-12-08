@@ -71,7 +71,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, crude, simple, dangerous, dumb, blending
+	tags: workbench, manual, crude, simple, dangerous, dumb, blending, messy
 	
 	icon:
 	{

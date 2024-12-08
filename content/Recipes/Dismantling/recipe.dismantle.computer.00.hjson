@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Dismantle Computer"
 	desc:
 		'''
@@ -59,13 +59,13 @@
 			amount: 25.000
 			amount_extra: 12.000
 			group: 0
-			flags: residue, waste
+			flags: waste, residue
 		}
 	]
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, magitronics, metalworking, engineering, salvaging
+	tags: workbench, workshop, manual, simple, magitronics, metalworking, engineering, salvaging, science
 	
 	icon:
 	{

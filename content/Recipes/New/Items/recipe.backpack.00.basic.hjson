@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Backpack"
 	tips: []
 	
@@ -90,6 +90,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: knife, needle
@@ -164,6 +165,7 @@
 					]
 					
 					products: []
+					
 					filter_tools:
 					{
 						require: knife, needle
@@ -197,7 +199,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, item
-	tags: workbench, manual, tailoring
+	tags: workbench, manual, simple, tailoring
 	
 	icon:
 	{

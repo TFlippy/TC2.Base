@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Vacuum Cleaner [WIP]"
 	desc:
 		'''
@@ -7,21 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: vacuum_cleaner
-	}
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: manual, assembling, metalworking, engineering
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -80,4 +66,20 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, disabled, wip
+	tags: manual, magitronics, tool, machinery, assembling, metalworking, engineering
+	
+	icon:
+	{
+		texture: vacuum_cleaner
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 5
+	step: 1
 }

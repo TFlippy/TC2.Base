@@ -86,7 +86,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, forming, shaping
+	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, shaping, forming, messy
 	
 	icon:
 	{

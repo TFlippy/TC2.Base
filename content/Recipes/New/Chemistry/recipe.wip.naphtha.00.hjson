@@ -34,7 +34,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, advanced, dangerous, chemistry, science
+	tags: manual, simple, advanced, dangerous, chemistry, science, messy
 	
 	icon:
 	{

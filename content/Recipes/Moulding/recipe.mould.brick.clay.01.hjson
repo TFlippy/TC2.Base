@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Clay Bricks"
 	desc:
 		'''
@@ -7,24 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.brick.clay.raw
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [1.000, 0.000]
-	
-	min: 20
-	max: 200
-	step: 20
-	
-	type: workshop
-	flags: disabled, wip
-	tags: manual, passive, crude, primitive, simple, forming, shaping, drying
-	
-	color_button: "0xffaeb59a"
-	rank: 5.000
+	stages: []
 	
 	requirements:
 	[
@@ -71,4 +54,23 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: disabled, wip
+	tags: manual, passive, crude, primitive, simple, shaping, drying, forming, messy
+	
+	icon:
+	{
+		texture: resource.brick.clay.raw
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [1.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: 5.000
+	
+	min: 20
+	max: 200
+	step: 20
 }

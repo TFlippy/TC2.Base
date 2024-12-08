@@ -34,7 +34,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, advanced, dangerous, explosive, chemistry
+	tags: manual, advanced, dangerous, explosive, chemistry, messy
 	
 	icon:
 	{
