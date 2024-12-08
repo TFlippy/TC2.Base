@@ -20,8 +20,8 @@
 	multiplier: 1.100
 	color: "0xffffa200"
 	
-	tools_required: wrench
-	tools_optional: hammer, screwdriver, pliers, crowbar
+	tools_required: screwdriver
+	tools_optional: screwdriver, wrench, spanner, pliers, towel
 	
 	machinery_required: none
 	machinery_optional: none

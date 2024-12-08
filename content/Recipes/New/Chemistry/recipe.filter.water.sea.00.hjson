@@ -68,7 +68,7 @@
 	
 	type: workshop
 	flags: wip
-	tags: manual, simple, chemistry, science, biology
+	tags: manual, simple, chemistry, science, biology, heating
 	
 	icon:
 	{

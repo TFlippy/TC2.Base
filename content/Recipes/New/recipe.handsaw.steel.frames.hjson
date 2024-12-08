@@ -50,7 +50,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, workshop, manual, simple, metalworking
+	tags: workbench, workshop, manual, simple, metalworking, processing, messy
 	
 	icon:
 	{

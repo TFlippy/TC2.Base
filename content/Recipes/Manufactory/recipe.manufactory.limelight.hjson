@@ -56,7 +56,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, assembling, metalworking, engineering
+	tags: manual, simple, compaction, assembling, metalworking, engineering
 	
 	icon:
 	{

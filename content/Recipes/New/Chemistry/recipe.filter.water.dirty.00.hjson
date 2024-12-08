@@ -75,7 +75,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, simple, chemistry, science, biology
+	tags: manual, simple, chemistry, science, biology, messy
 	
 	icon:
 	{

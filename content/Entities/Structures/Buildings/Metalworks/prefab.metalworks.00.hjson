@@ -278,7 +278,7 @@ heat:
 	heat_capacity_extra: 80.000
 	heat_capacity_mult: 3.000
 	heat_damage_mult: 0.200
-	flags: exclude_body_mass, no_smoke
+	flags: exclude_body_mass, no_smoke, no_gui
 	offset: [-2.125, 0.250]
 	smoke_offset: [-2.250, -2.375]
 	size: [0.250, 0.250]

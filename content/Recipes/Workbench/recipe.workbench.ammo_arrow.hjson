@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Arrows"
 	desc:
 		'''
@@ -7,23 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.ammo_arrow
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	min: 8
-	max: 64
-	step: 8
-	
-	type: workshop
-	flags: wip
-	tags: workbench, manual, crude, primitive, simple, munitions, woodworking
-	
-	color_button: "0xffaeb59a"
-	rank: 100.000
+	stages: []
 	
 	requirements:
 	[
@@ -87,4 +71,22 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: wip
+	tags: workbench, manual, crude, primitive, simple, munitions, woodworking
+	
+	icon:
+	{
+		texture: resource.ammo_arrow
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 100.000
+	
+	min: 8
+	max: 64
+	step: 8
 }

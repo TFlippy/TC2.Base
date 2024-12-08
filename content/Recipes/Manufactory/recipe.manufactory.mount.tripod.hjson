@@ -65,7 +65,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable
-	tags: workbench, workshop, manual, assembling, metalworking, engineering
+	tags: manual, simple, tool, assembling, metalworking, engineering
 	
 	icon:
 	{
