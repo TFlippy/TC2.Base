@@ -16,6 +16,8 @@
 			type: resource
 			material: steel.frames
 			amount: 1.500
+			snapping: 0.500
+			falloff: 0.870
 			group: 0
 		}
 	]

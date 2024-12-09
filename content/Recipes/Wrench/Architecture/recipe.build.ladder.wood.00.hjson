@@ -15,6 +15,8 @@
 			type: resource
 			material: wood
 			amount: 1.500
+			snapping: 0.500
+			falloff: 0.880
 			group: 0
 		}
 	]
