@@ -132,7 +132,7 @@
 							type: work
 							work: filling.sand
 							amount: 175.000
-							difficulty: 5
+							difficulty: 3
 							snapping: 5.000
 							group: 1
 							flags: conditional
@@ -148,9 +148,46 @@
 							type: work
 							work: pouring
 							amount: 150.000
-							difficulty: 4
+							difficulty: 3
 							snapping: 5.000
 							group: 2
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Compacted Soil"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 750.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 500.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: compaction.soil
+							amount: 350.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
 							flags: conditional
 						}
 					]
@@ -164,12 +201,12 @@
 			products: []
 		}
 		{
-			name: "Framing"
+			name: "Furniture"
 			
 			type: part
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: axe
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -177,7 +214,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -186,17 +223,33 @@
 					[
 						{
 							type: resource
-							material: wood
-							amount: 135.000
-							snapping: 5.000
+							material: steel.frames
+							amount: 8.000
+							snapping: 0.500
+							loss: 0.086
 							group: 0
-							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 25.000
+							snapping: 0.500
+							loss: 0.141
+							group: 0
+						}
+						{
+							type: resource
+							material: wood
+							amount: 20.000
+							snapping: 5.000
+							loss: 0.075
+							group: 0
 						}
 						{
 							type: work
 							work: carpentry
-							amount: 1150.000
-							difficulty: 7
+							amount: 400.000
+							difficulty: 6
 							snapping: 5.000
 							group: 0
 							flags: conditional
@@ -217,12 +270,12 @@
 			products: []
 		}
 		{
-			name: "<TODO:02>"
+			name: "Hardware"
 			
 			type: part
 			flags: wip, incomplete, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: drill
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -230,7 +283,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -240,8 +293,9 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 65.000
+							amount: 35.000
 							snapping: 0.500
+							loss: 0.224
 							group: 0
 							flags: prerequisite
 						}
@@ -250,14 +304,15 @@
 							material: machine_parts
 							amount: 80.000
 							snapping: 1.000
+							loss: 0.157
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: assembling
-							amount: 850.000
-							difficulty: 8
+							work: construction
+							amount: 500.000
+							difficulty: 7
 							snapping: 5.000
 							group: 0
 							flags: conditional
@@ -312,7 +367,7 @@
 	}
 	
 	color_button: "0xffaeb59a"
-	button_name: "Commmence"
+	button_name: "Build"
 	rank: 0.000
 	
 	min: 1
