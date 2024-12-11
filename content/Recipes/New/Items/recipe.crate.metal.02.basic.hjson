@@ -89,7 +89,7 @@
 			options:
 			[
 				{
-					name: "Plated"
+					name: "Simple"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated

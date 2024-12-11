@@ -214,7 +214,7 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip
@@ -278,7 +278,7 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip

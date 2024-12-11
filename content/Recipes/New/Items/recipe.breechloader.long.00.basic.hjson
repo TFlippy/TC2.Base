@@ -157,7 +157,7 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
