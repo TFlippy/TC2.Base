@@ -1,76 +1,19 @@
 $tags: []
+$prefab: "construction.template"
 
 body:
 {
-	type: static
-	
 	@shape.box:
 	{
 		size: [6.250, 3.750]
-		offset: [0.000, -0.125]
-		
-		mass: 50.000
-		radius: 0.500
-		friction: 0.750
-		elasticity: 0.250
-		
-		material: wood
-		miss_chance: 0.600
-		
-		layer: entity, building, construction, flammable, ignore_melee, ignore_bullet, background, no_overlapped_placement
-		mask: world, building, construction
 	}
-}
-
-health:
-{
-	max: 5000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: atlas.construction.00
 		size: [64, 48]
 		frame: [4, 2]
 	}
-	z: -300.000
-}
-
-faction:
-{
-
-}
-
-claimable:
-{
-	flags: no_menu
-}
-
-transform:
-{
-
-}
-
-interactable:
-{
-	flags: no_tab
-	window_size: [500.000, 350.000]
-}
-
-construction:
-{
-
-}
-
-building:
-{
-	
-}
-
-shipment:
-{
-	h_container: isb.042c
-	flags: keep_items, no_gui
 }
