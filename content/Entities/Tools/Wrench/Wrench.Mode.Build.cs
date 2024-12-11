@@ -1605,38 +1605,40 @@ namespace TC2.Base.Components
 														}
 													}
 
-													var order_tmp = new Crafting.Order();
-													order_tmp.amount_multiplier = 1.00f;
-													order_tmp.flags |= Crafting.Order.Flags.InProgress;
-													order_tmp.recipe = build.recipe;
+													//var order_tmp = new Crafting.Order();
+													//order_tmp.amount_multiplier = 1.00f;
+													//order_tmp.flags |= Crafting.Order.Flags.InProgress;
+													//order_tmp.h_recipe = build.recipe;
 
-													var shipment_tmp = new Shipment.Data();
-													shipment_tmp.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
+													//var shipment_tmp = new Shipment.Data();
+													//shipment_tmp.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
 
-													var work_count = 0;
-													var item_count = 0;
+													//var work_count = 0;
+													//var item_count = 0;
 
-													var quantity = product.amount;
+													//var quantity = product.amount;
 
-													var requirements = recipe.requirements;
-													for (var i = 0; i < requirements.Length; i++)
-													{
-														ref var requirement = ref requirements[i];
-														switch (requirement.type)
-														{
-															case Crafting.Requirement.Type.Work:
-															{
-																order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.group, requirement.difficulty, (byte)i, requirement.amount * Constants.Construction.work_requirement_multiplier);
-															}
-															break;
+													//var requirements = recipe.requirements;
+													//for (var i = 0; i < requirements.Length; i++)
+													//{
+													//	ref var requirement = ref requirements[i];
+													//	switch (requirement.type)
+													//	{
+													//		case Crafting.Requirement.Type.Work:
+													//		{
+													//			order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.group, requirement.difficulty, (byte)i, requirement.amount * Constants.Construction.work_requirement_multiplier);
+													//		}
+													//		break;
 
-															case Crafting.Requirement.Type.Resource:
-															{
-																shipment_tmp.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
-															}
-															break;
-														}
-													}
+													//		case Crafting.Requirement.Type.Resource:
+													//		{
+													//			shipment_tmp.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
+													//		}
+													//		break;
+													//	}
+													//}
+
+													var h_recipe = build.recipe;
 
 													region.SpawnPrefab(prefab: construction.prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
@@ -1649,22 +1651,24 @@ namespace TC2.Base.Components
 														ref var construction = ref ent.GetComponent<Construction.Data>();
 														if (construction.IsNotNull())
 														{
-															construction.prefab = h_prefab;
+															construction.h_recipe = h_recipe;
+
+															//construction.prefab = h_prefab;
 															//construction.order = order;
-															construction.stage = Construction.Stage.Materials;
-															construction.quantity = quantity;
+															//construction.stage = Construction.Stage.Materials;
+															//construction.quantity = quantity;
 
 															ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
 															if (order.IsNotNull())
 															{
-																order = order_tmp;
+																order = new(); // order_tmp;
 															}
 														}
 
 														ref var shipment = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
 														if (shipment.IsNotNull())
 														{
-															shipment = shipment_tmp;
+															//shipment = shipment_tmp;
 														}
 													});
 

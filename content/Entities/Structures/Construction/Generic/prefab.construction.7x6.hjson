@@ -56,7 +56,9 @@ transform:
 interactable:
 {
 	flags: no_tab
-	window_size: [500.000, 350.000]
+	priority: -0.500
+	window_size: [676.000, 502.000]
+	window_size_misc: [96.000, 0.000]
 }
 
 construction:
