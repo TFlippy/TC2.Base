@@ -42,7 +42,7 @@ faction:
 
 claimable:
 {
-	flags: no_menu
+	flags: allow_owner_unclaim, enable_wololo
 }
 
 transform:
@@ -54,13 +54,17 @@ interactable:
 {
 	flags: no_tab
 	priority: -0.500
-	window_size: [492.000, 558.000]
-	window_size_misc: [96.000, 0.000]
+	window_size: [492.000, 646.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 construction:
 {
-
+	@crafting.order:
+	{
+		flags: no_cancel
+		search_radius: 10.000
+	}
 }
 
 building:
@@ -71,5 +75,5 @@ building:
 shipment:
 {
 	h_container: isb.042c
-	flags: keep_items, no_gui
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }

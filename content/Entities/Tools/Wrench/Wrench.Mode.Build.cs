@@ -1661,7 +1661,7 @@ namespace TC2.Base.Components
 															ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
 															if (order.IsNotNull())
 															{
-																order = new(); // order_tmp;
+																//order = new(); // order_tmp;
 															}
 														}
 
