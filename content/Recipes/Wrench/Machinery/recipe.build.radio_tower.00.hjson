@@ -3,7 +3,204 @@
 	name: "Radio Tower"
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Foundation"
+			
+			type: foundation
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: shovel
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gravel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gravel
+							amount: 500.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.gravel
+							amount: 500.000
+							difficulty: 6
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Rubble"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.rubble
+							amount: 250.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.rubble
+							amount: 250.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: soil
+							amount: 100.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 150.000
+							difficulty: 4
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Concrete Composite"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.concrete
+							amount: 175.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.rubble
+							amount: 200.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: cement
+							amount: 35.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: resource
+							material: sand
+							amount: 50.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: work
+							work: filling.sand
+							amount: 175.000
+							difficulty: 3
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: water
+							amount: 250.000
+							snapping: 1.000
+							group: 2
+						}
+						{
+							type: work
+							work: pouring
+							amount: 150.000
+							difficulty: 3
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+				{
+					name: "Compacted Soil"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 750.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 500.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: compaction.soil
+							amount: 350.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
 	requirements: []
 	
@@ -14,12 +211,13 @@
 			prefab: radio_tower.00
 			amount: 1.000
 			group: 0
+			flags: primary, hidden
 		}
 	]
 	
 	type: buildings
-	flags: disabled, wip
-	tags: none
+	flags: no_amount_multiplier, blueprintable, disabled, wip, construction, auto_complete
+	tags: advanced, large, magitronics, machinery, assembling, metalworking, engineering, science
 	
 	icon:
 	{
@@ -27,7 +225,12 @@
 	}
 	
 	color_button: "0xff6a7a9a"
+	button_name: "Build"
 	rank: -109.000
+	
+	min: 1
+	max: 1
+	step: 1
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

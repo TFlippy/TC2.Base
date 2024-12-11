@@ -337,7 +337,7 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, auto_complete
-	tags: large, woodworking, stoneworking, engineering, carpentry
+	tags: large, woodworking, metalworking, stoneworking, engineering, carpentry
 	
 	icon:
 	{
