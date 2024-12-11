@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Filling (Rubble)"
+	name_short: "Filling (Rubble)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [26, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, construction
+	cooldown: 1.000
+	multiplier: 1.500
+	color: "0xffffa200"
+	
+	tools_required: none
+	tools_optional: shovel
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	equipment_required: none
+	equipment_optional: none
+	
+	character_traits:
+	{
+		include: slave, construction, laborer, strong, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 0.750
+		endurance: 0.500
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.200
+	sound_size: 0.500
+	sound_dist: 0.850
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
