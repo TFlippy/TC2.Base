@@ -414,4 +414,5 @@
 			}
 		]
 	}
+	h_sound_finalize: building_construct
 }

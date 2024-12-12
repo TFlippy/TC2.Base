@@ -347,15 +347,16 @@
 			{
 				type: resource
 				material: wood
-				amount: 35.000
+				amount: 18.000
 				group: 0
 			}
 			{
 				type: resource
 				material: brick.concrete
-				amount: 25.000
+				amount: 55.000
 				group: 0
 			}
 		]
 	}
+	h_sound_finalize: building_construct
 }
