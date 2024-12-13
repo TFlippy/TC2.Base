@@ -4,10 +4,11 @@
 	desc:
 		'''
 		Claims a large area, but with low influence.
-
-		- Requires to be placed in owned territory
 		'''
-	tips: []
+	tips:
+	[
+		"Requires to be placed in owned territory"
+	]
 	
 	stages: []
 	
@@ -16,6 +17,18 @@
 		{
 			type: resource
 			material: steel.rod
+			amount: 25.000
+			group: 0
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 10.000
+			group: 0
+		}
+		{
+			type: resource
+			material: brick.concrete
 			amount: 20.000
 			group: 0
 		}

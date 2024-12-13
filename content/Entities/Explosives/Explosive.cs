@@ -62,6 +62,7 @@ namespace TC2.Base.Components
 			public float shake_multiplier = 1.00f;
 			public float force_multiplier = 1.00f;
 			public float stun_multiplier = 1.00f;
+			public float terrain_radius_multiplier = 1.00f;
 
 			public float smoke_amount = 1.00f;
 			public float smoke_lifetime_multiplier = 1.00f;
@@ -224,6 +225,7 @@ namespace TC2.Base.Components
 						explosion.shake_multiplier = explosive_tmp.shake_multiplier;
 						explosion.force_multiplier = explosive_tmp.force_multiplier;
 						explosion.stun_multiplier = explosive_tmp.stun_multiplier;
+						explosion.terrain_radius_multiplier = explosive_tmp.terrain_radius_multiplier;
 
 						explosion.smoke_amount = explosive_tmp.smoke_amount;
 						explosion.smoke_lifetime_multiplier = explosive_tmp.smoke_lifetime_multiplier;

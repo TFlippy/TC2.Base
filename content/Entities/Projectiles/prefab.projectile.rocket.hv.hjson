@@ -39,13 +39,14 @@ explosive:
 	radius: 4.000
 	power: 6.000
 	damage_entity: 16500.000
-	damage_terrain: 32000.000
+	damage_terrain: 48000.000
 	sparks_amount: 1.800
 	smoke_amount: 1.500
 	smoke_lifetime_multiplier: 0.400
 	smoke_velocity_multiplier: 3.000
 	flash_duration_multiplier: 0.650
 	flash_intensity_multiplier: 0.700
+	terrain_radius_multiplier: 0.400
 	volume: 1.400
 	pitch: 1.800
 	flags: primed

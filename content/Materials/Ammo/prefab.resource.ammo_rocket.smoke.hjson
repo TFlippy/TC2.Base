@@ -61,7 +61,7 @@ explosive:
 	radius: 7.000
 	power: 4.000
 	damage_entity: 200.000
-	damage_terrain: 500.000
+	damage_terrain: 1500.000
 	fire_amount: 0.000
 	smoke_amount: 5.000
 	smoke_lifetime_multiplier: 1.500
@@ -71,6 +71,7 @@ explosive:
 	sparks_amount: 1.000
 	volume: 0.700
 	pitch: 2.000
+	terrain_radius_multiplier: 0.600
 
 	health_threshold: 0.950
 	flags: any_damage, explode_when_primed

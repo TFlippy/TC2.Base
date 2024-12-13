@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	color: "0xffffffff"
 	
 	sounds_looped:
 	[
 		{
 			sound: amb.city.day.loop.01
-			volume: 0.140
+			volume: 0.110
 			pitch: 1.200
 			
 			daytime_range: [0.100, 0.700]
