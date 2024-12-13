@@ -15,8 +15,8 @@
 	[
 		{
 			type: resource
-			material: steel.billet
-			amount: 2.000
+			material: steel.rod
+			amount: 20.000
 			group: 0
 		}
 		{
