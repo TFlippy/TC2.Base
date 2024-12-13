@@ -5,6 +5,7 @@ projectile:
 	damage_base: 6000.000
 	damage_bonus: 2500.000
 	damage_type: bullet_hw
+	terrain_damage_mult: 1.250
 	knockback_multiplier: 13.000
 	flags: no_miss
 
@@ -49,15 +50,16 @@ explosive:
 	radius: 7.000
 	power: 3.500
 	damage_entity: 4500.000
-	damage_terrain: 8000.000
+	damage_terrain: 18000.000
 	smoke_amount: 0.200
 	smoke_velocity_multiplier: 1.500
 	smoke_lifetime_multiplier: 1.200
-	fire_amount: 1.000
+	fire_amount: 0.000
 	flash_duration_multiplier: 0.100
 	flash_intensity_multiplier: 0.200
 	sparks_amount: 1.500
 	force_multiplier: 2.000
+	terrain_radius_multiplier: 2.250
 	volume: 1.000
 	pitch: 1.000
 

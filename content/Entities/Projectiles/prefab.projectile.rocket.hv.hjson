@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 3500.000
-	damage_bonus: 1500.000
+	damage_base: 4200.000
+	damage_bonus: 3500.000
 	lifetime: 15.000
 	ignore_time: 0.100
 	damage_type: bullet_ac
@@ -38,13 +38,14 @@ explosive:
 
 	radius: 4.000
 	power: 6.000
-	damage_entity: 16500.000
+	damage_entity: 10000.000
 	damage_terrain: 48000.000
 	sparks_amount: 1.800
-	smoke_amount: 1.500
-	smoke_lifetime_multiplier: 0.370
-	smoke_velocity_multiplier: 3.000
-	flash_duration_multiplier: 0.650
+	fire_amount: 0.250
+	smoke_amount: 1.200
+	smoke_lifetime_multiplier: 0.350
+	smoke_velocity_multiplier: 2.500
+	flash_duration_multiplier: 0.550
 	flash_intensity_multiplier: 0.700
 	terrain_radius_multiplier: 0.800
 	volume: 1.400
