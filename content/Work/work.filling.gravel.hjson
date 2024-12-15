@@ -49,11 +49,11 @@
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.200
+	sound_pitch: 0.750
 	sound_size: 0.500
 	sound_dist: 0.850
 	
-	sounds: []
+	sounds: ["gravel_hit_sharp_02", "gravel_hit_sharp_00", "gravel_hit_sharp_03"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

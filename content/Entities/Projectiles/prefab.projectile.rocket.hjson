@@ -12,6 +12,7 @@ projectile:
 	speed_modifier_min: 0.300
 	speed_modifier_max: 1.300
 	damp: 0.967
+	stabilization: 0.831
 	flags: no_miss
 }
 
@@ -56,8 +57,8 @@ explosive:
 rocket:
 {
 	mass: 3.000
-	force: 60.000
-	fuel_time: 3.000
+	force: 40.000
+	fuel_time: 5.000
 	
 	@light:
 	{

@@ -93,7 +93,7 @@ laboratory:
 {
 	filter_tags:
 	{
-		include: advanced, dangerous, chemistry, medical, research, science, smelting
+		include: advanced, dangerous, machinery, metalworking, engineering, chemistry, medical, research, science, carpentry, smelting
 	}
 }
 
