@@ -10,69 +10,91 @@ body:
 {
 	buoyancy: 0.100
 
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [-2.500, 0.000]
-		b: [2.500, 0.000]
+		points:
+		[
+			[-3.500, -0.500]
+			[3.000, -0.125]
+			[-0.375, 0.375]
+			[-2.500, 0.500]
+		]
+		
 		mass: 380.000
-		radius: 0.400
+		radius: 0.250
 		friction: 0.700
 		elasticity: 0.450
+		
 		material: metal
-		layer: entity, solid, ignore_melee, item
-		mask: world
-
-		miss_chance: 0.480
+		miss_chance: 0.478
+		
+		layer: entity, solid, item, ignore_melee
 	}
 }
 
 gun:
 {
-	muzzle_offset: [2.750, -0.0625]
-	receiver_offset: [-2.125, 0.000]
-
+	muzzle_offset: [3.250, -0.125]
+	receiver_offset: [-2.375, -0.250]
+	
 	eject_direction: [-2.800, -10.400]
-	eject_angular_velocity: 15.000
-
-	sound_shoot: "autocannon_shoot"
-	sound_reload: "cannon_reload"
-	velocity_multiplier: 350.000
-	jitter_multiplier: 0.500
-	damage_multiplier: 7.000
-	recoil_multiplier: 1.300
-	reload_interval: 2.500
-	cycle_interval: 1.000
-	failure_rate: 0.007
-	max_ammo: 8.000
-	sound_volume: 1.500
-	sound_size: 5.000
-	sound_dist_multiplier: 3.000
-	projectile_count: 1
-	flags: cycle_on_shoot
-	ammo_filter: ammo_kn
-	action: manual
-	type: cannon
-	feed: magazine
-
-	heuristic_range: 20.000
-	stability: 13300.000
-
+	eject_angular_velocity: 16.000
+	
 	smoke_size: 5.000
-	smoke_amount: 2.000
+	smoke_amount: 4.000
+	
 	shake_amount: 0.750
 	shake_radius: 32.000
 	
+	sound_volume: 1.500
+	sound_size: 5.000
+	sound_dist_multiplier: 3.000
+	sound_pitch: 0.850
+	
+	sound_shoot: tank_gun.shoot.00
+	sound_cycle: gun.cycle.00
+	sound_reload: gun.cycle.00
+	sound_eject: gun.shell.eject.00
+	sound_jam: gun.break.01
+	
+	damage_multiplier: 6.000
+	velocity_multiplier: 340.000
+	jitter_multiplier: 0.750
+	recoil_multiplier: 1.300
+	velocity_max: 720.000
+	reload_interval: 0.945
+	cycle_interval: 0.600
+	stability: 13300.000
+	failure_rate: 0.007
+	
+	ammo_filter: ammo_kn
+	max_ammo: 4.000
+	
+	action: revolver
+	type: cannon
+	feed: cylinder
+	
+	flags: automatic, manual_cycle
+	heuristic_range: 20.000
+	
 	@inventory1:
 	{
-		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: ammo
+		}
+		
+		offset: [-2.375, -0.125]
 	}
 	
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 4.000]
-		offset: [2.000, 0.000]
+		offset: [3.375, -0.125]
 		scale: [40.000, 30.000]
 		intensity: 0.000
 		texture: "light.circle.00"
@@ -86,19 +108,18 @@ gun.state:
 
 holdable:
 {
-	offset: [-1.200, 0.100]
-	radius: 2.000
-	flags: full_rotate
-
 	force_multiplier: 4.000
-	torque_multiplier: 1.000
-	stress_multiplier: 0.500
+	torque_multiplier: 1.500
+	offset: [-1.500, -0.625]
+	radius: 8.000
+	hints: weapon, heavy, gun, powerful, military, slow
+	flags: full_rotate
 }
 
 attachment:
 {
 	force_multiplier: 4.000
-	offset: [-1.500, 0.100]
+	offset: [-1.375, -0.125]
 	flags: mirror_rotate, full_rotate
 	tags: large, weapon, rotary, long
 }

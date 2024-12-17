@@ -9,12 +9,12 @@ projectile:
 	terrain_damage_mult: 1.250
 	lifetime: 10.000
 	size: 0.120
-	ricochet_count: 1
-	ricochet_threshold_multiplier: 0.500
+	ricochet_count: 0
+	ricochet_threshold_multiplier: 0.100
 	damp: 0.980
-	tracer_length: 8.000
+	tracer_length: 7.000
 	mass: 1.000
-	knockback_multiplier: 20.000
+	knockback_multiplier: 17.000
 	flags: no_miss
 }
 
@@ -35,21 +35,21 @@ explosive:
 	damage_type: explosion
 	damage_type_secondary: shrapnel
 
-	radius: 6.000
-	power: 3.400
-	damage_entity: 8500.000
-	damage_terrain: 68000.000
+	radius: 6.400
+	power: 3.000
+	damage_entity: 9500.000
+	damage_terrain: 31000.000
 	sparks_amount: 2.500
 	stun_multiplier: 3.500
 	smoke_amount: 0.600
 	fire_amount: 0.500
-	shake_multiplier: 0.220
+	shake_multiplier: 0.280
 	smoke_velocity_multiplier: 1.900
 	smoke_lifetime_multiplier: 0.500
-	flash_duration_multiplier: 0.150
-	flash_intensity_multiplier: 1.600
+	flash_duration_multiplier: 0.110
+	flash_intensity_multiplier: 0.600
 	terrain_radius_multiplier: 0.600
-	force_multiplier: 1.600
+	force_multiplier: 1.300
 	flags: primed
 	pitch: 1.200
 }

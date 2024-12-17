@@ -128,7 +128,6 @@ namespace TC2.Base.Components
 						case Damage.Type.Bullet_SG:
 						case Damage.Type.Bullet_MG:
 						case Damage.Type.Bullet_AC:
-						case Damage.Type.Bullet_GR:
 						case Damage.Type.Bullet_KN:
 						case Damage.Type.Bullet_HW:
 						case Damage.Type.Bullet_Musket:

@@ -2683,7 +2683,7 @@ namespace TC2.Base
 						//{
 						//	if (context.mass_new >= 10.00f && random.NextBool(Maths.Lerp(0.50f, size * robustness * gun.cycle_interval * mult_barrel, 0.50f)))
 						//	{
-						//		gun.ammo_filter = Material.Flags.Ammo_TG;
+						//		gun.ammo_filter = Material.Flags.Ammo_KN;
 						//		gun.max_ammo = (int)Maths.Clamp(jank * context.mass_new * robustness * 0.05f * MathF.Sqrt(gun.stability * 0.02f) * MathF.Abs(noise_c), 1, 4);
 						//		gun.projectile_count = (int)gun.max_ammo;
 						//		gun.ammo_per_shot = gun.projectile_count;
