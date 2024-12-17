@@ -15,7 +15,7 @@ body:
 	{
 		a: [-2.000, 0.000]
 		b: [1.875, -0.150]
-		mass: 360.000
+		mass: 440.000
 		radius: 0.500
 		friction: 0.800
 		elasticity: 0.250
