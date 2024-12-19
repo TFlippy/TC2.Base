@@ -4,11 +4,13 @@
 	desc:
 		'''
 		Small faction outpost.
-		- Can be respawned at
-		- Provides a small storage
-		- Access to faction management
 		'''
-	tips: []
+	tips:
+	[
+		"Can be respawned at"
+		"Provides a small storage"
+		"Access to faction management"
+	]
 	
 	stages:
 	[

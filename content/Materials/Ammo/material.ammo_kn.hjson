@@ -53,14 +53,14 @@
 		velocity_min: 32.000
 		
 		speed_base: 0.000
-		speed_mult: 0.950
-		speed_jitter: 0.035
-		spin_base: 0.042
-		spin_mult: 1.080
+		speed_mult: 0.740
+		speed_jitter: 0.055
+		spin_base: 0.012
+		spin_mult: 1.180
 		spread_mult: 1.310
 		recoil_mult: 1.100
 		
-		failure_base: 0.000
+		failure_base: 0.001
 		failure_mult: 1.075
 		
 		stability_base: 8500.000

@@ -3,11 +3,12 @@
 	name: "Flagpole (Wood)"
 	desc:
 		'''
-		Claims a large area, but with low influence.
-
-		- Requires to be placed in owned territory
+		Expands faction-claimed area, albeit with low influence.
 		'''
-	tips: []
+	tips: 
+	[
+		"Cannot be placed outside faction-owned territory"
+	]
 	
 	stages: []
 	

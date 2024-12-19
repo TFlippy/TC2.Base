@@ -1,0 +1,77 @@
+$name: "Elixir"
+$desc:
+	'''
+	TODO: Desc
+	'''
+
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		mass: 0.300
+		friction: 0.350
+		elasticity: 0.700
+		radius: 0.125
+		material: glass
+		layer: entity, solid, item
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "atlas.elixir.00"
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	scale: [0.850, 0.850]
+}
+
+interactable:
+{
+	flags: once, no_tab
+	priority: -4.500
+}
+
+health:
+{
+	max: 500.000
+}
+
+holdable:
+{
+	offset: [0.250, 0.000]
+	flags: storable
+}
+
+packable:
+{
+
+}
+
+consumable:
+{
+	action: drink
+	flags: enable_use_on_self, consume_on_interact
+
+	release_rate: 1.200
+	release_step: 0.060
+
+	uses_max: 2
+
+	sound_use: "drink.00"
+}
+
+// alcohol.effect:
+// {
+// 	amount: 50.000
+// }

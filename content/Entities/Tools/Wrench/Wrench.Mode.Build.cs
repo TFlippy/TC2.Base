@@ -194,7 +194,7 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden))
+										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden | Crafting.Recipe.Flags.Custom))
 										{
 											//var size = (Vector2)recipe.icon.GetFrameSize();
 											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));

@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Dev: Orange"
+	desc:
+		'''
+		Orange development material.
+		'''
+	
+	icon:
+	{
+		texture: "missing"
+	}
+	
+	material_type: concrete
+	tile_flags: non_empty
+	flags: artificial
+	
+	max_health: 18446740000000000000.000
+	
+	smoothing: 0.180
+	mass: 5.000
+	friction: 0.750
+	elasticity: 0.500
+	stability: 100.000
+	strength_tensile: 100.000
+	strength_compressive: 100.000
+	collision_layer: none
+	collision_mask: none
+	
+	texture: "terrain.dev.00"
+	pattern: "pattern.dev.00"
+	
+	texture_scale: 1.070
+	texture_overshoot: -0.400
+	texture_offset: 0.000
+	color_preview: "0xffff8f1c"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+
+		}
+		{
+		
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffff8f1c"
+			tile_flags: solid, non_empty, become_background_on_break
+			meta: 0
+		}
+		{
+			color: "0xffb96b1b"
+			tile_flags: non_empty
+			meta: 0
+		}
+	]
+}

@@ -32,6 +32,16 @@ namespace TC2.Base.Components
 			"drunk.04",
 		};
 
+		public static readonly Gradient<Color32BGRA> gradient_hud =
+		[
+			//			if (alcohol.modifier_current <= 0.05f) color = GUI.font_color_default;
+			//else if (alcohol.modifier_current <= 0.10f) color = GUI.font_color_green;
+			//else if (alcohol.modifier_current <= 0.30f) color = GUI.font_color_yellow;
+			//else if (alcohol.modifier_current <= 0.85f) color = GUI.font_color_orange;
+			//else color = GUI.font_color_red;
+		];
+
+
 #if SERVER
 		[ISystem.Event<Consumable.ConsumeEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnConsume(ISystem.Info info, Entity entity, ref Consumable.ConsumeEvent data, [Source.Owned] in Consumable.Data consumable, [Source.Owned] ref Alcohol.Effect alcohol_src)

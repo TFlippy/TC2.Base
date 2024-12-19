@@ -3,11 +3,12 @@
 	name: "Flagpole (Metal)"
 	desc:
 		'''
-		Claims a large area, but with low influence.
+		Expands faction-claimed area, albeit with low influence.
 		'''
 	tips:
 	[
-		"Requires to be placed in owned territory"
+		"Very durable"
+		"Cannot be placed outside faction-owned territory"
 	]
 	
 	stages: []

@@ -216,7 +216,7 @@
 	products: []
 	
 	type: workshop
-	flags: wip
+	flags: hidden, wip
 	tags: workbench, manual, simple, small, munitions, metalworking, salvaging
 	
 	icon:
