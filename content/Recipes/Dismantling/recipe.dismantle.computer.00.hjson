@@ -32,11 +32,10 @@
 	[
 		{
 			type: resource
-			material: steel.plate
-			amount: 4.000
-			amount_extra: 2.000
+			material: actuator
+			amount: 2.000
 			group: 0
-			flags: primary
+			flags: primary, byproduct
 		}
 		{
 			type: resource
@@ -44,14 +43,15 @@
 			amount: 15.000
 			amount_extra: 12.000
 			group: 0
-			flags: secondary
+			flags: secondary, byproduct
 		}
 		{
 			type: resource
-			material: actuator
-			amount: 2.000
+			material: steel.plate
+			amount: 4.000
+			amount_extra: 2.000
 			group: 0
-			flags: secondary
+			flags: secondary, byproduct
 		}
 		{
 			type: resource
@@ -64,7 +64,7 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: item, dismantling
 	tags: workbench, workshop, manual, simple, magitronics, metalworking, engineering, salvaging, science
 	
 	icon:
@@ -87,4 +87,8 @@
 	min: 1
 	max: 4
 	step: 1
+	
+	version: 0
+	requirements_old: []
+	products_old: []
 }
