@@ -3,9 +3,129 @@
 	name: "Tripod"
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 40.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 14.15428
+							snapping: 0.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 11.32343
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 8
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 4.718094
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 150.000
+							difficulty: 3
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: cutters, screwdriver, wrench, needle, pins
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, stapler, towel, tongs, pick, crowbar, knife, pins
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise, rack
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: mount.tripod
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item, wip, auto_complete, converted
+	tags: manual, simple, tool, assembling, metalworking, engineering, construction
+	
+	icon:
+	{
+		texture: mount.tripod
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 1
+	requirements_old:
 	[
 		{
 			type: resource
@@ -44,8 +164,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -62,20 +181,4 @@
 			flags: waste, byproduct
 		}
 	]
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable
-	tags: manual, simple, tool, assembling, metalworking, engineering
-	
-	icon:
-	{
-		texture: mount.tripod
-	}
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	min: 1
-	max: 1
-	step: 1
 }

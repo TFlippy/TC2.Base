@@ -16,7 +16,7 @@ body:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 6.000
+		mass: 3.276
 		radius: 0.250
 		friction: 0.950
 		elasticity: 0.650
@@ -35,7 +35,7 @@ melee:
 {
 	sound_swing: "tool_swing_00"
 	damage_base: 150.000
-	damage_bonus: 100.000
+	damage_bonus: 190.000
 	cooldown: 1.500
 	max_distance: 1.500
 	thickness: 1.000

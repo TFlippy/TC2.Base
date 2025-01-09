@@ -1,43 +1,78 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Club"
 	tips: []
 	
-	icon:
-	{
-		texture: club
-	}
-	icon_offset: [-1.000, 0.000]
-	
-	min: 1
-	max: 5
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, crude, primitive, simple, dumb, weapon, woodworking
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: timber
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: cutting
-			amount: 90.000
-			difficulty: 3
-			group: 0
-			flags: conditional
+			name: "Construction"
+			
+			type: part
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 1.000
+			mass_base: 3.276
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber
+							amount: 0.440062
+							snapping: 0.500
+							loss: 0.098
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 175.000
+							amount_min: 75.000
+							difficulty: 3
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+					filter_machinery:
+					{
+						include: lathe, mill, sander, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -46,14 +81,57 @@
 			prefab: club
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, manual, crude, primitive, simple, dumb, small, weapon, tool, woodworking, construction
+	
+	icon:
+	{
+		texture: club
+	}
+	icon_offset: [-1.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	version: 1
+	requirements_old:
+	[
 		{
 			type: resource
-			material: woodchips
-			amount: 2.580
-			amount_extra: 2.290
-			group: 1
-			flags: waste, residue
+			material: timber
+			amount: 0.440062
+			snapping: 1.000
+			loss: 0.133
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: woodcarving
+			amount: 90.000
+			difficulty: 3
+			falloff: 0.920
+			group: 0
+			flags: conditional
+		}
+	]
+	products_old:
+	[
+		{
+			type: prefab
+			prefab: club
+			amount: 1.000
+			group: 0
+			flags: primary
 		}
 	]
 }

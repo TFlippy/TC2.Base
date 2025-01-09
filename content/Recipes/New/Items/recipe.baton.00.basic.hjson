@@ -3,46 +3,95 @@
 	name: "Baton"
 	tips: []
 	
-	stages: []
-	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: timber
-			amount: 0.500
-			snapping: 1.000
-			falloff: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 320.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.450
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: cloth
-			amount: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: tailoring
-			amount: 70.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.750
-			group: 1
-			flags: conditional
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.600
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 1.191153
+							snapping: 0.750
+							loss: 0.188
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodworking
+							amount: 350.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.450
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 0.104585
+							snapping: 0.100
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 100.000
+							amount_min: 50.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.750
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: hammer, saw, file, knife, needle
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, tweezers, axe, stapler, file, chisel, knife, needle, pins
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
 		}
 	]
+	
+	requirements: []
 	
 	products:
 	[
@@ -51,12 +100,13 @@
 			prefab: baton
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, simple, weapon, tool, woodworking
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, workshop, manual, simple, weapon, tool, woodworking, assembling, construction
 	
 	icon:
 	{
@@ -69,4 +119,57 @@
 	min: 1
 	max: 8
 	step: 1
+	
+	version: 1
+	requirements_old:
+	[
+		{
+			type: resource
+			material: wood.rod
+			amount: 1.210
+			snapping: 0.750
+			loss: 0.188
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: woodworking
+			amount: 250.000
+			amount_min: 90.000
+			difficulty: 4
+			snapping: 5.000
+			falloff: 0.450
+			group: 0
+			flags: conditional
+		}
+		{
+			type: resource
+			material: cloth
+			amount: 0.150
+			snapping: 0.100
+			group: 1
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: sewing
+			amount: 70.000
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.750
+			group: 1
+			flags: conditional
+		}
+	]
+	products_old:
+	[
+		{
+			type: prefab
+			prefab: baton
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
 }

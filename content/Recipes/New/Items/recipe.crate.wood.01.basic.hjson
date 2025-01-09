@@ -3,9 +3,114 @@
 	name: "Crate (Wood, Medium)"
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 27.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 14.37541
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 150.000
+							difficulty: 3
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: carpentry
+							amount: 200.000
+							difficulty: 6
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: hammer, saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_machinery:
+					{
+						include: lathe, planer
+					}
+					filter_equipment:
+					{
+						include: table, chair
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: crate.wood.01
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item, wip, auto_complete, converted
+	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry, construction
+	
+	icon:
+	{
+		texture: crate.wood.01
+	}
+	icon_offset: [1.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -4.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 1
+	requirements_old:
 	[
 		{
 			type: resource
@@ -31,8 +136,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -49,21 +153,4 @@
 			flags: waste, residue
 		}
 	]
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable
-	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry
-	
-	icon:
-	{
-		texture: crate.wood.01
-	}
-	icon_offset: [1.000, 0.000]
-	
-	color_button: "0xffaeb59a"
-	rank: -4.000
-	
-	min: 1
-	max: 1
-	step: 1
 }
