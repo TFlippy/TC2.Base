@@ -1,11 +1,118 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Dismantle Limelight"
 	desc:
 		'''
 		Smash a limelight into spare parts.
 		'''
 	tips: []
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: disassembly
+			flags: subtractive, wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: shattering
+							amount: 8.000
+							difficulty: 3
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 25.000
+							difficulty: 4
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: lime
+							amount: 0.763
+							amount_extra: 0.112
+							group: 1
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.heavy
+							amount: 0.134
+							amount_extra: 0.017
+							group: 1
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: limelight
+			amount: 1.000
+			group: 0
+			flags: primary, prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: pellet.heat
+			amount: 0.200
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: dismantling, wip, auto_complete, converted
+	tags: workbench, manual, simple, metalworking, salvaging, research
 	
 	icon:
 	{
@@ -21,18 +128,15 @@
 	}
 	icon_extra_offset: [0.000, -6.000]
 	
+	color_button: "0xffac7534"
+	rank: -131.000
+	
 	min: 5
 	max: 50
 	step: 5
 	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, metalworking, salvaging, research
-	
-	color_button: "0xffac7534"
-	rank: -131.000
-	
-	requirements:
+	version: 1
+	requirements_old:
 	[
 		{
 			type: resource
@@ -58,8 +162,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: resource

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Washing"
 	name_short: "Washing"
 	desc:
@@ -32,7 +32,7 @@
 	filter_environment:
 	{
 		include: warm, container, disinfected, sterile, clean
-		exclude: contaminated, polluted, smelly, dry
+		exclude: polluted
 	}
 	
 	character_traits:

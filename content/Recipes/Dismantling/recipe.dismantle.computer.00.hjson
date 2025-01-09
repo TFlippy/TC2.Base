@@ -7,9 +7,133 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: disassembly
+			flags: subtractive, wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: dismantling
+							amount: 1120.000
+							difficulty: 14
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
+					}
+					filter_equipment:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products:
+			[
+				{
+					type: resource
+					material: actuator
+					amount: 2.000
+					group: 0
+					flags: primary, byproduct
+				}
+				{
+					type: resource
+					material: machine_parts
+					amount: 15.000
+					amount_extra: 12.000
+					group: 0
+					flags: secondary, byproduct
+				}
+				{
+					type: resource
+					material: steel.plate
+					amount: 4.000
+					amount_extra: 2.000
+					group: 0
+					flags: secondary, byproduct
+				}
+				{
+					type: resource
+					material: scrap.machine
+					amount: 20.33268
+					amount_extra: 9.759686
+					group: 0
+					flags: waste, residue
+				}
+			]
+		}
+	]
 	
 	requirements:
+	[
+		{
+			type: resource
+			material: computer
+			amount: 1.000
+			group: 0
+			flags: primary, prerequisite
+		}
+	]
+	
+	products: []
+	
+	type: workshop
+	flags: dismantling, wip, auto_complete, converted
+	tags: workbench, workshop, manual, simple, magitronics, machinery, metalworking, engineering, salvaging
+	
+	icon:
+	{
+		texture: resource.computer
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	color_button: "0xffac7534"
+	rank: -134.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+	requirements_old:
 	[
 		{
 			type: resource
@@ -27,8 +151,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -62,33 +185,4 @@
 			flags: waste, residue
 		}
 	]
-	
-	type: workshop
-	flags: item, dismantling
-	tags: workbench, workshop, manual, simple, magitronics, metalworking, engineering, salvaging, science
-	
-	icon:
-	{
-		texture: resource.computer
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
-	color_button: "0xffac7534"
-	rank: -134.000
-	
-	min: 1
-	max: 4
-	step: 1
-	
-	version: 0
-	requirements_old: []
-	products_old: []
 }

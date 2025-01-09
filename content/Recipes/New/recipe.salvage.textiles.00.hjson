@@ -1,11 +1,150 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
 		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
 		'''
 	tips: []
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: disassembly
+			flags: subtractive, wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: scavenging
+							amount: 230.000
+							difficulty: 4
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: water
+							amount: 30.000
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 360.000
+							difficulty: 5
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 4.540
+							amount_extra: 2.770
+							group: 1
+							flags: waste, residue
+						}
+						{
+							type: resource
+							material: water.dirty
+							amount: 16.420
+							amount_extra: 3.950
+							group: 1
+							flags: waste, residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, bucket, towel, tongs, pick, crowbar
+					}
+					filter_equipment:
+					{
+						include: cauldron, barrel, table, chair, vise, rack
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products:
+			[
+				{
+					type: resource
+					material: leather
+					amount: 0.413
+					amount_extra: 3.452
+					group: 0
+					flags: secondary, byproduct
+				}
+				{
+					type: resource
+					material: rubber
+					amount: 0.013
+					amount_extra: 1.452
+					group: 0
+					flags: secondary, byproduct
+				}
+			]
+		}
+	]
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: scrap.mixed
+			amount: 10.000
+			group: 0
+			flags: primary, prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: cloth
+			amount: 0.647
+			amount_extra: 4.870
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, simple, tailoring, salvaging
 	
 	icon:
 	{
@@ -30,18 +169,15 @@
 	}
 	icon_c_offset: [-3.000, -16.000]
 	
+	color_button: "0xffac7534"
+	rank: -140.000
+	
 	min: 1
 	max: 10
 	step: 1
 	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, tailoring, salvaging
-	
-	color_button: "0xffac7534"
-	rank: -140.000
-	
-	requirements:
+	version: 1
+	requirements_old:
 	[
 		{
 			type: resource
@@ -73,8 +209,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: resource

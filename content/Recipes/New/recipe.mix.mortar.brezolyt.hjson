@@ -7,7 +7,101 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: shattering
+							amount: 150.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: soil
+							amount: 6.000
+							snapping: 0.100
+							loss: 0.059
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 60.000
+							snapping: 0.500
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 400.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.390
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: clay
+							amount: 1.068
+							amount_extra: 2.372
+							group: 1
+							flags: secondary, byproduct
+						}
+						{
+							type: resource
+							material: water.dirty
+							amount: 24.478
+							amount_extra: 8.372
+							group: 1
+							flags: secondary, pollutant, waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: spatula
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
 	requirements:
 	[
@@ -15,8 +109,69 @@
 			type: resource
 			material: brezolyt
 			amount: 25.000
+			snapping: 1.000
 			group: 0
-			flags: prerequisite
+			flags: no_residue, primary, prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: mortar
+			amount: 9.122
+			amount_extra: 4.990
+			group: 0
+			flags: primary, byproduct
+		}
+	]
+	
+	type: workshop
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, simple, blending, processing, messy
+	
+	icon:
+	{
+		texture: resource.mortar
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [7.000, 3.000]
+	icon_scale: 0.900
+	
+	icon_extra:
+	{
+		texture: resource.brezolyt
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-15.000, -9.000]
+	
+	icon_c:
+	{
+		texture: resource.water
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-14.000, -11.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -160.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+	requirements_old:
+	[
+		{
+			type: resource
+			material: brezolyt
+			amount: 25.000
+			group: 0
+			flags: primary, prerequisite
 		}
 		{
 			type: work
@@ -51,8 +206,7 @@
 			flags: conditional
 		}
 	]
-	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -66,50 +220,14 @@
 			material: clay
 			amount: 1.068
 			amount_extra: 2.372
-			group: 0
+			group: 1
 		}
 		{
 			type: resource
 			material: water.dirty
 			amount: 24.478
 			amount_extra: 8.372
-			group: 0
+			group: 1
 		}
 	]
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, blending, messy
-	
-	icon:
-	{
-		texture: resource.mortar
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [7.000, 3.000]
-	icon_scale: 0.900
-	
-	icon_extra:
-	{
-		texture: resource.brezolyt
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [-15.000, -9.000]
-	
-	icon_c:
-	{
-		texture: resource.water
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-14.000, -11.000]
-	
-	color_button: "0xffaeb59a"
-	rank: -160.000
-	
-	min: 1
-	max: 10
-	step: 1
 }
