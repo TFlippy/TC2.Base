@@ -33,7 +33,8 @@
 						{
 							type: work
 							work: shattering
-							amount: 150.000
+							amount: 225.000
+							amount_min: 75.000
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.800
@@ -44,8 +45,8 @@
 							type: resource
 							material: soil
 							amount: 6.000
-							snapping: 0.100
-							loss: 0.059
+							snapping: 0.500
+							loss: 0.012
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -60,7 +61,8 @@
 						{
 							type: work
 							work: blending
-							amount: 400.000
+							amount: 550.000
+							amount_min: 175.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.390
@@ -110,6 +112,7 @@
 			material: brezolyt
 			amount: 25.000
 			snapping: 1.000
+			loss: 0.094
 			group: 0
 			flags: no_residue, primary, prerequisite
 		}
@@ -157,7 +160,7 @@
 	icon_c_offset: [-14.000, -11.000]
 	
 	color_button: "0xffaeb59a"
-	rank: -160.000
+	rank: -160.700
 	
 	min: 1
 	max: 10

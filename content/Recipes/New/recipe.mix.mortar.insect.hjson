@@ -64,14 +64,14 @@
 		{
 			type: resource
 			material: mortar
-			amount: 3.618
+			amount: 4.318
 			amount_extra: 4.711
 			group: 0
 		}
 		{
 			type: resource
 			material: sludge
-			amount: 4.684
+			amount: 2.894
 			amount_extra: 4.226
 			group: 0
 		}
@@ -113,9 +113,13 @@
 	icon_c_offset: [-12.000, -14.000]
 	
 	color_button: "0xffaeb59a"
-	rank: -158.000
+	rank: -160.500
 	
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
+	requirements_old: []
+	products_old: []
 }

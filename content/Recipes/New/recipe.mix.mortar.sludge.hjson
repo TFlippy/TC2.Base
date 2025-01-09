@@ -98,9 +98,13 @@
 	icon_c_offset: [-8.000, -14.000]
 	
 	color_button: "0xffaeb59a"
-	rank: -157.000
+	rank: -160.400
 	
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
+	requirements_old: []
+	products_old: []
 }
