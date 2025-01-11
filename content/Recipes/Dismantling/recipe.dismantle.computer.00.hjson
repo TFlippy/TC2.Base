@@ -33,9 +33,11 @@
 						{
 							type: work
 							work: dismantling
-							amount: 1120.000
+							amount: 1250.000
+							amount_min: 550.000
 							difficulty: 14
-							snapping: 25.000
+							snapping: 50.000
+							falloff: 0.790
 							group: 0
 							flags: conditional
 						}
@@ -82,14 +84,6 @@
 					group: 0
 					flags: secondary, byproduct
 				}
-				{
-					type: resource
-					material: scrap.machine
-					amount: 20.33268
-					amount_extra: 9.759686
-					group: 0
-					flags: waste, residue
-				}
 			]
 		}
 	]
@@ -100,6 +94,7 @@
 			type: resource
 			material: computer
 			amount: 1.000
+			snapping: 1.000
 			group: 0
 			flags: primary, prerequisite
 		}
@@ -108,7 +103,7 @@
 	products: []
 	
 	type: workshop
-	flags: dismantling, wip, auto_complete, converted
+	flags: item, dismantling, wip, auto_complete, converted
 	tags: workbench, workshop, manual, simple, magitronics, machinery, metalworking, engineering, salvaging
 	
 	icon:

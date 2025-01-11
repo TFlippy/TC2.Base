@@ -46,7 +46,9 @@ holdable:
 
 norotate:
 {
-	mass_multiplier: 25.000
+	speed: 2.000
+	multiplier: 0.500
+	mass_multiplier: 15.000
 }
 
 health:

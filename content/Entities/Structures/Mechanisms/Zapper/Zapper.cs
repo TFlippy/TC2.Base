@@ -237,7 +237,7 @@ namespace TC2.Base.Components
 
 					if (random.NextBool(0.10f))
 					{
-						Fire.Ignite(result.entity, random.NextFloatRange(1.00f, 4.00f), Fire.Flags.No_Radius_Ignite);
+						Fire.Ignite(ent_target: result.entity, intensity: random.NextFloatExtra(1.00f, 4.00f), flags: Fire.Flags.No_Radius_Ignite);
 					}
 #endif
 				}

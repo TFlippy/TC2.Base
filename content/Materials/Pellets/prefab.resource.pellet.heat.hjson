@@ -115,6 +115,11 @@ heat:
 	}
 }
 
+heat.state:
+{
+	temperature_current: 525.000
+}
+
 norotate:
 {
 	bias: 0.000

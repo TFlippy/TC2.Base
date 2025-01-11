@@ -59,7 +59,7 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(true)]
 			public Vector2 smoke_offset;
 
-			public Vector2 size = new Vector2(0.50f, 0.25f);
+			public Vector2 size = new(0.50f, 0.25f);
 
 			public Color32BGRA flame_tint;
 		}
@@ -511,7 +511,7 @@ namespace TC2.Base.Components
 		public static void OnSpawnResource(ISystem.Info info, ref Region.Data region, Entity entity, ref Resource.SpawnEvent ev,
 		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
 		{
-			heat_state.temperature_current = ev.temperature;
+			heat_state.temperature_current.TrySet(ev.temperature);
 			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
 			heat_state.Sync(entity, true);
 		}
@@ -544,7 +544,7 @@ namespace TC2.Base.Components
 				var excess = Maths.Max(0.00f, temperature_current - heat.temperature_ignite);
 				if (random.NextBool(excess * 0.01f))
 				{
-					Fire.Ignite(entity, temperature_current * 0.019f, heat.fire_flags, temperature: temperature_current, tint: heat.flame_tint.OrNullable());
+					Fire.Ignite(ent_target: entity, intensity: temperature_current * 0.019f, flags: heat.fire_flags, temperature: temperature_current, tint: heat.flame_tint.OrNullable());
 				} 
 			}
 

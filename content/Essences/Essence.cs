@@ -203,7 +203,7 @@ namespace TC2.Base.Components
 #if SERVER
 				var sync = false;
 				sync |= container.h_essence.TrySet(resource.GetEssenceType());
-				//App.WriteLine($"OnResourceModified essence container {container.h_essence}");
+				App.WriteLine($"OnResourceModified essence container {container.h_essence}");
 
 				if (sync)
 				{
@@ -220,7 +220,7 @@ namespace TC2.Base.Components
 #if SERVER
 				var sync = false;
 				sync |= container.h_essence.TrySet(inventory.resource.GetEssenceType());
-				//App.WriteLine($"OnInventoryModified essence container {container.h_essence}");
+				App.WriteLine($"OnInventoryModified essence container {container.h_essence}");
 
 				if (sync)
 				{
@@ -241,7 +241,7 @@ namespace TC2.Base.Components
 			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Light.Data light)
 			{
 				ref var essence_data = ref container.h_essence.GetData();
-				//App.WriteLine($"OnModified essence container {container.h_essence}");
+				App.WriteLine($"OnModified essence container {container.h_essence}");
 
 				if (sound_emitter.IsNotNull())
 				{
@@ -360,7 +360,7 @@ namespace TC2.Base.Components
 						container.t_next_collapse = info.WorldTime + random.NextFloatRange(0.50f, 1.00f);
 						var full_collapse = modifier >= 1.00f; // (1.00f - health_norm) >= container.stability;
 
-						Essence.SpawnCollapsingNode(ref region, container.h_essence, container.available * Maths.Max(container.rate_current, modifier * modifier) * modifier, transform.position, full_collapse: full_collapse);
+						Essence.SpawnCollapsingNode(ref region, container.h_essence, container.available * Maths.Max(container.rate_current, modifier.Pow2()) * modifier, transform.position, full_collapse: full_collapse);
 						if (full_collapse)
 						{
 							entity.Delete();

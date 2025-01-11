@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Processing"
 			
 			type: processing
 			flags: wip, auto_generated
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -33,34 +33,26 @@
 						{
 							type: resource
 							material: copper.ingot
-							amount: 1.000
+							amount: 0.232881
 							snapping: 1.000
-							loss: 0.125
+							loss: 0.169
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite, locked
 						}
 						{
 							type: work
 							work: hammering
-							amount: 180.000
+							amount: 250.000
+							amount_min: 75.000
 							difficulty: 11
-							snapping: 25.000
+							snapping: 5.000
+							falloff: 0.8741
 							group: 0
 							flags: conditional
 						}
 					]
 					
-					products:
-					[
-						{
-							type: resource
-							material: scrap.copper
-							amount: 0.090
-							amount_extra: 0.030
-							group: 1
-							flags: waste, residue
-						}
-					]
+					products: []
 					
 					filter_tools:
 					{
@@ -86,16 +78,50 @@
 		{
 			type: resource
 			material: copper.plate
-			amount: 3.720
-			amount_extra: 0.160
+			amount: 1.000
 			group: 0
 			flags: primary, byproduct
 		}
 	]
 	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: copper.ingot
+			amount: 0.232881
+			snapping: 1.000
+			loss: 0.169
+			group: 0
+			flags: prerequisite, locked
+		}
+		{
+			type: work
+			work: hammering
+			amount: 180.000
+			amount_min: 150.000
+			difficulty: 11
+			snapping: 5.000
+			falloff: 0.8741
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: resource
+			material: copper.plate
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
 	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, crude, simple, dumb, metalworking, shaping
+	flags: item, wip, auto_complete, converted
+	tags: workbench, manual, crude, simple, dumb, metalworking, shaping, processing
 	
 	icon:
 	{
@@ -117,45 +143,8 @@
 	rank: -16.000
 	
 	min: 1
-	max: 100
+	max: 25
 	step: 1
 	
 	version: 1
-	requirements_old:
-	[
-		{
-			type: resource
-			material: copper.ingot
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: hammering
-			amount: 180.000
-			difficulty: 11
-			group: 0
-			flags: conditional
-		}
-	]
-	products_old:
-	[
-		{
-			type: resource
-			material: copper.plate
-			amount: 3.720
-			amount_extra: 0.160
-			group: 0
-			flags: primary
-		}
-		{
-			type: resource
-			material: scrap.copper
-			amount: 0.090
-			amount_extra: 0.030
-			group: 1
-			flags: waste, residue
-		}
-	]
 }

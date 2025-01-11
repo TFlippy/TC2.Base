@@ -47,6 +47,20 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}
+
 // norotate:
 // {
 
