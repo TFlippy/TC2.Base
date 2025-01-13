@@ -164,8 +164,7 @@ worker.state:
 
 facing:
 {
-	threshold: 0.300
-	offset: 0.000
+	threshold: 0.750
 	flip_interval: 0.250
 }
 
