@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Silver Powder"
 	name_short: "Sv. Powder"
 	description:
@@ -18,24 +18,19 @@
 	flags: granular, metal, powder, solid
 	display_flags: none
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
 	porosity: 0.128
 	purity: 0.991
 	mass_per_unit: 0.914728
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	spawn_quantity_threshold: 1.000
 	form_type: powder
 	prefab: resource.silver.powder
 	h_substance: silver
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	

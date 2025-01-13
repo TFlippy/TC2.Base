@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Planks"
 	name_short: "Planks"
 	description:
@@ -19,24 +19,19 @@
 	flags: hard, organic, small, raw, fuel, flammable, flexible, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
 	porosity: 0.110
 	purity: 0.753
 	mass_per_unit: 2.136
 	volume_per_unit: 0.0032
 	quantity_max: 250.000
+	spawn_quantity_threshold: 0.500
 	form_type: plank
 	prefab: resource.wood
 	h_substance: wood
 	
+	color_icon: "0xffffffff"
 	color_dust: "0xffe3a97c"
 	color_gib: "0xff855030"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[

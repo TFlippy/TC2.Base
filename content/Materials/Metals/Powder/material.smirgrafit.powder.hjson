@@ -25,6 +25,7 @@
 	mass_per_unit: 1.959321
 	volume_per_unit: 0.0001
 	quantity_max: 1000.000
+	spawn_quantity_threshold: 0.500
 	form_type: powder
 	prefab: resource.smirgrafit.powder
 	h_substance: smirgrafit
