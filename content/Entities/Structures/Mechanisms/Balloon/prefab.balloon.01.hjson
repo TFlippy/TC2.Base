@@ -204,7 +204,7 @@ burner.state:
 		stack_size_multiplier: 4.000
 		filter_flags: fuel
 		filter_type: liquid
-		type: input
+		type: fuel
 		flags: ignore_mass
 		offset: [-0.250, 1.125]
 	}

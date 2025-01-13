@@ -114,23 +114,24 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Balloon"u8, this.ent_interactable, new Vector2(192, 96), no_mouse_close: true))
+				using (var window = GUI.Window.InteractionMisc("Balloon"u8, this.ent_interactable, new Vector2(96 + 48, 96), no_mouse_close: true))
 				{
 					//this.StoreCurrentWindowTypeID(order: -1000);
 					if (window.show)
 					{
 						ref var region = ref this.ent_balloon.GetRegion();
 
-						using (GUI.Group.New(size: GUI.Rm, padding: new(2, 2)))
+						//using (GUI.Group.New(size: GUI.Rm, padding: new(2, 2)))
 						{
 							//GUI.Text($"{this.balloon.altitude:0.00} m {this.balloon.lift_modifier:P2}");
 
-							GUI.DrawTemperatureRange(this.balloon_state.current_temperature_air, this.balloon_state.current_temperature_air, balloon.temperature_max, size: new Vector2(24, GUI.RmY));
+							//GUI.DrawTemperatureRange(this.balloon_state.current_temperature_air, region.GetAmbientTemperature(transform.position), balloon.temperature_max, size: new Vector2(24, GUI.RmY));
 							//GUI.SameLine();
 							//GUI.DrawVerticalGauge(this.balloon_state.current_lift, this.balloon_state.target_lift, this.balloon.lift_max, size: new Vector2(24, GUI.RmY), color_a: GUI.col_button_yellow, color_b: GUI.col_button_yellow);
 							//GUI.DrawHoverTooltip($"Lift:\n{this.balloon_state.current_lift:0}/{this.balloon.lift_max:0}");
-							GUI.SameLine();
-							GUI.DrawVerticalGauge(this.balloon_state.altitude, this.balloon_state.altitude, 300.00f, size: new Vector2(24, GUI.RmY));
+							//GUI.SameLine();
+							GUI.DrawGauge2(this.balloon_state.altitude, 0.00f, 300.00f, size: new(GUI.RmY));
+							//GUI.DrawVerticalGauge(this.balloon_state.altitude, this.balloon_state.altitude, 300.00f, size: new Vector2(24, GUI.RmY));
 							GUI.DrawHoverTooltip($"Altitude:\n{this.balloon_state.altitude:0}/{300.00f:0}m");
 
 							//GUI.DrawTemperatureRange(this.burner_state.current_temperature, this.burner_state.current_temperature, 1000, size: new Vector2(24, GUI.RmY));
@@ -141,11 +142,9 @@
 
 							GUI.SameLine();
 
-
 							using (GUI.Group.New(new(GUI.RmX, 48)))
 							{
-								GUI.DrawInventoryDock(Inventory.Type.Fuel, new(48, 48));
-
+								GUI.DrawInventoryDock(Inventory.Type.Fuel, GUI.Rm);
 							}
 						}
 					}

@@ -97,8 +97,8 @@
 						{
 							type: work
 							work: bending
-							amount: 150.000
-							difficulty: 8
+							amount: 75.000
+							difficulty: 6
 							snapping: 25.000
 							group: 0
 							flags: conditional
@@ -171,8 +171,12 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
-	flags: blueprintable, wip, item
+	flags: blueprintable, item, wip
 	tags: workbench, manual, blacksmithing, metalworking, shaping
 	
 	icon:
@@ -188,4 +192,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

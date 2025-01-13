@@ -270,7 +270,7 @@ namespace TC2.Base.Components
 
 					var damage = temperature_celsius * random.NextFloatRange(0.40f, 0.80f);
 					Damage.Hit(ent_attacker: ent_body,
-						ent_owner: ent_body,
+						ent_owner: default,
 						ent_target: ent_body_parent,
 						position: body_parent.GetPosition(),
 						velocity: new Vector2(0.00f, -0.25f),
@@ -555,7 +555,7 @@ namespace TC2.Base.Components
 				{
 					var damage = modifier * health.GetMaxHealth() * random.NextFloatExtra(0.35f, 0.65f) * heat.heat_damage_mult;
 					Damage.Hit(ent_attacker: entity,
-						ent_owner: entity,
+						ent_owner: default,
 						ent_target: entity,
 						position: transform.position,
 						velocity: random.NextUnitVector2Range(1, 1),

@@ -107,7 +107,7 @@
 						}
 						{
 							type: work
-							work: calibration
+							work: assembling
 							amount: 450.000
 							amount_min: 350.000
 							difficulty: 6
@@ -131,18 +131,17 @@
 					
 					filter_tools:
 					{
-						require: ruler, screwdriver
-						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
 					}
 					filter_equipment:
 					{
 						require: table
-						include: table, chair, vise
-					}
-					filter_environment:
-					{
-						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
-						exclude: scary
+						include: anvil, table, chair, vise
 					}
 				}
 				{
@@ -163,7 +162,7 @@
 						}
 						{
 							type: work
-							work: calibration
+							work: assembling
 							amount: 450.000
 							amount_min: 350.000
 							difficulty: 6
@@ -187,18 +186,17 @@
 					
 					filter_tools:
 					{
-						require: ruler, screwdriver
-						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
 					}
 					filter_equipment:
 					{
 						require: table
-						include: table, chair, vise
-					}
-					filter_environment:
-					{
-						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
-						exclude: scary
+						include: anvil, table, chair, vise
 					}
 				}
 				{
@@ -219,7 +217,7 @@
 						}
 						{
 							type: work
-							work: calibration
+							work: assembling
 							amount: 450.000
 							amount_min: 350.000
 							difficulty: 6
@@ -243,18 +241,17 @@
 					
 					filter_tools:
 					{
-						require: ruler, screwdriver
-						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater
 					}
 					filter_equipment:
 					{
 						require: table
-						include: table, chair, vise
-					}
-					filter_environment:
-					{
-						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
-						exclude: scary
+						include: anvil, table, chair, vise
 					}
 				}
 			]
@@ -344,8 +341,12 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
-	flags: no_amount_multiplier, wip, item
+	flags: no_amount_multiplier, item, wip
 	tags: workbench, manual, magitronics, machinery, assembling, metalworking, engineering
 	
 	icon:
@@ -362,4 +363,6 @@
 	min: 1
 	max: 1
 	step: 1
+	
+	version: 0
 }

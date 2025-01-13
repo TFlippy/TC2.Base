@@ -79,7 +79,7 @@ namespace TC2.Base.Components
 							if (damage >= 10.00f)
 							{
 								Damage.Hit(ent_attacker: ent_water,
-									ent_owner: ent_water,
+									ent_owner: default,
 									ent_target: entity,
 									position: body.GetPosition(),
 									velocity: arbiter.GetRelativeVelocity(),

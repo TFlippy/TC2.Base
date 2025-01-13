@@ -96,7 +96,6 @@ namespace TC2.Base.Components
 						amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
 						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
-						ent_target: ent_attacker,
 						ent_owner: ent_owner,
 						angular_velocity: body.GetAngularVelocity(),
 						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
@@ -112,7 +111,6 @@ namespace TC2.Base.Components
 						amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
 						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
-						ent_target: ent_attacker,
 						ent_owner: ent_owner,
 						angular_velocity: body.GetAngularVelocity(),
 						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
@@ -161,8 +159,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 512)]
 		public partial struct Data(): IComponent
 		{
-			public float merge_radius = 2.00f;
-			public float spawn_radius = 0.00f;
+			public float merge_radius = 2.50f;
+			public float spawn_radius = 1.50f;
 
 			[Save.TrimEmpty]
 			public FixedArray8<Lootable.Item> items;
@@ -187,7 +185,14 @@ namespace TC2.Base.Components
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
 						if (amount >= Resource.epsilon)
 						{
-							Resource.Spawn(ref region, item.material, pos + random.NextUnitVector2Range(0.00f, lootable.spawn_radius), amount, lootable.merge_radius, flags: Resource.SpawnFlags.Merge, velocity: (body.GetVelocity() * 0.20f) + random.NextUnitVector2Range(0.50f, 6.50f), angular_velocity: body.GetAngularVelocity() + random.NextFloatRange(-2.50f, 2.50f));
+							Resource.Spawn(region: ref region,
+								material: item.material,
+								world_position: pos + random.NextUnitVector2Range(lootable.spawn_radius * 0.50f, lootable.spawn_radius),
+								amount: amount,
+								max_distance: lootable.merge_radius,
+								flags: Resource.SpawnFlags.Merge,
+								velocity: (body.GetVelocity() * 0.20f) + random.NextUnitVector2Range(0.50f, 6.50f),
+								angular_velocity: body.GetAngularVelocity() + random.NextFloatRange(-2.50f, 2.50f));
 						}
 						item = default;
 					}

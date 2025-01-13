@@ -28,7 +28,7 @@ body:
 		
 		layer: entity, solid, furniture, flammable, ignore_melee, background
 
-		miss_chance: 0.350
+		miss_chance: 0.750
 	}
 }
 
