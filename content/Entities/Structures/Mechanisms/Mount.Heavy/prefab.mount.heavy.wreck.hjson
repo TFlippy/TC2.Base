@@ -94,7 +94,6 @@ storage:
 {
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 5.000
 		type: ammo
 		flags: standalone, ignore_mass
@@ -112,23 +111,19 @@ harvestable:
 	[
 		{
 			material: scrap.ferrous
-			quantity: 500.000
-			chance: 0.780
+			quantity: 400.000
 		}
 		{
 			material: scrap.machine
 			quantity: 75.000
-			chance: 0.550
 		}
 		{
-			material: machine_parts
-			quantity: 45.000
-			chance: 0.290
+			material: steel.frames
+			quantity: 85.000
 		}
 		{
-			material: scrap.concrete
-			quantity: 680.000
-			chance: 0.700
+			material: brick.concrete
+			quantity: 450.000
 		}
 	]
 }

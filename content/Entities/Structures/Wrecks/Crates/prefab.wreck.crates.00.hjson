@@ -86,12 +86,10 @@ harvestable:
 		{
 			material: "scrap.mixed"
 			quantity: 50.000
-			chance: 0.680
 		}
 		{
 			material: "wood"
-			quantity: 120.000
-			chance: 0.780
+			quantity: 35.000
 		}
 	]
 }

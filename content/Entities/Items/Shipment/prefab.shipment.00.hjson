@@ -21,6 +21,7 @@ body:
 		layer: entity, crate, shipment, solid, flammable
 		mask: world, crate
 		material: wood
+		miss_chance: 0.850
 	}
 }
 

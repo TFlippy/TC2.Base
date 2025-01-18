@@ -19,8 +19,7 @@ body:
 			[-1.125, -0.375]
 			[1.375, -0.250]
 		]
-		offset: [0.000, 0.000]
-		mass: 834.000
+		mass: 934.000
 		friction: 0.960
 		elasticity: 0.400
 		radius: 0.500
@@ -33,7 +32,7 @@ body:
 
 health:
 {
-	max: 24000.000
+	max: 30000.000
 }
 
 animated.renderer:
@@ -64,8 +63,8 @@ harvestable:
 			quantity: 200.000
 		}
 		{
-			material: steel.plate
-			quantity: 70.000
+			material: steel.frames
+			quantity: 60.000
 		}
 		{
 			material: machine_parts

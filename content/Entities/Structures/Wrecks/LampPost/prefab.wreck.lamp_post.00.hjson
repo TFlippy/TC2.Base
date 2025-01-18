@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 2000.000
+	max: 8000.000
 }
 
 animated.renderer:
@@ -50,24 +50,19 @@ harvestable:
 	[
 		{
 			material: scrap.ferrous
-			quantity: 48.000
-			chance: 0.620
+			quantity: 65.000
 		}
 		{
 			material: steel.frames
-			quantity: 19.000
-			chance: 0.251
+			quantity: 25.000
 		}
 		{
 			material: steel.rod
-			flags: drop_on_break
-			quantity: 10.000
+			quantity: 15.000
 		}
 		{
 			material: limelight
 			quantity: 4.000
-			chance: 0.125
-			chance_drop: 0.533
 		}
 	]
 }

@@ -15,7 +15,7 @@ body:
 		a: [0.000, -2.500]
 		b: [0.000, 2.500]
 		offset: [0.000, 0.000]
-		mass: 50.000
+		mass: 80.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 2200.000
+	max: 8200.000
 }
 
 animated.renderer:
@@ -69,10 +69,10 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 30.000
+			quantity: 20.000
 		}
 		{
-			material: "steel.frames"
+			material: "steel.rod"
 			quantity: 12.000
 		}
 	]

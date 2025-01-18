@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 1600.000
+	max: 3600.000
 }
 
 animated.renderer:
@@ -68,7 +68,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "wood"
+			material: "wood.rod"
 			quantity: 30.000
 		}
 		{

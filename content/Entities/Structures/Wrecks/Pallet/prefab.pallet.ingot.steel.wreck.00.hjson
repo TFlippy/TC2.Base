@@ -21,7 +21,7 @@ body:
 			[0.500, -0.375]
 		]
 		radius: 0.250
-		mass: 810.000
+		mass: 1210.000
 		friction: 0.850
 		elasticity: 0.600
 		material: metal_solid
@@ -34,7 +34,7 @@ body:
 
 health:
 {
-	max: 20000.000
+	max: 30000.000
 }
 
 holdable:
@@ -65,12 +65,10 @@ harvestable:
 	[
 		{
 			material: "steel.ingot"
-			quantity: 200.000
-			chance: 0.420
+			quantity: 100.000
 		}
 		{
 			material: "wood"
-			flags: drop_on_break
 			quantity: 10.000
 		}
 	]

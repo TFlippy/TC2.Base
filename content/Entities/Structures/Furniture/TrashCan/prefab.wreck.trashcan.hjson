@@ -17,9 +17,10 @@ body:
 		mass: 15.000
 		friction: 0.750
 		elasticity: 0.600
-		material: scrap
-		layer: entity, solid, ignore_bullet
+		material: metal_sheet
+		layer: entity, solid, background, furniture
 		mask: world
+		miss_chance: 0.735
 	}
 }
 

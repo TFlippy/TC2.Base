@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 1800.000
+	max: 4800.000
 }
 
 animated.renderer:
@@ -51,13 +51,11 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 38.000
-			chance: 0.651
+			quantity: 45.000
 		}
 		{
 			material: steel.frames
-			quantity: 7.000
-			chance: 0.251
+			quantity: 5.000
 		}
 	]
 }

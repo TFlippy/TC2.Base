@@ -10,13 +10,14 @@ body:
 	{
 		a: [-2.000, 0.000]
 		b: [2.000, 0.000]
-		mass: 480.000
+		mass: 890.000
 		radius: 0.400
 		friction: 0.900
 		elasticity: 0.250
 		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, item
 		mask: world
+		miss_chance: 0.435
 	}
 }
 
@@ -117,7 +118,7 @@ animated.renderer:
 
 health:
 {
-	max: 15000.000
+	max: 55000.000
 }
 
 armor:
@@ -167,11 +168,15 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 230.000
+			quantity: 185.000
 		}
 		{
-			material: "steel.ingot"
-			quantity: 40.000
+			material: "scrap.metal"
+			quantity: 85.000
+		}
+		{
+			material: "steel"
+			quantity: 50.000
 		}
 		{
 			material: "machine_parts"

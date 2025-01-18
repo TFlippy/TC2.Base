@@ -18,8 +18,9 @@ body:
 		friction: 0.850
 		elasticity: 0.400
 		material: metal_sheet
-		layer: entity, solid, background, furniture, ignore_bullet
+		layer: entity, solid, background, furniture
 		mask: world
+		miss_chance: 0.835
 	}
 }
 
@@ -54,11 +55,11 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 20.000
+			quantity: 15.000
 		}
 		{
 			material: "steel.plate"
-			quantity: 5.000
+			quantity: 4.000
 		}
 	]
 }

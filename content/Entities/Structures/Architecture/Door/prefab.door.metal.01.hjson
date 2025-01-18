@@ -26,13 +26,13 @@ body:
 
 health:
 {
-	max: 18000.000
+	max: 68000.000
 }
 
 armor:
 {
 	toughness: 800.000
-	protection: 0.750
+	protection: 0.950
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000

@@ -24,6 +24,7 @@ body:
 		mask: world, crate
 		exclude: attached
 		material: wood
+		miss_chance: 0.635
 	}
 }
 

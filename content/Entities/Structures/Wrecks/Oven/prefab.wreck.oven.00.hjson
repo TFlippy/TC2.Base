@@ -21,7 +21,7 @@ body:
 		radius: 0.250
 		friction: 0.500
 		elasticity: 0.500
-		mass: 150.000
+		mass: 180.000
 		material: wreck
 		layer: entity, background, furniture, ignore_bullet, ignore_melee
 		mask: world
@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 4000.000
+	max: 8000.000
 }
 
 animated.renderer:
@@ -53,18 +53,15 @@ harvestable:
 	[
 		{
 			material: "scrap.steel"
-			quantity: 60.000
-			chance: 0.351
+			quantity: 45.000
 		}
 		{
-			material: "scrap.ferrous"
+			material: "steel.plate"
 			quantity: 24.000
-			chance: 0.851
 		}
 		{
 			material: "steel.frames"
 			quantity: 15.000
-			chance: 0.651
 		}
 	]
 }

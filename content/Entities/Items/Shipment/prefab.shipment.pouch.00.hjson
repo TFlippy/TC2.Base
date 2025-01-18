@@ -21,6 +21,7 @@ body:
 		layer: entity, shipment, solid, flammable
 		mask: world
 		material: leather
+		miss_chance: 0.350
 	}
 }
 
