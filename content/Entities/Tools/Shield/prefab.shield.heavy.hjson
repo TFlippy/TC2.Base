@@ -108,7 +108,7 @@ melee:
 	aoe: 1.000
 	thickness: 1.000
 	knockback: 330.000
-	yield: 0.800
+	yield: 0.400
 	penetration_falloff: 0.800
 	penetration: 3
 	damage_type: blunt

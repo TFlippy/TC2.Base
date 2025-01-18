@@ -48,14 +48,14 @@ namespace TC2.Base.Components
 
 				body.AddForce(dir * body.GetMass() * App.tickrate * biter.velocity);
 
-				Span<LinecastResult> results = stackalloc LinecastResult[16];
+				Span<LinecastResult> results = FixedArray.CreateSpan16<LinecastResult>(out var buffer); // stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), biter.thickness, ref results, mask: biter.hit_mask, exclude: biter.hit_exclude))
 				{
 					results.SortByDistance();
 
 					var parent = body.GetParent();
 					var modifier = 1.00f;
-					var flags = Damage.Flags.None;
+					var flags = Damage.Flags.No_Loot_Drop | Damage.Flags.No_Loot_Pickup;
 					var hit_terrain = false;
 
 					var penetration = biter.penetration;
@@ -82,7 +82,7 @@ namespace TC2.Base.Components
 						//	damage: damage * modifier, damage_type: biter.damage_type,
 						//	target_material_type: result.material_type, knockback: biter.knockback, size: biter.aoe, flags: flags, speed: 8.00f);
 
-						Damage.Hit(ent_attacker: entity, ent_owner: parent, ent_target: result.entity,
+						Damage.Hit(ent_attacker: entity, ent_owner: default, ent_target: result.entity,
 							position: result.world_position, velocity: dir * 8.00f, normal: -dir,
 							damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 							target_material_type: result.material_type, damage_type: biter.damage_type,

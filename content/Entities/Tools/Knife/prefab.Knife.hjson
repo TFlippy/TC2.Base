@@ -52,7 +52,7 @@ melee:
 	hit_offset: [0.250, 0.000]
 	aoe: 0.250
 	knockback: 80.000
-	yield: 0.800
+	yield: 1.500
 	penetration_falloff: 0.900
 	penetration: 0
 	damage_type: stab

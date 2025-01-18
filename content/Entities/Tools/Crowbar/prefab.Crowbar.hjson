@@ -40,7 +40,7 @@ melee:
 	hit_offset: [0.375, 0.000]
 	aoe: 0.500
 	knockback: 300.000
-	yield: 0.850
+	yield: 1.280
 	penetration_falloff: 0.900
 	penetration: 1
 	damage_type: club

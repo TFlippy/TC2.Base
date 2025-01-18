@@ -44,7 +44,7 @@ melee:
 	hit_offset: [0.500, 0.000]
 	aoe: 0.750
 	knockback: 135.000
-	yield: 0.820
+	yield: 1.120
 	penetration_falloff: 0.500
 	penetration: 3
 	damage_type: axe

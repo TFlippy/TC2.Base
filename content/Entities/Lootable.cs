@@ -35,7 +35,7 @@ namespace TC2.Base.Components
 		public static void OnDamage(ref Region.Data region, ISystem.Info info, Entity entity, ref Health.DamageEvent data, ref XorRandom random,
 		[Source.Owned] in Health.Data health, [Source.Owned] ref Resource.Data resource, [Source.Owned] ref Breakable.Data breakable, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
 		{
-			if (data.flags.HasAny(Damage.Flags.No_Loot_Drop | Damage.Flags.No_Damage)) return;
+			if (data.flags.HasAny(Damage.Flags.No_Loot_Drop | Damage.Flags.No_Damage) || data.yield <= 0.01f) return;
 
 #if SERVER
 			//var yield = data.yield;

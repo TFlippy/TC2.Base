@@ -46,7 +46,7 @@ melee:
 	knockback: 300.000
 	thickness: 0.250
 	hit_offset: [1.250, 0.000]
-	yield: 0.700
+	yield: 0.500
 	penetration_falloff: 0.900
 	penetration: 0
 	damage_type: stab

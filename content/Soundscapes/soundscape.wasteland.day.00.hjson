@@ -23,7 +23,7 @@
 	[
 		{
 			time_minmax: [25.000, 60.000]
-			volume_minmax: [0.140, 0.160]
+			volume_minmax: [0.110, 0.130]
 			pitch_minmax: [0.850, 0.950]
 			
 			sounds:
