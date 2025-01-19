@@ -271,8 +271,9 @@
 			[Save.Ignore, Net.Ignore] public Entity ent_projectile_next;
 			[Save.Ignore, Net.Ignore] public float angle_jitter;
 			[Save.Ignore, Net.Ignore] public float muzzle_velocity;
-			[Save.Ignore, Net.Ignore] public float next_cycle;
-			[Save.Ignore, Net.Ignore] public float next_reload;
+			[Save.Ignore, Net.Ignore] public float t_last_fired;
+			[Save.Ignore, Net.Ignore] public float t_next_cycle;
+			[Save.Ignore, Net.Ignore] public float t_next_reload;
 		}
 
 		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)
@@ -475,7 +476,7 @@
 						if (this.gun_state.stage == Gun.Stage.Reloading)
 						{
 							GUI.TitleCentered("Reloading"u8, pivot: new(0.50f, 0.00f));
-							GUI.TitleCentered(Maths.Max(this.gun_state.next_reload - region.GetWorldTime(), 0.00f), format: "0.00", pivot: new(0.50f, 1.00f));
+							GUI.TitleCentered(Maths.Max(this.gun_state.t_next_reload - region.GetWorldTime(), 0.00f), format: "0.00", pivot: new(0.50f, 1.00f));
 						}
 					}
 				}
@@ -856,7 +857,7 @@
 				gun_state.hints.AddFlag(Gun.Hints.Cancel_Reload);
 			}
 
-			if (time < gun_state.next_reload) return;
+			if (time < gun_state.t_next_reload) return;
 
 #if SERVER
 			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
@@ -873,7 +874,7 @@
 			// TODO: make this better
 			if (gun_state.hints.TryRemoveFlag(Gun.Hints.Cancel_Reload))
 			{
-				if (gun_state.stage == Gun.Stage.Reloading && gun.flags.HasNone(Gun.Flags.Full_Reload) && gun_state.resource_ammo.quantity >= 2.00f)
+				if (gun_state.stage == Gun.Stage.Reloading && gun.flags.HasNone(Gun.Flags.Full_Reload) && gun_state.resource_ammo.quantity >= 1.00f && (time - gun_state.t_last_fired) >= 1.50f)
 				{
 					gun_state.stage = Gun.Stage.Cycling;
 #if SERVER
@@ -907,7 +908,7 @@
 				}
 				else if (storage.inv_storage.TryGetHandle(out var h_inventory))  // Reloading
 				{
-					gun_state.next_reload = info.WorldTime + gun.reload_interval;
+					gun_state.t_next_reload = info.WorldTime + gun.reload_interval;
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
 					if (material_ammo.IsNotNull() && material_ammo.flags.HasNone(gun.ammo_filter)) inventory_magazine.resource.material = default;
@@ -977,7 +978,7 @@
 					}
 					else
 					{
-						gun_state.next_reload = info.WorldTime + 0.10f;
+						gun_state.t_next_reload = info.WorldTime + 0.10f;
 						gun_state.hints.AddFlag(Gun.Hints.No_Ammo);
 #if SERVER
 						gun_state.stage = Gun.Stage.Ready;
@@ -999,6 +1000,8 @@
 			var time = info.WorldTime;
 			if (gun_state.stage == Gun.Stage.Fired)
 			{
+				gun_state.t_last_fired = time;
+
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
@@ -1287,7 +1290,7 @@
 					gun_state.stage = Gun.Stage.Ready;
 				}
 
-				gun_state.next_reload = time + Maths.Lerp(gun.cycle_interval * 3.00f, gun.reload_interval * 0.50f, 0.50f);
+				gun_state.t_next_reload = time + Maths.Lerp(gun.cycle_interval * 3.00f, gun.reload_interval * 0.50f, 0.50f);
 
 #if SERVER
 				if (force_jammed || random.NextBool(failure_rate))
@@ -1414,7 +1417,7 @@
 			{
 				case Gun.Stage.Cycling:
 				{
-					if (time < gun_state.next_cycle) break;
+					if (time < gun_state.t_next_cycle) break;
 
 					if (gun_state.hints.HasAny(Gun.Hints.Cycled))
 					{
@@ -1425,7 +1428,7 @@
 						var cycle_interval = gun.cycle_interval;
 						//if (!gun.flags.HasAll(Gun.Flags.Automatic)) cycle_interval = gunslinger.ApplyShootSpeed(cycle_interval);
 
-						gun_state.next_cycle = info.WorldTime + cycle_interval;
+						gun_state.t_next_cycle = info.WorldTime + cycle_interval;
 						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
 						{
 #if CLIENT
@@ -1490,7 +1493,6 @@
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
@@ -1561,7 +1563,7 @@
 			}
 			else if (gun_state.stage == Gun.Stage.Jammed)
 			{
-				if (info.WorldTime >= gun_state.next_cycle && (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload)))
+				if (info.WorldTime >= gun_state.t_next_cycle && (control.mouse.GetKeyDown(Mouse.Key.Left) || control.keyboard.GetKeyDown(Keyboard.Key.Reload)))
 				{
 					body.AddImpulse(transform.Down.RotateByDeg(random.NextFloatRange(-20.00f, 20.00f)) * Maths.Min(500, body.GetMass() * random.NextFloatRange(7.50f, 15.00f)));
 
@@ -1573,7 +1575,7 @@
 						//gun_state.stage = Gun.Stage.Reloading;
 
 						gun_state.hints.AddFlag(Gun.Hints.Wants_Reload);
-						gun_state.next_cycle = info.WorldTime + gun.reload_interval;
+						gun_state.t_next_cycle = info.WorldTime + gun.reload_interval;
 						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
@@ -1582,7 +1584,7 @@
 					else
 					{
 						gun_state.stage = Gun.Stage.Jammed;
-						gun_state.next_cycle = info.WorldTime + gun.cycle_interval;
+						gun_state.t_next_cycle = info.WorldTime + gun.cycle_interval;
 						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
