@@ -574,6 +574,7 @@ namespace TC2.Base.Components
 #if CLIENT
 						if (draw_gui && result.entity.IsValid())
 						{
+							//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
 							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
 							GUI.SetCursor(App.CursorType.Attack, 1000);
 						}
@@ -616,6 +617,7 @@ namespace TC2.Base.Components
 #if CLIENT
 							if (draw_gui && result.entity.IsValid())
 							{
+								//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
 								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
 								GUI.SetCursor(App.CursorType.Attack, 1000);
 							}
