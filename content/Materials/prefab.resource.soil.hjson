@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.200
+	buoyancy: 0.900
 
 	@shape.circle:
 	{
@@ -12,8 +12,8 @@ body:
 		friction: 0.950
 		elasticity: 0.100
 		material: soil
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
-		mask: world, bulk
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
 		exclude: held, stored
 	}
 }
@@ -60,26 +60,18 @@ despawn:
 
 health:
 {
-	max: 3000.000
+	max: 15000.000
 }
 
 breakable:
 {
-	h_material: "null"
-	
-	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
-	
-	material_type: none
-	material_flags: none
+	flags: no_damage, splittable
 }
 
 wettable:
 {
 	flags: damage_if_wet
-	absorption: 0.050
+	absorption: 0.250
 	damage_multiplier: 500.000
 	damage_interval: 1.500
 }

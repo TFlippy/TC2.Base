@@ -623,7 +623,19 @@ namespace TC2.Base.Components
 
 							if (do_hit)
 							{
-								Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, (closest_result.normal_raw - dir).GetNormalizedFast(), result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+								Melee.Hit(region: ref region,
+									ent_attacker: ent_melee,
+									ent_owner: ent_parent,
+									ent_target: result.entity,
+									hit_pos: pos_hit,
+									dir: dir,
+									normal: result.normal, // (closest_result.normal_raw - dir).GetNormalizedFast(),
+									material_type: result.material_type,
+									melee: in melee,
+									melee_state: ref melee_state,
+									random: ref random,
+									damage_multiplier: modifier,
+									h_faction: h_faction);
 							}
 
 							if (i == index_max) break;
@@ -644,7 +656,19 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
-						Melee.Hit(ref region, ent_melee, ent_parent, result.entity, pos_hit, dir, (closest_result.normal_raw - dir).GetNormalizedFast(), result.material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+						Melee.Hit(region: ref region,
+							ent_attacker: ent_melee,
+							ent_owner: ent_parent,
+							ent_target: result.entity,
+							hit_pos: pos_hit,
+							dir: dir,
+							normal: result.normal, // (closest_result.normal_raw - dir).GetNormalizedFast(),
+							material_type: result.material_type,
+							melee: in melee,
+							melee_state: ref melee_state,
+							random: ref random,
+							damage_multiplier: modifier,
+							h_faction: h_faction);
 					}
 				}
 			}
@@ -663,7 +687,19 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
-						Melee.Hit(ref region, ent_melee, ent_parent, default, pos_target, dir, -dir, material_type, in melee, ref melee_state, ref random, damage_multiplier: modifier, h_faction: h_faction);
+						Melee.Hit(region: ref region,
+							ent_attacker: ent_melee,
+							ent_owner: ent_parent,
+							ent_target: default,
+							hit_pos: pos_target,
+							dir: dir,
+							normal: -dir,
+							material_type: material_type,
+							melee: in melee,
+							melee_state: ref melee_state,
+							random: ref random,
+							damage_multiplier: modifier,
+							h_faction: h_faction);
 					}
 				}
 			}

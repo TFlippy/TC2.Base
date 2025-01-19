@@ -13,6 +13,7 @@ namespace TC2.Base.Components
 			No_Damage = 1 << 0,
 			No_Offset = 1 << 1,
 			No_Mass_Conversion = 1 << 2,
+			Splittable = 1 << 3,
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
@@ -32,33 +33,33 @@ namespace TC2.Base.Components
 
 		[Shitcode]
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnDamage(ref Region.Data region, ISystem.Info info, Entity entity, ref Health.DamageEvent data, ref XorRandom random,
-		[Source.Owned] in Health.Data health, [Source.Owned] ref Resource.Data resource, [Source.Owned] ref Breakable.Data breakable, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
+		public static void OnDamage(ref Region.Data region, ISystem.Info info, Entity entity, ref Health.DamageEvent ev, ref XorRandom random,
+		[Source.Owned] in Health.Data health, [Source.Owned] ref Resource.Data resource, [Source.Owned] ref Breakable.Data breakable, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
-			if (data.flags.HasAny(Damage.Flags.No_Loot_Drop | Damage.Flags.No_Damage) || data.yield <= 0.01f) return;
+			if (ev.flags.HasAny(Damage.Flags.No_Loot_Drop | Damage.Flags.No_Damage) || ev.yield <= 0.01f) return;
 
-#if SERVER
 			//var yield = data.yield;
 			//if (yield >= 0.01f)
 			{
-				var damage = data.damage_integrity;
+				var damage = ev.damage_integrity;
 				var amount_multiplier = damage * health.GetMaxHealth().RcpFast01();
 
-				var ent_attacker = data.ent_attacker;
-				var ent_owner = data.ent_owner;
+				//var ent_attacker = data.ent_attacker;
+				var ent_owner = ev.ent_owner;
 
 				var spawn_flags = breakable.spawn_flags;
 
 				ref var material = ref resource.material.GetData();
-				if (material.IsNotNull() && material.conversions != null && material.conversions.TryGetValue(data.damage_type, out var conv) && random.NextBool(conv.chance))
+				if (material.IsNotNull() && material.conversions != null && material.conversions.TryGetValue(ev.damage_type, out var conv) && random.NextBool(conv.chance))
 				{
+#if SERVER
 					var has_no_offset = breakable.flags.HasAny(Breakable.Flags.No_Offset) | conv.spawn_flags.HasAny(Resource.SpawnFlags.No_Offset);
 					var has_no_mass_conversion = breakable.flags.HasAny(Breakable.Flags.No_Mass_Conversion) | conv.flags.HasAny(IMaterial.Conversion.Flags.No_Mass_Conversion);
 
 					var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
 					var amount_rem = amount;
 
-					var yield = Maths.Clamp01(conv.yield * data.yield);
+					var yield = Maths.Clamp01(conv.yield * ev.yield);
 
 					//ref var material_conv = ref conv.h_material.GetData();
 					//if (material_conv.IsNotNull())
@@ -92,7 +93,7 @@ namespace TC2.Base.Components
 						var spawn_flags_conv = spawn_flags | conv.spawn_flags;
 						Resource.Spawn(region: ref region,
 						material: conv.h_material,
-						world_position: has_no_offset ? body.GetPosition() : data.world_position,
+						world_position: has_no_offset ? body.GetPosition() : ev.world_position,
 						amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
 						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
@@ -107,7 +108,7 @@ namespace TC2.Base.Components
 						var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
 						Resource.Spawn(region: ref region,
 						material: conv.h_material_waste,
-						world_position: has_no_offset ? body.GetPosition() : data.world_position,
+						world_position: has_no_offset ? body.GetPosition() : ev.world_position,
 						amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
 						max_distance: breakable.merge_radius * conv.merge_radius_mult,
 						flags: spawn_flags_conv,
@@ -120,7 +121,7 @@ namespace TC2.Base.Components
 
 					if (conv.h_sound.id != 0)
 					{
-						Sound.Play(ref region, conv.h_sound, data.world_position, volume: conv.sound_volume * random.NextFloatExtra(0.90f, 0.20f), pitch: conv.sound_pitch * random.NextFloatExtra(0.95f, 0.10f));
+						Sound.Play(ref region, conv.h_sound, ev.world_position, volume: conv.sound_volume * random.NextFloatExtra(0.90f, 0.20f), pitch: conv.sound_pitch * random.NextFloatExtra(0.95f, 0.10f));
 					}
 
 					amount_rem *= yield;
@@ -129,12 +130,51 @@ namespace TC2.Base.Components
 					resource.quantity -= amount_taken;
 					resource.Modified(entity, true);
 
-					data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
+#endif
+					ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 				}
 			}
-#endif
 
-			data.knockback *= 0.10f;
+			ev.knockback *= 0.10f;
+			App.WriteValue(ev.size);
+
+			if (breakable.flags.HasAny(Flags.Splittable) && ev.flags.HasNone(Damage.Flags.No_Damage | Damage.Flags.No_Loot_Drop) && ev.size >= 1.00f && resource.GetQuantityNormalized() >= 0.20f && ev.random.NextBool((ev.size * 0.50f) + Maths.Normalize01Fast(ev.damage_integrity, health.integrity)))
+			{
+				var split_amount = resource.TakeSplit(ev.random.NextFloatRange(0.15f, 0.40f));
+
+				//var vel = ev.normal * random.NextFloatExtra(3.00f, 4.00f);
+				//var vel = ev.random.NextFloatExtra(5.00f, 4.00f);
+				//body.AddVelocity(ev.normal.RotateByRad(random.NextFloatExtra(0.50f, -1.00f)) * random.NextFloatExtra(3.00f, 4.00f));
+				//body.AddVelocity((ev.normal) * vel);
+
+
+#if SERVER
+				//var vel = ev.normal * random.NextFloatExtra(3.00f, 4.00f);
+				//body.AddVelocity(ev.normal.RotateByRad(random.NextFloatExtra(0.50f, -1.00f)) * random.NextFloatExtra(3.00f, 4.00f));
+
+
+
+				//var vel = ev.normal.RotateByRad(random.NextFloat(1)) * random.NextFloatExtra(1.00f, 4.00f);
+				var vel = (ev.normal.RotateByRad(random.NextFloat(0.50f))) * random.NextFloatExtra(4.00f, 4.00f);
+
+
+				resource.Modified(entity, sync: true);
+				Resource.Spawn(region: ref region,
+				material: resource.material,
+				world_position: body.GetPosition() + ((body.Up + ev.normal) * 0.50f),
+				amount: split_amount,
+				max_distance: 0.00f,
+				flags: Resource.SpawnFlags.No_Offset,
+				//velocity: (ev.normal + body.Right) * vel);
+				velocity: vel);
+
+				//App.WriteValue(ev.normal);
+				
+				//region.DrawDebugDir(ev.world_position, ev.normal, color: Color32BGRA.Magenta, 4);
+#endif
+				ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
+			}
+
 			//data.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 		}
 	}

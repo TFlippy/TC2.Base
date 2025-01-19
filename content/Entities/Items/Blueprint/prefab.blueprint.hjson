@@ -8,14 +8,16 @@ body:
 
 	@shape.box:
 	{
-		size: [1.000, 0.625]
-		radius: 0.200
+		size: [0.875, 0.500]
+		
 		mass: 0.500
+		radius: 0.200
 		friction: 0.950
 		elasticity: 0.020
+		
 		material: paper
-		layer: entity, solid, flammable, ignore_bullet, ignore_melee
-		mask: world
+		
+		layer: entity, solid, flammable, ignore_melee, ignore_bullet
 	}
 }
 
@@ -35,6 +37,7 @@ animated.renderer:
 	{
 		texture: "blueprint"
 	}
+	scale: [0.800, 0.800]
 }
 
 transform:
@@ -57,4 +60,12 @@ blueprint:
 faction:
 {
 
+}
+
+wettable:
+{
+	flags: damage_if_wet
+	absorption: 0.450
+	damage_multiplier: 400.000
+	damage_interval: 1.000
 }
