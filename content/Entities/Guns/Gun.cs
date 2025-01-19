@@ -133,6 +133,7 @@
 			Supressive_Fire = 1 << 8,
 			Long_Range = 1 << 9,
 			Close_Range = 1 << 10,
+			Cancel_Reload = 1 << 11,
 
 			[Net.Ignore] Eject_Pending = 1 << 15,
 		}
@@ -848,6 +849,13 @@
 			gun_state.resource_ammo.quantity = inventory_magazine.resource.quantity;
 
 			var time = info.WorldTime;
+
+			// Wants to shoot mid-reloading (e.g. shotgun)
+			if (gun_state.stage == Gun.Stage.Reloading && control.mouse.GetKeyDown(Mouse.Key.Left))
+			{
+				gun_state.hints.AddFlag(Gun.Hints.Cancel_Reload);
+			}
+
 			if (time < gun_state.next_reload) return;
 
 #if SERVER
@@ -862,10 +870,24 @@
 			}
 #endif
 
+			// TODO: make this better
+			if (gun_state.hints.TryRemoveFlag(Gun.Hints.Cancel_Reload))
+			{
+				if (gun_state.stage == Gun.Stage.Reloading && gun.flags.HasNone(Gun.Flags.Full_Reload) && gun_state.resource_ammo.quantity >= 2.00f)
+				{
+					gun_state.stage = Gun.Stage.Cycling;
+#if SERVER
+					gun_state.Sync(entity, true);
+#endif
+				}
+			}
+
 			if (gun_state.stage == Gun.Stage.Reloading)
 			{
 				if ((inventory_magazine.resource.quantity >= gun.max_ammo)) // Fully done reloading
 				{
+					gun_state.hints.RemoveFlag(Gun.Hints.Cancel_Reload);
+
 					if (gun.flags.HasAny(Gun.Flags.Cycled_When_Reloaded))
 					{
 						if (gun_state.hints.TryAddFlag(Gun.Hints.Cycled))
@@ -878,14 +900,6 @@
 					{
 						gun_state.stage = Gun.Stage.Cycling;
 					}
-
-#if SERVER
-					gun_state.Sync(entity, true);
-#endif
-				}
-				else if (gun.flags.HasNone(Gun.Flags.Full_Reload) && control.mouse.GetKeyDown(Mouse.Key.Left) && gun_state.hints.HasAny(Gun.Hints.Loaded)) // Wants to shoot mid-reloading (e.g. shotgun)
-				{
-					gun_state.stage = Gun.Stage.Cycling;
 
 #if SERVER
 					gun_state.Sync(entity, true);

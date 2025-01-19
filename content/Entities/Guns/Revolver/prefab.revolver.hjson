@@ -27,40 +27,39 @@ gun:
 {
 	muzzle_offset: [0.625, -0.250]
 	receiver_offset: [-0.125, -0.125]
-
+	
 	eject_direction: [-2.800, -5.400]
 	eject_angular_velocity: 5.000
-
-	sound_shoot: "revolver_shoot"
-	sound_cycle: "revolver_cycle"
-	sound_reload: "revolver_reload"
-	velocity_multiplier: 370.000
-	jitter_multiplier: 1.450
-	damage_multiplier: 2.600
-	recoil_multiplier: 2.200
-	reload_interval: 0.600
-	cycle_interval: 0.100
-	failure_rate: 0.002
-	max_ammo: 6.000
 	flash_size: 0.700
-	projectile_count: 1
-	flags: none
-	ammo_filter: ammo_hc
-	action: revolver
-	type: handgun
-	feed: cylinder
-
-	heuristic_range: 18.000
-	stability: 640.000
 	
 	shake_amount: 0.390
 	
+	sound_shoot: revolver_shoot
+	sound_cycle: revolver_cycle
+	sound_reload: revolver_reload
+	
+	damage_multiplier: 2.600
+	velocity_multiplier: 370.000
+	jitter_multiplier: 1.250
+	recoil_multiplier: 2.200
+	reload_interval: 0.600
+	cycle_interval: 0.100
+	stability: 840.000
+	failure_rate: 0.001
+	
+	ammo_filter: ammo_hc
+	max_ammo: 6.000
+	
+	action: revolver
+	type: handgun
+	feed: cylinder
+	heuristic_range: 18.000
+	
 	@inventory1:
 	{
-		name: "Ammo"
-		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
+		stack_size_multiplier: 1.000
 	}
 	
 	@light:
