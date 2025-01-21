@@ -9,8 +9,8 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
 			public HVAC.Flags flags;
 
@@ -25,11 +25,6 @@ namespace TC2.Base.Components
 			[Save.Ignore] public float amount_multiplier_cached;
 
 			[Save.Ignore, Net.Ignore] public float t_next_produce;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]

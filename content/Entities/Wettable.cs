@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 			Damage_If_Wet = 1u << 2,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public Wettable.Flags flags;

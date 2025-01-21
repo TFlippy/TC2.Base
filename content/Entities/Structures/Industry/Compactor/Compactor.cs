@@ -2,7 +2,7 @@
 {
 	public static partial class Compactor
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
 			[Flags]

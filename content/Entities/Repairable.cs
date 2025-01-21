@@ -9,7 +9,7 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public Repairable.Flags flags;

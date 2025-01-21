@@ -140,7 +140,7 @@ namespace TC2.Base.Components
 				Allow_Edit_Frequency = 1u << 2
 			}
 
-			[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 			public partial struct Data(): IComponent
 			{
 				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -615,7 +615,7 @@ namespace TC2.Base.Components
 				Allow_Edit_Frequency = 1 << 2
 			}
 
-			[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+			[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 			public partial struct Data(): IComponent
 			{
 				public Essence.Emitter.Type type;

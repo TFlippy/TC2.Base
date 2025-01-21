@@ -2,7 +2,7 @@
 {
 	public static partial class Fillable
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
 			[Flags]

@@ -3,7 +3,7 @@
 	public static partial class Controllable
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -25,11 +25,6 @@
 
 			[Net.Ignore, Save.Ignore] public float t_last_sync;
 			[Net.Ignore, Save.Ignore] public float t_last_flip;
-
-			public Data()
-			{
-
-			}
 		}
 
 		//#if SERVER

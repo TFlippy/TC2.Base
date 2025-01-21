@@ -12,7 +12,7 @@
 			No_Velocity_Rotate = 1 << 2,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
 			public Vector2 offset;

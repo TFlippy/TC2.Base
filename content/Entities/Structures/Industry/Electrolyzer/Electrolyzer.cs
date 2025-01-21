@@ -2,7 +2,7 @@
 {
 	public static partial class Electrolyzer
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Electrolyzer.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Electrolyzer.State>]
 		public struct Data: IComponent
 		{
 			[Flags]
@@ -22,7 +22,7 @@
 			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct State: IComponent
 		{
 
