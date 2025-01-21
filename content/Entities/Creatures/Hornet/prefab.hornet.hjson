@@ -215,7 +215,7 @@ melee:
 	aoe: 0.350
 	thickness: 0.150
 	knockback: 1500.000
-	yield: 0.950
+	yield: 0.500
 	penetration_falloff: 0.900
 	penetration: 0
 	damage_type: sting
@@ -223,6 +223,7 @@ melee:
 	flags: no_handle
 	hit_mask: destructible
 	hit_exclude: background, tree, ignore_melee, world
+	damage_flags_add: no_loot_pickup, no_loot_drop
 }
 
 melee.state:

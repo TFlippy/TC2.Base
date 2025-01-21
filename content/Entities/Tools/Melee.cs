@@ -125,6 +125,9 @@ namespace TC2.Base.Components
 
 			public Melee.Flags flags;
 
+			public Damage.Flags damage_flags_add;
+			public Damage.Flags damage_flags_rem;
+
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_require;
 			public Physics.Layer hit_exclude;
@@ -851,6 +854,9 @@ namespace TC2.Base.Components
 
 #if SERVER
 			var damage = melee.damage_base + random.NextFloatRange(0.00f, melee.damage_bonus) * damage_multiplier;
+			var damage_flags = Damage.Flags.None;
+			damage_flags.AddRemFlags(melee.damage_flags_add, melee.damage_flags_rem);
+
 			//Damage.Hit(attacker: ent_attacker, owner: ent_owner, target: ent_target,
 			//	world_position: hit_pos, direction: dir, normal: normal,
 			//	damage: damage, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
@@ -859,7 +865,7 @@ namespace TC2.Base.Components
 			Damage.Hit(ent_attacker: ent_attacker, ent_owner: ent_owner, ent_target: ent_target,
 				position: hit_pos, velocity: dir * 8.00f, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
-				target_material_type: material_type, damage_type: melee.damage_type,
+				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags,
 				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
 			if (melee.disarm_chance > 0.00f && random.NextBool(melee.disarm_chance) && ent_target.IsValid())

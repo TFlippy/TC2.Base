@@ -574,7 +574,7 @@ faction:
 			aoe: 1.250
 			thickness: 1.250
 			knockback: -2650.000
-			yield: 0.800
+			yield: 0.300
 			penetration_falloff: 0.800
 			penetration: 3
 			damage_type: slash
@@ -583,6 +583,7 @@ faction:
 			hit_mask: item, creature, vehicle, door, organic, wheel, shield, held, attached
 			hit_require: destructible
 			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
+			damage_flags_add: no_loot_pickup, no_loot_drop
 		}
 
 		melee.state:

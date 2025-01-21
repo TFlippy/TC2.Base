@@ -369,7 +369,7 @@ faction:
 			aoe: 0.750
 			thickness: 0.750
 			knockback: -100.000
-			yield: 0.800
+			yield: 0.300
 			penetration_falloff: 0.900
 			penetration: 1
 			damage_type: bite
@@ -378,6 +378,7 @@ faction:
 			hit_mask: organic, creature, door
 			hit_require: destructible
 			hit_exclude: background, tree, ignore_melee, world, water, gas, essence
+			damage_flags_add: no_loot_pickup, no_loot_drop
 		}
 
 		melee.state:
