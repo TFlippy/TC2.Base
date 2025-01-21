@@ -136,7 +136,7 @@ namespace TC2.Base.Components
 			}
 
 			ev.knockback *= 0.10f;
-			App.WriteValue(ev.size);
+			//App.WriteValue(ev.size);
 
 			if (breakable.flags.HasAny(Flags.Splittable) && ev.flags.HasNone(Damage.Flags.No_Damage | Damage.Flags.No_Loot_Drop) && ev.size >= 1.00f && resource.GetQuantityNormalized() >= 0.20f && ev.random.NextBool((ev.size * 0.50f) + Maths.Normalize01Fast(ev.damage_integrity, health.integrity)))
 			{

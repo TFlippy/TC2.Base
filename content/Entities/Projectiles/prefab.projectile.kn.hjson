@@ -5,7 +5,7 @@ projectile:
 	damage_base: 1000.000
 	damage_bonus: 1500.000
 	damage_type: bullet_kn
-	terrain_damage_mult: 1.750
+	terrain_damage_mult: 2.250
 	lifetime: 8.000
 	size: 0.120
 	ricochet_count: 0
@@ -37,7 +37,7 @@ explosive:
 	radius: 6.500
 	power: 3.000
 	damage_entity: 8200.000
-	damage_terrain: 27500.000
+	damage_terrain: 14500.000
 	sparks_amount: 2.500
 	stun_multiplier: 3.500
 	smoke_amount: 1.100

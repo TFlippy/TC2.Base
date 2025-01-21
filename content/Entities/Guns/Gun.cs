@@ -859,18 +859,6 @@
 
 			if (time < gun_state.t_next_reload) return;
 
-#if SERVER
-			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
-			{
-				gun_state.burst_rem = gun.burst_count;
-				gun_state.hints.RemoveFlag(Gun.Hints.Wants_Reload);
-				gun_state.stage = Gun.Stage.Reloading;
-				gun_state.Sync(entity, true);
-
-				return;
-			}
-#endif
-
 			// TODO: make this better
 			if (gun_state.hints.TryRemoveFlag(Gun.Hints.Cancel_Reload))
 			{
@@ -882,6 +870,18 @@
 #endif
 				}
 			}
+
+#if SERVER
+			if (gun_state.hints.HasAny(Gun.Hints.Wants_Reload))
+			{
+				gun_state.burst_rem = gun.burst_count;
+				gun_state.hints.RemoveFlag(Gun.Hints.Wants_Reload);
+				gun_state.stage = Gun.Stage.Reloading;
+				gun_state.Sync(entity, true);
+
+				return;
+			}
+#endif
 
 			if (gun_state.stage == Gun.Stage.Reloading)
 			{
