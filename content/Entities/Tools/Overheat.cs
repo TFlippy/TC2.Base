@@ -312,7 +312,7 @@ namespace TC2.Base.Components
 			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
 
 			var modifier = 1.00f;
-			if (resource.material.id != 0)
+			if (resource.material != 0)
 			{
 				modifier = resource.GetQuantityNormalized();
 			}

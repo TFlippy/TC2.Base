@@ -911,9 +911,9 @@
 					gun_state.t_next_reload = info.WorldTime + gun.reload_interval;
 
 					ref var material_ammo = ref inventory_magazine.resource.material.GetData();
-					if (material_ammo.IsNotNull() && material_ammo.flags.HasNone(gun.ammo_filter)) inventory_magazine.resource.material = default;
+					if (material_ammo.IsNotNull() && material_ammo.flags.HasNone(gun.ammo_filter)) inventory_magazine.resource.header = default;
 
-					if (inventory_magazine.resource.material.id == 0 || inventory_magazine.resource.quantity <= Resource.epsilon)
+					if (!inventory_magazine.resource.IsValid())
 					{
 						var count = h_inventory.Length;
 						var inventory_span = h_inventory.GetReadOnlySpan();
@@ -927,7 +927,7 @@
 							{
 								ref var ammo = ref material.ammo.GetRefOrNull();
 
-								inventory_magazine.resource.material = resource.material;
+								inventory_magazine.resource.header = resource.header;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
 								gun_state.hints.RemoveFlag(Gun.Hints.No_Ammo);
 								gun_state.muzzle_velocity = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
@@ -939,7 +939,7 @@
 						}
 					}
 
-					if (inventory_magazine.resource.material != 0) // If magazine knows that ammo it wants to use, withdraw it from parent inventory
+					if (inventory_magazine.resource != 0) // If magazine knows that ammo it wants to use, withdraw it from parent inventory
 					{
 #if SERVER
 						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
@@ -1056,11 +1056,13 @@
 
 
 #if SERVER
-					var loaded_ammo = new Resource.Data()
-					{
-						material = inventory_magazine.resource.material,
-						quantity = 0.00f
-					};
+					//var loaded_ammo = new Resource.Data()
+					//{
+					//	material = inventory_magazine.resource.material,
+					//	quantity = 0.00f
+					//};
+
+					var loaded_ammo = new Resource.Data(inventory_magazine.resource, 0.00f);
 
 					var amount = gun.ammo_per_shot;
 					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
@@ -1498,7 +1500,7 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
-			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0);
+			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.IsValid());
 			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && (gun.cycle_interval <= 0.10f || (gun.cycle_interval <= 0.20f && gun.flags.HasAny(Gun.Flags.Automatic))));
 			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 15.00f && gun.reload_interval <= 0.50f));
 			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
@@ -1527,7 +1529,7 @@
 
 				if (gun_state.hints.HasAny(Gun.Hints.Cycled) && (control.mouse.GetKeyDown(Mouse.Key.Left) || (gun.flags.HasAny(Gun.Flags.Automatic) && (control.mouse.GetKey(Mouse.Key.Left) && (gun.burst_count <= 1 || gun_state.burst_rem > 0)))))
 				{
-					if (inventory_magazine.resource.quantity > Resource.epsilon && inventory_magazine.resource.material.id != 0)
+					if (inventory_magazine.resource.IsValid())
 					{
 						if (control.mouse.GetKeyDown(Mouse.Key.Left) && (gun.flags.HasAny(Gun.Flags.Reset_Bursts) || gun_state.burst_rem == 0))
 						{
