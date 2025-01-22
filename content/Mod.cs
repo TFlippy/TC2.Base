@@ -66,16 +66,17 @@ namespace TC2.Base
 
 			//var h_origin = (IOrigin.Handle)origin;
 
-			ref var character = ref player.GetControlledCharacter().data;
-			if (!force_new && character.IsNotNull() && character.ent_controlled.IsAlive())
+			//ref var character = ref player.GetControlledCharacter().data;
+			if (!force_new) // && character.IsNotNull() && character.ent_controlled.IsAlive())
 			{
-				ref var character_data = ref character.character_id.GetData(out var character_asset);
-				Assert.NotNull(ref character_data);
+				throw new NotImplementedException();
+				//ref var character_data = ref character.character_id.GetData(out var character_asset);
+				//Assert.NotNull(ref character_data);
 
-				if (Spawner.TryApplyOrigin(ref random, region.GetLocationHandle(), h_origin, ref character_data))
-				{
-					App.WriteLine("ok");
-				}
+				//if (Spawner.TryApplyOrigin(ref random, region.GetLocationHandle(), h_origin, ref character_data))
+				//{
+				//	App.WriteLine("ok");
+				//}
 			}
 			else
 			{
@@ -115,10 +116,11 @@ namespace TC2.Base
 			ref var character = ref ent_target_root.GetComponentWithOwner<Character.Data>(Relation.Type.Instance, out var ent_character, include_self: true);
 			if (character.IsNotNull())
 			{
-				ref var character_data = ref character.character_id.GetData(out var character_asset);
-				Assert.NotNull(ref character_data);
+				throw new NotImplementedException();
+				//ref var character_data = ref character.character_id.GetData(out var character_asset);
+				//Assert.NotNull(ref character_data);
 
-				player.SetControlledCharacter(ent_character);
+				//player.SetControlledCharacter(ent_character);
 			}
 			//else
 			//{
@@ -139,11 +141,11 @@ namespace TC2.Base
 			ref var player = ref context.GetPlayerData();
 			Assert.NotNull(ref player);
 
-			ref var character = ref player.GetControlledCharacter().data;
-			Assert.NotNull(ref character);
+			//ref var character = ref player.GetControlledCharacter().data;
+			//Assert.NotNull(ref character);
 
 			//var ent_root = context.GetTargetEntity(); // character.ent_controlled;
-			var ent_root = character.ent_controlled;
+			var ent_root = player.ent_controlled;
 			Assert.Check(ent_root.IsAlive());
 
 			var ts = Timestamp.Now();
