@@ -66,9 +66,6 @@ animated.renderer:
 
 tree:
 {
-	// prefab_stump: "tree.oak.stump"
-	// health_cut: 0.980
-	// sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 }
 
@@ -78,11 +75,11 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 300.000
+			quantity: 480.000
 		}
 		{
 			material: "scrap.wood"
-			quantity: 750.000
+			quantity: 550.000
 		}
 		{
 			material: "resin"

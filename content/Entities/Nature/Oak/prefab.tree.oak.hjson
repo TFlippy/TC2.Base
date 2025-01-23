@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 62500.000
+	max: 72500.000
 }
 
 splittable:
@@ -66,9 +66,6 @@ animated.renderer:
 
 tree:
 {
-	// prefab_stump: "tree.oak.stump"
-	// health_cut: 0.940
-	// sprite_cut: "tree.oak.cut"
 	sound_cut: "tree_fall"
 
 	@foliage.renderer:
@@ -90,7 +87,7 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 440.000
+			quantity: 510.000
 		}
 		{
 			material: "plants"
@@ -101,4 +98,10 @@ harvestable:
 			quantity: 220.000
 		}
 	]
+
+	thresholds: [0.980, 0.850, 0.830, 0.950]
+
+	pct_damage_mult: [0.750, 0.613, 0.930, 0.805]
+	pct_quantity_min: [0.085, 0.052, 0.129, 0.050]
+	modifiers_c: [0.000, 0.000, 0.000, 0.000]
 }
