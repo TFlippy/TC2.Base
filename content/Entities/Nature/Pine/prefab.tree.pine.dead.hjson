@@ -12,7 +12,7 @@ body:
 		b: [0.000, -0.250]
 		mass: 1200.000
 		radius: 0.500
-		friction: 0.970
+		friction: 0.920
 		elasticity: 0.210
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
@@ -34,8 +34,6 @@ health:
 splittable:
 {
 	split_health: 0.960
-	// radius: 0.125
-	// extrude: -0.125
 	rect: [-0.500, -10.500, 0.500, -0.250]
 	sprite_stub:
 	{
@@ -88,8 +86,9 @@ harvestable:
 		null
 	]
 	
-	thresholds: [0.888, 0.993, 0.772, 0.000]
+	thresholds: [0.950, 1.000, 0.772, 0.000]
 	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
-	pct_quantity_min: [0.020, 0.150, 0.100, 0.000]
-	modifiers_c: [0.000, 0.000, 0.000, 0.000]
+	pct_quantity_min: [0.020, 0.102, 0.060, 0.000]
+	
+	chance_base: [0.089, 0.473, 0.176, 0.000]
 }

@@ -20,7 +20,7 @@
 	hints: materials, junk, construction, cheap
 	mass_per_unit: 0.468
 	quantity_max: 500.000
-	spawn_quantity_threshold: 5.000
+	spawn_quantity_threshold: 1.650
 	form_type: scrap
 	prefab: resource.scrap.wood
 	

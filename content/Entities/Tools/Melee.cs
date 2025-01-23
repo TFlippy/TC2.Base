@@ -578,7 +578,7 @@ namespace TC2.Base.Components
 						if (draw_gui && result.entity.IsValid())
 						{
 							//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
-							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.25f));
 							GUI.SetCursor(App.CursorType.Attack, 1000);
 						}
 #endif
@@ -621,7 +621,7 @@ namespace TC2.Base.Components
 							if (draw_gui && result.entity.IsValid())
 							{
 								//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
-								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f));
+								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.25f));
 								GUI.SetCursor(App.CursorType.Attack, 1000);
 							}
 #endif
@@ -736,8 +736,10 @@ namespace TC2.Base.Components
 						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
 					}
 
-					GUI.DrawCircleFilled(c_pos, c_radius, this.color.WithAlphaMult(0.10f), segments: 16);
-					GUI.DrawCircle(c_pos, c_radius, this.color.WithAlphaMult(0.40f), thickness: 1.00f, segments: 16);
+					//GUI.DrawArc(region.WorldToCanvas(this.transform.LocalToWorld(this.melee.hit_offset)), -1, 1, color: this.color.WithAlpha(100), radius: c_radius, layer: GUI.Layer.Background);
+
+					GUI.DrawCircleFilled(c_pos, c_radius * 0.75f, this.color.WithAlpha(25), segments: 16);
+					GUI.DrawCircle(c_pos, c_radius, this.color.WithAlpha(40), thickness: 1.00f, segments: 16);
 					GUI.DrawCircleFilled(region.WorldToCanvas(this.pos_hit), 3.00f, this.color, segments: 4);
 				}
 			}

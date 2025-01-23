@@ -99,9 +99,8 @@ harvestable:
 		}
 	]
 
-	thresholds: [0.980, 0.850, 0.830, 0.950]
-
-	pct_damage_mult: [0.750, 0.613, 0.930, 0.805]
-	pct_quantity_min: [0.085, 0.052, 0.129, 0.050]
+	thresholds: [0.888, 1.000, 0.872, 0.000]
+	pct_damage_mult: [0.952, 0.950, 0.859, 0.000]
+	pct_quantity_min: [0.020, 0.110, 0.100, 0.000]
 	modifiers_c: [0.000, 0.000, 0.000, 0.000]
 }

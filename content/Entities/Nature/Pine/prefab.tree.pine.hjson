@@ -10,9 +10,9 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 2970.000
+		mass: 1570.000
 		radius: 0.500
-		friction: 0.930
+		friction: 0.950
 		elasticity: 0.310
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
@@ -84,16 +84,22 @@ harvestable:
 	resources:
 	[
 		{
-			material: "timber"
-			quantity: 270.000
+			material: timber
+			quantity: 152.000
 		}
 		{
-			material: "plants"
-			quantity: 480.000
+			material: plants
+			quantity: 273.000
 		}
 		{
-			material: "resin"
-			quantity: 1450.000
+			material: resin
+			quantity: 833.000
 		}
+		null
 	]
+	
+	thresholds: [0.888, 1.000, 0.872, 0.000]
+	pct_damage_mult: [0.952, 0.950, 0.859, 0.000]
+	pct_quantity_min: [0.020, 0.110, 0.100, 0.000]
+	modifiers_c: [0.000, 0.000, 0.000, 0.000]
 }

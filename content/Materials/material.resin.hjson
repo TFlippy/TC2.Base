@@ -20,7 +20,7 @@
 	hints: none
 	mass_per_unit: 0.220
 	quantity_max: 250.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 1.500
 	form_type: raw
 	prefab: resource.resin
 	
