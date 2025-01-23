@@ -14,7 +14,7 @@ body:
 		elasticity: 0.500
 		mass: 19.000
 		material: foliage
-		layer: entity, flammable, plant
+		layer: entity, flammable, plant, ignore_melee
 		mask: world
 	}
 }

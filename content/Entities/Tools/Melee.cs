@@ -562,7 +562,7 @@ namespace TC2.Base.Components
 				for (var i = 0; i < results.Length; i++)
 				{
 					ref var result = ref results[i];
-					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.Shield) && (result.layer.HasAny(Physics.Layer.Shield) || result.mask.HasAny(Physics.Layer.Solid)) && !result.layer.HasAny(Physics.Layer.Ignore_Melee))
+					if (result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World | Physics.Layer.Shield) && (result.layer.HasAny(Physics.Layer.Shield) || result.mask.HasAny(Physics.Layer.Solid)) && result.layer.HasNone(Physics.Layer.Ignore_Melee))
 					{
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 						if (result.mask.HasNone(Physics.Layer.Solid))
@@ -578,7 +578,7 @@ namespace TC2.Base.Components
 						if (draw_gui && result.entity.IsValid())
 						{
 							//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
-							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.25f));
+							GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.65f));
 							GUI.SetCursor(App.CursorType.Attack, 1000);
 						}
 #endif
@@ -603,11 +603,11 @@ namespace TC2.Base.Components
 							if (result.mask.HasNone(Physics.Layer.Solid))
 							{
 								if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
-								if (!result.layer.HasAny(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
+								if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && (result.layer.HasAny(Physics.Layer.Ignore_Melee) || !Melee.CanHitMaterial(melee.damage_type, result.material_type)))) continue;
 							}
 
 							var closest_result = result.GetClosestPoint(pos_target, true);
-							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && !result.layer.HasAny(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
+							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && result.layer.HasNone(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
 							modifier *= melee.penetration_falloff;
 							penetration--;

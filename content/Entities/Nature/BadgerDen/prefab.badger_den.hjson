@@ -18,7 +18,7 @@ body:
 		elasticity: 0.500
 		mass: 250.000
 		material: soil
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, ignore_melee
 		mask: world
 	}
 }

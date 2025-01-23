@@ -20,7 +20,7 @@
 	hints: materials, junk, primitive, crappy
 	mass_per_unit: 0.184
 	quantity_max: 500.000
-	spawn_quantity_threshold: 5.000
+	spawn_quantity_threshold: 2.600
 	form_type: raw
 	prefab: resource.plants
 	
