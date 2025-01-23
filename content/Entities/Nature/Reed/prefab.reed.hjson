@@ -19,7 +19,7 @@ body:
 		elasticity: 0.500
 		mass: 8.000
 		material: foliage
-		layer: entity, plant
+		layer: entity, plant, ignore_melee
 		mask: world
 	}
 }

@@ -11,7 +11,7 @@ body:
 		a: [0.000, -8.750]
 		b: [0.000, -0.375]
 		
-		mass: 5250.000
+		mass: 4150.000
 		radius: 0.500
 		friction: 0.840
 		elasticity: 0.080
@@ -31,13 +31,13 @@ transform:
 
 health:
 {
-	max: 72500.000
+	max: 82500.000
 }
 
 splittable:
 {
 	rect: [-0.500, -8.750, 0.500, -0.375]
-	split_health: 0.900
+	split_health: 0.950
 	sprite_stub:
 	{
 		texture: tree.stubs.00
@@ -86,21 +86,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: "timber"
-			quantity: 510.000
+			material: timber
+			quantity: 450.000
 		}
 		{
-			material: "plants"
-			quantity: 1450.000
+			material: plants
+			quantity: 1277.000
 		}
 		{
-			material: "resin"
-			quantity: 220.000
+			material: resin
+			quantity: 194.000
 		}
+		null
 	]
-
-	thresholds: [0.888, 1.000, 0.872, 0.000]
-	pct_damage_mult: [0.952, 0.950, 0.859, 0.000]
-	pct_quantity_min: [0.020, 0.110, 0.100, 0.000]
-	modifiers_c: [0.000, 0.000, 0.000, 0.000]
+	
+	thresholds: [0.980, 1.000, 0.892, 0.000]
+	
+	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
+	pct_quantity_min: [0.035, 0.052, 0.050, 0.000]
+	
+	chance_base: [0.082, 0.573, 0.173, 0.000]
 }

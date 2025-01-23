@@ -13,7 +13,7 @@ body:
 		friction: 0.950
 		elasticity: 0.500
 		material: foliage
-		layer: entity, flammable, plant
+		layer: entity, flammable, plant, ignore_melee
 		mask: world
 	}
 }
