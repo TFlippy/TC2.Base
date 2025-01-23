@@ -21,6 +21,7 @@
 	hints: none
 	mass_per_unit: 8.437
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.200
 	form_type: raw
 	prefab: resource.timber
 	h_substance: wood
