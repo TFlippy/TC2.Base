@@ -129,7 +129,7 @@ armory:
 	@inventory4:
 	{
 		type: ammo
-		flags: ignore_mass, faction, vertical
+		flags: ignore_mass, no_auto_pickup, faction, vertical
 		stack_size_multiplier: 4.000
 		
 		filter:

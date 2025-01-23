@@ -15,7 +15,7 @@
 			type: disassembly
 			flags: subtractive, wip, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: slash
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -125,6 +125,7 @@
 			type: resource
 			material: scrap.mixed
 			amount: 10.000
+			snapping: 1.000
 			group: 0
 			flags: primary, prerequisite
 		}
@@ -142,41 +143,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, simple, tailoring, salvaging
-	
-	icon:
-	{
-		texture: resource.cloth
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [-4.000, 3.000]
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
-	icon_c:
-	{
-		texture: resource.scrap.mixed
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-3.000, -16.000]
-	
-	color_button: "0xffac7534"
-	rank: -140.000
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -209,6 +175,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -249,4 +216,40 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, simple, tailoring, salvaging
+	
+	icon:
+	{
+		texture: resource.cloth
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-4.000, 3.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.mixed
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -16.000]
+	
+	color_button: "0xffac7534"
+	rank: -140.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
 }

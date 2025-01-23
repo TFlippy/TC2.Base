@@ -37,7 +37,7 @@ gun:
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 3.500
-	recoil_multiplier: 1.100
+	recoil_multiplier: 1.150
 	reload_interval: 2.500
 	cycle_interval: 0.085
 	failure_rate: 0.0017
@@ -51,7 +51,7 @@ gun:
 
 	sound_volume: 1.000
 	sound_size: 5.000
-	sound_dist_multiplier: 3.000
+	sound_dist_multiplier: 3.500
 
 	heuristic_range: 30.000
 	stability: 3850.000
@@ -60,7 +60,6 @@ gun:
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup

@@ -225,15 +225,15 @@ commandable:
 	
 }
 
-worker:
-{
+// worker:
+// {
 
-}
+// }
 
-worker.state:
-{
+// worker.state:
+// {
 
-}
+// }
 
 facing:
 {
