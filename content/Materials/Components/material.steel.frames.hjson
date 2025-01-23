@@ -20,7 +20,7 @@
 	hints: none
 	purity: 0.953
 	mass_per_unit: 2.500
-	quantity_max: 256.000
+	quantity_max: 250.000
 	prefab: resource.steel.frames
 	h_substance: steel
 	
