@@ -10,7 +10,7 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 6130.000
+		mass: 5250.000
 		radius: 0.500
 		friction: 0.940
 		elasticity: 0.210
@@ -28,7 +28,7 @@ transform:
 
 health:
 {
-	max: 110000.000
+	max: 57000.000
 }
 
 splittable:
@@ -88,17 +88,15 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 830.000
-			flags: no_autopickup
+			quantity: 520.000
 		}
 		{
 			material: "plants"
-			quantity: 380.000
-			flags: no_autopickup
+			quantity: 450.000
 		}
 		{
 			material: "resin"
-			quantity: 1120.000
+			quantity: 1450.000
 		}
 	]
 }

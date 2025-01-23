@@ -88,13 +88,11 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 420.000
-			flags: no_autopickup
+			quantity: 330.000
 		}
 		{
 			material: "plants"
-			quantity: 480.000
-			flags: no_autopickup
+			quantity: 1450.000
 		}
 		{
 			material: "resin"

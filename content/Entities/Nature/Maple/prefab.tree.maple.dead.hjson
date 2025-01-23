@@ -28,7 +28,7 @@ transform:
 
 health:
 {
-	max: 8400.000
+	max: 15000.000
 }
 
 splittable:
@@ -76,13 +76,11 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 89.000
-			flags: no_autopickup
+			quantity: 82.000
 		}
 		{
 			material: "plants"
 			quantity: 8.000
-			flags: no_autopickup
 		}
 		{
 			material: "resin"
