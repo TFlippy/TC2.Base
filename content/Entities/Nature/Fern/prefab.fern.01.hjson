@@ -25,7 +25,7 @@ transform:
 
 health:
 {
-	max: 1400.000
+	max: 600.000
 }
 
 foliage.renderer:

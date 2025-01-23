@@ -17,6 +17,7 @@ body:
 		material: flesh
 		layer: entity, solid, creature, flammable
 		mask: world, vehicle
+		exclude: barbed
 	}
 }
 
@@ -323,6 +324,7 @@ faction:
 				material: flesh
 				layer: entity, solid, creature, flammable
 				mask: world, vehicle
+				exclude: barbed
 			}
 		}
 		
@@ -551,6 +553,7 @@ faction:
 				material: flesh
 				layer: entity, solid, creature, flammable
 				mask: world, vehicle
+				exclude: barbed
 			}
 		}
 			

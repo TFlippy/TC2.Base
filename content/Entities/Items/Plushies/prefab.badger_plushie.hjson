@@ -18,6 +18,7 @@ body:
 		layer: entity, solid, item, decoration, flammable
 		mask: world
 		material: fabric
+		exclude: barbed
 	}
 }
 
