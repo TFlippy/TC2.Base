@@ -31,7 +31,7 @@ body:
 
 health:
 {
-	max: 6900.000
+	max: 7900.000
 }
 
 animated.renderer:
@@ -61,16 +61,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: "steel.frames"
-			quantity: 36.000
+			material: steel.frames
+			quantity: 34.000
 		}
 		{
-			material: "scrap.steel"
-			quantity: 22.000
+			material: scrap.steel
+			quantity: 20.000
 		}
 		{
-			material: "cloth"
+			material: cloth
 			quantity: 60.000
 		}
+		null
 	]
+	
+	thresholds: [0.676, 0.222, 1.000, 0.000]
+	
+	pct_damage_mult: [0.910, 0.899, 0.995, 0.000]
+	pct_quantity_min: [0.172, 0.233, 0.236, 0.000]
+	
+	chance_base: [0.224, 0.082, 0.118, 0.000]
 }

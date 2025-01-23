@@ -17,7 +17,7 @@ body:
 			[-1.250, 0.500]
 		]
 		offset: [0.000, 0.000]
-		mass: 65.000
+		mass: 65.500
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.400
@@ -31,7 +31,7 @@ body:
 
 health:
 {
-	max: 3500.000
+	max: 5500.000
 }
 
 animated.renderer:
@@ -61,16 +61,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: "steel.frames"
-			quantity: 17.000
+			material: steel.frames
+			quantity: 16.000
 		}
 		{
-			material: "scrap.steel"
+			material: scrap.steel
 			quantity: 8.000
 		}
 		{
-			material: "cloth"
+			material: cloth
 			quantity: 30.000
 		}
+		null
 	]
+	
+	thresholds: [0.676, 0.222, 1.000, 0.000]
+	
+	pct_damage_mult: [0.910, 0.899, 0.995, 0.000]
+	pct_quantity_min: [0.272, 0.500, 0.422, 0.000]
+	
+	chance_base: [0.224, 0.078, 0.118, 0.000]
 }
