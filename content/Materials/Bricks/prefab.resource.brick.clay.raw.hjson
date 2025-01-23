@@ -55,13 +55,5 @@ health:
 
 breakable:
 {
-	h_material: "null"
-	
 	flags: no_damage
-	conversion_type: undefined
-	conversion_flags: none
-	spawn_flags: none
-	
-	material_type: none
-	material_flags: none
 }

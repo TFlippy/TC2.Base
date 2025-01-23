@@ -50,7 +50,15 @@ norotate:
 
 health:
 {
-	max: 38000.000
+	max: 58000.000
+}
+
+despawn:
+{
+	sleep_count_max: 39
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.300
 }
 
 breakable:

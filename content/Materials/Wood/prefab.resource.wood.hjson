@@ -80,7 +80,7 @@ heat:
 
 despawn:
 {
-	sleep_count_max: 74
+	sleep_count_max: 50
 	flags: no_despawn
 	
 	interval: 7.000
