@@ -61,10 +61,10 @@ harvestable:
 		null
 	]
 	
-	thresholds: [0.668, 0.380, 1.000, 0.000]
+	thresholds: [0.668, 0.870, 0.100, 0.000]
 	
 	pct_damage_mult: [0.895, 0.790, 0.963, 0.000]
-	pct_quantity_min: [0.077, 0.057, 0.026, 0.000]
+	pct_quantity_min: [0.112, 0.087, 0.026, 0.000]
 	
-	chance_base: [0.353, 0.196, 0.353, 0.000]
+	chance_base: [0.083, 0.096, 0.113, 0.000]
 }
