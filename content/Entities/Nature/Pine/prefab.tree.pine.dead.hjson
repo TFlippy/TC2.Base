@@ -10,9 +10,9 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 4600.000
+		mass: 2400.000
 		radius: 0.500
-		friction: 0.940
+		friction: 0.970
 		elasticity: 0.210
 		material: tree
 		layer: entity, solid, tree, ignore_bullet, flammable
@@ -28,7 +28,7 @@ transform:
 
 health:
 {
-	max: 65000.000
+	max: 39000.000
 }
 
 splittable:
@@ -58,15 +58,12 @@ animated.renderer:
 	{
 		texture: "tree.pine.00"
 	}
-	offset: [-0, -5.500]
+	offset: [0.000, -5.500]
 	z: -80.000
 }
 
 tree:
 {
-	// prefab_stump: "tree.pine.stump"
-	// health_cut: 0.980
-	// sprite_cut: "tree.pine.cut"
 	sound_cut: "tree_fall"
 }
 
@@ -76,7 +73,7 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 510.000
+			quantity: 250.000
 		}
 		{
 			material: "scrap.wood"

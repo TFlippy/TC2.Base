@@ -8,14 +8,17 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -9.000]
-		b: [0.000, -0.500]
-		mass: 3100.000
+		a: [0.000, -8.750]
+		b: [0.000, -0.375]
+		
+		mass: 5250.000
 		radius: 0.500
-		friction: 0.800
-		elasticity: 0.060
+		friction: 0.840
+		elasticity: 0.080
+		
 		material: tree
-		layer: entity, solid, tree, ignore_bullet, flammable
+		
+		layer: entity, solid, tree, flammable, ignore_bullet
 		mask: world, tree
 		exclude: held
 	}
@@ -28,20 +31,19 @@ transform:
 
 health:
 {
-	max: 51000.000
+	max: 62500.000
 }
 
 splittable:
 {
+	rect: [-0.500, -8.750, 0.500, -0.375]
 	split_health: 0.900
-	rect: [-0.500, -9.000, 0.500, -0.500]
 	sprite_stub:
 	{
-		texture: "tree.stubs.00"
+		texture: tree.stubs.00
 		size: [16, 8]
-		frame: [0, 0]
 	}
-	sound_split: "tree_snap_00"
+	sound_split: tree_snap_00
 }
 
 holdable:
@@ -88,7 +90,7 @@ harvestable:
 	[
 		{
 			material: "timber"
-			quantity: 330.000
+			quantity: 440.000
 		}
 		{
 			material: "plants"
