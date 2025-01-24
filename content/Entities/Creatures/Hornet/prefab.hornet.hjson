@@ -96,16 +96,13 @@ npc:
 animal:
 {
 	flags: aggressive
-	attack_cooldown: 0.750
-
-	attack_distance_melee: 1.000
+	attack_cooldown: 1.250
+	attack_distance_melee: 0.700
 	attack_cooldown_melee: 0.750
-
 	attack_distance_ranged: 10.000
 	attack_cooldown_ranged: 2.000
-
-	charge_distance: 7.000
-	retreat_distance: 9.000
+	charge_distance: 1.000
+	retreat_distance: 6.500
 }
 
 animal.state:
@@ -197,19 +194,20 @@ sound.emitter:
 
 melee:
 {
-	sound_swing: "swish.00"
+	sound_swing: swish.00
 	sound_volume: 0.300
 	sound_size: 0.500
 	sound_pitch: 1.400
-	hit_direction: [1.000, 0.000]
 	swing_offset: [1.000, 0.000]
 	swing_rotation: 2.000
 	attack_type: thrust
 	damage_base: 35.000
 	damage_bonus: 125.000
 	primary_damage_multiplier: 0.700
-	secondary_damage_multiplier: 1.000
 	terrain_damage_multiplier: 0.200
+	pain_multiplier: 1.400
+	stun_multiplier: 0.350
+	disarm_chance: 0.000
 	cooldown: 1.000
 	max_distance: 0.850
 	aoe: 0.350
@@ -217,13 +215,12 @@ melee:
 	knockback: 1500.000
 	yield: 0.500
 	penetration_falloff: 0.900
-	penetration: 0
 	damage_type: sting
 	category: pointed
 	flags: no_handle
-	hit_mask: destructible
-	hit_exclude: background, tree, ignore_melee, world
 	damage_flags_add: no_loot_pickup, no_loot_drop
+	hit_mask: destructible
+	hit_exclude: background, tree, ignore_melee
 }
 
 melee.state:

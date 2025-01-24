@@ -118,9 +118,9 @@ namespace TC2.Base.Components
 
 		// TODO: this is bad
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateArmAimable([Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear,
-		[Source.Owned] in Aimable.Data aimable,
-		[Source.Parent] in Body.Data body_parent, [Source.Owned] in Body.Data body_child)
+		public static void UpdateArmAimable(
+		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear,
+		[Source.Owned] in Aimable.Data aimable, [Source.Parent] in Body.Data body_parent, [Source.Owned] in Body.Data body_child)
 		{
 			var aim_torque = arm.aim_torque;
 			if (arm.aim_torque > 1.00f)
@@ -146,13 +146,13 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine("add body layer dead");
 
-			body.override_shape_layer.SetFlag(Physics.Layer.Dead, true);
-			body.flags.SetFlag(Body.Flags.NonDirty, true);
+			body.override_shape_layer.AddFlag(Physics.Layer.Dead);
+			body.MarkDirty();
 
 			//App.WriteLine($"rip {torque}");
 			//body.AddTorque(torque);
 
-			var random = XorRandom.New(entity);
+			var random = XorRandom.New(entity.id.Ror(17));
 			var torque = body.GetAngularMass() * random.NextFloatRange(20.00f, 25.00f).WithSign(random.NextBool(0.50f)) * App.tickrate;
 			body.AddTorque(torque);
 			body.AddForceWorld(random.NextUnitVector2Range(0.50f, 0.90f) * body.GetMass() * App.tickrate * 10.00f, body.GetPosition() + random.NextUnitVector2Range(0.15f, 0.20f));
@@ -163,12 +163,13 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine("remove body layer dead");
 
-			body.override_shape_layer.SetFlag(Physics.Layer.Dead, false);
-			body.flags.SetFlag(Body.Flags.NonDirty, true);
+			body.override_shape_layer.RemoveFlag(Physics.Layer.Dead);
+			body.MarkDirty();
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateRotting(ISystem.Info info, Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f, flags: ISystem.Flags.Unchecked), HasTag("dead", true, Source.Modifier.Owned)]
+		public static void UpdateRotting(ISystem.Info info, Entity entity, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed), 0.00f);
 
@@ -197,8 +198,11 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
-		public static void UpdateJoint1A(ISystem.Info info, [Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
+		[HasComponent<Health.Data>(Source.Modifier.Shared, true), HasComponent<Organic.Data>(Source.Modifier.Shared, true)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		public static void UpdateJoint1A(ISystem.Info info, ref Region.Data region, ref XorRandom random,
+		[Source.Shared] in Transform.Data transform, [Source.Shared] ref Organic.State organic_state, 
+		[Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
@@ -234,9 +238,6 @@ namespace TC2.Base.Components
 
 					if (Camera.IsVisible(Camera.CullType.Rect1x, transform.position))
 					{
-						ref var region = ref info.GetRegion();
-						var random = XorRandom.New();
-
 						//App.WriteLine("bleed");
 
 						if (random.NextBool(Maths.Lerp01(0.30f, 0.00f, organic_state.rotten * 15.00f)))

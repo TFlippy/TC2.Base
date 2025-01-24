@@ -36,6 +36,18 @@ health:
 	max: 3000.000
 }
 
+armor:
+{
+	toughness: 75.000
+	protection: 0.900
+	coverage: 0.950
+	knockback_modifier: 1.200
+	stun_modifier: 0.750
+	pain_modifier: 0.720
+	material_type: fur
+	flags: no_damage_type_conversion
+}
+
 regen:
 {
 	amount: 85.000
@@ -77,7 +89,7 @@ facing:
 {
 	offset: -0.250
 	threshold: 0.500
-	flip_interval: 1.000
+	flip_interval: 0.500
 }
 
 holdable:
@@ -114,7 +126,7 @@ npc:
 	wander_interval: 2.000
 	wander_interval_extra: 6.000
 
-	pain_modifier: 0.800
+	pain_modifier: 0.600
 	min_consciousness: 0.500
 }
 
@@ -353,34 +365,29 @@ faction:
 
 		melee:
 		{
-			sound_volume: 1.000
-			sound_size: 2.000
-			sound_pitch: 1.000
-			hit_offset: [0.000, 0.000]
-			hit_direction: [1.000, 0.000]
 			swing_offset: [0.000, 0.000]
 			swing_rotation: 0.000
 			attack_type: thrust
-			damage_base: 40.000
-			damage_bonus: 140.000
-			primary_damage_multiplier: 1.000
-			secondary_damage_multiplier: 1.000
-			terrain_damage_multiplier: 1.000
-			cooldown: 0.800
-			max_distance: 1.250
-			aoe: 0.750
-			thickness: 0.750
-			knockback: -100.000
-			yield: 0.300
-			penetration_falloff: 0.900
-			penetration: 1
+			damage_base: 35.000
+			damage_bonus: 130.000
+			pain_multiplier: 0.900
+			stun_multiplier: 1.200
+			disarm_chance: 0.070
+			cooldown: 1.000
+			max_distance: 1.000
+			aoe: 2.000
+			thickness: 1.000
+			knockback: -7500.000
+			yield: 0.500
+			penetration_falloff: 0.700
+			penetration: 2
 			damage_type: bite
-			category: pointed
+			category: blunt
 			flags: no_handle, no_material_filter
-			hit_mask: organic, creature, door
-			hit_require: destructible
-			hit_exclude: background, tree, ignore_melee, world, water, gas, essence
 			damage_flags_add: no_loot_pickup, no_loot_drop
+			hit_mask: creature, door, organic
+			hit_require: destructible
+			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
 		}
 
 		melee.state:
@@ -414,6 +421,18 @@ faction:
 		health:
 		{
 			max: 2300.000
+		}
+
+		armor:
+		{
+			toughness: 80.000
+			protection: 1.000
+			coverage: 0.850
+			knockback_modifier: 1.200
+			stun_modifier: 0.550
+			pain_modifier: 0.620
+			material_type: fur
+			flags: no_damage_type_conversion
 		}
 
 		regen:
@@ -453,13 +472,8 @@ faction:
 		
 		head:
 		{
-			voice_pitch: 1.000
-
-			// sound_pain: "badger.pain.01"
-			// sound_death: "badger.death.00"
-
+			breath_interval: 0.600
 			offset_mouth: [0.500, 0.150]
-
 			frame_pain: 1
 			frame_dead: 2
 		}
@@ -582,6 +596,18 @@ faction:
 		health:
 		{
 			max: 2700.000
+		}
+
+		armor:
+		{
+			toughness: 75.000
+			protection: 0.900
+			coverage: 0.950
+			knockback_modifier: 1.200
+			stun_modifier: 0.750
+			pain_modifier: 0.720
+			material_type: fur
+			flags: no_damage_type_conversion
 		}
 
 		regen:
