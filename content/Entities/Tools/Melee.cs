@@ -136,6 +136,16 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State(): IComponent
 		{
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+
+				Hitting = 1 << 0,
+			}
+
+			[Asset.Ignore] public Melee.State.Flags flags;
+
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
 		}
@@ -528,9 +538,9 @@ namespace TC2.Base.Components
 
 		// TODO: come up with a better name
 		[Shitcode]
-		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent, 
-		Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction, 
-		in Melee.Data melee, ref Melee.State melee_state, 
+		public static void IterateHit(ref Region.Data region, ref XorRandom random, Entity ent_melee, Entity ent_parent,
+		Vector2 pos, Vector2 pos_target, Vector2 dir, float len, IFaction.Handle h_faction,
+		in Melee.Data melee, ref Melee.State melee_state,
 		out Vector2 pos_hit, out float modifier, out Melee.HitResults hit_results, out float dist_max, bool draw_gui, bool do_hit, bool disable_hit_filter = false)
 		{
 			var penetration = melee.penetration;
@@ -938,14 +948,20 @@ namespace TC2.Base.Components
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, 
+		[Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
 			var key = melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left;
 
-			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit)
+#if SERVER
+			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
 			{
-				var parent = body.GetParent();
+				melee_state.Sync(entity, true);
+			}
+#endif
 
+			if (melee_state.flags.TryRemoveFlag(Melee.State.Flags.Hitting))
+			{
 				melee_state.last_hit = info.WorldTime;
 				melee_state.next_hit = info.WorldTime + melee.cooldown;
 
@@ -979,10 +995,11 @@ namespace TC2.Base.Components
 				//var override_has_material_filter = default(bool?);
 				//if (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && (control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter))) override_has_material_filter = false;
 
+				var ent_parent = body.GetParent();
 				Melee.IterateHit(region: ref region,
 					random: ref random,
 					ent_melee: entity,
-					ent_parent: parent,
+					ent_parent: ent_parent,
 					pos: pos,
 					pos_target: pos_target,
 					dir: dir,
