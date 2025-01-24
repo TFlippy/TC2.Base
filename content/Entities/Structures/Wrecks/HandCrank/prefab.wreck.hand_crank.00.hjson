@@ -1,5 +1,5 @@
 $name: "Janky Hand Crank"
-$desc: "Someone used this far too much."
+$desc: "Someone overturned it."
 $tags: []
 
 body:
@@ -21,7 +21,7 @@ body:
 
 health:
 {
-	max: 3400.000
+	max: 6400.000
 }
 
 animated.renderer:
