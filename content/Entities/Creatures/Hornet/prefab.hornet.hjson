@@ -13,7 +13,7 @@ body:
 	@shape.circle:
 	{
 		mass: 3.500
-		radius: 0.600
+		radius: 0.700
 		friction: 0.300
 		elasticity: 0.990
 		material: insect
@@ -153,12 +153,21 @@ threat:
 
 flyer:
 {
-	max_speed: 20.000
-	force: 200.000
-	brake_modifier: 0.150
+	max_speed: 25.000
+	force: 175.000
+	brake_modifier: 0.350
 	sound_speed_modifier: 0.025
-	sound_volume: 1.500
+	sound_volume: 1.400
 	force_modifier: 2.350
+}
+
+head:
+{
+	voice_pitch: 2.500
+	air_capacity: 0.100
+	air_usage: 0.010
+	breath_interval: 0.900
+	offset_mouth: [0.625, 0.375]
 }
 
 hornet:
@@ -183,9 +192,10 @@ norotate:
 sound.emitter:
 {
 	file: "hornet.loop.00"
+	flags: start_muted
 	volume: 0.500
 	pitch: 1.000
-	size: 0.500
+	size: 0.750
 	size_max_modifier: 0.900
 	spread: 90.000
 	priority: 0.100
@@ -198,6 +208,7 @@ melee:
 	sound_volume: 0.300
 	sound_size: 0.500
 	sound_pitch: 1.400
+	hit_offset: [0.000, 0.750]
 	swing_offset: [1.000, 0.000]
 	swing_rotation: 2.000
 	attack_type: thrust
@@ -205,11 +216,11 @@ melee:
 	damage_bonus: 125.000
 	primary_damage_multiplier: 0.700
 	terrain_damage_multiplier: 0.200
-	pain_multiplier: 1.400
+	pain_multiplier: 1.800
 	stun_multiplier: 0.350
 	disarm_chance: 0.000
-	cooldown: 1.000
-	max_distance: 0.850
+	cooldown: 0.500
+	max_distance: 1.750
 	aoe: 0.350
 	thickness: 0.150
 	knockback: 1500.000
@@ -217,7 +228,7 @@ melee:
 	penetration_falloff: 0.900
 	damage_type: sting
 	category: pointed
-	flags: no_handle
+	flags: no_handle, no_material_filter
 	damage_flags_add: no_loot_pickup, no_loot_drop
 	hit_mask: destructible
 	hit_exclude: background, tree, ignore_melee

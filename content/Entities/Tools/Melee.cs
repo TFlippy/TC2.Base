@@ -47,7 +47,7 @@ namespace TC2.Base.Components
 			public Vector2 direction;
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Melee.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Melee.State>]
 		public partial struct Data(): IComponent
 		{
 			public static Sound.Handle sound_swing_default = "tool_swing_00";
@@ -133,7 +133,7 @@ namespace TC2.Base.Components
 			public Physics.Layer hit_exclude;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Flags]
@@ -144,7 +144,8 @@ namespace TC2.Base.Components
 				Hitting = 1 << 0,
 			}
 
-			[Asset.Ignore] public Melee.State.Flags flags;
+			[Asset.Ignore, Save.Ignore] public Vector2 last_hit_dir;
+			[Asset.Ignore, Save.Ignore] public Melee.State.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
@@ -619,11 +620,8 @@ namespace TC2.Base.Components
 							var closest_result = result.GetClosestPoint(pos_target, true);
 							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && result.layer.HasNone(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
 
-							modifier *= melee.penetration_falloff;
-							penetration--;
-
-							if (!result.entity.IsValid()) hit_results.SetFlag(Melee.HitResults.Terrain, true);
-							hit_results.SetFlag(Melee.HitResults.Any, true);
+							hit_results.AddFlag(Melee.HitResults.Terrain, !result.entity.IsValid());
+							hit_results.AddFlag(Melee.HitResults.Any);
 
 							pos_hit = closest_result.world_position;
 
@@ -653,6 +651,8 @@ namespace TC2.Base.Components
 									h_faction: h_faction);
 							}
 
+							penetration--;
+							modifier *= melee.penetration_falloff;
 							if (i == index_max) break;
 						}
 					}
@@ -661,8 +661,8 @@ namespace TC2.Base.Components
 				{
 					ref var result = ref results[index_max];
 
-					if (!result.entity.IsValid()) hit_results.SetFlag(Melee.HitResults.Terrain, true);
-					hit_results.SetFlag(Melee.HitResults.Any | HitResults.Solid, true);
+					hit_results.AddFlag(Melee.HitResults.Terrain, !result.entity.IsValid());
+					hit_results.AddFlag(Melee.HitResults.Any | HitResults.Solid, true);
 
 					var closest_result = result.GetClosestPoint(result.world_position, true);
 
@@ -688,7 +688,7 @@ namespace TC2.Base.Components
 				}
 			}
 
-			if (!hit_results.HasAny(Melee.HitResults.Any))
+			if (hit_results.HasNone(Melee.HitResults.Any))
 			{
 				var material_type = default(Material.Type);
 				if (Terrain.TryGetTileAtWorldPosition(ref region.GetTerrain(), pos_target, out var tile))
@@ -865,7 +865,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-			var damage = melee.damage_base + random.NextFloatRange(0.00f, melee.damage_bonus) * damage_multiplier;
+			var damage = random.NextFloatExtra(melee.damage_base, melee.damage_bonus) * damage_multiplier;
 			var damage_flags = Damage.Flags.None;
 			damage_flags.AddRemFlags(melee.damage_flags_add, melee.damage_flags_rem);
 
@@ -924,28 +924,31 @@ namespace TC2.Base.Components
 			//holdable.grip_min = aimable.deadzone;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateHead(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
 		{
-			var max = Maths.Min(0.20f, melee.cooldown * 0.50f);
+			//var max = Maths.Min(0.20f, melee.cooldown * 0.50f);
 
 			var delta = info.WorldTime - melee_state.last_hit;
-			if (delta < max)
+			if (delta <= 0.03f)
 			{
-				var t = Maths.EaseInOut(Maths.NormalizeClamp(info.WorldTime - melee_state.last_hit, max).Inv01(), Maths.Easing.Bounce) - 0.50f;
+				//var t = Maths.EaseInOut(Maths.NormalizeClamp(info.WorldTime - melee_state.last_hit, max).Inv01(), Maths.Easing.Bounce) - 0.50f;
 
-				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-				len = Maths.Min(len, melee.max_distance);
+				//var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
+				//len = Maths.Min(len, melee.max_distance);
 
-				body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
+				//body.AddForceLocal(melee.hit_direction * melee.knockback, melee.hit_offset);
+
+				//body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
+				body.AddForce(melee_state.last_hit_dir * melee.knockback.Abs() * 2.00f); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 
 				//App.WriteLine(t);
 			}
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, 
@@ -956,6 +959,7 @@ namespace TC2.Base.Components
 #if SERVER
 			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
 			{
+				melee_state.last_hit_dir = (control.mouse.position - transform.position).GetNormalized();
 				melee_state.Sync(entity, true);
 			}
 #endif
@@ -966,7 +970,7 @@ namespace TC2.Base.Components
 				melee_state.next_hit = info.WorldTime + melee.cooldown;
 
 				var pos = transform.LocalToWorld(melee.hit_offset);
-				var dir = default(Vector2);
+				//var dir = default(Vector2);
 
 				//switch (melee.attack_type)
 				//{
@@ -983,8 +987,9 @@ namespace TC2.Base.Components
 				//	}
 				//	break;
 				//}
-				dir = (control.mouse.position - transform.position).GetNormalized();
+				//dir = (control.mouse.position - transform.position).GetNormalized();
 
+				var dir = melee_state.last_hit_dir;
 				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
 				var len = Vector2.Distance(pos, pos_target);
 

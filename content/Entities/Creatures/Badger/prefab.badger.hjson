@@ -12,7 +12,7 @@ body:
 	{
 		mass: 25.000
 		radius: 0.500
-		friction: 0.300
+		friction: 0.350
 		elasticity: 0.650
 		material: flesh
 		layer: entity, solid, creature, flammable
@@ -39,13 +39,13 @@ health:
 armor:
 {
 	toughness: 75.000
-	protection: 0.900
-	coverage: 0.950
-	knockback_modifier: 1.200
+	protection: 1.000
+	coverage: 0.945
+	knockback_modifier: 0.650
 	stun_modifier: 0.750
 	pain_modifier: 0.720
 	material_type: fur
-	flags: no_damage_type_conversion
+	flags: no_damage_type_conversion, no_sound, no_particles
 }
 
 regen:
@@ -186,6 +186,7 @@ norotate:
 	bias: 0.100
 	multiplier: 2.000
 	mass_multiplier: 35.000
+	flags: no_share
 }
 
 runner:
@@ -220,7 +221,7 @@ dive:
 {
 	sound: "badger_pounce"
 	offset: [0.000, 1.000]
-	cooldown: 1.000
+	cooldown: 1.400
 	speed: 25.000
 }
 
@@ -337,6 +338,7 @@ faction:
 				layer: entity, solid, creature, flammable
 				mask: world, vehicle
 				exclude: barbed
+				miss_chance: 0.370
 			}
 		}
 		
@@ -368,16 +370,16 @@ faction:
 			swing_offset: [0.000, 0.000]
 			swing_rotation: 0.000
 			attack_type: thrust
-			damage_base: 35.000
-			damage_bonus: 130.000
+			damage_base: 40.000
+			damage_bonus: 140.000
 			pain_multiplier: 0.900
 			stun_multiplier: 1.200
 			disarm_chance: 0.070
 			cooldown: 1.000
-			max_distance: 1.000
+			max_distance: 1.250
 			aoe: 2.000
 			thickness: 1.000
-			knockback: -7500.000
+			knockback: 8500.000
 			yield: 0.500
 			penetration_falloff: 0.700
 			penetration: 2
@@ -420,19 +422,19 @@ faction:
 		
 		health:
 		{
-			max: 2300.000
+			max: 2650.000
 		}
 
 		armor:
 		{
 			toughness: 80.000
 			protection: 1.000
-			coverage: 0.850
-			knockback_modifier: 1.200
+			coverage: 0.820
+			knockback_modifier: 0.800
 			stun_modifier: 0.550
 			pain_modifier: 0.620
 			material_type: fur
-			flags: no_damage_type_conversion
+			flags: no_damage_type_conversion, no_sound, no_particles
 		}
 
 		regen:
@@ -562,8 +564,8 @@ faction:
 			{
 				mass: 25.000
 				radius: 0.500
-				friction: 0.300
-				elasticity: 0.450
+				friction: 0.400
+				elasticity: 0.150
 				material: flesh
 				layer: entity, solid, creature, flammable
 				mask: world, vehicle
@@ -595,19 +597,19 @@ faction:
 		
 		health:
 		{
-			max: 2700.000
+			max: 3400.000
 		}
 
 		armor:
 		{
 			toughness: 75.000
-			protection: 0.900
-			coverage: 0.950
-			knockback_modifier: 1.200
-			stun_modifier: 0.750
+			protection: 0.990
+			coverage: 0.750
+			knockback_modifier: 0.700
+			stun_modifier: 0.350
 			pain_modifier: 0.720
 			material_type: fur
-			flags: no_damage_type_conversion
+			flags: no_damage_type_conversion, no_sound, no_particles
 		}
 
 		regen:
