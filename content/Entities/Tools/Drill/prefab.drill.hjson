@@ -92,6 +92,7 @@ animated.renderer:
 sound.emitter:
 {
 	file: "drill"
+	flags: start_muted
 	volume: 1.000
 	pitch: 1.000
 }
@@ -115,6 +116,7 @@ heat:
 	@sound.emitter:
 	{
 		file: "overheat_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 	}

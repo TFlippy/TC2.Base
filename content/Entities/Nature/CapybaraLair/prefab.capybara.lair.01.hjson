@@ -125,7 +125,7 @@ alarm:
 	{
 		file: "effect.buzzer.08"
 		channel_type: world
-		flags: none
+		flags: start_muted
 		volume: 1.000
 		volume_mult: 0.000
 		pitch: 0.830

@@ -214,6 +214,7 @@ attachment:
 		@sound.emitter:
 		{
 			file: "track.move.loop.00"
+			flags: start_muted
 			volume: 1.000
 			pitch: 1.000
 			size: 0.750

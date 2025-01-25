@@ -79,6 +79,7 @@ fuse:
 	@sound.emitter:
 	{
 		file: "fuse_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 	}

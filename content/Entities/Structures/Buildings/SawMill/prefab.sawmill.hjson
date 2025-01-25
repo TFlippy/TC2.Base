@@ -79,7 +79,7 @@ sawmill:
 	{
 		file: "track.move.loop.03"
 		channel_type: world
-		flags: none
+		flags: start_muted
 		volume: 1.000
 		pitch: 0.840
 		size: 5.000
@@ -123,7 +123,7 @@ sawmill.state:
 	{
 		file: "sawmill.cut.loop.00"
 		channel_type: world
-		flags: none
+		flags: start_muted
 		volume: 0.650
 		pitch: 1.150
 		size: 1.400

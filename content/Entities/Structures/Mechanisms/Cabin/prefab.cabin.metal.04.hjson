@@ -185,6 +185,7 @@ mount:
 		@sound.emitter:
 		{
 			file: "attachment_rotate_loop_00"
+			flags: start_muted
 			volume: 1.000
 			pitch: 1.000
 		}
@@ -277,6 +278,7 @@ mount:
 		@sound.emitter:
 		{
 			file: "attachment_rotate_loop_00"
+			flags: start_muted
 			volume: 1.000
 			pitch: 1.000
 		}

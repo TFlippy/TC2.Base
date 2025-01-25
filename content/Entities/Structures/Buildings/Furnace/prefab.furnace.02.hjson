@@ -147,6 +147,7 @@ heat:
 	@sound.emitter:
 	{
 		file: "fire.loop.00"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 		size: 1.400

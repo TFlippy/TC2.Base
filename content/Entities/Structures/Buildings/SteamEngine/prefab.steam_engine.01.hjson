@@ -94,6 +94,7 @@ steamengine:
 	@sound.emitter:
 	{
 		file: "steam_engine_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 		size: 2.000
@@ -106,6 +107,7 @@ steamengine.state:
 	@sound.emitter:
 	{
 		file: "tractor.steam.loop.00"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 		size: 2.000
@@ -137,6 +139,7 @@ burner:
 	@sound.emitter:
 	{
 		file: "furnace_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 0.500
 		size: 0.700

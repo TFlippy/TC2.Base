@@ -155,6 +155,7 @@ heat:
 	@sound.emitter:
 	{
 		file: "overheat_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
 	}
@@ -174,6 +175,7 @@ heat:
 		@sound.emitter:
 		{
 			file: "essence_motor.loop.00"
+			flags: start_muted
 			volume: 1.000
 			pitch: 1.000
 		}

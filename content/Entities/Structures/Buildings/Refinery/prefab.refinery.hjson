@@ -124,6 +124,7 @@ burner:
 	@sound.emitter:
 	{
 		file: "furnace_loop"
+		flags: start_muted
 		volume: 1.000
 		pitch: 0.500
 	}
@@ -167,6 +168,7 @@ axle:
 sound.emitter:
 {
 	file: "refinery.loop.03"
+	flags: start_muted
 	volume: 1.000
 	pitch: 1.000
 }

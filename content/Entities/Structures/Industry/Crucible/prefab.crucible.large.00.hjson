@@ -130,6 +130,7 @@ heat:
 	@sound.emitter:
 	{
 		file: burner.burn.solid.loop.00
+		flags: start_muted
 		volume: 1.600
 		pitch: 1.250
 		size: 10.000

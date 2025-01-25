@@ -96,6 +96,7 @@ arcaneengine:
 	@sound.emitter:
 	{
 		file: "motor.prokopnik.loop.00"
+		flags: start_muted
 		// file: essence.device.loop.02
 		volume: 0.750
 		volume_mult: 0.000

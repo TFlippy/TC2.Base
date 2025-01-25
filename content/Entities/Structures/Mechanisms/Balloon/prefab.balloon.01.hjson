@@ -132,6 +132,7 @@ interactable:
 sound.emitter|"aux":
 {
 	file: "burner.gas.loop.02"
+	flags: start_muted
 	volume: 0.300
 	pitch: 0.500
 	size: 1.000
@@ -179,6 +180,7 @@ burner:
 	@sound.emitter:
 	{
 		file: "balloon.burner.loop.00"
+		flags: start_muted
 		volume: 0.500
 		pitch: 0.550
 		size: 0.800

@@ -71,6 +71,7 @@ furnace.state:
 sound.emitter|"aux":
 {
 	file: "burner.gas.loop.02"
+	flags: start_muted
 	volume: 0.300
 	pitch: 0.500
 	size: 1.000
