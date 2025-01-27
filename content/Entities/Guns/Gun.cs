@@ -234,8 +234,8 @@
 
 			[Statistics.Info("Barrel Count", description: "Number of barrels.", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public byte barrel_count = 1;
-			[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public byte projectile_count = 1;
+			//[Statistics.Info("Projectile Count", description: "Number of projectiles fired per shot.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			//public byte projectile_count = 1;
 			[Statistics.Info("Burst Count", description: "Number of shots per burst.", format: "{0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public byte burst_count = 1;
 
@@ -1043,7 +1043,7 @@
 					//stability_ratio = Maths.Clamp01((stability_ratio + ammo.stability_base) * ammo.stability_mult);
 
 					stability *= ammo.stability_mult;
-					var stability_req = ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.50f));
+					var stability_req = ammo.stability_base * (1.00f + ((gun.ammo_per_shot - 1) * 0.50f));
 					stability_ratio = Maths.Normalize01(stability * Maths.Mulpo(failure_rate * failure_rate, -0.10f), stability_req);
 
 					failure_rate = Maths.Clamp01(failure_rate + ((1.00f - stability_ratio) * 0.10f)); // Maths.Lerp01(failure_rate, 1.00f - stability_ratio, )
@@ -1062,19 +1062,20 @@
 					//	quantity = 0.00f
 					//};
 
-					var loaded_ammo = new Resource.Data(inventory_magazine.resource, 0.00f);
+					var consumed_ammo = new Resource.Data(inventory_magazine.resource, 0.00f);
 
 					var amount = gun.ammo_per_shot;
-					Resource.Withdraw(ref inventory_magazine, ref loaded_ammo, ref amount);
+					Resource.Withdraw(ref inventory_magazine, ref consumed_ammo, ref amount);
 
-					var count = (ammo.count * gun.projectile_count) * (uint)Maths.Normalize(loaded_ammo.quantity, gun.ammo_per_shot);
+					//var count = (ammo.count * loaded_ammo) * Maths.Normalize(loaded_ammo.quantity, gun.ammo_per_shot);
+					var count = Maths.RoundToUInt(ammo.count * consumed_ammo.quantity); // * Maths.Normalize(loaded_ammo.quantity, gun.ammo_per_shot);
 
 					if (heat.IsNotNull() && heat_state.IsNotNull())
 					{
 						if (heat.temperature_operating > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
 							//var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
-							var heat_amount = ((gun.ammo_per_shot - amount) * Energy.J(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							var heat_amount = (consumed_ammo.quantity * Energy.J(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							heat_state.AddEnergy(heat_amount);
 
 							var heat_excess = Maths.Max(heat_state.temperature_current - heat.temperature_high, 0.00f);
@@ -1106,10 +1107,10 @@
 					{
 						var explosion_data = new Explosion.Data()
 						{
-							power = 3.50f + (MathF.Pow(ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.35f)), 0.45f) * 0.05f), // + (count * 0.80f),
-							radius = (5.00f + (MathF.Pow(ammo.stability_base * (1.00f + ((gun.projectile_count - 1) * 0.40f)), 0.55f) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
-							damage_entity = ammo.stability_base * ((1.00f + ((gun.projectile_count - 1) * 1.10f))) * stability_ratio_sub * 2.50f,
-							damage_terrain = ammo.stability_base * (1.00f + (gun.projectile_count * 0.80f)) * stability_ratio_sub,
+							power = 3.50f + (Maths.Sqrt(ammo.stability_base * (1.00f + ((count - 1) * 0.35f))) * 0.05f), // + (count * 0.80f),
+							radius = (5.00f + (Maths.Sqrt(ammo.stability_base * (1.00f + ((count - 1) * 0.40f))) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
+							damage_entity = ammo.stability_base * ((1.00f + ((count - 1) * 1.10f))) * stability_ratio_sub * 2.50f,
+							damage_terrain = ammo.stability_base * (1.00f + (count * 0.80f)) * stability_ratio_sub,
 							smoke_amount = 2.10f,
 							sparks_amount = 3.00f,
 							pitch = 1.50f,
@@ -1184,7 +1185,7 @@
 								ent_gun: entity,
 								faction_id: h_faction,
 								gun_flags: gun.flags,
-								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current)
+								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current).Clamp01()
 							);
 
 							if (gun.type == Gun.Type.Launcher)
@@ -1194,9 +1195,9 @@
 
 							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
-								if (ent.TryGetRecord(out var record))
+								if (ent.TryGetRecord(out var rec_projectile))
 								{
-									ref var projectile = ref ent.GetComponent<Projectile.Data>();
+									ref var projectile = ref rec_projectile.GetComponent<Projectile.Data>();
 									if (projectile.IsNotNull())
 									{
 										projectile.damage_base *= args.damage_mult;
@@ -1206,14 +1207,14 @@
 										projectile.ent_owner = args.ent_owner;
 										projectile.faction_id = args.faction_id;
 										projectile.damp *= args.drag_jitter;
-										projectile.Sync(ent, true);
+										projectile.Sync(rec_projectile, true);
 									}
 
-									ref var explosive = ref ent.GetComponent<Explosive.Data>();
+									ref var explosive = ref rec_projectile.GetComponent<Explosive.Data>();
 									if (explosive.IsNotNull())
 									{
 										explosive.ent_owner = args.ent_owner;
-										explosive.Sync(ent, true);
+										explosive.Sync(rec_projectile, true);
 									}
 
 									if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))

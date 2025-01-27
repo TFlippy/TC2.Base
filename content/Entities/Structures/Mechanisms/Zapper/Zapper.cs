@@ -228,11 +228,11 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-					Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: result.entity,
-						position: result.world_position, velocity: random.NextUnitVector2Range(2.00f, 8.00f) + (dir * random.NextFloatRange(2.00f, 8.00f)), normal: -dir,
+					Damage.Hit(ent_attacker: entity, ent_owner: default, ent_target: result.entity,
+						position: result.world_position, velocity: random.NextUnitVector2Range(2.00f, 8.00f) + (dir * random.NextFloatRange(4.00f, 6.00f)), normal: -dir,
 						damage_integrity: damage, damage_durability: damage, damage_terrain: 0.00f,
 						target_material_type: result.material_type, damage_type: Damage.Type.Electricity,
-						yield: 0.00f, size: 1.50f, impulse: random.NextFloatRange(1000.00f, 1800.00f), flags: Damage.Flags.No_Loot_Pickup);
+						yield: 0.50f, size: 1.50f, impulse: random.NextFloatRange(1000.00f, 1800.00f), flags: Damage.Flags.No_Loot_Pickup);
 
 
 					if (random.NextBool(0.10f))
@@ -283,8 +283,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, 
-		[Source.Owned] ref Zapper.Data zapper, [Source.Owned] ref Zapper.State zapper_state, 
+		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random,
+		[Source.Owned] ref Zapper.Data zapper, [Source.Owned] ref Zapper.State zapper_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
 			//var ts = Timestamp.Now();

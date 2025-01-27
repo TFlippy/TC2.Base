@@ -16,8 +16,8 @@ body:
 		elasticity: 0.650
 		material: flesh
 		layer: entity, solid, creature, flammable
-		mask: world, vehicle
-		exclude: barbed
+		mask: world, vehicle, creature
+		exclude: barbed, dead, held
 	}
 }
 
@@ -99,7 +99,7 @@ holdable:
 
 animal:
 {
-	attack_cooldown: 1.600
+	attack_cooldown: 1.700
 
 	attack_distance_melee: 2.000
 	attack_cooldown_melee: 0.800
@@ -108,7 +108,7 @@ animal:
 	attack_cooldown_ranged: 2.000
 
 	charge_distance: 6.000
-	retreat_distance: 9.000
+	retreat_distance: 13.000
 	growl_cooldown: 0.100
 }
 
@@ -336,8 +336,8 @@ faction:
 				elasticity: 0.350
 				material: flesh
 				layer: entity, solid, creature, flammable
-				mask: world, vehicle
-				exclude: barbed
+				mask: world, vehicle, creature
+				exclude: barbed, dead, held
 				miss_chance: 0.370
 			}
 		}
@@ -370,18 +370,18 @@ faction:
 			swing_offset: [0.000, 0.000]
 			swing_rotation: 0.000
 			attack_type: thrust
-			damage_base: 40.000
-			damage_bonus: 140.000
+			damage_base: 60.000
+			damage_bonus: 115.000
 			pain_multiplier: 0.900
-			stun_multiplier: 1.200
-			disarm_chance: 0.070
+			stun_multiplier: 0.800
+			disarm_chance: 0.050
 			cooldown: 1.000
 			max_distance: 1.250
-			aoe: 2.000
+			aoe: 1.400
 			thickness: 1.000
-			knockback: 8500.000
+			knockback: 12500.000
 			yield: 0.500
-			penetration_falloff: 0.700
+			penetration_falloff: 0.600
 			penetration: 2
 			damage_type: bite
 			category: blunt
@@ -568,8 +568,8 @@ faction:
 				elasticity: 0.150
 				material: flesh
 				layer: entity, solid, creature, flammable
-				mask: world, vehicle
-				exclude: barbed
+				mask: world, vehicle, creature
+				exclude: barbed, dead, held
 			}
 		}
 			

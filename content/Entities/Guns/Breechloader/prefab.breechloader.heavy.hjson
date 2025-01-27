@@ -71,7 +71,6 @@ gun:
 	ammo_per_shot: 2.000
 	max_ammo: 2.000
 	barrel_count: 1
-	projectile_count: 2
 	burst_count: 1
 	
 	action: manual

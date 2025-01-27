@@ -2714,7 +2714,7 @@ namespace TC2.Base
 					{
 						data.ammo_per_shot += 1.00f;
 						data.smoke_amount += 1.50f;
-						data.projectile_count += 1;
+						//data.projectile_count += 1;
 					}
 
 					switch (data.feed)
