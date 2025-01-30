@@ -17,7 +17,7 @@ body:
 		elasticity: 0.100
 		material: wood
 		layer: entity, solid, tree, ignore_bullet, flammable
-		exlcude: tree
+		exclude: tree
 		mask: world
 	}
 }

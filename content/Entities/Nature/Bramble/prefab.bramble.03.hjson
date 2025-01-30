@@ -6,13 +6,18 @@ body:
 {
 	type: static
 	
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [-0.750, 0.375]
-		b: [0.375, 0.375]
+		points:
+		[
+			[-1.375, 0.000]
+			[0.625, -0.500]
+			[1.875, 1.500]
+			[-1.750, 1.500]
+		]
 		
 		mass: 98.000
-		radius: 1.750
+		radius: 0.750
 		friction: 1.500
 		elasticity: 0.200
 		rigidity_static: 0.250

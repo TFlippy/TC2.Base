@@ -10,21 +10,24 @@ body:
 	{
 		points:
 		[
-			[-2.875, -1.000]
-			[2.250, -2.500]
-			[2.625, 0.750]
+			[-2.500, 0.625]
+			[2.000, -2.375]
+			[2.875, 0.375]
 			[-3.125, 2.625]
 		]
+		
 		mass: 250.000
 		radius: 1.250
 		friction: 0.100
 		elasticity: 0.400
-		rigidity_dynamic: 0.010
 		rigidity_static: 0.010
+		rigidity_dynamic: 0.010
+		
 		material: tree
-		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
+		
+		layer: entity, plant, flammable, barbed, no_overlapped_placement, ignore_bullet
 		mask: creature
-		exclude: tree, vehicle, wheel
+		exclude: vehicle, tree, wheel
 	}
 }
 

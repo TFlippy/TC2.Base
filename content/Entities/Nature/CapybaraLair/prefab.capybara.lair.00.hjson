@@ -20,7 +20,7 @@ body:
 		elasticity: 0.500
 		material: stone
 		layer: entity, solid, background
-		mask: world
+		mask: none
 		exclude: none
 	}
 }

@@ -12,15 +12,16 @@ body:
 	
 	@shape.line:
 	{
-		a: [-0.125, -1.375]
-		b: [-0.250, 1.750]
+		a: [0.000, -1.500]
+		b: [-0.125, 1.500]
+		
 		mass: 25.000
-		radius: 0.800
+		radius: 0.875
 		friction: 0.950
-		elasticity: 0.500
+		
 		material: foliage
-		layer: entity, climbable, ignore_bullet, ignore_melee, flammable, plant
-		mask: world
+		
+		layer: entity, plant, climbable, flammable, ignore_melee, ignore_bullet
 	}
 }
 

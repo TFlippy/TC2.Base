@@ -9,14 +9,18 @@ body:
 {
 	type: static
 	
-	@shape.polygon:
+	@shape.line:
 	{
+		a: [2.125, -1.000]
+		b: [0.625, -0.375]
+		mass: 500.000
 		radius: 1.000
 		friction: 0.750
 		elasticity: 0.500
 		material: stone
-		layer: entity, solid
-		mask: world
+		layer: entity, solid, background
+		mask: none
+		exclude: none
 	}
 }
 

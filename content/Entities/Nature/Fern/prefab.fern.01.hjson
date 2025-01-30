@@ -8,13 +8,15 @@ body:
 	
 	@shape.circle:
 	{
+		offset: [-0.625, 0.125]
+		
 		mass: 28.000
-		radius: 1.250
+		radius: 1.625
 		friction: 0.950
-		elasticity: 0.500
+		
 		material: foliage
-		layer: entity, flammable, plant, ignore_melee
-		mask: world
+		
+		layer: entity, plant, flammable, ignore_melee
 	}
 }
 
