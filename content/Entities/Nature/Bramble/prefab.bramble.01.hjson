@@ -13,8 +13,8 @@ body:
 		radius: 1.250
 		friction: 1.000
 		elasticity: 0.400
-		rigidity_dynamic: 0.150
-		rigidity_static: 0.150
+		rigidity_dynamic: 0.100
+		rigidity_static: 0.120
 		material: bramble
 		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
 		mask: creature
@@ -45,7 +45,7 @@ foliage.renderer:
 
 barbedwire:
 {
-	damage: 100.000
+	damage: 80.000
 }
 
 harvestable:

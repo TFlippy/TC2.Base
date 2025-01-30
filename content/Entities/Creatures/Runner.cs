@@ -173,11 +173,15 @@ namespace TC2.Base.Components
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
 			//var modifier = 1.00f - (info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
-			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_swim, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
+			var modifier = 1.00f;
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
-				modifier *= 0.00f;
+				modifier = 0.00f;
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
+			}
+			else
+			{
+				modifier = Maths.Lerp01(modifier, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_swim, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			}
 
 			//no_rotate_parent.speed = Maths.Lerp(no_rotate_parent.speed, no_rotate_parent.speed * modifier, runner.propagate_ratio);

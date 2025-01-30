@@ -97,7 +97,7 @@ animal:
 {
 	flags: aggressive
 	attack_cooldown: 1.250
-	attack_distance_melee: 1.100
+	attack_distance_melee: 1.300
 	attack_cooldown_melee: 0.750
 	attack_distance_ranged: 10.000
 	attack_cooldown_ranged: 2.000
