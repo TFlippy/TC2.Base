@@ -14,16 +14,16 @@ body:
 		points:
 		[
 			[-2.500, 0.875]
-			[1.500, 1.750]
-			[2.500, 2.625]
-			[-2.625, 2.625]
+			[1.000, 1.375]
+			[2.125, 2.500]
+			[-2.250, 2.500]
 		]
 		
 		mass: 1300.000
 		radius: 0.500
 		
 		material: building_reinforced
-		miss_chance: 0.549
+		miss_chance: 0.545
 		
 		layer: entity, solid, building, ignore_melee
 	}

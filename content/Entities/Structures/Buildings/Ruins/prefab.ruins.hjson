@@ -11,16 +11,23 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [4.500, 5.000]
-		radius: 0.500
-		offset: [0.000, 0.000]
-		friction: 0.500
-		elasticity: 0.500
-		material: stone
-		layer: entity, building, ignore_melee
-		mask: world
+		points:
+		[
+			[-1.375, -1.375]
+			[1.375, -1.000]
+			[1.750, 2.000]
+			[-1.750, 2.000]
+		]
+		
+		mass: 5000.000
+		radius: 1.000
+		
+		material: building_masonry
+		miss_chance: 0.827
+		
+		layer: entity, solid, building, ignore_melee
 	}
 }
 

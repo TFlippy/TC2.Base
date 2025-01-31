@@ -17,7 +17,7 @@ body:
 		[
 			[0.125, -0.375]
 			[1.375, 0.375]
-			[2.000, 1.375]
+			[2.000, 1.125]
 			[-1.875, 1.250]
 		]
 		
@@ -27,9 +27,9 @@ body:
 		elasticity: 0.020
 		
 		material: stone
+		miss_chance: 0.322
 		
 		layer: entity, solid, ignore_melee
-		miss_chance: 0.325
 	}
 }
 

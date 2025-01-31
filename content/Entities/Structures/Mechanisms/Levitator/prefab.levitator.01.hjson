@@ -13,16 +13,19 @@ body:
 	{
 		points:
 		[
+			[-1.625, -0.250]
+			[1.625, -0.250]
 			[0.750, 0.500]
 			[-0.750, 0.500]
-			[-2.000, -0.500]
-			[2.000, -0.500]
 		]
+		
 		mass: 900.000
 		radius: 0.375
 		friction: 0.700
 		elasticity: 0.650
+		
 		material: machine
+		
 		layer: entity, solid
 		mask: world, essence
 		exclude: vehicle
