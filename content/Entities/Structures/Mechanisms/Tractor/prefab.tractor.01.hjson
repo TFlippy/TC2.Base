@@ -13,20 +13,20 @@ body:
 	{
 		points:
 		[
-			[2.875, 0.875]
-			[-3.000, 1.000]
-			[-3.250, -0.625]
-			[3.000, -0.750]
+			[-3.125, -0.375]
+			[2.250, -0.125]
+			[2.375, 0.750]
+			[-2.500, 0.750]
 		]
-		offset: [0.000, 0.000]
+		
 		mass: 2600.000
-		friction: 0.500
+		radius: 0.500
 		elasticity: 0.450
+		
 		material: machine
+		miss_chance: 0.206
+		
 		layer: entity, solid, vehicle
-		mask: world
-
-		miss_chance: 0.180
 	}
 }
 
@@ -37,13 +37,14 @@ health:
 
 armor:
 {
-	toughness: 500.000
-	protection: 0.950
+	toughness: 550.000
+	protection: 0.970
+	coverage: 0.880
 	
 	knockback_modifier: 1.400
 	pain_modifier: 0.000
 
-	material_type: metal_sheet
+	material_type: metal
 	flags: no_damage_type_conversion
 }
 
