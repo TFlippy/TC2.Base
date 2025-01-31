@@ -1,32 +1,43 @@
 $name: "Trashed Trash Can"
 $desc:
 	'''
+	Standard Imperial trash can past its prime.
 	Someone had a heap of fun with this.
-	Maybe it contains some ancient treasure?
 	'''
 $tags: []
 
 body:
 {
+	flags: none
 	buoyancy: 0.100
+	damping: 0.979
+	fall_damage_multiplier: 0.720
 
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [1.200, 1.700]
-		offset: [0.000, 0.000]
+		points:
+		[
+			[-0.500, -0.625]
+			[0.500, -0.625]
+			[0.375, 0.750]
+			[-0.375, 0.750]
+		]
+		
 		mass: 15.000
+		radius: 0.225
 		friction: 0.750
-		elasticity: 0.600
+		elasticity: 0.620
+		
 		material: metal_sheet
-		layer: entity, solid, background, furniture
-		mask: world
-		miss_chance: 0.735
+		miss_chance: 0.702
+		
+		layer: entity, solid, background, furniture, conductive, magnetic
 	}
 }
 
 health:
 {
-	max: 600.000
+	max: 2200.000
 }
 
 holdable:
@@ -41,7 +52,7 @@ animated.renderer:
 	{
 		texture: "wreck.trashcan"
 	}
-	z: 10.000
+	z: -80.000
 }
 
 transform:
