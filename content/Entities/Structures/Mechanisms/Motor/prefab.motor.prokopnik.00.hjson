@@ -29,8 +29,9 @@ health:
 
 armor:
 {
-	toughness: 600.000
-	protection: 0.600
+	toughness: 500.000
+	protection: 0.970
+	coverage: 0.740
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
@@ -60,9 +61,15 @@ interactable:
 	window_size_misc: [72.000, 0.000]
 }
 
+control:
+{
+
+}
+
 motor:
 {
 	vibration: 0.150
+	flags: control_speed, control_power
 }
 
 holdable:

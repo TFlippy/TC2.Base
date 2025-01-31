@@ -270,8 +270,8 @@ axle:
 		name: "Motor"
 		identifier: "motor"
 
-		flags: no_tab
-		flags_editable: locked, disabled
+		flags: no_tab, keyboard_write
+		flags_editable: locked, disabled, keyboard_write
 
 		gui_size: [96.000, 96.000]
 
