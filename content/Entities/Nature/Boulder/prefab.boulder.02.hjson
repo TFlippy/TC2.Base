@@ -13,22 +13,23 @@ body:
 	
 	@shape.polygon:
 	{
-		points: 
+		points:
 		[
-			[-0.250, -2.250]
-			[0.000, -2.250]
-			[1.750, 2.000]
-			[-1.750, 2.000]
+			[-1.375, 1.250]
+			[-0.125, -2.125]
+			[1.375, 1.750]
+			[-0.750, 2.125]
 		]
+		
 		mass: 2800.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.020
+		
 		material: stone
+		miss_chance: 0.318
+		
 		layer: entity, solid, ignore_melee
-		mask: world
-
-		miss_chance: 0.320
 	}
 }
 

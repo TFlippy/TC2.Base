@@ -9,16 +9,18 @@ body:
 
 	@shape.line:
 	{
-		a: [-2.750, 0.000]
-		b: [2.750, -0.125]
+		a: [-2.500, 0.125]
+		b: [2.750, 0.125]
+		
 		mass: 1200.000
 		radius: 0.625
 		friction: 1.000
 		elasticity: 0.100
+		
 		material: wood
-		layer: entity, solid, tree, ignore_bullet, flammable
+		
+		layer: entity, solid, tree, flammable, ignore_bullet
 		exclude: tree
-		mask: world
 	}
 }
 

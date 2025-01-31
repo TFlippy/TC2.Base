@@ -6,17 +6,39 @@ body:
 {
 	type: static
 	
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [0.400, 0.100]
-		b: [0.700, -7.500]
-		mass: 1500.000
-		radius: 1.000
+		points:
+		[
+			[-1.500, -10.500]
+			[3.000, -8.500]
+			[0.250, -2.250]
+			[-3.750, -9.250]
+		]
+		
+		mass: 800.000
+		radius: 1.625
 		friction: 1.500
 		elasticity: 0.010
+		
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet, flammable, plant
-		mask: world
+		
+		layer: entity, solid, tree, plant, ignore_bullet
+		exclude: tree
+	}
+
+	@shape.circle:
+	{
+		offset: [-0.125, 1.250]
+		
+		mass: 1200.000
+		radius: 3.000
+		friction: 1.500
+		elasticity: 0.010
+		
+		material: mushroom
+		
+		layer: entity, solid, tree, plant, ignore_bullet
 		exclude: tree
 	}
 }
