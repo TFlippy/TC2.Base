@@ -17,8 +17,9 @@ body:
 		elasticity: 0.080
 		
 		material: tree
+		miss_chance: 0.810
 		
-		layer: entity, solid, tree, flammable, ignore_bullet
+		layer: entity, solid, tree, plant, organic, flammable
 		mask: world, tree
 		exclude: held
 	}

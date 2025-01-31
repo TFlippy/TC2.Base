@@ -14,8 +14,11 @@ body:
 		radius: 0.500
 		friction: 0.920
 		elasticity: 0.210
+
 		material: tree
-		layer: entity, solid, tree, ignore_bullet, flammable
+		miss_chance: 0.890
+		
+		layer: entity, solid, tree, plant, organic, flammable
 		mask: world, tree
 		exclude: held
 	}

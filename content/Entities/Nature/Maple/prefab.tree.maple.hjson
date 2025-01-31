@@ -10,12 +10,16 @@ body:
 	{
 		a: [0.000, -6.000]
 		b: [0.000, 0.000]
+		
 		mass: 780.000
 		radius: 0.375
 		friction: 0.800
 		elasticity: 0.190
+		
 		material: tree
-		layer: entity, solid, tree, ignore_bullet, flammable
+		miss_chance: 0.922
+		
+		layer: entity, solid, tree, plant, organic, flammable
 		mask: world, tree
 		exclude: held
 	}

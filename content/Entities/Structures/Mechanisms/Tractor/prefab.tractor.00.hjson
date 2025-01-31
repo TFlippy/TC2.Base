@@ -167,9 +167,10 @@ tractor.state:
 
 norotate:
 {
-	multiplier: 0.400
 	bias: 0.200
-	mass_multiplier: 250.000
+	multiplier: 0.750
+	mass_multiplier: 150.000
+	flags: no_share
 }
 
 interactable:

@@ -324,7 +324,7 @@ namespace TC2.Base.Components
 											ev.ent_owner = entity;
 											ev.ent_target = ent_target;
 											ev.pos_a = transform.LocalToWorld(Vector2.Lerp(zapper.offset_a, zapper.offset_b, random.NextFloat01()));
-											ev.pos_b = arbiter.GetContact(0);
+											ev.pos_b = arbiter.GetContactPosition(0);
 											entity.TriggerEventDeferred(ev, sync: true);
 
 											hit = true;

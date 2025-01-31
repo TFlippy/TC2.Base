@@ -197,6 +197,7 @@ runner:
 	max_jump_time: 0.000
 	max_air_time: 0.200
 	air_brake_modifier: 0.000
+	flags: no_rotate_align_surface
 }
 
 runner.state:
@@ -210,6 +211,19 @@ climber:
 	climb_speed: 16.000
 	climb_force: 3200.000
 	cling_force: 4000.000
+
+	@shape.circle:
+	{
+		mass: 0.001
+		radius: 0.375
+		friction: 0.000
+		elasticity: 0.000
+		rigidity_dynamic: 0.000
+		rigidity_static: 0.000
+		layer: entity, ignore_hover, ignore_melee, ignore_bullet
+		mask: climbable
+		// flags: no_mass
+	}
 }
 
 threat:
@@ -221,8 +235,8 @@ dive:
 {
 	sound: "badger_pounce"
 	offset: [0.000, 1.000]
-	cooldown: 1.400
-	speed: 25.000
+	cooldown: 1.500
+	speed: 18.000
 }
 
 badger:
