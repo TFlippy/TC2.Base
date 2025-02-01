@@ -11,6 +11,7 @@ projectile:
 	ricochet_count: 0
 	speed_modifier_min: 0.300
 	speed_modifier_max: 1.300
+	flags: no_miss
 }
 
 transform:

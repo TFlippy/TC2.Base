@@ -19,7 +19,7 @@ body:
 		material: tree
 		miss_chance: 0.922
 		
-		layer: entity, solid, tree, plant, organic, flammable
+		layer: entity, solid, tree, plant, organic, flammable, background
 		mask: world, tree
 		exclude: held
 	}

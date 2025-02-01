@@ -10,6 +10,7 @@ body:
 	{
 		a: [0.000, -6.000]
 		b: [0.000, 0.000]
+		
 		mass: 710.000
 		radius: 0.375
 		friction: 0.860
@@ -18,7 +19,7 @@ body:
 		material: tree
 		miss_chance: 0.942
 		
-		layer: entity, solid, tree, plant, organic, flammable
+		layer: entity, solid, tree, plant, organic, flammable, background
 		mask: world, tree
 		exclude: held
 	}

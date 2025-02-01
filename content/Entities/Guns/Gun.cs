@@ -1207,6 +1207,7 @@
 										projectile.ent_owner = args.ent_owner;
 										projectile.faction_id = args.faction_id;
 										projectile.damp *= args.drag_jitter;
+										projectile.random = XorRandom.New(args.vel.X.ToUInt32BitCast(), args.vel.Y.ToUInt32BitCast());
 										projectile.Sync(rec_projectile, true);
 									}
 
