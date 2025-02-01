@@ -26,7 +26,7 @@
 	pattern: pattern.soil
 	
 	texture_scale: 2.000
-	texture_overshoot: -0.750
+	texture_overshoot: 0.750
 	texture_offset: 0.000
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"

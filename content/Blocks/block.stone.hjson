@@ -25,9 +25,9 @@
 	texture: terrain.stone
 	pattern: pattern.stone
 	
-	texture_scale: 1.500
-	texture_overshoot: -0.750
-	texture_offset: 0.000
+	texture_scale: 1.466
+	texture_overshoot: -0.889
+	texture_offset: -0.089
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	

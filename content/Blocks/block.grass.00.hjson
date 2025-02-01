@@ -25,9 +25,9 @@
 	texture: terrain.grass.00
 	pattern: pattern.soil
 	
-	texture_scale: 1.800
-	texture_overshoot: -0.750
-	texture_offset: 0.000
+	texture_scale: 1.892
+	texture_overshoot: -1.350
+	texture_offset: 0.100
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
