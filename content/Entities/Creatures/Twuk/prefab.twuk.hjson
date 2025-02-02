@@ -1,0 +1,777 @@
+$name: "Twuk"
+$desc: 
+	'''
+	Huge flightless songbird adorned with beautiful vibrant tufts of feathers on its head and tail.
+	'''
+$export: false
+$tags: ["twuk"]
+
+body:
+{
+	fall_damage_multiplier: 0.400
+
+	@shape.circle:
+	{
+		mass: 40.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.350
+
+		material: flesh
+		layer: entity, solid, creature, organic, flammable
+		mask: world, vehicle
+		exclude: dead, held
+
+		miss_chance: 0.380
+	}
+}
+
+organic:
+{
+	h_species: "twuk"
+}
+
+organic.state:
+{
+
+}
+
+health:
+{
+	max: 7500.000
+}
+
+regen:
+{
+	amount: 135.000
+	interval: 8.000
+}
+
+armor:
+{
+	toughness: 89.000
+	protection: 0.750
+	coverage: 0.930
+	knockback_modifier: 0.830
+	stun_modifier: 0.880
+	pain_modifier: 0.920
+	material_type: fabric
+	flags: no_damage_type_conversion, no_sound, no_particles
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "twuk.body"
+		size: [24, 24]
+	}
+	z: -30.000
+	flags: has_damage
+}
+
+damage.effects:
+{
+	offset: 1
+	frame_count: 4
+	threshold_wreck: 0.200
+}
+
+transform:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+facing:
+{
+	offset: -0.150
+	threshold: 0.100
+	flip_interval: 0.300
+}
+
+holdable:
+{
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+animal:
+{
+	flags: aggressive
+	attack_cooldown: 0.080
+	attack_distance_melee: 2.500
+	attack_cooldown_melee: 0.140
+	attack_distance_ranged: 5.000
+	attack_cooldown_ranged: 1.000
+	charge_distance: 8.000
+	retreat_distance: 1.200
+	growl_cooldown: 1.000
+}
+
+animal.state:
+{
+
+}
+
+npc:
+{
+	avoid_distance: [1.000, 1.000]
+	idle_distance: [1.000, 3.000]
+	
+	wander_radius: 16.000
+	wander_interval: 2.000
+	wander_interval_extra: 6.000
+	
+	pain_modifier: 0.600
+	min_consciousness: 0.300
+}
+
+npc.emotions:
+{
+	hostility: 2.100
+	courage: 0.200
+	cruelty: 4.500
+	irritability: 1.100
+	apathy: 0.400
+}
+
+npc.emotions.state:
+{
+
+}
+
+ai:
+{
+	stance: aggressive
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	type: attack
+	movement_flags: wander
+	combat_flags: attack_visible, attack_when_hit, flee, cover, chase, charge
+}
+
+ai.search:
+{
+	radius: 32.000
+}
+
+pathfinding:
+{
+	flags: land
+}
+
+pathfinding.state:
+{
+	
+}
+
+commandable:
+{
+	
+}
+
+threat:
+{
+	priority: 20.000
+}
+
+twuk:
+{
+
+}
+
+norotate:
+{
+	bias: 0.100
+	multiplier: 1.000
+	mass_multiplier: 25.000
+}
+
+// interactable:
+// {
+// 	window_size: [192.000, 232.000]
+// }
+
+torso:
+{
+
+}
+
+headbob:
+{
+	multiplier: [-0.150, 0.250]
+	speed: -32.000
+}
+
+lootable:
+{
+	items:
+	[
+		{
+			material: "meat"
+			min: 30.000
+			max: 50.000
+		}
+		{
+			material: "cloth"
+			min: 10.000
+			max: 20.000
+		}
+		{
+			material: "eggs"
+			min: 4.000
+			max: 6.000
+		}
+	]
+}
+
+faction:
+{
+	id: twuk
+}
+
++slot.legs|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.000, 0.700]
+		max_force: 25000.000
+		max_torque: 4000.000
+		max_stress: 1.500
+		stress_threshold: 1.400
+		stress_damp: 0.300
+		flags: organic, no_wrap, control_write, force_facing, facing_reset_pos, no_sync
+		material_type: flesh
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [0, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -35.000
+		}
+	}
+	
+	joint.pivot:
+	{
+	
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 500.000
+		damping: 20.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 8000.000
+		min: -0.500
+		max: 0.500
+	}
+	
+	+legs|child:
+	{
+		$tags: []
+		
+		body:
+		{
+			fall_damage_multiplier: 0.200
+
+			@shape.circle:
+			{
+				mass: 32.000
+				radius: 0.750
+				friction: 0.650
+				elasticity: 0.850
+				rigidity_static: 0.875
+				rigidity_dynamic: 0.820
+
+				material: flesh
+				layer: entity, solid, creature, organic, flammable
+				mask: world, vehicle, creature
+				exclude: barbed, dead, held
+
+				miss_chance: 0.360
+			}
+		}
+		
+		norotate:
+		{
+			bias: 0.0001
+			speed: 8.000
+			multiplier: 40.000
+			mass_multiplier: 300.000
+		}
+				
+		organic:
+		{
+			h_species: "twuk"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [1, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -34.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 8700.000
+		}
+
+		regen:
+		{
+			amount: 135.000
+			interval: 8.000
+		}
+
+		armor:
+		{
+			toughness: 185.000
+			protection: 0.950
+			coverage: 0.950
+			knockback_modifier: 0.830
+			stun_modifier: 0.420
+			pain_modifier: 0.620
+			material_type: leather
+			flags: no_damage_type_conversion, no_sound, no_particles
+		}
+
+		holdable:
+		{
+			offset: [0.000, 0.000]
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "twuk.legs"
+				count: 1
+				size: [24, 24]
+			}
+			z: -35.000
+			offset: [0.000, -0.500]
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+
+		}
+		
+		runner:
+		{
+			walk_force: 10000.000
+			jump_force: 35000.000
+			max_speed: 18.000
+			max_jump_speed: 30.000
+			max_jump_time: 0.300
+			max_air_time: 0.500
+			max_grounded_dot: 0.850
+			propagate_ratio: 0.800
+			no_rotate_air_mult: 0.200
+			flags: jump_align_surface, no_rotate_align_surface
+			walk_lerp: 0.050
+			crouch_speed_modifier: 0.750
+			air_brake_modifier: 0.300
+		}
+
+		runner.state:
+		{
+			
+		}
+
+		climber:
+		{
+			max_speed: [3.000, 1.000]
+			climb_speed: 35.000
+			climb_force: 10000.000
+			// cling_force: 8000.000
+			cling_force: 0.000
+
+			// @shape.circle:
+			// {
+			// 	mass: 0.001
+			// 	radius: 0.500
+			// 	friction: 0.000
+			// 	elasticity: 0.000
+			// 	rigidity_dynamic: 0.000
+			// 	rigidity_static: 0.000
+			// 	// layer: entity, ignore_hover, ignore_bullet, ignore_melee
+			// 	layer: entity, ignore_hover, ignore_melee, ignore_bullet
+			// 	mask: climbable
+			// 	exclude: tree, dynamic
+			// 	require: static
+			// 	// exclude: world
+			// 	// flags: no_mass
+			// }
+		}
+
+		// runner:
+		// {
+		// 	walk_force: 10000.000
+		// 	jump_force: 15000.000
+		// 	max_speed: 18.000
+		// 	max_jump_speed: 25.000
+
+		// 	walk_lerp: 0.050
+		// 	jump_decay: 0.650
+		// }
+			
+		transform:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+
+		legs:
+		{
+			sound_interval_multiplier: 0.700
+			fps: 17
+			frames_jump: [0, 2]
+			frame_air: 1
+		}
+
+		headbob:
+		{
+			multiplier: [-0.150, -0.150]
+			speed: -17.000
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 30.000
+					max: 50.000
+				}
+				{
+					material: "cloth"
+					min: 5.000
+					max: 20.000
+				}
+			]
+		}
+	}
+}
+
++slot.head|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [0.500, 0.250]
+		max_force: 27000.000
+		max_torque: 5000.000
+		torque_modifier: 1.250
+		max_stress: 1.500
+		stress_threshold: 1.400
+		stress_damp: 0.300
+		z: -10.000
+		material_type: flesh
+		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [3, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -20.000
+		}
+	}
+	
+	joint.pivot:
+	{
+	
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 650.000
+		damping: 15.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 12000.000
+		min: -1.000
+		max: 1.200
+	}
+	
+	+head|child:
+	{
+		$tags: []
+		
+		body:
+		{
+			fall_damage_multiplier: 0.350
+
+			@shape.circle:
+			{
+				mass: 6.000
+				radius: 0.400
+				friction: 0.700
+				elasticity: 0.650
+				
+				material: flesh
+				layer: entity, solid, creature, organic, flammable
+				mask: world, vehicle, creature
+				exclude: barbed, dead, held
+
+				miss_chance: 0.630
+			}
+		}
+		
+		lookat:
+		{
+			head_modifier: 0.350
+			body_modifier: 0.600
+			deadzone: 0.000
+		}
+		
+		// biter:
+		// {
+		// 	sound: "badger_attack"
+		// 	damage_base: 50.000
+		// 	damage_bonus: 180.000
+
+		// 	cooldown: 0.150
+		// 	max_distance: 2.000
+		// 	aoe: 0.500
+		// 	velocity: 50.000
+		// 	damage_type: pickaxe
+		// 	hit_mask: destructible, solid, world
+		// }
+		
+		// melee:
+		// {
+		// 	sound_pitch: 1.350
+		// 	hit_offset: [0.125, -0.250]
+		// 	hit_direction: [0.809024, 0.587775]
+		// 	swing_offset: [-0.125, -0.500]
+		// 	swing_rotation: 0.190
+		// 	damage_base: 50.000
+		// 	damage_bonus: 250.000
+		// 	primary_damage_multiplier: 1.150
+		// 	secondary_damage_multiplier: 0.950
+		// 	terrain_damage_multiplier: 0.450
+		// 	pain_multiplier: 1.500
+		// 	stun_multiplier: 0.500
+		// 	disarm_chance: 0.180
+		// 	cooldown: 0.160
+		// 	max_distance: 2.000
+		// 	aoe: 1.000
+		// 	thickness: 0.700
+		// 	knockback: -420.000
+		// 	yield: 0.800
+		// 	penetration_falloff: 0.850
+		// 	penetration: 1
+		// 	damage_type: pickaxe
+		// 	category: pointed
+		// 	flags: no_handle
+		// 	hit_mask: world, solid, item, creature, vehicle, door, organic, wheel, shield, held, attached
+		// 	hit_exclude: background, tree, essence, water, gas, ignore_melee
+		// }
+
+		melee:
+		{
+			sound_pitch: 1.350
+			hit_offset: [0.250, 0.125]
+			hit_direction: [0.37503, 0.927013]
+			swing_offset: [-0.125, 0.375]
+			swing_rotation: 0.000
+			damage_base: 150.000
+			damage_bonus: 280.000
+			primary_damage_multiplier: 0.780
+			terrain_damage_multiplier: 0.650
+			pain_multiplier: 0.900
+			stun_multiplier: 0.350
+			disarm_chance: 0.070
+			cooldown: 0.160
+			max_distance: 1.650
+			aoe: 1.400
+			thickness: 1.120
+			knockback: -2520.000
+			yield: 0.640
+			penetration_falloff: 0.850
+			penetration: 1
+			damage_type: pickaxe
+			category: pointed
+			flags: no_handle, no_material_filter
+			damage_flags_add: no_loot_pickup, no_loot_drop
+			hit_mask: world, item, creature, vehicle, door, organic, wheel, shield, held, attached
+			hit_exclude: background, tree, essence, water, gas, ignore_melee, resource
+		}
+
+		melee.state:
+		{
+
+		}
+
+		organic:
+		{
+			tags: brain
+			h_species: "twuk"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: human.gore.stub
+					size: [16, 16]
+					frame: [2, 0]
+				}
+				offset: [-0.500, 1.125]
+				z: -23.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 8500.000
+		}
+
+		regen:
+		{
+			amount: 135.000
+			interval: 8.000
+		}
+
+		armor:
+		{
+			toughness: 258.000
+			protection: 0.980
+			coverage: 0.650
+			knockback_modifier: 1.530
+			stun_modifier: 0.320
+			pain_modifier: 0.620
+			material_type: bone
+			flags: no_damage_type_conversion, no_sound, no_particles
+		}
+
+		// armor:
+		// {
+		// 	toughness: 350.000
+		// 	protection: 0.990
+		// 	coverage: 0.780
+		// 	integrity_modifier: 0.800
+		// 	knockback_modifier: 1.100
+		// 	stun_modifier: 0.100
+		// 	pain_modifier: 0.550
+		// 	material_type: bone
+		// }
+		
+		holdable:
+		{
+			offset: [-0.375, 0.625]
+			hints: weapon, melee, short_range, usable
+			flags: full_rotate
+		}
+						
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: twuk.head.male
+				count: 1
+				size: [16, 16]
+			}
+			z: -21.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+
+		}
+			
+		transform:
+		{
+		
+		}
+		
+		head:
+		{
+			voice_pitch: 1.000
+
+			// sound_pain: "badger.pain.01"
+			// sound_death: "badger.death.00"
+
+			offset_mouth: [0.500, 0.150]
+
+			frame_pain: 1
+			frame_dead: 2
+		}
+		
+		control:
+		{
+			
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 10.000
+					max: 25.000
+				}
+				{
+					material: "cloth"
+					min: 5.000
+					max: 15.000
+				}
+			]
+		}
+	}
+}
