@@ -1,27 +1,31 @@
 $name: "Drevokocur"
 $desc: 
 	'''
-	A drevokocur with a troubled past, and nothing left to lose.
+	Mean-looking cat with a fondness for trees.
 	'''
 $export: false
 $tags: ["drevokocur"]
 
 body:
 {
-	fall_damage_multiplier: 0.500
+	fall_damage_multiplier: 0.200
 
 	@shape.circle:
 	{
 		offset: [-0.125, 0.125]
-		mass: 30.000
+		mass: 78.000
 		radius: 1.000
-		friction: 0.250
-		elasticity: 0.700
-		rigidity_static: 0.800
-		
+		friction: 0.590
+		elasticity: 0.780
+		rigidity_static: 0.875
+		rigidity_dynamic: 0.820
+
 		material: flesh
-		layer: entity, solid, creature, flammable
+		layer: entity, solid, creature, organic, flammable
 		mask: world, vehicle, creature
+		exclude: barbed, dead, held
+
+		miss_chance: 0.110
 	}
 }
 
@@ -37,7 +41,25 @@ organic.state:
 
 health:
 {
-	max: 11800.000
+	max: 14800.000
+}
+
+regen:
+{
+	amount: 155.000
+	interval: 12.000
+}
+
+armor:
+{
+	toughness: 95.000
+	protection: 0.983
+	coverage: 1.000
+	knockback_modifier: 1.250
+	stun_modifier: 0.850
+	pain_modifier: 0.790
+	material_type: leather
+	flags: no_damage_type_conversion, no_sound, no_particles
 }
 
 animated.renderer:
@@ -81,22 +103,23 @@ facing:
 
 holdable:
 {
-
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
 animal:
 {
-	attack_cooldown: 0.050
+	flags: aggressive
+	attack_cooldown: 0.120
 
-	attack_distance_melee: 2.500
-	attack_cooldown_melee: 0.050
+	attack_distance_melee: 2.400
+	attack_cooldown_melee: 0.260
 
-	attack_distance_ranged: 5.000
+	attack_distance_ranged: 15.000
 	attack_cooldown_ranged: 1.000
 
-	charge_distance: 9.000
+	charge_distance: 16.000
 	retreat_distance: 1.500
-	growl_cooldown: 0.100
+	growl_cooldown: 1.000
 }
 
 animal.state:
@@ -106,20 +129,24 @@ animal.state:
 
 npc:
 {
-	pain_modifier: 0.500
-	min_consciousness: 0.300
-	min_distance: [0.500, 0.000]
-	max_distance: [2.000, 2.000]
-	wander_radius: 12.000
+	avoid_distance: [0.500, 0.000]
+	idle_distance: [2.000, 2.000]
+
+	wander_radius: 16.000
+	wander_interval: 3.000
+	wander_interval_extra: 9.000
+
+	pain_modifier: 0.550
+	min_consciousness: 0.350
 }
 
 npc.emotions:
 {
-	hostility: 1.100
-	courage: 1.200
-	cruelty: 2.500
-	irritability: 2.000
-	apathy: 0.400
+	hostility: 3.500
+	courage: 2.500
+	cruelty: 2.100
+	irritability: 1.800
+	apathy: 1.500
 }
 
 npc.emotions.state:
@@ -140,13 +167,13 @@ ai.movement:
 ai.behavior:
 {
 	type: attack
-	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
+	movement_flags: wander, open_doors
+	combat_flags: attack_visible, attack_when_hit, flee, evade, chase, charge
 }
 
 ai.search:
 {
-	radius: 24.000
+	radius: 26.000
 }
 
 pathfinding:
@@ -164,21 +191,32 @@ commandable:
 	
 }
 
+norotate:
+{
+	rotation: 0.000
+	bias: 0.050
+	speed: 6.000
+	multiplier: 3.000
+	mass_multiplier: 50.000
+	flags: no_share
+}
+
 runner:
 {
-	walk_force: 12000.000
-	jump_force: 25000.000
+	walk_force: 14000.000
+	jump_force: 28000.000
 	max_speed: 18.000
 	max_jump_speed: 20.000
 	max_jump_time: 0.500
 	max_air_time: 0.500
 	max_grounded_dot: 0.900
 	propagate_ratio: 1.000
+	no_rotate_air_mult: 0.020
+	flags: no_rotate_align_surface
 	walk_lerp: 0.250
 	jump_decay: 0.600
 	crouch_speed_modifier: 0.500
 	air_brake_modifier: 0.000
-	no_rotate_air_mult: 0.020
 }
 
 runner.state:
@@ -204,16 +242,6 @@ dive:
 	
 // }
 
-norotate:
-{
-	rotation: 0.000
-	bias: 0.050
-	speed: 6.000
-	multiplier: 3.000
-	mass_multiplier: 50.000
-	flags: no_share
-}
-
 // interactable:
 // {
 // 	window_size: [192.000, 232.000]
@@ -222,11 +250,8 @@ norotate:
 legs:
 {
 	sound_interval_multiplier: 0.870
-	sound_volume: 0.250
 	sound_pitch: 0.870
 	frame_count: 5
-	fps: 12
-	frame_sitting: [0, 0]
 	frames_jump: [1, 1]
 	frame_air: 4
 }
@@ -242,19 +267,14 @@ lootable:
 	items:
 	[
 		{
-			material: "meat"
+			material: meat
 			min: 30.000
 			max: 50.000
 		}
 		{
-			material: "leather"
+			material: leather
 			min: 10.000
 			max: 20.000
-		}
-		{
-			material: "tallow"
-			min: 12.000
-			max: 25.000
 		}
 	]
 }

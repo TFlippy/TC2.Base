@@ -40,9 +40,9 @@ gun:
 	shake_amount: 0.500
 	shake_radius: 18.000
 	
-	sound_volume: 1.630
-	sound_size: 1.650
-	sound_dist_multiplier: 1.720
+	sound_volume: 1.330
+	sound_size: 1.250
+	sound_dist_multiplier: 1.620
 	sound_pitch: 1.160
 	
 	sound_shoot: breechloader.short.shoot
