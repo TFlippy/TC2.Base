@@ -324,7 +324,7 @@ faction:
 // 	}
 // }
 
-+slot_butt|instance:
++slot.butt|instance:
 {
 	$tags: []
 	
@@ -335,11 +335,12 @@ faction:
 		max_torque: 2400.000
 		torque_modifier: 1.250
 		max_displacement: 0.220
+		displacement_force_modifier: 0.350
 		max_stress: 1.500
 		stress_threshold: 1.450
 		z: 15.000
 		material_type: flesh
-		flags: organic, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
+		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
 
 		@animated.renderer:
 		{
@@ -363,20 +364,21 @@ faction:
 	
 	joint.rotaryspring:
 	{
-		stiffness: 220.000
-		damping: 2.000
+		stiffness: 520.000
+		damping: 20.000
 		angle: 0.000
 	}
 	
 	joint.rotarylimit:
 	{
-		max_torque: 12000.000
+		max_torque: 40000.000
+		min: -1.150
+		max: 1.200
 		max_bias: 6.000
-		min: -1.900
-		max: 1.900
 		error_bias: 0.110
+		stress_mult: 0.900
 	}
-	
+		
 	+butt|child:
 	{
 		$tags: []
@@ -546,7 +548,7 @@ faction:
 	}
 }
 
-+slot_head|instance:
++slot.head|instance:
 {
 	$tags: []
 	
@@ -616,13 +618,13 @@ faction:
 				mask: world, vehicle
 				exclude: barbed, dead, held
 
-				miss_chance: 0.310
+				miss_chance: 0.380
 			}
 		}
 		
 		lookat:
 		{
-			head_modifier: 1.000
+			head_modifier: 0.900
 			body_modifier: 0.000
 			deadzone: 0.150
 		}
@@ -645,38 +647,35 @@ faction:
 
 		melee:
 		{
-			sound_swing: "tool_swing_00"
 			sound_volume: 0.800
 			sound_size: 1.000
 			sound_pitch: 0.600
 			hit_offset: [0.875, 0.375]
-			hit_direction: [1.000, 0.000]
 			swing_offset: [0.625, -0.875]
-			swing_rotation: 0.000
-			attack_type: thrust
+			swing_rotation: -1.600
 			damage_base: 450.000
 			damage_bonus: 700.000
 			primary_damage_multiplier: 1.300
 			secondary_damage_multiplier: 0.800
 			terrain_damage_multiplier: 0.500
-			pain_multiplier: 0.100
-			stun_multiplier: 0.100
+			pain_multiplier: 0.200
+			stun_multiplier: 0.150
 			disarm_chance: 0.450
 			cooldown: 0.260
-			max_distance: 1.500
-			aoe: 1.250
-			thickness: 1.250
+			max_distance: 1.400
+			aoe: 1.350
+			thickness: 1.700
 			knockback: -2650.000
-			yield: 0.300
+			yield: 0.800
 			penetration_falloff: 0.800
 			penetration: 3
 			damage_type: slash
 			category: misc
 			flags: no_handle, no_material_filter
+			damage_flags_add: no_loot_pickup, no_loot_drop
 			hit_mask: item, creature, vehicle, door, organic, wheel, shield, held, attached
 			hit_require: destructible
 			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
-			damage_flags_add: no_loot_pickup, no_loot_drop
 		}
 
 		melee.state:
@@ -709,7 +708,25 @@ faction:
 		
 		health:
 		{
-			max: 8000.000
+			max: 8900.000
+		}
+
+		regen:
+		{
+			amount: 135.000
+			interval: 10.000
+		}
+
+		armor:
+		{
+			toughness: 125.000
+			protection: 0.983
+			coverage: 0.780
+			knockback_modifier: 1.350
+			stun_modifier: 0.650
+			pain_modifier: 0.700
+			material_type: leather
+			flags: no_damage_type_conversion, no_sound, no_particles
 		}
 		
 		holdable:
@@ -747,7 +764,7 @@ faction:
 			air_capacity: 1.200
 			air_usage: 0.200
 			breath_interval: 1.300
-			breath_amount: 0.250
+			breath_amount: 0.350
 			offset_mouth: [0.375, 0.000]
 			frame_pain: 1
 			frame_dead: 2
