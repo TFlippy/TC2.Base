@@ -304,6 +304,201 @@ faction:
 	id: badger
 }
 
++slot.butt|instance:
+{
+	$tags: []
+	
+	joint.base:
+	{
+		offset_a: [-0.375, -0.125]
+		max_force: 20000.000
+		max_torque: 1500.000
+		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
+		material_type: flesh
+
+		@animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.gore.stub"
+				size: [16, 16]
+				frame: [0, 0]
+			}
+			offset: [0.000, 0.000]
+			z: -30.000
+		}
+	}
+	
+	joint.pivot:
+	{
+		max_bias: 10.000
+	}
+	
+	joint.rotaryspring:
+	{
+		stiffness: 500.000
+		damping: 20.000
+	}
+	
+	joint.rotarylimit:
+	{
+		max_torque: 8000.000
+		max_bias: 8.000
+		min: -1.200
+		max: 1.200
+		error_bias: 0.010
+	}
+	
+	+butt|child:
+	{
+		$tags: []
+		
+		body:
+		{
+			@shape.circle:
+			{
+				mass: 25.000
+				radius: 0.500
+				friction: 0.400
+				elasticity: 0.150
+				material: flesh
+				layer: entity, solid, creature, flammable
+				mask: world, vehicle, creature
+				exclude: barbed, dead, held
+			}
+		}
+			
+		organic:
+		{
+			h_species: "badger"
+
+			@animated.renderer:
+			{
+				sprite:
+				{
+					texture: "badger.gore.stub"
+					size: [16, 16]
+					frame: [1, 0]
+				}
+				offset: [0.000, 0.000]
+				z: -39.000
+			}
+		}
+		
+		organic.state:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 3700.000
+		}
+
+		armor:
+		{
+			toughness: 140.000
+			protection: 0.990
+			coverage: 0.850
+			knockback_modifier: 0.700
+			stun_modifier: 0.350
+			pain_modifier: 0.620
+			material_type: fur
+			flags: no_damage_type_conversion, no_sound, no_particles
+		}
+
+		regen:
+		{
+			amount: 85.000
+			interval: 10.000
+		}
+		
+		holdable:
+		{
+			offset: [0.250, -0.125]
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: "badger.body.b"
+				count: 1
+				size: [16, 16]
+			}
+			offset: [-0.300, 0.000]
+			z: -40.000
+			flags: has_damage
+		}
+
+		damage.effects:
+		{
+			offset: 1
+			frame_count: 4
+			threshold_wreck: 0.200
+		}
+
+		norotate:
+		{
+			rotation: 0.000
+			bias: 0.100
+			speed: 5.000
+			multiplier: 7.000
+			mass_multiplier: 240.000
+		}
+		
+		runner:
+		{
+			walk_force: 6000.000
+			jump_force: 1000.000
+			max_speed: 10.000
+			max_jump_time: 0.100
+			max_air_time: 0.700
+			propagate_ratio: 0.500
+			air_brake_modifier: 0.000
+		}
+		
+		runner.state:
+		{
+			
+		}
+		
+		transform:
+		{
+		
+		}
+		
+		control:
+		{
+		
+		}
+
+		legs:
+		{
+			sound_interval_multiplier: 1.100
+			frames_jump: [0, 2]
+			frame_count: 5
+		}
+
+		lootable:
+		{
+			items:
+			[
+				{
+					material: "meat"
+					min: 30.000
+					max: 50.000
+				}
+				{
+					material: "leather"
+					min: 5.000
+					max: 20.000
+				}
+			]
+		}
+	}
+}
+
 +slot.head|instance:
 {
 	$tags: []
@@ -357,6 +552,8 @@ faction:
 		
 		body:
 		{
+			fall_damage_multiplier: 0.720
+
 			@shape.circle:
 			{
 				mass: 15.000
@@ -364,10 +561,11 @@ faction:
 				friction: 0.400
 				elasticity: 0.350
 				material: flesh
-				layer: entity, solid, creature, flammable
+				layer: entity, solid, creature, organic, flammable
 				mask: world, vehicle, creature
 				exclude: barbed, dead, held
-				miss_chance: 0.370
+
+				miss_chance: 0.360
 			}
 		}
 		
@@ -532,201 +730,6 @@ faction:
 					material: "tallow"
 					min: 15.000
 					max: 30.000
-				}
-			]
-		}
-	}
-}
-
-+slot.butt|instance:
-{
-	$tags: []
-	
-	joint.base:
-	{
-		offset_a: [-0.375, -0.125]
-		max_force: 20000.000
-		max_torque: 1500.000
-		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
-		material_type: flesh
-
-		@animated.renderer:
-		{
-			sprite:
-			{
-				texture: "badger.gore.stub"
-				size: [16, 16]
-				frame: [0, 0]
-			}
-			offset: [0.000, 0.000]
-			z: -30.000
-		}
-	}
-	
-	joint.pivot:
-	{
-		max_bias: 10.000
-	}
-	
-	joint.rotaryspring:
-	{
-		stiffness: 500.000
-		damping: 20.000
-	}
-	
-	joint.rotarylimit:
-	{
-		max_torque: 8000.000
-		max_bias: 8.000
-		min: -1.200
-		max: 1.200
-		error_bias: 0.010
-	}
-	
-	+butt|child:
-	{
-		$tags: []
-		
-		body:
-		{
-			@shape.circle:
-			{
-				mass: 25.000
-				radius: 0.500
-				friction: 0.400
-				elasticity: 0.150
-				material: flesh
-				layer: entity, solid, creature, flammable
-				mask: world, vehicle, creature
-				exclude: barbed, dead, held
-			}
-		}
-			
-		organic:
-		{
-			h_species: "badger"
-
-			@animated.renderer:
-			{
-				sprite:
-				{
-					texture: "badger.gore.stub"
-					size: [16, 16]
-					frame: [1, 0]
-				}
-				offset: [0.000, 0.000]
-				z: -39.000
-			}
-		}
-		
-		organic.state:
-		{
-		
-		}
-		
-		health:
-		{
-			max: 3400.000
-		}
-
-		armor:
-		{
-			toughness: 75.000
-			protection: 0.990
-			coverage: 0.750
-			knockback_modifier: 0.700
-			stun_modifier: 0.350
-			pain_modifier: 0.720
-			material_type: fur
-			flags: no_damage_type_conversion, no_sound, no_particles
-		}
-
-		regen:
-		{
-			amount: 85.000
-			interval: 10.000
-		}
-		
-		holdable:
-		{
-			offset: [0.250, -0.125]
-		}
-		
-		animated.renderer:
-		{
-			sprite:
-			{
-				texture: "badger.body.b"
-				count: 1
-				size: [16, 16]
-			}
-			offset: [-0.300, 0.000]
-			z: -40.000
-			flags: has_damage
-		}
-
-		damage.effects:
-		{
-			offset: 1
-			frame_count: 4
-			threshold_wreck: 0.200
-		}
-
-		norotate:
-		{
-			rotation: 0.000
-			bias: 0.100
-			speed: 5.000
-			multiplier: 7.000
-			mass_multiplier: 240.000
-		}
-		
-		runner:
-		{
-			walk_force: 6000.000
-			jump_force: 1000.000
-			max_speed: 10.000
-			max_jump_time: 0.100
-			max_air_time: 0.700
-			propagate_ratio: 0.500
-			air_brake_modifier: 0.000
-		}
-		
-		runner.state:
-		{
-			
-		}
-		
-		transform:
-		{
-		
-		}
-		
-		control:
-		{
-		
-		}
-
-		legs:
-		{
-			sound_interval_multiplier: 1.100
-			frames_jump: [0, 2]
-			frame_count: 5
-		}
-
-		lootable:
-		{
-			items:
-			[
-				{
-					material: "meat"
-					min: 30.000
-					max: 50.000
-				}
-				{
-					material: "leather"
-					min: 5.000
-					max: 20.000
 				}
 			]
 		}

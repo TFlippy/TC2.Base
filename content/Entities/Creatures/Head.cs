@@ -3,8 +3,8 @@ namespace TC2.Base.Components
 {
 	public static partial class HeadBob
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
 			[Asset.Ignore] public Vector2 offset;
 			public Vector2 multiplier;
@@ -15,8 +15,8 @@ namespace TC2.Base.Components
 	public static partial class Head
 	{
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Head.State>()]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Head.State>()]
+		public partial struct Data(): IComponent
 		{
 			[Flags]
 			public enum Flags: ushort
@@ -30,6 +30,7 @@ namespace TC2.Base.Components
 			public float air_capacity = 0.500f;
 			public float air_usage = 0.100f;
 			public float breath_interval = 0.800f;
+			public float breath_amount = 0.100f;
 
 			[Editor.Picker.Position(true, true)]
 			public Vector2 offset_mouth;
@@ -37,15 +38,10 @@ namespace TC2.Base.Components
 			public Head.Data.Flags flags;
 			public byte frame_pain;
 			public byte frame_dead;
-
-			public Data()
-			{
-
-			}
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct State(): IComponent
 		{
 			[Flags]
 			public enum Flags: ushort
@@ -66,23 +62,19 @@ namespace TC2.Base.Components
 			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_breath;
 			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_air_check;
 			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_sound;
-
-			public State()
-			{
-
-			}
 		}
 
 #if CLIENT
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Any)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state)
+		public static void OnGUI(ISystem.Info info, Entity entity, 
+		[Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state)
 		{
 			var air_current_norm = head_state.air_current_norm;
 			var color = Color32BGRA.FromHSV(air_current_norm.Pow2() * 2.00f, 1.00f, 1.00f);
 
 			IStatusEffect.ScheduleDraw(new()
 			{
-				icon = new Sprite("ui_icons_widget", 16, 16, 5, 2),
+				icon = GUI.tex_icons_widget.GetSprite(16, 16, 5, 2),
 				value = $"Air\n{air_current_norm:P0}",
 				text_color = color,
 				name = $"Air\n{air_current_norm:P0}"
@@ -93,7 +85,8 @@ namespace TC2.Base.Components
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateAir(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
-		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
+		[Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform,
+		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state)
 		{
 			var time = info.WorldTime;
 			head_state.air_stored.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
@@ -128,7 +121,7 @@ namespace TC2.Base.Components
 				if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
 
 				head_state.t_next_breath = time + head.breath_interval;
-				head_state.air_stored += 0.10f;
+				head_state.air_stored += head.breath_amount;
 				head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
 			}
 
@@ -137,12 +130,13 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<Emote.EmoteEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnEmote(ISystem.Info info, Entity entity, ref XorRandom random, ref Emote.EmoteEvent data, [Source.Owned] ref Emote.Data emote, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head)
+		public static void OnEmote(ISystem.Info info, Entity entity, ref XorRandom random, ref Emote.EmoteEvent ev, 
+		[Source.Owned] ref Emote.Data emote, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head)
 		{
-			ref var emote_data = ref data.h_emote.GetData();
+			ref var emote_data = ref ev.h_emote.GetData();
 			if (emote_data.IsNotNull() && info.WorldTime >= emote.t_last_emote + 0.50f)
 			{
-				emote.h_emote = data.h_emote;
+				emote.h_emote = ev.h_emote;
 				emote.t_last_emote = info.WorldTime;
 				emote.t_emote_rem = emote_data.duration;
 
@@ -153,13 +147,15 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateSprite(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnUpdateSprite(ISystem.Info info, 
+		[Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.x = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
 		}
 
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void OnDeath(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnDeath(ISystem.Info info, ref Region.Data region, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.x = head.frame_dead;
 
@@ -248,14 +244,16 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned] in Organic.State organic_state)
+		public static void OnUpdate(ISystem.Info info, 
+		[Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine(organic_state.stun_norm);
 			head_state.concussion = Maths.Max(Maths.MoveTowards(head_state.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
+		public static void OnUpdateNoRotate(ISystem.Info info, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
 		{
 			no_rotate.multiplier *= MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics * (1.00f - organic_state.stun_norm);
 			no_rotate.speed *= Maths.Lerp01(0.90f, 1.00f, organic.motorics);
@@ -296,20 +294,16 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISingleton.Data(persist: false), IComponent.With<Sound.Emitter>()]
-		public struct Singleton: ISingleton
+		public struct Singleton(): ISingleton
 		{
 			public float tinnitus_volume = 0.00f;
-
-			public Singleton()
-			{
-
-			}
 		}
 
 		public static Sound.Handle sound_tinnitus = "tinnitus.loop.00";
 
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region, defer: false)]
-		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		public static void OnAddGlobalSoundEmitter(ISystem.Info info, Entity entity, 
+		[Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//App.WriteLine("add", App.Color.Magenta);
 
@@ -325,7 +319,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, [Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
+		public static void OnUpdateGlobalSound(ISystem.Info info, Entity entity, 
+		[Source.Owned] ref Head.Singleton head_global, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			//sound_emitter.pitch = 1.50f;
 			sound_emitter.volume_mult = Maths.Lerp2(sound_emitter.volume_mult, Maths.Clamp(head_global.tinnitus_volume, 0.00f, 0.10f), 0.05f, 0.40f);
@@ -343,7 +338,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, [Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state,
+		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, 
+		[Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state,
 		[Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
 			var modifier = Maths.Clamp01(head_state.concussion);
@@ -379,7 +375,8 @@ namespace TC2.Base.Components
 		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffset(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffset(ISystem.Info info, 
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			renderer.offset = headbob.offset;
 		}
@@ -392,14 +389,16 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffsetHair(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffsetHair(ISystem.Info info, 
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffsetBeard(ISystem.Info info, [Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		public static void OnUpdateOffsetBeard(ISystem.Info info, 
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
