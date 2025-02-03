@@ -105,8 +105,11 @@ namespace TC2.Base.Components
 			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float thickness = 0.30f;
 
-			[Statistics.Info("Knockback", description: "Multiplies knockback of the damage", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float knockback = 1.00f;
+			[Statistics.Info("Knockback", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float knockback;
+
+			[Statistics.Info("Knockback Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			public float knockback_speed = 8.00f;
 
 			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float yield = 1.00f;
@@ -151,6 +154,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_hit;
 		}
 
+		[Shitcode]
 		public static bool CanHitMaterial(Damage.Type damage_type, Material.Type material_type)
 		{
 			switch (damage_type)
@@ -662,9 +666,9 @@ namespace TC2.Base.Components
 					ref var result = ref results[index_max];
 
 					hit_results.AddFlag(Melee.HitResults.Terrain, !result.entity.IsValid());
-					hit_results.AddFlag(Melee.HitResults.Any | HitResults.Solid, true);
+					hit_results.AddFlag(Melee.HitResults.Any | HitResults.Solid);
 
-					var closest_result = result.GetClosestPoint(result.world_position, true);
+					var closest_result = result.GetClosestPoint(pos: result.world_position, allow_inside: true);
 
 					//pos_target = result.world_position;
 					pos_hit = closest_result.world_position;
@@ -857,10 +861,12 @@ namespace TC2.Base.Components
 
 		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
-#if CLIENT
-			var shake_mult = Maths.Clamp(melee.knockback, 0.00f, 1.00f);
+			var random_local = random;
 
-			//Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
+#if CLIENT
+			var shake_mult = Maths.Clamp01(melee.knockback * 0.0005f);
+
+			//Sound.Play(melee.sound_swing, hit_pos, volume: melee.sound_volume, random_local.NextFloatRange(0.90f, 1.10f) * melee.sound_pitch, size: melee.sound_size);
 			Shake.Emit(ref region, hit_pos, 0.40f * shake_mult, 0.40f * shake_mult, radius: 2.00f);
 #endif
 
@@ -875,12 +881,12 @@ namespace TC2.Base.Components
 			//	target_material_type: material_type, knockback: melee.knockback, size: melee.aoe, faction_id: faction.id);
 
 			Damage.Hit(ent_attacker: ent_attacker, ent_owner: ent_owner, ent_target: ent_target,
-				position: hit_pos, velocity: dir * 8.00f, normal: normal,
+				position: hit_pos, velocity: dir * melee.knockback_speed, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
 				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags,
 				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
-			if (melee.disarm_chance > 0.00f && random.NextBool(melee.disarm_chance) && ent_target.IsValid())
+			if (melee.disarm_chance > 0.00f && random_local.NextBool(melee.disarm_chance) && ent_target.IsValid())
 			{
 				// TODO: hack, find some cleaner way to target's arm entity
 				ref var npc = ref ent_target.GetComponent<NPC.Data>();
@@ -889,7 +895,7 @@ namespace TC2.Base.Components
 					var ent_holder_arm = npc.ent_arm;
 					if (ent_holder_arm.IsAlive())
 					{
-						Arm.Drop(ent_holder_arm, direction: -normal);
+						Arm.Drop(ent_holder_arm, direction: -normal * random_local.NextFloat01(melee.knockback_speed * 0.50f));
 					}
 				}
 			}
