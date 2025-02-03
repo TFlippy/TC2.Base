@@ -355,10 +355,13 @@
 
 					if (prefab_projectile.root.TryGetComponentData<Projectile.Data>(out var projectile, true))
 					{
-						var vel = transform.GetDirection() * Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult); // * random_multiplier;
+						projectile.velocity = transform.GetDirection() * Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult); // * random_multiplier;
 
 						var pos_a = pos_w_offset;
 						var pos_b = pos_w_offset;
+
+						var rot_a = projectile.velocity.GetAngleRadiansFast();
+						var rot_b = rot_a;
 
 						//GUI.Text($"{vel}");
 
@@ -373,32 +376,39 @@
 
 						var alpha = 1.00f;
 
+						var dt = App.fixed_update_interval_s; // * region.AsCommon().tick_interval_modifier;
+						//projectile.elapsed += dt;
+
 						for (var i = 0; i < iter_count; i++)
 						{
-							var pos = pos_b;
 							alpha = Maths.Clamp(1.00f - (i * iter_count_inv), 0.10f, 0.50f);
 
-							//vel *= projectile.damp;
-							if (vel.LengthSquared() > 40.00f.Pow2()) vel = vel.GetNormalized(out var vel_len) * Maths.Max(40.00f, vel_len * projectile.damp);
-							vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
+							Projectile.Step(ref region, ref projectile, ref pos_a, ref pos_b, ref rot_a, ref rot_b);
 
-							var step = vel * App.fixed_update_interval_s;
-							pos += step;
+							//var pos = pos_b;
 
-							pos_a = pos_b;
-							pos_b = pos;
+							////vel *= projectile.damp;
+							//if (vel.LengthSquared() > 40.00f.Pow2()) vel = vel.GetNormalized(out var vel_len) * Maths.Max(40.00f, vel_len * projectile.damp);
+							//vel += Region.gravity * App.fixed_update_interval_s * projectile.gravity;
+
+							//var step = vel * App.fixed_update_interval_s;
+							//pos += step;
+
+							//pos_a = pos_b;
+							//pos_b = pos;
 
 							dist_delta += Vector2.Distance(pos_a, pos_b);
+							projectile.elapsed += dt;
 
 							if (dist_delta >= line_len)
 							{
-								var dir = (pos - pos_last).GetNormalized(out var len);
+								var dir = (pos_b - pos_last).GetNormalized(out var len);
 								//len -= line_gap;
 
 								var pos_line_a = pos_last;
 								var pos_line_b = pos_last + (dir * len);
 
-								pos_last = pos;
+								pos_last = pos_b;
 
 								if (!region.IsInLineOfSight(pos_line_a, pos_line_b, out pos_last, radius: projectile.size, query_flags: Physics.QueryFlag.Static, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Essence | Physics.Layer.Ignore_Bullet | Physics.Layer.Gas | Physics.Layer.Water | Physics.Layer.Fire))
 								{
