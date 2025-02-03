@@ -28,10 +28,12 @@ namespace TC2.Base.Components
 		public partial struct State(): IComponent
 		{
 			public float target_wheel_speed;
+			public float gear_ratio = 1.00f;
 
 			[Save.Ignore, Net.Ignore] public float current_motor_speed;
 			[Save.Ignore, Net.Ignore] public float current_motor_force;
 			[Save.Ignore, Net.Ignore] public float current_wheel_torque_load;
+			[Save.Ignore, Net.Ignore] public float current_wheel_torque_brake;
 			[Save.Ignore, Net.Ignore] public float t_next_sync;
 		}
 
@@ -49,32 +51,7 @@ namespace TC2.Base.Components
 		//	joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
 		//}
 
-
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] ref Tractor.State tractor_state, 
-		[Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
-		{
-			if (wheel_slot.flags.HasAny(Wheel.Flags.Has_Wheel))
-			{
-				joint.speed = tractor_state.current_motor_speed;
-				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier;
-				joint.brake = 0.00f;
-
-				if (joint.speed.Abs() > 0.01f) joint_base.Activate();
-				tractor_state.current_wheel_torque_load += (joint.GetMotorReactionTorqueRaw().Abs() + joint.GetMotorBrakeReactionTorqueRaw().Abs());
-
-			}
-			else
-			{
-				joint.speed = 0.00f;
-				joint.force = 0.00f;
-				//joint.brake = joint_base.max_torque;
-			}
-
-			//App.WriteLine("w");
-		}
-
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
 		public static void UpdateControlsA(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		{
@@ -103,7 +80,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
-		public static void UpdateControlsB(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform, 
+		public static void UpdateControlsB(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
@@ -114,6 +91,30 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateWheels(ISystem.Info info, [Source.Shared] in Tractor.Data tractor, [Source.Shared] ref Tractor.State tractor_state,
+		[Source.Owned] ref Wheel.Slot wheel_slot, [Source.Owned, Override] ref Joint.Wheel joint, [Source.Owned] ref Joint.Base joint_base)
+		{
+			if (wheel_slot.flags.HasAny(Wheel.Flags.Has_Wheel))
+			{
+				joint.speed = tractor_state.current_motor_speed;
+				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier * wheel_slot.ratio; // * wheel_slot.force_multiplier;
+				joint.brake = 0.00f;
+
+				if (joint.speed.Abs() > 0.01f) joint_base.Activate();
+				tractor_state.current_wheel_torque_load += joint.GetMotorReactionTorqueRaw().Abs();
+				tractor_state.current_wheel_torque_brake += joint.GetMotorBrakeReactionTorqueRaw().Abs();
+			}
+			else
+			{
+				joint.speed = 0.00f;
+				joint.force = 0.00f;
+				//joint.brake = joint_base.max_torque;
+			}
+
+			//App.WriteLine("w");
+		}
+
 		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void UpdateMotors(ISystem.Info info, [Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		//{
@@ -121,7 +122,8 @@ namespace TC2.Base.Components
 		//	tractor_state.current_motor_speed = Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_motor_speed, tractor.speed_step);
 		//}
 
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[Shitcode]
+		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateEngine1(ISystem.Info info, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
@@ -129,11 +131,18 @@ namespace TC2.Base.Components
 			tractor_state.current_motor_force = axle_state.sum_torque;
 			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
 
-			if (tractor_state.current_wheel_torque_load > Maths.epsilon)
-			{
-				axle_state.ApplyTorque(tractor_state.current_wheel_torque_load, 0.00f);
-				tractor_state.current_wheel_torque_load = 0.00f;
-			}
+			tractor_state.current_wheel_torque_load = 0.00f;
+			tractor_state.current_wheel_torque_brake = 0.00f;
+		}
+
+		[Shitcode]
+		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateEngine2(ISystem.Info info, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
+		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		{
+			axle_state.force_load_new += tractor_state.current_wheel_torque_load;
+			axle_state.force_load_new += tractor_state.current_wheel_torque_brake;
 		}
 
 		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
@@ -202,44 +211,44 @@ namespace TC2.Base.Components
 		//}
 #endif
 
-//#if CLIENT
-//		public struct TractorGUI: IGUICommand
-//		{
-//			public Entity ent_tractor;
+		//#if CLIENT
+		//		public struct TractorGUI: IGUICommand
+		//		{
+		//			public Entity ent_tractor;
 
-//			public Transform.Data transform;
+		//			public Transform.Data transform;
 
-//			public void Draw()
-//			{
-//				using (var window = GUI.Window.Interaction("Tractor", this.ent_tractor))
-//				{
-//					this.StoreCurrentWindowTypeID(order: -100);
+		//			public void Draw()
+		//			{
+		//				using (var window = GUI.Window.Interaction("Tractor", this.ent_tractor))
+		//				{
+		//					this.StoreCurrentWindowTypeID(order: -100);
 
-//					ref var player = ref Client.GetPlayer();
-//					ref var region = ref Client.GetRegion();
+		//					ref var player = ref Client.GetPlayer();
+		//					ref var region = ref Client.GetRegion();
 
-//					using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
-//					{
+		//					using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+		//					{
 
-//					}
-//				}
-//			}
-//		}
+		//					}
+		//				}
+		//			}
+		//		}
 
-//		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-//		public static void OnGUI(Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Tractor.Data tractor, [Source.Owned] in Interactable.Data interactable)
-//		{
-//			if (interactable.IsActive())
-//			{
-//				var gui = new TractorGUI()
-//				{
-//					ent_tractor = entity,
+		//		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//		public static void OnGUI(Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Tractor.Data tractor, [Source.Owned] in Interactable.Data interactable)
+		//		{
+		//			if (interactable.IsActive())
+		//			{
+		//				var gui = new TractorGUI()
+		//				{
+		//					ent_tractor = entity,
 
-//					transform = transform
-//				};
-//				gui.Submit();
-//			}
-//		}
-//#endif
+		//					transform = transform
+		//				};
+		//				gui.Submit();
+		//			}
+		//		}
+		//#endif
 	}
 }

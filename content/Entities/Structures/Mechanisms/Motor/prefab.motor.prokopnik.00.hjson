@@ -88,17 +88,25 @@ attachment:
 	tags: medium, fixed, motor
 }
 
-arcaneengine:
+actuator:
 {
-	offset: [0.250, -0.250]
-	speed_max: 20.000
-	acc: 10.000
-	force_efficiency: 0.120
-	speed_efficiency: 0.800
-	mass: 50.000
-	volume_multiplier: 1.000
-	pitch_multiplier: 0.400
-	type: turbine
+	load_base: 1800.000
+	force_modifier: 0.200
+	torque_modifier: 0.150
+	acceleration_modifier: 40.000
+	brake_modifier: 25.000
+	speed_max: 40.000
+
+	// @sound.emitter:
+	// {
+	// 	file: tractor.engine.loop.00
+	// 	flags: start_muted
+	// 	volume: 0.750
+	// 	pitch: 0.800
+	// 	size: 0.825
+	// 	size_max_modifier: 0.970
+	// 	doppler: 1.600
+	// }
 
 	@sound.emitter:
 	{
@@ -121,10 +129,49 @@ arcaneengine:
 	}
 }
 
-arcaneengine.state:
+module:
 {
-
+	slot_type: motor
+	flags: share_interactable
 }
+
+// arcaneengine:
+// {
+// 	offset: [0.250, -0.250]
+// 	speed_max: 20.000
+// 	acc: 10.000
+// 	force_efficiency: 0.120
+// 	speed_efficiency: 0.800
+// 	mass: 50.000
+// 	volume_multiplier: 1.000
+// 	pitch_multiplier: 0.400
+// 	type: turbine
+
+// 	@sound.emitter:
+// 	{
+// 		file: "motor.prokopnik.loop.00"
+// 		flags: start_muted
+// 		// file: essence.device.loop.02
+// 		volume: 0.750
+// 		volume_mult: 0.000
+// 		pitch: 1.300
+// 		pitch_mult: 1.000
+// 		size: 1.500
+// 		size_max_modifier: 1.150
+// 	}
+
+// 	@light:
+// 	{
+// 		offset: [0.000, 0.000]
+// 		intensity: 1.000
+// 		texture: "motor.prokopnik.00.light"
+// 	}
+// }
+
+// arcaneengine.state:
+// {
+
+// }
 
 essence.container:
 {
@@ -142,7 +189,8 @@ essence.container:
 
 vibrate:
 {
-	modifier: 0.000
-	rotation_mult: 0.100
-	position_mult: [0.250, 0.230]
+	frequency: 30.000
+	rotation_mult: 0.040
+	flags: shared
+	position_mult: [0.160, 0.080]
 }
