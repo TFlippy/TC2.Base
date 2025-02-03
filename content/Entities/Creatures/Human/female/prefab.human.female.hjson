@@ -20,7 +20,7 @@ body:
 	@shape.circle:
 	{
 		mass: 20.000
-		radius: 0.500
+		radius: 0.475
 		friction: 0.400
 		elasticity: 0.250
 		material: flesh
