@@ -41,7 +41,7 @@ gun:
 	sound_cycle: rifle_cycle
 	sound_reload: rifle_reload
 	
-	damage_multiplier: 5.000
+	damage_multiplier: 4.200
 	velocity_multiplier: 800.000
 	jitter_multiplier: 0.040
 	recoil_multiplier: 1.250

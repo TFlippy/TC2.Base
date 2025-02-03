@@ -42,7 +42,7 @@ gun:
 	sound_empty: gun_empty
 	sound_jam: gun.jam.01
 	
-	damage_multiplier: 3.000
+	damage_multiplier: 2.150
 	velocity_multiplier: 200.000
 	jitter_multiplier: 10.000
 	recoil_multiplier: 1.000

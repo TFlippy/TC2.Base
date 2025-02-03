@@ -37,7 +37,7 @@ gun:
 	sound_empty: "gun_empty"
 	velocity_multiplier: 280.000
 	jitter_multiplier: 1.900
-	damage_multiplier: 2.750
+	damage_multiplier: 2.550
 	recoil_multiplier: 2.700
 	reload_interval: 2.000
 	cycle_interval: 0.065
