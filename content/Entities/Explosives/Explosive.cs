@@ -210,13 +210,15 @@ namespace TC2.Base.Components
 				region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
 				{
 					ref var explosion = ref ent.GetComponent<Explosion.Data>();
-					if (!explosion.IsNull())
+					if (explosion.IsNotNull())
 					{
-						explosion.radius = Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier);
-						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier);
+						var random = XorRandom.New(true);
 
-						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier;
-						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier;
+						explosion.radius = Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f);
+						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f);
+
+						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.85f, 0.18f);
+						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.84f, 0.17f);
 
 						explosion.damage_type = explosive_tmp.damage_type;
 						explosion.damage_type_secondary = explosive_tmp.damage_type_secondary;
@@ -239,6 +241,7 @@ namespace TC2.Base.Components
 
 						explosion.volume = explosive_tmp.volume;
 						explosion.pitch = explosive_tmp.pitch;
+						explosion.delay = random.NextFloatExtra(0.02f, 0.09f);
 
 						explosion.ent_owner = explosive_tmp.ent_owner;
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;

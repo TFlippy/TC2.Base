@@ -1983,8 +1983,8 @@ namespace TC2.Base
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.integrity_modifier += 0.10f * mass_ratio * size;
-						armor.durability_modifier += 0.10f * mass_ratio * robustness;
+						//armor.integrity_modifier += 0.10f * mass_ratio * size;
+						//armor.durability_modifier += 0.10f * mass_ratio * robustness;
 						armor.toughness += 200.00f * mass_ratio;
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 						//armor.protection 
@@ -2292,7 +2292,7 @@ namespace TC2.Base
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.integrity_modifier += 0.10f * mass_ratio;
+						//armor.integrity_modifier += 0.10f * mass_ratio;
 						armor.toughness += 120.00f * mass_ratio * size;
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 					}
@@ -2736,7 +2736,7 @@ namespace TC2.Base
 						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f * jank) + (25.00f * robustness);
 						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f * jank);
 						armor.pain_modifier *= 1.15f * rust;
-						armor.integrity_modifier *= 0.95f;
+						//armor.integrity_modifier *= 0.95f;
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
 					}
 
@@ -2803,7 +2803,7 @@ namespace TC2.Base
 						armor.toughness = Maths.MoveTowards(armor.toughness, 200.00f, 45.00f) + 25.00f;
 						armor.protection = Maths.MoveTowards(armor.protection, 0.50f, 0.05f);
 						armor.pain_modifier *= 1.15f;
-						armor.integrity_modifier *= 0.95f;
+						//armor.integrity_modifier *= 0.95f;
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Scrap;
 					}
 
@@ -3184,8 +3184,8 @@ namespace TC2.Base
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.integrity_modifier += 0.17f * mass_ratio * size;
-						armor.durability_modifier += 0.12f * mass_ratio * robustness;
+						//armor.integrity_modifier += 0.17f * mass_ratio * size;
+						//armor.durability_modifier += 0.12f * mass_ratio * robustness;
 						armor.toughness = Maths.MoveTowards(armor.toughness, 1200.00f * robustness, stability_base * mass_ratio * size);
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 						//armor.protection 
@@ -3472,8 +3472,8 @@ namespace TC2.Base
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (armor.IsNotNull())
 					{
-						armor.integrity_modifier += 0.17f * mass_ratio * size;
-						armor.durability_modifier += 0.12f * mass_ratio * robustness;
+						//armor.integrity_modifier += 0.17f * mass_ratio * size;
+						//armor.durability_modifier += 0.12f * mass_ratio * robustness;
 						armor.toughness = Maths.MoveTowards(armor.toughness, 2500.00f * robustness, stability_base * mass_ratio * size);
 						if (armor.material_type == Material.Type.None) armor.material_type = Material.Type.Metal;
 						//armor.protection 

@@ -249,6 +249,20 @@ axle:
 		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
 		z: 100.000
 		material_type: metal
+
+		@armor:
+		{
+			toughness: 1100.000
+			protection: 1.000
+			coverage: 1.000
+			integrity_damage_mult: 0.340
+			durability_damage_mult: 0.430
+			knockback_modifier: 0.300
+			stun_modifier: 0.400
+			pain_modifier: 0.000
+			material_type: metal_solid
+			flags: no_damage_type_conversion
+		}
 	}
 
 	joint.pivot:
