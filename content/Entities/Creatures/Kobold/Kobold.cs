@@ -1914,12 +1914,14 @@ namespace TC2.Base.Components
 
 		//}
 
+		[Shitcode]
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f)]
 		[HasComponent<Player.Data>(Source.Modifier.Parent, false), HasTag("dead", false, Source.Modifier.Owned), HasTag("kobold", true, Source.Modifier.Parent)]
 		public static void HeadUpdate(ISystem.Info info, ref XorRandom random, Entity entity, Entity ent_speech_bubble, ref Region.Data region,
 		[Source.Parent, Original] ref AI.Data ai_original, [Source.Parent, Override] ref AI.Data ai_override, [Source.Parent, Original] ref AI.Behavior behavior_original,
 		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Parent] ref Kobold.Data kobold, [Source.Parent] ref Commandable.Data commandable,
-		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Parent, Optional(true)] ref SpeechBubble.Data speech_bubble, [Source.Owned] ref Body.Data body)
+		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, 
+		[Source.Parent, Optional(true)] ref SpeechBubble.Data speech_bubble, [Source.Owned] ref Body.Data body)
 		{
 			var time = info.WorldTime;
 
