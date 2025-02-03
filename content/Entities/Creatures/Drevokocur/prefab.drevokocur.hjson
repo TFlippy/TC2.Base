@@ -665,7 +665,7 @@ faction:
 			max_distance: 1.400
 			aoe: 1.350
 			thickness: 1.700
-			knockback: -2650.000
+			knockback: -5650.000
 			yield: 0.800
 			penetration_falloff: 0.800
 			penetration: 3

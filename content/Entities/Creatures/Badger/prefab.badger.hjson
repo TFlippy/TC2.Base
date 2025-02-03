@@ -291,11 +291,6 @@ lootable:
 			min: 12.000
 			max: 25.000
 		}
-		{
-			material: shite
-			min: 6.000
-			max: 18.000
-		}
 	]
 }
 
