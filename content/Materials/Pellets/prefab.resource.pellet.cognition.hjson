@@ -15,6 +15,7 @@ body:
 		material: metal_solid
 		layer: entity, solid, resource, conductive, magnetic, heatable
 		mask: world, essence
+		miss_chance: 0.820
 	}
 }
 

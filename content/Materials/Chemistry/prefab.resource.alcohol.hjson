@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: glass
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -47,5 +47,5 @@ norotate:
 
 health:
 {
-	max: 400.000
+	max: 800.000
 }
