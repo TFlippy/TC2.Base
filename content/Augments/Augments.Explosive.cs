@@ -46,7 +46,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
+							if (material.IsNotNull() && requirement.material != material_nitroglycerine_handle && material.flags.HasAny(Material.Flags.Explosive) && requirement.amount > 0.00f)
 							{
 								return true;
 							}
@@ -72,7 +72,7 @@ namespace TC2.Base
 							if (requirement.type == Crafting.Requirement.Type.Resource)
 							{
 								ref var material = ref requirement.material.GetData();
-								if (material.IsNotNull() && requirement.material.id != material_nitroglycerine_handle.id && material.flags.HasAny(Material.Flags.Explosive))
+								if (material.IsNotNull() && requirement.material != material_nitroglycerine_handle && material.flags.HasAny(Material.Flags.Explosive))
 								{
 									var amount_new = (requirement.amount * material.mass_per_unit) / material_nitroglycerine.mass_per_unit;
 

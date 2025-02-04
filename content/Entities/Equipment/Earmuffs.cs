@@ -3,7 +3,7 @@
 	public static partial class Earmuffs
 	{
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Editor.Slider.Clamped(1.00f, 22000.00f, 1.00f)]
 			public float frequency_high_pass = 100.00f;
@@ -13,11 +13,6 @@
 			public float modifier = 0.50f;
 			[Editor.Slider.Clamped(0.00f, 2.00f, 0.01f)]
 			public float volume_modifier = 1.00f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: -110)]

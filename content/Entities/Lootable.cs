@@ -220,7 +220,7 @@ namespace TC2.Base.Components
 				for (var i = 0; i < items.Length; i++)
 				{
 					ref var item = ref items[i];
-					if (item.material.id != 0)
+					if (item.material)
 					{
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
 						if (amount >= Resource.epsilon)

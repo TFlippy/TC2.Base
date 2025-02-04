@@ -73,7 +73,7 @@ namespace TC2.Base.Components
 							for (var i = 0; i < samples.Length; i++)
 							{
 								ref var sample = ref samples[i];
-								if (sample.block.id != 0)
+								if (sample.block)
 								{
 									ref var block = ref sample.block.GetData();
 
@@ -154,7 +154,7 @@ namespace TC2.Base.Components
 					for (var i = 0; i < arg.samples.Length; i++)
 					{
 						ref var sample = ref arg.samples[i];
-						if (sample.block.id == 0 || sample.block.id == tile.BlockID)
+						if (!sample.block || sample.block.id == tile.BlockID)
 						{
 							sample.block = tile.BlockID;
 							sample.quantity += 1.00f;

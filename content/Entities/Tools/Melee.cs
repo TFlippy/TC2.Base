@@ -582,7 +582,7 @@ namespace TC2.Base.Components
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 						if (result.mask.HasNone(Physics.Layer.Solid))
 						{
-							if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
+							if (h_faction && result.GetFactionHandle() == h_faction) continue;
 							if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
@@ -617,7 +617,7 @@ namespace TC2.Base.Components
 							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 							if (result.mask.HasNone(Physics.Layer.Solid))
 							{
-								if (h_faction.id != 0 && result.GetFactionHandle() == h_faction.id) continue;
+								if (h_faction && result.GetFactionHandle() == h_faction) continue;
 								if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && (result.layer.HasAny(Physics.Layer.Ignore_Melee) || !Melee.CanHitMaterial(melee.damage_type, result.material_type)))) continue;
 							}
 
@@ -884,7 +884,7 @@ namespace TC2.Base.Components
 				position: hit_pos, velocity: dir * melee.knockback_speed, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
 				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags,
-				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction.id, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
+				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
 			if (melee.disarm_chance > 0.00f && random_local.NextBool(melee.disarm_chance) && ent_target.IsValid())
 			{

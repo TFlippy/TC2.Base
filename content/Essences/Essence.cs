@@ -775,7 +775,7 @@ namespace TC2.Base.Components
 		//	}
 		//}
 
-		public static IEssence.Handle GetEssenceType(in this Resource.Data resource) => Essence.GetEssenceType(resource.material.id);
+		public static IEssence.Handle GetEssenceType(in this Resource.Data resource) => Essence.GetEssenceType(resource.material);
 		public static IEssence.Handle GetEssenceType(this IMaterial.Handle material)
 		{
 			material_to_essence.TryGetValue(material, out var essence_type);

@@ -80,7 +80,7 @@
 		[Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform, 
 		[Source.Owned] ref Crucible.Data crucible)
 		{
-			App.WriteLine($"OnPourEvent {ent_crucible}; {ev.h_substance}; {ev.h_prefab}; {ev.mass}");
+			//App.WriteLine($"OnPourEvent {ent_crucible}; {ev.h_substance}; {ev.h_prefab}; {ev.mass}");
 
 			ev.rate = crucible.flow_rate;
 			ev.offset = crucible.offset;
