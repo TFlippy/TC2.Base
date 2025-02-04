@@ -98,7 +98,7 @@ namespace TC2.Base.Components
 			if (wheel_slot.flags.HasAny(Wheel.Flags.Has_Wheel))
 			{
 				joint.speed = tractor_state.current_motor_speed;
-				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier * wheel_slot.ratio; // * wheel_slot.force_multiplier;
+				joint.force = tractor_state.current_motor_force * wheel_slot.force_multiplier * wheel_slot.ratio * 2; // * wheel_slot.force_multiplier;
 				joint.brake = 0.00f;
 
 				if (joint.speed.Abs() > 0.01f) joint_base.Activate();
@@ -128,7 +128,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			tractor_state.current_motor_force = axle_state.sum_torque;
+			tractor_state.current_motor_force = axle_state.angular_momentum + axle_state.sum_torque;
 			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
 
 			tractor_state.current_wheel_torque_load = 0.00f;
@@ -142,7 +142,8 @@ namespace TC2.Base.Components
 		[Source.Owned] in Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
 			axle_state.force_load_new += tractor_state.current_wheel_torque_load;
-			axle_state.force_load_new += tractor_state.current_wheel_torque_brake;
+			//axle_state.force_load_new += tractor_state.current_wheel_torque_brake; //.Abs(); // * 0.50f;
+			//axle_state.ApplyTorque(tractor_state.current_wheel_torque_brake.Abs(), -axle_state.angular_velocity);
 		}
 
 		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]

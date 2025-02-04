@@ -26,9 +26,10 @@ body:
 		elasticity: 0.450
 		
 		material: metal
-		miss_chance: 0.478
-		
-		layer: entity, solid, item, ignore_melee
+		layer: entity, solid, ignore_melee, item
+		mask: world
+
+		miss_chance: 0.488
 	}
 }
 

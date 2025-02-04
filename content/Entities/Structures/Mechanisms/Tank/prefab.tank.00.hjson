@@ -125,23 +125,9 @@ control:
 
 tractor:
 {
-	shake_force: [0.010, 0.060]
-	shake_intensity: 0.035
 	speed: 13.000
-	brake_step: 6.000
-	speed_step: 4.000
-	force: 90000.000
-	brake: 100000.000
-	gear: 0
-	gear_mod: 0.500
-	smoke_offset: [0.750, -2.125]
-
-	// @sound.emitter:
-	// {
-	// 	file: "tractor.engine.loop.00"
-	// 	volume: 1.000
-	// 	pitch: 0.800
-	// }
+	brake_step: 20.000
+	speed_step: 15.000
 }
 
 tractor.state:

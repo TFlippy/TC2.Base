@@ -22,7 +22,7 @@ body:
 		layer: entity, solid, ignore_melee, item
 		mask: world
 
-		miss_chance: 0.150
+		miss_chance: 0.220
 	}
 }
 

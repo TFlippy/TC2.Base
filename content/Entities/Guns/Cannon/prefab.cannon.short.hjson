@@ -1,7 +1,7 @@
 $name: "Short Howitzer"
 $desc: 
 	'''
-	Short cannon based on an antiquated imperial cannon model, 
+	Short cannon based on an antiquated Imperial cannon model, 
 	which is cheaper, lighter and of worse performance.
 	'''
 $tags: []
@@ -23,7 +23,7 @@ body:
 		layer: entity, solid, ignore_melee, item
 		mask: world
 
-		miss_chance: 0.350
+		miss_chance: 0.340
 	}
 }
 
@@ -44,7 +44,7 @@ gun:
 	recoil_multiplier: 1.300
 	reload_interval: 3.000
 	cycle_interval: 1.500
-	failure_rate: 0.020
+	failure_rate: 0.004
 	max_ammo: 1.000
 	sound_volume: 3.000
 	sound_pitch: 1.200
@@ -128,7 +128,7 @@ animated.renderer:
 
 health:
 {
-	max: 95000.000
+	max: 135000.000
 }
 
 armor:

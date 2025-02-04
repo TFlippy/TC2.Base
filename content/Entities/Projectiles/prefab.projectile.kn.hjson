@@ -8,12 +8,12 @@ projectile:
 	terrain_damage_mult: 2.250
 	lifetime: 8.000
 	size: 0.120
-	ricochet_count: 0
+	ricochet_count: 1
 	ricochet_threshold_multiplier: 0.100
 	damp: 0.981
 	tracer_length: 7.000
 	mass: 1.000
-	knockback_multiplier: 17.000
+	knockback_multiplier: 25.000
 	flags: no_miss
 }
 
@@ -41,7 +41,7 @@ explosive:
 	sparks_amount: 2.500
 	stun_multiplier: 3.500
 	smoke_amount: 1.100
-	fire_amount: 0.800
+	fire_amount: 0.400
 	shake_multiplier: 0.280
 	smoke_velocity_multiplier: 1.900
 	smoke_lifetime_multiplier: 0.700

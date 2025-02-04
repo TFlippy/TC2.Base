@@ -19,8 +19,10 @@ body:
 		friction: 0.700
 		elasticity: 0.450
 		material: metal
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, ignore_melee, item
 		mask: world
+
+		miss_chance: 0.578
 	}
 }
 
@@ -40,7 +42,7 @@ gun:
 	recoil_multiplier: 1.300
 	reload_interval: 4.500
 	cycle_interval: 0.330
-	failure_rate: 0.002
+	failure_rate: 0.014
 	max_ammo: 12.000
 	sound_volume: 1.500
 	sound_size: 5.000
@@ -111,7 +113,7 @@ animated.renderer:
 
 health:
 {
-	max: 60000.000
+	max: 61000.000
 }
 
 armor:
