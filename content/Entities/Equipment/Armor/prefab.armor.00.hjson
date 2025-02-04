@@ -72,7 +72,7 @@ armor:
 	knockback_modifier: 1.400
 	pain_modifier: 0.500
 
-	material_type: metal
+	material_type: metal_solid
 }
 
 norotate:

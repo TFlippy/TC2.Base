@@ -40,7 +40,7 @@ armor:
 	protection: 0.985
 	coverage: 1.000
 
-	integrity_damage_mult: 0.840
+	integrity_damage_mult: 0.940
 	
 	knockback_modifier: 1.500
 	pain_modifier: 0.000
@@ -224,8 +224,8 @@ axle:
 			toughness: 1100.000
 			protection: 0.820
 			coverage: 1.000
-			integrity_damage_mult: 0.265
-			durability_damage_mult: 0.640
+			integrity_damage_mult: 0.765
+			durability_damage_mult: 0.740
 			knockback_modifier: 1.150
 			stun_modifier: 0.900
 			pain_modifier: 0.000
@@ -283,8 +283,8 @@ axle:
 			toughness: 1350.000
 			protection: 0.875
 			coverage: 1.000
-			integrity_damage_mult: 0.325
-			durability_damage_mult: 0.640
+			integrity_damage_mult: 0.725
+			durability_damage_mult: 0.840
 			knockback_modifier: 1.150
 			stun_modifier: 0.900
 			pain_modifier: 0.000
@@ -337,8 +337,8 @@ axle:
 			toughness: 1500.000
 			protection: 1.000
 			coverage: 1.000
-			integrity_damage_mult: 0.160
-			durability_damage_mult: 0.310
+			integrity_damage_mult: 0.320
+			durability_damage_mult: 0.390
 			knockback_modifier: 0.300
 			stun_modifier: 0.400
 			pain_modifier: 0.000

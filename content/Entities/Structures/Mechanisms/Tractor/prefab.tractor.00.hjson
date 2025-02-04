@@ -296,8 +296,8 @@ axle:
 			toughness: 950.000
 			protection: 1.000
 			coverage: 1.000
-			integrity_damage_mult: 0.360
-			durability_damage_mult: 0.610
+			integrity_damage_mult: 0.678
+			durability_damage_mult: 0.660
 			knockback_modifier: 0.300
 			stun_modifier: 0.400
 			pain_modifier: 0.000

@@ -27,12 +27,14 @@ body:
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
 		exclude: tree, wheel, attached
+
+		miss_chance: 0.320
 	}
 }
 
 health:
 {
-	max: 35000.000
+	max: 41000.000
 }
 
 armor:

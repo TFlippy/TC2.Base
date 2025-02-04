@@ -44,8 +44,9 @@ damage.effects:
 
 armor:
 {
-	toughness: 150.000
+	toughness: 450.000
 	protection: 0.900
+	coverage: 0.655
 	
 	knockback_modifier: 1.500
 	pain_modifier: 0.000
