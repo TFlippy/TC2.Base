@@ -286,7 +286,7 @@ commandable:
 	
 }
 
-+slot_head|instance:
++slot.head|instance:
 {
 	$tags: []
 	
@@ -505,7 +505,7 @@ commandable:
 	}
 }
 
-+slot_waist|instance:
++slot.waist|instance:
 {	
 	joint.base:
 	{

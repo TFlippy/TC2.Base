@@ -861,7 +861,8 @@ namespace TC2.Base.Components
 
 		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
-			var random_local = random;
+			var random_det = XorRandom.New(ent_target.GetLower(), dir.GetProduct().ToUInt32BitCast(), random);
+			var random_local = random_det;
 
 #if CLIENT
 			var shake_mult = Maths.Clamp01(melee.knockback * 0.0005f);
@@ -871,7 +872,7 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
-			var damage = random.NextFloatExtra(melee.damage_base, melee.damage_bonus) * damage_multiplier;
+			var damage = random_local.NextFloatExtra(melee.damage_base, melee.damage_bonus) * damage_multiplier;
 			var damage_flags = Damage.Flags.None;
 			damage_flags.AddRemFlags(melee.damage_flags_add, melee.damage_flags_rem);
 
@@ -886,7 +887,7 @@ namespace TC2.Base.Components
 				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags,
 				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
-			if (melee.disarm_chance > 0.00f && random_local.NextBool(melee.disarm_chance) && ent_target.IsValid())
+			if (ent_target.IsValid() && melee.disarm_chance > 0.00f && random_local.NextBool(melee.disarm_chance))
 			{
 				// TODO: hack, find some cleaner way to target's arm entity
 				ref var npc = ref ent_target.GetComponent<NPC.Data>();
@@ -907,7 +908,7 @@ namespace TC2.Base.Components
 			data.ent_target = ent_target;
 			data.world_position = hit_pos;
 			data.direction = dir;
-			data.random = random;
+			data.random = random_det;
 			data.target_material_type = material_type;
 
 			if (melee.flags.HasAny(Melee.Flags.Sync_Hit_Event))

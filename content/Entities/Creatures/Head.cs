@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 			if (species_data.IsNotNull())
 			{
 				var h_sound = (is_female ? species_data.sounds_death_female : species_data.sounds_death_male).GetRandom(ref random);
-				if (h_sound) Sound.Play(ref region, h_sound, transform.LocalToWorld(head.offset_mouth), pitch: random.NextFloatFMA(0.02f, head.voice_pitch));
+				if (h_sound) Sound.Play(region: ref region, sound: h_sound, world_position: transform.LocalToWorld(head.offset_mouth), volume: 0.80f, pitch: random.NextFloatFMA(0.02f, head.voice_pitch));
 			}
 #endif
 

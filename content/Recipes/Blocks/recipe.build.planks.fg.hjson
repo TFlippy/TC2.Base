@@ -49,10 +49,13 @@
 		flags: continuous
 		
 		size: [0.500, 0.500]
+		snap: [0.250, 0.250]
 		
 		cooldown: 0.400
 		min_support: 0.035
 		min_claim: 1.000
+
+		length_min: 0.500
 		length_max: 8.000
 		length_step: 0.250
 		
@@ -62,7 +65,8 @@
 		{
 			exclude: no_overlapped_placement, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{
