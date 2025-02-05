@@ -9,22 +9,24 @@ $tags: []
 
 body:
 {
-	@shape.polygon:
+	@shape.complex:
 	{
 		points:
 		[
-			[-3.125, -0.375]
-			[2.250, -0.125]
-			[2.375, 0.750]
-			[-2.500, 0.750]
+			[-3.000, -0.375]
+			[2.625, -0.125]
+			[2.625, 0.750]
+			[-2.125, 0.875]
+			[-3.250, 0.375]
 		]
+		count: 5
 		
 		mass: 2600.000
 		radius: 0.500
 		elasticity: 0.450
 		
 		material: machine
-		miss_chance: 0.206
+		miss_chance: 0.204
 		
 		layer: entity, solid, vehicle
 	}
@@ -199,7 +201,7 @@ axle:
 		max_force: 10000000.000
 		max_torque: 2000000.000
 		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
-		z: 100.000
+		z: -5.000
 		material_type: metal
 	}
 
@@ -306,7 +308,7 @@ axle:
 		max_force: 10000000.000
 		max_torque: 2000000.000
 		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
-		z: 0.000
+		z: -4.000
 		material_type: metal
 	}
 
@@ -454,6 +456,7 @@ axle:
 		rank: 7.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+		offset: [0.000, 0.375]
 
 		tags_filter:
 		{
@@ -500,6 +503,7 @@ axle:
 		rank: 8.000
 
 		offset_bounds: [0.000, -1.000, 0.000, 1.000]
+		offset: [0.000, 0.375]
 
 		tags_filter:
 		{

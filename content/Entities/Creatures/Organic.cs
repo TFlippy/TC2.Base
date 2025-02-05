@@ -4,7 +4,9 @@ namespace TC2.Base.Components
 	public static partial class OrganicExt
 	{
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
+		public static void UpdateBrain(ISystem.Info info,
+		[Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, 
+		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
@@ -159,6 +161,8 @@ namespace TC2.Base.Components
 			body.AddForceWorld(random.NextUnitVector2Range(0.50f, 0.90f) * body.GetMass() * App.tickrate * 10.00f, body.GetPosition() + random.NextUnitVector2Range(0.15f, 0.20f));
 		}
 
+
+
 		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnRemoveBodyDead([Source.Owned, Original] in Organic.Data organic, [Source.Owned] ref Body.Data body)
 		{
@@ -195,6 +199,18 @@ namespace TC2.Base.Components
 			else
 			{
 				if (organic_state.unconscious_time > 15.00f) entity.SetTag("dead", true);
+			}
+		}
+
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region, order: 25), HasTag("dead", true, Source.Modifier.Parent)]
+		public static void OnAddParentDead(Entity ent_organic_state_child, Entity ent_organic_state_parent,
+		[Source.Owned] ref Organic.State organic_state_child,
+		[Source.Parent] ref Organic.State organic_state_parent,
+		[Source.Parent] in Joint.Base joint)
+		{
+			if (joint.flags.HasAny(Joint.Flags.Organic))
+			{
+				ent_organic_state_child.AddTag("dead");
 			}
 		}
 #endif

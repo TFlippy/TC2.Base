@@ -989,7 +989,7 @@ namespace TC2.Base.Components
 
 							if (random.NextBool(0.70f))
 							{
-								Arm.Drop(ent_holder_arm, target: data.ent_target, direction: -data.direction);
+								Arm.Drop(ent_parent: ent_holder_arm, ent_child: data.ent_target, direction: -data.direction);
 							}
 						}
 

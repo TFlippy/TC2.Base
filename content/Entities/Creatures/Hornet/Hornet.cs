@@ -2,41 +2,43 @@
 {
 	public static class Hornet
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public struct Data: IComponent
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
+		public struct Data(): IComponent
 		{
-			public int fps = 30;
-
-			public Data()
-			{
-
-			}
+			public float fps = 30.00f;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
-		public static void UpdateAlive(ISystem.Info info, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		public static void UpdateAlive(ISystem.Info info, 
+		[Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control)
 		{
-			var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
-			var rot = -dir.GetAngleRadiansFast();
-			rot += (transform.scale.X > 0.00f ? 0.00f : MathF.PI);
-			rot = Maths.NormalizeAngle(rot % (MathF.PI * 2.00f));
+			var rot = (control.mouse.position - transform.position).GetAngleRadiansFast(); //.GetNormalizedFast();
+			//var rot = -dir.GetAngleRadiansFast();
+			rot += (transform.scale.X > 0.00f ? 0.00f : float.Pi);
+			//rot = Maths.NormalizeAngle(rot % float.Tau);
+			rot = Maths.NormalizeAngle(rot); // % float.Tau);
 
 			no_rotate.rotation = rot;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
-		public static void UpdateDead(ISystem.Info info, [Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		public static void UpdateDead(ISystem.Info info, 
+		[Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate, 
+		[Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			no_rotate.rotation = MathF.PI;
+			no_rotate.rotation = float.Pi;
+			renderer.sprite.fps = 0.00f;
 		}
 
 #if CLIENT
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
-		public static void OnUpdateAnimation(ISystem.Info info, ref XorRandom random, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
+		public static void OnUpdateAnimation(ISystem.Info info, ref XorRandom random,
+		[Source.Owned] ref Hornet.Data hornet, [Source.Owned] ref Flyer.Data flyer, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.fps = MathF.Round(hornet.fps * flyer.lift_modifier);
-			renderer.offset = Vector2.Lerp(renderer.offset, random.NextUnitVector2Range(0.00f, 0.25f), 0.10f);
-			renderer.rotation = Maths.Lerp(renderer.rotation, random.NextFloatRange(-0.20f, 0.20f), 0.10f);
+			renderer.sprite.fps = Maths.Round(hornet.fps * flyer.lift_modifier);
+			renderer.offset = Maths.LerpFMA(renderer.offset, random.NextUnitVector2(0.25f), 0.10f);
+			renderer.rotation = Maths.Lerp(renderer.rotation, random.NextFloat(0.40f), 0.10f);
 		}
 #endif
 	}

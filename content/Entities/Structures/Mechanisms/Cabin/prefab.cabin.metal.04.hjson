@@ -21,7 +21,7 @@ body:
 		]
 		offset: [0.000, 0.000]
 		radius: 0.375
-		mass: 380.000
+		mass: 320.000
 		friction: 0.650
 		elasticity: 0.450
 		material: metal_frame
@@ -39,7 +39,7 @@ health:
 
 damage.effects:
 {
-	threshold_wreck: 0.560
+	threshold_wreck: 0.510
 }
 
 armor:
@@ -91,7 +91,7 @@ vehicle:
 		sprite:
 		{
 			texture: "cabin.metal.04.fg"
-			// mask: "cabin.metal.04.fg.mask"
+			mask: "cabin.metal.04.fg.mask"
 			size: [32, 32]
 		}
 		z: 90.000

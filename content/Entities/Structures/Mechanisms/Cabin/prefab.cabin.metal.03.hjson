@@ -34,7 +34,7 @@ body:
 
 health:
 {
-	max: 45500.000
+	max: 55500.000
 }
 
 damage.effects:
