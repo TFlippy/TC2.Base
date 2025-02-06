@@ -234,12 +234,16 @@ namespace TC2.Base.Components
 			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
 			var is_swimming = false;
+			var is_climbing = runner_state.flags.HasAny(Runner.State.Flags.Climbing);
 			var stick_to_surface = runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface);
 			var move_relative = runner.flags.HasAny(Runner.Data.Flags.Move_Relative);
 
 			var dir_v = velocity.GetNormalized();
-			var dir_l = stick_to_surface ? runner_state.last_normal.RotateByRad(-MathF.PI * 0.50f) : move_relative ? transform.Left : new(-1.00f, 0.00f);
-			var dir_r = stick_to_surface ? runner_state.last_normal.RotateByRad(MathF.PI * 0.50f) : move_relative ? transform.Right : new(1.00f, 0.00f);
+			//var dir_l = stick_to_surface ? runner_state.last_normal.RotateByRad(-MathF.PI * 0.50f) : move_relative ? transform.Left : new(-1.00f, 0.00f);
+			//var dir_r = stick_to_surface ? runner_state.last_normal.RotateByRad(MathF.PI * 0.50f) : move_relative ? transform.Right : new(1.00f, 0.00f);
+			var dir_l = stick_to_surface ? runner_state.last_normal.GetPerpendicular(false) : move_relative ? transform.Left : new(-1.00f, 0.00f);
+			var dir_r = stick_to_surface ? runner_state.last_normal.GetPerpendicular(true) : move_relative ? transform.Right : new(1.00f, 0.00f);
+
 
 			if (any || kb.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
 			{
@@ -247,6 +251,13 @@ namespace TC2.Base.Components
 			}
 
 			runner_state.flags.SetFlag(Runner.State.Flags.Walking, is_walking);
+
+#if CLIENT
+			//region.DrawDebugDir(body.GetPosition(), runner_state.last_normal.RotateByRad(-MathF.PI * 0.50f) * 4, Color32BGRA.FromHSV(0, 1, 1).WithAlphaMult(0.50f));
+			//region.DrawDebugDir(body.GetPosition(), runner_state.last_normal.RotateByRad(MathF.PI * 0.50f) * 4, Color32BGRA.FromHSV(0, 1, 1).WithAlphaMult(0.50f));
+			//region.DrawDebugDir(body.GetPosition(), runner_state.last_normal.GetPerpendicular(false) * 4, Color32BGRA.FromHSV(2, 1, 1).WithAlphaMult(0.50f));
+			//region.DrawDebugDir(body.GetPosition(), runner_state.last_normal.GetPerpendicular(true) * 4, Color32BGRA.FromHSV(2, 1, 1).WithAlphaMult(0.50f));
+#endif
 
 			if (is_walking)
 			{
@@ -262,26 +273,27 @@ namespace TC2.Base.Components
 				runner_state.walk_modifier_current = 0.00f;
 			}
 
-			var normal = default(Vector2);
 			var layers = default(Physics.Layer);
+			var normal = Vector2.Zero;
+			var rv = Vector2.Zero;
 			var friction = 0.00f;
-			var rv = default(Vector2);
 
 			var arbiter_count = 0;
 			foreach (var arbiter in body.GetArbiters())
 			{
+				var arbiter_layer = arbiter.GetLayer();
 				//App.WriteLine(arbiter.GetRigidityDynamic());
 				if (arbiter.GetRigidityDynamic() > 0.90f) // || arbiter.GetLayer().HasAny(Physics.Layer.Water))
 				{
 					normal += arbiter.GetNormal();
 					friction += arbiter.GetFriction();
-					layers |= arbiter.GetLayer();
+					layers |= arbiter_layer;
 					rv += arbiter.GetBodyVelocity();
 					//arbiter.GetVelocity
 
 					arbiter_count++;
 				}
-				else if (arbiter.GetLayer().HasAny(Physics.Layer.Water))
+				else if (arbiter_layer.HasAny(Physics.Layer.Water))
 				{
 					is_swimming = true;
 				}
@@ -293,8 +305,8 @@ namespace TC2.Base.Components
 				friction /= arbiter_count;
 			}
 
-			normal = normal.GetNormalized();
-			runner_state.last_normal = Vector2.Lerp(runner_state.last_normal, normal, 0.20f).GetNormalized();
+			normal = normal.GetNormalizedFast();
+			runner_state.last_normal = Maths.LerpFMA(runner_state.last_normal, normal, 0.20f).GetNormalizedFast();
 
 			var is_grounded = false;
 			var is_on_vehicle = false;
@@ -333,7 +345,7 @@ namespace TC2.Base.Components
 				{
 					force *= 0.00f;
 				}
-				else
+				else if (!is_climbing)
 				{
 					force.X *= 0.75f;
 					force.Y *= 0.00f;
@@ -379,7 +391,7 @@ namespace TC2.Base.Components
 			}
 
 			//if (can_move && keyboard.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && (time - runner_state.last_ground) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
-			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && Maths.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && !runner_state.flags.HasAny(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
+			if (can_move && kb.GetKey(Keyboard.Key.MoveUp) && (time - runner_state.last_jump) > 0.40f && Maths.Min(time - runner_state.last_ground, time - runner_state.last_climb) < 0.20f && runner_state.flags.HasNone(Runner.State.Flags.WallClimbing | Runner.State.Flags.Climbing))
 			{
 				runner_state.jump_force_current = runner.jump_force;
 				runner_state.last_jump = time;

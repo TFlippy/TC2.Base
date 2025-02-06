@@ -19,15 +19,18 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Control.Data control, [Source.Parent, Optional] in Joint.Base joint_base,
 		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
+			var dt = info.DeltaTime;
+
 			//var ts = Timestamp.Now();
 
 			//App.WriteLine(entity.GetFullName());
 
 			//var has_authority = synchronized.HasAuthority();
 			ref var keyboard = ref control.keyboard;
+			var vel_delta = (body.GetVelocity() * dt);
 
 			climber.MaxForce = 0.00f;
-			climber.OffsetA = body.GetPosition() + (body.GetVelocity() * App.fixed_update_interval_s);
+			climber.OffsetA = body.GetPosition() + vel_delta;
 			climber.cling_entity = default;
 
 			//if (!has_authority)
@@ -38,13 +41,19 @@ namespace TC2.Base.Components
 
 			//App.WriteLine(climber.wallclimb_timer);
 
+//#if CLIENT
+//			region.DrawDebugCircle(climber.OffsetA, 0.125f, Color32BGRA.Yellow, filled: true); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+//			region.DrawDebugDir(body.GetPosition(), body.GetVelocity(), Color32BGRA.Yellow); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+//#endif
+
 			var is_climbing = false;
 			var is_wallclimbing = false;
 			var can_move = !keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && (joint_base.flags.IsEmpty() || joint_base.flags.HasAny(Joint.Flags.Organic)); // && !body.GetParent().IsValid();
 			var can_wallclimb = can_move && keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
-			var force = new Vector2(0, float.Epsilon);
-			var normal = new Vector2(0, -0.01f);
+			var force = Vector2.Zero; // new Vector2(0, float.Epsilon);
+			var normal = Vector2.Zero;
+			var climb_vel = Vector2.Zero;
 			var climb_force = 0.00f;
 
 			if (can_move && body.HasArbiters())
@@ -53,14 +62,14 @@ namespace TC2.Base.Components
 				{
 
 //#if CLIENT
-//					region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
-//					region.DrawCircle(arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+//					//region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
+//					region.DrawDebugCircle(arbiter.GetContactPosition(0), 0.125f, Color32BGRA.Green, filled: true);
 //#endif
 
 					var layer = arbiter.GetLayer();
 					if (layer.HasNone(Physics.Layer.Bounds))
 					{
-						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable) && layer.HasNone(Physics.Layer.Tree))
+						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable))
 						{
 							var ent_arbiter = arbiter.GetEntity();
 
@@ -70,19 +79,19 @@ namespace TC2.Base.Components
 							climber.cling_entity = ent_arbiter;
 							climber.pos_climbable = arbiter.GetBodyPosition();
 
-							var vel = Vector2.Zero;
+							
 
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) vel.X -= 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) vel.X += 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) vel.Y -= 1.00f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) vel.Y += 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) climb_vel.X -= 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveRight)) climb_vel.X += 1.50f;
+							if (keyboard.GetKey(Keyboard.Key.MoveUp)) climb_vel.Y -= 1.00f;
+							if (keyboard.GetKey(Keyboard.Key.MoveDown)) climb_vel.Y += 1.50f;
 
-							vel *= climb_speed;
+							climb_vel *= climb_speed;
 
 							climber.MaxForce = cling_force;
-							climber.OffsetA += (vel * App.fixed_update_interval_s);
+							climber.OffsetA += (climb_vel * dt);
 
-							if (vel != Vector2.Zero) body.Activate();
+							if (climb_vel != Vector2.Zero) body.Activate();
 
 							is_climbing = true;
 							//break;
@@ -91,19 +100,19 @@ namespace TC2.Base.Components
 						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						{
 							normal += arbiter.GetNormal();
-							normal = normal.GetNormalized();
+							normal = normal.GetNormalizedFast();
 
-							var dot = MathF.Abs(normal.X);
+							var dot = Maths.Abs(normal.X);
 							if (dot >= 0.90f)
 							{
-								var f = MathF.Abs(normal.X) * arbiter.GetFriction() * climber.climb_force;
-								climb_force = Maths.Max(climb_force, f);
+								//var f = dot * arbiter.GetFriction() * climber.climb_force;
+								climb_force = Maths.Max(climb_force, dot * arbiter.GetFriction() * climber.climb_force);
 								is_wallclimbing = true;
 							}
 
 //#if CLIENT
-//							region.DrawText(arbiter.GetContact(0), $"{dot:0.00}", Color32BGRA.Green);
-//							region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
+//							region.DrawDebugText(arbiter.GetContactPosition(0), $"{dot:0.00}", Color32BGRA.Green);
+//							region.DrawDebugLine(arbiter.GetContactPosition(0), arbiter.GetContactPosition(0) + arbiter.GetNormal(), Color32BGRA.Green);
 //#endif
 						}
 						else if (!is_climbing && layer.HasAny(Physics.Layer.Water))
@@ -132,6 +141,14 @@ namespace TC2.Base.Components
 				}
 			}
 
+			var climb_vel_norm = climb_vel.GetNormalizedFast();
+
+//#if CLIENT
+//			region.DrawDebugDir(body.GetPosition(), normal.GetPerpendicularAligned(climb_vel_norm), Color32BGRA.Red);
+//#endif
+
+			if (is_climbing && normal != default) climber.OffsetA += normal.GetPerpendicularAligned(climb_vel_norm);
+
 			if (can_wallclimb & is_wallclimbing)
 			{
 				if (climber.wallclimb_timer <= 0.50f)
@@ -141,8 +158,8 @@ namespace TC2.Base.Components
 
 					var max_speed = climber.max_speed;
 
-					normal = normal.GetNormalized(out var normal_len);
-					if (normal_len > 0.01f && info.WorldTime >= climber.last_walljump + 0.20f)
+					normal = normal.GetNormalizedFast(out var normal_len_sq);
+					if (normal_len_sq > 0.01f && info.WorldTime >= climber.last_walljump + 0.20f)
 					{
 						var do_walljump = keyboard.GetKeyDown(float.IsPositive(normal.X) ? Keyboard.Key.MoveLeft : Keyboard.Key.MoveRight);
 						if (do_walljump)
