@@ -1,25 +1,25 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	color: "0xff9fcd02"
 	
 	sounds_looped:
 	[
 		{
 			sound: amb.swamp.day.loop.00
-			volume: 0.090
+			volume: 0.170
 			pitch: 0.800
 			
 			daytime_range: [0.000, 1.000]
 			
 			mix:
 			{
-				front_left: 0.800
-				front_right: 0.800
-				center: 0.200
-				side_left: 0.700
-				side_right: 0.700
-				back_left: 1.000
-				back_right: 1.000
+				front_left: 0.400
+				front_right: 0.400
+				center: 0.100
+				side_left: 0.350
+				side_right: 0.350
+				back_left: 0.500
+				back_right: 0.500
 			}
 		}
 	]
