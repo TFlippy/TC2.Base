@@ -13,6 +13,9 @@ body:
 		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
+
 		material: metal_sheet
 		layer: entity, climbable, building, no_overlapped_placement, ignore_melee
 		mask: world

@@ -19,6 +19,9 @@ body:
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
+
 		material: metal_frame
 		layer: entity, climbable, building, support, ignore_melee, background
 		mask: world

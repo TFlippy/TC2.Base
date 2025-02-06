@@ -18,9 +18,10 @@ body:
 		mass: 30.000
 		radius: 0.875
 		friction: 0.950
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
 		
-		material: foliage
-		
+		material: foliage	
 		layer: entity, plant, climbable, flammable, ignore_melee, ignore_bullet
 	}
 }

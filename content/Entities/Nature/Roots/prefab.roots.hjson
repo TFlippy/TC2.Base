@@ -18,6 +18,8 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
 		material: bramble
 		layer: entity, climbable, ignore_bullet, ignore_melee, flammable, plant
 		mask: world
