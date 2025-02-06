@@ -42,7 +42,8 @@ explosive:
 	flash_duration_multiplier: 0.150
 	flash_intensity_multiplier: 0.500
 	shake_multiplier: 0.400
-	force_multiplier: 0.100
+	force_multiplier: 0.500
+	fire_amount: 0.150
 	sparks_amount: 2.000
 	volume: 1.500
 	pitch: 0.800
@@ -55,16 +56,16 @@ cluster:
 
 	// velocity: [0.000, -5.000]
 
-	radius: 0.400
-	spread: 5.000
-	speed: 100.000
+	radius: 0.300
+	spread: 0.300
+	speed: 50.000
 	count: 5
 
-	speed_modifier_min: 0.150
-	speed_modifier_max: 0.400
+	speed_modifier_min: -0.170
+	speed_modifier_max: 0.900
 
-	lifetime_modifier_min: 0.200
-	lifetime_modifier_max: 1.500
+	lifetime_modifier_min: 0.100
+	lifetime_modifier_max: 2.200
 
 	min_explode_lifetime: 0.050
 }
