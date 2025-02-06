@@ -46,7 +46,7 @@ gun:
 	failure_rate: 0.010
 	max_ammo: 1.000
 	sound_volume: 6.000
-	sound_size: 10.000
+	sound_size: 16.000
 	sound_empty: "press.fail.02"
 	sound_jam: "clang.00"
 	sound_dist_multiplier: 15.000

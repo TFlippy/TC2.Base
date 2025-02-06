@@ -48,7 +48,8 @@ gun:
 	max_ammo: 1.000
 	sound_volume: 3.000
 	sound_pitch: 1.200
-	sound_size: 5.000
+	sound_size: 7.000
+	sound_dist_multiplier: 6.000
 	smoke_size: 4.000
 	smoke_amount: 7.000
 	flash_size: 1.500

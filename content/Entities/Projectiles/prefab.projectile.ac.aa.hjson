@@ -4,7 +4,7 @@ projectile:
 {
 	damage_base: 250.000
 	damage_bonus: 1200.000
-	lifetime: 0.500
+	lifetime: 0.600
 	ignore_time: 0.100
 	damage_type: bullet_ac
 	size: 0.375
@@ -30,7 +30,7 @@ transform:
 explosive:
 {
 	damage_type: shockwave
-	damage_type_secondary: shrapnel
+	damage_type_secondary: deflagration
 
 	radius: 7.000
 	power: 2.500
@@ -43,8 +43,10 @@ explosive:
 	flash_intensity_multiplier: 0.500
 	shake_multiplier: 0.400
 	force_multiplier: 0.500
+	stun_multiplier: 1.500
 	fire_amount: 0.150
 	sparks_amount: 2.000
+	smoke_color: "0xffd8d8d8"
 	volume: 1.500
 	pitch: 0.800
 	flags: primed

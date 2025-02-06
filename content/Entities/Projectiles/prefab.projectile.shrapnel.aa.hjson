@@ -11,14 +11,14 @@ projectile:
 	ricochet_count: 0
 	damp: 0.969
 	gravity: 0.950
-	tracer_length: 5.000
+	tracer_length: 6.000
 }
 
 projectile.renderer:
 {
 	intensity: 1.400
 	thickness_a: 0.550
-	thickness_b: 0.100
+	thickness_b: 0.000
 }
 
 transform:
@@ -44,6 +44,7 @@ explosive:
 	force_multiplier: 0.500
 	fire_amount: 0.200
 	sparks_amount: 0.800
+	smoke_color: "0xffd8d8d8"
 	volume: 0.500
 	pitch: 0.600
 	flags: primed
