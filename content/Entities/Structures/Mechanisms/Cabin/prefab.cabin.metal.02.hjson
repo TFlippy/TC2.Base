@@ -39,7 +39,7 @@ health:
 
 damage.effects:
 {
-	threshold_wreck: 0.610
+	threshold_wreck: 0.210
 }
 
 armor:

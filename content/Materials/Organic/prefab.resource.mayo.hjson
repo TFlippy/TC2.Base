@@ -24,6 +24,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	offset: [0.000, -0.100]
+	z: -60.000
 }
 
 transform:

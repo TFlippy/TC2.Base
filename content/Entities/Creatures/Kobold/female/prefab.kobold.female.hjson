@@ -156,6 +156,7 @@ facing:
 {
 	threshold: 0.750
 	flip_interval: 0.250
+	flags: rotate_on_flip
 }
 
 interactable:

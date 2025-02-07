@@ -61,10 +61,12 @@ transform:
 
 attachment:
 {
-	force_multiplier: 1.250
-	rotation_offset: -1.1781
 	offset: [0.375, 0.375]
+	rotation_offset: -1.1781
+	force_multiplier: 1.250
 	tags: small, utility, harness
+	h_sound_attach: equip.00
+	h_sound_detach: equip.01
 }
 
 storage:
