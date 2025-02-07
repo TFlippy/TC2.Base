@@ -57,7 +57,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, passive, crude, primitive, simple, shaping, drying, forming, messy
+	tags: manual, passive, crude, simple, shaping, drying, forming, messy
 	
 	icon:
 	{

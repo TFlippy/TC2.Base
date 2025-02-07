@@ -78,7 +78,7 @@
 	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, crude, primitive, simple, small, munitions, woodworking
+	tags: workbench, manual, crude, simple, small, munitions, woodworking
 	
 	icon:
 	{

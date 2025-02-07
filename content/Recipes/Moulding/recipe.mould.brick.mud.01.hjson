@@ -65,7 +65,7 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, passive, crude, primitive, simple, dumb, shaping, drying, forming, messy
+	tags: manual, passive, crude, simple, dumb, shaping, drying, forming, messy
 	
 	icon:
 	{

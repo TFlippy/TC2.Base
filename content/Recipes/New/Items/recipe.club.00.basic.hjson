@@ -31,7 +31,7 @@
 							material: timber
 							amount: 0.440062
 							snapping: 0.500
-							loss: 0.098
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -85,9 +85,42 @@
 		}
 	]
 	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: timber
+			amount: 0.440062
+			snapping: 1.000
+			loss: 0.129
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: woodcarving
+			amount: 90.000
+			difficulty: 3
+			falloff: 0.920
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: prefab
+			prefab: club
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
 	type: workshop
 	flags: blueprintable, item, wip, auto_complete, converted
-	tags: workbench, manual, crude, primitive, simple, dumb, small, weapon, tool, woodworking, construction
+	tags: workbench, workshop, manual, crude, simple, dumb, small, weapon, tool, woodworking, construction
 	
 	icon:
 	{
@@ -103,35 +136,4 @@
 	step: 1
 	
 	version: 1
-	requirements_old:
-	[
-		{
-			type: resource
-			material: timber
-			amount: 0.440062
-			snapping: 1.000
-			loss: 0.133
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodcarving
-			amount: 90.000
-			difficulty: 3
-			falloff: 0.920
-			group: 0
-			flags: conditional
-		}
-	]
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: club
-			amount: 1.000
-			group: 0
-			flags: primary
-		}
-	]
 }

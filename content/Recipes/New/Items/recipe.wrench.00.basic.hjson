@@ -42,7 +42,7 @@
 							amount: 7.680
 							snapping: 1.000
 							falloff: 0.940
-							loss: 0.337
+							loss: 0.333
 							group: 0
 							flags: prerequisite
 						}
@@ -195,7 +195,7 @@
 							amount: 1.983405
 							snapping: 1.000
 							falloff: 0.970
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -205,7 +205,7 @@
 							amount: 3.948555
 							snapping: 0.500
 							falloff: 0.950
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -261,7 +261,7 @@
 							material: steel.frames
 							amount: 1.504
 							snapping: 0.100
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -325,7 +325,7 @@
 							amount: 0.167851
 							snapping: 1.000
 							falloff: 0.960
-							loss: 0.235
+							loss: 0.231
 							group: 0
 							flags: prerequisite
 						}
@@ -487,9 +487,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, tool, assembling, metalworking, engineering
+	tags: workbench, workshop, manual, medium, tool, assembling, metalworking, engineering
 	
 	icon:
 	{
@@ -503,4 +507,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

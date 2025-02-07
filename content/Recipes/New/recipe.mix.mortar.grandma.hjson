@@ -138,7 +138,7 @@
 	
 	type: workshop
 	flags: wip, auto_complete, converted
-	tags: workbench, manual, crude, primitive, simple, dumb, cooking, biology, blending, messy
+	tags: workbench, manual, crude, simple, dumb, cooking, biology, blending, messy
 	
 	icon:
 	{

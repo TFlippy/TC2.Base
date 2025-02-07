@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Tractor (Light)"
 	desc:
 		'''
@@ -7,22 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: tractor.00.fg
-		size: [64, 32]
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, vehicle, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: -160.000
+	stages: []
 	
 	requirements:
 	[
@@ -69,4 +54,27 @@
 			group: 0
 		}
 	]
+	
+	requirements_old: []
+	
+	products_old: []
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: manual, huge, vehicle, metalworking, construction
+	
+	icon:
+	{
+		texture: tractor.00.fg
+		size: [64, 32]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -160.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }

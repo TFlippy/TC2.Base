@@ -69,7 +69,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, weapon, gun, assembling, metalworking, engineering, military, shaping
+	tags: workbench, workshop, manual, medium, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
 	
 	icon:
 	{

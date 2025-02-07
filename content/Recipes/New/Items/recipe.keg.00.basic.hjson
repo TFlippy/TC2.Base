@@ -47,7 +47,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, manual, crude, primitive, dangerous, explosive, weapon, munitions, carpentry, woodworking, assembling
+	tags: workbench, manual, crude, dangerous, explosive, weapon, munitions, carpentry, woodworking, assembling
 	
 	icon:
 	{

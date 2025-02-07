@@ -86,7 +86,7 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, primitive, simple, dangerous, dumb, biology, blending, messy
+	tags: workbench, manual, simple, dangerous, dumb, biology, blending, messy
 	
 	icon:
 	{

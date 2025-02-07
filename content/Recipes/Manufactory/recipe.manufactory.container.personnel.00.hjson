@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Container (Personnel)"
 	desc:
 		'''
@@ -7,21 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: container.personnel
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, vehicle, metalworking
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -68,4 +54,26 @@
 			group: 0
 		}
 	]
+	
+	requirements_old: []
+	
+	products_old: []
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: manual, huge, vehicle, metalworking, construction
+	
+	icon:
+	{
+		texture: container.personnel
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }
