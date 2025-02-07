@@ -33,7 +33,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Consumable.Action action;
 			public Consumable.Flags flags;
@@ -48,11 +48,6 @@ namespace TC2.Base.Components
 
 			[Statistics.Info("Release Step", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float release_step;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IEvent.Data]
@@ -95,7 +90,9 @@ namespace TC2.Base.Components
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Parent)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,
-		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, [Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, [Source.Parent, Override] in Organic.Data organic, [Source.Parent] in Arm.Data arm)
+		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent, 
+		[Source.Owned] ref Consumable.Data consumable, [Source.Parent] in Control.Data control, 
+		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] in Arm.Data arm)
 		{
 			if (consumable.flags.HasAny(Consumable.Flags.Enable_Use_On_Others) && control.mouse.GetKeyDown(Mouse.Key.Left))
 			{
@@ -160,7 +157,7 @@ namespace TC2.Base.Components
 			else if (consumable.flags.HasAny(Consumable.Flags.Enable_Use_On_Self) && control.mouse.GetKeyDown(Mouse.Key.Right))
 			{
 				var ent_holder = entity.GetParent(Relation.Type.Child);
-				if (ent_holder.IsValid())
+				if (ent_holder.IsAlive())
 				{
 					Consumable.Use(ref region, ent_consumable: entity, ent_holder: ent_holder, ent_target: ent_holder, consumable: ref consumable, world_position: transform_parent.position);
 				}
@@ -169,7 +166,7 @@ namespace TC2.Base.Components
 
 		public static void Use(ref Region.Data region, Entity ent_consumable, Entity ent_holder, Entity ent_target, ref Consumable.Data consumable, Vector2 world_position)
 		{
-			if (ent_holder.IsAlive() && ent_target.IsAlive())
+			if (ent_consumable.TryGetRecord(out var rec_consumable) && ent_holder.IsAlive(rec_consumable) && ent_target.IsAlive(rec_consumable))
 			{
 				var oc_organic = ent_target.GetComponentWithOwner<Organic.Data>(Relation.Type.Instance);
 				if (oc_organic.IsValid())
@@ -185,12 +182,12 @@ namespace TC2.Base.Components
 					data.ent_target = ent_target;
 					data.world_position = world_position;
 
-					if (!consumable.flags.HasAny(Consumable.Flags.Separate_Uses) && consumable.uses_max > 0)
+					if (consumable.flags.HasNone(Consumable.Flags.Separate_Uses) && consumable.uses_max > 0)
 					{
 						data.amount_modifier /= consumable.uses_max;
 					}
 
-					if (!consumable.flags.HasAny(Consumable.Flags.Hide_Message))
+					if (consumable.flags.HasNone(Consumable.Flags.Hide_Message))
 					{
 						var message = string.Empty;
 						switch (consumable.action)
@@ -207,11 +204,19 @@ namespace TC2.Base.Components
 						WorldNotification.Push(ref region, message, Color32BGRA.Yellow, data.world_position, lifetime: 1.00f, send_type: Net.SendType.Unreliable);
 					}
 
-					ent_consumable.TriggerEvent(ref data);
+					rec_consumable.TriggerEvent(ref data);
+					//ent_consumable.TriggerEvent(ref data);
 
 					if (consumable.uses >= consumable.uses_max)
 					{
 						ent_consumable.Delete();
+					}
+					else
+					{
+						if (ent_consumable.TryRemoveComponent<Packable.Data>())
+						{
+							// TODO
+						}
 					}
 				}
 			}

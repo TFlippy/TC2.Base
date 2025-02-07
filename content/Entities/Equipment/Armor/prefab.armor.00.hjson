@@ -57,7 +57,7 @@ equipment:
 	type: chest
 	flags: copy_frames
 
-	z: 7.000
+	z: 5.000
 	frame_default: 0
 	frame_equipped_male: 1
 	frame_equipped_female: 2

@@ -24,7 +24,7 @@ body:
 		friction: 0.600
 		
 		material: stone
-		miss_chance: 0.204
+		miss_chance: 0.792
 		
 		layer: entity, solid, background, ignore_melee
 	}
@@ -81,7 +81,7 @@ minimap.marker:
 	{
 		texture: "ui_icons_minimap"
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [6, 0]
 	}
 
 	flags: spawner

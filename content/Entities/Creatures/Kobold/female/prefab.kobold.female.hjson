@@ -207,6 +207,7 @@ seat.attachable:
 
 ai:
 {
+	stance: defensive
 	courage: 1000.000
 }
 

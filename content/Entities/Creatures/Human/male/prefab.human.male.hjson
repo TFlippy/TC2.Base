@@ -208,6 +208,7 @@ lootable:
 
 ai:
 {
+	stance: defensive
 	courage: 900.000
 }
 

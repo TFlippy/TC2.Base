@@ -163,8 +163,7 @@ npc:
 ai:
 {
 	stance: defensive
-
-	courage: 1600.000
+	courage: 5500.000
 }
 
 ai.movement:
@@ -184,11 +183,11 @@ ai.search:
 
 npc.emotions:
 {
-	hostility: 0.400
-	courage: 2.000
-	cruelty: 1.800
-	irritability: 0.500
-	apathy: 1.600
+	hostility: 0.700
+	courage: 5.000
+	cruelty: 1.400
+	irritability: 3.500
+	apathy: 1.100
 }
 
 npc.emotions.state:
