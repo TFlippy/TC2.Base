@@ -72,9 +72,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, crude, primitive, simple, munitions, woodworking
+	tags: workbench, manual, crude, primitive, simple, small, munitions, woodworking
 	
 	icon:
 	{
@@ -89,4 +93,6 @@
 	min: 8
 	max: 64
 	step: 8
+	
+	version: 0
 }

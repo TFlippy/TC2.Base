@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Pump Shotgun"
 	desc:
 		'''
@@ -8,21 +8,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: pump_shotgun
-	}
-	
-	min: 1
-	max: 80
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: manual, weapon, gun, assembling
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -76,4 +62,26 @@
 			group: 0
 		}
 	]
+	
+	requirements_old: []
+	
+	products_old: []
+	
+	type: workshop
+	flags: blueprintable, disabled, wip
+	tags: manual, weapon, gun, assembling, metalworking, engineering, military
+	
+	icon:
+	{
+		texture: pump_shotgun
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 80
+	step: 1
+	
+	version: 0
 }

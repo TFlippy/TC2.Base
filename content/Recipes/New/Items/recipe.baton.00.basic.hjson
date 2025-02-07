@@ -31,7 +31,7 @@
 							material: wood.rod
 							amount: 1.191153
 							snapping: 0.750
-							loss: 0.188
+							loss: 0.184
 							group: 0
 							flags: prerequisite
 						}
@@ -104,23 +104,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: blueprintable, item, wip, auto_complete, converted
-	tags: workbench, workshop, manual, simple, weapon, tool, woodworking, assembling, construction
-	
-	icon:
-	{
-		texture: baton
-	}
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	min: 1
-	max: 8
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -128,7 +111,7 @@
 			material: wood.rod
 			amount: 1.210
 			snapping: 0.750
-			loss: 0.188
+			loss: 0.184
 			group: 0
 			flags: prerequisite
 		}
@@ -162,6 +145,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -172,4 +156,22 @@
 			flags: primary
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, workshop, manual, simple, small, weapon, tool, woodworking
+	
+	icon:
+	{
+		texture: baton
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
 }

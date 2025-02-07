@@ -157,9 +157,13 @@
 	
 	products: []
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, simple, raw, woodworking, forestry, messy
+	tags: workbench, workshop, manual, simple, raw, woodworking, forestry, processing, messy
 	
 	icon:
 	{
@@ -193,4 +197,6 @@
 	min: 1
 	max: 100
 	step: 1
+	
+	version: 0
 }

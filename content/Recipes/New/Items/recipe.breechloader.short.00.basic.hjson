@@ -31,7 +31,7 @@
 							material: steel.ingot
 							amount: 0.450
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite, locked
 						}
@@ -40,7 +40,7 @@
 							material: steel.frames
 							amount: 0.741103
 							snapping: 0.500
-							loss: 0.039
+							loss: 0.035
 							group: 0
 							flags: prerequisite
 						}
@@ -106,7 +106,7 @@
 							material: wood.rod
 							amount: 0.978694
 							snapping: 1.000
-							loss: 0.098
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -308,9 +308,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: blueprintable, packable, item
-	tags: manual, simple, weapon, gun, assembling, metalworking
+	tags: manual, simple, small, weapon, gun, assembling, metalworking
 	
 	icon:
 	{
@@ -324,4 +328,6 @@
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
 }

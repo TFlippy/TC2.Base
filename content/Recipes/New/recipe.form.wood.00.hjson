@@ -59,9 +59,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, furniture, carpentry, woodworking
+	tags: workbench, manual, simple, furniture, woodworking, carpentry, construction
 	
 	icon:
 	{
@@ -74,4 +78,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

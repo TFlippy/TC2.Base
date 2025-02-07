@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Refurbished Machine Parts"
 	desc:
 		'''
@@ -7,39 +7,7 @@
 		'''
 	tips: []
 	
-	icon:
-	{
-		texture: resource.machine_parts
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_offset: [-8.000, 2.000]
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
-	icon_c:
-	{
-		texture: resource.scrap.machine
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-3.000, -13.000]
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	type: workshop
-	flags: none
-	tags: workbench, manual, simple, metalworking, salvaging
-	
-	color_button: "0xffac7534"
-	rank: -140.000
+	stages: []
 	
 	requirements:
 	[
@@ -112,4 +80,44 @@
 			flags: waste, residue
 		}
 	]
+	
+	requirements_old: []
+	
+	products_old: []
+	
+	type: workshop
+	flags: none
+	tags: workbench, workshop, manual, simple, salvaging, processing
+	
+	icon:
+	{
+		texture: resource.machine_parts
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_offset: [-8.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.machine
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -13.000]
+	
+	color_button: "0xffac7534"
+	rank: -140.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
 }

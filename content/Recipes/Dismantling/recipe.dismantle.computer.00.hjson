@@ -102,32 +102,6 @@
 	
 	products: []
 	
-	type: workshop
-	flags: item, dismantling, wip, auto_complete, converted
-	tags: workbench, workshop, manual, simple, magitronics, machinery, metalworking, engineering, salvaging
-	
-	icon:
-	{
-		texture: resource.computer
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
-	color_button: "0xffac7534"
-	rank: -134.000
-	
-	min: 1
-	max: 4
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -146,6 +120,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -180,4 +155,31 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: item, dismantling, wip, auto_complete, converted
+	tags: workbench, workshop, manual, simple, magitronics, machinery, engineering, salvaging
+	
+	icon:
+	{
+		texture: resource.computer
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	color_button: "0xffac7534"
+	rank: -134.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
 }
