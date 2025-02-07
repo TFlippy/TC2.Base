@@ -214,7 +214,7 @@ melee:
 	hit_offset: [0.000, 0.750]
 	swing_offset: [1.000, 0.000]
 	swing_rotation: 2.000
-	attack_type: thrust
+	attack_type: swing
 	damage_base: 35.000
 	damage_bonus: 200.000
 	primary_damage_multiplier: 0.700

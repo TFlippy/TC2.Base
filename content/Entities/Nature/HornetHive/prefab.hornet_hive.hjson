@@ -38,6 +38,13 @@ animated.renderer:
 	z: -150.000
 }
 
+nameable:
+{
+	tags: chemical, tech, dangerous
+	flags: no_rename, randomize
+	type: building
+}
+
 faction:
 {
 	id: hornet
@@ -119,13 +126,6 @@ claimer:
 			z: -100.000
 		}
 
-		nameable:
-		{
-			tags: chemical, tech, dangerous
-			flags: no_rename, randomize
-			type: building
-		}
-		
 		faction:
 		{
 			id: hornet
@@ -150,7 +150,7 @@ claimer:
 
 		dormitory:
 		{
-			flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
+			flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_kits
 			species: hornet
 			
 			characters_capacity: 8
@@ -160,7 +160,7 @@ claimer:
 			repopulate_interval_extra: 60.000
 			repopulate_max: 8
 			repopulate_num: 1
-			repopulate_num_extra: 3
+			repopulate_num_extra: 2
 			repopulate_character_flags_add: npc, public
 			
 			asset_flags: recycle

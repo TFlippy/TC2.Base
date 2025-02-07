@@ -63,6 +63,9 @@ attachment:
 	// flags: mirror_rotate
 	flags: none
 	tags: small, utility, harness
+
+	h_sound_attach: equip.00
+	h_sound_detach: equip.01
 }
 
 // equipment:

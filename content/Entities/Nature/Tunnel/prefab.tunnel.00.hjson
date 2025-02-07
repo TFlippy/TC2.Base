@@ -52,7 +52,7 @@ faction:
 nameable:
 {
 	tags: lame, dangerous, industrial, homely
-	flags: no_rename
+	flags: no_rename, use_asset_name
 	type: location
 }
 

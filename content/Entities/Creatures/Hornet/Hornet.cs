@@ -19,7 +19,7 @@
 			//rot = Maths.NormalizeAngle(rot % float.Tau);
 			rot = Maths.NormalizeAngle(rot); // % float.Tau);
 
-			no_rotate.rotation = rot;
+			no_rotate.rotation = -rot;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
