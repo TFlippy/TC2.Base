@@ -23,6 +23,11 @@ body:
 	}
 }
 
+transform:
+{
+
+}
+
 health:
 {
 	max: 65000.000
@@ -35,11 +40,6 @@ animated.renderer:
 		texture: "badger_den"
 	}
 	z: -150.000
-}
-
-transform:
-{
-
 }
 
 nameable:
@@ -62,21 +62,9 @@ claimer:
 	falloff: 0.500
 }
 
-minimap.marker:
-{
-	sprite:
-	{
-		texture: "ui_icons_minimap"
-		size: [16, 16]
-		frame: [0, 0]
-	}
-
-	flags: faction, spawner
-}
-
 spawn:
 {
-	flags: neutral_only, faction
+	flags: faction, public
 }
 
 spawner:
@@ -87,28 +75,38 @@ spawner:
 	interval_extra: 200.000
 	interval_count_modifier: 60.000
 	ai_stance: aggressive
-	ai_type: idle
 	flags: none
 	max_count: 3
 }
 
 dormitory:
 {
-	species: "badger"
-
-	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
-
-	asset_flags: recycle
+	flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
+	species: badger
+	
 	characters_capacity: 5
 	characters_initial_count: 2
-
+	
 	repopulate_interval: 60.000
 	repopulate_interval_extra: 240.000
-
+	repopulate_max: 5
 	repopulate_num: 1
 	repopulate_num_extra: 1
+	repopulate_character_flags_add: npc, public
+	
+	asset_flags: recycle
+}
 
-	repopulate_max: 5
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 1]
+	}
+
+	flags: faction, spawner
 }
 
 harvestable:

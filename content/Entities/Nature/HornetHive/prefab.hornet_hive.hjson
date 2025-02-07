@@ -19,9 +19,14 @@ body:
 	}
 }
 
+transform:
+{
+
+}
+
 health:
 {
-	max: 60000.000
+	max: 90000.000
 }
 
 animated.renderer:
@@ -33,20 +38,15 @@ animated.renderer:
 	z: -150.000
 }
 
-transform:
-{
-
-}
-
 faction:
 {
-	id: "hornet"
+	id: hornet
 }
 
 claimer:
 {
-	radius: 32.000
-	strength: 1.300
+	radius: 48.000
+	strength: 2.500
 	falloff: 0.500
 }
 
@@ -76,6 +76,7 @@ claimer:
 
 	+attached|child:
 	{
+		$name: "Hornet Hive"
 		$tags: []
 		
 		body:
@@ -98,10 +99,15 @@ claimer:
 				flags: none
 			}
 		}
+
+		transform:
+		{
+		
+		}
 		
 		health:
 		{
-			max: 48000.000
+			max: 88000.000
 		}
 		
 		animated.renderer:
@@ -112,28 +118,52 @@ claimer:
 			}
 			z: -100.000
 		}
-		
-		transform:
+
+		nameable:
 		{
-		
+			tags: chemical, tech, dangerous
+			flags: no_rename, randomize
+			type: building
 		}
 		
-		spawner:
+		faction:
 		{
-			group_size: 1
-			group_size_extra: 2
-			interval: 15.000
-			interval_extra: 30.000
-			interval_count_modifier: 40.000
-			max_count: 8
-			filter_tag: "hornet"
-			ai_stance: aggressive
-			ai_type: attack
+			id: hornet
 		}
 
 		spawn:
 		{
-			flags: neutral_only, faction
+			flags: faction, public
+		}
+	
+		spawner:
+		{
+			group_size: 1
+			group_size_extra: 2
+			max_count: 8
+			ai_stance: aggressive
+			ai_type: attack
+			interval: 15.000
+			interval_extra: 60.000
+			interval_count_modifier: 40.000
+		}
+
+		dormitory:
+		{
+			flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
+			species: hornet
+			
+			characters_capacity: 8
+			characters_initial_count: 3
+			
+			repopulate_interval: 25.000
+			repopulate_interval_extra: 60.000
+			repopulate_max: 8
+			repopulate_num: 1
+			repopulate_num_extra: 3
+			repopulate_character_flags_add: npc, public
+			
+			asset_flags: recycle
 		}
 
 		minimap.marker:
@@ -146,29 +176,6 @@ claimer:
 			}
 
 			flags: faction, spawner
-		}
-
-		dormitory:
-		{
-			species: "hornet"
-			flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
-			asset_flags: recycle
-			characters_capacity: 8
-			characters_initial_count: 6
-
-			repopulate_interval: 5.000
-			repopulate_interval_extra: 15.000
-
-			repopulate_num: 1
-			repopulate_num_extra: 2
-
-			character_flags_filter: 
-			{
-				require: none
-				include: pest
-				exclude: none
-				weight: 1.000
-			}
 		}
 
 		lootable:
@@ -199,27 +206,5 @@ claimer:
 				}
 			]
 		}
-
-		faction:
-		{
-			id: "hornet"
-		}
-
-		nameable:
-		{
-			tags: chemical, tech, dangerous
-			flags: randomize
-			type: building
-		}
-
-		// faction.new:
-		// {
-		// 	tag: "HOR"
-		// 	name: "Hornets"
-		// 	color_a: "0xff0030ff"
-		// 	color_b: "0xff080a52"
-
-		// 	id: 200
-		// }
 	}
 }
