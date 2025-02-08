@@ -190,7 +190,7 @@ namespace TC2.Base.Components
 
 									recipe_indices.Clear();
 
-									var recipes = IRecipe.Database.GetAssets();
+									var recipes = IRecipe.Database.GetAssetsSpan();
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();

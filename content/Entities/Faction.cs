@@ -86,7 +86,7 @@ namespace TC2.Base.Components
 													var faction_id_tmp = this.h_faction;
 
 													//region.Query<Region.GetPlayersQuery>(Func).Execute(ref this);
-													foreach (var s_player in IPlayer.Database.GetAssets())
+													foreach (var s_player in IPlayer.Database.GetAssetsSpan())
 													{
 														ref var member_player_data = ref s_player.GetData();
 														if (member_player_data.h_faction == this.h_faction)

@@ -19,7 +19,7 @@ body:
 		rigidity_dynamic: 0.400
 		material: insect
 		layer: entity, solid, creature, flammable
-		mask: world, solid
+		mask: world, vehicle, creature
 		exclude: plant, tree
 	}
 }
@@ -90,7 +90,7 @@ npc:
 	idle_distance: [2.000, 2.000]
 	
 	wander_radius: 32.000
-	wander_interval: 0.500
+	wander_interval: 1.000
 	wander_interval_extra: 2.500
 	
 	pain_modifier: 0.500

@@ -485,7 +485,7 @@ namespace TC2.Base.Components
 					{
 						GUI.DrawBackground(GUI.tex_window, scrollbox.group_frame.GetInnerRect(), padding: new(8));
 
-						var recipes = IRecipe.Database.GetAssets();
+						var recipes = IRecipe.Database.GetAssetsSpan();
 						foreach (var d_recipe in recipes)
 						{
 							ref var recipe = ref d_recipe.GetData();
