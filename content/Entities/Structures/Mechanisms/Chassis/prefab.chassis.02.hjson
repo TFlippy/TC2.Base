@@ -232,9 +232,23 @@ axle:
 		offset_a: [0.000, -0.750]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		flags: control_write, no_wrap, force_facing, attachment, use_proxy_body
 		z: 180.000
 		material_type: metal
+
+		@armor:
+		{
+			toughness: 650.000
+			protection: 1.000
+			coverage: 1.000
+			integrity_damage_mult: 0.678
+			durability_damage_mult: 0.660
+			knockback_modifier: 0.300
+			stun_modifier: 0.400
+			pain_modifier: 0.000
+			material_type: metal_solid
+			flags: no_damage_type_conversion
+		}
 	}
 
 	joint.pivot:
@@ -256,8 +270,8 @@ axle:
 		name: "Motor"
 		identifier: "motor"
 
-		flags: no_tab
-		flags_editable: locked, disabled
+		flags: no_tab, keyboard_write
+		flags_editable: locked, disabled, keyboard_write
 
 		gui_size: [144.000, 88.000]
 		rank: -5.000

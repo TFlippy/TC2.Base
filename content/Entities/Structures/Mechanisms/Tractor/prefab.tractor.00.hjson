@@ -289,7 +289,7 @@ axle:
 		offset_a: [-0.625, 0.375]
 		max_force: 10000000.000
 		max_torque: 2000000.000
-		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		flags: control_write, no_wrap, force_facing, attachment, use_proxy_body
 		z: 100.000
 		material_type: metal
 
