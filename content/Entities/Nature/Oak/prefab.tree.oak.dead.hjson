@@ -8,8 +8,9 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -8.750]
+		a: [0.000, -9.250]
 		b: [0.000, -0.375]
+		offset: [0.000, 0.000]
 		
 		mass: 3720.000
 		radius: 0.500
@@ -17,9 +18,9 @@ body:
 		elasticity: 0.080
 		
 		material: tree
-		miss_chance: 0.810
+		miss_chance: 0.808
 		
-		layer: entity, solid, tree, plant, organic, flammable, background
+		layer: entity, solid, background, tree, plant, organic, flammable
 		mask: world, tree
 		exclude: held
 	}
@@ -32,12 +33,12 @@ transform:
 
 health:
 {
-	max: 97800.000
+	max: 107800.000
 }
 
 splittable:
 {
-	rect: [-0.500, -8.750, 0.500, -0.375]
+	rect: [-0.500, -9.250, 0.500, -0.375]
 	split_health: 0.966
 	sprite_stub:
 	{

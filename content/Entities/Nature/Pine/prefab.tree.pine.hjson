@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 37000.000
+	max: 57000.000
 }
 
 splittable:
