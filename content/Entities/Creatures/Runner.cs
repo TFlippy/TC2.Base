@@ -28,7 +28,7 @@ namespace TC2.Base.Components
 			public float max_air_time = 1.00f;
 			public float max_grounded_dot = 0.90f;
 			public float propagate_ratio = 1.00f;
-			public float no_rotate_air_mult = 0.00f;
+			public float no_rotate_air_mult;
 			public Runner.Data.Flags flags;
 
 			//public float no_rotate_mult = 1.00f;
@@ -115,7 +115,9 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateOrganic(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		public static void UpdateOrganic(ISystem.Info info, 
+		[Source.Owned, Override] ref Runner.Data runner, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine($"{organic.dexterity}");
 
@@ -134,28 +136,16 @@ namespace TC2.Base.Components
 			//}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateClimbing(ISystem.Info info, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Any] in Climber.Data climber)
-		{
-			runner_state.flags.SetFlag(Runner.State.Flags.Climbing, climber.cling_entity.IsValid());
-			runner_state.flags.SetFlag(Runner.State.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
-
-			if (runner_state.flags.HasAny(Runner.State.Flags.Climbing))
-			{
-				runner_state.last_climb = info.WorldTime;
-				runner_state.last_wallclimb_force = climber.last_force;
-			}
-		}
-
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotate(ISystem.Info info, Entity entity,
-		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, 
+		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
 			//var modifier = 1.00f - (info.WorldTime - Maths.Max(runner_state.last_climb, Maths.Max(runner_state.last_ground, runner_state.last_jump + runner.max_jump_time))).Clamp01();
 			var modifier = Maths.Lerp01(1.00f, runner.no_rotate_air_mult, Maths.Normalize(info.WorldTime - Maths.Max(runner_state.last_climb, runner_state.last_ground, runner_state.last_jump + runner.max_jump_time), runner.max_air_time));
 			if (control.keyboard.GetKey(Keyboard.Key.X))
 			{
-				modifier *= 0.00f;
+				modifier = 0.00f;
 				//control.keyboard.SetKeyPressed(Keyboard.Key.NoMove, true);
 			}
 
@@ -168,7 +158,8 @@ namespace TC2.Base.Components
 
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity,
-		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, 
+		[Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
@@ -201,6 +192,30 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void UpdateClimbing(ISystem.Info info, Entity ent_runner, Entity ent_climber,
+		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state,
+		[Source.Any] in Climber.Data climber, [Source.Owned, Override, Optional(true)] ref NoRotate.Data no_rotate)
+		{
+			runner_state.flags.SetFlag(Runner.State.Flags.Climbing, climber.cling_entity.IsValid());
+			runner_state.flags.SetFlag(Runner.State.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
+
+			if (runner_state.flags.HasAny(Runner.State.Flags.Climbing))
+			{
+				runner_state.last_climb = info.WorldTime;
+				runner_state.last_wallclimb_force = climber.last_force;
+
+				//if (App.IsClient) info.GetRegion().DrawDebugText(ent_runner.GetTransform().position, $"{ent_runner}; {ent_climber}; {no_rotate.IsNotNull()}", Color32BGRA.White);
+
+				//if (ent_runner != ent_climber && no_rotate.IsNotNull())
+				//{
+
+				//	no_rotate.multiplier = 0.00f;
+				//	no_rotate.mass_multiplier = 0.00f;
+				//}
+			}
+		}
+
 		//		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//		public static void UpdateTest(ISystem.Info info, [Source.Owned] ref Body.Data body, [Source.Owned] in Organic.Data organic)
 		//		{
@@ -215,7 +230,7 @@ namespace TC2.Base.Components
 		//			region.DrawDebugBody(ref body, color.WithAlphaMult(0.50f));
 		//		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state,
 		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
