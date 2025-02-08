@@ -102,6 +102,8 @@ holdable:
 
 animal:
 {
+	flags: enable_stuck_tantrum, attack_terrain, use_rmb_for_movement
+
 	attack_cooldown: 1.700
 
 	attack_distance_melee: 2.000

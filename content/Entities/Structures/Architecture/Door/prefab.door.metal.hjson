@@ -14,12 +14,18 @@ body:
 	{
 		size: [0.500, 3.000]
 		offset: [0.000, 0.000]
+		
 		mass: 36.000
+		radius: 0.125
 		friction: 0.750
 		elasticity: 0.300
+		
 		material: metal_sheet
+		miss_chance: 0.000
+		
 		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid
+		exclude: none
 	}
 }
 

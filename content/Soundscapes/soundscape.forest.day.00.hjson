@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	color: "0xff8ab62d"
 	
 	sounds_looped:
@@ -13,8 +13,13 @@
 			
 			mix:
 			{
-				back_left: 1.000
-				back_right: 1.000
+				front_left: 0.050
+				front_right: 0.050
+				center: 0.100
+				side_left: 0.300
+				side_right: 0.300
+				back_left: 0.300
+				back_right: 0.300
 			}
 		}
 		{

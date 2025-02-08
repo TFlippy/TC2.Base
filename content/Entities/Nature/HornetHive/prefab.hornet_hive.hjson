@@ -144,8 +144,8 @@ claimer:
 			ai_stance: aggressive
 			ai_type: attack
 			interval: 15.000
-			interval_extra: 60.000
-			interval_count_modifier: 40.000
+			interval_extra: 50.000
+			interval_count_modifier: 30.000
 		}
 
 		dormitory:
@@ -156,11 +156,11 @@ claimer:
 			characters_capacity: 8
 			characters_initial_count: 3
 			
-			repopulate_interval: 25.000
-			repopulate_interval_extra: 60.000
+			repopulate_interval: 15.000
+			repopulate_interval_extra: 30.000
 			repopulate_max: 8
 			repopulate_num: 1
-			repopulate_num_extra: 2
+			repopulate_num_extra: 3
 			repopulate_character_flags_add: npc, public
 			
 			asset_flags: recycle

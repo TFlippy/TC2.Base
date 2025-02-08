@@ -30,25 +30,27 @@ body:
 
 health:
 {
-	max: 3800.000
+	max: 6800.000
 }
 
 melee:
 {
-	sound_swing: "tool_swing_00"
-	damage_base: 180.000
-	damage_bonus: 150.000
-	cooldown: 0.700
-	max_distance: 1.500
-	thickness: 1.000
 	hit_offset: [0.500, 0.000]
-	aoe: 0.750
-	knockback: 135.000
-	yield: 1.120
-	penetration_falloff: 0.500
-	penetration: 3
+	damage_base: 350.000
+	damage_bonus: 300.000
+	primary_damage_multiplier: 1.150
+	secondary_damage_multiplier: 0.900
+	terrain_damage_multiplier: 0.800
+	cooldown: 1.280
+	max_distance: 1.200
+	aoe: 1.150
+	thickness: 1.000
+	knockback: 435.000
+	knockback_speed: 5.000
+	yield: 1.320
+	penetration_falloff: 0.850
+	penetration: 1
 	damage_type: axe
-	attack_type: swing
 	category: bladed
 	hit_mask: solid, creature, tree, door, plant, organic, rubble, furniture
 	hit_require: destructible
@@ -62,12 +64,17 @@ melee.state:
 
 aimable:
 {
-
+	min: -0.500
+	max: 0.500
 }
 
 holdable:
 {
 	offset: [0.000, 0.500]
+	force_multiplier: 0.300
+	torque_multiplier: 0.400
+	stress_multiplier: 0.380
+	hints: weapon, melee, short_range, usable
 	flags: storable
 }
 
