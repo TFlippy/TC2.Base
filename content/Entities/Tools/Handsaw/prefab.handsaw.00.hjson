@@ -1,0 +1,111 @@
+$name: "Handsaw"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.400
+
+	@shape.line:
+	{
+		a: [-0.500, -0.125]
+		b: [0.625, -0.125]
+		offset: [0.000, 0.000]
+		
+		mass: 2.280
+		radius: 0.375
+		friction: 0.750
+		elasticity: 0.750
+		
+		material: metal_sheet
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+	}
+}
+
+transform:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: handsaw.00
+	}
+	scale: [0.875, 0.875]
+}
+
+health:
+{
+	max: 3800.000
+}
+
+melee:
+{
+	sound_swing: swish.00
+	sound_volume: 0.400
+	sound_size: 1.500
+	sound_pitch: 0.600
+	hit_offset: [-0.250, 0.125]
+	swing_rotation: 0.000
+	attack_type: thrust
+	damage_base: 100.000
+	damage_bonus: 50.000
+	secondary_damage_multiplier: 0.600
+	terrain_damage_multiplier: 0.800
+	pain_multiplier: 1.050
+	stun_multiplier: 0.800
+	disarm_chance: 0.000
+	cooldown: 0.250
+	max_distance: 1.250
+	aoe: 1.125
+	thickness: 0.625
+	knockback_speed: 1.000
+	yield: 1.8200
+	penetration_falloff: 1.000
+	damage_type: saw
+	category: bladed
+	flags: no_material_filter
+	hit_mask: world, destructible
+	hit_exclude: background, ignore_melee
+}
+
+melee.state:
+{
+
+}
+
+aimable:
+{
+	deadzone: 0.300
+	min: 0.000
+	max: 0.000
+}
+
+holdable:
+{
+	offset: [-0.625, -0.250]
+	force_multiplier: 0.200
+	torque_multiplier: 0.200
+	stress_multiplier: 0.200
+	hints: tools, melee, short_range, usable, small, construction, cheap, fast
+	flags: storable
+}
+
+control:
+{
+
+}
+
+packable:
+{
+
+}

@@ -6,7 +6,6 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.600]
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
@@ -25,7 +24,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	offset: [0.000, 0.375]
+	offset: [0.000, -0.250]
 }
 
 transform:
@@ -40,12 +39,17 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 1.000]
+	offset: [0.000, 0.500]
+	flags: full_rotate
 }
 
 norotate:
 {
-
+	bias: 0.001
+	speed: 5.000
+	multiplier: 2.000
+	mass_multiplier: 8.000
+	flags: no_share
 }
 
 despawn:
@@ -59,7 +63,7 @@ despawn:
 
 health:
 {
-	max: 7500.000
+	max: 9500.000
 }
 
 breakable:

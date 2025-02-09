@@ -53,8 +53,8 @@ namespace TC2.Base.Components
 			public static Sound.Handle sound_swing_default = "tool_swing_00";
 
 			public Sound.Handle sound_swing = sound_swing_default;
-			public float sound_volume = 1.00f;
-			public float sound_size = 2.00f;
+			public float sound_volume = 0.75f;
+			public float sound_size = 1.00f;
 			public float sound_pitch = 1.00f;
 
 			[Editor.Picker.Position(true, true)]
