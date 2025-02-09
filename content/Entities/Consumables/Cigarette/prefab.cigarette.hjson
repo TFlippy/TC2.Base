@@ -13,6 +13,7 @@ body:
 		size: [0.800, 0.900]
 		offset: [0.000, 0.000]
 		mass: 0.250
+		radius: 0.125
 		friction: 0.800
 		elasticity: 0.400
 		material: paper

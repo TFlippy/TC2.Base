@@ -22,7 +22,7 @@ body:
 		mask: world, vehicle
 		exclude: dead, held
 
-		miss_chance: 0.380
+		miss_chance: 0.080
 	}
 }
 
@@ -312,7 +312,7 @@ faction:
 				mask: world, vehicle, creature
 				exclude: barbed, dead, held
 
-				miss_chance: 0.360
+				miss_chance: 0.290
 			}
 		}
 		
@@ -562,7 +562,7 @@ faction:
 				mask: world, vehicle, creature
 				exclude: barbed, dead, held
 
-				miss_chance: 0.630
+				miss_chance: 0.530
 			}
 		}
 		
@@ -624,13 +624,13 @@ faction:
 			hit_direction: [0.37503, 0.927013]
 			swing_offset: [-0.125, 0.375]
 			swing_rotation: 0.000
-			damage_base: 150.000
-			damage_bonus: 280.000
+			damage_base: 90.000
+			damage_bonus: 220.000
 			primary_damage_multiplier: 0.780
 			terrain_damage_multiplier: 0.650
 			pain_multiplier: 0.900
 			stun_multiplier: 0.350
-			disarm_chance: 0.070
+			disarm_chance: 0.000
 			cooldown: 0.160
 			max_distance: 1.650
 			aoe: 1.400
@@ -638,7 +638,7 @@ faction:
 			knockback: -2520.000
 			yield: 0.000
 			penetration_falloff: 0.850
-			penetration: 1
+			penetration: 0
 			damage_type: pickaxe
 			category: pointed
 			flags: no_handle, no_material_filter

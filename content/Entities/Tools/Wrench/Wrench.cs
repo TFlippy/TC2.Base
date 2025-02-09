@@ -671,7 +671,10 @@ namespace TC2.Base.Components
 				//using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
 				//{
 
-				using (var widget = Sidebar.Widget.New("wrench", "Wrench", sprite_wrench, new Vector2(454 - 48, 442), lockable: false, order: 2.00f, flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled))
+				using (var widget = Sidebar.Widget.New(identifier: "wrench", name: "Wrench", icon: sprite_wrench, 
+				size: new Vector2(454, 442), //size_min: new Vector2(454 - 96, 256),
+				lockable: false, order: 2.00f,
+				flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled/* | Sidebar.Widget.Flags.Resizable*/))
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{

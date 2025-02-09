@@ -63,7 +63,7 @@ despawn:
 
 health:
 {
-	max: 90000.000
+	max: 120000.000
 }
 
 breakable:

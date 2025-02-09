@@ -72,7 +72,7 @@ shipment:
 interactable:
 {
 	flags: no_tab
-	window_size: [600.000, 448.000]
+	window_size: [648.000, 464.000]
 	window_size_misc: [120.000, 0.000]
 }
 

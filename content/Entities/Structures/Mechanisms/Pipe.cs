@@ -1773,8 +1773,8 @@ namespace TC2.Base.Components
 
 				[Save.Ignore, Net.Ignore] public Color32BGRA color_smoke;
 
-				[Save.Ignore, Net.Ignore] public Pressure pressure_inside = Phys.atmospheric_pressure_kordel;
-				[Save.Ignore, Net.Ignore] public Pressure pressure_outside = Phys.atmospheric_pressure_kordel;
+				[Save.Ignore, Net.Ignore] public Pressure pressure_inside = Pressure.Ambient;
+				[Save.Ignore, Net.Ignore] public Pressure pressure_outside = Pressure.Ambient;
 
 				[Save.Ignore, Net.Ignore] public Pressure pressure_loss;
 

@@ -85,6 +85,7 @@ harvestable:
 shipment:
 {
 	flags: keep_items, allow_withdraw, allow_deposit
+	layout: large
 }
 
 loot.container:

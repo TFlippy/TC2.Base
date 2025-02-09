@@ -41,6 +41,7 @@ melee:
 	primary_damage_multiplier: 1.150
 	secondary_damage_multiplier: 0.900
 	terrain_damage_multiplier: 0.800
+	stun_multiplier: 1.150
 	cooldown: 1.280
 	max_distance: 1.200
 	aoe: 1.150
@@ -52,7 +53,7 @@ melee:
 	penetration: 1
 	damage_type: axe
 	category: bladed
-	hit_mask: solid, creature, tree, door, plant, organic, rubble, furniture
+	hit_mask: solid, creature, tree, door, plant, organic, furniture
 	hit_require: destructible
 	hit_exclude: belt, pipe, conveyor, water, fire, gas, stored
 }

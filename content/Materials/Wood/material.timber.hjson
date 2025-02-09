@@ -17,7 +17,7 @@
 	
 	type: tree
 	flags: hard, long, organic, large, raw, fuel, flammable, solid, impure, primary
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear
 	hints: none
 	mass_per_unit: 8.437
 	quantity_max: 100.000
