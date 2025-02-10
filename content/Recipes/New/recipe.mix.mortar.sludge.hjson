@@ -7,9 +7,117 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: processing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 8.000
+							snapping: 0.500
+							loss: 0.016
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 30.000
+							snapping: 0.500
+							loss: 0.071
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: ash
+							amount: 5.000
+							snapping: 1.000
+							loss: 0.043
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 15.000
+							snapping: 0.500
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 475.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						include: spatula
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.toxic
+					amount: 12.391
+					amount_extra: 2.112
+					group: 0
+					flags: secondary, pollutant, waste
+				}
+			]
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: resource
+			material: mortar
+			amount: 13.878
+			amount_extra: 7.572
+			group: 0
+			flags: primary, byproduct
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -51,7 +159,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -70,8 +178,8 @@
 	]
 	
 	type: workshop
-	flags: none
-	tags: workbench, manual, crude, simple, dangerous, dumb, blending, messy
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
 	
 	icon:
 	{
@@ -104,7 +212,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
-	requirements_old: []
-	products_old: []
+	version: 1
 }

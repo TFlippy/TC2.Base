@@ -76,7 +76,7 @@
 	products_old: []
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: workbench, manual, simple, salvaging
 	
 	icon:

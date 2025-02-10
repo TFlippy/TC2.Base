@@ -7,9 +7,142 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: processing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: insect
+							amount: 18.000
+							snapping: 0.500
+							loss: 0.024
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: plants
+							amount: 35.000
+							snapping: 0.500
+							loss: 0.012
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: slicing
+							amount: 475.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.500
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: soil
+							amount: 5.000
+							snapping: 0.500
+							loss: 0.008
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: lime
+							amount: 2.000
+							snapping: 0.500
+							loss: 0.039
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: soaking
+							amount: 625.000
+							amount_min: 200.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.250
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: knife
+						include: saw, bucket, knife
+					}
+					filter_environment:
+					{
+						exclude: dry
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products:
+			[
+				{
+					type: resource
+					material: tar
+					amount: 1.112
+					amount_extra: 1.344
+					group: 0
+					flags: secondary, byproduct
+				}
+				{
+					type: resource
+					material: sludge
+					amount: 2.894
+					amount_extra: 4.226
+					group: 0
+					flags: secondary, pollutant, waste
+				}
+			]
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: resource
+			material: mortar
+			amount: 4.318
+			amount_extra: 4.711
+			group: 0
+			flags: primary, byproduct
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -59,7 +192,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -85,8 +218,8 @@
 	]
 	
 	type: workshop
-	flags: none
-	tags: workbench, manual, simple, dangerous, dumb, biology, blending, messy
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, dumb, simple, biology, blending, messy, dangerous
 	
 	icon:
 	{
@@ -119,7 +252,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
-	requirements_old: []
-	products_old: []
+	version: 1
 }

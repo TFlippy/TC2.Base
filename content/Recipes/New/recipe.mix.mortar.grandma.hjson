@@ -44,7 +44,7 @@
 							material: mushroom
 							amount: 20.000
 							snapping: 0.500
-							loss: 0.180
+							loss: 0.176
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -53,7 +53,7 @@
 							material: clay
 							amount: 15.000
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -136,42 +136,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, crude, simple, dumb, cooking, biology, blending, messy
-	
-	icon:
-	{
-		texture: resource.mortar
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [0.000, -2.000]
-	
-	icon_extra:
-	{
-		texture: resource.clay
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [2.000, -9.000]
-	
-	icon_c:
-	{
-		texture: resource.eggs
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-10.000, -16.000]
-	
-	color_button: "0xffaeb59a"
-	rank: -160.600
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -226,6 +190,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -243,4 +208,41 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: wip, auto_complete, converted
+	tags: workbench, manual, dumb, crude, simple, cooking, biology, blending, messy
+	
+	icon:
+	{
+		texture: resource.mortar
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [0.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: resource.clay
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [2.000, -9.000]
+	
+	icon_c:
+	{
+		texture: resource.eggs
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-10.000, -16.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -160.600
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
 }

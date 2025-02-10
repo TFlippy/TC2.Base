@@ -3,21 +3,131 @@
 	name: "Dynamite"
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.300
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 9.50528
+							snapping: 0.500
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 4.475113
+							snapping: 1.000
+							loss: 0.012
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: kneading
+							amount: 300.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.400
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: paper
+							amount: 2.653846
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: papercraft
+							amount: 75.000
+							amount_min: 25.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.800
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
+					}
+					filter_equipment:
+					{
+						require: table
+						include: dishes, table, chair
+					}
+					filter_environment:
+					{
+						require: indoor
+						include: workshop, office, clean
+						exclude: noisy, wet
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: dynamite
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
 			material: nitroglycerine
-			amount: 8.000
+			amount: 10.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
 			material: sawdust
-			amount: 6.000
+			amount: 5.000
 			group: 0
 			flags: prerequisite
 		}
@@ -49,7 +159,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -59,13 +169,9 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, simple, dangerous, small, explosive, weapon, munitions, assembling
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
 	
 	icon:
 	{
@@ -88,5 +194,5 @@
 	max: 20
 	step: 1
 	
-	version: 0
+	version: 1
 }

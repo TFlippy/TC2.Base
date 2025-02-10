@@ -77,7 +77,7 @@
 	products_old: []
 	
 	type: workshop
-	flags: wip
+	flags: disabled, wip
 	tags: workbench, manual, crude, simple, small, munitions, woodworking
 	
 	icon:

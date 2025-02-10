@@ -1,40 +1,138 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Grenade"
 	tips: []
 	
-	icon:
-	{
-		texture: grenade
-	}
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 1.100
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.085562
+							snapping: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 85.000
+							difficulty: 14
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: gunpowder
+							amount: 2.627614
+							snapping: 1.000
+							loss: 0.012
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 60.000
+							difficulty: 3
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.42781
+							snapping: 1.000
+							group: 2
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.342248
+							snapping: 0.500
+							group: 2
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 60.000
+							difficulty: 9
+							snapping: 25.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: heater, bender
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, dishes, table, chair, vise
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [8, 8]
-		frame: [3, 2]
-	}
-	icon_extra_offset: [-5.000, -6.000]
+	requirements: []
 	
-	min: 1
-	max: 20
-	step: 1
+	products:
+	[
+		{
+			type: prefab
+			prefab: grenade
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
 	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, dangerous, small, explosive, weapon, munitions, assembling, metalworking, engineering, military
-	
-	color_button: "0xffcf392b"
-	rank: 0.000
-	advance_delay: 1.500
-	
-	requirements:
+	requirements_old:
 	[
 		{
 			type: resource
 			material: steel.plate
-			amount: 0.500
-			snapping: 1.000
+			amount: 0.100
+			snapping: 0.200
 			group: 0
 			flags: prerequisite
 		}
@@ -49,7 +147,7 @@
 		{
 			type: resource
 			material: gunpowder
-			amount: 1.500
+			amount: 3.000
 			snapping: 1.000
 			group: 1
 		}
@@ -70,9 +168,9 @@
 		}
 		{
 			type: resource
-			material: wood
-			amount: 0.500
-			snapping: 1.000
+			material: wood.rod
+			amount: 0.400
+			snapping: 0.500
 			group: 2
 		}
 		{
@@ -85,7 +183,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -93,19 +191,32 @@
 			amount: 1.000
 			group: 0
 		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.152
-			amount_extra: 0.033
-			group: 0
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 1.070
-			amount_extra: 0.370
-			group: 0
-		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, engineering, military, construction, explosive, dangerous
+	
+	icon:
+	{
+		texture: grenade
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	color_button: "0xffcf392b"
+	rank: 0.000
+	
+	min: 1
+	max: 20
+	step: 1
+	advance_delay: 1.500
+	
+	version: 1
 }

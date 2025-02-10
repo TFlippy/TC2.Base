@@ -1,25 +1,114 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Medkit"
 	tips: []
 	
-	icon:
-	{
-		texture: medkit
-	}
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 4.500
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 8.000
+							snapping: 0.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 135.000
+							difficulty: 5
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.500
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 75.000
+							difficulty: 3
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 4.000
+							snapping: 0.500
+							group: 2
+							flags: prerequisite
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: cutters, screwdriver, wrench, needle, pins
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, stapler, towel, tongs, pick, crowbar, knife, pins
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_equipment:
+					{
+						require: table
+						include: anvil, table, chair, vise, rack
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	min: 1
-	max: 8
-	step: 1
+	requirements: []
 	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, simple, small, tool, tailoring, chemistry, medical, science, biology
+	products:
+	[
+		{
+			type: prefab
+			prefab: medkit
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
 	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	requirements:
+	requirements_old:
 	[
 		{
 			type: resource
@@ -58,7 +147,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -67,4 +156,22 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, auto_complete, converted
+	tags: workbench, manual, simple, small, tool, tailoring, chemistry, medical, science, biology, construction
+	
+	icon:
+	{
+		texture: medkit
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
 }
