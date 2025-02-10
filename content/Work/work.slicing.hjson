@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Slicing"
 	name_short: "Slicing"
 	desc:
@@ -20,7 +20,7 @@
 	multiplier: 1.350
 	color: "0xffffa200"
 	
-	tools_required: none
+	tools_required: knife
 	tools_optional: saw, knife
 	
 	machinery_required: none

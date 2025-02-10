@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Sawing"
 	name_short: "Sawing"
 	desc:
@@ -21,7 +21,7 @@
 	color: "0xff719240"
 	
 	tools_required: saw
-	tools_optional: pencil, ruler, pliers, axe, towel, knife
+	tools_optional: ruler, file, knife
 	
 	machinery_required: none
 	machinery_optional: lathe, planer

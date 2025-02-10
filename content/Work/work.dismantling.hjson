@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Dismantling"
 	name_short: "Dismantling"
 	desc:
@@ -20,13 +20,13 @@
 	multiplier: 1.000
 	color: "0xffffa200"
 	
-	tools_required: screwdriver, wrench
+	tools_required: screwdriver, wrench, spanner, pliers
 	tools_optional: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 	
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
+	equipment_required: table
 	equipment_optional: table, chair, vise
 	
 	character_traits:

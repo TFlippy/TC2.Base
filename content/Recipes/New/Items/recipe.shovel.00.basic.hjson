@@ -68,7 +68,7 @@
 							material: steel.ingot
 							amount: 0.187382
 							snapping: 0.250
-							loss: 0.047
+							loss: 0.035
 							group: 0
 							flags: prerequisite
 						}
@@ -214,7 +214,7 @@
 							material: wood
 							amount: 0.256185
 							snapping: 1.000
-							loss: 0.086
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -259,7 +259,7 @@
 							material: wood.rod
 							amount: 0.912282
 							snapping: 1.000
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -377,7 +377,7 @@
 							amount: 0.550
 							snapping: 1.000
 							falloff: 0.640
-							loss: 0.196
+							loss: 0.184
 							group: 0
 							flags: prerequisite
 						}
@@ -426,6 +426,10 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: blueprintable, packable, item
 	tags: workbench, manual, simple, tool, assembling, metalworking
@@ -444,4 +448,6 @@
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
 }

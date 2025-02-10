@@ -47,11 +47,12 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
+						require: screwdriver, wrench, spanner, pliers
 						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 					}
 					filter_equipment:
 					{
+						require: table
 						include: table, chair, vise
 					}
 				}
@@ -158,7 +159,7 @@
 	
 	type: workshop
 	flags: item, dismantling, wip, auto_complete, converted
-	tags: workbench, workshop, laboratory, manual, simple, complex, magitronics, machinery, engineering, salvaging
+	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
 	
 	icon:
 	{
