@@ -1,0 +1,79 @@
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		offset: [0.000, -0.125]
+		
+		mass: 50.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
+		material: wood
+		miss_chance: 0.600
+		
+		layer: entity, building, construction, flammable, ignore_melee, ignore_bullet, background, no_overlapped_placement
+		mask: world, building, construction
+	}
+}
+
+health:
+{
+	max: 5000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: atlas.construction.00
+	}
+	z: -300.000
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim, enable_wololo
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: -0.500
+	window_size: [492.000, 542.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+construction:
+{
+	@crafting.order:
+	{
+		flags: no_cancel
+		search_radius: 10.000
+	}
+}
+
+building:
+{
+	
+}
+
+shipment:
+{
+	h_container: isb.042c
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+}

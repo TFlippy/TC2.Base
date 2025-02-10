@@ -1,0 +1,19 @@
+$tags: []
+$prefab: "construction.item.template"
+
+body:
+{
+	@shape.polygon:
+	{
+		
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		size: [72, 48]
+		frame: [2, 1]
+	}
+}

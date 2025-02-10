@@ -59,6 +59,7 @@ melee:
 	attack_type: thrust
 	damage_base: 100.000
 	damage_bonus: 50.000
+	primary_damage_multiplier: 1.200
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.800
 	pain_multiplier: 1.050
@@ -66,16 +67,16 @@ melee:
 	disarm_chance: 0.000
 	cooldown: 0.250
 	max_distance: 1.250
-	aoe: 1.125
+	aoe: 0.625
 	thickness: 0.625
 	knockback_speed: 1.000
-	yield: 1.8200
+	yield: 1.820
 	penetration_falloff: 1.000
-	damage_type: saw
+	damage_type: handsaw
 	category: bladed
 	flags: no_material_filter
 	hit_mask: world, destructible
-	hit_exclude: background, ignore_melee
+	hit_exclude: water, fire, gas, powder, liquid, held, stored, ignore_melee, world
 }
 
 melee.state:
@@ -86,8 +87,8 @@ melee.state:
 aimable:
 {
 	deadzone: 0.300
-	min: 0.000
-	max: 0.000
+	min: -2.000
+	max: 0.200
 }
 
 holdable:
