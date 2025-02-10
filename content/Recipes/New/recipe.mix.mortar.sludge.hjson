@@ -53,7 +53,7 @@
 							material: ash
 							amount: 5.000
 							snapping: 1.000
-							loss: 0.043
+							loss: 0.039
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -97,7 +97,7 @@
 					amount: 12.391
 					amount_extra: 2.112
 					group: 0
-					flags: secondary, pollutant, waste
+					flags: pollutant, waste, secondary
 				}
 			]
 		}
@@ -113,7 +113,7 @@
 			amount: 13.878
 			amount_extra: 7.572
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
 		}
 	]
 	
@@ -178,7 +178,7 @@
 	]
 	
 	type: workshop
-	flags: wip, auto_complete, converted
+	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
 	
 	icon:

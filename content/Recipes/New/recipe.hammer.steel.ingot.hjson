@@ -89,13 +89,52 @@
 			amount: 3.000
 			amount_extra: 0.700
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
+		}
+	]
+	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: steel.ingot
+			amount: 1.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: hammering
+			amount: 275.000
+			difficulty: 24
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: resource
+			material: steel.plate
+			amount: 3.000
+			amount_extra: 0.700
+			group: 0
+			flags: primary
+		}
+		{
+			type: resource
+			material: scrap.steel
+			amount: 0.090
+			amount_extra: 0.120
+			group: 1
+			flags: waste, residue
 		}
 	]
 	
 	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, crude, simple, dumb, metalworking, shaping
+	flags: wip, converted
+	tags: workbench, manual, dumb, crude, simple, metalworking, shaping
 	
 	icon:
 	{
@@ -121,41 +160,4 @@
 	step: 1
 	
 	version: 1
-	requirements_old:
-	[
-		{
-			type: resource
-			material: steel.ingot
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: hammering
-			amount: 275.000
-			difficulty: 24
-			group: 0
-			flags: conditional
-		}
-	]
-	products_old:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 3.000
-			amount_extra: 0.700
-			group: 0
-			flags: primary
-		}
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.090
-			amount_extra: 0.120
-			group: 1
-			flags: waste, residue
-		}
-	]
 }

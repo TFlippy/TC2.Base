@@ -67,7 +67,7 @@
 					material: actuator
 					amount: 2.000
 					group: 0
-					flags: primary, byproduct
+					flags: byproduct, primary
 				}
 				{
 					type: resource
@@ -75,7 +75,7 @@
 					amount: 15.000
 					amount_extra: 12.000
 					group: 0
-					flags: secondary, byproduct
+					flags: byproduct, secondary
 				}
 				{
 					type: resource
@@ -83,7 +83,7 @@
 					amount: 4.000
 					amount_extra: 2.000
 					group: 0
-					flags: secondary, byproduct
+					flags: byproduct, secondary
 				}
 			]
 		}
@@ -129,7 +129,7 @@
 			material: actuator
 			amount: 2.000
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
 		}
 		{
 			type: resource
@@ -137,7 +137,7 @@
 			amount: 15.000
 			amount_extra: 12.000
 			group: 0
-			flags: secondary, byproduct
+			flags: byproduct, secondary
 		}
 		{
 			type: resource
@@ -145,7 +145,7 @@
 			amount: 4.000
 			amount_extra: 2.000
 			group: 0
-			flags: secondary, byproduct
+			flags: byproduct, secondary
 		}
 		{
 			type: resource
@@ -158,7 +158,7 @@
 	]
 	
 	type: workshop
-	flags: item, dismantling, wip, auto_complete, converted
+	flags: item, dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
 	
 	icon:

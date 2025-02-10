@@ -35,7 +35,7 @@
 							material: eggs
 							amount: 6.000
 							snapping: 0.500
-							loss: 0.145
+							loss: 0.141
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -44,7 +44,7 @@
 							material: mushroom
 							amount: 20.000
 							snapping: 0.500
-							loss: 0.176
+							loss: 0.173
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -116,7 +116,7 @@
 					amount: 4.622
 					amount_extra: 6.776
 					group: 0
-					flags: secondary, byproduct
+					flags: byproduct, secondary
 				}
 			]
 		}
@@ -132,7 +132,7 @@
 			amount: 5.411
 			amount_extra: 6.812
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
 		}
 	]
 	
@@ -210,7 +210,7 @@
 	]
 	
 	type: workshop
-	flags: wip, auto_complete, converted
+	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, cooking, biology, blending, messy
 	
 	icon:

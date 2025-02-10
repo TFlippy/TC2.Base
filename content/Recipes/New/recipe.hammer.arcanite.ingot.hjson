@@ -78,13 +78,43 @@
 			material: arcanite.plate
 			amount: 4.000
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
+		}
+	]
+	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: arcanite.ingot
+			amount: 1.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: hammering
+			amount: 225.000
+			difficulty: 19
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: resource
+			material: arcanite.plate
+			amount: 4.000
+			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, crude, simple, dumb, metalworking, shaping
+	flags: wip, converted
+	tags: workbench, manual, dumb, crude, simple, metalworking, shaping
 	
 	icon:
 	{
@@ -110,32 +140,4 @@
 	step: 1
 	
 	version: 1
-	requirements_old:
-	[
-		{
-			type: resource
-			material: arcanite.ingot
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: hammering
-			amount: 225.000
-			difficulty: 19
-			group: 0
-			flags: conditional
-		}
-	]
-	products_old:
-	[
-		{
-			type: resource
-			material: arcanite.plate
-			amount: 4.000
-			group: 0
-			flags: primary
-		}
-	]
 }

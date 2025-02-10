@@ -60,7 +60,7 @@
 					filter_tools:
 					{
 						require: hammer, saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_machinery:
 					{
@@ -92,24 +92,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, item, wip, auto_complete, converted
-	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry, construction
-	
-	icon:
-	{
-		texture: crate.wood.01
-	}
-	icon_offset: [1.000, 0.000]
-	
-	color_button: "0xffaeb59a"
-	rank: -4.000
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -136,6 +118,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -153,4 +136,23 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, item, wip, converted
+	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry, construction
+	
+	icon:
+	{
+		texture: crate.wood.01
+	}
+	icon_offset: [1.000, 0.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -4.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 1
 }

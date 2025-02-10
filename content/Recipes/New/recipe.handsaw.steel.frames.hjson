@@ -88,12 +88,45 @@
 			amount: 0.800
 			amount_extra: 0.100
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
+		}
+	]
+	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: steel.plate
+			amount: 1.000
+			snapping: 1.000
+			group: 0
+			flags: primary, prerequisite
+		}
+		{
+			type: work
+			work: sawing
+			amount: 280.000
+			difficulty: 21
+			falloff: 0.530
+			group: 0
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: resource
+			material: steel.frames
+			amount: 0.800
+			amount_extra: 0.100
+			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: item, wip, auto_complete, converted
+	flags: item, wip, converted
 	tags: workbench, workshop, manual, simple, metalworking, processing, messy
 	
 	icon:
@@ -120,35 +153,4 @@
 	step: 1
 	
 	version: 1
-	requirements_old:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 1.000
-			snapping: 1.000
-			group: 0
-			flags: primary, prerequisite
-		}
-		{
-			type: work
-			work: sawing
-			amount: 280.000
-			difficulty: 21
-			falloff: 0.530
-			group: 0
-			flags: conditional
-		}
-	]
-	products_old:
-	[
-		{
-			type: resource
-			material: steel.frames
-			amount: 0.800
-			amount_extra: 0.100
-			group: 0
-			flags: primary
-		}
-	]
 }

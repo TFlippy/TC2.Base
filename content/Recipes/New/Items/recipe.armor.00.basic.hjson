@@ -125,24 +125,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: blueprintable, item, wip, auto_complete, converted
-	tags: workbench, manual, blacksmithing, tailoring, metalworking, shaping, construction
-	
-	icon:
-	{
-		texture: armor.00
-		size: [16, 16]
-	}
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	min: 1
-	max: 20
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -190,6 +172,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -199,4 +182,23 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, converted
+	tags: workbench, manual, blacksmithing, tailoring, metalworking, shaping, construction
+	
+	icon:
+	{
+		texture: armor.00
+		size: [16, 16]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	version: 1
 }

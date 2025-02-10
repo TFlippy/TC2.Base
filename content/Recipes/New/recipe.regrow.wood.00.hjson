@@ -86,9 +86,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
-	flags: none
-	tags: workbench, manual, simple, dangerous, essence, woodworking, science, biology, shaping, forming, messy
+	flags: disabled, wip
+	tags: workbench, manual, simple, essence, woodworking, science, biology, shaping, forming, messy, dangerous
 	
 	icon:
 	{
@@ -120,4 +124,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

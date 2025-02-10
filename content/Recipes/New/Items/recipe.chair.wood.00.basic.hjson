@@ -92,24 +92,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: blueprintable, item, wip, auto_complete, converted
-	tags: workbench, manual, simple, furniture, woodworking, carpentry, construction
-	
-	icon:
-	{
-		texture: chair.wood.00
-	}
-	icon_offset: [-2.000, 2.000]
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
-	
-	min: 1
-	max: 4
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -136,6 +118,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -153,4 +136,23 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, converted
+	tags: workbench, manual, simple, furniture, woodworking, carpentry, construction
+	
+	icon:
+	{
+		texture: chair.wood.00
+	}
+	icon_offset: [-2.000, 2.000]
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
 }

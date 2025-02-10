@@ -164,7 +164,7 @@
 	]
 	
 	type: workshop
-	flags: dismantling, wip, auto_complete, converted
+	flags: dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, small, magitronics, engineering, salvaging
 	
 	icon:

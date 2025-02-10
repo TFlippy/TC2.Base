@@ -80,7 +80,7 @@
 			material: copper.plate
 			amount: 1.000
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
 		}
 	]
 	
@@ -120,8 +120,8 @@
 	]
 	
 	type: workshop
-	flags: item, wip, auto_complete, converted
-	tags: workbench, manual, crude, simple, dumb, metalworking, shaping, processing
+	flags: item, wip, converted
+	tags: workbench, manual, dumb, crude, simple, metalworking, shaping, processing
 	
 	icon:
 	{

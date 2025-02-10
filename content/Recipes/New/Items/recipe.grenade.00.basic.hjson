@@ -194,7 +194,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip, auto_complete, converted
+	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, engineering, military, construction, explosive, dangerous
 	
 	icon:

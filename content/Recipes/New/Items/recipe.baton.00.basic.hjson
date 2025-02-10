@@ -31,7 +31,7 @@
 							material: wood.rod
 							amount: 1.191153
 							snapping: 0.750
-							loss: 0.184
+							loss: 0.180
 							group: 0
 							flags: prerequisite
 						}
@@ -111,7 +111,7 @@
 			material: wood.rod
 			amount: 1.210
 			snapping: 0.750
-			loss: 0.184
+			loss: 0.180
 			group: 0
 			flags: prerequisite
 		}
@@ -158,7 +158,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip, auto_complete, converted
+	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, small, weapon, tool, woodworking
 	
 	icon:

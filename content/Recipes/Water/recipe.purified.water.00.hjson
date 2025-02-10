@@ -97,34 +97,6 @@
 		}
 	]
 	
-	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, laboratory, manual, simple, small, chemistry, biology
-	
-	icon:
-	{
-		texture: resource.water
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-5.000, 0.000]
-	
-	icon_extra:
-	{
-		texture: resource.hydrogen_peroxide
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [2.000, -5.000]
-	
-	color_button: "0xff80dc7e"
-	rank: -9.000
-	
-	min: 20
-	max: 250
-	step: 5
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -162,6 +134,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -171,4 +144,33 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: wip, converted
+	tags: workbench, laboratory, manual, simple, small, chemistry, biology
+	
+	icon:
+	{
+		texture: resource.water
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-5.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.hydrogen_peroxide
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [2.000, -5.000]
+	
+	color_button: "0xff80dc7e"
+	rank: -9.000
+	
+	min: 20
+	max: 250
+	step: 5
+	
+	version: 1
 }

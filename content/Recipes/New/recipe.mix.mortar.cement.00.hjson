@@ -35,7 +35,7 @@
 							material: lime
 							amount: 1.300
 							snapping: 0.500
-							loss: 0.043
+							loss: 0.039
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -53,7 +53,7 @@
 							material: sand
 							amount: 12.000
 							snapping: 1.000
-							loss: 0.043
+							loss: 0.039
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -103,47 +103,10 @@
 			amount: 19.478
 			amount_extra: 0.372
 			group: 0
-			flags: primary, byproduct
+			flags: byproduct, primary
 		}
 	]
 	
-	type: workshop
-	flags: wip, auto_complete, converted
-	tags: workbench, manual, simple, blending, processing, messy
-	
-	icon:
-	{
-		texture: resource.mortar
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [-1.000, -1.000]
-	icon_scale: 1.200
-	
-	icon_extra:
-	{
-		texture: resource.lime
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_extra_offset: [5.000, -8.000]
-	
-	icon_c:
-	{
-		texture: resource.water
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_c_offset: [2.000, -15.000]
-	
-	color_button: "0xffaeb59a"
-	rank: -160.800
-	
-	min: 1
-	max: 10
-	step: 1
-	
-	version: 1
 	requirements_old:
 	[
 		{
@@ -185,6 +148,7 @@
 			flags: conditional
 		}
 	]
+	
 	products_old:
 	[
 		{
@@ -195,4 +159,42 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: wip, converted
+	tags: workbench, manual, simple, blending, processing, messy
+	
+	icon:
+	{
+		texture: resource.mortar
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-1.000, -1.000]
+	icon_scale: 1.200
+	
+	icon_extra:
+	{
+		texture: resource.lime
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [5.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.water
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [2.000, -15.000]
+	
+	color_button: "0xffaeb59a"
+	rank: -160.800
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
 }
