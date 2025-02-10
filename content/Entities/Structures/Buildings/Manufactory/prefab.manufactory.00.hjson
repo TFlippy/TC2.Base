@@ -101,33 +101,30 @@ laboratory:
 
 shop:
 {
-	name: "Manufactory"
-	
 	tags_filter:
 	{
 		require: manual
-		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
-		exclude: passive, large, vehicle, blacksmithing, cooking, research, social, science, gathering, biology, casting, smelting, fermenting, overworld
+		include: workbench, workshop
+		exclude: laboratory, passive, huge, vehicle, research, social, science, gathering, biology, forestry, smelting, fermenting, melting, heating, casting, overworld
 	}
 	
 	work_tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, paintbrush, file, towel, crowbar, knife, sandpaper, needle, pins
+	work_environment: workshop, stationary, dirty, cozy, noisy, dry, durable, sturdy, flammable
+	work_equipment: table, chair, vise, rack, workbench
 	work_machines: lathe, grinder, mill, bender, sander, planer
-	work_equipment: table, chair, vise, rack
-	work_environment: indoor, warm, workshop, stationary, cozy, noisy, dry, reinforced
-	recipe_type: workshop
 	
-	flags: none
 	menu_columns: 6
-	blueprints_capacity: 12
-	amount_multiplier: 1.000
-	step_multiplier: 1.000
+	recipe_type: workshop
+	flags: none
 	
 	offset_spawn: [0.000, 0.000]
+	
+	name: "Manufactory"
 }
 
 workshop:
 {
-	orders_capacity: 8
+	orders_capacity: 6
 
 	@inventory16:
 	{

@@ -1,26 +1,120 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Longsword"
 	tips: []
 	
-	icon:
-	{
-		texture: longsword
-	}
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 8.280
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.367014
+							snapping: 0.500
+							loss: 0.133
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodworking
+							amount: 330.000
+							difficulty: 6
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.645438
+							snapping: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 710.000
+							difficulty: 6
+							snapping: 25.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: hammer, saw, file, tongs, knife
+						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, pliers, tweezers, axe, file, chisel, knife
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+					filter_equipment:
+					{
+						require: anvil, forge
+						include: oven, barrel, table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	min: 1
-	max: 5
-	step: 1
+	requirements: []
 	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, weapon, blacksmithing, metalworking, forming, shaping
+	products:
+	[
+		{
+			type: prefab
+			prefab: longsword
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
 	
-	color_button: "0xffaeb59a"
-	rank: 22.000
-	frame_size: [32.000, 32.000]
-	
-	requirements:
+	requirements_old:
 	[
 		{
 			type: resource
@@ -53,7 +147,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -61,13 +155,24 @@
 			amount: 1.000
 			group: 0
 		}
-		{
-			type: resource
-			material: sawdust
-			amount: 1.388
-			amount_extra: 0.589
-			group: 1
-			flags: waste, residue
-		}
 	]
+	
+	type: workshop
+	flags: blueprintable, item, wip, converted
+	tags: workbench, workshop, manual, simple, medium, weapon, blacksmithing, metalworking, construction
+	
+	icon:
+	{
+		texture: longsword
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 22.000
+	frame_size: [32.000, 32.000]
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	version: 1
 }

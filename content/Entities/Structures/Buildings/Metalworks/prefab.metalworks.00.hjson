@@ -102,28 +102,25 @@ laboratory:
 
 shop:
 {
-	name: "Metalworks"
-	
 	tags_filter:
 	{
-		require: manual, metalworking
-		include: workbench, blacksmithing, woodworking, assembling, metalworking, stoneworking, cooking, salvaging, casting, forming, shaping, smelting
-		exclude: passive, large, engineering, chemistry, social, science, gathering, fermenting
+		require: manual
+		include: workbench, workshop, blacksmithing, metalworking, salvaging
+		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
 	}
 	
 	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
-	work_machines: grinder, heater, burner, bender
-	work_equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould
-	work_environment: indoor, warm, workshop, stationary, contaminated, smelly, cozy, noisy, reinforced
-	recipe_type: workshop
+	work_environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
+	work_equipment: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
+	work_machines: grinder, heater, burner
 	
-	flags: none
 	menu_columns: 6
-	blueprints_capacity: 10
-	amount_multiplier: 1.000
-	step_multiplier: 1.000
+	recipe_type: workshop
+	flags: none
 	
 	offset_spawn: [0.000, 0.000]
+	
+	name: "Metalworks"
 }
 
 workshop:

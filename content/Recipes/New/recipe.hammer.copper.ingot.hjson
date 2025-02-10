@@ -121,7 +121,7 @@
 	
 	type: workshop
 	flags: item, wip, converted
-	tags: workbench, manual, dumb, crude, simple, metalworking, shaping, processing
+	tags: workbench, manual, dumb, crude, simple, metalworking, processing
 	
 	icon:
 	{

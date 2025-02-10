@@ -68,9 +68,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, vehicle, carpentry
+	tags: workshop, manual, simple, huge, vehicle, woodworking, assembling, engineering, carpentry, construction
 	
 	icon:
 	{
@@ -83,4 +87,6 @@
 	min: 1
 	max: 1
 	step: 1
+	
+	version: 0
 }

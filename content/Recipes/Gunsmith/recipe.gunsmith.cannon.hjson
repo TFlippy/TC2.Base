@@ -55,7 +55,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, shaping, construction
+	tags: manual, complex, huge, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, shaping, construction, casting
 	
 	icon:
 	{

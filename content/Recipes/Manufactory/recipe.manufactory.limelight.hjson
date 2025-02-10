@@ -20,7 +20,7 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
+			mass_base: 1.150
 			
 			options:
 			[
@@ -43,7 +43,7 @@
 						{
 							type: resource
 							material: recondite.plate
-							amount: 0.020755
+							amount: 0.041077
 							snapping: 0.250
 							group: 0
 							flags: prerequisite
@@ -51,16 +51,16 @@
 						{
 							type: resource
 							material: lime
-							amount: 0.429748
+							amount: 0.891032
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: glue
-							amount: 0.233594
+							amount: 0.581557
 							snapping: 0.500
 							loss: 0.122
 							group: 0
@@ -170,7 +170,7 @@
 	
 	type: workshop
 	flags: item, wip, converted
-	tags: workbench, workshop, manual, simple, small, magitronics, assembling, metalworking, engineering, shaping, construction
+	tags: workbench, workshop, manual, simple, small, magitronics, assembling, metalworking, engineering, construction
 	
 	icon:
 	{

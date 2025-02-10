@@ -61,7 +61,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, huge, vehicle, metalworking, construction
+	tags: manual, advanced, huge, vehicle, machinery, assembling, metalworking, engineering, military, construction
 	
 	icon:
 	{

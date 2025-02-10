@@ -96,12 +96,17 @@
 					filter_tools:
 					{
 						require: hammer, cutters, tongs, needle, pins
-						include: pencil, ruler, cutters, pliers, tweezers, bucket, knife, pins
+						include: pencil, ruler, cutters, pliers, tweezers, knife, pins
 					}
 					filter_equipment:
 					{
 						require: anvil, forge, table
-						include: table, chair, rack
+						include: oven, barrel, table, chair, rack
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
 					}
 				}
 			]
@@ -185,7 +190,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, blacksmithing, tailoring, metalworking, shaping, construction
+	tags: workbench, manual, blacksmithing, tailoring, metalworking, construction
 	
 	icon:
 	{
