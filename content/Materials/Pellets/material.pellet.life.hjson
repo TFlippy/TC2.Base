@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
 	name: "Arcanite Pellets (Life)"
-	name_short: "E-LF Pellet"
+	name_short: "E-LF Pellets"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.

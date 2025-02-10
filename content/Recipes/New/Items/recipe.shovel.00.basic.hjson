@@ -68,7 +68,7 @@
 							material: steel.ingot
 							amount: 0.187382
 							snapping: 0.250
-							loss: 0.035
+							loss: 0.031
 							group: 0
 							flags: prerequisite
 						}
@@ -377,7 +377,7 @@
 							amount: 0.550
 							snapping: 1.000
 							falloff: 0.640
-							loss: 0.184
+							loss: 0.180
 							group: 0
 							flags: prerequisite
 						}
@@ -432,7 +432,7 @@
 	
 	type: workshop
 	flags: blueprintable, packable, item
-	tags: workbench, manual, simple, tool, assembling, metalworking
+	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, assembling, metalworking, construction
 	
 	icon:
 	{

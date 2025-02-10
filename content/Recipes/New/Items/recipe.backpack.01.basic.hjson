@@ -37,7 +37,7 @@
 							material: cloth
 							amount: 0.3726
 							snapping: 0.500
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -46,7 +46,7 @@
 							material: leather
 							amount: 3.3641
 							snapping: 0.500
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -67,7 +67,7 @@
 							amount: 0.305836
 							snapping: 0.500
 							falloff: 0.910
-							loss: 0.031
+							loss: 0.027
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -153,7 +153,7 @@
 							material: steel.frames
 							amount: 0.048496
 							snapping: 0.100
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -203,8 +203,12 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
-	flags: blueprintable, wip, item
+	flags: blueprintable, item, wip
 	tags: workbench, manual, simple, tailoring
 	
 	icon:
@@ -220,4 +224,6 @@
 	min: 1
 	max: 4
 	step: 1
+	
+	version: 1
 }

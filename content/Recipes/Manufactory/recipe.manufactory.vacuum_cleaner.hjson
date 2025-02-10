@@ -67,9 +67,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, magitronics, tool, machinery, assembling, metalworking, engineering
+	tags: workbench, workshop, manual, advanced, medium, magitronics, tool, machinery, assembling, metalworking, engineering, construction
 	
 	icon:
 	{
@@ -82,4 +86,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

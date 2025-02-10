@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
 	name: "Arcanite Pellets (Thermal)"
-	name_short: "E-TH Pellet"
+	name_short: "E-TH Pellets"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.

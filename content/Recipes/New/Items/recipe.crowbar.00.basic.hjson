@@ -103,11 +103,17 @@
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: bucket
+						include: pliers
 					}
 					filter_equipment:
 					{
-						require: anvil, forge, table
+						require: anvil, forge
+						include: oven, barrel
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
 					}
 				}
 			]
@@ -256,8 +262,12 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
-	flags: blueprintable, wip, packable, item
+	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, tool, metalworking
 	
 	icon:
@@ -272,4 +282,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 1
 }

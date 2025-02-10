@@ -32,7 +32,7 @@
 							amount: 1.000
 							snapping: 1.000
 							falloff: 1.000
-							loss: 0.149
+							loss: 0.137
 							group: 0
 							flags: prerequisite
 						}
@@ -99,7 +99,7 @@
 							material: wood
 							amount: 0.459162
 							snapping: 1.000
-							loss: 0.082
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -164,7 +164,7 @@
 							amount: 2.130
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.043
+							loss: 0.031
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -248,9 +248,13 @@
 		}
 	]
 	
+	requirements_old: []
+	
+	products_old: []
+	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, simple, tool, assembling, metalworking
+	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, metalworking, construction
 	
 	icon:
 	{
@@ -264,4 +268,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

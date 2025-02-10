@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Smithing"
 	name_short: "Smithing"
 	desc:
@@ -21,13 +21,19 @@
 	color: "0xffff6200"
 	
 	tools_required: hammer, tongs
-	tools_optional: bucket
+	tools_optional: pliers
 	
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: anvil, forge, table
-	equipment_optional: none
+	equipment_required: anvil, forge
+	equipment_optional: oven, barrel
+	
+	filter_environment:
+	{
+		include: workshop, stationary, fireproof, sturdy
+		exclude: fragile
+	}
 	
 	character_traits:
 	{

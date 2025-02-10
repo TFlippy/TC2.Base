@@ -117,20 +117,17 @@ shop:
 	{
 		require: manual
 		include: workbench, simple, gathering
-		exclude: passive, advanced, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
+		exclude: passive, advanced, large, huge, vehicle, blacksmithing, machining, smelting, fermenting, heating, casting
 	}
 	
 	work_tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper, needle, pins
 	work_machines: none
-	work_equipment: table, rack
-	work_environment: workshop, mobile
+	work_equipment: table, rack, workbench
+	work_environment: mobile, sturdy, flammable
 	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 5
-	blueprints_capacity: 4
-	amount_multiplier: 1.000
-	step_multiplier: 1.000
 	
 	offset_spawn: [0.000, 0.000]
 }

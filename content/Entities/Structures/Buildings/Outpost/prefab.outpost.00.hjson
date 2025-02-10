@@ -205,22 +205,18 @@ shop:
 	
 	tags_filter:
 	{
-		require: manual
-		include: manual, simple, food, munitions, salvaging, medical, research, social, science
-		exclude: passive, advanced, dangerous, large, explosive, essence, weapon, gun, tool, vehicle, furniture, raw, compaction, blacksmithing, machining, stoneworking, forestry, shaping, smelting, drying, fermenting, melting, heating, casting, forming, messy, overworld
+		include: workbench, munitions, tailoring, engineering, salvaging, medical, research, social, science
+		exclude: passive, advanced, large, huge, weapon, vehicle, furniture, raw, blacksmithing, machining, stoneworking, forestry, shaping, smelting, drying, fermenting, melting, heating, casting, forming, messy, overworld
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
+	work_tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, spatula, knife, needle, pins
 	work_machines: none
 	work_equipment: table, chair, bed
-	work_environment: indoor, workshop, office, stationary
+	work_environment: indoor, office, stationary, cozy, flammable
 	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 4
-	blueprints_capacity: 4
-	amount_multiplier: 1.000
-	step_multiplier: 1.000
 	
 	offset_spawn: [0.000, 0.000]
 }

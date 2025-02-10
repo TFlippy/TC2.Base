@@ -168,7 +168,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: manual, simple, tool, assembling, metalworking, engineering, construction
+	tags: manual, simple, large, tool, assembling, metalworking, engineering, construction
 	
 	icon:
 	{

@@ -159,7 +159,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, simple, small, tool, tailoring, chemistry, medical, science, biology, construction
+	tags: workbench, workshop, manual, simple, small, tool, assembling, tailoring, chemistry, medical, science, biology, construction
 	
 	icon:
 	{

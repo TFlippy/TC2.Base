@@ -1,27 +1,13 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Form a Squad"
 	desc:
 		'''
 		Squads can be used to organize and coordinate NPCs.
 		'''
+	tips: []
 	
-	icon:
-	{
-		texture: ui.icons.headquarters
-		size: [24, 24]
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, wip
-	tags: social
-	
-	color_button: "0xffaeb59a"
-	rank: 0.000
+	stages: []
 	
 	requirements:
 	[
@@ -29,23 +15,27 @@
 			type: resource
 			material: money
 			amount: 389.000
+			group: 0
 		}
 		{
 			type: work
 			work: communication
 			amount: 250.000
 			difficulty: 5
+			group: 0
 		}
 		{
 			type: resource
 			material: paper
 			amount: 15.000
+			group: 0
 		}
 		{
 			type: work
 			work: paperwork
 			amount: 200.000
 			difficulty: 4
+			group: 0
 		}
 	]
 	
@@ -55,6 +45,30 @@
 			type: prefab
 			prefab: squad
 			amount: 1.000
+			group: 0
 		}
 	]
+	
+	requirements_old: []
+	
+	products_old: []
+	
+	type: workshop
+	flags: no_amount_multiplier, wip
+	tags: research, social, military
+	
+	icon:
+	{
+		texture: ui.icons.headquarters
+		size: [24, 24]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }
