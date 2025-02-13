@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Door
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public static readonly Sound.Handle default_sound_lock = "door_lock";
@@ -14,10 +14,10 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_open;
 			public Sound.Handle sound_close;
 
-			public Sound.Handle sound_lock = default_sound_lock;
-			public Sound.Handle sound_unlock = default_sound_unlock;
-			public Sound.Handle sound_locked = default_sound_locked;
-			public Sound.Handle sound_stuck = default_sound_stuck;
+			public Sound.Handle sound_lock = Door.Data.default_sound_lock;
+			public Sound.Handle sound_unlock = Door.Data.default_sound_unlock;
+			public Sound.Handle sound_locked = Door.Data.default_sound_locked;
+			public Sound.Handle sound_stuck = Door.Data.default_sound_stuck;
 
 			public Vector2 size_open;
 			public Vector2 size_closed;

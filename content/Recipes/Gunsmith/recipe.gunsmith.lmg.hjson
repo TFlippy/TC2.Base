@@ -7,9 +7,127 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 12.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.32081
+							snapping: 0.500
+							loss: 0.133
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.940306
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.316429
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 400.000
+							difficulty: 18
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: woodworking
+							amount: 80.000
+							difficulty: 4
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 12
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products: []
+					
+					filter_tools:
+					{
+						require: hammer, saw, screwdriver, wrench, file, tongs, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: lathe, heater
+					}
+					filter_equipment:
+					{
+						require: anvil, forge, table
+						include: oven, anvil, barrel, table, chair, vise
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
+					}
+				}
+			]
+			
+			requirements: []
+			
+			products: []
+		}
+	]
 	
-	requirements:
+	requirements: []
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: lmg
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -52,7 +170,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -62,12 +180,8 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, construction, item, wip, converted
 	tags: workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
 	
 	icon:
@@ -82,5 +196,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
+	version: 1
 }

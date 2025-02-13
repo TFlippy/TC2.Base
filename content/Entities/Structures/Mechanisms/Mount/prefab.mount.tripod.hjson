@@ -14,10 +14,10 @@ body:
 	{
 		points:
 		[
-			[0.625, 0.125]
+			[-0.625, -0.250]
+			[0.000, -0.625]
+			[0.375, 0.125]
 			[-0.750, 0.125]
-			[-0.100, -0.750]
-			[0.100, -0.750]
 		]
 		
 		mass: 40.000
@@ -29,6 +29,8 @@ body:
 		miss_chance: 0.400
 		
 		layer: entity, solid, item
+		mask: world
+		exclude: none
 	}
 }
 
@@ -85,9 +87,9 @@ transform:
 
 interactable:
 {
-	flags: none
+	flags: no_tab, centered_inventory
 	priority: -1.800
-	window_size: [128.000, 104.000]
+	window_size: [144.000, 104.000]
 	window_size_misc: [72.000, 0.000]
 	window_offset: [0.000, 192.000]
 }

@@ -68,7 +68,7 @@
 							material: steel.ingot
 							amount: 0.187382
 							snapping: 0.250
-							loss: 0.031
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -97,11 +97,17 @@
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: bucket
+						include: pliers
 					}
 					filter_equipment:
 					{
-						require: anvil, forge, table
+						require: anvil, forge
+						include: oven, barrel
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
 					}
 				}
 				{
@@ -139,6 +145,7 @@
 					]
 					
 					products: []
+					
 					filter_equipment:
 					{
 						require: casting_mould
@@ -176,6 +183,7 @@
 					]
 					
 					products: []
+					
 					filter_machinery:
 					{
 						require: metal_press
@@ -280,7 +288,7 @@
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_machinery:
 					{
@@ -377,7 +385,7 @@
 							amount: 0.550
 							snapping: 1.000
 							falloff: 0.640
-							loss: 0.180
+							loss: 0.173
 							group: 0
 							flags: prerequisite
 						}
@@ -449,5 +457,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
+	version: 1
 }

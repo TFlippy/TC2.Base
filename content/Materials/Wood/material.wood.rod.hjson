@@ -26,6 +26,7 @@
 	volume_per_unit: 0.000754
 	quantity_max: 100.000
 	spawn_quantity_threshold: 0.500
+	snapping: 0.500
 	form_type: rod
 	prefab: resource.wood.rod
 	h_substance: wood
