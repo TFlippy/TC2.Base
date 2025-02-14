@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 5, 0);
 					public static string Name { get; } = "Repair";
 
-					public Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Undefined;
+					public Recipe.Type RecipeType => Recipe.Type.Undefined;
 					[Shitcode]
 					public Physics.Layer LayerMask
 					{

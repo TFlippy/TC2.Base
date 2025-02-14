@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 3, 0);
 					public static string Name { get; } = "Build";
 
-					public readonly Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Undefined;
+					public readonly Recipe.Type RecipeType => Recipe.Type.Undefined;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;
 					public readonly Color32BGRA ColorNew => Color32BGRA.Yellow;
@@ -42,7 +42,7 @@ namespace TC2.Base.Components
 					public static readonly Wrench.Mode.Build.Category[] category_values = Enum.GetValues<Wrench.Mode.Build.Category>();
 					public static FixedString64 edit_name_filter;
 
-					public static Crafting.Recipe.Type edit_type_filter = Crafting.Recipe.Type.Architecture;
+					public static Recipe.Type edit_type_filter = Recipe.Type.Architecture;
 					public static List<(uint index, float rank)> recipe_indices = new(64);
 
 					[Region.Local] public static Vector2 pos_a_placeholder;
@@ -94,49 +94,49 @@ namespace TC2.Base.Components
 									{
 										using (GUI.ID<Wrench.Mode.Build.Category>.Push(i + 1))
 										{
-											var button_type_filter = Crafting.Recipe.Type.Undefined; //.None;
+											var button_type_filter = Recipe.Type.Undefined; //.None;
 
 											switch ((Wrench.Mode.Build.Category)i)
 											{
 												case Wrench.Mode.Build.Category.Architecture:
 												{
-													button_type_filter = Crafting.Recipe.Type.Architecture;
+													button_type_filter = Recipe.Type.Architecture;
 												}
 												break;
 
 												//case Wrench.Mode.Build.Category.Furniture:
 												//{
-												//	button_tags_filter = Crafting.Recipe.Tags.Furniture;
+												//	button_tags_filter = Recipe.Tags.Furniture;
 												//}
 												//break;
 
 												case Wrench.Mode.Build.Category.Industry:
 												{
-													button_type_filter = Crafting.Recipe.Type.Industry;
+													button_type_filter = Recipe.Type.Industry;
 												}
 												break;
 
 												case Wrench.Mode.Build.Category.Machinery:
 												{
-													button_type_filter = Crafting.Recipe.Type.Machinery;
+													button_type_filter = Recipe.Type.Machinery;
 												}
 												break;
 
 												case Wrench.Mode.Build.Category.Buildings:
 												{
-													button_type_filter = Crafting.Recipe.Type.Buildings;
+													button_type_filter = Recipe.Type.Buildings;
 												}
 												break;
 
 												//case Wrench.Mode.Build.Category.Infrastructure:
 												//{
-												//	button_tags_filter = Crafting.Recipe.Tags.Infrastructure;
+												//	button_tags_filter = Recipe.Tags.Infrastructure;
 												//}
 												//break;
 
 												//case Wrench.Mode.Build.Category.Misc:
 												//{
-												//	button_tags_filter = Crafting.Recipe.Tags.Misc;
+												//	button_tags_filter = Recipe.Tags.Misc;
 												//}
 												//break;
 											}
@@ -194,7 +194,7 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Crafting.Recipe.Flags.Hidden | Crafting.Recipe.Flags.Custom))
+										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom))
 										{
 											//var size = (Vector2)recipe.icon.GetFrameSize();
 											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
@@ -269,7 +269,7 @@ namespace TC2.Base.Components
 													}
 												}
 
-												if (recipe.flags.HasNone(Crafting.Recipe.Flags.Disabled | Crafting.Recipe.Flags.Hidden))
+												if (recipe.flags.HasNone(Recipe.Flags.Disabled | Recipe.Flags.Hidden))
 												{
 													if (recipe_switch_dir < 0)
 													{
@@ -330,7 +330,7 @@ namespace TC2.Base.Components
 										//Crafting.Context.NewFromPlayer(ref region, ref player, ent_wrench, out var context);
 										Crafting.Context.NewFromCurrentCharacter(ent_wrench, out var context);
 
-										if (recipe.type != Crafting.Recipe.Type.Undefined)
+										if (recipe.type != Recipe.Type.Undefined)
 										{
 											ref var product = ref recipe.products[0];
 											if (recipe.placement.TryGetValue(out var placement))
@@ -1425,7 +1425,7 @@ namespace TC2.Base.Components
 							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, rpc.entity, out var context);
 							//var ent_character = connection.enti
 
-							if (recipe.type == Crafting.Recipe.Type.Architecture || recipe.type == Crafting.Recipe.Type.Industry || recipe.type == Crafting.Recipe.Type.Buildings || recipe.type == Crafting.Recipe.Type.Machinery)
+							if (recipe.type == Recipe.Type.Architecture || recipe.type == Recipe.Type.Industry || recipe.type == Recipe.Type.Buildings || recipe.type == Recipe.Type.Machinery)
 							{
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))

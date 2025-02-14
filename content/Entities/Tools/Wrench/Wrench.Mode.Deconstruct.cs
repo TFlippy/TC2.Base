@@ -61,7 +61,7 @@ namespace TC2.Base.Components
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 2, 0);
 					public static string Name { get; } = "Demolish";
 
-					public Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Undefined;
+					public Recipe.Type RecipeType => Recipe.Type.Undefined;
 					public Physics.Layer LayerMask
 					{
 						get

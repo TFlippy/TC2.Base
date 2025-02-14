@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 		{
 			public static abstract Sprite Icon { get; }
 			public static abstract string Name { get; }
-			public Crafting.Recipe.Type RecipeType { get; }
+			public Recipe.Type RecipeType { get; }
 
 			public Color32BGRA ColorOk { get; }
 			public Color32BGRA ColorError { get; }

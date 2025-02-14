@@ -21,7 +21,7 @@
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 1, 0);
 					public static string Name { get; } = "Pipes";
 
-					public readonly Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Pipe;
+					public readonly Recipe.Type RecipeType => Recipe.Type.Pipe;
 					public readonly Physics.Layer LayerMask => Physics.Layer.Pipe;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;

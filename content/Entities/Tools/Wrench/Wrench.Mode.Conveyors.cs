@@ -21,7 +21,7 @@
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 1, 0);
 					public static string Name { get; } = "Conveyors";
 
-					public Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Conveyor;
+					public Recipe.Type RecipeType => Recipe.Type.Conveyor;
 					public Physics.Layer LayerMask => Physics.Layer.Conveyor;
 					public Color32BGRA ColorOk => Color32BGRA.Green;
 					public Color32BGRA ColorError => Color32BGRA.Red;

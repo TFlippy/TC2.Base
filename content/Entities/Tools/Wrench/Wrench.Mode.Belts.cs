@@ -21,7 +21,7 @@
 					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 0, 0);
 					public static string Name { get; } = "Belts";
 
-					public readonly Crafting.Recipe.Type RecipeType => Crafting.Recipe.Type.Belt;
+					public readonly Recipe.Type RecipeType => Recipe.Type.Belt;
 					public readonly Physics.Layer LayerMask => Physics.Layer.Belt;
 					public readonly Color32BGRA ColorOk => Color32BGRA.Green;
 					public readonly Color32BGRA ColorError => Color32BGRA.Red;
