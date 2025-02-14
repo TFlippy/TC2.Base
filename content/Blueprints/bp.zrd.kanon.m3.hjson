@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "houfmistr"
+	h_company: "houfmistr"
 	
-	prefab: "cannon.short"
-	recipe: "gunsmith.cannon.short"
+	h_prefab: "cannon.short"
+	h_recipe: "gunsmith.cannon.short"
 	seed: 0
 	
 	augments:

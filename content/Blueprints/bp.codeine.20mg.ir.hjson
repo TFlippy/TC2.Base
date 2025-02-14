@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "plak_tope"
+	h_company: "plak_tope"
 	
-	prefab: "pill"
-	recipe: "null"
+	h_prefab: "pill"
+	h_recipe: "null"
 	seed: 0
 	
 	augments:

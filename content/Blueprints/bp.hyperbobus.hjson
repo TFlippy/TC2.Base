@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "machine_gun"
-	recipe: "gunsmith.machine_gun"
+	h_prefab: "machine_gun"
+	h_recipe: "gunsmith.machine_gun"
 	
 	augments:
 	[

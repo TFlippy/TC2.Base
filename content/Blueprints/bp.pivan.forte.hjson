@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "pivan"
+	h_company: "pivan"
 	
-	prefab: "beer"
-	recipe: "refinery.beer"
+	h_prefab: "beer"
+	h_recipe: "refinery.beer"
 	
 	augments:
 	[

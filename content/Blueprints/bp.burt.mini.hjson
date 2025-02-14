@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "zajac"
+	h_company: "zajac"
 	
-	prefab: "machine_pistol"
-	recipe: "gunsmith.machine_pistol"
+	h_prefab: "machine_pistol"
+	h_recipe: "gunsmith.machine_pistol"
 	seed: 0
 	
 	augments:

@@ -7,10 +7,10 @@
 		'''
 	
 	flags: none
-	company: "houfmistr"
+	h_company: "houfmistr"
 	
-	prefab: auto_shotgun
-	recipe: gunsmith.auto_shotgun
+	h_prefab: auto_shotgun
+	h_recipe: gunsmith.auto_shotgun
 	seed: 597236819634
 	
 	augments:

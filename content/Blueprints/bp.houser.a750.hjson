@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "null"
+	h_company: "null"
 	
-	prefab: "machine_pistol"
-	recipe: "gunsmith.machine_pistol"
+	h_prefab: "machine_pistol"
+	h_recipe: "gunsmith.machine_pistol"
 	
 	augments:
 	[

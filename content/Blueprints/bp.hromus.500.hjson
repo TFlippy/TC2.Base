@@ -7,10 +7,10 @@
 		'''
 	
 	flags: none
-	company: "traktor_petor"
+	h_company: "traktor_petor"
 	
-	prefab: "revolver"
-	recipe: "gunsmith.revolver"
+	h_prefab: "revolver"
+	h_recipe: "gunsmith.revolver"
 	seed: 0
 	
 	augments:

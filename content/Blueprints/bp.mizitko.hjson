@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "scattergun"
-	recipe: "gunsmith.scattergun"
+	h_prefab: "scattergun"
+	h_recipe: "gunsmith.scattergun"
 	seed: 1006107412198
 	
 	augments:

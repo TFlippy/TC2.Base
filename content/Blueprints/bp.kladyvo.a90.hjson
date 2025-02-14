@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "null"
+	h_company: "null"
 	
-	prefab: "lmg"
-	recipe: "gunsmith.lmg"
+	h_prefab: "lmg"
+	h_recipe: "gunsmith.lmg"
 	seed: 427717013522
 	
 	augments:

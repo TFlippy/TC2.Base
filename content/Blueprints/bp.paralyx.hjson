@@ -7,10 +7,10 @@
 		'''
 	
 	flags: none
-	company: "samofetovar"
+	h_company: "samofetovar"
 	
-	prefab: "syringe"
-	recipe: "refinery.syringe"
+	h_prefab: "syringe"
+	h_recipe: "refinery.syringe"
 	seed: 0
 	
 	augments:

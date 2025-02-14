@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "slugthrower"
-	recipe: "gunsmith.slugthrower"
+	h_prefab: "slugthrower"
+	h_recipe: "gunsmith.slugthrower"
 	seed: 151816801204
 	
 	augments:

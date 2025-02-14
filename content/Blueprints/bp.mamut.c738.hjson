@@ -7,10 +7,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "rifle"
-	recipe: "gunsmith.rifle"
+	h_prefab: "rifle"
+	h_recipe: "gunsmith.rifle"
 	seed: 0
 	
 	augments:

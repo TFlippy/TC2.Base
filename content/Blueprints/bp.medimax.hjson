@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "zdravotnyk"
+	h_company: "zdravotnyk"
 	
-	prefab: "medkit"
-	recipe: "manufactory.medkit"
+	h_prefab: "medkit"
+	h_recipe: "manufactory.medkit"
 	seed: 42762012890
 	
 	augments:

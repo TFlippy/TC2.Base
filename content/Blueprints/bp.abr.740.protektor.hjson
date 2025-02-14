@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "zajac"
+	h_company: "zajac"
 	
-	prefab: "battle_rifle"
-	recipe: "gunsmith.battle_rifle"
+	h_prefab: "battle_rifle"
+	h_recipe: "gunsmith.battle_rifle"
 	seed: 0
 	
 	augments:

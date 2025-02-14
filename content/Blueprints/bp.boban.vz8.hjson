@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "houfmistr"
+	h_company: "houfmistr"
 	
-	prefab: "landmine"
-	recipe: "munitions.landmine"
+	h_prefab: "landmine"
+	h_recipe: "munitions.landmine"
 	seed: 0
 	
 	augments:

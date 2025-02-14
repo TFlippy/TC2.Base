@@ -8,8 +8,8 @@
 		Water-cooled automatic submachine gun with extremely high rate of fire and large ammo capacity. 
 		Almost no overheat, but can burn through all ammo in no time.
 		'''
-	prefab: "smg"
-	recipe: "gunsmith.smg"
+	h_prefab: "smg"
+	h_recipe: "gunsmith.smg"
 	augments:
 	[
 		{

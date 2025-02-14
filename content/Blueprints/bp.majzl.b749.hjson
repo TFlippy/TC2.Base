@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "carbine"
-	recipe: "gunsmith.carbine"
+	h_prefab: "carbine"
+	h_recipe: "gunsmith.carbine"
 	seed: 0
 	
 	augments:

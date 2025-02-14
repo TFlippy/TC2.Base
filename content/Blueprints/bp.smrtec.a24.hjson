@@ -7,10 +7,10 @@
 		'''
 	
 	flags: none
-	company: "dobroten_babiskyn"
+	h_company: "dobroten_babiskyn"
 	
-	prefab: "auto_shotgun"
-	recipe: "gunsmith.auto_shotgun"
+	h_prefab: "auto_shotgun"
+	h_recipe: "gunsmith.auto_shotgun"
 	seed: 0
 	
 	augments:

@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "elektron_imperial"
+	h_company: "elektron_imperial"
 	
-	prefab: "smg"
-	recipe: "gunsmith.smg"
+	h_prefab: "smg"
+	h_recipe: "gunsmith.smg"
 	seed: 0
 	
 	augments:

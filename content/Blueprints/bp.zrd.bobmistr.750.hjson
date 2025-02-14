@@ -6,10 +6,10 @@
 		'''
 	
 	flags: none
-	company: "houfmistr"
+	h_company: "houfmistr"
 	
-	prefab: "machine_gun"
-	recipe: "gunsmith.machine_gun"
+	h_prefab: "machine_gun"
+	h_recipe: "gunsmith.machine_gun"
 	seed: 0
 	
 	augments:
