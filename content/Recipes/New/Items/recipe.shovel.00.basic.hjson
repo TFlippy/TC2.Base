@@ -46,8 +46,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: cutters
@@ -91,8 +89,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -144,8 +140,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_equipment:
 					{
 						require: casting_mould
@@ -182,8 +176,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_machinery:
 					{
 						require: metal_press
@@ -191,10 +183,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Handle"
@@ -237,8 +225,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -283,8 +269,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: saw
@@ -300,10 +284,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -344,8 +324,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -401,8 +379,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver
@@ -414,14 +390,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -433,10 +403,6 @@
 			flags: primary
 		}
 	]
-	
-	requirements_old: []
-	
-	products_old: []
 	
 	type: workshop
 	flags: blueprintable, packable, item

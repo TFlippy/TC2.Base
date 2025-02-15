@@ -1,0 +1,84 @@
+$name: "Toolbox"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: dynamic
+	flags: none
+	
+	fall_damage_multiplier: 1.000
+
+	@shape.line:
+	{
+		a: [-0.250, 0.000]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.150]
+		
+		mass: 8.500
+		radius: 0.4375
+		friction: 0.920
+		elasticity: 0.750
+		
+		material: metal
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 6500.000
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.250, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: toolbox.00
+	}
+	scale: [0.875, 0.875]
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
+
+norotate:
+{
+	bias: 0.001
+	speed: 3.000
+	multiplier: 1.000
+	mass_multiplier: 10.000
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 2.000
+	window_size: [448.000, 340.000]
+	window_size_misc: [120.000, 0.000]
+}

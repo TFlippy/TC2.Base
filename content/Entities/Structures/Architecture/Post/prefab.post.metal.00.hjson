@@ -1,0 +1,44 @@
+$name: "Post (Metal)"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -2.500]
+		b: [0.000, 2.750]
+		offset: [0.000, 0.000]
+		mass: 70.000
+		radius: 0.400
+		friction: 0.500
+		elasticity: 0.500
+		material: metal_pole
+		layer: entity, building, support, ignore_melee, background
+		mask: world, building
+	}
+}
+
+health:
+{
+	max: 14500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "post.metal.00"
+	}
+	z: -150.000
+}
+
+transform:
+{
+
+}

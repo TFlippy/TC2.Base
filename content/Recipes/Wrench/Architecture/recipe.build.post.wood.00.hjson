@@ -1,0 +1,81 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Post (Wood)"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: timber
+			amount: 5.000
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: post.wood.00
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: architecture
+	flags: blueprintable
+	tags: large, construction
+	
+	icon:
+	{
+		texture: post.wood.00
+		size: [8, 40]
+	}
+	
+	color_button: "0xffaeb59a"
+	rank: -6.000
+	
+	dismantle_work: 4.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [1.000, 6.000]
+		offset: [0.000, -2.500]
+		
+		rect_foundation: [-0.500, 0.250, 0.500, 0.750]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-0.250, -5.000, 0.250, 0.750]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.500
+		min_clearance: 0.900
+		min_claim: 1.000
+		
+		rotation_max: 0.500
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}
