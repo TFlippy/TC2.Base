@@ -8,8 +8,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -55,10 +53,13 @@
 		cooldown: 0.500
 		min_support: 0.020
 		min_claim: 1.000
+		max_range: 6.000
+		
 		length_max: 10.000
 		length_step: 0.125
 		
 		sound: metal.place.00
+		
 		snapping_flags: snap_to_surface, use_raw_collider
 		snapping_radius: 0.250
 		
@@ -67,4 +68,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

@@ -238,7 +238,7 @@ namespace TC2.Base
 
 					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 200, snap: 5, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -319,7 +319,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					//dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 5, size: new Vector2(GUI.RmX * 0.50f, GUI.RmY));
 					//GUI.SameLine();
@@ -852,7 +852,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 					//GUI.SameLine();
 					//dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
 
@@ -1018,7 +1018,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-0.50f, -1.00f), max: new Vector2(0.50f, 0.00f), sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -1310,7 +1310,7 @@ namespace TC2.Base
 
 					dirty |= GUI.SliderIntLerp("Type", ref modifier, 0, 15, size: new Vector2(GUI.RmX * 0.60f, GUI.RmY));
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmX, GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -1736,7 +1736,7 @@ namespace TC2.Base
 					size.X *= 0.50f;
 
 					var dirty = false;
-					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-1.00f, -1.00f), max: new Vector2(1.00f, 1.00f));
+					dirty |= GUI.Picker("offset", "Offset", size: size, ref offset, min: new Vector2(-1.00f, -1.00f), max: new Vector2(1.00f, 1.00f), sensitivity: 0.01f);
 
 					//dirty |= GUI.SliderFloat("X", ref offset.X, -0.50f, 0.50f, size: size);
 					//GUI.SameLine();
@@ -1818,7 +1818,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2028,7 +2028,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2077,7 +2077,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2126,7 +2126,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2335,7 +2335,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2389,7 +2389,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2778,7 +2778,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -2942,7 +2942,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},
@@ -3230,7 +3230,7 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.Checkbox("mirror_y", ref handle.flags, Augment.Handle.Flags.Mirror_Y, size: new Vector2(GUI.RmY), show_text: false, show_tooltip: true);
 					GUI.SameLine();
-					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b);
+					dirty |= GUI.Picker("offset", "Offset", size: new Vector2(GUI.RmY), ref offset, min: context.rect.a, max: context.rect.b, sensitivity: 0.01f);
 
 					return dirty;
 				},

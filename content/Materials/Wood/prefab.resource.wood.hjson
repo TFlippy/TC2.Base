@@ -38,7 +38,6 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.500]
 	radius: 0.000
 	hints: materials, construction
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate

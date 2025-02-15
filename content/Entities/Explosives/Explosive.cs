@@ -241,7 +241,7 @@ namespace TC2.Base.Components
 
 						explosion.volume = explosive_tmp.volume;
 						explosion.pitch = explosive_tmp.pitch;
-						explosion.delay = random.NextFloatExtra(0.02f, 0.09f);
+						explosion.delay = random.NextFloatExtra(0.01f, 0.05f);
 
 						explosion.ent_owner = explosive_tmp.ent_owner;
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
