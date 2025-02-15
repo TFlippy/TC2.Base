@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -61,11 +59,14 @@
 		min_claim: 1.000
 		
 		sound: stone_place_0
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
 		
 		mappings_replace:
 		{
 		
 		}
 	}
+	
+	version: 0
 }
