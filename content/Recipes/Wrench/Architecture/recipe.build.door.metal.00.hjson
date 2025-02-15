@@ -3,8 +3,6 @@
 	name: "Door (Metal)"
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -33,7 +31,7 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -86,4 +84,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

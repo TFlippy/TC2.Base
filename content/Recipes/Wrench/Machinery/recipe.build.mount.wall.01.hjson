@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -37,7 +35,7 @@
 	
 	type: machinery
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -71,4 +69,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

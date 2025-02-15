@@ -5,12 +5,10 @@
 		'''
 		Expands faction-claimed area, albeit with low influence.
 		'''
-	tips: 
+	tips:
 	[
 		"Cannot be placed outside faction-owned territory"
 	]
-	
-	stages: []
 	
 	requirements:
 	[
@@ -40,7 +38,7 @@
 	
 	type: architecture
 	flags: blueprintable
-	tags: none
+	tags: huge, construction
 	
 	icon:
 	{
@@ -91,4 +89,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

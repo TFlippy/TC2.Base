@@ -3,8 +3,6 @@
 	name: "Lamp Post (Metal, Angled)"
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -39,7 +37,7 @@
 	
 	type: architecture
 	flags: blueprintable
-	tags: none
+	tags: large, construction
 	
 	icon:
 	{
@@ -90,4 +88,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

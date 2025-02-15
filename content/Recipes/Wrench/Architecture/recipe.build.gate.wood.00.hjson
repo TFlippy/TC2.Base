@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -43,7 +41,7 @@
 	
 	type: architecture
 	flags: disabled, wip
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -107,4 +105,6 @@
 			}
 		]
 	}
+	
+	version: 0
 }

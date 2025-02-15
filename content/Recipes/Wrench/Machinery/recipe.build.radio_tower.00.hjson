@@ -43,8 +43,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Rubble"
@@ -87,8 +85,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Concrete Composite"
@@ -154,8 +150,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Compacted Soil"
@@ -191,18 +185,10 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -216,8 +202,8 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, disabled, wip, construction, auto_complete
-	tags: advanced, large, magitronics, machinery, assembling, metalworking, engineering, science
+	flags: no_amount_multiplier, blueprintable, disabled, construction, wip, auto_complete
+	tags: advanced, huge, magitronics, machinery, assembling, metalworking, engineering, science, construction
 	
 	icon:
 	{
@@ -265,5 +251,8 @@
 		
 		}
 	}
+	
 	h_sound_finalize: building_construct
+	
+	version: 0
 }

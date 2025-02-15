@@ -43,8 +43,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Rubble"
@@ -87,8 +85,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Concrete Composite"
@@ -154,8 +150,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 				{
 					name: "Compacted Soil"
@@ -191,14 +185,8 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Furniture"
@@ -226,7 +214,7 @@
 							material: steel.frames
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.086
+							loss: 0.078
 							group: 0
 						}
 						{
@@ -234,7 +222,7 @@
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.141
+							loss: 0.133
 							group: 0
 						}
 						{
@@ -255,14 +243,8 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Hardware"
@@ -311,18 +293,10 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -336,8 +310,8 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, disabled, wip, construction, auto_complete
-	tags: large
+	flags: no_amount_multiplier, blueprintable, disabled, construction, wip, auto_complete
+	tags: huge, construction
 	
 	icon:
 	{
@@ -414,5 +388,8 @@
 			}
 		]
 	}
+	
 	h_sound_finalize: building_construct
+	
+	version: 0
 }

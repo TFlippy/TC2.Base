@@ -11,8 +11,6 @@
 		"Cannot be placed outside faction-owned territory"
 	]
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -53,7 +51,7 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -104,4 +102,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

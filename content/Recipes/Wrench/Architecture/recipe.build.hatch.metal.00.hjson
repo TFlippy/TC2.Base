@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -37,7 +35,7 @@
 	
 	type: architecture
 	flags: blueprintable
-	tags: none
+	tags: large, metalworking, construction
 	
 	icon:
 	{
@@ -85,4 +83,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

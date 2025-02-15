@@ -41,6 +41,7 @@
 							amount: 500.000
 							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -53,7 +54,10 @@
 						}
 					]
 					
-					products: []
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
 				}
 				{
 					name: "Rubble"
@@ -69,6 +73,7 @@
 							amount: 250.000
 							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -85,6 +90,7 @@
 							amount: 100.000
 							snapping: 1.000
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -97,7 +103,10 @@
 						}
 					]
 					
-					products: []
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
 				}
 				{
 					name: "Concrete Composite"
@@ -113,6 +122,7 @@
 							amount: 175.000
 							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -129,6 +139,7 @@
 							amount: 35.000
 							snapping: 1.000
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -136,6 +147,7 @@
 							amount: 50.000
 							snapping: 1.000
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -152,6 +164,7 @@
 							amount: 250.000
 							snapping: 1.000
 							group: 2
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -164,7 +177,10 @@
 						}
 					]
 					
-					products: []
+					filter_tools:
+					{
+						include: bucket, shovel, spatula
+					}
 				}
 				{
 					name: "Compacted Soil"
@@ -180,6 +196,7 @@
 							amount: 750.000
 							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -201,13 +218,12 @@
 						}
 					]
 					
-					products: []
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Furniture"
@@ -235,16 +251,18 @@
 							material: steel.frames
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.086
+							loss: 0.075
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.141
+							loss: 0.129
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -253,6 +271,7 @@
 							snapping: 5.000
 							loss: 0.075
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -265,17 +284,14 @@
 						}
 					]
 					
-					products: []
+					filter_tools:
+					{
+						require: hammer, saw
+					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -289,8 +305,8 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, auto_complete
-	tags: simple, large
+	flags: no_amount_multiplier, blueprintable, construction, item, auto_complete
+	tags: huge, construction
 	
 	icon:
 	{
@@ -367,5 +383,8 @@
 			}
 		]
 	}
+	
 	h_sound_finalize: building_construct
+	
+	version: 1
 }

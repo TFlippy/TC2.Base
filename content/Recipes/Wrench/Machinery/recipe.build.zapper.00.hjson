@@ -7,10 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
-	requirements: []
-	
 	products:
 	[
 		{
@@ -23,7 +19,7 @@
 	
 	type: machinery
 	flags: blueprintable, disabled, wip
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -66,4 +62,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

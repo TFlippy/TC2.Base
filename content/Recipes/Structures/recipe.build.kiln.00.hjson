@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -31,7 +29,7 @@
 	
 	type: industry
 	flags: disabled, wip
-	tags: none
+	tags: construction
 	
 	icon:
 	{
@@ -97,4 +95,6 @@
 			null
 		]
 	}
+	
+	version: 0
 }
