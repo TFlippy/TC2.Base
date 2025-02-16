@@ -63,7 +63,7 @@ gun:
 	reload_interval: 2.500
 	cycle_interval: 0.500
 	stability: 6950.000
-	failure_rate: 0.111
+	failure_rate: 0.011
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_musket
 	ammo_per_shot: 1.000
@@ -158,13 +158,13 @@ essence.container:
 	rate: 0.500
 	stability: 0.800
 	health_threshold: 0.150
+	glow_modifier: 20.000
+	emit_type: impactor
 
 	@light:
 	{
-		color: [1.000, 0.46789, 0.000, 2.000]
-		offset: [-0.250, -0.125]
-		scale: [3.000, 3.000]
-		intensity: 1.000
-		texture: light.circle.04
+		offset: [-0.375, 0.000]
+		scale: [1.000, 4.000]
+		texture: light.box.01
 	}
 }

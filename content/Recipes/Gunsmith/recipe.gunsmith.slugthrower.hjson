@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -62,10 +60,6 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workshop, manual, weapon, gun, assembling, metalworking, engineering, military, construction
@@ -75,7 +69,7 @@
 		texture: slugthrower
 	}
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xff19e2b1"
 	rank: 0.000
 	
 	min: 1

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Collect Water"
 	desc:
 		'''
@@ -15,7 +15,7 @@
 		{
 			name: "Water Source"
 			
-			type: payload
+			type: source
 			flags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: punch
@@ -44,7 +44,10 @@
 							type: work
 							work: draining
 							amount: 10.000
+							amount_min: 40.000
 							difficulty: 4
+							snapping: 5.000
+							falloff: 0.825
 							group: 0
 							flags: conditional
 						}
@@ -80,7 +83,10 @@
 							type: work
 							work: draining
 							amount: 10.000
+							amount_min: 40.000
 							difficulty: 4
+							snapping: 5.000
+							falloff: 0.825
 							group: 0
 							flags: conditional
 						}
@@ -152,7 +158,10 @@
 							type: work
 							work: draining
 							amount: 8.000
-							difficulty: 3
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.825
 							group: 0
 							flags: conditional
 						}
@@ -187,8 +196,11 @@
 						{
 							type: work
 							work: draining
-							amount: 22.000
-							difficulty: 10
+							amount: 16.000
+							amount_min: 40.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.825
 							group: 0
 							flags: conditional
 						}
@@ -206,7 +218,7 @@
 					]
 				}
 				{
-					name: "Sludgewater"
+					name: "Toxwater"
 					
 					type: undefined
 					flags: none
@@ -223,8 +235,11 @@
 						{
 							type: work
 							work: draining
-							amount: 14.000
-							difficulty: 8
+							amount: 12.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.825
 							group: 0
 							flags: conditional
 						}
@@ -242,16 +257,8 @@
 					]
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
-	
-	products: []
 	
 	type: workshop
 	flags: none
@@ -270,4 +277,6 @@
 	min: 10
 	max: 100
 	step: 10
+	
+	version: 0
 }

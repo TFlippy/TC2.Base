@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -64,10 +62,12 @@
 		texture: chainsaw
 	}
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xff19e2b1"
 	rank: 0.000
 	
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

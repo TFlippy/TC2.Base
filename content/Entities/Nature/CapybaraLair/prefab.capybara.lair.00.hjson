@@ -25,6 +25,11 @@ body:
 	}
 }
 
+transform:
+{
+
+}
+
 health:
 {
 	max: 11000.000
@@ -40,30 +45,12 @@ animated.renderer:
 	z: -150.000
 }
 
-transform:
-{
-
-}
-
 nameable:
 {
 	tags: lame, homely, food
 	flags: no_rename, randomize
 	type: consumable
 	max_length: 16
-}
-
-spawner:
-{
-	group_size: 1
-	group_size_extra: 0
-	interval: 60.000
-	interval_extra: 300.000
-	interval_count_modifier: 30.000
-	ai_stance: defensive
-	ai_type: idle
-	flags: none
-	max_count: 3
 }
 
 faction:
@@ -80,7 +67,38 @@ claimer:
 
 spawn:
 {
-	flags: faction, neutral_only
+	flags: faction, public
+}
+
+spawner:
+{
+	group_size: 1
+	group_size_extra: 0
+	interval: 40.000
+	interval_extra: 200.000
+	interval_count_modifier: 30.000
+	ai_stance: passive
+	ai_type: idle
+	flags: none
+	max_count: 3
+}
+
+dormitory:
+{
+	flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
+	species: capybara
+	
+	characters_capacity: 4
+	characters_initial_count: 2
+	
+	repopulate_interval: 60.000
+	repopulate_interval_extra: 240.000
+	repopulate_max: 5
+	repopulate_num: 1
+	repopulate_num_extra: 1
+	repopulate_character_flags_add: npc, public
+	
+	asset_flags: recycle
 }
 
 minimap.marker:
@@ -89,21 +107,8 @@ minimap.marker:
 	{
 		texture: "ui_icons_minimap"
 		size: [16, 16]
-		frame: [0, 0]
+		frame: [0, 1]
 	}
 
 	flags: faction, spawner
-}
-
-dormitory:
-{
-	species: "capybara"
-	flags: no_hiring, no_kit_selection, no_kit_requirements, hide_xp, hide_kits, region_only
-	asset_flags: recycle
-
-	repopulate_num: 1
-	repopulate_num_extra: 1
-
-	characters_capacity: 4
-	characters_initial_count: 2
 }

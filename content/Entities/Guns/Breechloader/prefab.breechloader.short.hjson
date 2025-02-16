@@ -57,8 +57,8 @@ gun:
 	velocity_max: 195.000
 	reload_interval: 2.400
 	cycle_interval: 0.500
-	stability: 2650.000
-	failure_rate: 0.163
+	stability: 3650.000
+	failure_rate: 0.023
 	
 	ammo_filter: ammo_mg, ammo_sg, ammo_musket
 	max_ammo: 1.000

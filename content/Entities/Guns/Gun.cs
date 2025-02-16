@@ -150,6 +150,12 @@
 			public byte frame_jammed;
 		}
 
+		[IEvent.Data]
+		public partial struct ShootEvent(): IEvent
+		{
+
+		}
+
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
 		public partial struct Data(): IComponent
 		{
@@ -1314,8 +1320,8 @@
 					gun_state.stage = Gun.Stage.Jammed;
 					gun_state.Sync(entity, true);
 
-					Sound.Play(ref region, gun.sound_jam, pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
-					WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position, lifetime: 1.00f);
+					Sound.Play(region: ref region, sound: gun.sound_jam, world_position: pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+					WorldNotification.Push(region: ref region, message: "* Jammed *", color: 0xffff0000, position: transform.position, lifetime: 1.00f);
 				}
 #endif
 
@@ -1478,7 +1484,7 @@
 						}
 
 #if SERVER
-						Sound.Play(ref region, gun.sound_cycle, transform.LocalToWorld(gun.receiver_offset), volume: 0.50f);
+						Sound.Play(region: ref region, sound: gun.sound_cycle, world_position: transform.LocalToWorld(gun.receiver_offset), volume: 0.50f);
 #endif
 					}
 				}

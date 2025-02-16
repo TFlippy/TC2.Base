@@ -16,7 +16,7 @@
 	
 	type: rubble
 	flags: scrap, hard, granular, large, heavy, gravel, waste, solid, impure
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: materials, junk, construction, cheap
 	mass_per_unit: 1.410
 	quantity_max: 500.000

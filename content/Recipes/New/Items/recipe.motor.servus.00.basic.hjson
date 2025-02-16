@@ -58,8 +58,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver
@@ -71,10 +69,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Actuators"
@@ -255,10 +249,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Crankshaft"
@@ -308,8 +298,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver
@@ -321,14 +309,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -341,10 +323,6 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, item, wip
 	tags: workbench, manual, magitronics, machinery, assembling, metalworking, engineering
@@ -356,7 +334,7 @@
 		frame: [2, 0]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_button: "0xff19e2b1"
 	button_name: "Craft"
 	rank: 0.000
 	
