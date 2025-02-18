@@ -56,11 +56,11 @@
 		
 		speed_base: 0.000
 		speed_mult: 1.200
-		speed_jitter: 0.550
+		speed_jitter: 0.650
 		spin_base: 0.050
 		spin_mult: 1.400
-		spread_mult: 2.500
-		recoil_mult: 1.000
+		spread_mult: 3.000
+		recoil_mult: 0.800
 		
 		failure_base: 0.000
 		failure_mult: 1.000

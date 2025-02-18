@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, name: "Random Activation", region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
 			public float duration;
@@ -23,11 +23,6 @@ namespace TC2.Base.Components
 			public RandomActivation.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float time_stop;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.10f), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]

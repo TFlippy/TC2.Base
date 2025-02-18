@@ -150,11 +150,11 @@
 			public byte frame_jammed;
 		}
 
-		[IEvent.Data]
-		public partial struct ShootEvent(): IEvent
-		{
+		//[IEvent.Data]
+		//public partial struct ShootEvent(): IEvent
+		//{
 
-		}
+		//}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
 		public partial struct Data(): IComponent

@@ -15,7 +15,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Duration", description: "Burn time.", format: "{0:0.00} s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public float time;
@@ -29,11 +29,6 @@ namespace TC2.Base.Components
 
 			public Fuse.Flags flags;
 			[Net.Ignore] public float failure_time;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if SERVER

@@ -95,8 +95,36 @@ loot.container:
 
 	tables:
 	[
-		"car"
+		car
 	]
+}
+
+storage:
+{
+	@loot.container:
+	{
+		rolls: 2
+		rolls_extra: 6
+		rarity_min: 3.000
+		rarity_max: 9.000
+		amount_multiplier: 2.000
+
+		tables:
+		[
+			car
+			junk.tech.00
+			munitions.personal.00
+		]
+	}
+
+	@inventory8:
+	{
+		type: storage
+		flags: public, no_auto_pickup
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 interactable:

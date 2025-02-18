@@ -45,21 +45,21 @@ namespace TC2.Base.Components
 			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Pneumoconiosis.Effect pneumoconiosis, [Source.Owned, Override] in Organic.Data organic)
-		{
+		//[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void UpdateAmount(ISystem.Info info, Entity entity, [Source.Owned] ref Pneumoconiosis.Effect pneumoconiosis, [Source.Owned, Override] in Organic.Data organic)
+		//{
 
-		}
+		//}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Pneumoconiosis.Effect pneumoconiosis)
-		{
-			//var modifier = pneumoconiosis.modifier_current;
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void UpdateMovement(ISystem.Info info, [Source.Owned, Override] ref Runner.Data runner, [Source.Parent] in Pneumoconiosis.Effect pneumoconiosis)
+		//{
+		//	//var modifier = pneumoconiosis.modifier_current;
 
-			//runner.crouch_speed_modifier = Maths.Lerp01(runner.crouch_speed_modifier, 0.80f, modifier * 3.00f);
-			//runner.max_speed *= Maths.Lerp01(1.00f, 1.40f, modifier * 3.00f);
-			//runner.walk_lerp = Maths.Lerp01(runner.walk_lerp, 0.35f, modifier * 3.00f);
-		}
+		//	//runner.crouch_speed_modifier = Maths.Lerp01(runner.crouch_speed_modifier, 0.80f, modifier * 3.00f);
+		//	//runner.max_speed *= Maths.Lerp01(1.00f, 1.40f, modifier * 3.00f);
+		//	//runner.walk_lerp = Maths.Lerp01(runner.walk_lerp, 0.35f, modifier * 3.00f);
+		//}
 
 #if CLIENT
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]

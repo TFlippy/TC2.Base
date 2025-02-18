@@ -100,9 +100,9 @@ npc:
 animal:
 {
 	flags: aggressive
-	attack_cooldown: 0.600
+	attack_cooldown: 0.500
 	attack_distance_melee: 1.300
-	attack_cooldown_melee: 0.100
+	attack_cooldown_melee: 0.300
 	attack_distance_ranged: 10.000
 	attack_cooldown_ranged: 2.000
 	charge_distance: 8.000
@@ -222,7 +222,7 @@ melee:
 	pain_multiplier: 1.150
 	stun_multiplier: 1.050
 	disarm_chance: 0.000
-	cooldown: 0.150
+	cooldown: 0.300
 	max_distance: 1.450
 	aoe: 0.350
 	thickness: 0.450

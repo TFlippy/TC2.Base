@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Flyer
 	{
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float max_speed = 10.00f;
 			public float force = 100.00f;
@@ -17,11 +17,6 @@ namespace TC2.Base.Components
 			public float lift_modifier = 1.00f;
 			public float force_modifier = 1.00f;
 			public float speed_modifier = 1.00f;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]

@@ -55,7 +55,7 @@ nameable:
 
 faction:
 {
-	id: "capybara"
+	id: capybara
 }
 
 claimer:

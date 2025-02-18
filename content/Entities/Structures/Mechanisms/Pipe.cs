@@ -1697,7 +1697,7 @@ namespace TC2.Base.Components
 
 				public void Draw()
 				{
-					using (var window = GUI.Window.InteractionMisc(vent.type.ToStringUtf8(), this.ent_vent, size: new(24, 96), min_width: 24, min_height: 64))
+					using (var window = GUI.Window.InteractionMisc(this.vent.type.ToStringUtf8(), this.ent_vent, size: new(24, 96), min_width: 24, min_height: 64))
 					{
 						this.StoreCurrentWindowTypeID(order: -100);
 						if (window.show)
@@ -1707,7 +1707,7 @@ namespace TC2.Base.Components
 								var rpc = new Air.Vent.ConfigureRPC();
 								var dirty = false;
 
-								if (GUI.SliderFloat(vent.type.ToStringUtf8(), in this.vent.modifier, ref rpc.ratio, 0.00f, 1.00f, size: GUI.Rm, vertical: true, color_frame: GUI.col_input)) // , color_frame: 0xffd8a198
+								if (GUI.SliderFloat(this.vent.type.ToStringUtf8(), in this.vent.modifier, ref rpc.ratio, 0.00f, 1.00f, size: GUI.Rm, vertical: true, color_frame: GUI.col_input)) // , color_frame: 0xffd8a198
 								{
 									dirty = true;
 								}

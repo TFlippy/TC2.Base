@@ -72,20 +72,20 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateStats(ISystem.Info info, Entity entity,
-		[Source.All] ref Elixir.Data elixir, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
-		{
+		//[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void UpdateStats(ISystem.Info info, Entity entity,
+		//[Source.All] ref Elixir.Data elixir, [Source.Owned, Override] ref Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
+		//{
 
-		}
+		//}
 
 #if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateHead(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
-		[Source.Owned] in Transform.Data transform, [Source.All] ref Elixir.Data elixir, [Source.Owned] ref Head.Data head)
-		{
+		//[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void UpdateHead(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
+		//[Source.Owned] in Transform.Data transform, [Source.All] ref Elixir.Data elixir, [Source.Owned] ref Head.Data head)
+		//{
 
-		}
+		//}
 
 		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		//public static void UpdateRegen(ISystem.Info info, Entity entity, [Source.Owned, Override] ref Regen.Data regen, [Source.Any] in Elixir.Effect elixir)
@@ -98,11 +98,11 @@ namespace TC2.Base.Components
 		public static float elimination_modifier = 0.10f;
 		public static float modifier_lerp = 0.001f;
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateAmount(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Elixir.Data elixir, [Source.Owned, Override] in Organic.Data organic)
-		{
+		//[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void UpdateAmount(ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Elixir.Data elixir, [Source.Owned, Override] in Organic.Data organic)
+		//{
 
-		}
+		//}
 
 #if CLIENT
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]

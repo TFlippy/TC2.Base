@@ -44,7 +44,7 @@ gun:
 	cycle_interval: 0.300
 	failure_rate: 0.020
 	max_ammo: 6.000
-	flags: full_reload, cycle_on_shoot
+	flags: automatic, full_reload, cycle_on_shoot
 	ammo_filter: ammo_sg
 	action: blowback
 	type: shotgun

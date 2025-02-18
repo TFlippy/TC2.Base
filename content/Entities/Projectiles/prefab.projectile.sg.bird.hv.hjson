@@ -8,7 +8,7 @@ projectile:
 	lifetime: 3.000
 	damage_type: bullet_sg
 	size: 0.500
-	ricochet_count: 0
+	ricochet_count: 1
 	tracer_length: 3.000
 	gravity: 1.400
 	stabilization: 0.100

@@ -21,7 +21,7 @@ namespace TC2.Base
 			//HitEffects.Init();
 #endif
 
-			IMaterial.Database.AddAssetPostProcessor((IMaterial.Definition definition, ref IMaterial.Data data) =>
+			IMaterial.Database.AddAssetPostProcessor(static (definition, ref data) =>
 			{
 				if (data.flags.HasAny(Material.Flags.Essence))
 				{

@@ -65,14 +65,14 @@
 
 		public const float update_interval = 0.20f;
 
-		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] ref Transform.Data transform,
-		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
-		[Source.Owned] ref Crucible.Data crucible)
-		{
+		//[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		//[Source.Owned] ref Transform.Data transform,
+		//[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state, 
+		//[Source.Owned] ref Crucible.Data crucible)
+		//{
 
-		}
+		//}
 
 #if SERVER
 		[ISystem.Event<Blob.PourEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 100)]

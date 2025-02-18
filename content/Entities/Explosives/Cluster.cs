@@ -13,7 +13,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Vector2 offset;
 			public Vector2 velocity;
@@ -37,11 +37,6 @@
 			public int count;
 
 			public Cluster.Flags flags;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if SERVER

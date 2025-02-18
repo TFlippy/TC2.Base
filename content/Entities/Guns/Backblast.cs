@@ -3,15 +3,10 @@
 	public static partial class Backblast
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Editor.Picker.Position(true, true)]
 			public Vector2 exhaust_offset;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
