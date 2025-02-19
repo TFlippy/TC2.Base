@@ -181,10 +181,10 @@ pathfinding.state:
 	
 }
 
-// commandable:
-// {
+commandable:
+{
 	
-// }
+}
 
 norotate:
 {

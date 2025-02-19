@@ -519,6 +519,7 @@
 		public static void DrawCrosshair(ref Region.Data region, ref Gun.Data gun, ref Gun.State gun_state, Vector2 position_a, Vector2 position_b, Vector2 dir_a, Vector2 dir_b, float radius, float ammo_count, float ammo_count_max)
 		{
 			var dist = Vector2.Distance(position_a, position_b);
+			var cooldown_ratio = Maths.Normalize01Fast(region.GetWorldTime() - gun_state.t_last_fired, gun.cycle_interval).Inv();
 			//var dist = Maths.ProjectedDistance(position_a, dir_b, position_b);
 			//var dist_offset = Vector2.Distance(position_b, position_a + (dir * dist));
 
@@ -542,8 +543,9 @@
 			//if (!GUI.IsHovered) GUI.SetCursor(App.CursorType.Hidden, 100);
 
 			radius = Maths.Min(radius, 20.00f);
-			radius *= MathF.Sqrt(dist);
-			var line_length = Maths.Clamp(radius * 2.00f, 28.00f, 64.00f);
+			radius *= Maths.Sqrt(1.00f + dist);
+			var line_length = Maths.Clamp(radius.x2(), 28.00f, 64.00f);
+			line_length += cooldown_ratio * 16;
 
 			var color = new Color32BGRA(0xffff0000);
 
@@ -579,7 +581,7 @@
 			//var line_thickness_ammo = 2.00f;
 			var line_thickness_ammo = Maths.Clamp(16.00f / gun.max_ammo, 2, 8);
 			var r_outer = 8.00f;
-			var r_inner = 3.00f;
+			//var r_inner = 3.00f;
 
 
 			var angle_a = dir_a.GetAngleRadians();
@@ -590,6 +592,7 @@
 			GUI.DrawArc(region.WorldToCanvas(position_a), Maths.Min(angle_a, angle_c), Maths.Max(angle_a, angle_c), radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: color_line.WithAlpha(50));
 
 			//GUI.DrawTextCentered($"{angle_a}; {angle_b}", cpos_target);
+			//GUI.DrawTextCentered($"{cooldown_ratio}", cpos_target);
 
 			//GUI.DrawCircle(cpos_target + new Vector2(0.50f), radius, color_circle);
 

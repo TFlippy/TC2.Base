@@ -21,7 +21,7 @@ body:
 		rigidity_static: 0.000
 		rigidity_dynamic: 0.000
 		material: foliage
-		layer: entity, climbable, ignore_bullet, ignore_melee, flammable, plant
+		layer: entity, climbable, ignore_bullet, ignore_melee, flammable, plant, background
 		mask: world
 	}
 }

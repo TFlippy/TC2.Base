@@ -690,7 +690,8 @@ namespace TC2.Base.Components
 #endif
 
 		[Query(ISystem.Scope.Region)]
-		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, [Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
+		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, 
+			[Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
 		public enum Type: uint
 		{
