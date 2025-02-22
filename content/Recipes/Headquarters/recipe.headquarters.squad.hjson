@@ -7,9 +7,148 @@
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Enlistment Contract"
+			
+			type: preparation
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: punch
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Informal"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: paper
+							amount: 10.000
+							snapping: 0.500
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: paperwork
+							amount: 200.000
+							difficulty: 4
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: pencil, paper, stapler
+						include: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, towel, knife
+					}
+					filter_equipment:
+					{
+						require: table, chair
+						include: table, chair, rack
+					}
+					filter_environment:
+					{
+						exclude: scary, wet
+					}
+				}
+			]
+		}
+		{
+			name: "Payment"
+			
+			type: postprocessing
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: punch
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Money"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: money
+							amount: 299.000
+							snapping: 0.500
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: communication
+							amount: 250.000
+							difficulty: 6
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "Majonez"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mayo
+							amount: 10.000
+							snapping: 0.500
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: propaganda
+							amount: 250.000
+							difficulty: 6
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
 	
-	requirements:
+	products:
+	[
+		{
+			type: prefab
+			prefab: squad
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -39,7 +178,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -49,12 +188,8 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, wip, converted
 	tags: research, social, military
 	
 	icon:
@@ -70,5 +205,5 @@
 	max: 1
 	step: 1
 	
-	version: 0
+	version: 1
 }

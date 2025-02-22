@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Recruitment"
-	name_short: "Recruitment"
+	name: "Propaganda"
+	name_short: "Propaganda"
 	desc:
 		'''
 		TODO: Desc
@@ -61,5 +61,5 @@
 	
 	sounds_start: []
 	sounds_end: []
-	sounds_fail: ["drunk.03", "twuk.screech.03", "vo_die", "vo_idiot", "vo_kill"]
+	sounds_fail: []
 }
