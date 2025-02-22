@@ -28,7 +28,7 @@ body:
 		material: wreck
 		miss_chance: 0.424
 		
-		layer: entity, solid, vehicle, conductive, harvestable, magnetic
+		layer: entity, solid, vehicle, conductive, harvestable, magnetic, ignore_melee, background
 	}
 }
 
@@ -103,11 +103,11 @@ storage:
 {
 	@loot.container:
 	{
-		rolls: 2
-		rolls_extra: 6
+		rolls: 4
+		rolls_extra: 2
 		rarity_min: 3.000
 		rarity_max: 9.000
-		amount_multiplier: 2.000
+		amount_multiplier: 1.500
 
 		tables:
 		[
@@ -121,7 +121,7 @@ storage:
 	{
 		type: storage
 		flags: public, no_auto_pickup
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		
 		offset: [0.000, 0.000]
 	}
