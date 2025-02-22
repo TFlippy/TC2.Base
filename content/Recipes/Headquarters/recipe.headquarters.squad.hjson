@@ -52,7 +52,7 @@
 					filter_tools:
 					{
 						require: pencil, paper, stapler
-						include: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, towel, knife
+						include: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 					}
 					filter_equipment:
 					{
@@ -105,6 +105,11 @@
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: pencil, paper, stapler, towel
+					}
 				}
 				{
 					name: "Majonez"
@@ -132,6 +137,11 @@
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: pencil, paper, towel
+					}
 				}
 			]
 		}
@@ -144,7 +154,7 @@
 			prefab: squad
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, no_scaling, spawn, spawn_event
 		}
 	]
 	

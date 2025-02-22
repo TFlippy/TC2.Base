@@ -5,30 +5,36 @@ $desc:
 	'''
 $tags: []
 
-control:
-{
-
-}
-
 body:
 {
 	@shape.line:
 	{
-		a: [0.000, 0.300]
-		b: [0.000, -0.300]
+		a: [0.000, -0.300]
+		b: [0.000, 0.300]
+		offset: [0.000, 0.000]
+		
 		mass: 2.300
 		radius: 0.350
 		friction: 0.980
 		elasticity: 0.600
-		material: paper
+		
+		material: wax
+		miss_chance: 0.110
+		
 		layer: entity, solid, item, flammable
 		mask: world
+		exclude: none
 	}
 }
 
 health:
 {
 	max: 400.000
+}
+
+control:
+{
+
 }
 
 holdable:
@@ -64,7 +70,7 @@ fuse:
 	@light:
 	{
 		color: [1.000, 0.600, 0.000, 2.000]
-		offset: [-0.100, 0.100]
+		offset: [0.125, -0.625]
 		scale: [12.000, 12.000]
 		intensity: 0.000
 		texture: "light.circle.00"
@@ -76,6 +82,7 @@ fuse:
 		flags: start_muted
 		volume: 1.000
 		pitch: 1.000
+		offset: [0.000, -0.375]
 	}
 }
 
@@ -92,7 +99,7 @@ explosive:
 	flash_intensity_multiplier: 1.500
 	volume: 1.500
 	pitch: 2.500
-	health_threshold: 0.800
+	health_threshold: 0.980
 	flags: any_damage, explode_when_primed
 }
 

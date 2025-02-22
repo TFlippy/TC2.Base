@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 			public Sound.Handle sound;
 			public Sound.Handle sound_extinguish = Fuse.sound_extinguish_default;
 
-			public Vector2 sparkle_offset;
+			[Editor.Picker.Position(true, true)] public Vector2 sparkle_offset;
 
 			public Fuse.Flags flags;
 			[Net.Ignore] public float failure_time;
