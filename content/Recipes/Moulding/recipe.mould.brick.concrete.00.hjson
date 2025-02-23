@@ -3,13 +3,122 @@
 	name: "Standard Concrete Slabs"
 	desc:
 		'''
-		ISO-approved general-purpose concrete masonry unit formulation carefully formulated and certified by ISO.
+		ISO-recommended general-purpose concrete masonry unit formulation carefully formulated and certified by ISO.
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: processing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 1.740
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 0.987514
+							snapping: 0.500
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: cement
+							amount: 0.200
+							snapping: 1.000
+							loss: 0.012
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: sand
+							amount: 0.400
+							snapping: 1.000
+							loss: 0.012
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 1.000
+							snapping: 0.250
+							loss: 0.012
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 25.000
+							amount_min: 25.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.885
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: pouring
+							amount: 25.000
+							amount_min: 25.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.700
+							group: 2
+							flags: conditional
+						}
+						{
+							type: work
+							work: cement.curing
+							amount: 1750.000
+							difficulty: 7
+							snapping: 25.000
+							group: 3
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+			]
+		}
+	]
 	
-	requirements:
+	products:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 1.000
+			group: 0
+			flags: byproduct, primary
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -65,11 +174,10 @@
 			amount: 1750.000
 			difficulty: 7
 			group: 3
-			flags: no_scaling, crafter_only, conditional
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -80,8 +188,8 @@
 	]
 	
 	type: workshop
-	flags: none
-	tags: manual, passive, crude, simple, shaping, drying, forming, messy
+	flags: wip, converted
+	tags: manual, passive, crude, simple, drying, forming, messy
 	
 	icon:
 	{
@@ -97,4 +205,6 @@
 	min: 20
 	max: 200
 	step: 20
+	
+	version: 1
 }

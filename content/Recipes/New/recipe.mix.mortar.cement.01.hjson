@@ -10,15 +10,15 @@
 	stages:
 	[
 		{
-			name: "Processing"
+			name: "Ingredients"
 			
-			type: processing
+			type: ingredients
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
+			mass_base: 19.64925
 			
 			options:
 			[
@@ -44,7 +44,7 @@
 							material: sand
 							amount: 9.400
 							snapping: 1.000
-							loss: 0.039
+							loss: 0.024
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -59,14 +59,159 @@
 							group: 0
 							flags: conditional
 						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Water"
+			
+			type: processing
+			flags: no_residue
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Freshwater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: water
+							amount: 1.000
+							group: 0
+							flags: no_consume, no_scaling, prerequisite
+						}
+						{
+							type: work
+							work: draining
+							amount: 50.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.825
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
+					filter_equipment:
+					{
+						include: cauldron, bottle, barrel
+					}
+				}
+				{
+					name: "Wastewater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: prefab
+							prefab: water.dirty
+							amount: 1.000
+							group: 0
+							flags: no_consume, no_scaling, prerequisite
+						}
+						{
+							type: work
+							work: draining
+							amount: 50.000
+							amount_min: 40.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.865
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
+					filter_equipment:
+					{
+						include: cauldron, bottle, barrel
+					}
+				}
+				{
+					name: "Freshwater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
 						{
 							type: resource
 							material: water
 							amount: 50.000
-							snapping: 0.500
-							group: 1
+							group: 0
 							flags: no_residue, prerequisite
 						}
+					]
+				}
+				{
+					name: "Wastewater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water.dirty
+							amount: 50.000
+							group: 0
+							flags: no_residue, prerequisite
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Mixing"
+			
+			type: postprocessing
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: shovel
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Manual"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
 						{
 							type: work
 							work: blending
@@ -75,27 +220,23 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.600
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]
 					
-					products: []
+					purity_mult: 0.977
+					quality_mult: 0.957
+					loss_mult: 1.122
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: spatula
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[

@@ -69,4 +69,5 @@ health:
 breakable:
 {
 	flags: splittable
+	spawn_flags: merge, show_notification
 }

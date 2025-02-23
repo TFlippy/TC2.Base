@@ -12,12 +12,12 @@ body:
 		a: [-2.500, 0.125]
 		b: [2.750, 0.125]
 		
-		mass: 1200.000
+		mass: 1280.000
 		radius: 0.625
 		friction: 1.000
 		elasticity: 0.100
 		
-		material: wood
+		material: tree
 		
 		layer: entity, solid, tree, flammable, ignore_bullet
 		exclude: tree
@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 20000.000
+	max: 60000.000
 }
 
 holdable:
@@ -56,13 +56,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "timber"
-			quantity: 160.000
+			material: timber
+			quantity: 150.000
 		}
 		{
-			material: "plants"
+			material: plants
 			quantity: 40.000
-			flags: none
 		}
+		null
+		null
 	]
+	
+	thresholds: [0.974, 1.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.964, 0.937, 0.000, 0.000]
+	pct_quantity_min: [0.019, 0.087, 0.000, 0.000]
+	
+	chance_base: [0.110, 0.192, 0.000, 0.000]
 }
