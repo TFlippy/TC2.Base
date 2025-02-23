@@ -238,8 +238,20 @@
 		}
 	]
 	
+	products:
+	[
+		{
+			type: resource
+			material: glue
+			amount: 1.200
+			amount_extra: 2.400
+			group: 0
+			flags: primary
+		}
+	]
+	
 	type: workshop
-	flags: item
+	flags: item, production
 	tags: workbench, manual, simple, small, blending
 	
 	icon:

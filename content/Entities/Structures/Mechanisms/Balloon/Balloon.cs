@@ -342,7 +342,7 @@
 
 #if SERVER
 			// TODO: sync it properly
-			if (region.GetCurrentTick() % 50 == 0)
+			if (region.GetCurrentTick() % 64 == 0)
 			{
 				balloon_state.Sync(entity);
 			}

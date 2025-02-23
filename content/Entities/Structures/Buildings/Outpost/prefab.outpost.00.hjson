@@ -162,6 +162,7 @@ dormitory:
 	repopulate_interval_extra: 300.000
 	repopulate_num_extra: 1
 	repopulate_max: 3
+	repopulate_character_flags_add: recruitable
 	asset_flags: recycle
 
 	character_flags_filter:

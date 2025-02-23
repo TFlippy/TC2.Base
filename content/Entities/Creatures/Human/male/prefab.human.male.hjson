@@ -150,6 +150,7 @@ seat.attachable:
 holdable:
 {
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+	radius: 0.000
 }
 
 // worker:
@@ -220,8 +221,8 @@ ai.movement:
 
 ai.behavior:
 {
-	movement_flags: hold
-	combat_flags: attack_when_hit, cover, flee, defend, evade, charge
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend
 }
 
 ai.search:
@@ -232,10 +233,10 @@ ai.search:
 ai.gunner:
 {
 	aim_min_dot: 0.992
-	aim_speed_mult: 1.400
+	aim_speed_mult: 2.300
 	aim_time_mult: 1.000
 
-	attack_distance: 24.000
+	attack_distance: 30.000
 	cover_distance_offset: 4.000
 
 	attack_cooldown: 1.000
@@ -421,7 +422,7 @@ commandable:
 		
 		health:
 		{
-			max: 2500.000
+			max: 2600.000
 		}
 
 		regen:
@@ -645,7 +646,7 @@ commandable:
 		
 		health:
 		{
-			max: 3500.000
+			max: 3700.000
 		}
 
 		regen:

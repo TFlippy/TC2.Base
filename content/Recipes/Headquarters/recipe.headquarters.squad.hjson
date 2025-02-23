@@ -97,7 +97,7 @@
 						}
 						{
 							type: work
-							work: communication
+							work: bribing
 							amount: 250.000
 							difficulty: 6
 							snapping: 25.000
@@ -129,7 +129,7 @@
 						}
 						{
 							type: work
-							work: propaganda
+							work: friendship
 							amount: 250.000
 							difficulty: 6
 							snapping: 25.000
