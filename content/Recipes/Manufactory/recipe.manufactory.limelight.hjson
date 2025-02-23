@@ -90,7 +90,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise

@@ -112,10 +112,10 @@ shop:
 		exclude: assembling, machining, tailoring, social, drying
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: none
-	work_environment: container, waterproof, mobile, dirty, ugly, scary
+	tools: none
+	machinery: none
+	infrastructure: none
+	environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
 	flags: hidden_if_order

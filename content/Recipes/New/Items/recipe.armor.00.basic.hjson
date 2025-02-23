@@ -98,7 +98,7 @@
 						require: hammer, cutters, tongs, needle, pins
 						include: pencil, ruler, cutters, pliers, tweezers, knife, pins
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge, table
 						include: oven, barrel, table, chair, rack

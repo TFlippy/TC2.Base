@@ -87,10 +87,10 @@ shop:
 		exclude: passive, advanced, large, huge, vehicle, compaction, agriculture, blacksmithing, machining, metalworking, carpentry, forestry, smelting, fermenting, melting, heating, casting, forming
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, screwdriver, tweezers, magnifying_glass, bucket, paintbrush, stapler, towel, spatula, tongs, knife, needle, pins
-	work_machines: none
-	work_equipment: dishes, bottle, table, rack
-	work_environment: workshop, office, stationary, clean, fancy, cozy
+	tools: pencil, paper, ruler, hammer, screwdriver, tweezers, magnifying_glass, bucket, paintbrush, stapler, towel, spatula, tongs, knife, needle, pins
+	machinery: none
+	infrastructure: dishes, bottle, table, rack
+	environment: workshop, office, stationary, clean, fancy, cozy
 	recipe_type: workshop
 	
 	flags: none
@@ -103,7 +103,7 @@ crafter:
 {
 	flags: no_gui
 	tools: pencil, paper, ruler, hammer, screwdriver, tweezers, magnifying_glass, bucket, paintbrush, stapler, towel, spatula, tongs, knife, needle, pins
-	equipment: dishes, bottle, table, rack
+	infrastructure: dishes, bottle, table, rack
 	environment: workshop, office, stationary, clean, fancy, cozy
 	spawn_offset: [0.500, 0.375]
 }

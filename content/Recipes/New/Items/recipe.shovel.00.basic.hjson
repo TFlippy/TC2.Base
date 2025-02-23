@@ -95,7 +95,7 @@
 						require: hammer, tongs
 						include: pliers
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge
 						include: oven, barrel
@@ -140,7 +140,7 @@
 						}
 					]
 					
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: casting_mould
 					}
@@ -235,7 +235,7 @@
 					{
 						include: lathe, mill, sander, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -278,7 +278,7 @@
 					{
 						include: lathe, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}
@@ -329,7 +329,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack
@@ -384,7 +384,7 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise, rack
 					}

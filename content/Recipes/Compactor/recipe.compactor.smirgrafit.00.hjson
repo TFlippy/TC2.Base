@@ -60,7 +60,7 @@
 					{
 						include: bucket, spatula
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: dishes, table, chair
 					}

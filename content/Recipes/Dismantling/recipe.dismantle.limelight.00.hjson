@@ -75,7 +75,7 @@
 						require: hammer, screwdriver, wrench
 						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}

@@ -106,10 +106,10 @@ shop:
 		exclude: passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, towel, tongs, knife, sandpaper, needle, pins, scissors
-	work_equipment: lab_glassware, table, chair, rack, bed, workbench
-	work_machinery: none
-	work_environment: office, stationary, clean, fancy, cozy, flammable
+	tools: pencil, paper, ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, towel, tongs, knife, sandpaper, needle, pins, scissors
+	infrastructure: lab_glassware, table, chair, rack, bed, workbench
+	machinery: none
+	environment: office, stationary, clean, fancy, cozy, flammable
 	
 	menu_columns: 7
 	recipe_type: workshop

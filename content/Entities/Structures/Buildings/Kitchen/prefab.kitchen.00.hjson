@@ -67,10 +67,10 @@ shop:
 		include: cooking
 	}
 	
-	work_tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
-	work_machines: heater, stove
-	work_equipment: tap, cauldron, oven, pressure_cooker, dishes, bottle, barrel, table, chair, rack
-	work_environment: workshop, stationary, cozy
+	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
+	machinery: heater, stove
+	infrastructure: tap, cauldron, oven, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	environment: workshop, stationary, cozy
 	recipe_type: workshop
 	
 	flags: none

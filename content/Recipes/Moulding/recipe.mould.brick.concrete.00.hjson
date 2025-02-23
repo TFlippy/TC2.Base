@@ -94,7 +94,7 @@
 							difficulty: 7
 							snapping: 25.000
 							group: 3
-							flags: conditional
+							flags: no_scaling, conditional
 						}
 					]
 					
@@ -189,7 +189,8 @@
 	
 	type: workshop
 	flags: wip, converted
-	tags: manual, passive, crude, simple, drying, forming, messy
+	tags: manual, passive, simple, medium, blending, drying, moulding, messy
+	infrastructure: casting_mould
 	
 	icon:
 	{

@@ -109,10 +109,10 @@ shop:
 		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
 	}
 	
-	work_tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
-	work_environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
-	work_equipment: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
-	work_machines: grinder, heater, burner
+	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+	environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
+	infrastructure: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
+	machinery: grinder, heater, burner
 	
 	menu_columns: 6
 	recipe_type: workshop
@@ -183,7 +183,7 @@ crafter:
 {
 	tools: pencil, paper, ruler, hammer, saw, screwdriver, wrench, pliers, bucket, file, tongs, knife
 	machinery: heater, burner, stove
-	equipment: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
+	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
 	environment: workshop, stationary, dirty, noisy
 	temperature_max: 893.150
 

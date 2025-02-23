@@ -68,7 +68,7 @@
 					{
 						include: lathe
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, vise
 					}
@@ -134,7 +134,7 @@
 					{
 						include: lathe, mill, sander, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -198,7 +198,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise
@@ -268,7 +268,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack

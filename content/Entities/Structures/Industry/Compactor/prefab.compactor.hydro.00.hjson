@@ -182,10 +182,10 @@ shop:
 		exclude: workbench, filtering, assembling, machining, tailoring, gathering, smelting, fermenting, melting, drying
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: none
-	work_environment: container, waterproof, mobile, dirty, ugly, scary
+	tools: none
+	machinery: none
+	infrastructure: none
+	environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
 	flags: hidden_if_order
@@ -207,7 +207,7 @@ crafter:
 {
 	tools: bucket, spatula, tongs
 	machinery: metal_press, compressor
-	equipment: cauldron, oven, pressure_cooker, barrel, crucible, casting_mould
+	infrastructure: cauldron, oven, pressure_cooker, barrel, crucible, casting_mould
 	environment: machine, container, airtight, waterproof, scary, noisy, reinforced
 	temperature_max: 1200.000
 	pressure_max: 1000.000

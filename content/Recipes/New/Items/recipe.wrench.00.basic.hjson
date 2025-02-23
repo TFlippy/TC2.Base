@@ -64,7 +64,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack
@@ -109,7 +109,7 @@
 					{
 						require: file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -153,7 +153,7 @@
 					{
 						require: file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -242,7 +242,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise
@@ -283,7 +283,7 @@
 					{
 						require: file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -352,7 +352,7 @@
 					{
 						include: lathe, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}
@@ -411,7 +411,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack
@@ -456,7 +456,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack

@@ -72,10 +72,10 @@ shop:
 		include: fermenting
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: none
-	work_environment: none
+	tools: none
+	machinery: none
+	infrastructure: none
+	environment: none
 	recipe_type: crafter
 	
 	flags: none
@@ -86,7 +86,7 @@ shop:
 crafter:
 {
 	tools: bucket, spatula
-	equipment: tap, barrel
+	infrastructure: tap, barrel
 	environment: warm, container, stationary, contaminated
 
 	spawn_offset: [-0.125, -1.000]

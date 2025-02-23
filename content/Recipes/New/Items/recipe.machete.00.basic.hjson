@@ -60,7 +60,7 @@
 						require: hammer, tongs
 						include: bucket
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge, table
 					}
@@ -123,7 +123,7 @@
 					{
 						include: lathe, mill, sander, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -168,7 +168,7 @@
 					{
 						include: lathe, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}
@@ -227,7 +227,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack

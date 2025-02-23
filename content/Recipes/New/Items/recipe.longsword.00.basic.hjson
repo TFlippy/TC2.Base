@@ -82,7 +82,7 @@
 					{
 						include: lathe
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge
 						include: oven, barrel, table, chair, vise

@@ -63,7 +63,7 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise, rack
 					}
@@ -132,7 +132,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise
@@ -187,7 +187,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise
@@ -242,7 +242,7 @@
 					{
 						include: heater
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise
@@ -303,7 +303,7 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise, rack
 					}

@@ -328,7 +328,7 @@
 					{
 						include: lathe
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}

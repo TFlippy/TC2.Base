@@ -64,7 +64,7 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise, rack
 					}
@@ -163,7 +163,7 @@
 					{
 						include: paintbrush, file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: chair, vise, rack

@@ -56,7 +56,7 @@
 					{
 						require: hammer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 					}

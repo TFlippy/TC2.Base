@@ -62,7 +62,7 @@
 						require: hammer, tongs
 						include: bucket
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge, table
 					}
@@ -134,7 +134,7 @@
 					{
 						include: heater, bender
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: anvil, table, chair, vise

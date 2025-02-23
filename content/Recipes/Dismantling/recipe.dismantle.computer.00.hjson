@@ -50,7 +50,7 @@
 						require: screwdriver, wrench, spanner, pliers
 						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: table, chair, vise

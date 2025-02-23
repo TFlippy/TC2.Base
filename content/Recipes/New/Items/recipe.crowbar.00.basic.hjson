@@ -57,7 +57,7 @@
 					{
 						include: bender
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: anvil, table, vise
 					}
@@ -105,7 +105,7 @@
 						require: hammer, tongs
 						include: pliers
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: anvil, forge
 						include: oven, barrel
@@ -161,7 +161,7 @@
 					{
 						require: file
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair, vise
 					}
@@ -226,7 +226,7 @@
 						require: knife
 						include: cutters, towel, knife
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}

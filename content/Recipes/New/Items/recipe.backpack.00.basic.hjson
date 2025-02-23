@@ -96,7 +96,7 @@
 						require: knife, needle
 						include: cutters, saw, tweezers, paintbrush, stapler, file, knife, needle, pins
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table
 						include: table, chair, vise, rack
@@ -171,7 +171,7 @@
 						require: knife, needle
 						include: cutters, tweezers, stapler, knife, needle, pins
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}

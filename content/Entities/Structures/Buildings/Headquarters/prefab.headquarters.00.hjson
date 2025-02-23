@@ -191,10 +191,10 @@ shop:
 		include: social, research, tailoring
 	}
 
-	work_tools: pencil, paper, ruler, stapler, towel, knife
-	work_machines: none
-	work_equipment: table, chair, rack
-	work_environment: indoor, warm, office, stationary, fancy, cozy
+	tools: pencil, paper, ruler, stapler, towel, knife
+	machinery: none
+	infrastructure: table, chair, rack
+	environment: indoor, warm, office, stationary, fancy, cozy
 	recipe_type: workshop
 	
 	flags: none

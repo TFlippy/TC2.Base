@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 6500.000
+	max: 7500.000
 }
 
 animated.renderer:
@@ -68,29 +68,28 @@ norotate:
 
 shop:
 {
-	name: "Wooden Form"
-	
 	tags_filter:
 	{
-		require: manual, forming
-		include: simple, crude, drying, forming, shaping
-		exclude: smelting, workbench, salvaging, assembling, machining, metalworking, advanced
+		require: manual
+		include: crude, simple, drying
+		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: none
-	work_environment: container, mobile, dirty, ugly
-	recipe_type: workshop
+	tools: none
+	infrastructure: casting_mould
+	machinery: none
+	environment: container, mobile, dirty, ugly
 	
-	flags: none
 	menu_columns: 3
-	blueprints_capacity: 0
+	recipe_type: workshop
+	flags: none
+	
+	name: "Wooden Form"
 }
 
 // crafter:
 // {
-// 	equipment: rack
+// 	infrastructure: rack
 // 	environment: contaminated, ugly
 // }
 

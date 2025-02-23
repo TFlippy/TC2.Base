@@ -93,10 +93,10 @@ shop:
 	tags_require: manual
 	tags_exclude: research, machining, passive, advanced, social
 	
-	work_tools: hammer, saw, screwdriver, pliers, bucket, knife
-	work_machines: none
-	work_equipment: table
-	work_environment: workshop, stationary, contaminated, smelly, ugly
+	tools: hammer, saw, screwdriver, pliers, bucket, knife
+	machinery: none
+	infrastructure: table
+	environment: workshop, stationary, contaminated, smelly, ugly
 	recipe_max_multiplier: 4.000
 	recipe_step_multiplier: 2.000
 	

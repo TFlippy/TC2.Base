@@ -54,7 +54,7 @@
 					{
 						include: lathe, planer
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: table, chair
 					}

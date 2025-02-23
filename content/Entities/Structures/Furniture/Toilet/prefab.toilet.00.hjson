@@ -85,10 +85,10 @@ interactable:
 // 		exclude: smelting, metalworking
 // 	}
 	
-// 	work_tools: paper, bucket, towel
-// 	work_machines: none
-// 	work_equipment: tap, chair
-// 	work_environment: cold, container, waterproof, stationary, contaminated, cozy
+// 	tools: paper, bucket, towel
+// 	machinery: none
+// 	infrastructure: tap, chair
+// 	environment: cold, container, waterproof, stationary, contaminated, cozy
 	
 // 	flags: none
 // 	menu_columns: 2

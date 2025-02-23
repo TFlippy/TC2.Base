@@ -54,7 +54,7 @@
 						require: pencil, paper, stapler
 						include: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						require: table, chair
 						include: table, chair, rack

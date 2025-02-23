@@ -66,10 +66,10 @@ shop:
 		include: metalworking
 	}
 	
-	work_tools: hammer, pliers, bucket, file, spatula, tongs
-	work_machines: none
-	work_equipment: cauldron, dishes, table, rack, crucible, bed
-	work_environment: workshop, stationary
+	tools: hammer, pliers, bucket, file, spatula, tongs
+	machinery: none
+	infrastructure: cauldron, dishes, table, rack, crucible, bed
+	environment: workshop, stationary
 	
 	flags: none
 	menu_columns: 4

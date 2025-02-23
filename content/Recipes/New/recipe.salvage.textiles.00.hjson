@@ -83,7 +83,7 @@
 						require: hammer
 						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, bucket, towel, tongs, pick, crowbar
 					}
-					filter_equipment:
+					filter_infrastructure:
 					{
 						include: cauldron, barrel, table, chair, vise, rack
 					}

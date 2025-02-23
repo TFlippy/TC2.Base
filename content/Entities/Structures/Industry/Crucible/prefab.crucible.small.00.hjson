@@ -141,10 +141,10 @@ shop:
 		exclude: assembling, machining, tailoring, social, drying
 	}
 	
-	work_tools: none
-	work_machines: none
-	work_equipment: crucible
-	work_environment: container, waterproof, mobile, dirty, ugly, scary
+	tools: none
+	machinery: none
+	infrastructure: crucible
+	environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
 	flags: hidden_if_order, complete_on_rmb
@@ -171,7 +171,7 @@ fillable:
 
 crafter:
 {
-	equipment: cauldron, barrel, crucible
+	infrastructure: cauldron, barrel, crucible
 	offset_spawn: [0.000, 0.500]
 }
 

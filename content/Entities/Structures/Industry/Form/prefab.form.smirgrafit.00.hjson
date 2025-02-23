@@ -129,10 +129,10 @@ heat:
 // 		exclude: assembling, machining, tailoring, social
 // 	}
 	
-// 	work_tools: none
-// 	work_machines: none
-// 	work_equipment: crucible
-// 	work_environment: container, waterproof, mobile, dirty, ugly, scary
+// 	tools: none
+// 	machinery: none
+// 	infrastructure: crucible
+// 	environment: container, waterproof, mobile, dirty, ugly, scary
 // 	recipe_type: workshop
 	
 // 	flags: hidden_if_order

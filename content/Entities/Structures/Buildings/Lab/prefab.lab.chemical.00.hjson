@@ -112,10 +112,10 @@ shop:
 		exclude: large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
 	}
 	
-	work_tools: pencil, paper, ruler, hammer, cutters, screwdriver, spanner, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, stapler, towel, spatula, tongs, pick, knife
-	work_machines: centrifuge, heater, blender, mixer, vacuum_pump
-	work_equipment: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
-	work_environment: indoor, workshop, stationary, clean, scary
+	tools: pencil, paper, ruler, hammer, cutters, screwdriver, spanner, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, stapler, towel, spatula, tongs, pick, knife
+	machinery: centrifuge, heater, blender, mixer, vacuum_pump
+	infrastructure: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	environment: indoor, workshop, stationary, clean, scary
 	recipe_type: workshop
 	
 	flags: none
@@ -131,7 +131,7 @@ crafter:
 {
 	tools: pencil, paper, ruler, spanner, pliers, tweezers, magnifying_glass, bucket, paintbrush, syringe, towel, spatula, tongs, knife
 	machinery: heater
-	equipment: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
+	infrastructure: tap, cauldron, oven, lab_glassware, pressure_cooker, dishes, bottle, barrel, table, chair, rack
 	environment: workshop, stationary, clean, reinforced
 	temperature_max: 800.000
 	pressure_max: 10.000
