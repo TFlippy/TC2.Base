@@ -84,13 +84,13 @@ harvestable:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit
-	layout: large
+	flags: keep_items, allow_withdraw, allow_deposit, use_misc
+	layout: square
 }
 
 loot.container:
 {
-	rolls: 2
+	rolls: 3
 	rolls_extra: 2
 
 	tables:
@@ -103,11 +103,11 @@ storage:
 {
 	@loot.container:
 	{
-		rolls: 4
-		rolls_extra: 2
+		rolls: 5
+		rolls_extra: 3
 		rarity_min: 3.000
 		rarity_max: 9.000
-		amount_multiplier: 1.500
+		amount_multiplier: 0.400
 
 		tables:
 		[
@@ -121,7 +121,7 @@ storage:
 	{
 		type: storage
 		flags: public, no_auto_pickup
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 2.000
 		
 		offset: [0.000, 0.000]
 	}
@@ -129,8 +129,9 @@ storage:
 
 interactable:
 {
-	flags: no_tab
+	flags: no_tab, centered_inventory
 	window_size: [192.000, 96.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 holdable:

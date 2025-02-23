@@ -44,5 +44,14 @@ holdable:
 
 norotate:
 {
+	bias: 0.000
+	speed: 2.000
+	multiplier: 2.000
+	mass_multiplier: 20.000
+	flags: no_share
+}
 
+health:
+{
+	max: 800.000
 }

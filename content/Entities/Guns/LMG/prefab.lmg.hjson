@@ -51,7 +51,7 @@ gun:
 	type: machinegun
 	feed: drum
 
-	heuristic_range: 30.000
+	heuristic_range: 36.000
 	stability: 1450.000
 
 	shake_amount: 0.250

@@ -27,14 +27,14 @@ body:
 		
 		material: wood
 		
-		layer: entity, solid, harvestable, flammable, ignore_melee
+		layer: entity, solid, harvestable, flammable, ignore_melee, ignore_bullet, background
 		miss_chance: 0.350
 	}
 }
 
 health:
 {
-	max: 9500.000
+	max: 11500.000
 }
 
 animated.renderer:
@@ -71,11 +71,11 @@ harvestable:
 	[
 		{
 			material: "scrap.mixed"
-			quantity: 50.000
+			quantity: 20.000
 		}
 		{
 			material: "wood"
-			quantity: 35.000
+			quantity: 75.000
 		}
 	]
 }
