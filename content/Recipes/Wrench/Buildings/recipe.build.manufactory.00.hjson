@@ -152,7 +152,7 @@
 						{
 							type: resource
 							material: water
-							amount: 250.000
+							amount: 40.000
 							snapping: 1.000
 							group: 2
 							flags: prerequisite

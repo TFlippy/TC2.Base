@@ -42,8 +42,8 @@
 						{
 							type: resource
 							material: water
-							amount: 30.000
-							snapping: 0.500
+							amount: 3.000
+							snapping: 0.010
 							group: 1
 							flags: prerequisite
 						}
@@ -71,8 +71,9 @@
 						{
 							type: resource
 							material: water.dirty
-							amount: 16.420
-							amount_extra: 3.950
+							amount: 1.6420
+							amount_extra: 0.3950
+							snapping: 0.010
 							group: 1
 							flags: waste, residue
 						}
@@ -161,7 +162,8 @@
 		{
 			type: resource
 			material: water
-			amount: 30.000
+			amount: 3.000
+			snapping: 0.010
 			group: 1
 		}
 		{
@@ -208,8 +210,9 @@
 		{
 			type: resource
 			material: water.dirty
-			amount: 16.420
-			amount_extra: 3.950
+			amount: 1.6420
+			amount_extra: 0.3950
+			snapping: 0.010
 			group: 1
 			flags: waste, residue
 		}

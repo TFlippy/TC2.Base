@@ -146,7 +146,7 @@
 						{
 							type: resource
 							material: water
-							amount: 250.000
+							amount: 35.000
 							snapping: 1.000
 							group: 2
 						}

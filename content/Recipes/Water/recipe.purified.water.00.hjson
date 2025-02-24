@@ -80,7 +80,7 @@
 		{
 			type: resource
 			material: water
-			amount: 1.000
+			amount: 0.100
 			group: 0
 			flags: primary, prerequisite
 		}
@@ -91,7 +91,7 @@
 		{
 			type: resource
 			material: water.clean
-			amount: 1.000
+			amount: 0.100
 			group: 0
 			flags: primary
 		}
@@ -102,7 +102,7 @@
 		{
 			type: resource
 			material: water
-			amount: 1.000
+			amount: 0.100
 			group: 0
 			flags: primary, prerequisite
 		}
@@ -140,7 +140,7 @@
 		{
 			type: resource
 			material: water.clean
-			amount: 1.000
+			amount: 0.100
 			group: 0
 		}
 	]

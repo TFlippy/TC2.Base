@@ -60,8 +60,8 @@
 						{
 							type: resource
 							material: water
-							amount: 50.000
-							snapping: 0.500
+							amount: 5.000
+							snapping: 0.010
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -133,7 +133,8 @@
 		{
 			type: resource
 			material: water
-			amount: 50.000
+			amount: 5.000
+			snapping: 0.010
 			group: 0
 			flags: prerequisite
 		}
