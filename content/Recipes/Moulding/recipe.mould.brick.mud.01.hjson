@@ -62,17 +62,16 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.735
-							group: 0
+							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: drying
-							amount: 400.000
+							amount: 180.000
 							difficulty: 3
-							snapping: 25.000
-							group: 0
-							flags: no_scaling, conditional
+							group: 2
+							flags: no_scaling, no_residue, conditional
 						}
 					]
 					

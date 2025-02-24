@@ -73,10 +73,10 @@ melee:
 	yield: 1.820
 	penetration_falloff: 1.000
 	damage_type: handsaw
-	category: bladed
-	flags: no_material_filter
+	category: misc
+	flags: no_handle
 	hit_mask: world, destructible
-	hit_exclude: water, fire, gas, powder, liquid, held, stored, ignore_melee, world
+	hit_exclude: world, building, water, fire, gas, powder, liquid, held, stored, ignore_melee
 }
 
 melee.state:

@@ -90,11 +90,10 @@
 						{
 							type: work
 							work: cement.curing
-							amount: 1750.000
+							amount: 530.000
 							difficulty: 7
-							snapping: 25.000
 							group: 3
-							flags: no_scaling, conditional
+							flags: no_scaling, no_residue, conditional
 						}
 					]
 					

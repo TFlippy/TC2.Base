@@ -55,7 +55,7 @@ melee:
 	penetration: 1
 	damage_type: shovel
 	attack_type: thrust
-	category: bladed
+	category: misc
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, furniture, climbable, background, tree
 }
@@ -75,7 +75,8 @@ melee.state:
 
 holdable:
 {
-	offset: [-0.300, 0.000]
+	offset: [-0.375, -0.125]
+	hints: weapon, melee, short_range, usable
 	flags: storable
 }
 

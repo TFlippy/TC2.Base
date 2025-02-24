@@ -82,7 +82,7 @@ shop:
 	
 	menu_columns: 3
 	recipe_type: workshop
-	flags: none
+	flags: hidden_if_order
 	
 	name: "Wooden Form"
 }
@@ -106,6 +106,13 @@ shop:
 
 workshop:
 {
+	flags: add_order_mass
+	
+	tools: none
+	infrastructure: table, shaping_mould
+	machinery: none
+	environment: container, mobile, dirty, ugly, flammable
+	
 	orders_capacity: 1
 }
 
