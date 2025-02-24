@@ -326,6 +326,7 @@
 	type: workshop
 	flags: no_amount_multiplier, item, wip
 	tags: workbench, manual, magitronics, machinery, assembling, metalworking, engineering
+	infrastructure: shaping_mould
 	
 	icon:
 	{

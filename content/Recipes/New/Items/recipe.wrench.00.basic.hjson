@@ -58,8 +58,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -103,8 +101,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file
@@ -147,8 +143,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file
@@ -163,10 +157,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Linkage"
@@ -195,7 +185,7 @@
 							amount: 1.983405
 							snapping: 1.000
 							falloff: 0.970
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -205,7 +195,7 @@
 							amount: 3.948555
 							snapping: 0.500
 							falloff: 0.950
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -230,8 +220,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -277,8 +265,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file
@@ -293,10 +279,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Handle"
@@ -341,8 +323,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: saw
@@ -358,10 +338,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -404,8 +380,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -450,8 +424,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -467,14 +439,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -487,13 +453,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, item
 	tags: workbench, workshop, manual, complex, medium, tool, assembling, metalworking, engineering, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

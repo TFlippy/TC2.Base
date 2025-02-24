@@ -32,7 +32,7 @@
 							amount: 1.739232
 							snapping: 0.250
 							falloff: 0.980
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -56,8 +56,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -69,10 +67,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -114,8 +108,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -132,14 +124,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -153,8 +139,9 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, packable, item
+	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, blacksmithing, metalworking
+	infrastructure: table, workbench
 	
 	icon:
 	{
@@ -169,4 +156,6 @@
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

@@ -76,8 +76,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
@@ -95,14 +93,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -172,6 +164,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
+	infrastructure: dishes, table
 	
 	icon:
 	{

@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -16,7 +14,6 @@
 			material: pellet.life
 			amount: 2.000
 			group: 0
-			flags: no_consume, hide_quantity, prerequisite
 		}
 		{
 			type: resource
@@ -86,13 +83,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench, manual, simple, essence, woodworking, science, biology, shaping, forming, messy, dangerous
+	tags: workbench, manual, simple, essence, woodworking, science, biology, messy, dangerous
+	infrastructure: none
 	
 	icon:
 	{

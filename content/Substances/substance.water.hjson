@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Water"
 	description:
 		'''
@@ -9,6 +9,7 @@
 
 		Then you die of dysentery.
 		'''
+	
 	cas_number: "7732-18-5"
 	type: molecule
 	atomic_number: 0
@@ -19,11 +20,11 @@
 	{
 		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [12, 1]
+		frame: [0, 12]
 	}
 	
-	color_icon: "0xe22b3431"
-	color_gui: "0xe22b3431"
+	color_icon: "0xff76cfff"
+	color_gui: "0xff4aaac8"
 	color_dust: "0xe22b3431"
 	color_gib: "0xe22b3431"
 	color_smoke: "0x66ffffff"

@@ -76,9 +76,9 @@ shop:
 	}
 	
 	tools: none
-	infrastructure: casting_mould
+	infrastructure: table, shaping_mould
 	machinery: none
-	environment: container, mobile, dirty, ugly
+	environment: container, mobile, dirty, ugly, flammable
 	
 	menu_columns: 3
 	recipe_type: workshop

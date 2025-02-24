@@ -55,8 +55,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -68,10 +66,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Grip"
@@ -108,7 +102,7 @@
 							material: machine_parts
 							amount: 1.074754
 							snapping: 0.100
-							loss: 0.180
+							loss: 0.176
 							group: 1
 							flags: prerequisite
 						}
@@ -122,8 +116,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -149,16 +141,12 @@
 					material: steel.frames
 					amount: 0.137838
 					snapping: 0.100
-					loss: 0.129
+					loss: 0.125
 					group: 0
 				}
 			]
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -171,13 +159,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, blacksmithing, metalworking, shaping
+	tags: workbench, manual, blacksmithing, metalworking
+	infrastructure: table, workbench
 	
 	icon:
 	{

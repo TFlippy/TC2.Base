@@ -95,8 +95,6 @@
 				}
 			]
 			
-			requirements: []
-			
 			products:
 			[
 				{
@@ -220,6 +218,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, simple, tailoring, salvaging
+	infrastructure: table
 	
 	icon:
 	{

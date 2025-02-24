@@ -53,7 +53,7 @@
 							material: ash
 							amount: 5.000
 							snapping: 1.000
-							loss: 0.039
+							loss: 0.035
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -78,16 +78,12 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: spatula
 					}
 				}
 			]
-			
-			requirements: []
 			
 			products:
 			[
@@ -102,8 +98,6 @@
 			]
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -180,6 +174,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
+	infrastructure: none
 	
 	icon:
 	{

@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -41,7 +39,6 @@
 			amount: 385.000
 			difficulty: 3
 			group: 2
-			flags: no_scaling, crafter_only, conditional
 		}
 	]
 	
@@ -58,7 +55,8 @@
 	
 	type: workshop
 	flags: none
-	tags: manual, passive, crude, simple, shaping, drying, forming, messy
+	tags: manual, passive, crude, simple, drying, messy
+	infrastructure: shaping_mould
 	
 	icon:
 	{
@@ -90,4 +88,6 @@
 	min: 20
 	max: 200
 	step: 20
+	
+	version: 0
 }

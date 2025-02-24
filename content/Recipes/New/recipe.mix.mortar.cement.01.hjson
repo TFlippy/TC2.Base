@@ -173,6 +173,23 @@
 					]
 				}
 				{
+					name: "Freshwater2"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: substance
+							h_substance: water
+							amount: 10.000
+							group: 0
+							flags: no_residue, filler, prerequisite
+						}
+					]
+				}
+				{
 					name: "Wastewater"
 					
 					type: undefined
@@ -308,6 +325,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, simple, blending, processing, messy
+	infrastructure: none
 	
 	icon:
 	{

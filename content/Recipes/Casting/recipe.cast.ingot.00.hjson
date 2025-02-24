@@ -47,14 +47,8 @@
 							flags: no_scaling, always_evaluate
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Casting"
@@ -84,7 +78,6 @@
 							difficulty: 7
 							falloff: 0.950
 							group: 0
-							flags: crafter_only, conditional
 						}
 					]
 					
@@ -103,15 +96,11 @@
 							amount: 1.620
 							amount_extra: 1.090
 							group: 0
-							flags: byproduct, residue, spawn, use_temperature, spawn_event
+							flags: residue, byproduct, spawn, use_temperature, spawn_event
 						}
 					]
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Cooling"
@@ -140,7 +129,7 @@
 							amount_min: 450.000
 							amount_max: 1323.523
 							group: 0
-							flags: no_scaling, always_evaluate, crafter_only
+							flags: no_scaling
 						}
 						{
 							type: work
@@ -149,27 +138,17 @@
 							difficulty: 4
 							falloff: 0.350
 							group: 0
-							flags: crafter_only, conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
 	
-	requirements: []
-	
-	products: []
-	
 	type: workshop
-	flags: hidden, disabled, standalone
-	tags: dangerous, metalworking, shaping, heating, casting, forming, messy
+	flags: hidden, disabled
+	tags: metalworking, heating, casting, messy, dangerous
+	infrastructure: casting_mould
 	
 	icon:
 	{
@@ -207,4 +186,6 @@
 	h_sound_begin: burner.lid.clang.01
 	h_sound_complete: effect.sizzle.sparky.00
 	h_sound_finalize: effect.sizzle.small.00
+	
+	version: 0
 }

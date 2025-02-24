@@ -79,8 +79,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -97,14 +95,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -171,6 +163,7 @@
 	type: workshop
 	flags: item, wip, converted
 	tags: workbench, workshop, manual, simple, small, magitronics, assembling, metalworking, engineering, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

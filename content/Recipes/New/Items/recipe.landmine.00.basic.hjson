@@ -1,33 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Landmine"
 	tips: []
-	
-	icon:
-	{
-		texture: landmine
-		size: [8, 8]
-	}
-	icon_offset: [-4.000, 3.000]
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [8, 8]
-		frame: [3, 2]
-	}
-	icon_extra_offset: [-5.000, -6.000]
-	
-	min: 1
-	max: 20
-	step: 1
-	
-	type: workshop
-	flags: blueprintable
-	tags: workbench, manual, dangerous, small, explosive, weapon, munitions, assembling, metalworking
-	
-	color_button: "0xffcf392b"
-	rank: 85.000
 	
 	requirements:
 	[
@@ -90,4 +64,33 @@
 			flags: waste, residue
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable
+	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, explosive, dangerous
+	infrastructure: table
+	
+	icon:
+	{
+		texture: landmine
+		size: [8, 8]
+	}
+	icon_offset: [-4.000, 3.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	color_button: "0xffcf392b"
+	rank: 85.000
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	version: 0
 }

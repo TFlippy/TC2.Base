@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -62,13 +60,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workbench, workshop, manual, small, weapon, gun, assembling, machining, metalworking, engineering, military, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

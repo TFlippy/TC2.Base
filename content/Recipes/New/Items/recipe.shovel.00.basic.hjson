@@ -407,6 +407,7 @@
 	type: workshop
 	flags: blueprintable, packable, item
 	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, assembling, metalworking, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

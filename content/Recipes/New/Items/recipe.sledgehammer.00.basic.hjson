@@ -32,7 +32,7 @@
 							amount: 1.000
 							snapping: 1.000
 							falloff: 1.000
-							loss: 0.137
+							loss: 0.133
 							group: 0
 							flags: prerequisite
 						}
@@ -47,8 +47,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					start_delay: 0.500
 					complete_delay: 0.500
@@ -68,10 +66,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Handle"
@@ -115,8 +109,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file, knife
@@ -132,10 +124,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -164,7 +152,7 @@
 							amount: 2.130
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -179,8 +167,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -216,8 +202,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer
@@ -228,14 +212,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -248,13 +226,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, item
 	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, metalworking, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

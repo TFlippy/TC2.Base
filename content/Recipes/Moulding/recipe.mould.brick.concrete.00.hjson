@@ -190,7 +190,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: manual, passive, simple, medium, blending, drying, moulding, messy
-	infrastructure: casting_mould
+	infrastructure: shaping_mould
 	
 	icon:
 	{

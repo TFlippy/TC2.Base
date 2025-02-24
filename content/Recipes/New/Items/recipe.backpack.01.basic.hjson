@@ -37,7 +37,7 @@
 							material: cloth
 							amount: 0.3726
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -46,7 +46,7 @@
 							material: leather
 							amount: 3.3641
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -67,7 +67,7 @@
 							amount: 0.305836
 							snapping: 0.500
 							falloff: 0.910
-							loss: 0.027
+							loss: 0.024
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -95,8 +95,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: knife, needle
@@ -113,10 +111,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Straps"
@@ -153,7 +147,7 @@
 							material: steel.frames
 							amount: 0.048496
 							snapping: 0.100
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -170,8 +164,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: knife, needle
@@ -183,14 +175,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -203,13 +189,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: workbench, manual, simple, tailoring
+	infrastructure: table
 	
 	icon:
 	{

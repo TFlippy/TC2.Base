@@ -35,7 +35,7 @@
 							material: wood
 							amount: 0.32081
 							snapping: 0.500
-							loss: 0.133
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
@@ -84,8 +84,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, saw, screwdriver, wrench, file, tongs, knife
@@ -107,14 +105,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -183,6 +175,7 @@
 	type: workshop
 	flags: blueprintable, construction, item, wip, converted
 	tags: workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
+	infrastructure: table, workbench
 	
 	icon:
 	{

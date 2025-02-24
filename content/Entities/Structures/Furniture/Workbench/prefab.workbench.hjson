@@ -111,8 +111,6 @@ interactable:
 
 shop:
 {
-	name: "Workbench"
-	
 	tags_filter:
 	{
 		require: manual
@@ -120,16 +118,16 @@ shop:
 		exclude: passive, advanced, large, huge, vehicle, blacksmithing, machining, smelting, fermenting, heating, casting
 	}
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper, needle, pins
-	machinery: none
+	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper
 	infrastructure: table, rack, workbench
+	machinery: none
 	environment: mobile, sturdy, flammable
-	recipe_type: workshop
 	
-	flags: none
 	menu_columns: 5
+	recipe_type: workshop
+	flags: none
 	
-	offset_spawn: [0.000, 0.000]
+	name: "Workbench"
 }
 
 workshop:

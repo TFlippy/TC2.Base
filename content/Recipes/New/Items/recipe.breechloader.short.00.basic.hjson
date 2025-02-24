@@ -31,7 +31,7 @@
 							material: steel.ingot
 							amount: 0.450
 							snapping: 1.000
-							loss: 0.090
+							loss: 0.086
 							group: 0
 							flags: prerequisite, locked
 						}
@@ -40,7 +40,7 @@
 							material: steel.frames
 							amount: 0.741103
 							snapping: 0.500
-							loss: 0.035
+							loss: 0.031
 							group: 0
 							flags: prerequisite
 						}
@@ -57,8 +57,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hand_drill
@@ -74,10 +72,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Stock"
@@ -106,7 +100,7 @@
 							material: wood.rod
 							amount: 0.978694
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -123,8 +117,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file, knife
@@ -140,10 +132,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Firing Mechanism"
@@ -187,8 +175,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver, wrench
@@ -217,8 +203,6 @@
 					flags: no_residue, prerequisite
 				}
 			]
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -262,8 +246,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -290,12 +272,8 @@
 					group: 0
 				}
 			]
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -308,13 +286,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, packable, item
 	tags: manual, simple, small, weapon, gun, assembling, metalworking
+	infrastructure: table, workbench
 	
 	icon:
 	{
