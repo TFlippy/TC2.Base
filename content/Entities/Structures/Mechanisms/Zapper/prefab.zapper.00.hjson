@@ -16,7 +16,7 @@ body:
 		elasticity: 0.200
 		material: metal_solid
 		layer: entity, solid, building, no_overlapped_placement
-		mask: world, essence
+		mask: world, solid, essence
 
 		miss_chance: 0.450
 	}

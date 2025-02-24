@@ -222,10 +222,10 @@ axle:
 		@armor:
 		{
 			toughness: 1100.000
-			protection: 0.820
+			protection: 0.520
 			coverage: 1.000
-			integrity_damage_mult: 0.765
-			durability_damage_mult: 0.740
+			integrity_damage_mult: 0.865
+			durability_damage_mult: 0.940
 			knockback_modifier: 1.150
 			stun_modifier: 0.900
 			pain_modifier: 0.000
@@ -281,10 +281,10 @@ axle:
 		@armor:
 		{
 			toughness: 1350.000
-			protection: 0.875
+			protection: 0.575
 			coverage: 1.000
-			integrity_damage_mult: 0.725
-			durability_damage_mult: 0.840
+			integrity_damage_mult: 0.825
+			durability_damage_mult: 0.940
 			knockback_modifier: 1.150
 			stun_modifier: 0.900
 			pain_modifier: 0.000
