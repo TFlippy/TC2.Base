@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Glue"
+	name: "Lousy Glue"
 	desc:
 		'''
-		TODO: Desc
+		Mix some random things together and call it a glue.
 		'''
 	tips: []
 	
@@ -50,6 +50,18 @@
 							flags: conditional
 						}
 					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 5.019719
+							amount_extra: 0.380282
+							group: 0
+							flags: primary
+						}
+					]
 				}
 			]
 		}
@@ -59,7 +71,7 @@
 			type: processing
 			flags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: wet
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -84,6 +96,18 @@
 							flags: prerequisite
 						}
 					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.166667
+							amount_extra: 2.333333
+							group: 0
+							flags: primary
+						}
+					]
 				}
 				{
 					name: "Flour"
@@ -101,6 +125,18 @@
 							loss: 0.024
 							group: 0
 							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.250009
+							amount_extra: 0.749991
+							group: 0
+							flags: primary
 						}
 					]
 				}
@@ -169,7 +205,7 @@
 			type: processing
 			flags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: wet
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -187,7 +223,7 @@
 						{
 							type: resource
 							material: water
-							amount: 1.000
+							amount: 0.200
 							snapping: 0.010
 							group: 0
 							flags: no_residue, prerequisite
@@ -202,6 +238,18 @@
 							falloff: 0.600
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.740
+							amount_extra: 0.200
+							group: 0
+							flags: primary
 						}
 					]
 				}
@@ -238,18 +286,6 @@
 		}
 	]
 	
-	products:
-	[
-		{
-			type: resource
-			material: glue
-			amount: 1.200
-			amount_extra: 2.400
-			group: 0
-			flags: primary
-		}
-	]
-	
 	type: workshop
 	flags: item, production, wip
 	tags: workbench, manual, simple, small, blending
@@ -264,6 +300,7 @@
 	icon_offset: [-1.000, -1.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -20.000
 	
 	min: 1

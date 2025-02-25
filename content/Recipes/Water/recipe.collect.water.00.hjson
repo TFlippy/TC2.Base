@@ -276,6 +276,7 @@
 	}
 	
 	color_frame: "0xff4f79a5"
+	color_button: "0xff88b31f"
 	rank: -10.000
 	
 	min: 1

@@ -117,7 +117,7 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
+	flags: wip, auto_complete, converted
 	tags: workbench, manual, simple, small, chemistry, biology
 	infrastructure: none
 	
@@ -138,11 +138,14 @@
 	icon_extra_offset: [2.000, -5.000]
 	
 	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
 	rank: -9.000
 	
 	min: 1
 	max: 100
 	step: 1
+	
+	h_sound_complete: effect.use.machine.00
 	
 	version: 1
 }
