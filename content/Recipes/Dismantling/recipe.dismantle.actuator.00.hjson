@@ -29,7 +29,7 @@
 	flags: hidden, disabled, wip
 	tags: workbench, manual, simple, metalworking, research
 	
-	color_button: "0xff769d49"
+	color_frame: "0xff769d49"
 	rank: -349.000
 	
 	requirements:

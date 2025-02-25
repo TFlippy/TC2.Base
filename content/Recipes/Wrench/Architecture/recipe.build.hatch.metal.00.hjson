@@ -42,7 +42,7 @@
 		texture: hatch.metal.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -1500.000
 	frame_size: [64.000, 48.000]
 	

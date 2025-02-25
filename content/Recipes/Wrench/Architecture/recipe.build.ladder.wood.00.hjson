@@ -38,7 +38,7 @@
 		texture: ladder.wood.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -390.000
 	
 	dismantle_work: 1.000

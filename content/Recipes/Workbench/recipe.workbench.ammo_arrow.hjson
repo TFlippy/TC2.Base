@@ -87,7 +87,7 @@
 		frame: [3, 0]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 100.000
 	
 	min: 8

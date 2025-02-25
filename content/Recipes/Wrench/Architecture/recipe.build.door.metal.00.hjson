@@ -41,7 +41,7 @@
 	}
 	icon_offset: [8.000, 3.000]
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -475.000
 	frame_size: [48.000, 64.000]
 	

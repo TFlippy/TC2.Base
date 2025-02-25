@@ -68,7 +68,7 @@
 		texture: crane.arm.cargo
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -340.000
 	
 	min: 1

@@ -68,7 +68,7 @@
 		texture: levitator.00
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -541.000
 	
 	min: 1

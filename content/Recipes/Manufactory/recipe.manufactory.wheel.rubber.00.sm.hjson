@@ -20,7 +20,7 @@
 	flags: blueprintable, disabled, wip
 	tags: manual, large, vehicle, metalworking
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -150.000
 	
 	requirements:

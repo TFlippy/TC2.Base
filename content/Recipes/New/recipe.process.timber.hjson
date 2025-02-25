@@ -168,7 +168,7 @@
 	}
 	icon_c_offset: [-7.000, -8.000]
 	
-	color_button: "0xff818b48"
+	color_frame: "0xff818b48"
 	rank: -3.000
 	
 	min: 1

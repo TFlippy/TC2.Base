@@ -230,7 +230,7 @@
 	}
 	icon_c_offset: [-14.000, -11.000]
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -160.700
 	
 	min: 1

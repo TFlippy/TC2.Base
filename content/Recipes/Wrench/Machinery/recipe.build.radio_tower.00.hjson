@@ -210,7 +210,7 @@
 		texture: radio_tower.00
 	}
 	
-	color_button: "0xff6a7a9a"
+	color_frame: "0xff6a7a9a"
 	button_name: "Build"
 	rank: -109.000
 	

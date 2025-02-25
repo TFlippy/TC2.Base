@@ -48,7 +48,7 @@
 	}
 	icon_extra_offset: [-5.000, -6.000]
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -72.500
 	
 	placement:

@@ -37,7 +37,7 @@
 		texture: ladder.metal.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 74.000
 	
 	dismantle_work: 5.000

@@ -46,7 +46,7 @@
 		texture: barbed_wire.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -766.000
 	
 	dismantle_work: 50.000

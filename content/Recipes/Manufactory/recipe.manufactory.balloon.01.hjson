@@ -74,7 +74,7 @@
 		texture: balloon.01.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -601.000
 	
 	min: 1

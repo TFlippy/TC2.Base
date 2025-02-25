@@ -20,7 +20,7 @@
 	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manual, large, vehicle, machining, metalworking
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 0.000
 	
 	requirements:

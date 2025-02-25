@@ -71,7 +71,7 @@
 		size: [32, 16]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -540.000
 	
 	min: 1

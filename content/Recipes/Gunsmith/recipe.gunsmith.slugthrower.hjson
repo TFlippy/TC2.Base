@@ -70,7 +70,7 @@
 		texture: slugthrower
 	}
 	
-	color_button: "0xff19e2b1"
+	color_frame: "0xff19e2b1"
 	rank: 0.000
 	
 	min: 1

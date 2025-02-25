@@ -166,7 +166,7 @@
 		texture: longsword
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 22.000
 	frame_size: [32.000, 32.000]
 	

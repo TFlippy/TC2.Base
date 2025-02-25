@@ -335,7 +335,7 @@
 		frame: [2, 0]
 	}
 	
-	color_button: "0xff19e2b1"
+	color_frame: "0xff19e2b1"
 	button_name: "Craft"
 	rank: 0.000
 	

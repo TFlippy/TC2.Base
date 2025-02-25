@@ -275,7 +275,7 @@
 		frame: [2, 0]
 	}
 	
-	color_button: "0xff4f79a5"
+	color_frame: "0xff4f79a5"
 	rank: -10.000
 	
 	min: 1

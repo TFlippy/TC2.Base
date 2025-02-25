@@ -44,7 +44,7 @@
 		size: [32, 24]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -558.000
 	frame_size: [96.000, 96.000]
 	

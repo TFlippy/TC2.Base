@@ -68,7 +68,7 @@
 		texture: crane.arm.articulated
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -350.000
 	
 	min: 1

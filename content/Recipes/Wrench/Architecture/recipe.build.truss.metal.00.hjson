@@ -45,7 +45,7 @@
 		texture: truss.metal.icon.00
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -1550.000
 	
 	dismantle_work: 20.000

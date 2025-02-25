@@ -26,7 +26,7 @@
 		texture: zapper.00
 	}
 	
-	color_button: "0xffa11209"
+	color_frame: "0xffa11209"
 	rank: -109.000
 	
 	dismantle_work: 5.000

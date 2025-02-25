@@ -27,7 +27,7 @@
 		size: [16, 16]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -10.000
 	
 	dismantle_work: 20.000

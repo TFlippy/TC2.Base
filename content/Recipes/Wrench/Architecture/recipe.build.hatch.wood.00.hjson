@@ -43,7 +43,7 @@
 		texture: hatch.wood.icon
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -1501.000
 	frame_size: [64.000, 48.000]
 	

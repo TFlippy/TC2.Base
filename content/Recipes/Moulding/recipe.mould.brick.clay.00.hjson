@@ -153,7 +153,7 @@
 	}
 	icon_offset: [1.000, 0.000]
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 5.000
 	
 	min: 20

@@ -62,7 +62,7 @@
 		texture: cabin.metal.icon.02
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: 0.000
 	
 	min: 1

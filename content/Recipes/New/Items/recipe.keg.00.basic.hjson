@@ -52,7 +52,7 @@
 		texture: keg
 	}
 	
-	color_button: "0xffcf392b"
+	color_frame: "0xffcf392b"
 	rank: 0.000
 	
 	min: 1

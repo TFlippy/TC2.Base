@@ -46,7 +46,7 @@
 		frame: [15, 1]
 	}
 	
-	color_button: "0xffaeb59a"
+	color_frame: "0xffaeb59a"
 	rank: -83.000
 	
 	placement:
