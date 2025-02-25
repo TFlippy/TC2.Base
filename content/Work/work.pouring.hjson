@@ -16,7 +16,7 @@
 	
 	flags: none
 	tags: manual, machine, automated, simple, wip
-	cooldown: 0.800
+	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xff5469ff"
 	
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -45,11 +45,11 @@
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.200
+	sound_pitch: 1.100
 	sound_size: 0.500
 	sound_dist: 0.850
 	
-	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
+	sounds: ["effect.water.small.00", "effect.water.small.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

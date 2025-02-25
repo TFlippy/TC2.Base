@@ -85,7 +85,7 @@
 						}
 						{
 							type: work
-							work: blending
+							work: mixing.liquid
 							amount: 170.000
 							amount_min: 75.000
 							difficulty: 3

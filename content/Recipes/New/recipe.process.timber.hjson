@@ -29,10 +29,6 @@
 					flags: none
 					discard_damage_type_override: axe
 					
-					requirements: []
-					
-					products: []
-					
 					purity_mult: 0.990
 					quality_mult: 0.930
 				}
@@ -58,8 +54,6 @@
 						}
 					]
 					
-					products: []
-					
 					purity_mult: 0.985
 					quality_mult: 0.995
 					loss_mult: 1.288
@@ -70,10 +64,6 @@
 					type: undefined
 					flags: none
 					discard_damage_type_override: axe
-					
-					requirements: []
-					
-					products: []
 					
 					purity_mult: 0.830
 					quality_mult: 0.780
@@ -92,8 +82,6 @@
 					flags: prerequisite
 				}
 			]
-			
-			products: []
 		}
 		{
 			name: "Cutting"
@@ -146,24 +134,13 @@
 					loss_mult: 1.021
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
-	
-	products: []
-	
-	requirements_old: []
-	
-	products_old: []
 	
 	type: workshop
 	flags: wip
 	tags: workbench, workshop, manual, simple, raw, woodworking, forestry, processing, messy
+	infrastructure: none
 	
 	icon:
 	{
@@ -191,7 +168,7 @@
 	}
 	icon_c_offset: [-7.000, -8.000]
 	
-	color_button: "0xff6a7a9a"
+	color_button: "0xff818b48"
 	rank: -3.000
 	
 	min: 1

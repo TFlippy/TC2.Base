@@ -1,0 +1,64 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Mixing (Liquid)"
+	name_short: "Mixing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [23, 0]
+	}
+	
+	flags: none
+	tags: manual, machine, automated, simple, chemical, wip
+	cooldown: 1.500
+	multiplier: 1.000
+	color: "0xff5469ff"
+	
+	tools_required: none
+	tools_optional: shovel, spatula
+	
+	machinery_required: none
+	machinery_optional: blender, mixer
+	
+	infrastructure_required: none
+	infrastructure_optional: liquid_container
+	
+	character_traits:
+	{
+		include: slave, criminal, medical, farmer, laborer, poor, chemist, hunter, culinary, soldier, nomad, naval, outdoor, murderer, dumb
+		exclude: nobility, feral, upper_class, elite_class
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 0.150
+		dexterity: 0.140
+		endurance: 0.830
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

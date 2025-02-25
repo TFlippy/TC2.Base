@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Drying"
 	name_short: "Drying"
 	desc:
@@ -18,7 +18,7 @@
 	tags: ambient, simple, passive, wip
 	cooldown: 1.000
 	multiplier: 1.000
-	color: "0xff5469ff"
+	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: towel
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: rack
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

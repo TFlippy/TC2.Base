@@ -59,7 +59,7 @@ animated.renderer:
 		texture: "workbench"
 		size: [32, 24]
 	}
-	z: -100.000
+	z: -200.000
 	flags: has_damage
 }
 

@@ -251,8 +251,9 @@
 	]
 	
 	type: workshop
-	flags: item, production
+	flags: item, production, wip
 	tags: workbench, manual, simple, small, blending
+	infrastructure: none
 	
 	icon:
 	{
