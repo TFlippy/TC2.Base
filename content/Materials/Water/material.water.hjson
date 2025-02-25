@@ -20,7 +20,7 @@
 	
 	type: liquid
 	flags: food, liquid, chemical, bottled, raw, primary
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: none
 	
 	purity: 0.992

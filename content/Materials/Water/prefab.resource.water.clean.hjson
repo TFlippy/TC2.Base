@@ -40,14 +40,18 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	force_multiplier: 1.400
+	torque_multiplier: 1.200
+	stress_multiplier: 0.300
+	hints: materials, cheap
+	flags: disable_control
 }
 
 norotate:
 {
 	bias: 0.001
-	speed: 3.000
-	multiplier: 1.000
 	mass_multiplier: 10.000
+	attached_multiplier: 0.500
 }
 
 health:

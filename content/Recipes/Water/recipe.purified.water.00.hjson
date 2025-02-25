@@ -10,12 +10,47 @@
 	stages:
 	[
 		{
-			name: "<TODO>"
+			name: "Water"
 			
-			type: undefined
-			flags: wip, incomplete, auto_generated
+			type: source
+			flags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Raw"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 0.500
+							group: 0
+							flags: primary, prerequisite
+						}
+					]
+					
+					loss_mult: 0.000
+				}
+			]
+		}
+		{
+			name: "Disinfectant"
+			
+			type: additives
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -23,44 +58,43 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "H. Peroxide"
 					
 					type: undefined
-					flags: wip, incomplete, auto_generated
+					flags: none
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: hydrogen_peroxide
-							amount: 0.025
-							snapping: 0.500
+							amount: 0.250
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: pouring
-							amount: 2.000
+							amount: 20.000
+							amount_min: 25.000
 							difficulty: 2
 							snapping: 10.000
-							falloff: 0.600
+							falloff: 0.690
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: blending
-							amount: 7.000
+							amount: 170.000
+							amount_min: 75.000
 							difficulty: 3
 							snapping: 5.000
-							falloff: 0.700
+							falloff: 0.720
 							group: 1
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -68,21 +102,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
-		}
-	]
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: water
-			amount: 0.100
-			group: 0
-			flags: primary, prerequisite
 		}
 	]
 	
@@ -91,63 +110,16 @@
 		{
 			type: resource
 			material: water.clean
-			amount: 0.100
+			amount: 1.000
 			group: 0
 			flags: primary
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: water
-			amount: 0.100
-			group: 0
-			flags: primary, prerequisite
-		}
-		{
-			type: resource
-			material: hydrogen_peroxide
-			amount: 0.025
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: pouring
-			amount: 2.000
-			difficulty: 2
-			snapping: 10.000
-			falloff: 0.600
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: blending
-			amount: 7.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.700
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: water.clean
-			amount: 0.100
-			group: 0
-		}
-	]
-	
 	type: workshop
 	flags: wip, converted
-	tags: workbench, laboratory, manual, simple, small, chemistry, biology
+	tags: workbench, manual, simple, small, chemistry, biology
+	infrastructure: none
 	
 	icon:
 	{
@@ -168,9 +140,9 @@
 	color_button: "0xff80dc7e"
 	rank: -9.000
 	
-	min: 20
-	max: 250
-	step: 5
+	min: 1
+	max: 100
+	step: 1
 	
 	version: 1
 }

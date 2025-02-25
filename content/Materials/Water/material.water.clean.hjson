@@ -18,7 +18,7 @@
 	
 	type: liquid
 	flags: food, liquid, chemical, bottled, processed
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: none
 	
 	mass_per_unit: 1.000
