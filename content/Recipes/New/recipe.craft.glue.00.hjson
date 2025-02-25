@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Lousy Glue"
+	name: "Traditional Glue"
 	desc:
 		'''
-		Mix some random things together and call it a glue.
+		Mix some random things together and pretend it's glue.
 		'''
 	tips: []
 	
@@ -68,7 +68,7 @@
 		{
 			name: "Additive"
 			
-			type: processing
+			type: additives
 			flags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
@@ -202,7 +202,7 @@
 		{
 			name: "Solvent"
 			
-			type: processing
+			type: dissolving
 			flags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
@@ -264,19 +264,21 @@
 						{
 							type: resource
 							material: benzene
-							amount: 10.000
-							snapping: 0.500
+							amount: 0.500
+							snapping: 0.100
+							falloff: 0.904
+							loss: 0.031
 							group: 0
 							flags: no_residue, prerequisite
 						}
 						{
 							type: work
-							work: blending
-							amount: 300.000
-							amount_min: 100.000
+							work: mixing.liquid
+							amount: 112.000
+							amount_min: 40.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.600
+							falloff: 0.669
 							group: 0
 							flags: conditional
 						}
@@ -287,17 +289,35 @@
 	]
 	
 	type: workshop
-	flags: item, production, wip
-	tags: workbench, manual, simple, small, blending
+	flags: item, production, wip, auto_complete
+	tags: workbench, manual, dumb, crude, simple, small, blending, messy
 	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
 		texture: resource.glue
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [1, 0]
 	}
-	icon_offset: [-1.000, -1.000]
+	icon_offset: [6.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: seagull
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-20.000, -6.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [0, 15]
+	}
+	icon_c_offset: [2.000, -15.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
