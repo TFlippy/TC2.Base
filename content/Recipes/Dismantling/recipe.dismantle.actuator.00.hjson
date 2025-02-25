@@ -1,36 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Dismantle Magitronic Actuators"
 	desc:
 		'''
 		Scrap magitronic actuators for spare parts.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: resource.actuator
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
-	min: 5
-	max: 100
-	step: 5
-	
-	type: workshop
-	flags: hidden, disabled, wip
-	tags: workbench, manual, simple, metalworking, research
-	
-	color_frame: "0xff769d49"
-	rank: -349.000
 	
 	requirements:
 	[
@@ -80,4 +55,33 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: hidden, disabled, wip
+	tags: workbench, manual, simple, metalworking, research
+	infrastructure: none
+	
+	icon:
+	{
+		texture: resource.actuator
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	color_frame: "0xff769d49"
+	color_button: "0xff9dd80f"
+	rank: -349.000
+	
+	min: 5
+	max: 100
+	step: 5
+	
+	version: 0
 }

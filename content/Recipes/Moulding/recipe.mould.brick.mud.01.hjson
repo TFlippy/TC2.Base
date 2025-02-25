@@ -158,6 +158,8 @@
 	tags: manual, passive, dumb, crude, simple, medium, blending, drying, moulding, messy
 	infrastructure: shaping_mould
 	
+	h_company: common
+	
 	icon:
 	{
 		texture: resource.brick.mud
@@ -183,6 +185,7 @@
 	icon_c_offset: [-18.000, -11.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 20

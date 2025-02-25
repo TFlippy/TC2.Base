@@ -81,10 +81,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
 	
@@ -166,6 +162,7 @@
 	type: workshop
 	flags: dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, small, magitronics, engineering, salvaging
+	infrastructure: none
 	
 	icon:
 	{
@@ -182,6 +179,7 @@
 	icon_extra_offset: [0.000, -6.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -131.000
 	
 	min: 5

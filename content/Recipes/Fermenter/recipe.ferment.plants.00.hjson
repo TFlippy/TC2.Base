@@ -1,46 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Fermented Plants"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: resource.plants
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [4.000, -1.000]
-	
-	icon_extra:
-	{
-		texture: resource.compost
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_extra_offset: [-16.000, -5.000]
-	
-	icon_c:
-	{
-		texture: resource.mushroom
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_c_offset: [6.000, -4.000]
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: crafter
-	flags: no_amount_multiplier, wip
-	tags: fermenting
-	
-	color_frame: "0xffaeb59a"
-	rank: -50.000
 	
 	requirements:
 	[
@@ -103,4 +68,45 @@
 			flags: byproduct, spawn
 		}
 	]
+	
+	type: crafter
+	flags: no_amount_multiplier, wip
+	tags: fermenting
+	infrastructure: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.plants
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [4.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.compost
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-16.000, -5.000]
+	
+	icon_c:
+	{
+		texture: resource.mushroom
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [6.000, -4.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -50.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }

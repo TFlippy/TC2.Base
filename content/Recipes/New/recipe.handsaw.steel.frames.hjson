@@ -43,8 +43,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: saw
@@ -60,10 +58,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
 	
@@ -128,6 +122,9 @@
 	type: workshop
 	flags: item, wip, converted
 	tags: workbench, workshop, manual, simple, metalworking, processing, messy
+	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -146,6 +143,7 @@
 	icon_extra_offset: [-4.000, -7.000]
 	
 	color_frame: "0xff818b48"
+	color_button: "0xff9dd80f"
 	rank: -18.000
 	
 	min: 1

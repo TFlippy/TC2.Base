@@ -43,8 +43,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver, wrench, spanner, pliers
@@ -57,8 +55,6 @@
 					}
 				}
 			]
-			
-			requirements: []
 			
 			products:
 			[
@@ -100,8 +96,6 @@
 			flags: primary, prerequisite
 		}
 	]
-	
-	products: []
 	
 	requirements_old:
 	[
@@ -160,6 +154,7 @@
 	type: workshop
 	flags: item, dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
+	infrastructure: none
 	
 	icon:
 	{
@@ -176,6 +171,7 @@
 	icon_extra_offset: [0.000, -6.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -134.000
 	
 	min: 1

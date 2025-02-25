@@ -53,14 +53,14 @@
 							material: ash
 							amount: 5.000
 							snapping: 1.000
-							loss: 0.035
+							loss: 0.031
 							group: 0
 							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
 							material: water
-							amount: 1.5000
+							amount: 1.500
 							snapping: 0.010
 							group: 0
 							flags: no_residue, prerequisite
@@ -179,6 +179,8 @@
 	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
 	infrastructure: none
 	
+	h_company: common
+	
 	icon:
 	{
 		texture: resource.mortar
@@ -204,6 +206,7 @@
 	icon_c_offset: [-8.000, -14.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -160.400
 	
 	min: 1

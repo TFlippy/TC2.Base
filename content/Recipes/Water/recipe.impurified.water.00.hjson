@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -52,13 +50,12 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: disabled, wip
 	tags: workbench, manual, dumb, crude, simple, chemistry, biology
+	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -77,6 +74,7 @@
 	icon_extra_offset: [1.000, -7.000]
 	
 	color_frame: "0xff6e3535"
+	color_button: "0xff9dd80f"
 	rank: -9.000
 	
 	min: 20

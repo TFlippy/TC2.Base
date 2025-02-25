@@ -71,8 +71,8 @@
 						{
 							type: resource
 							material: water.dirty
-							amount: 1.6420
-							amount_extra: 0.3950
+							amount: 1.642
+							amount_extra: 0.395
 							snapping: 0.010
 							group: 1
 							flags: waste, residue
@@ -210,8 +210,8 @@
 		{
 			type: resource
 			material: water.dirty
-			amount: 1.6420
-			amount_extra: 0.3950
+			amount: 1.642
+			amount_extra: 0.395
 			snapping: 0.010
 			group: 1
 			flags: waste, residue
@@ -222,6 +222,8 @@
 	flags: wip, converted
 	tags: workbench, manual, simple, tailoring, salvaging
 	infrastructure: table
+	
+	h_company: common
 	
 	icon:
 	{
@@ -247,6 +249,7 @@
 	icon_c_offset: [-3.000, -16.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1

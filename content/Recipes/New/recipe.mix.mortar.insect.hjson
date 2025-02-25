@@ -73,7 +73,7 @@
 							material: lime
 							amount: 2.000
 							snapping: 0.500
-							loss: 0.035
+							loss: 0.031
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -90,8 +90,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: knife
@@ -103,8 +101,6 @@
 					}
 				}
 			]
-			
-			requirements: []
 			
 			products:
 			[
@@ -127,8 +123,6 @@
 			]
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -220,6 +214,9 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, simple, biology, blending, messy, dangerous
+	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -246,6 +243,7 @@
 	icon_c_offset: [-12.000, -14.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -160.500
 	
 	min: 1

@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Egg-based"
+					name: "Eggs"
 					
 					type: undefined
 					flags: none
@@ -66,7 +66,7 @@
 			]
 		}
 		{
-			name: "Additive"
+			name: "Additives"
 			
 			type: additives
 			flags: none
@@ -267,7 +267,7 @@
 							amount: 0.500
 							snapping: 0.100
 							falloff: 0.904
-							loss: 0.031
+							loss: 0.024
 							group: 0
 							flags: no_residue, prerequisite
 						}

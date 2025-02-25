@@ -166,6 +166,8 @@
 	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
 	infrastructure: dishes, table
 	
+	h_company: common
+	
 	icon:
 	{
 		texture: dynamite
@@ -181,6 +183,7 @@
 	icon_extra_offset: [-5.000, -6.000]
 	
 	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
 	rank: 83.000
 	
 	min: 1

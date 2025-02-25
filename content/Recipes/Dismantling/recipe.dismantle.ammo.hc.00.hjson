@@ -189,10 +189,6 @@
 					]
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Dismantling Method"
@@ -229,8 +225,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer
@@ -242,20 +236,13 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
-	
-	products: []
 	
 	type: workshop
 	flags: hidden, wip
 	tags: workbench, manual, simple, small, munitions, metalworking, salvaging
+	infrastructure: none
 	
 	icon:
 	{
@@ -274,9 +261,12 @@
 	icon_extra_offset: [3.000, -7.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -55.800
 	
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
 }

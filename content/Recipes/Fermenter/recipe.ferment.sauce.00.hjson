@@ -1,29 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Universal Brown Sauce"
 	desc:
 		'''
 		Produce universal brown sauce from water, flour and mushrooms.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: resource.sauce
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: crafter
-	flags: no_amount_multiplier, wip
-	tags: passive, simple, food, organic, fermenting
-	
-	color_frame: "0xffaeb59a"
-	rank: 0.000
 	
 	requirements:
 	[
@@ -69,4 +51,26 @@
 			group: 0
 		}
 	]
+	
+	type: crafter
+	flags: no_amount_multiplier, wip
+	tags: passive, simple, food, organic, fermenting
+	infrastructure: none
+	
+	icon:
+	{
+		texture: resource.sauce
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }

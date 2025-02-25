@@ -72,14 +72,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -134,7 +128,10 @@
 	
 	type: workshop
 	flags: wip, converted
-	tags: workbench, manual, dumb, crude, simple, metalworking, shaping
+	tags: workbench, manual, dumb, crude, simple, metalworking
+	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -153,6 +150,7 @@
 	icon_extra_offset: [-2.000, -7.000]
 	
 	color_frame: "0xff818b48"
+	color_button: "0xff9dd80f"
 	rank: -15.000
 	
 	min: 1

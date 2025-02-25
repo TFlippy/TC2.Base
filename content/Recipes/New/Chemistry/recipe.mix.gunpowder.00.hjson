@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -74,7 +72,10 @@
 	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, dangerous, explosive, blending, chemistry
+	tags: workbench, manual, simple, chemistry, blending, explosive, dangerous
+	infrastructure: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -101,9 +102,12 @@
 	icon_c_offset: [-15.000, -17.000]
 	
 	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
 	rank: 90.000
 	
 	min: 5
 	max: 100
 	step: 5
+	
+	version: 0
 }
