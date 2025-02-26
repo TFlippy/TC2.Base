@@ -602,10 +602,11 @@ namespace TC2.Base.Components
 					}
 				}
 
-				if (dist_max <= 0.00f)
+				if (dist_max < 0.00f)
 				{
 					dist_max = len;
 				}
+
 
 				if (len <= dist_max + melee.thickness)
 				{
