@@ -10,9 +10,9 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Composition"
 			
-			type: processing
+			type: moulding
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: punch
@@ -23,10 +23,11 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, auto_generated
+					color: "0xff724421"
 					
 					requirements:
 					[
@@ -57,20 +58,66 @@
 						{
 							type: work
 							work: kneading
-							amount: 25.000
-							amount_min: 25.000
-							difficulty: 6
+							amount: 30.000
+							amount_min: 35.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.735
+							falloff: 0.750
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
+							work: sculpting
+							amount: 4.000
+							amount_min: 17.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.922
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: towel
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Drying"
+			
+			type: postprocessing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 1.000
+			mass_base: 0.65934
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					color: "0xff6c4c3d"
+					
+					requirements:
+					[
+						{
+							type: work
 							work: drying
-							amount: 180.000
+							amount: 200.000
 							difficulty: 3
-							group: 2
+							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]
@@ -101,61 +148,8 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: mud
-			amount: 0.660
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: shite
-			amount: 0.340
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: woodchips
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: kneading
-			amount: 18.400
-			difficulty: 6
-			snapping: 5.000
-			falloff: 0.735
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: drying
-			amount: 160.000
-			difficulty: 3
-			group: 0
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: brick.mud
-			amount: 0.886
-			amount_extra: 0.113
-			group: 0
-		}
-	]
-	
 	type: workshop
-	flags: wip, converted
+	flags: production, wip, converted
 	tags: manual, passive, dumb, crude, simple, medium, blending, drying, moulding, messy
 	infrastructure: shaping_mould
 	

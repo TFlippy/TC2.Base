@@ -15,16 +15,22 @@
 	}
 	
 	type: soil
-	flags: malleable, granular, raw, solid
+	flags: soft, malleable, granular, raw, solid, impure
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.720
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	
 	form_type: raw
 	prefab: resource.soil
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffc67441"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

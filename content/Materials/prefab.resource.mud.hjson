@@ -2,17 +2,23 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.200
+	buoyancy: 0.070
 
 	@shape.circle:
 	{
-		// offset: [0.000, 0.250]
+		offset: [0.000, 0.000]
+		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
-		elasticity: 0.100
+		elasticity: 0.020
+		rigidity_static: 0.850
+		rigidity_dynamic: 0.750
+		
 		material: mud
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
+		miss_chance: 0.000
+		
+		layer: entity, solid, resource, bulk, ignore_melee, ignore_bullet
 		mask: world, bulk
 		exclude: held, stored
 	}
@@ -37,7 +43,7 @@ transform:
 
 resource:
 {
-	material: "mud"
+	material: mud
 }
 
 holdable:
@@ -47,7 +53,7 @@ holdable:
 
 norotate:
 {
-
+	attached_multiplier: 0.350
 }
 
 despawn:

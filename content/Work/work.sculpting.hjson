@@ -53,7 +53,7 @@
 	sound_size: 0.500
 	sound_dist: 0.700
 	
-	sounds: ["dirt_run_00", "dirt_run_01", "effect.smack.meaty.00", "gravel_place_0", "effect.smack.meaty.01"]
+	sounds: ["effect.knead.slimy.00", "effect.smack.meaty.00", "gravel_place_0", "effect.smack.meaty.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

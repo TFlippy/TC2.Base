@@ -12,10 +12,10 @@
 		{
 			name: "Method"
 			
-			type: processing
+			type: moulding
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: punch
 			
 			ratio: 1.000
 			mass_base: 0.63426
@@ -51,7 +51,7 @@
 						}
 						{
 							type: work
-							work: sculpting
+							work: mashing
 							amount: 25.000
 							amount_min: 25.000
 							difficulty: 7

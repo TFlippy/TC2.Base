@@ -2,18 +2,24 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.900
+	buoyancy: 0.100
 
 	@shape.circle:
 	{
-		// offset: [0.000, 0.250]
+		offset: [0.000, 0.000]
+		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.100
+		rigidity_static: 0.850
+		rigidity_dynamic: 0.750
+		
 		material: soil
+		miss_chance: 0.000
+		
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		mask: world, bulk
 		exclude: held, stored
 	}
 }
@@ -37,7 +43,7 @@ transform:
 
 resource:
 {
-	material: "soil"
+	material: soil
 }
 
 holdable:
@@ -47,7 +53,7 @@ holdable:
 
 norotate:
 {
-
+	attached_multiplier: 0.350
 }
 
 despawn:
@@ -65,7 +71,9 @@ health:
 
 breakable:
 {
-	flags: no_damage, splittable
+	flags: no_damage
+	spawn_flags: merge, pickup, show_notification
+	merge_radius: 2.000
 }
 
 wettable:
