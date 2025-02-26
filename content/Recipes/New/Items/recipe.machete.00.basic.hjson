@@ -260,7 +260,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, weapon, blacksmithing, metalworking, shaping, forming
+	tags: workbench, manual, weapon, blacksmithing, metalworking
 	
 	icon:
 	{

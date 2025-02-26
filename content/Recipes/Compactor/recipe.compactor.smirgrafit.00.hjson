@@ -200,7 +200,7 @@
 	
 	type: workshop
 	flags: wip
-	tags: dangerous, explosive, compaction, metalworking, forming
+	tags: dangerous, explosive, compaction, metalworking
 	
 	icon:
 	{

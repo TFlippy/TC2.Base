@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, manual, simple, dangerous, small, explosive, weapon, munitions, blacksmithing, metalworking, casting, shaping, smelting
+	tags: workbench, manual, simple, dangerous, small, explosive, weapon, munitions, blacksmithing, metalworking, casting, smelting
 	
 	color_frame: "0xffaeb59a"
 	rank: 0.000

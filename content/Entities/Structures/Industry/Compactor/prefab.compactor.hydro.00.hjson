@@ -178,7 +178,7 @@ shop:
 	
 	tags_filter:
 	{
-		include: compaction, forming, shaping
+		include: compaction
 		exclude: workbench, filtering, assembling, machining, tailoring, gathering, smelting, fermenting, melting, drying
 	}
 	

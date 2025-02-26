@@ -207,7 +207,7 @@ shop:
 	tags_filter:
 	{
 		include: workbench, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: passive, advanced, large, huge, weapon, vehicle, furniture, raw, blacksmithing, machining, stoneworking, forestry, shaping, smelting, drying, fermenting, melting, heating, casting, forming, messy, overworld
+		exclude: passive, advanced, large, huge, weapon, vehicle, furniture, raw, blacksmithing, machining, stoneworking, forestry, smelting, drying, fermenting, melting, heating, casting, messy, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, spatula, knife, needle, pins

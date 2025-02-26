@@ -34,7 +34,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, organic, filtering, chemistry, blending, forming, messy
+	tags: manual, simple, organic, filtering, chemistry, blending, messy
 	
 	icon:
 	{

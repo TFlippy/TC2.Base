@@ -59,7 +59,7 @@ shop:
 {
 	name: "Casting Basin"
 	
-	tags: simple, crude, manual, casting, forming, shaping
+	tags: simple, crude, manual, casting
 	tags_require: none
 	tags_exclude: automated
 	

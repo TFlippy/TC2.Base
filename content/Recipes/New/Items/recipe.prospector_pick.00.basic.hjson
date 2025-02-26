@@ -294,7 +294,7 @@
 	
 	type: workshop
 	flags: blueprintable, wip, item
-	tags: workbench, manual, tool, blacksmithing, assembling, metalworking, shaping, forming
+	tags: workbench, manual, tool, blacksmithing, assembling, metalworking
 	
 	icon:
 	{

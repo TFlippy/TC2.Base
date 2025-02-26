@@ -84,7 +84,7 @@ shop:
 	{
 		require: workbench
 		include: workbench, manual, simple, small, food, filtering, assembling, tailoring, engineering, research
-		exclude: passive, advanced, large, huge, vehicle, compaction, agriculture, blacksmithing, machining, metalworking, carpentry, forestry, smelting, fermenting, melting, heating, casting, forming
+		exclude: passive, advanced, large, huge, vehicle, compaction, agriculture, blacksmithing, machining, metalworking, carpentry, forestry, smelting, fermenting, melting, heating, casting
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, tweezers, magnifying_glass, bucket, paintbrush, stapler, towel, spatula, tongs, knife, needle, pins
