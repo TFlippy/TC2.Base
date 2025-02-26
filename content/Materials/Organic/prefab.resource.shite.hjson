@@ -60,9 +60,11 @@ rotting:
 
 	@sound.emitter:
 	{
-		file: "flies.loop.00"
-		volume: 0.400
-		pitch: 1.000
+		file: flies.loop.00
+		volume: 0.200
+		size: 0.500
+		size_max_modifier: 0.750
+		spread: 75.000
 		priority: 0.100
 	}
 }

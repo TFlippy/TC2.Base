@@ -26,7 +26,7 @@ body:
 		elasticity: 0.400
 		material: wood
 		
-		layer: entity, solid, furniture, flammable, ignore_melee, background
+		layer: entity, solid, furniture, flammable, ignore_melee, background, storage
 
 		miss_chance: 0.750
 	}

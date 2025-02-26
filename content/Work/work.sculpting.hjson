@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Sculpting"
 	name_short: "Sculpting"
 	desc:
@@ -15,23 +15,23 @@
 	}
 	
 	flags: none
-	tags: manual, machine, automated, simple, wip
+	tags: manual, simple, leisure
 	cooldown: 1.500
 	multiplier: 1.000
 	color: "0xff719240"
 	
 	tools_required: none
-	tools_optional: none
+	tools_optional: shovel, spatula
 	
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: dishes, table, chair
+	infrastructure_required: shaping_mould
+	infrastructure_optional: table, chair
 	
 	character_traits:
 	{
-		include: medical, farmer, poor, culinary, insane, entertainer, artist, brawler
+		include: scientist, medical, artisan, farmer, laborer, miner, culinary, insane, entertainer, artist, outdoor, thief
 		weight: 1.000
 	}
 	
@@ -43,8 +43,9 @@
 	skills_mult:
 	{
 		strength: 0.250
-		dexterity: 0.550
-		endurance: 0.500
+		dexterity: 0.370
+		masonry: 0.320
+		mining: 0.250
 	}
 	
 	sound_volume: 0.500
@@ -52,7 +53,7 @@
 	sound_size: 0.500
 	sound_dist: 0.700
 	
-	sounds: ["effect.squish.slimy.00", "effect.squish.slimy.01", "effect.smack.meaty.00", "effect.squish.muddy.00", "effect.smack.meaty.01"]
+	sounds: ["dirt_run_00", "dirt_run_01", "effect.smack.meaty.00", "gravel_place_0", "effect.smack.meaty.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

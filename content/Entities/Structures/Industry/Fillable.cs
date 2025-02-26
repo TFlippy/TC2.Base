@@ -127,6 +127,22 @@
 #endif
 		}
 
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
+		public static void OnUpdateSprite(ISystem.Info info, ref Region.Data region, Entity ent_fillable,
+		[Source.Owned, Pair.Component<Fillable.Data>] ref Animated.Renderer.Data renderer, [Source.Owned] ref Fillable.Data fillable)
+		{
+			//ref var recipe = ref order.h_recipe.GetData();
+			//if (recipe.IsNotNull())
+			//{
+			//	renderer.sprite.frame.y = 1u + Maths.LerpUInt(0u, renderer.sprite.count, Maths.Normalize01Fast(order.amount_multiplier, recipe.max));
+			//	renderer.color_mask_r = order.current_color;
+			//}
+			//else
+			//{
+			//	renderer.sprite.frame.y = 0;
+			//}
+		}
+
 #if SERVER
 		[ISystem.Event<Fillable.ModifyEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 10)]
 		public static void OnModifyEvent(ISystem.Info info, ref Region.Data region, Entity entity, ref Fillable.ModifyEvent ev, ref XorRandom random,

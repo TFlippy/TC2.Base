@@ -91,11 +91,12 @@
 	icon_offset: [0.000, 1.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 10.000
 	
-	min: 20
+	min: 10
 	max: 200
-	step: 20
+	step: 10
 	
 	version: 0
 }

@@ -106,12 +106,12 @@ shop:
 
 workshop:
 {
-	flags: add_order_mass
+	flags: hidden_if_no_orders, add_order_mass
 	
 	tools: none
 	infrastructure: table, shaping_mould
 	machinery: none
-	environment: container, mobile, dirty, ugly, flammable
+	environment: container, mobile, dirty, ugly, sturdy, flammable, large
 	
 	orders_capacity: 1
 }
@@ -121,4 +121,41 @@ interactable:
 	flags: none
 	priority: 2.000
 	window_size: [560.000, 472.000]
+	window_size_misc: [72.000, 0.000]
 }
+
+animated.renderer|"work":
+{
+	sprite:
+	{
+		texture: form.fill.atlas.00
+		mask: form.fill.atlas.00
+		count: 4
+		size: [32, 8]
+	}
+	offset: [0.000, -0.750]
+	z: -110.000
+}
+
+// fillable:
+// {
+// 	flags: use_misc
+// 	form_type: ingot
+// 	max_tilt: 0.980
+// 	capacity: 32.000
+// 	h_sound_dump: hatch.open.00
+// 	offset_drop: [-0.250, -1.000]
+// 	tilt_ratio: 0.000001
+
+// 	// @animated.renderer:
+// 	// {
+// 	// 	sprite:
+// 	// 	{
+// 	// 		texture: form.fill.atlas.00
+// 	// 		mask: form.fill.atlas.00
+// 	// 		size: [32, 8]
+// 	// 	}
+// 	// 	offset: [0.000, -0.750]
+// 	// 	z: -110.000
+// 	// }
+// }

@@ -27,6 +27,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
+					color: "0xff6c4c3d"
 					
 					requirements:
 					[
@@ -50,12 +51,12 @@
 						}
 						{
 							type: work
-							work: mashing
+							work: sculpting
 							amount: 25.000
 							amount_min: 25.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.970
+							falloff: 0.956
 							group: 1
 							flags: conditional
 						}
@@ -64,6 +65,7 @@
 							work: drying
 							amount: 350.000
 							difficulty: 3
+							snapping: 25.000
 							group: 2
 							flags: no_scaling, no_residue, conditional
 						}
@@ -71,7 +73,12 @@
 					
 					filter_tools:
 					{
-						include: towel
+						include: shovel, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						require: shaping_mould
+						include: table, chair
 					}
 					filter_environment:
 					{
@@ -170,11 +177,12 @@
 	icon_c_offset: [-1.000, -13.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
-	min: 20
+	min: 10
 	max: 200
-	step: 20
+	step: 10
 	
 	version: 1
 }

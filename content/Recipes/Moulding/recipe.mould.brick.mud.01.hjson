@@ -15,7 +15,7 @@
 			type: processing
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: punch
 			
 			ratio: 1.000
 			mass_base: 0.65934
@@ -95,6 +95,7 @@
 			material: brick.mud
 			amount: 0.886
 			amount_extra: 0.113
+			snapping: 0.200
 			group: 0
 			flags: byproduct, primary
 		}
@@ -188,9 +189,9 @@
 	color_button: "0xff9dd80f"
 	rank: 0.000
 	
-	min: 20
+	min: 10
 	max: 200
-	step: 20
+	step: 10
 	
 	version: 1
 }

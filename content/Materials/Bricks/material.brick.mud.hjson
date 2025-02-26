@@ -18,13 +18,19 @@
 	flags: hard, granular, small, ingot, solid, processed
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.660
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	
 	form_type: brick
 	prefab: resource.brick.mud
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffa2826b"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

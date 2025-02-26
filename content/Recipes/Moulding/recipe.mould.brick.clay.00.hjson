@@ -86,60 +86,14 @@
 		{
 			type: resource
 			material: brick.clay.raw
-			amount: 0.924
-			amount_extra: 0.063
+			amount: 0.854
+			amount_extra: 0.023
+			snapping: 1.000
 			group: 0
 			flags: byproduct, primary
 		}
 	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: clay
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: water
-			amount: 0.100
-			snapping: 0.010
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: mashing
-			amount: 7.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.810
-			group: 1
-			flags: conditional
-		}
-		{
-			type: work
-			work: drying
-			amount: 840.000
-			difficulty: 5
-			group: 2
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: brick.clay.raw
-			amount: 0.924
-			amount_extra: 0.063
-			group: 0
-		}
-	]
-	
+
 	type: workshop
 	flags: wip, converted
 	tags: manual, passive, crude, simple, drying, messy
@@ -154,11 +108,12 @@
 	icon_offset: [1.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 5.000
 	
-	min: 20
+	min: 10
 	max: 200
-	step: 20
+	step: 10
 	
 	version: 1
 }
