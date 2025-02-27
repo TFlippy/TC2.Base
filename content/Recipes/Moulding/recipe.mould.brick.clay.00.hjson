@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Composition"
 			
 			type: processing
 			flags: wip, auto_generated
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -49,7 +49,7 @@
 						}
 						{
 							type: work
-							work: mashing
+							work: sculpting
 							amount: 25.000
 							amount_min: 25.000
 							difficulty: 5
@@ -58,12 +58,47 @@
 							group: 1
 							flags: conditional
 						}
+					]
+					
+					filter_tools:
+					{
+						include: towel
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Drying"
+			
+			type: postprocessing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					color: "0xff6c4c3d"
+					
+					requirements:
+					[
 						{
 							type: work
 							work: drying
 							amount: 480.000
 							difficulty: 5
-							group: 2
+							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]

@@ -98,8 +98,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
 			
-			ratio: 1.000
-			mass_base: 0.65934
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[

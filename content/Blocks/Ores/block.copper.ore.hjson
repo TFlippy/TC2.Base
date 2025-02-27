@@ -1,14 +1,14 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Native Copper"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: metal_solid
+	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral
+	flags: raw, ore, uncommon, mineral, native
 	
 	max_health: 30000.000
 	
@@ -25,9 +25,9 @@
 	texture: terrain.copper.ore
 	pattern: pattern.stone
 	
-	texture_scale: 1.250
-	texture_overshoot: -0.750
-	texture_offset: 0.000
+	texture_scale: 1.040
+	texture_overshoot: -0.600
+	texture_offset: 0.250
 	color_preview: "0xffff3a00"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xffaa6a2e"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

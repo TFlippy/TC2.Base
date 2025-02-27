@@ -120,8 +120,7 @@ interactable:
 {
 	flags: none
 	priority: 2.000
-	window_size: [560.000, 472.000]
-	window_size_misc: [72.000, 0.000]
+	window_size: [576.000, 472.000]
 }
 
 animated.renderer|"work":

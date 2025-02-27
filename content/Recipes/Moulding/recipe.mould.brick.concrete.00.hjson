@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Composition"
 			
 			type: processing
 			flags: wip, auto_generated
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -42,8 +42,8 @@
 						{
 							type: resource
 							material: water
-							amount: 0.100
-							snapping: 0.010
+							amount: 0.220
+							snapping: 0.100
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -87,19 +87,54 @@
 							group: 2
 							flags: conditional
 						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Curing"
+			
+			type: postprocessing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					color: "0xff6c4c3d"
+					
+					requirements:
+					[
 						{
 							type: work
 							work: cement.curing
 							amount: 530.000
 							difficulty: 7
-							group: 3
+							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: towel
+					}
+					filter_environment:
+					{
+						exclude: wet
 					}
 				}
 			]

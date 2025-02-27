@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Composition"
 			
 			type: moulding
 			flags: wip, auto_generated
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Basic"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -60,25 +60,60 @@
 							group: 1
 							flags: conditional
 						}
+					]
+					
+					purity_mult: 0.956
+					quality_mult: 0.774
+					failure_mult: 1.169
+					loss_mult: 1.191
+					
+					filter_tools:
+					{
+						include: towel
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Drying"
+			
+			type: postprocessing
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					color: "0xff6c4c3d"
+					
+					requirements:
+					[
 						{
 							type: work
 							work: drying
-							amount: 350.000
+							amount: 140.000
 							difficulty: 3
 							snapping: 25.000
-							group: 2
+							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						include: shovel, towel, spatula
-					}
-					filter_infrastructure:
-					{
-						require: shaping_mould
-						include: table, chair
+						include: towel
 					}
 					filter_environment:
 					{
@@ -98,52 +133,6 @@
 			amount_extra: 0.213
 			group: 0
 			flags: byproduct, primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: mud
-			amount: 0.675
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: soil
-			amount: 0.450
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: mashing
-			amount: 5.000
-			difficulty: 7
-			snapping: 5.000
-			falloff: 0.970
-			group: 1
-			flags: conditional
-		}
-		{
-			type: work
-			work: drying
-			amount: 385.000
-			difficulty: 3
-			group: 2
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: brick.mud
-			amount: 0.748
-			amount_extra: 0.213
-			group: 0
 		}
 	]
 	
