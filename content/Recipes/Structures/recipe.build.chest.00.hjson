@@ -33,6 +33,7 @@
 	type: architecture
 	flags: none
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -41,6 +42,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -813.000
 	
 	dismantle_work: 5.000
@@ -65,7 +67,7 @@
 		min_clearance: 0.750
 		min_claim: 1.000
 		
-		rotation_max: 0.300
+		rotation_max: 0.540
 		
 		sound: building_place
 		
@@ -81,7 +83,7 @@
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.375
+		snapping_depth: 0.250
 		
 		mappings_replace:
 		{
