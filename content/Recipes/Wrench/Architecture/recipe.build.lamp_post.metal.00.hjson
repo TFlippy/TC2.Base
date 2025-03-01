@@ -38,6 +38,7 @@
 	type: architecture
 	flags: blueprintable
 	tags: large, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -46,6 +47,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -5.000
 	
 	dismantle_work: 7.000
@@ -74,14 +76,18 @@
 		
 		sound: building_place
 		
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
+
 		snapping_filter:
 		{
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.500
 		
 		mappings_replace:
 		{

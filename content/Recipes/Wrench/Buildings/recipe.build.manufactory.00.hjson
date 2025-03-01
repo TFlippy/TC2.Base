@@ -32,7 +32,6 @@
 							amount: 500.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -64,7 +63,6 @@
 							amount: 250.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -81,7 +79,6 @@
 							amount: 100.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -113,7 +110,6 @@
 							amount: 175.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -130,7 +126,6 @@
 							amount: 35.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -138,7 +133,6 @@
 							amount: 50.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -155,7 +149,6 @@
 							amount: 40.000
 							snapping: 1.000
 							group: 2
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -187,7 +180,6 @@
 							amount: 750.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -244,16 +236,14 @@
 							snapping: 0.500
 							loss: 0.075
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.122
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -262,7 +252,6 @@
 							snapping: 5.000
 							loss: 0.075
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -310,7 +299,6 @@
 							snapping: 0.500
 							loss: 0.224
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -319,7 +307,6 @@
 							snapping: 1.000
 							loss: 0.157
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -341,10 +328,6 @@
 					{
 						include: lathe
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
-					}
 				}
 			]
 		}
@@ -362,8 +345,9 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, item, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
 	tags: huge, woodworking, metalworking, stoneworking, engineering, carpentry, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -371,6 +355,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Build"
 	rank: 0.000
 	
@@ -409,9 +394,9 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_flags: snap_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.500
+		snapping_depth: 0.125
 		
 		mappings_replace:
 		{
