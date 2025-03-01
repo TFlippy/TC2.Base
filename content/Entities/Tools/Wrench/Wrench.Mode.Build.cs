@@ -408,8 +408,8 @@ namespace TC2.Base.Components
 															{
 																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
 																{
-																	pos_raw += normal_tmp * Terrain.shape_thickness * 0.50f;
-																	if (snapping_flags.HasAny(Placement.SnappingFlags.Inset_Terrain)) pos_raw -= normal_tmp * placement_size_max * 0.50f;
+																	pos_raw += normal_tmp * shape_radius; // * Terrain.shape_thickness * 0.50f;
+																	if (snapping_flags.HasAny(Placement.SnappingFlags.Inset_Terrain)) pos_raw -= normal_tmp * placement_size_max; // * 0.50f;
 																}
 															}
 															else
@@ -515,7 +515,7 @@ namespace TC2.Base.Components
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
 												GUI.DrawChunkRect(ref region, pos_raw);
-												//GUI.DrawTerrainOutline(ref region, pos_raw, radius: 2.00f, thickness: 1.00f, color: GUI.col_white);
+												GUI.DrawTerrainOutline(ref region, pos_raw, radius: 2.00f, thickness: 1.00f, color: GUI.col_white);
 
 												switch (product.type)
 												{
@@ -1353,7 +1353,7 @@ namespace TC2.Base.Components
 					{
 						case Placement.Type.Line:
 						{
-							var dir = (pos_a - pos_b).GetNormalized(out var len);
+							var dir = (pos_a - pos_b).GetNormalized();
 							pos_a += dir * placement.size * 0.50f;
 							pos_b -= dir * placement.size * 0.50f;
 
@@ -1841,7 +1841,7 @@ namespace TC2.Base.Components
 				{
 					var pos = world_position;
 					var offset = default(Vector2);
-					var grid = new Vector2(Chunk.unit_width, Chunk.unit_height) / (Vector2.Max(step, new Vector2(0.125f, 0.125f)) * 8);
+					var grid = new Vector2(Chunk.unit_width, Chunk.unit_height) / (Vector2.Max(step, new Vector2(0.125f)) * 8);
 
 					if (pivot.HasValue) offset = pivot.Value - (step);
 
@@ -2138,7 +2138,7 @@ namespace TC2.Base.Components
 								var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
 
 								terrain.IterateSquareLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
-									thickness: placement.size.X, argument: ref args,
+									thickness: placement.size.X + 1, argument: ref args,
 									func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
 									iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 							}

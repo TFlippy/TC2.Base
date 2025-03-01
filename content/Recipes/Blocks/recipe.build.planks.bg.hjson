@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -32,6 +30,7 @@
 	type: architecture
 	flags: none
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -41,23 +40,30 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -198.000
 	
 	placement:
 	{
 		type: line
-		flags: continuous
+		flags: continuous, no_snapping
 		
 		size: [1.000, 1.000]
 		
 		cooldown: 0.400
 		min_support: 0.035
 		min_claim: 1.000
+		max_range: 4.500
+		
 		length_max: 8.000
-		length_step: 0.500
 		
 		sound: wood_place_0
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
+		
+		snapping_filter:
+		{
+			include: building
+		}
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider
 		snapping_radius: 0.250
 		
 		mappings_replace:
@@ -65,4 +71,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

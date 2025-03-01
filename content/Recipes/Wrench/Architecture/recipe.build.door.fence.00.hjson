@@ -26,6 +26,7 @@
 	type: architecture
 	flags: none
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -36,6 +37,7 @@
 	icon_offset: [8.000, 3.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -475.000
 	frame_size: [48.000, 64.000]
 	
@@ -45,23 +47,29 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain, terrain_is_support, no_solid_support
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
 		
 		size: [0.500, 3.000]
 		offset: [0.000, -1.500]
 		
-		cooldown: 0.700
-		min_support: 0.700
+		rect_foundation: [-0.250, 0.125, 0.250, 0.625]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-0.250, -3.000, 0.250, 0.125]
+		tileflags_clearance: solid
+		
+		cooldown: 0.750
+		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
 		
 		rotation_max: 0.400
 		
-		sound: metal.place.00
+		sound: building_place
 		
 		physics_filter:
 		{
-			include: door
+			include: no_overlapped_placement
 		}
 		
 		snapping_filter:
@@ -69,9 +77,8 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, no_end_snap
-		snapping_radius: 0.250
-		snapping_depth: 0.500
+		snapping_flags: snap_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{

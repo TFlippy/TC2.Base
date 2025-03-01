@@ -76,7 +76,7 @@ claimable:
 
 interactable:
 {
-	flags: use_left_click, once
+	flags: once
 	priority: 4.000
 }
 
