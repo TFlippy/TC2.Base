@@ -1353,16 +1353,22 @@ namespace TC2.Base.Components
 					{
 						case Placement.Type.Line:
 						{
-							var dir = (pos_a - pos_b).GetNormalized();
-							pos_a += dir * placement.size * 0.50f;
-							pos_b -= dir * placement.size * 0.50f;
+							var dir = (pos_a - pos_b).GetNormalized(out var dir_len);
+							var dir_rad = dir.GetAngleRadians();
+							var dir_rad_snapped = flags.HasAny(Wrench.Mode.Build.Flags.Snap) ? Maths.Snap(dir_rad, placement.rotation_step) : dir_rad;
+							var dir_snapped = Maths.RadToDir(dir_rad_snapped);
+
+							pos_b = pos_a - (dir_snapped * dir_len);
+
+							pos_a += dir_snapped * placement.size * 0.50f;
+							pos_b -= dir_snapped * placement.size * 0.50f;
 
 							pos_a = pos_a.Snap(0.125f);
 							pos_b = pos_b.Snap(0.125f);
 
 							if (pos_a_raw.HasValue && placement.snapping_flags.HasAll(Placement.SnappingFlags.Align_To_Surface | Placement.SnappingFlags.Rotate_Line_Normal))
 							{
-								var cross = Maths.Cross(dir, normal);
+								var cross = Maths.Cross(dir_snapped, normal);
 								if (cross < 0.00f)
 								{
 									(pos_a, pos_b) = (pos_b, pos_a);

@@ -12,7 +12,8 @@ body:
 	
 	@shape.box:
 	{
-		size: [0.500, 2.750]
+		size: [0.250, 2.750]
+		offset: [0.000, 0.000]
 		
 		mass: 14.000
 		radius: 0.250
@@ -76,8 +77,8 @@ door:
 {
 	sound_open: "door_open"
 	sound_close: "door_close"
-	size_open: [1.600, 2.750]
-	size_closed: [0.500, 2.750]
+	size_open: [1.350, 2.750]
+	size_closed: [0.250, 2.750]
 	offset_open: [0.700, 0.000]
 	offset_closed: [0.000, 0.000]
 	direction: horizontal

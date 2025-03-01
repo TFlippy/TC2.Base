@@ -41,7 +41,6 @@
 							amount: 500.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -73,7 +72,6 @@
 							amount: 250.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -90,7 +88,6 @@
 							amount: 100.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -122,7 +119,6 @@
 							amount: 175.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -139,7 +135,6 @@
 							amount: 35.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -147,7 +142,6 @@
 							amount: 50.000
 							snapping: 1.000
 							group: 1
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -164,7 +158,6 @@
 							amount: 15.000
 							snapping: 1.000
 							group: 2
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -196,7 +189,6 @@
 							amount: 750.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -253,7 +245,6 @@
 							snapping: 0.500
 							loss: 0.075
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -262,7 +253,6 @@
 							snapping: 0.500
 							loss: 0.122
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -271,7 +261,6 @@
 							snapping: 5.000
 							loss: 0.075
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -305,7 +294,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, item, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
 	tags: huge, construction
 	infrastructure: none
 	

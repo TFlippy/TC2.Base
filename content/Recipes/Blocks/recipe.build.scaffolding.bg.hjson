@@ -31,6 +31,7 @@
 	type: architecture
 	flags: none
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -40,6 +41,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -115.000
 	
 	placement:
@@ -56,12 +58,13 @@
 		max_range: 6.000
 		
 		length_max: 10.000
-		length_step: 0.125
+		
+		rotation_step: 0.098175
 		
 		sound: metal.place.00
 		
-		snapping_flags: snap_to_surface, use_raw_collider
-		snapping_radius: 0.250
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{
