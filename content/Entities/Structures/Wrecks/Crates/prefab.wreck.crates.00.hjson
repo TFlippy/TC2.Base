@@ -62,7 +62,6 @@ interactable:
 	window_size: [192.000, 192.000]
 	window_size_min: [184.000, 144.000]
 	window_size_misc: [72.000, 0.000]
-	window_offset: [32.000, 96.000]
 }
 
 harvestable:

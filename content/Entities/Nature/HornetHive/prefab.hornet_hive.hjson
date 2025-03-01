@@ -140,12 +140,12 @@ claimer:
 		{
 			group_size: 1
 			group_size_extra: 2
-			max_count: 8
+			max_count: 10
 			ai_stance: aggressive
 			ai_type: attack
 			interval: 15.000
-			interval_extra: 50.000
-			interval_count_modifier: 30.000
+			interval_extra: 40.000
+			interval_count_modifier: 20.000
 		}
 
 		dormitory:
@@ -153,12 +153,12 @@ claimer:
 			flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_kits
 			species: hornet
 			
-			characters_capacity: 8
-			characters_initial_count: 3
+			characters_capacity: 10
+			characters_initial_count: 4
 			
 			repopulate_interval: 15.000
 			repopulate_interval_extra: 30.000
-			repopulate_max: 8
+			repopulate_max: 10
 			repopulate_num: 1
 			repopulate_num_extra: 3
 			repopulate_character_flags_add: npc, public

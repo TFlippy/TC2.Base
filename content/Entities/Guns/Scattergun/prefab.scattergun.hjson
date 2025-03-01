@@ -85,7 +85,7 @@ holdable:
 	flags: storable
 	hints: gun, powerful, inaccurate
 
-	force_multiplier: 1.650
+	force_multiplier: 1.950
 	torque_multiplier: 1.000
 }
 

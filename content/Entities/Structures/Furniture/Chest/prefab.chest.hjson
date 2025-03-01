@@ -61,9 +61,9 @@ transform:
 storage:
 {
 	@inventory8:
-	{
+	{		
 		type: storage
-		flags: standalone, ignore_mass, no_auto_pickup, faction, public
+		flags: ignore_mass, public, no_auto_pickup, faction
 		stack_size_multiplier: 4.000
 		
 		filter:
@@ -71,16 +71,15 @@ storage:
 			include: granular, small, solid
 			exclude: long, large
 		}
-		
-		offset: [0.000, 0.000]
 	}
 }
 
 interactable:
 {
-	flags: no_tab
+	flags: no_tab, centered_inventory
 	priority: 0.750
-	window_size: [192.000, 136.000]
+	window_size: [192.000, 96.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 lockable:
