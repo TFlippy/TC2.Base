@@ -36,6 +36,7 @@
 	type: architecture
 	flags: blueprintable
 	tags: large, metalworking, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -43,6 +44,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -1500.000
 	frame_size: [64.000, 48.000]
 	
@@ -61,7 +63,8 @@
 		min_clearance: 0.700
 		min_claim: 1.000
 		
-		rotation_max: 6.283
+		rotation_max: 6.283186
+		rotation_step: 0.0982
 		
 		sound: building_place
 		
@@ -76,7 +79,7 @@
 			include: climbable
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_raw_collider
+		snapping_flags: snap_to_surface, align_parallel, use_raw_collider
 		
 		mappings_replace:
 		{

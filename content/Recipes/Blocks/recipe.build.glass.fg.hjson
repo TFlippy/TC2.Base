@@ -30,6 +30,7 @@
 	type: architecture
 	flags: none
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -39,6 +40,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -78.500
 	
 	placement:
@@ -57,7 +59,7 @@
 		
 		sound: metal_place_01
 		
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, inset_terrain
 		snapping_radius: 0.250
 		
 		mappings_replace:
