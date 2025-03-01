@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Mithril"
 	name_short: "Mithril"
 	description:
 		'''
-		A mysterious unstable metal derived from gold.
+		A mysterious unstable substance.
 		'''
 	
 	icon:
@@ -15,66 +15,20 @@
 	}
 	
 	type: resin
-	flags: granular, raw, solid
+	flags: hard, granular, organic, raw, volatile, solid
 	display_flags: none
-	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
-	porosity: 0.000
-	purity: 0.000
-	mass_per_unit: 0.500
-	volume_per_unit: 0.000
-	quantity_max: 500.000
-	form_type: undefined
+	hints: materials, dangerous, illegal, advanced, destructive, expensive, arcane, contraband, unstable
+	
+	mass_per_unit: 1.144
+	quantity_max: 250.000
+	
 	prefab: resource.mithril
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: chemicals, arcane, technology, minerals, illegal, dangerous, industrial, military
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 75.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 }

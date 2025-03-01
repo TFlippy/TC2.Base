@@ -9,7 +9,8 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		material: resin
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -32,6 +33,15 @@ transform:
 resource:
 {
 	material: "mithril"
+
+	@light:
+	{
+		color: [0.000, 1.000, 0.400, 1.000]
+		offset: [0.000, 0.000]
+		scale: [16.000, 16.000]
+		intensity: 1.600
+		texture: "light.circle.00"
+	}
 }
 
 holdable:
@@ -44,17 +54,17 @@ norotate:
 
 }
 
-mithril:
-{
-	@light:
-	{
-		color: [0.000, 1.000, 0.400, 1.000]
-		offset: [0.000, 0.000]
-		scale: [16.000, 16.000]
-		intensity: 1.600
-		texture: "light.circle.00"
-	}
-}
+// mithril:
+// {
+// 	@light:
+// 	{
+// 		color: [0.000, 1.000, 0.400, 1.000]
+// 		offset: [0.000, 0.000]
+// 		scale: [16.000, 16.000]
+// 		intensity: 1.600
+// 		texture: "light.circle.00"
+// 	}
+// }
 
 // radioactive:
 // {
