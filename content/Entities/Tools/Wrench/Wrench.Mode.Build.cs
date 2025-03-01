@@ -358,7 +358,12 @@ namespace TC2.Base.Components
 
 												if (!no_snap && !kb.GetKey(Keyboard.Key.LeftShift) && ((snapping_flags.HasAny(Placement.SnappingFlags.Force) || kb.GetKey(Keyboard.Key.LeftControl) != snapping_flags.HasAny(Placement.SnappingFlags.Snap_To_Surface)) && !snapping_filter.IsEmpty()))
 												{
-													if (region.TryOverlapPoint(pos_raw, radius: snapping_radius, out var overlap_result, mask: snapping_filter.include, require: snapping_filter.require, exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
+													if (region.TryOverlapPoint(world_position: pos_raw,
+													radius: snapping_radius,
+													result: out var overlap_result,
+													mask: snapping_filter.include,
+													require: snapping_filter.require,
+													exclude: snapping_filter.exclude | Physics.Layer.Dynamic))
 													{
 														//var normal_offset = 0.00f; // Terrain.shape_thickness * 0.50f;
 
@@ -366,9 +371,20 @@ namespace TC2.Base.Components
 
 														var is_raw_collider = snapping_flags.HasAny(Placement.SnappingFlags.Use_Raw_Collider) || overlap_result.layer.HasAny(Physics.Layer.World) || shape_radius <= 0.00f;
 														pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
-														var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized();
+														//var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized();
+														Vector2 normal_tmp;
+														if (is_raw_collider)
+														{
+															normal_tmp = overlap_result.normal_raw;
+															if (overlap_result.layer.HasNone(Physics.Layer.World)) normal_tmp = normal_tmp.GetAlignedNormal(overlap_result.gradient);
+														}
+														else
+														{
+															normal_tmp = overlap_result.gradient;
+														}
 
 														GUI.DrawCross(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), color: GUI.font_color_green.WithAlpha(150), radius: (region.GetWorldToCanvasScale() * 0.500f).Ceil(), thickness: (0.125f * region.GetWorldToCanvasScale()).Ceil());
+														//GUI.DrawLine(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), region.WorldToCanvas((pos_raw + normal_tmp).Snap(0.125f)).Round(), color: Color32BGRA.Yellow);
 
 														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius * 2.00f);
 														if (is_at_base)
@@ -418,8 +434,10 @@ namespace TC2.Base.Components
 														//	pos_raw += placement.offset.RotateByDir(overlap_result.normal_raw.GetPerpendicular(true));
 														//}
 
-														pos_raw += normal_tmp * placement.snapping_depth;
+														GUI.DrawLine(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), region.WorldToCanvas(pos_raw.Snap(0.125f)).Round() + (normal_tmp * region.GetWorldToCanvasScale()), color: Color32BGRA.Yellow);
 
+
+														pos_raw += normal_tmp * placement.snapping_depth;
 													}
 												}
 
@@ -453,7 +471,7 @@ namespace TC2.Base.Components
 													pos_a_raw: pos_a_raw,
 													pos_b_raw: pos_b_raw,
 													scale: scale,
-													normal: normal_surface,
+													normal: normal_cached ?? normal_surface,
 													normal_distance: normal_distance,
 													pos: out var pos,
 													pos_a: out var pos_a,
@@ -578,8 +596,8 @@ namespace TC2.Base.Components
 																	terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
 																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-																
-																
+
+
 																}
 																break;
 															}
@@ -1829,8 +1847,7 @@ namespace TC2.Base.Components
 
 					pos -= offset;
 					pos *= grid;
-					pos.X = MathF.Round(pos.X);
-					pos.Y = MathF.Round(pos.Y);
+					pos = Maths.Round(pos);
 					pos /= grid;
 					pos += offset;
 
