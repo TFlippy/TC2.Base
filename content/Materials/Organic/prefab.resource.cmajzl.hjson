@@ -1,0 +1,70 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		
+		mass: 1.000
+		radius: 0.750
+		friction: 0.900
+		elasticity: 0.410
+		
+		material: foliage
+		miss_chance: 0.000
+		
+		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.cmajzl"
+		count: 4
+		size: [16, 16]
+	}
+	z: -90.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "cmajzl"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	attached_multiplier: 0.200
+}
+
+despawn:
+{
+	sleep_count_max: 29
+	interval: 8.000
+	threshold_delete: 0.050
+	threshold_despawning: 0.150
+}
+
+health:
+{
+	max: 14500.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
