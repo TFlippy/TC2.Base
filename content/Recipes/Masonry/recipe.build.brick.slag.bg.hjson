@@ -53,9 +53,10 @@
 	placement:
 	{
 		type: rectangle
-		flags: none
+		flags: continuous
 		
-		size: [1.000, 1.000]
+		size: [1.250, 0.750]
+		snap: [0.375, 0.375]
 		
 		cooldown: 0.400
 		min_support: 0.050
@@ -63,7 +64,7 @@
 		
 		sound: stone_place_0
 		
-		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_collider_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
 		
 		mappings_replace:
 		{
