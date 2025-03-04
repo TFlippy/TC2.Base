@@ -37,6 +37,7 @@
 	type: industry
 	flags: no_amount_multiplier, blueprintable
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -45,6 +46,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -557.000
 	frame_size: [96.000, 96.000]
 	
@@ -83,7 +85,6 @@
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.250
 		
 		mappings_replace:
 		{

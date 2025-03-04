@@ -214,7 +214,7 @@
 							material: steel.frames
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.078
+							loss: 0.075
 							group: 0
 						}
 						{
@@ -222,7 +222,7 @@
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.133
+							loss: 0.129
 							group: 0
 						}
 						{
@@ -262,6 +262,7 @@
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, wip, auto_complete
 	tags: huge, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -270,6 +271,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Build"
 	rank: -3.000
 	
@@ -310,7 +312,6 @@
 		}
 		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.500
 		
 		mappings_replace:
 		{
