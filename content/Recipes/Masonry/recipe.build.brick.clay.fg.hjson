@@ -18,7 +18,7 @@
 		{
 			type: resource
 			material: mortar
-			amount: 0.008
+			amount: 0.010
 			group: 0
 		}
 	]
@@ -52,11 +52,12 @@
 	placement:
 	{
 		type: rectangle
-		flags: none
+		flags: continuous
 		
 		size: [1.000, 1.000]
+		snap: [0.500, 0.500]
 		
-		cooldown: 0.350
+		cooldown: 0.500
 		min_support: 0.050
 		min_claim: 1.000
 		
@@ -66,8 +67,7 @@
 		{
 			include: world
 		}
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
-		snapping_radius: 0.500
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
 		snapping_depth: -0.250
 		
 		mappings_replace:

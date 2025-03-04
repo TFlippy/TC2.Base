@@ -515,7 +515,7 @@ namespace TC2.Base.Components
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
 												GUI.DrawChunkRect(ref region, pos_raw);
-												GUI.DrawTerrainOutline(ref region, pos_raw, radius: 2.00f, thickness: 1.00f, color: GUI.col_white);
+												GUI.DrawTerrainOutline(ref region, pos_raw, radius: 4.00f, thickness: 1.00f, color: GUI.col_button_yellow);
 
 												switch (product.type)
 												{
