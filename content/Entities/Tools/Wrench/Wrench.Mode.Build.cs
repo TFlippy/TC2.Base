@@ -383,6 +383,7 @@ namespace TC2.Base.Components
 															normal_tmp = overlap_result.gradient;
 														}
 
+														if (overlap_result.entity.IsValid()) GUI.DrawEntityOutline(overlap_result.entity, color: GUI.col_button_yellow.WithAlpha(100), ignore_shape_radius: is_raw_collider && placement.snapping_flags.HasNone(Placement.SnappingFlags.Use_Collider_Radius), fill: false, smooth_corners: !is_raw_collider);
 														GUI.DrawCross(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), color: GUI.font_color_green.WithAlpha(150), radius: (region.GetWorldToCanvasScale() * 0.500f).Ceil(), thickness: (0.125f * region.GetWorldToCanvasScale()).Ceil());
 														//GUI.DrawLine(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), region.WorldToCanvas((pos_raw + normal_tmp).Snap(0.125f)).Round(), color: Color32BGRA.Yellow);
 
@@ -426,7 +427,7 @@ namespace TC2.Base.Components
 															//}
 
 															if (snapping_flags.HasAny(Placement.SnappingFlags.Align_To_Surface) && !pos_a_raw.HasValue) normal_distance += placement_size_max;
-															if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Offset)) pos_raw += normal_tmp * placement_size_max * 0.50f;
+															if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Size_To_Snap_Offset)) pos_raw += normal_tmp * placement.size * 0.50f;
 														}
 
 														//if (snapping_flags.HasAny(Placement.SnappingFlags.Add_Placement_Offset))
@@ -515,7 +516,7 @@ namespace TC2.Base.Components
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
 
 												GUI.DrawChunkRect(ref region, pos_raw);
-												GUI.DrawTerrainOutline(ref region, pos_raw, radius: 4.00f, thickness: 1.00f, color: GUI.col_button_yellow);
+												GUI.DrawTerrainOutline(ref region, pos_raw, radius: 6.00f, thickness: 1.00f, color: GUI.col_button_yellow);
 
 												switch (product.type)
 												{
