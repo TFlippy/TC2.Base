@@ -39,6 +39,7 @@
 	type: architecture
 	flags: blueprintable
 	tags: huge, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -47,6 +48,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 98.000
 	
 	dismantle_work: 5.000
@@ -82,7 +84,7 @@
 		}
 		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.375
+		snapping_depth: 0.125
 		
 		mappings_replace:
 		{

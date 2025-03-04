@@ -26,6 +26,7 @@
 	type: architecture
 	flags: none
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -34,6 +35,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 65.000
 	
 	dismantle_work: 10.000
@@ -47,10 +49,10 @@
 		size: [5.000, 4.000]
 		offset: [0.000, -2.000]
 		
-		rect_foundation: [-2.500, 0.000, 2.500, 0.750]
+		rect_foundation: [-2.500, 0.125, 2.500, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-2.375, -3.750, 2.375, 0.000]
+		rect_clearance: [-2.375, -3.750, 2.375, 0.125]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -69,7 +71,7 @@
 		}
 		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, no_end_snap
 		snapping_radius: 0.500
-		snapping_depth: 0.375
+		snapping_depth: 0.250
 		
 		mappings_replace:
 		{

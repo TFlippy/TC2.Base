@@ -64,7 +64,7 @@
 		rect_foundation: [-0.375, 0.250, 0.375, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -5.250, 0.250, 0.500]
+		rect_clearance: [-0.250, -5.250, 0.250, 0.250]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -76,7 +76,7 @@
 		rotation_max: 7.000
 		
 		sound: building_place
-
+		
 		physics_filter:
 		{
 			include: no_overlapped_placement

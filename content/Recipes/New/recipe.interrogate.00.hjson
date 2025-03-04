@@ -44,6 +44,11 @@
 		}
 	]
 	
+	products:
+	[
+		null
+	]
+	
 	type: workshop
 	flags: no_amount_multiplier, wip
 	tags: social

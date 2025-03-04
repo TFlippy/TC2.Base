@@ -8,14 +8,19 @@ body:
 	
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		offset: [0.000, -0.125]
+		
 		mass: 6.500
-		radius: 0.600
+		radius: 0.4375
 		friction: 0.500
 		elasticity: 0.500
+		
 		material: device
-		layer: entity, no_overlapped_placement, ignore_melee, background, furniture
+		miss_chance: 0.000
+		
+		layer: entity, background, furniture, no_overlapped_placement, ignore_melee
 		mask: world, support, no_overlapped_placement
+		exclude: none
 	}
 }
 
