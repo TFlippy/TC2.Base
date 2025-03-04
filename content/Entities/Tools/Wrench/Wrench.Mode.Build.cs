@@ -409,7 +409,7 @@ namespace TC2.Base.Components
 																if (snapping_flags.HasAny(Placement.SnappingFlags.Use_Collider_Radius))
 																{
 																	pos_raw += normal_tmp * shape_radius; // * Terrain.shape_thickness * 0.50f;
-																	if (snapping_flags.HasAny(Placement.SnappingFlags.Inset_Terrain)) pos_raw -= normal_tmp * placement_size_max; // * 0.50f;
+																	if (snapping_flags.HasAny(Placement.SnappingFlags.Inset_Terrain)) pos_raw -= normal_tmp * placement_size_max * 0.50f;
 																}
 															}
 															else

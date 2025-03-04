@@ -52,7 +52,7 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: none
 		
 		size: [1.000, 1.000]
 		
@@ -66,9 +66,9 @@
 		{
 			include: world
 		}
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
-		snapping_radius: 0.250
-		snapping_depth: 0.250
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_radius: 0.500
+		snapping_depth: -0.250
 		
 		mappings_replace:
 		{

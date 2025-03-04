@@ -8,8 +8,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -39,6 +37,7 @@
 	type: architecture
 	flags: none
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -48,26 +47,29 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -89.500
 	
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: none
 		
-		size: [1.500, 1.500]
-		snap: [0.750, 0.750]
+		size: [1.000, 1.000]
 		
 		cooldown: 0.750
 		min_support: 0.050
 		min_claim: 1.000
 		
 		sound: stone_place_0
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
+		
+		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
 		
 		mappings_replace:
 		{
 		
 		}
 	}
+	
+	version: 0
 }

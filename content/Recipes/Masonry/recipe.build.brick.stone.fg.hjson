@@ -36,6 +36,7 @@
 	type: architecture
 	flags: hidden, disabled, wip
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -44,14 +45,15 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -92.500
 	
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: none
 		
-		size: [1.500, 1.000]
+		size: [1.500, 1.500]
 		
 		cooldown: 0.400
 		min_support: 0.050
