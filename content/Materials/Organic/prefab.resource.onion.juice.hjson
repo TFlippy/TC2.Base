@@ -2,16 +2,23 @@ $tags: []
 
 body:
 {
-	@shape.circle:
+	@shape.line:
 	{
-		offset: [0.000, 0.250]
+		a: [0.000, -0.125]
+		b: [0.000, 0.575]
+		offset: [0.000, 0.000]
+		
 		mass: 1.000
-		radius: 0.750
-		friction: 0.650
-		elasticity: 0.500
+		radius: 0.300
+		friction: 0.350
+		elasticity: 0.700
+		
 		material: glass
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		miss_chance: 0.678
+		
+		layer: entity, solid, resource
 		mask: world
+		exclude: none
 	}
 }
 
@@ -23,6 +30,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
+	scale: [0.875, 0.875]
 }
 
 transform:
@@ -37,15 +45,18 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [0.000, 0.250]
 }
 
 norotate:
 {
-
+	bias: 0.001
+	speed: 4.000
+	multiplier: 1.500
+	mass_multiplier: 3.000
 }
 
 health:
 {
-	max: 400.000
+	max: 800.000
 }
