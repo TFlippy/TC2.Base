@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Traditional Glue"
+	name: "Homemade Glue"
 	desc:
 		'''
 		Mix some random things together and pretend it's glue.
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Ingredients"
+			name: "Base Formula"
 			
 			type: processing
 			flags: none
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Eggs"
+					name: "Grandma's Binder"
 					
 					type: undefined
 					flags: none
@@ -33,9 +33,18 @@
 						{
 							type: resource
 							material: eggs
-							amount: 1.300
+							amount: 2.820
 							snapping: 0.500
 							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.juice
+							amount: 1.500
+							snapping: 0.100
+							loss: 0.063
 							group: 0
 							flags: prerequisite
 						}
@@ -43,10 +52,21 @@
 							type: work
 							work: opening.egg
 							amount: 50.000
-							difficulty: 4
+							difficulty: 3
 							snapping: 15.000
 							falloff: 0.980
 							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: pouring
+							amount: 15.000
+							amount_min: 20.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.750
+							group: 1
 							flags: conditional
 						}
 					]
@@ -56,17 +76,128 @@
 						{
 							type: resource
 							material: glue
-							amount: 5.019719
-							amount_extra: 0.380282
+							amount: 11.0197
+							amount_extra: 1.380282
 							group: 0
 							flags: primary
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 0.597
+							amount_extra: 0.145
+							group: 0
+							flags: byproduct, secondary
+						}
+					]
+				}
+				{
+					name: "Dr.Braun's Cream"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: vinegar
+							amount: 0.488
+							snapping: 0.100
+							loss: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: onion.juice
+							amount: 1.120
+							snapping: 0.100
+							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: pouring
+							amount: 30.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.790
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: shite
+							amount: 8.300
+							snapping: 0.100
+							loss: 0.012
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.brown
+							amount: 16.450
+							snapping: 0.100
+							loss: 0.075
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 250.000
+							difficulty: 4
+							snapping: 15.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 26.77999
+							amount_extra: 14.32001
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.3609
+							amount_extra: 1.4906
+							group: 0
+							flags: byproduct, secondary
+						}
+						{
+							type: resource
+							material: mushroom.juice
+							amount: 0.6557
+							amount_extra: 0.498807
+							group: 0
+							flags: residue, secondary
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 0.164934
+							amount_extra: 0.3805
+							group: 0
+							flags: waste
 						}
 					]
 				}
 			]
 		}
 		{
-			name: "Additives"
+			name: "Thickener"
 			
 			type: additives
 			flags: none
@@ -141,6 +272,37 @@
 					]
 				}
 				{
+					name: "Starch"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: starch
+							amount: 2.142
+							snapping: 0.100
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 9.562537
+							amount_extra: 0.637462
+							group: 0
+							flags: primary
+						}
+					]
+				}
+				{
 					name: "Sawdust"
 					
 					type: undefined
@@ -189,11 +351,31 @@
 						{
 							type: resource
 							material: porridge
-							amount: 1.000
-							snapping: 0.500
-							loss: 0.024
+							amount: 4.750
+							snapping: 0.100
+							loss: 0.114
 							group: 0
 							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 4.516362
+							amount_extra: 3.283638
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 0.715082
+							amount_extra: 0.341828
+							group: 0
+							flags: byproduct, secondary
 						}
 					]
 				}
@@ -223,7 +405,7 @@
 						{
 							type: resource
 							material: water
-							amount: 0.200
+							amount: 0.876
 							snapping: 0.010
 							group: 0
 							flags: no_residue, prerequisite
@@ -250,6 +432,14 @@
 							amount_extra: 0.200
 							group: 0
 							flags: primary
+						}
+						{
+							type: resource
+							material: water.dirty
+							amount: 0.740
+							amount_extra: 0.200
+							group: 0
+							flags: waste
 						}
 					]
 				}
