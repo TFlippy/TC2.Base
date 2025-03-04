@@ -84,7 +84,7 @@
 						{
 							type: resource
 							material: mortar
-							amount: 0.597
+							amount: 0.397
 							amount_extra: 0.145
 							group: 0
 							flags: byproduct, secondary
@@ -149,10 +149,11 @@
 						{
 							type: work
 							work: mashing
-							amount: 250.000
-							difficulty: 4
+							amount: 350.000
+							amount_min: 132.000
+							difficulty: 5
 							snapping: 15.000
-							falloff: 0.980
+							falloff: 0.964
 							group: 1
 							flags: conditional
 						}
@@ -182,7 +183,7 @@
 							amount: 0.6557
 							amount_extra: 0.498807
 							group: 0
-							flags: residue, secondary
+							flags: residue
 						}
 						{
 							type: resource
@@ -220,7 +221,7 @@
 						{
 							type: resource
 							material: sugar
-							amount: 1.000
+							amount: 3.000
 							snapping: 0.500
 							loss: 0.024
 							group: 0
@@ -233,7 +234,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.166667
+							amount: 4.166667
 							amount_extra: 2.333333
 							group: 0
 							flags: primary
@@ -251,7 +252,7 @@
 						{
 							type: resource
 							material: flour
-							amount: 1.000
+							amount: 5.000
 							snapping: 0.500
 							loss: 0.024
 							group: 0
@@ -264,7 +265,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.250009
+							amount: 4.250009
 							amount_extra: 0.749991
 							group: 0
 							flags: primary
@@ -313,28 +314,9 @@
 						{
 							type: resource
 							material: sawdust
-							amount: 1.000
+							amount: 8.000
 							snapping: 0.500
-							loss: 0.024
-							group: 0
-							flags: prerequisite
-						}
-					]
-				}
-				{
-					name: "Pulp"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: pulp
-							amount: 1.000
-							snapping: 0.500
-							loss: 0.024
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -351,7 +333,7 @@
 						{
 							type: resource
 							material: porridge
-							amount: 4.750
+							amount: 2.750
 							snapping: 0.100
 							loss: 0.114
 							group: 0
@@ -364,18 +346,18 @@
 						{
 							type: resource
 							material: glue
-							amount: 4.516362
-							amount_extra: 3.283638
+							amount: 2.516362
+							amount_extra: 1.583638
 							group: 0
 							flags: primary
 						}
 						{
 							type: resource
 							material: mortar
-							amount: 0.715082
+							amount: 0.315082
 							amount_extra: 0.341828
 							group: 0
-							flags: byproduct, secondary
+							flags: byproduct
 						}
 					]
 				}
@@ -405,8 +387,8 @@
 						{
 							type: resource
 							material: water
-							amount: 0.876
-							snapping: 0.010
+							amount: 1.176
+							snapping: 0.100
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -415,31 +397,11 @@
 							work: blending
 							amount: 300.000
 							amount_min: 100.000
-							difficulty: 4
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.600
+							falloff: 0.860
 							group: 0
 							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: glue
-							amount: 1.740
-							amount_extra: 0.200
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: water.dirty
-							amount: 0.740
-							amount_extra: 0.200
-							group: 0
-							flags: waste
 						}
 					]
 				}

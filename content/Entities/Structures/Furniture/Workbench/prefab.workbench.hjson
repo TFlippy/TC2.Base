@@ -105,7 +105,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 2.000
-	window_size: [696.000, 540.000]
+	window_size: [704.000, 540.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -123,7 +123,7 @@ shop:
 	machinery: none
 	environment: mobile, sturdy, flammable
 	
-	menu_columns: 5
+	menu_columns: 4
 	recipe_type: workshop
 	flags: none
 	
