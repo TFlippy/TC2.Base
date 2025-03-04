@@ -8,7 +8,7 @@ body:
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
-		elasticity: 0.000
+		elasticity: 0.800
 		material: mud
 		layer: entity, solid, resource, flammable
 		mask: world
@@ -43,7 +43,9 @@ holdable:
 
 norotate:
 {
-
+	bias: 0.000
+	mass_multiplier: 20.000
+	attached_multiplier: 0.500
 }
 
 despawn:

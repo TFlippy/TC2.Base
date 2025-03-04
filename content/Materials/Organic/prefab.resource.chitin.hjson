@@ -7,8 +7,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.990
-		elasticity: 0.000
+		friction: 0.580
+		elasticity: 0.450
 		material: chitin
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
@@ -42,7 +42,9 @@ holdable:
 
 norotate:
 {
-
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
 
 despawn:

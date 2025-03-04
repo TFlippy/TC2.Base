@@ -8,13 +8,13 @@ body:
 		
 		mass: 1.000
 		radius: 0.750
-		friction: 0.900
-		elasticity: 0.410
+		friction: 0.940
+		elasticity: 0.650
 		
 		material: foliage
-		miss_chance: 0.000
+		miss_chance: 0.763
 		
-		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, plant, organic, flammable
 		mask: world
 		exclude: none
 	}
@@ -48,20 +48,22 @@ holdable:
 
 norotate:
 {
-	attached_multiplier: 0.200
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
 
 despawn:
 {
 	sleep_count_max: 29
-	interval: 8.000
-	threshold_delete: 0.050
+	interval: 13.000
+	threshold_delete: 0.040
 	threshold_despawning: 0.150
 }
 
 health:
 {
-	max: 14500.000
+	max: 18500.000
 }
 
 breakable:

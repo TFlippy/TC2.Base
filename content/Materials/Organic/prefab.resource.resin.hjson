@@ -42,12 +42,14 @@ holdable:
 
 norotate:
 {
-
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
 
 despawn:
 {
-	sleep_count_max: 6
+	sleep_count_max: 16
 	interval: 30.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.150
@@ -55,7 +57,7 @@ despawn:
 
 health:
 {
-	max: 5500.000
+	max: 19500.000
 }
 
 breakable:

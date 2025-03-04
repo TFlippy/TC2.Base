@@ -8,7 +8,7 @@ body:
 		mass: 1.000
 		radius: 0.750
 		friction: 0.850
-		elasticity: 0.200
+		elasticity: 0.550
 		material: foliage
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
@@ -43,20 +43,22 @@ holdable:
 
 norotate:
 {
-
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
 
 despawn:
 {
-	sleep_count_max: 11
-	interval: 8.000
+	sleep_count_max: 20
+	interval: 12.000
 	threshold_delete: 0.050
-	threshold_despawning: 1.000
+	threshold_despawning: 0.450
 }
 
 health:
 {
-	max: 8500.000
+	max: 11500.000
 }
 
 breakable:

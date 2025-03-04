@@ -49,6 +49,7 @@ norotate:
 	speed: 5.000
 	multiplier: 2.000
 	mass_multiplier: 8.000
+	attached_multiplier: 0.500
 	flags: no_share
 }
 

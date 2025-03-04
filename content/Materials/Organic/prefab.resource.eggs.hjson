@@ -42,5 +42,16 @@ holdable:
 
 norotate:
 {
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
 
+despawn:
+{
+	sleep_count_max: 23
+	interval: 7.000
+	interval_extra: 15.000
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
 }
