@@ -12,7 +12,7 @@
 		{
 			type: resource
 			material: steel.plate
-			amount: 0.030
+			amount: 0.010
 			group: 0
 		}
 	]
@@ -49,6 +49,7 @@
 		flags: continuous
 		
 		size: [1.000, 2.000]
+		snap: [0.500, 1.000]
 		
 		cooldown: 0.350
 		min_support: 0.022
@@ -56,7 +57,11 @@
 		
 		sound: metal.place.00
 		
-		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
+		snapping_filter:
+		{
+			include: world
+		}
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap
 		
 		mappings_replace:
 		{

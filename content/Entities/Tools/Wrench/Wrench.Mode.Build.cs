@@ -370,7 +370,8 @@ namespace TC2.Base.Components
 														var shape_radius = overlap_result.GetShapeRadius();
 
 														var is_raw_collider = snapping_flags.HasAny(Placement.SnappingFlags.Use_Raw_Collider) || overlap_result.layer.HasAny(Physics.Layer.World) || shape_radius <= 0.00f;
-														pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
+														var is_inside = overlap_result.distance < -shape_radius;
+														
 														//var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized();
 														Vector2 normal_tmp;
 														if (is_raw_collider)
@@ -381,6 +382,15 @@ namespace TC2.Base.Components
 														else
 														{
 															normal_tmp = overlap_result.gradient;
+														}
+
+														if (false && is_inside)
+														{
+															//normal_tmp *= -1;
+														}
+														else
+														{
+															pos_raw = is_raw_collider ? overlap_result.world_position_raw : overlap_result.world_position;
 														}
 
 														if (overlap_result.entity.IsValid()) GUI.DrawEntityOutline(overlap_result.entity, color: GUI.col_button_yellow.WithAlpha(100), ignore_shape_radius: is_raw_collider && placement.snapping_flags.HasNone(Placement.SnappingFlags.Use_Collider_Radius), fill: false, smooth_corners: !is_raw_collider);
