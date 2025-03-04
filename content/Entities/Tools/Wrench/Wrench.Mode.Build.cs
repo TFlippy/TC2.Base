@@ -618,6 +618,8 @@ namespace TC2.Base.Components
 														if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
 														else if (product.type == Crafting.Product.Type.Resource) h_prefab = product.material.GetPrefabHandle();
 
+														GUI.DrawCross(region.WorldToCanvas(pos_a), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
+
 														if (h_prefab.TryGetPrefab(out var prefab))
 														{
 															//var prefab_handle = product.prefab;
