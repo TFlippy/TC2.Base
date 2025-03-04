@@ -45,5 +45,7 @@ holdable:
 
 norotate:
 {
-
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
