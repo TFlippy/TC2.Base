@@ -7,7 +7,118 @@
 		'''
 	tips: []
 	
-	requirements:
+	stages:
+	[
+		{
+			name: "<TODO>"
+			
+			type: undefined
+			flags: wip, incomplete, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "<TODO>"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 25.000
+							snapping: 0.500
+							loss: 0.012
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 10.000
+							snapping: 0.500
+							loss: 0.075
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: fermenting
+							amount: 120.000
+							difficulty: 4
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: alcohol
+							amount: 0.8085
+							amount_extra: 3.531
+							group: 1
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: biogas
+							amount: 55.611
+							amount_extra: 12.7735
+							group: 2
+							flags: byproduct, spawn
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_environment:
+					{
+						require: container
+						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
+						exclude: cold, disinfected, sterile, toxic
+					}
+				}
+			]
+			
+			products:
+			[
+				{
+					type: resource
+					material: compost
+					amount: 9.945
+					amount_extra: 1.71075
+					group: 0
+					flags: residue
+				}
+				{
+					type: resource
+					material: rot
+					amount: 2.445
+					amount_extra: 1.5995
+					group: 0
+					flags: waste
+				}
+			]
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -33,7 +144,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -69,8 +180,8 @@
 		}
 	]
 	
-	type: crafter
-	flags: no_amount_multiplier, wip
+	type: fermenter
+	flags: no_amount_multiplier, wip, converted
 	tags: fermenting
 	infrastructure: none
 	
@@ -108,5 +219,5 @@
 	max: 1
 	step: 1
 	
-	version: 0
+	version: 1
 }

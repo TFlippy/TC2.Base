@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Hortspargl"
 	desc:
 		'''
 		Dense obsidian-like igneous rock with a submetallic luster.
 		'''
 	
-	material_type: stone_dense
+	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff615e59"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

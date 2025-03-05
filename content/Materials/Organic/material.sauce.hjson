@@ -15,11 +15,11 @@
 	}
 	
 	type: slime
-	flags: sticky, food, liquid, organic, bottled
-	display_flags: none
+	flags: sticky, food, liquid, organic, viscous, bottled, processed, smelly
+	display_flags: sprite_stack_linear
 	hints: none
 	
-	mass_per_unit: 1.183
+	mass_per_unit: 0.852
 	quantity_max: 200.000
 	snapping: 0.100
 	

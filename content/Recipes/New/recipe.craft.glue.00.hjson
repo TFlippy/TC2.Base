@@ -79,7 +79,7 @@
 							amount: 11.0197
 							amount_extra: 1.380282
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 						{
 							type: resource
@@ -167,7 +167,7 @@
 							amount: 26.77999
 							amount_extra: 14.32001
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 						{
 							type: resource
@@ -237,7 +237,7 @@
 							amount: 4.166667
 							amount_extra: 2.333333
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 					]
 				}
@@ -268,7 +268,7 @@
 							amount: 4.250009
 							amount_extra: 0.749991
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 					]
 				}
@@ -299,7 +299,7 @@
 							amount: 9.562537
 							amount_extra: 0.637462
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 					]
 				}
@@ -316,7 +316,7 @@
 							material: sawdust
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.094
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -349,7 +349,7 @@
 							amount: 2.516362
 							amount_extra: 1.583638
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 						{
 							type: resource

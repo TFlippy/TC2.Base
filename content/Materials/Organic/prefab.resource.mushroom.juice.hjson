@@ -11,7 +11,7 @@ body:
 		mass: 1.000
 		radius: 0.300
 		friction: 0.350
-		elasticity: 0.700
+		elasticity: 0.950
 		
 		material: glass
 		miss_chance: 0.678

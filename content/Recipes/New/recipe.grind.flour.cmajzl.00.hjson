@@ -1,0 +1,94 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Cmajzl Flour"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: processing
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cmajzl
+							amount: 6.000
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 275.000
+							amount_min: 100.000
+							difficulty: 2
+							snapping: 5.000
+							falloff: 0.150
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: flour
+							amount: 5.000
+							group: 0
+							flags: primary
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: wip
+	tags: workbench, manual, simple, organic, agriculture, messy
+	infrastructure: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.cmajzl
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, -2.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -150.600
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

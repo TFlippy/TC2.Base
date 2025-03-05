@@ -34,4 +34,49 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		rotting:
+		{
+			h_material: vinegar
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.080
+			ratio_extra: 0.180
+			
+			h_material_waste: compost
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.930
+			ratio_waste_extra: 0.070
+			
+			yield: 0.870
+			yield_extra: 0.110
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		fermenting:
+		{
+			h_material: vinegar
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct
+			
+			yield: [0.602, 0.251]
+		}
+	}
 }

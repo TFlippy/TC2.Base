@@ -65,7 +65,7 @@
 		}
 	]
 	
-	type: crafter
+	type: fermenter
 	flags: no_amount_multiplier, disabled, wip
 	tags: fermenting
 	infrastructure: none

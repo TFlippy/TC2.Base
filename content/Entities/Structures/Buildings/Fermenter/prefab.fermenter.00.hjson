@@ -61,8 +61,9 @@ attachment:
 norotate:
 {
 	bias: 0.000
-	multiplier: 1.800
+	multiplier: 2.000
 	mass_multiplier: 7.000
+	attached_multiplier: 0.600
 }
 
 shop:
@@ -72,48 +73,43 @@ shop:
 		include: fermenting
 	}
 	
-	tools: none
+	tools: bucket, shovel, towel, spatula
+	infrastructure: rack, liquid_container
 	machinery: none
-	infrastructure: none
-	environment: none
-	recipe_type: crafter
+	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
 	
-	flags: none
 	menu_columns: 4
-	blueprints_capacity: 0
+	recipe_type: fermenter
+	flags: none
 }
 
 crafter:
 {
-	tools: bucket, spatula
-	infrastructure: tap, barrel
-	environment: warm, container, stationary, contaminated
-
+	flags: none
+	
+	tools: bucket, shovel, towel, spatula
+	infrastructure: rack, liquid_container
+	machinery: none
+	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
+	
+	temperature_max: 360.000
+	pressure_max: 1.500
+	
 	spawn_offset: [-0.125, -1.000]
 
-	@inventory8:
-	{
+	@inventory4:
+	{	
 		type: input_output
-		flags: standalone, vertical
+		flags: standalone, allow_ducts, no_auto_pickup
 		stack_size_multiplier: 2.000
 		
 		filter:
 		{
-			require: none
-			include: soft, malleable, food, granular, organic, small
+			include: soft, malleable, food, liquid, granular, organic, small, powder
 			exclude: heavy
 		}
-				
 		offset: [-0.875, 0.250]
 	}
-
-	// @inventory4:
-	// {
-	// 	stack_size_multiplier: 2.000
-	// 	type: output
-	// 	flags: standalone, no_auto_pickup
-	// 	offset: [0.000, 0.125]
-	// }
 }
 
 crafter.state:
@@ -127,6 +123,12 @@ crafter.state:
 	// }
 }
 
+workshop:
+{
+	flags: add_order_mass
+	orders_capacity: 1
+}
+
 interactable:
 {
 	flags: none
@@ -138,4 +140,26 @@ interactable:
 fermenter:
 {
 
+}
+
+heat:
+{
+	temperature_medium: 315.000
+	temperature_high: 340.000
+	temperature_ignite: 400.000
+	temperature_operating: 360.000
+	temperature_breakdown: 480.000
+	cool_rate: 0.500
+	heat_damage_mult: 0.250
+	cool_rate_mult: 0.200
+	flags: no_held_damage
+	offset: [0.000, -0.375]
+	smoke_offset: [0.000, -1.000]
+	size: [0.625, 0.375]
+}
+
+shipment:
+{	
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	layout: square
 }

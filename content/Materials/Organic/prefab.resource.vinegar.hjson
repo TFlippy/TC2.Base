@@ -10,11 +10,11 @@ body:
 		
 		mass: 1.000
 		radius: 0.300
-		friction: 0.350
-		elasticity: 0.700
+		friction: 0.250
+		elasticity: 0.800
 		
 		material: glass
-		miss_chance: 0.678
+		miss_chance: 0.015
 		
 		layer: entity, solid, resource
 		mask: world
@@ -53,7 +53,7 @@ norotate:
 	bias: 0.001
 	speed: 4.000
 	multiplier: 1.500
-	mass_multiplier: 3.000
+	mass_multiplier: 2.000
 }
 
 health:

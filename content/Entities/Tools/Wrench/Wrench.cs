@@ -3,11 +3,10 @@ namespace TC2.Base.Components
 {
 	public static partial class Wrench
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
-			[Save.Ignore]
-			public ulong selected_component_id;
+			public IComponent.Handle selected_component_id;
 		}
 
 		public interface IMode: IComponent
@@ -613,7 +612,7 @@ namespace TC2.Base.Components
 
 		public struct SelectModeRPC: Net.IRPC<Wrench.Data>
 		{
-			public ulong selected_component_id;
+			public IComponent.Handle selected_component_id;
 
 #if SERVER
 			public readonly void Invoke(Net.IRPC.Context rpc, ref Wrench.Data data)
@@ -799,9 +798,9 @@ namespace TC2.Base.Components
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnAdd<T>(ISystem.Info info, Entity entity, [Source.Owned] ref T mode, [Source.Owned] ref Wrench.Data wrench) where T : unmanaged, Wrench.IMode
 		{
-			if (wrench.selected_component_id == 0)
+			if (!wrench.selected_component_id)
 			{
-				wrench.selected_component_id = ECS.GetID<T>();
+				wrench.selected_component_id.SetComponent<T>();
 				wrench.Sync(entity);
 			}
 		}

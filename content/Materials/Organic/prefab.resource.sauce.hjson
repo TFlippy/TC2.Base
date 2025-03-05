@@ -49,10 +49,11 @@ holdable:
 
 norotate:
 {
-	bias: 0.001
+	bias: 0.000
 	speed: 4.000
 	multiplier: 1.500
-	mass_multiplier: 3.000
+	mass_multiplier: 5.000
+	attached_multiplier: 0.500
 }
 
 health:

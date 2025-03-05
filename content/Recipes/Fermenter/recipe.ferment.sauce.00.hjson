@@ -52,7 +52,7 @@
 		}
 	]
 	
-	type: crafter
+	type: fermenter
 	flags: no_amount_multiplier, wip
 	tags: passive, simple, food, organic, fermenting
 	infrastructure: none

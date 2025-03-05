@@ -4,7 +4,7 @@
 	name_short: "Sludge"
 	description:
 		'''
-		A bloated heap of miscellaneous chemical waste.
+		Bloated heap of miscellaneous chemical waste.
 		'''
 	
 	icon:
@@ -18,13 +18,19 @@
 	flags: soft, malleable, sticky, toxic, viscous, chemical, corrosive, raw, waste, volatile, impure, contaminated, acidic, smelly
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.550
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
+	
 	form_type: raw
 	prefab: resource.sludge
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
