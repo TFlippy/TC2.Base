@@ -1116,7 +1116,7 @@ namespace TC2.Base.Components
 							var radius = (placement.size.GetMax() * 0.50f);
 							var dir = ((pos_a ?? pos) - (pos_b ?? pos)).GetNormalized(out var len);
 
-							Span<LinecastResult> hits = FixedArray.CreateSpan16<LinecastResult>(out var buffer);
+							Span<LinecastResult> hits = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer);
 							if (region.TryLinecastAll((pos_a ?? pos) - (dir * (radius)), (pos_b ?? pos) + (dir * (radius)), radius, ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building, exclude: Physics.Layer.Ignore_Hover | Physics.Layer.Stored))
 							{
 								errors |= Errors.Obstructed;
@@ -1127,7 +1127,7 @@ namespace TC2.Base.Components
 							//Span<OverlapBBResult> hits = stackalloc OverlapBBResult[16];
 							//if (region.TryOverlapBBAll(pos, bb.GetSize() - new Vector2(0.25f), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building)) errors |= Errors.Obstructed;
 
-							Span<ShapeOverlapResult> hits = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
+							Span<ShapeOverlapResult> hits = FixedArray.CreateSpan32NoInit<ShapeOverlapResult>(out var buffer);
 							if (region.TryOverlapRectAll(bb.Pad(new Vector4(0.0625f)), ref hits, mask: Physics.Layer.Solid | Physics.Layer.Building, exclude: Physics.Layer.Ignore_Hover | Physics.Layer.Stored))
 							{
 								errors |= Errors.Obstructed;
@@ -1165,7 +1165,7 @@ namespace TC2.Base.Components
 
 					if (placement.type == Placement.Type.Line)
 					{
-						Span<LinecastResult> results = FixedArray.CreateSpan32<LinecastResult>(out var buffer);
+						Span<LinecastResult> results = FixedArray.CreateSpan32NoInit<LinecastResult>(out var buffer);
 						//if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 						if (region.TryLinecastAll(pos_a.Value, pos_b.Value, placement.size.GetMax() * 0.50f, ref results, layer: layer, mask: mask, exclude: exclude, require: require, query_flags: Physics.QueryFlag.Static | Physics.QueryFlag.Dynamic))
 						{
@@ -1276,7 +1276,7 @@ namespace TC2.Base.Components
 						//if (region.TryOverlapBBAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 
 						//var ts = Timestamp.Now();
-						Span<ShapeOverlapResult> results = FixedArray.CreateSpan32<ShapeOverlapResult>(out var buffer);
+						Span<ShapeOverlapResult> results = FixedArray.CreateSpan32NoInit<ShapeOverlapResult>(out var buffer);
 						//if (region.TryOverlapRectAll(bb, ref results, mask: mask, query_flags: Physics.QueryFlag.Static))
 
 						//if (region.TryOverlapPrefabAll(h_prefab: h_prefab, matrix: in matrix, results: ref results, mask: mask, query_flags: Physics.QueryFlag.Static))

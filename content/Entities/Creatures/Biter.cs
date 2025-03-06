@@ -48,7 +48,7 @@ namespace TC2.Base.Components
 
 				body.AddForce(dir * body.GetMass() * App.tickrate * biter.velocity);
 
-				Span<LinecastResult> results = FixedArray.CreateSpan16<LinecastResult>(out var buffer); // stackalloc LinecastResult[16];
+				Span<LinecastResult> results = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer); // stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), biter.thickness, ref results, mask: biter.hit_mask, exclude: biter.hit_exclude))
 				{
 					results.SortByDistance();

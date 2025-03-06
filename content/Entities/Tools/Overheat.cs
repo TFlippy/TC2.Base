@@ -557,7 +557,7 @@ namespace TC2.Base.Components
 					Damage.Hit(ent_attacker: entity,
 						ent_owner: default,
 						ent_target: entity,
-						position: transform.position,
+						position: transform.LocalToWorld(heat.offset),
 						velocity: random.NextUnitVector2Range(1, 1),
 						normal: random.NextUnitVector2Range(1, 1),
 						damage_integrity: damage,
